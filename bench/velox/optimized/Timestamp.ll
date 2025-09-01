@@ -620,7 +620,7 @@ if.end48:                                         ; preds = %while.end39
   %conv50 = trunc nuw nsw i64 %days.1 to i32
   %tm_yday = getelementptr inbounds nuw i8, ptr %tm, i64 28
   store i32 %conv50, ptr %tm_yday, align 4
-  %arrayidx = getelementptr inbounds nuw [2 x [12 x i32]], ptr @_ZN8facebook5velox12_GLOBAL__N_112monthLengthsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN8facebook5velox12_GLOBAL__N_112monthLengthsE, i64 %idxprom
   %tm_mon = getelementptr inbounds nuw i8, ptr %tm, i64 16
   %6 = load i32, ptr %arrayidx, align 16
   %conv5459 = sext i32 %6 to i64
@@ -815,9 +815,9 @@ invoke.cont37:                                    ; preds = %while.body.i.i, %if
 invoke.cont38:                                    ; preds = %invoke.cont37
   %tm_mon = getelementptr inbounds nuw i8, ptr %tmValue, i64 16
   %8 = load i32, ptr %tm_mon, align 8
-  %add40 = add nsw i32 %8, 1
-  %idxprom.i = sext i32 %add40 to i64
-  %arrayidx.i = getelementptr inbounds [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr [3 x i8], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 %9
+  %arrayidx.i = getelementptr i8, ptr %10, i64 3
   %call.i24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %arrayidx.i, i64 noundef 2)
           to label %invoke.cont41 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -827,28 +827,28 @@ invoke.cont41:                                    ; preds = %invoke.cont38
 
 invoke.cont42:                                    ; preds = %invoke.cont41
   %tm_mday = getelementptr inbounds nuw i8, ptr %tmValue, i64 12
-  %9 = load i32, ptr %tm_mday, align 4
-  %idxprom.i25 = sext i32 %9 to i64
-  %arrayidx.i26 = getelementptr inbounds [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i25
+  %11 = load i32, ptr %tm_mday, align 4
+  %idxprom.i25 = sext i32 %11 to i64
+  %arrayidx.i26 = getelementptr inbounds [3 x i8], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 %idxprom.i25
   %call.i27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %arrayidx.i26, i64 noundef 2)
           to label %invoke.cont44 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont44:                                    ; preds = %invoke.cont42
-  %10 = load i8, ptr %1, align 1
-  %cmp46 = icmp eq i8 %10, 1
+  %12 = load i8, ptr %1, align 1
+  %cmp46 = icmp eq i8 %12, 1
   br i1 %cmp46, label %nrvo.skipdtor, label %if.end48
 
 if.end48:                                         ; preds = %invoke.cont44
   %dateTimeSeparator = getelementptr inbounds nuw i8, ptr %options, i64 2
-  %11 = load i8, ptr %dateTimeSeparator, align 1
-  %call50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %11)
+  %13 = load i8, ptr %dateTimeSeparator, align 1
+  %call50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %13)
           to label %if.end51 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end51:                                         ; preds = %if.end48, %invoke.cont1
   %tm_hour = getelementptr inbounds nuw i8, ptr %tmValue, i64 8
-  %12 = load i32, ptr %tm_hour, align 8
-  %idxprom.i29 = sext i32 %12 to i64
-  %arrayidx.i30 = getelementptr inbounds [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i29
+  %14 = load i32, ptr %tm_hour, align 8
+  %idxprom.i29 = sext i32 %14 to i64
+  %arrayidx.i30 = getelementptr inbounds [3 x i8], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 %idxprom.i29
   %call.i31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %arrayidx.i30, i64 noundef 2)
           to label %invoke.cont52 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -858,9 +858,9 @@ invoke.cont52:                                    ; preds = %if.end51
 
 invoke.cont53:                                    ; preds = %invoke.cont52
   %tm_min = getelementptr inbounds nuw i8, ptr %tmValue, i64 4
-  %13 = load i32, ptr %tm_min, align 4
-  %idxprom.i33 = sext i32 %13 to i64
-  %arrayidx.i34 = getelementptr inbounds [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i33
+  %15 = load i32, ptr %tm_min, align 4
+  %idxprom.i33 = sext i32 %15 to i64
+  %arrayidx.i34 = getelementptr inbounds [3 x i8], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 %idxprom.i33
   %call.i35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %arrayidx.i34, i64 noundef 2)
           to label %invoke.cont55 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -869,9 +869,9 @@ invoke.cont55:                                    ; preds = %invoke.cont53
           to label %invoke.cont56 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont56:                                    ; preds = %invoke.cont55
-  %14 = load i32, ptr %tmValue, align 8
-  %idxprom.i37 = sext i32 %14 to i64
-  %arrayidx.i38 = getelementptr inbounds [62 x [3 x i8]], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 0, i64 %idxprom.i37
+  %16 = load i32, ptr %tmValue, align 8
+  %idxprom.i37 = sext i32 %16 to i64
+  %arrayidx.i38 = getelementptr inbounds [3 x i8], ptr @_ZN8facebook5velox12_GLOBAL__N_18intToStrE, i64 %idxprom.i37
   %call.i39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %arrayidx.i38, i64 noundef 2)
           to label %invoke.cont58 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -881,8 +881,8 @@ invoke.cont58:                                    ; preds = %invoke.cont56
 
 invoke.cont59:                                    ; preds = %invoke.cont58
   %call61 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  %15 = load i8, ptr %options, align 1
-  %cmp64 = icmp eq i8 %15, 3
+  %17 = load i8, ptr %options, align 1
+  %cmp64 = icmp eq i8 %17, 3
   %div66 = udiv i64 %nanos, 1000000
   %nanos.addr.0 = select i1 %cmp64, i64 %div66, i64 %nanos
   %cmp69.not67 = icmp eq i64 %nanos.addr.0, 0
@@ -898,8 +898,8 @@ while.body70:                                     ; preds = %invoke.cont59, %inv
   %nanos.addr.168 = phi i64 [ %div76, %invoke.cont74 ], [ %nanos.addr.0, %invoke.cont59 ]
   %rem71 = urem i64 %nanos.addr.168, 10
   %div76 = udiv i64 %nanos.addr.168, 10
-  %16 = trunc nuw nsw i64 %rem71 to i8
-  %conv73 = or disjoint i8 %16, 48
+  %18 = trunc nuw nsw i64 %rem71 to i8
+  %conv73 = or disjoint i8 %18, 48
   %call75 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %conv73)
           to label %invoke.cont74 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -930,10 +930,10 @@ while.end87:                                      ; preds = %while.cond78
 while.body.i.i46:                                 ; preds = %while.end87, %while.body.i.i46
   %__last.sroa.0.012.i.i47 = phi ptr [ %__last.sroa.0.0.i.i50, %while.body.i.i46 ], [ %__last.sroa.0.09.i.i43, %while.end87 ]
   %__first.sroa.0.011.i.i48 = phi ptr [ %incdec.ptr.i2.i.i49, %while.body.i.i46 ], [ %add.ptr.i41, %while.end87 ]
-  %17 = load i8, ptr %__first.sroa.0.011.i.i48, align 1
-  %18 = load i8, ptr %__last.sroa.0.012.i.i47, align 1
-  store i8 %18, ptr %__first.sroa.0.011.i.i48, align 1
-  store i8 %17, ptr %__last.sroa.0.012.i.i47, align 1
+  %19 = load i8, ptr %__first.sroa.0.011.i.i48, align 1
+  %20 = load i8, ptr %__last.sroa.0.012.i.i47, align 1
+  store i8 %20, ptr %__first.sroa.0.011.i.i48, align 1
+  store i8 %19, ptr %__last.sroa.0.012.i.i47, align 1
   %incdec.ptr.i2.i.i49 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.011.i.i48, i64 1
   %__last.sroa.0.0.i.i50 = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i47, i64 -1
   %cmp.i1.i.i51 = icmp ult ptr %incdec.ptr.i2.i.i49, %__last.sroa.0.0.i.i50
@@ -1525,7 +1525,7 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i
 cond.true.i.i:                                    ; preds = %land.rhs.i.i.i, %land.rhs.i
   %sub.i.i = add nuw nsw i64 %retval.sroa.2.0.insert.ext.i.i, 4294967295
   %idxprom.i.i = and i64 %sub.i.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds nuw [12 x %"class.date::day"], ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
   br label %_ZNK4date14year_month_day2okEv.exit
 

@@ -217,10 +217,10 @@ define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull rea
 
 12:                                               ; preds = %2, %.loopexit78
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %.loopexit78 ]
-  %13 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %.not70 = icmp eq ptr %14, null
-  %15 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   br i1 %.not70, label %.loopexit78.sink.split, label %16
 
 16:                                               ; preds = %12
@@ -319,7 +319,7 @@ define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull rea
 
 switch.lookup:                                    ; preds = %39
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh, i64 0, i64 %44
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %45
 

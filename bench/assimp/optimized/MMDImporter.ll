@@ -1187,7 +1187,7 @@ define hidden void @_ZN6Assimp11MMDImporter20CreateDataFromImportEPKN3pmx8PmxMod
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %23 = load ptr, ptr %16, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr align 1 %23, i64 %18, i1 false)
-  %24 = getelementptr inbounds nuw [1024 x i8], ptr %22, i64 0, i64 %18
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %18
   store i8 0, ptr %24, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -1377,7 +1377,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %95 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %96 = load ptr, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %95, ptr align 1 %96, i64 %91, i1 false)
-  %97 = getelementptr inbounds nuw [1024 x i8], ptr %95, i64 0, i64 %91
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 %91
   store i8 0, ptr %97, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit107
 
@@ -1573,7 +1573,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 240
   %187 = load ptr, ptr %176, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %186, ptr align 1 %187, i64 %178, i1 false)
-  %188 = getelementptr inbounds nuw [1024 x i8], ptr %186, i64 0, i64 %178
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 %178
   store i8 0, ptr %188, align 1
   br label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2577,9 +2577,9 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp11MMDImporter10CreateMeshEP
 .lr.ph643.split.us:                               ; preds = %.lr.ph643.split.us.preheader, %.lr.ph643.split.us
   %indvars.iv696 = phi i64 [ 1, %.lr.ph643.split.us.preheader ], [ %indvars.iv.next697, %.lr.ph643.split.us ]
   %101 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %86) #27
-  %102 = getelementptr inbounds nuw [8 x ptr], ptr %90, i64 0, i64 %indvars.iv696
+  %102 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv696
   store ptr %101, ptr %102, align 8
-  %103 = getelementptr inbounds nuw [8 x i32], ptr %91, i64 0, i64 %indvars.iv696
+  %103 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv696
   store i32 4, ptr %103, align 4
   %indvars.iv.next697 = add nuw nsw i64 %indvars.iv696, 1
   %exitcond700.not = icmp eq i64 %indvars.iv.next697, %wide.trip.count699
@@ -2610,9 +2610,9 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp11MMDImporter10CreateMeshEP
   %indvars.iv691 = phi i64 [ 1, %.lr.ph643.split.preheader ], [ %indvars.iv.next692, %.lr.ph643.split ]
   %113 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %86) #27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %113, i8 0, i64 %98, i1 false)
-  %114 = getelementptr inbounds nuw [8 x ptr], ptr %90, i64 0, i64 %indvars.iv691
+  %114 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv691
   store ptr %113, ptr %114, align 8
-  %115 = getelementptr inbounds nuw [8 x i32], ptr %91, i64 0, i64 %indvars.iv691
+  %115 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv691
   store i32 4, ptr %115, align 4
   %indvars.iv.next692 = add nuw nsw i64 %indvars.iv691, 1
   %exitcond695.not = icmp eq i64 %indvars.iv.next692, %wide.trip.count694
@@ -2687,9 +2687,9 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp11MMDImporter10CreateMeshEP
 
 162:                                              ; preds = %.lr.ph648, %162
   %indvars.iv701 = phi i64 [ 1, %.lr.ph648 ], [ %indvars.iv.next702, %162 ]
-  %163 = getelementptr inbounds nuw [4 x [4 x float]], ptr %158, i64 0, i64 %indvars.iv701
+  %163 = getelementptr inbounds nuw [4 x float], ptr %158, i64 %indvars.iv701
   %164 = load float, ptr %163, align 8
-  %165 = getelementptr inbounds nuw [8 x ptr], ptr %90, i64 0, i64 %indvars.iv701
+  %165 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv701
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw %class.aiVector3t, ptr %166, i64 %indvars.iv704
   store float %164, ptr %167, align 4
@@ -4562,7 +4562,7 @@ _ZNSt3mapIiSt6vectorI14aiVertexWeightSaIS1_EESt4lessIiESaISt4pairIKiS3_EEED2Ev.e
   %843 = getelementptr inbounds nuw i8, ptr %827, i64 4
   %844 = load ptr, ptr %837, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %843, ptr align 1 %844, i64 %839, i1 false)
-  %845 = getelementptr inbounds nuw [1024 x i8], ptr %843, i64 0, i64 %839
+  %845 = getelementptr inbounds nuw i8, ptr %843, i64 %839
   store i8 0, ptr %845, align 1
   br label %846
 
@@ -4725,7 +4725,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp11MMDImporter14CreateMaterialEPKN3p
   %20 = load ptr, ptr %14, align 8
   %21 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 1 %20, i64 %21, i1 false)
-  %22 = getelementptr inbounds nuw [1024 x i8], ptr %18, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
   store i8 0, ptr %22, align 1
   %23 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i32 noundef 0, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4800,7 +4800,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp11MMDImporter14CreateMaterialEPKN3p
   %70 = load ptr, ptr %64, align 8
   %71 = zext i32 %spec.select.i26 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %68, ptr align 1 %70, i64 %71, i1 false)
-  %72 = getelementptr inbounds nuw [1024 x i8], ptr %68, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %71
   store i8 0, ptr %72, align 1
   %73 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %10, ptr noundef nonnull @.str.12, i32 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

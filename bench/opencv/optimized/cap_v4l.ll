@@ -1167,7 +1167,7 @@ define hidden void @_ZN2cv16CvCaptureCAM_V4L14releaseBuffersEv(ptr noundef nonnu
   br i1 %.not84, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %56 = getelementptr inbounds nuw [11 x %"struct.cv::Buffer"], ptr %4, i64 0, i64 %indvars.iv87
+  %56 = getelementptr inbounds nuw %"struct.cv::Buffer", ptr %4, i64 %indvars.iv87
   br label %59
 
 .split82.us:                                      ; preds = %._crit_edge, %18
@@ -1182,7 +1182,7 @@ define hidden void @_ZN2cv16CvCaptureCAM_V4L14releaseBuffersEv(ptr noundef nonnu
 
 59:                                               ; preds = %.lr.ph, %171
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %171 ]
-  %60 = getelementptr inbounds nuw [8 x %"struct.cv::Memory"], ptr %56, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %"struct.cv::Memory", ptr %56, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !82
   %.not29 = icmp eq ptr %61, null
   br i1 %.not29, label %171, label %62
@@ -2474,7 +2474,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   %371 = shl nuw i64 1, %370
   %372 = sdiv i32 %368, 64
   %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds [16 x i64], ptr %14, i64 0, i64 %373
+  %374 = getelementptr inbounds i64, ptr %14, i64 %373
   %375 = load i64, ptr %374, align 8, !tbaa !133
   %376 = or i64 %371, %375
   store i64 %376, ptr %374, align 8, !tbaa !133
@@ -3889,7 +3889,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
 
 109:                                              ; preds = %101, %107
   %.02174 = phi i64 [ 0, %101 ], [ %108, %107 ]
-  %110 = getelementptr inbounds nuw [22 x i32], ptr @__const._ZN2cv16CvCaptureCAM_V4L27autosetup_capture_mode_v4l2Ev.try_order, i64 0, i64 %.02174
+  %110 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv16CvCaptureCAM_V4L27autosetup_capture_mode_v4l2Ev.try_order, i64 %.02174
   %111 = load i32, ptr %110, align 4, !tbaa !67
   store i32 %111, ptr %6, align 8, !tbaa !111
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %102, i8 0, i64 208, i1 false)
@@ -6068,7 +6068,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i98
   br i1 %or.cond, label %.lr.ph, label %128
 
 .lr.ph:                                           ; preds = %124
-  %127 = getelementptr inbounds nuw [11 x %"struct.cv::Buffer"], ptr %18, i64 0, i64 %indvars.iv162
+  %127 = getelementptr inbounds nuw %"struct.cv::Buffer", ptr %18, i64 %indvars.iv162
   br label %144
 
 128:                                              ; preds = %124
@@ -6147,7 +6147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %_Z
   %.065.in = phi i32 [ %152, %146 ], [ %155, %153 ]
   %.065 = zext i32 %.065.in to i64
   %.268 = zext i32 %.268.in to i64
-  %157 = getelementptr inbounds nuw [8 x %"struct.cv::Memory"], ptr %127, i64 0, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw %"struct.cv::Memory", ptr %127, i64 %indvars.iv
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i64 %.268, ptr %158, align 8, !tbaa !87
   %159 = load i32, ptr %19, align 8, !tbaa !6
@@ -8472,7 +8472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZN
 .lr.ph:                                           ; preds = %.preheader
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %150 = zext i32 %128 to i64
-  %151 = getelementptr inbounds nuw [11 x %"struct.cv::Buffer"], ptr %149, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw %"struct.cv::Buffer", ptr %149, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %153 = load ptr, ptr %152, align 8, !tbaa !37
   %wide.trip.count = zext i8 %148 to i64
@@ -8485,7 +8485,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZN
 
 155:                                              ; preds = %.lr.ph, %154
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %154 ]
-  %156 = getelementptr inbounds nuw [8 x %"struct.cv::Memory"], ptr %151, i64 0, i64 %indvars.iv, i32 1
+  %156 = getelementptr inbounds nuw %"struct.cv::Memory", ptr %151, i64 %indvars.iv, i32 1
   %157 = load i64, ptr %156, align 8, !tbaa !87
   %158 = getelementptr inbounds nuw %struct.v4l2_plane, ptr %153, i64 %indvars.iv, i32 1
   %159 = load i32, ptr %158, align 4, !tbaa !256
@@ -8555,7 +8555,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %186, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false), !tbaa.struct !322
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %128, ptr %187, align 8, !tbaa !33
-  %188 = getelementptr inbounds nuw [11 x %"struct.cv::Buffer"], ptr %184, i64 0, i64 %176
+  %188 = getelementptr inbounds nuw %"struct.cv::Buffer", ptr %184, i64 %176
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 656
   %190 = load i32, ptr %189, align 8, !tbaa !323
   br label %._crit_edge88
@@ -8613,7 +8613,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %207, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false), !tbaa.struct !322
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %128, ptr %208, align 8, !tbaa !33
-  %209 = getelementptr inbounds nuw [11 x %"struct.cv::Buffer"], ptr %205, i64 0, i64 %.pre-phi
+  %209 = getelementptr inbounds nuw %"struct.cv::Buffer", ptr %205, i64 %.pre-phi
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 128
   %211 = getelementptr inbounds nuw i8, ptr %209, i64 712
   store ptr %210, ptr %211, align 8, !tbaa !37
@@ -8630,7 +8630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv97 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next98, %.lr.ph87 ]
   %.02584 = phi i32 [ 0, %.lr.ph87.preheader ], [ %219, %.lr.ph87 ]
-  %214 = getelementptr inbounds nuw [8 x %struct.v4l2_plane], ptr %212, i64 0, i64 %indvars.iv97
+  %214 = getelementptr inbounds nuw %struct.v4l2_plane, ptr %212, i64 %indvars.iv97
   %215 = load i32, ptr %214, align 8, !tbaa !325
   %216 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %217 = load i32, ptr %216, align 8, !tbaa !326
@@ -9349,14 +9349,14 @@ define hidden void @_ZN2cv16CvCaptureCAM_V4L12convertToRgbERKNS_6BufferE(ptr nou
 82:                                               ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
   %.068370 = phi i32 [ 0, %.lr.ph ], [ %97, %82 ]
-  %83 = getelementptr inbounds nuw [8 x %struct.v4l2_plane], ptr %81, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw %struct.v4l2_plane, ptr %81, i64 %indvars.iv
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load i32, ptr %84, align 8, !tbaa !326
   %86 = load i32, ptr %83, align 8, !tbaa !325
   %87 = sub i32 %86, %85
   %88 = zext i32 %.068370 to i64
   %89 = getelementptr inbounds nuw i8, ptr %78, i64 %88
-  %90 = getelementptr inbounds nuw [8 x %"struct.cv::Memory"], ptr %1, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw %"struct.cv::Memory", ptr %1, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8, !tbaa !82
   %92 = zext i32 %85 to i64
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
@@ -10464,7 +10464,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   %.019.i = phi i32 [ 0, %505 ], [ 0, %508 ], [ 0, %513 ], [ 1, %516 ], [ 0, %514 ], [ 0, %.preheader ], [ 0, %502 ], [ 0, %506 ], [ 0, %509 ], [ 0, %512 ]
   %.018.i = phi i32 [ -4, %505 ], [ -11, %508 ], [ 0, %513 ], [ %518, %516 ], [ 0, %514 ], [ 0, %.preheader ], [ 4, %502 ], [ 11, %506 ], [ 20, %509 ], [ -20, %512 ]
   %.0.i = phi i32 [ 3, %505 ], [ 4, %508 ], [ 8, %513 ], [ 8, %516 ], [ 0, %514 ], [ 1, %.preheader ], [ 3, %502 ], [ 4, %506 ], [ 5, %509 ], [ 6, %512 ]
-  %520 = getelementptr inbounds nuw [256 x %"struct.cv::code_table_t"], ptr @_ZN2cvL5tableE, i64 0, i64 %indvars.iv.i
+  %520 = getelementptr inbounds nuw %"struct.cv::code_table_t", ptr @_ZN2cvL5tableE, i64 %indvars.iv.i
   store i32 %.019.i, ptr %520, align 4, !tbaa !363
   %521 = getelementptr inbounds nuw i8, ptr %520, i64 8
   store i32 %.018.i, ptr %521, align 4, !tbaa !365
@@ -10534,7 +10534,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   %556 = trunc i32 %.262.us.i to i8
   %557 = tail call i8 @llvm.fshl.i8(i8 %553, i8 %555, i8 %556)
   %558 = zext i8 %557 to i64
-  %559 = getelementptr inbounds nuw [256 x %"struct.cv::code_table_t"], ptr @_ZN2cvL5tableE, i64 0, i64 %558
+  %559 = getelementptr inbounds nuw %"struct.cv::code_table_t", ptr @_ZN2cvL5tableE, i64 %558
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 4
   %561 = load i32, ptr %560, align 4, !tbaa !366
   %562 = add nsw i32 %561, %.262.us.i
@@ -10575,7 +10575,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   %582 = trunc i32 %.262.i to i8
   %583 = tail call i8 @llvm.fshl.i8(i8 %579, i8 %581, i8 %582)
   %584 = zext i8 %583 to i64
-  %585 = getelementptr inbounds nuw [256 x %"struct.cv::code_table_t"], ptr @_ZN2cvL5tableE, i64 0, i64 %584
+  %585 = getelementptr inbounds nuw %"struct.cv::code_table_t", ptr @_ZN2cvL5tableE, i64 %584
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 4
   %587 = load i32, ptr %586, align 4, !tbaa !366
   %588 = add nsw i32 %587, %.262.i
@@ -10970,7 +10970,7 @@ _ZN2cvL17capPropertyToV4L2Ei.exit:                ; preds = %4
 
 switch.lookup:                                    ; preds = %4
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [39 x i32], ptr @switch.table._ZNK2cv16CvCaptureCAM_V4L11controlInfoEiRjRNS_5RangeE, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK2cv16CvCaptureCAM_V4L11controlInfoEiRjRNS_5RangeE, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -12896,7 +12896,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L13retrieveFrameEiRKNS_
   %16 = phi i32 [ %.pre, %13 ], [ %11, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds [11 x %"struct.cv::Buffer"], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds %"struct.cv::Buffer", ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %21 = load i8, ptr %20, align 4, !tbaa !40, !range !51, !noundef !52
   %22 = trunc nuw i8 %21 to i1
@@ -13142,7 +13142,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
 118:                                              ; preds = %.lr.ph, %118
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %118 ]
   %.04998 = phi i32 [ 0, %.lr.ph ], [ %124, %118 ]
-  %119 = getelementptr inbounds nuw [8 x %struct.v4l2_plane], ptr %111, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw %struct.v4l2_plane, ptr %111, i64 %indvars.iv
   %120 = load i32, ptr %119, align 8, !tbaa !325
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %122 = load i32, ptr %121, align 8, !tbaa !326
@@ -13154,8 +13154,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
 
 125:                                              ; preds = %.lr.ph101, %125
   %indvars.iv105 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next106, %125 ]
-  %126 = getelementptr inbounds nuw [8 x %struct.v4l2_plane], ptr %116, i64 0, i64 %indvars.iv105
-  %127 = getelementptr inbounds nuw [8 x %"struct.cv::Memory"], ptr %19, i64 0, i64 %indvars.iv105
+  %126 = getelementptr inbounds nuw %struct.v4l2_plane, ptr %116, i64 %indvars.iv105
+  %127 = getelementptr inbounds nuw %"struct.cv::Memory", ptr %19, i64 %indvars.iv105
   %128 = load ptr, ptr %117, align 8, !tbaa !347
   %129 = load ptr, ptr %127, align 8, !tbaa !82
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 16

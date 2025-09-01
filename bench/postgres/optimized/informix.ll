@@ -619,7 +619,7 @@ define range(i32 -1212, 1) i32 @rstrdate(ptr noundef %0, ptr noundef %1) local_u
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.rdefmtdate, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rdefmtdate, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rdefmtdate.exit
 
@@ -644,7 +644,7 @@ define range(i32 -1212, 1) i32 @rdefmtdate(ptr noundef %0, ptr noundef %1, ptr n
 
 switch.lookup:                                    ; preds = %7
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.rdefmtdate, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rdefmtdate, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %11
 

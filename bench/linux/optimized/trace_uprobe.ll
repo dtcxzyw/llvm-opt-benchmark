@@ -1240,7 +1240,7 @@ define internal noundef i32 @trace_uprobe_show(ptr noundef %0, ptr noundef reado
 44:                                               ; preds = %44, %42
   %45 = phi i32 [ 0, %42 ], [ %52, %44 ]
   %46 = sext i32 %45 to i64
-  %47 = getelementptr [0 x %struct.probe_arg], ptr %43, i64 0, i64 %46
+  %47 = getelementptr %struct.probe_arg, ptr %43, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -2347,7 +2347,7 @@ define internal noundef range(i32 0, 2) i32 @uprobe_dispatcher(ptr noundef %0, p
   %50 = load ptr, ptr @uprobe_cpu_buffer, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = sext i32 %49 to i64
-  %53 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %52
+  %53 = getelementptr i64, ptr @__per_cpu_offset, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %51
   %56 = inttoptr i64 %55 to ptr
@@ -2578,7 +2578,7 @@ define internal noundef i32 @uretprobe_dispatcher(ptr noundef %0, i64 noundef %1
   %46 = load ptr, ptr @uprobe_cpu_buffer, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = sext i32 %45 to i64
-  %49 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %48
+  %49 = getelementptr i64, ptr @__per_cpu_offset, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, %47
   %52 = inttoptr i64 %51 to ptr
@@ -3449,7 +3449,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
 
 58:                                               ; preds = %54
   %59 = and i64 %55, 63
-  %60 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %59
+  %60 = getelementptr i64, ptr @__per_cpu_offset, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, ptrtoint (ptr @numa_node to i64)
   %63 = inttoptr i64 %62 to ptr
@@ -3515,7 +3515,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
 105:                                              ; preds = %98
   %106 = ptrtoint ptr %104 to i64
   %107 = and i64 %99, 63
-  %108 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %107
+  %108 = getelementptr i64, ptr @__per_cpu_offset, i64 %107
   %109 = load i64, ptr %108, align 8
   %110 = add i64 %109, %106
   %111 = inttoptr i64 %110 to ptr
@@ -3933,7 +3933,7 @@ define internal fastcc void @uprobe_buffer_disable() unnamed_addr #0 align 16 {
 18:                                               ; preds = %13
   %19 = ptrtoint ptr %17 to i64
   %20 = and i64 %14, 63
-  %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %20
+  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %19
   %24 = inttoptr i64 %23 to ptr

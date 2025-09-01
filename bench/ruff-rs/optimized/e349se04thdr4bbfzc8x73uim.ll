@@ -2105,10 +2105,10 @@ switch.lookup:                                    ; preds = %541
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr @anon.3286fc83d290b8ed66e137ae903e3c63.55, i64 %.idx.i.i.i.i
   %.val4.i.i.i.i.i = load i8, ptr %.ptr.i.i.i.i, align 1, !range !129, !noalias !197, !noundef !3
   %543 = zext nneg i8 %.val4.i.i.i.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E, i64 0, i64 %543
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E, i64 %543
   %switch.load = load i64, ptr %switch.gep, align 8
   %544 = zext nneg i8 %.val4.i.i.i.i.i to i64
-  %switch.gep581 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E.31, i64 0, i64 %544
+  %switch.gep581 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E.31, i64 %544
   %switch.load582 = load ptr, ptr %switch.gep581, align 8
   %545 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6f1827b9ffd27e60E"(ptr noalias noundef nonnull readonly align 1 %.pr.i.i.i, i64 noundef %540, ptr noalias noundef nonnull readonly align 1 %switch.load582, i64 noundef %switch.load)
           to label %.noexc78.i unwind label %.body.thread123.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !52
@@ -3688,9 +3688,9 @@ define hidden { ptr, i64 } @_ZN7ty_test6parser12EmbeddedFile13relative_path17h3b
 switch.lookup:                                    ; preds = %1
   %5 = load i8, ptr %4, align 8, !range !129, !alias.scope !333, !noundef !3
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E, i64 %6
   %7 = zext nneg i8 %5 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E.31, i64 0, i64 %7
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E.31, i64 %7
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %_ZN7ty_test6parser16EmbeddedFilePath6as_str17h352f8dedf6b3c8e7E.exit
 
@@ -3716,9 +3716,9 @@ define hidden void @_ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf7
 switch.lookup:                                    ; preds = %4
   %10 = load i8, ptr %9, align 8, !range !129, !alias.scope !336, !noundef !3
   %11 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E, i64 %11
   %12 = zext nneg i8 %10 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E.31, i64 0, i64 %12
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7ty_test6parser12EmbeddedFile9full_path17h2c0c60c5804ccf71E.31, i64 %12
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %_ZN7ty_test6parser12EmbeddedFile13relative_path17h3b876649cb63ca4bE.exit
 

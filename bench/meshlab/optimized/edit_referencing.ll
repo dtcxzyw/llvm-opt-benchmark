@@ -4688,7 +4688,7 @@ _ZN7QStringaSEPKc.exit29:                         ; preds = %_ZN7QStringaSEPKc.e
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %157 ]
   %158 = getelementptr inbounds nuw float, ptr %156, i64 %indvars.iv.i
   %159 = load float, ptr %158, align 4
-  %160 = getelementptr inbounds nuw [16 x float], ptr %155, i64 0, i64 %indvars.iv.i
+  %160 = getelementptr inbounds nuw float, ptr %155, i64 %indvars.iv.i
   store float %159, ptr %160, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -4709,7 +4709,7 @@ _ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit:  ; preds = %157
   %indvars.iv.i31 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i32, %164 ]
   %165 = getelementptr inbounds nuw float, ptr %163, i64 %indvars.iv.i31
   %166 = load float, ptr %165, align 4
-  %167 = getelementptr inbounds nuw [16 x float], ptr %162, i64 0, i64 %indvars.iv.i31
+  %167 = getelementptr inbounds nuw float, ptr %162, i64 %indvars.iv.i31
   store float %166, ptr %167, align 4
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 16
@@ -11700,7 +11700,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Point3IdEEEE8allocateERS3_m.exit.i.i.i.i: ; pre
           cleanup
   %76 = load ptr, ptr %4, align 8
   %.not.i.i.i37 = icmp eq ptr %76, null
-  br i1 %.not.i.i.i37, label %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit38, label %99
+  br i1 %.not.i.i.i37, label %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit38, label %92
 
 ._crit_edge51:                                    ; preds = %.lr.ph50, %57
   invoke void @_ZN3vcg23ComputeRigidMatchMatrixIdEEvRSt6vectorINS_6Point3IT_EESaIS4_EES7_RNS_8Matrix44IS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(128) %2)
@@ -11720,61 +11720,61 @@ _ZNSt16allocator_traitsISaIN3vcg6Point3IdEEEE8allocateERS3_m.exit.i.i.i.i: ; pre
   call void @llvm.experimental.noalias.scope.decl(metadata !140)
   br label %.preheader19.i
 
-.preheader19.i:                                   ; preds = %96, %77
-  %indvars.iv29.i = phi i64 [ 0, %77 ], [ %indvars.iv.next30.i, %96 ]
+.preheader19.i:                                   ; preds = %89, %77
+  %indvars.iv29.i = phi i64 [ 0, %77 ], [ %indvars.iv.next30.i, %89 ]
   %83 = shl nuw nsw i64 %indvars.iv29.i, 2
+  %invariant.gep.i = getelementptr inbounds nuw double, ptr %2, i64 %83
+  %invariant.gep35.i = getelementptr inbounds nuw double, ptr %6, i64 %83
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %93, %.preheader19.i
-  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %93 ]
+.preheader.i:                                     ; preds = %88, %.preheader19.i
+  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %88 ]
+  %invariant.gep33.i = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv25.i
   br label %84
 
 84:                                               ; preds = %84, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %84 ]
-  %.01620.i = phi double [ 0.000000e+00, %.preheader.i ], [ %92, %84 ]
-  %85 = add nuw nsw i64 %indvars.iv.i, %83
-  %86 = getelementptr inbounds nuw [16 x double], ptr %2, i64 0, i64 %85
-  %87 = load double, ptr %86, align 8, !noalias !140
-  %88 = shl nuw nsw i64 %indvars.iv.i, 2
-  %89 = add nuw nsw i64 %88, %indvars.iv25.i
-  %90 = getelementptr inbounds nuw [16 x double], ptr %5, i64 0, i64 %89
-  %91 = load double, ptr %90, align 8, !noalias !140
-  %92 = call double @llvm.fmuladd.f64(double %87, double %91, double %.01620.i)
+  %.01620.i = phi double [ 0.000000e+00, %.preheader.i ], [ %87, %84 ]
+  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %85 = load double, ptr %gep.i, align 8, !noalias !140
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 5
+  %gep34.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i, i64 %.idx.i
+  %86 = load double, ptr %gep34.i, align 8, !noalias !140
+  %87 = call double @llvm.fmuladd.f64(double %85, double %86, double %.01620.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %93, label %84, !llvm.loop !143
+  br i1 %exitcond.not.i, label %88, label %84, !llvm.loop !143
 
-93:                                               ; preds = %84
-  %94 = add nuw nsw i64 %indvars.iv25.i, %83
-  %95 = getelementptr inbounds nuw [16 x double], ptr %6, i64 0, i64 %94
-  store double %92, ptr %95, align 8, !alias.scope !140
+88:                                               ; preds = %84
+  %gep36.i = getelementptr inbounds nuw double, ptr %invariant.gep35.i, i64 %indvars.iv25.i
+  store double %87, ptr %gep36.i, align 8, !alias.scope !140
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
-  br i1 %exitcond28.not.i, label %96, label %.preheader.i, !llvm.loop !144
+  br i1 %exitcond28.not.i, label %89, label %.preheader.i, !llvm.loop !144
 
-96:                                               ; preds = %93
+89:                                               ; preds = %88
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 4
   br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IdEmlERKS1_.exit, label %.preheader19.i, !llvm.loop !145
 
-_ZNK3vcg8Matrix44IdEmlERKS1_.exit:                ; preds = %96
+_ZNK3vcg8Matrix44IdEmlERKS1_.exit:                ; preds = %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
-  %97 = load ptr, ptr %4, align 8
-  %.not.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit, label %98
+  %90 = load ptr, ptr %4, align 8
+  %.not.i.i.i = icmp eq ptr %90, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit, label %91
 
-98:                                               ; preds = %_ZNK3vcg8Matrix44IdEmlERKS1_.exit
-  call void @_ZdlPv(ptr noundef nonnull %97) #28
+91:                                               ; preds = %_ZNK3vcg8Matrix44IdEmlERKS1_.exit
+  call void @_ZdlPv(ptr noundef nonnull %90) #28
   br label %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit:   ; preds = %_ZNK3vcg8Matrix44IdEmlERKS1_.exit, %98
+_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit:   ; preds = %_ZNK3vcg8Matrix44IdEmlERKS1_.exit, %91
   ret void
 
-99:                                               ; preds = %74
+92:                                               ; preds = %74
   call void @_ZdlPv(ptr noundef nonnull %76) #28
   br label %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit38
 
-_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit38: ; preds = %99, %74
+_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit38: ; preds = %92, %74
   resume { ptr, i32 } %75
 }
 
@@ -11864,44 +11864,44 @@ define linkonce_odr void @_ZN3vcg23ComputeRigidMatchMatrixIdEEvRSt6vectorINS_6Po
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
   br label %.preheader19.i
 
-.preheader19.i:                                   ; preds = %76, %3
-  %indvars.iv29.i = phi i64 [ 0, %3 ], [ %indvars.iv.next30.i, %76 ]
+.preheader19.i:                                   ; preds = %69, %3
+  %indvars.iv29.i = phi i64 [ 0, %3 ], [ %indvars.iv.next30.i, %69 ]
   %63 = shl nuw nsw i64 %indvars.iv29.i, 2
+  %invariant.gep.i = getelementptr inbounds nuw double, ptr %7, i64 %63
+  %invariant.gep35.i = getelementptr inbounds nuw double, ptr %8, i64 %63
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %73, %.preheader19.i
-  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %73 ]
+.preheader.i:                                     ; preds = %68, %.preheader19.i
+  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %68 ]
+  %invariant.gep33.i = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv25.i
   br label %64
 
 64:                                               ; preds = %64, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %64 ]
-  %.01620.i = phi double [ 0.000000e+00, %.preheader.i ], [ %72, %64 ]
-  %65 = add nuw nsw i64 %indvars.iv.i, %63
-  %66 = getelementptr inbounds nuw [16 x double], ptr %7, i64 0, i64 %65
-  %67 = load double, ptr %66, align 8, !noalias !146
-  %68 = shl nuw nsw i64 %indvars.iv.i, 2
-  %69 = add nuw nsw i64 %68, %indvars.iv25.i
-  %70 = getelementptr inbounds nuw [16 x double], ptr %6, i64 0, i64 %69
-  %71 = load double, ptr %70, align 8, !noalias !146
-  %72 = call double @llvm.fmuladd.f64(double %67, double %71, double %.01620.i)
+  %.01620.i = phi double [ 0.000000e+00, %.preheader.i ], [ %67, %64 ]
+  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %65 = load double, ptr %gep.i, align 8, !noalias !146
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 5
+  %gep34.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i, i64 %.idx.i
+  %66 = load double, ptr %gep34.i, align 8, !noalias !146
+  %67 = call double @llvm.fmuladd.f64(double %65, double %66, double %.01620.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %73, label %64, !llvm.loop !143
+  br i1 %exitcond.not.i, label %68, label %64, !llvm.loop !143
 
-73:                                               ; preds = %64
-  %74 = add nuw nsw i64 %indvars.iv25.i, %63
-  %75 = getelementptr inbounds nuw [16 x double], ptr %8, i64 0, i64 %74
-  store double %72, ptr %75, align 8, !alias.scope !146
+68:                                               ; preds = %64
+  %gep36.i = getelementptr inbounds nuw double, ptr %invariant.gep35.i, i64 %indvars.iv25.i
+  store double %67, ptr %gep36.i, align 8, !alias.scope !146
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
-  br i1 %exitcond28.not.i, label %76, label %.preheader.i, !llvm.loop !144
+  br i1 %exitcond28.not.i, label %69, label %.preheader.i, !llvm.loop !144
 
-76:                                               ; preds = %73
+69:                                               ; preds = %68
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 4
   br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IdEmlERKS1_.exit, label %.preheader19.i, !llvm.loop !145
 
-_ZNK3vcg8Matrix44IdEmlERKS1_.exit:                ; preds = %76
+_ZNK3vcg8Matrix44IdEmlERKS1_.exit:                ; preds = %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false)
   ret void
 }
@@ -22964,7 +22964,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8R
   %14 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i
   %15 = load double, ptr %14, align 8
   %16 = fptrunc double %15 to float
-  %17 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   store float %16, ptr %17, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -22979,7 +22979,7 @@ _ZN3vcg8Matrix44IfE6ImportIdEEvRKNS0_IT_EE.exit:  ; preds = %13
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef i32 @_ZNK9QCheckBox10checkStateEv(ptr noundef nonnull align 8 dereferenceable(48) %23)
   %25 = icmp eq i32 %24, 2
-  br i1 %25, label %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, label %58
+  br i1 %25, label %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, label %51
 
 _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %_ZN3vcg8Matrix44IfE6ImportIdEEvRKNS0_IT_EE.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -22990,8 +22990,8 @@ _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %_ZN3vcg8Matrix44If
   %31 = call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %30)
   %32 = call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %31)
   %33 = call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %31)
-  %.not33 = icmp eq ptr %32, %33
-  br i1 %.not33, label %.loopexit, label %.lr.ph
+  %.not40 = icmp eq ptr %32, %33
+  br i1 %.not40, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -22999,8 +22999,8 @@ _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %_ZN3vcg8Matrix44If
 
 35:                                               ; preds = %.lr.ph, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
-  %.sroa.027.034 = phi ptr [ %32, %.lr.ph ], [ %57, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.027.034, i64 1220
+  %.sroa.034.041 = phi ptr [ %32, %.lr.ph ], [ %50, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.034.041, i64 1220
   %37 = load i8, ptr %36, align 4
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
@@ -23011,111 +23011,111 @@ _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %_ZN3vcg8Matrix44If
   call void @llvm.experimental.noalias.scope.decl(metadata !546)
   br label %.preheader19.i
 
-.preheader19.i:                                   ; preds = %55, %39
-  %indvars.iv29.i = phi i64 [ 0, %39 ], [ %indvars.iv.next30.i, %55 ]
+.preheader19.i:                                   ; preds = %48, %39
+  %indvars.iv29.i = phi i64 [ 0, %39 ], [ %indvars.iv.next30.i, %48 ]
   %42 = shl nuw nsw i64 %indvars.iv29.i, 2
+  %invariant.gep.i = getelementptr inbounds nuw float, ptr %3, i64 %42
+  %invariant.gep35.i = getelementptr inbounds nuw float, ptr %4, i64 %42
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %52, %.preheader19.i
-  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %52 ]
+.preheader.i:                                     ; preds = %47, %.preheader19.i
+  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %47 ]
+  %invariant.gep33.i = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv25.i
   br label %43
 
 43:                                               ; preds = %43, %.preheader.i
   %indvars.iv.i11 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i12, %43 ]
-  %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %51, %43 ]
-  %44 = add nuw nsw i64 %indvars.iv.i11, %42
-  %45 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %44
-  %46 = load float, ptr %45, align 4, !noalias !546
-  %47 = shl nuw nsw i64 %indvars.iv.i11, 2
-  %48 = add nuw nsw i64 %47, %indvars.iv25.i
-  %49 = getelementptr inbounds nuw [16 x float], ptr %41, i64 0, i64 %48
-  %50 = load float, ptr %49, align 4, !noalias !546
-  %51 = call float @llvm.fmuladd.f32(float %46, float %50, float %.01620.i)
+  %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %46, %43 ]
+  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i11
+  %44 = load float, ptr %gep.i, align 4, !noalias !546
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i11, 4
+  %gep34.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i, i64 %.idx.i
+  %45 = load float, ptr %gep34.i, align 4, !noalias !546
+  %46 = call float @llvm.fmuladd.f32(float %44, float %45, float %.01620.i)
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 4
-  br i1 %exitcond.not.i13, label %52, label %43, !llvm.loop !549
+  br i1 %exitcond.not.i13, label %47, label %43, !llvm.loop !549
 
-52:                                               ; preds = %43
-  %53 = add nuw nsw i64 %indvars.iv25.i, %42
-  %54 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %53
-  store float %51, ptr %54, align 4, !alias.scope !546
+47:                                               ; preds = %43
+  %gep36.i = getelementptr inbounds nuw float, ptr %invariant.gep35.i, i64 %indvars.iv25.i
+  store float %46, ptr %gep36.i, align 4, !alias.scope !546
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
-  br i1 %exitcond28.not.i, label %55, label %.preheader.i, !llvm.loop !550
+  br i1 %exitcond28.not.i, label %48, label %.preheader.i, !llvm.loop !550
 
-55:                                               ; preds = %52
+48:                                               ; preds = %47
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 4
   br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, label %.preheader19.i, !llvm.loop !551
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %55
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.027.034, i64 1148
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %56, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %48
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.034.041, i64 1148
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %49, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   br label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
 
 _ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = load ptr, ptr %.sroa.027.034, align 8
-  %.not = icmp eq ptr %57, %33
+  %50 = load ptr, ptr %.sroa.034.041, align 8
+  %.not = icmp eq ptr %50, %33
   br i1 %.not, label %.loopexit, label %35
 
-58:                                               ; preds = %_ZN3vcg8Matrix44IfE6ImportIdEEvRKNS0_IT_EE.exit
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
+51:                                               ; preds = %_ZN3vcg8Matrix44IfE6ImportIdEEvRKNS0_IT_EE.exit
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.experimental.noalias.scope.decl(metadata !552)
   br label %.preheader19.i14
 
-.preheader19.i14:                                 ; preds = %73, %58
-  %indvars.iv29.i15 = phi i64 [ 0, %58 ], [ %indvars.iv.next30.i24, %73 ]
-  %60 = shl nuw nsw i64 %indvars.iv29.i15, 2
-  br label %.preheader.i16
+.preheader19.i14:                                 ; preds = %59, %51
+  %indvars.iv29.i15 = phi i64 [ 0, %51 ], [ %indvars.iv.next30.i31, %59 ]
+  %53 = shl nuw nsw i64 %indvars.iv29.i15, 2
+  %invariant.gep.i16 = getelementptr inbounds nuw float, ptr %3, i64 %53
+  %invariant.gep35.i17 = getelementptr inbounds nuw float, ptr %5, i64 %53
+  br label %.preheader.i18
 
-.preheader.i16:                                   ; preds = %70, %.preheader19.i14
-  %indvars.iv25.i17 = phi i64 [ 0, %.preheader19.i14 ], [ %indvars.iv.next26.i22, %70 ]
-  br label %61
+.preheader.i18:                                   ; preds = %58, %.preheader19.i14
+  %indvars.iv25.i19 = phi i64 [ 0, %.preheader19.i14 ], [ %indvars.iv.next26.i29, %58 ]
+  %invariant.gep33.i20 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv25.i19
+  br label %54
 
-61:                                               ; preds = %61, %.preheader.i16
-  %indvars.iv.i18 = phi i64 [ 0, %.preheader.i16 ], [ %indvars.iv.next.i20, %61 ]
-  %.01620.i19 = phi float [ 0.000000e+00, %.preheader.i16 ], [ %69, %61 ]
-  %62 = add nuw nsw i64 %indvars.iv.i18, %60
-  %63 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %62
-  %64 = load float, ptr %63, align 4, !noalias !552
-  %65 = shl nuw nsw i64 %indvars.iv.i18, 2
-  %66 = add nuw nsw i64 %65, %indvars.iv25.i17
-  %67 = getelementptr inbounds nuw [16 x float], ptr %59, i64 0, i64 %66
-  %68 = load float, ptr %67, align 4, !noalias !552
-  %69 = call float @llvm.fmuladd.f32(float %64, float %68, float %.01620.i19)
-  %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
-  %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, 4
-  br i1 %exitcond.not.i21, label %70, label %61, !llvm.loop !549
+54:                                               ; preds = %54, %.preheader.i18
+  %indvars.iv.i21 = phi i64 [ 0, %.preheader.i18 ], [ %indvars.iv.next.i26, %54 ]
+  %.01620.i22 = phi float [ 0.000000e+00, %.preheader.i18 ], [ %57, %54 ]
+  %gep.i23 = getelementptr inbounds nuw float, ptr %invariant.gep.i16, i64 %indvars.iv.i21
+  %55 = load float, ptr %gep.i23, align 4, !noalias !552
+  %.idx.i24 = shl nuw nsw i64 %indvars.iv.i21, 4
+  %gep34.i25 = getelementptr inbounds nuw i8, ptr %invariant.gep33.i20, i64 %.idx.i24
+  %56 = load float, ptr %gep34.i25, align 4, !noalias !552
+  %57 = call float @llvm.fmuladd.f32(float %55, float %56, float %.01620.i22)
+  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i21, 1
+  %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 4
+  br i1 %exitcond.not.i27, label %58, label %54, !llvm.loop !549
 
-70:                                               ; preds = %61
-  %71 = add nuw nsw i64 %indvars.iv25.i17, %60
-  %72 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %71
-  store float %69, ptr %72, align 4, !alias.scope !552
-  %indvars.iv.next26.i22 = add nuw nsw i64 %indvars.iv25.i17, 1
-  %exitcond28.not.i23 = icmp eq i64 %indvars.iv.next26.i22, 4
-  br i1 %exitcond28.not.i23, label %73, label %.preheader.i16, !llvm.loop !550
+58:                                               ; preds = %54
+  %gep36.i28 = getelementptr inbounds nuw float, ptr %invariant.gep35.i17, i64 %indvars.iv25.i19
+  store float %57, ptr %gep36.i28, align 4, !alias.scope !552
+  %indvars.iv.next26.i29 = add nuw nsw i64 %indvars.iv25.i19, 1
+  %exitcond28.not.i30 = icmp eq i64 %indvars.iv.next26.i29, 4
+  br i1 %exitcond28.not.i30, label %59, label %.preheader.i18, !llvm.loop !550
 
-73:                                               ; preds = %70
-  %indvars.iv.next30.i24 = add nuw nsw i64 %indvars.iv29.i15, 1
-  %exitcond32.not.i25 = icmp eq i64 %indvars.iv.next30.i24, 4
-  br i1 %exitcond32.not.i25, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit26, label %.preheader19.i14, !llvm.loop !551
+59:                                               ; preds = %58
+  %indvars.iv.next30.i31 = add nuw nsw i64 %indvars.iv29.i15, 1
+  %exitcond32.not.i32 = icmp eq i64 %indvars.iv.next30.i31, 4
+  br i1 %exitcond32.not.i32, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit33, label %.preheader19.i14, !llvm.loop !551
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit26:              ; preds = %73
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  %77 = load ptr, ptr %76, align 8, !nonnull !555, !noundef !555
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  %79 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %78)
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %80, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit33:              ; preds = %59
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
+  %63 = load ptr, ptr %62, align 8, !nonnull !555, !noundef !555
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %65 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %64)
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1132
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %66, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit, %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit26
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %82 = load ptr, ptr %81, align 8
-  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %82)
+.loopexit:                                        ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit, %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit33
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %68 = load ptr, ptr %67, align 8
+  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %68)
   ret void
 }
 
@@ -24517,7 +24517,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8R
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef i32 @_ZNK9QCheckBox10checkStateEv(ptr noundef nonnull align 8 dereferenceable(48) %30)
   %32 = icmp eq i32 %31, 2
-  br i1 %32, label %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, label %65
+  br i1 %32, label %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, label %58
 
 _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -24528,8 +24528,8 @@ _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %17
   %38 = call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %37)
   %39 = call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %38)
   %40 = call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %38)
-  %.not30 = icmp eq ptr %39, %40
-  br i1 %.not30, label %.loopexit, label %.lr.ph
+  %.not37 = icmp eq ptr %39, %40
+  br i1 %.not37, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -24537,8 +24537,8 @@ _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %17
 
 42:                                               ; preds = %.lr.ph, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
-  %.sroa.024.031 = phi ptr [ %39, %.lr.ph ], [ %64, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 1220
+  %.sroa.031.038 = phi ptr [ %39, %.lr.ph ], [ %57, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 1220
   %44 = load i8, ptr %43, align 4
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
@@ -24549,111 +24549,111 @@ _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !566)
   br label %.preheader19.i
 
-.preheader19.i:                                   ; preds = %62, %46
-  %indvars.iv29.i = phi i64 [ 0, %46 ], [ %indvars.iv.next30.i, %62 ]
+.preheader19.i:                                   ; preds = %55, %46
+  %indvars.iv29.i = phi i64 [ 0, %46 ], [ %indvars.iv.next30.i, %55 ]
   %49 = shl nuw nsw i64 %indvars.iv29.i, 2
+  %invariant.gep.i = getelementptr inbounds nuw float, ptr %3, i64 %49
+  %invariant.gep35.i = getelementptr inbounds nuw float, ptr %4, i64 %49
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %59, %.preheader19.i
-  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %59 ]
+.preheader.i:                                     ; preds = %54, %.preheader19.i
+  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %54 ]
+  %invariant.gep33.i = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv25.i
   br label %50
 
 50:                                               ; preds = %50, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %50 ]
-  %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %58, %50 ]
-  %51 = add nuw nsw i64 %indvars.iv.i, %49
-  %52 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %51
-  %53 = load float, ptr %52, align 4, !noalias !566
-  %54 = shl nuw nsw i64 %indvars.iv.i, 2
-  %55 = add nuw nsw i64 %54, %indvars.iv25.i
-  %56 = getelementptr inbounds nuw [16 x float], ptr %48, i64 0, i64 %55
-  %57 = load float, ptr %56, align 4, !noalias !566
-  %58 = call float @llvm.fmuladd.f32(float %53, float %57, float %.01620.i)
+  %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %53, %50 ]
+  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %51 = load float, ptr %gep.i, align 4, !noalias !566
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
+  %gep34.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i, i64 %.idx.i
+  %52 = load float, ptr %gep34.i, align 4, !noalias !566
+  %53 = call float @llvm.fmuladd.f32(float %51, float %52, float %.01620.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %59, label %50, !llvm.loop !549
+  br i1 %exitcond.not.i, label %54, label %50, !llvm.loop !549
 
-59:                                               ; preds = %50
-  %60 = add nuw nsw i64 %indvars.iv25.i, %49
-  %61 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %60
-  store float %58, ptr %61, align 4, !alias.scope !566
+54:                                               ; preds = %50
+  %gep36.i = getelementptr inbounds nuw float, ptr %invariant.gep35.i, i64 %indvars.iv25.i
+  store float %53, ptr %gep36.i, align 4, !alias.scope !566
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
-  br i1 %exitcond28.not.i, label %62, label %.preheader.i, !llvm.loop !550
+  br i1 %exitcond28.not.i, label %55, label %.preheader.i, !llvm.loop !550
 
-62:                                               ; preds = %59
+55:                                               ; preds = %54
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 4
   br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, label %.preheader19.i, !llvm.loop !551
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %62
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 1148
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %63, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %55
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 1148
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %56, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   br label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
 
 _ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = load ptr, ptr %.sroa.024.031, align 8
-  %.not = icmp eq ptr %64, %40
+  %57 = load ptr, ptr %.sroa.031.038, align 8
+  %.not = icmp eq ptr %57, %40
   br i1 %.not, label %.loopexit, label %42
 
-65:                                               ; preds = %17
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
+58:                                               ; preds = %17
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.experimental.noalias.scope.decl(metadata !569)
   br label %.preheader19.i11
 
-.preheader19.i11:                                 ; preds = %80, %65
-  %indvars.iv29.i12 = phi i64 [ 0, %65 ], [ %indvars.iv.next30.i21, %80 ]
-  %67 = shl nuw nsw i64 %indvars.iv29.i12, 2
-  br label %.preheader.i13
+.preheader19.i11:                                 ; preds = %66, %58
+  %indvars.iv29.i12 = phi i64 [ 0, %58 ], [ %indvars.iv.next30.i28, %66 ]
+  %60 = shl nuw nsw i64 %indvars.iv29.i12, 2
+  %invariant.gep.i13 = getelementptr inbounds nuw float, ptr %3, i64 %60
+  %invariant.gep35.i14 = getelementptr inbounds nuw float, ptr %5, i64 %60
+  br label %.preheader.i15
 
-.preheader.i13:                                   ; preds = %77, %.preheader19.i11
-  %indvars.iv25.i14 = phi i64 [ 0, %.preheader19.i11 ], [ %indvars.iv.next26.i19, %77 ]
-  br label %68
+.preheader.i15:                                   ; preds = %65, %.preheader19.i11
+  %indvars.iv25.i16 = phi i64 [ 0, %.preheader19.i11 ], [ %indvars.iv.next26.i26, %65 ]
+  %invariant.gep33.i17 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv25.i16
+  br label %61
 
-68:                                               ; preds = %68, %.preheader.i13
-  %indvars.iv.i15 = phi i64 [ 0, %.preheader.i13 ], [ %indvars.iv.next.i17, %68 ]
-  %.01620.i16 = phi float [ 0.000000e+00, %.preheader.i13 ], [ %76, %68 ]
-  %69 = add nuw nsw i64 %indvars.iv.i15, %67
-  %70 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %69
-  %71 = load float, ptr %70, align 4, !noalias !569
-  %72 = shl nuw nsw i64 %indvars.iv.i15, 2
-  %73 = add nuw nsw i64 %72, %indvars.iv25.i14
-  %74 = getelementptr inbounds nuw [16 x float], ptr %66, i64 0, i64 %73
-  %75 = load float, ptr %74, align 4, !noalias !569
-  %76 = call float @llvm.fmuladd.f32(float %71, float %75, float %.01620.i16)
-  %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
-  %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 4
-  br i1 %exitcond.not.i18, label %77, label %68, !llvm.loop !549
+61:                                               ; preds = %61, %.preheader.i15
+  %indvars.iv.i18 = phi i64 [ 0, %.preheader.i15 ], [ %indvars.iv.next.i23, %61 ]
+  %.01620.i19 = phi float [ 0.000000e+00, %.preheader.i15 ], [ %64, %61 ]
+  %gep.i20 = getelementptr inbounds nuw float, ptr %invariant.gep.i13, i64 %indvars.iv.i18
+  %62 = load float, ptr %gep.i20, align 4, !noalias !569
+  %.idx.i21 = shl nuw nsw i64 %indvars.iv.i18, 4
+  %gep34.i22 = getelementptr inbounds nuw i8, ptr %invariant.gep33.i17, i64 %.idx.i21
+  %63 = load float, ptr %gep34.i22, align 4, !noalias !569
+  %64 = call float @llvm.fmuladd.f32(float %62, float %63, float %.01620.i19)
+  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i18, 1
+  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 4
+  br i1 %exitcond.not.i24, label %65, label %61, !llvm.loop !549
 
-77:                                               ; preds = %68
-  %78 = add nuw nsw i64 %indvars.iv25.i14, %67
-  %79 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %78
-  store float %76, ptr %79, align 4, !alias.scope !569
-  %indvars.iv.next26.i19 = add nuw nsw i64 %indvars.iv25.i14, 1
-  %exitcond28.not.i20 = icmp eq i64 %indvars.iv.next26.i19, 4
-  br i1 %exitcond28.not.i20, label %80, label %.preheader.i13, !llvm.loop !550
+65:                                               ; preds = %61
+  %gep36.i25 = getelementptr inbounds nuw float, ptr %invariant.gep35.i14, i64 %indvars.iv25.i16
+  store float %64, ptr %gep36.i25, align 4, !alias.scope !569
+  %indvars.iv.next26.i26 = add nuw nsw i64 %indvars.iv25.i16, 1
+  %exitcond28.not.i27 = icmp eq i64 %indvars.iv.next26.i26, 4
+  br i1 %exitcond28.not.i27, label %66, label %.preheader.i15, !llvm.loop !550
 
-80:                                               ; preds = %77
-  %indvars.iv.next30.i21 = add nuw nsw i64 %indvars.iv29.i12, 1
-  %exitcond32.not.i22 = icmp eq i64 %indvars.iv.next30.i21, 4
-  br i1 %exitcond32.not.i22, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit23, label %.preheader19.i11, !llvm.loop !551
+66:                                               ; preds = %65
+  %indvars.iv.next30.i28 = add nuw nsw i64 %indvars.iv29.i12, 1
+  %exitcond32.not.i29 = icmp eq i64 %indvars.iv.next30.i28, 4
+  br i1 %exitcond32.not.i29, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit30, label %.preheader19.i11, !llvm.loop !551
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit23:              ; preds = %80
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
-  %84 = load ptr, ptr %83, align 8, !nonnull !555, !noundef !555
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %86 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %85)
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %87, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit30:              ; preds = %66
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 56
+  %70 = load ptr, ptr %69, align 8, !nonnull !555, !noundef !555
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
+  %72 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %71)
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1132
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %73, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit, %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit23
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %89 = load ptr, ptr %88, align 8
-  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %89)
+.loopexit:                                        ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit, %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit30
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %75 = load ptr, ptr %74, align 8
+  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %75)
   ret void
 }
 

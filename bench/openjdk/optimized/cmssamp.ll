@@ -382,65 +382,66 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   store double %61, ptr %46, align 8
   call void @cmsDoTransform(ptr noundef nonnull %phi.call, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 1) #7
   %62 = load double, ptr %7, align 8
-  %63 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
   store double %62, ptr %63, align 8
   %64 = load double, ptr %6, align 8
-  %65 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   store double %64, ptr %65, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %.preheader134.preheader, label %47, !llvm.loop !6
 
 .preheader134.preheader:                          ; preds = %47
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 2040
-  %.pre = load double, ptr %.phi.trans.insert, align 8
+  %scevgep = getelementptr inbounds nuw i8, ptr %9, i64 2040
+  %load_initial = load double, ptr %scevgep, align 8
   br label %.preheader134
 
 .preheader134:                                    ; preds = %.preheader134.preheader, %.preheader134
-  %66 = phi double [ %.pre, %.preheader134.preheader ], [ %., %.preheader134 ]
+  %store_forwarded = phi double [ %load_initial, %.preheader134.preheader ], [ %., %.preheader134 ]
   %indvars.iv144 = phi i64 [ 254, %.preheader134.preheader ], [ %indvars.iv.next145, %.preheader134 ]
-  %67 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv144
-  %68 = load double, ptr %67, align 8
-  %69 = fcmp olt double %68, %66
-  %. = select i1 %69, double %68, double %66
-  store double %., ptr %67, align 8
+  %66 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv144
+  %67 = load double, ptr %66, align 8
+  %68 = fcmp olt double %67, %store_forwarded
+  %. = select i1 %68, double %67, double %store_forwarded
+  store double %., ptr %66, align 8
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, -1
-  %70 = icmp samesign ugt i64 %indvars.iv144, 1
-  br i1 %70, label %.preheader134, label %71, !llvm.loop !8
+  %69 = icmp samesign ugt i64 %indvars.iv144, 1
+  br i1 %69, label %.preheader134, label %70, !llvm.loop !8
 
-71:                                               ; preds = %.preheader134
-  %72 = load double, ptr %9, align 16
-  %73 = load double, ptr %.phi.trans.insert, align 8
-  %74 = fcmp olt double %72, %73
+70:                                               ; preds = %.preheader134
+  %71 = load double, ptr %9, align 16
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 2040
+  %73 = load double, ptr %72, align 8
+  %74 = fcmp olt double %71, %73
   br i1 %74, label %76, label %75
 
-75:                                               ; preds = %71
+75:                                               ; preds = %70
   call void @cmsDeleteTransform(ptr noundef nonnull %phi.call) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %119
 
-76:                                               ; preds = %71
-  %77 = fsub double %73, %72
-  br i1 %36, label %.preheader, label %.thread169.preheader
+76:                                               ; preds = %70
+  %77 = fsub double %73, %71
+  br i1 %36, label %.preheader, label %.thread168.preheader
 
 .preheader:                                       ; preds = %76
-  %78 = call double @llvm.fmuladd.f64(double %77, double 2.000000e-01, double %72)
+  %78 = call double @llvm.fmuladd.f64(double %77, double 2.000000e-01, double %71)
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.preheader
-  %indvars.iv147.ph = phi i64 [ %indvars.iv.next148166, %.thread ], [ 0, %.preheader ]
+  %indvars.iv147.ph = phi i64 [ %indvars.iv.next148165, %.thread ], [ 0, %.preheader ]
   %.not129 = phi i1 [ true, %.thread ], [ false, %.preheader ]
   br label %79
 
 79:                                               ; preds = %.outer, %89
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %89 ], [ %indvars.iv147.ph, %.outer ]
-  %80 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv147
+  %80 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv147
   %81 = load double, ptr %80, align 8
   %82 = fcmp ugt double %81, %78
   br i1 %82, label %83, label %89
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv147
+  %84 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv147
   %85 = load double, ptr %84, align 8
   %86 = fsub double %81, %85
   %87 = call double @llvm.fabs.f64(double %86)
@@ -453,34 +454,34 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   br i1 %exitcond150.not, label %90, label %79, !llvm.loop !9
 
 .thread:                                          ; preds = %83
-  %indvars.iv.next148166 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond150.not167 = icmp eq i64 %indvars.iv.next148166, 256
-  br i1 %exitcond150.not167, label %.thread169.preheader, label %.outer, !llvm.loop !9
+  %indvars.iv.next148165 = add nuw nsw i64 %indvars.iv147, 1
+  %exitcond150.not166 = icmp eq i64 %indvars.iv.next148165, 256
+  br i1 %exitcond150.not166, label %.thread168.preheader, label %.outer, !llvm.loop !9
 
 90:                                               ; preds = %89
-  br i1 %.not129, label %.thread169.preheader, label %91
+  br i1 %.not129, label %.thread168.preheader, label %91
 
-.thread169.preheader:                             ; preds = %.thread, %76, %90
-  br label %.thread169
+.thread168.preheader:                             ; preds = %.thread, %76, %90
+  br label %.thread168
 
 91:                                               ; preds = %90
   call void @cmsLab2XYZ(ptr noundef null, ptr noundef %0, ptr noundef nonnull %5) #7
   call void @cmsDeleteTransform(ptr noundef nonnull %phi.call) #7
   br label %119
 
-.thread169:                                       ; preds = %.thread169.preheader, %.thread169
-  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.thread169 ], [ 0, %.thread169.preheader ]
-  %92 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv151
+.thread168:                                       ; preds = %.thread168.preheader, %.thread168
+  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.thread168 ], [ 0, %.thread168.preheader ]
+  %92 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv151
   %93 = load double, ptr %92, align 8
-  %94 = fsub double %93, %72
+  %94 = fsub double %93, %71
   %95 = fdiv double %94, %77
-  %96 = getelementptr inbounds nuw [256 x double], ptr %10, i64 0, i64 %indvars.iv151
+  %96 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv151
   store double %95, ptr %96, align 8
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, 256
-  br i1 %exitcond154.not, label %97, label %.thread169, !llvm.loop !10
+  br i1 %exitcond154.not, label %97, label %.thread168, !llvm.loop !10
 
-97:                                               ; preds = %.thread169
+97:                                               ; preds = %.thread168
   %.131 = select i1 %36, double 1.000000e-01, double 3.000000e-02
   %.132 = select i1 %36, double 5.000000e-01, double 2.500000e-01
   br label %98
@@ -488,7 +489,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
 98:                                               ; preds = %97, %110
   %indvars.iv155 = phi i64 [ 0, %97 ], [ %indvars.iv.next156, %110 ]
   %.0110141 = phi i32 [ 0, %97 ], [ %.1111, %110 ]
-  %99 = getelementptr inbounds nuw [256 x double], ptr %10, i64 0, i64 %indvars.iv155
+  %99 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv155
   %100 = load double, ptr %99, align 8
   %101 = fcmp oge double %100, %.131
   %102 = fcmp olt double %100, %.132
@@ -496,12 +497,12 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   br i1 %or.cond133, label %103, label %110
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv155
+  %104 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv155
   %105 = load double, ptr %104, align 8
   %106 = sext i32 %.0110141 to i64
-  %107 = getelementptr inbounds [256 x double], ptr %11, i64 0, i64 %106
+  %107 = getelementptr inbounds double, ptr %11, i64 %106
   store double %105, ptr %107, align 8
-  %108 = getelementptr inbounds [256 x double], ptr %12, i64 0, i64 %106
+  %108 = getelementptr inbounds double, ptr %12, i64 %106
   store double %100, ptr %108, align 8
   %109 = add nsw i32 %.0110141, 1
   br label %110

@@ -61,7 +61,7 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
   %6 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %88, label %7
+  br i1 %.not, label %87, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -69,13 +69,13 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !10
   %.not52 = icmp ult i32 %9, %11
-  br i1 %.not52, label %12, label %88
+  br i1 %.not52, label %12, label %87
 
 12:                                               ; preds = %7
   %13 = zext i32 %2 to i64
   %14 = call ptr @cl_hash_data(ptr noundef nonnull @.str, ptr noundef %1, i64 noundef %13, ptr noundef nonnull %6, ptr noundef null) #8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %88, label %16
+  br i1 %15, label %87, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -93,7 +93,7 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i8, ptr %6, align 16, !tbaa !15
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i32], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !16
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw %struct.UNIQMD5, ptr %19, i64 %27
@@ -125,7 +125,7 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
   store i32 0, ptr %39, align 8, !tbaa !13
   %40 = load i8, ptr %6, align 16, !tbaa !15
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw [256 x i32], ptr %22, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %22, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !16
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw %struct.UNIQMD5, ptr %19, i64 %44
@@ -142,7 +142,7 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i8, ptr %6, align 16, !tbaa !15
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [256 x i32], ptr %51, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %53
   store i32 %18, ptr %54, align 4, !tbaa !16
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 28
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 12
@@ -150,66 +150,65 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
 
 57:                                               ; preds = %49, %57
   %indvars.iv = phi i64 [ 0, %49 ], [ %indvars.iv.next, %57 ]
-  %58 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %59 = load i8, ptr %58, align 1, !tbaa !15
   %60 = lshr i8 %59, 4
   %61 = zext nneg i8 %60 to i64
-  %62 = getelementptr inbounds nuw [16 x i8], ptr @__const.uniq_add.HEX, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @__const.uniq_add.HEX, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !15
   %64 = shl nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds nuw [33 x i8], ptr %55, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 %64
   store i8 %63, ptr %65, align 1, !tbaa !15
   %66 = load i8, ptr %58, align 1, !tbaa !15
   %67 = and i8 %66, 15
   %68 = zext nneg i8 %67 to i64
-  %69 = getelementptr inbounds nuw [16 x i8], ptr @__const.uniq_add.HEX, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @__const.uniq_add.HEX, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !15
-  %71 = or disjoint i64 %64, 1
-  %72 = getelementptr inbounds nuw [33 x i8], ptr %55, i64 0, i64 %71
-  store i8 %70, ptr %72, align 1, !tbaa !15
-  %73 = load i8, ptr %58, align 1, !tbaa !15
-  %74 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 0, i64 %indvars.iv
-  store i8 %73, ptr %74, align 1, !tbaa !15
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  store i8 %70, ptr %71, align 1, !tbaa !15
+  %72 = load i8, ptr %58, align 1, !tbaa !15
+  %73 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv
+  store i8 %72, ptr %73, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %75, label %57
+  br i1 %exitcond.not, label %74, label %57
 
-75:                                               ; preds = %57
-  %76 = getelementptr inbounds nuw i8, ptr %50, i64 60
-  store i8 0, ptr %76, align 4, !tbaa !15
-  %77 = load i32, ptr %8, align 4, !tbaa !11
-  %78 = add i32 %77, 1
-  store i32 %78, ptr %8, align 4, !tbaa !11
+74:                                               ; preds = %57
+  %75 = getelementptr inbounds nuw i8, ptr %50, i64 60
+  store i8 0, ptr %75, align 4, !tbaa !15
+  %76 = load i32, ptr %8, align 4, !tbaa !11
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %8, align 4, !tbaa !11
   %.pre = load i32, ptr %17, align 8, !tbaa !12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %75
-  %79 = phi i32 [ %.pre, %75 ], [ %18, %33 ]
-  %.2 = phi ptr [ %50, %75 ], [ %.166, %33 ]
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %17, align 8, !tbaa !12
-  %81 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %82 = load i32, ptr %81, align 8, !tbaa !13
-  %83 = add i32 %82, 1
-  store i32 %83, ptr %81, align 8, !tbaa !13
+.loopexit:                                        ; preds = %33, %74
+  %78 = phi i32 [ %.pre, %74 ], [ %18, %33 ]
+  %.2 = phi ptr [ %50, %74 ], [ %.166, %33 ]
+  %79 = add i32 %78, 1
+  store i32 %79, ptr %17, align 8, !tbaa !12
+  %80 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %81 = load i32, ptr %80, align 8, !tbaa !13
+  %82 = add i32 %81, 1
+  store i32 %82, ptr %80, align 8, !tbaa !13
   %.not58 = icmp eq ptr %3, null
-  br i1 %.not58, label %86, label %84
+  br i1 %.not58, label %85, label %83
 
-84:                                               ; preds = %.loopexit
-  %85 = getelementptr inbounds nuw i8, ptr %.2, i64 28
-  store ptr %85, ptr %3, align 8, !tbaa !18
-  br label %86
+83:                                               ; preds = %.loopexit
+  %84 = getelementptr inbounds nuw i8, ptr %.2, i64 28
+  store ptr %84, ptr %3, align 8, !tbaa !18
+  br label %85
 
-86:                                               ; preds = %84, %.loopexit
+85:                                               ; preds = %83, %.loopexit
   %.not59 = icmp eq ptr %4, null
-  br i1 %.not59, label %88, label %87
+  br i1 %.not59, label %87, label %86
 
-87:                                               ; preds = %86
-  store i32 %83, ptr %4, align 4, !tbaa !16
-  br label %88
+86:                                               ; preds = %85
+  store i32 %82, ptr %4, align 4, !tbaa !16
+  br label %87
 
-88:                                               ; preds = %86, %87, %12, %7, %5
-  %.048 = phi i32 [ 3, %5 ], [ 24, %7 ], [ 26, %12 ], [ 0, %87 ], [ 0, %86 ]
+87:                                               ; preds = %85, %86, %12, %7, %5
+  %.048 = phi i32 [ 3, %5 ], [ 24, %7 ], [ 26, %12 ], [ 0, %86 ], [ 0, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.048
 }
@@ -242,7 +241,7 @@ define range(i32 0, 27) i32 @uniq_get(ptr noundef readonly captures(address_is_n
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i8, ptr %6, align 16, !tbaa !15
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i32], ptr %17, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !16
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = zext i32 %21 to i64

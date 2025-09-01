@@ -635,7 +635,7 @@ define dso_local noundef i64 @inet_to_cidr(ptr noundef readonly captures(none) %
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %51 = lshr i32 %11, 3
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = trunc nsw i32 %46 to i8
   %56 = and i8 %54, %55
@@ -715,7 +715,7 @@ define dso_local noundef ptr @cidr_set_masklen_internal(ptr noundef readonly cap
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %37 = lshr i32 %1, 3
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = trunc nsw i32 %32 to i8
   %42 = and i8 %40, %41
@@ -982,7 +982,7 @@ define dso_local noundef i64 @cidr_set_masklen(ptr noundef readonly captures(non
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %61 = lshr i32 %.017, 3
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = trunc nsw i32 %56 to i8
   %66 = and i8 %64, %65
@@ -2841,7 +2841,7 @@ bitncommon.exit:                                  ; preds = %46, %._crit_edge.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 2
   %86 = lshr i32 %51, 3
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = trunc nsw i32 %81 to i8
   %91 = and i8 %89, %90
@@ -2951,7 +2951,7 @@ define dso_local double @convert_network_to_scalar(i64 noundef %0, i32 noundef %
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %14 ]
   %.04247 = phi double [ %12, %4 ], [ %19, %14 ]
   %15 = fmul double %.04247, 2.560000e+02
-  %16 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %18 = uitofp i8 %17 to double
   %19 = fadd double %15, %18

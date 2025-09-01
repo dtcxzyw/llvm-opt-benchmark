@@ -5838,7 +5838,7 @@ _ZN2cv15line_descriptor5splitEPmPhiii.exit:       ; preds = %._crit_edge.i
 
 .lr.ph146:                                        ; preds = %.preheader129
   %.not167 = icmp eq i64 %indvars.iv192, 0
-  %72 = getelementptr inbounds nuw [100 x i32], ptr %64, i64 0, i64 %indvars.iv192
+  %72 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv192
   %73 = trunc i64 %indvars.iv192 to i32
   %74 = add i32 %73, -1
   %75 = trunc nuw nsw i64 %indvars.iv192 to i32
@@ -5875,7 +5875,7 @@ _ZN2cv15line_descriptor5splitEPmPhiii.exit:       ; preds = %._crit_edge.i
 
 .lr.ph:                                           ; preds = %80, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %80 ]
-  %91 = getelementptr inbounds nuw [100 x i32], ptr %64, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
   %92 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %92, ptr %91, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5890,7 +5890,7 @@ _ZN2cv15line_descriptor5splitEPmPhiii.exit:       ; preds = %._crit_edge.i
 
 94:                                               ; preds = %93
   %95 = sext i32 %.087 to i64
-  %96 = getelementptr inbounds [100 x i32], ptr %64, i64 0, i64 %95
+  %96 = getelementptr inbounds i32, ptr %64, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !30
   %98 = icmp eq i32 %97, %.087
   %99 = zext nneg i32 %97 to i64
@@ -6035,7 +6035,7 @@ _ZN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable5queryEmPi.exit
   %193 = load i8, ptr %192, align 1, !tbaa !29
   %194 = xor i8 %193, %191
   %195 = zext i8 %194 to i64
-  %196 = getelementptr inbounds nuw [256 x i32], ptr @_ZL6lookup, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw i32, ptr @_ZL6lookup, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !30
   %198 = add nsw i32 %197, %.135.i
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
@@ -6085,10 +6085,10 @@ _ZN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable5queryEmPi.exit
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %225 ], [ -1, %_ZN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable5queryEmPi.exit.thread ]
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %225 ], [ 0, %_ZN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable5queryEmPi.exit.thread ]
   %.293137 = phi i64 [ %229, %225 ], [ %.091, %_ZN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable5queryEmPi.exit.thread ]
-  %217 = getelementptr inbounds nuw [100 x i32], ptr %64, i64 0, i64 %indvars.iv180
+  %217 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv180
   %218 = load i32, ptr %217, align 4, !tbaa !30
-  %219 = add nsw i64 %indvars.iv182, 2
-  %220 = getelementptr inbounds [100 x i32], ptr %64, i64 0, i64 %219
+  %219 = getelementptr i32, ptr %64, i64 %indvars.iv182
+  %220 = getelementptr i8, ptr %219, i64 8
   %221 = load i32, ptr %220, align 4, !tbaa !30
   %222 = add nsw i32 %221, -1
   %223 = icmp eq i32 %218, %222

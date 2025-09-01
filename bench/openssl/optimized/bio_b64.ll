@@ -94,7 +94,7 @@ define internal i32 @b64_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %35 = phi i32 [ %18, %.lr.ph ], [ %45, %31 ]
   %.0128218 = phi i32 [ %28, %.lr.ph ], [ %32, %31 ]
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [1502 x i8], ptr %30, i64 0, i64 %36
+  %37 = getelementptr inbounds i8, ptr %30, i64 %36
   %38 = tail call i32 @BIO_write(ptr noundef %5, ptr noundef nonnull %37, i32 noundef %.0128218) #8
   %39 = icmp slt i32 %38, 1
   br i1 %39, label %40, label %41
@@ -174,7 +174,7 @@ define internal i32 @b64_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %69 = icmp samesign ugt i32 %68, %.0132219
   %spec.select = select i1 %69, i32 1, i32 %68
   %70 = zext nneg i32 %62 to i64
-  %71 = getelementptr inbounds nuw [1024 x i8], ptr %55, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 %70
   %72 = zext nneg i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr align 1 %.0127221, i64 %72, i1 false)
   %73 = add nuw nsw i32 %62, %spec.select
@@ -295,7 +295,7 @@ define internal i32 @b64_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 123:                                              ; preds = %120
   %124 = sext i32 %121 to i64
-  %125 = getelementptr inbounds [1502 x i8], ptr %54, i64 0, i64 %124
+  %125 = getelementptr inbounds i8, ptr %54, i64 %124
   %126 = tail call i32 @BIO_write(ptr noundef %5, ptr noundef nonnull %125, i32 noundef %.3) #8
   %127 = icmp slt i32 %126, 1
   br i1 %127, label %128, label %131
@@ -411,7 +411,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %33 = sext i32 %24 to i64
-  %34 = getelementptr inbounds [1502 x i8], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds i8, ptr %32, i64 %33
   %35 = sext i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %34, i64 %35, i1 false)
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -461,7 +461,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
 55:                                               ; preds = %.backedge
   %56 = load i32, ptr %46, align 8, !tbaa !12
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [1024 x i8], ptr %.ptr, i64 0, i64 %57
+  %58 = getelementptr inbounds i8, ptr %.ptr, i64 %57
   %59 = sub nsw i32 1024, %56
   %60 = call i32 @BIO_read(ptr noundef %8, ptr noundef nonnull %58, i32 noundef %59) #8
   %61 = icmp sgt i32 %60, 0
@@ -591,7 +591,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   %indvars.iv = phi i64 [ 0, %.lr.ph253.preheader ], [ %indvars.iv.next, %.lr.ph253 ]
   %107 = getelementptr inbounds nuw i8, ptr %.0161.ptr249, i64 %indvars.iv
   %108 = load i8, ptr %107, align 1, !tbaa !21
-  %109 = getelementptr inbounds nuw [1024 x i8], ptr %.ptr, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw i8, ptr %.ptr, i64 %indvars.iv
   store i8 %108, ptr %109, align 1, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next, %wide.trip.count265
@@ -639,7 +639,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   %indvars.iv267 = phi i64 [ 0, %.lr.ph255.preheader ], [ %indvars.iv.next268, %.lr.ph255 ]
   %121 = getelementptr inbounds nuw i8, ptr %.0161.ptr, i64 %indvars.iv267
   %122 = load i8, ptr %121, align 1, !tbaa !21
-  %123 = getelementptr inbounds nuw [1024 x i8], ptr %.ptr, i64 0, i64 %indvars.iv267
+  %123 = getelementptr inbounds nuw i8, ptr %.ptr, i64 %indvars.iv267
   store i8 %122, ptr %123, align 1, !tbaa !21
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count270

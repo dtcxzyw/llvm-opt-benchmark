@@ -440,9 +440,9 @@ define internal zeroext i1 @SW_CreateTexture(ptr readnone captures(none) %0, ptr
 78:                                               ; preds = %77
   %79 = lshr i32 %69, 20
   %80 = and i32 %79, 15
-  %switch.tableidx72 = add nsw i32 %80, -2
-  %81 = icmp ult i32 %switch.tableidx72, 5
-  %switch.maskindex75 = trunc nsw i32 %switch.tableidx72 to i8
+  %switch.tableidx71 = add nsw i32 %80, -2
+  %81 = icmp ult i32 %switch.tableidx71, 5
+  %switch.maskindex75 = trunc nsw i32 %switch.tableidx71 to i8
   %switch.shifted76 = lshr i8 27, %switch.maskindex75
   %switch.lobit77 = trunc i8 %switch.shifted76 to i1
   %or.cond79 = select i1 %81, i1 %switch.lobit77, i1 false
@@ -1952,7 +1952,7 @@ PrepTextureForCopy.exit330:                       ; preds = %switch.edge.i328, %
 
 switch.lookup:                                    ; preds = %497
   %501 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SW_RunCommandQueue, i64 0, i64 %501
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SW_RunCommandQueue, i64 %501
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread.i
 

@@ -40,7 +40,7 @@ chacha_next32.exit:                               ; preds = %1, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = sub nsw i32 16, %6
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
   %12 = load i32, ptr %2, align 4, !tbaa !7
@@ -60,7 +60,7 @@ chacha_next32.exit2:                              ; preds = %chacha_next32.exit,
   %18 = shl nuw i64 %17, 32
   %19 = sub nsw i32 16, %16
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %20
+  %21 = getelementptr inbounds i32, ptr %7, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !3
   store i32 0, ptr %21, align 4, !tbaa !3
   %23 = load i32, ptr %2, align 4, !tbaa !7
@@ -243,7 +243,7 @@ _mi_os_random_weak.exit:                          ; preds = %40
   %65 = shl nuw nsw i64 %.01819.i, 2
   %66 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %65
   %67 = load i32, ptr %66, align 1
-  %68 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.01819.i
+  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.01819.i
   store i32 %67, ptr %68, align 4, !tbaa !3
   %69 = add nuw nsw i64 %.01819.i, 1
   %exitcond.not.i7 = icmp eq i64 %69, 4
@@ -457,12 +457,12 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
 
 139:                                              ; preds = %.preheader, %139
   %.054 = phi i64 [ 0, %.preheader ], [ %146, %139 ]
-  %140 = getelementptr inbounds nuw [16 x i32], ptr %1, i64 0, i64 %.054
+  %140 = getelementptr inbounds nuw i32, ptr %1, i64 %.054
   %141 = load i32, ptr %140, align 4, !tbaa !3
-  %142 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.054
+  %142 = getelementptr inbounds nuw i32, ptr %0, i64 %.054
   %143 = load i32, ptr %142, align 4, !tbaa !3
   %144 = add i32 %143, %141
-  %145 = getelementptr inbounds nuw [16 x i32], ptr %17, i64 0, i64 %.054
+  %145 = getelementptr inbounds nuw i32, ptr %17, i64 %.054
   store i32 %144, ptr %145, align 4, !tbaa !3
   %146 = add nuw nsw i64 %.054, 1
   %exitcond.not = icmp eq i64 %146, 16

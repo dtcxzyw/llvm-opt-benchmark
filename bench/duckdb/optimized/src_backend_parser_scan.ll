@@ -206,10 +206,10 @@ _ZN17duckdb_libpgqueryL26core_yyensure_buffer_stackEPv.exit: ; preds = %24, %.cr
   %.1778 = phi i32 [ %.0777, %.loopexit1066 ], [ %110, %._crit_edge ]
   %74 = load i8, ptr %.1782, align 1, !tbaa !32
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !32
   %78 = sext i32 %.1778 to i64
-  %79 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %78
+  %79 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !34
   %.not823 = icmp eq i16 %80, 0
   br i1 %.not823, label %82, label %81
@@ -220,12 +220,12 @@ _ZN17duckdb_libpgqueryL26core_yyensure_buffer_stackEPv.exit: ; preds = %24, %.cr
   br label %82
 
 82:                                               ; preds = %81, %73
-  %83 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %78
+  %83 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 %78
   %84 = load i16, ptr %83, align 2, !tbaa !34
   %85 = sext i16 %84 to i64
   %86 = zext i8 %77 to i64
   %87 = add nsw i64 %85, %86
-  %88 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %87
+  %88 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !34
   %90 = sext i16 %89 to i32
   %.not8241588 = icmp eq i32 %.1778, %90
@@ -235,32 +235,32 @@ _ZN17duckdb_libpgqueryL26core_yyensure_buffer_stackEPv.exit: ; preds = %24, %.cr
   %91 = phi i64 [ %104, %99 ], [ %86, %82 ]
   %92 = phi i64 [ %100, %99 ], [ %78, %82 ]
   %.07931589 = phi i8 [ %.1794, %99 ], [ %77, %82 ]
-  %93 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %92
+  %93 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !34
   %95 = icmp sgt i16 %94, 308
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %.lr.ph
-  %97 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %91
+  %97 = getelementptr inbounds nuw i8, ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 %91
   %98 = load i8, ptr %97, align 1, !tbaa !32
   br label %99
 
 99:                                               ; preds = %96, %.lr.ph
   %.1794 = phi i8 [ %98, %96 ], [ %.07931589, %.lr.ph ]
   %100 = sext i16 %94 to i64
-  %101 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %100
+  %101 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !34
   %103 = sext i16 %102 to i64
   %104 = zext i8 %.1794 to i64
   %105 = add nsw i64 %103, %104
-  %106 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %105
+  %106 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !34
   %.not824 = icmp eq i16 %94, %107
   br i1 %.not824, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %99, %82
   %.lcssa = phi i64 [ %87, %82 ], [ %105, %99 ]
-  %108 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa
+  %108 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 %.lcssa
   %109 = load i16, ptr %108, align 2, !tbaa !34
   %110 = sext i16 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %.1782, i64 1
@@ -278,7 +278,7 @@ _ZN17duckdb_libpgqueryL26core_yyensure_buffer_stackEPv.exit: ; preds = %24, %.cr
   %.2783 = phi ptr [ %112, %.backedge.sink.split2436 ], [ %1769, %.backedge.backedge ]
   %.3780 = phi i32 [ %113, %.backedge.sink.split2436 ], [ %.3780.be, %.backedge.backedge ]
   %114 = sext i32 %.3780 to i64
-  %115 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %114
+  %115 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !34
   %117 = sext i16 %116 to i32
   store ptr %.1788, ptr %63, align 8, !tbaa !30
@@ -1292,7 +1292,7 @@ _ZN17duckdb_libpgqueryL27check_string_escape_warningEhPv.exit: ; preds = %569, %
 
 switch.lookup:                                    ; preds = %_ZN17duckdb_libpgqueryL27check_string_escape_warningEhPv.exit
   %610 = zext nneg i32 %604 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17duckdb_libpgquery10core_yylexEPNS_12core_YYSTYPEEPiPv, i64 0, i64 %610
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17duckdb_libpgquery10core_yylexEPNS_12core_YYSTYPEEPiPv, i64 %610
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN17duckdb_libpgqueryL20unescape_single_charEhPv.exit
 
@@ -2803,14 +2803,14 @@ sub_11061:                                        ; preds = %sub_11056, %.tail10
 
 1471:                                             ; preds = %.lr.ph32.i
   %1472 = zext i8 %1470 to i64
-  %1473 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %1472
+  %1473 = getelementptr inbounds nuw i8, ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 %1472
   %1474 = load i8, ptr %1473, align 1, !tbaa !32
   br label %1475
 
 1475:                                             ; preds = %1471, %.lr.ph32.i
   %1476 = phi i8 [ %1474, %1471 ], [ 1, %.lr.ph32.i ]
   %1477 = sext i32 %.02130.i to i64
-  %1478 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1477
+  %1478 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 %1477
   %1479 = load i16, ptr %1478, align 2, !tbaa !34
   %.not25.i = icmp eq i16 %1479, 0
   br i1 %.not25.i, label %1481, label %1480
@@ -2821,12 +2821,12 @@ sub_11061:                                        ; preds = %sub_11056, %.tail10
   br label %1481
 
 1481:                                             ; preds = %1480, %1475
-  %1482 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1477
+  %1482 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 %1477
   %1483 = load i16, ptr %1482, align 2, !tbaa !34
   %1484 = sext i16 %1483 to i64
   %1485 = zext i8 %1476 to i64
   %1486 = add nsw i64 %1484, %1485
-  %1487 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1486
+  %1487 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 %1486
   %1488 = load i16, ptr %1487, align 2, !tbaa !34
   %1489 = sext i16 %1488 to i32
   %.not2627.i = icmp eq i32 %.02130.i, %1489
@@ -2836,32 +2836,32 @@ sub_11061:                                        ; preds = %sub_11056, %.tail10
   %1490 = phi i64 [ %1503, %1498 ], [ %1485, %1481 ]
   %1491 = phi i64 [ %1499, %1498 ], [ %1477, %1481 ]
   %.028.i = phi i8 [ %.1.i, %1498 ], [ %1476, %1481 ]
-  %1492 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1491
+  %1492 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 %1491
   %1493 = load i16, ptr %1492, align 2, !tbaa !34
   %1494 = icmp sgt i16 %1493, 308
   br i1 %1494, label %1495, label %1498
 
 1495:                                             ; preds = %.lr.ph.i
-  %1496 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %1490
+  %1496 = getelementptr inbounds nuw i8, ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 %1490
   %1497 = load i8, ptr %1496, align 1, !tbaa !32
   br label %1498
 
 1498:                                             ; preds = %1495, %.lr.ph.i
   %.1.i = phi i8 [ %1497, %1495 ], [ %.028.i, %.lr.ph.i ]
   %1499 = sext i16 %1493 to i64
-  %1500 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1499
+  %1500 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 %1499
   %1501 = load i16, ptr %1500, align 2, !tbaa !34
   %1502 = sext i16 %1501 to i64
   %1503 = zext i8 %.1.i to i64
   %1504 = add nsw i64 %1502, %1503
-  %1505 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1504
+  %1505 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 %1504
   %1506 = load i16, ptr %1505, align 2, !tbaa !34
   %.not26.i = icmp eq i16 %1493, %1506
   br i1 %.not26.i, label %._crit_edge.i983, label %.lr.ph.i, !llvm.loop !72
 
 ._crit_edge.i983:                                 ; preds = %1498, %1481
   %.lcssa.i = phi i64 [ %1486, %1481 ], [ %1504, %1498 ]
-  %1507 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i
+  %1507 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 %.lcssa.i
   %1508 = load i16, ptr %1507, align 2, !tbaa !34
   %1509 = sext i16 %1508 to i32
   %1510 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 1
@@ -2871,7 +2871,7 @@ sub_11061:                                        ; preds = %sub_11056, %.tail10
 _ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit: ; preds = %._crit_edge.i983, %1459
   %.021.lcssa.i = phi i32 [ %1468, %1459 ], [ %1509, %._crit_edge.i983 ]
   %1511 = sext i32 %.021.lcssa.i to i64
-  %1512 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1511
+  %1512 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 %1511
   %1513 = load i16, ptr %1512, align 2, !tbaa !34
   %.not.i984 = icmp eq i16 %1513, 0
   br i1 %.not.i984, label %1515, label %1514
@@ -2882,11 +2882,11 @@ _ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit: ; preds = %._crit_edge.i
   br label %1515
 
 1515:                                             ; preds = %1514, %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit
-  %1516 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1511
+  %1516 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 %1511
   %1517 = load i16, ptr %1516, align 2, !tbaa !34
   %1518 = sext i16 %1517 to i64
   %1519 = add nsw i64 %1518, 1
-  %1520 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1519
+  %1520 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 %1519
   %1521 = load i16, ptr %1520, align 2, !tbaa !34
   %1522 = sext i16 %1521 to i32
   %.not1819.i = icmp eq i32 %.021.lcssa.i, %1522
@@ -2894,21 +2894,21 @@ _ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit: ; preds = %._crit_edge.i
 
 .lr.ph.i985:                                      ; preds = %1515, %.lr.ph.i985
   %1523 = phi i64 [ %1526, %.lr.ph.i985 ], [ %1511, %1515 ]
-  %1524 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1523
+  %1524 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 %1523
   %1525 = load i16, ptr %1524, align 2, !tbaa !34
   %1526 = sext i16 %1525 to i64
-  %1527 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1526
+  %1527 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 %1526
   %1528 = load i16, ptr %1527, align 2, !tbaa !34
   %1529 = sext i16 %1528 to i64
   %1530 = add nsw i64 %1529, 1
-  %1531 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1530
+  %1531 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 %1530
   %1532 = load i16, ptr %1531, align 2, !tbaa !34
   %.not18.i = icmp eq i16 %1525, %1532
   br i1 %.not18.i, label %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, label %.lr.ph.i985, !llvm.loop !74
 
 _ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit: ; preds = %.lr.ph.i985, %1515
   %.lcssa.i987 = phi i64 [ %1519, %1515 ], [ %1530, %.lr.ph.i985 ]
-  %1533 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i987
+  %1533 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 %.lcssa.i987
   %1534 = load i16, ptr %1533, align 2, !tbaa !34
   switch i16 %1534, label %1535 [
     i16 308, label %.backedge.sink.split2436.backedge
@@ -3342,14 +3342,14 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_
 
 1726:                                             ; preds = %.lr.ph32.i998
   %1727 = zext i8 %1725 to i64
-  %1728 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %1727
+  %1728 = getelementptr inbounds nuw i8, ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 %1727
   %1729 = load i8, ptr %1728, align 1, !tbaa !32
   br label %1730
 
 1730:                                             ; preds = %1726, %.lr.ph32.i998
   %1731 = phi i8 [ %1729, %1726 ], [ 1, %.lr.ph32.i998 ]
   %1732 = sext i32 %.02130.i999 to i64
-  %1733 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1732
+  %1733 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 %1732
   %1734 = load i16, ptr %1733, align 2, !tbaa !34
   %.not25.i1002 = icmp eq i16 %1734, 0
   br i1 %.not25.i1002, label %1736, label %1735
@@ -3360,12 +3360,12 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_
   br label %1736
 
 1736:                                             ; preds = %1735, %1730
-  %1737 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1732
+  %1737 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 %1732
   %1738 = load i16, ptr %1737, align 2, !tbaa !34
   %1739 = sext i16 %1738 to i64
   %1740 = zext i8 %1731 to i64
   %1741 = add nsw i64 %1739, %1740
-  %1742 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1741
+  %1742 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 %1741
   %1743 = load i16, ptr %1742, align 2, !tbaa !34
   %1744 = sext i16 %1743 to i32
   %.not2627.i1003 = icmp eq i32 %.02130.i999, %1744
@@ -3375,32 +3375,32 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_
   %1745 = phi i64 [ %1758, %1753 ], [ %1740, %1736 ]
   %1746 = phi i64 [ %1754, %1753 ], [ %1732, %1736 ]
   %.028.i1005 = phi i8 [ %.1.i1006, %1753 ], [ %1731, %1736 ]
-  %1747 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1746
+  %1747 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 %1746
   %1748 = load i16, ptr %1747, align 2, !tbaa !34
   %1749 = icmp sgt i16 %1748, 308
   br i1 %1749, label %1750, label %1753
 
 1750:                                             ; preds = %.lr.ph.i1004
-  %1751 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %1745
+  %1751 = getelementptr inbounds nuw i8, ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 %1745
   %1752 = load i8, ptr %1751, align 1, !tbaa !32
   br label %1753
 
 1753:                                             ; preds = %1750, %.lr.ph.i1004
   %.1.i1006 = phi i8 [ %1752, %1750 ], [ %.028.i1005, %.lr.ph.i1004 ]
   %1754 = sext i16 %1748 to i64
-  %1755 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1754
+  %1755 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 %1754
   %1756 = load i16, ptr %1755, align 2, !tbaa !34
   %1757 = sext i16 %1756 to i64
   %1758 = zext i8 %.1.i1006 to i64
   %1759 = add nsw i64 %1757, %1758
-  %1760 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1759
+  %1760 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 %1759
   %1761 = load i16, ptr %1760, align 2, !tbaa !34
   %.not26.i1007 = icmp eq i16 %1748, %1761
   br i1 %.not26.i1007, label %._crit_edge.i1008, label %.lr.ph.i1004, !llvm.loop !72
 
 ._crit_edge.i1008:                                ; preds = %1753, %1736
   %.lcssa.i1009 = phi i64 [ %1741, %1736 ], [ %1759, %1753 ]
-  %1762 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i1009
+  %1762 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 %.lcssa.i1009
   %1763 = load i16, ptr %1762, align 2, !tbaa !34
   %1764 = sext i16 %1763 to i32
   %1765 = getelementptr inbounds nuw i8, ptr %.02329.i1000, i64 1
@@ -3430,14 +3430,14 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044: ; preds = %1549,
 
 1773:                                             ; preds = %.lr.ph32.i1013
   %1774 = zext i8 %1772 to i64
-  %1775 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %1774
+  %1775 = getelementptr inbounds nuw i8, ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 %1774
   %1776 = load i8, ptr %1775, align 1, !tbaa !32
   br label %1777
 
 1777:                                             ; preds = %1773, %.lr.ph32.i1013
   %1778 = phi i8 [ %1776, %1773 ], [ 1, %.lr.ph32.i1013 ]
   %1779 = sext i32 %.02130.i1014 to i64
-  %1780 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1779
+  %1780 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 %1779
   %1781 = load i16, ptr %1780, align 2, !tbaa !34
   %.not25.i1017 = icmp eq i16 %1781, 0
   br i1 %.not25.i1017, label %1783, label %1782
@@ -3448,12 +3448,12 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044: ; preds = %1549,
   br label %1783
 
 1783:                                             ; preds = %1782, %1777
-  %1784 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1779
+  %1784 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 %1779
   %1785 = load i16, ptr %1784, align 2, !tbaa !34
   %1786 = sext i16 %1785 to i64
   %1787 = zext i8 %1778 to i64
   %1788 = add nsw i64 %1786, %1787
-  %1789 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1788
+  %1789 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 %1788
   %1790 = load i16, ptr %1789, align 2, !tbaa !34
   %1791 = sext i16 %1790 to i32
   %.not2627.i1018 = icmp eq i32 %.02130.i1014, %1791
@@ -3463,32 +3463,32 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044: ; preds = %1549,
   %1792 = phi i64 [ %1805, %1800 ], [ %1787, %1783 ]
   %1793 = phi i64 [ %1801, %1800 ], [ %1779, %1783 ]
   %.028.i1020 = phi i8 [ %.1.i1021, %1800 ], [ %1778, %1783 ]
-  %1794 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1793
+  %1794 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 %1793
   %1795 = load i16, ptr %1794, align 2, !tbaa !34
   %1796 = icmp sgt i16 %1795, 308
   br i1 %1796, label %1797, label %1800
 
 1797:                                             ; preds = %.lr.ph.i1019
-  %1798 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %1792
+  %1798 = getelementptr inbounds nuw i8, ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 %1792
   %1799 = load i8, ptr %1798, align 1, !tbaa !32
   br label %1800
 
 1800:                                             ; preds = %1797, %.lr.ph.i1019
   %.1.i1021 = phi i8 [ %1799, %1797 ], [ %.028.i1020, %.lr.ph.i1019 ]
   %1801 = sext i16 %1795 to i64
-  %1802 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1801
+  %1802 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 %1801
   %1803 = load i16, ptr %1802, align 2, !tbaa !34
   %1804 = sext i16 %1803 to i64
   %1805 = zext i8 %.1.i1021 to i64
   %1806 = add nsw i64 %1804, %1805
-  %1807 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1806
+  %1807 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 %1806
   %1808 = load i16, ptr %1807, align 2, !tbaa !34
   %.not26.i1022 = icmp eq i16 %1795, %1808
   br i1 %.not26.i1022, label %._crit_edge.i1023, label %.lr.ph.i1019, !llvm.loop !72
 
 ._crit_edge.i1023:                                ; preds = %1800, %1783
   %.lcssa.i1024 = phi i64 [ %1788, %1783 ], [ %1806, %1800 ]
-  %1809 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i1024
+  %1809 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 %.lcssa.i1024
   %1810 = load i16, ptr %1809, align 2, !tbaa !34
   %1811 = sext i16 %1810 to i32
   %1812 = getelementptr inbounds nuw i8, ptr %.02329.i1015, i64 1

@@ -684,7 +684,7 @@ seterr.exit172:                                   ; preds = %31, %34
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds [10 x i64], ptr %9, i64 0, i64 %41
+  %44 = getelementptr inbounds i64, ptr %9, i64 %41
   store i64 %.pre222.pre232, ptr %44, align 8, !tbaa !29
   br label %45
 
@@ -774,7 +774,7 @@ doemit.exit171:                                   ; preds = %45, %enlarge.exit.i
 
 79:                                               ; preds = %78
   %80 = load i64, ptr %3, align 8, !tbaa !28
-  %81 = getelementptr inbounds [10 x i64], ptr %10, i64 0, i64 %41
+  %81 = getelementptr inbounds i64, ptr %10, i64 %41
   store i64 %80, ptr %81, align 8, !tbaa !29
   br label %82
 
@@ -2756,7 +2756,7 @@ seterr.exit105:                                   ; preds = %167, %170
   br i1 %176, label %177, label %179
 
 177:                                              ; preds = %171
-  %178 = getelementptr inbounds [10 x i64], ptr %59, i64 0, i64 %175
+  %178 = getelementptr inbounds i64, ptr %59, i64 %175
   store i64 %74, ptr %178, align 8, !tbaa !29
   br label %179
 
@@ -2856,7 +2856,7 @@ doemit.exit104:                                   ; preds = %179, %enlarge.exit.
 
 218:                                              ; preds = %217
   %219 = load i64, ptr %4, align 8, !tbaa !28
-  %220 = getelementptr inbounds [10 x i64], ptr %56, i64 0, i64 %175
+  %220 = getelementptr inbounds i64, ptr %56, i64 %175
   store i64 %219, ptr %220, align 8, !tbaa !29
   br label %221
 
@@ -2976,7 +2976,7 @@ seterr.exit89:                                    ; preds = %263, %266
   %268 = and i32 %.0119.i, -257
   %269 = add nsw i32 %268, -48
   %270 = zext nneg i32 %269 to i64
-  %271 = getelementptr inbounds nuw [10 x i64], ptr %56, i64 0, i64 %270
+  %271 = getelementptr inbounds nuw i64, ptr %56, i64 %270
   %272 = load i64, ptr %271, align 8, !tbaa !29
   %.not127.i = icmp eq i64 %272, 0
   %273 = load i32, ptr %55, align 8, !tbaa !19
@@ -3040,7 +3040,7 @@ enlarge.exit.thread.i85:                          ; preds = %.enlarge.exit.threa
   br label %doemit.exit88
 
 doemit.exit88:                                    ; preds = %275, %enlarge.exit.i87, %enlarge.exit.thread.i85
-  %296 = getelementptr inbounds nuw [10 x i64], ptr %59, i64 0, i64 %270
+  %296 = getelementptr inbounds nuw i64, ptr %59, i64 %270
   %297 = load i64, ptr %296, align 8, !tbaa !29
   %298 = add nsw i64 %297, 1
   %299 = load i64, ptr %271, align 8, !tbaa !29
@@ -3820,7 +3820,7 @@ seterr.exit:                                      ; preds = %36, %39
 
 48:                                               ; preds = %41, %58
   %indvars.iv = phi i64 [ 1, %41 ], [ %indvars.iv.next, %58 ]
-  %49 = getelementptr inbounds nuw [10 x i64], ptr %46, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv
   %50 = load i64, ptr %49, align 8, !tbaa !29
   %.not33 = icmp slt i64 %50, %3
   br i1 %.not33, label %53, label %51
@@ -3831,7 +3831,7 @@ seterr.exit:                                      ; preds = %36, %39
   br label %53
 
 53:                                               ; preds = %51, %48
-  %54 = getelementptr inbounds nuw [10 x i64], ptr %47, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !29
   %.not34 = icmp slt i64 %55, %3
   br i1 %.not34, label %58, label %56

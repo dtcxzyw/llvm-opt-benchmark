@@ -1154,7 +1154,7 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit99.preheader: ; preds = %"_ZN4cor
 
 _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit99: ; preds = %_ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit99.preheader, %25
   %.0145 = phi i64 [ %26, %25 ], [ 0, %_ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit99.preheader ]
-  %22 = getelementptr inbounds [0 x i8], ptr %19, i64 0, i64 %.0145
+  %22 = getelementptr inbounds i8, ptr %19, i64 %.0145
   %23 = load i8, ptr %22, align 1, !alias.scope !116, !noundef !4
   %24 = icmp eq i8 %23, 35
   br i1 %24, label %25, label %_ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit101
@@ -3348,7 +3348,7 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h8473f019ae83b75bE(ptr n
 .lr.ph.split:                                     ; preds = %.lr.ph, %37
   %.099304 = phi i1 [ %.1100, %37 ], [ %.099.ph338, %.lr.ph ]
   %.0106303 = phi i64 [ %.1107, %37 ], [ %.0106.ph335, %.lr.ph ]
-  %31 = getelementptr inbounds [0 x i8], ptr %.val139, i64 0, i64 %.0106303
+  %31 = getelementptr inbounds i8, ptr %.val139, i64 %.0106303
   %32 = load i8, ptr %31, align 1, !noundef !4
   switch i8 %32, label %.split [
     i8 95, label %37
@@ -3406,7 +3406,7 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h8473f019ae83b75bE(ptr n
   %.1102 = phi i8 [ %.0101.ph337, %173 ], [ 1, %64 ], [ 1, %69 ], [ 0, %39 ]
   %.2 = phi i1 [ %.us-phi314, %173 ], [ %.us-phi326, %64 ], [ true, %69 ], [ %.099.ph338, %39 ]
   %.1 = phi i1 [ %.098.ph339, %173 ], [ %.098.ph339, %64 ], [ %.098.ph339, %69 ], [ true, %39 ]
-  %42 = getelementptr inbounds [0 x i8], ptr %.val139, i64 0, i64 %.0108.ph334
+  %42 = getelementptr inbounds i8, ptr %.val139, i64 %.0108.ph334
   store i8 %.us-phi312.sink, ptr %42, align 1
   %43 = add i64 %.0106258, 1
   %44 = add nuw i64 %.0108.ph334, 1
@@ -3429,7 +3429,7 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h8473f019ae83b75bE(ptr n
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %52
   %.0106303.us = phi i64 [ %.1107.us, %52 ], [ %.0106.ph335, %.lr.ph ]
-  %50 = getelementptr inbounds [0 x i8], ptr %.val139, i64 0, i64 %.0106303.us
+  %50 = getelementptr inbounds i8, ptr %.val139, i64 %.0106303.us
   %51 = load i8, ptr %50, align 1, !noundef !4
   switch i8 %51, label %.split [
     i8 95, label %52
@@ -5765,7 +5765,7 @@ define void @"_ZN3syn2op8printing70_$LT$impl$u20$quote..to_tokens..ToTokens$u20$
 switch.lookup:
   %2 = load i32, ptr %0, align 4, !range !842, !noundef !4
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN3syn2op8printing70_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..op..UnOp$GT$9to_tokens17hfd031b8b4c03585bE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN3syn2op8printing70_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..op..UnOp$GT$9to_tokens17hfd031b8b4c03585bE", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)

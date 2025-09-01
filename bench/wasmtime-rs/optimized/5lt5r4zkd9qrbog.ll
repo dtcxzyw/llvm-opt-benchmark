@@ -4169,7 +4169,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %38, i64 144
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !noundef !3
-  %62 = getelementptr inbounds [0 x i64], ptr %61, i64 0, i64 %52
+  %62 = getelementptr inbounds i64, ptr %61, i64 %52
   %63 = load i64, ptr %62, align 8, !noundef !3
   %64 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %65 = load i64, ptr %64, align 8, !noundef !3
@@ -4183,7 +4183,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
 68:                                               ; preds = %59
   %69 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %70 = load ptr, ptr %69, align 8, !nonnull !3, !noundef !3
-  %71 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %70, i64 0, i64 %63, i32 1
+  %71 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %70, i64 %63, i32 1
   store ptr %71, ptr %9, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hb00593a18ac4215eE", ptr %28, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %10, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.158, i64 2, ptr nonnull align 8 %9, i64 1)
@@ -5309,7 +5309,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
 
 129:                                              ; preds = %122
   %130 = load ptr, ptr %80, align 8, !nonnull !3, !noundef !3
-  %131 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %130, i64 0, i64 %125
+  %131 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %130, i64 %125
   %132 = invoke align 8 ptr @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8type_var17h570939bbb99aa11dE(ptr nonnull align 8 %131)
           to label %136 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -5515,7 +5515,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
 
 205:                                              ; preds = %106
   %206 = load ptr, ptr %96, align 8, !nonnull !3, !noundef !3
-  %207 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %206, i64 0, i64 %107
+  %207 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %206, i64 %107
   %208 = load ptr, ptr %42, align 8, !nonnull !3, !align !4, !noundef !3
   invoke void @_ZN22cranelift_codegen_meta8gen_inst14get_constraint17h8263bb762428218dE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %26, ptr nonnull align 8 %207, ptr align 8 %.069, ptr nonnull align 8 %208)
           to label %209 unwind label %.loopexit
@@ -5526,7 +5526,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
 
 210:                                              ; preds = %88
   %211 = load ptr, ptr %80, align 8, !nonnull !3, !noundef !3
-  %212 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %211, i64 0, i64 %89
+  %212 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %211, i64 %89
   %213 = load ptr, ptr %42, align 8, !nonnull !3, !align !4, !noundef !3
   invoke void @_ZN22cranelift_codegen_meta8gen_inst14get_constraint17h8263bb762428218dE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %28, ptr nonnull align 8 %212, ptr align 8 %.069, ptr nonnull align 8 %213)
           to label %214 unwind label %.loopexit.split-lp.loopexit
@@ -5990,7 +5990,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
 132:                                              ; preds = %127
   %133 = getelementptr inbounds nuw i8, ptr %103, i64 144
   %134 = load ptr, ptr %133, align 8, !nonnull !3, !noundef !3
-  %135 = getelementptr inbounds [0 x i64], ptr %134, i64 0, i64 %114
+  %135 = getelementptr inbounds i64, ptr %134, i64 %114
   %136 = load i64, ptr %135, align 8, !noundef !3
   %137 = getelementptr inbounds nuw i8, ptr %103, i64 104
   %138 = load i64, ptr %137, align 8, !noundef !3
@@ -6000,7 +6000,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
 140:                                              ; preds = %132
   %141 = getelementptr inbounds nuw i8, ptr %103, i64 96
   %142 = load ptr, ptr %141, align 8, !nonnull !3, !noundef !3
-  %143 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %142, i64 0, i64 %136, i32 1
+  %143 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %142, i64 %136, i32 1
   store ptr %143, ptr %29, align 8
   %144 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hb00593a18ac4215eE", ptr %144, align 8
@@ -6102,7 +6102,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
 196:                                              ; preds = %189
   %197 = getelementptr inbounds nuw i8, ptr %192, i64 96
   %198 = load ptr, ptr %197, align 8, !nonnull !3, !noundef !3
-  %199 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %198, i64 0, i64 %190, i32 1
+  %199 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %198, i64 %190, i32 1
   %200 = load ptr, ptr %199, align 8, !nonnull !3, !align !7, !noundef !3
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %202 = load i64, ptr %201, align 8, !noundef !3
@@ -6338,7 +6338,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
 279:                                              ; preds = %163
   %280 = getelementptr inbounds nuw i8, ptr %166, i64 96
   %281 = load ptr, ptr %280, align 8, !nonnull !3, !noundef !3
-  %282 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %281, i64 0, i64 %164, i32 1
+  %282 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %281, i64 %164, i32 1
   %283 = load ptr, ptr %282, align 8, !nonnull !3, !align !7, !noundef !3
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %285 = load i64, ptr %284, align 8, !noundef !3

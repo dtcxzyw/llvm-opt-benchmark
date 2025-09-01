@@ -102,14 +102,14 @@ define void @jinit_1pass_quantizer(ptr noundef %0) local_unnamed_addr #0 {
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = load i32, ptr %54, align 8, !tbaa !53
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [17 x i32], ptr @rgb_green, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr @rgb_green, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !54
   store i32 %58, ptr %2, align 4, !tbaa !54
-  %59 = getelementptr inbounds nuw [17 x i32], ptr @rgb_red, i64 0, i64 %56
+  %59 = getelementptr inbounds nuw i32, ptr @rgb_red, i64 %56
   %60 = load i32, ptr %59, align 4, !tbaa !54
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %60, ptr %61, align 4, !tbaa !54
-  %62 = getelementptr inbounds nuw [17 x i32], ptr @rgb_blue, i64 0, i64 %56
+  %62 = getelementptr inbounds nuw i32, ptr @rgb_blue, i64 %56
   %63 = load i32, ptr %62, align 4, !tbaa !54
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %63, ptr %64, align 4, !tbaa !54
@@ -179,7 +179,7 @@ define void @jinit_1pass_quantizer(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %82, label %84, label %87
 
 84:                                               ; preds = %.lr.ph67.us.i.i
-  %85 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %indvars.iv87.i.i
+  %85 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv87.i.i
   %86 = load i32, ptr %85, align 4, !tbaa !54
   br label %87
 
@@ -278,7 +278,7 @@ select_ncolors.exit.i:                            ; preds = %._crit_edge.us73.i.
   %130 = phi i32 [ %127, %.lr.ph71.preheader.i ], [ %155, %._crit_edge.i ]
   %indvars.iv87.i = phi i64 [ 0, %.lr.ph71.preheader.i ], [ %indvars.iv.next88.i, %._crit_edge.i ]
   %.06068.i = phi i32 [ %.us-phi76.i.i, %.lr.ph71.preheader.i ], [ %133, %._crit_edge.i ]
-  %131 = getelementptr inbounds nuw [4 x i32], ptr %52, i64 0, i64 %indvars.iv87.i
+  %131 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv87.i
   %132 = load i32, ptr %131, align 4, !tbaa !54
   %.fr73.i = freeze i32 %132
   %133 = sdiv i32 %.06068.i, %.fr73.i
@@ -383,7 +383,7 @@ create_colormap.exit:                             ; preds = %._crit_edge.i, %118
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load ptr, ptr %175, align 8, !tbaa !71
   %177 = tail call ptr %176(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %168) #7
-  %178 = getelementptr inbounds nuw [4 x ptr], ptr %172, i64 0, i64 %indvars.iv.i36
+  %178 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv.i36
   store ptr %177, ptr %178, align 8, !tbaa !48
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %179 = load i32, ptr %30, align 8, !tbaa !51
@@ -469,7 +469,7 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
 40:                                               ; preds = %make_odither_array.exit.i, %.lr.ph26.i
   %41 = phi i32 [ %34, %.lr.ph26.i ], [ %71, %make_odither_array.exit.i ]
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph26.i ], [ %indvars.iv.next30.i, %make_odither_array.exit.i ]
-  %42 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv29.i
+  %42 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv29.i
   %43 = load i32, ptr %42, align 4, !tbaa !54
   %.not.i = icmp eq i64 %indvars.iv29.i, 0
   br i1 %.not.i, label %.thread.i, label %.lr.ph.i
@@ -481,13 +481,13 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
 
 .lr.ph.i:                                         ; preds = %40, %44
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %40 ]
-  %45 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 4, !tbaa !54
   %47 = icmp eq i32 %43, %46
   br i1 %47, label %48, label %44
 
 48:                                               ; preds = %.lr.ph.i
-  %49 = getelementptr inbounds nuw [4 x ptr], ptr %38, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8, !tbaa !50
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.thread.i, label %make_odither_array.exit.i
@@ -503,13 +503,13 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
 
 .preheader.i.i:                                   ; preds = %70, %.thread.i
   %indvars.iv22.i.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next23.i.i, %70 ]
-  %58 = getelementptr inbounds nuw [16 x [16 x i8]], ptr @base_dither_matrix, i64 0, i64 %indvars.iv22.i.i
+  %58 = getelementptr inbounds nuw [16 x i8], ptr @base_dither_matrix, i64 %indvars.iv22.i.i
   %59 = getelementptr inbounds nuw [16 x i32], ptr %54, i64 %indvars.iv22.i.i
   br label %60
 
 60:                                               ; preds = %60, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %60 ]
-  %61 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 0, i64 %indvars.iv.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !34
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 1
@@ -518,7 +518,7 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
   %66 = sext i32 %narrow.i.i to i64
   %67 = sdiv i64 %66, %57
   %68 = trunc nsw i64 %67 to i32
-  %69 = getelementptr inbounds nuw [16 x i32], ptr %59, i64 0, i64 %indvars.iv.i.i
+  %69 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i.i
   store i32 %68, ptr %69, align 4, !tbaa !54
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
@@ -536,7 +536,7 @@ make_odither_array.exit.loopexit.i:               ; preds = %70
 make_odither_array.exit.i:                        ; preds = %make_odither_array.exit.loopexit.i, %48
   %71 = phi i32 [ %41, %48 ], [ %.pre.i, %make_odither_array.exit.loopexit.i ]
   %.1.i = phi ptr [ %50, %48 ], [ %54, %make_odither_array.exit.loopexit.i ]
-  %72 = getelementptr inbounds nuw [4 x ptr], ptr %38, i64 0, i64 %indvars.iv29.i
+  %72 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv29.i
   store ptr %.1.i, ptr %72, align 8, !tbaa !50
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %73 = sext i32 %71 to i64
@@ -579,7 +579,7 @@ make_odither_array.exit.i:                        ; preds = %make_odither_array.
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !71
   %95 = tail call ptr %94(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %86) #7
-  %96 = getelementptr inbounds nuw [4 x ptr], ptr %78, i64 0, i64 %indvars.iv.i31
+  %96 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.i31
   store ptr %95, ptr %96, align 8, !tbaa !48
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %97 = load i32, ptr %87, align 8, !tbaa !51
@@ -600,7 +600,7 @@ alloc_fs_workspace.exit:                          ; preds = %91, %.alloc_fs_work
 
 .lr.ph:                                           ; preds = %alloc_fs_workspace.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %alloc_fs_workspace.exit ]
-  %108 = getelementptr inbounds nuw [4 x ptr], ptr %78, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8, !tbaa !48
   tail call void @jzero_far(ptr noundef %109, i64 noundef %105) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -669,7 +669,7 @@ define internal fastcc void @create_colorindex(ptr noundef %0) unnamed_addr #0 {
 20:                                               ; preds = %.lr.ph62, %.loopexit
   %indvars.iv73 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next74, %.loopexit ]
   %.04660 = phi i32 [ %18, %.lr.ph62 ], [ %23, %.loopexit ]
-  %21 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv73
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv73
   %22 = load i32, ptr %21, align 4, !tbaa !54
   %23 = sdiv i32 %.04660, %22
   %.pre = load ptr, ptr %14, align 8, !tbaa !84
@@ -1099,7 +1099,7 @@ define internal void @quantize_ord_dither(ptr noundef readonly captures(none) %0
   %31 = load ptr, ptr %15, align 8, !tbaa !84
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv63
   %33 = load ptr, ptr %32, align 8, !tbaa !63
-  %34 = getelementptr inbounds nuw [4 x ptr], ptr %16, i64 0, i64 %indvars.iv63
+  %34 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv63
   %35 = load ptr, ptr %34, align 8, !tbaa !50
   %36 = getelementptr inbounds [16 x i32], ptr %35, i64 %27
   br label %37
@@ -1215,7 +1215,7 @@ define internal void @quantize_fs_dither(ptr noundef readonly captures(none) %0,
 
 .lr.ph101.split.us.split.us113.us:                ; preds = %.lr.ph101.us.us, %.lr.ph101.split.us.split.us113.us
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.lr.ph101.split.us.split.us113.us ], [ 0, %.lr.ph101.us.us ]
-  %30 = getelementptr inbounds nuw [4 x ptr], ptr %22, i64 0, i64 %indvars.iv130
+  %30 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv130
   %31 = load ptr, ptr %30, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i16, ptr %31, i64 %24
   store i16 0, ptr %32, align 2, !tbaa !100
@@ -1232,7 +1232,7 @@ define internal void @quantize_fs_dither(ptr noundef readonly captures(none) %0,
 
 .lr.ph101.split.us.split.us.us.us:                ; preds = %.lr.ph101.us.us, %.lr.ph101.split.us.split.us.us.us
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %.lr.ph101.split.us.split.us.us.us ], [ 0, %.lr.ph101.us.us ]
-  %34 = getelementptr inbounds nuw [4 x ptr], ptr %22, i64 0, i64 %indvars.iv135
+  %34 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv135
   %35 = load ptr, ptr %34, align 8, !tbaa !48
   store i16 0, ptr %35, align 2, !tbaa !100
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
@@ -1259,13 +1259,13 @@ define internal void @quantize_fs_dither(ptr noundef readonly captures(none) %0,
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 %19
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %20
-  %47 = getelementptr inbounds nuw [4 x ptr], ptr %22, i64 0, i64 %indvars.iv120
+  %47 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv120
   %48 = load ptr, ptr %47, align 8, !tbaa !48
   %49 = getelementptr inbounds nuw i16, ptr %48, i64 %24
   br label %.lr.ph.us
 
 50:                                               ; preds = %39
-  %51 = getelementptr inbounds nuw [4 x ptr], ptr %22, i64 0, i64 %indvars.iv120
+  %51 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv120
   %52 = load ptr, ptr %51, align 8, !tbaa !48
   br label %.lr.ph.us
 

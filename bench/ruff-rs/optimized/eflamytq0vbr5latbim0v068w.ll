@@ -4610,10 +4610,10 @@ define internal noundef zeroext i1 @"_ZN66_$LT$ruff_python_ast..nodes..CmpOp$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !294, !noundef !59
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN66_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h2418a81cbdd83dc9E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN66_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h2418a81cbdd83dc9E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN66_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h2418a81cbdd83dc9E.171", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN66_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h2418a81cbdd83dc9E.171", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -27772,10 +27772,10 @@ switch.lookup:                                    ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %20, ptr %16, align 8
   %76 = zext nneg i8 %.pr to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN18ty_python_semantic5types5infer20TypeInferenceBuilder22infer_unary_expression17hec8cfa2a0d74b895E, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN18ty_python_semantic5types5infer20TypeInferenceBuilder22infer_unary_expression17hec8cfa2a0d74b895E, i64 %76
   %switch.load = load i64, ptr %switch.gep, align 8
   %77 = zext nneg i8 %.pr to i64
-  %switch.gep24 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN18ty_python_semantic5types5infer20TypeInferenceBuilder22infer_unary_expression17hec8cfa2a0d74b895E.172, i64 0, i64 %77
+  %switch.gep24 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN18ty_python_semantic5types5infer20TypeInferenceBuilder22infer_unary_expression17hec8cfa2a0d74b895E.172, i64 %77
   %switch.load25 = load ptr, ptr %switch.gep24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -32371,7 +32371,7 @@ switch.lookup:
   %10 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %10)
   %11 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN18ty_python_semantic5types5infer20TypeInferenceBuilder21infer_rich_comparison28_$u7b$$u7b$closure$u7d$$u7d$17h3170cc949da379c0E", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN18ty_python_semantic5types5infer20TypeInferenceBuilder21infer_rich_comparison28_$u7b$$u7b$closure$u7d$$u7d$17h3170cc949da379c0E", i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -33885,7 +33885,7 @@ switch.lookup:                                    ; preds = %.thread245
   %375 = icmp ult i32 %374, 42
   %narrow.i = select i1 %375, i32 %374, i32 21
   %376 = zext nneg i32 %narrow.i to i64
-  %switch.gep = getelementptr inbounds nuw [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %376
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 %376
   %switch.load = load i8, ptr %switch.gep, align 1
   %377 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class10KnownClass15is_special_form17h0d182cf22a07e166E(i8 noundef %switch.load)
   br i1 %377, label %411, label %369
@@ -39735,7 +39735,7 @@ switch.lookup:
   %5 = icmp ult i32 %4, 42
   %narrow.i = select i1 %5, i32 %4, i32 21
   %6 = zext nneg i32 %narrow.i to i64
-  %switch.gep = getelementptr inbounds nuw [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 %6
   %switch.load = load i8, ptr %switch.gep, align 1
   tail call void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, i8 noundef %switch.load, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   ret void
@@ -39749,7 +39749,7 @@ switch.lookup:
   %6 = icmp ult i32 %5, 42
   %narrow.i = select i1 %6, i32 %5, i32 21
   %7 = zext nneg i32 %narrow.i to i64
-  %switch.gep = getelementptr inbounds nuw [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 %7
   %switch.load = load i8, ptr %switch.gep, align 1
   %8 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class10KnownClass14is_subclass_of17hc06e629038160be6E(i8 noundef %switch.load, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, i32 noundef %3, i32 noundef %4)
   ret i1 %8
@@ -40111,7 +40111,7 @@ switch.lookup:
   %5 = icmp ult i32 %4, 42
   %narrow.i = select i1 %5, i32 %4, i32 21
   %6 = zext nneg i32 %narrow.i to i64
-  %switch.gep = getelementptr inbounds nuw [42 x i8], ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ty_python_semantic5types14known_instance17KnownInstanceType12to_meta_type17hf9bbb76bc2072571E, i64 %6
   %switch.load = load i8, ptr %switch.gep, align 1
   tail call void @_ZN18ty_python_semantic5types5class10KnownClass16to_class_literal17h89fca9714805caf9E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, i8 noundef %switch.load, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   ret void

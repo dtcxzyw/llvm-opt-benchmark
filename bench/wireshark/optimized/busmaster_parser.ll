@@ -136,22 +136,22 @@ define hidden void @BusmasterParser(ptr noundef captures(address) initializes((1
 
 21:                                               ; preds = %19
   %22 = zext nneg i8 %.033 to i64
-  %23 = getelementptr [78 x i8], ptr @yy_shift_ofst, i64 0, i64 %22
+  %23 = getelementptr i8, ptr @yy_shift_ofst, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
   %26 = add nuw nsw i64 %25, %11
-  %27 = getelementptr [178 x i8], ptr @yy_lookahead, i64 0, i64 %26
+  %27 = getelementptr i8, ptr @yy_lookahead, i64 %26
   %28 = load i8, ptr %27, align 1
   %.not.i = icmp eq i8 %28, %10
   br i1 %.not.i, label %32, label %29
 
 29:                                               ; preds = %21
-  %30 = getelementptr [78 x i8], ptr @yy_default, i64 0, i64 %22
+  %30 = getelementptr i8, ptr @yy_default, i64 %22
   %31 = load i8, ptr %30, align 1
   br label %yy_find_shift_action.exit
 
 32:                                               ; preds = %21
-  %33 = getelementptr [158 x i8], ptr @yy_action, i64 0, i64 %26
+  %33 = getelementptr i8, ptr @yy_action, i64 %26
   %34 = load i8, ptr %33, align 1
   br label %yy_find_shift_action.exit
 
@@ -537,7 +537,7 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   %213 = zext i32 %209 to i64
   %214 = call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull readonly %212, i64 noundef range(i64 0, 4294967296) %213, i64 noundef 68) #13, !alias.scope !9
   %215 = add nuw nsw i64 %213, 4
-  %216 = getelementptr [64 x i8], ptr %13, i64 0, i64 %213
+  %216 = getelementptr i8, ptr %13, i64 %213
   %217 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %218 = zext i32 %210 to i64
   %219 = call i64 @llvm.usub.sat.i64(i64 72, i64 %215)
@@ -546,20 +546,20 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   br label %221
 
 221:                                              ; preds = %206, %197, %190, %185, %182, %180, %176, %172, %168, %164, %150, %136, %126, %119, %113, %106, %85, %80, %62, %60, %58, %55
-  %222 = getelementptr [64 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %39
+  %222 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %39
   %223 = load i8, ptr %222, align 1
-  %224 = getelementptr [64 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %39
+  %224 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %39
   %225 = load i8, ptr %224, align 1
   %226 = sext i8 %225 to i64
   %227 = getelementptr %struct.yyStackEntry, ptr %56, i64 %226
   %228 = load i8, ptr %227, align 8
   %229 = zext i8 %228 to i64
-  %230 = getelementptr [42 x i8], ptr @yy_reduce_ofst, i64 0, i64 %229
+  %230 = getelementptr i8, ptr @yy_reduce_ofst, i64 %229
   %231 = load i8, ptr %230, align 1
   %232 = sext i8 %231 to i64
   %233 = zext i8 %223 to i64
-  %234 = add nsw i64 %232, %233
-  %235 = getelementptr [158 x i8], ptr @yy_action, i64 0, i64 %234
+  %234 = getelementptr i8, ptr @yy_action, i64 %232
+  %235 = getelementptr i8, ptr %234, i64 %233
   %236 = load i8, ptr %235, align 1
   %237 = getelementptr i8, ptr %227, i64 80
   store ptr %237, ptr %0, align 8

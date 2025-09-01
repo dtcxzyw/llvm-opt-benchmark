@@ -788,14 +788,14 @@ define internal range(i32 -2147483647, -2147483648) i32 @dasync_digests(ptr read
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr @dasync_digest_nids.pos, align 4, !tbaa !14
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds [2 x i32], ptr @dasync_digest_nids.digest_nids, i64 0, i64 %12
+  %13 = getelementptr inbounds i32, ptr @dasync_digest_nids.digest_nids, i64 %12
   store i32 %9, ptr %13, align 4, !tbaa !14
   br label %14
 
 14:                                               ; preds = %8, %._crit_edge.i
   %15 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %11, %8 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [2 x i32], ptr @dasync_digest_nids.digest_nids, i64 0, i64 %16
+  %17 = getelementptr inbounds i32, ptr @dasync_digest_nids.digest_nids, i64 %16
   store i32 0, ptr %17, align 4, !tbaa !14
   store i1 true, ptr @dasync_digest_nids.init, align 4
   br label %dasync_digest_nids.exit
@@ -1343,7 +1343,7 @@ define internal fastcc i32 @dasync_cipher_helper(ptr noundef %0, ptr noundef %1,
 
 29:                                               ; preds = %27
   %30 = tail call ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef %4) #9
-  %31 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %23, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [13 x i8], ptr %23, i64 %indvars.iv
   %32 = tail call i32 %30(ptr noundef %0, i32 noundef 22, i32 noundef 13, ptr noundef nonnull %31) #9
   br label %33
 
@@ -1473,7 +1473,7 @@ define internal fastcc i32 @dasync_cipher_ctrl_helper(ptr noundef %0, i32 nounde
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %42 = zext nneg i32 %38 to i64
-  %43 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [13 x i8], ptr %41, i64 %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %43, ptr noundef nonnull align 1 dereferenceable(13) %3, i64 13, i1 false)
   %44 = load i32, ptr %37, align 8, !tbaa !29
   %45 = add i32 %44, 1

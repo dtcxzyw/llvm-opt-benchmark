@@ -554,7 +554,7 @@ define internal range(i32 -1, 1) i32 @pysqlite_connection_init(ptr noundef %0, p
 
 66:                                               ; preds = %.preheader.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %67 = getelementptr [5 x ptr], ptr @get_isolation_level.allowed_levels, i64 0, i64 %indvars.iv.next.i.i
+  %67 = getelementptr ptr, ptr @get_isolation_level.allowed_levels, i64 %indvars.iv.next.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !44
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %.not.i.i, label %get_isolation_level.exit.thread.i, label %.preheader.i, !llvm.loop !45
@@ -5520,7 +5520,7 @@ _Py_NewRef.exit:                                  ; preds = %.thread45, %.thread
 
 _Py_NewRef.exit.thread:                           ; preds = %41, %38, %_Py_NewRef.exit
   %.152 = phi ptr [ %.1, %_Py_NewRef.exit ], [ @_Py_NoneStruct, %38 ], [ @_Py_NoneStruct, %41 ]
-  %43 = getelementptr [1 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %43 = getelementptr ptr, ptr %7, i64 %indvars.iv
   store ptr %.152, ptr %43, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7548,7 +7548,7 @@ define internal range(i32 -1, 1) i32 @pysqlite_connection_set_isolation_level(pt
 
 26:                                               ; preds = %.preheader.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %27 = getelementptr [5 x ptr], ptr @get_isolation_level.allowed_levels, i64 0, i64 %indvars.iv.next.i.i
+  %27 = getelementptr ptr, ptr @get_isolation_level.allowed_levels, i64 %indvars.iv.next.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !44
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %.not.i.i, label %get_isolation_level.exit.thread.i, label %.preheader.i, !llvm.loop !45

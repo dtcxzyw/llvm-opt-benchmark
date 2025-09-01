@@ -250,7 +250,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %115
 
 .thread:                                          ; preds = %.lr.ph116
   %125 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  %126 = getelementptr inbounds nuw [0 x ptr], ptr %125, i64 0, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv121
   %127 = load ptr, ptr %126, align 8, !tbaa !18
   %128 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI4expr11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %127)
   br label %_ZNK8datatype4util14is_constructorEPK3app.exit.thread
@@ -443,7 +443,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit: ; preds = %192, %_ZN6bufferIP4
   br label %245
 
 212:                                              ; preds = %184
-  %213 = getelementptr inbounds nuw [0 x ptr], ptr %182, i64 0, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv
   %214 = load ptr, ptr %213, align 8, !tbaa !18
   %.not.i89 = icmp ult i32 %187, %186
   br i1 %.not.i89, label %._crit_edge.i103, label %215
@@ -775,9 +775,9 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %56, %58, %65
 76:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
   %77 = load ptr, ptr %0, align 8, !tbaa !25
-  %78 = getelementptr inbounds nuw [0 x ptr], ptr %72, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !18
-  %80 = getelementptr inbounds nuw [0 x ptr], ptr %73, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
   %81 = load ptr, ptr %80, align 8, !tbaa !18
   %82 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %77, i32 noundef 0, i32 noundef 2, ptr noundef %79, ptr noundef %81)
           to label %_ZN11ast_manager5mk_eqEP4exprS1_.exit unwind label %103

@@ -1662,7 +1662,7 @@ is_valid_ascii.exit:                              ; preds = %.preheader53
   %16 = getelementptr inbounds nuw i8, ptr %.056.i, i64 1
   %17 = load i8, ptr %.056.i, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i32], ptr @Utf8Transition, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr @Utf8Transition, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %15, 31
   %22 = lshr i32 %20, %21
@@ -3079,7 +3079,7 @@ define dso_local i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %1) local_un
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %1) #10
   br label %8
@@ -3096,7 +3096,7 @@ define dso_local i32 @pg_encoding_mblen_bounded(i32 noundef %0, ptr noundef %1) 
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %1) #10
   %8 = sext i32 %7 to i64
@@ -3119,7 +3119,7 @@ define dso_local i32 @pg_encoding_dsplen(i32 noundef %0, ptr noundef %1) local_u
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %4, i32 3
+  %5 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4, i32 3
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %1) #10
   br label %13
@@ -3146,7 +3146,7 @@ define dso_local i32 @pg_encoding_verifymbchar(i32 noundef %0, ptr noundef %1, i
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %5, i32 4
+  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5, i32 4
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #10
   br label %9
@@ -3163,7 +3163,7 @@ define dso_local i32 @pg_encoding_verifymbstr(i32 noundef %0, ptr noundef %1, i3
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %5, i32 5
+  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5, i32 5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #10
   br label %17
@@ -3191,7 +3191,7 @@ define dso_local i32 @pg_encoding_max_length(i32 noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %3, i32 6
+  %4 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %3, i32 6
   %5 = load i32, ptr %4, align 8
   br label %6
 

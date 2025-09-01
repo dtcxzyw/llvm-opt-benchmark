@@ -1465,7 +1465,7 @@ Vec_IntStart.exit83:                              ; preds = %Vec_IntAlloc.exit.t
 76:                                               ; preds = %68
   %77 = and i64 %.val64, 536870911
   %78 = icmp eq i64 %indvars.iv, %77
-  br i1 %78, label %.else107, label %79
+  br i1 %78, label %.else106, label %79
 
 79:                                               ; preds = %76
   %80 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1474,25 +1474,25 @@ Vec_IntStart.exit83:                              ; preds = %Vec_IntAlloc.exit.t
   %83 = getelementptr inbounds i32, ptr %.val58, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !41
   %.not55 = icmp eq i32 %84, 0
-  br i1 %.not55, label %109, label %.then106
+  br i1 %.not55, label %109, label %.then105
 
-.then106:                                         ; preds = %79
+.then105:                                         ; preds = %79
   %85 = add nsw i32 %.sroa.5103.0116, 1
-  br label %.cont105
+  br label %.cont104
 
-.else107:                                         ; preds = %76
+.else106:                                         ; preds = %76
   %86 = add nsw i32 %.sroa.0102.0115, 1
-  br label %.cont105
+  br label %.cont104
 
-.cont105:                                         ; preds = %.else107, %.then106
-  %.sroa.0102.2 = phi i32 [ %.sroa.0102.0115, %.then106 ], [ %86, %.else107 ]
-  %.sroa.5103.2 = phi i32 [ %85, %.then106 ], [ %.sroa.5103.0116, %.else107 ]
+.cont104:                                         ; preds = %.else106, %.then105
+  %.sroa.0102.2 = phi i32 [ %.sroa.0102.0115, %.then105 ], [ %86, %.else106 ]
+  %.sroa.5103.2 = phi i32 [ %85, %.then105 ], [ %.sroa.5103.0116, %.else106 ]
   %87 = load i32, ptr %26, align 4, !tbaa !69
   %88 = load i32, ptr %25, align 8, !tbaa !70
   %89 = icmp eq i32 %87, %88
   br i1 %89, label %90, label %Vec_IntPush.exit
 
-90:                                               ; preds = %.cont105
+90:                                               ; preds = %.cont104
   %91 = icmp slt i32 %87, 16
   br i1 %91, label %92, label %97
 
@@ -1530,8 +1530,8 @@ Vec_IntPush.exit.sink.split:                      ; preds = %101, %103, %93, %95
   store i32 %.sink, ptr %25, align 8, !tbaa !70
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.cont105
-  %.pre.i139 = phi ptr [ %33, %.cont105 ], [ %.sink155, %Vec_IntPush.exit.sink.split ]
+Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.cont104
+  %.pre.i139 = phi ptr [ %33, %.cont104 ], [ %.sink155, %Vec_IntPush.exit.sink.split ]
   %105 = add nsw i32 %87, 1
   store i32 %105, ptr %26, align 4, !tbaa !69
   %106 = sext i32 %87 to i64

@@ -5934,7 +5934,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_ppGoal___sp
   %.03675 = phi i64 [ %5, %.lr.ph ], [ %82, %81 ]
   %.03874 = phi ptr [ %7, %.lr.ph ], [ %43, %81 ]
   %.04073 = phi ptr [ %12, %.lr.ph ], [ %53, %81 ]
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.03675
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %.03675
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 1
@@ -6288,7 +6288,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_ppGoal___sp
   %.0392854 = phi i64 [ %5, %.lr.ph ], [ %927, %926 ]
   %.0394853 = phi ptr [ %7, %.lr.ph ], [ %.0400, %926 ]
   %.0397852 = phi ptr [ %12, %.lr.ph ], [ %.0403, %926 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.0392854
+  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0392854
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -8775,7 +8775,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_ppGoal___sp
   %.03675 = phi i64 [ %5, %.lr.ph ], [ %82, %81 ]
   %.03874 = phi ptr [ %7, %.lr.ph ], [ %43, %81 ]
   %.04073 = phi ptr [ %12, %.lr.ph ], [ %53, %81 ]
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.03675
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %.03675
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 1
@@ -8993,7 +8993,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_ppGoal___sp
   %.0392854 = phi i64 [ %5, %.lr.ph ], [ %927, %926 ]
   %.0394853 = phi ptr [ %7, %.lr.ph ], [ %.0400, %926 ]
   %.0397852 = phi ptr [ %12, %.lr.ph ], [ %.0403, %926 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.0392854
+  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0392854
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -11537,7 +11537,7 @@ lean_usize_to_nat.exit:                           ; preds = %29, %33
 
 lean_dec.exit.i:                                  ; preds = %51, %50, %48, %42
   %52 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %53 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %39
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %39
   %54 = load ptr, ptr %53, align 8, !tbaa !4
   %55 = ptrtoint ptr %54 to i64
   %56 = and i64 %55, 1
@@ -12128,7 +12128,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_ppGoal___sp
   %.0392854 = phi i64 [ %5, %.lr.ph ], [ %927, %926 ]
   %.0394853 = phi ptr [ %7, %.lr.ph ], [ %.0400, %926 ]
   %.0397852 = phi ptr [ %12, %.lr.ph ], [ %.0403, %926 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.0392854
+  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0392854
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -14613,7 +14613,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_ppGoal___sp
   %.0392854 = phi i64 [ %5, %.lr.ph ], [ %927, %926 ]
   %.0394853 = phi ptr [ %7, %.lr.ph ], [ %.0400, %926 ]
   %.0397852 = phi ptr [ %12, %.lr.ph ], [ %.0403, %926 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.0392854
+  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0392854
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -17096,7 +17096,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_ppGoal___sp
   %.03675 = phi i64 [ %5, %.lr.ph ], [ %82, %81 ]
   %.03874 = phi ptr [ %7, %.lr.ph ], [ %43, %81 ]
   %.04073 = phi ptr [ %12, %.lr.ph ], [ %53, %81 ]
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.03675
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %.03675
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 1
@@ -17450,7 +17450,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_ppGoal___sp
   %.0392854 = phi i64 [ %5, %.lr.ph ], [ %927, %926 ]
   %.0394853 = phi ptr [ %7, %.lr.ph ], [ %.0400, %926 ]
   %.0397852 = phi ptr [ %12, %.lr.ph ], [ %.0403, %926 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.0392854
+  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0392854
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -19935,7 +19935,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_ppGoal___sp
   %.0392854 = phi i64 [ %5, %.lr.ph ], [ %927, %926 ]
   %.0394853 = phi ptr [ %7, %.lr.ph ], [ %.0400, %926 ]
   %.0397852 = phi ptr [ %12, %.lr.ph ], [ %.0403, %926 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.0392854
+  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0392854
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1

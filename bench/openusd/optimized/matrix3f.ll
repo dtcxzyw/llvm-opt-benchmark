@@ -187,7 +187,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 3
-  %22 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %.01618
+  %22 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %.01618
   br label %23
 
 23:                                               ; preds = %.preheader, %24
@@ -199,7 +199,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_
   %25 = getelementptr inbounds nuw double, ptr %17, i64 %.017
   %26 = load double, ptr %25, align 8
   %27 = fptrunc double %26 to float
-  %28 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %.017
+  %28 = getelementptr inbounds nuw float, ptr %22, i64 %.017
   store float %27, ptr %28, align 4
   %29 = add nuw nsw i64 %.017, 1
   %exitcond19.not = icmp eq i64 %29, 3
@@ -281,7 +281,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 2
-  %22 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %.01618
+  %22 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %.01618
   br label %23
 
 23:                                               ; preds = %.preheader, %24
@@ -292,7 +292,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw float, ptr %17, i64 %.017
   %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %.017
+  %27 = getelementptr inbounds nuw float, ptr %22, i64 %.017
   store float %26, ptr %27, align 4
   %28 = add nuw nsw i64 %.017, 1
   %exitcond19.not = icmp eq i64 %28, 3
@@ -1785,7 +1785,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f25ExtractRotation
   %71 = tail call noundef float @sqrtf(float noundef %70) #18
   %72 = fpext float %71 to double
   %73 = fmul double %72, 5.000000e-01
-  %74 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %17
+  %74 = getelementptr inbounds nuw double, ptr %3, i64 %17
   store double %73, ptr %74, align 8
   %75 = getelementptr inbounds nuw float, ptr %16, i64 %59
   %76 = load float, ptr %75, align 4
@@ -1795,7 +1795,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f25ExtractRotation
   %80 = fpext float %79 to double
   %81 = fmul double %73, 4.000000e+00
   %82 = fdiv double %80, %81
-  %83 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %59
+  %83 = getelementptr inbounds nuw double, ptr %3, i64 %59
   store double %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw float, ptr %65, i64 %17
   %85 = load float, ptr %84, align 4
@@ -1804,7 +1804,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f25ExtractRotation
   %88 = fadd float %85, %87
   %89 = fpext float %88 to double
   %90 = fdiv double %89, %81
-  %91 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %66
+  %91 = getelementptr inbounds nuw double, ptr %3, i64 %66
   store double %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw float, ptr %58, i64 %66
   %93 = load float, ptr %92, align 4

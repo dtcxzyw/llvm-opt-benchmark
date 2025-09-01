@@ -160,16 +160,16 @@ define internal void @TransformWHT_C(ptr noalias noundef readonly captures(none)
   %22 = sub nsw i32 %16, %20
   %23 = sub nsw i32 %7, %11
   %24 = add nsw i32 %21, %12
-  %25 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !9
   %26 = sub nsw i32 %12, %21
-  %27 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %17
+  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %17
   store i32 %26, ptr %27, align 4, !tbaa !9
   %28 = add nsw i32 %22, %23
-  %29 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %13
+  %29 = getelementptr inbounds nuw i32, ptr %3, i64 %13
   store i32 %28, ptr %29, align 4, !tbaa !9
   %30 = sub nsw i32 %23, %22
-  %31 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %8
+  %31 = getelementptr inbounds nuw i32, ptr %3, i64 %8
   store i32 %30, ptr %31, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -177,49 +177,46 @@ define internal void @TransformWHT_C(ptr noalias noundef readonly captures(none)
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.preheader ], [ 0, %4 ]
-  %.056 = phi ptr [ %64, %.preheader ], [ %1, %4 ]
-  %32 = shl nuw nsw i64 %indvars.iv58, 2
-  %33 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %32
-  %34 = load i32, ptr %33, align 16, !tbaa !9
-  %35 = add nsw i32 %34, 3
-  %36 = or disjoint i64 %32, 3
-  %37 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %36
-  %38 = load i32, ptr %37, align 4, !tbaa !9
-  %39 = add nsw i32 %35, %38
-  %40 = or disjoint i64 %32, 1
-  %41 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !9
-  %43 = or disjoint i64 %32, 2
-  %44 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %43
-  %45 = load i32, ptr %44, align 8, !tbaa !9
-  %46 = add nsw i32 %45, %42
-  %47 = sub nsw i32 %42, %45
-  %48 = sub nsw i32 %35, %38
-  %49 = add nsw i32 %46, %39
-  %50 = lshr i32 %49, 3
-  %51 = trunc i32 %50 to i16
-  store i16 %51, ptr %.056, align 2, !tbaa !7
-  %52 = add nsw i32 %47, %48
+  %.056 = phi ptr [ %60, %.preheader ], [ %1, %4 ]
+  %.idx = shl nuw nsw i64 %indvars.iv58, 4
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %33 = load i32, ptr %32, align 16, !tbaa !9
+  %34 = add nsw i32 %33, 3
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 12
+  %36 = load i32, ptr %35, align 4, !tbaa !9
+  %37 = add nsw i32 %34, %36
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %39 = load i32, ptr %38, align 4, !tbaa !9
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %41 = load i32, ptr %40, align 8, !tbaa !9
+  %42 = add nsw i32 %41, %39
+  %43 = sub nsw i32 %39, %41
+  %44 = sub nsw i32 %34, %36
+  %45 = add nsw i32 %42, %37
+  %46 = lshr i32 %45, 3
+  %47 = trunc i32 %46 to i16
+  store i16 %47, ptr %.056, align 2, !tbaa !7
+  %48 = add nsw i32 %43, %44
+  %49 = lshr i32 %48, 3
+  %50 = trunc i32 %49 to i16
+  %51 = getelementptr inbounds nuw i8, ptr %.056, i64 32
+  store i16 %50, ptr %51, align 2, !tbaa !7
+  %52 = sub nsw i32 %37, %42
   %53 = lshr i32 %52, 3
   %54 = trunc i32 %53 to i16
-  %55 = getelementptr inbounds nuw i8, ptr %.056, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.056, i64 64
   store i16 %54, ptr %55, align 2, !tbaa !7
-  %56 = sub nsw i32 %39, %46
+  %56 = sub nsw i32 %44, %43
   %57 = lshr i32 %56, 3
   %58 = trunc i32 %57 to i16
-  %59 = getelementptr inbounds nuw i8, ptr %.056, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %.056, i64 96
   store i16 %58, ptr %59, align 2, !tbaa !7
-  %60 = sub nsw i32 %48, %47
-  %61 = lshr i32 %60, 3
-  %62 = trunc i32 %61 to i16
-  %63 = getelementptr inbounds nuw i8, ptr %.056, i64 96
-  store i16 %62, ptr %63, align 2, !tbaa !7
-  %64 = getelementptr inbounds nuw i8, ptr %.056, i64 128
+  %60 = getelementptr inbounds nuw i8, ptr %.056, i64 128
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 4
-  br i1 %exitcond61.not, label %65, label %.preheader, !llvm.loop !13
+  br i1 %exitcond61.not, label %61, label %.preheader, !llvm.loop !13
 
-65:                                               ; preds = %.preheader
+61:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

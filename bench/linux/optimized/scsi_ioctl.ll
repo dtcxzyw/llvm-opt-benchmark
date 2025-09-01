@@ -761,7 +761,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
 161:                                              ; preds = %152
   %162 = lshr i8 %140, 5
   %163 = zext nneg i8 %162 to i64
-  %164 = getelementptr [8 x i8], ptr @scsi_command_size_tbl, i64 0, i64 %163
+  %164 = getelementptr i8, ptr @scsi_command_size_tbl, i64 %163
   %165 = load i8, ptr %164, align 1
   %166 = zext i8 %165 to i16
   %167 = getelementptr i8, ptr %156, i64 404

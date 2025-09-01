@@ -716,7 +716,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
 
 48:                                               ; preds = %.lr.ph.split.us.split.i
   %49 = zext i8 %46 to i64
-  %50 = getelementptr [256 x i8], ptr @table_a2b_base64, i64 0, i64 %49
+  %50 = getelementptr i8, ptr @table_a2b_base64, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !11
   %52 = icmp ugt i8 %51, 63
   br i1 %52, label %77, label %53
@@ -830,7 +830,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
 
 96:                                               ; preds = %.lr.ph.split.i
   %97 = zext i8 %80 to i64
-  %98 = getelementptr [256 x i8], ptr @table_a2b_base64, i64 0, i64 %97
+  %98 = getelementptr i8, ptr @table_a2b_base64, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !11
   %100 = icmp ugt i8 %99, 63
   br i1 %100, label %.split.i, label %104
@@ -1068,7 +1068,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %47 = lshr i32 %43, %46
   %48 = and i32 %47, 63
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr [65 x i8], ptr @table_b2a_base64, i64 0, i64 %49
+  %50 = getelementptr i8, ptr @table_b2a_base64, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !11
   %52 = getelementptr i8, ptr %.12.i, i64 1
   store i8 %51, ptr %.12.i, align 1, !tbaa !11
@@ -1093,7 +1093,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %58 = shl nuw nsw i32 %42, 4
   %59 = and i32 %58, 48
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr [65 x i8], ptr @table_b2a_base64, i64 0, i64 %60
+  %61 = getelementptr i8, ptr @table_b2a_base64, i64 %60
   %62 = load i8, ptr %61, align 16, !tbaa !11
   %63 = getelementptr i8, ptr %.1.lcssa.i, i64 1
   store i8 %62, ptr %.1.lcssa.i, align 1, !tbaa !11
@@ -1107,7 +1107,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %67 = shl nuw nsw i32 %42, 2
   %68 = and i32 %67, 60
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr [65 x i8], ptr @table_b2a_base64, i64 0, i64 %69
+  %70 = getelementptr i8, ptr @table_b2a_base64, i64 %69
   %71 = load i8, ptr %70, align 4, !tbaa !11
   %72 = getelementptr i8, ptr %.1.lcssa.i, i64 1
   store i8 %71, ptr %.1.lcssa.i, align 1, !tbaa !11
@@ -1440,7 +1440,7 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   %25 = zext i8 %24 to i32
   %26 = xor i32 %22, %25
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr [256 x i16], ptr @crctab_hqx, i64 0, i64 %27
+  %28 = getelementptr i16, ptr @crctab_hqx, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !31
   %30 = zext i16 %29 to i32
   %31 = xor i32 %21, %30
@@ -1475,7 +1475,7 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   %43 = zext i8 %42 to i32
   %44 = xor i32 %40, %43
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr [256 x i16], ptr @crctab_hqx, i64 0, i64 %45
+  %46 = getelementptr i16, ptr @crctab_hqx, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !31
   %48 = zext i16 %47 to i32
   %49 = xor i32 %39, %48
@@ -1782,11 +1782,11 @@ switch.early.test5.i:                             ; preds = %58
 
 62:                                               ; preds = %switch.early.test5.i, %switch.early.test5.i, %switch.early.test5.i, %switch.early.test5.i, %switch.early.test5.i, %switch.early.test5.i, %switch.early.test5.i, %switch.early.test5.i, %switch.early.test5.i, %switch.early.test5.i, %switch.early.test5.i, %switch.early.test5.i, %58
   %63 = zext nneg i8 %42 to i64
-  %64 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %63
+  %64 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !11
   %66 = shl i8 %65, 4
   %67 = zext nneg i8 %.fr.i to i64
-  %68 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %67
+  %68 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !11
   %70 = or i8 %66, %69
   %71 = add nsw i64 %.08411.i, 3
@@ -2261,13 +2261,13 @@ switch.early.test310.i:                           ; preds = %148, %145
   %167 = zext i8 %165 to i32
   %168 = and i32 %167, 15
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr [17 x i8], ptr @.str.39, i64 0, i64 %169
+  %170 = getelementptr i8, ptr @.str.39, i64 %169
   %171 = load i8, ptr %170, align 1, !tbaa !11
   %172 = getelementptr i8, ptr %164, i64 2
   store i8 %171, ptr %172, align 1, !tbaa !11
   %173 = lshr i32 %167, 4
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr [17 x i8], ptr @.str.39, i64 0, i64 %174
+  %175 = getelementptr i8, ptr @.str.39, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !11
   store i8 %176, ptr %166, align 1, !tbaa !11
   %177 = add i64 %.1232.i, 3
@@ -2317,13 +2317,13 @@ switch.early.test310.i:                           ; preds = %148, %145
   %197 = zext nneg i8 %195 to i32
   %198 = and i32 %197, 15
   %199 = zext nneg i32 %198 to i64
-  %200 = getelementptr [17 x i8], ptr @.str.39, i64 0, i64 %199
+  %200 = getelementptr i8, ptr @.str.39, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !11
   %202 = getelementptr i8, ptr %193, i64 1
   store i8 %201, ptr %202, align 1, !tbaa !11
   %203 = lshr i32 %197, 4
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr [17 x i8], ptr @.str.39, i64 0, i64 %204
+  %205 = getelementptr i8, ptr @.str.39, i64 %204
   %206 = load i8, ptr %205, align 1, !tbaa !11
   store i8 %206, ptr %193, align 1, !tbaa !11
   %207 = add i64 %.02319.i, 2
@@ -2575,12 +2575,12 @@ define internal fastcc ptr @binascii_a2b_hex_impl(ptr noundef %0, ptr readonly c
   %14 = getelementptr i8, ptr %.0.val, i64 %.0298
   %15 = load i8, ptr %14, align 1, !tbaa !11
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = getelementptr i8, ptr %14, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !11
   %21 = zext i8 %20 to i64
-  %22 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %21
+  %22 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !11
   %24 = icmp ugt i8 %18, 15
   %25 = icmp ugt i8 %23, 15

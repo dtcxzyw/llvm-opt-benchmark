@@ -6812,7 +6812,7 @@ define hidden void @"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_arra
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %1, align 8, !nonnull !4, !align !465, !noundef !4
-  %15 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %14, i64 0, i64 %.0
+  %15 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %14, i64 %.0
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %15, ptr %0, align 8
@@ -6850,7 +6850,7 @@ define hidden noundef ptr @"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.llvm.10393531995006364539.exit": ; preds = %3
   %15 = load ptr, ptr %0, align 8, !noalias !1042, !nonnull !4, !align !465, !noundef !4
-  %16 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %15, i64 0, i64 %.0.i
+  %16 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %15, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %4, align 8, !alias.scope !1042
@@ -6890,7 +6890,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka.
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_key_value_and_then17h1c34e36a74cdd02bE.llvm.10393531995006364539.exit": ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %18 = load ptr, ptr %17, align 8, !noalias !1051, !nonnull !4, !align !465, !noundef !4
-  %19 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %18, i64 0, i64 %.0.i.i
+  %19 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %18, i64 %.0.i.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store ptr %19, ptr %4, align 8, !alias.scope !1048, !noalias !1045
@@ -6974,7 +6974,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka.
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.llvm.10393531995006364539.exit.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h80f6e9fe896951d3E.exit"
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %34 = load ptr, ptr %33, align 8, !noalias !1068, !nonnull !4, !align !465, !noundef !4
-  %35 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %34, i64 0, i64 %.0.i.i
+  %35 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %34, i64 %.0.i.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 168
   store ptr %35, ptr %7, align 8, !alias.scope !1065, !noalias !1061
@@ -8744,7 +8744,7 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN75_$LT$usize$u
   br i1 %5, label %6, label %8, !prof !1041
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x i16], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds i16, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -8941,7 +8941,7 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN81_$LT$alloc..
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdaba66017a91184dE.llvm.10393531995006364539.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x i16], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds i16, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -9350,7 +9350,7 @@ define hidden void @_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc34249dfbdb1c446E.llvm.10393531995006364539.exit": ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8, !alias.scope !1528, !noalias !1531, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds [0 x i16], ptr %8, i64 0, i64 %1
+  %9 = getelementptr inbounds i16, ptr %8, i64 %1
   %10 = load i16, ptr %9, align 2, !noundef !4
   %11 = zext i16 %10 to i64
   tail call void @_ZN8mini_lsm5block8iterator13BlockIterator14seek_to_offset17h894a32a359f819abE.llvm.10393531995006364539(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %11)
@@ -9386,7 +9386,7 @@ define void @_ZN8mini_lsm5block8iterator13BlockIterator4next17h643fbebe18d89119E
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc34249dfbdb1c446E.llvm.10393531995006364539.exit.i": ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load ptr, ptr %9, align 8, !alias.scope !1539, !noalias !1542, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds [0 x i16], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds i16, ptr %10, i64 %4
   %12 = load i16, ptr %11, align 2, !noalias !1536, !noundef !4
   %13 = zext i16 %12 to i64
   tail call void @_ZN8mini_lsm5block8iterator13BlockIterator14seek_to_offset17h894a32a359f819abE.llvm.10393531995006364539(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %13)
@@ -9565,7 +9565,7 @@ define void @_ZN8mini_lsm5block8iterator13BlockIterator11seek_to_key17h271ba5c0b
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc34249dfbdb1c446E.llvm.10393531995006364539.exit.i": ; preds = %._crit_edge
   %13 = getelementptr inbounds nuw i8, ptr %.pre19, i64 48
   %14 = load ptr, ptr %13, align 8, !alias.scope !1606, !noalias !1609, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds [0 x i16], ptr %14, i64 0, i64 %.1
+  %15 = getelementptr inbounds i16, ptr %14, i64 %.1
   %16 = load i16, ptr %15, align 2, !noalias !1603, !noundef !4
   %17 = zext i16 %16 to i64
   tail call void @_ZN8mini_lsm5block8iterator13BlockIterator14seek_to_offset17h894a32a359f819abE.llvm.10393531995006364539(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %17)
@@ -9601,7 +9601,7 @@ _ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.1039
 _ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12: ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %29 = load ptr, ptr %28, align 8, !alias.scope !1620, !noalias !1623, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds [0 x i16], ptr %29, i64 0, i64 %24
+  %30 = getelementptr inbounds i16, ptr %29, i64 %24
   %31 = load i16, ptr %30, align 2, !noalias !1614, !noundef !4
   %32 = zext i16 %31 to i64
   tail call void @_ZN8mini_lsm5block8iterator13BlockIterator14seek_to_offset17h894a32a359f819abE.llvm.10393531995006364539(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %32)

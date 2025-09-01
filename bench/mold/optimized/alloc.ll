@@ -48,7 +48,7 @@ define hidden noalias ptr @mi_malloc(i64 noundef %0) #0 {
   %6 = add nuw nsw i64 %0, 7
   %7 = lshr i64 %6, 3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %9 = getelementptr inbounds nuw [129 x ptr], ptr %8, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !11
@@ -100,7 +100,7 @@ define hidden noalias ptr @mi_calloc(i64 noundef %0, i64 noundef %1) #1 {
   %12 = add nuw nsw i64 %storemerge.i.ph.i, 7
   %13 = lshr i64 %12, 3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  %15 = getelementptr inbounds nuw [129 x ptr], ptr %14, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !11
@@ -173,7 +173,7 @@ define hidden void @mi_free(ptr noundef %0) #3 {
   %15 = sub i64 %2, %4
   %16 = lshr i64 %15, 16
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 288
-  %18 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %17, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw %struct.mi_page_s, ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !23
   %21 = zext i32 %20 to i64
@@ -233,7 +233,7 @@ define hidden noalias ptr @mi_strdup(ptr noundef %0) #3 {
   %10 = add nsw i64 %6, 8
   %11 = lshr i64 %10, 3
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %13 = getelementptr inbounds nuw [129 x ptr], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !11
@@ -284,7 +284,7 @@ define hidden noalias ptr @mi_strndup(ptr noundef %0, i64 noundef %1) #3 {
   %11 = add nsw i64 %7, 8
   %12 = lshr i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  %14 = getelementptr inbounds nuw [129 x ptr], ptr %13, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !11
@@ -338,7 +338,7 @@ define hidden void @mi_free_size(ptr noundef %0, i64 %1) #3 {
   %16 = sub i64 %3, %5
   %17 = lshr i64 %16, 16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %19 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %18, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct.mi_page_s, ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !23
   %22 = zext i32 %21 to i64
@@ -401,7 +401,7 @@ define void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef %1) local_unnamed
   %16 = sub i64 %3, %5
   %17 = lshr i64 %16, 16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %19 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %18, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct.mi_page_s, ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !23
   %22 = zext i32 %21 to i64
@@ -464,7 +464,7 @@ define hidden void @mi_free_aligned(ptr noundef %0, i64 noundef %1) local_unname
   %16 = sub i64 %3, %5
   %17 = lshr i64 %16, 16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %19 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %18, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct.mi_page_s, ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !23
   %22 = zext i32 %21 to i64
@@ -527,7 +527,7 @@ define void @_ZdaPvSt11align_val_t(ptr noundef %0, i64 noundef %1) local_unnamed
   %16 = sub i64 %3, %5
   %17 = lshr i64 %16, 16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %19 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %18, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct.mi_page_s, ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !23
   %22 = zext i32 %21 to i64
@@ -590,7 +590,7 @@ define void @_ZdlPvmSt11align_val_t(ptr noundef %0, i64 noundef %1, i64 noundef 
   %17 = sub i64 %4, %6
   %18 = lshr i64 %17, 16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  %20 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %19, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw %struct.mi_page_s, ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !23
   %23 = zext i32 %22 to i64
@@ -653,7 +653,7 @@ define hidden void @mi_free_size_aligned(ptr noundef %0, i64 noundef %1, i64 nou
   %17 = sub i64 %4, %6
   %18 = lshr i64 %17, 16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  %20 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %19, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw %struct.mi_page_s, ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !23
   %23 = zext i32 %22 to i64
@@ -716,7 +716,7 @@ define void @_ZdaPvmSt11align_val_t(ptr noundef %0, i64 noundef %1, i64 noundef 
   %17 = sub i64 %4, %6
   %18 = lshr i64 %17, 16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  %20 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %19, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw %struct.mi_page_s, ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !23
   %23 = zext i32 %22 to i64
@@ -779,7 +779,7 @@ define void @_ZdlPvRKSt9nothrow_t(ptr noundef %0, ptr noundef readnone captures(
   %16 = sub i64 %3, %5
   %17 = lshr i64 %16, 16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %19 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %18, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct.mi_page_s, ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !23
   %22 = zext i32 %21 to i64
@@ -842,7 +842,7 @@ define void @_ZdaPvRKSt9nothrow_t(ptr noundef %0, ptr noundef readnone captures(
   %16 = sub i64 %3, %5
   %17 = lshr i64 %16, 16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %19 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %18, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct.mi_page_s, ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !23
   %22 = zext i32 %21 to i64
@@ -905,7 +905,7 @@ define void @_ZdlPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 noundef %1,
   %17 = sub i64 %4, %6
   %18 = lshr i64 %17, 16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  %20 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %19, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw %struct.mi_page_s, ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !23
   %23 = zext i32 %22 to i64
@@ -968,7 +968,7 @@ define void @_ZdaPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 noundef %1,
   %17 = sub i64 %4, %6
   %18 = lshr i64 %17, 16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  %20 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %19, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw %struct.mi_page_s, ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !23
   %23 = zext i32 %22 to i64
@@ -1022,7 +1022,7 @@ define hidden ptr @mi_new(i64 noundef %0) #3 {
   %6 = add nuw nsw i64 %0, 7
   %7 = lshr i64 %6, 3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %9 = getelementptr inbounds nuw [129 x ptr], ptr %8, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !11
@@ -1064,7 +1064,7 @@ define ptr @_ZnwmRKSt9nothrow_t(i64 noundef %0, ptr noundef readnone captures(no
   %7 = add nuw nsw i64 %0, 7
   %8 = lshr i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  %10 = getelementptr inbounds nuw [129 x ptr], ptr %9, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !11
@@ -1106,7 +1106,7 @@ define hidden noalias ptr @mi_new_nothrow(i64 noundef %0) local_unnamed_addr #3 
   %6 = add nuw nsw i64 %0, 7
   %7 = lshr i64 %6, 3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %9 = getelementptr inbounds nuw [129 x ptr], ptr %8, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !11
@@ -1148,7 +1148,7 @@ define ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr noundef readnone captures(no
   %7 = add nuw nsw i64 %0, 7
   %8 = lshr i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  %10 = getelementptr inbounds nuw [129 x ptr], ptr %9, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !11
@@ -1307,7 +1307,7 @@ define hidden i64 @mi_usable_size(ptr noundef %0) #4 {
   %10 = sub i64 %2, %4
   %11 = lshr i64 %10, 16
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 288
-  %13 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw %struct.mi_page_s, ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !23
   %16 = zext i32 %15 to i64
@@ -1361,7 +1361,7 @@ define void @vfree(ptr noundef %0) local_unnamed_addr #3 {
   %15 = sub i64 %2, %4
   %16 = lshr i64 %15, 16
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 288
-  %18 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %17, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw %struct.mi_page_s, ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !23
   %21 = zext i32 %20 to i64
@@ -1448,7 +1448,7 @@ define void @cfree(ptr noundef %0) local_unnamed_addr #3 {
   %15 = sub i64 %2, %4
   %16 = lshr i64 %15, 16
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 288
-  %18 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %17, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw %struct.mi_page_s, ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !23
   %21 = zext i32 %20 to i64
@@ -1716,7 +1716,7 @@ define hidden noundef zeroext i1 @_mi_free_delayed_block(ptr noundef %0) local_u
   %9 = sub i64 %2, %8
   %10 = lshr i64 %9, 16
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  %12 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %11, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw %struct.mi_page_s, ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = zext i32 %14 to i64
@@ -1885,7 +1885,7 @@ define hidden noalias ptr @mi_heap_malloc_small(ptr noundef %0, i64 noundef %1) 
   %3 = add i64 %1, 7
   %4 = lshr i64 %3, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %6 = getelementptr inbounds nuw [129 x ptr], ptr %5, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !11
@@ -1918,7 +1918,7 @@ define hidden noalias ptr @mi_malloc_small(i64 noundef %0) local_unnamed_addr #0
   %4 = add i64 %0, 7
   %5 = lshr i64 %4, 3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %7 = getelementptr inbounds nuw [129 x ptr], ptr %6, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !11
@@ -1953,7 +1953,7 @@ define hidden ptr @_mi_heap_malloc_zero_ex(ptr noundef %0, i64 noundef %1, i1 no
   %7 = add nuw nsw i64 %1, 7
   %8 = lshr i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %10 = getelementptr inbounds nuw [129 x ptr], ptr %9, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !11
@@ -2010,7 +2010,7 @@ define hidden ptr @_mi_heap_malloc_zero(ptr noundef %0, i64 noundef %1, i1 nound
   %6 = add nuw nsw i64 %1, 7
   %7 = lshr i64 %6, 3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %9 = getelementptr inbounds nuw [129 x ptr], ptr %8, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !11
@@ -2067,7 +2067,7 @@ define hidden noalias ptr @mi_heap_malloc(ptr noundef %0, i64 noundef %1) local_
   %5 = add nuw nsw i64 %1, 7
   %6 = lshr i64 %5, 3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %8 = getelementptr inbounds nuw [129 x ptr], ptr %7, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !11
@@ -2104,7 +2104,7 @@ define hidden noalias ptr @mi_zalloc_small(i64 noundef %0) local_unnamed_addr #3
   %4 = add i64 %0, 7
   %5 = lshr i64 %4, 3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %7 = getelementptr inbounds nuw [129 x ptr], ptr %6, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !11
@@ -2154,7 +2154,7 @@ define hidden noalias ptr @mi_heap_zalloc(ptr noundef %0, i64 noundef %1) local_
   %5 = add nuw nsw i64 %1, 7
   %6 = lshr i64 %5, 3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %8 = getelementptr inbounds nuw [129 x ptr], ptr %7, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !11
@@ -2210,7 +2210,7 @@ define hidden noalias ptr @mi_zalloc(i64 noundef %0) local_unnamed_addr #3 {
   %6 = add nuw nsw i64 %0, 7
   %7 = lshr i64 %6, 3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %9 = getelementptr inbounds nuw [129 x ptr], ptr %8, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !11
@@ -2275,7 +2275,7 @@ define hidden noalias ptr @mi_heap_calloc(ptr noundef %0, i64 noundef %1, i64 no
   %11 = add nuw nsw i64 %storemerge.i.ph, 7
   %12 = lshr i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %14 = getelementptr inbounds nuw [129 x ptr], ptr %13, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !11
@@ -2340,7 +2340,7 @@ define hidden noalias ptr @mi_heap_mallocn(ptr noundef %0, i64 noundef %1, i64 n
   %11 = add nuw nsw i64 %storemerge.i.ph, 7
   %12 = lshr i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %14 = getelementptr inbounds nuw [129 x ptr], ptr %13, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !11
@@ -2392,7 +2392,7 @@ define hidden noalias ptr @mi_mallocn(i64 noundef %0, i64 noundef %1) local_unna
   %12 = add nuw nsw i64 %storemerge.i.ph.i, 7
   %13 = lshr i64 %12, 3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  %15 = getelementptr inbounds nuw [129 x ptr], ptr %14, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !11
@@ -2441,7 +2441,7 @@ define hidden ptr @mi_expand(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   %13 = sub i64 %5, %7
   %14 = lshr i64 %13, 16
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 288
-  %16 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %15, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw %struct.mi_page_s, ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !23
   %19 = zext i32 %18 to i64
@@ -2492,7 +2492,7 @@ _mi_usable_size.exit.thread:                      ; preds = %4
   %13 = sub i64 %5, %7
   %14 = lshr i64 %13, 16
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 288
-  %16 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %15, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw %struct.mi_page_s, ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !23
   %19 = zext i32 %18 to i64
@@ -2533,7 +2533,7 @@ _mi_usable_size.exit:                             ; preds = %24, %26
   %33 = add nuw nsw i64 %2, 7
   %34 = lshr i64 %33, 3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %36 = getelementptr inbounds nuw [129 x ptr], ptr %35, i64 0, i64 %34
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %34
   %37 = load ptr, ptr %36, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !11
@@ -2594,7 +2594,7 @@ mi_heap_malloc.exit:                              ; preds = %.critedge, %32
   %64 = sub i64 %5, %7
   %65 = lshr i64 %64, 16
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 288
-  %67 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %66, i64 0, i64 %65
+  %67 = getelementptr inbounds nuw %struct.mi_page_s, ptr %66, i64 %65
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !23
   %70 = zext i32 %69 to i64
@@ -2692,7 +2692,7 @@ define hidden ptr @mi_heap_reallocf(ptr noundef %0, ptr noundef %1, i64 noundef 
   %21 = sub i64 %8, %10
   %22 = lshr i64 %21, 16
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 288
-  %24 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %23, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw %struct.mi_page_s, ptr %23, i64 %22
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !23
   %27 = zext i32 %26 to i64
@@ -2831,7 +2831,7 @@ define hidden noalias ptr @mi_heap_strdup(ptr noundef %0, ptr noundef %1) local_
   %9 = add nsw i64 %5, 8
   %10 = lshr i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %12 = getelementptr inbounds nuw [129 x ptr], ptr %11, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !11
@@ -2882,7 +2882,7 @@ define hidden noalias ptr @mi_heap_strndup(ptr noundef %0, ptr noundef %1, i64 n
   %10 = add nsw i64 %6, 8
   %11 = lshr i64 %10, 3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %13 = getelementptr inbounds nuw [129 x ptr], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !11
@@ -2942,7 +2942,7 @@ define hidden noalias ptr @mi_heap_realpath(ptr noundef %0, ptr noundef readonly
   %14 = add nsw i64 %10, 8
   %15 = lshr i64 %14, 3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %17 = getelementptr inbounds nuw [129 x ptr], ptr %16, i64 0, i64 %15
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !11
@@ -3005,7 +3005,7 @@ define hidden ptr @mi_heap_try_new(ptr noundef %0, i64 noundef %1, i1 noundef ze
   %5 = add nuw nsw i64 %1, 7
   %6 = lshr i64 %5, 3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %8 = getelementptr inbounds nuw [129 x ptr], ptr %7, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
   %9 = tail call ptr @_ZSt15get_new_handlerv() #20
   %.not.us11 = icmp eq ptr %9, null
   br i1 %4, label %.split.us, label %.split, !prof !8
@@ -3102,7 +3102,7 @@ define hidden noalias ptr @mi_heap_alloc_new(ptr noundef %0, i64 noundef %1) loc
   %5 = add nuw nsw i64 %1, 7
   %6 = lshr i64 %5, 3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %8 = getelementptr inbounds nuw [129 x ptr], ptr %7, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !11
@@ -3157,7 +3157,7 @@ mi_count_size_overflow.exit:                      ; preds = %4
   %11 = add nuw nsw i64 %storemerge.i.ph, 7
   %12 = lshr i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %14 = getelementptr inbounds nuw [129 x ptr], ptr %13, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !11
@@ -3214,7 +3214,7 @@ mi_count_size_overflow.exit.i:                    ; preds = %5
   %12 = add nuw nsw i64 %storemerge.i.ph.i, 7
   %13 = lshr i64 %12, 3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  %15 = getelementptr inbounds nuw [129 x ptr], ptr %14, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !11
@@ -3370,7 +3370,7 @@ define internal fastcc void @mi_free_block_mt(ptr noundef %0, ptr noundef %1, pt
   %28 = sub i64 %15, %17
   %29 = lshr i64 %28, 16
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 288
-  %31 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %30, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw %struct.mi_page_s, ptr %30, i64 %29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !23
   %34 = zext i32 %33 to i64

@@ -6361,7 +6361,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEmc.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEmc.exit: ; preds = %6, %10
-  %11 = getelementptr inbounds nuw [421 x i8], ptr %8, i64 0, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %1
   store i8 0, ptr %11, align 1, !tbaa !9
   ret void
 }
@@ -6387,7 +6387,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   br label %_ZNSt11char_traitsIcE6assignEPcmc.exit
 
 _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %6, %10
-  %11 = getelementptr inbounds nuw [421 x i8], ptr %8, i64 0, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %1
   store i8 0, ptr %11, align 1, !tbaa !9
   ret ptr %0
 }
@@ -6414,7 +6414,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKcm.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKcm.exit: ; preds = %6, %10
-  %11 = getelementptr inbounds nuw [421 x i8], ptr %8, i64 0, i64 %2
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %2
   store i8 0, ptr %11, align 1, !tbaa !9
   ret void
 }
@@ -6440,7 +6440,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   br label %_ZNSt11char_traitsIcE4moveEPcPKcm.exit
 
 _ZNSt11char_traitsIcE4moveEPcPKcm.exit:           ; preds = %6, %10
-  %11 = getelementptr inbounds nuw [421 x i8], ptr %8, i64 0, i64 %2
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %2
   store i8 0, ptr %11, align 1, !tbaa !9
   ret ptr %0
 }
@@ -6468,7 +6468,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKc.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKc.exit: ; preds = %6, %10
-  %11 = getelementptr inbounds nuw [421 x i8], ptr %8, i64 0, i64 %3
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %3
   store i8 0, ptr %11, align 1, !tbaa !9
   ret void
 }
@@ -6495,7 +6495,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKcm.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKcm.exit: ; preds = %6, %10
-  %11 = getelementptr inbounds nuw [421 x i8], ptr %8, i64 0, i64 %3
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %3
   store i8 0, ptr %11, align 1, !tbaa !9
   ret ptr %0
 }
@@ -6561,7 +6561,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKcm.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKcm.exit: ; preds = %6, %10
-  %11 = getelementptr inbounds nuw [421 x i8], ptr %8, i64 0, i64 %2
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %2
   store i8 0, ptr %11, align 1, !tbaa !9
   ret void
 }
@@ -6607,7 +6607,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKc.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKc.exit: ; preds = %6, %10
-  %11 = getelementptr inbounds nuw [421 x i8], ptr %8, i64 0, i64 %3
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %3
   store i8 0, ptr %11, align 1, !tbaa !9
   ret ptr %0
 }
@@ -6670,7 +6670,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assign
   %16 = trunc i64 %15 to i16
   store i16 %16, ptr %0, align 2, !tbaa !4
   %17 = and i64 %15, 65535
-  %18 = getelementptr inbounds nuw [421 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !9
   ret ptr %0
 }
@@ -6713,7 +6713,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assign
   %16 = trunc i64 %15 to i16
   store i16 %16, ptr %0, align 2, !tbaa !4
   %17 = and i64 %15, 65535
-  %18 = getelementptr inbounds nuw [421 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !9
   ret ptr %0
 }
@@ -6773,7 +6773,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %0, align 2, !tbaa !4
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw [421 x i8], ptr %2, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %4
   store i8 0, ptr %5, align 1, !tbaa !9
   ret ptr %0
 }
@@ -7829,7 +7829,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   %9 = add nuw nsw i16 %3, 1
   store i16 %9, ptr %0, align 2, !tbaa !4
   %10 = zext nneg i16 %9 to i64
-  %11 = getelementptr inbounds nuw [421 x i8], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
   store i8 0, ptr %11, align 1, !tbaa !9
   ret void
 }
@@ -7841,7 +7841,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   store i16 %3, ptr %0, align 2, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = zext i16 %3 to i64
-  %6 = getelementptr inbounds nuw [421 x i8], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %5
   store i8 0, ptr %6, align 1, !tbaa !9
   ret void
 }
@@ -7873,7 +7873,7 @@ _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %9, %12
   %15 = add i16 %4, %14
   store i16 %15, ptr %0, align 2, !tbaa !4
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw [421 x i8], ptr %10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !9
   ret ptr %0
 }
@@ -7905,7 +7905,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %9, %12
   %15 = add i16 %4, %14
   store i16 %15, ptr %0, align 2, !tbaa !4
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw [421 x i8], ptr %10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !9
   ret ptr %0
 }
@@ -7938,7 +7938,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6append
   %15 = add i16 %4, %14
   store i16 %15, ptr %0, align 2, !tbaa !4
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw [421 x i8], ptr %10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !9
   ret ptr %0
 }
@@ -7970,7 +7970,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6append
   %15 = add i16 %4, %14
   store i16 %15, ptr %0, align 2, !tbaa !4
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw [421 x i8], ptr %10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !9
   ret ptr %0
 }
@@ -7993,7 +7993,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE9push_b
   %8 = add nuw nsw i16 %3, 1
   store i16 %8, ptr %0, align 2, !tbaa !4
   %9 = zext nneg i16 %8 to i64
-  %10 = getelementptr inbounds nuw [421 x i8], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   store i8 0, ptr %10, align 1, !tbaa !9
   ret ptr %0
 }
@@ -8026,7 +8026,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6append
   %15 = add i16 %4, %14
   store i16 %15, ptr %0, align 2, !tbaa !4
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw [421 x i8], ptr %10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !9
   ret ptr %0
 }
@@ -8058,7 +8058,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6append
   %15 = add i16 %4, %14
   store i16 %15, ptr %0, align 2, !tbaa !4
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw [421 x i8], ptr %10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !9
   ret ptr %0
 }
@@ -8334,7 +8334,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6resize
   %13 = trunc nuw nsw i64 %1 to i16
   store i16 %13, ptr %0, align 2, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %15 = getelementptr inbounds nuw [421 x i8], ptr %14, i64 0, i64 %1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %1
   store i8 0, ptr %15, align 1, !tbaa !9
   ret void
 }
@@ -8365,7 +8365,7 @@ _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %10, %6
   %14 = trunc nuw nsw i64 %1 to i16
   store i16 %14, ptr %0, align 2, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %16 = getelementptr inbounds nuw [421 x i8], ptr %15, i64 0, i64 %1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %1
   store i8 0, ptr %16, align 1, !tbaa !9
   ret void
 }
@@ -25184,7 +25184,7 @@ _ZN5boost14static_strings6testTSIiEEbT_PKcb.exit:
   %.130.i.add.i.i.i = add nsw i64 %.130.i.idx.i.i.i, -1
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 %.130.i.add.i.i.i
   %76 = urem i64 %.229.i.i.i.i, 10
-  %77 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @.str.3963, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !9, !noalias !99
   store i8 %78, ptr %.ptr.i.i.i, align 1, !tbaa !9, !noalias !99
   %79 = udiv i64 %.229.i.i.i.i, 10
@@ -25217,7 +25217,7 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.i.i.i
   %.02232.i.add4.i.i.i = add nsw i64 %.02232.i.idx.i.i.i, -1
   %.ptr8.i.i.i = getelementptr inbounds i8, ptr %18, i64 %.02232.i.add4.i.i.i
   %86 = urem i64 %.12431.i.i.i.i, 10
-  %87 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @.str.3963, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !9, !noalias !109
   store i8 %88, ptr %.ptr8.i.i.i, align 1, !tbaa !9, !noalias !109
   %89 = udiv i64 %.12431.i.i.i.i, 10
@@ -25252,7 +25252,7 @@ _ZN5boost14static_strings6testTSIxEEbT_PKcb.exit23: ; preds = %select.unfold.i.i
   %.0811.i.i.i.i = phi ptr [ %99, %.preheader.i.i.i.i24 ], [ %98, %_ZN5boost14static_strings6testTSIxEEbT_PKcb.exit23 ]
   %99 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 -1
   %100 = urem i64 %.012.i.i.i.i, 10
-  %101 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @.str.3963, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !9, !noalias !117
   store i8 %102, ptr %99, align 1, !tbaa !9, !noalias !117
   %103 = udiv i64 %.012.i.i.i.i, 10
@@ -25282,7 +25282,7 @@ _ZN5boost14static_strings6testTSIyEEbT_PKcb.exit: ; preds = %.preheader.i.i.i.i2
   %.0811.i.i.i.i32 = phi ptr [ %110, %.preheader.i.i.i.i30 ], [ %109, %_ZN5boost14static_strings6testTSIyEEbT_PKcb.exit ]
   %110 = getelementptr inbounds i8, ptr %.0811.i.i.i.i32, i64 -1
   %111 = urem i64 %.012.i.i.i.i31, 10
-  %112 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @.str.3963, i64 %111
   %113 = load i8, ptr %112, align 1, !tbaa !9, !noalias !125
   store i8 %113, ptr %110, align 1, !tbaa !9, !noalias !125
   %114 = udiv i64 %.012.i.i.i.i31, 10
@@ -25337,7 +25337,7 @@ _ZN5boost14static_strings6testTSIyEEbT_PKcb.exit38: ; preds = %.preheader.i.i.i.
   br i1 %135, label %_ZN5boost14static_strings16to_static_stringEf.exit.thread, label %.lr.ph.preheader
 
 _ZN5boost14static_strings16to_static_stringEf.exit.thread: ; preds = %133
-  %136 = getelementptr inbounds nuw [14 x i8], ptr %129, i64 0, i64 %130
+  %136 = getelementptr inbounds nuw i8, ptr %129, i64 %130
   store i8 0, ptr %136, align 1, !tbaa !9, !alias.scope !132
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !132
   br label %_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit49
@@ -25351,7 +25351,7 @@ _ZN5boost14static_strings16to_static_stringEf.exit.thread: ; preds = %133
 
 .lr.ph.preheader:                                 ; preds = %133
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 1 %13, i64 %130, i1 false)
-  %140 = getelementptr inbounds nuw [14 x i8], ptr %129, i64 0, i64 %130
+  %140 = getelementptr inbounds nuw i8, ptr %129, i64 %130
   store i8 0, ptr %140, align 1, !tbaa !9, !alias.scope !132
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !132
   br label %.lr.ph
@@ -25448,7 +25448,7 @@ _ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   br i1 %171, label %_ZN5boost14static_strings16to_static_stringEd.exit.thread, label %.lr.ph259.preheader
 
 _ZN5boost14static_strings16to_static_stringEd.exit.thread: ; preds = %169
-  %172 = getelementptr inbounds nuw [22 x i8], ptr %165, i64 0, i64 %166
+  %172 = getelementptr inbounds nuw i8, ptr %165, i64 %166
   store i8 0, ptr %172, align 1, !tbaa !9, !alias.scope !141
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !141
   br label %_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit68
@@ -25462,7 +25462,7 @@ _ZN5boost14static_strings16to_static_stringEd.exit.thread: ; preds = %169
 
 .lr.ph259.preheader:                              ; preds = %169
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull align 16 %12, i64 %166, i1 false)
-  %176 = getelementptr inbounds nuw [22 x i8], ptr %165, i64 0, i64 %166
+  %176 = getelementptr inbounds nuw i8, ptr %165, i64 %166
   store i8 0, ptr %176, align 1, !tbaa !9, !alias.scope !141
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !141
   br label %.lr.ph259
@@ -25559,7 +25559,7 @@ _ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   br i1 %207, label %_ZN5boost14static_strings16to_static_stringEe.exit.thread, label %.lr.ph263.preheader
 
 _ZN5boost14static_strings16to_static_stringEe.exit.thread: ; preds = %205
-  %208 = getelementptr inbounds nuw [26 x i8], ptr %201, i64 0, i64 %202
+  %208 = getelementptr inbounds nuw i8, ptr %201, i64 %202
   store i8 0, ptr %208, align 1, !tbaa !9, !alias.scope !150
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !150
   br label %_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit87
@@ -25573,7 +25573,7 @@ _ZN5boost14static_strings16to_static_stringEe.exit.thread: ; preds = %205
 
 .lr.ph263.preheader:                              ; preds = %205
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %201, ptr nonnull align 16 %11, i64 %202, i1 false)
-  %212 = getelementptr inbounds nuw [26 x i8], ptr %201, i64 0, i64 %202
+  %212 = getelementptr inbounds nuw i8, ptr %201, i64 %202
   store i8 0, ptr %212, align 1, !tbaa !9, !alias.scope !150
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !150
   br label %.lr.ph263
@@ -25685,7 +25685,7 @@ _ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   %.130.i.add.i.i.i91 = add nsw i64 %.130.i.idx.i.i.i89, -4
   %.ptr.i.i.i92 = getelementptr inbounds i8, ptr %9, i64 %.130.i.add.i.i.i91
   %268 = urem i64 %.229.i.i.i.i90, 10
-  %269 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %268
+  %269 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %268
   %270 = load i32, ptr %269, align 4, !tbaa !160, !noalias !159
   store i32 %270, ptr %.ptr.i.i.i92, align 4, !tbaa !160, !noalias !159
   %271 = udiv i64 %.229.i.i.i.i90, 10
@@ -25700,7 +25700,7 @@ _ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit: ; preds = %.preheader.i.i.i.i
   %272 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i.i, ptr noundef nonnull %.ptr.i.i.i92.le, i64 noundef 19) #36
   %.pre.i.i.i.i.i = load i8, ptr %10, align 4, !tbaa !163, !alias.scope !159
   %273 = zext i8 %.pre.i.i.i.i.i to i64
-  %274 = getelementptr inbounds nuw [21 x i32], ptr %scevgep.i.i.i.i.i, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i.i, i64 %273
   store i32 0, ptr %274, align 4, !tbaa !160, !alias.scope !159
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !159
   %275 = call i64 @wcstoll(ptr noundef nonnull %scevgep.i.i.i.i.i, ptr noundef null, i32 noundef 10) #36
@@ -25719,7 +25719,7 @@ select.unfold.i.i.i99:                            ; preds = %select.unfold.i.i.i
   %.02232.i.add4.i.i.i102 = add nsw i64 %.02232.i.idx.i.i.i100, -4
   %.ptr8.i.i.i103 = getelementptr inbounds i8, ptr %7, i64 %.02232.i.add4.i.i.i102
   %278 = urem i64 %.12431.i.i.i.i101, 10
-  %279 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %278
+  %279 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !160, !noalias !171
   store i32 %280, ptr %.ptr8.i.i.i103, align 4, !tbaa !160, !noalias !171
   %281 = udiv i64 %.12431.i.i.i.i101, 10
@@ -25738,7 +25738,7 @@ _ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit114: ; preds = %select.unfold.i
   %285 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i.i110, ptr noundef nonnull %7, i64 noundef 20) #36
   %.pre.i.i.i.i.i111 = load i8, ptr %8, align 4, !tbaa !163, !alias.scope !171
   %286 = zext i8 %.pre.i.i.i.i.i111 to i64
-  %287 = getelementptr inbounds nuw [21 x i32], ptr %scevgep.i.i.i.i.i110, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i.i110, i64 %286
   store i32 0, ptr %287, align 4, !tbaa !160, !alias.scope !171
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !171
   %288 = call i64 @wcstoll(ptr noundef nonnull %scevgep.i.i.i.i.i110, ptr noundef null, i32 noundef 10) #36
@@ -25757,7 +25757,7 @@ _ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit114: ; preds = %select.unfold.i
   %.0811.i.i.i.i117 = phi ptr [ %292, %.preheader.i.i.i.i115 ], [ %291, %_ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit114 ]
   %292 = getelementptr inbounds i8, ptr %.0811.i.i.i.i117, i64 -4
   %293 = urem i64 %.012.i.i.i.i116, 10
-  %294 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %293
+  %294 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %293
   %295 = load i32, ptr %294, align 4, !tbaa !160, !noalias !179
   store i32 %295, ptr %292, align 4, !tbaa !160, !noalias !179
   %296 = udiv i64 %.012.i.i.i.i116, 10
@@ -25771,7 +25771,7 @@ _ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit: ; preds = %.preheader.i.i.i.i
   %297 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i.i120, ptr noundef nonnull %5, i64 noundef 20) #36
   %.pre.i.i.i.i.i121 = load i8, ptr %6, align 4, !tbaa !163, !alias.scope !179
   %298 = zext i8 %.pre.i.i.i.i.i121 to i64
-  %299 = getelementptr inbounds nuw [21 x i32], ptr %scevgep.i.i.i.i.i120, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i.i120, i64 %298
   store i32 0, ptr %299, align 4, !tbaa !160, !alias.scope !179
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !179
   %300 = call i64 @wcstoull(ptr noundef nonnull %scevgep.i.i.i.i.i120, ptr noundef null, i32 noundef 10) #36
@@ -25790,7 +25790,7 @@ _ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit: ; preds = %.preheader.i.i.i.i
   %.0811.i.i.i.i126 = phi ptr [ %304, %.preheader.i.i.i.i124 ], [ %303, %_ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit ]
   %304 = getelementptr inbounds i8, ptr %.0811.i.i.i.i126, i64 -4
   %305 = urem i64 %.012.i.i.i.i125, 10
-  %306 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %305
+  %306 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %305
   %307 = load i32, ptr %306, align 4, !tbaa !160, !noalias !187
   store i32 %307, ptr %304, align 4, !tbaa !160, !noalias !187
   %308 = udiv i64 %.012.i.i.i.i125, 10
@@ -25804,7 +25804,7 @@ _ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit133: ; preds = %.preheader.i.i.
   %309 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i.i129, ptr noundef nonnull %3, i64 noundef 20) #36
   %.pre.i.i.i.i.i130 = load i8, ptr %4, align 4, !tbaa !163, !alias.scope !187
   %310 = zext i8 %.pre.i.i.i.i.i130 to i64
-  %311 = getelementptr inbounds nuw [21 x i32], ptr %scevgep.i.i.i.i.i129, i64 0, i64 %310
+  %311 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i.i129, i64 %310
   store i32 0, ptr %311, align 4, !tbaa !160, !alias.scope !187
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !187
   %312 = call i64 @wcstoull(ptr noundef nonnull %scevgep.i.i.i.i.i129, ptr noundef null, i32 noundef 10) #36
@@ -25862,7 +25862,7 @@ _ZN5boost14static_strings17to_static_wstringEf.exit: ; preds = %326
   %332 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef nonnull %2, i64 noundef %323) #36
   %.pre.i.i.i.i.i134 = load i8, ptr %27, align 4, !tbaa !195
   %333 = zext i8 %.pre.i.i.i.i.i134 to i64
-  %334 = getelementptr inbounds nuw [14 x i32], ptr %scevgep.i.i.i.i, i64 0, i64 %333
+  %334 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %333
   store i32 0, ptr %334, align 4, !tbaa !160, !alias.scope !194
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !194
   %335 = zext i8 %.pre.i.i.i.i.i134 to i64
@@ -25980,7 +25980,7 @@ _ZN5boost14static_strings17to_static_wstringEd.exit: ; preds = %365
   %371 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i152, ptr noundef nonnull %1, i64 noundef %362) #36
   %.pre.i.i.i.i.i153 = load i8, ptr %28, align 4, !tbaa !204
   %372 = zext i8 %.pre.i.i.i.i.i153 to i64
-  %373 = getelementptr inbounds nuw [22 x i32], ptr %scevgep.i.i.i.i152, i64 0, i64 %372
+  %373 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i152, i64 %372
   store i32 0, ptr %373, align 4, !tbaa !160, !alias.scope !203
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !203
   %374 = zext i8 %.pre.i.i.i.i.i153 to i64
@@ -26098,7 +26098,7 @@ _ZN5boost14static_strings17to_static_wstringEe.exit: ; preds = %404
   %410 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i172, ptr noundef nonnull %0, i64 noundef %401) #36
   %.pre.i.i.i.i.i173 = load i8, ptr %29, align 4, !tbaa !213
   %411 = zext i8 %.pre.i.i.i.i.i173 to i64
-  %412 = getelementptr inbounds nuw [26 x i32], ptr %scevgep.i.i.i.i172, i64 0, i64 %411
+  %412 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i172, i64 %411
   store i32 0, ptr %412, align 4, !tbaa !160, !alias.scope !212
   call void @llvm.lifetime.end.p0(ptr nonnull %0), !noalias !212
   %413 = zext i8 %.pre.i.i.i.i.i173 to i64
@@ -26208,7 +26208,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.ptr8.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add4.i.i
   %12 = urem i32 %.12431.i.i.i, 10
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @.str.3963, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !9, !noalias !221
   store i8 %15, ptr %.ptr8.i.i, align 1, !tbaa !9, !noalias !221
   %16 = udiv i32 %.12431.i.i.i, 10
@@ -26238,7 +26238,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.130.i.add.i.i
   %23 = urem i32 %.229.i.i.i, 10
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @.str.3963, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !9, !noalias !221
   store i8 %26, ptr %.ptr.i.i, align 1, !tbaa !9, !noalias !221
   %27 = udiv i32 %.229.i.i.i, 10
@@ -26284,7 +26284,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
 _ZN5boost14static_strings16to_static_stringEi.exit: ; preds = %31, %34
   %39 = phi ptr [ %35, %34 ], [ %28, %31 ]
   %gepdiff1520.i.i = phi i64 [ %gepdiff1519.i.i, %34 ], [ 0, %31 ]
-  %40 = getelementptr inbounds nuw [12 x i8], ptr %39, i64 0, i64 %gepdiff1520.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %gepdiff1520.i.i
   store i8 0, ptr %40, align 1, !tbaa !9, !alias.scope !221
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !221
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -26339,7 +26339,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 -1
   %11 = urem i32 %.012.i.i.i, 10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @.str.3963, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !9, !noalias !230
   store i8 %14, ptr %10, align 1, !tbaa !9, !noalias !230
   %15 = udiv i32 %.012.i.i.i, 10
@@ -26374,7 +26374,7 @@ _ZN5boost14static_strings16to_static_stringEj.exit: ; preds = %.loopexit.i.i
   %25 = trunc nuw nsw i64 %18 to i8
   store i8 %25, ptr %5, align 1, !tbaa !91, !alias.scope !230
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %.09.i.i.i, i64 %18, i1 false)
-  %26 = getelementptr inbounds nuw [11 x i8], ptr %19, i64 0, i64 %18
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   store i8 0, ptr %26, align 1, !tbaa !9, !alias.scope !230
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !230
   %27 = call i64 @strtoull(ptr noundef nonnull captures(none) %19, ptr noundef null, i32 noundef 10) #36
@@ -26434,7 +26434,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.02232.i.add4.i.i = add nsw i64 %.02232.i.idx.i.i, -1
   %.ptr8.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add4.i.i
   %12 = urem i64 %.12431.i.i.i, 10
-  %13 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @.str.3963, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !9, !noalias !238
   store i8 %14, ptr %.ptr8.i.i, align 1, !tbaa !9, !noalias !238
   %15 = udiv i64 %.12431.i.i.i, 10
@@ -26463,7 +26463,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.130.i.add.i.i = add nsw i64 %.130.i.idx.i.i, -1
   %.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.130.i.add.i.i
   %22 = urem i64 %.229.i.i.i, 10
-  %23 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @.str.3963, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !9, !noalias !238
   store i8 %24, ptr %.ptr.i.i, align 1, !tbaa !9, !noalias !238
   %25 = udiv i64 %.229.i.i.i, 10
@@ -26509,7 +26509,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
 _ZN5boost14static_strings16to_static_stringEx.exit: ; preds = %29, %32
   %37 = phi ptr [ %33, %32 ], [ %26, %29 ]
   %gepdiff1520.i.i = phi i64 [ %gepdiff1519.i.i, %32 ], [ 0, %29 ]
-  %38 = getelementptr inbounds nuw [21 x i8], ptr %37, i64 0, i64 %gepdiff1520.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %gepdiff1520.i.i
   store i8 0, ptr %38, align 1, !tbaa !9, !alias.scope !238
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !238
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -26587,7 +26587,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   unreachable
 
 _ZN5boost14static_strings16to_static_stringEd.exit: ; preds = %16, %18
-  %22 = getelementptr inbounds nuw [22 x i8], ptr %12, i64 0, i64 %13
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   store i8 0, ptr %22, align 1, !tbaa !9, !alias.scope !245
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !245
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -26676,7 +26676,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   unreachable
 
 _ZN5boost14static_strings16to_static_stringEe.exit: ; preds = %16, %18
-  %22 = getelementptr inbounds nuw [26 x i8], ptr %12, i64 0, i64 %13
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   store i8 0, ptr %22, align 1, !tbaa !9, !alias.scope !256
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !256
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -26766,7 +26766,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   unreachable
 
 _ZN5boost14static_strings16to_static_stringEf.exit: ; preds = %17, %19
-  %23 = getelementptr inbounds nuw [14 x i8], ptr %13, i64 0, i64 %14
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   store i8 0, ptr %23, align 1, !tbaa !9, !alias.scope !263
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !263
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -26836,7 +26836,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.ptr8.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add4.i.i
   %11 = urem i32 %.12431.i.i.i, 10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !160, !noalias !270
   store i32 %14, ptr %.ptr8.i.i, align 4, !tbaa !160, !noalias !270
   %15 = udiv i32 %.12431.i.i.i, 10
@@ -26864,7 +26864,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.130.i.add.i.i
   %22 = urem i32 %.229.i.i.i, 10
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !160, !noalias !270
   store i32 %25, ptr %.ptr.i.i, align 4, !tbaa !160, !noalias !270
   %26 = udiv i32 %.229.i.i.i, 10
@@ -26916,7 +26916,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
 
 _ZN5boost14static_strings17to_static_wstringEi.exit: ; preds = %30, %33
   %39 = phi i64 [ 0, %30 ], [ %35, %33 ]
-  %40 = getelementptr inbounds nuw [12 x i32], ptr %scevgep.i.i.i.i, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %39
   store i32 0, ptr %40, align 4, !tbaa !160, !alias.scope !270
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !270
   %41 = call i64 @wcstoll(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef null, i32 noundef 10) #36
@@ -26970,7 +26970,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %10 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 -4
   %11 = urem i32 %.012.i.i.i, 10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !160, !noalias !281
   store i32 %14, ptr %10, align 4, !tbaa !160, !noalias !281
   %15 = udiv i32 %.012.i.i.i, 10
@@ -27008,7 +27008,7 @@ _ZN5boost14static_strings17to_static_wstringEj.exit: ; preds = %.loopexit.i.i
   %26 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef nonnull %.09.i.i.i, i64 noundef %19) #36
   %.pre.i.i.i.i = load i8, ptr %5, align 4, !tbaa !283, !alias.scope !281
   %27 = zext i8 %.pre.i.i.i.i to i64
-  %28 = getelementptr inbounds nuw [11 x i32], ptr %scevgep.i.i.i.i, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %27
   store i32 0, ptr %28, align 4, !tbaa !160, !alias.scope !281
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !281
   %29 = call i64 @wcstoull(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef null, i32 noundef 10) #36
@@ -27066,7 +27066,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.02232.i.add4.i.i = add nsw i64 %.02232.i.idx.i.i, -4
   %.ptr8.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add4.i.i
   %11 = urem i64 %.12431.i.i.i, 10
-  %12 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !160, !noalias !291
   store i32 %13, ptr %.ptr8.i.i, align 4, !tbaa !160, !noalias !291
   %14 = udiv i64 %.12431.i.i.i, 10
@@ -27093,7 +27093,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %.130.i.add.i.i = add nsw i64 %.130.i.idx.i.i, -4
   %.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.130.i.add.i.i
   %21 = urem i64 %.229.i.i.i, 10
-  %22 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @.str.6174, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !160, !noalias !291
   store i32 %23, ptr %.ptr.i.i, align 4, !tbaa !160, !noalias !291
   %24 = udiv i64 %.229.i.i.i, 10
@@ -27145,7 +27145,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
 
 _ZN5boost14static_strings17to_static_wstringEx.exit: ; preds = %28, %31
   %37 = phi i64 [ 0, %28 ], [ %33, %31 ]
-  %38 = getelementptr inbounds nuw [21 x i32], ptr %scevgep.i.i.i.i, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %37
   store i32 0, ptr %38, align 4, !tbaa !160, !alias.scope !291
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !291
   %39 = call i64 @wcstoll(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef null, i32 noundef 10) #36
@@ -27227,7 +27227,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
 
 _ZN5boost14static_strings17to_static_wstringEd.exit: ; preds = %14, %17
   %23 = phi i64 [ 0, %14 ], [ %19, %17 ]
-  %24 = getelementptr inbounds nuw [22 x i32], ptr %scevgep.i.i.i.i, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %23
   store i32 0, ptr %24, align 4, !tbaa !160, !alias.scope !298
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !298
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -27326,7 +27326,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
 
 _ZN5boost14static_strings17to_static_wstringEe.exit: ; preds = %14, %17
   %23 = phi i64 [ 0, %14 ], [ %19, %17 ]
-  %24 = getelementptr inbounds nuw [26 x i32], ptr %scevgep.i.i.i.i, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %23
   store i32 0, ptr %24, align 4, !tbaa !160, !alias.scope !309
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !309
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -27426,7 +27426,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
 
 _ZN5boost14static_strings17to_static_wstringEf.exit: ; preds = %15, %18
   %24 = phi i64 [ 0, %15 ], [ %20, %18 ]
-  %25 = getelementptr inbounds nuw [14 x i32], ptr %scevgep.i.i.i.i, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %scevgep.i.i.i.i, i64 %24
   store i32 0, ptr %25, align 4, !tbaa !160, !alias.scope !316
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !316
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -76369,7 +76369,7 @@ _ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE13capp
 
 15:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %10, ptr nonnull align 1 %8, i64 %.sroa.speculated.i.i, i1 false)
-  %16 = getelementptr inbounds nuw [401 x i8], ptr %10, i64 0, i64 %.sroa.speculated.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 %.sroa.speculated.i.i
   store i8 0, ptr %16, align 1, !tbaa !9, !alias.scope !1466
   %bcmp = call i32 @bcmp(ptr nonnull %8, ptr nonnull %10, i64 %.sroa.speculated.i.i)
   %17 = icmp eq i32 %bcmp, 0
@@ -78108,7 +78108,7 @@ _ZNSt16istream_iteratorIccSt11char_traitsIcElEppEv.exit.i.i: ; preds = %_ZStneRK
   %50 = trunc i64 %49 to i8
   store i8 %50, ptr %4, align 1, !tbaa !91
   %51 = and i64 %49, 255
-  %52 = getelementptr inbounds nuw [11 x i8], ptr %28, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %28, i64 %51
   store i8 0, ptr %52, align 1, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -84656,7 +84656,7 @@ _ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEE6assignIP
   %192 = trunc i64 %191 to i8
   store i8 %192, ptr %17, align 1, !tbaa !319
   %193 = and i64 %191, 255
-  %194 = getelementptr inbounds nuw [5 x i8], ptr %185, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr %185, i64 %193
   store i8 0, ptr %194, align 1, !tbaa !9
   %or.cond.not.i320 = icmp eq i64 %193, 4
   br i1 %or.cond.not.i320, label %195, label %_ZN5boost14static_stringseqILm4EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit323
@@ -84697,7 +84697,7 @@ _ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEE6assignIP
   %207 = trunc i64 %206 to i8
   store i8 %207, ptr %18, align 1, !tbaa !319
   %208 = and i64 %206, 255
-  %209 = getelementptr inbounds nuw [5 x i8], ptr %199, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr %199, i64 %208
   store i8 0, ptr %209, align 1, !tbaa !9
   %or.cond.not.i334 = icmp eq i64 %208, 4
   br i1 %or.cond.not.i334, label %210, label %_ZN5boost14static_stringseqILm4EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit337
@@ -84814,7 +84814,7 @@ _ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE6assignES
   %243 = trunc i64 %242 to i8
   store i8 %243, ptr %20, align 1, !tbaa !1503
   %244 = and i64 %242, 255
-  %245 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i348, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw i8, ptr %scevgep.i.i348, i64 %244
   store i8 0, ptr %245, align 1, !tbaa !9
   %or.cond.not.i351 = icmp eq i64 %244, 3
   br i1 %or.cond.not.i351, label %246, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit354
@@ -84860,7 +84860,7 @@ _ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE6assignES
   %259 = trunc i64 %258 to i8
   store i8 %259, ptr %22, align 1, !tbaa !1503
   %260 = and i64 %258, 255
-  %261 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i355, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i8, ptr %scevgep.i.i355, i64 %260
   store i8 0, ptr %261, align 1, !tbaa !9
   %or.cond.not.i364 = icmp eq i64 %260, 3
   br i1 %or.cond.not.i364, label %262, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit367
@@ -85293,7 +85293,7 @@ _ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEaSESt16in
   %404 = trunc i64 %403 to i8
   store i8 %404, ptr %34, align 1, !tbaa !1503
   %405 = and i64 %403, 255
-  %406 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i441, i64 0, i64 %405
+  %406 = getelementptr inbounds nuw i8, ptr %scevgep.i.i441, i64 %405
   store i8 0, ptr %406, align 1, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %or.cond.not.i442 = icmp eq i64 %405, 3
@@ -85694,7 +85694,7 @@ _ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE6assignIP
   %549 = trunc i64 %548 to i8
   store i8 %549, ptr %44, align 1, !tbaa !1503
   %550 = and i64 %548, 255
-  %551 = getelementptr inbounds nuw [4 x i8], ptr %scevgep.i.i520, i64 0, i64 %550
+  %551 = getelementptr inbounds nuw i8, ptr %scevgep.i.i520, i64 %550
   store i8 0, ptr %551, align 1, !tbaa !9
   %or.cond.not.i529 = icmp eq i64 %550, 2
   br i1 %or.cond.not.i529, label %552, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit532
@@ -85807,7 +85807,7 @@ _ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE6assignES
   %592 = trunc i64 %591 to i8
   store i8 %592, ptr %45, align 1, !tbaa !317
   %593 = and i64 %591, 255
-  %594 = getelementptr inbounds nuw [6 x i8], ptr %584, i64 0, i64 %593
+  %594 = getelementptr inbounds nuw i8, ptr %584, i64 %593
   store i8 0, ptr %594, align 1, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %or.cond.not.i549 = icmp eq i64 %593, 3

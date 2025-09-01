@@ -1129,14 +1129,14 @@ define void @_ZN9pymeshlab13printSaveMaskEi(i32 noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %4 = getelementptr inbounds nuw [14 x i32], ptr @_ZN9pymeshlabL16capabilitiesBitsE, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr @_ZN9pymeshlabL16capabilitiesBitsE, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, %0
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw [14 x %class.QString], ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 %indvars.iv
   call void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %10 unwind label %13

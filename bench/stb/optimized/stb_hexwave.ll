@@ -392,7 +392,7 @@ define void @hexwave_generate_samples(ptr noundef captures(none) %0, i32 noundef
 
 .preheader180:                                    ; preds = %16, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 1, %16 ]
-  %20 = getelementptr inbounds nuw [9 x %struct.hexvert], ptr %5, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.hexvert, ptr %5, i64 %indvars.iv
   %21 = load float, ptr %20, align 4, !tbaa !27
   %22 = fcmp olt float %7, %21
   br i1 %22, label %24, label %23
@@ -405,7 +405,7 @@ define void @hexwave_generate_samples(ptr noundef captures(none) %0, i32 noundef
 24:                                               ; preds = %.preheader180, %23
   %.0124.lcssa = phi i64 [ %indvars.iv, %.preheader180 ], [ 6, %23 ]
   %25 = and i64 %.0124.lcssa, 4294967295
-  %26 = getelementptr inbounds nuw [9 x %struct.hexvert], ptr %5, i64 0, i64 %25, i32 2
+  %26 = getelementptr inbounds nuw %struct.hexvert, ptr %5, i64 %25, i32 2
   %27 = load float, ptr %26, align 4, !tbaa !38
   %28 = fcmp une float %27, 0.000000e+00
   br i1 %28, label %29, label %hex_blamp.exit
@@ -506,7 +506,7 @@ hex_blamp.exit:                                   ; preds = %.lr.ph.i.i, %29, %2
 
 79:                                               ; preds = %.preheader205
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
-  %80 = getelementptr inbounds nuw [9 x %struct.hexvert], ptr %5, i64 0, i64 %indvars.iv.next210
+  %80 = getelementptr inbounds nuw %struct.hexvert, ptr %5, i64 %indvars.iv.next210
   %81 = load float, ptr %80, align 4, !tbaa !27
   %82 = fcmp olt float %.0128195, %81
   br i1 %82, label %.split.loop.exit, label %.preheader205, !llvm.loop !42
@@ -533,11 +533,11 @@ hex_blamp.exit178:                                ; preds = %hex_blamp.exit178.b
   %.0120 = phi i32 [ 0, %.split.loop.exit278 ], [ %.1.lcssa, %hex_blamp.exit178.backedge ]
   %89 = add nsw i32 %.2126, 1
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [9 x %struct.hexvert], ptr %5, i64 0, i64 %90
+  %91 = getelementptr inbounds %struct.hexvert, ptr %5, i64 %90
   %92 = load float, ptr %91, align 4, !tbaa !27
   %93 = fcmp olt float %.2130, %92
   %94 = sext i32 %.2126 to i64
-  %95 = getelementptr inbounds [9 x %struct.hexvert], ptr %5, i64 0, i64 %94
+  %95 = getelementptr inbounds %struct.hexvert, ptr %5, i64 %94
   br i1 %93, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %hex_blamp.exit178
@@ -579,7 +579,7 @@ hex_blamp.exit178:                                ; preds = %hex_blamp.exit178.b
   %112 = phi float [ %.pre224, %.._crit_edge_crit_edge ], [ %104, %._crit_edge.loopexit ]
   %.3131.lcssa = phi float [ %.2130, %.._crit_edge_crit_edge ], [ %109, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.0120, %.._crit_edge_crit_edge ], [ %111, %._crit_edge.loopexit ]
-  %113 = getelementptr inbounds [9 x %struct.hexvert], ptr %5, i64 0, i64 %94
+  %113 = getelementptr inbounds %struct.hexvert, ptr %5, i64 %94
   %114 = fcmp oeq float %112, %92
   %115 = sext i32 %.1.lcssa to i64
   br i1 %114, label %116, label %hex_blep.exit
@@ -816,7 +816,7 @@ hex_blamp.exit178.backedge:                       ; preds = %.lr.ph.i.i174, %217
 
 248:                                              ; preds = %.lr.ph198, %248
   %indvars.iv216 = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next217, %248 ]
-  %249 = getelementptr inbounds nuw [128 x float], ptr %6, i64 0, i64 %indvars.iv216
+  %249 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv216
   %250 = load float, ptr %249, align 4, !tbaa !16
   %gep281 = getelementptr float, ptr %invariant.gep280, i64 %indvars.iv216
   %251 = load float, ptr %gep281, align 4, !tbaa !16

@@ -1966,7 +1966,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !87
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823
@@ -5633,7 +5633,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %26
 46:                                               ; preds = %.lr.ph510, %.loopexit506
   %indvars.iv535 = phi i64 [ 0, %.lr.ph510 ], [ %indvars.iv.next536, %.loopexit506 ]
   %.082509 = phi i32 [ 1, %.lr.ph510 ], [ %.3, %.loopexit506 ]
-  %47 = getelementptr inbounds nuw [0 x ptr], ptr %41, i64 0, i64 %indvars.iv535
+  %47 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv535
   %48 = load ptr, ptr %47, align 8, !tbaa !91
   %49 = load i8, ptr %42, align 1, !tbaa !70, !range !111, !noundef !112
   %50 = trunc nuw i8 %49 to i1
@@ -5740,7 +5740,7 @@ _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit.thread: ; preds = %_ZNK6vector
 
 107:                                              ; preds = %.lr.ph, %107
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
-  %108 = getelementptr inbounds nuw [0 x ptr], ptr %106, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8, !tbaa !91
   call void @_ZN18tseitin_cnf_tactic3imp5visitEP4exprRbb(ptr noundef nonnull align 8 dereferenceable(260) %0, ptr noundef %109, ptr noundef nonnull align 1 dereferenceable(1) %8, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5881,7 +5881,7 @@ _ZN18tseitin_cnf_tactic3imp12cache_resultEP3appS2_.exit: ; preds = %135, %.noexc
 
 166:                                              ; preds = %.lr.ph512, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit156.thread
   %indvars.iv540 = phi i64 [ 0, %.lr.ph512 ], [ %indvars.iv.next541, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit156.thread ]
-  %167 = getelementptr inbounds nuw [0 x ptr], ptr %159, i64 0, i64 %indvars.iv540
+  %167 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv540
   %168 = load ptr, ptr %167, align 8, !tbaa !91
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4
@@ -6003,7 +6003,7 @@ _ZNK11ast_manager6is_notEPK4exprRPS0_.exit156.thread: ; preds = %_ZN18tseitin_cn
 
 224:                                              ; preds = %.lr.ph515, %247
   %indvars.iv565 = phi i64 [ 0, %.lr.ph515 ], [ %indvars.iv.next566, %247 ]
-  %225 = getelementptr inbounds nuw [0 x ptr], ptr %222, i64 0, i64 %indvars.iv565
+  %225 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv565
   %226 = load ptr, ptr %225, align 8, !tbaa !91
   invoke void @_ZN18tseitin_cnf_tactic3imp7get_litEP4exprbR7obj_refIS1_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(260) %0, ptr noundef %226, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %227 unwind label %253
@@ -6512,7 +6512,7 @@ _ZN6bufferIjLb0ELj16EE6expandEv.exit.i216:        ; preds = %.noexc221, %._crit_
   %401 = load i32, ptr %343, align 8, !tbaa !262
   %402 = add i32 %401, 1
   store i32 %402, ptr %343, align 8, !tbaa !262
-  %403 = getelementptr inbounds nuw [0 x ptr], ptr %159, i64 0, i64 %indvars.iv550
+  %403 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv550
   %404 = load ptr, ptr %403, align 8, !tbaa !91
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 4
   %406 = load i32, ptr %405, align 4
@@ -6709,7 +6709,7 @@ _ZN6bufferIjLb0ELj16EE6expandEv.exit.i246:        ; preds = %.noexc251, %._crit_
 
 492:                                              ; preds = %.lr.ph522, %550
   %indvars.iv545 = phi i64 [ 0, %.lr.ph522 ], [ %indvars.iv.next546, %550 ]
-  %493 = getelementptr inbounds nuw [0 x ptr], ptr %483, i64 0, i64 %indvars.iv545
+  %493 = getelementptr inbounds nuw ptr, ptr %483, i64 %indvars.iv545
   %494 = load ptr, ptr %493, align 8, !tbaa !91
   invoke void @_ZN18tseitin_cnf_tactic3imp7get_litEP4exprbR7obj_refIS1_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(260) %0, ptr noundef %494, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %15)
           to label %495 unwind label %548

@@ -18,7 +18,7 @@ define dso_local void @make_digest(ptr noundef writeonly captures(none) %0, ptr 
   %4 = load i8, ptr %3, align 1, !tbaa !4
   %5 = lshr i8 %4, 4
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @make_digest_ex.hexits, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !4
   %9 = shl nuw nsw i64 %indvars.iv.i, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
@@ -26,7 +26,7 @@ define dso_local void @make_digest(ptr noundef writeonly captures(none) %0, ptr 
   %11 = load i8, ptr %3, align 1, !tbaa !4
   %12 = and i8 %11, 15
   %13 = zext nneg i8 %12 to i64
-  %14 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @make_digest_ex.hexits, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %15, ptr %16, align 1, !tbaa !4
@@ -55,7 +55,7 @@ define dso_local void @make_digest_ex(ptr noundef writeonly captures(none) %0, p
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = lshr i8 %6, 4
   %8 = zext nneg i8 %7 to i64
-  %9 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @make_digest_ex.hexits, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = shl nuw nsw i64 %indvars.iv, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
@@ -63,7 +63,7 @@ define dso_local void @make_digest_ex(ptr noundef writeonly captures(none) %0, p
   %13 = load i8, ptr %5, align 1, !tbaa !4
   %14 = and i8 %13, 15
   %15 = zext nneg i8 %14 to i64
-  %16 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @make_digest_ex.hexits, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 %17, ptr %18, align 1, !tbaa !4
@@ -228,14 +228,14 @@ PHP_MD5Update.exit:                               ; preds = %25, %40
   %63 = load i8, ptr %62, align 1, !tbaa !4
   %64 = lshr i8 %63, 4
   %65 = zext nneg i8 %64 to i64
-  %66 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @make_digest_ex.hexits, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !4
   %68 = shl nuw nsw i64 %indvars.iv.i, 1
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 %68
   store i8 %67, ptr %69, align 1, !tbaa !4
   %70 = and i8 %63, 15
   %71 = zext nneg i8 %70 to i64
-  %72 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @make_digest_ex.hexits, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !4
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 1
   store i8 %73, ptr %74, align 1, !tbaa !4
@@ -304,7 +304,7 @@ define dso_local void @PHP_MD5Update(ptr noundef captures(none) %0, ptr noundef 
   %20 = icmp ult i64 %2, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = zext nneg i32 %16 to i64
-  %23 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   br i1 %20, label %24, label %25
 
 24:                                               ; preds = %17
@@ -348,7 +348,7 @@ define dso_local void @PHP_MD5Final(ptr noundef writeonly captures(none) initial
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = add nuw nsw i32 %4, 1
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
   store i8 -128, ptr %8, align 1, !tbaa !4
   %9 = xor i32 %4, 63
   %10 = icmp samesign ult i32 %9, 8
@@ -356,7 +356,7 @@ define dso_local void @PHP_MD5Final(ptr noundef writeonly captures(none) initial
 
 11:                                               ; preds = %2
   %12 = zext nneg i32 %6 to i64
-  %13 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %12
   %14 = zext nneg i32 %9 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 0, i64 %14, i1 false)
   %15 = tail call fastcc ptr @body(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef 64)
@@ -368,7 +368,7 @@ define dso_local void @PHP_MD5Final(ptr noundef writeonly captures(none) initial
   %.064 = phi i32 [ 0, %11 ], [ %6, %2 ]
   %.0 = phi i32 [ 64, %11 ], [ %9, %2 ]
   %18 = zext nneg i32 %.064 to i64
-  %19 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 %18
   %20 = add nsw i32 %.0, -8
   %21 = zext nneg i32 %20 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %19, i8 0, i64 %21, i1 false)
@@ -614,7 +614,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %29
   %62 = zext nneg i32 %61 to i64
   %63 = icmp samesign ult i64 %47, %62
   %64 = zext nneg i32 %59 to i64
-  %65 = getelementptr inbounds nuw [64 x i8], ptr %45, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %45, i64 %64
   br i1 %63, label %66, label %67
 
 66:                                               ; preds = %60
@@ -706,14 +706,14 @@ PHP_MD5Update.exit:                               ; preds = %66, %77
   %103 = load i8, ptr %102, align 1, !tbaa !4
   %104 = lshr i8 %103, 4
   %105 = zext nneg i8 %104 to i64
-  %106 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr @make_digest_ex.hexits, i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !4
   %108 = shl nuw nsw i64 %indvars.iv.i, 1
   %109 = getelementptr inbounds nuw i8, ptr %101, i64 %108
   store i8 %107, ptr %109, align 1, !tbaa !4
   %110 = and i8 %103, 15
   %111 = zext nneg i8 %110 to i64
-  %112 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @make_digest_ex.hexits, i64 %111
   %113 = load i8, ptr %112, align 1, !tbaa !4
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 1
   store i8 %113, ptr %114, align 1, !tbaa !4

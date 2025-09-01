@@ -569,7 +569,7 @@ define dso_local void @_ZN4pbrt15CameraTransformC2ERKNS_17AnimatedTransformE(ptr
 
 .preheader.i.i:                                   ; preds = %13, %2
   %indvars.iv12.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next13.i.i, %13 ]
-  %12 = getelementptr inbounds nuw [4 x [4 x float]], ptr %11, i64 0, i64 %indvars.iv12.i.i
+  %12 = getelementptr inbounds nuw [4 x float], ptr %11, i64 %indvars.iv12.i.i
   br label %14
 
 13:                                               ; preds = %14
@@ -581,7 +581,7 @@ define dso_local void @_ZN4pbrt15CameraTransformC2ERKNS_17AnimatedTransformE(ptr
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %14 ]
   %15 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
   %16 = uitofp i1 %15 to float
-  %17 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i.i
   store float %16, ptr %17, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -593,7 +593,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %13
 
 .preheader.i1.i:                                  ; preds = %20, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
   %indvars.iv12.i2.i = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ %indvars.iv.next13.i6.i, %20 ]
-  %19 = getelementptr inbounds nuw [4 x [4 x float]], ptr %18, i64 0, i64 %indvars.iv12.i2.i
+  %19 = getelementptr inbounds nuw [4 x float], ptr %18, i64 %indvars.iv12.i2.i
   br label %21
 
 20:                                               ; preds = %21
@@ -605,7 +605,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %13
   %indvars.iv.i3.i = phi i64 [ 0, %.preheader.i1.i ], [ %indvars.iv.next.i4.i, %21 ]
   %22 = icmp eq i64 %indvars.iv12.i2.i, %indvars.iv.i3.i
   %23 = uitofp i1 %22 to float
-  %24 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %indvars.iv.i3.i
+  %24 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i3.i
   store float %23, ptr %24, align 4, !tbaa !6
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
@@ -657,7 +657,7 @@ _ZN4pbrt9TransformC2Ev.exit:                      ; preds = %20
 
 .preheader.i.i28:                                 ; preds = %45, %43
   %indvars.iv12.i.i29 = phi i64 [ 0, %43 ], [ %indvars.iv.next13.i.i33, %45 ]
-  %44 = getelementptr inbounds nuw [4 x [4 x float]], ptr %6, i64 0, i64 %indvars.iv12.i.i29
+  %44 = getelementptr inbounds nuw [4 x float], ptr %6, i64 %indvars.iv12.i.i29
   br label %46
 
 45:                                               ; preds = %46
@@ -669,7 +669,7 @@ _ZN4pbrt9TransformC2Ev.exit:                      ; preds = %20
   %indvars.iv.i.i30 = phi i64 [ 0, %.preheader.i.i28 ], [ %indvars.iv.next.i.i31, %46 ]
   %47 = icmp eq i64 %indvars.iv12.i.i29, %indvars.iv.i.i30
   %48 = uitofp i1 %47 to float
-  %49 = getelementptr inbounds nuw [4 x float], ptr %44, i64 0, i64 %indvars.iv.i.i30
+  %49 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i.i30
   store float %48, ptr %49, align 4, !tbaa !6
   %indvars.iv.next.i.i31 = add nuw nsw i64 %indvars.iv.i.i30, 1
   %exitcond.not.i.i32 = icmp eq i64 %indvars.iv.next.i.i31, 4
@@ -681,7 +681,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i35:        ; preds = %45
 
 .preheader.i1.i36:                                ; preds = %52, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i35
   %indvars.iv12.i2.i37 = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i35 ], [ %indvars.iv.next13.i6.i41, %52 ]
-  %51 = getelementptr inbounds nuw [4 x [4 x float]], ptr %50, i64 0, i64 %indvars.iv12.i2.i37
+  %51 = getelementptr inbounds nuw [4 x float], ptr %50, i64 %indvars.iv12.i2.i37
   br label %53
 
 52:                                               ; preds = %53
@@ -693,7 +693,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i35:        ; preds = %45
   %indvars.iv.i3.i38 = phi i64 [ 0, %.preheader.i1.i36 ], [ %indvars.iv.next.i4.i39, %53 ]
   %54 = icmp eq i64 %indvars.iv12.i2.i37, %indvars.iv.i3.i38
   %55 = uitofp i1 %54 to float
-  %56 = getelementptr inbounds nuw [4 x float], ptr %51, i64 0, i64 %indvars.iv.i3.i38
+  %56 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i3.i38
   store float %55, ptr %56, align 4, !tbaa !6
   %indvars.iv.next.i4.i39 = add nuw nsw i64 %indvars.iv.i3.i38, 1
   %exitcond.not.i5.i40 = icmp eq i64 %indvars.iv.next.i4.i39, 4
@@ -893,7 +893,7 @@ define linkonce_odr dso_local void @_ZN4pbrt17AnimatedTransformC2Ev(ptr noundef 
 
 .preheader.i.i:                                   ; preds = %3, %1
   %indvars.iv12.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next13.i.i, %3 ]
-  %2 = getelementptr inbounds nuw [4 x [4 x float]], ptr %0, i64 0, i64 %indvars.iv12.i.i
+  %2 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv12.i.i
   br label %4
 
 3:                                                ; preds = %4
@@ -905,7 +905,7 @@ define linkonce_odr dso_local void @_ZN4pbrt17AnimatedTransformC2Ev(ptr noundef 
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %4 ]
   %5 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
   %6 = uitofp i1 %5 to float
-  %7 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i.i
   store float %6, ptr %7, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -917,7 +917,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %3
 
 .preheader.i1.i:                                  ; preds = %10, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
   %indvars.iv12.i2.i = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ %indvars.iv.next13.i6.i, %10 ]
-  %9 = getelementptr inbounds nuw [4 x [4 x float]], ptr %8, i64 0, i64 %indvars.iv12.i2.i
+  %9 = getelementptr inbounds nuw [4 x float], ptr %8, i64 %indvars.iv12.i2.i
   br label %11
 
 10:                                               ; preds = %11
@@ -929,7 +929,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %3
   %indvars.iv.i3.i = phi i64 [ 0, %.preheader.i1.i ], [ %indvars.iv.next.i4.i, %11 ]
   %12 = icmp eq i64 %indvars.iv12.i2.i, %indvars.iv.i3.i
   %13 = uitofp i1 %12 to float
-  %14 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i3.i
+  %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i3.i
   store float %13, ptr %14, align 4, !tbaa !6
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
@@ -941,7 +941,7 @@ _ZN4pbrt9TransformC2Ev.exit:                      ; preds = %10
 
 .preheader.i.i38:                                 ; preds = %17, %_ZN4pbrt9TransformC2Ev.exit
   %indvars.iv12.i.i39 = phi i64 [ 0, %_ZN4pbrt9TransformC2Ev.exit ], [ %indvars.iv.next13.i.i43, %17 ]
-  %16 = getelementptr inbounds nuw [4 x [4 x float]], ptr %15, i64 0, i64 %indvars.iv12.i.i39
+  %16 = getelementptr inbounds nuw [4 x float], ptr %15, i64 %indvars.iv12.i.i39
   br label %18
 
 17:                                               ; preds = %18
@@ -953,7 +953,7 @@ _ZN4pbrt9TransformC2Ev.exit:                      ; preds = %10
   %indvars.iv.i.i40 = phi i64 [ 0, %.preheader.i.i38 ], [ %indvars.iv.next.i.i41, %18 ]
   %19 = icmp eq i64 %indvars.iv12.i.i39, %indvars.iv.i.i40
   %20 = uitofp i1 %19 to float
-  %21 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %indvars.iv.i.i40
+  %21 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i.i40
   store float %20, ptr %21, align 4, !tbaa !6
   %indvars.iv.next.i.i41 = add nuw nsw i64 %indvars.iv.i.i40, 1
   %exitcond.not.i.i42 = icmp eq i64 %indvars.iv.next.i.i41, 4
@@ -965,7 +965,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i45:        ; preds = %17
 
 .preheader.i1.i46:                                ; preds = %24, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i45
   %indvars.iv12.i2.i47 = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i45 ], [ %indvars.iv.next13.i6.i51, %24 ]
-  %23 = getelementptr inbounds nuw [4 x [4 x float]], ptr %22, i64 0, i64 %indvars.iv12.i2.i47
+  %23 = getelementptr inbounds nuw [4 x float], ptr %22, i64 %indvars.iv12.i2.i47
   br label %25
 
 24:                                               ; preds = %25
@@ -977,7 +977,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i45:        ; preds = %17
   %indvars.iv.i3.i48 = phi i64 [ 0, %.preheader.i1.i46 ], [ %indvars.iv.next.i4.i49, %25 ]
   %26 = icmp eq i64 %indvars.iv12.i2.i47, %indvars.iv.i3.i48
   %27 = uitofp i1 %26 to float
-  %28 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %indvars.iv.i3.i48
+  %28 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i3.i48
   store float %27, ptr %28, align 4, !tbaa !6
   %indvars.iv.next.i4.i49 = add nuw nsw i64 %indvars.iv.i3.i48, 1
   %exitcond.not.i5.i50 = icmp eq i64 %indvars.iv.next.i4.i49, 4
@@ -1015,7 +1015,7 @@ _ZN4pbrt9TransformC2Ev.exit53:                    ; preds = %24
 
 .preheader.i:                                     ; preds = %37, %.preheader58
   %indvars.iv12.i = phi i64 [ 0, %.preheader58 ], [ %indvars.iv.next13.i, %37 ]
-  %36 = getelementptr inbounds nuw [4 x [4 x float]], ptr %.ptr10, i64 0, i64 %indvars.iv12.i
+  %36 = getelementptr inbounds nuw [4 x float], ptr %.ptr10, i64 %indvars.iv12.i
   br label %38
 
 37:                                               ; preds = %38
@@ -1027,7 +1027,7 @@ _ZN4pbrt9TransformC2Ev.exit53:                    ; preds = %24
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %38 ]
   %39 = icmp eq i64 %indvars.iv12.i, %indvars.iv.i
   %40 = uitofp i1 %39 to float
-  %41 = getelementptr inbounds nuw [4 x float], ptr %36, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i
   store float %40, ptr %41, align 4, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1879,7 +1879,7 @@ define dso_local void @_ZN4pbrt10CameraBase24FindMinimumDifferentialsENS_6Camera
   %26 = tail call noundef float @atanhf(float noundef %25) #31, !tbaa !125, !noalias !122
   %27 = fmul float %26, 0x40615C71C0000000
   %28 = fsub float 5.380000e+02, %27
-  %29 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   store float %28, ptr %29, align 4, !tbaa !6, !alias.scope !122
   %30 = fcmp olt float %28, 3.600000e+02
   %31 = fcmp ogt float %28, 8.300000e+02
@@ -1896,7 +1896,7 @@ define dso_local void @_ZN4pbrt10CameraBase24FindMinimumDifferentialsENS_6Camera
 
 _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i:         ; preds = %32, %17
   %.0.i.i = phi float [ %37, %32 ], [ 0.000000e+00, %17 ]
-  %38 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
   store float %.0.i.i, ptr %38, align 4, !tbaa !6, !alias.scope !122
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -2859,7 +2859,7 @@ _ZN4pstd8optionalIN4pbrt12SquareMatrixILi4EEEEdeEv.exit: ; preds = %_ZN4pstd8opt
 
 .preheader.i.i:                                   ; preds = %27, %_ZN4pstd8optionalIN4pbrt12SquareMatrixILi4EEEEdeEv.exit
   %indvars.iv12.i.i = phi i64 [ 0, %_ZN4pstd8optionalIN4pbrt12SquareMatrixILi4EEEEdeEv.exit ], [ %indvars.iv.next13.i.i, %27 ]
-  %26 = getelementptr inbounds nuw [4 x [4 x float]], ptr %25, i64 0, i64 %indvars.iv12.i.i
+  %26 = getelementptr inbounds nuw [4 x float], ptr %25, i64 %indvars.iv12.i.i
   br label %28
 
 27:                                               ; preds = %28
@@ -2871,7 +2871,7 @@ _ZN4pstd8optionalIN4pbrt12SquareMatrixILi4EEEEdeEv.exit: ; preds = %_ZN4pstd8opt
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %28 ]
   %29 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
   %30 = uitofp i1 %29 to float
-  %31 = getelementptr inbounds nuw [4 x float], ptr %26, i64 0, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i.i
   store float %30, ptr %31, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -2891,7 +2891,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %27
 
 .preheader.i:                                     ; preds = %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i, %36
   %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %36 ], [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ]
-  %35 = getelementptr inbounds nuw [4 x [4 x float]], ptr %25, i64 0, i64 %indvars.iv21.i
+  %35 = getelementptr inbounds nuw [4 x float], ptr %25, i64 %indvars.iv21.i
   br label %37
 
 36:                                               ; preds = %37
@@ -5483,7 +5483,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
 
 425:                                              ; preds = %414, %425
   %indvars.iv540 = phi i64 [ 0, %414 ], [ %indvars.iv.next541, %425 ]
-  %426 = getelementptr inbounds nuw [5 x %"class.pbrt::Point2"], ptr %36, i64 0, i64 %indvars.iv540
+  %426 = getelementptr inbounds nuw %"class.pbrt::Point2", ptr %36, i64 %indvars.iv540
   %427 = load float, ptr %426, align 8, !tbaa !230
   %428 = fmul float %427, 0x3FE99999A0000000
   store float %428, ptr %426, align 8, !tbaa !230
@@ -5561,7 +5561,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
   %456 = fmul float %spec.select, %455
   %457 = call noundef float @sinf(float noundef %454) #31, !tbaa !125
   %458 = fmul float %spec.select, %457
-  %459 = getelementptr inbounds nuw [10 x %"class.pbrt::Point2"], ptr %38, i64 0, i64 %indvars.iv537
+  %459 = getelementptr inbounds nuw %"class.pbrt::Point2", ptr %38, i64 %indvars.iv537
   store float %456, ptr %459, align 4
   %.sroa_idx427 = getelementptr inbounds nuw i8, ptr %459, i64 4
   store float %458, ptr %.sroa_idx427, align 4
@@ -7480,7 +7480,7 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %88, %107
 
 133:                                              ; preds = %133, %131
   %indvars.iv.i.i = phi i64 [ 0, %131 ], [ %indvars.iv.next.i.i, %133 ]
-  %134 = getelementptr inbounds nuw [4 x float], ptr %132, i64 0, i64 %indvars.iv.i.i
+  %134 = getelementptr inbounds nuw float, ptr %132, i64 %indvars.iv.i.i
   store float 1.000000e+00, ptr %134, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -7843,7 +7843,7 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit168: ; preds = %114, %1
 
 205:                                              ; preds = %205, %203
   %indvars.iv.i.i = phi i64 [ 0, %203 ], [ %indvars.iv.next.i.i, %205 ]
-  %206 = getelementptr inbounds nuw [4 x float], ptr %204, i64 0, i64 %indvars.iv.i.i
+  %206 = getelementptr inbounds nuw float, ptr %204, i64 %indvars.iv.i.i
   store float 1.000000e+00, ptr %206, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -8150,7 +8150,7 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %96, %115
 
 144:                                              ; preds = %144, %142
   %indvars.iv.i.i = phi i64 [ 0, %142 ], [ %indvars.iv.next.i.i, %144 ]
-  %145 = getelementptr inbounds nuw [4 x float], ptr %143, i64 0, i64 %indvars.iv.i.i
+  %145 = getelementptr inbounds nuw float, ptr %143, i64 %indvars.iv.i.i
   store float 1.000000e+00, ptr %145, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -8561,7 +8561,7 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit231: ; preds = %122, %1
 
 250:                                              ; preds = %250, %244
   %indvars.iv.i.i = phi i64 [ 0, %244 ], [ %indvars.iv.next.i.i, %250 ]
-  %251 = getelementptr inbounds nuw [4 x float], ptr %249, i64 0, i64 %indvars.iv.i.i
+  %251 = getelementptr inbounds nuw float, ptr %249, i64 %indvars.iv.i.i
   store float 1.000000e+00, ptr %251, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -8836,7 +8836,7 @@ _ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_.exit: ; preds = %18
 
 116:                                              ; preds = %116, %103
   %indvars.iv.i.i55 = phi i64 [ 0, %103 ], [ %indvars.iv.next.i.i56, %116 ]
-  %117 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i55
+  %117 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i55
   store float %115, ptr %117, align 4, !tbaa !6
   %indvars.iv.next.i.i56 = add nuw nsw i64 %indvars.iv.i.i55, 1
   %exitcond.not.i.i57 = icmp eq i64 %indvars.iv.next.i.i56, 4
@@ -9236,7 +9236,7 @@ _ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit: ; preds = %_ZN4pbrt27Sampl
 
 115:                                              ; preds = %115, %_ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit
   %indvars.iv.i = phi i64 [ 0, %_ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit ], [ %indvars.iv.next.i, %115 ]
-  %116 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %116 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %117 = load float, ptr %116, align 4, !tbaa !6
   %118 = fcmp une float %117, 0.000000e+00
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9378,7 +9378,7 @@ define dso_local void @_ZNK4pbrt15SphericalCamera11GenerateRayENS_12CameraSample
 
 54:                                               ; preds = %54, %37
   %indvars.iv.i.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i.i, %54 ]
-  %55 = getelementptr inbounds nuw [4 x float], ptr %53, i64 0, i64 %indvars.iv.i.i
+  %55 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv.i.i
   store float 1.000000e+00, ptr %55, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -12363,7 +12363,7 @@ define dso_local void @_ZNK4pbrt15RealisticCamera11GenerateRayENS_12CameraSample
 
 140:                                              ; preds = %140, %92
   %indvars.iv.i.i = phi i64 [ 0, %92 ], [ %indvars.iv.next.i.i, %140 ]
-  %141 = getelementptr inbounds nuw [4 x float], ptr %139, i64 0, i64 %indvars.iv.i.i
+  %141 = getelementptr inbounds nuw float, ptr %139, i64 %indvars.iv.i.i
   store float %138, ptr %141, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -38349,7 +38349,7 @@ define linkonce_odr dso_local void @_ZN4pbrt16ProjectiveCameraC2ENS_20CameraBase
 
 .preheader.i.i:                                   ; preds = %26, %7
   %indvars.iv12.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next13.i.i, %26 ]
-  %25 = getelementptr inbounds nuw [4 x [4 x float]], ptr %24, i64 0, i64 %indvars.iv12.i.i
+  %25 = getelementptr inbounds nuw [4 x float], ptr %24, i64 %indvars.iv12.i.i
   br label %27
 
 26:                                               ; preds = %27
@@ -38361,7 +38361,7 @@ define linkonce_odr dso_local void @_ZN4pbrt16ProjectiveCameraC2ENS_20CameraBase
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %27 ]
   %28 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
   %29 = uitofp i1 %28 to float
-  %30 = getelementptr inbounds nuw [4 x float], ptr %25, i64 0, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv.i.i
   store float %29, ptr %30, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -38373,7 +38373,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %26
 
 .preheader.i1.i:                                  ; preds = %33, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
   %indvars.iv12.i2.i = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ %indvars.iv.next13.i6.i, %33 ]
-  %32 = getelementptr inbounds nuw [4 x [4 x float]], ptr %31, i64 0, i64 %indvars.iv12.i2.i
+  %32 = getelementptr inbounds nuw [4 x float], ptr %31, i64 %indvars.iv12.i2.i
   br label %34
 
 33:                                               ; preds = %34
@@ -38385,7 +38385,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %26
   %indvars.iv.i3.i = phi i64 [ 0, %.preheader.i1.i ], [ %indvars.iv.next.i4.i, %34 ]
   %35 = icmp eq i64 %indvars.iv12.i2.i, %indvars.iv.i3.i
   %36 = uitofp i1 %35 to float
-  %37 = getelementptr inbounds nuw [4 x float], ptr %32, i64 0, i64 %indvars.iv.i3.i
+  %37 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i3.i
   store float %36, ptr %37, align 4, !tbaa !6
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
@@ -38397,7 +38397,7 @@ _ZN4pbrt9TransformC2Ev.exit:                      ; preds = %33
 
 .preheader.i.i13:                                 ; preds = %40, %_ZN4pbrt9TransformC2Ev.exit
   %indvars.iv12.i.i14 = phi i64 [ 0, %_ZN4pbrt9TransformC2Ev.exit ], [ %indvars.iv.next13.i.i18, %40 ]
-  %39 = getelementptr inbounds nuw [4 x [4 x float]], ptr %38, i64 0, i64 %indvars.iv12.i.i14
+  %39 = getelementptr inbounds nuw [4 x float], ptr %38, i64 %indvars.iv12.i.i14
   br label %41
 
 40:                                               ; preds = %41
@@ -38409,7 +38409,7 @@ _ZN4pbrt9TransformC2Ev.exit:                      ; preds = %33
   %indvars.iv.i.i15 = phi i64 [ 0, %.preheader.i.i13 ], [ %indvars.iv.next.i.i16, %41 ]
   %42 = icmp eq i64 %indvars.iv12.i.i14, %indvars.iv.i.i15
   %43 = uitofp i1 %42 to float
-  %44 = getelementptr inbounds nuw [4 x float], ptr %39, i64 0, i64 %indvars.iv.i.i15
+  %44 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i.i15
   store float %43, ptr %44, align 4, !tbaa !6
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i15, 1
   %exitcond.not.i.i17 = icmp eq i64 %indvars.iv.next.i.i16, 4
@@ -38421,7 +38421,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i20:        ; preds = %40
 
 .preheader.i1.i21:                                ; preds = %47, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i20
   %indvars.iv12.i2.i22 = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i20 ], [ %indvars.iv.next13.i6.i26, %47 ]
-  %46 = getelementptr inbounds nuw [4 x [4 x float]], ptr %45, i64 0, i64 %indvars.iv12.i2.i22
+  %46 = getelementptr inbounds nuw [4 x float], ptr %45, i64 %indvars.iv12.i2.i22
   br label %48
 
 47:                                               ; preds = %48
@@ -38433,7 +38433,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i20:        ; preds = %40
   %indvars.iv.i3.i23 = phi i64 [ 0, %.preheader.i1.i21 ], [ %indvars.iv.next.i4.i24, %48 ]
   %49 = icmp eq i64 %indvars.iv12.i2.i22, %indvars.iv.i3.i23
   %50 = uitofp i1 %49 to float
-  %51 = getelementptr inbounds nuw [4 x float], ptr %46, i64 0, i64 %indvars.iv.i3.i23
+  %51 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i3.i23
   store float %50, ptr %51, align 4, !tbaa !6
   %indvars.iv.next.i4.i24 = add nuw nsw i64 %indvars.iv.i3.i23, 1
   %exitcond.not.i5.i25 = icmp eq i64 %indvars.iv.next.i4.i24, 4
@@ -38445,7 +38445,7 @@ _ZN4pbrt9TransformC2Ev.exit28:                    ; preds = %47
 
 .preheader.i.i29:                                 ; preds = %54, %_ZN4pbrt9TransformC2Ev.exit28
   %indvars.iv12.i.i30 = phi i64 [ 0, %_ZN4pbrt9TransformC2Ev.exit28 ], [ %indvars.iv.next13.i.i34, %54 ]
-  %53 = getelementptr inbounds nuw [4 x [4 x float]], ptr %52, i64 0, i64 %indvars.iv12.i.i30
+  %53 = getelementptr inbounds nuw [4 x float], ptr %52, i64 %indvars.iv12.i.i30
   br label %55
 
 54:                                               ; preds = %55
@@ -38457,7 +38457,7 @@ _ZN4pbrt9TransformC2Ev.exit28:                    ; preds = %47
   %indvars.iv.i.i31 = phi i64 [ 0, %.preheader.i.i29 ], [ %indvars.iv.next.i.i32, %55 ]
   %56 = icmp eq i64 %indvars.iv12.i.i30, %indvars.iv.i.i31
   %57 = uitofp i1 %56 to float
-  %58 = getelementptr inbounds nuw [4 x float], ptr %53, i64 0, i64 %indvars.iv.i.i31
+  %58 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv.i.i31
   store float %57, ptr %58, align 4, !tbaa !6
   %indvars.iv.next.i.i32 = add nuw nsw i64 %indvars.iv.i.i31, 1
   %exitcond.not.i.i33 = icmp eq i64 %indvars.iv.next.i.i32, 4
@@ -38469,7 +38469,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i36:        ; preds = %54
 
 .preheader.i1.i37:                                ; preds = %61, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i36
   %indvars.iv12.i2.i38 = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i36 ], [ %indvars.iv.next13.i6.i42, %61 ]
-  %60 = getelementptr inbounds nuw [4 x [4 x float]], ptr %59, i64 0, i64 %indvars.iv12.i2.i38
+  %60 = getelementptr inbounds nuw [4 x float], ptr %59, i64 %indvars.iv12.i2.i38
   br label %62
 
 61:                                               ; preds = %62
@@ -38481,7 +38481,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i36:        ; preds = %54
   %indvars.iv.i3.i39 = phi i64 [ 0, %.preheader.i1.i37 ], [ %indvars.iv.next.i4.i40, %62 ]
   %63 = icmp eq i64 %indvars.iv12.i2.i38, %indvars.iv.i3.i39
   %64 = uitofp i1 %63 to float
-  %65 = getelementptr inbounds nuw [4 x float], ptr %60, i64 0, i64 %indvars.iv.i3.i39
+  %65 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i3.i39
   store float %64, ptr %65, align 4, !tbaa !6
   %indvars.iv.next.i4.i40 = add nuw nsw i64 %indvars.iv.i3.i39, 1
   %exitcond.not.i5.i41 = icmp eq i64 %indvars.iv.next.i4.i40, 4

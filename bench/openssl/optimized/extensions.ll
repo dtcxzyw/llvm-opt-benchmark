@@ -33,7 +33,7 @@ define i32 @ossl_get_extension_type(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw [29 x %struct.extensions_definition_st], ptr @ext_defs, i64 0, i64 %0
+  %4 = getelementptr inbounds nuw %struct.extensions_definition_st, ptr @ext_defs, i64 %0
   %5 = load i32, ptr %4, align 8, !tbaa !3
   br label %6
 
@@ -77,7 +77,7 @@ define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captu
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw [29 x %struct.extensions_definition_st], ptr @ext_defs, i64 0, i64 %.02937, i32 1
+  %20 = getelementptr inbounds nuw %struct.extensions_definition_st, ptr @ext_defs, i64 %.02937, i32 1
   br label %29
 
 21:                                               ; preds = %17
@@ -445,7 +445,7 @@ switch.early.test:                                ; preds = %110
   ]
 
 116:                                              ; preds = %switch.early.test
-  %117 = getelementptr inbounds nuw [29 x i8], ptr %26, i64 0, i64 %114
+  %117 = getelementptr inbounds nuw i8, ptr %26, i64 %114
   %118 = load i8, ptr %117, align 1, !tbaa !98
   %119 = and i8 %118, 2
   %120 = icmp ne i8 %119, 0
@@ -649,7 +649,7 @@ define i32 @tls_parse_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %15, label %16, label %56
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw [29 x %struct.extensions_definition_st], ptr @ext_defs, i64 0, i64 %7
+  %17 = getelementptr inbounds nuw %struct.extensions_definition_st, ptr @ext_defs, i64 %7
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !99
   %20 = and i32 %2, 2048
@@ -1083,7 +1083,7 @@ should_add_extension.exit:                        ; preds = %69, %68
   br i1 %.not59, label %should_add_extension.exit.thread, label %77
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds nuw [29 x i8], ptr %35, i64 0, i64 %.04464
+  %78 = getelementptr inbounds nuw i8, ptr %35, i64 %.04464
   %79 = load i8, ptr %78, align 1, !tbaa !98
   %80 = or i8 %79, 2
   store i8 %80, ptr %78, align 1, !tbaa !98

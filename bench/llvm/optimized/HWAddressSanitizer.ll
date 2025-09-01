@@ -6689,7 +6689,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_.ex
   %628 = call { ptr, ptr } @_ZN4llvm6Module19getOrInsertFunctionENS_9StringRefEPNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(841) %434, ptr %626, i64 %627, ptr noundef %.0.i) #26
   %629 = extractvalue { ptr, ptr } %628, 0
   %630 = extractvalue { ptr, ptr } %628, 1
-  %631 = getelementptr inbounds nuw [2 x %"class.llvm::FunctionCallee"], ptr %528, i64 0, i64 %.060228.i
+  %631 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %528, i64 %.060228.i
   store ptr %629, ptr %631, align 8, !tbaa !482
   %.sroa.420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %631, i64 8
   store ptr %630, ptr %.sroa.420.0..sroa_idx.i, align 8, !tbaa !378
@@ -6765,7 +6765,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
-  %656 = getelementptr inbounds nuw [2 x [5 x %"class.llvm::FunctionCallee"]], ptr %541, i64 0, i64 %.060228.i
+  %656 = getelementptr inbounds nuw [5 x %"class.llvm::FunctionCallee"], ptr %541, i64 %.060228.i
   br label %670
 
 657:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i
@@ -7128,7 +7128,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_.ex
   %794 = call { ptr, ptr } @_ZN4llvm6Module19getOrInsertFunctionENS_9StringRefEPNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(841) %434, ptr %792, i64 %793, ptr noundef %.057.i) #26
   %795 = extractvalue { ptr, ptr } %794, 0
   %796 = extractvalue { ptr, ptr } %794, 1
-  %797 = getelementptr inbounds nuw [5 x %"class.llvm::FunctionCallee"], ptr %656, i64 0, i64 %.061227.i
+  %797 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %656, i64 %.061227.i
   store ptr %795, ptr %797, align 8, !tbaa !482
   %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %797, i64 8
   store ptr %796, ptr %.sroa.415.0..sroa_idx.i, align 8, !tbaa !378
@@ -9427,8 +9427,8 @@ _ZNK4llvm9KnownBits6isZeroEv.exit.i:              ; preds = %1824, %1818
   %1877 = getelementptr inbounds nuw i8, ptr %.099278, i64 8
   %1878 = load i8, ptr %1877, align 8, !tbaa !598, !range !51, !noundef !52
   %1879 = zext nneg i8 %1878 to i64
-  %1880 = getelementptr inbounds nuw [2 x [5 x %"class.llvm::FunctionCallee"]], ptr %541, i64 0, i64 %1879
-  %1881 = getelementptr inbounds nuw [5 x %"class.llvm::FunctionCallee"], ptr %1880, i64 0, i64 %1859
+  %1880 = getelementptr inbounds nuw [5 x %"class.llvm::FunctionCallee"], ptr %541, i64 %1879
+  %1881 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %1880, i64 %1859
   %.sroa.05.0.copyload.i = load ptr, ptr %1881, align 8, !tbaa !482
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1881, i64 8
   %.sroa.26.0.copyload.i = load ptr, ptr %.sroa.26.0..sroa_idx.i, align 8, !tbaa !378
@@ -9575,7 +9575,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE12emplace_backIJPNS_8ConstantEEEERS2_DpOT_
   %1942 = getelementptr inbounds nuw i8, ptr %.099278, i64 8
   %1943 = load i8, ptr %1942, align 8, !tbaa !598, !range !51, !noundef !52
   %1944 = zext nneg i8 %1943 to i64
-  %1945 = getelementptr inbounds nuw [2 x %"class.llvm::FunctionCallee"], ptr %528, i64 0, i64 %1944
+  %1945 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %528, i64 %1944
   %.sroa.0.0.copyload.i173 = load ptr, ptr %1945, align 8, !tbaa !482
   %.sroa.2.0..sroa_idx.i174 = getelementptr inbounds nuw i8, ptr %1945, i64 8
   %.sroa.2.0.copyload.i175 = load ptr, ptr %.sroa.2.0..sroa_idx.i174, align 8, !tbaa !378
@@ -9636,7 +9636,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj3EED2Ev.exit.i: ; preds = %1949, %1939
 
 switch.lookup:                                    ; preds = %1955
   %1964 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_118HWAddressSanitizer16sanitizeFunctionERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE, i64 0, i64 %1964
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_118HWAddressSanitizer16sanitizeFunctionERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE, i64 %1964
   %switch.load = load i64, ptr %switch.gep, align 8
   %1965 = getelementptr inbounds nuw i8, ptr %1953, i64 4
   %1966 = load i32, ptr %1965, align 4
@@ -13393,7 +13393,7 @@ _ZN4llvm13IRBuilderBase10CreateZExtEPNS_5ValueEPNS_4TypeERKNS_5TwineEb.exit: ; p
   %151 = trunc nuw i64 %indvars.iv to i32
   %152 = urem i32 %151, 36
   %.zext.i.i = zext nneg i32 %152 to i64
-  %153 = getelementptr inbounds nuw [36 x i32], ptr @_ZZN12_GLOBAL__N_118HWAddressSanitizer9retagMaskEjE9FastMasks, i64 0, i64 %.zext.i.i
+  %153 = getelementptr inbounds nuw i32, ptr @_ZZN12_GLOBAL__N_118HWAddressSanitizer9retagMaskEjE9FastMasks, i64 %.zext.i.i
   %154 = load i32, ptr %153, align 4, !tbaa !73
   br label %_ZN12_GLOBAL__N_118HWAddressSanitizer9retagMaskEj.exit.i
 
@@ -14200,7 +14200,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i8.i.i.i159: ; preds = %469, %466
   %479 = trunc nuw i64 %indvars.iv to i32
   %480 = urem i32 %479, 36
   %.zext.i = zext nneg i32 %480 to i64
-  %481 = getelementptr inbounds nuw [36 x i32], ptr @_ZZN12_GLOBAL__N_118HWAddressSanitizer9retagMaskEjE9FastMasks, i64 0, i64 %.zext.i
+  %481 = getelementptr inbounds nuw i32, ptr @_ZZN12_GLOBAL__N_118HWAddressSanitizer9retagMaskEjE9FastMasks, i64 %.zext.i
   %482 = load i32, ptr %481, align 4, !tbaa !73
   br label %_ZN12_GLOBAL__N_118HWAddressSanitizer9retagMaskEj.exit
 

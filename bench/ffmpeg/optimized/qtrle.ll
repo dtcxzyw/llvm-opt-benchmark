@@ -765,7 +765,7 @@ bytestream2_peek_byte.exit:                       ; preds = %.preheader204, %85
   %92 = and i32 %91, %22
   %93 = trunc nuw nsw i32 %92 to i8
   %94 = sub nuw nsw i64 %26, %indvars.iv167
-  %95 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 %94
   store i8 %93, ptr %95, align 1, !tbaa !42
   %96 = trunc nsw i64 %indvars.iv167 to i32
   %97 = and i32 %24, %96

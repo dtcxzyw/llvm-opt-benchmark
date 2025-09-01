@@ -7979,7 +7979,7 @@ _ZN4llvm7fromHexB5cxx11ENS_9StringRefE.exit.thread: ; preds = %29
 39:                                               ; preds = %34
   %40 = load i8, ptr %25, align 1, !tbaa !131, !noalias !1216
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !1219, !noalias !1216
   %.not42.i.i = icmp eq i16 %43, -1
   br i1 %.not42.i.i, label %_ZN4llvm7fromHexB5cxx11ENS_9StringRefE.exit, label %44
@@ -8008,10 +8008,10 @@ _ZN4llvm7fromHexB5cxx11ENS_9StringRefE.exit.thread: ; preds = %29
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !131, !noalias !1216
   %56 = zext i8 %53 to i64
-  %57 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !1219, !noalias !1216
   %59 = zext i8 %55 to i64
-  %60 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !1219, !noalias !1216
   %62 = icmp ne i16 %58, -1
   %63 = icmp ne i16 %61, -1
@@ -10891,7 +10891,7 @@ _ZNK4llvm13DICompileUnit9getMacrosEv.exit:        ; preds = %253, %256
   %.not.i.i.i.i117 = phi i1 [ true, %.lr.ph.i116 ], [ false, %343 ]
   %.0813.i.i.i.i = phi i64 [ 0, %.lr.ph.i116 ], [ 1, %343 ]
   %.0912.i.i.i.i = phi i64 [ 2, %.lr.ph.i116 ], [ %.1.i.i.i.i, %343 ]
-  %338 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm10MCRegisterEJiS1_EEmv.__found, i64 0, i64 %.0813.i.i.i.i
+  %338 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm10MCRegisterEJiS1_EEmv.__found, i64 %.0813.i.i.i.i
   %339 = load i8, ptr %338, align 1, !tbaa !51, !range !52, !noundef !53
   %340 = trunc nuw i8 %339 to i1
   br i1 %340, label %341, label %343
@@ -13979,7 +13979,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_6DINodeEPKNS_10DILocatio
   %.not.i.i.i59 = phi i1 [ true, %167 ], [ false, %176 ]
   %.0813.i.i.i = phi i64 [ 0, %167 ], [ 1, %176 ]
   %.0912.i.i.i = phi i64 [ 2, %167 ], [ %.1.i.i.i, %176 ]
-  %171 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %171 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 %.0813.i.i.i
   %172 = load i8, ptr %171, align 1, !tbaa !51, !range !52, !noundef !53
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %174, label %176
@@ -14026,7 +14026,7 @@ _ZNK4llvm15MachineFunction15VariableDbgInfo12getStackSlotEv.exit: ; preds = %179
   %.not.i.i.i61 = phi i1 [ true, %185 ], [ false, %194 ]
   %.0813.i.i.i62 = phi i64 [ 0, %185 ], [ 1, %194 ]
   %.0912.i.i.i63 = phi i64 [ 2, %185 ], [ %.1.i.i.i64, %194 ]
-  %189 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm10MCRegisterEJiS1_EEmv.__found, i64 0, i64 %.0813.i.i.i62
+  %189 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm10MCRegisterEJiS1_EEmv.__found, i64 %.0813.i.i.i62
   %190 = load i8, ptr %189, align 1, !tbaa !51, !range !52, !noundef !53
   %191 = trunc nuw i8 %190 to i1
   br i1 %191, label %192, label %194
@@ -14072,7 +14072,7 @@ _ZNK4llvm15MachineFunction15VariableDbgInfo21getEntryValueRegisterEv.exit: ; pre
 204:                                              ; preds = %.preheader136, %210
   %.0813.i.i.i67 = phi i64 [ %211, %210 ], [ 0, %.preheader136 ]
   %.0912.i.i.i68 = phi i64 [ %.1.i.i.i69, %210 ], [ 5, %.preheader136 ]
-  %205 = getelementptr inbounds nuw [5 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm3Loc3MMIEJSt9monostateNS1_6SingleENS1_5MultiES2_NS1_10EntryValueEEEmv.__found, i64 0, i64 %.0813.i.i.i67
+  %205 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm3Loc3MMIEJSt9monostateNS1_6SingleENS1_5MultiES2_NS1_10EntryValueEEEmv.__found, i64 %.0813.i.i.i67
   %206 = load i8, ptr %205, align 1, !tbaa !51, !range !52, !noundef !53
   %207 = trunc nuw i8 %206 to i1
   br i1 %207, label %208, label %210
@@ -14143,7 +14143,7 @@ _ZNSt7variantIJSt9monostateN4llvm3Loc6SingleENS2_5MultiENS2_3MMIENS2_10EntryValu
   %.not.i.i.i75 = phi i1 [ true, %.critedge ], [ false, %236 ]
   %.0813.i.i.i76 = phi i64 [ 0, %.critedge ], [ 1, %236 ]
   %.0912.i.i.i77 = phi i64 [ 2, %.critedge ], [ %.1.i.i.i78, %236 ]
-  %231 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 0, i64 %.0813.i.i.i76
+  %231 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 %.0813.i.i.i76
   %232 = load i8, ptr %231, align 1, !tbaa !51, !range !52, !noundef !53
   %233 = trunc nuw i8 %232 to i1
   br i1 %233, label %234, label %236
@@ -28273,7 +28273,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEmNS_12DenseMapInfoIS4_vEENS_6de
   %.not.i.i.i.i68 = phi i1 [ true, %.lr.ph.i ], [ false, %243 ]
   %.0813.i.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %243 ]
   %.0912.i.i.i.i = phi i64 [ 2, %.lr.ph.i ], [ %.1.i.i.i.i, %243 ]
-  %238 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm10MCRegisterEJiS1_EEmv.__found, i64 0, i64 %.0813.i.i.i.i
+  %238 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm10MCRegisterEJiS1_EEmv.__found, i64 %.0813.i.i.i.i
   %239 = load i8, ptr %238, align 1, !tbaa !51, !range !52, !noundef !53
   %240 = trunc nuw i8 %239 to i1
   br i1 %240, label %241, label %243

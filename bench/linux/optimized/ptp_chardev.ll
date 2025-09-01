@@ -751,7 +751,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
 272:                                              ; preds = %265
   %273 = load i64, ptr %6, align 8
   %274 = zext i32 %266 to i64
-  %275 = getelementptr [25 x [3 x %struct.ptp_clock_time]], ptr %260, i64 0, i64 %274
+  %275 = getelementptr [3 x %struct.ptp_clock_time], ptr %260, i64 %274
   store i64 %273, ptr %275, align 8
   %276 = load i64, ptr %261, align 8
   %277 = trunc i64 %276 to i32
@@ -1216,7 +1216,7 @@ define dso_local range(i64 -512, 961) i64 @ptp_read(ptr noundef readonly capture
   %69 = phi i64 [ %75, %.preheader ], [ 0, %56 ]
   %70 = getelementptr %struct.ptp_extts_event, ptr %54, i64 %69
   %71 = sext i32 %68 to i64
-  %72 = getelementptr [128 x %struct.ptp_extts_event], ptr %8, i64 0, i64 %71
+  %72 = getelementptr %struct.ptp_extts_event, ptr %8, i64 %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %70, ptr noundef align 8 dereferenceable(32) %72, i64 32, i1 false)
   %73 = add i32 %68, 1
   %74 = srem i32 %73, 128

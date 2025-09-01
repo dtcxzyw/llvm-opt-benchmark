@@ -4701,14 +4701,14 @@ for.body:                                         ; preds = %if.end, %for.body
   %conv16 = zext i8 %0 to i32
   %shr = lshr i32 %conv16, 4
   %idxprom = zext nneg i32 %shr to i64
-  %arrayidx = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly7hexlifyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEbRKT_RT0_bE9hexValues, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr @_ZZN5folly7hexlifyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEbRKT_RT0_bE9hexValues, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %inc = add i64 %j.015, 1
   %call5 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %j.015)
   store i8 %1, ptr %call5, align 1
   %and6 = and i32 %conv16, 15
   %idxprom7 = zext nneg i32 %and6 to i64
-  %arrayidx8 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly7hexlifyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEbRKT_RT0_bE9hexValues, i64 0, i64 %idxprom7
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr @_ZZN5folly7hexlifyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEbRKT_RT0_bE9hexValues, i64 %idxprom7
   %2 = load i8, ptr %arrayidx8, align 1
   %inc9 = add i64 %j.015, 2
   %call10 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %inc)

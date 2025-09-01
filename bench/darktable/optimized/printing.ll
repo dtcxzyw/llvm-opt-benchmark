@@ -55,7 +55,7 @@ define void @dt_printing_clear_boxes(ptr noundef writeonly captures(none) %0) lo
 
 8:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [20 x %struct._image_box], ptr %2, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct._image_box, ptr %2, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 0, i64 36, i1 false)
   store i32 4, ptr %10, align 4, !tbaa !6
@@ -232,7 +232,7 @@ define void @dt_printing_setup_display(ptr noundef captures(none) initializes((1
 
 37:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %38 = getelementptr inbounds nuw [20 x %struct._image_box], ptr %36, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %struct._image_box, ptr %36, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load float, ptr %39, align 8, !tbaa !75
   %41 = fcmp reassoc nsz arcp contract afn ogt float %40, 0.000000e+00
@@ -282,7 +282,7 @@ define void @dt_printing_setup_box(ptr noundef captures(none) %0, i32 noundef %1
   %15 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %13, float %14)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds [20 x %struct._image_box], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds %struct._image_box, ptr %16, i64 %17
   %19 = load float, ptr %7, align 8, !tbaa !32
   %20 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %19, float %2)
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -394,7 +394,7 @@ define void @dt_printing_setup_page(ptr noundef captures(none) initializes((1936
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw [20 x %struct._image_box], ptr %20, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct._image_box, ptr %20, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load float, ptr %23, align 8, !tbaa !77
   %25 = fmul reassoc nsz arcp contract afn float %24, %11
@@ -729,7 +729,7 @@ define void @dt_printing_setup_image(ptr noundef %0, i32 noundef %1, i32 noundef
   %7 = alloca %struct._image_pos, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [20 x %struct._image_box], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct._image_box, ptr %8, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !87
   %.not = icmp eq i32 %11, %2
   br i1 %.not, label %16, label %12

@@ -5594,10 +5594,10 @@ default.unreachable129:                           ; preds = %21
 
 switch.lookup:                                    ; preds = %43
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.create_hf_entry, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.create_hf_entry, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep136 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.create_hf_entry.1, i64 0, i64 %46
+  %switch.gep136 = getelementptr inbounds nuw i32, ptr @switch.table.create_hf_entry.1, i64 %46
   %switch.load137 = load i32, ptr %switch.gep136, align 4
   br label %.sink.split
 

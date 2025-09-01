@@ -1730,7 +1730,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit53: ; preds = %_ZNSt6v
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm4CSKY11getArchNameENS0_8ArchKindE(i32 noundef %0) local_unnamed_addr #1 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [12 x %"struct.llvm::CSKY::ArchNames"], ptr @_ZN4llvm4CSKYL9ARCHNamesE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.llvm::CSKY::ArchNames", ptr @_ZN4llvm4CSKYL9ARCHNamesE, i64 %2
   %4 = load ptr, ptr %3, align 16, !tbaa !98
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !101
@@ -1995,7 +1995,7 @@ define dso_local { ptr, i64 } @_ZN4llvm4CSKY10getFPUNameEj(i32 noundef %0) local
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [9 x %"struct.llvm::CSKY::FPUName"], ptr @_ZN4llvm4CSKYL8FPUNamesE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"struct.llvm::CSKY::FPUName", ptr @_ZN4llvm4CSKYL8FPUNamesE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !117
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !121
@@ -2016,7 +2016,7 @@ define dso_local noundef i32 @_ZN4llvm4CSKY13getFPUVersionEj(i32 noundef %0) loc
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [9 x %"struct.llvm::CSKY::FPUName"], ptr @_ZN4llvm4CSKYL8FPUNamesE, i64 0, i64 %4, i32 3
+  %5 = getelementptr inbounds nuw %"struct.llvm::CSKY::FPUName", ptr @_ZN4llvm4CSKYL8FPUNamesE, i64 %4, i32 3
   %6 = load i32, ptr %5, align 4, !tbaa !122
   br label %7
 

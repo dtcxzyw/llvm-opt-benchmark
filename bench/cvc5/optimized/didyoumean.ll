@@ -459,7 +459,7 @@ _ZNSt5arrayISt6vectorImSaImEELm3EED2Ev.exit.i:    ; preds = %_ZNSt6vectorImSaImE
   %154 = urem i64 %.088126.us.i, 3
   %155 = add nuw i64 %.088126.us.i, 1
   %156 = shl i64 %.088126.us.i, 1
-  %157 = getelementptr inbounds nuw [3 x %"class.std::vector.10"], ptr %6, i64 0, i64 %154
+  %157 = getelementptr inbounds nuw %"class.std::vector.10", ptr %6, i64 %154
   %158 = load ptr, ptr %157, align 8, !tbaa !22
   store i64 %156, ptr %158, align 8, !tbaa !20
   %exitcond134.i = icmp eq i64 %155, %umax133.i
@@ -479,7 +479,7 @@ _ZNSt5arrayISt6vectorImSaImEELm3EED2Ev.exit.i:    ; preds = %_ZNSt6vectorImSaImE
 
 ._crit_edge.i:                                    ; preds = %..loopexit_crit_edge.i, %.loopexit.us.i, %.preheader.i
   %162 = urem i64 %85, 3
-  %163 = getelementptr inbounds nuw [3 x %"class.std::vector.10"], ptr %6, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw %"class.std::vector.10", ptr %6, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !22
   %165 = getelementptr inbounds nuw i64, ptr %164, i64 %86
   %166 = load i64, ptr %165, align 8, !tbaa !20
@@ -513,15 +513,15 @@ _ZNSt6vectorImSaImEED2Ev.exit.i95.i:              ; preds = %171, %167
   %181 = add nuw i64 %.088126.i, 1
   %182 = urem i64 %181, 3
   %183 = shl i64 %.088126.i, 1
-  %184 = getelementptr inbounds nuw [3 x %"class.std::vector.10"], ptr %6, i64 0, i64 %178
+  %184 = getelementptr inbounds nuw %"class.std::vector.10", ptr %6, i64 %178
   %185 = load ptr, ptr %184, align 8, !tbaa !22
   store i64 %183, ptr %185, align 8, !tbaa !20
   %186 = getelementptr i8, ptr %150, i64 %.088126.i
   %187 = getelementptr i8, ptr %186, i64 -1
-  %188 = getelementptr inbounds nuw [3 x %"class.std::vector.10"], ptr %6, i64 0, i64 %180
+  %188 = getelementptr inbounds nuw %"class.std::vector.10", ptr %6, i64 %180
   %189 = icmp ugt i64 %.088126.i, 1
   %190 = getelementptr i8, ptr %186, i64 -2
-  %191 = getelementptr inbounds nuw [3 x %"class.std::vector.10"], ptr %6, i64 0, i64 %182
+  %191 = getelementptr inbounds nuw %"class.std::vector.10", ptr %6, i64 %182
   %192 = load ptr, ptr %188, align 8, !tbaa !22
   br i1 %189, label %.lr.ph.i.split, label %.lr.ph.i.split.us
 

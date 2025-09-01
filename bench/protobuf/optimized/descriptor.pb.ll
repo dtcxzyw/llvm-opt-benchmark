@@ -1149,7 +1149,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %idxprom.i.i.i.i = sext i32 %i.08 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %1, ptr %arrayidx.i.i.i.i
   %5 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -1336,8 +1336,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i = add i64 %6, -1
   %7 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
-  %elements.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i, i64 0, i64 %4
+  %arrayidx.i.i.i.i.i = getelementptr ptr, ptr %7, i64 %indvars.iv.i
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %0, ptr %arrayidx.i.i.i.i.i
   %8 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf19FileDescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(224) %8)
@@ -2995,7 +2994,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sub.i.i.i.i.i = add i64 %12, -1
   %13 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %indvars.iv
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i, i64 %indvars.iv
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %dependency_.i, ptr %arrayidx.i.i.i.i
   %14 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %call19 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
@@ -3056,7 +3055,7 @@ for.body28:                                       ; preds = %for.body28.lr.ph, %
   %19 = inttoptr i64 %sub.i.i.i.i.i118 to ptr
   %elements.i.i.i.i119 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %idxprom.i.i.i.i120 = sext i32 %i23.0222 to i64
-  %arrayidx.i.i.i.i121 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i119, i64 0, i64 %idxprom.i.i.i.i120
+  %arrayidx.i.i.i.i121 = getelementptr inbounds ptr, ptr %elements.i.i.i.i119, i64 %idxprom.i.i.i.i120
   %retval.0.i.i.i.i122 = select i1 %cmp.i.i.i.i.i117, ptr %message_type_.i, ptr %arrayidx.i.i.i.i121
   %20 = load ptr, ptr %retval.0.i.i.i.i122, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %20, i64 20
@@ -3088,7 +3087,7 @@ for.body41:                                       ; preds = %for.body41.lr.ph, %
   %25 = inttoptr i64 %sub.i.i.i.i.i126 to ptr
   %elements.i.i.i.i127 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %idxprom.i.i.i.i128 = sext i32 %i36.0226 to i64
-  %arrayidx.i.i.i.i129 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i127, i64 0, i64 %idxprom.i.i.i.i128
+  %arrayidx.i.i.i.i129 = getelementptr inbounds ptr, ptr %elements.i.i.i.i127, i64 %idxprom.i.i.i.i128
   %retval.0.i.i.i.i130 = select i1 %cmp.i.i.i.i.i125, ptr %enum_type_.i, ptr %arrayidx.i.i.i.i129
   %26 = load ptr, ptr %retval.0.i.i.i.i130, align 8
   %_cached_size_.i131 = getelementptr inbounds nuw i8, ptr %26, i64 20
@@ -3120,7 +3119,7 @@ for.body55:                                       ; preds = %for.body55.lr.ph, %
   %31 = inttoptr i64 %sub.i.i.i.i.i135 to ptr
   %elements.i.i.i.i136 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %idxprom.i.i.i.i137 = sext i32 %i50.0230 to i64
-  %arrayidx.i.i.i.i138 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i136, i64 0, i64 %idxprom.i.i.i.i137
+  %arrayidx.i.i.i.i138 = getelementptr inbounds ptr, ptr %elements.i.i.i.i136, i64 %idxprom.i.i.i.i137
   %retval.0.i.i.i.i139 = select i1 %cmp.i.i.i.i.i134, ptr %service_.i, ptr %arrayidx.i.i.i.i138
   %32 = load ptr, ptr %retval.0.i.i.i.i139, align 8
   %_cached_size_.i140 = getelementptr inbounds nuw i8, ptr %32, i64 20
@@ -3152,7 +3151,7 @@ for.body69:                                       ; preds = %for.body69.lr.ph, %
   %37 = inttoptr i64 %sub.i.i.i.i.i144 to ptr
   %elements.i.i.i.i145 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %idxprom.i.i.i.i146 = sext i32 %i64.0235 to i64
-  %arrayidx.i.i.i.i147 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i145, i64 0, i64 %idxprom.i.i.i.i146
+  %arrayidx.i.i.i.i147 = getelementptr inbounds ptr, ptr %elements.i.i.i.i145, i64 %idxprom.i.i.i.i146
   %retval.0.i.i.i.i148 = select i1 %cmp.i.i.i.i.i143, ptr %extension_.i, ptr %arrayidx.i.i.i.i147
   %38 = load ptr, ptr %retval.0.i.i.i.i148, align 8
   %_cached_size_.i149 = getelementptr inbounds nuw i8, ptr %38, i64 20
@@ -3432,7 +3431,7 @@ for.body:                                         ; preds = %entry, %for.body
   %sub.i.i.i.i.i = add i64 %2, -1
   %3 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %indvars.iv
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i, i64 %indvars.iv
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %dependency_.i, ptr %arrayidx.i.i.i.i
   %4 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
@@ -3855,8 +3854,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i = add i64 %5, -1
   %6 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
-  %elements.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i, i64 0, i64 %3
+  %arrayidx.i.i.i.i.i = getelementptr ptr, ptr %6, i64 %indvars.iv.i
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %message_type_.i, ptr %arrayidx.i.i.i.i.i
   %7 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf15DescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(232) %7)
@@ -3883,72 +3881,69 @@ for.body.i5:                                      ; preds = %for.cond.i2
   %cmp.i.i.i.i.i.i7 = icmp eq i64 %and.i.i.i.i.i.i6, 0
   %sub.i.i.i.i.i.i8 = add i64 %13, -1
   %14 = inttoptr i64 %sub.i.i.i.i.i.i8 to ptr
-  %elements.i.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %arrayidx.i.i.i.i.i10 = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i9, i64 0, i64 %11
-  %retval.0.i.i.i.i.i11 = select i1 %cmp.i.i.i.i.i.i7, ptr %enum_type_.i, ptr %arrayidx.i.i.i.i.i10
-  %15 = load ptr, ptr %retval.0.i.i.i.i.i11, align 8
-  %call2.i12 = tail call noundef zeroext i1 @_ZNK6google8protobuf19EnumDescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(112) %15)
-  br i1 %call2.i12, label %for.cond.i2, label %return, !llvm.loop !35
+  %arrayidx.i.i.i.i.i9 = getelementptr ptr, ptr %14, i64 %indvars.iv.i3
+  %retval.0.i.i.i.i.i10 = select i1 %cmp.i.i.i.i.i.i7, ptr %enum_type_.i, ptr %arrayidx.i.i.i.i.i9
+  %15 = load ptr, ptr %retval.0.i.i.i.i.i10, align 8
+  %call2.i11 = tail call noundef zeroext i1 @_ZNK6google8protobuf19EnumDescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(112) %15)
+  br i1 %call2.i11, label %for.cond.i2, label %return, !llvm.loop !35
 
 if.end6:                                          ; preds = %for.cond.i2
   %service_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %current_size_.i.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %16 = load i32, ptr %current_size_.i.i.i13, align 8
+  %current_size_.i.i.i12 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %16 = load i32, ptr %current_size_.i.i.i12, align 8
   %17 = zext i32 %16 to i64
-  br label %for.cond.i14
+  br label %for.cond.i13
 
-for.cond.i14:                                     ; preds = %for.body.i17, %if.end6
-  %indvars.iv.i15 = phi i64 [ %19, %for.body.i17 ], [ %17, %if.end6 ]
-  %18 = trunc nuw i64 %indvars.iv.i15 to i32
-  %cmp.i16 = icmp slt i32 %18, 1
-  br i1 %cmp.i16, label %if.end10, label %for.body.i17
+for.cond.i13:                                     ; preds = %for.body.i16, %if.end6
+  %indvars.iv.i14 = phi i64 [ %19, %for.body.i16 ], [ %17, %if.end6 ]
+  %18 = trunc nuw i64 %indvars.iv.i14 to i32
+  %cmp.i15 = icmp slt i32 %18, 1
+  br i1 %cmp.i15, label %if.end10, label %for.body.i16
 
-for.body.i17:                                     ; preds = %for.cond.i14
-  %19 = add nsw i64 %indvars.iv.i15, -1
+for.body.i16:                                     ; preds = %for.cond.i13
+  %19 = add nsw i64 %indvars.iv.i14, -1
   %20 = load ptr, ptr %service_.i, align 8
   %21 = ptrtoint ptr %20 to i64
-  %and.i.i.i.i.i.i18 = and i64 %21, 1
-  %cmp.i.i.i.i.i.i19 = icmp eq i64 %and.i.i.i.i.i.i18, 0
-  %sub.i.i.i.i.i.i20 = add i64 %21, -1
-  %22 = inttoptr i64 %sub.i.i.i.i.i.i20 to ptr
-  %elements.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %arrayidx.i.i.i.i.i22 = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i21, i64 0, i64 %19
-  %retval.0.i.i.i.i.i23 = select i1 %cmp.i.i.i.i.i.i19, ptr %service_.i, ptr %arrayidx.i.i.i.i.i22
-  %23 = load ptr, ptr %retval.0.i.i.i.i.i23, align 8
-  %call2.i24 = tail call noundef zeroext i1 @_ZNK6google8protobuf22ServiceDescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(64) %23)
-  br i1 %call2.i24, label %for.cond.i14, label %return, !llvm.loop !36
+  %and.i.i.i.i.i.i17 = and i64 %21, 1
+  %cmp.i.i.i.i.i.i18 = icmp eq i64 %and.i.i.i.i.i.i17, 0
+  %sub.i.i.i.i.i.i19 = add i64 %21, -1
+  %22 = inttoptr i64 %sub.i.i.i.i.i.i19 to ptr
+  %arrayidx.i.i.i.i.i20 = getelementptr ptr, ptr %22, i64 %indvars.iv.i14
+  %retval.0.i.i.i.i.i21 = select i1 %cmp.i.i.i.i.i.i18, ptr %service_.i, ptr %arrayidx.i.i.i.i.i20
+  %23 = load ptr, ptr %retval.0.i.i.i.i.i21, align 8
+  %call2.i22 = tail call noundef zeroext i1 @_ZNK6google8protobuf22ServiceDescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(64) %23)
+  br i1 %call2.i22, label %for.cond.i13, label %return, !llvm.loop !36
 
-if.end10:                                         ; preds = %for.cond.i14
+if.end10:                                         ; preds = %for.cond.i13
   %extension_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %current_size_.i.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %24 = load i32, ptr %current_size_.i.i.i25, align 8
+  %current_size_.i.i.i23 = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %24 = load i32, ptr %current_size_.i.i.i23, align 8
   %cmp4.i = icmp slt i32 %24, 1
   br i1 %cmp4.i, label %if.end14, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end10
   %25 = zext nneg i32 %24 to i64
-  br label %for.body.i26
+  br label %for.body.i24
 
-for.body.i26:                                     ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %for.body.preheader.i
-  %indvars.iv.i27 = phi i64 [ %25, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i27, -1
+for.body.i24:                                     ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %for.body.preheader.i
+  %indvars.iv.i25 = phi i64 [ %25, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i ]
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i25, -1
   %26 = load ptr, ptr %extension_.i, align 8
   %27 = ptrtoint ptr %26 to i64
-  %and.i.i.i.i.i.i28 = and i64 %27, 1
-  %cmp.i.i.i.i.i.i29 = icmp eq i64 %and.i.i.i.i.i.i28, 0
-  %sub.i.i.i.i.i.i30 = add i64 %27, -1
-  %28 = inttoptr i64 %sub.i.i.i.i.i.i30 to ptr
-  %elements.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %arrayidx.i.i.i.i.i32 = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i31, i64 0, i64 %indvars.iv.next.i
-  %retval.0.i.i.i.i.i33 = select i1 %cmp.i.i.i.i.i.i29, ptr %extension_.i, ptr %arrayidx.i.i.i.i.i32
-  %29 = load ptr, ptr %retval.0.i.i.i.i.i33, align 8
+  %and.i.i.i.i.i.i26 = and i64 %27, 1
+  %cmp.i.i.i.i.i.i27 = icmp eq i64 %and.i.i.i.i.i.i26, 0
+  %sub.i.i.i.i.i.i28 = add i64 %27, -1
+  %28 = inttoptr i64 %sub.i.i.i.i.i.i28 to ptr
+  %arrayidx.i.i.i.i.i29 = getelementptr ptr, ptr %28, i64 %indvars.iv.i25
+  %retval.0.i.i.i.i.i30 = select i1 %cmp.i.i.i.i.i.i27, ptr %extension_.i, ptr %arrayidx.i.i.i.i.i29
+  %29 = load ptr, ptr %retval.0.i.i.i.i.i30, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 4
   %and.i.i = and i32 %31, 32
   %cmp.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %for.body.i26
+if.then.i.i:                                      ; preds = %for.body.i24
   %options_.i.i = getelementptr inbounds nuw i8, ptr %29, i64 64
   %32 = load ptr, ptr %options_.i.i, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -3974,9 +3969,9 @@ if.then8.i.i.i:                                   ; preds = %if.end6.i.i.i
   %call2.i.i.i.i = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
   br i1 %call2.i.i.i.i, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, label %return
 
-_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i26
-  %cmp.i34 = icmp samesign ult i64 %indvars.iv.i27, 2
-  br i1 %cmp.i34, label %if.end14, label %for.body.i26, !llvm.loop !37
+_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i24
+  %cmp.i31 = icmp samesign ult i64 %indvars.iv.i25, 2
+  br i1 %cmp.i31, label %if.end14, label %for.body.i24, !llvm.loop !37
 
 if.end14:                                         ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %if.end10
   %37 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3989,8 +3984,8 @@ if.then16:                                        ; preds = %if.end14
   %options_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %39 = load ptr, ptr %options_, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %call2.i35 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull @_ZN6google8protobuf30_FileOptions_default_instance_E)
-  br i1 %call2.i35, label %if.end.i, label %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread
+  %call2.i32 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull @_ZN6google8protobuf30_FileOptions_default_instance_E)
+  br i1 %call2.i32, label %if.end.i, label %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then16
   %uninterpreted_option_.i.i = getelementptr inbounds nuw i8, ptr %39, i64 48
@@ -4014,8 +4009,8 @@ if.then8.i:                                       ; preds = %if.end6.i
 _ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread: ; preds = %if.then16, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %for.body.i, %for.body.i5, %for.body.i17, %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %if.end14, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread
-  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %if.end14 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ], [ false, %for.body.i17 ], [ false, %for.body.i5 ], [ false, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.body.i5, %for.body.i16, %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %if.end14, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf11FileOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %if.end14 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ], [ false, %for.body.i16 ], [ false, %for.body.i5 ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 
@@ -6504,7 +6499,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %idxprom.i.i.i.i = sext i32 %i.0145 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %field_.i, ptr %arrayidx.i.i.i.i
   %10 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -6536,7 +6531,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %15 = inttoptr i64 %sub.i.i.i.i.i84 to ptr
   %elements.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %idxprom.i.i.i.i86 = sext i32 %i11.0148 to i64
-  %arrayidx.i.i.i.i87 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i85, i64 0, i64 %idxprom.i.i.i.i86
+  %arrayidx.i.i.i.i87 = getelementptr inbounds ptr, ptr %elements.i.i.i.i85, i64 %idxprom.i.i.i.i86
   %retval.0.i.i.i.i88 = select i1 %cmp.i.i.i.i.i83, ptr %nested_type_.i, ptr %arrayidx.i.i.i.i87
   %16 = load ptr, ptr %retval.0.i.i.i.i88, align 8
   %_cached_size_.i89 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -6568,7 +6563,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph, %
   %21 = inttoptr i64 %sub.i.i.i.i.i93 to ptr
   %elements.i.i.i.i94 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %idxprom.i.i.i.i95 = sext i32 %i25.0152 to i64
-  %arrayidx.i.i.i.i96 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i94, i64 0, i64 %idxprom.i.i.i.i95
+  %arrayidx.i.i.i.i96 = getelementptr inbounds ptr, ptr %elements.i.i.i.i94, i64 %idxprom.i.i.i.i95
   %retval.0.i.i.i.i97 = select i1 %cmp.i.i.i.i.i92, ptr %enum_type_.i, ptr %arrayidx.i.i.i.i96
   %22 = load ptr, ptr %retval.0.i.i.i.i97, align 8
   %_cached_size_.i98 = getelementptr inbounds nuw i8, ptr %22, i64 20
@@ -6600,7 +6595,7 @@ for.body44:                                       ; preds = %for.body44.lr.ph, %
   %27 = inttoptr i64 %sub.i.i.i.i.i102 to ptr
   %elements.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %idxprom.i.i.i.i104 = sext i32 %i39.0156 to i64
-  %arrayidx.i.i.i.i105 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i103, i64 0, i64 %idxprom.i.i.i.i104
+  %arrayidx.i.i.i.i105 = getelementptr inbounds ptr, ptr %elements.i.i.i.i103, i64 %idxprom.i.i.i.i104
   %retval.0.i.i.i.i106 = select i1 %cmp.i.i.i.i.i101, ptr %extension_range_.i, ptr %arrayidx.i.i.i.i105
   %28 = load ptr, ptr %retval.0.i.i.i.i106, align 8
   %_cached_size_.i107 = getelementptr inbounds nuw i8, ptr %28, i64 20
@@ -6632,7 +6627,7 @@ for.body58:                                       ; preds = %for.body58.lr.ph, %
   %33 = inttoptr i64 %sub.i.i.i.i.i111 to ptr
   %elements.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %idxprom.i.i.i.i113 = sext i32 %i53.0160 to i64
-  %arrayidx.i.i.i.i114 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i112, i64 0, i64 %idxprom.i.i.i.i113
+  %arrayidx.i.i.i.i114 = getelementptr inbounds ptr, ptr %elements.i.i.i.i112, i64 %idxprom.i.i.i.i113
   %retval.0.i.i.i.i115 = select i1 %cmp.i.i.i.i.i110, ptr %extension_.i, ptr %arrayidx.i.i.i.i114
   %34 = load ptr, ptr %retval.0.i.i.i.i115, align 8
   %_cached_size_.i116 = getelementptr inbounds nuw i8, ptr %34, i64 20
@@ -6678,7 +6673,7 @@ for.body79:                                       ; preds = %for.body79.lr.ph, %
   %41 = inttoptr i64 %sub.i.i.i.i.i121 to ptr
   %elements.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %idxprom.i.i.i.i123 = sext i32 %i74.0164 to i64
-  %arrayidx.i.i.i.i124 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i122, i64 0, i64 %idxprom.i.i.i.i123
+  %arrayidx.i.i.i.i124 = getelementptr inbounds ptr, ptr %elements.i.i.i.i122, i64 %idxprom.i.i.i.i123
   %retval.0.i.i.i.i125 = select i1 %cmp.i.i.i.i.i120, ptr %oneof_decl_.i, ptr %arrayidx.i.i.i.i124
   %42 = load ptr, ptr %retval.0.i.i.i.i125, align 8
   %_cached_size_.i126 = getelementptr inbounds nuw i8, ptr %42, i64 20
@@ -6710,7 +6705,7 @@ for.body93:                                       ; preds = %for.body93.lr.ph, %
   %47 = inttoptr i64 %sub.i.i.i.i.i130 to ptr
   %elements.i.i.i.i131 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %idxprom.i.i.i.i132 = sext i32 %i88.0169 to i64
-  %arrayidx.i.i.i.i133 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i131, i64 0, i64 %idxprom.i.i.i.i132
+  %arrayidx.i.i.i.i133 = getelementptr inbounds ptr, ptr %elements.i.i.i.i131, i64 %idxprom.i.i.i.i132
   %retval.0.i.i.i.i134 = select i1 %cmp.i.i.i.i.i129, ptr %reserved_range_.i, ptr %arrayidx.i.i.i.i133
   %48 = load ptr, ptr %retval.0.i.i.i.i134, align 8
   %_cached_size_.i135 = getelementptr inbounds nuw i8, ptr %48, i64 20
@@ -6742,7 +6737,7 @@ for.body107:                                      ; preds = %for.body107.lr.ph, 
   %sub.i.i.i.i.i139 = add i64 %52, -1
   %53 = inttoptr i64 %sub.i.i.i.i.i139 to ptr
   %elements.i.i.i.i140 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %arrayidx.i.i.i.i142 = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i140, i64 0, i64 %indvars.iv
+  %arrayidx.i.i.i.i142 = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i140, i64 %indvars.iv
   %retval.0.i.i.i.i143 = select i1 %cmp.i.i.i.i.i138, ptr %reserved_name_.i, ptr %arrayidx.i.i.i.i142
   %54 = load ptr, ptr %retval.0.i.i.i.i143, align 8
   %call110 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #23
@@ -7121,7 +7116,7 @@ for.body151:                                      ; preds = %for.end142, %for.bo
   %sub.i.i.i.i.i163 = add i64 %50, -1
   %51 = inttoptr i64 %sub.i.i.i.i.i163 to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %indvars.iv
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i, i64 %indvars.iv
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %reserved_name_.i, ptr %arrayidx.i.i.i.i
   %52 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %call.i164 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #23
@@ -7395,8 +7390,7 @@ for.body.i:                                       ; preds = %_ZNK6google8protobu
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i = add i64 %3, -1
   %4 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
-  %elements.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.i.i.i.i.i = getelementptr ptr, ptr %4, i64 %indvars.iv.i
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %field_.i, ptr %arrayidx.i.i.i.i.i
   %5 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7456,220 +7450,215 @@ for.body.i3:                                      ; preds = %for.cond.i
   %cmp.i.i.i.i.i.i5 = icmp eq i64 %and.i.i.i.i.i.i4, 0
   %sub.i.i.i.i.i.i6 = add i64 %18, -1
   %19 = inttoptr i64 %sub.i.i.i.i.i.i6 to ptr
-  %elements.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %arrayidx.i.i.i.i.i8 = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i7, i64 0, i64 %16
-  %retval.0.i.i.i.i.i9 = select i1 %cmp.i.i.i.i.i.i5, ptr %nested_type_.i, ptr %arrayidx.i.i.i.i.i8
-  %20 = load ptr, ptr %retval.0.i.i.i.i.i9, align 8
+  %arrayidx.i.i.i.i.i7 = getelementptr ptr, ptr %19, i64 %indvars.iv
+  %retval.0.i.i.i.i.i8 = select i1 %cmp.i.i.i.i.i.i5, ptr %nested_type_.i, ptr %arrayidx.i.i.i.i.i7
+  %20 = load ptr, ptr %retval.0.i.i.i.i.i8, align 8
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf15DescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(232) %20)
   br i1 %call2.i, label %for.cond.i, label %return, !llvm.loop !34
 
 if.end6:                                          ; preds = %for.cond.i
   %enum_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %current_size_.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %21 = load i32, ptr %current_size_.i.i.i10, align 8
+  %current_size_.i.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %21 = load i32, ptr %current_size_.i.i.i9, align 8
   %22 = zext i32 %21 to i64
-  br label %for.cond.i11
+  br label %for.cond.i10
 
-for.cond.i11:                                     ; preds = %for.body.i14, %if.end6
-  %indvars.iv.i12 = phi i64 [ %24, %for.body.i14 ], [ %22, %if.end6 ]
-  %23 = trunc nuw i64 %indvars.iv.i12 to i32
-  %cmp.i13 = icmp slt i32 %23, 1
-  br i1 %cmp.i13, label %if.end10, label %for.body.i14
+for.cond.i10:                                     ; preds = %for.body.i13, %if.end6
+  %indvars.iv.i11 = phi i64 [ %24, %for.body.i13 ], [ %22, %if.end6 ]
+  %23 = trunc nuw i64 %indvars.iv.i11 to i32
+  %cmp.i12 = icmp slt i32 %23, 1
+  br i1 %cmp.i12, label %if.end10, label %for.body.i13
 
-for.body.i14:                                     ; preds = %for.cond.i11
-  %24 = add nsw i64 %indvars.iv.i12, -1
+for.body.i13:                                     ; preds = %for.cond.i10
+  %24 = add nsw i64 %indvars.iv.i11, -1
   %25 = load ptr, ptr %enum_type_.i, align 8
   %26 = ptrtoint ptr %25 to i64
-  %and.i.i.i.i.i.i15 = and i64 %26, 1
-  %cmp.i.i.i.i.i.i16 = icmp eq i64 %and.i.i.i.i.i.i15, 0
-  %sub.i.i.i.i.i.i17 = add i64 %26, -1
-  %27 = inttoptr i64 %sub.i.i.i.i.i.i17 to ptr
-  %elements.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %arrayidx.i.i.i.i.i19 = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i18, i64 0, i64 %24
-  %retval.0.i.i.i.i.i20 = select i1 %cmp.i.i.i.i.i.i16, ptr %enum_type_.i, ptr %arrayidx.i.i.i.i.i19
-  %28 = load ptr, ptr %retval.0.i.i.i.i.i20, align 8
-  %call2.i21 = tail call noundef zeroext i1 @_ZNK6google8protobuf19EnumDescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(112) %28)
-  br i1 %call2.i21, label %for.cond.i11, label %return, !llvm.loop !35
+  %and.i.i.i.i.i.i14 = and i64 %26, 1
+  %cmp.i.i.i.i.i.i15 = icmp eq i64 %and.i.i.i.i.i.i14, 0
+  %sub.i.i.i.i.i.i16 = add i64 %26, -1
+  %27 = inttoptr i64 %sub.i.i.i.i.i.i16 to ptr
+  %arrayidx.i.i.i.i.i17 = getelementptr ptr, ptr %27, i64 %indvars.iv.i11
+  %retval.0.i.i.i.i.i18 = select i1 %cmp.i.i.i.i.i.i15, ptr %enum_type_.i, ptr %arrayidx.i.i.i.i.i17
+  %28 = load ptr, ptr %retval.0.i.i.i.i.i18, align 8
+  %call2.i19 = tail call noundef zeroext i1 @_ZNK6google8protobuf19EnumDescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(112) %28)
+  br i1 %call2.i19, label %for.cond.i10, label %return, !llvm.loop !35
 
-if.end10:                                         ; preds = %for.cond.i11
+if.end10:                                         ; preds = %for.cond.i10
   %extension_range_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %current_size_.i.i.i22 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %29 = load i32, ptr %current_size_.i.i.i22, align 8
-  %cmp4.i23 = icmp slt i32 %29, 1
-  br i1 %cmp4.i23, label %if.end14, label %for.body.preheader.i24
+  %current_size_.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %29 = load i32, ptr %current_size_.i.i.i20, align 8
+  %cmp4.i21 = icmp slt i32 %29, 1
+  br i1 %cmp4.i21, label %if.end14, label %for.body.preheader.i22
 
-for.body.preheader.i24:                           ; preds = %if.end10
+for.body.preheader.i22:                           ; preds = %if.end10
   %30 = zext nneg i32 %29 to i64
-  br label %for.body.i25
+  br label %for.body.i23
 
-for.body.i25:                                     ; preds = %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, %for.body.preheader.i24
-  %indvars.iv.i26 = phi i64 [ %30, %for.body.preheader.i24 ], [ %indvars.iv.next.i27, %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i ]
-  %indvars.iv.next.i27 = add nsw i64 %indvars.iv.i26, -1
+for.body.i23:                                     ; preds = %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, %for.body.preheader.i22
+  %indvars.iv.i24 = phi i64 [ %30, %for.body.preheader.i22 ], [ %indvars.iv.next.i25, %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i ]
+  %indvars.iv.next.i25 = add nsw i64 %indvars.iv.i24, -1
   %31 = load ptr, ptr %extension_range_.i, align 8
   %32 = ptrtoint ptr %31 to i64
-  %and.i.i.i.i.i.i28 = and i64 %32, 1
-  %cmp.i.i.i.i.i.i29 = icmp eq i64 %and.i.i.i.i.i.i28, 0
-  %sub.i.i.i.i.i.i30 = add i64 %32, -1
-  %33 = inttoptr i64 %sub.i.i.i.i.i.i30 to ptr
-  %elements.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %arrayidx.i.i.i.i.i32 = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i31, i64 0, i64 %indvars.iv.next.i27
-  %retval.0.i.i.i.i.i33 = select i1 %cmp.i.i.i.i.i.i29, ptr %extension_range_.i, ptr %arrayidx.i.i.i.i.i32
-  %34 = load ptr, ptr %retval.0.i.i.i.i.i33, align 8
+  %and.i.i.i.i.i.i26 = and i64 %32, 1
+  %cmp.i.i.i.i.i.i27 = icmp eq i64 %and.i.i.i.i.i.i26, 0
+  %sub.i.i.i.i.i.i28 = add i64 %32, -1
+  %33 = inttoptr i64 %sub.i.i.i.i.i.i28 to ptr
+  %arrayidx.i.i.i.i.i29 = getelementptr ptr, ptr %33, i64 %indvars.iv.i24
+  %retval.0.i.i.i.i.i30 = select i1 %cmp.i.i.i.i.i.i27, ptr %extension_range_.i, ptr %arrayidx.i.i.i.i.i29
+  %34 = load ptr, ptr %retval.0.i.i.i.i.i30, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 4
-  %and.i.i34 = and i32 %36, 1
-  %cmp.not.i.i35 = icmp eq i32 %and.i.i34, 0
-  br i1 %cmp.not.i.i35, label %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, label %if.then.i.i36
+  %and.i.i31 = and i32 %36, 1
+  %cmp.not.i.i32 = icmp eq i32 %and.i.i31, 0
+  br i1 %cmp.not.i.i32, label %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, label %if.then.i.i33
 
-if.then.i.i36:                                    ; preds = %for.body.i25
-  %options_.i.i37 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %37 = load ptr, ptr %options_.i.i37, align 8
+if.then.i.i33:                                    ; preds = %for.body.i23
+  %options_.i.i34 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %37 = load ptr, ptr %options_.i.i34, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %call2.i.i.i38 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull @_ZN6google8protobuf40_ExtensionRangeOptions_default_instance_E)
-  br i1 %call2.i.i.i38, label %if.end.i.i.i40, label %return
+  %call2.i.i.i35 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull @_ZN6google8protobuf40_ExtensionRangeOptions_default_instance_E)
+  br i1 %call2.i.i.i35, label %if.end.i.i.i37, label %return
 
-if.end.i.i.i40:                                   ; preds = %if.then.i.i36
-  %uninterpreted_option_.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %call4.i.i.i42 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i.i.i41)
-  br i1 %call4.i.i.i42, label %if.end6.i.i.i43, label %return
+if.end.i.i.i37:                                   ; preds = %if.then.i.i33
+  %uninterpreted_option_.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %37, i64 72
+  %call4.i.i.i39 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i.i.i38)
+  br i1 %call4.i.i.i39, label %if.end6.i.i.i40, label %return
 
-if.end6.i.i.i43:                                  ; preds = %if.end.i.i.i40
-  %_has_bits_.i.i.i44 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %39 = load i32, ptr %_has_bits_.i.i.i44, align 4
-  %and.i.i.i45 = and i32 %39, 1
-  %cmp.not.i.i.i46 = icmp eq i32 %and.i.i.i45, 0
-  br i1 %cmp.not.i.i.i46, label %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, label %if.then8.i.i.i47
+if.end6.i.i.i40:                                  ; preds = %if.end.i.i.i37
+  %_has_bits_.i.i.i41 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  %39 = load i32, ptr %_has_bits_.i.i.i41, align 4
+  %and.i.i.i42 = and i32 %39, 1
+  %cmp.not.i.i.i43 = icmp eq i32 %and.i.i.i42, 0
+  br i1 %cmp.not.i.i.i43, label %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, label %if.then8.i.i.i44
 
-if.then8.i.i.i47:                                 ; preds = %if.end6.i.i.i43
-  %features_.i.i.i48 = getelementptr inbounds nuw i8, ptr %37, i64 96
-  %40 = load ptr, ptr %features_.i.i.i48, align 8
+if.then8.i.i.i44:                                 ; preds = %if.end6.i.i.i40
+  %features_.i.i.i45 = getelementptr inbounds nuw i8, ptr %37, i64 96
+  %40 = load ptr, ptr %features_.i.i.i45, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %call2.i.i.i.i49 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i.i49, label %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, label %return
+  %call2.i.i.i.i46 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i.i.i46, label %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, label %return
 
-_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i47, %if.end6.i.i.i43, %for.body.i25
-  %cmp.i50 = icmp samesign ult i64 %indvars.iv.i26, 2
-  br i1 %cmp.i50, label %if.end14, label %for.body.i25, !llvm.loop !58
+_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i44, %if.end6.i.i.i40, %for.body.i23
+  %cmp.i47 = icmp samesign ult i64 %indvars.iv.i24, 2
+  br i1 %cmp.i47, label %if.end14, label %for.body.i23, !llvm.loop !58
 
 if.end14:                                         ; preds = %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, %if.end10
   %extension_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %current_size_.i.i.i51 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %42 = load i32, ptr %current_size_.i.i.i51, align 8
-  %cmp4.i52 = icmp slt i32 %42, 1
-  br i1 %cmp4.i52, label %if.end18, label %for.body.preheader.i53
+  %current_size_.i.i.i48 = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %42 = load i32, ptr %current_size_.i.i.i48, align 8
+  %cmp4.i49 = icmp slt i32 %42, 1
+  br i1 %cmp4.i49, label %if.end18, label %for.body.preheader.i50
 
-for.body.preheader.i53:                           ; preds = %if.end14
+for.body.preheader.i50:                           ; preds = %if.end14
   %43 = zext nneg i32 %42 to i64
-  br label %for.body.i54
+  br label %for.body.i51
 
-for.body.i54:                                     ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, %for.body.preheader.i53
-  %indvars.iv.i55 = phi i64 [ %43, %for.body.preheader.i53 ], [ %indvars.iv.next.i56, %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79 ]
-  %indvars.iv.next.i56 = add nsw i64 %indvars.iv.i55, -1
+for.body.i51:                                     ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i75, %for.body.preheader.i50
+  %indvars.iv.i52 = phi i64 [ %43, %for.body.preheader.i50 ], [ %indvars.iv.next.i53, %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i75 ]
+  %indvars.iv.next.i53 = add nsw i64 %indvars.iv.i52, -1
   %44 = load ptr, ptr %extension_.i, align 8
   %45 = ptrtoint ptr %44 to i64
-  %and.i.i.i.i.i.i57 = and i64 %45, 1
-  %cmp.i.i.i.i.i.i58 = icmp eq i64 %and.i.i.i.i.i.i57, 0
-  %sub.i.i.i.i.i.i59 = add i64 %45, -1
-  %46 = inttoptr i64 %sub.i.i.i.i.i.i59 to ptr
-  %elements.i.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %arrayidx.i.i.i.i.i61 = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i60, i64 0, i64 %indvars.iv.next.i56
-  %retval.0.i.i.i.i.i62 = select i1 %cmp.i.i.i.i.i.i58, ptr %extension_.i, ptr %arrayidx.i.i.i.i.i61
-  %47 = load ptr, ptr %retval.0.i.i.i.i.i62, align 8
+  %and.i.i.i.i.i.i54 = and i64 %45, 1
+  %cmp.i.i.i.i.i.i55 = icmp eq i64 %and.i.i.i.i.i.i54, 0
+  %sub.i.i.i.i.i.i56 = add i64 %45, -1
+  %46 = inttoptr i64 %sub.i.i.i.i.i.i56 to ptr
+  %arrayidx.i.i.i.i.i57 = getelementptr ptr, ptr %46, i64 %indvars.iv.i52
+  %retval.0.i.i.i.i.i58 = select i1 %cmp.i.i.i.i.i.i55, ptr %extension_.i, ptr %arrayidx.i.i.i.i.i57
+  %47 = load ptr, ptr %retval.0.i.i.i.i.i58, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 4
-  %and.i.i63 = and i32 %49, 32
-  %cmp.not.i.i64 = icmp eq i32 %and.i.i63, 0
-  br i1 %cmp.not.i.i64, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, label %if.then.i.i65
+  %and.i.i59 = and i32 %49, 32
+  %cmp.not.i.i60 = icmp eq i32 %and.i.i59, 0
+  br i1 %cmp.not.i.i60, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i75, label %if.then.i.i61
 
-if.then.i.i65:                                    ; preds = %for.body.i54
-  %options_.i.i66 = getelementptr inbounds nuw i8, ptr %47, i64 64
-  %50 = load ptr, ptr %options_.i.i66, align 8
+if.then.i.i61:                                    ; preds = %for.body.i51
+  %options_.i.i62 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %50 = load ptr, ptr %options_.i.i62, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %call2.i.i.i67 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @_ZN6google8protobuf31_FieldOptions_default_instance_E)
-  br i1 %call2.i.i.i67, label %if.end.i.i.i69, label %return
+  %call2.i.i.i63 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @_ZN6google8protobuf31_FieldOptions_default_instance_E)
+  br i1 %call2.i.i.i63, label %if.end.i.i.i65, label %return
 
-if.end.i.i.i69:                                   ; preds = %if.then.i.i65
-  %uninterpreted_option_.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %50, i64 88
-  %call4.i.i.i71 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i.i.i70)
-  br i1 %call4.i.i.i71, label %if.end6.i.i.i72, label %return
+if.end.i.i.i65:                                   ; preds = %if.then.i.i61
+  %uninterpreted_option_.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %50, i64 88
+  %call4.i.i.i67 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i.i.i66)
+  br i1 %call4.i.i.i67, label %if.end6.i.i.i68, label %return
 
-if.end6.i.i.i72:                                  ; preds = %if.end.i.i.i69
-  %_has_bits_.i.i.i73 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %52 = load i32, ptr %_has_bits_.i.i.i73, align 4
-  %and.i.i.i74 = and i32 %52, 1
-  %cmp.not.i.i.i75 = icmp eq i32 %and.i.i.i74, 0
-  br i1 %cmp.not.i.i.i75, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, label %if.then8.i.i.i76
+if.end6.i.i.i68:                                  ; preds = %if.end.i.i.i65
+  %_has_bits_.i.i.i69 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %52 = load i32, ptr %_has_bits_.i.i.i69, align 4
+  %and.i.i.i70 = and i32 %52, 1
+  %cmp.not.i.i.i71 = icmp eq i32 %and.i.i.i70, 0
+  br i1 %cmp.not.i.i.i71, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i75, label %if.then8.i.i.i72
 
-if.then8.i.i.i76:                                 ; preds = %if.end6.i.i.i72
-  %features_.i.i.i77 = getelementptr inbounds nuw i8, ptr %50, i64 112
-  %53 = load ptr, ptr %features_.i.i.i77, align 8
+if.then8.i.i.i72:                                 ; preds = %if.end6.i.i.i68
+  %features_.i.i.i73 = getelementptr inbounds nuw i8, ptr %50, i64 112
+  %53 = load ptr, ptr %features_.i.i.i73, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %call2.i.i.i.i78 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i.i78, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, label %return
+  %call2.i.i.i.i74 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i.i.i74, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i75, label %return
 
-_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79: ; preds = %if.then8.i.i.i76, %if.end6.i.i.i72, %for.body.i54
-  %cmp.i80 = icmp samesign ult i64 %indvars.iv.i55, 2
-  br i1 %cmp.i80, label %if.end18, label %for.body.i54, !llvm.loop !37
+_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i75: ; preds = %if.then8.i.i.i72, %if.end6.i.i.i68, %for.body.i51
+  %cmp.i76 = icmp samesign ult i64 %indvars.iv.i52, 2
+  br i1 %cmp.i76, label %if.end18, label %for.body.i51, !llvm.loop !37
 
-if.end18:                                         ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, %if.end14
+if.end18:                                         ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i75, %if.end14
   %oneof_decl_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %current_size_.i.i.i82 = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %55 = load i32, ptr %current_size_.i.i.i82, align 8
-  %cmp4.i83 = icmp slt i32 %55, 1
-  br i1 %cmp4.i83, label %if.end22, label %for.body.preheader.i84
+  %current_size_.i.i.i78 = getelementptr inbounds nuw i8, ptr %this, i64 152
+  %55 = load i32, ptr %current_size_.i.i.i78, align 8
+  %cmp4.i79 = icmp slt i32 %55, 1
+  br i1 %cmp4.i79, label %if.end22, label %for.body.preheader.i80
 
-for.body.preheader.i84:                           ; preds = %if.end18
+for.body.preheader.i80:                           ; preds = %if.end18
   %56 = zext nneg i32 %55 to i64
-  br label %for.body.i85
+  br label %for.body.i81
 
-for.body.i85:                                     ; preds = %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, %for.body.preheader.i84
-  %indvars.iv.i86 = phi i64 [ %56, %for.body.preheader.i84 ], [ %indvars.iv.next.i87, %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i ]
-  %indvars.iv.next.i87 = add nsw i64 %indvars.iv.i86, -1
+for.body.i81:                                     ; preds = %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, %for.body.preheader.i80
+  %indvars.iv.i82 = phi i64 [ %56, %for.body.preheader.i80 ], [ %indvars.iv.next.i83, %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i ]
+  %indvars.iv.next.i83 = add nsw i64 %indvars.iv.i82, -1
   %57 = load ptr, ptr %oneof_decl_.i, align 8
   %58 = ptrtoint ptr %57 to i64
-  %and.i.i.i.i.i.i88 = and i64 %58, 1
-  %cmp.i.i.i.i.i.i89 = icmp eq i64 %and.i.i.i.i.i.i88, 0
-  %sub.i.i.i.i.i.i90 = add i64 %58, -1
-  %59 = inttoptr i64 %sub.i.i.i.i.i.i90 to ptr
-  %elements.i.i.i.i.i91 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %arrayidx.i.i.i.i.i92 = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i91, i64 0, i64 %indvars.iv.next.i87
-  %retval.0.i.i.i.i.i93 = select i1 %cmp.i.i.i.i.i.i89, ptr %oneof_decl_.i, ptr %arrayidx.i.i.i.i.i92
-  %60 = load ptr, ptr %retval.0.i.i.i.i.i93, align 8
+  %and.i.i.i.i.i.i84 = and i64 %58, 1
+  %cmp.i.i.i.i.i.i85 = icmp eq i64 %and.i.i.i.i.i.i84, 0
+  %sub.i.i.i.i.i.i86 = add i64 %58, -1
+  %59 = inttoptr i64 %sub.i.i.i.i.i.i86 to ptr
+  %arrayidx.i.i.i.i.i87 = getelementptr ptr, ptr %59, i64 %indvars.iv.i82
+  %retval.0.i.i.i.i.i88 = select i1 %cmp.i.i.i.i.i.i85, ptr %oneof_decl_.i, ptr %arrayidx.i.i.i.i.i87
+  %60 = load ptr, ptr %retval.0.i.i.i.i.i88, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 4
-  %and.i.i94 = and i32 %62, 2
-  %cmp.not.i.i95 = icmp eq i32 %and.i.i94, 0
-  br i1 %cmp.not.i.i95, label %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, label %if.then.i.i96
+  %and.i.i89 = and i32 %62, 2
+  %cmp.not.i.i90 = icmp eq i32 %and.i.i89, 0
+  br i1 %cmp.not.i.i90, label %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, label %if.then.i.i91
 
-if.then.i.i96:                                    ; preds = %for.body.i85
-  %options_.i.i97 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %63 = load ptr, ptr %options_.i.i97, align 8
+if.then.i.i91:                                    ; preds = %for.body.i81
+  %options_.i.i92 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %63 = load ptr, ptr %options_.i.i92, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %call2.i.i.i98 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull @_ZN6google8protobuf31_OneofOptions_default_instance_E)
-  br i1 %call2.i.i.i98, label %if.end.i.i.i100, label %return
+  %call2.i.i.i93 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull @_ZN6google8protobuf31_OneofOptions_default_instance_E)
+  br i1 %call2.i.i.i93, label %if.end.i.i.i95, label %return
 
-if.end.i.i.i100:                                  ; preds = %if.then.i.i96
-  %uninterpreted_option_.i.i.i.i101 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %call4.i.i.i102 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i.i.i101)
-  br i1 %call4.i.i.i102, label %if.end6.i.i.i103, label %return
+if.end.i.i.i95:                                   ; preds = %if.then.i.i91
+  %uninterpreted_option_.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %call4.i.i.i97 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal17AllAreInitializedINS0_19UninterpretedOptionEEEbRKNS0_16RepeatedPtrFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i.i.i96)
+  br i1 %call4.i.i.i97, label %if.end6.i.i.i98, label %return
 
-if.end6.i.i.i103:                                 ; preds = %if.end.i.i.i100
-  %_has_bits_.i.i.i104 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %65 = load i32, ptr %_has_bits_.i.i.i104, align 4
-  %and.i.i.i105 = and i32 %65, 1
-  %cmp.not.i.i.i106 = icmp eq i32 %and.i.i.i105, 0
-  br i1 %cmp.not.i.i.i106, label %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, label %if.then8.i.i.i107
+if.end6.i.i.i98:                                  ; preds = %if.end.i.i.i95
+  %_has_bits_.i.i.i99 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %65 = load i32, ptr %_has_bits_.i.i.i99, align 4
+  %and.i.i.i100 = and i32 %65, 1
+  %cmp.not.i.i.i101 = icmp eq i32 %and.i.i.i100, 0
+  br i1 %cmp.not.i.i.i101, label %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, label %if.then8.i.i.i102
 
-if.then8.i.i.i107:                                ; preds = %if.end6.i.i.i103
-  %features_.i.i.i108 = getelementptr inbounds nuw i8, ptr %63, i64 72
-  %66 = load ptr, ptr %features_.i.i.i108, align 8
+if.then8.i.i.i102:                                ; preds = %if.end6.i.i.i98
+  %features_.i.i.i103 = getelementptr inbounds nuw i8, ptr %63, i64 72
+  %66 = load ptr, ptr %features_.i.i.i103, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %call2.i.i.i.i109 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
-  br i1 %call2.i.i.i.i109, label %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, label %return
+  %call2.i.i.i.i104 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull @_ZN6google8protobuf29_FeatureSet_default_instance_E)
+  br i1 %call2.i.i.i.i104, label %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, label %return
 
-_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i107, %if.end6.i.i.i103, %for.body.i85
-  %cmp.i110 = icmp samesign ult i64 %indvars.iv.i86, 2
-  br i1 %cmp.i110, label %if.end22, label %for.body.i85, !llvm.loop !59
+_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i102, %if.end6.i.i.i98, %for.body.i81
+  %cmp.i105 = icmp samesign ult i64 %indvars.iv.i82, 2
+  br i1 %cmp.i105, label %if.end22, label %for.body.i81, !llvm.loop !59
 
 if.end22:                                         ; preds = %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, %if.end18
   %68 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7682,8 +7671,8 @@ if.then24:                                        ; preds = %if.end22
   %options_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %70 = load ptr, ptr %options_, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %call2.i135 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull @_ZN6google8protobuf33_MessageOptions_default_instance_E)
-  br i1 %call2.i135, label %if.end.i, label %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
+  %call2.i130 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull @_ZN6google8protobuf33_MessageOptions_default_instance_E)
+  br i1 %call2.i130, label %if.end.i, label %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then24
   %uninterpreted_option_.i.i = getelementptr inbounds nuw i8, ptr %70, i64 48
@@ -7707,8 +7696,8 @@ if.then8.i:                                       ; preds = %if.end6.i
 _ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread: ; preds = %if.then24, %if.end.i, %if.then8.i
   br label %return
 
-return:                                           ; preds = %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %for.body.i3, %for.body.i14, %if.then.i.i36, %if.end.i.i.i40, %if.then8.i.i.i47, %if.then.i.i65, %if.end.i.i.i69, %if.then8.i.i.i76, %if.then.i.i96, %if.end.i.i.i100, %if.then8.i.i.i107, %if.end22, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
-  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %if.end22 ], [ false, %if.then8.i.i.i107 ], [ false, %if.end.i.i.i100 ], [ false, %if.then.i.i96 ], [ false, %if.then8.i.i.i76 ], [ false, %if.end.i.i.i69 ], [ false, %if.then.i.i65 ], [ false, %if.then8.i.i.i47 ], [ false, %if.end.i.i.i40 ], [ false, %if.then.i.i36 ], [ false, %for.body.i14 ], [ false, %for.body.i3 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ]
+return:                                           ; preds = %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %for.body.i3, %for.body.i13, %if.then.i.i33, %if.end.i.i.i37, %if.then8.i.i.i44, %if.then.i.i61, %if.end.i.i.i65, %if.then8.i.i.i72, %if.then.i.i91, %if.end.i.i.i95, %if.then8.i.i.i102, %if.end22, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
+  %retval.0 = phi i1 [ false, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread ], [ true, %if.then8.i ], [ true, %if.end6.i ], [ true, %if.end22 ], [ false, %if.then8.i.i.i102 ], [ false, %if.end.i.i.i95 ], [ false, %if.then.i.i91 ], [ false, %if.then8.i.i.i72 ], [ false, %if.end.i.i.i65 ], [ false, %if.then.i.i61 ], [ false, %if.then8.i.i.i44 ], [ false, %if.end.i.i.i37 ], [ false, %if.then.i.i33 ], [ false, %for.body.i13 ], [ false, %for.body.i3 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 
@@ -9010,7 +8999,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %idxprom.i.i.i.i = sext i32 %i.035 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %declaration_.i, ptr %arrayidx.i.i.i.i
   %4 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -9103,7 +9092,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %16 = inttoptr i64 %sub.i.i.i.i.i27 to ptr
   %elements.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %idxprom.i.i.i.i29 = sext i32 %i17.038 to i64
-  %arrayidx.i.i.i.i30 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i28, i64 0, i64 %idxprom.i.i.i.i29
+  %arrayidx.i.i.i.i30 = getelementptr inbounds ptr, ptr %elements.i.i.i.i28, i64 %idxprom.i.i.i.i29
   %retval.0.i.i.i.i31 = select i1 %cmp.i.i.i.i.i26, ptr %uninterpreted_option_.i, ptr %arrayidx.i.i.i.i30
   %17 = load ptr, ptr %retval.0.i.i.i.i31, align 8
   %_cached_size_.i32 = getelementptr inbounds nuw i8, ptr %17, i64 20
@@ -9318,7 +9307,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   %sub.i.i.i.i.i = add i64 %2, -1
   %3 = inttoptr i64 %sub.i.i.i.i.i to ptr
-  %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %cmp.i.i.i.i.i, label %for.body.lr.ph.split.us, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
@@ -9336,7 +9324,6 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %cmp.i.i.i.i.i.i.i.us = icmp eq i64 %and.i.i.i.i.i.i.i.us, 0
   %sub.i.i.i.i.i.i.i.us = add i64 %7, -1
   %8 = inttoptr i64 %sub.i.i.i.i.i.i.i.us to ptr
-  %elements.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = zext i32 %5 to i64
   %10 = getelementptr inbounds nuw i8, ptr %.fr.i.i.us, i64 16
   br i1 %cmp.i.i.i.i.i.i.i.us, label %for.body.us.us, label %for.body.us
@@ -9375,7 +9362,7 @@ for.cond.i.i.us:                                  ; preds = %for.body.i.i.us, %f
 
 for.body.i.i.us:                                  ; preds = %for.cond.i.i.us
   %13 = add nsw i64 %indvars.iv.i.i.us, -1
-  %arrayidx.i.i.i.i.i.i.us = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i.i.us, i64 0, i64 %13
+  %arrayidx.i.i.i.i.i.i.us = getelementptr ptr, ptr %8, i64 %indvars.iv.i.i.us
   %14 = load ptr, ptr %arrayidx.i.i.i.i.i.i.us, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 4
@@ -9390,7 +9377,7 @@ _ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit4.us: ; 
 for.body:                                         ; preds = %for.body.preheader, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit
   %indvars.iv = phi i64 [ %4, %for.body.preheader ], [ %indvars.iv.next, %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %indvars.iv.next
+  %arrayidx.i.i.i.i = getelementptr ptr, ptr %3, i64 %indvars.iv
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %name_.i.i = getelementptr inbounds nuw i8, ptr %17, i64 24
   %current_size_.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -9402,7 +9389,6 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i.i = add i64 %20, -1
   %21 = inttoptr i64 %sub.i.i.i.i.i.i.i to ptr
-  %elements.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   br i1 %cmp.i.i.i.i.i.i.i, label %entry.split.us.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %for.body
@@ -9433,7 +9419,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %for.
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %26 = add nsw i64 %indvars.iv.i.i, -1
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i.i, i64 0, i64 %26
+  %arrayidx.i.i.i.i.i.i = getelementptr ptr, ptr %21, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 4
@@ -13165,7 +13151,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %idxprom.i.i.i.i = sext i32 %i.075 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %value_.i, ptr %arrayidx.i.i.i.i
   %10 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -13211,7 +13197,7 @@ for.body23:                                       ; preds = %for.body23.lr.ph, %
   %17 = inttoptr i64 %sub.i.i.i.i.i60 to ptr
   %elements.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %idxprom.i.i.i.i62 = sext i32 %i18.079 to i64
-  %arrayidx.i.i.i.i63 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i61, i64 0, i64 %idxprom.i.i.i.i62
+  %arrayidx.i.i.i.i63 = getelementptr inbounds ptr, ptr %elements.i.i.i.i61, i64 %idxprom.i.i.i.i62
   %retval.0.i.i.i.i64 = select i1 %cmp.i.i.i.i.i59, ptr %reserved_range_.i, ptr %arrayidx.i.i.i.i63
   %18 = load ptr, ptr %retval.0.i.i.i.i64, align 8
   %_cached_size_.i65 = getelementptr inbounds nuw i8, ptr %18, i64 20
@@ -13243,7 +13229,7 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %sub.i.i.i.i.i69 = add i64 %22, -1
   %23 = inttoptr i64 %sub.i.i.i.i.i69 to ptr
   %elements.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %arrayidx.i.i.i.i72 = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i70, i64 0, i64 %indvars.iv
+  %arrayidx.i.i.i.i72 = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i70, i64 %indvars.iv
   %retval.0.i.i.i.i73 = select i1 %cmp.i.i.i.i.i68, ptr %reserved_name_.i, ptr %arrayidx.i.i.i.i72
   %24 = load ptr, ptr %retval.0.i.i.i.i73, align 8
   %call40 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #23
@@ -13445,7 +13431,7 @@ for.body41:                                       ; preds = %for.end32, %for.bod
   %sub.i.i.i.i.i49 = add i64 %22, -1
   %23 = inttoptr i64 %sub.i.i.i.i.i49 to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %indvars.iv
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i, i64 %indvars.iv
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %reserved_name_.i, ptr %arrayidx.i.i.i.i
   %24 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %call.i50 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #23
@@ -13563,8 +13549,7 @@ for.body.i:                                       ; preds = %_ZNK6google8protobu
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i = add i64 %3, -1
   %4 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
-  %elements.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.i.i.i.i.i = getelementptr ptr, ptr %4, i64 %indvars.iv.i
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %value_.i, ptr %arrayidx.i.i.i.i.i
   %5 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15112,7 +15097,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %idxprom.i.i.i.i = sext i32 %i.017 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %method_.i, ptr %arrayidx.i.i.i.i
   %10 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -15373,8 +15358,7 @@ for.body.i:                                       ; preds = %_ZNK6google8protobu
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i = add i64 %3, -1
   %4 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
-  %elements.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.i.i.i.i.i = getelementptr ptr, ptr %4, i64 %indvars.iv.i
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %method_.i, ptr %arrayidx.i.i.i.i.i
   %5 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -18391,7 +18375,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %68 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %68, i64 8
   %idxprom.i.i.i.i = sext i32 %i.0546 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %uninterpreted_option_.i, ptr %arrayidx.i.i.i.i
   %69 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i540 = getelementptr inbounds nuw i8, ptr %69, i64 20
@@ -19494,7 +19478,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %17 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %idxprom.i.i.i.i = sext i32 %i.082 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %uninterpreted_option_.i, ptr %arrayidx.i.i.i.i
   %18 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i78 = getelementptr inbounds nuw i8, ptr %18, i64 20
@@ -21150,7 +21134,7 @@ for.body71:                                       ; preds = %for.body71.lr.ph, %
   %31 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %idxprom.i.i.i.i = sext i32 %i66.0227 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %edition_defaults_.i, ptr %arrayidx.i.i.i.i
   %32 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %32, i64 20
@@ -21196,7 +21180,7 @@ for.body91:                                       ; preds = %for.body91.lr.ph, %
   %39 = inttoptr i64 %sub.i.i.i.i.i215 to ptr
   %elements.i.i.i.i216 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %idxprom.i.i.i.i217 = sext i32 %i86.0231 to i64
-  %arrayidx.i.i.i.i218 = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i216, i64 0, i64 %idxprom.i.i.i.i217
+  %arrayidx.i.i.i.i218 = getelementptr inbounds ptr, ptr %elements.i.i.i.i216, i64 %idxprom.i.i.i.i217
   %retval.0.i.i.i.i219 = select i1 %cmp.i.i.i.i.i214, ptr %uninterpreted_option_.i, ptr %arrayidx.i.i.i.i218
   %40 = load ptr, ptr %retval.0.i.i.i.i219, align 8
   %_cached_size_.i220 = getelementptr inbounds nuw i8, ptr %40, i64 20
@@ -21924,7 +21908,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %idxprom.i.i.i.i = sext i32 %i.013 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %uninterpreted_option_.i, ptr %arrayidx.i.i.i.i
   %8 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i11 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -22536,7 +22520,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %13 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %idxprom.i.i.i.i = sext i32 %i.052 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %uninterpreted_option_.i, ptr %arrayidx.i.i.i.i
   %14 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i48 = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -23142,7 +23126,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %11 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %idxprom.i.i.i.i = sext i32 %i.037 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %uninterpreted_option_.i, ptr %arrayidx.i.i.i.i
   %12 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i33 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -23711,7 +23695,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %idxprom.i.i.i.i = sext i32 %i.030 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %uninterpreted_option_.i, ptr %arrayidx.i.i.i.i
   %10 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i27 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -24335,7 +24319,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %12 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %idxprom.i.i.i.i = sext i32 %i.050 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %uninterpreted_option_.i, ptr %arrayidx.i.i.i.i
   %13 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i46 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -25592,7 +25576,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %idxprom.i.i.i.i = sext i32 %i.079 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %name_.i, ptr %arrayidx.i.i.i.i
   %4 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -26102,7 +26086,6 @@ entry:
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i = add i64 %2, -1
   %3 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
-  %elements.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %cmp.i.i.i.i.i.i, label %entry.split.us.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
@@ -26133,7 +26116,7 @@ for.cond.i:                                       ; preds = %for.body.i, %for.co
 
 for.body.i:                                       ; preds = %for.cond.i
   %8 = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i, i64 0, i64 %8
+  %arrayidx.i.i.i.i.i = getelementptr ptr, ptr %3, i64 %indvars.iv.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 4
@@ -27783,7 +27766,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %idxprom.i.i.i.i = sext i32 %i.038 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %defaults_.i, ptr %arrayidx.i.i.i.i
   %4 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -28197,8 +28180,7 @@ for.body.i:                                       ; preds = %_ZNK6google8protobu
   %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i = add i64 %3, -1
   %4 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
-  %elements.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i.i, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.i.i.i.i.i = getelementptr ptr, ptr %4, i64 %indvars.iv.i
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %defaults_.i, ptr %arrayidx.i.i.i.i.i
   %5 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -29107,7 +29089,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sub.i.i.i.i.i = add i64 %28, -1
   %29 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %indvars.iv
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i, i64 %indvars.iv
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %leading_detached_comments_.i, ptr %arrayidx.i.i.i.i
   %30 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %call32 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #23
@@ -29235,7 +29217,7 @@ for.body:                                         ; preds = %cond.end18, %for.bo
   %sub.i.i.i.i.i = add i64 %7, -1
   %8 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %indvars.iv
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i, i64 %indvars.iv
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %leading_detached_comments_.i, ptr %arrayidx.i.i.i.i
   %9 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
@@ -29560,7 +29542,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %idxprom.i.i.i.i = sext i32 %i.08 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %1, ptr %arrayidx.i.i.i.i
   %5 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -30863,7 +30845,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %idxprom.i.i.i.i = sext i32 %i.08 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %1, ptr %arrayidx.i.i.i.i
   %5 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %5, i64 20

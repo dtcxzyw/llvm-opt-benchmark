@@ -562,7 +562,7 @@ define ptr @Nwk_NodeIfToHop(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 
 9:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !81
   %.val40 = load ptr, ptr %8, align 8, !tbaa !91
   %12 = getelementptr i8, ptr %.val40, i64 8
@@ -610,7 +610,7 @@ define ptr @Nwk_NodeIfToHop(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 
 33:                                               ; preds = %.lr.ph45, %40
   %indvars.iv53 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next54, %40 ]
-  %34 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv53
+  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv53
   %35 = load i32, ptr %34, align 4, !tbaa !81
   %.val41 = load ptr, ptr %31, align 8, !tbaa !91
   %36 = getelementptr i8, ptr %.val41, i64 8

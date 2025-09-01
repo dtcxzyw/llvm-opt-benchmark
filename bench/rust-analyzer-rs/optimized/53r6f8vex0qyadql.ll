@@ -788,7 +788,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN3mbe8expander7matcher15BindingsBui
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %10, i64 0, i64 %0, i32 1
+  %11 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %10, i64 %0, i32 1
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = icmp ult i64 %12, 4
   br i1 %13, label %36, label %15
@@ -865,7 +865,7 @@ common.resume:                                    ; preds = %43, %26
 36:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
-  %37 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %10, i64 0, i64 %0, i32 0, i32 1
+  %37 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %10, i64 %0, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8, !alias.scope !216, !noalias !219, !nonnull !4, !noundef !4
   call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7338783ea6379d6eE.llvm.8215553287609075132"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 %38, i64 noundef %12), !noalias !216
   %39 = load i64, ptr %5, align 8, !alias.scope !221, !noalias !224, !noundef !4
@@ -917,7 +917,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN3mbe8expander7matcher15BindingsBui
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %10, i64 0, i64 %0, i32 1
+  %11 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %10, i64 %0, i32 1
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = icmp ult i64 %12, 4
   br i1 %13, label %36, label %15
@@ -994,7 +994,7 @@ common.resume:                                    ; preds = %43, %26
 36:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  %37 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %10, i64 0, i64 %0, i32 0, i32 1
+  %37 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %10, i64 %0, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8, !alias.scope !236, !noalias !239, !nonnull !4, !noundef !4
   call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h3ce4194b64cbcc08E.llvm.8215553287609075132"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 %38, i64 noundef %12), !noalias !236
   %39 = load i64, ptr %5, align 8, !alias.scope !241, !noalias !244, !noundef !4

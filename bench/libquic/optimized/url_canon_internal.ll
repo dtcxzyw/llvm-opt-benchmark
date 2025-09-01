@@ -72,7 +72,7 @@ _ZN3url11ReadUTFCharEPKcPiiPj.exit.i:             ; preds = %_ZN4base16IsValidCh
 
 26:                                               ; preds = %10
   %27 = zext nneg i8 %13 to i64
-  %28 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !7
   %30 = zext i8 %29 to i32
   %31 = and i32 %2, %30
@@ -192,7 +192,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i:             ; preds = %_ZN4base16IsValidCh
 26:                                               ; preds = %10
   %27 = trunc nuw nsw i16 %13 to i8
   %28 = zext nneg i16 %13 to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !7
   %31 = zext i8 %30 to i32
   %32 = and i32 %2, %31
@@ -1772,7 +1772,7 @@ define noundef range(i32 0, 23) i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw [13 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !7
   %13 = sext i8 %12 to i16
   %14 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
@@ -2318,7 +2318,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, 
   %23 = zext i8 %0 to i32
   %24 = lshr i32 %23, 4
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !7
   %28 = icmp slt i32 %22, %21
   br i1 %28, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9, label %select.unfold.i.preheader.i4
@@ -2364,7 +2364,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit13:      ; preds = %select.unfold.i.i6,
   %43 = phi i32 [ %41, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9 ], [ %22, %select.unfold.i.i6 ]
   %44 = and i32 %23, 15
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !7
   %48 = icmp slt i32 %43, %42
   br i1 %48, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19, label %select.unfold.i.preheader.i14

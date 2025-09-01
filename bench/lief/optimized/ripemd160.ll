@@ -1999,7 +1999,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ripemd160_self_test(i32 noundef %0) l
 
 .split.us:                                        ; preds = %1, %23
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %23 ], [ 0, %1 ]
-  %10 = getelementptr inbounds nuw [8 x i64], ptr @ripemd160_test_strlen, i64 0, i64 %indvars.iv30
+  %10 = getelementptr inbounds nuw i64, ptr @ripemd160_test_strlen, i64 %indvars.iv30
   %11 = load i64, ptr %10, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %2, i8 0, i64 92, i1 false)
@@ -2012,7 +2012,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ripemd160_self_test(i32 noundef %0) l
   br i1 %12, label %mbedtls_ripemd160.exit.us, label %13
 
 13:                                               ; preds = %.split.us
-  %14 = getelementptr inbounds nuw [8 x [81 x i8]], ptr @ripemd160_test_str, i64 0, i64 %indvars.iv30
+  %14 = getelementptr inbounds nuw [81 x i8], ptr @ripemd160_test_str, i64 %indvars.iv30
   %15 = trunc i64 %11 to i32
   store i32 %15, ptr %2, align 4, !tbaa !7
   %16 = icmp eq i64 %indvars.iv30, 7
@@ -2041,7 +2041,7 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
   %21 = call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 92) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %22 = getelementptr inbounds nuw [8 x [20 x i8]], ptr @ripemd160_test_md, i64 0, i64 %indvars.iv30
+  %22 = getelementptr inbounds nuw [20 x i8], ptr @ripemd160_test_md, i64 %indvars.iv30
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) %22, i64 20)
   %.not17.us = icmp eq i32 %bcmp.us, 0
   br i1 %.not17.us, label %23, label %.critedge
@@ -2056,7 +2056,7 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw nsw i64 %indvars.iv.next to i32
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %24)
-  %26 = getelementptr inbounds nuw [8 x i64], ptr @ripemd160_test_strlen, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i64, ptr @ripemd160_test_strlen, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %2, i8 0, i64 92, i1 false)
@@ -2069,7 +2069,7 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
   br i1 %28, label %mbedtls_ripemd160.exit, label %29
 
 29:                                               ; preds = %.split
-  %30 = getelementptr inbounds nuw [8 x [81 x i8]], ptr @ripemd160_test_str, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [81 x i8], ptr @ripemd160_test_str, i64 %indvars.iv
   %31 = trunc i64 %27 to i32
   store i32 %31, ptr %2, align 4, !tbaa !7
   %32 = icmp eq i64 %indvars.iv, 7
@@ -2098,7 +2098,7 @@ mbedtls_ripemd160.exit:                           ; preds = %.split, %._crit_edg
   %37 = call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 92) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %38 = getelementptr inbounds nuw [8 x [20 x i8]], ptr @ripemd160_test_md, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [20 x i8], ptr @ripemd160_test_md, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) %38, i64 20)
   %.not17 = icmp eq i32 %bcmp, 0
   br i1 %.not17, label %39, label %.split22.us

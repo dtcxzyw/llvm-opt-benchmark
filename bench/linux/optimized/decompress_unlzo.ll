@@ -28,7 +28,7 @@ define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef %0, ptr n
   %9 = phi i64 [ 0, %6 ], [ %17, %15 ]
   %10 = phi ptr [ %0, %6 ], [ %16, %15 ]
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr [9 x i8], ptr @lzop_magic, i64 0, i64 %9
+  %12 = getelementptr i8, ptr @lzop_magic, i64 %9
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %11, %13
   br i1 %14, label %15, label %.loopexit

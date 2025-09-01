@@ -400,7 +400,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   %185 = getelementptr inbounds nuw i8, ptr %169, i64 5
   %186 = load i8, ptr %185, align 1, !tbaa !53
   %187 = zext i8 %186 to i64
-  %188 = getelementptr inbounds nuw [102 x i8], ptr @lj_ir_mode, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw i8, ptr @lj_ir_mode, i64 %187
   %189 = load i8, ptr %188, align 1, !tbaa !53
   %190 = and i8 %189, 96
   %191 = icmp eq i8 %190, 0
@@ -467,7 +467,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
 221:                                              ; preds = %217
   %222 = add nuw nsw i32 %.0137188.i, 1
   %223 = zext nneg i32 %.0137188.i to i64
-  %224 = getelementptr inbounds nuw [64 x i16], ptr %4, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw i16, ptr %4, i64 %223
   store i16 %202, ptr %224, align 2, !tbaa !52
   br label %._crit_edge199.i
 
@@ -593,7 +593,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   %282 = trunc nuw i32 %.1136.i to i16
   %283 = add nuw nsw i32 %.5.i, 1
   %284 = zext nneg i32 %.5.i to i64
-  %285 = getelementptr inbounds nuw [64 x i16], ptr %4, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw i16, ptr %4, i64 %284
   store i16 %282, ptr %285, align 2, !tbaa !52
   br label %.thread171.i
 
@@ -939,7 +939,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
 451:                                              ; preds = %.critedge.i.i, %.lr.ph200.i.i
   %indvars.iv228.i.i = phi i64 [ 1, %.lr.ph200.i.i ], [ %indvars.iv.next229.i.i, %.critedge.i.i ]
   %.0198.i.i = phi i32 [ %.0140.lcssa260.i.i, %.lr.ph200.i.i ], [ %.2.i.i, %.critedge.i.i ]
-  %452 = getelementptr inbounds nuw [258 x i32], ptr %429, i64 0, i64 %indvars.iv228.i.i
+  %452 = getelementptr inbounds nuw i32, ptr %429, i64 %indvars.iv228.i.i
   %453 = load i32, ptr %452, align 4, !tbaa !62
   %454 = and i32 %453, 65535
   %455 = zext i32 %.0198.i.i to i64
@@ -1110,7 +1110,7 @@ define internal fastcc void @loop_undo(ptr noundef initializes((10, 12), (44, 48
 
 32:                                               ; preds = %4, %38
   %.02829 = phi i64 [ 0, %4 ], [ %39, %38 ]
-  %33 = getelementptr inbounds nuw [16 x %struct.BPropEntry], ptr %28, i64 0, i64 %.02829
+  %33 = getelementptr inbounds nuw %struct.BPropEntry, ptr %28, i64 %.02829
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %35 = load i16, ptr %34, align 2, !tbaa !87
   %36 = zext i16 %35 to i32

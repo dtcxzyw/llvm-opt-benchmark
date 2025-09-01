@@ -369,7 +369,7 @@ _ZN4core10intrinsics10typed_swap17h54f84bb71b663d01E.exit: ; preds = %.preheader
   unreachable
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds [0 x { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }], ptr %2, i64 0, i64 %.val4.i
+  %67 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %2, i64 %.val4.i
   %68 = load i64, ptr %67, align 8, !noalias !31, !noundef !7
   %.sroa.02.05.i.i = and i64 %68, %29
   %69 = getelementptr inbounds i8, ptr %26, i64 %.sroa.02.05.i.i
@@ -533,7 +533,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf866f6a6feb866b4E.exit.loopexit: ; preds = %
 .lr.ph:                                           ; preds = %130, %_ZN4core3ptr19swap_nonoverlapping17hf866f6a6feb866b4E.exit.loopexit
   %.val4.i1846 = phi i64 [ %.val4.i18, %_ZN4core3ptr19swap_nonoverlapping17hf866f6a6feb866b4E.exit.loopexit ], [ %.val4.i1844, %130 ]
   %.val.i1645 = phi ptr [ %.val.i16, %_ZN4core3ptr19swap_nonoverlapping17hf866f6a6feb866b4E.exit.loopexit ], [ %127, %130 ]
-  %141 = getelementptr inbounds [0 x { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }], ptr %2, i64 0, i64 %.val4.i1846
+  %141 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %2, i64 %.val4.i1846
   %142 = load i64, ptr %141, align 8, !noalias !61, !noundef !7
   %.val7 = load i64, ptr %16, align 8, !noundef !7
   %.sroa.02.05.i = and i64 %.val7, %142

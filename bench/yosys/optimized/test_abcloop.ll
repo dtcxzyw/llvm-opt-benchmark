@@ -7075,7 +7075,7 @@ _ZN5ezSAT5solveERKSt6vectorIiSaIiEERS0_IbSaIbEES4_.exit: ; preds = %._crit_edge4
 .preheader1672:                                   ; preds = %_ZN5ezSAT5solveERKSt6vectorIiSaIiEERS0_IbSaIbEES4_.exit
   %2596 = load ptr, ptr %125, align 8, !tbaa !168
   %2597 = load i64, ptr %2596, align 8, !tbaa !82
-  %2598 = getelementptr inbounds nuw [16 x [4 x i8]], ptr %17, i64 0, i64 %indvars.iv5806
+  %2598 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv5806
   br label %2604
 
 2599:                                             ; preds = %_ZN5ezSAT5solveERKSt6vectorIiSaIiEERS0_IbSaIbEES4_.exit
@@ -7095,7 +7095,7 @@ _ZN5ezSAT5solveERKSt6vectorIiSaIiEERS0_IbSaIbEES4_.exit: ; preds = %._crit_edge4
 
 2604:                                             ; preds = %.preheader1672, %2604
   %indvars.iv5802 = phi i64 [ 0, %.preheader1672 ], [ %indvars.iv.next5803, %2604 ]
-  %2605 = getelementptr inbounds nuw [4 x i8], ptr %2598, i64 0, i64 %indvars.iv5802
+  %2605 = getelementptr inbounds nuw i8, ptr %2598, i64 %indvars.iv5802
   %2606 = lshr i64 %2597, %indvars.iv5802
   %2607 = trunc i64 %2606 to i8
   %2608 = and i8 %2607, 1
@@ -8207,7 +8207,7 @@ _ZN5ezSAT5solveERKSt6vectorIiSaIiEERS0_IbSaIbEES4_.exit1410: ; preds = %.prehead
 .preheader1664:                                   ; preds = %_ZN5ezSAT5solveERKSt6vectorIiSaIiEERS0_IbSaIbEES4_.exit1410
   %3047 = load ptr, ptr %140, align 8, !tbaa !168
   %3048 = load i64, ptr %3047, align 8, !tbaa !82
-  %3049 = getelementptr inbounds nuw [16 x [4 x i8]], ptr %138, i64 0, i64 %indvar
+  %3049 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvar
   br label %3055
 
 3050:                                             ; preds = %_ZN5ezSAT5solveERKSt6vectorIiSaIiEERS0_IbSaIbEES4_.exit1410
@@ -8227,7 +8227,7 @@ _ZN5ezSAT5solveERKSt6vectorIiSaIiEERS0_IbSaIbEES4_.exit1410: ; preds = %.prehead
 
 3055:                                             ; preds = %.preheader1664, %3055
   %indvars.iv5820 = phi i64 [ 0, %.preheader1664 ], [ %indvars.iv.next5821, %3055 ]
-  %3056 = getelementptr inbounds nuw [4 x i8], ptr %3049, i64 0, i64 %indvars.iv5820
+  %3056 = getelementptr inbounds nuw i8, ptr %3049, i64 %indvars.iv5820
   %3057 = lshr i64 %3048, %indvars.iv5820
   %3058 = trunc i64 %3057 to i8
   %3059 = and i8 %3058, 1
@@ -8507,7 +8507,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1454:                ; preds = %3155, %3157
           to label %.preheader1662 unwind label %3167
 
 .preheader1662:                                   ; preds = %.preheader1663
-  %3164 = getelementptr inbounds nuw [16 x [4 x i8]], ptr %17, i64 0, i64 %indvars.iv5838
+  %3164 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv5838
   br label %3169
 
 3165:                                             ; preds = %3174
@@ -8515,7 +8515,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1454:                ; preds = %3155, %3157
           to label %.preheader1661 unwind label %3167
 
 .preheader1661:                                   ; preds = %3165
-  %3166 = getelementptr inbounds nuw [16 x [4 x i8]], ptr %138, i64 0, i64 %indvars.iv5838
+  %3166 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv5838
   br label %3177
 
 3167:                                             ; preds = %.loopexit, %3165, %.preheader1663
@@ -8525,7 +8525,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1454:                ; preds = %3155, %3157
 
 3169:                                             ; preds = %.preheader1662, %3174
   %indvars.iv5826 = phi i64 [ 0, %.preheader1662 ], [ %indvars.iv.next5827, %3174 ]
-  %3170 = getelementptr inbounds nuw [4 x i8], ptr %3164, i64 0, i64 %indvars.iv5826
+  %3170 = getelementptr inbounds nuw i8, ptr %3164, i64 %indvars.iv5826
   %3171 = load i8, ptr %3170, align 1, !tbaa !32, !range !34, !noundef !35
   %3172 = or disjoint i8 %3171, 48
   %3173 = zext nneg i8 %3172 to i32
@@ -8544,7 +8544,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1454:                ; preds = %3155, %3157
 
 3177:                                             ; preds = %.preheader1661, %3182
   %indvars.iv5830 = phi i64 [ 0, %.preheader1661 ], [ %indvars.iv.next5831, %3182 ]
-  %3178 = getelementptr inbounds nuw [4 x i8], ptr %3166, i64 0, i64 %indvars.iv5830
+  %3178 = getelementptr inbounds nuw i8, ptr %3166, i64 %indvars.iv5830
   %3179 = load i8, ptr %3178, align 1, !tbaa !32, !range !34, !noundef !35
   %3180 = or disjoint i8 %3179, 48
   %3181 = zext nneg i8 %3180 to i32
@@ -8568,9 +8568,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1454:                ; preds = %3155, %3157
 
 .preheader:                                       ; preds = %3182, %3185
   %indvars.iv5834 = phi i64 [ %indvars.iv.next5835, %3185 ], [ 0, %3182 ]
-  %3186 = getelementptr inbounds nuw [4 x i8], ptr %3164, i64 0, i64 %indvars.iv5834
+  %3186 = getelementptr inbounds nuw i8, ptr %3164, i64 %indvars.iv5834
   %3187 = load i8, ptr %3186, align 1, !tbaa !32, !range !34, !noundef !35
-  %3188 = getelementptr inbounds nuw [4 x i8], ptr %3166, i64 0, i64 %indvars.iv5834
+  %3188 = getelementptr inbounds nuw i8, ptr %3166, i64 %indvars.iv5834
   %3189 = load i8, ptr %3188, align 1, !tbaa !32, !range !34, !noundef !35
   %.not = icmp eq i8 %3187, %3189
   br i1 %.not, label %3185, label %3190

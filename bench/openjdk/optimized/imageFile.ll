@@ -192,7 +192,7 @@ define hidden void @_ZN13ImageLocation8set_dataEPh(ptr noundef nonnull writeonly
 
 _ZN13ImageLocation15attribute_valueEPhh.exit:     ; preds = %.lr.ph.i
   %15 = zext nneg i8 %5 to i64
-  %16 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %15
   store i64 %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.01318, i64 %wide.trip.count.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
@@ -484,7 +484,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit:       ; preds = %_ZN12ImageStrings9h
 
 _ZN13ImageLocation15attribute_valueEPhh.exit.i:   ; preds = %.lr.ph.i.i10
   %64 = zext nneg i8 %54 to i64
-  %65 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i64, ptr %2, i64 %64
   store i64 %63, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.013.i21, i64 %wide.trip.count.i.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
@@ -1826,7 +1826,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit:       ; preds = %_ZN12ImageStrings9h
 
 _ZN13ImageLocation15attribute_valueEPhh.exit.i.i: ; preds = %.lr.ph.i.i.i10
   %65 = zext nneg i8 %55 to i64
-  %66 = getelementptr inbounds nuw [8 x i64], ptr %4, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr %4, i64 %65
   store i64 %64, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.013.i3.i, i64 %wide.trip.count.i.i.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
@@ -1895,7 +1895,7 @@ define hidden void @_ZNK15ImageFileReader12get_resourceEjPh(ptr noundef nonnull 
 
 _ZN13ImageLocation15attribute_valueEPhh.exit.i.i: ; preds = %.lr.ph.i.i.i
   %21 = zext nneg i8 %11 to i64
-  %22 = getelementptr inbounds nuw [8 x i64], ptr %4, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %4, i64 %21
   store i64 %20, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %.013.i3.i, i64 %wide.trip.count.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1

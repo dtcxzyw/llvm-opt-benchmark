@@ -4134,7 +4134,7 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.032.lcssa56 = phi i64 [ %20, %._crit_edge ], [ %5, %2 ]
   %.035.lcssa55 = phi i64 [ %21, %._crit_edge ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %.035.lcssa55
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.035.lcssa55
   %9 = trunc nuw nsw i64 %.032.lcssa56 to i8
   store i8 %9, ptr %8, align 1
   %umin = add nuw nsw i64 %.035.lcssa55, 1
@@ -4167,7 +4167,7 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
 
 16:                                               ; preds = %.lr.ph
   %17 = trunc i64 %.03245 to i8
-  %18 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %.03544
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %.03544
   %19 = or i8 %17, -128
   store i8 %19, ptr %18, align 1
   %20 = lshr i64 %.03245, 7
@@ -5263,7 +5263,7 @@ define internal fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Ser
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %8
   %.032.lcssa56.i = phi i64 [ %22, %._crit_edge.i ], [ %2, %8 ]
   %.035.lcssa55.i = phi i64 [ %23, %._crit_edge.i ], [ 0, %8 ]
-  %11 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %.035.lcssa55.i
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.035.lcssa55.i
   %12 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %12, ptr %11, align 1, !noalias !1583
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -5291,7 +5291,7 @@ define internal fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Ser
 
 18:                                               ; preds = %.lr.ph.i
   %19 = trunc i64 %.03245.i to i8
-  %20 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %.03544.i
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %.03544.i
   %21 = or i8 %19, -128
   store i8 %21, ptr %20, align 1, !noalias !1583
   %22 = lshr i64 %.03245.i, 7
@@ -5345,7 +5345,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %3
   %.032.lcssa56.i = phi i64 [ %19, %._crit_edge.i ], [ %2, %3 ]
   %.035.lcssa55.i = phi i64 [ %20, %._crit_edge.i ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %.035.lcssa55.i
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.035.lcssa55.i
   %9 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %9, ptr %8, align 1, !noalias !1596
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -5373,7 +5373,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 
 15:                                               ; preds = %.lr.ph.i
   %16 = trunc i64 %.03245.i to i8
-  %17 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %.03544.i
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %.03544.i
   %18 = or i8 %16, -128
   store i8 %18, ptr %17, align 1, !noalias !1596
   %19 = lshr i64 %.03245.i, 7
@@ -5443,7 +5443,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %6
   %.032.lcssa56.i = phi i64 [ %23, %._crit_edge.i ], [ %9, %6 ]
   %.035.lcssa55.i = phi i64 [ %24, %._crit_edge.i ], [ 0, %6 ]
-  %12 = getelementptr inbounds nuw [10 x i8], ptr %8, i64 0, i64 %.035.lcssa55.i
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.035.lcssa55.i
   %13 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %13, ptr %12, align 1, !noalias !1609
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -5471,7 +5471,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 
 19:                                               ; preds = %.lr.ph.i
   %20 = trunc i64 %.03245.i to i8
-  %21 = getelementptr inbounds nuw [10 x i8], ptr %8, i64 0, i64 %.03544.i
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 %.03544.i
   %22 = or i8 %20, -128
   store i8 %22, ptr %21, align 1, !noalias !1609
   %23 = lshr i64 %.03245.i, 7
@@ -5512,7 +5512,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %7
   %.032.lcssa56.i = phi i64 [ %24, %._crit_edge.i ], [ %10, %7 ]
   %.035.lcssa55.i = phi i64 [ %25, %._crit_edge.i ], [ 0, %7 ]
-  %13 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.035.lcssa55.i
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.035.lcssa55.i
   %14 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %14, ptr %13, align 1, !noalias !1622
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -5540,7 +5540,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
 
 20:                                               ; preds = %.lr.ph.i
   %21 = trunc i64 %.03245.i to i8
-  %22 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.03544.i
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 %.03544.i
   %23 = or i8 %21, -128
   store i8 %23, ptr %22, align 1, !noalias !1622
   %24 = lshr i64 %.03245.i, 7
@@ -5594,7 +5594,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %7
   %.032.lcssa56.i = phi i64 [ %24, %._crit_edge.i ], [ %10, %7 ]
   %.035.lcssa55.i = phi i64 [ %25, %._crit_edge.i ], [ 0, %7 ]
-  %13 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.035.lcssa55.i
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.035.lcssa55.i
   %14 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %14, ptr %13, align 1, !noalias !1640
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -5622,7 +5622,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
 
 20:                                               ; preds = %.lr.ph.i
   %21 = trunc i64 %.03245.i to i8
-  %22 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.03544.i
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 %.03544.i
   %23 = or i8 %21, -128
   store i8 %23, ptr %22, align 1, !noalias !1640
   %24 = lshr i64 %.03245.i, 7
@@ -5668,7 +5668,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %7
   %.032.lcssa56.i = phi i64 [ %24, %._crit_edge.i ], [ %10, %7 ]
   %.035.lcssa55.i = phi i64 [ %25, %._crit_edge.i ], [ 0, %7 ]
-  %13 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.035.lcssa55.i
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.035.lcssa55.i
   %14 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %14, ptr %13, align 1, !noalias !1653
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -5696,7 +5696,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 
 20:                                               ; preds = %.lr.ph.i
   %21 = trunc i64 %.03245.i to i8
-  %22 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.03544.i
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 %.03544.i
   %23 = or i8 %21, -128
   store i8 %23, ptr %22, align 1, !noalias !1653
   %24 = lshr i64 %.03245.i, 7
@@ -5751,7 +5751,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %7
   %.032.lcssa56.i = phi i64 [ %26, %._crit_edge.i ], [ %12, %7 ]
   %.035.lcssa55.i = phi i64 [ %27, %._crit_edge.i ], [ 0, %7 ]
-  %15 = getelementptr inbounds nuw [10 x i8], ptr %11, i64 0, i64 %.035.lcssa55.i
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.035.lcssa55.i
   %16 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %16, ptr %15, align 1, !noalias !1680
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -5779,7 +5779,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 
 22:                                               ; preds = %.lr.ph.i
   %23 = trunc i64 %.03245.i to i8
-  %24 = getelementptr inbounds nuw [10 x i8], ptr %11, i64 0, i64 %.03544.i
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 %.03544.i
   %25 = or i8 %23, -128
   store i8 %25, ptr %24, align 1, !noalias !1680
   %26 = lshr i64 %.03245.i, 7
@@ -5849,7 +5849,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %7
   %.032.lcssa56.i = phi i64 [ %24, %._crit_edge.i ], [ %10, %7 ]
   %.035.lcssa55.i = phi i64 [ %25, %._crit_edge.i ], [ 0, %7 ]
-  %13 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.035.lcssa55.i
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.035.lcssa55.i
   %14 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %14, ptr %13, align 1, !noalias !1732
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -5877,7 +5877,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 
 20:                                               ; preds = %.lr.ph.i
   %21 = trunc i64 %.03245.i to i8
-  %22 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.03544.i
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 %.03544.i
   %23 = or i8 %21, -128
   store i8 %23, ptr %22, align 1, !noalias !1732
   %24 = lshr i64 %.03245.i, 7
@@ -5918,7 +5918,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %7
   %.032.lcssa56.i = phi i64 [ %24, %._crit_edge.i ], [ %10, %7 ]
   %.035.lcssa55.i = phi i64 [ %25, %._crit_edge.i ], [ 0, %7 ]
-  %13 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.035.lcssa55.i
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.035.lcssa55.i
   %14 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %14, ptr %13, align 1, !noalias !1745
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -5946,7 +5946,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 
 20:                                               ; preds = %.lr.ph.i
   %21 = trunc i64 %.03245.i to i8
-  %22 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %.03544.i
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 %.03544.i
   %23 = or i8 %21, -128
   store i8 %23, ptr %22, align 1, !noalias !1745
   %24 = lshr i64 %.03245.i, 7
@@ -5997,7 +5997,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %7
   %.032.lcssa56.i = phi i64 [ %26, %._crit_edge.i ], [ %12, %7 ]
   %.035.lcssa55.i = phi i64 [ %27, %._crit_edge.i ], [ 0, %7 ]
-  %15 = getelementptr inbounds nuw [10 x i8], ptr %11, i64 0, i64 %.035.lcssa55.i
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.035.lcssa55.i
   %16 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %16, ptr %15, align 1, !noalias !1758
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -6025,7 +6025,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 
 22:                                               ; preds = %.lr.ph.i
   %23 = trunc i64 %.03245.i to i8
-  %24 = getelementptr inbounds nuw [10 x i8], ptr %11, i64 0, i64 %.03544.i
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 %.03544.i
   %25 = or i8 %23, -128
   store i8 %25, ptr %24, align 1, !noalias !1758
   %26 = lshr i64 %.03245.i, 7
@@ -6107,7 +6107,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %7
   %.032.lcssa56.i = phi i64 [ %25, %._crit_edge.i ], [ %11, %7 ]
   %.035.lcssa55.i = phi i64 [ %26, %._crit_edge.i ], [ 0, %7 ]
-  %14 = getelementptr inbounds nuw [10 x i8], ptr %10, i64 0, i64 %.035.lcssa55.i
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.035.lcssa55.i
   %15 = trunc nuw nsw i64 %.032.lcssa56.i to i8
   store i8 %15, ptr %14, align 1, !noalias !1819
   %umin.i = add nuw nsw i64 %.035.lcssa55.i, 1
@@ -6135,7 +6135,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 
 21:                                               ; preds = %.lr.ph.i
   %22 = trunc i64 %.03245.i to i8
-  %23 = getelementptr inbounds nuw [10 x i8], ptr %10, i64 0, i64 %.03544.i
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 %.03544.i
   %24 = or i8 %22, -128
   store i8 %24, ptr %23, align 1, !noalias !1819
   %25 = lshr i64 %.03245.i, 7

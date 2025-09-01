@@ -565,10 +565,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !align !103, !noundef !6
   %.val = load i8, ptr %2, align 1, !range !114, !noundef !6
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5c74672163d0851dE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5c74672163d0851dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5c74672163d0851dE.38", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5c74672163d0851dE.38", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -609,10 +609,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !align !103, !noundef !6
   %.val = load i8, ptr %2, align 1, !range !124, !noundef !6
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd2605da4769e0259E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd2605da4769e0259E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [12 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd2605da4769e0259E.39", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd2605da4769e0259E.39", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -3595,7 +3595,7 @@ switch.lookup:                                    ; preds = %1
   %7 = add nsw i64 %6, -2
   %8 = icmp ult i64 %7, 5
   %9 = select i1 %8, i64 %7, i64 3
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN21uv_distribution_types9buildable15BuildableSource4name17h3ab2fe5792ce9213E, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN21uv_distribution_types9buildable15BuildableSource4name17h3ab2fe5792ce9213E, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %switch.load
   br label %11
@@ -8125,7 +8125,7 @@ switch.lookup:                                    ; preds = %1
   %6 = add nsw i64 %5, -3
   %7 = icmp ult i64 %6, 5
   %8 = select i1 %7, i64 %6, i64 1
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN21uv_distribution_types129_$LT$impl$u20$uv_distribution_types..traits..Name$u20$for$u20$uv_distribution_types..prioritized_distribution..CompatibleDist$GT$4name17h5eeb3c0f23a3d819E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN21uv_distribution_types129_$LT$impl$u20$uv_distribution_types..traits..Name$u20$for$u20$uv_distribution_types..prioritized_distribution..CompatibleDist$GT$4name17h5eeb3c0f23a3d819E", i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN103_$LT$uv_distribution_types..installed..InstalledDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h5181e6959bdc0577E.exit"
 

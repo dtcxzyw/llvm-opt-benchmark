@@ -4609,7 +4609,7 @@ define internal fastcc void @_ZN9actix_web4http6header19content_disposition19spl
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %16
   %.05.i.i.i.i = phi i64 [ %17, %16 ], [ 0, %12 ]
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %.05.i.i.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.05.i.i.i.i
   %14 = load i8, ptr %13, align 1, !alias.scope !835, !noalias !829, !noundef !9
   %15 = icmp eq i8 %14, %.sroa.9.40.extract.trunc.i.i
   br i1 %15, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %16
@@ -5822,7 +5822,7 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %51
 
 .lr.ph.i.i.i.i:                                   ; preds = %287, %291
   %.05.i.i.i.i = phi i64 [ %292, %291 ], [ 0, %287 ]
-  %288 = getelementptr inbounds nuw [0 x i8], ptr %283, i64 0, i64 %.05.i.i.i.i
+  %288 = getelementptr inbounds nuw i8, ptr %283, i64 %.05.i.i.i.i
   %289 = load i8, ptr %288, align 1, !alias.scope !1054, !noalias !1061, !noundef !9
   %290 = icmp eq i8 %289, 59
   br i1 %290, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %291

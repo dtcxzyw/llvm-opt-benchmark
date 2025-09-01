@@ -11,10 +11,10 @@ define void @ossl_ml_dsa_poly_ntt_mult(ptr noundef readonly captures(none) %0, p
 
 4:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = zext i32 %9 to i64
   %11 = mul nuw i64 %10, %7
@@ -34,7 +34,7 @@ define void @ossl_ml_dsa_poly_ntt_mult(ptr noundef readonly captures(none) %0, p
   %24 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %23) #1, !srcloc !7
   %25 = and i32 %18, %24
   %26 = or i32 %25, %22
-  %27 = getelementptr inbounds nuw [256 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -50,7 +50,7 @@ define void @ossl_ml_dsa_poly_ntt(ptr noundef captures(none) %0) local_unnamed_a
 
 2:                                                ; preds = %1, %._crit_edge39
   %.03141 = phi i32 [ 256, %1 ], [ %3, %._crit_edge39 ]
-  %.03240 = phi i32 [ 1, %1 ], [ %59, %._crit_edge39 ]
+  %.03240 = phi i32 [ 1, %1 ], [ %55, %._crit_edge39 ]
   %3 = lshr i32 %.03141, 1
   %4 = icmp sgt i32 %.03240, 0
   br i1 %4, label %.lr.ph38, label %._crit_edge39
@@ -60,84 +60,84 @@ define void @ossl_ml_dsa_poly_ntt(ptr noundef captures(none) %0) local_unnamed_a
   %6 = zext nneg i32 %5 to i64
   %7 = zext nneg i32 %3 to i64
   %8 = zext nneg i32 %.03240 to i64
+  %invariant.gep47 = getelementptr inbounds nuw i32, ptr @zetas_montgomery, i64 %8
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %7
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph38
   %indvars.iv44 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next45, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next, %._crit_edge ]
   %9 = add nuw nsw i64 %indvars.iv, %7
-  %10 = add nuw nsw i64 %indvars.iv44, %8
-  %11 = getelementptr inbounds nuw [256 x i32], ptr @zetas_montgomery, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4, !tbaa !3
-  %13 = zext i32 %12 to i64
-  br label %14
+  %gep48 = getelementptr inbounds nuw i32, ptr %invariant.gep47, i64 %indvars.iv44
+  %10 = load i32, ptr %gep48, align 4, !tbaa !3
+  %11 = zext i32 %10 to i64
+  br label %12
 
-14:                                               ; preds = %.lr.ph, %14
-  %indvars.iv42 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next43, %14 ]
-  %15 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %indvars.iv42
-  %16 = load i32, ptr %15, align 4, !tbaa !3
-  %17 = add nuw nsw i64 %indvars.iv42, %7
-  %18 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !3
-  %20 = zext i32 %19 to i64
-  %21 = mul nuw i64 %20, %13
-  %22 = mul i64 %21, 4236238847
-  %23 = and i64 %22, 4294967295
-  %24 = mul nuw nsw i64 %23, 8380417
-  %25 = add i64 %24, %21
-  %26 = lshr i64 %25, 32
-  %27 = trunc nuw i64 %26 to i32
-  %28 = add i32 %27, -8380417
-  %29 = xor i32 %27, -1
-  %30 = and i32 %28, %29
-  %.neg.i.i.i.i = ashr i32 %30, 31
-  %31 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #1, !srcloc !7
-  %32 = and i32 %31, %27
-  %33 = xor i32 %.neg.i.i.i.i, -1
-  %34 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %33) #1, !srcloc !7
-  %35 = and i32 %28, %34
-  %36 = or i32 %35, %32
-  %37 = add i32 %36, %16
-  %38 = add i32 %37, -8380417
-  %39 = xor i32 %37, -1
-  %40 = and i32 %38, %39
-  %.neg.i.i.i = ashr i32 %40, 31
-  %41 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i) #1, !srcloc !7
-  %42 = and i32 %37, %41
-  %43 = xor i32 %.neg.i.i.i, -1
-  %44 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %43) #1, !srcloc !7
-  %45 = and i32 %38, %44
-  %46 = or i32 %45, %42
-  store i32 %46, ptr %15, align 4, !tbaa !3
-  %47 = add i32 %16, 8380417
-  %48 = sub i32 %47, %36
-  %49 = add i32 %48, -8380417
-  %50 = xor i32 %48, -1
-  %51 = and i32 %49, %50
-  %.neg.i.i.i.i33 = ashr i32 %51, 31
-  %52 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i33) #1, !srcloc !7
-  %53 = and i32 %48, %52
-  %54 = xor i32 %.neg.i.i.i.i33, -1
-  %55 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %54) #1, !srcloc !7
-  %56 = and i32 %49, %55
-  %57 = or i32 %56, %53
-  store i32 %57, ptr %18, align 4, !tbaa !3
+12:                                               ; preds = %.lr.ph, %12
+  %indvars.iv42 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next43, %12 ]
+  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv42
+  %14 = load i32, ptr %13, align 4, !tbaa !3
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv42
+  %15 = load i32, ptr %gep, align 4, !tbaa !3
+  %16 = zext i32 %15 to i64
+  %17 = mul nuw i64 %16, %11
+  %18 = mul i64 %17, 4236238847
+  %19 = and i64 %18, 4294967295
+  %20 = mul nuw nsw i64 %19, 8380417
+  %21 = add i64 %20, %17
+  %22 = lshr i64 %21, 32
+  %23 = trunc nuw i64 %22 to i32
+  %24 = add i32 %23, -8380417
+  %25 = xor i32 %23, -1
+  %26 = and i32 %24, %25
+  %.neg.i.i.i.i = ashr i32 %26, 31
+  %27 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #1, !srcloc !7
+  %28 = and i32 %27, %23
+  %29 = xor i32 %.neg.i.i.i.i, -1
+  %30 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %29) #1, !srcloc !7
+  %31 = and i32 %24, %30
+  %32 = or i32 %31, %28
+  %33 = add i32 %32, %14
+  %34 = add i32 %33, -8380417
+  %35 = xor i32 %33, -1
+  %36 = and i32 %34, %35
+  %.neg.i.i.i = ashr i32 %36, 31
+  %37 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i) #1, !srcloc !7
+  %38 = and i32 %33, %37
+  %39 = xor i32 %.neg.i.i.i, -1
+  %40 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %39) #1, !srcloc !7
+  %41 = and i32 %34, %40
+  %42 = or i32 %41, %38
+  store i32 %42, ptr %13, align 4, !tbaa !3
+  %43 = add i32 %14, 8380417
+  %44 = sub i32 %43, %32
+  %45 = add i32 %44, -8380417
+  %46 = xor i32 %44, -1
+  %47 = and i32 %45, %46
+  %.neg.i.i.i.i33 = ashr i32 %47, 31
+  %48 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i33) #1, !srcloc !7
+  %49 = and i32 %44, %48
+  %50 = xor i32 %.neg.i.i.i.i33, -1
+  %51 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %50) #1, !srcloc !7
+  %52 = and i32 %45, %51
+  %53 = or i32 %52, %49
+  store i32 %53, ptr %gep, align 4, !tbaa !3
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %58 = icmp samesign ult i64 %indvars.iv.next43, %9
-  br i1 %58, label %14, label %._crit_edge, !llvm.loop !10
+  %54 = icmp samesign ult i64 %indvars.iv.next43, %9
+  br i1 %54, label %12, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %14
+._crit_edge:                                      ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %6
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next45, %8
   br i1 %exitcond.not, label %._crit_edge39, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %2
-  %59 = shl i32 %.03240, 1
-  %60 = icmp slt i32 %59, 256
-  br i1 %60, label %2, label %61, !llvm.loop !12
+  %55 = shl i32 %.03240, 1
+  %56 = icmp slt i32 %55, 256
+  br i1 %56, label %2, label %57, !llvm.loop !12
 
-61:                                               ; preds = %._crit_edge39
+57:                                               ; preds = %._crit_edge39
   ret void
 }
 
@@ -155,15 +155,16 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   %5 = sext i32 %.03949 to i64
   %6 = zext nneg i32 %reass.add to i64
   %wide.trip.count = zext nneg i32 %2 to i64
+  %7 = getelementptr i32, ptr @zetas_montgomery, i64 %6
+  %invariant.gep = getelementptr i32, ptr %0, i64 %5
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph47
   %indvars.iv55 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next56, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %._crit_edge ]
-  %7 = add nsw i64 %indvars.iv, %5
-  %8 = xor i64 %indvars.iv55, -1
-  %9 = add nsw i64 %6, %8
-  %10 = getelementptr inbounds [256 x i32], ptr @zetas_montgomery, i64 0, i64 %9
+  %8 = add nsw i64 %indvars.iv, %5
+  %9 = xor i64 %indvars.iv55, -1
+  %10 = getelementptr i32, ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = sub i32 8380417, %11
   %13 = zext i32 %12 to i64
@@ -171,47 +172,46 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv52 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next53, %14 ]
-  %15 = getelementptr inbounds [256 x i32], ptr %0, i64 0, i64 %indvars.iv52
+  %15 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv52
   %16 = load i32, ptr %15, align 4, !tbaa !3
-  %17 = add nsw i64 %indvars.iv52, %5
-  %18 = getelementptr inbounds [256 x i32], ptr %0, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !3
-  %20 = add i32 %19, %16
-  %21 = add i32 %20, -8380417
-  %22 = xor i32 %20, -1
-  %23 = and i32 %21, %22
-  %.neg.i.i.i = ashr i32 %23, 31
-  %24 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i) #1, !srcloc !7
-  %25 = and i32 %24, %20
-  %26 = xor i32 %.neg.i.i.i, -1
-  %27 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %26) #1, !srcloc !7
-  %28 = and i32 %27, %21
-  %29 = or i32 %28, %25
-  store i32 %29, ptr %15, align 4, !tbaa !3
-  %30 = add i32 %16, 8380417
-  %31 = sub i32 %30, %19
-  %32 = zext i32 %31 to i64
-  %33 = mul nuw i64 %32, %13
-  %34 = mul i64 %33, 4236238847
-  %35 = and i64 %34, 4294967295
-  %36 = mul nuw nsw i64 %35, 8380417
-  %37 = add i64 %36, %33
-  %38 = lshr i64 %37, 32
-  %39 = trunc nuw i64 %38 to i32
-  %40 = add i32 %39, -8380417
-  %41 = xor i32 %39, -1
-  %42 = and i32 %40, %41
-  %.neg.i.i.i.i = ashr i32 %42, 31
-  %43 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #1, !srcloc !7
-  %44 = and i32 %43, %39
-  %45 = xor i32 %.neg.i.i.i.i, -1
-  %46 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %45) #1, !srcloc !7
-  %47 = and i32 %40, %46
-  %48 = or i32 %47, %44
-  store i32 %48, ptr %18, align 4, !tbaa !3
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv52
+  %17 = load i32, ptr %gep, align 4, !tbaa !3
+  %18 = add i32 %17, %16
+  %19 = add i32 %18, -8380417
+  %20 = xor i32 %18, -1
+  %21 = and i32 %19, %20
+  %.neg.i.i.i = ashr i32 %21, 31
+  %22 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i) #1, !srcloc !7
+  %23 = and i32 %22, %18
+  %24 = xor i32 %.neg.i.i.i, -1
+  %25 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %24) #1, !srcloc !7
+  %26 = and i32 %25, %19
+  %27 = or i32 %26, %23
+  store i32 %27, ptr %15, align 4, !tbaa !3
+  %28 = add i32 %16, 8380417
+  %29 = sub i32 %28, %17
+  %30 = zext i32 %29 to i64
+  %31 = mul nuw i64 %30, %13
+  %32 = mul i64 %31, 4236238847
+  %33 = and i64 %32, 4294967295
+  %34 = mul nuw nsw i64 %33, 8380417
+  %35 = add i64 %34, %31
+  %36 = lshr i64 %35, 32
+  %37 = trunc nuw i64 %36 to i32
+  %38 = add i32 %37, -8380417
+  %39 = xor i32 %37, -1
+  %40 = and i32 %38, %39
+  %.neg.i.i.i.i = ashr i32 %40, 31
+  %41 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #1, !srcloc !7
+  %42 = and i32 %41, %37
+  %43 = xor i32 %.neg.i.i.i.i, -1
+  %44 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %43) #1, !srcloc !7
+  %45 = and i32 %38, %44
+  %46 = or i32 %45, %42
+  store i32 %46, ptr %gep, align 4, !tbaa !3
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
-  %49 = icmp slt i64 %indvars.iv.next53, %7
-  br i1 %49, label %14, label %._crit_edge, !llvm.loop !13
+  %47 = icmp slt i64 %indvars.iv.next53, %8
+  br i1 %47, label %14, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %14
   %indvars.iv.next = add nsw i64 %indvars.iv, %4
@@ -220,37 +220,37 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge48:                                    ; preds = %._crit_edge
-  %50 = icmp slt i32 %3, 256
-  br i1 %50, label %.lr.ph47, label %.preheader, !llvm.loop !15
+  %48 = icmp slt i32 %3, 256
+  br i1 %48, label %.lr.ph47, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %._crit_edge48, %.preheader
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.preheader ], [ 0, %._crit_edge48 ]
-  %51 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %indvars.iv60
-  %52 = load i32, ptr %51, align 4, !tbaa !3
-  %53 = zext i32 %52 to i64
-  %54 = mul nuw nsw i64 %53, 41978
-  %55 = mul nuw nsw i64 %53, 8395782
-  %56 = and i64 %55, 4294967294
-  %57 = mul nuw nsw i64 %56, 8380417
-  %58 = add nuw nsw i64 %57, %54
-  %59 = lshr i64 %58, 32
-  %60 = trunc nuw nsw i64 %59 to i32
-  %61 = add nsw i32 %60, -8380417
-  %62 = xor i32 %60, -1
-  %63 = and i32 %61, %62
-  %.neg.i.i.i.i42 = ashr i32 %63, 31
-  %64 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i42) #1, !srcloc !7
-  %65 = and i32 %64, %60
-  %66 = xor i32 %.neg.i.i.i.i42, -1
-  %67 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %66) #1, !srcloc !7
-  %68 = and i32 %61, %67
-  %69 = or i32 %68, %65
-  store i32 %69, ptr %51, align 4, !tbaa !3
+  %49 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv60
+  %50 = load i32, ptr %49, align 4, !tbaa !3
+  %51 = zext i32 %50 to i64
+  %52 = mul nuw nsw i64 %51, 41978
+  %53 = mul nuw nsw i64 %51, 8395782
+  %54 = and i64 %53, 4294967294
+  %55 = mul nuw nsw i64 %54, 8380417
+  %56 = add nuw nsw i64 %55, %52
+  %57 = lshr i64 %56, 32
+  %58 = trunc nuw nsw i64 %57 to i32
+  %59 = add nsw i32 %58, -8380417
+  %60 = xor i32 %58, -1
+  %61 = and i32 %59, %60
+  %.neg.i.i.i.i42 = ashr i32 %61, 31
+  %62 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i42) #1, !srcloc !7
+  %63 = and i32 %62, %58
+  %64 = xor i32 %.neg.i.i.i.i42, -1
+  %65 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %64) #1, !srcloc !7
+  %66 = and i32 %59, %65
+  %67 = or i32 %66, %63
+  store i32 %67, ptr %49, align 4, !tbaa !3
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 256
-  br i1 %exitcond63.not, label %70, label %.preheader, !llvm.loop !16
+  br i1 %exitcond63.not, label %68, label %.preheader, !llvm.loop !16
 
-70:                                               ; preds = %.preheader
+68:                                               ; preds = %.preheader
   ret void
 }
 

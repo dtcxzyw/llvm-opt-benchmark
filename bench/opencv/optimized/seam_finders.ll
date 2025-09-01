@@ -9104,7 +9104,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i234:            ; preds = %126
   %244 = fadd float %236, %243
   %245 = add nuw nsw i32 %.4148.us, 1
   %246 = zext nneg i32 %.4148.us to i64
-  %247 = getelementptr inbounds nuw [3 x %"struct.std::pair.66"], ptr %24, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw %"struct.std::pair.66", ptr %24, i64 %246
   store float %244, ptr %247, align 8, !tbaa !295
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 4
   store i32 2, ptr %248, align 4, !tbaa !297
@@ -9148,7 +9148,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i234:            ; preds = %126
   %277 = fadd float %269, %276
   %278 = add nuw nsw i32 %.5149.us, 1
   %279 = zext nneg i32 %.5149.us to i64
-  %280 = getelementptr inbounds nuw [3 x %"struct.std::pair.66"], ptr %24, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw %"struct.std::pair.66", ptr %24, i64 %279
   store float %277, ptr %280, align 8, !tbaa !295
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
   store i32 3, ptr %281, align 4, !tbaa !297
@@ -9356,7 +9356,7 @@ _ZSt11min_elementIPSt4pairIfiEET_S3_S3_.exit274.us: ; preds = %_ZNK9__gnu_cxx5__
   %400 = fadd float %392, %399
   %401 = add nuw nsw i32 %.1145.us, 1
   %402 = zext nneg i32 %.1145.us to i64
-  %403 = getelementptr inbounds nuw [3 x %"struct.std::pair.66"], ptr %24, i64 0, i64 %402
+  %403 = getelementptr inbounds nuw %"struct.std::pair.66", ptr %24, i64 %402
   store float %400, ptr %403, align 8, !tbaa !295
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 4
   store i32 2, ptr %404, align 4, !tbaa !297
@@ -9402,7 +9402,7 @@ _ZSt11min_elementIPSt4pairIfiEET_S3_S3_.exit274.us: ; preds = %_ZNK9__gnu_cxx5__
   %435 = fadd float %427, %434
   %436 = add nuw nsw i32 %.2146.us, 1
   %437 = zext nneg i32 %.2146.us to i64
-  %438 = getelementptr inbounds nuw [3 x %"struct.std::pair.66"], ptr %24, i64 0, i64 %437
+  %438 = getelementptr inbounds nuw %"struct.std::pair.66", ptr %24, i64 %437
   store float %435, ptr %438, align 8, !tbaa !295
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 4
   store i32 3, ptr %439, align 4, !tbaa !297
@@ -10484,10 +10484,10 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %5
 
 219:                                              ; preds = %.outer, %239
   %indvars.iv383 = phi i64 [ %indvars.iv.next384, %239 ], [ %indvars.iv383.ph, %.outer ]
-  %220 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN2cv6detail12DpSeamFinder21updateLabelsUsingSeamEiiRKSt6vectorINS_6Point_IiEESaIS4_EEbE2dx, i64 0, i64 %indvars.iv383
+  %220 = getelementptr inbounds nuw i32, ptr @_ZZN2cv6detail12DpSeamFinder21updateLabelsUsingSeamEiiRKSt6vectorINS_6Point_IiEESaIS4_EEbE2dx, i64 %indvars.iv383
   %221 = load i32, ptr %220, align 4, !tbaa !56
   %222 = add nsw i32 %221, %207
-  %223 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN2cv6detail12DpSeamFinder21updateLabelsUsingSeamEiiRKSt6vectorINS_6Point_IiEESaIS4_EEbE2dy, i64 0, i64 %indvars.iv383
+  %223 = getelementptr inbounds nuw i32, ptr @_ZZN2cv6detail12DpSeamFinder21updateLabelsUsingSeamEiiRKSt6vectorINS_6Point_IiEESaIS4_EEbE2dy, i64 %indvars.iv383
   %224 = load i32, ptr %223, align 4, !tbaa !56
   %225 = add nsw i32 %224, %211
   %226 = icmp sgt i32 %222, -1

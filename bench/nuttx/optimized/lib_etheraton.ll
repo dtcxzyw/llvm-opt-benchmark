@@ -69,7 +69,7 @@ xdigit.exit25.thread:                             ; preds = %xdigit.exit.thread,
   %34 = shl nuw nsw i32 %.0.i27, 4
   %35 = add nuw nsw i32 %.0.i2432, %34
   %36 = trunc i32 %35 to i8
-  %37 = getelementptr inbounds nuw [6 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %36, ptr %37, align 1
   %.not21 = icmp eq i64 %indvars.iv, 5
   %38 = load i8, ptr %33, align 1
@@ -156,7 +156,7 @@ xdigit.exit25.thread.i:                           ; preds = %27, %25, %xdigit.ex
   %32 = shl nuw nsw i32 %.0.i27.i, 4
   %33 = add nuw nsw i32 %.0.i2432.i, %32
   %34 = trunc i32 %33 to i8
-  %35 = getelementptr inbounds nuw [6 x i8], ptr @ether_aton.addr, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i8, ptr @ether_aton.addr, i64 %indvars.iv.i
   store i8 %34, ptr %35, align 1
   %.not21.i = icmp eq i64 %indvars.iv.i, 5
   br i1 %.not21.i, label %41, label %36

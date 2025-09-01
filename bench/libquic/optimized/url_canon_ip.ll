@@ -87,7 +87,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i: ; preds = %.lr.ph, %20
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i
   %29 = phi i32 [ %28, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %12, %select.unfold.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv.next
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
   %31 = load i8, ptr %30, align 1, !tbaa !3
   %.not = icmp eq i8 %31, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -361,7 +361,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38: ; preds = %.lr.ph, %81
 _ZN3url12CanonOutputTIcE9push_backEc.exit42:      ; preds = %select.unfold.i.i35, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38
   %90 = phi i32 [ %89, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38 ], [ %73, %select.unfold.i.i35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %91 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.next
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
   %92 = load i8, ptr %91, align 1, !tbaa !3
   %.not = icmp eq i8 %92, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -491,7 +491,7 @@ define noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_(p
 
 37:                                               ; preds = %35
   %38 = zext nneg i8 %13 to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !3
   %41 = and i8 %40, 4
   %.not15.i = icmp eq i8 %41, 0
@@ -598,7 +598,7 @@ define noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_(p
 
 37:                                               ; preds = %35
   %38 = zext nneg i16 %13 to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !3
   %41 = and i8 %40, 4
   %.not15.i = icmp eq i8 %41, 0
@@ -1032,7 +1032,7 @@ define noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9Compon
 
 39:                                               ; preds = %37
   %40 = zext nneg i8 %21 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !3
   %43 = and i8 %42, 4
   %.not15.i.i.i = icmp eq i8 %43, 0
@@ -1077,7 +1077,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   %indvars.iv.i = phi i64 [ 0, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i ], [ %indvars.iv.next.i, %104 ]
   %.04040.i = phi i1 [ false, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.242.i, %104 ]
   %.04539.i = phi i32 [ 0, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.247.i, %104 ]
-  %54 = getelementptr inbounds nuw [4 x %"struct.url::Component"], ptr %6, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw %"struct.url::Component", ptr %6, i64 %indvars.iv.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !22
   %57 = icmp slt i32 %56, 1
@@ -1085,7 +1085,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
 
 58:                                               ; preds = %53
   %59 = sext i32 %.04539.i to i64
-  %60 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %59
+  %60 = getelementptr inbounds i32, ptr %7, i64 %59
   %.val.i = load i32, ptr %54, align 8, !tbaa !35
   %61 = sext i32 %.val.i to i64
   %62 = getelementptr inbounds i8, ptr %0, i64 %61
@@ -1156,7 +1156,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   %81 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv15.i.i
   %82 = load i8, ptr %81, align 1, !tbaa !3
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !3
   %86 = zext i8 %85 to i32
   %87 = and i32 %.033.i.i, %86
@@ -1168,7 +1168,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
 .thread.i.i:                                      ; preds = %.lr.ph12.i.i
   %90 = add nsw i32 %.03710.i.i, 1
   %91 = sext i32 %.03710.i.i to i64
-  %92 = getelementptr inbounds [17 x i8], ptr %5, i64 0, i64 %91
+  %92 = getelementptr inbounds i8, ptr %5, i64 %91
   store i8 %82, ptr %92, align 1, !tbaa !3
   br label %94
 
@@ -1187,7 +1187,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.critedge.i.i, %.critedge.thread.i.i
   %.037.lcssa.i.i = phi i64 [ 0, %.critedge.i.i ], [ %95, %._crit_edge.loopexit.i.i ], [ 0, %.critedge.thread.i.i ]
-  %96 = getelementptr inbounds [17 x i8], ptr %5, i64 0, i64 %.037.lcssa.i.i
+  %96 = getelementptr inbounds i8, ptr %5, i64 %.037.lcssa.i.i
   store i8 0, ptr %96, align 1, !tbaa !3
   switch i32 %.033.i.i, label %99 [
     i32 8, label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
@@ -1242,7 +1242,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99
 
 ._crit_edge.thread.i:                             ; preds = %.preheader.i
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %107
+  %108 = getelementptr inbounds i32, ptr %7, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !40
   br label %.lr.ph48.preheader.i
 
@@ -1252,7 +1252,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99
 
 .lr.ph.i:                                         ; preds = %113, %.lr.ph.preheader.i
   %indvars.iv66.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next67.i, %113 ]
-  %110 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv66.i
+  %110 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv66.i
   %111 = load i32, ptr %110, align 4, !tbaa !40
   %112 = icmp ugt i32 %111, 255
   br i1 %112, label %.thread19.i, label %113
@@ -1267,7 +1267,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99
 
 ._crit_edge.i:                                    ; preds = %113
   %116 = sext i32 %106 to i64
-  %117 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %116
+  %117 = getelementptr inbounds i32, ptr %7, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !40
   %.not5544.i = icmp sgt i32 %.247.i, 4
   br i1 %.not5544.i, label %._crit_edge49.i, label %.lr.ph48.preheader.i
@@ -1390,7 +1390,7 @@ define noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9Compon
 
 39:                                               ; preds = %37
   %40 = zext nneg i16 %21 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !3
   %43 = and i8 %42, 4
   %.not15.i.i.i = icmp eq i8 %43, 0
@@ -1435,7 +1435,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   %indvars.iv.i = phi i64 [ 0, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i ], [ %indvars.iv.next.i, %105 ]
   %.04040.i = phi i1 [ false, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.242.i, %105 ]
   %.04539.i = phi i32 [ 0, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.247.i, %105 ]
-  %54 = getelementptr inbounds nuw [4 x %"struct.url::Component"], ptr %6, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw %"struct.url::Component", ptr %6, i64 %indvars.iv.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !22
   %57 = icmp slt i32 %56, 1
@@ -1443,7 +1443,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
 
 58:                                               ; preds = %53
   %59 = sext i32 %.04539.i to i64
-  %60 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %59
+  %60 = getelementptr inbounds i32, ptr %7, i64 %59
   %.val.i = load i32, ptr %54, align 8, !tbaa !35
   %61 = sext i32 %.val.i to i64
   %62 = getelementptr inbounds i16, ptr %0, i64 %61
@@ -1515,7 +1515,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   %82 = load i16, ptr %81, align 2, !tbaa !26
   %.mask.i.i = and i16 %82, 255
   %83 = zext nneg i16 %.mask.i.i to i64
-  %84 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !3
   %86 = zext i8 %85 to i32
   %87 = and i32 %.033.i.i, %86
@@ -1528,7 +1528,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   %90 = trunc i16 %82 to i8
   %91 = add nsw i32 %.03710.i.i, 1
   %92 = sext i32 %.03710.i.i to i64
-  %93 = getelementptr inbounds [17 x i8], ptr %5, i64 0, i64 %92
+  %93 = getelementptr inbounds i8, ptr %5, i64 %92
   store i8 %90, ptr %93, align 1, !tbaa !3
   br label %95
 
@@ -1547,7 +1547,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.critedge.i.i, %.critedge.thread.i.i
   %.037.lcssa.i.i = phi i64 [ 0, %.critedge.i.i ], [ %96, %._crit_edge.loopexit.i.i ], [ 0, %.critedge.thread.i.i ]
-  %97 = getelementptr inbounds [17 x i8], ptr %5, i64 0, i64 %.037.lcssa.i.i
+  %97 = getelementptr inbounds i8, ptr %5, i64 %.037.lcssa.i.i
   store i8 0, ptr %97, align 1, !tbaa !3
   switch i32 %.033.i.i, label %100 [
     i32 8, label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
@@ -1602,7 +1602,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %10
 
 ._crit_edge.thread.i:                             ; preds = %.preheader.i
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %108
+  %109 = getelementptr inbounds i32, ptr %7, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !40
   br label %.lr.ph48.preheader.i
 
@@ -1612,7 +1612,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %10
 
 .lr.ph.i:                                         ; preds = %114, %.lr.ph.preheader.i
   %indvars.iv66.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next67.i, %114 ]
-  %111 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv66.i
+  %111 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv66.i
   %112 = load i32, ptr %111, align 4, !tbaa !40
   %113 = icmp ugt i32 %112, 255
   br i1 %113, label %.thread19.i, label %114
@@ -1627,7 +1627,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %10
 
 ._crit_edge.i:                                    ; preds = %114
   %117 = sext i32 %107 to i64
-  %118 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %117
+  %118 = getelementptr inbounds i32, ptr %7, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !40
   %.not5544.i = icmp sgt i32 %.247.i, 4
   br i1 %.not5544.i, label %._crit_edge49.i, label %.lr.ph48.preheader.i
@@ -1785,7 +1785,7 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %20
   %59 = add nsw i32 %56, 1
   store i32 %59, ptr %26, align 4, !tbaa !49
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %60
+  %61 = getelementptr inbounds %"struct.url::Component", ptr %5, i64 %60
   %.sroa.473.0.insert.ext.i.i = zext nneg i32 %47 to i64
   %.sroa.473.0.insert.shift.i.i = shl nuw nsw i64 %.sroa.473.0.insert.ext.i.i, 32
   %.sroa.072.0.insert.insert.i.i = or disjoint i64 %.sroa.473.0.insert.shift.i.i, %.sroa.072.0.insert.ext.i.i
@@ -1831,7 +1831,7 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %20
 
 74:                                               ; preds = %.thread94.i.i
   %75 = zext nneg i8 %72 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !3
   %78 = and i8 %77, 8
   %.not81.i.i = icmp eq i8 %78, 0
@@ -1923,7 +1923,7 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
   br i1 %.not39.us.i, label %117, label %101
 
 101:                                              ; preds = %..loopexit_crit_edge.us.i
-  %102 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv30.i
+  %102 = getelementptr inbounds nuw %"struct.url::Component", ptr %5, i64 %indvars.iv30.i
   %.val.us.i = load i32, ptr %102, align 4
   %103 = getelementptr i8, ptr %102, i64 4
   %.val40.us.i = load i32, ptr %103, align 4
@@ -1940,7 +1940,7 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us.i: ; preds = %.lr.ph.preheader.i.us.i, %101
   %107 = sext i32 %.val40.us.i to i64
-  %108 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %107
+  %108 = getelementptr inbounds i8, ptr %4, i64 %107
   store i8 0, ptr %108, align 1, !tbaa !3
   %109 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1972,7 +1972,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us
   br i1 %.not39.i, label %134, label %118
 
 118:                                              ; preds = %.lr.ph18.split.i
-  %119 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv34.i
+  %119 = getelementptr inbounds nuw %"struct.url::Component", ptr %5, i64 %indvars.iv34.i
   %.val.i = load i32, ptr %119, align 4
   %120 = getelementptr i8, ptr %119, i64 4
   %.val40.i = load i32, ptr %120, align 4
@@ -1989,7 +1989,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i: ; preds = %.lr.ph.preheader.i.i, %118
   %124 = sext i32 %.val40.i to i64
-  %125 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %124
+  %125 = getelementptr inbounds i8, ptr %4, i64 %124
   store i8 0, ptr %125, align 1, !tbaa !3
   %126 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2149,7 +2149,7 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %20
   %59 = add nsw i32 %56, 1
   store i32 %59, ptr %26, align 4, !tbaa !49
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %60
+  %61 = getelementptr inbounds %"struct.url::Component", ptr %5, i64 %60
   %.sroa.473.0.insert.ext.i.i = zext nneg i32 %47 to i64
   %.sroa.473.0.insert.shift.i.i = shl nuw nsw i64 %.sroa.473.0.insert.ext.i.i, 32
   %.sroa.072.0.insert.insert.i.i = or disjoint i64 %.sroa.473.0.insert.shift.i.i, %.sroa.072.0.insert.ext.i.i
@@ -2195,7 +2195,7 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %20
 
 74:                                               ; preds = %.thread94.i.i
   %75 = zext nneg i16 %72 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !3
   %78 = and i8 %77, 8
   %.not81.i.i = icmp eq i8 %78, 0
@@ -2287,7 +2287,7 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
   br i1 %.not39.us.i, label %119, label %101
 
 101:                                              ; preds = %..loopexit_crit_edge.us.i
-  %102 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv30.i
+  %102 = getelementptr inbounds nuw %"struct.url::Component", ptr %5, i64 %indvars.iv30.i
   %.val.us.i = load i32, ptr %102, align 4
   %103 = getelementptr i8, ptr %102, i64 4
   %.val40.us.i = load i32, ptr %103, align 4
@@ -2306,7 +2306,7 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
   %gep.i.us.i = getelementptr i16, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
   %106 = load i16, ptr %gep.i.us.i, align 2, !tbaa !26
   %107 = trunc i16 %106 to i8
-  %108 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.us.i
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.us.i
   store i8 %107, ptr %108, align 1, !tbaa !3
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.us.i
@@ -2314,7 +2314,7 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us.i: ; preds = %.lr.ph.i.us.i, %101
   %109 = sext i32 %.val40.us.i to i64
-  %110 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %109
+  %110 = getelementptr inbounds i8, ptr %4, i64 %109
   store i8 0, ptr %110, align 1, !tbaa !3
   %111 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2346,7 +2346,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us
   br i1 %.not39.i, label %138, label %120
 
 120:                                              ; preds = %.lr.ph18.split.i
-  %121 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv34.i
+  %121 = getelementptr inbounds nuw %"struct.url::Component", ptr %5, i64 %indvars.iv34.i
   %.val.i = load i32, ptr %121, align 4
   %122 = getelementptr i8, ptr %121, i64 4
   %.val40.i = load i32, ptr %122, align 4
@@ -2365,7 +2365,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us
   %gep.i.i = getelementptr i16, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %125 = load i16, ptr %gep.i.i, align 2, !tbaa !26
   %126 = trunc i16 %125 to i8
-  %127 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   store i8 %126, ptr %127, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -2373,7 +2373,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i: ; preds = %.lr.ph.i.i, %120
   %128 = sext i32 %.val40.i to i64
-  %129 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %128
+  %129 = getelementptr inbounds i8, ptr %4, i64 %128
   store i8 0, ptr %129, align 1, !tbaa !3
   %130 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -235,7 +235,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   %.03649.i = phi i32 [ %63, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
   %.03748.i = phi i32 [ %spec.store.select.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %59 = sext i32 %.03748.i to i64
-  %60 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %59
+  %60 = getelementptr inbounds i32, ptr %5, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !135
   %62 = shl nsw i32 %61, 1
   store i32 %62, ptr %60, align 4, !tbaa !135
@@ -370,10 +370,10 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %126
   %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %126 ], [ 0, %.preheader.i.preheader ]
-  %120 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv100.i
+  %120 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv100.i
   %121 = load i32, ptr %120, align 4, !tbaa !135
   %122 = sitofp i32 %121 to float
-  %123 = getelementptr inbounds nuw [3 x [3 x float]], ptr @_ZL7box1000, i64 0, i64 %indvars.iv100.i
+  %123 = getelementptr inbounds nuw [3 x float], ptr @_ZL7box1000, i64 %indvars.iv100.i
   %124 = getelementptr inbounds nuw [3 x float], ptr %38, i64 %indvars.iv100.i
   br label %127
 
@@ -388,10 +388,10 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
 
 127:                                              ; preds = %127, %.preheader.i
   %indvars.iv96.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next97.i, %127 ]
-  %128 = getelementptr inbounds nuw [3 x float], ptr %123, i64 0, i64 %indvars.iv96.i
+  %128 = getelementptr inbounds nuw float, ptr %123, i64 %indvars.iv96.i
   %129 = load float, ptr %128, align 4, !tbaa !132
   %130 = fmul float %129, %122
-  %131 = getelementptr inbounds nuw [3 x float], ptr %124, i64 0, i64 %indvars.iv96.i
+  %131 = getelementptr inbounds nuw float, ptr %124, i64 %indvars.iv96.i
   store float %130, ptr %131, align 4, !tbaa !132
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next97.i, 3

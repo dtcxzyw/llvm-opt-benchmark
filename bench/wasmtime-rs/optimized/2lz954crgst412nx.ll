@@ -4533,7 +4533,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.
   %spec.select = select i1 %3, i32 %2, i32 undef
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %153 = load ptr, ptr %152, align 8, !nonnull !4, !noundef !4
-  %154 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %153, i64 0, i64 %147
+  %154 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %153, i64 %147
   store i32 2, ptr %154, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i64 %spec.select22, ptr %.sroa.411.0..sroa_idx, align 8
@@ -4668,7 +4668,7 @@ common.resume:                                    ; preds = %24, %19
 
 34:                                               ; preds = %26
   %35 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %35, i64 0, i64 %29
+  %36 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %35, i64 %29
   %37 = load i32, ptr %36, align 8, !range !634, !noundef !4
   %38 = icmp eq i32 %37, 2
   br i1 %38, label %39, label %.invoke92
@@ -4706,7 +4706,7 @@ common.resume:                                    ; preds = %24, %19
   br i1 %56, label %57, label %.invoke, !prof !617
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %35, i64 0, i64 %55
+  %58 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %35, i64 %55
   %59 = load i32, ptr %58, align 8, !range !634, !alias.scope !642, !noalias !645, !noundef !4
   %.not.not.i.i = icmp samesign ult i32 %59, 2
   br i1 %.not.not.i.i, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i, label %.invoke92
@@ -4763,7 +4763,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h
   br i1 %80, label %81, label %.invoke, !prof !617
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %69, i64 0, i64 %79
+  %82 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %69, i64 %79
   %83 = load i32, ptr %82, align 8, !range !634, !alias.scope !653, !noalias !656, !noundef !4
   %.not.not.i.i55 = icmp samesign ult i32 %83, 2
   br i1 %.not.not.i.i55, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i56, label %.invoke92
@@ -4856,7 +4856,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h
 
 120:                                              ; preds = %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit59
   %121 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %122 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %121, i64 0, i64 %29
+  %122 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %121, i64 %29
   store i32 %.sroa.068.0, ptr %122, align 8
   %.sroa.013.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 4
   store i32 %.sroa.469.0, ptr %.sroa.013.sroa.0.sroa.4.0..sroa_idx, align 4
@@ -4927,7 +4927,7 @@ define internal fastcc void @_ZN16wasmtime_runtime8instance9allocator7pooling15i
   br i1 %13, label %14, label %18, !prof !617
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %9, i64 0, i64 %12
+  %15 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %9, i64 %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !682)
   %16 = load i32, ptr %15, align 8, !range !634, !alias.scope !685, !noalias !686, !noundef !4
   %.not.not.i.i = icmp samesign ult i32 %16, 2
@@ -4970,7 +4970,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   br i1 %trunc16.i, label %34, label %33
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %9, i64 0, i64 %23
+  %27 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %9, i64 %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !691)
   %28 = load i32, ptr %27, align 8, !range !634, !alias.scope !694, !noalias !686, !noundef !4
   %.not.not.i18.i = icmp samesign ult i32 %28, 2
@@ -5001,7 +5001,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   br i1 %36, label %37, label %42, !prof !617
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %9, i64 0, i64 %35
+  %38 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %9, i64 %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !696)
   %39 = load i32, ptr %38, align 8, !range !634, !alias.scope !699, !noalias !686, !noundef !4
   %.not.not.i20.i = icmp samesign ult i32 %39, 2
@@ -5057,7 +5057,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   br i1 %57, label %58, label %62, !prof !617
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %55, i64 0, i64 %12
+  %59 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %55, i64 %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !707)
   %60 = load i32, ptr %59, align 8, !range !634, !alias.scope !710, !noalias !711, !noundef !4
   %.not.not.i.i37 = icmp samesign ult i32 %60, 2
@@ -5098,7 +5098,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   br i1 %trunc16.i40, label %78, label %76
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %55, i64 0, i64 %67
+  %71 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %55, i64 %67
   tail call void @llvm.experimental.noalias.scope.decl(metadata !716)
   %72 = load i32, ptr %71, align 8, !range !634, !alias.scope !719, !noalias !711, !noundef !4
   %.not.not.i18.i43 = icmp samesign ult i32 %72, 2
@@ -5130,7 +5130,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   br i1 %80, label %81, label %87, !prof !617
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw [0 x { i32, [11 x i32] }], ptr %55, i64 0, i64 %79
+  %82 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %55, i64 %79
   tail call void @llvm.experimental.noalias.scope.decl(metadata !721)
   %83 = load i32, ptr %82, align 8, !range !634, !alias.scope !724, !noalias !711, !noundef !4
   %.not.not.i20.i41 = icmp samesign ult i32 %83, 2
@@ -6423,7 +6423,7 @@ define void @"_ZN153_$LT$wasmtime_runtime..instance..allocator..pooling..Pooling
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !889, !nonnull !4, !noundef !4
   %12 = urem i64 %4, %6
-  %13 = getelementptr inbounds [0 x { { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, i64 }, { { i32, [1 x i32] }, { i32, [1 x i32] } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i32, i32, i32, [1 x i32] } } } }, { i32, [2 x i32] }, [1 x i32] }], ptr %11, i64 0, i64 %12, i32 1
+  %13 = getelementptr inbounds { { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, i64 }, { { i32, [1 x i32] }, { i32, [1 x i32] } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i32, i32, i32, [1 x i32] } } } }, { i32, [2 x i32] }, [1 x i32] }, ptr %11, i64 %12, i32 1
   %14 = load i32, ptr %13, align 8, !range !583, !noalias !889, !noundef !4
   %trunc.i = trunc nuw i32 %14 to i1
   br i1 %trunc.i, label %15, label %_ZN16wasmtime_runtime8instance9allocator7pooling11memory_pool10MemoryPool19next_available_pkey17h15b0f895583dda69E.exit
@@ -6553,7 +6553,7 @@ common.resume.i:                                  ; preds = %33, %26
   %41 = trunc nuw i8 %.0.i.i.i.i to i1
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %43 = load ptr, ptr %42, align 8, !noalias !898, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds nuw [0 x { ptr, [1 x i64] }], ptr %43, i64 0, i64 %36
+  %44 = getelementptr inbounds nuw { ptr, [1 x i64] }, ptr %43, i64 %36
   %45 = load ptr, ptr %44, align 8, !noalias !898, !align !17, !noundef !4
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !898
@@ -6736,7 +6736,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.10220905185939527020.exi
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %39 = load ptr, ptr %38, align 8, !noalias !910, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds nuw [0 x { ptr, [1 x i64] }], ptr %39, i64 0, i64 %34
+  %40 = getelementptr inbounds nuw { ptr, [1 x i64] }, ptr %39, i64 %34
   %41 = load ptr, ptr %40, align 8, !noalias !910, !align !17, !noundef !4
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8, !noalias !910

@@ -35,9 +35,9 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 .preheader7:                                      ; preds = %1, %21
   %5 = phi i64 [ %22, %21 ], [ 0, %1 ]
   %6 = phi i32 [ %16, %21 ], [ 0, %1 ]
-  %7 = getelementptr [29 x i32], ptr @base_length, i64 0, i64 %5
+  %7 = getelementptr i32, ptr @base_length, i64 %5
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr [29 x i32], ptr @extra_lbits, i64 0, i64 %5
+  %8 = getelementptr i32, ptr @extra_lbits, i64 %5
   %9 = load i32, ptr %8, align 4
   %10 = shl nuw i32 1, %9
   %11 = trunc i64 %5 to i8
@@ -49,7 +49,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %15 = phi i32 [ %6, %.preheader7 ], [ %16, %13 ]
   %16 = add i32 %15, 1
   %17 = sext i32 %15 to i64
-  %18 = getelementptr [256 x i8], ptr @length_code, i64 0, i64 %17
+  %18 = getelementptr i8, ptr @length_code, i64 %17
   store i8 %11, ptr %18, align 1
   %19 = add nuw nsw i32 %14, 1
   %20 = icmp eq i32 %19, %12
@@ -61,16 +61,16 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   br i1 %23, label %24, label %.preheader7, !llvm.loop !8
 
 24:                                               ; preds = %21
-  %25 = getelementptr [256 x i8], ptr @length_code, i64 0, i64 %17
+  %25 = getelementptr i8, ptr @length_code, i64 %17
   store i8 28, ptr %25, align 1
   br label %26
 
 26:                                               ; preds = %43, %24
   %27 = phi i64 [ 0, %24 ], [ %44, %43 ]
   %28 = phi i32 [ 0, %24 ], [ %38, %43 ]
-  %29 = getelementptr [30 x i32], ptr @base_dist, i64 0, i64 %27
+  %29 = getelementptr i32, ptr @base_dist, i64 %27
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr [30 x i32], ptr @extra_dbits, i64 0, i64 %27
+  %30 = getelementptr i32, ptr @extra_dbits, i64 %27
   %31 = load i32, ptr %30, align 4
   %32 = shl nuw i32 1, %31
   %33 = trunc i64 %27 to i8
@@ -82,7 +82,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %37 = phi i32 [ %28, %26 ], [ %38, %35 ]
   %38 = add i32 %37, 1
   %39 = sext i32 %37 to i64
-  %40 = getelementptr [512 x i8], ptr @dist_code, i64 0, i64 %39
+  %40 = getelementptr i8, ptr @dist_code, i64 %39
   store i8 %33, ptr %40, align 1
   %41 = add nuw nsw i32 %36, 1
   %42 = icmp eq i32 %41, %34
@@ -105,9 +105,9 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %50 = phi i64 [ 16, %46 ], [ %71, %.loopexit ]
   %51 = phi i32 [ %47, %46 ], [ %70, %.loopexit ]
   %52 = shl i32 %51, 7
-  %53 = getelementptr [30 x i32], ptr @base_dist, i64 0, i64 %50
+  %53 = getelementptr i32, ptr @base_dist, i64 %50
   store i32 %52, ptr %53, align 4
-  %54 = getelementptr [30 x i32], ptr @extra_dbits, i64 0, i64 %50
+  %54 = getelementptr i32, ptr @extra_dbits, i64 %50
   %55 = load i32, ptr %54, align 4
   %56 = add i32 %55, -7
   %57 = icmp eq i32 %56, 31
@@ -124,7 +124,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %64 = add i32 %63, 1
   %65 = add i32 %63, 256
   %66 = sext i32 %65 to i64
-  %67 = getelementptr [512 x i8], ptr @dist_code, i64 0, i64 %66
+  %67 = getelementptr i8, ptr @dist_code, i64 %66
   store i8 %60, ptr %67, align 1
   %68 = add nuw nsw i32 %62, 1
   %69 = icmp eq i32 %68, %59
@@ -144,7 +144,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 76:                                               ; preds = %76, %48
   %77 = phi i64 [ 0, %48 ], [ %78, %76 ]
   %78 = add nuw nsw i64 %77, 1
-  %79 = getelementptr [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 %77, i32 1
+  %79 = getelementptr %struct.ct_data_s, ptr @static_ltree, i64 %77, i32 1
   store i16 8, ptr %79, align 2
   %80 = icmp eq i64 %78, 144
   br i1 %80, label %73, label %76, !llvm.loop !13
@@ -157,7 +157,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 83:                                               ; preds = %83, %73
   %84 = phi i64 [ 144, %73 ], [ %85, %83 ]
   %85 = add nuw nsw i64 %84, 1
-  %86 = getelementptr [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 %84, i32 1
+  %86 = getelementptr %struct.ct_data_s, ptr @static_ltree, i64 %84, i32 1
   store i16 9, ptr %86, align 2
   %87 = icmp eq i64 %85, 256
   br i1 %87, label %81, label %83, !llvm.loop !14
@@ -169,7 +169,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 89:                                               ; preds = %89, %81
   %90 = phi i64 [ 256, %81 ], [ %91, %89 ]
   %91 = add nuw nsw i64 %90, 1
-  %92 = getelementptr [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 %90, i32 1
+  %92 = getelementptr %struct.ct_data_s, ptr @static_ltree, i64 %90, i32 1
   store i16 7, ptr %92, align 2
   %93 = icmp eq i64 %91, 280
   br i1 %93, label %88, label %89, !llvm.loop !15
@@ -177,7 +177,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 94:                                               ; preds = %94, %88
   %95 = phi i64 [ 280, %88 ], [ %96, %94 ]
   %96 = add nuw nsw i64 %95, 1
-  %97 = getelementptr [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 %95, i32 1
+  %97 = getelementptr %struct.ct_data_s, ptr @static_ltree, i64 %95, i32 1
   store i16 8, ptr %97, align 2
   %98 = icmp eq i64 %96, 288
   br i1 %98, label %99, label %94, !llvm.loop !16
@@ -202,7 +202,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %109 = load i16, ptr %108, align 2
   %110 = add i16 %107, %109
   %111 = shl i16 %110, 1
-  %112 = getelementptr [16 x i16], ptr %2, i64 0, i64 %106
+  %112 = getelementptr i16, ptr %2, i64 %106
   store i16 %111, ptr %112, align 2
   %113 = add nuw nsw i64 %106, 1
   %114 = icmp eq i64 %113, 16
@@ -219,19 +219,19 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 121:                                              ; preds = %115
   %122 = zext i16 %119 to i32
   %123 = zext i16 %119 to i64
-  %124 = getelementptr [16 x i16], ptr %2, i64 0, i64 %123
+  %124 = getelementptr i16, ptr %2, i64 %123
   %125 = load i16, ptr %124, align 2
   %126 = add i16 %125, 1
   store i16 %126, ptr %124, align 2
   %127 = and i16 %125, 255
   %128 = zext nneg i16 %127 to i64
-  %129 = getelementptr [256 x i8], ptr @byte_rev_table, i64 0, i64 %128
+  %129 = getelementptr i8, ptr @byte_rev_table, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = shl nuw i32 %131, 24
   %133 = lshr i16 %125, 8
   %134 = zext nneg i16 %133 to i64
-  %135 = getelementptr [256 x i8], ptr @byte_rev_table, i64 0, i64 %134
+  %135 = getelementptr i8, ptr @byte_rev_table, i64 %134
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
   %138 = shl nuw nsw i32 %137, 16
@@ -255,10 +255,10 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 149:                                              ; preds = %149, %148
   %150 = phi i64 [ 0, %148 ], [ %157, %149 ]
-  %151 = getelementptr [30 x %struct.ct_data_s], ptr @static_dtree, i64 0, i64 %150
+  %151 = getelementptr %struct.ct_data_s, ptr @static_dtree, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 2
   store i16 5, ptr %152, align 2
-  %153 = getelementptr [256 x i8], ptr @byte_rev_table, i64 0, i64 %150
+  %153 = getelementptr i8, ptr @byte_rev_table, i64 %150
   %154 = load i8, ptr %153, align 1
   %155 = lshr i8 %154, 3
   %156 = zext nneg i8 %155 to i16
@@ -300,7 +300,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 174:                                              ; preds = %174, %160
   %175 = phi i64 [ 0, %160 ], [ %177, %174 ]
-  %176 = getelementptr [573 x %struct.ct_data_s], ptr %162, i64 0, i64 %175
+  %176 = getelementptr %struct.ct_data_s, ptr %162, i64 %175
   store i16 0, ptr %176, align 4
   %177 = add nuw nsw i64 %175, 1
   %178 = icmp eq i64 %177, 286
@@ -308,7 +308,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 .preheader6:                                      ; preds = %174, %.preheader6
   %179 = phi i64 [ %181, %.preheader6 ], [ 0, %174 ]
-  %180 = getelementptr [61 x %struct.ct_data_s], ptr %165, i64 0, i64 %179
+  %180 = getelementptr %struct.ct_data_s, ptr %165, i64 %179
   store i16 0, ptr %180, align 4
   %181 = add nuw nsw i64 %179, 1
   %182 = icmp eq i64 %181, 30
@@ -316,7 +316,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 .preheader:                                       ; preds = %.preheader6, %.preheader
   %183 = phi i64 [ %185, %.preheader ], [ 0, %.preheader6 ]
-  %184 = getelementptr [39 x %struct.ct_data_s], ptr %168, i64 0, i64 %183
+  %184 = getelementptr %struct.ct_data_s, ptr %168, i64 %183
   store i16 0, ptr %184, align 4
   %185 = add nuw nsw i64 %183, 1
   %186 = icmp eq i64 %185, 19
@@ -931,7 +931,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %15 = phi i64 [ 0, %12 ], [ %17, %14 ]
   %16 = phi i32 [ 0, %12 ], [ %21, %14 ]
   %17 = add nuw nsw i64 %15, 1
-  %18 = getelementptr [573 x %struct.ct_data_s], ptr %13, i64 0, i64 %15
+  %18 = getelementptr %struct.ct_data_s, ptr %13, i64 %15
   %19 = load i16, ptr %18, align 4
   %20 = zext i16 %19 to i32
   %21 = add i32 %16, %20
@@ -942,7 +942,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %23 = phi i64 [ %25, %.preheader28 ], [ 7, %14 ]
   %24 = phi i32 [ %29, %.preheader28 ], [ 0, %14 ]
   %25 = add nuw nsw i64 %23, 1
-  %26 = getelementptr [573 x %struct.ct_data_s], ptr %13, i64 0, i64 %23
+  %26 = getelementptr %struct.ct_data_s, ptr %13, i64 %23
   %27 = load i16, ptr %26, align 4
   %28 = zext i16 %27 to i32
   %29 = add i32 %24, %28
@@ -953,7 +953,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %31 = phi i64 [ %33, %.preheader ], [ 128, %.preheader28 ]
   %32 = phi i32 [ %37, %.preheader ], [ %21, %.preheader28 ]
   %33 = add nuw nsw i64 %31, 1
-  %34 = getelementptr [573 x %struct.ct_data_s], ptr %13, i64 0, i64 %31
+  %34 = getelementptr %struct.ct_data_s, ptr %13, i64 %31
   %35 = load i16, ptr %34, align 4
   %36 = zext i16 %35 to i32
   %37 = add i32 %32, %36
@@ -1024,7 +1024,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 85:                                               ; preds = %83
   %86 = zext nneg i32 %72 to i64
-  %87 = getelementptr [39 x %struct.ct_data_s], ptr %61, i64 0, i64 %86
+  %87 = getelementptr %struct.ct_data_s, ptr %61, i64 %86
   %88 = load i16, ptr %87, align 4
   %89 = trunc i32 %79 to i16
   %90 = add i16 %88, %89
@@ -1041,7 +1041,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 95:                                               ; preds = %93
   %96 = zext nneg i32 %72 to i64
-  %97 = getelementptr [39 x %struct.ct_data_s], ptr %61, i64 0, i64 %96
+  %97 = getelementptr %struct.ct_data_s, ptr %61, i64 %96
   %98 = load i16, ptr %97, align 4
   %99 = add i16 %98, 1
   store i16 %99, ptr %97, align 4
@@ -1139,7 +1139,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 161:                                              ; preds = %159
   %162 = zext nneg i32 %148 to i64
-  %163 = getelementptr [39 x %struct.ct_data_s], ptr %137, i64 0, i64 %162
+  %163 = getelementptr %struct.ct_data_s, ptr %137, i64 %162
   %164 = load i16, ptr %163, align 4
   %165 = trunc i32 %155 to i16
   %166 = add i16 %164, %165
@@ -1156,7 +1156,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 171:                                              ; preds = %169
   %172 = zext nneg i32 %148 to i64
-  %173 = getelementptr [39 x %struct.ct_data_s], ptr %137, i64 0, i64 %172
+  %173 = getelementptr %struct.ct_data_s, ptr %137, i64 %172
   %174 = load i16, ptr %173, align 4
   %175 = add i16 %174, 1
   store i16 %175, ptr %173, align 4
@@ -1210,7 +1210,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 200:                                              ; preds = %209, %.loopexit26
   %201 = phi i32 [ 18, %.loopexit26 ], [ %210, %209 ]
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr [19 x i8], ptr @bl_order, i64 0, i64 %202
+  %203 = getelementptr i8, ptr @bl_order, i64 %202
   %204 = load i8, ptr %203, align 1
   %205 = zext i8 %204 to i64
   %.idx24 = shl nuw nsw i64 %205, 2
@@ -1532,7 +1532,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %432 = phi i32 [ %468, %466 ], [ %.pr, %425 ]
   %433 = phi i64 [ %469, %466 ], [ 0, %425 ]
   %434 = icmp sgt i32 %432, 13
-  %435 = getelementptr [19 x i8], ptr @bl_order, i64 0, i64 %433
+  %435 = getelementptr i8, ptr @bl_order, i64 %433
   %436 = load i8, ptr %435, align 1
   %437 = zext i8 %436 to i64
   %.idx25 = shl nuw nsw i64 %437, 2
@@ -1609,7 +1609,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 483:                                              ; preds = %483, %479
   %484 = phi i64 [ 0, %479 ], [ %486, %483 ]
-  %485 = getelementptr [573 x %struct.ct_data_s], ptr %480, i64 0, i64 %484
+  %485 = getelementptr %struct.ct_data_s, ptr %480, i64 %484
   store i16 0, ptr %485, align 4
   %486 = add nuw nsw i64 %484, 1
   %487 = icmp eq i64 %486, 286
@@ -1621,7 +1621,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 490:                                              ; preds = %490, %481
   %491 = phi i64 [ 0, %481 ], [ %493, %490 ]
-  %492 = getelementptr [61 x %struct.ct_data_s], ptr %482, i64 0, i64 %491
+  %492 = getelementptr %struct.ct_data_s, ptr %482, i64 %491
   store i16 0, ptr %492, align 4
   %493 = add nuw nsw i64 %491, 1
   %494 = icmp eq i64 %493, 30
@@ -1629,7 +1629,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 495:                                              ; preds = %495, %488
   %496 = phi i64 [ 0, %488 ], [ %498, %495 ]
-  %497 = getelementptr [39 x %struct.ct_data_s], ptr %489, i64 0, i64 %496
+  %497 = getelementptr %struct.ct_data_s, ptr %489, i64 %496
   store i16 0, ptr %497, align 4
   %498 = add nuw nsw i64 %496, 1
   %499 = icmp eq i64 %498, 19
@@ -1766,10 +1766,10 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %34 = add i32 %33, 1
   store i32 %34, ptr %10, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr [573 x i32], ptr %14, i64 0, i64 %35
+  %36 = getelementptr i32, ptr %14, i64 %35
   %37 = trunc i64 %27 to i32
   store i32 %37, ptr %36, align 4
-  %38 = getelementptr [573 x i8], ptr %15, i64 0, i64 %27
+  %38 = getelementptr i8, ptr %15, i64 %27
   store i8 0, ptr %38, align 1
   br label %41
 
@@ -1794,12 +1794,12 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %52 = add nsw i32 %46, 1
   store i32 %52, ptr %10, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr [573 x i32], ptr %21, i64 0, i64 %53
+  %54 = getelementptr i32, ptr %21, i64 %53
   store i32 %51, ptr %54, align 4
   %55 = sext i32 %51 to i64
   %56 = getelementptr %struct.ct_data_s, ptr %4, i64 %55
   store i16 1, ptr %56, align 2
-  %57 = getelementptr [573 x i8], ptr %22, i64 0, i64 %55
+  %57 = getelementptr i8, ptr %22, i64 %55
   store i8 0, ptr %57, align 1
   %58 = load i64, ptr %23, align 8
   %59 = add i64 %58, -1
@@ -1848,10 +1848,10 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 81:                                               ; preds = %.loopexit54, %73
   %82 = phi i64 [ %77, %73 ], [ %147, %.loopexit54 ]
-  %83 = getelementptr [573 x i32], ptr %75, i64 0, i64 %82
+  %83 = getelementptr i32, ptr %75, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr [573 x i8], ptr %76, i64 0, i64 %85
+  %86 = getelementptr i8, ptr %76, i64 %85
   %87 = trunc i64 %82 to i32
   %88 = shl nuw i32 %87, 1
   %89 = load i32, ptr %10, align 4
@@ -1876,13 +1876,13 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 98:                                               ; preds = %93
   %99 = or disjoint i32 %95, 1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr [573 x i32], ptr %75, i64 0, i64 %100
+  %101 = getelementptr i32, ptr %75, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
   %104 = getelementptr %struct.ct_data_s, ptr %4, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = sext i32 %95 to i64
-  %107 = getelementptr [573 x i32], ptr %75, i64 0, i64 %106
+  %107 = getelementptr i32, ptr %75, i64 %106
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
   %110 = getelementptr %struct.ct_data_s, ptr %4, i64 %109
@@ -1895,9 +1895,9 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   br i1 %114, label %115, label %122
 
 115:                                              ; preds = %113
-  %116 = getelementptr [573 x i8], ptr %76, i64 0, i64 %103
+  %116 = getelementptr i8, ptr %76, i64 %103
   %117 = load i8, ptr %116, align 1
-  %118 = getelementptr [573 x i8], ptr %76, i64 0, i64 %109
+  %118 = getelementptr i8, ptr %76, i64 %109
   %119 = load i8, ptr %118, align 1
   %120 = icmp ugt i8 %117, %119
   br i1 %120, label %122, label %121
@@ -1909,7 +1909,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %.pre-phi81 = phi i64 [ %.pre80, %._crit_edge ], [ %100, %121 ], [ %106, %115 ], [ %106, %113 ]
   %123 = phi i32 [ %95, %._crit_edge ], [ %99, %121 ], [ %95, %115 ], [ %95, %113 ]
   %124 = load i16, ptr %92, align 2
-  %125 = getelementptr [573 x i32], ptr %75, i64 0, i64 %.pre-phi81
+  %125 = getelementptr i32, ptr %75, i64 %.pre-phi81
   %126 = load i32, ptr %125, align 4
   %127 = sext i32 %126 to i64
   %128 = getelementptr %struct.ct_data_s, ptr %4, i64 %127
@@ -1923,14 +1923,14 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 133:                                              ; preds = %131
   %134 = load i8, ptr %86, align 1
-  %135 = getelementptr [573 x i8], ptr %76, i64 0, i64 %127
+  %135 = getelementptr i8, ptr %76, i64 %127
   %136 = load i8, ptr %135, align 1
   %137 = icmp ugt i8 %134, %136
   br i1 %137, label %138, label %.loopexit54
 
 138:                                              ; preds = %133, %131
   %139 = sext i32 %96 to i64
-  %140 = getelementptr [573 x i32], ptr %75, i64 0, i64 %139
+  %140 = getelementptr i32, ptr %75, i64 %139
   store i32 %126, ptr %140, align 4
   %141 = shl i32 %123, 1
   %142 = load i32, ptr %10, align 4
@@ -1940,7 +1940,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 .loopexit54:                                      ; preds = %138, %133, %122, %81
   %144 = phi i32 [ %87, %81 ], [ %96, %122 ], [ %96, %133 ], [ %123, %138 ]
   %145 = sext i32 %144 to i64
-  %146 = getelementptr [573 x i32], ptr %75, i64 0, i64 %145
+  %146 = getelementptr i32, ptr %75, i64 %145
   store i32 %84, ptr %146, align 4
   %147 = add nsw i64 %82, -1
   %148 = icmp sgt i64 %82, 1
@@ -1953,11 +1953,11 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %153 = add i32 %150, -1
   store i32 %153, ptr %10, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr [573 x i32], ptr %78, i64 0, i64 %154
+  %155 = getelementptr i32, ptr %78, i64 %154
   %156 = load i32, ptr %155, align 4
   store i32 %156, ptr %79, align 4
   %157 = sext i32 %156 to i64
-  %158 = getelementptr [573 x i8], ptr %80, i64 0, i64 %157
+  %158 = getelementptr i8, ptr %80, i64 %157
   %159 = icmp slt i32 %153, 2
   br i1 %159, label %.loopexit52, label %160
 
@@ -1979,13 +1979,13 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 167:                                              ; preds = %162
   %168 = or disjoint i32 %164, 1
   %169 = sext i32 %168 to i64
-  %170 = getelementptr [573 x i32], ptr %78, i64 0, i64 %169
+  %170 = getelementptr i32, ptr %78, i64 %169
   %171 = load i32, ptr %170, align 4
   %172 = sext i32 %171 to i64
   %173 = getelementptr %struct.ct_data_s, ptr %4, i64 %172
   %174 = load i16, ptr %173, align 2
   %175 = sext i32 %164 to i64
-  %176 = getelementptr [573 x i32], ptr %78, i64 0, i64 %175
+  %176 = getelementptr i32, ptr %78, i64 %175
   %177 = load i32, ptr %176, align 4
   %178 = sext i32 %177 to i64
   %179 = getelementptr %struct.ct_data_s, ptr %4, i64 %178
@@ -1998,9 +1998,9 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   br i1 %183, label %184, label %191
 
 184:                                              ; preds = %182
-  %185 = getelementptr [573 x i8], ptr %80, i64 0, i64 %172
+  %185 = getelementptr i8, ptr %80, i64 %172
   %186 = load i8, ptr %185, align 1
-  %187 = getelementptr [573 x i8], ptr %80, i64 0, i64 %178
+  %187 = getelementptr i8, ptr %80, i64 %178
   %188 = load i8, ptr %187, align 1
   %189 = icmp ugt i8 %186, %188
   br i1 %189, label %191, label %190
@@ -2012,7 +2012,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %.pre-phi79 = phi i64 [ %.pre78, %._crit_edge76 ], [ %169, %190 ], [ %175, %184 ], [ %175, %182 ]
   %192 = phi i32 [ %164, %._crit_edge76 ], [ %168, %190 ], [ %164, %184 ], [ %164, %182 ]
   %193 = load i16, ptr %161, align 2
-  %194 = getelementptr [573 x i32], ptr %78, i64 0, i64 %.pre-phi79
+  %194 = getelementptr i32, ptr %78, i64 %.pre-phi79
   %195 = load i32, ptr %194, align 4
   %196 = sext i32 %195 to i64
   %197 = getelementptr %struct.ct_data_s, ptr %4, i64 %196
@@ -2026,14 +2026,14 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 202:                                              ; preds = %200
   %203 = load i8, ptr %158, align 1
-  %204 = getelementptr [573 x i8], ptr %80, i64 0, i64 %196
+  %204 = getelementptr i8, ptr %80, i64 %196
   %205 = load i8, ptr %204, align 1
   %206 = icmp ugt i8 %203, %205
   br i1 %206, label %207, label %.loopexit52.loopexit
 
 207:                                              ; preds = %202, %200
   %208 = sext i32 %165 to i64
-  %209 = getelementptr [573 x i32], ptr %78, i64 0, i64 %208
+  %209 = getelementptr i32, ptr %78, i64 %208
   store i32 %195, ptr %209, align 4
   %210 = shl i32 %192, 1
   %211 = load i32, ptr %10, align 4
@@ -2047,20 +2047,20 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 .loopexit52:                                      ; preds = %.loopexit52.loopexit, %149
   %214 = phi i64 [ 1, %149 ], [ %213, %.loopexit52.loopexit ]
-  %215 = getelementptr [573 x i32], ptr %78, i64 0, i64 %214
+  %215 = getelementptr i32, ptr %78, i64 %214
   store i32 %156, ptr %215, align 4
   %216 = load i32, ptr %79, align 4
   %217 = load i32, ptr %11, align 8
   %218 = add i32 %217, -1
   store i32 %218, ptr %11, align 8
   %219 = sext i32 %218 to i64
-  %220 = getelementptr [573 x i32], ptr %78, i64 0, i64 %219
+  %220 = getelementptr i32, ptr %78, i64 %219
   store i32 %152, ptr %220, align 4
   %221 = load i32, ptr %11, align 8
   %222 = add i32 %221, -1
   store i32 %222, ptr %11, align 8
   %223 = sext i32 %222 to i64
-  %224 = getelementptr [573 x i32], ptr %78, i64 0, i64 %223
+  %224 = getelementptr i32, ptr %78, i64 %223
   store i32 %216, ptr %224, align 4
   %225 = sext i32 %152 to i64
   %226 = getelementptr %struct.ct_data_s, ptr %4, i64 %225
@@ -2072,13 +2072,13 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %232 = sext i32 %151 to i64
   %233 = getelementptr %struct.ct_data_s, ptr %4, i64 %232
   store i16 %231, ptr %233, align 2
-  %234 = getelementptr [573 x i8], ptr %80, i64 0, i64 %225
+  %234 = getelementptr i8, ptr %80, i64 %225
   %235 = load i8, ptr %234, align 1
-  %236 = getelementptr [573 x i8], ptr %80, i64 0, i64 %228
+  %236 = getelementptr i8, ptr %80, i64 %228
   %237 = load i8, ptr %236, align 1
   %238 = tail call i8 @llvm.umax.i8(i8 %235, i8 %237)
   %239 = add i8 %238, 1
-  %240 = getelementptr [573 x i8], ptr %80, i64 0, i64 %232
+  %240 = getelementptr i8, ptr %80, i64 %232
   store i8 %239, ptr %240, align 1
   %241 = trunc i32 %151 to i16
   %242 = getelementptr inbounds nuw i8, ptr %229, i64 2
@@ -2105,13 +2105,13 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 251:                                              ; preds = %.preheader
   %252 = or disjoint i32 %248, 1
   %253 = sext i32 %252 to i64
-  %254 = getelementptr [573 x i32], ptr %78, i64 0, i64 %253
+  %254 = getelementptr i32, ptr %78, i64 %253
   %255 = load i32, ptr %254, align 4
   %256 = sext i32 %255 to i64
   %257 = getelementptr %struct.ct_data_s, ptr %4, i64 %256
   %258 = load i16, ptr %257, align 2
   %259 = sext i32 %248 to i64
-  %260 = getelementptr [573 x i32], ptr %78, i64 0, i64 %259
+  %260 = getelementptr i32, ptr %78, i64 %259
   %261 = load i32, ptr %260, align 4
   %262 = sext i32 %261 to i64
   %263 = getelementptr %struct.ct_data_s, ptr %4, i64 %262
@@ -2124,9 +2124,9 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   br i1 %267, label %268, label %275
 
 268:                                              ; preds = %266
-  %269 = getelementptr [573 x i8], ptr %80, i64 0, i64 %256
+  %269 = getelementptr i8, ptr %80, i64 %256
   %270 = load i8, ptr %269, align 1
-  %271 = getelementptr [573 x i8], ptr %80, i64 0, i64 %262
+  %271 = getelementptr i8, ptr %80, i64 %262
   %272 = load i8, ptr %271, align 1
   %273 = icmp ugt i8 %270, %272
   br i1 %273, label %275, label %274
@@ -2138,7 +2138,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %.pre-phi = phi i64 [ %.pre77, %.preheader._crit_edge ], [ %253, %274 ], [ %259, %268 ], [ %259, %266 ]
   %276 = phi i32 [ %248, %.preheader._crit_edge ], [ %252, %274 ], [ %248, %268 ], [ %248, %266 ]
   %277 = load i16, ptr %233, align 2
-  %278 = getelementptr [573 x i32], ptr %78, i64 0, i64 %.pre-phi
+  %278 = getelementptr i32, ptr %78, i64 %.pre-phi
   %279 = load i32, ptr %278, align 4
   %280 = sext i32 %279 to i64
   %281 = getelementptr %struct.ct_data_s, ptr %4, i64 %280
@@ -2152,14 +2152,14 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 286:                                              ; preds = %284
   %287 = load i8, ptr %240, align 1
-  %288 = getelementptr [573 x i8], ptr %80, i64 0, i64 %280
+  %288 = getelementptr i8, ptr %80, i64 %280
   %289 = load i8, ptr %288, align 1
   %290 = icmp ugt i8 %287, %289
   br i1 %290, label %291, label %.loopexit51.loopexit
 
 291:                                              ; preds = %286, %284
   %292 = sext i32 %249 to i64
-  %293 = getelementptr [573 x i32], ptr %78, i64 0, i64 %292
+  %293 = getelementptr i32, ptr %78, i64 %292
   store i32 %279, ptr %293, align 4
   %294 = shl i32 %276, 1
   %295 = load i32, ptr %10, align 4
@@ -2173,7 +2173,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 .loopexit51:                                      ; preds = %.loopexit51.loopexit, %.loopexit52
   %298 = phi i64 [ 1, %.loopexit52 ], [ %297, %.loopexit51.loopexit ]
-  %299 = getelementptr [573 x i32], ptr %78, i64 0, i64 %298
+  %299 = getelementptr i32, ptr %78, i64 %298
   store i32 %151, ptr %299, align 4
   %300 = load i32, ptr %10, align 4
   %301 = icmp sgt i32 %300, 1
@@ -2185,7 +2185,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %305 = add i32 %304, -1
   store i32 %305, ptr %11, align 8
   %306 = sext i32 %305 to i64
-  %307 = getelementptr [573 x i32], ptr %78, i64 0, i64 %306
+  %307 = getelementptr i32, ptr %78, i64 %306
   store i32 %303, ptr %307, align 4
   %308 = load ptr, ptr %1, align 8
   %309 = load i32, ptr %70, align 8
@@ -2201,7 +2201,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %318, i8 0, i64 32, i1 false)
   %319 = load i32, ptr %11, align 8
   %320 = sext i32 %319 to i64
-  %321 = getelementptr [573 x i32], ptr %78, i64 0, i64 %320
+  %321 = getelementptr i32, ptr %78, i64 %320
   %322 = load i32, ptr %321, align 4
   %323 = sext i32 %322 to i64
   %324 = getelementptr %struct.ct_data_s, ptr %308, i64 %323, i32 1
@@ -2221,7 +2221,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 333:                                              ; preds = %382, %328
   %334 = phi i64 [ %332, %328 ], [ %383, %382 ]
   %335 = phi i32 [ 0, %328 ], [ %350, %382 ]
-  %336 = getelementptr [573 x i32], ptr %78, i64 0, i64 %334
+  %336 = getelementptr i32, ptr %78, i64 %334
   %337 = load i32, ptr %336, align 4
   %338 = sext i32 %337 to i64
   %339 = getelementptr %struct.ct_data_s, ptr %308, i64 %338
@@ -2243,7 +2243,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 353:                                              ; preds = %333
   %354 = sext i32 %348 to i64
-  %355 = getelementptr [16 x i16], ptr %318, i64 0, i64 %354
+  %355 = getelementptr i16, ptr %318, i64 %354
   %356 = load i16, ptr %355, align 2
   %357 = add i16 %356, 1
   store i16 %357, ptr %355, align 2
@@ -2293,7 +2293,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 388:                                              ; preds = %386
   %389 = sext i32 %317 to i64
-  %390 = getelementptr [16 x i16], ptr %318, i64 0, i64 %389
+  %390 = getelementptr i16, ptr %318, i64 %389
   br label %391
 
 391:                                              ; preds = %400, %388
@@ -2304,17 +2304,17 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %394 = phi i32 [ %317, %391 ], [ %395, %393 ]
   %395 = add i32 %394, -1
   %396 = sext i32 %395 to i64
-  %397 = getelementptr [16 x i16], ptr %318, i64 0, i64 %396
+  %397 = getelementptr i16, ptr %318, i64 %396
   %398 = load i16, ptr %397, align 2
   %399 = icmp eq i16 %398, 0
   br i1 %399, label %393, label %400, !llvm.loop !36
 
 400:                                              ; preds = %393
-  %401 = getelementptr [16 x i16], ptr %318, i64 0, i64 %396
+  %401 = getelementptr i16, ptr %318, i64 %396
   %402 = add i16 %398, -1
   store i16 %402, ptr %401, align 2
   %403 = sext i32 %394 to i64
-  %404 = getelementptr [16 x i16], ptr %318, i64 0, i64 %403
+  %404 = getelementptr i16, ptr %318, i64 %403
   %405 = load i16, ptr %404, align 2
   %406 = add i16 %405, 2
   store i16 %406, ptr %404, align 2
@@ -2333,7 +2333,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %413 = phi i32 [ %451, %.loopexit50 ], [ %317, %411 ]
   %414 = phi i32 [ %450, %.loopexit50 ], [ 573, %411 ]
   %415 = sext i32 %413 to i64
-  %416 = getelementptr [16 x i16], ptr %318, i64 0, i64 %415
+  %416 = getelementptr i16, ptr %318, i64 %415
   %417 = load i16, ptr %416, align 2
   %418 = trunc i32 %413 to i16
   %419 = icmp eq i16 %417, 0
@@ -2352,7 +2352,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %426 = phi i32 [ %427, %425 ], [ %424, %422 ]
   %427 = add i32 %426, -1
   %428 = sext i32 %427 to i64
-  %429 = getelementptr [573 x i32], ptr %78, i64 0, i64 %428
+  %429 = getelementptr i32, ptr %78, i64 %428
   %430 = load i32, ptr %429, align 4
   %431 = icmp sgt i32 %430, %309
   br i1 %431, label %425, label %432, !llvm.loop !38
@@ -2415,7 +2415,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %467 = load i16, ptr %466, align 2
   %468 = add i16 %465, %467
   %469 = shl i16 %468, 1
-  %470 = getelementptr [16 x i16], ptr %3, i64 0, i64 %464
+  %470 = getelementptr i16, ptr %3, i64 %464
   store i16 %469, ptr %470, align 2
   %471 = add nuw nsw i64 %464, 1
   %472 = icmp eq i64 %471, 16
@@ -2432,19 +2432,19 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 479:                                              ; preds = %473
   %480 = zext i16 %477 to i32
   %481 = zext i16 %477 to i64
-  %482 = getelementptr [16 x i16], ptr %3, i64 0, i64 %481
+  %482 = getelementptr i16, ptr %3, i64 %481
   %483 = load i16, ptr %482, align 2
   %484 = add i16 %483, 1
   store i16 %484, ptr %482, align 2
   %485 = and i16 %483, 255
   %486 = zext nneg i16 %485 to i64
-  %487 = getelementptr [256 x i8], ptr @byte_rev_table, i64 0, i64 %486
+  %487 = getelementptr i8, ptr @byte_rev_table, i64 %486
   %488 = load i8, ptr %487, align 1
   %489 = zext i8 %488 to i32
   %490 = shl nuw i32 %489, 24
   %491 = lshr i16 %483, 8
   %492 = zext nneg i16 %491 to i64
-  %493 = getelementptr [256 x i8], ptr @byte_rev_table, i64 0, i64 %492
+  %493 = getelementptr i8, ptr @byte_rev_table, i64 %492
   %494 = load i8, ptr %493, align 1
   %495 = zext i8 %494 to i32
   %496 = shl nuw nsw i32 %495, 16
@@ -2554,7 +2554,7 @@ define internal fastcc void @compress_block(ptr noundef captures(none) %0, ptr n
   br label %.sink.split
 
 64:                                               ; preds = %14
-  %65 = getelementptr [256 x i8], ptr @length_code, i64 0, i64 %26
+  %65 = getelementptr i8, ptr @length_code, i64 %26
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i64
   %68 = getelementptr %struct.ct_data_s, ptr %1, i64 %67
@@ -2610,14 +2610,14 @@ define internal fastcc void @compress_block(ptr noundef captures(none) %0, ptr n
   %107 = phi i32 [ %102, %82 ], [ %104, %103 ]
   store i16 %106, ptr %11, align 8
   store i32 %107, ptr %10, align 4
-  %108 = getelementptr [29 x i32], ptr @extra_lbits, i64 0, i64 %67
+  %108 = getelementptr i32, ptr @extra_lbits, i64 %67
   %109 = load i32, ptr %108, align 4
   %110 = add i8 %66, -28
   %111 = icmp ult i8 %110, -20
   br i1 %111, label %147, label %112
 
 112:                                              ; preds = %105
-  %113 = getelementptr [29 x i32], ptr @base_length, i64 0, i64 %67
+  %113 = getelementptr i32, ptr @base_length, i64 %67
   %114 = load i32, ptr %113, align 4
   %115 = sub i32 %24, %114
   %116 = sub i32 16, %109
@@ -2676,7 +2676,7 @@ define internal fastcc void @compress_block(ptr noundef captures(none) %0, ptr n
   %153 = add nuw nsw i32 %152, 256
   %154 = select i1 %151, i32 %150, i32 %153
   %155 = zext i32 %154 to i64
-  %156 = getelementptr [512 x i8], ptr @dist_code, i64 0, i64 %155
+  %156 = getelementptr i8, ptr @dist_code, i64 %155
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i64
   %159 = getelementptr %struct.ct_data_s, ptr %2, i64 %158
@@ -2729,13 +2729,13 @@ define internal fastcc void @compress_block(ptr noundef captures(none) %0, ptr n
   %195 = phi i32 [ %190, %170 ], [ %192, %191 ]
   store i16 %194, ptr %11, align 8
   store i32 %195, ptr %10, align 4
-  %196 = getelementptr [30 x i32], ptr @extra_dbits, i64 0, i64 %158
+  %196 = getelementptr i32, ptr @extra_dbits, i64 %158
   %197 = load i32, ptr %196, align 4
   %198 = icmp ult i8 %157, 4
   br i1 %198, label %232, label %199
 
 199:                                              ; preds = %193
-  %200 = getelementptr [30 x i32], ptr @base_dist, i64 0, i64 %158
+  %200 = getelementptr i32, ptr @base_dist, i64 %158
   %201 = load i32, ptr %200, align 4
   %202 = sub i32 %150, %201
   %203 = sub i32 16, %197
@@ -2881,8 +2881,8 @@ define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr noundef captures(none) %
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %21 = zext i32 %2 to i64
-  %22 = getelementptr [573 x %struct.ct_data_s], ptr %20, i64 0, i64 %21
-  br label %47
+  %22 = getelementptr %struct.ct_data_s, ptr %20, i64 %21
+  br label %46
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 5912
@@ -2890,96 +2890,95 @@ define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr noundef captures(none) %
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 8
   %27 = add i32 %1, -1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %29 = zext i32 %2 to i64
-  %30 = getelementptr [256 x i8], ptr @length_code, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i64
-  %33 = add nuw nsw i64 %32, 257
-  %34 = getelementptr [573 x %struct.ct_data_s], ptr %28, i64 0, i64 %33
-  %35 = load i16, ptr %34, align 4
-  %36 = add i16 %35, 1
-  store i16 %36, ptr %34, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %38 = icmp ult i32 %1, 257
-  %39 = lshr i32 %27, 7
-  %40 = add nuw nsw i32 %39, 256
-  %41 = select i1 %38, i32 %27, i32 %40
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr [512 x i8], ptr @dist_code, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i64
-  %46 = getelementptr [61 x %struct.ct_data_s], ptr %37, i64 0, i64 %45
-  br label %47
+  %28 = zext i32 %2 to i64
+  %29 = getelementptr i8, ptr @length_code, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i64
+  %32 = getelementptr i8, ptr %0, i64 1216
+  %33 = getelementptr %struct.ct_data_s, ptr %32, i64 %31
+  %34 = load i16, ptr %33, align 4
+  %35 = add i16 %34, 1
+  store i16 %35, ptr %33, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %37 = icmp ult i32 %1, 257
+  %38 = lshr i32 %27, 7
+  %39 = add nuw nsw i32 %38, 256
+  %40 = select i1 %37, i32 %27, i32 %39
+  %41 = zext nneg i32 %40 to i64
+  %42 = getelementptr i8, ptr @dist_code, i64 %41
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i64
+  %45 = getelementptr %struct.ct_data_s, ptr %36, i64 %44
+  br label %46
 
-47:                                               ; preds = %23, %19
-  %48 = phi ptr [ %46, %23 ], [ %22, %19 ]
-  %49 = load i16, ptr %48, align 4
-  %50 = add i16 %49, 1
-  store i16 %50, ptr %48, align 4
-  %51 = load i32, ptr %7, align 4
-  %52 = and i32 %51, 4095
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %91
+46:                                               ; preds = %23, %19
+  %47 = phi ptr [ %45, %23 ], [ %22, %19 ]
+  %48 = load i16, ptr %47, align 4
+  %49 = add i16 %48, 1
+  store i16 %49, ptr %47, align 4
+  %50 = load i32, ptr %7, align 4
+  %51 = and i32 %50, 4095
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %90
 
-54:                                               ; preds = %47
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp sgt i32 %56, 2
-  br i1 %57, label %58, label %91
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp sgt i32 %55, 2
+  br i1 %56, label %57, label %90
 
-58:                                               ; preds = %54
-  %59 = zext i32 %51 to i64
-  %60 = shl nuw nsw i64 %59, 3
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  br label %66
+57:                                               ; preds = %53
+  %58 = zext i32 %50 to i64
+  %59 = shl nuw nsw i64 %58, 3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %63 = load i64, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  br label %65
 
-66:                                               ; preds = %66, %58
-  %67 = phi i64 [ 0, %58 ], [ %78, %66 ]
-  %68 = phi i64 [ %60, %58 ], [ %77, %66 ]
-  %69 = getelementptr [61 x %struct.ct_data_s], ptr %65, i64 0, i64 %67
-  %70 = load i16, ptr %69, align 4
-  %71 = zext i16 %70 to i64
-  %72 = getelementptr [30 x i32], ptr @extra_dbits, i64 0, i64 %67
-  %73 = load i32, ptr %72, align 4
-  %74 = sext i32 %73 to i64
-  %75 = add nsw i64 %74, 5
-  %76 = mul nsw i64 %75, %71
-  %77 = add i64 %76, %68
-  %78 = add nuw nsw i64 %67, 1
-  %79 = icmp eq i64 %78, 30
-  br i1 %79, label %80, label %66, !llvm.loop !41
+65:                                               ; preds = %65, %57
+  %66 = phi i64 [ 0, %57 ], [ %77, %65 ]
+  %67 = phi i64 [ %59, %57 ], [ %76, %65 ]
+  %68 = getelementptr %struct.ct_data_s, ptr %64, i64 %66
+  %69 = load i16, ptr %68, align 4
+  %70 = zext i16 %69 to i64
+  %71 = getelementptr i32, ptr @extra_dbits, i64 %66
+  %72 = load i32, ptr %71, align 4
+  %73 = sext i32 %72 to i64
+  %74 = add nsw i64 %73, 5
+  %75 = mul nsw i64 %74, %70
+  %76 = add i64 %75, %67
+  %77 = add nuw nsw i64 %66, 1
+  %78 = icmp eq i64 %77, 30
+  br i1 %78, label %79, label %65, !llvm.loop !41
 
-80:                                               ; preds = %66
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 5912
-  %82 = load i32, ptr %81, align 8
-  %83 = lshr exact i32 %51, 1
-  %84 = icmp ult i32 %82, %83
-  br i1 %84, label %85, label %91
+79:                                               ; preds = %65
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 5912
+  %81 = load i32, ptr %80, align 8
+  %82 = lshr exact i32 %50, 1
+  %83 = icmp ult i32 %81, %82
+  br i1 %83, label %84, label %90
 
-85:                                               ; preds = %80
-  %86 = zext i32 %62 to i64
-  %87 = sub i64 %86, %64
-  %88 = lshr i64 %77, 3
-  %89 = lshr i64 %87, 1
-  %90 = icmp samesign ult i64 %88, %89
-  br i1 %90, label %97, label %91
+84:                                               ; preds = %79
+  %85 = zext i32 %61 to i64
+  %86 = sub i64 %85, %63
+  %87 = lshr i64 %76, 3
+  %88 = lshr i64 %86, 1
+  %89 = icmp samesign ult i64 %87, %88
+  br i1 %89, label %96, label %90
 
-91:                                               ; preds = %85, %80, %54, %47
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 5872
-  %93 = load i32, ptr %92, align 8
-  %94 = add i32 %93, -1
-  %95 = icmp eq i32 %51, %94
-  %96 = zext i1 %95 to i32
-  br label %97
+90:                                               ; preds = %84, %79, %53, %46
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 5872
+  %92 = load i32, ptr %91, align 8
+  %93 = add i32 %92, -1
+  %94 = icmp eq i32 %50, %93
+  %95 = zext i1 %94 to i32
+  br label %96
 
-97:                                               ; preds = %91, %85
-  %98 = phi i32 [ %96, %91 ], [ 1, %85 ]
-  ret i32 %98
+96:                                               ; preds = %90, %84
+  %97 = phi i32 [ %95, %90 ], [ 1, %84 ]
+  ret i32 %97
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -3036,7 +3035,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr noundef readonly capt
 
 43:                                               ; preds = %41
   %44 = zext nneg i32 %29 to i64
-  %45 = getelementptr [39 x %struct.ct_data_s], ptr %12, i64 0, i64 %44
+  %45 = getelementptr %struct.ct_data_s, ptr %12, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2
   %.pre25 = load i32, ptr %13, align 4
   br label %47
@@ -3108,7 +3107,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr noundef readonly capt
 
 92:                                               ; preds = %90
   %93 = zext nneg i32 %29 to i64
-  %94 = getelementptr [39 x %struct.ct_data_s], ptr %12, i64 0, i64 %93
+  %94 = getelementptr %struct.ct_data_s, ptr %12, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 2
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i32

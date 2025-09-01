@@ -620,7 +620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i12: ; preds = %_
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.09.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %64, %.lr.ph.i ]
-  %67 = getelementptr inbounds nuw [65536 x i32], ptr %62, i64 0, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
   store i32 %.09.lcssa.i, ptr %67, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65536
@@ -5917,14 +5917,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190: ; preds = %_Z
   %.4143197.us = phi i32 [ %.6.us, %208 ], [ %.3142200.us, %.lr.ph.us ]
   %.1149195.us = phi i16 [ %.3151.us, %208 ], [ %.0148199.us, %.lr.ph.us ]
   %.1153194.us = phi i16 [ %.3155.us, %208 ], [ %.0152198.us, %.lr.ph.us ]
-  %174 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv6stereo8Matching18smallRegionRemovalIsEEvRKNS_3MatEiRS3_.di, i64 0, i64 %indvars.iv
+  %174 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv6stereo8Matching18smallRegionRemovalIsEEvRKNS_3MatEiRS3_.di, i64 %indvars.iv
   %175 = load i32, ptr %174, align 4, !tbaa !21
   %176 = add nsw i32 %175, %167
   %or.cond177.us = icmp ult i32 %176, %.fr
   br i1 %or.cond177.us, label %177, label %208
 
 177:                                              ; preds = %173
-  %178 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv6stereo8Matching18smallRegionRemovalIsEEvRKNS_3MatEiRS3_.dj, i64 0, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv6stereo8Matching18smallRegionRemovalIsEEvRKNS_3MatEiRS3_.dj, i64 %indvars.iv
   %179 = load i32, ptr %178, align 4, !tbaa !21
   %180 = add nsw i32 %179, %169
   %181 = icmp sgt i32 %180, -1
@@ -6246,10 +6246,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median1x9IsEclERKNS_5Ra
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us
-  %44 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv88
+  %44 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv88
   %45 = load i16, ptr %44, align 2, !tbaa !105
   %46 = zext nneg i32 %spec.select.us to i64
-  %47 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %3, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !105
   store i16 %48, ptr %44, align 2, !tbaa !105
   store i16 %45, ptr %47, align 2, !tbaa !105
@@ -6260,10 +6260,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median1x9IsEclERKNS_5Ra
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv84 = phi i64 [ %indvars.iv82, %.lr.ph.us.preheader ], [ %indvars.iv.next85, %.lr.ph.us ]
   %.03953.us = phi i32 [ %43, %.lr.ph.us.preheader ], [ %spec.select.us, %.lr.ph.us ]
-  %49 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv84
+  %49 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv84
   %50 = load i16, ptr %49, align 2, !tbaa !105
   %51 = zext nneg i32 %.03953.us to i64
-  %52 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i16, ptr %3, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !105
   %54 = icmp slt i16 %50, %53
   %55 = trunc nuw nsw i64 %indvars.iv84 to i32
@@ -6441,7 +6441,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IsEclERKNS_5Ra
   %gep = getelementptr i16, ptr %invariant.gep, i64 %39
   %40 = load i16, ptr %gep, align 2, !tbaa !105
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %41 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv73
+  %41 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv73
   store i16 %40, ptr %41, align 2, !tbaa !105
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %.not45.us.us.not = icmp samesign ult i64 %indvars.iv71, %37
@@ -6455,10 +6455,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IsEclERKNS_5Ra
   br label %.lr.ph.us.us
 
 ._crit_edge.us.us:                                ; preds = %.lr.ph.us.us
-  %43 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv84
+  %43 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv84
   %44 = load i16, ptr %43, align 2, !tbaa !105
   %45 = zext nneg i32 %spec.select.us.us to i64
-  %46 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i16, ptr %3, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !105
   store i16 %47, ptr %43, align 2, !tbaa !105
   store i16 %44, ptr %46, align 2, !tbaa !105
@@ -6469,10 +6469,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IsEclERKNS_5Ra
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %indvars.iv80 = phi i64 [ %indvars.iv78, %.lr.ph.us.us.preheader ], [ %indvars.iv.next81, %.lr.ph.us.us ]
   %.03949.us.us = phi i32 [ %42, %.lr.ph.us.us.preheader ], [ %spec.select.us.us, %.lr.ph.us.us ]
-  %48 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv80
+  %48 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv80
   %49 = load i16, ptr %48, align 2, !tbaa !105
   %50 = zext nneg i32 %.03949.us.us to i64
-  %51 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i16, ptr %3, i64 %50
   %52 = load i16, ptr %51, align 2, !tbaa !105
   %53 = icmp slt i16 %49, %52
   %54 = trunc nuw nsw i64 %indvars.iv80 to i32

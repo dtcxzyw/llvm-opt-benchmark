@@ -79,7 +79,7 @@ define void @jinit_d_coef_controller(ptr noundef %0, i32 noundef %1) local_unnam
   %49 = tail call i64 @jround_up(i64 noundef %46, i64 noundef %48) #7
   %50 = trunc i64 %49 to i32
   %51 = tail call ptr %35(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, i32 noundef %43, i32 noundef %50, i32 noundef %spec.select) #7
-  %52 = getelementptr inbounds nuw [10 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   store ptr %51, ptr %52, align 8, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = getelementptr inbounds nuw i8, ptr %.05054, i64 96
@@ -107,7 +107,7 @@ define void @jinit_d_coef_controller(ptr noundef %0, i32 noundef %1) local_unnam
 66:                                               ; preds = %60, %66
   %indvars.iv58 = phi i64 [ 0, %60 ], [ %indvars.iv.next59, %66 ]
   %67 = getelementptr inbounds nuw [64 x i16], ptr %64, i64 %indvars.iv58
-  %68 = getelementptr inbounds nuw [10 x ptr], ptr %65, i64 0, i64 %indvars.iv58
+  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv58
   store ptr %67, ptr %68, align 8, !tbaa !63
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next59, 10
@@ -405,7 +405,7 @@ define internal range(i32 0, 5) i32 @consume_data(ptr noundef %0) #0 {
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !71
   %15 = load ptr, ptr %9, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
@@ -413,14 +413,14 @@ define internal range(i32 0, 5) i32 @consume_data(ptr noundef %0) #0 {
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !85
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [10 x ptr], ptr %10, i64 0, i64 %20
+  %21 = getelementptr inbounds ptr, ptr %10, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !56
   %23 = load i32, ptr %11, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !49
   %26 = mul i32 %25, %23
   %27 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %22, i32 noundef %26, i32 noundef %25, i32 noundef 1) #7
-  %28 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   store ptr %27, ptr %28, align 8, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %5, align 8, !tbaa !68
@@ -470,7 +470,7 @@ define internal range(i32 0, 5) i32 @consume_data(ptr noundef %0) #0 {
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %._crit_edge81
   %indvars.iv104 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next105, %._crit_edge81 ]
   %.06383 = phi i32 [ 0, %.lr.ph85.preheader ], [ %.164.lcssa, %._crit_edge81 ]
-  %52 = getelementptr inbounds nuw [4 x ptr], ptr %39, i64 0, i64 %indvars.iv104
+  %52 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv104
   %53 = load ptr, ptr %52, align 8, !tbaa !71
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 52
   %55 = load i32, ptr %54, align 4, !tbaa !90
@@ -486,7 +486,7 @@ define internal range(i32 0, 5) i32 @consume_data(ptr noundef %0) #0 {
   br i1 %61, label %.lr.ph75.us.preheader, label %._crit_edge81
 
 .lr.ph75.us.preheader:                            ; preds = %.lr.ph80
-  %62 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %indvars.iv104
+  %62 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv104
   %63 = load ptr, ptr %62, align 8, !tbaa !86
   %wide.trip.count = zext nneg i32 %57 to i64
   %invariant.gep = getelementptr ptr, ptr %63, i64 %indvars.iv109
@@ -507,7 +507,7 @@ define internal range(i32 0, 5) i32 @consume_data(ptr noundef %0) #0 {
   %.073.us = phi ptr [ %65, %.lr.ph75.us ], [ %69, %68 ]
   %69 = getelementptr inbounds nuw i8, ptr %.073.us, i64 128
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
-  %70 = getelementptr inbounds [10 x ptr], ptr %40, i64 0, i64 %indvars.iv97
+  %70 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv97
   store ptr %.073.us, ptr %70, align 8, !tbaa !63
   %lftr.wideiv = trunc i64 %indvars.iv.next98 to i32
   %exitcond.not = icmp eq i32 %67, %lftr.wideiv
@@ -696,7 +696,7 @@ define internal range(i32 0, 5) i32 @decompress_data(ptr noundef %0, ptr noundef
   %39 = load ptr, ptr %31, align 8, !tbaa !36
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %41 = load ptr, ptr %40, align 8, !tbaa !84
-  %42 = getelementptr inbounds nuw [10 x ptr], ptr %32, i64 0, i64 %indvars.iv91
+  %42 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv91
   %43 = load ptr, ptr %42, align 8, !tbaa !56
   %44 = load i32, ptr %11, align 8, !tbaa !83
   %45 = getelementptr inbounds nuw i8, ptr %.06285, i64 12
@@ -724,7 +724,7 @@ define internal range(i32 0, 5) i32 @decompress_data(ptr noundef %0, ptr noundef
   %.067 = phi i32 [ %52, %51 ], [ %spec.select, %53 ]
   %60 = load ptr, ptr %33, align 8, !tbaa !111
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = getelementptr inbounds nuw [10 x ptr], ptr %61, i64 0, i64 %indvars.iv91
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv91
   %63 = load ptr, ptr %62, align 8, !tbaa !71
   %64 = icmp sgt i32 %.067, 0
   br i1 %64, label %.lr.ph83, label %.loopexit
@@ -733,10 +733,10 @@ define internal range(i32 0, 5) i32 @decompress_data(ptr noundef %0, ptr noundef
   %65 = getelementptr inbounds nuw i8, ptr %.06285, i64 36
   %66 = load ptr, ptr %34, align 8, !tbaa !98
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %68 = getelementptr inbounds nuw [10 x i32], ptr %67, i64 0, i64 %indvars.iv91
+  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv91
   %69 = load i32, ptr %68, align 4, !tbaa !79
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 72
-  %71 = getelementptr inbounds nuw [10 x i32], ptr %70, i64 0, i64 %indvars.iv91
+  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv91
   %72 = load i32, ptr %71, align 4, !tbaa !79
   %73 = icmp ugt i32 %69, %72
   br i1 %73, label %.loopexit, label %.lr.ph83.split.preheader
@@ -752,10 +752,10 @@ define internal range(i32 0, 5) i32 @decompress_data(ptr noundef %0, ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph83.split.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.06481 = phi ptr [ %75, %.lr.ph83.split.preheader ], [ %98, %._crit_edge ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = getelementptr inbounds nuw [10 x i32], ptr %77, i64 0, i64 %indvars.iv91
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv91
   %79 = load i32, ptr %78, align 4, !tbaa !79
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 72
-  %81 = getelementptr inbounds nuw [10 x i32], ptr %80, i64 0, i64 %indvars.iv91
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv91
   %82 = load i32, ptr %81, align 4, !tbaa !79
   %.not7476 = icmp ugt i32 %79, %82
   br i1 %.not7476, label %.lr.ph83.split.._crit_edge_crit_edge, label %.lr.ph.preheader
@@ -782,7 +782,7 @@ define internal range(i32 0, 5) i32 @decompress_data(ptr noundef %0, ptr noundef
   %90 = add i32 %.06677, 1
   %91 = load ptr, ptr %34, align 8, !tbaa !98
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 72
-  %93 = getelementptr inbounds nuw [10 x i32], ptr %92, i64 0, i64 %indvars.iv91
+  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv91
   %94 = load i32, ptr %93, align 4, !tbaa !79
   %.not74 = icmp ugt i32 %90, %94
   br i1 %.not74, label %._crit_edge, label %.lr.ph, !llvm.loop !114
@@ -854,14 +854,14 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   br label %25
 
 25:                                               ; preds = %.lr.ph119, %._crit_edge
-  %26 = phi i32 [ %14, %.lr.ph119 ], [ %124, %._crit_edge ]
+  %26 = phi i32 [ %14, %.lr.ph119 ], [ %122, %._crit_edge ]
   %27 = phi i32 [ %.pre, %.lr.ph119 ], [ 0, %._crit_edge ]
-  %.086117 = phi i32 [ %12, %.lr.ph119 ], [ %125, %._crit_edge ]
+  %.086117 = phi i32 [ %12, %.lr.ph119 ], [ %123, %._crit_edge ]
   %.not113 = icmp ugt i32 %27, %7
   br i1 %.not113, label %._crit_edge, label %.lr.ph116
 
 .lr.ph116:                                        ; preds = %25, %.loopexit96
-  %.081114 = phi i32 [ %123, %.loopexit96 ], [ %27, %25 ]
+  %.081114 = phi i32 [ %121, %.loopexit96 ], [ %27, %25 ]
   %28 = load ptr, ptr %17, align 8, !tbaa !63
   %29 = load i32, ptr %18, align 8, !tbaa !118
   %30 = sext i32 %29 to i64
@@ -890,7 +890,7 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
 43:                                               ; preds = %39
   store i32 %.086117, ptr %11, align 4, !tbaa !74
   store i32 %.081114, ptr %16, align 8, !tbaa !73
-  br label %161
+  br label %159
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr %21, align 8, !tbaa !98
@@ -915,10 +915,10 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   br label %54
 
 54:                                               ; preds = %.lr.ph, %.loopexit95
-  %55 = phi i32 [ %51, %.lr.ph ], [ %120, %.loopexit95 ]
+  %55 = phi i32 [ %51, %.lr.ph ], [ %118, %.loopexit95 ]
   %indvars.iv130 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next131, %.loopexit95 ]
   %.083112 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit95 ]
-  %56 = getelementptr inbounds nuw [4 x ptr], ptr %23, i64 0, i64 %indvars.iv130
+  %56 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv130
   %57 = load ptr, ptr %56, align 8, !tbaa !71
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load i32, ptr %58, align 8, !tbaa !110
@@ -937,7 +937,7 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !85
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds [10 x ptr], ptr %66, i64 0, i64 %69
+  %70 = getelementptr inbounds ptr, ptr %66, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !71
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 52
   %73 = getelementptr inbounds nuw i8, ptr %57, i64 68
@@ -990,6 +990,7 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
 
 .lr.ph.us:                                        ; preds = %98, %.lr.ph104.split.us
   %102 = sext i32 %.2103.us to i64
+  %invariant.gep = getelementptr ptr, ptr %17, i64 %102
   br label %111
 
 ..loopexit_crit_edge.us.loopexit:                 ; preds = %111
@@ -998,7 +999,7 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
 
 ..loopexit_crit_edge.us:                          ; preds = %..loopexit_crit_edge.us.loopexit, %98
   %103 = phi i32 [ %.pre133, %..loopexit_crit_edge.us.loopexit ], [ %94, %98 ]
-  %104 = phi i32 [ %115, %..loopexit_crit_edge.us.loopexit ], [ %95, %98 ]
+  %104 = phi i32 [ %113, %..loopexit_crit_edge.us.loopexit ], [ %95, %98 ]
   %105 = load i32, ptr %72, align 4, !tbaa !90
   %106 = add nsw i32 %105, %.2103.us
   %107 = sext i32 %104 to i64
@@ -1009,21 +1010,20 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
 
 111:                                              ; preds = %.lr.ph.us, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %111 ]
-  %.082100.us = phi i32 [ %82, %.lr.ph.us ], [ %116, %111 ]
-  %112 = add nsw i64 %indvars.iv, %102
-  %113 = getelementptr inbounds [10 x ptr], ptr %17, i64 0, i64 %112
-  %114 = load ptr, ptr %113, align 8, !tbaa !63
-  tail call void %71(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef %114, ptr noundef %.084102.us, i32 noundef %.082100.us) #7
-  %115 = load i32, ptr %75, align 4, !tbaa !113
-  %116 = add i32 %115, %.082100.us
+  %.082100.us = phi i32 [ %82, %.lr.ph.us ], [ %114, %111 ]
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %112 = load ptr, ptr %gep, align 8, !tbaa !63
+  tail call void %71(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef %112, ptr noundef %.084102.us, i32 noundef %.082100.us) #7
+  %113 = load i32, ptr %75, align 4, !tbaa !113
+  %114 = add i32 %113, %.082100.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us.loopexit, label %111, !llvm.loop !124
 
 .lr.ph104.split:                                  ; preds = %.lr.ph104
-  %117 = load i32, ptr %72, align 4, !tbaa !90
-  %118 = mul i32 %117, %84
-  %119 = add i32 %.083112, %118
+  %115 = load i32, ptr %72, align 4, !tbaa !90
+  %116 = mul i32 %115, %84
+  %117 = add i32 %.083112, %116
   br label %.loopexit95
 
 .loopexit95.loopexit:                             ; preds = %..loopexit_crit_edge.us
@@ -1031,16 +1031,16 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   br label %.loopexit95
 
 .loopexit95:                                      ; preds = %.lr.ph104.split, %.loopexit95.loopexit, %64, %60
-  %120 = phi i32 [ %55, %60 ], [ %55, %64 ], [ %.pre134, %.loopexit95.loopexit ], [ %55, %.lr.ph104.split ]
-  %.1 = phi i32 [ %63, %60 ], [ %.083112, %64 ], [ %106, %.loopexit95.loopexit ], [ %119, %.lr.ph104.split ]
+  %118 = phi i32 [ %55, %60 ], [ %55, %64 ], [ %.pre134, %.loopexit95.loopexit ], [ %55, %.lr.ph104.split ]
+  %.1 = phi i32 [ %63, %60 ], [ %.083112, %64 ], [ %106, %.loopexit95.loopexit ], [ %117, %.lr.ph104.split ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %121 = sext i32 %120 to i64
-  %122 = icmp slt i64 %indvars.iv.next131, %121
-  br i1 %122, label %54, label %.loopexit96, !llvm.loop !125
+  %119 = sext i32 %118 to i64
+  %120 = icmp slt i64 %indvars.iv.next131, %119
+  br i1 %120, label %54, label %.loopexit96, !llvm.loop !125
 
 .loopexit96:                                      ; preds = %.loopexit95, %.preheader, %44, %48
-  %123 = add i32 %.081114, 1
-  %.not = icmp ugt i32 %123, %7
+  %121 = add i32 %.081114, 1
+  %.not = icmp ugt i32 %121, %7
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph116, !llvm.loop !126
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit96
@@ -1048,78 +1048,78 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
-  %124 = phi i32 [ %.pre135, %._crit_edge.loopexit ], [ %26, %25 ]
+  %122 = phi i32 [ %.pre135, %._crit_edge.loopexit ], [ %26, %25 ]
   store i32 0, ptr %16, align 8, !tbaa !73
-  %125 = add nsw i32 %.086117, 1
-  %126 = icmp slt i32 %125, %124
-  br i1 %126, label %25, label %._crit_edge120.loopexit, !llvm.loop !127
+  %123 = add nsw i32 %.086117, 1
+  %124 = icmp slt i32 %123, %122
+  br i1 %124, label %25, label %._crit_edge120.loopexit, !llvm.loop !127
 
 ._crit_edge120.loopexit:                          ; preds = %._crit_edge
   %.pre136 = load i32, ptr %8, align 4, !tbaa !70
   br label %._crit_edge120
 
 ._crit_edge120:                                   ; preds = %._crit_edge120.loopexit, %2
-  %127 = phi i32 [ %.pre136, %._crit_edge120.loopexit ], [ %9, %2 ]
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %129 = load i32, ptr %128, align 8, !tbaa !83
-  %130 = add i32 %129, 1
-  store i32 %130, ptr %128, align 8, !tbaa !83
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %132 = load i32, ptr %131, align 8, !tbaa !67
-  %133 = add i32 %132, 1
-  store i32 %133, ptr %131, align 8, !tbaa !67
-  %134 = icmp ult i32 %133, %127
-  br i1 %134, label %135, label %156
+  %125 = phi i32 [ %.pre136, %._crit_edge120.loopexit ], [ %9, %2 ]
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %127 = load i32, ptr %126, align 8, !tbaa !83
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %126, align 8, !tbaa !83
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %130 = load i32, ptr %129, align 8, !tbaa !67
+  %131 = add i32 %130, 1
+  store i32 %131, ptr %129, align 8, !tbaa !67
+  %132 = icmp ult i32 %131, %125
+  br i1 %132, label %133, label %154
 
-135:                                              ; preds = %._crit_edge120
-  %136 = load ptr, ptr %3, align 8, !tbaa !39
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %138 = load i32, ptr %137, align 8, !tbaa !68
-  %139 = icmp sgt i32 %138, 1
-  br i1 %139, label %140, label %142
+133:                                              ; preds = %._crit_edge120
+  %134 = load ptr, ptr %3, align 8, !tbaa !39
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %136 = load i32, ptr %135, align 8, !tbaa !68
+  %137 = icmp sgt i32 %136, 1
+  br i1 %137, label %138, label %140
 
-140:                                              ; preds = %135
-  %141 = getelementptr inbounds nuw i8, ptr %136, i64 80
-  store i32 1, ptr %141, align 8, !tbaa !69
+138:                                              ; preds = %133
+  %139 = getelementptr inbounds nuw i8, ptr %134, i64 80
+  store i32 1, ptr %139, align 8, !tbaa !69
   br label %start_iMCU_row.exit
 
-142:                                              ; preds = %135
-  %143 = add i32 %127, -1
-  %144 = icmp ult i32 %133, %143
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %146 = load ptr, ptr %145, align 8, !tbaa !71
-  %147 = getelementptr inbounds nuw i8, ptr %136, i64 80
-  br i1 %144, label %148, label %151
+140:                                              ; preds = %133
+  %141 = add i32 %125, -1
+  %142 = icmp ult i32 %131, %141
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %144 = load ptr, ptr %143, align 8, !tbaa !71
+  %145 = getelementptr inbounds nuw i8, ptr %134, i64 80
+  br i1 %142, label %146, label %149
 
-148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 12
-  %150 = load i32, ptr %149, align 4, !tbaa !49
-  store i32 %150, ptr %147, align 8, !tbaa !69
+146:                                              ; preds = %140
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 12
+  %148 = load i32, ptr %147, align 4, !tbaa !49
+  store i32 %148, ptr %145, align 8, !tbaa !69
   br label %start_iMCU_row.exit
 
-151:                                              ; preds = %142
-  %152 = getelementptr inbounds nuw i8, ptr %146, i64 72
-  %153 = load i32, ptr %152, align 8, !tbaa !72
-  store i32 %153, ptr %147, align 8, !tbaa !69
+149:                                              ; preds = %140
+  %150 = getelementptr inbounds nuw i8, ptr %144, i64 72
+  %151 = load i32, ptr %150, align 8, !tbaa !72
+  store i32 %151, ptr %145, align 8, !tbaa !69
   br label %start_iMCU_row.exit
 
-start_iMCU_row.exit:                              ; preds = %140, %148, %151
-  %154 = getelementptr inbounds nuw i8, ptr %136, i64 72
-  store i32 0, ptr %154, align 8, !tbaa !73
-  %155 = getelementptr inbounds nuw i8, ptr %136, i64 76
-  store i32 0, ptr %155, align 4, !tbaa !74
-  br label %161
+start_iMCU_row.exit:                              ; preds = %138, %146, %149
+  %152 = getelementptr inbounds nuw i8, ptr %134, i64 72
+  store i32 0, ptr %152, align 8, !tbaa !73
+  %153 = getelementptr inbounds nuw i8, ptr %134, i64 76
+  store i32 0, ptr %153, align 4, !tbaa !74
+  br label %159
 
-156:                                              ; preds = %._crit_edge120
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %158 = load ptr, ptr %157, align 8, !tbaa !104
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
-  %160 = load ptr, ptr %159, align 8, !tbaa !105
-  tail call void %160(ptr noundef nonnull %0) #7
-  br label %161
+154:                                              ; preds = %._crit_edge120
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %156 = load ptr, ptr %155, align 8, !tbaa !104
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 24
+  %158 = load ptr, ptr %157, align 8, !tbaa !105
+  tail call void %158(ptr noundef nonnull %0) #7
+  br label %159
 
-161:                                              ; preds = %156, %start_iMCU_row.exit, %43
-  %.0 = phi i32 [ 0, %43 ], [ 3, %start_iMCU_row.exit ], [ 4, %156 ]
+159:                                              ; preds = %154, %start_iMCU_row.exit, %43
+  %.0 = phi i32 [ 0, %43 ], [ 3, %start_iMCU_row.exit ], [ 4, %154 ]
   ret i32 %.0
 }
 
@@ -1256,7 +1256,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %87 = load ptr, ptr %42, align 8, !tbaa !36
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
   %89 = load ptr, ptr %88, align 8, !tbaa !84
-  %90 = getelementptr inbounds nuw [10 x ptr], ptr %43, i64 0, i64 %indvars.iv1000
+  %90 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv1000
   %91 = load ptr, ptr %90, align 8, !tbaa !56
   %92 = add i32 %60, -2
   %93 = mul i32 %81, %92
@@ -1277,7 +1277,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %104 = load ptr, ptr %42, align 8, !tbaa !36
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 64
   %106 = load ptr, ptr %105, align 8, !tbaa !84
-  %107 = getelementptr inbounds nuw [10 x ptr], ptr %43, i64 0, i64 %indvars.iv1000
+  %107 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv1000
   %108 = load ptr, ptr %107, align 8, !tbaa !56
   %109 = tail call ptr %106(ptr noundef nonnull %0, ptr noundef %108, i32 noundef 0, i32 noundef %103, i32 noundef 0) #7
   %110 = load i32, ptr %102, align 4, !tbaa !49
@@ -1289,7 +1289,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %114 = load ptr, ptr %42, align 8, !tbaa !36
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 64
   %116 = load ptr, ptr %115, align 8, !tbaa !84
-  %117 = getelementptr inbounds nuw [10 x ptr], ptr %43, i64 0, i64 %indvars.iv1000
+  %117 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv1000
   %118 = load ptr, ptr %117, align 8, !tbaa !56
   %119 = tail call ptr %116(ptr noundef nonnull %0, ptr noundef %118, i32 noundef 0, i32 noundef %.0615, i32 noundef 0) #7
   br label %120
@@ -1418,7 +1418,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %.2600 = phi i64 [ %205, %193 ], [ %.0598995, %172 ]
   %207 = load ptr, ptr %46, align 8, !tbaa !111
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  %209 = getelementptr inbounds nuw [10 x ptr], ptr %208, i64 0, i64 %indvars.iv1000
+  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv1000
   %210 = load ptr, ptr %209, align 8, !tbaa !71
   %211 = icmp sgt i32 %.0613, 0
   br i1 %211, label %.lr.ph988, label %.loopexit
@@ -1473,7 +1473,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %253 = getelementptr inbounds nuw ptr, ptr %.0616, i64 %indvars.iv
   %254 = load ptr, ptr %253, align 8, !tbaa !63
   %255 = getelementptr inbounds nuw i8, ptr %248, i64 32
-  %256 = getelementptr inbounds nuw [10 x i32], ptr %255, i64 0, i64 %indvars.iv1000
+  %256 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv1000
   %257 = load i32, ptr %256, align 4, !tbaa !79
   %258 = zext i32 %257 to i64
   %259 = getelementptr inbounds nuw [64 x i16], ptr %254, i64 %258
@@ -1521,7 +1521,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %281 = load i32, ptr %218, align 4, !tbaa !53
   %282 = add i32 %281, -1
   %283 = getelementptr inbounds nuw i8, ptr %248, i64 72
-  %284 = getelementptr inbounds nuw [10 x i32], ptr %283, i64 0, i64 %indvars.iv1000
+  %284 = getelementptr inbounds nuw i32, ptr %283, i64 %indvars.iv1000
   %285 = load i32, ptr %284, align 4, !tbaa !79
   %.not703950 = icmp ugt i32 %257, %285
   br i1 %.not703950, label %.._crit_edge_crit_edge, label %.lr.ph.preheader
@@ -1574,7 +1574,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   tail call void @jcopy_block_row(ptr noundef nonnull %.0617956, ptr noundef %9, i32 noundef 1) #7
   %296 = load ptr, ptr %44, align 8, !tbaa !98
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 32
-  %298 = getelementptr inbounds nuw [10 x i32], ptr %297, i64 0, i64 %indvars.iv1000
+  %298 = getelementptr inbounds nuw i32, ptr %297, i64 %indvars.iv1000
   %299 = load i32, ptr %298, align 4, !tbaa !79
   %300 = icmp eq i32 %.0604957, %299
   %301 = icmp ult i32 %.0604957, %282
@@ -2300,7 +2300,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   %691 = add i32 %690, %.0626952
   %692 = load ptr, ptr %44, align 8, !tbaa !98
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 72
-  %694 = getelementptr inbounds nuw [10 x i32], ptr %693, i64 0, i64 %indvars.iv1000
+  %694 = getelementptr inbounds nuw i32, ptr %693, i64 %indvars.iv1000
   %695 = load i32, ptr %694, align 4, !tbaa !79
   %.not703 = icmp ugt i32 %319, %695
   br i1 %.not703, label %._crit_edge, label %.lr.ph, !llvm.loop !131

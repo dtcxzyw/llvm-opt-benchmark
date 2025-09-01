@@ -3494,7 +3494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.i: ; preds = %_
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i40
   %1132 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN17cmDyndepCollation23AddCollationInformationERN4Json5ValueEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK26cmDyndepGeneratorCallbacks, i64 0, i64 %1132
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN17cmDyndepCollation23AddCollationInformationERN4Json5ValueEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK26cmDyndepGeneratorCallbacks, i64 %1132
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1133
 

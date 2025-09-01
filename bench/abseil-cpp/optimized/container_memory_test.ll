@@ -17558,8 +17558,8 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit.i.i.i.i: ; preds = %25, %2
 _ZN4absl18container_internal15map_slot_policyIKNS_13test_internal23CopyableMovableInstanceES4_E8transferISaISt4pairIS4_S4_EEEEDaPT_PNS0_13map_slot_typeIS4_S4_EESE_.exit: ; preds = %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit22, %_ZN4absl18container_internal15map_slot_policyIKNS_13test_internal23CopyableMovableInstanceES4_E8transferISaISt4pairIS4_S4_EEEEDaPT_PNS0_13map_slot_typeIS4_S4_EESE_.exit
   %indvars.iv = phi i64 [ 0, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit22 ], [ %indvars.iv.next, %_ZN4absl18container_internal15map_slot_policyIKNS_13test_internal23CopyableMovableInstanceES4_E8transferISaISt4pairIS4_S4_EEEEDaPT_PNS0_13map_slot_typeIS4_S4_EESE_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds nuw [100 x %"union.absl::container_internal::map_slot_type"], ptr %1, i64 0, i64 %indvars.iv.next
-  %34 = getelementptr inbounds nuw [100 x %"union.absl::container_internal::map_slot_type"], ptr %1, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %1, i64 %indvars.iv.next
+  %34 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %1, i64 %indvars.iv
   store i32 1, ptr %33, align 4, !tbaa !636
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4

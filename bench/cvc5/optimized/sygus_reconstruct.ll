@@ -17280,7 +17280,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusReconstruct11pos
   %43 = icmp eq i32 %42, 2
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %45 = zext i1 %43 to i64
-  %46 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !79, !noalias !466
   store ptr %47, ptr %0, align 8, !tbaa !80, !alias.scope !466
   %48 = load i64, ptr %47, align 8, !noalias !466
@@ -17358,8 +17358,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit: ; preds = %_ZNK4c
   %spec.select.i.i = add nuw i64 %.01127, %91
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %93 = ashr exact i64 %sext, 32
-  %94 = getelementptr inbounds [0 x ptr], ptr %92, i64 0, i64 %93
+  %93 = ashr exact i64 %sext, 29
+  %94 = getelementptr inbounds i8, ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !79, !noalias !469
   store ptr %95, ptr %8, align 8, !tbaa !80, !alias.scope !469
   %96 = load i64, ptr %95, align 8, !noalias !469

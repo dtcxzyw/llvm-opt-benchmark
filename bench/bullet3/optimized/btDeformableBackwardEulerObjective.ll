@@ -3693,8 +3693,8 @@ define dso_local void @_ZNK34btDeformableBackwardEulerObjective8multiplyERK20btA
 
 .preheader91.us:                                  ; preds = %.preheader91.us.preheader, %._crit_edge109.us
   %indvars.iv135 = phi i64 [ 0, %.preheader91.us.preheader ], [ %indvars.iv.next136, %._crit_edge109.us ]
-  %130 = getelementptr inbounds nuw [3 x float], ptr %126, i64 0, i64 %indvars.iv135
-  %131 = getelementptr inbounds nuw [3 x i32], ptr %128, i64 0, i64 %indvars.iv135
+  %130 = getelementptr inbounds nuw float, ptr %126, i64 %indvars.iv135
+  %131 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv135
   %132 = load i32, ptr %131, align 4, !tbaa !37
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds %class.btVector3, ptr %129, i64 %133
@@ -3714,7 +3714,7 @@ define dso_local void @_ZNK34btDeformableBackwardEulerObjective8multiplyERK20btA
   %142 = load float, ptr %141, align 4, !tbaa !45
   %143 = load float, ptr %130, align 4, !tbaa !45
   %144 = fmul float %142, %143
-  %145 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %127, i64 0, i64 %indvars.iv132
+  %145 = getelementptr inbounds nuw %class.btVector3, ptr %127, i64 %indvars.iv132
   %146 = load float, ptr %145, align 4, !tbaa !45
   %147 = fmul float %146, %144
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 4
@@ -3752,7 +3752,7 @@ define dso_local void @_ZNK34btDeformableBackwardEulerObjective8multiplyERK20btA
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge114.us
   %indvars.iv145 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next146, %._crit_edge114.us ]
-  %164 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %160, i64 0, i64 %indvars.iv145
+  %164 = getelementptr inbounds nuw %class.btVector3, ptr %160, i64 %indvars.iv145
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %167 = getelementptr inbounds nuw float, ptr %163, i64 %indvars.iv145
@@ -3762,9 +3762,9 @@ define dso_local void @_ZNK34btDeformableBackwardEulerObjective8multiplyERK20btA
 168:                                              ; preds = %.preheader.us, %168
   %169 = phi float [ %.pre159, %.preheader.us ], [ %187, %168 ]
   %indvars.iv140 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next141, %168 ]
-  %170 = getelementptr inbounds nuw [3 x float], ptr %157, i64 0, i64 %indvars.iv140
+  %170 = getelementptr inbounds nuw float, ptr %157, i64 %indvars.iv140
   %171 = load float, ptr %170, align 4, !tbaa !45
-  %172 = getelementptr inbounds nuw [3 x i32], ptr %158, i64 0, i64 %indvars.iv140
+  %172 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv140
   %173 = load i32, ptr %172, align 4, !tbaa !37
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds %class.btVector3, ptr %159, i64 %174
@@ -6748,7 +6748,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50: ; preds = %56, %_ZN2
 
 .preheader33.us.i:                                ; preds = %._crit_edge.us.i, %.preheader33.us.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader33.us.preheader.i ], [ %indvars.iv.next46.i, %._crit_edge.us.i ]
-  %99 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %97, i64 0, i64 %indvars.iv45.i
+  %99 = getelementptr inbounds nuw %class.btVector3, ptr %97, i64 %indvars.iv45.i
   %100 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv45.i
   %.promoted.us.i = load float, ptr %100, align 4, !tbaa !45
   br label %.preheader.us.i
@@ -6778,11 +6778,11 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50: ; preds = %56, %_ZN2
 .preheader.us.i:                                  ; preds = %101, %.preheader33.us.i
   %indvars.iv41.i = phi i64 [ 0, %.preheader33.us.i ], [ %indvars.iv.next42.i, %101 ]
   %113 = phi float [ %.promoted.us.i, %.preheader33.us.i ], [ %112, %101 ]
-  %114 = getelementptr inbounds nuw [3 x i32], ptr %95, i64 0, i64 %indvars.iv41.i
+  %114 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv41.i
   %115 = load i32, ptr %114, align 4, !tbaa !37
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds %class.btVector3, ptr %96, i64 %116
-  %118 = getelementptr inbounds nuw [3 x float], ptr %98, i64 0, i64 %indvars.iv41.i
+  %118 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv41.i
   br label %102
 
 ._crit_edge.us.i:                                 ; preds = %101

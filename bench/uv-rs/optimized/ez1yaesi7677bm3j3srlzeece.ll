@@ -2049,9 +2049,9 @@ switch.lookup:                                    ; preds = %47
   store i64 %82, ptr %4, align 8, !noalias !393
   %83 = call noundef i8 @"_ZN75_$LT$uv_platform_tags..tags..TagCompatibility$u20$as$u20$core..cmp..Ord$GT$3cmp17hdc9efab3d9a850acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !396
   %84 = icmp eq i8 %83, 0
-  br i1 %84, label %switch.lookup32, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i13"
+  br i1 %84, label %switch.lookup33, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i13"
 
-switch.lookup32:                                  ; preds = %80
+switch.lookup33:                                  ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %61, i64 208
   %86 = load i8, ptr %85, align 8, !range !381, !alias.scope !391, !noalias !397, !noundef !4
   %87 = getelementptr inbounds nuw i8, ptr %62, i64 208
@@ -2059,8 +2059,8 @@ switch.lookup32:                                  ; preds = %80
   %89 = sub nsw i8 %86, %88
   br label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i13"
 
-"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i13": ; preds = %switch.lookup32, %80
-  %.sroa.0.0.i.i.i14 = phi i8 [ %83, %80 ], [ %89, %switch.lookup32 ]
+"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i13": ; preds = %switch.lookup33, %80
+  %.sroa.0.0.i.i.i14 = phi i8 [ %83, %80 ], [ %89, %switch.lookup33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !393
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !393
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h1ecebc7bd5e99903E.exit16"

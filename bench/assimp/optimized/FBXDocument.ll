@@ -8457,7 +8457,7 @@ _ZNKSt8_Rb_treeImSt4pairIKmPKN6Assimp3FBX10ConnectionEESt10_Select1stIS7_ESt4les
   %29 = getelementptr inbounds nuw ptr, ptr %5, i64 %.088
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #28
-  %32 = getelementptr inbounds nuw [6 x i64], ptr %8, i64 0, i64 %.088
+  %32 = getelementptr inbounds nuw i64, ptr %8, i64 %.088
   store i64 %31, ptr %32, align 8
   %33 = add nuw i64 %.088, 1
   %exitcond.not = icmp eq i64 %33, %6
@@ -8617,7 +8617,7 @@ _ZNK6Assimp3FBX10Connection21LazyDestinationObjectEv.exit: ; preds = %.lr.ph.i.i
 
 91:                                               ; preds = %.lr.ph91, %99
   %.03489 = phi i64 [ 0, %.lr.ph91 ], [ %100, %99 ]
-  %92 = getelementptr inbounds nuw [6 x i64], ptr %8, i64 0, i64 %.03489
+  %92 = getelementptr inbounds nuw i64, ptr %8, i64 %.03489
   %93 = load i64, ptr %92, align 8
   %94 = icmp eq i64 %89, %93
   br i1 %94, label %95, label %99

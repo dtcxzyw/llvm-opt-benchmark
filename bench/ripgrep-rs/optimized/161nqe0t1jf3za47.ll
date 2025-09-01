@@ -140,10 +140,10 @@ _ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.thread.i.i: ; preds = %58
   br i1 %exitcond.not.i.i.i, label %_ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.i.i, label %62
 
 62:                                               ; preds = %.preheader.i.i.i
-  %63 = getelementptr inbounds [0 x i8], ptr %.sroa.0.0138.i, i64 0, i64 %.016.i.i.i
+  %63 = getelementptr inbounds i8, ptr %.sroa.0.0138.i, i64 %.016.i.i.i
   %64 = load i8, ptr %63, align 1, !alias.scope !15, !noalias !16, !noundef !4
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw [256 x i8], ptr @anon.d6d12b08d7e2b70a53c87c5ea5e84c79.0, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @anon.d6d12b08d7e2b70a53c87c5ea5e84c79.0, i64 %65
   %67 = load i8, ptr %66, align 1, !noalias !20, !noundef !4
   %68 = icmp eq i64 %.025.i.i.i, 12
   br i1 %68, label %74, label %69
@@ -175,7 +175,7 @@ _ZN4bstr4utf86decode17h1d567e645048e1f2E.exit.thread.i.i: ; preds = %58
   unreachable
 
 _ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i: ; preds = %80
-  %85 = getelementptr inbounds nuw [0 x i8], ptr @anon.d6d12b08d7e2b70a53c87c5ea5e84c79.3, i64 0, i64 %82
+  %85 = getelementptr inbounds nuw i8, ptr @anon.d6d12b08d7e2b70a53c87c5ea5e84c79.3, i64 %82
   %86 = load i8, ptr %85, align 1, !noalias !20, !noundef !4
   %87 = zext i8 %86 to i64
   %88 = add i64 %.016.i.i.i, 1

@@ -202,10 +202,10 @@ define dso_local range(i32 0, 2) i32 @genpkey_main(i32 noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.genpkey_main, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.genpkey_main, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep381 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.genpkey_main.1, i64 0, i64 %35
+  %switch.gep381 = getelementptr inbounds nuw ptr, ptr @switch.table.genpkey_main.1, i64 %35
   %switch.load382 = load ptr, ptr %switch.gep381, align 8
   %36 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %37 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %36, ptr noundef nonnull @.str.61, ptr noundef nonnull %switch.load382, ptr noundef nonnull %30, ptr noundef nonnull %switch.load) #5

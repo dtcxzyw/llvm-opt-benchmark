@@ -2161,7 +2161,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117emitDocumentationEiRKNS_13Docume
 .lr.ph362:                                        ; preds = %._crit_edge
   %106 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %107 = sext i32 %0 to i64
-  %108 = getelementptr inbounds [9 x i8], ptr @.str.58, i64 0, i64 %107
+  %108 = getelementptr inbounds i8, ptr @.str.58, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %21, i64 16

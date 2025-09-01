@@ -134,7 +134,7 @@ define i32 @ff_dovi_get_metadata(ptr noundef readonly captures(none) %0, ptr nou
   %45 = sext i32 %40 to i64
   %46 = mul i64 %44, %45
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %46
-  %48 = getelementptr inbounds nuw [7 x %struct.AVDOVIDmData], ptr %24, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %struct.AVDOVIDmData, ptr %24, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %47, ptr nonnull align 4 %48, i64 %spec.select, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %28, align 4, !tbaa !25
@@ -153,7 +153,7 @@ define i32 @ff_dovi_get_metadata(ptr noundef readonly captures(none) %0, ptr nou
   %58 = sext i32 %53 to i64
   %59 = mul i64 %57, %58
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 %59
-  %61 = getelementptr inbounds nuw [25 x %struct.AVDOVIDmData], ptr %38, i64 0, i64 %indvars.iv43
+  %61 = getelementptr inbounds nuw %struct.AVDOVIDmData, ptr %38, i64 %indvars.iv43
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %60, ptr nonnull align 4 %61, i64 %spec.select, i1 false)
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %62 = load i32, ptr %33, align 4, !tbaa !27
@@ -700,13 +700,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %291 = shl i32 %289, %290
   %292 = lshr i32 %291, 23
   %293 = zext nneg i32 %292 to i64
-  %294 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %293
+  %294 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %293
   %295 = load i8, ptr %294, align 1, !tbaa !45
   %296 = zext i8 %295 to i32
   %297 = add i32 %spec.select.i635, %296
   %..i = tail call i32 @llvm.umin.i32(i32 %256, i32 %297)
   store i32 %..i, ptr %167, align 8, !tbaa !47
-  %298 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %293
+  %298 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %293
   %299 = load i8, ptr %298, align 1, !tbaa !45
   %300 = call fastcc i32 @get_ue_golomb_long(ptr noundef %5)
   %301 = load i32, ptr %167, align 8, !tbaa !47
@@ -721,13 +721,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %310 = shl i32 %308, %309
   %311 = lshr i32 %310, 23
   %312 = zext nneg i32 %311 to i64
-  %313 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %312
   %314 = load i8, ptr %313, align 1, !tbaa !45
   %315 = zext i8 %314 to i32
   %316 = add i32 %301, %315
   %..i636 = tail call i32 @llvm.umin.i32(i32 %302, i32 %316)
   store i32 %..i636, ptr %167, align 8, !tbaa !47
-  %317 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %312
+  %317 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %312
   %318 = load i8, ptr %317, align 1, !tbaa !45
   %319 = zext i8 %318 to i32
   %320 = ashr i32 %300, 8
@@ -973,13 +973,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %462 = shl i32 %460, %461
   %463 = lshr i32 %462, 23
   %464 = zext nneg i32 %463 to i64
-  %465 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %464
+  %465 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %464
   %466 = load i8, ptr %465, align 1, !tbaa !45
   %467 = zext i8 %466 to i32
   %468 = add i32 %spec.select.i641, %467
   %..i643 = tail call i32 @llvm.umin.i32(i32 %302, i32 %468)
   store i32 %..i643, ptr %167, align 8, !tbaa !47
-  %469 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %464
+  %469 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %464
   %470 = load i8, ptr %469, align 1, !tbaa !45
   br i1 %.not601, label %488, label %471
 
@@ -997,12 +997,12 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 476:                                              ; preds = %471
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %478 = zext nneg i8 %470 to i64
-  %479 = getelementptr inbounds nuw [16 x ptr], ptr %477, i64 0, i64 %478
+  %479 = getelementptr inbounds nuw ptr, ptr %477, i64 %478
   %480 = load ptr, ptr %479, align 8, !tbaa !69
   %.not608 = icmp eq ptr %480, null
   %spec.store.select = select i1 %.not608, i32 0, i32 %472
   %481 = zext nneg i32 %spec.store.select to i64
-  %482 = getelementptr inbounds nuw [16 x ptr], ptr %477, i64 0, i64 %481
+  %482 = getelementptr inbounds nuw ptr, ptr %477, i64 %481
   %483 = load ptr, ptr %482, align 8, !tbaa !69
   %.not609 = icmp eq ptr %483, null
   br i1 %.not609, label %484, label %486
@@ -1032,7 +1032,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 493:                                              ; preds = %488
   %494 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %495 = zext nneg i8 %470 to i64
-  %496 = getelementptr inbounds nuw [16 x ptr], ptr %494, i64 0, i64 %495
+  %496 = getelementptr inbounds nuw ptr, ptr %494, i64 %495
   %497 = load ptr, ptr %496, align 8, !tbaa !69
   %.not602 = icmp eq ptr %497, null
   br i1 %.not602, label %498, label %501
@@ -1061,13 +1061,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %510 = shl i32 %508, %509
   %511 = lshr i32 %510, 23
   %512 = zext nneg i32 %511 to i64
-  %513 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %512
+  %513 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %512
   %514 = load i8, ptr %513, align 1, !tbaa !45
   %515 = zext i8 %514 to i32
   %516 = add i32 %..i643, %515
   %..i644 = tail call i32 @llvm.umin.i32(i32 %302, i32 %516)
   store i32 %..i644, ptr %167, align 8, !tbaa !47
-  %517 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %512
+  %517 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %512
   %518 = load i8, ptr %517, align 1, !tbaa !45
   %519 = getelementptr inbounds nuw i8, ptr %502, i64 1
   store i8 %518, ptr %519, align 1, !tbaa !72
@@ -1080,13 +1080,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %526 = shl i32 %524, %525
   %527 = lshr i32 %526, 23
   %528 = zext nneg i32 %527 to i64
-  %529 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %528
+  %529 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %528
   %530 = load i8, ptr %529, align 1, !tbaa !45
   %531 = zext i8 %530 to i32
   %532 = add i32 %..i644, %531
   %..i645 = tail call i32 @llvm.umin.i32(i32 %302, i32 %532)
   store i32 %..i645, ptr %167, align 8, !tbaa !47
-  %533 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %528
+  %533 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %528
   %534 = load i8, ptr %533, align 1, !tbaa !45
   %535 = getelementptr inbounds nuw i8, ptr %502, i64 2
   store i8 %534, ptr %535, align 2, !tbaa !73
@@ -1105,13 +1105,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %544 = shl i32 %542, %543
   %545 = lshr i32 %544, 23
   %546 = zext nneg i32 %545 to i64
-  %547 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %546
+  %547 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %546
   %548 = load i8, ptr %547, align 1, !tbaa !45
   %549 = zext i8 %548 to i32
   %550 = add i32 %.promoted762764, %549
   %..i646 = tail call i32 @llvm.umin.i32(i32 %302, i32 %550)
   store i32 %..i646, ptr %167, align 8, !tbaa !47
-  %551 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %546
+  %551 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %546
   %552 = load i8, ptr %551, align 1, !tbaa !45
   %553 = icmp ult i8 %552, 8
   br i1 %553, label %556, label %.thread692
@@ -1124,7 +1124,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   br label %.thread658
 
 556:                                              ; preds = %537
-  %557 = getelementptr inbounds nuw [3 x %struct.AVDOVIReshapingCurve], ptr %536, i64 0, i64 %indvars.iv801
+  %557 = getelementptr inbounds nuw %struct.AVDOVIReshapingCurve, ptr %536, i64 %indvars.iv801
   %558 = add nuw nsw i8 %552, 2
   store i8 %558, ptr %557, align 8, !tbaa !74
   %559 = load i8, ptr %344, align 1, !tbaa !61
@@ -1155,7 +1155,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %576 = sext i1 %isnotneg.i to i16
   %577 = trunc nuw i32 %575 to i16
   %.0.i = select i1 %.not.i, i16 %577, i16 %576
-  %578 = getelementptr inbounds nuw [9 x i16], ptr %562, i64 0, i64 %indvars.iv796
+  %578 = getelementptr inbounds nuw i16, ptr %562, i64 %indvars.iv796
   store i16 %.0.i, ptr %578, align 2, !tbaa !76
   %indvars.iv.next797 = add nuw nsw i64 %indvars.iv796, 1
   %exitcond800.not = icmp eq i64 %indvars.iv.next797, %wide.trip.count799
@@ -1212,7 +1212,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %608 = sext i1 %isnotneg.i621 to i16
   %609 = trunc nuw i32 %607 to i16
   %.0.i622 = select i1 %.not.i620, i16 %609, i16 %608
-  %610 = getelementptr inbounds nuw [2 x i16], ptr %592, i64 0, i64 %indvars.iv805
+  %610 = getelementptr inbounds nuw i16, ptr %592, i64 %indvars.iv805
   store i16 %.0.i622, ptr %610, align 2, !tbaa !76
   br i1 %595, label %594, label %593, !llvm.loop !80
 
@@ -1240,7 +1240,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 
 621:                                              ; preds = %.thread694, %._crit_edge774
   %indvars.iv821 = phi i64 [ 0, %.thread694 ], [ %indvars.iv.next822, %._crit_edge774 ]
-  %622 = getelementptr inbounds nuw [3 x %struct.AVDOVIReshapingCurve], ptr %536, i64 0, i64 %indvars.iv821
+  %622 = getelementptr inbounds nuw %struct.AVDOVIReshapingCurve, ptr %536, i64 %indvars.iv821
   %623 = load i8, ptr %622, align 8, !tbaa !74
   %624 = icmp ugt i8 %623, 1
   br i1 %624, label %.lr.ph773, label %._crit_edge774
@@ -1268,13 +1268,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %641 = shl i32 %639, %640
   %642 = lshr i32 %641, 23
   %643 = zext nneg i32 %642 to i64
-  %644 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %643
+  %644 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %643
   %645 = load i8, ptr %644, align 1, !tbaa !45
   %646 = zext i8 %645 to i32
   %647 = add i32 %632, %646
   %..i647 = tail call i32 @llvm.umin.i32(i32 %633, i32 %647)
   store i32 %..i647, ptr %167, align 8, !tbaa !47
-  %648 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %643
+  %648 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %643
   %649 = load i8, ptr %648, align 1, !tbaa !45
   %650 = zext i8 %649 to i32
   %651 = icmp ugt i8 %649, 1
@@ -1287,7 +1287,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   br label %.thread658
 
 654:                                              ; preds = %631
-  %655 = getelementptr inbounds nuw [8 x i32], ptr %625, i64 0, i64 %indvars.iv818
+  %655 = getelementptr inbounds nuw i32, ptr %625, i64 %indvars.iv818
   store i32 %650, ptr %655, align 4, !tbaa !83
   %trunc605 = trunc nuw i8 %649 to i1
   %656 = load i32, ptr %167, align 8, !tbaa !47
@@ -1304,13 +1304,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 665:                                              ; preds = %654
   %666 = lshr i32 %664, 23
   %667 = zext nneg i32 %666 to i64
-  %668 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %667
+  %668 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %667
   %669 = load i8, ptr %668, align 1, !tbaa !45
   %670 = zext i8 %669 to i32
   %671 = add i32 %656, %670
   %..i648 = tail call i32 @llvm.umin.i32(i32 %657, i32 %671)
   store i32 %..i648, ptr %167, align 8, !tbaa !47
-  %672 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %667
+  %672 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %667
   %673 = load i8, ptr %672, align 1, !tbaa !45
   %674 = icmp ugt i8 %673, 1
   br i1 %674, label %675, label %678
@@ -1324,7 +1324,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 
 678:                                              ; preds = %665
   %679 = add nuw nsw i8 %673, 1
-  %680 = getelementptr inbounds nuw [8 x i8], ptr %626, i64 0, i64 %indvars.iv818
+  %680 = getelementptr inbounds nuw i8, ptr %626, i64 %indvars.iv818
   store i8 %679, ptr %680, align 1, !tbaa !45
   %681 = icmp eq i8 %673, 0
   br i1 %681, label %682, label %.thread697
@@ -1355,13 +1355,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   br label %.thread658
 
 .thread697:                                       ; preds = %682, %678
-  %698 = getelementptr inbounds nuw [8 x [3 x i64]], ptr %627, i64 0, i64 %indvars.iv818
+  %698 = getelementptr inbounds nuw [3 x i64], ptr %627, i64 %indvars.iv818
   br label %699
 
 699:                                              ; preds = %.thread697, %699
   %indvars.iv808 = phi i64 [ 0, %.thread697 ], [ %indvars.iv.next809, %699 ]
   %700 = call fastcc i64 @get_se_coef(ptr noundef %5, ptr noundef nonnull %6)
-  %701 = getelementptr inbounds nuw [3 x i64], ptr %698, i64 0, i64 %indvars.iv808
+  %701 = getelementptr inbounds nuw i64, ptr %698, i64 %indvars.iv808
   store i64 %700, ptr %701, align 8, !tbaa !35
   %indvars.iv.next809 = add nuw nsw i64 %indvars.iv808, 1
   %702 = load i8, ptr %680, align 1, !tbaa !45
@@ -1386,22 +1386,22 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 709:                                              ; preds = %704
   %710 = trunc nuw nsw i32 %705 to i8
   %711 = add nuw nsw i8 %710, 1
-  %712 = getelementptr inbounds nuw [8 x i8], ptr %628, i64 0, i64 %indvars.iv818
+  %712 = getelementptr inbounds nuw i8, ptr %628, i64 %indvars.iv818
   store i8 %711, ptr %712, align 1, !tbaa !45
   %713 = call fastcc i64 @get_se_coef(ptr noundef %5, ptr noundef nonnull %6)
-  %714 = getelementptr inbounds nuw [8 x i64], ptr %629, i64 0, i64 %indvars.iv818
+  %714 = getelementptr inbounds nuw i64, ptr %629, i64 %indvars.iv818
   store i64 %713, ptr %714, align 8, !tbaa !35
   %715 = load i8, ptr %712, align 1, !tbaa !45
   %.not781 = icmp eq i8 %715, 0
   br i1 %.not781, label %.loopexit, label %.preheader746.lr.ph
 
 .preheader746.lr.ph:                              ; preds = %709
-  %716 = getelementptr inbounds nuw [8 x [3 x [7 x i64]]], ptr %630, i64 0, i64 %indvars.iv818
+  %716 = getelementptr inbounds nuw [3 x [7 x i64]], ptr %630, i64 %indvars.iv818
   br label %.preheader746
 
 .preheader746:                                    ; preds = %.preheader746.lr.ph, %718
   %indvars.iv815 = phi i64 [ 0, %.preheader746.lr.ph ], [ %indvars.iv.next816, %718 ]
-  %717 = getelementptr inbounds nuw [3 x [7 x i64]], ptr %716, i64 0, i64 %indvars.iv815
+  %717 = getelementptr inbounds nuw [7 x i64], ptr %716, i64 %indvars.iv815
   br label %722
 
 718:                                              ; preds = %722
@@ -1414,7 +1414,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 722:                                              ; preds = %.preheader746, %722
   %indvars.iv811 = phi i64 [ 0, %.preheader746 ], [ %indvars.iv.next812, %722 ]
   %723 = call fastcc i64 @get_se_coef(ptr noundef %5, ptr noundef nonnull %6)
-  %724 = getelementptr inbounds nuw [7 x i64], ptr %717, i64 0, i64 %indvars.iv811
+  %724 = getelementptr inbounds nuw i64, ptr %717, i64 %indvars.iv811
   store i64 %723, ptr %724, align 8, !tbaa !35
   %indvars.iv.next812 = add nuw nsw i64 %indvars.iv811, 1
   %exitcond814.not = icmp eq i64 %indvars.iv.next812, 7
@@ -1446,7 +1446,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 
 735:                                              ; preds = %.preheader745, %759
   %indvars.iv825 = phi i64 [ 0, %.preheader745 ], [ %indvars.iv.next826, %759 ]
-  %736 = getelementptr inbounds nuw [3 x %struct.AVDOVINLQParams], ptr %730, i64 0, i64 %indvars.iv825
+  %736 = getelementptr inbounds nuw %struct.AVDOVINLQParams, ptr %730, i64 %indvars.iv825
   %737 = load i32, ptr %167, align 8, !tbaa !47
   %738 = load i32, ptr %163, align 8, !tbaa !43
   %739 = load ptr, ptr %5, align 8, !tbaa !40
@@ -1500,13 +1500,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %770 = shl i32 %768, %769
   %771 = lshr i32 %770, 23
   %772 = zext nneg i32 %771 to i64
-  %773 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %772
+  %773 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %772
   %774 = load i8, ptr %773, align 1, !tbaa !45
   %775 = zext i8 %774 to i32
   %776 = add i32 %761, %775
   %..i650 = tail call i32 @llvm.umin.i32(i32 %762, i32 %776)
   store i32 %..i650, ptr %167, align 8, !tbaa !47
-  %777 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %772
+  %777 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %772
   %778 = load i8, ptr %777, align 1, !tbaa !45
   %779 = zext i8 %778 to i32
   %780 = lshr i32 %..i650, 3
@@ -1518,13 +1518,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %786 = shl i32 %784, %785
   %787 = lshr i32 %786, 23
   %788 = zext nneg i32 %787 to i64
-  %789 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %788
+  %789 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %788
   %790 = load i8, ptr %789, align 1, !tbaa !45
   %791 = zext i8 %790 to i32
   %792 = add i32 %..i650, %791
   %..i651 = tail call i32 @llvm.umin.i32(i32 %762, i32 %792)
   store i32 %..i651, ptr %167, align 8, !tbaa !47
-  %793 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %788
+  %793 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %788
   %794 = load i8, ptr %793, align 1, !tbaa !45
   %795 = zext i8 %794 to i32
   %796 = icmp ugt i8 %778, 15
@@ -1586,13 +1586,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %821 = shl i32 %819, %820
   %822 = lshr i32 %821, 23
   %823 = zext nneg i32 %822 to i64
-  %824 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %823
+  %824 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %823
   %825 = load i8, ptr %824, align 1, !tbaa !45
   %826 = zext i8 %825 to i32
   %827 = add i32 %..i651, %826
   %..i652 = tail call i32 @llvm.umin.i32(i32 %762, i32 %827)
   store i32 %..i652, ptr %167, align 8, !tbaa !47
-  %828 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %823
+  %828 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %823
   %829 = load i8, ptr %828, align 1, !tbaa !45
   %830 = getelementptr inbounds nuw i8, ptr %813, i64 1
   store i8 %829, ptr %830, align 1, !tbaa !98
@@ -1610,7 +1610,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 
 835:                                              ; preds = %.preheader744, %835
   %indvars.iv829 = phi i64 [ 0, %.preheader744 ], [ %indvars.iv.next830, %835 ]
-  %836 = getelementptr inbounds nuw [9 x %struct.AVRational], ptr %831, i64 0, i64 %indvars.iv829
+  %836 = getelementptr inbounds nuw %struct.AVRational, ptr %831, i64 %indvars.iv829
   %837 = load i32, ptr %167, align 8, !tbaa !47
   %838 = load i32, ptr %163, align 8, !tbaa !43
   %839 = load ptr, ptr %5, align 8, !tbaa !40
@@ -1642,7 +1642,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %.lobit = lshr i32 %852, 31
   %.0523 = lshr exact i32 %833, %.lobit
   %.0522 = lshr i32 %852, %.lobit
-  %853 = getelementptr inbounds nuw [3 x %struct.AVRational], ptr %834, i64 0, i64 %indvars.iv833
+  %853 = getelementptr inbounds nuw %struct.AVRational, ptr %834, i64 %indvars.iv833
   %.sroa.2.0.insert.ext.i = zext nneg i32 %.0523 to i64
   %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i653 = zext i32 %.0522 to i64
@@ -1724,7 +1724,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 
 912:                                              ; preds = %.preheader, %912
   %indvars.iv837 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next838, %912 ]
-  %913 = getelementptr inbounds nuw [9 x %struct.AVRational], ptr %850, i64 0, i64 %indvars.iv837
+  %913 = getelementptr inbounds nuw %struct.AVRational, ptr %850, i64 %indvars.iv837
   %914 = load i32, ptr %167, align 8, !tbaa !47
   %915 = load i32, ptr %163, align 8, !tbaa !43
   %916 = load ptr, ptr %5, align 8, !tbaa !40
@@ -1986,13 +1986,13 @@ define internal fastcc range(i32 -1094995529, 1048575) i32 @get_ue_golomb(ptr no
 15:                                               ; preds = %1
   %16 = lshr i32 %13, 23
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !45
   %20 = zext i8 %19 to i32
   %21 = add i32 %3, %20
   %. = tail call i32 @llvm.umin.i32(i32 %5, i32 %21)
   store i32 %., ptr %2, align 8, !tbaa !47
-  %22 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %17
+  %22 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %17
   %23 = load i8, ptr %22, align 1, !tbaa !45
   %24 = zext i8 %23 to i32
   br label %40
@@ -2008,7 +2008,7 @@ define internal fastcc range(i32 -1094995529, 1048575) i32 @get_ue_golomb(ptr no
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %27
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %28
   %29 = zext nneg i32 %.110.i to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !45
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %.1.i, %32
@@ -2065,7 +2065,7 @@ define internal fastcc i32 @get_ue_golomb_long(ptr noundef nonnull captures(none
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %22
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %23
   %24 = zext nneg i32 %.110.i to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !45
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %.1.i, %27
@@ -2175,7 +2175,7 @@ define internal fastcc i64 @get_se_coef(ptr noundef nonnull captures(none) %0, p
   %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %26
   %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %27
   %28 = zext nneg i32 %.110.i.i.i to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !45
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %.1.i.i.i, %31
@@ -2384,7 +2384,7 @@ define internal fastcc i64 @get_ue_coef(ptr noundef nonnull captures(none) %0, p
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %26
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %27
   %28 = zext nneg i32 %.110.i.i to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !45
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %.1.i.i, %31
@@ -2563,13 +2563,13 @@ define internal fastcc range(i32 -1094995529, 1) i32 @parse_ext_blocks(ptr nound
   %20 = shl i32 %18, %19
   %21 = lshr i32 %20, 23
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !45
   %25 = zext i8 %24 to i32
   %26 = add i32 %10, %25
   %..i = tail call i32 @llvm.umin.i32(i32 %12, i32 %26)
   store i32 %..i, ptr %9, align 8, !tbaa !47
-  %27 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %22
+  %27 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %22
   %28 = load i8, ptr %27, align 1, !tbaa !45
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 0, %..i
@@ -2627,13 +2627,13 @@ align_get_bits.exit:                              ; preds = %5, %32
   %55 = shl i32 %53, %54
   %56 = lshr i32 %55, 23
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !45
   %60 = zext i8 %59 to i32
   %61 = add i32 %46, %60
   %..i59 = tail call i32 @llvm.umin.i32(i32 %45, i32 %61)
   store i32 %..i59, ptr %9, align 8, !tbaa !47
-  %62 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %57
+  %62 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %57
   %63 = load i8, ptr %62, align 1, !tbaa !45
   %64 = zext i8 %63 to i32
   %65 = lshr i32 %..i59, 3
@@ -2673,7 +2673,7 @@ ff_dovi_rpu_extension_is_static.exit:             ; preds = %44, %44, %44, %44, 
   %82 = zext nneg i32 %79 to i64
   %83 = add nuw nsw i32 %79, 1
   store i32 %83, ptr %41, align 4, !tbaa !25
-  %84 = getelementptr inbounds nuw [7 x %struct.AVDOVIDmData], ptr %.04684, i64 0, i64 %82
+  %84 = getelementptr inbounds nuw %struct.AVDOVIDmData, ptr %.04684, i64 %82
   br label %92
 
 85:                                               ; preds = %44
@@ -2685,7 +2685,7 @@ ff_dovi_rpu_extension_is_static.exit:             ; preds = %44, %44, %44, %44, 
   %89 = zext nneg i32 %86 to i64
   %90 = add nuw nsw i32 %86, 1
   store i32 %90, ptr %42, align 4, !tbaa !27
-  %91 = getelementptr inbounds nuw [25 x %struct.AVDOVIDmData], ptr %43, i64 0, i64 %89
+  %91 = getelementptr inbounds nuw %struct.AVDOVIDmData, ptr %43, i64 %89
   br label %92
 
 92:                                               ; preds = %76, %81, %88
@@ -3115,7 +3115,7 @@ ff_dovi_rpu_extension_is_static.exit:             ; preds = %44, %44, %44, %44, 
   %445 = tail call i32 @llvm.umin.i32(i32 %434, i32 %444)
   store i32 %445, ptr %9, align 8, !tbaa !47
   %446 = trunc nuw i32 %443 to i8
-  %447 = getelementptr inbounds nuw [4 x i8], ptr %431, i64 0, i64 %indvars.iv.i
+  %447 = getelementptr inbounds nuw i8, ptr %431, i64 %indvars.iv.i
   store i8 %446, ptr %447, align 1, !tbaa !45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -3384,7 +3384,7 @@ ff_dovi_rpu_extension_is_static.exit:             ; preds = %44, %44, %44, %44, 
   %655 = tail call i32 @llvm.umin.i32(i32 %644, i32 %654)
   store i32 %655, ptr %9, align 8, !tbaa !47
   %656 = trunc nuw i32 %653 to i8
-  %657 = getelementptr inbounds nuw [6 x i8], ptr %638, i64 0, i64 %indvars.iv.i60
+  %657 = getelementptr inbounds nuw i8, ptr %638, i64 %indvars.iv.i60
   store i8 %656, ptr %657, align 1, !tbaa !45
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, 6
@@ -3407,7 +3407,7 @@ ff_dovi_rpu_extension_is_static.exit:             ; preds = %44, %44, %44, %44, 
   %671 = tail call i32 @llvm.umin.i32(i32 %660, i32 %670)
   store i32 %671, ptr %9, align 8, !tbaa !47
   %672 = trunc nuw i32 %669 to i8
-  %673 = getelementptr inbounds nuw [6 x i8], ptr %641, i64 0, i64 %indvars.iv153.i
+  %673 = getelementptr inbounds nuw i8, ptr %641, i64 %indvars.iv153.i
   store i8 %672, ptr %673, align 1, !tbaa !45
   %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1
   %exitcond156.not.i = icmp eq i64 %indvars.iv.next154.i, 6

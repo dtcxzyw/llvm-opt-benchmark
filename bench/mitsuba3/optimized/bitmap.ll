@@ -2154,7 +2154,7 @@ define noundef i64 @_ZNK7mitsuba6Bitmap11buffer_sizeEv(ptr noundef nonnull align
 
 switch.lookup:                                    ; preds = %1
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN7mitsuba6Bitmap8read_exrEPNS_6StreamE.87, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7mitsuba6Bitmap8read_exrEPNS_6StreamE.87, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = zext i32 %6 to i64
   %17 = zext i32 %4 to i64
@@ -3520,7 +3520,7 @@ define noundef range(i64 -838488366986797800, 838488366986797801) i64 @_ZNK7mits
 
 switch.lookup:                                    ; preds = %1
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN7mitsuba6Bitmap8read_exrEPNS_6StreamE.87, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7mitsuba6Bitmap8read_exrEPNS_6StreamE.87, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
@@ -11985,15 +11985,15 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 .preheader604:                                    ; preds = %.preheader607, %223
   %.0321627 = phi i64 [ 0, %.preheader607 ], [ %224, %223 ]
-  %218 = getelementptr inbounds nuw [4 x [4 x float]], ptr %217, i64 0, i64 %.0321627
+  %218 = getelementptr inbounds nuw [4 x float], ptr %217, i64 %.0321627
   %invariant.gep624 = getelementptr inbounds nuw float, ptr %23, i64 %.0321627
   br label %219
 
 219:                                              ; preds = %.preheader604, %219
   %.0322626 = phi i64 [ 0, %.preheader604 ], [ %222, %219 ]
-  %220 = getelementptr inbounds nuw [4 x float], ptr %218, i64 0, i64 %.0322626
+  %220 = getelementptr inbounds nuw float, ptr %218, i64 %.0322626
   %221 = load float, ptr %220, align 4
-  %gep625 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.130"], ptr %invariant.gep624, i64 0, i64 %.0322626
+  %gep625 = getelementptr inbounds nuw %"struct.drjit::Array.130", ptr %invariant.gep624, i64 %.0322626
   store float %221, ptr %gep625, align 4
   %222 = add nuw nsw i64 %.0322626, 1
   %exitcond664.not = icmp eq i64 %222, 4
@@ -12086,7 +12086,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 291:                                              ; preds = %291, %225
   %.017.i.i = phi i64 [ 0, %225 ], [ %294, %291 ]
-  %292 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.138"], ptr %24, i64 0, i64 %.017.i.i
+  %292 = getelementptr inbounds nuw %"struct.drjit::Array.138", ptr %24, i64 %.017.i.i
   %293 = getelementptr inbounds nuw double, ptr %292, i64 %.017.i.i
   store double 1.000000e+00, ptr %293, align 8, !alias.scope !141
   %294 = add nuw nsw i64 %.017.i.i, 1
@@ -12095,7 +12095,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 _ZN5drjit8identityINS_6MatrixIdLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i: ; preds = %291, %_ZN5drjit8identityINS_6MatrixIdLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i
   %.017.i26.i = phi i64 [ %297, %_ZN5drjit8identityINS_6MatrixIdLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i ], [ 0, %291 ]
-  %295 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.138"], ptr %121, i64 0, i64 %.017.i26.i
+  %295 = getelementptr inbounds nuw %"struct.drjit::Array.138", ptr %121, i64 %.017.i26.i
   %296 = getelementptr inbounds nuw double, ptr %295, i64 %.017.i26.i
   store double 1.000000e+00, ptr %296, align 8, !alias.scope !145
   %297 = add nuw nsw i64 %.017.i26.i, 1
@@ -12104,10 +12104,10 @@ _ZN5drjit8identityINS_6MatrixIdLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 _ZN5drjit8identityINS_6MatrixIdLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i: ; preds = %_ZN5drjit8identityINS_6MatrixIdLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i, %_ZN5drjit8identityINS_6MatrixIdLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i
   %.02532.i = phi i64 [ %301, %_ZN5drjit8identityINS_6MatrixIdLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i ], [ 0, %_ZN5drjit8identityINS_6MatrixIdLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i ]
-  %298 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.130"], ptr %25, i64 0, i64 %.02532.i
+  %298 = getelementptr inbounds nuw %"struct.drjit::Array.130", ptr %25, i64 %.02532.i
   %.sroa.024.0.copyload.i = load <4 x float>, ptr %298, align 16
   %299 = fpext <4 x float> %.sroa.024.0.copyload.i to <4 x double>
-  %300 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.138"], ptr %8, i64 0, i64 %.02532.i
+  %300 = getelementptr inbounds nuw %"struct.drjit::Array.138", ptr %8, i64 %.02532.i
   store <4 x double> %299, ptr %300, align 32
   %301 = add nuw nsw i64 %.02532.i, 1
   %exitcond.not.i = icmp eq i64 %301, 4
@@ -12119,10 +12119,10 @@ _ZN5drjit8identityINS_6MatrixIdLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 303:                                              ; preds = %303, %302
   %.033.i = phi i64 [ 0, %302 ], [ %307, %303 ]
-  %304 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.130"], ptr %114, i64 0, i64 %.033.i
+  %304 = getelementptr inbounds nuw %"struct.drjit::Array.130", ptr %114, i64 %.033.i
   %.sroa.0.0.copyload.i = load <4 x float>, ptr %304, align 16
   %305 = fpext <4 x float> %.sroa.0.0.copyload.i to <4 x double>
-  %306 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.138"], ptr %9, i64 0, i64 %.033.i
+  %306 = getelementptr inbounds nuw %"struct.drjit::Array.138", ptr %9, i64 %.033.i
   store <4 x double> %305, ptr %306, align 32
   %307 = add nuw nsw i64 %.033.i, 1
   %exitcond34.not.i = icmp eq i64 %307, 4
@@ -12165,15 +12165,15 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 .preheader605:                                    ; preds = %.preheader608, %323
   %.0323623 = phi i64 [ 0, %.preheader608 ], [ %324, %323 ]
-  %318 = getelementptr inbounds nuw [3 x [3 x float]], ptr %317, i64 0, i64 %.0323623
+  %318 = getelementptr inbounds nuw [3 x float], ptr %317, i64 %.0323623
   %invariant.gep = getelementptr inbounds nuw float, ptr %26, i64 %.0323623
   br label %319
 
 319:                                              ; preds = %.preheader605, %319
   %.0324622 = phi i64 [ 0, %.preheader605 ], [ %322, %319 ]
-  %320 = getelementptr inbounds nuw [3 x float], ptr %318, i64 0, i64 %.0324622
+  %320 = getelementptr inbounds nuw float, ptr %318, i64 %.0324622
   %321 = load float, ptr %320, align 4
-  %gep = getelementptr inbounds nuw [3 x %"struct.drjit::Array.149"], ptr %invariant.gep, i64 0, i64 %.0324622
+  %gep = getelementptr inbounds nuw %"struct.drjit::Array.149", ptr %invariant.gep, i64 %.0324622
   store float %321, ptr %gep, align 4
   %322 = add nuw nsw i64 %.0324622, 1
   %exitcond.not = icmp eq i64 %322, 3
@@ -12222,7 +12222,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 349:                                              ; preds = %349, %325
   %.017.i.i382 = phi i64 [ 0, %325 ], [ %352, %349 ]
-  %350 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %27, i64 0, i64 %.017.i.i382
+  %350 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %27, i64 %.017.i.i382
   %351 = getelementptr inbounds nuw double, ptr %350, i64 %.017.i.i382
   store double 1.000000e+00, ptr %351, align 8, !alias.scope !154
   %352 = add nuw nsw i64 %.017.i.i382, 1
@@ -12231,7 +12231,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 _ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i: ; preds = %349, %_ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i
   %.017.i26.i384 = phi i64 [ %355, %_ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i ], [ 0, %349 ]
-  %353 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %113, i64 0, i64 %.017.i26.i384
+  %353 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %113, i64 %.017.i26.i384
   %354 = getelementptr inbounds nuw double, ptr %353, i64 %.017.i26.i384
   store double 1.000000e+00, ptr %354, align 8, !alias.scope !158
   %355 = add nuw nsw i64 %.017.i26.i384, 1
@@ -12240,10 +12240,10 @@ _ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 _ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i: ; preds = %_ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i, %_ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i
   %.02532.i386 = phi i64 [ %359, %_ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i ], [ 0, %_ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i ]
-  %356 = getelementptr inbounds nuw [3 x %"struct.drjit::Array.149"], ptr %28, i64 0, i64 %.02532.i386
+  %356 = getelementptr inbounds nuw %"struct.drjit::Array.149", ptr %28, i64 %.02532.i386
   %.sroa.024.0.copyload.i387 = load <4 x float>, ptr %356, align 16
   %357 = fpext <4 x float> %.sroa.024.0.copyload.i387 to <4 x double>
-  %358 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %6, i64 0, i64 %.02532.i386
+  %358 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %6, i64 %.02532.i386
   store <4 x double> %357, ptr %358, align 32
   %359 = add nuw nsw i64 %.02532.i386, 1
   %exitcond.not.i388 = icmp eq i64 %359, 3
@@ -12255,10 +12255,10 @@ _ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 361:                                              ; preds = %361, %360
   %.033.i389 = phi i64 [ 0, %360 ], [ %365, %361 ]
-  %362 = getelementptr inbounds nuw [3 x %"struct.drjit::Array.149"], ptr %108, i64 0, i64 %.033.i389
+  %362 = getelementptr inbounds nuw %"struct.drjit::Array.149", ptr %108, i64 %.033.i389
   %.sroa.0.0.copyload.i390 = load <4 x float>, ptr %362, align 16
   %363 = fpext <4 x float> %.sroa.0.0.copyload.i390 to <4 x double>
-  %364 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %7, i64 0, i64 %.033.i389
+  %364 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %7, i64 %.033.i389
   store <4 x double> %363, ptr %364, align 32
   %365 = add nuw nsw i64 %.033.i389, 1
   %exitcond34.not.i391 = icmp eq i64 %365, 3
@@ -12369,7 +12369,7 @@ _ZN7mitsuba3refINS_6StructEEaSIS1_EERS2_PS1_.exit: ; preds = %381, %388
 
 switch.lookup:                                    ; preds = %390
   %402 = zext nneg i32 %392 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7mitsuba6Bitmap8read_exrEPNS_6StreamE, i64 0, i64 %402
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7mitsuba6Bitmap8read_exrEPNS_6StreamE, i64 %402
   %switch.load = load i32, ptr %switch.gep, align 4
   %403 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %switch.load, ptr %403, align 4
@@ -12412,7 +12412,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 414:                                              ; preds = %412
   %415 = zext nneg i8 %413 to i64
-  %416 = getelementptr inbounds nuw [10 x i8], ptr %30, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw i8, ptr %30, i64 %415
   store i8 1, ptr %416, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #38
   %417 = load ptr, ptr %405, align 8
@@ -12804,7 +12804,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 
 switch.lookup799:                                 ; preds = %592
   %614 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep800 = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN7mitsuba6Bitmap8read_exrEPNS_6StreamE.87, i64 0, i64 %614
+  %switch.gep800 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7mitsuba6Bitmap8read_exrEPNS_6StreamE.87, i64 %614
   %switch.load801 = load i64, ptr %switch.gep800, align 8
   %615 = load ptr, ptr %382, align 8
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 16
@@ -13626,7 +13626,7 @@ _ZN7mitsuba3refINS_6BitmapEEaSIS1_EERS2_PS1_.exit: ; preds = %._crit_edge640, %8
           to label %988 unwind label %.loopexit.split-lp.loopexit
 
 988:                                              ; preds = %983
-  %989 = getelementptr inbounds nuw [4 x i8], ptr @.str.24, i64 0, i64 %indvars.iv
+  %989 = getelementptr inbounds nuw i8, ptr @.str.24, i64 %indvars.iv
   %990 = load i8, ptr %989, align 1
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEmc(ptr noundef nonnull align 8 dereferenceable(24) %61, i64 noundef 1, i8 noundef signext %990)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.exit unwind label %997
@@ -13840,7 +13840,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
           to label %1124 unwind label %.loopexit
 
 1124:                                             ; preds = %1119
-  %1125 = getelementptr inbounds nuw [4 x i8], ptr @.str.25, i64 0, i64 %indvars.iv675
+  %1125 = getelementptr inbounds nuw i8, ptr @.str.25, i64 %indvars.iv675
   %1126 = load i8, ptr %1125, align 1
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEmc(ptr noundef nonnull align 8 dereferenceable(24) %74, i64 noundef 1, i8 noundef signext %1126)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.exit437 unwind label %1133
@@ -15692,7 +15692,7 @@ _ZN7mitsuba6Stream4readIcEEvRT_.exit:             ; preds = %.preheader74
 
 18:                                               ; preds = %_ZN7mitsuba6Stream4readIcEEvRT_.exit
   %19 = sext i32 %.076 to i64
-  %20 = getelementptr inbounds [4 x %"class.std::__1::basic_string"], ptr %3, i64 0, i64 %19
+  %20 = getelementptr inbounds %"class.std::__1::basic_string", ptr %3, i64 %19
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 noundef signext %15)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit unwind label %.loopexit
 
@@ -15759,7 +15759,7 @@ _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 42:                                               ; preds = %.preheader73
   store ptr null, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = getelementptr inbounds nuw [4 x %"class.std::__1::basic_string"], ptr %3, i64 0, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw %"class.std::__1::basic_string", ptr %3, i64 %indvars.iv.next
   %44 = load i8, ptr %43, align 8
   %45 = and i8 %44, 1
   %.not.i.i.i63 = icmp eq i8 %45, 0
@@ -15768,7 +15768,7 @@ _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %49 = select i1 %.not.i.i.i63, ptr %48, ptr %47
   %50 = call i64 @strtoull(ptr noundef %49, ptr noundef nonnull %7, i32 noundef 10) #38
-  %51 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %50, ptr %51, align 8
   %52 = load ptr, ptr %7, align 8
   %53 = load i8, ptr %52, align 1
@@ -16405,7 +16405,7 @@ _ZN7mitsuba6Stream4readIhEEvRT_.exit148:          ; preds = %171
 184:                                              ; preds = %.preheader155.us, %184
   %.0116162.us = phi i64 [ 0, %.preheader155.us ], [ %188, %184 ]
   %.2161.us = phi ptr [ %.1120163.us, %.preheader155.us ], [ %187, %184 ]
-  %185 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 0, i64 %.0116162.us
+  %185 = getelementptr inbounds nuw i8, ptr %17, i64 %.0116162.us
   %186 = load i8, ptr %185, align 1
   %187 = getelementptr inbounds nuw i8, ptr %.2161.us, i64 1
   store i8 %186, ptr %.2161.us, align 1
@@ -16672,7 +16672,7 @@ thread-pre-split:                                 ; preds = %48
 
 switch.lookup:                                    ; preds = %76
   %92 = zext nneg i32 %85 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN7mitsuba6Bitmap8read_pngEPNS_6StreamE, i64 0, i64 %92
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7mitsuba6Bitmap8read_pngEPNS_6StreamE, i64 %92
   %switch.load = load i32, ptr %switch.gep, align 4
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %switch.load, ptr %93, align 8
@@ -18474,7 +18474,7 @@ define void @_ZNK7mitsuba6Bitmap9write_pngEPNS_6StreamEi(ptr noundef nonnull ali
 
 switch.lookup:                                    ; preds = %3
   %28 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK7mitsuba6Bitmap9write_pngEPNS_6StreamEi, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7mitsuba6Bitmap9write_pngEPNS_6StreamEi, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4
@@ -19226,7 +19226,7 @@ define void @_ZNK7mitsuba6Bitmap10write_rgbeEPNS_6StreamE(ptr noundef nonnull al
 
 switch.lookup:                                    ; preds = %27
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK7mitsuba6Bitmap10write_rgbeEPNS_6StreamE, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7mitsuba6Bitmap10write_rgbeEPNS_6StreamE, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   %34 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKc(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %switch.load)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.exit unwind label %31
@@ -36155,7 +36155,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %84
   %.014 = phi i64 [ %63, %84 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %28 = getelementptr inbounds [2 x i32], ptr %1, i64 0, i64 %.014
+  %28 = getelementptr inbounds i32, ptr %1, i64 %.014
   %29 = load i32, ptr %28, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %30
@@ -36168,14 +36168,14 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
   %33 = getelementptr inbounds nuw i8, ptr @.str.182, i64 %32
   %34 = load i8, ptr %33, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %35 = getelementptr inbounds [10 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %35 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
   store i8 %34, ptr %35, align 1
   %36 = udiv i32 %.012.i.i, 10
   %.not.i.i = icmp ult i32 %.012.i.i, 10
   br i1 %.not.i.i, label %37, label %30, !llvm.loop !455
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds [10 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %38 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
   %39 = shl i64 %indvars.iv.i.i, 32
   %sext.i.i = sub i64 47244640256, %39
   %40 = ashr exact i64 %sext.i.i, 32

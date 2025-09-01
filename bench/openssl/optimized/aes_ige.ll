@@ -436,7 +436,7 @@ define void @AES_bi_ige_encrypt(ptr noundef readonly captures(address_is_null) %
   %.4136 = phi i64 [ 0, %.lr.ph ], [ %82, %76 ]
   %77 = getelementptr inbounds nuw i8, ptr %.2142, i64 %.4136
   %78 = load i8, ptr %77, align 1, !tbaa !9
-  %79 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.4136
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 %.4136
   %80 = load i8, ptr %79, align 1, !tbaa !9
   %81 = xor i8 %80, %78
   store i8 %81, ptr %79, align 1, !tbaa !9
@@ -484,7 +484,7 @@ define void @AES_bi_ige_encrypt(ptr noundef readonly captures(address_is_null) %
   %.6143 = phi i64 [ 0, %.lr.ph150 ], [ %102, %96 ]
   %97 = getelementptr inbounds nuw i8, ptr %.3148, i64 %.6143
   %98 = load i8, ptr %97, align 1, !tbaa !9
-  %99 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.6143
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 %.6143
   %100 = load i8, ptr %99, align 1, !tbaa !9
   %101 = xor i8 %100, %98
   store i8 %101, ptr %99, align 1, !tbaa !9

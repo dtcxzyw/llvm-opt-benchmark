@@ -1506,7 +1506,7 @@ define dso_local void @scsi_eh_prep_cmnd(ptr noundef captures(none) %0, ptr noun
   %51 = load i8, ptr %31, align 4
   %52 = lshr i8 %51, 5
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr [8 x i8], ptr @scsi_command_size_tbl, i64 0, i64 %53
+  %54 = getelementptr i8, ptr @scsi_command_size_tbl, i64 %53
   br label %55
 
 55:                                               ; preds = %49, %33

@@ -1028,7 +1028,7 @@ sub_0207.i:                                       ; preds = %OutputFsync.exit173
   %355 = call i32 @PQsocket(ptr noundef %354) #13
   %356 = sdiv i32 %355, 64
   %357 = sext i32 %356 to i64
-  %358 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %357
+  %358 = getelementptr inbounds i64, ptr %6, i64 %357
   %359 = load i64, ptr %358, align 8
   %360 = or i64 %359, %353
   store i64 %360, ptr %358, align 8

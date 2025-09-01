@@ -324,7 +324,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %87 = add nuw nsw i32 %82, %indvars.iv.i
   %88 = add i8 %.1196230.i, 1
   %89 = zext i8 %.1196230.i to i64
-  %90 = getelementptr [48 x i8], ptr %5, i64 0, i64 %89
+  %90 = getelementptr i8, ptr %5, i64 %89
   %91 = trunc nuw nsw i32 %87 to i8
   store i8 %91, ptr %90, align 1
   br label %92
@@ -355,7 +355,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .lr.ph.i:                                         ; preds = %169, %.lr.ph.preheader.i
   %indvars.iv253.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next254.i, %169 ]
   %.1235.i = phi i32 [ 8, %.lr.ph.preheader.i ], [ %.2.i, %169 ]
-  %99 = getelementptr [48 x i8], ptr %5, i64 0, i64 %indvars.iv253.i
+  %99 = getelementptr i8, ptr %5, i64 %indvars.iv253.i
   %100 = load i8, ptr %99, align 1
   %101 = icmp ult i8 %100, 49
   br i1 %101, label %103, label %102
@@ -383,8 +383,8 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %116 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %98, i32 noundef %114, ptr noundef %52, i32 noundef %.1235.i, i32 noundef 2, i32 noundef %115, ptr noundef nonnull @.str.87, i32 noundef %115, i32 noundef %112)
   %117 = add i32 %.1235.i, 2
   %118 = zext nneg i8 %100 to i64
-  %119 = add nsw i64 %118, -1
-  %120 = getelementptr [48 x i16], ptr %6, i64 0, i64 %119
+  %119 = getelementptr i16, ptr %6, i64 %118
+  %120 = getelementptr i8, ptr %119, i64 -2
   store i16 %113, ptr %120, align 2
   br label %169
 
@@ -411,15 +411,15 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %132, label %135, label %145
 
 135:                                              ; preds = %130
-  %136 = add nsw i32 %105, -1
-  %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr [48 x i16], ptr %6, i64 0, i64 %137
+  %136 = zext nneg i8 %104 to i64
+  %137 = getelementptr i16, ptr %6, i64 %136
+  %138 = getelementptr i8, ptr %137, i64 -2
   %139 = load i16, ptr %138, align 2
   %140 = zext i16 %139 to i32
   %141 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %98, i32 noundef %133, ptr noundef %52, i32 noundef %.1235.i, i32 noundef 1, i32 noundef %131, ptr noundef nonnull @.str.89, i32 noundef %131, i32 noundef %140, i32 noundef %105)
   %142 = zext nneg i8 %100 to i64
-  %143 = add nsw i64 %142, -1
-  %144 = getelementptr [48 x i16], ptr %6, i64 0, i64 %143
+  %143 = getelementptr i16, ptr %6, i64 %142
+  %144 = getelementptr i8, ptr %143, i64 -2
   store i16 %139, ptr %144, align 2
   br label %169
 
@@ -439,8 +439,8 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %151 = zext nneg i8 %100 to i32
   %152 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %98, i32 noundef %148, ptr noundef %52, i32 noundef %.1235.i, i32 noundef 1, i32 noundef %151, ptr noundef nonnull @.str.91, i32 noundef %151)
   %153 = zext nneg i8 %100 to i64
-  %154 = add nsw i64 %153, -1
-  %155 = getelementptr [48 x i16], ptr %6, i64 0, i64 %154
+  %154 = getelementptr i16, ptr %6, i64 %153
+  %155 = getelementptr i8, ptr %154, i64 -2
   store i16 -2, ptr %155, align 2
   br label %169
 
@@ -449,8 +449,8 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %158 = zext nneg i8 %100 to i32
   %159 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %98, i32 noundef %148, ptr noundef %52, i32 noundef %.1235.i, i32 noundef 1, i32 noundef %158, ptr noundef nonnull @.str.92, i32 noundef %158)
   %160 = zext nneg i8 %100 to i64
-  %161 = add nsw i64 %160, -1
-  %162 = getelementptr [48 x i16], ptr %6, i64 0, i64 %161
+  %161 = getelementptr i16, ptr %6, i64 %160
+  %162 = getelementptr i8, ptr %161, i64 -2
   store i16 -2, ptr %162, align 2
   br label %169
 
@@ -458,8 +458,8 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %164 = zext nneg i8 %100 to i32
   %165 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %98, i32 noundef %148, ptr noundef %52, i32 noundef %.1235.i, i32 noundef 1, i32 noundef %164, ptr noundef nonnull @.str.93, i32 noundef %164, i32 noundef %105)
   %166 = zext nneg i8 %100 to i64
-  %167 = add nsw i64 %166, -1
-  %168 = getelementptr [48 x i16], ptr %6, i64 0, i64 %167
+  %167 = getelementptr i16, ptr %6, i64 %166
+  %168 = getelementptr i8, ptr %167, i64 -2
   store i16 -2, ptr %168, align 2
   br label %169
 
@@ -495,7 +495,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph237.i:                                      ; preds = %.lr.ph237.i.preheader, %180
   %indvars.iv = phi i64 [ %177, %.lr.ph237.i.preheader ], [ %indvars.iv.next, %180 ]
-  %178 = getelementptr [48 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %178 = getelementptr i16, ptr %6, i64 %indvars.iv
   %179 = load i16, ptr %178, align 2
   %.not.i = icmp eq i16 %179, -1
   br i1 %.not.i, label %182, label %180
@@ -506,7 +506,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %181, label %.lr.ph237.i, label %.critedge.i, !llvm.loop !10
 
 182:                                              ; preds = %.lr.ph237.i
-  %183 = getelementptr [48 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %183 = getelementptr i16, ptr %6, i64 %indvars.iv
   %184 = trunc nuw i64 %indvars.iv to i8
   %185 = call zeroext i8 @tvb_get_uint8(ptr noundef %52, i32 noundef %.3241.i)
   %186 = zext i8 %185 to i32
@@ -547,9 +547,9 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %207, label %208, label %219
 
 208:                                              ; preds = %206
-  %209 = add nsw i32 %186, -1
-  %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr [48 x i16], ptr %6, i64 0, i64 %210
+  %209 = zext nneg i8 %185 to i64
+  %210 = getelementptr i16, ptr %6, i64 %209
+  %211 = getelementptr i8, ptr %210, i64 -2
   %212 = load i16, ptr %211, align 2
   store i16 %212, ptr %183, align 2
   %213 = add nuw i8 %184, 1

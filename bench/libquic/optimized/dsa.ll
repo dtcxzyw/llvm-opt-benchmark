@@ -181,7 +181,7 @@ define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captur
   %48 = add i32 %20, -1
   %.not278 = icmp eq i32 %20, 0
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 %49
   %51 = udiv i32 %45, 160
   %52 = shl i32 %20, 3
   %wide.trip.count = and i64 %19, 4294967295
@@ -212,7 +212,7 @@ define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captur
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %.0166263 = phi i32 [ %64, %.lr.ph ], [ %48, %59 ]
   %60 = zext i32 %.0166263 to i64
-  %61 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !25
   %63 = add i8 %62, 1
   store i8 %63, ptr %61, align 1, !tbaa !25
@@ -237,9 +237,9 @@ define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captur
 
 .lr.ph266:                                        ; preds = %.preheader239, %.lr.ph266
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph266 ], [ 0, %.preheader239 ]
-  %69 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %70 = load i8, ptr %69, align 1, !tbaa !25
-  %71 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %72 = load i8, ptr %71, align 1, !tbaa !25
   %73 = xor i8 %72, %70
   store i8 %73, ptr %71, align 1, !tbaa !25
@@ -311,7 +311,7 @@ select.unfold:                                    ; preds = %79
 
 92:                                               ; preds = %90
   %93 = zext i32 %.2168 to i64
-  %94 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %10, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !25
   %96 = add i8 %95, 1
   store i8 %96, ptr %94, align 1, !tbaa !25

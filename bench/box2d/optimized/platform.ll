@@ -131,7 +131,7 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
 .preheader:                                       ; preds = %.preheader.preheader, %20
   %21 = phi i1 [ false, %20 ], [ true, %.preheader.preheader ]
   %.03646 = phi i64 [ 1, %20 ], [ 0, %.preheader.preheader ]
-  %22 = getelementptr inbounds nuw [2 x %struct.anon], ptr @supportedPlatforms, i64 0, i64 %.03646, i32 1
+  %22 = getelementptr inbounds nuw %struct.anon, ptr @supportedPlatforms, i64 %.03646, i32 1
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = tail call i32 %23(i32 noundef 393216, ptr noundef %1) #5
   %.not43 = icmp eq i32 %24, 0
@@ -147,7 +147,7 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
 .preheader44:                                     ; preds = %.preheader44.preheader, %26
   %27 = phi i1 [ false, %26 ], [ true, %.preheader44.preheader ]
   %.145 = phi i64 [ 1, %26 ], [ 0, %.preheader44.preheader ]
-  %28 = getelementptr inbounds nuw [2 x %struct.anon], ptr @supportedPlatforms, i64 0, i64 %.145
+  %28 = getelementptr inbounds nuw %struct.anon, ptr @supportedPlatforms, i64 %.145
   %29 = load i32, ptr %28, align 16, !tbaa !9
   %30 = icmp eq i32 %29, %.037
   br i1 %30, label %31, label %26
@@ -213,7 +213,7 @@ define range(i32 0, 2) i32 @glfwPlatformSupported(i32 noundef %0) local_unnamed_
 .preheader:                                       ; preds = %4, %.preheader
   %.not = phi i1 [ true, %.preheader ], [ false, %4 ]
   %.021 = phi i64 [ 1, %.preheader ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw [2 x %struct.anon], ptr @supportedPlatforms, i64 0, i64 %.021
+  %6 = getelementptr inbounds nuw %struct.anon, ptr @supportedPlatforms, i64 %.021
   %7 = load i32, ptr %6, align 16, !tbaa !9
   %8 = icmp eq i32 %0, %7
   %brmerge = or i1 %8, %.not

@@ -736,7 +736,7 @@ define range(i32 -2147483648, 1) i32 @ff_id3v2_write_apic(ptr noundef %0, ptr no
 34:                                               ; preds = %.lr.ph64, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %39 ]
   %35 = load ptr, ptr %33, align 8, !tbaa !45
-  %36 = getelementptr inbounds nuw [21 x ptr], ptr @ff_id3v2_picture_types, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr @ff_id3v2_picture_types, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = tail call i32 @av_strcasecmp(ptr noundef %35, ptr noundef %37) #9
   %.not53 = icmp eq i32 %38, 0

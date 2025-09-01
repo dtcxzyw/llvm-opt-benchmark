@@ -185,9 +185,9 @@ define internal noundef i32 @cmp_order(ptr noundef readonly captures(none) %0, p
   %.03656 = phi i32 [ %21, %20 ], [ %10, %3 ]
   %.04055 = phi i32 [ %22, %20 ], [ 0, %3 ]
   %12 = zext nneg i32 %.04055 to i64
-  %13 = getelementptr [16 x i8], ptr %4, i64 0, i64 %12
+  %13 = getelementptr i8, ptr %4, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr [16 x i8], ptr %5, i64 0, i64 %12
+  %15 = getelementptr i8, ptr %5, i64 %12
   %16 = load i8, ptr %15, align 1
   %.not49 = icmp eq i8 %14, %16
   br i1 %.not49, label %20, label %.thread
@@ -215,13 +215,13 @@ define internal noundef i32 @cmp_order(ptr noundef readonly captures(none) %0, p
   br i1 %.not, label %.critedge, label %25
 
 25:                                               ; preds = %._crit_edge
-  %26 = getelementptr [16 x i8], ptr %4, i64 0, i64 %.040.lcssa
+  %26 = getelementptr i8, ptr %4, i64 %.040.lcssa
   %27 = load i8, ptr %26, align 1
   %28 = zext nneg i32 %.036.lcssa to i64
-  %29 = getelementptr [9 x i8], ptr @bitmasks, i64 0, i64 %28
+  %29 = getelementptr i8, ptr @bitmasks, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = and i8 %30, %27
-  %32 = getelementptr [16 x i8], ptr %5, i64 0, i64 %.040.lcssa
+  %32 = getelementptr i8, ptr %5, i64 %.040.lcssa
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %33, %30
   %.not48 = icmp eq i8 %31, %34
@@ -304,12 +304,12 @@ define internal noundef i32 @bitwise_and(ptr noundef writeonly captures(none) %0
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %.02427 = phi i32 [ %11, %.lr.ph ], [ %21, %14 ]
-  %15 = getelementptr [16 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %5, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1
-  %17 = getelementptr [16 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %17 = getelementptr i8, ptr %6, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1
   %19 = and i8 %18, %16
-  %20 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %20 = getelementptr i8, ptr %13, i64 %indvars.iv
   store i8 %19, ptr %20, align 1
   %21 = add i32 %.02427, -8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -328,17 +328,17 @@ define internal noundef i32 @bitwise_and(ptr noundef writeonly captures(none) %0
   br i1 %.not, label %36, label %24
 
 24:                                               ; preds = %._crit_edge
-  %25 = getelementptr [16 x i8], ptr %5, i64 0, i64 %.0.lcssa
+  %25 = getelementptr i8, ptr %5, i64 %.0.lcssa
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr [16 x i8], ptr %6, i64 0, i64 %.0.lcssa
+  %27 = getelementptr i8, ptr %6, i64 %.0.lcssa
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, %26
   %30 = zext nneg i32 %.024.lcssa to i64
-  %31 = getelementptr [9 x i8], ptr @bitmasks, i64 0, i64 %30
+  %31 = getelementptr i8, ptr @bitmasks, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = and i8 %29, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = getelementptr [16 x i8], ptr %34, i64 0, i64 %.0.lcssa
+  %35 = getelementptr i8, ptr %34, i64 %.0.lcssa
   store i8 %33, ptr %35, align 1
   br label %36
 

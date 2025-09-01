@@ -10981,7 +10981,7 @@ define hidden void @"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_s
 
 switch.lookup:                                    ; preds = %34
   %37 = zext nneg i8 %35 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h256f4fef80424109E", i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h256f4fef80424109E", i64 %37
   %switch.load = load i64, ptr %switch.gep, align 8
   %.not39.i = icmp eq i64 %2, %switch.load
   br i1 %.not39.i, label %39, label %38
@@ -11676,7 +11676,7 @@ define hidden void @"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_s
 
 switch.lookup:                                    ; preds = %39
   %42 = zext nneg i8 %40 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17hf0ccca98ad2d1870E", i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17hf0ccca98ad2d1870E", i64 %42
   %switch.load = load i64, ptr %switch.gep, align 8
   %.not39.i = icmp eq i64 %2, %switch.load
   br i1 %.not39.i, label %44, label %43
@@ -19744,10 +19744,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !24, !align !25, !noundef !24
   %.val = load i8, ptr %2, align 1, !range !2695, !noundef !24
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcbf4dfebabbb6e64E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcbf4dfebabbb6e64E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcbf4dfebabbb6e64E.775", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcbf4dfebabbb6e64E.775", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -25979,10 +25979,10 @@ define internal noundef zeroext i1 @"_ZN54_$LT$bzip2..mem..Error$u20$as$u20$core
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2695, !noundef !24
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN54_$LT$bzip2..mem..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h246f5e5594e1e1cfE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN54_$LT$bzip2..mem..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h246f5e5594e1e1cfE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN54_$LT$bzip2..mem..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h246f5e5594e1e1cfE.776", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN54_$LT$bzip2..mem..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h246f5e5594e1e1cfE.776", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -26056,10 +26056,10 @@ define internal noundef zeroext i1 @"_ZN59_$LT$liblzma..stream..Error$u20$as$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !3000, !noundef !24
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN59_$LT$liblzma..stream..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h227e1e902d21c50bE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN59_$LT$liblzma..stream..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h227e1e902d21c50bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN59_$LT$liblzma..stream..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h227e1e902d21c50bE.777", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN59_$LT$liblzma..stream..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h227e1e902d21c50bE.777", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -27401,10 +27401,10 @@ define internal noundef zeroext i1 @"_ZN61_$LT$liblzma..stream..Error$u20$as$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !3000, !noundef !24
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN61_$LT$liblzma..stream..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h212871d1e626ea29E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN61_$LT$liblzma..stream..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h212871d1e626ea29E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN61_$LT$liblzma..stream..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h212871d1e626ea29E.778", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN61_$LT$liblzma..stream..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h212871d1e626ea29E.778", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h9ae940ece0cd3177E"(ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret i1 %5
@@ -34681,7 +34681,7 @@ define noundef range(i8 0, 16) i8 @_ZN6yara_x7modules6protos3elf7Section5type_17
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i8], ptr @switch.table._ZN6yara_x7modules6protos3elf7Section5type_17he3a030808eee3fc2E, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x7modules6protos3elf7Section5type_17he3a030808eee3fc2E, i64 %9
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %"_ZN83_$LT$yara_x..modules..protos..elf..SectionType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h3c8bbe629aa46a31E.exit"
 
@@ -39958,7 +39958,7 @@ define noundef range(i8 0, 17) i8 @"_ZN83_$LT$yara_x..modules..protos..elf..Sect
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @"switch.table._ZN83_$LT$yara_x..modules..protos..elf..SectionType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h3c8bbe629aa46a31E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN83_$LT$yara_x..modules..protos..elf..SectionType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h3c8bbe629aa46a31E", i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -40067,7 +40067,7 @@ switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !3847, !noundef !24
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN91_$LT$yara_x..modules..protos..elf..SectionType$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17heaac0e8096daf71dE", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN91_$LT$yara_x..modules..protos..elf..SectionType$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17heaac0e8096daf71dE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3848)
@@ -40442,60 +40442,60 @@ define void @"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$pr
 switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !3855, !noundef !24
-  %switch.tableidx = add nsw i8 %3, -1
-  %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17hc2690cdefdbfddbbE", i64 0, i64 %4
+  %4 = zext nneg i8 %3 to i64
+  %5 = getelementptr i64, ptr @"switch.table._ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17hc2690cdefdbfddbbE", i64 %4
+  %switch.gep = getelementptr i8, ptr %5, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3856)
-  %5 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hb06335db6d734e69E"(ptr noundef nonnull align 8 @"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17h3c1dba31bea33587E"), !noalias !3856
-  %6 = load i64, ptr %5, align 8, !range !126, !noalias !3856, !noundef !24
-  %7 = trunc nuw i64 %6 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %7, label %9, label %"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h961972c34ca0e94bE.exit"
+  %6 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hb06335db6d734e69E"(ptr noundef nonnull align 8 @"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17h3c1dba31bea33587E"), !noalias !3856
+  %7 = load i64, ptr %6, align 8, !range !126, !noalias !3856, !noundef !24
+  %8 = trunc nuw i64 %7 to i1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br i1 %8, label %10, label %"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h961972c34ca0e94bE.exit"
 
-9:                                                ; preds = %switch.lookup
-  %10 = load ptr, ptr %8, align 8, !noalias !3856, !nonnull !24, !noundef !24
-  %11 = atomicrmw add ptr %10, i64 1 monotonic, align 8, !noalias !3856
-  %12 = icmp slt i64 %11, 0
-  br i1 %12, label %13, label %"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h961972c34ca0e94bE.exit"
+10:                                               ; preds = %switch.lookup
+  %11 = load ptr, ptr %9, align 8, !noalias !3856, !nonnull !24, !noundef !24
+  %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8, !noalias !3856
+  %13 = icmp slt i64 %12, 0
+  br i1 %13, label %14, label %"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h961972c34ca0e94bE.exit"
 
-13:                                               ; preds = %9
+14:                                               ; preds = %10
   tail call void @llvm.trap()
   unreachable
 
-"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h961972c34ca0e94bE.exit": ; preds = %switch.lookup, %9
-  %.sroa.01.0.i = phi i64 [ 1, %9 ], [ 0, %switch.lookup ]
-  %.sroa.5.0.i = load ptr, ptr %8, align 8, !noalias !3856, !noundef !24
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = load i64, ptr %14, align 8, !noalias !3856, !noundef !24
+"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h961972c34ca0e94bE.exit": ; preds = %switch.lookup, %10
+  %.sroa.01.0.i = phi i64 [ 1, %10 ], [ 0, %switch.lookup ]
+  %.sroa.5.0.i = load ptr, ptr %9, align 8, !noalias !3856, !noundef !24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %16 = load i64, ptr %15, align 8, !noalias !3856, !noundef !24
   store i64 %.sroa.01.0.i, ptr %2, align 8, !alias.scope !3856
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.sroa.5.0.i, ptr %16, align 8, !alias.scope !3856
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %15, ptr %17, align 8, !alias.scope !3856
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %.sroa.5.0.i, ptr %17, align 8, !alias.scope !3856
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %16, ptr %18, align 8, !alias.scope !3856
   invoke void @_ZN8protobuf7reflect5enums14EnumDescriptor14value_by_index17h4a6760bb87b03712E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i64 noundef %switch.load)
-          to label %20 unwind label %18
+          to label %21 unwind label %19
 
-18:                                               ; preds = %"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h961972c34ca0e94bE.exit"
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h961972c34ca0e94bE.exit"
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$protobuf..reflect..enums..EnumDescriptor$GT$17h80ec976af8edaa35E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #30
-          to label %23 unwind label %21
+          to label %24 unwind label %22
 
-20:                                               ; preds = %"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h961972c34ca0e94bE.exit"
+21:                                               ; preds = %"_ZN92_$LT$yara_x..modules..protos..elf..SegmentFlags$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h961972c34ca0e94bE.exit"
   call void @"_ZN4core3ptr61drop_in_place$LT$protobuf..reflect..enums..EnumDescriptor$GT$17h80ec976af8edaa35E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-21:                                               ; preds = %18
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #31
   unreachable
 
-23:                                               ; preds = %18
-  resume { ptr, i32 } %19
+24:                                               ; preds = %19
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -749,7 +749,7 @@ define void @_ZN5folly11prettyPrintB5cxx11EdNS_10PrettyTypeEb(ptr dead_on_unwind
   %7 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw [9 x ptr], ptr @_ZN5folly12_GLOBAL__N_115kPrettySuffixesE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN5folly12_GLOBAL__N_115kPrettySuffixesE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = tail call double @llvm.fabs.f64(double %1)
   %12 = load ptr, ptr %10, align 8, !tbaa !32
@@ -953,7 +953,7 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %.lr.ph
 .critedge:                                        ; preds = %.lr.ph, %_ZN5folly5RangeIPKcE7advanceEm.exit, %_ZN5folly2toIdEET_PNS_5RangeIPKcEE.exit
   %.lcssa = phi ptr [ %.sroa.0.0.copyload.i.i.i.i.i, %_ZN5folly2toIdEET_PNS_5RangeIPKcEE.exit ], [ %20, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %16, %.lr.ph ]
   %22 = zext i32 %1 to i64
-  %23 = getelementptr inbounds nuw [9 x ptr], ptr @_ZN5folly12_GLOBAL__N_115kPrettySuffixesE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @_ZN5folly12_GLOBAL__N_115kPrettySuffixesE, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %25 = load ptr, ptr %24, align 8, !tbaa !32
   %.not4457 = icmp eq ptr %25, null
@@ -1590,7 +1590,7 @@ define noundef range(i64 0, 17) i64 @_ZN5folly6detail11hexDumpLineEPKvmmRNSt7__c
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %8, i64 16)
   %9 = lshr i64 %1, 28
   %10 = and i64 %9, 15
-  %11 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !7
   %13 = load i64, ptr %5, align 8, !tbaa !21
   %14 = add i64 %13, 1
@@ -1625,7 +1625,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   store i8 0, ptr %27, align 1, !tbaa !7
   %28 = lshr i64 %1, 24
   %29 = and i64 %28, 15
-  %30 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !7
   %32 = load i64, ptr %5, align 8, !tbaa !21
   %33 = add i64 %32, 1
@@ -1659,7 +1659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit58: ; pred
   store i8 0, ptr %45, align 1, !tbaa !7
   %46 = lshr i64 %1, 20
   %47 = and i64 %46, 15
-  %48 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !7
   %50 = load i64, ptr %5, align 8, !tbaa !21
   %51 = add i64 %50, 1
@@ -1693,7 +1693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit61: ; pred
   store i8 0, ptr %63, align 1, !tbaa !7
   %64 = lshr i64 %1, 16
   %65 = and i64 %64, 15
-  %66 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !7
   %68 = load i64, ptr %5, align 8, !tbaa !21
   %69 = add i64 %68, 1
@@ -1727,7 +1727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit64: ; pred
   store i8 0, ptr %81, align 1, !tbaa !7
   %82 = lshr i64 %1, 12
   %83 = and i64 %82, 15
-  %84 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !7
   %86 = load i64, ptr %5, align 8, !tbaa !21
   %87 = add i64 %86, 1
@@ -1761,7 +1761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit67: ; pred
   store i8 0, ptr %99, align 1, !tbaa !7
   %100 = lshr i64 %1, 8
   %101 = and i64 %100, 15
-  %102 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !7
   %104 = load i64, ptr %5, align 8, !tbaa !21
   %105 = add i64 %104, 1
@@ -1795,7 +1795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit70: ; pred
   store i8 0, ptr %117, align 1, !tbaa !7
   %118 = lshr i64 %1, 4
   %119 = and i64 %118, 15
-  %120 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !7
   %122 = load i64, ptr %5, align 8, !tbaa !21
   %123 = add i64 %122, 1
@@ -1828,7 +1828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit73: ; pred
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 %123
   store i8 0, ptr %135, align 1, !tbaa !7
   %136 = and i64 %1, 15
-  %137 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !7
   %139 = load i64, ptr %5, align 8, !tbaa !21
   %140 = add i64 %139, 1
@@ -1987,7 +1987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit85: ; pred
   %211 = load i8, ptr %210, align 1, !tbaa !7
   %212 = lshr i8 %211, 4
   %213 = zext nneg i8 %212 to i64
-  %214 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 %213
   %215 = load i8, ptr %214, align 1, !tbaa !7
   %216 = load i64, ptr %5, align 8, !tbaa !21
   %217 = add i64 %216, 1
@@ -2022,7 +2022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit88: ; pred
   %230 = load i8, ptr %210, align 1, !tbaa !7
   %231 = and i8 %230, 15
   %232 = zext nneg i8 %231 to i64
-  %233 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw i8, ptr @_ZZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9hexValues, i64 %232
   %234 = load i8, ptr %233, align 1, !tbaa !7
   %235 = load i64, ptr %5, align 8, !tbaa !21
   %236 = add i64 %235, 1

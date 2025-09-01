@@ -1306,7 +1306,7 @@ Psr_ManAlloc.exit.thread:                         ; preds = %1
 
 33:                                               ; preds = %33, %6
   %indvars.iv.i = phi i64 [ 1, %6 ], [ %indvars.iv.next.i, %33 ]
-  %34 = getelementptr inbounds nuw [14 x ptr], ptr @s_VerTypes, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw ptr, ptr @s_VerTypes, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !45
   %36 = load ptr, ptr %27, align 8, !tbaa !31
   %37 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %36, ptr noundef %35, ptr noundef null) #20
@@ -1661,7 +1661,7 @@ Psr_ManReadName.exit125.thread.i.i:               ; preds = %Psr_ManReadName.exi
 
 144:                                              ; preds = %140
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %145 = getelementptr inbounds nuw [100 x ptr], ptr @s_KnownModules, i64 0, i64 %indvars.iv.next.i.i
+  %145 = getelementptr inbounds nuw ptr, ptr @s_KnownModules, i64 %indvars.iv.next.i.i
   %146 = load ptr, ptr %145, align 8, !tbaa !45
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 51
   br i1 %exitcond.i.i, label %Psr_ManIsKnownModule.exit.thread.i, label %140, !llvm.loop !47
@@ -2370,7 +2370,7 @@ Psr_ManReadName.exit129.thread.i:                 ; preds = %Psr_ManReadName.exi
 360:                                              ; preds = %358
   %361 = add nsw i32 %.2.i56, -1
   %362 = zext nneg i32 %361 to i64
-  %363 = getelementptr inbounds nuw [3 x ptr], ptr %2, i64 0, i64 %362
+  %363 = getelementptr inbounds nuw ptr, ptr %2, i64 %362
   %364 = load ptr, ptr %363, align 8, !tbaa !52
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 4
   %366 = load i32, ptr %365, align 4, !tbaa !3
@@ -2438,7 +2438,7 @@ Vec_IntPush.exit.i:                               ; preds = %389, %Vec_IntGrow.e
   %394 = sext i32 %392 to i64
   %395 = getelementptr inbounds i32, ptr %391, i64 %394
   store i32 %.0.i57, ptr %395, align 4, !tbaa !12
-  %396 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %362
+  %396 = getelementptr inbounds nuw ptr, ptr %3, i64 %362
   %397 = load ptr, ptr %396, align 8, !tbaa !52
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 4
   %399 = load i32, ptr %398, align 4, !tbaa !3
@@ -5420,11 +5420,11 @@ Psr_ManReadNameList.exit.preheader:               ; preds = %Vec_IntPush.exit.i
 .lr.ph:                                           ; preds = %Psr_ManReadNameList.exit.preheader
   %130 = add nsw i32 %1, -1
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [4 x ptr], ptr %3, i64 0, i64 %131
+  %132 = getelementptr inbounds ptr, ptr %3, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !52
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %131
+  %135 = getelementptr inbounds ptr, ptr %4, i64 %131
   %136 = load ptr, ptr %135, align 8, !tbaa !52
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %.phi.trans.insert.i43 = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -7207,7 +7207,7 @@ Psr_ManUtilSkipSpaces.exit92.i:                   ; preds = %.preheader.i74.i, %
 
 215:                                              ; preds = %212
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %216 = getelementptr inbounds nuw [100 x ptr], ptr @s_VerilogModules, i64 0, i64 %indvars.iv.next.i
+  %216 = getelementptr inbounds nuw ptr, ptr @s_VerilogModules, i64 %indvars.iv.next.i
   %217 = load ptr, ptr %216, align 8, !tbaa !45
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %exitcond.i, label %.thread, label %212, !llvm.loop !72

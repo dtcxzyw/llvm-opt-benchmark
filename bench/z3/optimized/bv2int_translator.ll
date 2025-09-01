@@ -2919,7 +2919,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit457:      ; preds = %376, %_ZNK15ref_vec
   %indvars.iv.next1356 = add nsw i64 %indvars.iv1355, -1
   %indvars = trunc i64 %indvars.iv.next1356 to i32
   %402 = and i64 %indvars.iv.next1356, 4294967295
-  %403 = getelementptr inbounds nuw [0 x ptr], ptr %383, i64 0, i64 %402
+  %403 = getelementptr inbounds nuw ptr, ptr %383, i64 %402
   %404 = load ptr, ptr %403, align 8, !tbaa !44
   %405 = invoke noundef ptr @_ZN17bv2int_translator4umodEP4exprj(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef %404, i32 noundef %indvars)
           to label %406 unwind label %.loopexit
@@ -9216,7 +9216,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   br i1 %18, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %.thread
 
 32:                                               ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
-  %33 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !44
   %35 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %34)
   %36 = tail call noundef zeroext i1 @_ZNK14bv_recognizers10is_bv_sortEPK4sort(ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef %35)

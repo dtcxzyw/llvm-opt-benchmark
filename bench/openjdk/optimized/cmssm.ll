@@ -192,9 +192,9 @@ QuantizeToSector.exit:                            ; preds = %45, %.thread33
 64:                                               ; preds = %QuantizeToSector.exit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = zext nneg i32 %.022 to i64
-  %67 = getelementptr inbounds nuw [16 x [16 x %struct.cmsGDBPoint]], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [16 x %struct.cmsGDBPoint], ptr %65, i64 %66
   %68 = zext nneg i32 %spec.select to i64
-  %69 = getelementptr inbounds nuw [16 x %struct.cmsGDBPoint], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %struct.cmsGDBPoint, ptr %67, i64 %68
   br label %70
 
 70:                                               ; preds = %64, %62, %48
@@ -277,9 +277,9 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
   %8 = alloca %struct.cmsLine, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds [16 x [16 x %struct.cmsGDBPoint]], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds [16 x %struct.cmsGDBPoint], ptr %9, i64 %10
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds [16 x %struct.cmsGDBPoint], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds %struct.cmsGDBPoint, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.preheader, label %215
@@ -287,7 +287,7 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
 .preheader:                                       ; preds = %3, %30
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %3 ]
   %.028.i = phi i32 [ %.1.i, %30 ], [ 0, %3 ]
-  %15 = getelementptr inbounds nuw [24 x %struct._spiral], ptr @Spiral, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %struct._spiral, ptr @Spiral, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 8
   %17 = add nsw i32 %16, %1
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -296,9 +296,9 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
   %spec.select.i = and i32 %17, 15
   %.020.i = and i32 %20, 15
   %21 = zext nneg i32 %.020.i to i64
-  %22 = getelementptr inbounds nuw [16 x [16 x %struct.cmsGDBPoint]], ptr %9, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x %struct.cmsGDBPoint], ptr %9, i64 %21
   %23 = zext nneg i32 %spec.select.i to i64
-  %24 = getelementptr inbounds nuw [16 x %struct.cmsGDBPoint], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %struct.cmsGDBPoint, ptr %22, i64 %23
   %25 = load i32, ptr %24, align 8
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %30, label %26
@@ -393,7 +393,7 @@ FindNearSectors.exit:                             ; preds = %30
   br i1 %80, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %79
-  %81 = getelementptr inbounds nuw [25 x ptr], ptr %7, i64 0, i64 %indvars.iv85
+  %81 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv85
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
@@ -426,7 +426,7 @@ FindNearSectors.exit:                             ; preds = %30
   %105 = fmul double %90, %104
   %106 = fmul double %94, %104
   %107 = fmul double %102, %103
-  %108 = getelementptr inbounds nuw [25 x ptr], ptr %7, i64 0, i64 %indvars.iv81
+  %108 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv81
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 16

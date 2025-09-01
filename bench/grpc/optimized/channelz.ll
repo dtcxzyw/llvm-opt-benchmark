@@ -2857,7 +2857,7 @@ define noundef nonnull ptr @_ZN9grpc_core8channelz11ChannelNode39GetChannelConne
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core8channelz11ChannelNode39GetChannelConnectivityStateChangeStringE23grpc_connectivity_state, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core8channelz11ChannelNode39GetChannelConnectivityStateChangeStringE23grpc_connectivity_state, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

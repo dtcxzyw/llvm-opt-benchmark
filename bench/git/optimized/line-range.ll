@@ -243,7 +243,7 @@ define internal fastcc ptr @parse_range_funcname(ptr noundef %0, ptr noundef rea
 66:                                               ; preds = %.critedge2.us.i
   %67 = load i8, ptr %spec.select.us.i, align 1, !tbaa !8
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !8
   %.fr.i.us.i = freeze i8 %70
   %71 = and i8 %.fr.i.us.i, 4
@@ -391,7 +391,7 @@ find_funcname_matching_regexp.exit:               ; preds = %.critedge2.i, %66, 
 117:                                              ; preds = %.lr.ph126.split.us
   %118 = load i8, ptr %112, align 1, !tbaa !8
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !8
   %.fr.i.us = freeze i8 %121
   %122 = and i8 %.fr.i.us, 4

@@ -47,7 +47,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_einit(ptr noundef captures(n
 13:                                               ; preds = %11, %.lr.ph.i
   %.019.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %11 ]
   %14 = tail call ptr @EVP_CIPHER_CTX_new() #7
-  %15 = getelementptr inbounds nuw [32 x ptr], ptr %10, i64 0, i64 %.019.i
+  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %.019.i
   store ptr %14, ptr %15, align 8, !tbaa !13
   %16 = icmp eq ptr %14, null
   br i1 %16, label %fake_pipeline_init.exit, label %17
@@ -85,7 +85,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_dinit(ptr noundef captures(n
 13:                                               ; preds = %11, %.lr.ph.i
   %.019.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %11 ]
   %14 = tail call ptr @EVP_CIPHER_CTX_new() #7
-  %15 = getelementptr inbounds nuw [32 x ptr], ptr %10, i64 0, i64 %.019.i
+  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %.019.i
   store ptr %14, ptr %15, align 8, !tbaa !13
   %16 = icmp eq ptr %14, null
   br i1 %16, label %fake_pipeline_init.exit, label %17
@@ -120,7 +120,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_update(ptr noundef readonly 
   %10 = getelementptr inbounds nuw i64, ptr %6, i64 %.019.us
   %11 = load i64, ptr %10, align 8, !tbaa !18
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.019.us
+  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %.019.us
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %.019.us
   %16 = load ptr, ptr %15, align 8, !tbaa !16
@@ -142,7 +142,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_update(ptr noundef readonly 
   %23 = getelementptr inbounds nuw i64, ptr %6, i64 %.019
   %24 = load i64, ptr %23, align 8, !tbaa !18
   %25 = trunc i64 %24 to i32
-  %26 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.019
+  %26 = getelementptr inbounds nuw ptr, ptr %9, i64 %.019
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = getelementptr inbounds nuw ptr, ptr %2, i64 %.019
   %29 = load ptr, ptr %28, align 8, !tbaa !16
@@ -179,7 +179,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_final(ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %5, %13
   %.011 = phi i64 [ %17, %13 ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw [32 x ptr], ptr %7, i64 0, i64 %.011
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.011
   %9 = load ptr, ptr %8, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw ptr, ptr %2, i64 %.011
   %11 = load ptr, ptr %10, align 8, !tbaa !16
@@ -310,7 +310,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.4, ptr noundef %37, i64 noundef %38) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %39 = getelementptr inbounds nuw [32 x ptr], ptr %28, i64 0, i64 %.031
+  %39 = getelementptr inbounds nuw ptr, ptr %28, i64 %.031
   %40 = load ptr, ptr %39, align 8, !tbaa !13
   %41 = call i32 @EVP_CIPHER_CTX_get_params(ptr noundef %40, ptr noundef nonnull %5) #7
   %.not29 = icmp eq i32 %41, 0
@@ -398,7 +398,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_aead_set_ctx_params(ptr noun
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.4, ptr noundef %20, i64 noundef %21) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %22 = getelementptr inbounds nuw [32 x ptr], ptr %12, i64 0, i64 %.014
+  %22 = getelementptr inbounds nuw ptr, ptr %12, i64 %.014
   %23 = load ptr, ptr %22, align 8, !tbaa !13
   %24 = call i32 @EVP_CIPHER_CTX_set_params(ptr noundef %23, ptr noundef nonnull %5) #7
   %.not13 = icmp eq i32 %24, 0
@@ -536,7 +536,7 @@ define internal void @fake_pipeline_freectx(ptr noundef %0) #0 {
 
 7:                                                ; preds = %.lr.ph, %7
   %.07 = phi i64 [ 0, %.lr.ph ], [ %10, %7 ]
-  %8 = getelementptr inbounds nuw [32 x ptr], ptr %6, i64 0, i64 %.07
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.07
   %9 = load ptr, ptr %8, align 8, !tbaa !13
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %9) #7
   %10 = add nuw i64 %.07, 1

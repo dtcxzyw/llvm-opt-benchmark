@@ -1876,7 +1876,7 @@ _ZN5ceres8internal21SchurComplementSolverD2Ev.exit: ; preds = %_ZN5ceres8interna
 
 55:                                               ; preds = %1, %60
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %60 ]
-  %56 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !151
   %.not = icmp eq ptr %57, null
   br i1 %.not, label %60, label %58
@@ -3958,7 +3958,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18sc
 
 197:                                              ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit, %221
   %indvars.iv133 = phi i64 [ 0, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit ], [ %indvars.iv.next134, %221 ]
-  %198 = getelementptr inbounds nuw [4 x ptr], ptr %188, i64 0, i64 %indvars.iv133
+  %198 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv133
   %199 = load ptr, ptr %198, align 8, !tbaa !151
   %200 = icmp eq ptr %199, null
   br i1 %200, label %201, label %221

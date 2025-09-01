@@ -267,7 +267,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4
 
 .lr.ph.i.us.i:                                    ; preds = %27, %31
   %.05.i.us.i = phi i64 [ %32, %31 ], [ 0, %27 ]
-  %28 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %.05.i.us.i
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %.05.i.us.i
   %29 = load i8, ptr %28, align 1, !alias.scope !25, !noalias !24, !noundef !4
   %30 = icmp eq i8 %29, %23
   br i1 %30, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i, label %31
@@ -324,7 +324,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i: ; preds = %31
 
 .lr.ph.i.i:                                       ; preds = %51, %55
   %.05.i.i = phi i64 [ %56, %55 ], [ 0, %51 ]
-  %52 = getelementptr inbounds nuw [0 x i8], ptr %45, i64 0, i64 %.05.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 %.05.i.i
   %53 = load i8, ptr %52, align 1, !alias.scope !25, !noalias !24, !noundef !4
   %54 = icmp eq i8 %53, %47
   br i1 %54, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i, label %55
@@ -2928,8 +2928,8 @@ define { ptr, ptr } @_ZN11uu_unexpand8unexpand17hda5cba57f000adeeE(ptr noalias n
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %1
-  %37 = add i64 %32, -1
-  %38 = getelementptr inbounds [0 x i64], ptr %30, i64 0, i64 %37
+  %37 = getelementptr i64, ptr %30, i64 %32
+  %38 = getelementptr i8, ptr %37, i64 -8
   %39 = load i64, ptr %38, align 8, !noundef !4
   %40 = add i64 %39, -1
   br label %41
@@ -3457,7 +3457,7 @@ _ZN11uu_unexpand4open17hd359cbb5c6c43d80E.exit:   ; preds = %"_ZN3std2io8buffere
 
 182:                                              ; preds = %173
   call void @llvm.experimental.noalias.scope.decl(metadata !652)
-  %183 = getelementptr inbounds [0 x i8], ptr %172, i64 0, i64 %.091146.i
+  %183 = getelementptr inbounds i8, ptr %172, i64 %.091146.i
   %184 = load i8, ptr %183, align 1, !alias.scope !652, !noalias !655, !noundef !4
   br i1 %54, label %190, label %185
 
@@ -3594,7 +3594,7 @@ _ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread21.i: ; preds = 
 247:                                              ; preds = %243
   %248 = zext nneg i32 %.sroa.4.0.i.ph.i.i to i64
   %249 = lshr i64 %248, 13
-  %250 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %249
   %251 = load i8, ptr %250, align 1, !noalias !661, !noundef !4
   %252 = zext i8 %251 to i64
   %253 = shl nuw nsw i64 %252, 7
@@ -3605,7 +3605,7 @@ _ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread21.i: ; preds = 
   br i1 %257, label %258, label %.invoke489, !prof !662
 
 258:                                              ; preds = %247
-  %259 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %256
+  %259 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %256
   %260 = load i8, ptr %259, align 1, !noalias !661, !noundef !4
   %261 = zext i8 %260 to i64
   %262 = shl nuw nsw i64 %261, 4
@@ -3626,7 +3626,7 @@ _ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread21.i: ; preds = 
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i: ; preds = %258
-  %270 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %265
+  %270 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %265
   %271 = load i8, ptr %270, align 1, !noalias !661, !noundef !4
   %.tr.i.i.i = trunc i32 %.sroa.4.0.i.ph.i.i to i8
   %272 = shl i8 %.tr.i.i.i, 1

@@ -993,7 +993,7 @@ define dso_local void @print_error_with_chain_status(ptr noundef %0, ptr noundef
   call void @llvm.va_end.p0(ptr nonnull %3)
   %7 = load ptr, ptr @stderr, align 8, !tbaa !4
   %8 = zext i32 %4 to i64
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @FLAC__Metadata_ChainStatusString, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %7, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %10) #13
   %switch.tableidx = add i32 %4, -2
@@ -1006,7 +1006,7 @@ define dso_local void @print_error_with_chain_status(ptr noundef %0, ptr noundef
 
 switch.lookup:                                    ; preds = %2
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.print_error_with_chain_status, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.print_error_with_chain_status, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = load ptr, ptr @stderr, align 8, !tbaa !4
   %15 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %14, i32 noundef 1, ptr noundef nonnull %switch.load) #13

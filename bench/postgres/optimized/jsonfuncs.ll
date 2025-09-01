@@ -3406,7 +3406,7 @@ define internal fastcc i64 @populate_record_worker(ptr noundef %0, ptr noundef %
   %.056 = phi ptr [ null, %40 ], [ null, %37 ], [ %29, %32 ], [ %29, %25 ], [ null, %20 ], [ null, %.thread70 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = zext i1 %3 to i64
-  %44 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.NullableDatum, ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i8, ptr %45, align 8, !range !4, !noundef !5
   %47 = trunc nuw i8 %46 to i1
@@ -4259,7 +4259,7 @@ define internal fastcc void @populate_recordset_worker(ptr noundef %0, ptr nound
   %.078 = phi ptr [ null, %62 ], [ null, %59 ], [ %51, %54 ], [ %51, %47 ], [ null, %42 ], [ null, %.thread96 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = zext i1 %3 to i64
-  %66 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %64, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw %struct.NullableDatum, ptr %64, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i8, ptr %67, align 8, !range !4, !noundef !5
   %69 = trunc nuw i8 %68 to i1
@@ -9622,7 +9622,7 @@ JsObjectGetField.exit:                            ; preds = %126, %134
   br i1 %or.cond5, label %137, label %153
 
 137:                                              ; preds = %JsObjectGetField.exit
-  %138 = getelementptr inbounds nuw [0 x %struct.ColumnIOData], ptr %98, i64 0, i64 %indvars.iv113
+  %138 = getelementptr inbounds nuw %struct.ColumnIOData, ptr %98, i64 %indvars.iv113
   %139 = getelementptr inbounds nuw i8, ptr %105, i64 68
   %140 = load i32, ptr %139, align 4
   %141 = getelementptr inbounds nuw i8, ptr %105, i64 76

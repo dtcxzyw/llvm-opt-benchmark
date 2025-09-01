@@ -1649,10 +1649,10 @@ define void @_ZN16TransferFunction6initTFEv(ptr noundef nonnull writeonly align 
 
 13:                                               ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw [3 x %class.TfChannel], ptr %0, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %class.TfChannel, ptr %0, i64 %indvars.iv
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds nuw [3 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   store i32 %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3233,7 +3233,7 @@ _ZN7QStringD2Ev.exit43:                           ; preds = %_ZN11QStringListD2E
 
 .lr.ph:                                           ; preds = %_ZN7QStringD2Ev.exit43
   %106 = sext i32 %.09 to i64
-  %107 = getelementptr inbounds [3 x %class.TfChannel], ptr %0, i64 0, i64 %106
+  %107 = getelementptr inbounds %class.TfChannel, ptr %0, i64 %106
   br label %108
 
 108:                                              ; preds = %.lr.ph, %_ZN9TfChannel6addKeyEff.exit
@@ -3829,7 +3829,7 @@ define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN16Tr
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %.067 = phi i64 [ 0, %1 ], [ %spec.select, %2 ]
-  %3 = getelementptr inbounds nuw [3 x %class.TfChannel], ptr %0, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %class.TfChannel, ptr %0, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -3863,7 +3863,7 @@ define noundef nonnull ptr @_ZN16TransferFunction14buildColorBandEv(ptr noundef 
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = uitofp nneg i32 %10 to float
   %12 = tail call noundef float @_Z21absolute2RelativeValfff(float noundef %11, float noundef 1.024000e+03)
-  %13 = getelementptr inbounds nuw [1024 x %class.QColor], ptr %2, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %class.QColor, ptr %2, i64 %indvars.iv
   %14 = load ptr, ptr %3, align 8
   %15 = load ptr, ptr %4, align 8
   %.not34.i = icmp eq ptr %14, %15
@@ -4230,7 +4230,7 @@ define i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr noundef nonnull r
 
 .preheader:                                       ; preds = %20, %.preheader
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.preheader ], [ 0, %20 ]
-  %23 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv34
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv34
   %24 = load i8, ptr %23, align 1
   %25 = uitofp i8 %24 to float
   %26 = tail call noundef float @_Z21absolute2RelativeValfff(float noundef %25, float noundef 2.550000e+02)
@@ -4244,7 +4244,7 @@ define i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr noundef nonnull r
 
 30:                                               ; preds = %.preheader28, %30
   %indvars.iv = phi i64 [ 0, %.preheader28 ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1
   %33 = uitofp i8 %32 to float
   %34 = tail call noundef float @_Z21absolute2RelativeValfff(float noundef %33, float noundef 2.550000e+02)
@@ -4272,7 +4272,7 @@ define void @_ZN16TransferFunction8flipRampEv(ptr noundef nonnull readonly align
 
 2:                                                ; preds = %1, %_ZN9TfChannel4flipEv.exit
   %.03 = phi i64 [ 0, %1 ], [ %13, %_ZN9TfChannel4flipEv.exit ]
-  %3 = getelementptr inbounds nuw [3 x %class.TfChannel], ptr %0, i64 0, i64 %.03
+  %3 = getelementptr inbounds nuw %class.TfChannel, ptr %0, i64 %.03
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4631,7 +4631,7 @@ _ZlsR11QTextStreamPFS0_S0_E.exit:                 ; preds = %90
 
 .preheader:                                       ; preds = %95, %_ZlsR11QTextStreamPFS0_S0_E.exit82
   %.01689 = phi i64 [ %125, %_ZlsR11QTextStreamPFS0_S0_E.exit82 ], [ 0, %95 ]
-  %97 = getelementptr inbounds nuw [3 x %class.TfChannel], ptr %1, i64 0, i64 %.01689
+  %97 = getelementptr inbounds nuw %class.TfChannel, ptr %1, i64 %.01689
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %100 = load ptr, ptr %99, align 8

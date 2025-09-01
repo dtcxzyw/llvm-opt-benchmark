@@ -233,10 +233,10 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   %22 = getelementptr inbounds nuw %struct.PendingWrite, ptr %7, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %24, ptr %25, align 4
   %26 = load ptr, ptr %22, align 8
-  %27 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %29 = load i8, ptr %28, align 4, !range !5, !noundef !6
@@ -333,7 +333,7 @@ define dso_local void @smgr_bulk_write(ptr noundef %0, i32 noundef %1, ptr nound
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds [32 x %struct.PendingWrite], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds %struct.PendingWrite, ptr %6, i64 %10
   store ptr %2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %1, ptr %12, align 8

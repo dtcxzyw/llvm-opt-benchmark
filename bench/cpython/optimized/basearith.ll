@@ -1003,7 +1003,7 @@ define hidden void @_mpd_baseshiftl(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not2737, label %.loopexit, label %.lr.ph39
 
 11:                                               ; preds = %5
-  %12 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %10
+  %12 = getelementptr i64, ptr @mpd_pow10, i64 %10
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = add i64 %2, -1
   %15 = add i64 %3, -2
@@ -1294,7 +1294,7 @@ define hidden i64 @_mpd_baseshiftr(ptr noundef writeonly captures(none) %0, ptr 
 
 12:                                               ; preds = %4
   %13 = sub i64 19, %11
-  %14 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %13
+  %14 = getelementptr i64, ptr @mpd_pow10, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !3
   %16 = getelementptr i64, ptr %1, i64 %10
   %17 = load i64, ptr %16, align 8, !tbaa !3

@@ -311,7 +311,7 @@ define dso_local noundef ptr @dma_pool_alloc(ptr noundef %0, i32 noundef %1, ptr
 
 22:                                               ; preds = %18, %14
   %23 = phi i64 [ 0, %14 ], [ %21, %18 ]
-  %24 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %23, i64 5
+  %24 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %23, i64 5
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %25, i32 noundef %15, i64 noundef 32) #7
   %27 = icmp eq ptr %26, null

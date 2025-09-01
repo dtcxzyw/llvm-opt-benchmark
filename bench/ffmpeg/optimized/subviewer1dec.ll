@@ -104,7 +104,7 @@ define internal range(i32 -12, 1) i32 @subviewer1_read_header(ptr noundef %0) #1
   %43 = load ptr, ptr %14, align 8, !tbaa !38
   %44 = call i32 @ff_get_line(ptr noundef %43, ptr noundef nonnull %3, i32 noundef 4096) #8
   %45 = call i64 @strcspn(ptr noundef nonnull %3, ptr noundef nonnull @.str.7) #7
-  %46 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 %45
   store i8 0, ptr %46, align 1, !tbaa !39
   %47 = load i8, ptr %3, align 16, !tbaa !39
   %.not41 = icmp eq i8 %47, 0

@@ -13,7 +13,7 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %12
   %indvars.iv44 = phi i64 [ 1, %0 ], [ %indvars.iv.next45, %12 ]
   %2 = mul nuw nsw i64 %indvars.iv44, 65793
-  %3 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %indvars.iv44
+  %3 = getelementptr inbounds nuw [256 x i8], ptr @mul8table, i64 %indvars.iv44
   %4 = trunc i64 %2 to i32
   %5 = add i32 %4, 8388608
   %6 = trunc nuw nsw i64 %2 to i32
@@ -24,7 +24,7 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
   %.03137 = phi i32 [ %5, %1 ], [ %11, %7 ]
   %8 = lshr i32 %.03137, 24
   %9 = trunc nuw i32 %8 to i8
-  %10 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %9, ptr %10, align 1
   %11 = add i32 %.03137, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -47,7 +47,7 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
   %17 = lshr i32 %16, 1
   %18 = or disjoint i32 %17, -16777216
   %19 = udiv i32 %18, %16
-  %20 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %indvars.iv52
+  %20 = getelementptr inbounds nuw [256 x i8], ptr @div8table, i64 %indvars.iv52
   br label %21
 
 21:                                               ; preds = %.preheader35, %21
@@ -55,7 +55,7 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
   %.040 = phi i32 [ 8388608, %.preheader35 ], [ %25, %21 ]
   %22 = lshr i32 %.040, 24
   %23 = trunc nuw i32 %22 to i8
-  %24 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %indvars.iv48
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv48
   store i8 %23, ptr %24, align 1
   %25 = add i32 %.040, %19
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1

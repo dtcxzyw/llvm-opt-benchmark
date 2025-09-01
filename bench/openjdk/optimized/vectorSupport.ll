@@ -555,9 +555,9 @@ _ZN13VectorSupport8klass2btEP13InstanceKlass.exit: ; preds = %_ZN13VectorSupport
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = zext i8 %.0.i to i64
-  %49 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %48
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN8Universe17_typeArrayKlassesE, i64 0, i64 %48
+  %51 = getelementptr inbounds nuw ptr, ptr @_ZN8Universe17_typeArrayKlassesE, i64 %48
   %52 = load ptr, ptr %51, align 8
   %53 = call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %52, i32 noundef %27, i1 noundef zeroext true, ptr noundef %4) #8
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -585,12 +585,12 @@ _ZN13VectorSupport8klass2btEP13InstanceKlass.exit: ; preds = %_ZN13VectorSupport
   %67 = sdiv i32 %66, 64
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 4872
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds [10 x i64], ptr %68, i64 0, i64 %69
+  %70 = getelementptr inbounds i64, ptr %68, i64 %69
   %71 = srem i32 %66, 64
   %72 = zext nneg i32 %71 to i64
   %73 = shl nuw i64 1, %72
   %74 = sext i32 %66 to i64
-  %75 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %74
+  %75 = getelementptr inbounds ptr, ptr %2, i64 %74
   br label %76
 
 76:                                               ; preds = %.lr.ph, %_ZNK11RegisterMap8locationEP9VMRegImpli.exit
@@ -837,9 +837,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 8:                                                ; preds = %2
-  %switch.tableidx89 = add i8 %1, -6
-  %9 = icmp ult i8 %switch.tableidx89, 6
-  br i1 %9, label %switch.lookup88, label %10
+  %switch.tableidx88 = add i8 %1, -6
+  %9 = icmp ult i8 %switch.tableidx88, 6
+  br i1 %9, label %switch.lookup89, label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @g_assert_poison, align 8
@@ -849,9 +849,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 13:                                               ; preds = %2
-  %switch.tableidx93 = add i8 %1, -6
-  %14 = icmp ult i8 %switch.tableidx93, 6
-  br i1 %14, label %switch.lookup92, label %15
+  %switch.tableidx92 = add i8 %1, -6
+  %14 = icmp ult i8 %switch.tableidx92, 6
+  br i1 %14, label %switch.lookup93, label %15
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @g_assert_poison, align 8
@@ -861,9 +861,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 18:                                               ; preds = %2
-  %switch.tableidx97 = add i8 %1, -6
-  %19 = icmp ult i8 %switch.tableidx97, 6
-  br i1 %19, label %switch.lookup96, label %20
+  %switch.tableidx96 = add i8 %1, -6
+  %19 = icmp ult i8 %switch.tableidx96, 6
+  br i1 %19, label %switch.lookup97, label %20
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr @g_assert_poison, align 8
@@ -873,9 +873,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 23:                                               ; preds = %2
-  %switch.tableidx101 = add i8 %1, -6
-  %24 = icmp ult i8 %switch.tableidx101, 6
-  br i1 %24, label %switch.lookup100, label %25
+  %switch.tableidx100 = add i8 %1, -6
+  %24 = icmp ult i8 %switch.tableidx100, 6
+  br i1 %24, label %switch.lookup101, label %25
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @g_assert_poison, align 8
@@ -885,9 +885,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 28:                                               ; preds = %2
-  %switch.tableidx105 = add i8 %1, -6
-  %29 = icmp ult i8 %switch.tableidx105, 6
-  br i1 %29, label %switch.lookup104, label %30
+  %switch.tableidx104 = add i8 %1, -6
+  %29 = icmp ult i8 %switch.tableidx104, 6
+  br i1 %29, label %switch.lookup105, label %30
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr @g_assert_poison, align 8
@@ -897,9 +897,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 33:                                               ; preds = %2
-  %switch.tableidx109 = add i8 %1, -6
-  %34 = icmp ult i8 %switch.tableidx109, 6
-  br i1 %34, label %switch.lookup108, label %35
+  %switch.tableidx108 = add i8 %1, -6
+  %34 = icmp ult i8 %switch.tableidx108, 6
+  br i1 %34, label %switch.lookup109, label %35
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr @g_assert_poison, align 8
@@ -909,9 +909,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 38:                                               ; preds = %2
-  %switch.tableidx113 = add i8 %1, -6
-  %39 = icmp ult i8 %switch.tableidx113, 6
-  br i1 %39, label %switch.lookup112, label %40
+  %switch.tableidx112 = add i8 %1, -6
+  %39 = icmp ult i8 %switch.tableidx112, 6
+  br i1 %39, label %switch.lookup113, label %40
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @g_assert_poison, align 8
@@ -921,9 +921,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 43:                                               ; preds = %2
-  %switch.tableidx117 = add i8 %1, -8
-  %44 = icmp ult i8 %switch.tableidx117, 4
-  br i1 %44, label %switch.lookup116, label %45
+  %switch.tableidx116 = add i8 %1, -8
+  %44 = icmp ult i8 %switch.tableidx116, 4
+  br i1 %44, label %switch.lookup117, label %45
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr @g_assert_poison, align 8
@@ -933,9 +933,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 48:                                               ; preds = %2
-  %switch.tableidx121 = add i8 %1, -8
-  %49 = icmp ult i8 %switch.tableidx121, 4
-  br i1 %49, label %switch.lookup120, label %50
+  %switch.tableidx120 = add i8 %1, -8
+  %49 = icmp ult i8 %switch.tableidx120, 4
+  br i1 %49, label %switch.lookup121, label %50
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr @g_assert_poison, align 8
@@ -945,9 +945,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 53:                                               ; preds = %2
-  %switch.tableidx125 = add i8 %1, -8
-  %54 = icmp ult i8 %switch.tableidx125, 4
-  br i1 %54, label %switch.lookup124, label %55
+  %switch.tableidx124 = add i8 %1, -8
+  %54 = icmp ult i8 %switch.tableidx124, 4
+  br i1 %54, label %switch.lookup125, label %55
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr @g_assert_poison, align 8
@@ -989,9 +989,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 68:                                               ; preds = %2
-  %switch.tableidx129 = add i8 %1, -8
-  %69 = icmp ult i8 %switch.tableidx129, 4
-  br i1 %69, label %switch.lookup128, label %70
+  %switch.tableidx128 = add i8 %1, -8
+  %69 = icmp ult i8 %switch.tableidx128, 4
+  br i1 %69, label %switch.lookup129, label %70
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr @g_assert_poison, align 8
@@ -1001,9 +1001,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 73:                                               ; preds = %2
-  %switch.tableidx133 = add i8 %1, -8
-  %74 = icmp ult i8 %switch.tableidx133, 4
-  br i1 %74, label %switch.lookup132, label %75
+  %switch.tableidx132 = add i8 %1, -8
+  %74 = icmp ult i8 %switch.tableidx132, 4
+  br i1 %74, label %switch.lookup133, label %75
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr @g_assert_poison, align 8
@@ -1013,9 +1013,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 78:                                               ; preds = %2
-  %switch.tableidx137 = add i8 %1, -8
-  %79 = icmp ult i8 %switch.tableidx137, 4
-  br i1 %79, label %switch.lookup136, label %80
+  %switch.tableidx136 = add i8 %1, -8
+  %79 = icmp ult i8 %switch.tableidx136, 4
+  br i1 %79, label %switch.lookup137, label %80
 
 80:                                               ; preds = %78
   %81 = load ptr, ptr @g_assert_poison, align 8
@@ -1133,9 +1133,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 121:                                              ; preds = %2
-  %switch.tableidx139 = add i8 %1, -8
-  %122 = icmp ult i8 %switch.tableidx139, 4
-  br i1 %122, label %switch.lookup138, label %123
+  %switch.tableidx138 = add i8 %1, -8
+  %122 = icmp ult i8 %switch.tableidx138, 4
+  br i1 %122, label %switch.lookup139, label %123
 
 123:                                              ; preds = %121
   %124 = load ptr, ptr @g_assert_poison, align 8
@@ -1145,9 +1145,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 126:                                              ; preds = %2
-  %switch.tableidx143 = add i8 %1, -8
-  %127 = icmp ult i8 %switch.tableidx143, 4
-  br i1 %127, label %switch.lookup142, label %128
+  %switch.tableidx142 = add i8 %1, -8
+  %127 = icmp ult i8 %switch.tableidx142, 4
+  br i1 %127, label %switch.lookup143, label %128
 
 128:                                              ; preds = %126
   %129 = load ptr, ptr @g_assert_poison, align 8
@@ -1157,9 +1157,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 131:                                              ; preds = %2
-  %switch.tableidx147 = add i8 %1, -8
-  %132 = icmp ult i8 %switch.tableidx147, 4
-  br i1 %132, label %switch.lookup146, label %133
+  %switch.tableidx146 = add i8 %1, -8
+  %132 = icmp ult i8 %switch.tableidx146, 4
+  br i1 %132, label %switch.lookup147, label %133
 
 133:                                              ; preds = %131
   %134 = load ptr, ptr @g_assert_poison, align 8
@@ -1169,9 +1169,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 136:                                              ; preds = %2
-  %switch.tableidx151 = add i8 %1, -8
-  %137 = icmp ult i8 %switch.tableidx151, 4
-  br i1 %137, label %switch.lookup150, label %138
+  %switch.tableidx150 = add i8 %1, -8
+  %137 = icmp ult i8 %switch.tableidx150, 4
+  br i1 %137, label %switch.lookup151, label %138
 
 138:                                              ; preds = %136
   %139 = load ptr, ptr @g_assert_poison, align 8
@@ -1181,9 +1181,9 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
   unreachable
 
 141:                                              ; preds = %2
-  %switch.tableidx155 = add i8 %1, -8
-  %142 = icmp ult i8 %switch.tableidx155, 4
-  br i1 %142, label %switch.lookup154, label %143
+  %switch.tableidx154 = add i8 %1, -8
+  %142 = icmp ult i8 %switch.tableidx154, 4
+  br i1 %142, label %switch.lookup155, label %143
 
 143:                                              ; preds = %141
   %144 = load ptr, ptr @g_assert_poison, align 8
@@ -1224,119 +1224,119 @@ define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9Bas
 
 switch.lookup:                                    ; preds = %3
   %158 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType, i64 0, i64 %158
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType, i64 %158
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %176
 
-switch.lookup88:                                  ; preds = %8
-  %159 = zext nneg i8 %switch.tableidx89 to i64
-  %switch.gep90 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.1, i64 0, i64 %159
+switch.lookup89:                                  ; preds = %8
+  %159 = zext nneg i8 %switch.tableidx88 to i64
+  %switch.gep90 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.1, i64 %159
   %switch.load91 = load i32, ptr %switch.gep90, align 4
   br label %176
 
-switch.lookup92:                                  ; preds = %13
-  %160 = zext nneg i8 %switch.tableidx93 to i64
-  %switch.gep94 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.2, i64 0, i64 %160
+switch.lookup93:                                  ; preds = %13
+  %160 = zext nneg i8 %switch.tableidx92 to i64
+  %switch.gep94 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.2, i64 %160
   %switch.load95 = load i32, ptr %switch.gep94, align 4
   br label %176
 
-switch.lookup96:                                  ; preds = %18
-  %161 = zext nneg i8 %switch.tableidx97 to i64
-  %switch.gep98 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.3, i64 0, i64 %161
+switch.lookup97:                                  ; preds = %18
+  %161 = zext nneg i8 %switch.tableidx96 to i64
+  %switch.gep98 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.3, i64 %161
   %switch.load99 = load i32, ptr %switch.gep98, align 4
   br label %176
 
-switch.lookup100:                                 ; preds = %23
-  %162 = zext nneg i8 %switch.tableidx101 to i64
-  %switch.gep102 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.4, i64 0, i64 %162
+switch.lookup101:                                 ; preds = %23
+  %162 = zext nneg i8 %switch.tableidx100 to i64
+  %switch.gep102 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.4, i64 %162
   %switch.load103 = load i32, ptr %switch.gep102, align 4
   br label %176
 
-switch.lookup104:                                 ; preds = %28
-  %163 = zext nneg i8 %switch.tableidx105 to i64
-  %switch.gep106 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.5, i64 0, i64 %163
+switch.lookup105:                                 ; preds = %28
+  %163 = zext nneg i8 %switch.tableidx104 to i64
+  %switch.gep106 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.5, i64 %163
   %switch.load107 = load i32, ptr %switch.gep106, align 4
   br label %176
 
-switch.lookup108:                                 ; preds = %33
-  %164 = zext nneg i8 %switch.tableidx109 to i64
-  %switch.gep110 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.6, i64 0, i64 %164
+switch.lookup109:                                 ; preds = %33
+  %164 = zext nneg i8 %switch.tableidx108 to i64
+  %switch.gep110 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.6, i64 %164
   %switch.load111 = load i32, ptr %switch.gep110, align 4
   br label %176
 
-switch.lookup112:                                 ; preds = %38
-  %165 = zext nneg i8 %switch.tableidx113 to i64
-  %switch.gep114 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.7, i64 0, i64 %165
+switch.lookup113:                                 ; preds = %38
+  %165 = zext nneg i8 %switch.tableidx112 to i64
+  %switch.gep114 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.7, i64 %165
   %switch.load115 = load i32, ptr %switch.gep114, align 4
   br label %176
 
-switch.lookup116:                                 ; preds = %43
-  %166 = zext nneg i8 %switch.tableidx117 to i64
-  %switch.gep118 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.8, i64 0, i64 %166
+switch.lookup117:                                 ; preds = %43
+  %166 = zext nneg i8 %switch.tableidx116 to i64
+  %switch.gep118 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.8, i64 %166
   %switch.load119 = load i32, ptr %switch.gep118, align 4
   br label %176
 
-switch.lookup120:                                 ; preds = %48
-  %167 = zext nneg i8 %switch.tableidx121 to i64
-  %switch.gep122 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.9, i64 0, i64 %167
+switch.lookup121:                                 ; preds = %48
+  %167 = zext nneg i8 %switch.tableidx120 to i64
+  %switch.gep122 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.9, i64 %167
   %switch.load123 = load i32, ptr %switch.gep122, align 4
   br label %176
 
-switch.lookup124:                                 ; preds = %53
-  %168 = zext nneg i8 %switch.tableidx125 to i64
-  %switch.gep126 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.10, i64 0, i64 %168
+switch.lookup125:                                 ; preds = %53
+  %168 = zext nneg i8 %switch.tableidx124 to i64
+  %switch.gep126 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.10, i64 %168
   %switch.load127 = load i32, ptr %switch.gep126, align 4
   br label %176
 
-switch.lookup128:                                 ; preds = %68
-  %169 = zext nneg i8 %switch.tableidx129 to i64
-  %switch.gep130 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.11, i64 0, i64 %169
+switch.lookup129:                                 ; preds = %68
+  %169 = zext nneg i8 %switch.tableidx128 to i64
+  %switch.gep130 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.11, i64 %169
   %switch.load131 = load i32, ptr %switch.gep130, align 4
   br label %176
 
-switch.lookup132:                                 ; preds = %73
-  %170 = zext nneg i8 %switch.tableidx133 to i64
-  %switch.gep134 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.12, i64 0, i64 %170
+switch.lookup133:                                 ; preds = %73
+  %170 = zext nneg i8 %switch.tableidx132 to i64
+  %switch.gep134 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.12, i64 %170
   %switch.load135 = load i32, ptr %switch.gep134, align 4
   br label %176
 
-switch.lookup136:                                 ; preds = %78
-  %switch.idx.cast = zext nneg i8 %switch.tableidx137 to i32
+switch.lookup137:                                 ; preds = %78
+  %switch.idx.cast = zext nneg i8 %switch.tableidx136 to i32
   %switch.offset = add nuw nsw i32 %switch.idx.cast, 349
   br label %176
 
-switch.lookup138:                                 ; preds = %121
-  %171 = zext nneg i8 %switch.tableidx139 to i64
-  %switch.gep140 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.13, i64 0, i64 %171
+switch.lookup139:                                 ; preds = %121
+  %171 = zext nneg i8 %switch.tableidx138 to i64
+  %switch.gep140 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.13, i64 %171
   %switch.load141 = load i32, ptr %switch.gep140, align 4
   br label %176
 
-switch.lookup142:                                 ; preds = %126
-  %172 = zext nneg i8 %switch.tableidx143 to i64
-  %switch.gep144 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.14, i64 0, i64 %172
+switch.lookup143:                                 ; preds = %126
+  %172 = zext nneg i8 %switch.tableidx142 to i64
+  %switch.gep144 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.14, i64 %172
   %switch.load145 = load i32, ptr %switch.gep144, align 4
   br label %176
 
-switch.lookup146:                                 ; preds = %131
-  %173 = zext nneg i8 %switch.tableidx147 to i64
-  %switch.gep148 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.15, i64 0, i64 %173
+switch.lookup147:                                 ; preds = %131
+  %173 = zext nneg i8 %switch.tableidx146 to i64
+  %switch.gep148 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.15, i64 %173
   %switch.load149 = load i32, ptr %switch.gep148, align 4
   br label %176
 
-switch.lookup150:                                 ; preds = %136
-  %174 = zext nneg i8 %switch.tableidx151 to i64
-  %switch.gep152 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.16, i64 0, i64 %174
+switch.lookup151:                                 ; preds = %136
+  %174 = zext nneg i8 %switch.tableidx150 to i64
+  %switch.gep152 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.16, i64 %174
   %switch.load153 = load i32, ptr %switch.gep152, align 4
   br label %176
 
-switch.lookup154:                                 ; preds = %141
-  %175 = zext nneg i8 %switch.tableidx155 to i64
-  %switch.gep156 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.17, i64 0, i64 %175
+switch.lookup155:                                 ; preds = %141
+  %175 = zext nneg i8 %switch.tableidx154 to i64
+  %switch.gep156 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13VectorSupport9vop2idealEi9BasicType.17, i64 %175
   %switch.load157 = load i32, ptr %switch.gep156, align 4
   br label %176
 
-176:                                              ; preds = %switch.lookup154, %switch.lookup150, %switch.lookup146, %switch.lookup142, %switch.lookup138, %switch.lookup136, %switch.lookup132, %switch.lookup128, %switch.lookup124, %switch.lookup120, %switch.lookup116, %switch.lookup112, %switch.lookup108, %switch.lookup104, %switch.lookup100, %switch.lookup96, %switch.lookup92, %switch.lookup88, %switch.lookup, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %151, %146, %117, %113, %109, %105, %101, %97, %93, %88, %83, %63, %58, %64, %59
-  %.0 = phi i32 [ 318, %59 ], [ 172, %64 ], [ 319, %58 ], [ 173, %63 ], [ 296, %83 ], [ 298, %88 ], [ 440, %93 ], [ 439, %97 ], [ 438, %101 ], [ 441, %105 ], [ 425, %109 ], [ 423, %113 ], [ 424, %117 ], [ 65, %146 ], [ 66, %151 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ %switch.load, %switch.lookup ], [ %switch.load91, %switch.lookup88 ], [ %switch.load95, %switch.lookup92 ], [ %switch.load99, %switch.lookup96 ], [ %switch.load103, %switch.lookup100 ], [ %switch.load107, %switch.lookup104 ], [ %switch.load111, %switch.lookup108 ], [ %switch.load115, %switch.lookup112 ], [ %switch.load119, %switch.lookup116 ], [ %switch.load123, %switch.lookup120 ], [ %switch.load127, %switch.lookup124 ], [ %switch.load131, %switch.lookup128 ], [ %switch.load135, %switch.lookup132 ], [ %switch.offset, %switch.lookup136 ], [ %switch.load141, %switch.lookup138 ], [ %switch.load145, %switch.lookup142 ], [ %switch.load149, %switch.lookup146 ], [ %switch.load153, %switch.lookup150 ], [ %switch.load157, %switch.lookup154 ]
+176:                                              ; preds = %switch.lookup155, %switch.lookup151, %switch.lookup147, %switch.lookup143, %switch.lookup139, %switch.lookup137, %switch.lookup133, %switch.lookup129, %switch.lookup125, %switch.lookup121, %switch.lookup117, %switch.lookup113, %switch.lookup109, %switch.lookup105, %switch.lookup101, %switch.lookup97, %switch.lookup93, %switch.lookup89, %switch.lookup, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %151, %146, %117, %113, %109, %105, %101, %97, %93, %88, %83, %63, %58, %64, %59
+  %.0 = phi i32 [ 318, %59 ], [ 172, %64 ], [ 319, %58 ], [ 173, %63 ], [ 296, %83 ], [ 298, %88 ], [ 440, %93 ], [ 439, %97 ], [ 438, %101 ], [ 441, %105 ], [ 425, %109 ], [ 423, %113 ], [ 424, %117 ], [ 65, %146 ], [ 66, %151 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ 50, %2 ], [ %switch.load, %switch.lookup ], [ %switch.load91, %switch.lookup89 ], [ %switch.load95, %switch.lookup93 ], [ %switch.load99, %switch.lookup97 ], [ %switch.load103, %switch.lookup101 ], [ %switch.load107, %switch.lookup105 ], [ %switch.load111, %switch.lookup109 ], [ %switch.load115, %switch.lookup113 ], [ %switch.load119, %switch.lookup117 ], [ %switch.load123, %switch.lookup121 ], [ %switch.load127, %switch.lookup125 ], [ %switch.load131, %switch.lookup129 ], [ %switch.load135, %switch.lookup133 ], [ %switch.offset, %switch.lookup137 ], [ %switch.load141, %switch.lookup139 ], [ %switch.load145, %switch.lookup143 ], [ %switch.load149, %switch.lookup147 ], [ %switch.load153, %switch.lookup151 ], [ %switch.load157, %switch.lookup155 ]
   ret i32 %.0
 }
 
@@ -1730,7 +1730,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.18.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.18, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.18.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.18.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #8
@@ -1960,7 +1960,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -1974,7 +1974,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -2040,7 +2040,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -2194,7 +2194,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.19.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.19, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.19.sink, i64 0, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.19.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #8
@@ -2523,7 +2523,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm598084EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #8
@@ -2807,7 +2807,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -2824,7 +2824,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -2902,7 +2902,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -2948,7 +2948,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -2965,7 +2965,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -3043,7 +3043,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65

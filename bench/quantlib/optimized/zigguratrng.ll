@@ -53,7 +53,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit: ; preds = %for.cond, 
   %1 = phi i64 [ %.pre.i, %if.then.i ], [ %0, %for.cond ]
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr %mti.i, align 8, !tbaa !3
-  %arrayidx.i = getelementptr inbounds nuw [624 x i64], ptr %this, i64 0, i64 %1
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %this, i64 %1
   %2 = load i64, ptr %arrayidx.i, align 8, !tbaa !8
   %shr.i = lshr i64 %2, 11
   %xor.i = xor i64 %shr.i, %2
@@ -69,15 +69,15 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit: ; preds = %for.cond, 
   %shr = lshr i64 %xor8.i, 1
   %and2 = and i64 %shr, 127
   %shr3 = lshr i64 %xor8.i, 8
-  %arrayidx = getelementptr inbounds nuw [2 x i32], ptr @_ZZNK8QuantLib11ZigguratRng12nextGaussianEvE1c, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds nuw i32, ptr @_ZZNK8QuantLib11ZigguratRng12nextGaussianEvE1c, i64 %conv
   %3 = load i32, ptr %arrayidx, align 4, !tbaa !9
   %conv4 = sext i32 %3 to i64
   %mul = mul nsw i64 %shr3, %conv4
   %conv5 = sitofp i64 %mul to double
-  %arrayidx6 = getelementptr inbounds nuw [128 x double], ptr @_ZN8QuantLib12_GLOBAL__N_12w_E, i64 0, i64 %and2
+  %arrayidx6 = getelementptr inbounds nuw double, ptr @_ZN8QuantLib12_GLOBAL__N_12w_E, i64 %and2
   %4 = load double, ptr %arrayidx6, align 8, !tbaa !11
   %mul7 = fmul double %4, %conv5
-  %arrayidx8 = getelementptr inbounds nuw [128 x i64], ptr @_ZN8QuantLib12_GLOBAL__N_12k_E, i64 0, i64 %and2
+  %arrayidx8 = getelementptr inbounds nuw i64, ptr @_ZN8QuantLib12_GLOBAL__N_12k_E, i64 %and2
   %5 = load i64, ptr %arrayidx8, align 8, !tbaa !8
   %cmp = icmp ult i64 %shr3, %5
   br i1 %cmp, label %for.end, label %if.end
@@ -87,12 +87,11 @@ if.end:                                           ; preds = %_ZNK8QuantLib25Mers
   br i1 %cmp9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %sub = add nsw i64 %and2, -1
-  %arrayidx11 = getelementptr inbounds nuw [128 x double], ptr @_ZN8QuantLib12_GLOBAL__N_12f_E, i64 0, i64 %sub
-  %6 = load double, ptr %arrayidx11, align 8, !tbaa !11
-  %arrayidx12 = getelementptr inbounds nuw [128 x double], ptr @_ZN8QuantLib12_GLOBAL__N_12f_E, i64 0, i64 %and2
-  %7 = load double, ptr %arrayidx12, align 8, !tbaa !11
-  %sub13 = fsub double %6, %7
+  %6 = getelementptr double, ptr @_ZN8QuantLib12_GLOBAL__N_12f_E, i64 %and2
+  %arrayidx11 = getelementptr i8, ptr %6, i64 -8
+  %7 = load double, ptr %arrayidx11, align 8, !tbaa !11
+  %8 = load double, ptr %6, align 8, !tbaa !11
+  %sub13 = fsub double %7, %8
   %cmp.i.i = icmp eq i64 %inc.i, 624
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit
 
@@ -102,13 +101,13 @@ if.then.i.i:                                      ; preds = %if.then10
   br label %_ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit
 
 _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %if.then10, %if.then.i.i
-  %8 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %inc.i, %if.then10 ]
-  %inc.i.i = add i64 %8, 1
+  %9 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %inc.i, %if.then10 ]
+  %inc.i.i = add i64 %9, 1
   store i64 %inc.i.i, ptr %mti.i, align 8, !tbaa !3
-  %arrayidx.i.i = getelementptr inbounds nuw [624 x i64], ptr %this, i64 0, i64 %8
-  %9 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !8
-  %shr.i.i = lshr i64 %9, 11
-  %xor.i.i = xor i64 %shr.i.i, %9
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %this, i64 %9
+  %10 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !8
+  %shr.i.i = lshr i64 %10, 11
+  %xor.i.i = xor i64 %shr.i.i, %10
   %shl.i.i = shl i64 %xor.i.i, 7
   %and.i.i = and i64 %shl.i.i, 2636928640
   %xor3.i.i = xor i64 %and.i.i, %xor.i.i
@@ -120,11 +119,11 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %if.then10, 
   %conv.i = uitofp i64 %xor8.i.i to double
   %add.i = fadd double %conv.i, 5.000000e-01
   %div.i = fmul double %add.i, 0x3DF0000000000000
-  %10 = tail call double @llvm.fmuladd.f64(double %sub13, double %div.i, double %7)
+  %11 = tail call double @llvm.fmuladd.f64(double %sub13, double %div.i, double %8)
   %mul18 = fmul double %mul7, -5.000000e-01
   %mul19 = fmul double %mul7, %mul18
   %call20 = tail call double @exp(double noundef %mul19) #4, !tbaa !9
-  %cmp21 = fcmp olt double %10, %call20
+  %cmp21 = fcmp olt double %11, %call20
   br i1 %cmp21, label %for.end, label %for.cond
 
 if.else:                                          ; preds = %if.end
@@ -138,13 +137,13 @@ if.then.i.i31:                                    ; preds = %if.else
   br label %_ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit33
 
 _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit33: ; preds = %if.else, %if.then.i.i31
-  %11 = phi i64 [ %.pre.i.i32, %if.then.i.i31 ], [ %inc.i, %if.else ]
-  %inc.i.i16 = add i64 %11, 1
+  %12 = phi i64 [ %.pre.i.i32, %if.then.i.i31 ], [ %inc.i, %if.else ]
+  %inc.i.i16 = add i64 %12, 1
   store i64 %inc.i.i16, ptr %mti.i, align 8, !tbaa !3
-  %arrayidx.i.i17 = getelementptr inbounds nuw [624 x i64], ptr %this, i64 0, i64 %11
-  %12 = load i64, ptr %arrayidx.i.i17, align 8, !tbaa !8
-  %shr.i.i18 = lshr i64 %12, 11
-  %xor.i.i19 = xor i64 %shr.i.i18, %12
+  %arrayidx.i.i17 = getelementptr inbounds nuw i64, ptr %this, i64 %12
+  %13 = load i64, ptr %arrayidx.i.i17, align 8, !tbaa !8
+  %shr.i.i18 = lshr i64 %13, 11
+  %xor.i.i19 = xor i64 %shr.i.i18, %13
   %shl.i.i20 = shl i64 %xor.i.i19, 7
   %and.i.i21 = and i64 %shl.i.i20, 2636928640
   %xor3.i.i22 = xor i64 %and.i.i21, %xor.i.i19
@@ -156,44 +155,44 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit33: ; preds = %if.else, 
   %conv.i28 = uitofp i64 %xor8.i.i27 to double
   %add.i29 = fadd double %conv.i28, 5.000000e-01
   %div.i30 = fmul double %add.i29, 0x3DF0000000000000
-  %13 = tail call double @llvm.fmuladd.f64(double %div.i30, double 0x3F32E0BEF35FB922, double 0x3FEFFDA3E8219409)
-  %14 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal6x_low_E, align 8, !tbaa !11
-  %cmp.i34 = fcmp olt double %13, %14
-  %15 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal7x_high_E, align 8
-  %cmp1.i = fcmp olt double %15, %13
+  %14 = tail call double @llvm.fmuladd.f64(double %div.i30, double 0x3F32E0BEF35FB922, double 0x3FEFFDA3E8219409)
+  %15 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal6x_low_E, align 8, !tbaa !11
+  %cmp.i34 = fcmp olt double %14, %15
+  %16 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal7x_high_E, align 8
+  %cmp1.i = fcmp olt double %16, %14
   %or.cond.i = select i1 %cmp.i34, i1 true, i1 %cmp1.i
   br i1 %or.cond.i, label %if.then.i36, label %if.else.i
 
 if.then.i36:                                      ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit33
-  %call.i = tail call noundef double @_ZN8QuantLib23InverseCumulativeNormal10tail_valueEd(double noundef %13)
+  %call.i = tail call noundef double @_ZN8QuantLib23InverseCumulativeNormal10tail_valueEd(double noundef %14)
   br label %_ZN8QuantLib23InverseCumulativeNormal14standard_valueEd.exit
 
 if.else.i:                                        ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit33
-  %sub.i = fadd double %13, -5.000000e-01
+  %sub.i = fadd double %14, -5.000000e-01
   %mul.i = fmul double %sub.i, %sub.i
-  %16 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a1_E, align 8, !tbaa !11
-  %17 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a2_E, align 8, !tbaa !11
-  %18 = tail call double @llvm.fmuladd.f64(double %16, double %mul.i, double %17)
-  %19 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a3_E, align 8, !tbaa !11
-  %20 = tail call double @llvm.fmuladd.f64(double %18, double %mul.i, double %19)
-  %21 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a4_E, align 8, !tbaa !11
-  %22 = tail call double @llvm.fmuladd.f64(double %20, double %mul.i, double %21)
-  %23 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a5_E, align 8, !tbaa !11
-  %24 = tail call double @llvm.fmuladd.f64(double %22, double %mul.i, double %23)
-  %25 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a6_E, align 8, !tbaa !11
-  %26 = tail call double @llvm.fmuladd.f64(double %24, double %mul.i, double %25)
-  %mul7.i = fmul double %sub.i, %26
-  %27 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b1_E, align 8, !tbaa !11
-  %28 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b2_E, align 8, !tbaa !11
-  %29 = tail call double @llvm.fmuladd.f64(double %27, double %mul.i, double %28)
-  %30 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b3_E, align 8, !tbaa !11
-  %31 = tail call double @llvm.fmuladd.f64(double %29, double %mul.i, double %30)
-  %32 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b4_E, align 8, !tbaa !11
-  %33 = tail call double @llvm.fmuladd.f64(double %31, double %mul.i, double %32)
-  %34 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b5_E, align 8, !tbaa !11
-  %35 = tail call double @llvm.fmuladd.f64(double %33, double %mul.i, double %34)
-  %36 = tail call double @llvm.fmuladd.f64(double %35, double %mul.i, double 1.000000e+00)
-  %div.i35 = fdiv double %mul7.i, %36
+  %17 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a1_E, align 8, !tbaa !11
+  %18 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a2_E, align 8, !tbaa !11
+  %19 = tail call double @llvm.fmuladd.f64(double %17, double %mul.i, double %18)
+  %20 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a3_E, align 8, !tbaa !11
+  %21 = tail call double @llvm.fmuladd.f64(double %19, double %mul.i, double %20)
+  %22 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a4_E, align 8, !tbaa !11
+  %23 = tail call double @llvm.fmuladd.f64(double %21, double %mul.i, double %22)
+  %24 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a5_E, align 8, !tbaa !11
+  %25 = tail call double @llvm.fmuladd.f64(double %23, double %mul.i, double %24)
+  %26 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a6_E, align 8, !tbaa !11
+  %27 = tail call double @llvm.fmuladd.f64(double %25, double %mul.i, double %26)
+  %mul7.i = fmul double %sub.i, %27
+  %28 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b1_E, align 8, !tbaa !11
+  %29 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b2_E, align 8, !tbaa !11
+  %30 = tail call double @llvm.fmuladd.f64(double %28, double %mul.i, double %29)
+  %31 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b3_E, align 8, !tbaa !11
+  %32 = tail call double @llvm.fmuladd.f64(double %30, double %mul.i, double %31)
+  %33 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b4_E, align 8, !tbaa !11
+  %34 = tail call double @llvm.fmuladd.f64(double %32, double %mul.i, double %33)
+  %35 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b5_E, align 8, !tbaa !11
+  %36 = tail call double @llvm.fmuladd.f64(double %34, double %mul.i, double %35)
+  %37 = tail call double @llvm.fmuladd.f64(double %36, double %mul.i, double 1.000000e+00)
+  %div.i35 = fdiv double %mul7.i, %37
   br label %_ZN8QuantLib23InverseCumulativeNormal14standard_valueEd.exit
 
 _ZN8QuantLib23InverseCumulativeNormal14standard_valueEd.exit: ; preds = %if.then.i36, %if.else.i

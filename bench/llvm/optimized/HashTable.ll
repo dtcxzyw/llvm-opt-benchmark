@@ -358,7 +358,7 @@ _ZN4llvm15SparseBitVectorILj128EE3setEj.exit:     ; preds = %117, %.sink.split.i
   %129 = or disjoint i64 %indvars.iv, %84
   %130 = shl nuw i64 1, %129
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i, i64 24
-  %132 = getelementptr inbounds nuw [2 x i64], ptr %131, i64 0, i64 %83
+  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %83
   %133 = load i64, ptr %132, align 8, !tbaa !71
   %134 = or i64 %133, %130
   store i64 %134, ptr %132, align 8, !tbaa !71
@@ -416,7 +416,7 @@ define dso_local void @_ZN4llvm3pdb20writeSparseBitVectorERNS_18BinaryStreamWrit
   tail call void @llvm.assume(i1 %23)
   %24 = xor i32 %.09.i.i, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [2 x i64], ptr %21, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i64, ptr %21, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !71
   %.not.i.i = icmp eq i64 %27, 0
   %28 = add nuw nsw i32 %.09.i.i, 1
@@ -641,7 +641,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit:   ; preds = %109
   %113 = lshr i32 %.12568, 6
   %114 = and i32 %113, 1
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [2 x i64], ptr %112, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %112, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !71
   %118 = and i32 %.12568, 63
   %119 = zext nneg i32 %118 to i64

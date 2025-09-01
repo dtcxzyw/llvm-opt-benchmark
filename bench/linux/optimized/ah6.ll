@@ -1141,7 +1141,7 @@ define internal void @ah6_input_done(ptr noundef %0, i32 noundef %1) #4 align 16
   %18 = load i32, ptr %16, align 8
   %19 = add i32 %18, -1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [6 x ptr], ptr %17, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %24 = load ptr, ptr %23, align 8

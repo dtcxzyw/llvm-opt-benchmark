@@ -57,14 +57,14 @@ define internal void @uninit(ptr noundef %0) #1 {
 
 9:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   %11 = load double, ptr %10, align 8, !tbaa !31
   %12 = load i64, ptr %4, align 8, !tbaa !20
   %13 = uitofp i64 %12 to double
   %14 = fdiv nsz double %11, %13
-  %15 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   %16 = load double, ptr %15, align 8, !tbaa !31
-  %17 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
   %18 = load double, ptr %17, align 8, !tbaa !31
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.13, i32 noundef %19, double noundef %14, double noundef %16, double noundef %18) #12
@@ -89,7 +89,7 @@ define internal void @uninit(ptr noundef %0) #1 {
 
 28:                                               ; preds = %.loopexit, %28
   %indvars.iv35 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next36, %28 ]
-  %29 = getelementptr inbounds nuw [13 x ptr], ptr %20, i64 0, i64 %indvars.iv35
+  %29 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv35
   tail call void @av_freep(ptr noundef nonnull %29) #12
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 13
@@ -185,9 +185,9 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
 
 39:                                               ; preds = %21, %39
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw [4 x double], ptr %36, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
   store double 0x7FEFFFFFFFFFFFFF, ptr %40, align 8, !tbaa !31
-  %41 = getelementptr inbounds nuw [4 x double], ptr %37, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
   store double 0xFFEFFFFFFFFFFFFF, ptr %41, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -206,7 +206,7 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
   %47 = sext i32 %46 to i64
   %48 = shl nsw i64 %47, 2
   %49 = tail call noalias ptr @av_calloc(i64 noundef %45, i64 noundef %48) #12
-  %50 = getelementptr inbounds nuw [13 x ptr], ptr %38, i64 0, i64 %indvars.iv66
+  %50 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv66
   store ptr %49, ptr %50, align 8, !tbaa !57
   %.not50 = icmp eq ptr %49, null
   br i1 %.not50, label %.loopexit, label %42
@@ -582,8 +582,8 @@ offset_8bit.exit.i:                               ; preds = %._crit_edge.us.i72.
   %.0120182.i.i = phi i32 [ %41, %offset_8bit.exit.i ], [ %.1121.i.i, %vif_statistic.exit.i.i ]
   %.0122181.i.i = phi i32 [ %41, %offset_8bit.exit.i ], [ %.1123.i.i, %vif_statistic.exit.i.i ]
   %.0124180.i.i = phi ptr [ %104, %offset_8bit.exit.i ], [ %.1125.i.i, %vif_statistic.exit.i.i ]
-  %144 = getelementptr inbounds nuw [4 x [17 x float]], ptr @vif_filter1d_table, i64 0, i64 %indvars.iv.i74.i
-  %145 = getelementptr inbounds nuw [4 x i8], ptr @vif_filter1d_width1, i64 0, i64 %indvars.iv.i74.i
+  %144 = getelementptr inbounds nuw [17 x float], ptr @vif_filter1d_table, i64 %indvars.iv.i74.i
+  %145 = getelementptr inbounds nuw i8, ptr @vif_filter1d_width1, i64 %indvars.iv.i74.i
   %146 = load i8, ptr %145, align 1, !tbaa !80
   %147 = zext i8 %146 to i32
   %148 = call i32 @llvm.smin.i32(i32 %.0115185.i.i, i32 %109)
@@ -917,20 +917,20 @@ compute_vif2.exit.i:                              ; preds = %vif_statistic.exit.
 
 291:                                              ; preds = %291, %compute_vif2.exit.i
   %indvars.iv.i = phi i64 [ 0, %compute_vif2.exit.i ], [ %indvars.iv.next.i, %291 ]
-  %292 = getelementptr inbounds nuw [4 x double], ptr %288, i64 0, i64 %indvars.iv.i
+  %292 = getelementptr inbounds nuw double, ptr %288, i64 %indvars.iv.i
   %293 = load double, ptr %292, align 8, !tbaa !31
-  %294 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %294 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   %295 = load float, ptr %294, align 4, !tbaa !81
   %296 = fpext nsz float %295 to double
   %297 = fcmp nsz ogt double %293, %296
   %..i = select nsz i1 %297, double %296, double %293
   store double %..i, ptr %292, align 8, !tbaa !31
-  %298 = getelementptr inbounds nuw [4 x double], ptr %289, i64 0, i64 %indvars.iv.i
+  %298 = getelementptr inbounds nuw double, ptr %289, i64 %indvars.iv.i
   %299 = load double, ptr %298, align 8, !tbaa !31
   %300 = fcmp nsz ogt double %299, %296
   %301 = select nsz i1 %300, double %299, double %296
   store double %301, ptr %298, align 8, !tbaa !31
-  %302 = getelementptr inbounds nuw [4 x double], ptr %290, i64 0, i64 %indvars.iv.i
+  %302 = getelementptr inbounds nuw double, ptr %290, i64 %indvars.iv.i
   %303 = load double, ptr %302, align 8, !tbaa !31
   %304 = fadd nsz double %303, %296
   store double %304, ptr %302, align 8, !tbaa !31

@@ -4390,7 +4390,7 @@ _ZNK8datatype4util14is_constructorEPK3app.exit:   ; preds = %65
 81:                                               ; preds = %.lr.ph, %93
   %82 = phi ptr [ %.pre, %.lr.ph ], [ %94, %93 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
-  %83 = getelementptr inbounds nuw [0 x ptr], ptr %78, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !60
   %85 = icmp eq ptr %82, null
   br i1 %85, label %92, label %86
@@ -4703,7 +4703,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %_ZN11ast_manager6mk
 
 103:                                              ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %104 = getelementptr inbounds nuw [0 x ptr], ptr %96, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !60
   %106 = invoke noundef zeroext i1 @_ZN10check_predclEP4expr(ptr noundef nonnull align 8 dereferenceable(137) %97, ptr noundef %105)
           to label %_ZN12contains_appclEP4expr.exit unwind label %119
@@ -5040,7 +5040,7 @@ _ZNK8datatype4util14is_constructorEPK3app.exit:   ; preds = %60
 74:                                               ; preds = %.lr.ph, %86
   %75 = phi ptr [ %.pre, %.lr.ph ], [ %87, %86 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %76 = getelementptr inbounds nuw [0 x ptr], ptr %73, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !60
   %78 = icmp eq ptr %75, null
   br i1 %78, label %85, label %79
@@ -8383,7 +8383,7 @@ _ZN2qe17lift_foreign_varsclEP3var.exit:           ; preds = %45
 57:                                               ; preds = %.lr.ph, %_ZN2qe17lift_foreign_varsclEP3var.exit64
   %58 = phi i32 [ %54, %.lr.ph ], [ %128, %_ZN2qe17lift_foreign_varsclEP3var.exit64 ]
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [0 x ptr], ptr %56, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !60
   %62 = add nuw i32 %58, 1
   store i32 %62, ptr %53, align 8, !tbaa !298
@@ -9134,7 +9134,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 117:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %118 = getelementptr inbounds nuw [0 x ptr], ptr %98, i64 0, i64 %indvars.iv62
+  %118 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv62
   %119 = load ptr, ptr %118, align 8, !tbaa !60
   %120 = load ptr, ptr %37, align 8, !tbaa !309
   %121 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %120, i32 noundef 0, i32 noundef 2, ptr noundef %119, ptr noundef %116)

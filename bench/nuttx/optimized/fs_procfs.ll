@@ -41,7 +41,7 @@ define internal i32 @procfs_open(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 5:                                                ; preds = %4, %19
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %19 ]
   %.017 = phi i32 [ -2, %4 ], [ %.2, %19 ]
-  %6 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fnmatch(ptr noundef %7, ptr noundef %1, i32 noundef 0) #12
   %9 = icmp eq i32 %8, 0
@@ -233,13 +233,13 @@ define internal i32 @procfs_opendir(ptr readnone captures(none) %0, ptr noundef 
   %15 = phi i32 [ %.pre.i, %.lr.ph.preheader.i ], [ %22, %21 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %21 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds nuw [128 x i32], ptr %13, i64 0, i64 %indvars.iv.next.i
+  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next.i
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %15, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw [128 x i32], ptr %13, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   store i32 %17, ptr %20, align 4
   store i32 %15, ptr %16, align 4
   br label %21
@@ -267,7 +267,7 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
 
 28:                                               ; preds = %25, %55
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %55 ]
-  %29 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @fnmatch(ptr noundef %30, ptr noundef nonnull %1, i32 noundef 0) #12
   %32 = icmp eq i32 %31, 0
@@ -366,7 +366,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
 
 17:                                               ; preds = %.lr.ph112, %.critedge.thread
   %indvars.iv = phi i64 [ %16, %.lr.ph112 ], [ %indvars.iv.next, %.critedge.thread ]
-  %18 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -436,7 +436,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
 47:                                               ; preds = %7
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %49 = zext i16 %9 to i64
-  %50 = getelementptr inbounds nuw [128 x i32], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = tail call ptr @nxsched_get_tcb(i32 noundef %51) #12
   %.not94 = icmp eq ptr %52, null
@@ -454,7 +454,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %112
+  br i1 %60, label %61, label %110
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 18
@@ -470,10 +470,10 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
 
 69:                                               ; preds = %65
   %70 = zext nneg i16 %63 to i64
-  %71 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = zext nneg i16 %67 to i64
-  %74 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %77 = load i8, ptr %76, align 1
@@ -497,49 +497,47 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
   %91 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %83, i64 noundef %90) #12
   %.promoted = load i8, ptr %86, align 8
   %92 = zext i8 %.promoted to i64
-  %93 = add nsw i64 %92, -1
-  %94 = getelementptr inbounds [33 x i8], ptr %88, i64 0, i64 %93
-  %95 = load i8, ptr %94, align 1
-  %96 = icmp eq i8 %95, 42
-  br i1 %96, label %.lr.ph, label %._crit_edge
+  %93 = getelementptr i8, ptr %2, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = icmp eq i8 %94, 42
+  br i1 %95, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %81, %.lr.ph
-  %97 = phi i8 [ %98, %.lr.ph ], [ %.promoted, %81 ]
-  %98 = add i8 %97, -1
-  store i8 %98, ptr %86, align 8
-  %99 = zext i8 %98 to i64
-  %100 = add nsw i64 %99, -1
-  %101 = getelementptr inbounds [33 x i8], ptr %88, i64 0, i64 %100
-  %102 = load i8, ptr %101, align 1
-  %103 = icmp eq i8 %102, 42
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %96 = phi i8 [ %97, %.lr.ph ], [ %.promoted, %81 ]
+  %97 = add i8 %96, -1
+  store i8 %97, ptr %86, align 8
+  %98 = zext i8 %97 to i64
+  %99 = getelementptr i8, ptr %2, i64 %98
+  %100 = load i8, ptr %99, align 1
+  %101 = icmp eq i8 %100, 42
+  br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %81
-  %.lcssa109 = phi i64 [ %92, %81 ], [ %99, %.lr.ph ]
-  %104 = getelementptr inbounds nuw [33 x i8], ptr %88, i64 0, i64 %.lcssa109
-  store i8 0, ptr %104, align 1
-  %105 = load i8, ptr %86, align 8
-  %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds nuw i8, ptr %83, i64 %106
-  %108 = load i8, ptr %107, align 1
-  %109 = icmp eq i8 %108, 47
-  %. = select i1 %109, i8 4, i8 8
+  %.lcssa109 = phi i64 [ %92, %81 ], [ %98, %.lr.ph ]
+  %102 = getelementptr inbounds nuw i8, ptr %88, i64 %.lcssa109
+  store i8 0, ptr %102, align 1
+  %103 = load i8, ptr %86, align 8
+  %104 = zext i8 %103 to i64
+  %105 = getelementptr inbounds nuw i8, ptr %83, i64 %104
+  %106 = load i8, ptr %105, align 1
+  %107 = icmp eq i8 %106, 47
+  %. = select i1 %107, i8 4, i8 8
   store i8 %., ptr %2, align 1
-  %110 = load i16, ptr %62, align 2
-  %111 = add i16 %110, 1
-  store i16 %111, ptr %62, align 2
+  %108 = load i16, ptr %62, align 2
+  %109 = add i16 %108, 1
+  store i16 %109, ptr %62, align 2
   br label %.thread
 
-112:                                              ; preds = %57
-  %113 = getelementptr inbounds nuw i8, ptr %59, i64 8
+110:                                              ; preds = %57
+  %111 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 64
-  %116 = load ptr, ptr %115, align 8
-  %117 = tail call i32 %116(ptr noundef nonnull %1, ptr noundef %2) #12
+  %115 = tail call i32 %114(ptr noundef nonnull %1, ptr noundef %2) #12
   br label %.thread
 
-.thread:                                          ; preds = %.critedge.thread, %12, %43, %53, %61, %65, %69, %._crit_edge, %112, %47
-  %.0 = phi i32 [ -2, %47 ], [ 0, %43 ], [ 0, %53 ], [ 0, %._crit_edge ], [ -2, %69 ], [ -2, %65 ], [ -2, %61 ], [ %117, %112 ], [ -2, %12 ], [ -2, %.critedge.thread ]
+.thread:                                          ; preds = %.critedge.thread, %12, %43, %53, %61, %65, %69, %._crit_edge, %110, %47
+  %.0 = phi i32 [ -2, %47 ], [ 0, %43 ], [ 0, %53 ], [ 0, %._crit_edge ], [ -2, %69 ], [ -2, %65 ], [ -2, %61 ], [ %115, %110 ], [ -2, %12 ], [ -2, %.critedge.thread ]
   ret i32 %.0
 }
 
@@ -617,7 +615,7 @@ define internal i32 @procfs_stat(ptr readnone captures(none) %0, ptr noundef %1,
 
 13:                                               ; preds = %9, %12
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %12 ]
-  %14 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.procfs_entry_s, ptr @g_procfs_entries, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @fnmatch(ptr noundef %15, ptr noundef nonnull %1, i32 noundef 0) #12
   %17 = icmp eq i32 %16, 0
@@ -671,7 +669,7 @@ define internal void @procfs_enum(ptr noundef readonly captures(none) %0, ptr no
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = zext nneg i16 %4 to i64
-  %11 = getelementptr inbounds nuw [128 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
   store i32 %8, ptr %11, align 4
   %narrow = add nuw nsw i16 %4, 1
   store i16 %narrow, ptr %3, align 4

@@ -49,7 +49,7 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
 
 19:                                               ; preds = %8, %25
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %25 ]
-  %20 = getelementptr inbounds nuw [4 x double], ptr %13, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !74
   %22 = fcmp reassoc nsz arcp contract afn olt double %21, 1.000000e-03
   %23 = fcmp reassoc nsz arcp contract afn ogt double %21, 1.000000e+03
@@ -277,7 +277,7 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
 
 130:                                              ; preds = %.preheader, %135
   %indvars.iv157 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next158, %135 ]
-  %131 = getelementptr inbounds nuw [4 x i16], ptr %122, i64 0, i64 %indvars.iv157
+  %131 = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv157
   %132 = load i16, ptr %131, align 2, !tbaa !95
   %133 = icmp slt i16 %132, 0
   br i1 %133, label %134, label %135

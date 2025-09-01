@@ -101,7 +101,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !25
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [3 x [3 x i32]], ptr @query_formats.sample_fmts, i64 0, i64 %8
+  %9 = getelementptr inbounds [3 x i32], ptr @query_formats.sample_fmts, i64 %8
   %10 = tail call i32 @ff_set_common_formats_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9) #9
   %. = tail call i32 @llvm.smin.i32(i32 %10, i32 0)
   ret i32 %.
@@ -175,7 +175,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
 
 .lr.ph104.split:                                  ; preds = %.lr.ph104.split.preheader, %51
   %indvars.iv114 = phi i64 [ 0, %.lr.ph104.split.preheader ], [ %indvars.iv.next115, %51 ]
-  %37 = getelementptr inbounds nuw [2 x ptr], ptr %36, i64 0, i64 %indvars.iv114
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv114
   %38 = load ptr, ptr %37, align 8, !tbaa !33
   %.not92 = icmp eq ptr %38, null
   br i1 %.not92, label %39, label %51
@@ -291,7 +291,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
 .preheader:                                       ; preds = %.loopexit97, %114
   %101 = phi i1 [ false, %114 ], [ true, %.loopexit97 ]
   %indvars.iv120 = phi i64 [ 1, %114 ], [ 0, %.loopexit97 ]
-  %102 = getelementptr inbounds nuw [2 x ptr], ptr %55, i64 0, i64 %indvars.iv120
+  %102 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv120
   %103 = load ptr, ptr %102, align 8, !tbaa !33
   %.not91 = icmp eq ptr %103, null
   br i1 %.not91, label %104, label %114

@@ -1240,14 +1240,14 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %1, %11
 
 61:                                               ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %61
   %.01218 = phi i64 [ 0, %_ZNK2cv3Mat8elemSizeEv.exit ], [ %70, %61 ]
-  %62 = getelementptr inbounds nuw [20 x %"class.cv::Size_"], ptr %3, i64 0, i64 %.01218
+  %62 = getelementptr inbounds nuw %"class.cv::Size_", ptr %3, i64 %.01218
   %63 = load i32, ptr %62, align 8, !tbaa !102
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !104
   %66 = mul nsw i32 %65, %63
   %67 = sext i32 %66 to i64
   %68 = mul i64 %18, %67
-  %69 = getelementptr inbounds nuw [20 x i64], ptr %4, i64 0, i64 %.01218
+  %69 = getelementptr inbounds nuw i64, ptr %4, i64 %.01218
   store i64 %68, ptr %69, align 8, !tbaa !10
   %70 = add nuw nsw i64 %.01218, 1
   %exitcond.not = icmp eq i64 %70, 20
@@ -1289,7 +1289,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %1, %11
   %.019 = phi i32 [ %85, %84 ], [ 0, %77 ]
   %79 = urem i32 %.019, 20
   %.zext = zext nneg i32 %79 to i64
-  %80 = getelementptr inbounds nuw [20 x i64], ptr %4, i64 0, i64 %.zext
+  %80 = getelementptr inbounds nuw i64, ptr %4, i64 %.zext
   %81 = load i64, ptr %80, align 8, !tbaa !10
   %82 = invoke noundef ptr @_ZN2cv10fastMallocEm(i64 noundef %81)
           to label %83 unwind label %86

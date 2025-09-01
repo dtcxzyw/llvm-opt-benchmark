@@ -62,7 +62,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113DeltaTreeNode7DestroyEv(ptr noun
 
 9:                                                ; preds = %4, %9
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   tail call fastcc void @_ZN12_GLOBAL__N_113DeltaTreeNode7DestroyEv(ptr noundef nonnull align 4 dereferenceable(128) %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -93,7 +93,7 @@ define dso_local noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonn
   %.13957 = phi i32 [ %12, %9 ], [ %.038, %3 ]
   %.04056 = phi i32 [ %13, %9 ], [ 0, %3 ]
   %6 = zext nneg i32 %.04056 to i64
-  %7 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.034, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.034, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !21
   %.not42 = icmp ult i32 %8, %1
   br i1 %.not42, label %9, label %._crit_edge
@@ -143,7 +143,7 @@ define dso_local noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonn
 20:                                               ; preds = %.lr.ph68, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next, %20 ]
   %.566 = phi i32 [ %.139.lcssa, %.lr.ph68 ], [ %24, %20 ]
-  %21 = getelementptr inbounds nuw [16 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = getelementptr i8, ptr %22, i64 124
   %.val = load i32, ptr %23, align 4, !tbaa !10
@@ -154,14 +154,14 @@ define dso_local noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonn
 
 25:                                               ; preds = %._crit_edge69
   %26 = zext i32 %.040.lcssa8392 to i64
-  %27 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.034, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.034, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !21
   %29 = icmp eq i32 %28, %1
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %.034, i64 128
-  %32 = getelementptr inbounds nuw [16 x ptr], ptr %31, i64 0, i64 %26
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %26
   %33 = load ptr, ptr %32, align 8, !tbaa !16
   %34 = getelementptr i8, ptr %33, i64 124
   %.val47 = load i32, ptr %34, align 4, !tbaa !10
@@ -172,7 +172,7 @@ define dso_local noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonn
   %.5.lcssa97 = phi i32 [ %.5.lcssa98, %._crit_edge69._crit_edge ], [ %.5.lcssa, %25 ]
   %.pre-phi = phi i64 [ %.pre, %._crit_edge69._crit_edge ], [ %26, %25 ]
   %37 = getelementptr inbounds nuw i8, ptr %.034, i64 128
-  %38 = getelementptr inbounds nuw [16 x ptr], ptr %37, i64 0, i64 %.pre-phi
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.pre-phi
   br label %3, !llvm.loop !25
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge.thread, %30
@@ -247,7 +247,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoI
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %.0105195 = phi i32 [ %18, %17 ], [ 0, %.lr.ph.preheader ]
   %13 = zext nneg i32 %.0105195 to i64
-  %14 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.tr362, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr362, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !21
   %16 = icmp ugt i32 %1, %15
   br i1 %16, label %17, label %.critedge
@@ -262,7 +262,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoI
   br i1 %19, label %20, label %.critedge114
 
 20:                                               ; preds = %.critedge
-  %21 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.tr362, i64 0, i64 %13, i32 1
+  %21 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr362, i64 %13, i32 1
   %22 = load i32, ptr %21, align 4, !tbaa !30
   %23 = add nsw i32 %22, %2
   store i32 %23, ptr %21, align 4, !tbaa !30
@@ -304,9 +304,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoI
 32:                                               ; preds = %30
   %33 = add nuw i32 %.0105167, 1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.tr362, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr362, i64 %34
   %36 = zext nneg i32 %.0105167 to i64
-  %37 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.tr362, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr362, i64 %36
   %38 = sub nsw i32 %10, %.0105167
   %39 = zext i32 %38 to i64
   %40 = shl nuw nsw i64 %39, 3
@@ -322,7 +322,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoI
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %1 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %43 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.tr356, i64 0, i64 %.pre-phi242
+  %43 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr356, i64 %.pre-phi242
   store i64 %.sroa.0.0.insert.insert.i, ptr %43, align 4
   %44 = load i8, ptr %42, align 4, !tbaa !3
   %45 = add i8 %44, 1
@@ -346,7 +346,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoI
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.022.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %53, %.lr.ph.i.i ]
-  %51 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %46, i64 0, i64 %indvars.iv.i.i, i32 1
+  %51 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %46, i64 %indvars.iv.i.i, i32 1
   %52 = load i32, ptr %51, align 4, !tbaa !30
   %53 = add nsw i32 %52, %.022.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -360,7 +360,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoI
 .lr.ph.i16.i:                                     ; preds = %.lr.ph.i16.i, %.lr.ph.preheader.i15.i
   %indvars.iv.i17.i = phi i64 [ 0, %.lr.ph.preheader.i15.i ], [ %indvars.iv.next.i19.i, %.lr.ph.i16.i ]
   %.022.i18.i = phi i32 [ 0, %.lr.ph.preheader.i15.i ], [ %56, %.lr.ph.i16.i ]
-  %54 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.tr362, i64 0, i64 %indvars.iv.i17.i, i32 1
+  %54 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr362, i64 %indvars.iv.i17.i, i32 1
   %55 = load i32, ptr %54, align 4, !tbaa !30
   %56 = add nsw i32 %55, %.022.i18.i
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i17.i, 1
@@ -405,7 +405,7 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit: ; preds = %.
   %.0105167251 = phi i32 [ 0, %.critedge114.thread ], [ %.0105167, %.loopexit ]
   %74 = getelementptr inbounds nuw i8, ptr %.tr358, i64 128
   %75 = zext nneg i32 %.0105167251 to i64
-  %76 = getelementptr inbounds nuw [16 x ptr], ptr %74, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !16
   %78 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoInsertionEjiPNS0_12InsertResultE(ptr noundef nonnull align 4 dereferenceable(128) %77, i32 noundef %1, i32 noundef %2, ptr noundef %.tr154352)
   br i1 %78, label %79, label %184
@@ -421,10 +421,10 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit: ; preds = %.
 82:                                               ; preds = %81
   %83 = add nuw i32 %.0105167251, 2
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw [16 x ptr], ptr %74, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw ptr, ptr %74, i64 %84
   %86 = add nuw i32 %.0105167251, 1
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw [16 x ptr], ptr %74, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr %74, i64 %87
   %89 = sub nsw i32 %72, %.0105167251
   %90 = zext i32 %89 to i64
   %91 = shl nuw nsw i64 %90, 3
@@ -434,8 +434,8 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit: ; preds = %.
   %93 = getelementptr inbounds nuw i8, ptr %.tr154352, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !28
   store ptr %94, ptr %88, align 8, !tbaa !16
-  %95 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.tr358, i64 0, i64 %87
-  %96 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.tr358, i64 0, i64 %75
+  %95 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr358, i64 %87
+  %96 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr358, i64 %75
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %95, ptr nonnull align 4 %96, i64 %91, i1 false)
   br label %103
 
@@ -446,13 +446,13 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit: ; preds = %.
   %99 = load ptr, ptr %98, align 8, !tbaa !28
   %100 = add nuw i32 %.0105167251, 1
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw [16 x ptr], ptr %74, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw ptr, ptr %74, i64 %101
   store ptr %99, ptr %102, align 8, !tbaa !16
   br label %103
 
 103:                                              ; preds = %.critedge116, %82
   %104 = getelementptr inbounds nuw i8, ptr %.tr154352, i64 16
-  %105 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.tr358, i64 0, i64 %75
+  %105 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr358, i64 %75
   %106 = load i64, ptr %104, align 8
   store i64 %106, ptr %105, align 4
   %107 = load i8, ptr %71, align 4, !tbaa !3
@@ -511,7 +511,7 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit: ; preds = %.
 .lr.ph.i.i126:                                    ; preds = %.lr.ph.i.i126, %.lr.ph.preheader.i.i124
   %indvars.iv.i.i127 = phi i64 [ 0, %.lr.ph.preheader.i.i124 ], [ %indvars.iv.next.i.i129, %.lr.ph.i.i126 ]
   %.022.i.i128 = phi i32 [ 0, %.lr.ph.preheader.i.i124 ], [ %131, %.lr.ph.i.i126 ]
-  %129 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.0.i125, i64 0, i64 %indvars.iv.i.i127, i32 1
+  %129 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.0.i125, i64 %indvars.iv.i.i127, i32 1
   %130 = load i32, ptr %129, align 4, !tbaa !30
   %131 = add nsw i32 %130, %.022.i.i128
   %indvars.iv.next.i.i129 = add nuw nsw i64 %indvars.iv.i.i127, 1
@@ -525,7 +525,7 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit: ; preds = %.
 134:                                              ; preds = %134, %132
   %indvars.iv27.i.i132 = phi i64 [ 0, %132 ], [ %indvars.iv.next28.i.i135, %134 ]
   %.224.i.i133 = phi i32 [ %131, %132 ], [ %138, %134 ]
-  %135 = getelementptr inbounds nuw [16 x ptr], ptr %133, i64 0, i64 %indvars.iv27.i.i132
+  %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv27.i.i132
   %136 = load ptr, ptr %135, align 8, !tbaa !16
   %137 = getelementptr i8, ptr %136, i64 124
   %.val19.i.i134 = load i32, ptr %137, align 4, !tbaa !10
@@ -546,7 +546,7 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit: ; preds = %.
 .lr.ph.i16.i139:                                  ; preds = %.lr.ph.i16.i139, %.lr.ph.preheader.i15.i137
   %indvars.iv.i17.i140 = phi i64 [ 0, %.lr.ph.preheader.i15.i137 ], [ %indvars.iv.next.i19.i142, %.lr.ph.i16.i139 ]
   %.022.i18.i141 = phi i32 [ 0, %.lr.ph.preheader.i15.i137 ], [ %142, %.lr.ph.i16.i139 ]
-  %140 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %.tr358, i64 0, i64 %indvars.iv.i17.i140, i32 1
+  %140 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr358, i64 %indvars.iv.i17.i140, i32 1
   %141 = load i32, ptr %140, align 4, !tbaa !30
   %142 = add nsw i32 %141, %.022.i18.i141
   %indvars.iv.next.i19.i142 = add nuw nsw i64 %indvars.iv.i17.i140, 1
@@ -556,7 +556,7 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit: ; preds = %.
 .preheader:                                       ; preds = %._crit_edge.i21.i144, %.preheader
   %indvars.iv27.i24.i145 = phi i64 [ %indvars.iv.next28.i27.i148, %.preheader ], [ 0, %._crit_edge.i21.i144 ]
   %.224.i25.i146 = phi i32 [ %146, %.preheader ], [ %142, %._crit_edge.i21.i144 ]
-  %143 = getelementptr inbounds nuw [16 x ptr], ptr %74, i64 0, i64 %indvars.iv27.i24.i145
+  %143 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv27.i24.i145
   %144 = load ptr, ptr %143, align 8, !tbaa !16
   %145 = getelementptr i8, ptr %144, i64 124
   %.val19.i26.i147 = load i32, ptr %145, align 4, !tbaa !10
@@ -585,7 +585,7 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151: ; preds =
 .lr.ph202:                                        ; preds = %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151, %157
   %.1106201 = phi i32 [ %158, %157 ], [ 0, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151 ]
   %153 = zext nneg i32 %.1106201 to i64
-  %154 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %spec.select, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !21
   %156 = icmp ugt i32 %.sroa.0.0.copyload, %155
   br i1 %156, label %157, label %.critedge117
@@ -593,40 +593,43 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151: ; preds =
 157:                                              ; preds = %.lr.ph202
   %158 = add nuw nsw i32 %.1106201, 1
   %.not113 = icmp eq i32 %158, %152
-  br i1 %.not113, label %.critedge118, label %.lr.ph202, !llvm.loop !34
+  br i1 %.not113, label %.critedge118.loopexit, label %.lr.ph202, !llvm.loop !34
 
 .critedge117:                                     ; preds = %.lr.ph202
-  %159 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %spec.select, i64 0, i64 %153
+  %159 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %153
   %160 = getelementptr inbounds nuw i8, ptr %spec.select, i64 128
   %161 = add nuw i32 %.1106201, 2
   %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds nuw [16 x ptr], ptr %160, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw ptr, ptr %160, i64 %162
   %164 = add nuw i32 %.1106201, 1
   %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds nuw [16 x ptr], ptr %160, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw ptr, ptr %160, i64 %165
   %167 = sub nsw i32 %152, %.1106201
   %168 = zext i32 %167 to i64
   %169 = shl nuw nsw i64 %168, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %163, ptr nonnull align 8 %166, i64 %169, i1 false)
   store ptr %112, ptr %166, align 8, !tbaa !16
-  %170 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %spec.select, i64 0, i64 %165
+  %170 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %165
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %170, ptr nonnull align 8 %159, i64 %169, i1 false)
   %.pre = load i8, ptr %151, align 8, !tbaa !3
   br label %175
 
-.critedge118:                                     ; preds = %157, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151
-  %171 = getelementptr inbounds nuw i8, ptr %spec.select, i64 128
-  %172 = add nuw nsw i32 %152, 1
-  %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw [16 x ptr], ptr %171, i64 0, i64 %173
+.critedge118.loopexit:                            ; preds = %157
+  %171 = zext i8 %.0.val to i64
+  br label %.critedge118
+
+.critedge118:                                     ; preds = %.critedge118.loopexit, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151
+  %.1106.lcssa = phi i64 [ 0, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151 ], [ %171, %.critedge118.loopexit ]
+  %172 = getelementptr inbounds nuw i8, ptr %spec.select, i64 128
+  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %.1106.lcssa
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store ptr %112, ptr %174, align 8, !tbaa !16
-  %.pre240 = zext i8 %.0.val to i64
   br label %175
 
 175:                                              ; preds = %.critedge118, %.critedge117
-  %.pre-phi = phi i64 [ %.pre240, %.critedge118 ], [ %153, %.critedge117 ]
+  %.pre-phi = phi i64 [ %.1106.lcssa, %.critedge118 ], [ %153, %.critedge117 ]
   %176 = phi i8 [ %.0.val, %.critedge118 ], [ %.pre, %.critedge117 ]
-  %177 = getelementptr inbounds nuw [15 x %"struct.(anonymous namespace)::SourceDelta"], ptr %spec.select, i64 0, i64 %.pre-phi
+  %177 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %.pre-phi
   store i32 %.sroa.0.0.copyload, ptr %177, align 8, !tbaa !32
   %.sroa.6.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %177, i64 4
   store i32 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx14, align 4, !tbaa !32

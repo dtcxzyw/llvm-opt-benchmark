@@ -2595,9 +2595,9 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
 
 62:                                               ; preds = %58
   %63 = zext nneg i32 %18 to i64
-  %64 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 %63
   %65 = zext nneg i32 %59 to i64
-  %66 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 %65
   %67 = zext nneg i16 %48 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %66, i64 %67, i1 false)
   %68 = add i32 %.176152, %52
@@ -2610,12 +2610,12 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %71 = add i32 %.580148, %50
   %72 = and i32 %71, 4095
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !10
   %76 = add i32 %.580148, 1
   %77 = and i32 %.580148, 4095
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 %78
   store i8 %75, ptr %79, align 1, !tbaa !10
   %.not107 = icmp eq i16 %70, 0
   br i1 %.not107, label %.loopexit, label %69
@@ -2643,7 +2643,7 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
 
 87:                                               ; preds = %80
   %88 = zext nneg i32 %18 to i64
-  %89 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 %88
   %90 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %89, i64 noundef 1) #16
   %91 = icmp eq i64 %90, 1
   %92 = zext i1 %91 to i32

@@ -1442,7 +1442,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   %90 = load ptr, ptr %89, align 8, !tbaa !36
   %91 = load ptr, ptr %17, align 8, !tbaa !14
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  %93 = getelementptr inbounds nuw [0 x ptr], ptr %92, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8, !tbaa !70
   invoke void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %90, ptr noundef %94)
           to label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i unwind label %124
@@ -2407,7 +2407,7 @@ _ZN7obj_refI9func_decl11ast_managerEC2EPS0_RS1_.exit: ; preds = %49, %_ZN11ast_m
 
 66:                                               ; preds = %.lr.ph, %.critedge66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge66 ]
-  %67 = getelementptr inbounds nuw [0 x ptr], ptr %59, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !70
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
@@ -2440,7 +2440,7 @@ _Z9is_app_ofPK4exprPK9func_decl.exit.i:           ; preds = %77
   br i1 %83, label %84, label %_Z9is_app_ofPK4exprPK9func_decl.exit.thread.i
 
 84:                                               ; preds = %_Z9is_app_ofPK4exprPK9func_decl.exit.i
-  %85 = getelementptr inbounds nuw [0 x ptr], ptr %63, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !tbaa !70
   br label %_ZN3mbp23datatype_project_plugin3imp6accessEP9func_decljRK10ptr_vectorIS2_EP4expr.exit
 
@@ -2537,7 +2537,7 @@ _Z9is_app_ofPK4exprPK9func_decl.exit.i76:         ; preds = %112
   br i1 %118, label %119, label %_Z9is_app_ofPK4exprPK9func_decl.exit.thread.i74
 
 119:                                              ; preds = %_Z9is_app_ofPK4exprPK9func_decl.exit.i76
-  %120 = getelementptr inbounds nuw [0 x ptr], ptr %63, i64 0, i64 %indvars.iv124
+  %120 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv124
   %121 = load ptr, ptr %120, align 8, !tbaa !70
   br label %_ZN3mbp23datatype_project_plugin3imp6accessEP9func_decljRK10ptr_vectorIS2_EP4expr.exit78
 
@@ -2556,7 +2556,7 @@ _Z9is_app_ofPK4exprPK9func_decl.exit.thread.i74:  ; preds = %_Z9is_app_ofPK4expr
 
 _ZN3mbp23datatype_project_plugin3imp6accessEP9func_decljRK10ptr_vectorIS2_EP4expr.exit78: ; preds = %.noexc77, %119
   %.0.i75 = phi ptr [ %121, %119 ], [ %125, %.noexc77 ]
-  %126 = getelementptr inbounds nuw [0 x ptr], ptr %59, i64 0, i64 %indvars.iv124
+  %126 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv124
   %127 = load ptr, ptr %126, align 8, !tbaa !70
   %128 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %113, i32 noundef 0, i32 noundef 2, ptr noundef %.0.i75, ptr noundef %127)
           to label %_ZN11ast_manager5mk_eqEP4exprS1_.exit unwind label %108
@@ -3967,7 +3967,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %_ZNK6vectorIP9func_
 
 109:                                              ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit
   %110 = load ptr, ptr %0, align 8, !tbaa !51
-  %111 = getelementptr inbounds nuw [0 x ptr], ptr %100, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8, !tbaa !70
   %113 = load i32, ptr %63, align 4
   %114 = and i32 %113, 65535
@@ -3980,7 +3980,7 @@ _Z9is_app_ofPK4exprPK9func_decl.exit.i:           ; preds = %109
   br i1 %117, label %118, label %_Z9is_app_ofPK4exprPK9func_decl.exit.thread.i
 
 118:                                              ; preds = %_Z9is_app_ofPK4exprPK9func_decl.exit.i
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %102, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv
   %120 = load ptr, ptr %119, align 8, !tbaa !70
   br label %_ZN3mbp23datatype_project_plugin3imp6accessEP9func_decljRK10ptr_vectorIS2_EP4expr.exit
 

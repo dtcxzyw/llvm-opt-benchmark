@@ -2724,30 +2724,30 @@ define hidden void @_ZN4ncnn12draw_text_c1EPhiiiPKciiij(ptr noundef captures(non
   %.08596 = phi i32 [ %6, %.lr.ph ], [ %.186, %.loopexit ]
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv103
   %22 = load i8, ptr %21, align 1, !tbaa !4
-  %23 = sext i8 %22 to i32
-  switch i8 %22, label %28 [
-    i8 10, label %24
-    i8 32, label %26
+  switch i8 %22, label %27 [
+    i8 10, label %23
+    i8 32, label %25
   ]
 
-24:                                               ; preds = %20
-  %25 = add nsw i32 %.08596, %10
+23:                                               ; preds = %20
+  %24 = add nsw i32 %.08596, %10
   br label %.loopexit
 
-26:                                               ; preds = %20
-  %27 = add nsw i32 %.08498, %7
+25:                                               ; preds = %20
+  %26 = add nsw i32 %.08498, %7
   br label %.loopexit
 
-28:                                               ; preds = %20
-  %29 = tail call i32 @isprint(i32 noundef %23) #17
+27:                                               ; preds = %20
+  %28 = sext i8 %22 to i32
+  %29 = tail call i32 @isprint(i32 noundef %28) #17
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %.loopexit, label %30
 
-30:                                               ; preds = %28
-  %31 = add nsw i32 %23, -33
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %32
-  tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef nonnull %33, ptr noundef nonnull %13, i32 noundef %7)
+30:                                               ; preds = %27
+  %31 = sext i8 %22 to i64
+  %32 = getelementptr [400 x i8], ptr @_ZN4ncnnL14mono_font_dataE, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 -13200
+  tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef %33, ptr noundef nonnull %13, i32 noundef %7)
   %.sroa.speculated66 = tail call i32 @llvm.smax.i32(i32 %.08596, i32 0)
   %34 = add nsw i32 %.08596, %10
   %.sroa.speculated61 = tail call i32 @llvm.smin.i32(i32 %2, i32 %34)
@@ -2808,9 +2808,9 @@ define hidden void @_ZN4ncnn12draw_text_c1EPhiiiPKciiij(ptr noundef captures(non
   %exitcond102.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond102.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !76
 
-.loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph92, %30, %28, %26, %24
-  %.186 = phi i32 [ %.08596, %28 ], [ %25, %24 ], [ %.08596, %26 ], [ %.08596, %30 ], [ %.08596, %.lr.ph92 ], [ %.08596, %._crit_edge.us ]
-  %.1 = phi i32 [ %.08498, %28 ], [ %5, %24 ], [ %27, %26 ], [ %35, %30 ], [ %35, %.lr.ph92 ], [ %35, %._crit_edge.us ]
+.loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph92, %30, %27, %25, %23
+  %.186 = phi i32 [ %.08596, %27 ], [ %24, %23 ], [ %.08596, %25 ], [ %.08596, %30 ], [ %.08596, %.lr.ph92 ], [ %.08596, %._crit_edge.us ]
+  %.1 = phi i32 [ %.08498, %27 ], [ %5, %23 ], [ %26, %25 ], [ %35, %30 ], [ %35, %.lr.ph92 ], [ %35, %._crit_edge.us ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
   br i1 %exitcond107.not, label %._crit_edge, label %20, !llvm.loop !77
@@ -2853,30 +2853,30 @@ define hidden void @_ZN4ncnn12draw_text_c2EPhiiiPKciiij(ptr noundef captures(non
   %.090101 = phi i32 [ %6, %.lr.ph ], [ %.191, %.loopexit ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv108
   %23 = load i8, ptr %22, align 1, !tbaa !4
-  %24 = sext i8 %23 to i32
-  switch i8 %23, label %29 [
-    i8 10, label %25
-    i8 32, label %27
+  switch i8 %23, label %28 [
+    i8 10, label %24
+    i8 32, label %26
   ]
 
-25:                                               ; preds = %21
-  %26 = add nsw i32 %.090101, %10
+24:                                               ; preds = %21
+  %25 = add nsw i32 %.090101, %10
   br label %.loopexit
 
-27:                                               ; preds = %21
-  %28 = add nsw i32 %.089103, %7
+26:                                               ; preds = %21
+  %27 = add nsw i32 %.089103, %7
   br label %.loopexit
 
-29:                                               ; preds = %21
-  %30 = tail call i32 @isprint(i32 noundef %24) #17
+28:                                               ; preds = %21
+  %29 = sext i8 %23 to i32
+  %30 = tail call i32 @isprint(i32 noundef %29) #17
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %.loopexit, label %31
 
-31:                                               ; preds = %29
-  %32 = add nsw i32 %24, -33
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %33
-  tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef nonnull %34, ptr noundef nonnull %13, i32 noundef %7)
+31:                                               ; preds = %28
+  %32 = sext i8 %23 to i64
+  %33 = getelementptr [400 x i8], ptr @_ZN4ncnnL14mono_font_dataE, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 -13200
+  tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef %34, ptr noundef nonnull %13, i32 noundef %7)
   %.sroa.speculated71 = tail call i32 @llvm.smax.i32(i32 %.090101, i32 0)
   %35 = add nsw i32 %.090101, %10
   %.sroa.speculated66 = tail call i32 @llvm.smin.i32(i32 %2, i32 %35)
@@ -2948,9 +2948,9 @@ define hidden void @_ZN4ncnn12draw_text_c2EPhiiiPKciiij(ptr noundef captures(non
   %exitcond107.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond107.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !79
 
-.loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph97, %31, %29, %27, %25
-  %.191 = phi i32 [ %.090101, %29 ], [ %26, %25 ], [ %.090101, %27 ], [ %.090101, %31 ], [ %.090101, %.lr.ph97 ], [ %.090101, %._crit_edge.us ]
-  %.1 = phi i32 [ %.089103, %29 ], [ %5, %25 ], [ %28, %27 ], [ %36, %31 ], [ %36, %.lr.ph97 ], [ %36, %._crit_edge.us ]
+.loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph97, %31, %28, %26, %24
+  %.191 = phi i32 [ %.090101, %28 ], [ %25, %24 ], [ %.090101, %26 ], [ %.090101, %31 ], [ %.090101, %.lr.ph97 ], [ %.090101, %._crit_edge.us ]
+  %.1 = phi i32 [ %.089103, %28 ], [ %5, %24 ], [ %27, %26 ], [ %36, %31 ], [ %36, %.lr.ph97 ], [ %36, %._crit_edge.us ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
   br i1 %exitcond112.not, label %._crit_edge, label %21, !llvm.loop !80
@@ -2995,30 +2995,30 @@ define hidden void @_ZN4ncnn12draw_text_c3EPhiiiPKciiij(ptr noundef captures(non
   %.095106 = phi i32 [ %6, %.lr.ph ], [ %.196, %.loopexit ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv113
   %24 = load i8, ptr %23, align 1, !tbaa !4
-  %25 = sext i8 %24 to i32
-  switch i8 %24, label %30 [
-    i8 10, label %26
-    i8 32, label %28
+  switch i8 %24, label %29 [
+    i8 10, label %25
+    i8 32, label %27
   ]
 
-26:                                               ; preds = %22
-  %27 = add nsw i32 %.095106, %10
+25:                                               ; preds = %22
+  %26 = add nsw i32 %.095106, %10
   br label %.loopexit
 
-28:                                               ; preds = %22
-  %29 = add nsw i32 %.094108, %7
+27:                                               ; preds = %22
+  %28 = add nsw i32 %.094108, %7
   br label %.loopexit
 
-30:                                               ; preds = %22
-  %31 = tail call i32 @isprint(i32 noundef %25) #17
+29:                                               ; preds = %22
+  %30 = sext i8 %24 to i32
+  %31 = tail call i32 @isprint(i32 noundef %30) #17
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %.loopexit, label %32
 
-32:                                               ; preds = %30
-  %33 = add nsw i32 %25, -33
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %34
-  tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef nonnull %35, ptr noundef nonnull %13, i32 noundef %7)
+32:                                               ; preds = %29
+  %33 = sext i8 %24 to i64
+  %34 = getelementptr [400 x i8], ptr @_ZN4ncnnL14mono_font_dataE, i64 %33
+  %35 = getelementptr i8, ptr %34, i64 -13200
+  tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef %35, ptr noundef nonnull %13, i32 noundef %7)
   %.sroa.speculated76 = tail call i32 @llvm.smax.i32(i32 %.095106, i32 0)
   %36 = add nsw i32 %.095106, %10
   %.sroa.speculated71 = tail call i32 @llvm.smin.i32(i32 %2, i32 %36)
@@ -3099,9 +3099,9 @@ define hidden void @_ZN4ncnn12draw_text_c3EPhiiiPKciiij(ptr noundef captures(non
   %exitcond112.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond112.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !82
 
-.loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph102, %32, %30, %28, %26
-  %.196 = phi i32 [ %.095106, %30 ], [ %27, %26 ], [ %.095106, %28 ], [ %.095106, %32 ], [ %.095106, %.lr.ph102 ], [ %.095106, %._crit_edge.us ]
-  %.1 = phi i32 [ %.094108, %30 ], [ %5, %26 ], [ %29, %28 ], [ %37, %32 ], [ %37, %.lr.ph102 ], [ %37, %._crit_edge.us ]
+.loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph102, %32, %29, %27, %25
+  %.196 = phi i32 [ %.095106, %29 ], [ %26, %25 ], [ %.095106, %27 ], [ %.095106, %32 ], [ %.095106, %.lr.ph102 ], [ %.095106, %._crit_edge.us ]
+  %.1 = phi i32 [ %.094108, %29 ], [ %5, %25 ], [ %28, %27 ], [ %37, %32 ], [ %37, %.lr.ph102 ], [ %37, %._crit_edge.us ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
   br i1 %exitcond117.not, label %._crit_edge, label %22, !llvm.loop !83
@@ -3147,30 +3147,30 @@ define hidden void @_ZN4ncnn12draw_text_c4EPhiiiPKciiij(ptr noundef captures(non
   %.0100111 = phi i32 [ %6, %.lr.ph ], [ %.1101, %.loopexit ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv118
   %24 = load i8, ptr %23, align 1, !tbaa !4
-  %25 = sext i8 %24 to i32
-  switch i8 %24, label %30 [
-    i8 10, label %26
-    i8 32, label %28
+  switch i8 %24, label %29 [
+    i8 10, label %25
+    i8 32, label %27
   ]
 
-26:                                               ; preds = %22
-  %27 = add nsw i32 %.0100111, %10
+25:                                               ; preds = %22
+  %26 = add nsw i32 %.0100111, %10
   br label %.loopexit
 
-28:                                               ; preds = %22
-  %29 = add nsw i32 %.099113, %7
+27:                                               ; preds = %22
+  %28 = add nsw i32 %.099113, %7
   br label %.loopexit
 
-30:                                               ; preds = %22
-  %31 = tail call i32 @isprint(i32 noundef %25) #17
+29:                                               ; preds = %22
+  %30 = sext i8 %24 to i32
+  %31 = tail call i32 @isprint(i32 noundef %30) #17
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %.loopexit, label %32
 
-32:                                               ; preds = %30
-  %33 = add nsw i32 %25, -33
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %34
-  tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef nonnull %35, ptr noundef nonnull %13, i32 noundef %7)
+32:                                               ; preds = %29
+  %33 = sext i8 %24 to i64
+  %34 = getelementptr [400 x i8], ptr @_ZN4ncnnL14mono_font_dataE, i64 %33
+  %35 = getelementptr i8, ptr %34, i64 -13200
+  tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef %35, ptr noundef nonnull %13, i32 noundef %7)
   %.sroa.speculated81 = tail call i32 @llvm.smax.i32(i32 %.0100111, i32 0)
   %36 = add nsw i32 %.0100111, %10
   %.sroa.speculated76 = tail call i32 @llvm.smin.i32(i32 %2, i32 %36)
@@ -3260,9 +3260,9 @@ define hidden void @_ZN4ncnn12draw_text_c4EPhiiiPKciiij(ptr noundef captures(non
   %exitcond117.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond117.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !85
 
-.loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph107, %32, %30, %28, %26
-  %.1101 = phi i32 [ %.0100111, %30 ], [ %27, %26 ], [ %.0100111, %28 ], [ %.0100111, %32 ], [ %.0100111, %.lr.ph107 ], [ %.0100111, %._crit_edge.us ]
-  %.1 = phi i32 [ %.099113, %30 ], [ %5, %26 ], [ %29, %28 ], [ %37, %32 ], [ %37, %.lr.ph107 ], [ %37, %._crit_edge.us ]
+.loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph107, %32, %29, %27, %25
+  %.1101 = phi i32 [ %.0100111, %29 ], [ %26, %25 ], [ %.0100111, %27 ], [ %.0100111, %32 ], [ %.0100111, %.lr.ph107 ], [ %.0100111, %._crit_edge.us ]
+  %.1 = phi i32 [ %.099113, %29 ], [ %5, %25 ], [ %28, %27 ], [ %37, %32 ], [ %37, %.lr.ph107 ], [ %37, %._crit_edge.us ]
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
   br i1 %exitcond122.not, label %._crit_edge, label %22, !llvm.loop !86

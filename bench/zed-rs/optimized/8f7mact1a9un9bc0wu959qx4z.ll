@@ -500,7 +500,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17heb50857
 define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17h868b0c92c3c62f8eE.llvm.1407927494119257398(i64 noundef %0, i64 noundef %1) unnamed_addr #6 {
   %3 = lshr i64 %0, 1
   %4 = and i64 %3, 7
-  %5 = getelementptr inbounds nuw [8 x i8], ptr @anon.ea26dd45fed0e7746b242827c9e0dd97.6.llvm.1407927494119257398, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @anon.ea26dd45fed0e7746b242827c9e0dd97.6.llvm.1407927494119257398, i64 %4
   %6 = load i8, ptr %5, align 1, !noundef !7
   %7 = zext i8 %6 to i64
   %.not6 = icmp ugt i64 %1, 16
@@ -6215,10 +6215,10 @@ switch.lookup:
   %7 = load ptr, ptr %6, align 8, !nonnull !7, !noundef !7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN2ui10components6button11button_like9TintColor17button_like_style17h0cb046d9d114355cE.llvm.1407927494119257398, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2ui10components6button11button_like9TintColor17button_like_style17h0cb046d9d114355cE.llvm.1407927494119257398, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = zext nneg i8 %1 to i64
-  %switch.gep9 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN2ui10components6button11button_like9TintColor17button_like_style17h0cb046d9d114355cE.llvm.1407927494119257398.38, i64 0, i64 %10
+  %switch.gep9 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2ui10components6button11button_like9TintColor17button_like_style17h0cb046d9d114355cE.llvm.1407927494119257398.38, i64 %10
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %switch.load
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
@@ -6252,7 +6252,7 @@ define hidden void @_ZN2ui10components6button11button_like25element_bg_from_elev
 
 switch.lookup:                                    ; preds = %6
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE.39", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE.39", i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %9
 
@@ -6280,7 +6280,7 @@ define hidden void @_ZN2ui10components6button11button_like11ButtonStyle7hovered1
 
 switch.lookup:                                    ; preds = %8
   %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE.39", i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE.39", i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN2ui10components6button11button_like25element_bg_from_elevation17h2ef9fc688813d5deE.llvm.1407927494119257398.exit
 
@@ -6413,7 +6413,7 @@ define hidden void @_ZN2ui10components6button11button_like11ButtonStyle6active17
 define noundef float @_ZN2ui10components6button11button_like10ButtonSize4rems17ha426d520920881eeE(i8 noundef %0) unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x float], ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw float, ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE", i64 %1
   %switch.load = load float, ptr %switch.gep, align 4
   %2 = tail call noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)
   ret float %2
@@ -6834,7 +6834,7 @@ switch.lookup:                                    ; preds = %"_ZN79_$LT$gpui..el
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 860
   %131 = load i8, ptr %130, align 4, !range !689, !noundef !7
   %132 = zext nneg i8 %131 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x float], ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE", i64 0, i64 %132
+  %switch.gep = getelementptr inbounds nuw float, ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE", i64 %132
   %switch.load = load float, ptr %switch.gep, align 4
   %133 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)
           to label %_ZN2ui10components6button11button_like10ButtonSize4rems17ha426d520920881eeE.exit unwind label %414
@@ -7231,7 +7231,7 @@ _ZN2ui6styles7spacing7Spacing4rems17hbccda72e69aceb1aE.exit7.i: ; preds = %.noex
 
 switch.lookup140:                                 ; preds = %264
   %266 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep141 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE.39", i64 0, i64 %266
+  %switch.gep141 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render17hb1f8f6526f01a02aE.39", i64 %266
   %switch.load142 = load i64, ptr %switch.gep141, align 8
   br label %_ZN2ui10components6button11button_like25element_bg_from_elevation17h2ef9fc688813d5deE.llvm.1407927494119257398.exit.i
 

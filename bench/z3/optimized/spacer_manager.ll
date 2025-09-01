@@ -2196,7 +2196,7 @@ _ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit105: ; preds = %_ZNK6vectorIPN7data
 
 178:                                              ; preds = %.lr.ph162, %193
   %indvars.iv = phi i64 [ %176, %.lr.ph162 ], [ %indvars.iv.next, %193 ]
-  %179 = getelementptr inbounds nuw [0 x ptr], ptr %175, i64 0, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv
   %180 = load ptr, ptr %179, align 8, !tbaa !137
   %181 = ptrtoint ptr %180 to i64
   %182 = and i64 %181, -8
@@ -4823,7 +4823,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 55:                                               ; preds = %.lr.ph, %_ZN6spacer18collect_decls_procclEP3app.exit
   %56 = phi i32 [ %52, %.lr.ph ], [ %241, %_ZN6spacer18collect_decls_procclEP3app.exit ]
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !33
   %60 = add nuw i32 %56, 1
   store i32 %60, ptr %51, align 8, !tbaa !241
@@ -5846,7 +5846,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 58:                                               ; preds = %.lr.ph, %197
   %59 = phi i32 [ %55, %.lr.ph ], [ %198, %197 ]
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !33
   %63 = add nuw i32 %59, 1
   store i32 %63, ptr %54, align 8, !tbaa !241
@@ -6769,7 +6769,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 55:                                               ; preds = %.lr.ph, %127
   %56 = phi i32 [ %52, %.lr.ph ], [ %128, %127 ]
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !33
   %60 = add nuw i32 %56, 1
   store i32 %60, ptr %51, align 8, !tbaa !241

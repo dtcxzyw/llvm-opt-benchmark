@@ -336,7 +336,7 @@ define dso_local noundef ptr @mempool_create_node(i32 noundef %0, ptr noundef %1
 13:                                               ; preds = %9, %6
   %14 = phi i64 [ 0, %6 ], [ %12, %9 ]
   %15 = or i32 %4, 256
-  %16 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %14, i64 1
+  %16 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %14, i64 1
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_node_trace(ptr noundef %17, i32 noundef %15, i32 noundef %5, i64 noundef 72) #9
   %19 = icmp eq ptr %18, null

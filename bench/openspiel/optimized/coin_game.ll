@@ -3940,7 +3940,7 @@ define void @_ZN10open_spiel9coin_game9CoinState15ApplyPlayActionEl(ptr noundef 
   resume { ptr, i32 } %34
 
 35:                                               ; preds = %2
-  %36 = getelementptr inbounds [5 x %"struct.std::pair.31"], ptr @_ZN10open_spiel9coin_game12_GLOBAL__N_17offsetsE, i64 0, i64 %1
+  %36 = getelementptr inbounds %"struct.std::pair.31", ptr @_ZN10open_spiel9coin_game12_GLOBAL__N_17offsetsE, i64 %1
   %.val14 = load i32, ptr %36, align 4
   %37 = getelementptr i8, ptr %36, i64 4
   %.val15 = load i32, ptr %37, align 4

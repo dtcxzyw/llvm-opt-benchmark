@@ -4046,7 +4046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %_Z
 229:                                              ; preds = %235, %225
   %.0813.i.i = phi i64 [ 0, %225 ], [ %236, %235 ]
   %.0912.i.i = phi i64 [ 3, %225 ], [ %.1.i.i, %235 ]
-  %230 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4absl12lts_2024072212AnyInvocableIFvNS1_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS8_EEEEEEEJSD_NS2_IFvNS3_IS4_INS7_11DNSResolver9SRVRecordESaISF_EEEEEEENS2_IFvNS3_IS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISQ_EEEEEEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %230 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4absl12lts_2024072212AnyInvocableIFvNS1_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS8_EEEEEEEJSD_NS2_IFvNS3_IS4_INS7_11DNSResolver9SRVRecordESaISF_EEEEEEENS2_IFvNS3_IS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISQ_EEEEEEEEEmv.__found, i64 %.0813.i.i
   %231 = load i8, ptr %230, align 1, !tbaa !3, !range !7, !noundef !8
   %232 = trunc nuw i8 %231 to i1
   br i1 %232, label %233, label %235
@@ -4755,7 +4755,7 @@ define void @_ZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLoc
 
 61:                                               ; preds = %58, %54
   %62 = load ptr, ptr %37, align 8, !tbaa !86
-  %63 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %.0101236
+  %63 = getelementptr inbounds nuw i32, ptr %7, i64 %.0101236
   %64 = load i32, ptr %63, align 4, !tbaa !9
   %.not5.i.i.i = icmp eq ptr %62, %37
   br i1 %.not5.i.i.i, label %"_ZSt7find_ifISt14_List_iteratorISt10unique_ptrIN17grpc_event_engine12experimental12AresResolver6FdNodeESt14default_deleteIS5_EEEZNS4_18CheckSocketsLockedEvE3$_3ET_SB_SB_T0_.exit", label %.lr.ph.i.i.i
@@ -6688,7 +6688,7 @@ define void @_ZN17grpc_event_engine12experimental12AresResolver20OnSRVQueryDoneL
 40:                                               ; preds = %46, %36
   %.0813.i.i = phi i64 [ 0, %36 ], [ %47, %46 ]
   %.0912.i.i = phi i64 [ 3, %36 ], [ %.1.i.i, %46 ]
-  %41 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4absl12lts_2024072212AnyInvocableIFvNS1_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS9_EEEEEEEJNS2_IFvNS3_IS4_INS7_15ResolvedAddressESaISF_EEEEEEESE_NS2_IFvNS3_IS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISQ_EEEEEEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %41 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4absl12lts_2024072212AnyInvocableIFvNS1_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS9_EEEEEEEJNS2_IFvNS3_IS4_INS7_15ResolvedAddressESaISF_EEEEEEESE_NS2_IFvNS3_IS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISQ_EEEEEEEEEmv.__found, i64 %.0813.i.i
   %42 = load i8, ptr %41, align 1, !tbaa !3, !range !7, !noundef !8
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %46
@@ -8333,7 +8333,7 @@ define void @_ZN17grpc_event_engine12experimental12AresResolver15OnTXTDoneLocked
 43:                                               ; preds = %49, %39
   %.0813.i.i = phi i64 [ 0, %39 ], [ %50, %49 ]
   %.0912.i.i = phi i64 [ 3, %39 ], [ %.1.i.i, %49 ]
-  %44 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4absl12lts_2024072212AnyInvocableIFvNS1_8StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEEEEJNS2_IFvNS3_IS4_IN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISJ_EEEEEEENS2_IFvNS3_IS4_INSI_11DNSResolver9SRVRecordESaISQ_EEEEEEESF_EEmv.__found, i64 0, i64 %.0813.i.i
+  %44 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4absl12lts_2024072212AnyInvocableIFvNS1_8StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEEEEJNS2_IFvNS3_IS4_IN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISJ_EEEEEEENS2_IFvNS3_IS4_INSI_11DNSResolver9SRVRecordESaISQ_EEEEEEESF_EEmv.__found, i64 %.0813.i.i
   %45 = load i8, ptr %44, align 1, !tbaa !3, !range !7, !noundef !8
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %49

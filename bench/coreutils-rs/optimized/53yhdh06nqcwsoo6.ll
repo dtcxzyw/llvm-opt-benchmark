@@ -271,7 +271,7 @@ define void @_ZN5uu_od12inputdecoder13MemoryDecoder15zero_out_buffer17h17608d746
 11:                                               ; preds = %8
   %12 = add nuw i64 %.sroa.01.011, 1
   %13 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds [0 x i8], ptr %13, i64 0, i64 %.sroa.01.011
+  %14 = getelementptr inbounds i8, ptr %13, i64 %.sroa.01.011
   store i8 0, ptr %14, align 1
   %exitcond.not = icmp eq i64 %12, %2
   br i1 %exitcond.not, label %._crit_edge, label %8
@@ -542,7 +542,7 @@ define hidden noundef i64 @_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h31
 63:                                               ; preds = %13
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %65 = load ptr, ptr %64, align 8, !nonnull !4, !noundef !4
-  %66 = getelementptr inbounds [0 x i8], ptr %65, i64 0, i64 %1
+  %66 = getelementptr inbounds i8, ptr %65, i64 %1
   %67 = load i8, ptr %66, align 1, !noundef !4
   %68 = zext i8 %67 to i64
   br label %70

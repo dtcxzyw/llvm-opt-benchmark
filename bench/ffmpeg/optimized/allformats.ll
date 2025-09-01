@@ -557,7 +557,7 @@ define ptr @av_muxer_iterate(ptr noundef captures(none) %0) local_unnamed_addr #
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw [182 x ptr], ptr @muxer_list, i64 0, i64 %3
+  %6 = getelementptr inbounds nuw ptr, ptr @muxer_list, i64 %3
   br label %13
 
 7:                                                ; preds = %1
@@ -596,7 +596,7 @@ define ptr @av_demuxer_iterate(ptr noundef captures(none) %0) local_unnamed_addr
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw [356 x ptr], ptr @demuxer_list, i64 0, i64 %3
+  %6 = getelementptr inbounds nuw ptr, ptr @demuxer_list, i64 %3
   br label %13
 
 7:                                                ; preds = %1

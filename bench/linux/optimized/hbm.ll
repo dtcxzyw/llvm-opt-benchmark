@@ -1968,12 +1968,12 @@ define internal fastcc i32 @mei_hbm_dma_setup_req(ptr noundef %0) unnamed_addr #
 
 7:                                                ; preds = %7, %1
   %8 = phi i64 [ 0, %1 ], [ %21, %7 ]
-  %9 = getelementptr [3 x %struct.mei_dma_dscr], ptr %5, i64 0, i64 %8
+  %9 = getelementptr %struct.mei_dma_dscr, ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = lshr i64 %11, 32
   %13 = trunc nuw i64 %12 to i32
-  %14 = getelementptr [3 x %struct.hbm_dma_mem_dscr], ptr %6, i64 0, i64 %8
+  %14 = getelementptr %struct.hbm_dma_mem_dscr, ptr %6, i64 %8
   store i32 %13, ptr %14, align 1
   %15 = trunc i64 %11 to i32
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4

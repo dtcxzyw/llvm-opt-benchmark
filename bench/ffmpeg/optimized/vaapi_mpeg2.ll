@@ -189,31 +189,31 @@ mpeg2_get_is_frame_start.exit:
 
 128:                                              ; preds = %115, %128
   %indvars.iv = phi i64 [ 0, %115 ], [ %indvars.iv.next, %128 ]
-  %129 = getelementptr inbounds nuw [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %indvars.iv
   %130 = load i8, ptr %129, align 1, !tbaa !73
   %131 = zext i8 %130 to i64
-  %132 = getelementptr inbounds nuw [64 x i8], ptr %119, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr %119, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !73
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw [64 x i16], ptr %120, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i16, ptr %120, i64 %134
   %136 = load i16, ptr %135, align 2, !tbaa !72
   %137 = trunc i16 %136 to i8
-  %138 = getelementptr inbounds nuw [64 x i8], ptr %121, i64 0, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv
   store i8 %137, ptr %138, align 1, !tbaa !73
-  %139 = getelementptr inbounds nuw [64 x i16], ptr %122, i64 0, i64 %134
+  %139 = getelementptr inbounds nuw i16, ptr %122, i64 %134
   %140 = load i16, ptr %139, align 2, !tbaa !72
   %141 = trunc i16 %140 to i8
-  %142 = getelementptr inbounds nuw [64 x i8], ptr %123, i64 0, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw i8, ptr %123, i64 %indvars.iv
   store i8 %141, ptr %142, align 1, !tbaa !73
-  %143 = getelementptr inbounds nuw [64 x i16], ptr %124, i64 0, i64 %134
+  %143 = getelementptr inbounds nuw i16, ptr %124, i64 %134
   %144 = load i16, ptr %143, align 2, !tbaa !72
   %145 = trunc i16 %144 to i8
-  %146 = getelementptr inbounds nuw [64 x i8], ptr %125, i64 0, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw i8, ptr %125, i64 %indvars.iv
   store i8 %145, ptr %146, align 1, !tbaa !73
-  %147 = getelementptr inbounds nuw [64 x i16], ptr %126, i64 0, i64 %134
+  %147 = getelementptr inbounds nuw i16, ptr %126, i64 %134
   %148 = load i16, ptr %147, align 2, !tbaa !72
   %149 = trunc i16 %148 to i8
-  %150 = getelementptr inbounds nuw [64 x i8], ptr %127, i64 0, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw i8, ptr %127, i64 %indvars.iv
   store i8 %149, ptr %150, align 1, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64

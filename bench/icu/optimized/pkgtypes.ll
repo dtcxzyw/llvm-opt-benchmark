@@ -34,8 +34,8 @@ define dso_local noalias noundef ptr @pkg_writeCharListWrap(ptr noundef %0, ptr 
   %14 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 1020) #11
   store i8 0, ptr %7, align 1, !tbaa !11
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
-  %16 = add i64 %15, -1
-  %17 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %16
+  %16 = getelementptr i8, ptr %6, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 34
   br i1 %19, label %20, label %21
@@ -329,8 +329,8 @@ define dso_local noalias noundef ptr @pkg_writeCharList(ptr noundef %0, ptr noun
 
 16:                                               ; preds = %11
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
-  %18 = add i64 %17, -1
-  %19 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %18
+  %18 = getelementptr i8, ptr %5, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !11
   %21 = icmp eq i8 %20, 34
   br i1 %21, label %22, label %23
@@ -732,7 +732,7 @@ define dso_local noundef ptr @pkg_appendUniqueDirToList(ptr noundef %0, ptr noun
 
 14:                                               ; preds = %6
   %15 = call ptr @strncpy(ptr noundef nonnull %4, ptr noundef nonnull %2, i64 noundef %9) #11
-  %16 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %9
+  %16 = getelementptr inbounds i8, ptr %4, i64 %9
   store i8 0, ptr %16, align 1, !tbaa !11
   %17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 47) #12
   %.not3.i = icmp eq ptr %17, null

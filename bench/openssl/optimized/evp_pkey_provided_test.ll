@@ -810,20 +810,20 @@ define internal range(i32 0, 2) i32 @test_fromdata_rsa() #0 {
 
 .lr.ph:                                           ; preds = %.thread, %99
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.thread ]
-  %81 = phi ptr [ %100, %99 ], [ %2, %.thread ]
   %.157 = phi i32 [ %.2, %99 ], [ %.0.shrunk, %.thread ]
-  %82 = getelementptr inbounds nuw [8 x i64], ptr @test_fromdata_rsa.key_numbers, i64 0, i64 %indvars.iv
-  %83 = load i64, ptr %82, align 8, !tbaa !9
-  %84 = call i32 @BN_set_word(ptr noundef %5, i64 noundef %83) #6
-  %85 = icmp ne i32 %84, 0
-  %86 = zext i1 %85 to i32
-  %87 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 434, ptr noundef nonnull @.str.74, i32 noundef %86) #6
-  %.not50 = icmp eq i32 %87, 0
-  br i1 %.not50, label %98, label %88
+  %81 = getelementptr inbounds nuw i64, ptr @test_fromdata_rsa.key_numbers, i64 %indvars.iv
+  %82 = load i64, ptr %81, align 8, !tbaa !9
+  %83 = call i32 @BN_set_word(ptr noundef %5, i64 noundef %82) #6
+  %84 = icmp ne i32 %83, 0
+  %85 = zext i1 %84 to i32
+  %86 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 434, ptr noundef nonnull @.str.74, i32 noundef %85) #6
+  %.not50 = icmp eq i32 %86, 0
+  br i1 %.not50, label %98, label %87
 
-88:                                               ; preds = %.lr.ph
+87:                                               ; preds = %.lr.ph
+  %88 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %2, i64 %indvars.iv
   %89 = load ptr, ptr %1, align 8, !tbaa !15
-  %90 = load ptr, ptr %81, align 8, !tbaa !21
+  %90 = load ptr, ptr %88, align 8, !tbaa !21
   %91 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %89, ptr noundef %90, ptr noundef nonnull %3) #6
   %92 = icmp ne i32 %91, 0
   %93 = zext i1 %92 to i32
@@ -831,19 +831,19 @@ define internal range(i32 0, 2) i32 @test_fromdata_rsa() #0 {
   %.not51 = icmp eq i32 %94, 0
   br i1 %.not51, label %98, label %95
 
-95:                                               ; preds = %88
+95:                                               ; preds = %87
   %96 = load ptr, ptr %3, align 8, !tbaa !17
   %97 = call i32 @test_BN_eq(ptr noundef nonnull @.str, i32 noundef 437, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef %96, ptr noundef %5) #6
   %.not52 = icmp eq i32 %97, 0
   br i1 %.not52, label %98, label %99
 
-98:                                               ; preds = %95, %88, %.lr.ph
+98:                                               ; preds = %95, %87, %.lr.ph
   br label %99
 
 99:                                               ; preds = %95, %98
   %.2 = phi i32 [ %.157, %95 ], [ 0, %98 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %100 = getelementptr inbounds nuw [9 x %struct.ossl_param_st], ptr %2, i64 0, i64 %indvars.iv.next
+  %100 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %2, i64 %indvars.iv.next
   %101 = load ptr, ptr %100, align 8, !tbaa !21
   %.not49 = icmp eq ptr %101, null
   br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -3964,7 +3964,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_with_file(ptr noundef %0, i3
 
 switch.lookup:                                    ; preds = %3
   %10 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.compare_with_file, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.compare_with_file, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull @.str.104, ptr noundef %0, ptr noundef nonnull %switch.load) #6
   %12 = load ptr, ptr @datadir, align 8, !tbaa !4
@@ -4153,13 +4153,13 @@ define internal fastcc range(i32 0, 2) i32 @test_print_key_type_using_encoder(pt
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.test_print_key_type_using_encoder, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.test_print_key_type_using_encoder, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %1 to i64
-  %switch.gep43 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.test_print_key_type_using_encoder.2, i64 0, i64 %9
+  %switch.gep43 = getelementptr inbounds nuw i32, ptr @switch.table.test_print_key_type_using_encoder.2, i64 %9
   %switch.load44 = load i32, ptr %switch.gep43, align 4
   %10 = zext nneg i32 %1 to i64
-  %switch.gep45 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.test_print_key_type_using_encoder.3, i64 0, i64 %10
+  %switch.gep45 = getelementptr inbounds nuw ptr, ptr @switch.table.test_print_key_type_using_encoder.3, i64 %10
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @.str.78, ptr noundef %5) #6
   %.not = icmp eq i32 %11, 0

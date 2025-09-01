@@ -554,7 +554,7 @@ iso10681_seqnum.exit182.i:                        ; preds = %138, %132
 203:                                              ; preds = %200
   %204 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %205 = zext nneg i16 %.0152.i to i64
-  %206 = getelementptr [16 x i8], ptr %204, i64 0, i64 %205
+  %206 = getelementptr i8, ptr %204, i64 %205
   %207 = load i8, ptr %206, align 1
   %208 = add i8 %207, 1
   store i8 %208, ptr %206, align 1

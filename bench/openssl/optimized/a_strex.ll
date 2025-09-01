@@ -521,7 +521,7 @@ do_dump.exit:                                     ; preds = %.thread91, %do_hex_
   br label %.critedge
 
 80:                                               ; preds = %30
-  %81 = getelementptr inbounds nuw [31 x i8], ptr @tag2nbyte, i64 0, i64 %31
+  %81 = getelementptr inbounds nuw i8, ptr @tag2nbyte, i64 %31
   %82 = load i8, ptr %81, align 1, !tbaa !7
   %83 = sext i8 %82 to i32
   %.not76 = icmp eq i32 %.fr, 12
@@ -616,7 +616,7 @@ define i32 @ASN1_STRING_to_UTF8(ptr noundef writeonly captures(none) %0, ptr nou
   br i1 %.not18, label %12, label %26
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw [31 x i8], ptr @tag2nbyte, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr @tag2nbyte, i64 %9
   %14 = load i8, ptr %13, align 1, !tbaa !7
   %15 = sext i8 %14 to i32
   %16 = or i32 %15, 4096
@@ -839,7 +839,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw [128 x i16], ptr @char_type, i64 0, i64 %72
+  %81 = getelementptr inbounds nuw i16, ptr @char_type, i64 %72
   %82 = load i16, ptr %81, align 2, !tbaa !25
   %83 = and i16 %82, %73
   br label %84
@@ -1015,7 +1015,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
 162:                                              ; preds = %.lr.ph, %196
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %196 ]
   %.162110 = phi i32 [ %.061113, %.lr.ph ], [ %197, %196 ]
-  %163 = getelementptr inbounds nuw [6 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %164 = load i8, ptr %163, align 1, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1025,7 +1025,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 166:                                              ; preds = %162
   %167 = zext nneg i8 %164 to i64
-  %168 = getelementptr inbounds nuw [128 x i16], ptr @char_type, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i16, ptr @char_type, i64 %167
   %169 = load i16, ptr %168, align 2, !tbaa !25
   %170 = and i16 %169, %161
   br label %171

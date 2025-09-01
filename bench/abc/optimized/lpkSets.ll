@@ -81,11 +81,11 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
 26:                                               ; preds = %.lr.ph67, %26
   %indvars.iv83 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next84, %26 ]
   %.05065 = phi i32 [ 0, %.lr.ph67 ], [ %32, %26 ]
-  %27 = getelementptr inbounds nuw [0 x i16], ptr %25, i64 0, i64 %indvars.iv83
+  %27 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv83
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
   %30 = tail call i32 @Lpk_ComputeSets_rec(ptr noundef nonnull %0, i32 noundef %29, ptr noundef %2)
-  %31 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv83
+  %31 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv83
   store i32 %30, ptr %31, align 4, !tbaa !15
   %32 = or i32 %30, %.05065
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
@@ -128,7 +128,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   br i1 %.not, label %48, label %44
 
 44:                                               ; preds = %.lr.ph72
-  %45 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv86
+  %45 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv86
   %46 = load i32, ptr %45, align 4, !tbaa !15
   %47 = or i32 %46, %.04870
   br label %48
@@ -215,7 +215,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 79:                                               ; preds = %.lr.ph, %Vec_IntPush.exit61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit61 ]
   %.15163 = phi i32 [ 0, %.lr.ph ], [ %84, %Vec_IntPush.exit61 ]
-  %80 = getelementptr inbounds nuw [0 x i16], ptr %21, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
   %81 = load i16, ptr %80, align 2, !tbaa !14
   %82 = zext i16 %81 to i32
   %83 = tail call i32 @Lpk_ComputeSets_rec(ptr noundef nonnull %0, i32 noundef %82, ptr noundef %2)
@@ -602,7 +602,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 74:                                               ; preds = %37
   %75 = and i32 %38, 65535
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [65536 x i32], ptr @Lpk_ComposeSets.TravId, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr @Lpk_ComposeSets.TravId, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !15
   %.not.us = icmp sgt i32 %78, %8
   br i1 %.not.us, label %86, label %79
@@ -611,11 +611,11 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   %80 = trunc i32 %38 to i16
   %81 = add nsw i32 %.1113.us, 1
   %82 = sext i32 %.1113.us to i64
-  %83 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %82
+  %83 = getelementptr inbounds i16, ptr @Lpk_ComposeSets.Used, i64 %82
   store i16 %80, ptr %83, align 2, !tbaa !14
   store i32 %12, ptr %77, align 4, !tbaa !15
   %84 = trunc nuw nsw i32 %72 to i8
-  %85 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %76
+  %85 = getelementptr inbounds nuw i8, ptr @Lpk_ComposeSets.SRed, i64 %76
   store i8 %84, ptr %85, align 1, !tbaa !28
   br label %.sink.split
 
@@ -624,7 +624,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %87, label %88, label %101
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %76
+  %89 = getelementptr inbounds nuw i8, ptr @Lpk_ComposeSets.SRed, i64 %76
   %90 = load i8, ptr %89, align 1, !tbaa !28
   %91 = sext i8 %90 to i32
   %92 = icmp sgt i32 %72, %91
@@ -639,12 +639,12 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 .sink.split:                                      ; preds = %79, %93
   %.2.us.ph = phi i32 [ %.1113.us, %93 ], [ %81, %79 ]
   %95 = trunc nuw nsw i32 %70 to i8
-  %96 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %76
+  %96 = getelementptr inbounds nuw i8, ptr @Lpk_ComposeSets.Over, i64 %76
   store i8 %95, ptr %96, align 1, !tbaa !28
   %97 = trunc nuw nsw i64 %indvars.iv to i32
   %98 = shl i32 %97, 16
   %99 = or i32 %98, %.sink158
-  %100 = getelementptr inbounds nuw [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %76
+  %100 = getelementptr inbounds nuw i32, ptr @Lpk_ComposeSets.Parents, i64 %76
   store i32 %99, ptr %100, align 4, !tbaa !15
   br label %101
 
@@ -678,10 +678,10 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 .critedge:                                        ; preds = %.critedge.preheader128, %.critedge
   %indvars.iv137 = phi i64 [ 0, %.critedge.preheader128 ], [ %indvars.iv.next138, %.critedge ]
   %.089124 = phi i32 [ 1000, %.critedge.preheader128 ], [ %spec.select, %.critedge ]
-  %106 = getelementptr inbounds nuw [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv137
+  %106 = getelementptr inbounds nuw i16, ptr @Lpk_ComposeSets.Used, i64 %indvars.iv137
   %107 = load i16, ptr %106, align 2, !tbaa !14
   %108 = zext i16 %107 to i64
-  %109 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr @Lpk_ComposeSets.Over, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !28
   %111 = sext i8 %110 to i32
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.089124, i32 %111)
@@ -691,10 +691,10 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 
 112:                                              ; preds = %.lr.ph126, %177
   %indvars.iv142 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next143, %177 ]
-  %113 = getelementptr inbounds nuw [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv142
+  %113 = getelementptr inbounds nuw i16, ptr @Lpk_ComposeSets.Used, i64 %indvars.iv142
   %114 = load i16, ptr %113, align 2, !tbaa !14
   %115 = zext i16 %114 to i64
-  %116 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @Lpk_ComposeSets.Over, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !28
   %118 = sext i8 %117 to i32
   %119 = icmp eq i32 %spec.select, %118
@@ -710,7 +710,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   store i32 %124, ptr %5, align 4, !tbaa !15
   %125 = sext i32 %121 to i64
   %126 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %4, i64 %125
-  %127 = getelementptr inbounds nuw [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %115
+  %127 = getelementptr inbounds nuw i32, ptr @Lpk_ComposeSets.Parents, i64 %115
   %128 = load i32, ptr %127, align 4, !tbaa !15
   %129 = and i32 %128, 65535
   %130 = lshr i32 %128, 16

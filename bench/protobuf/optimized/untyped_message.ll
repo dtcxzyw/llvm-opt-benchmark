@@ -1141,28 +1141,28 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
   %elements.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %sext = shl i64 %i.014, 32
-  %idxprom.i.i.i.i.i = ashr exact i64 %sext, 32
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
+  %8 = ashr exact i64 %sext, 29
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %elements.i.i.i.i.i, i64 %8
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %fields_.i.i, ptr %arrayidx.i.i.i.i.i
-  %8 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
-  %9 = load ptr, ptr %fields_, align 8
-  %raw_20 = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %9, i64 %i.014, i32 1
-  store ptr %8, ptr %raw_20, align 8
+  %9 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   %10 = load ptr, ptr %fields_, align 8
-  %parent_ = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %10, i64 %i.014, i32 2
+  %raw_20 = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %10, i64 %i.014, i32 1
+  store ptr %9, ptr %raw_20, align 8
+  %11 = load ptr, ptr %fields_, align 8
+  %parent_ = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %11, i64 %i.014, i32 2
   store ptr %this, ptr %parent_, align 8
   %inc = add nuw i64 %i.014, 1
-  %11 = load i32, ptr %current_size_.i.i.i.i, align 8
-  %conv10 = sext i32 %11 to i64
+  %12 = load i32, ptr %current_size_.i.i.i.i, align 8
+  %conv10 = sext i32 %12 to i64
   %cmp11 = icmp ult i64 %inc, %conv10
   br i1 %cmp11, label %for.body, label %if.end, !llvm.loop !20
 
 if.end:                                           ; preds = %for.body, %land.lhs.true, %entry
-  %12 = phi i32 [ %0, %land.lhs.true ], [ %0, %entry ], [ %11, %for.body ]
+  %13 = phi i32 [ %0, %land.lhs.true ], [ %0, %entry ], [ %12, %for.body ]
   %fields_24 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %13 = load ptr, ptr %fields_24, align 8
-  %conv28 = sext i32 %12 to i64
-  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %13, 0
+  %14 = load ptr, ptr %fields_24, align 8
+  %conv28 = sext i32 %13 to i64
+  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %14, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %conv28, 1
   ret { ptr, i64 } %.fca.1.insert.i
 }
@@ -1222,42 +1222,42 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %9 = inttoptr i64 %sub.i.i.i.i.i.i.i to ptr
   %elements.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %sext.i = shl i64 %i.014.i, 32
-  %idxprom.i.i.i.i.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
+  %10 = ashr exact i64 %sext.i, 29
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %elements.i.i.i.i.i.i, i64 %10
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %fields_.i.i.i, ptr %arrayidx.i.i.i.i.i.i
-  %10 = load ptr, ptr %retval.0.i.i.i.i.i.i, align 8
-  %11 = load ptr, ptr %fields_.i, align 8
-  %raw_20.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %11, i64 %i.014.i, i32 1
-  store ptr %10, ptr %raw_20.i, align 8
+  %11 = load ptr, ptr %retval.0.i.i.i.i.i.i, align 8
   %12 = load ptr, ptr %fields_.i, align 8
-  %parent_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %12, i64 %i.014.i, i32 2
+  %raw_20.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %12, i64 %i.014.i, i32 1
+  store ptr %11, ptr %raw_20.i, align 8
+  %13 = load ptr, ptr %fields_.i, align 8
+  %parent_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %13, i64 %i.014.i, i32 2
   store ptr %this, ptr %parent_.i, align 8
   %inc.i = add nuw i64 %i.014.i, 1
-  %13 = load i32, ptr %current_size_.i.i.i.i, align 8
-  %conv10.i = sext i32 %13 to i64
+  %14 = load i32, ptr %current_size_.i.i.i.i, align 8
+  %conv10.i = sext i32 %14 to i64
   %cmp11.i = icmp ult i64 %inc.i, %conv10.i
   br i1 %cmp11.i, label %for.body.i, label %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit, !llvm.loop !20
 
 _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread: ; preds = %land.lhs.true.i, %if.then3
   %fields_24.i51 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %14 = load ptr, ptr %fields_24.i51, align 8
+  %15 = load ptr, ptr %fields_24.i51, align 8
   %conv28.i52 = sext i32 %1 to i64
   %add.ptr.i.idx53 = shl nsw i64 %conv28.i52, 5
-  %add.ptr.i54 = getelementptr inbounds i8, ptr %14, i64 %add.ptr.i.idx53
+  %add.ptr.i54 = getelementptr inbounds i8, ptr %15, i64 %add.ptr.i.idx53
   br label %for.body.lr.ph
 
 _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit: ; preds = %for.body.i
   %fields_24.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %15 = load ptr, ptr %fields_24.i, align 8
-  %conv28.i = sext i32 %13 to i64
+  %16 = load ptr, ptr %fields_24.i, align 8
+  %conv28.i = sext i32 %14 to i64
   %add.ptr.i.idx = shl nsw i64 %conv28.i, 5
-  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %add.ptr.i.idx
-  %cmp7.not44 = icmp eq i32 %13, 0
+  %add.ptr.i = getelementptr inbounds i8, ptr %16, i64 %add.ptr.i.idx
+  %cmp7.not44 = icmp eq i32 %14, 0
   br i1 %cmp7.not44, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit
   %add.ptr.i56 = phi ptr [ %add.ptr.i54, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %add.ptr.i, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
-  %16 = phi ptr [ %14, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %15, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
+  %17 = phi ptr [ %15, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %16, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
   %slots_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %cmp.i2.i.i15 = icmp eq i64 %name.coerce0, 0
   br label %for.body
@@ -1265,18 +1265,18 @@ for.body.lr.ph:                                   ; preds = %_ZNK6google8protobu
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41
   %agg.tmp11.sroa.0.0.copyload = phi i64 [ %name.coerce0, %for.body.lr.ph ], [ %agg.tmp11.sroa.0.0.copyload48, %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41 ]
   %found.046 = phi ptr [ null, %for.body.lr.ph ], [ %found.1, %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41 ]
-  %__begin3.045 = phi ptr [ %16, %for.body.lr.ph ], [ %incdec.ptr, %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41 ]
+  %__begin3.045 = phi ptr [ %17, %for.body.lr.ph ], [ %incdec.ptr, %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41 ]
   %raw_.i = getelementptr inbounds nuw i8, ptr %__begin3.045, i64 8
-  %17 = load ptr, ptr %raw_.i, align 8
-  %name_.i.i = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %18 = load ptr, ptr %name_.i.i, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %and.i.i.i = and i64 %19, -4
-  %20 = inttoptr i64 %and.i.i.i to ptr
-  %call10 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #25
-  %21 = extractvalue { i64, ptr } %call10, 0
-  %22 = extractvalue { i64, ptr } %call10, 1
-  %cmp.i10 = icmp eq i64 %21, %agg.tmp11.sroa.0.0.copyload
+  %18 = load ptr, ptr %raw_.i, align 8
+  %name_.i.i = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %19 = load ptr, ptr %name_.i.i, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %and.i.i.i = and i64 %20, -4
+  %21 = inttoptr i64 %and.i.i.i to ptr
+  %call10 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #25
+  %22 = extractvalue { i64, ptr } %call10, 0
+  %23 = extractvalue { i64, ptr } %call10, 1
+  %cmp.i10 = icmp eq i64 %22, %agg.tmp11.sroa.0.0.copyload
   br i1 %cmp.i10, label %land.rhs.i, label %lor.lhs.false
 
 land.rhs.i:                                       ; preds = %for.body
@@ -1284,28 +1284,28 @@ land.rhs.i:                                       ; preds = %for.body
   br i1 %cmp.i2.i.i, label %if.end20, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %land.rhs.i
-  %bcmp.i = tail call i32 @bcmp(ptr %22, ptr %name.coerce1, i64 %agg.tmp11.sroa.0.0.copyload)
+  %bcmp.i = tail call i32 @bcmp(ptr %23, ptr %name.coerce1, i64 %agg.tmp11.sroa.0.0.copyload)
   %cmp.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i, label %if.end20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %23 = load ptr, ptr %raw_.i, align 8
-  %json_name_.i.i = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %24 = load ptr, ptr %json_name_.i.i, align 8
-  %25 = ptrtoint ptr %24 to i64
-  %and.i.i.i12 = and i64 %25, -4
-  %26 = inttoptr i64 %and.i.i.i12 to ptr
-  %call16 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
-  %27 = extractvalue { i64, ptr } %call16, 0
-  %28 = extractvalue { i64, ptr } %call16, 1
-  %cmp.i13 = icmp eq i64 %27, %name.coerce0
+  %24 = load ptr, ptr %raw_.i, align 8
+  %json_name_.i.i = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %25 = load ptr, ptr %json_name_.i.i, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %and.i.i.i12 = and i64 %26, -4
+  %27 = inttoptr i64 %and.i.i.i12 to ptr
+  %call16 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #25
+  %28 = extractvalue { i64, ptr } %call16, 0
+  %29 = extractvalue { i64, ptr } %call16, 1
+  %cmp.i13 = icmp eq i64 %28, %name.coerce0
   br i1 %cmp.i13, label %land.rhs.i14, label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit20.thread
 
 land.rhs.i14:                                     ; preds = %lor.lhs.false
   br i1 %cmp.i2.i.i15, label %if.end20, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16: ; preds = %land.rhs.i14
-  %bcmp.i17 = tail call i32 @bcmp(ptr %28, ptr %name.coerce1, i64 %name.coerce0)
+  %bcmp.i17 = tail call i32 @bcmp(ptr %29, ptr %name.coerce1, i64 %name.coerce0)
   %cmp.i.i18 = icmp eq i32 %bcmp.i17, 0
   br i1 %cmp.i.i18, label %if.end20, label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit20.thread
 
@@ -1315,53 +1315,53 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
 if.end20:                                         ; preds = %land.rhs.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %land.rhs.i14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit20.thread
   %agg.tmp11.sroa.0.0.copyload48 = phi i64 [ %name.coerce0, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit20.thread ], [ %name.coerce0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ], [ 0, %land.rhs.i14 ], [ %agg.tmp11.sroa.0.0.copyload, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %land.rhs.i ]
   %found.1 = phi ptr [ %found.046, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit20.thread ], [ %__begin3.045, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ], [ %__begin3.045, %land.rhs.i14 ], [ %__begin3.045, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %__begin3.045, %land.rhs.i ]
-  %29 = load ptr, ptr %raw_.i, align 8
-  %name_.i.i22 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %30 = load ptr, ptr %name_.i.i22, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %and.i.i.i23 = and i64 %31, -4
-  %32 = inttoptr i64 %and.i.i.i23 to ptr
-  %call.i.i = tail call { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE22find_or_prepare_insertINSt7__cxx1112basic_stringIcS6_SaIcEEEEESI_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %fields_by_name_, ptr noundef nonnull align 8 dereferenceable(32) %32), !noalias !22
-  %33 = extractvalue { i64, i8 } %call.i.i, 1
-  %tobool.i.i = trunc i8 %33 to i1
+  %30 = load ptr, ptr %raw_.i, align 8
+  %name_.i.i22 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %31 = load ptr, ptr %name_.i.i22, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %and.i.i.i23 = and i64 %32, -4
+  %33 = inttoptr i64 %and.i.i.i23 to ptr
+  %call.i.i = tail call { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE22find_or_prepare_insertINSt7__cxx1112basic_stringIcS6_SaIcEEEEESI_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %fields_by_name_, ptr noundef nonnull align 8 dereferenceable(32) %33), !noalias !22
+  %34 = extractvalue { i64, i8 } %call.i.i, 1
+  %tobool.i.i = trunc i8 %34 to i1
   br i1 %tobool.i.i, label %if.then.i.i24, label %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit
 
 if.then.i.i24:                                    ; preds = %if.end20
-  %34 = extractvalue { i64, i8 } %call.i.i, 0
-  %35 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !22
-  %add.ptr.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %35, i64 %34
-  %call3.i.i.i.i.i.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #25, !noalias !22
-  %36 = extractvalue { i64, ptr } %call3.i.i.i.i.i.i.i.i.i.i, 0
-  store i64 %36, ptr %add.ptr.i.i.i, align 8, !noalias !22
-  %37 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
-  %38 = extractvalue { i64, ptr } %call3.i.i.i.i.i.i.i.i.i.i, 1
-  store ptr %38, ptr %37, align 8, !noalias !22
+  %35 = extractvalue { i64, i8 } %call.i.i, 0
+  %36 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !22
+  %add.ptr.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %36, i64 %35
+  %call3.i.i.i.i.i.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %33) #25, !noalias !22
+  %37 = extractvalue { i64, ptr } %call3.i.i.i.i.i.i.i.i.i.i, 0
+  store i64 %37, ptr %add.ptr.i.i.i, align 8, !noalias !22
+  %38 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
+  %39 = extractvalue { i64, ptr } %call3.i.i.i.i.i.i.i.i.i.i, 1
+  store ptr %39, ptr %38, align 8, !noalias !22
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 16
   store ptr %__begin3.045, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit: ; preds = %if.end20, %if.then.i.i24
-  %39 = load ptr, ptr %raw_.i, align 8
-  %json_name_.i.i26 = getelementptr inbounds nuw i8, ptr %39, i64 56
-  %40 = load ptr, ptr %json_name_.i.i26, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %and.i.i.i27 = and i64 %41, -4
-  %42 = inttoptr i64 %and.i.i.i27 to ptr
-  %call.i.i28 = tail call { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE22find_or_prepare_insertINSt7__cxx1112basic_stringIcS6_SaIcEEEEESI_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %fields_by_name_, ptr noundef nonnull align 8 dereferenceable(32) %42), !noalias !27
-  %43 = extractvalue { i64, i8 } %call.i.i28, 1
-  %tobool.i.i29 = trunc i8 %43 to i1
+  %40 = load ptr, ptr %raw_.i, align 8
+  %json_name_.i.i26 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  %41 = load ptr, ptr %json_name_.i.i26, align 8
+  %42 = ptrtoint ptr %41 to i64
+  %and.i.i.i27 = and i64 %42, -4
+  %43 = inttoptr i64 %and.i.i.i27 to ptr
+  %call.i.i28 = tail call { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE22find_or_prepare_insertINSt7__cxx1112basic_stringIcS6_SaIcEEEEESI_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %fields_by_name_, ptr noundef nonnull align 8 dereferenceable(32) %43), !noalias !27
+  %44 = extractvalue { i64, i8 } %call.i.i28, 1
+  %tobool.i.i29 = trunc i8 %44 to i1
   br i1 %tobool.i.i29, label %if.then.i.i36, label %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41
 
 if.then.i.i36:                                    ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit
-  %44 = extractvalue { i64, i8 } %call.i.i28, 0
-  %45 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !27
-  %add.ptr.i.i.i38 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %45, i64 %44
-  %call3.i.i.i.i.i.i.i.i.i.i39 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #25, !noalias !27
-  %46 = extractvalue { i64, ptr } %call3.i.i.i.i.i.i.i.i.i.i39, 0
-  store i64 %46, ptr %add.ptr.i.i.i38, align 8, !noalias !27
-  %47 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i38, i64 8
-  %48 = extractvalue { i64, ptr } %call3.i.i.i.i.i.i.i.i.i.i39, 1
-  store ptr %48, ptr %47, align 8, !noalias !27
+  %45 = extractvalue { i64, i8 } %call.i.i28, 0
+  %46 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !27
+  %add.ptr.i.i.i38 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %46, i64 %45
+  %call3.i.i.i.i.i.i.i.i.i.i39 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %43) #25, !noalias !27
+  %47 = extractvalue { i64, ptr } %call3.i.i.i.i.i.i.i.i.i.i39, 0
+  store i64 %47, ptr %add.ptr.i.i.i38, align 8, !noalias !27
+  %48 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i38, i64 8
+  %49 = extractvalue { i64, ptr } %call3.i.i.i.i.i.i.i.i.i.i39, 1
+  store ptr %49, ptr %48, align 8, !noalias !27
   %second.i.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i38, i64 16
   store ptr %__begin3.045, ptr %second.i.i.i.i.i.i.i.i.i.i40, align 8, !noalias !27
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41
@@ -1373,18 +1373,18 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
 
 if.end30:                                         ; preds = %if.end
   %call32 = call { ptr, ptr } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE4findIS7_EENSM_8iteratorERKT_(ptr noundef nonnull align 8 dereferenceable(32) %fields_by_name_, ptr noundef nonnull align 8 dereferenceable(16) %name)
-  %49 = extractvalue { ptr, ptr } %call32, 0
-  %cmp.i42 = icmp eq ptr %49, null
+  %50 = extractvalue { ptr, ptr } %call32, 0
+  %cmp.i42 = icmp eq ptr %50, null
   br i1 %cmp.i42, label %return, label %cond.false
 
 cond.false:                                       ; preds = %if.end30
-  %50 = extractvalue { ptr, ptr } %call32, 1
-  %second = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %51 = load ptr, ptr %second, align 8
+  %51 = extractvalue { ptr, ptr } %call32, 1
+  %second = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %52 = load ptr, ptr %second, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit, %cond.false, %if.end30, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %51, %cond.false ], [ null, %if.end30 ], [ null, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ], [ %found.1, %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41 ]
+  %retval.0 = phi ptr [ null, %entry ], [ %52, %cond.false ], [ null, %if.end30 ], [ null, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ], [ %found.1, %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41 ]
   ret ptr %retval.0
 }
 
@@ -1580,42 +1580,42 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = inttoptr i64 %sub.i.i.i.i.i.i.i to ptr
   %elements.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %sext.i = shl i64 %i.014.i, 32
-  %idxprom.i.i.i.i.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
+  %9 = ashr exact i64 %sext.i, 29
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %elements.i.i.i.i.i.i, i64 %9
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %fields_.i.i.i, ptr %arrayidx.i.i.i.i.i.i
-  %9 = load ptr, ptr %retval.0.i.i.i.i.i.i, align 8
-  %10 = load ptr, ptr %fields_.i, align 8
-  %raw_20.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %10, i64 %i.014.i, i32 1
-  store ptr %9, ptr %raw_20.i, align 8
+  %10 = load ptr, ptr %retval.0.i.i.i.i.i.i, align 8
   %11 = load ptr, ptr %fields_.i, align 8
-  %parent_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %11, i64 %i.014.i, i32 2
+  %raw_20.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %11, i64 %i.014.i, i32 1
+  store ptr %10, ptr %raw_20.i, align 8
+  %12 = load ptr, ptr %fields_.i, align 8
+  %parent_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %12, i64 %i.014.i, i32 2
   store ptr %this, ptr %parent_.i, align 8
   %inc.i = add nuw i64 %i.014.i, 1
-  %12 = load i32, ptr %current_size_.i.i.i.i, align 8
-  %conv10.i = sext i32 %12 to i64
+  %13 = load i32, ptr %current_size_.i.i.i.i, align 8
+  %conv10.i = sext i32 %13 to i64
   %cmp11.i = icmp ult i64 %inc.i, %conv10.i
   br i1 %cmp11.i, label %for.body.i, label %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit, !llvm.loop !20
 
 _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread: ; preds = %land.lhs.true.i, %if.then6
   %fields_24.i32 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %13 = load ptr, ptr %fields_24.i32, align 8
+  %14 = load ptr, ptr %fields_24.i32, align 8
   %conv28.i33 = sext i32 %0 to i64
   %add.ptr.i.idx34 = shl nsw i64 %conv28.i33, 5
-  %add.ptr.i35 = getelementptr inbounds i8, ptr %13, i64 %add.ptr.i.idx34
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %14, i64 %add.ptr.i.idx34
   br label %for.body.lr.ph
 
 _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit: ; preds = %for.body.i
   %fields_24.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %14 = load ptr, ptr %fields_24.i, align 8
-  %conv28.i = sext i32 %12 to i64
+  %15 = load ptr, ptr %fields_24.i, align 8
+  %conv28.i = sext i32 %13 to i64
   %add.ptr.i.idx = shl nsw i64 %conv28.i, 5
-  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 %add.ptr.i.idx
-  %cmp10.not24 = icmp eq i32 %12, 0
+  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %add.ptr.i.idx
+  %cmp10.not24 = icmp eq i32 %13, 0
   br i1 %cmp10.not24, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit
   %add.ptr.i37 = phi ptr [ %add.ptr.i35, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %add.ptr.i, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
-  %15 = phi ptr [ %13, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %14, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
+  %16 = phi ptr [ %14, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %15, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
   %fields_by_number_18 = getelementptr inbounds nuw i8, ptr %this, i64 176
   %capacity_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %slots_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -1623,12 +1623,12 @@ for.body.lr.ph:                                   ; preds = %_ZNK6google8protobu
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %found.026.us = phi ptr [ %spec.select.us, %for.body.us ], [ null, %for.body.lr.ph ]
-  %__begin3.025.us = phi ptr [ %incdec.ptr.us, %for.body.us ], [ %15, %for.body.lr.ph ]
+  %__begin3.025.us = phi ptr [ %incdec.ptr.us, %for.body.us ], [ %16, %for.body.lr.ph ]
   %raw_.i.us = getelementptr inbounds nuw i8, ptr %__begin3.025.us, i64 8
-  %16 = load ptr, ptr %raw_.i.us, align 8
-  %number_.i.i.us = getelementptr inbounds nuw i8, ptr %16, i64 80
-  %17 = load i32, ptr %number_.i.i.us, align 8
-  %cmp13.us = icmp eq i32 %17, %number
+  %17 = load ptr, ptr %raw_.i.us, align 8
+  %number_.i.i.us = getelementptr inbounds nuw i8, ptr %17, i64 80
+  %18 = load i32, ptr %number_.i.i.us, align 8
+  %cmp13.us = icmp eq i32 %18, %number
   %spec.select.us = select i1 %cmp13.us, ptr %__begin3.025.us, ptr %found.026.us
   %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %__begin3.025.us, i64 32
   %cmp10.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i37
@@ -1636,58 +1636,58 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %found.026 = phi ptr [ %spec.select, %for.inc ], [ null, %for.body.lr.ph ]
-  %__begin3.025 = phi ptr [ %incdec.ptr, %for.inc ], [ %15, %for.body.lr.ph ]
+  %__begin3.025 = phi ptr [ %incdec.ptr, %for.inc ], [ %16, %for.body.lr.ph ]
   %raw_.i = getelementptr inbounds nuw i8, ptr %__begin3.025, i64 8
-  %18 = load ptr, ptr %raw_.i, align 8
-  %number_.i.i = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %19 = load i32, ptr %number_.i.i, align 8
-  %cmp13 = icmp eq i32 %19, %number
+  %19 = load ptr, ptr %raw_.i, align 8
+  %number_.i.i = getelementptr inbounds nuw i8, ptr %19, i64 80
+  %20 = load i32, ptr %number_.i.i, align 8
+  %cmp13 = icmp eq i32 %20, %number
   %spec.select = select i1 %cmp13, ptr %__begin3.025, ptr %found.026
-  %20 = load ptr, ptr %fields_by_number_18, align 8, !noalias !36
-  tail call void @llvm.prefetch.p0(ptr %20, i32 0, i32 1, i32 1), !noalias !36
-  %conv.i.i.i.i.i = zext i32 %19 to i64
+  %21 = load ptr, ptr %fields_by_number_18, align 8, !noalias !36
+  tail call void @llvm.prefetch.p0(ptr %21, i32 0, i32 1, i32 1), !noalias !36
+  %conv.i.i.i.i.i = zext i32 %20 to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i, %mul.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i to i64
-  %21 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !41
+  %22 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !41
   %shr.i.i.i6.i.i.i = lshr i64 %conv1.i.i.i.i.i.i, 7
-  %22 = ptrtoint ptr %20 to i64
-  %shr.i.i.i.i.i.i.i = lshr i64 %22, 12
+  %23 = ptrtoint ptr %21 to i64
+  %shr.i.i.i.i.i.i.i = lshr i64 %23, 12
   %xor.i.i.i7.i.i.i = xor i64 %shr.i.i.i.i.i.i.i, %shr.i.i.i6.i.i.i
-  %23 = trunc i128 %xor.i.i.i.i.i.i to i8
-  %conv.i.i.i.i = and i8 %23, 127
+  %24 = trunc i128 %xor.i.i.i.i.i.i to i8
+  %conv.i.i.i.i = and i8 %24, 127
   %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %24 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !36
+  %25 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !36
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end36.i.i.i, %for.body
   %xor.i.i.i7.pn.i.i.i = phi i64 [ %xor.i.i.i7.i.i.i, %for.body ], [ %add3.i.i.i.i, %if.end36.i.i.i ]
   %seq.sroa.10.0.i.i.i = phi i64 [ 0, %for.body ], [ %add.i15.i.i.i, %if.end36.i.i.i ]
-  %seq.sroa.4.0.i.i.i = and i64 %xor.i.i.i7.pn.i.i.i, %21
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 %seq.sroa.4.0.i.i.i
-  %25 = load <16 x i8>, ptr %add.ptr.i.i.i, align 1, !noalias !36
-  %cmp.i.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i, %25
-  %26 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
-  %cmp.i.not28.i.i.i = icmp eq i16 %26, 0
+  %seq.sroa.4.0.i.i.i = and i64 %xor.i.i.i7.pn.i.i.i, %22
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 %seq.sroa.4.0.i.i.i
+  %26 = load <16 x i8>, ptr %add.ptr.i.i.i, align 1, !noalias !36
+  %cmp.i.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i, %26
+  %27 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
+  %cmp.i.not28.i.i.i = icmp eq i16 %27, 0
   br i1 %cmp.i.not28.i.i.i, label %for.end.i.i.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %while.body.i.i.i
-  %27 = zext i16 %26 to i32
+  %28 = zext i16 %27 to i32
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.preheader.i.i.i
-  %__begin0.sroa.0.029.i.i.i = phi i32 [ %and.i12.i.i.i, %for.inc.i.i.i ], [ %27, %for.body.preheader.i.i.i ]
-  %28 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.029.i.i.i, i1 true)
-  %conv.i.i.i = zext nneg i32 %28 to i64
+  %__begin0.sroa.0.029.i.i.i = phi i32 [ %and.i12.i.i.i, %for.inc.i.i.i ], [ %28, %for.body.preheader.i.i.i ]
+  %29 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.029.i.i.i, i1 true)
+  %conv.i.i.i = zext nneg i32 %29 to i64
   %add.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i, %conv.i.i.i
-  %and.i.i.i.i = and i64 %add.i.i.i.i, %21
-  %add.ptr21.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.266", ptr %24, i64 %and.i.i.i.i
-  %29 = load i32, ptr %add.ptr21.i.i.i, align 4, !noalias !36
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %29, %19
+  %and.i.i.i.i = and i64 %add.i.i.i.i, %22
+  %add.ptr21.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.266", ptr %25, i64 %and.i.i.i.i
+  %30 = load i32, ptr %add.ptr21.i.i.i, align 4, !noalias !36
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %30, %20
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.inc, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -1697,9 +1697,9 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %cmp.i.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %while.body.i.i.i
-  %cmp.i.i13.i.i.i = icmp eq <16 x i8> %25, splat (i8 -128)
-  %30 = bitcast <16 x i1> %cmp.i.i13.i.i.i to i16
-  %cmp.i14.not.i.i.i = icmp eq i16 %30, 0
+  %cmp.i.i13.i.i.i = icmp eq <16 x i8> %26, splat (i8 -128)
+  %31 = bitcast <16 x i1> %cmp.i.i13.i.i.i to i16
+  %cmp.i14.not.i.i.i = icmp eq i16 %31, 0
   br i1 %cmp.i14.not.i.i.i, label %if.end36.i.i.i, label %if.then.i.i
 
 if.end36.i.i.i:                                   ; preds = %for.end.i.i.i
@@ -1709,9 +1709,9 @@ if.end36.i.i.i:                                   ; preds = %for.end.i.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i.i
   %call38.i.i.i = tail call noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %fields_by_number_18, i64 noundef %conv1.i.i.i.i.i.i), !noalias !36
-  %31 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !36
-  %add.ptr.i3.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.266", ptr %31, i64 %call38.i.i.i
-  store i32 %19, ptr %add.ptr.i3.i.i, align 8, !noalias !36
+  %32 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !36
+  %add.ptr.i3.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.266", ptr %32, i64 %call38.i.i.i
+  store i32 %20, ptr %add.ptr.i3.i.i, align 8, !noalias !36
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i, i64 8
   store ptr %__begin3.025, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !36
   br label %for.inc
@@ -1723,8 +1723,8 @@ for.inc:                                          ; preds = %for.body.i.i.i, %if
 
 if.end24:                                         ; preds = %if.end
   %fields_by_number_ = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %32 = load ptr, ptr %fields_by_number_, align 8
-  tail call void @llvm.prefetch.p0(ptr %32, i32 0, i32 1, i32 1)
+  %33 = load ptr, ptr %fields_by_number_, align 8
+  tail call void @llvm.prefetch.p0(ptr %33, i32 0, i32 1, i32 1)
   %conv.i.i.i11 = zext i32 %number to i64
   %add.i.i.i.i12 = add i64 %conv.i.i.i11, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i13 = zext i64 %add.i.i.i.i12 to i128
@@ -1733,15 +1733,15 @@ if.end24:                                         ; preds = %if.end
   %xor.i.i.i.i = xor i128 %shr.i.i.i.i, %mul.i.i.i.i
   %conv1.i.i.i.i = trunc i128 %xor.i.i.i.i to i64
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
-  %33 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !45
+  %34 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !45
   %shr.i.i.i.i.i = lshr i64 %conv1.i.i.i.i, 7
-  %34 = ptrtoint ptr %32 to i64
-  %shr.i.i.i.i.i.i14 = lshr i64 %34, 12
+  %35 = ptrtoint ptr %33 to i64
+  %shr.i.i.i.i.i.i14 = lshr i64 %35, 12
   %xor.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i14, %shr.i.i.i.i.i
   %slots_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %35 = load ptr, ptr %slots_.i.i.i.i, align 8
-  %36 = trunc i128 %xor.i.i.i.i to i8
-  %conv.i.i2.i = and i8 %36, 127
+  %36 = load ptr, ptr %slots_.i.i.i.i, align 8
+  %37 = trunc i128 %xor.i.i.i.i to i8
+  %conv.i.i2.i = and i8 %37, 127
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i2.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i
@@ -1749,31 +1749,31 @@ if.end24:                                         ; preds = %if.end
 while.body.i.i:                                   ; preds = %if.end34.i.i, %if.end24
   %xor.i.i.i.pn.i.i = phi i64 [ %xor.i.i.i.i.i, %if.end24 ], [ %add3.i.i.i, %if.end34.i.i ]
   %seq.sroa.10.0.i.i = phi i64 [ 0, %if.end24 ], [ %add.i12.i.i, %if.end34.i.i ]
-  %seq.sroa.4.0.i.i = and i64 %xor.i.i.i.pn.i.i, %33
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %32, i64 %seq.sroa.4.0.i.i
-  %37 = load <16 x i8>, ptr %add.ptr.i.i, align 1
-  %cmp.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i, %37
-  %38 = bitcast <16 x i1> %cmp.i.i.i.i to i16
-  %cmp.i.not23.i.i = icmp eq i16 %38, 0
+  %seq.sroa.4.0.i.i = and i64 %xor.i.i.i.pn.i.i, %34
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %33, i64 %seq.sroa.4.0.i.i
+  %38 = load <16 x i8>, ptr %add.ptr.i.i, align 1
+  %cmp.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i, %38
+  %39 = bitcast <16 x i1> %cmp.i.i.i.i to i16
+  %cmp.i.not23.i.i = icmp eq i16 %39, 0
   br i1 %cmp.i.not23.i.i, label %for.end.i.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %while.body.i.i
-  %39 = zext i16 %38 to i32
+  %40 = zext i16 %39 to i32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %__begin5.sroa.0.024.i.i = phi i32 [ %and.i9.i.i, %for.inc.i.i ], [ %39, %for.body.preheader.i.i ]
-  %40 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i, i1 true)
-  %conv.i.i = zext nneg i32 %40 to i64
+  %__begin5.sroa.0.024.i.i = phi i32 [ %and.i9.i.i, %for.inc.i.i ], [ %40, %for.body.preheader.i.i ]
+  %41 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i, i1 true)
+  %conv.i.i = zext nneg i32 %41 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
-  %and.i.i.i = and i64 %add.i.i.i, %33
-  %add.ptr19.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.266", ptr %35, i64 %and.i.i.i
-  %41 = load i32, ptr %add.ptr19.i.i, align 4
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %41, %number
+  %and.i.i.i = and i64 %add.i.i.i, %34
+  %add.ptr19.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.266", ptr %36, i64 %and.i.i.i
+  %42 = load i32, ptr %add.ptr19.i.i, align 4
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %42, %number
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i16, label %for.inc.i.i
 
 if.then.i.i16:                                    ; preds = %for.body.i.i
-  %add.ptr.i.i.i17 = getelementptr inbounds i8, ptr %32, i64 %and.i.i.i
+  %add.ptr.i.i.i17 = getelementptr inbounds i8, ptr %33, i64 %and.i.i.i
   %.fca.0.insert.i.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i17, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i, ptr %add.ptr19.i.i, 1
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE4findIiEENSL_8iteratorERSI_.exit
@@ -1785,9 +1785,9 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.not.i.i15, label %for.end.i.i, label %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %while.body.i.i
-  %cmp.i.i10.i.i = icmp eq <16 x i8> %37, splat (i8 -128)
-  %42 = bitcast <16 x i1> %cmp.i.i10.i.i to i16
-  %cmp.i11.not.i.i = icmp eq i16 %42, 0
+  %cmp.i.i10.i.i = icmp eq <16 x i8> %38, splat (i8 -128)
+  %43 = bitcast <16 x i1> %cmp.i.i10.i.i to i16
+  %cmp.i11.not.i.i = icmp eq i16 %43, 0
   br i1 %cmp.i11.not.i.i, label %if.end34.i.i, label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE4findIiEENSL_8iteratorERSI_.exit
 
 if.end34.i.i:                                     ; preds = %for.end.i.i
@@ -1797,18 +1797,18 @@ if.end34.i.i:                                     ; preds = %for.end.i.i
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE4findIiEENSL_8iteratorERSI_.exit: ; preds = %for.end.i.i, %if.then.i.i16
   %call25.pn.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i, %if.then.i.i16 ], [ { ptr null, ptr undef }, %for.end.i.i ]
-  %43 = extractvalue { ptr, ptr } %call25.pn.i.i, 0
-  %cmp.i18 = icmp eq ptr %43, null
+  %44 = extractvalue { ptr, ptr } %call25.pn.i.i, 0
+  %cmp.i18 = icmp eq ptr %44, null
   br i1 %cmp.i18, label %return, label %cond.false
 
 cond.false:                                       ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE4findIiEENSL_8iteratorERSI_.exit
-  %44 = extractvalue { ptr, ptr } %call25.pn.i.i, 1
-  %second = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %45 = load ptr, ptr %second, align 8
+  %45 = extractvalue { ptr, ptr } %call25.pn.i.i, 1
+  %second = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %46 = load ptr, ptr %second, align 8
   br label %return
 
 return:                                           ; preds = %for.inc, %for.body.us, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit, %cond.false, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE4findIiEENSL_8iteratorERSI_.exit, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %45, %cond.false ], [ null, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE4findIiEENSL_8iteratorERSI_.exit ], [ null, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ], [ %spec.select.us, %for.body.us ], [ %spec.select, %for.inc ]
+  %retval.0 = phi ptr [ null, %entry ], [ %46, %cond.false ], [ null, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSA_EEE4findIiEENSL_8iteratorERSI_.exit ], [ null, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ], [ %spec.select.us, %for.body.us ], [ %spec.select, %for.inc ]
   ret ptr %retval.0
 }
 
@@ -2636,7 +2636,7 @@ if.then.i.i.i.i.i211:                             ; preds = %for.body.i.i.i.i.i
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %if.then.i.i.i.i.i211
   %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %63 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %64 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %64(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3593,7 +3593,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %if.then.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %34 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %35 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %35(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3905,7 +3905,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %31 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %32 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %32(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3955,7 +3955,7 @@ if.else.i:                                        ; preds = %invoke.cont17
   br i1 %cmp.i.not.i.i.i.i, label %_ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm17EJST_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i
   %36 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   invoke void %36(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second11)
           to label %.noexc3.i unwind label %terminate.lpad.i
@@ -4023,7 +4023,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i.
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %48 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %49 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %49(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4203,7 +4203,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %if.then.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %4 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %5(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4423,7 +4423,7 @@ if.else.i:                                        ; preds = %cond.true.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i, label %_ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm9EJSD_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i
   %25 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   invoke void %25(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second11)
           to label %.noexc3.i unwind label %terminate.lpad.i
@@ -4740,7 +4740,7 @@ if.else.i20:                                      ; preds = %_ZNKSt6vectorIjSaIj
   br i1 %cmp.i.not.i.i.i.i, label %_ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm11EJSH_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i20
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i
   %25 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   invoke void %25(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second11)
           to label %.noexc3.i unwind label %terminate.lpad.i
@@ -5060,7 +5060,7 @@ if.else.i:                                        ; preds = %_ZNKSt6vectorIiSaIi
   br i1 %cmp.i.not.i.i.i.i, label %_ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm10EJSF_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i
   %25 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   invoke void %25(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second11)
           to label %.noexc3.i unwind label %terminate.lpad.i
@@ -5380,7 +5380,7 @@ if.else.i20:                                      ; preds = %_ZNKSt6vectorImSaIm
   br i1 %cmp.i.not.i.i.i.i, label %_ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm13EJSL_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i20
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i
   %25 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   invoke void %25(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second11)
           to label %.noexc3.i unwind label %terminate.lpad.i
@@ -5700,7 +5700,7 @@ if.else.i:                                        ; preds = %_ZNKSt6vectorIlSaIl
   br i1 %cmp.i.not.i.i.i.i, label %_ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm12EJSJ_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i
   %25 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   invoke void %25(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second11)
           to label %.noexc3.i unwind label %terminate.lpad.i
@@ -6020,7 +6020,7 @@ if.else.i:                                        ; preds = %_ZNKSt6vectorIdSaId
   br i1 %cmp.i.not.i.i.i.i, label %_ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm15EJSP_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i
   %25 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   invoke void %25(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second11)
           to label %.noexc3.i unwind label %terminate.lpad.i
@@ -6340,7 +6340,7 @@ if.else.i:                                        ; preds = %_ZNKSt6vectorIfSaIf
   br i1 %cmp.i.not.i.i.i.i, label %_ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm14EJSN_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i
   %25 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   invoke void %25(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second11)
           to label %.noexc3.i unwind label %terminate.lpad.i
@@ -6644,7 +6644,7 @@ if.else.i:                                        ; preds = %invoke.cont17
   br i1 %cmp.i.not.i.i.i.i, label %_ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm16EJSR_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   invoke void %22(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second11)
           to label %.noexc3.i unwind label %terminate.lpad.i
@@ -6875,7 +6875,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %if.then.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %16 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %17(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -7090,7 +7090,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i, i64 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %4 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %5(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -7305,7 +7305,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %6 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %7 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %7(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -7433,7 +7433,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i, i64 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %6 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %7 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %7(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -7525,7 +7525,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %if.then.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %5 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9259,32 +9259,32 @@ if.then:                                          ; preds = %for.body
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 48
   %15 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %15 to i64
-  %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [19 x %"struct.std::__detail::__variant::_Multi_array.334"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St6vectorIS8_SaIS8_EESF_IiSaIiEESF_IjSaIjEESF_IlSaIlEESF_ImSaImEESF_IfSaIfEESF_IdSaIdEESF_ISE_SaISE_EESF_IS7_SaIS7_EEEEC1EOSY_EUlOT_T0_E_JOSt7variantIJS8_ijlmfdSE_S7_SH_SJ_SL_SN_SP_SR_ST_SV_SX_EEEE9_S_vtableE, i64 0, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %16 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second3.i.i.i.i.i.i.i)
+  %16 = getelementptr %"struct.std::__detail::__variant::_Multi_array.334", ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St6vectorIS8_SaIS8_EESF_IiSaIiEESF_IjSaIjEESF_IlSaIlEESF_ImSaImEESF_IfSaIfEESF_IdSaIdEESF_ISE_SaISE_EESF_IS7_SaIS7_EEEEC1EOSY_EUlOT_T0_E_JOSt7variantIJS8_ijlmfdSE_S7_SH_SJ_SL_SN_SP_SR_ST_SV_SX_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %16, i64 8
+  %17 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second3.i.i.i.i.i.i.i)
           to label %_ZNSt16allocator_traitsISaISt4pairIKiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEEEEE9constructIS0_IiSX_EJS12_EEEvRSZ_PT_DpOT0_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %if.then
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #26
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 _ZNSt16allocator_traitsISaISt4pairIKiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEEEEE9constructIS0_IiSX_EJS12_EEEvRSZ_PT_DpOT0_.exit.i.i.i.i: ; preds = %if.then
-  %19 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store i8 %19, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %20 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store i8 %20, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %19, -1
+  %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %20, -1
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St6vectorIS9_SaIS9_EESG_IiSaIiEESG_IjSaIjEESG_IlSaIlEESG_ImSaImEESG_IfSaIfEESG_IdSaIdEESG_ISF_SaISF_EESG_IS8_SaIS8_EEEEEEvE8transferISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EES1B_.exit, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZNSt16allocator_traitsISaISt4pairIKiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEEEEE9constructIS0_IiSX_EJS12_EEEvRSZ_PT_DpOT0_.exit.i.i.i.i
-  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %19 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %20 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %20(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second3.i.i.i.i.i.i.i)
+  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %20 to i64
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %21 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  invoke void %21(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second3.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9292,10 +9292,10 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZNSt16allocator_tr
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St6vectorIS9_SaIS9_EESG_IiSaIiEESG_IjSaIjEESG_IlSaIlEESG_ImSaImEESG_IfSaIfEESG_IdSaIdEESG_ISF_SaISF_EESG_IS8_SaIS8_EEEEEEvE8transferISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EES1B_.exit
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #26
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #26
   unreachable
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St6vectorIS9_SaIS9_EESG_IiSaIiEESG_IjSaIjEESG_IlSaIlEESG_ImSaImEESG_IfSaIfEESG_IdSaIdEESG_ISF_SaISF_EESG_IS8_SaIS8_EEEEEEvE8transferISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EES1B_.exit: ; preds = %_ZNSt16allocator_traitsISaISt4pairIKiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEEEEE9constructIS0_IiSX_EJS12_EEEvRSZ_PT_DpOT0_.exit.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9612,32 +9612,32 @@ entry:
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %src, i64 48
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %1 to i64
-  %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [19 x %"struct.std::__detail::__variant::_Multi_array.334"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St6vectorIS8_SaIS8_EESF_IiSaIiEESF_IjSaIjEESF_IlSaIlEESF_ImSaImEESF_IfSaIfEESF_IdSaIdEESF_ISE_SaISE_EESF_IS7_SaIS7_EEEEC1EOSY_EUlOT_T0_E_JOSt7variantIJS8_ijlmfdSE_S7_SH_SJ_SL_SN_SP_SR_ST_SV_SX_EEEE9_S_vtableE, i64 0, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %2 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second3.i.i.i.i.i.i.i)
+  %2 = getelementptr %"struct.std::__detail::__variant::_Multi_array.334", ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St6vectorIS8_SaIS8_EESF_IiSaIiEESF_IjSaIjEESF_IlSaIlEESF_ImSaImEESF_IfSaIfEESF_IdSaIdEESF_ISE_SaISE_EESF_IS7_SaIS7_EEEEC1EOSY_EUlOT_T0_E_JOSt7variantIJS8_ijlmfdSE_S7_SH_SJ_SL_SN_SP_SR_ST_SV_SX_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %2, i64 8
+  %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second3.i.i.i.i.i.i.i)
           to label %_ZNSt16allocator_traitsISaISt4pairIKiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEEEEE9constructIS0_IiSX_EJS12_EEEvRSZ_PT_DpOT0_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #26
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZNSt16allocator_traitsISaISt4pairIKiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEEEEE9constructIS0_IiSX_EJS12_EEEvRSZ_PT_DpOT0_.exit.i.i.i.i: ; preds = %entry
-  %5 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store i8 %5, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %6 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store i8 %6, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %5, -1
+  %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %6, -1
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St6vectorIS9_SaIS9_EESG_IiSaIiEESG_IjSaIjEESG_IlSaIlEESG_ImSaImEESG_IfSaIfEESG_IdSaIdEESG_ISF_SaISF_EESG_IS8_SaIS8_EEEEEEvE8transferISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EES1B_.exit, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZNSt16allocator_traitsISaISt4pairIKiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEEEEE9constructIS0_IiSX_EJS12_EEEvRSZ_PT_DpOT0_.exit.i.i.i.i
-  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %5 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [18 x %"struct.std::__detail::__variant::_Multi_array.202"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second3.i.i.i.i.i.i.i)
+  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %6 to i64
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.202", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_ijlmfdSD_S6_SG_SI_SK_SM_SO_SQ_SS_SU_SW_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %7 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  invoke void %7(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %second3.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9645,10 +9645,10 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZNSt16allocator_tr
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St6vectorIS9_SaIS9_EESG_IiSaIiEESG_IjSaIjEESG_IlSaIlEESG_ImSaImEESG_IfSaIfEESG_IdSaIdEESG_ISF_SaISF_EESG_IS8_SaIS8_EEEEEEvE8transferISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EES1B_.exit
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #26
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #26
   unreachable
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St6vectorIS9_SaIS9_EESG_IiSaIiEESG_IjSaIjEESG_IlSaIlEESG_ImSaImEESG_IfSaIfEESG_IdSaIdEESG_ISF_SaISF_EESG_IS8_SaIS8_EEEEEEvE8transferISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EES1B_.exit: ; preds = %_ZNSt16allocator_traitsISaISt4pairIKiSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St6vectorIS7_SaIS7_EESE_IiSaIiEESE_IjSaIjEESE_IlSaIlEESE_ImSaImEESE_IfSaIfEESE_IdSaIdEESE_ISD_SaISD_EESE_IS6_SaIS6_EEEEEEE9constructIS0_IiSX_EJS12_EEEvRSZ_PT_DpOT0_.exit.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

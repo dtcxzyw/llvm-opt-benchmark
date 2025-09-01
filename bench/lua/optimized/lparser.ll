@@ -3038,7 +3038,7 @@ simpleexp.exit:                                   ; preds = %66, %65, %62, %61, 
 91:                                               ; preds = %.lr.ph, %96
   %.037 = phi i32 [ %.0.i32.ph, %.lr.ph ], [ %102, %96 ]
   %92 = zext nneg i32 %.037 to i64
-  %93 = getelementptr inbounds nuw [21 x %struct.anon.13], ptr @priority, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw %struct.anon.13, ptr @priority, i64 %92
   %94 = load i8, ptr %93, align 2, !tbaa !140
   %95 = icmp ugt i8 %94, %90
   br i1 %95, label %96, label %.critedge
@@ -5239,7 +5239,7 @@ define internal fastcc void @forbody(ptr noundef nonnull %0, i32 noundef range(i
 checknext.exit:                                   ; preds = %5
   tail call void @luaX_next(ptr noundef nonnull %0) #12
   %13 = zext nneg i32 %4 to i64
-  %14 = getelementptr inbounds nuw [2 x i32], ptr @forbody.forprep, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @forbody.forprep, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !114
   %16 = tail call i32 @luaK_codeABx(ptr noundef %9, i32 noundef %15, i32 noundef %1, i32 noundef 0) #12
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 76
@@ -5382,7 +5382,7 @@ fixforjump.exit:                                  ; preds = %statlist.exit
   br label %88
 
 88:                                               ; preds = %86, %fixforjump.exit
-  %89 = getelementptr inbounds nuw [2 x i32], ptr @forbody.forloop, i64 0, i64 %13
+  %89 = getelementptr inbounds nuw i32, ptr @forbody.forloop, i64 %13
   %90 = load i32, ptr %89, align 4, !tbaa !114
   %91 = call i32 @luaK_codeABx(ptr noundef nonnull %9, i32 noundef %90, i32 noundef %1, i32 noundef 0) #12
   %.neg = sub i32 %91, %16

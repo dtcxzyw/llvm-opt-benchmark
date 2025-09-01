@@ -29,7 +29,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_srt_gen(i32 noundef %0) #0 {
   %2 = alloca %struct.QUIC_STATELESS_RESET_TOKEN, align 1
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [3 x %struct.test_case], ptr @tests, i64 0, i64 %3
+  %4 = getelementptr inbounds %struct.test_case, ptr @tests, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8

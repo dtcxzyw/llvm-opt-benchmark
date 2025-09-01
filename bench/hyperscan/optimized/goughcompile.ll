@@ -4418,7 +4418,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_Z
 
 588:                                              ; preds = %596, %577
   %.0710.i.i.i.i = phi i64 [ 0, %577 ], [ %597, %596 ]
-  %589 = getelementptr inbounds nuw [4 x i64], ptr %587, i64 0, i64 %.0710.i.i.i.i
+  %589 = getelementptr inbounds nuw i64, ptr %587, i64 %.0710.i.i.i.i
   %590 = load i64, ptr %589, align 8
   %.not.i.i.i.i111 = icmp eq i64 %590, 0
   br i1 %.not.i.i.i.i111, label %596, label %591
@@ -5193,7 +5193,7 @@ _ZN3ue2L25prep_joins_for_generationERKN5boost14adjacency_listINS0_4vecSES2_NS0_1
 
 877:                                              ; preds = %885, %.lr.ph254.i
   %.0710.i.i.i80.i = phi i64 [ 0, %.lr.ph254.i ], [ %886, %885 ]
-  %878 = getelementptr inbounds nuw [4 x i64], ptr %876, i64 0, i64 %.0710.i.i.i80.i
+  %878 = getelementptr inbounds nuw i64, ptr %876, i64 %.0710.i.i.i80.i
   %879 = load i64, ptr %878, align 8
   %.not.i.i.i81.i = icmp eq i64 %879, 0
   br i1 %.not.i.i.i81.i, label %885, label %880
@@ -5701,7 +5701,7 @@ _ZN3ue2L18add_joins_to_blockERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9goug
 
 1070:                                             ; preds = %1078, %1061
   %.0710.i.i.i133.i = phi i64 [ 0, %1061 ], [ %1079, %1078 ]
-  %1071 = getelementptr inbounds nuw [4 x i64], ptr %1069, i64 0, i64 %.0710.i.i.i133.i
+  %1071 = getelementptr inbounds nuw i64, ptr %1069, i64 %.0710.i.i.i133.i
   %1072 = load i64, ptr %1071, align 8
   %.not.i.i.i134.i = icmp eq i64 %1072, 0
   br i1 %.not.i.i.i134.i, label %1078, label %1073
@@ -6340,7 +6340,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit186:            ; preds = %_ZSt6fill_nIPjmjET_
 
 1305:                                             ; preds = %1313, %1293
   %.0710.i.i.i.i187 = phi i64 [ 0, %1293 ], [ %1314, %1313 ]
-  %1306 = getelementptr inbounds nuw [4 x i64], ptr %1304, i64 0, i64 %.0710.i.i.i.i187
+  %1306 = getelementptr inbounds nuw i64, ptr %1304, i64 %.0710.i.i.i.i187
   %1307 = load i64, ptr %1306, align 8
   %.not.i.i.i.i188 = icmp eq i64 %1307, 0
   br i1 %.not.i.i.i.i188, label %1313, label %1308
@@ -6437,7 +6437,7 @@ _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS
 
 _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i: ; preds = %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i.preheader, %1354
   %.0710.i.i.i53.i = phi i64 [ %1355, %1354 ], [ 0, %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i.preheader ]
-  %1347 = getelementptr inbounds nuw [4 x i64], ptr %1304, i64 0, i64 %.0710.i.i.i53.i
+  %1347 = getelementptr inbounds nuw i64, ptr %1304, i64 %.0710.i.i.i53.i
   %1348 = load i64, ptr %1347, align 8
   %.not.i.i.i54.i = icmp eq i64 %1348, 0
   br i1 %.not.i.i.i54.i, label %1354, label %1349
@@ -6588,7 +6588,7 @@ _ZNKSt3mapIN3ue213gough_edge_idESt6vectorI9gough_insSaIS3_EESt4lessIS1_ESaISt4pa
 
 1414:                                             ; preds = %1417, %1405
   %.0710.i.i.i = phi i64 [ 0, %1405 ], [ %1418, %1417 ]
-  %1415 = getelementptr inbounds nuw [4 x i64], ptr %1304, i64 0, i64 %.0710.i.i.i
+  %1415 = getelementptr inbounds nuw i64, ptr %1304, i64 %.0710.i.i.i
   %1416 = load i64, ptr %1415, align 8
   %.not.i.i.i202 = icmp eq i64 %1416, 0
   br i1 %.not.i.i.i202, label %1417, label %_ZNK3ue29CharReach10find_firstEv.exit.i
@@ -6633,7 +6633,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %1414
   br label %1439
 
 1432:                                             ; preds = %.lr.ph
-  %1433 = getelementptr inbounds nuw [4 x i64], ptr %1304, i64 0, i64 %1430
+  %1433 = getelementptr inbounds nuw i64, ptr %1304, i64 %1430
   %1434 = load i64, ptr %1433, align 8
   %1435 = shl nsw i64 -2, %1431
   %1436 = and i64 %1434, %1435
@@ -6651,7 +6651,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %1414
 
 1441:                                             ; preds = %1439
   %.0.i.i.i = add nuw nsw i64 %.0.in.i.i.i, 1
-  %1442 = getelementptr inbounds nuw [4 x i64], ptr %1304, i64 0, i64 %.0.i.i.i
+  %1442 = getelementptr inbounds nuw i64, ptr %1304, i64 %.0.i.i.i
   %1443 = load i64, ptr %1442, align 8
   %.not22.i.i.i = icmp eq i64 %1443, 0
   br i1 %.not22.i.i.i, label %1439, label %1444, !llvm.loop !481
@@ -8448,7 +8448,7 @@ _ZNSt8_Rb_treeItSt4pairIKtN5boost6detail14edge_desc_implINS2_17bidirectional_tag
   %550 = and i64 %549, 63
   %551 = shl nuw i64 1, %550
   %552 = lshr i64 %549, 6
-  %553 = getelementptr inbounds nuw [4 x i64], ptr %547, i64 0, i64 %552
+  %553 = getelementptr inbounds nuw i64, ptr %547, i64 %552
   %554 = load i64, ptr %553, align 8
   %555 = or i64 %554, %551
   store i64 %555, ptr %553, align 8
@@ -8721,7 +8721,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN3ue211GoughSSAVarEES3_EvT_S5_RSaIT0_E.exit.i.i.i1
   %651 = and i64 %650, 63
   %652 = shl nuw i64 1, %651
   %653 = lshr i64 %650, 6
-  %654 = getelementptr inbounds nuw [4 x i64], ptr %648, i64 0, i64 %653
+  %654 = getelementptr inbounds nuw i64, ptr %648, i64 %653
   %655 = load i64, ptr %654, align 8
   %656 = or i64 %655, %652
   store i64 %656, ptr %654, align 8
@@ -9114,7 +9114,7 @@ _ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bid
 
 69:                                               ; preds = %77, %_ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE.exit
   %.0710.i.i.i = phi i64 [ 0, %_ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE.exit ], [ %78, %77 ]
-  %70 = getelementptr inbounds nuw [4 x i64], ptr %68, i64 0, i64 %.0710.i.i.i
+  %70 = getelementptr inbounds nuw i64, ptr %68, i64 %.0710.i.i.i
   %71 = load i64, ptr %70, align 8
   %.not.i.i.i = icmp eq i64 %71, 0
   br i1 %.not.i.i.i, label %77, label %72
@@ -9211,7 +9211,7 @@ _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS
 
 _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit: ; preds = %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.preheader, %118
   %.0710.i.i.i46 = phi i64 [ %119, %118 ], [ 0, %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.preheader ]
-  %111 = getelementptr inbounds nuw [4 x i64], ptr %68, i64 0, i64 %.0710.i.i.i46
+  %111 = getelementptr inbounds nuw i64, ptr %68, i64 %.0710.i.i.i46
   %112 = load i64, ptr %111, align 8
   %.not.i.i.i47 = icmp eq i64 %112, 0
   br i1 %.not.i.i.i47, label %118, label %113
@@ -21233,7 +21233,7 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %._crit_edge
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 32
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %.02136 to i64
-  %58 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %40, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw %struct.gough_report, ptr %40, i64 %57
   store i32 %56, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 36
   %60 = load i32, ptr %59, align 4

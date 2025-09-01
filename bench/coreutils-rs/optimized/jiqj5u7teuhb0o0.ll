@@ -802,10 +802,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !80, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !113, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd67f851f3d446f32E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd67f851f3d446f32E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [17 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd67f851f3d446f32E.40", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd67f851f3d446f32E.40", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1689,10 +1689,10 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @_ZN4core4iter6traits8i
 36:                                               ; preds = %36, %23
   %.sroa.0.037.i = phi i64 [ 0, %23 ], [ %37, %36 ]
   %37 = add nuw nsw i64 %.sroa.0.037.i, 1
-  %38 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.03039.i, i64 0, i64 %.sroa.0.037.i
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.03039.i, i64 %.sroa.0.037.i
   %39 = load i8, ptr %38, align 1, !noalias !343, !noundef !4
   %40 = icmp sgt i8 %39, -65
-  %41 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.sroa.0.037.i
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.037.i
   %42 = zext i1 %40 to i8
   store i8 %42, ptr %41, align 1, !noalias !343
   %exitcond.not.i = icmp eq i64 %37, 32
@@ -1722,7 +1722,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @_ZN4core4iter6traits8i
   %53 = add i64 %.248.i, -1
   %54 = load i8, ptr %49, align 1, !noalias !343, !noundef !4
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @anon.cbb7d0e693f74b45c4df53aa3040d056.135, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @anon.cbb7d0e693f74b45c4df53aa3040d056.135, i64 %55
   %57 = load i8, ptr %56, align 1, !noalias !343, !noundef !4
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 %58
@@ -2884,10 +2884,10 @@ define internal noundef zeroext i1 @"_ZN73_$LT$clap_builder..error..kind..ErrorK
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !113, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @"switch.table._ZN73_$LT$clap_builder..error..kind..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hab0091bc4b230546E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN73_$LT$clap_builder..error..kind..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hab0091bc4b230546E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [17 x ptr], ptr @"switch.table._ZN73_$LT$clap_builder..error..kind..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hab0091bc4b230546E.41", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN73_$LT$clap_builder..error..kind..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hab0091bc4b230546E.41", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -2969,10 +2969,10 @@ define internal noundef zeroext i1 @"_ZN75_$LT$clap_builder..util..color..ColorC
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !27, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN75_$LT$clap_builder..util..color..ColorChoice$u20$as$u20$core..fmt..Debug$GT$3fmt17h1293b3deeebfbf06E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$clap_builder..util..color..ColorChoice$u20$as$u20$core..fmt..Debug$GT$3fmt17h1293b3deeebfbf06E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN75_$LT$clap_builder..util..color..ColorChoice$u20$as$u20$core..fmt..Debug$GT$3fmt17h1293b3deeebfbf06E.42", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$clap_builder..util..color..ColorChoice$u20$as$u20$core..fmt..Debug$GT$3fmt17h1293b3deeebfbf06E.42", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

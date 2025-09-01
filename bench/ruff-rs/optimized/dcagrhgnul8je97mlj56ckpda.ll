@@ -5541,10 +5541,10 @@ define internal { ptr, i64 } @"_ZN58_$LT$ctrlc..error..Error$u20$as$u20$core..er
 switch.lookup:
   %1 = load i32, ptr %0, align 8, !range !408, !noundef !4
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN58_$LT$ctrlc..error..Error$u20$as$u20$core..error..Error$GT$11description17h21355a9e9eac7bddE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN58_$LT$ctrlc..error..Error$u20$as$u20$core..error..Error$GT$11description17h21355a9e9eac7bddE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i32 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN58_$LT$ctrlc..error..Error$u20$as$u20$core..error..Error$GT$11description17h21355a9e9eac7bddE.99", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN58_$LT$ctrlc..error..Error$u20$as$u20$core..error..Error$GT$11description17h21355a9e9eac7bddE.99", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

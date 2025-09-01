@@ -906,19 +906,19 @@ Abc_Clock.exit130:                                ; preds = %31, %36
 
 58:                                               ; preds = %57
   %.not122 = icmp eq i32 %7, 0
-  br i1 %.not122, label %59, label %438
+  br i1 %.not122, label %59, label %439
 
 59:                                               ; preds = %58
   %puts123 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %438
+  br label %439
 
 60:                                               ; preds = %57
   %.not121 = icmp eq i32 %7, 0
-  br i1 %.not121, label %61, label %438
+  br i1 %.not121, label %61, label %439
 
 61:                                               ; preds = %60
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %438
+  br label %439
 
 Vec_PtrPush.exit:                                 ; preds = %57
   %62 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
@@ -1703,42 +1703,42 @@ Cec_GiaSplitClean.exit:                           ; preds = %.critedge.i, %.crit
   %spec.select264272 = phi i32 [ %spec.select264, %.critedge.i ], [ %spec.select264271, %.critedge.i.thread ]
   call void @free(ptr noundef nonnull %62) #18
   %.not120 = icmp eq i32 %7, 0
-  br i1 %.not120, label %switch.lookup, label %438
+  br i1 %.not120, label %switch.lookup, label %439
 
 switch.lookup:                                    ; preds = %Cec_GiaSplitClean.exit
-  %switch.tableidx = add nsw i32 %spec.select264272, 1
-  %421 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Cec_GiaSplitTestInt, i64 0, i64 %421
+  %421 = sext i32 %spec.select264272 to i64
+  %422 = getelementptr ptr, ptr @switch.table.Cec_GiaSplitTestInt, i64 %421
+  %switch.gep = getelementptr i8, ptr %422, i64 8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %422 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
-  %423 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.0105198263274)
+  %423 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
+  %424 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.0105198263274)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %424 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #18
-  %425 = icmp slt i32 %424, 0
-  br i1 %425, label %Abc_Clock.exit190, label %426
+  %425 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #18
+  %426 = icmp slt i32 %425, 0
+  br i1 %426, label %Abc_Clock.exit190, label %427
 
-426:                                              ; preds = %switch.lookup
-  %427 = load i64, ptr %9, align 8, !tbaa !63
-  %428 = mul nsw i64 %427, 1000000
-  %429 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %430 = load i64, ptr %429, align 8, !tbaa !65
-  %431 = sdiv i64 %430, 1000
-  %432 = add nsw i64 %431, %428
+427:                                              ; preds = %switch.lookup
+  %428 = load i64, ptr %9, align 8, !tbaa !63
+  %429 = mul nsw i64 %428, 1000000
+  %430 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %431 = load i64, ptr %430, align 8, !tbaa !65
+  %432 = sdiv i64 %431, 1000
+  %433 = add nsw i64 %432, %429
   br label %Abc_Clock.exit190
 
-Abc_Clock.exit190:                                ; preds = %switch.lookup, %426
-  %.0.i189 = phi i64 [ %432, %426 ], [ -1, %switch.lookup ]
+Abc_Clock.exit190:                                ; preds = %switch.lookup, %427
+  %.0.i189 = phi i64 [ %433, %427 ], [ -1, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %433 = sub nsw i64 %.0.i189, %.0.i
+  %434 = sub nsw i64 %.0.i189, %.0.i
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.12)
-  %434 = sitofp i64 %433 to double
-  %435 = fdiv double %434, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.35, double noundef %435)
-  %436 = load ptr, ptr @stdout, align 8, !tbaa !61
-  %437 = call i32 @fflush(ptr noundef %436)
-  br label %438
+  %435 = sitofp i64 %434 to double
+  %436 = fdiv double %435, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.35, double noundef %436)
+  %437 = load ptr, ptr @stdout, align 8, !tbaa !61
+  %438 = call i32 @fflush(ptr noundef %437)
+  br label %439
 
-438:                                              ; preds = %Cec_GiaSplitClean.exit, %Abc_Clock.exit190, %60, %61, %58, %59
+439:                                              ; preds = %Cec_GiaSplitClean.exit, %Abc_Clock.exit190, %60, %61, %58, %59
   %.0 = phi i32 [ 0, %59 ], [ 0, %58 ], [ 1, %61 ], [ 1, %60 ], [ %spec.select264272, %Abc_Clock.exit190 ], [ %spec.select264272, %Cec_GiaSplitClean.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1932,7 +1932,7 @@ Abc_Clock.exit:                                   ; preds = %8, %21
 
 35:                                               ; preds = %.critedge
   %36 = call i32 @Cec_GiaSplitTest2(ptr noundef nonnull %0, i32 poison, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
-  br label %438
+  br label %439
 
 37:                                               ; preds = %.critedge
   %38 = add i32 %1, -1
@@ -1994,19 +1994,19 @@ Abc_Clock.exit197:                                ; preds = %44, %49
 
 71:                                               ; preds = %70
   %.not189 = icmp eq i32 %7, 0
-  br i1 %.not189, label %72, label %438
+  br i1 %.not189, label %72, label %439
 
 72:                                               ; preds = %71
   %puts190 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %438
+  br label %439
 
 73:                                               ; preds = %70
   %.not187 = icmp eq i32 %7, 0
-  br i1 %.not187, label %74, label %438
+  br i1 %.not187, label %74, label %439
 
 74:                                               ; preds = %73
   %puts188 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %438
+  br label %439
 
 Vec_PtrPush.exit:                                 ; preds = %70
   %75 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
@@ -2056,7 +2056,7 @@ Vec_PtrPush.exit:                                 ; preds = %70
   %.1285.us = phi double [ %.0140.us, %.lr.ph286.us ], [ %.2.us, %.thread261.us ]
   %.2144284.us = phi i32 [ %83, %.lr.ph286.us ], [ %.3145.us, %.thread261.us ]
   %.2157283.us = phi i32 [ %.0155.us, %.lr.ph286.us ], [ %.3158.us, %.thread261.us ]
-  %85 = getelementptr inbounds nuw [100 x %struct.Par_ThData_t_], ptr %13, i64 0, i64 %indvars.iv308
+  %85 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %13, i64 %indvars.iv308
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load i32, ptr %86, align 8, !tbaa !94
   %.not181.us = icmp eq i32 %87, 0
@@ -2740,7 +2740,7 @@ Vec_PtrPush.exit246.us:                           ; preds = %Vec_PtrGrow.exit.i2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %396 = getelementptr inbounds nuw [100 x %struct.Par_ThData_t_], ptr %13, i64 0, i64 %indvars.iv
+  %396 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %13, i64 %indvars.iv
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 16
   %398 = trunc nuw nsw i64 %indvars.iv to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %396, i8 0, i64 16, i1 false)
@@ -2782,7 +2782,7 @@ Vec_PtrPush.exit246.us:                           ; preds = %Vec_PtrGrow.exit.i2
 
 .lr.ph302:                                        ; preds = %.lr.ph302.preheader, %416
   %indvars.iv313 = phi i64 [ 0, %.lr.ph302.preheader ], [ %indvars.iv.next314, %416 ]
-  %410 = getelementptr inbounds nuw [100 x %struct.Par_ThData_t_], ptr %13, i64 0, i64 %indvars.iv313
+  %410 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %13, i64 %indvars.iv313
   call void @Gia_ManStopP(ptr noundef nonnull %410) #18
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 8
   %412 = load ptr, ptr %411, align 8, !tbaa !91
@@ -2839,42 +2839,42 @@ Cec_GiaSplitClean.exit:                           ; preds = %.critedge.i, %.crit
   %.6154379383393403 = phi i32 [ %.6154, %.critedge.i ], [ %.6154379383393402, %.critedge.i.thread ]
   call void @free(ptr noundef nonnull %75) #18
   %.not185 = icmp eq i32 %7, 0
-  br i1 %.not185, label %switch.lookup, label %438
+  br i1 %.not185, label %switch.lookup, label %439
 
 switch.lookup:                                    ; preds = %Cec_GiaSplitClean.exit
-  %switch.tableidx = add nsw i32 %.6154379383393403, 1
-  %421 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Cec_GiaSplitTestInt, i64 0, i64 %421
+  %421 = sext i32 %.6154379383393403 to i64
+  %422 = getelementptr ptr, ptr @switch.table.Cec_GiaSplitTestInt, i64 %421
+  %switch.gep = getelementptr i8, ptr %422, i64 8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %422 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
-  %423 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.7378384391405)
+  %423 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
+  %424 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.7378384391405)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %424 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #18
-  %425 = icmp slt i32 %424, 0
-  br i1 %425, label %Abc_Clock.exit254, label %426
+  %425 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #18
+  %426 = icmp slt i32 %425, 0
+  br i1 %426, label %Abc_Clock.exit254, label %427
 
-426:                                              ; preds = %switch.lookup
-  %427 = load i64, ptr %9, align 8, !tbaa !63
-  %428 = mul nsw i64 %427, 1000000
-  %429 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %430 = load i64, ptr %429, align 8, !tbaa !65
-  %431 = sdiv i64 %430, 1000
-  %432 = add nsw i64 %431, %428
+427:                                              ; preds = %switch.lookup
+  %428 = load i64, ptr %9, align 8, !tbaa !63
+  %429 = mul nsw i64 %428, 1000000
+  %430 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %431 = load i64, ptr %430, align 8, !tbaa !65
+  %432 = sdiv i64 %431, 1000
+  %433 = add nsw i64 %432, %429
   br label %Abc_Clock.exit254
 
-Abc_Clock.exit254:                                ; preds = %switch.lookup, %426
-  %.0.i253 = phi i64 [ %432, %426 ], [ -1, %switch.lookup ]
+Abc_Clock.exit254:                                ; preds = %switch.lookup, %427
+  %.0.i253 = phi i64 [ %433, %427 ], [ -1, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %433 = sub nsw i64 %.0.i253, %.0.i
+  %434 = sub nsw i64 %.0.i253, %.0.i
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.12)
-  %434 = sitofp i64 %433 to double
-  %435 = fdiv double %434, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.35, double noundef %435)
-  %436 = load ptr, ptr @stdout, align 8, !tbaa !61
-  %437 = call i32 @fflush(ptr noundef %436)
-  br label %438
+  %435 = sitofp i64 %434 to double
+  %436 = fdiv double %435, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.35, double noundef %436)
+  %437 = load ptr, ptr @stdout, align 8, !tbaa !61
+  %438 = call i32 @fflush(ptr noundef %437)
+  br label %439
 
-438:                                              ; preds = %Cec_GiaSplitClean.exit, %Abc_Clock.exit254, %73, %74, %71, %72, %35
+439:                                              ; preds = %Cec_GiaSplitClean.exit, %Abc_Clock.exit254, %73, %74, %71, %72, %35
   %.0 = phi i32 [ %36, %35 ], [ 0, %72 ], [ 0, %71 ], [ 1, %74 ], [ 1, %73 ], [ %.6154379383393403, %Abc_Clock.exit254 ], [ %.6154379383393403, %Cec_GiaSplitClean.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

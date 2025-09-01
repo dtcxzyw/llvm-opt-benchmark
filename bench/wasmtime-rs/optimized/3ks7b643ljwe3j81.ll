@@ -2432,7 +2432,7 @@ define internal fastcc void @_ZN7cap_std2fs4file4File8metadata17h102699b49468aed
 switch.lookup:                                    ; preds = %15
   %19 = lshr exact i32 %17, 12
   %20 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZN7cap_std2fs4file4File8metadata17h102699b49468aed2E, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN7cap_std2fs4file4File8metadata17h102699b49468aed2E, i64 %20
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN14cap_primitives6rustix2fs13file_type_ext15ImplFileTypeExt8from_std17h186ea5f7624c877aE.exit.i
 
@@ -3846,7 +3846,7 @@ switch.lookup:                                    ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i8, ptr %11, align 8, !range !439, !noundef !5
   %13 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..file..WasiFile$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17h76513978f444a9aeE", i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..file..WasiFile$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17h76513978f444a9aeE", i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = invoke noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
           to label %17 unwind label %15

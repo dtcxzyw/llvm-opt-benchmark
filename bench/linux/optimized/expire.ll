@@ -107,7 +107,7 @@ define dso_local range(i32 -14, 1) i32 @autofs_expire_run(ptr noundef readonly c
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %15 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr align 1 %19, i64 %20, i1 false)
-  %21 = getelementptr [256 x i8], ptr %17, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %17, i64 %20
   store i8 0, ptr %21, align 1
   %22 = call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %5, i64 noundef 268) #7
   %23 = icmp eq i64 %22, 0

@@ -1617,7 +1617,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12Encode
   %.011.i = phi i32 [ %7, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
   %8 = and i32 %.011.i, %2
   %9 = icmp ne i32 %8, 0
-  %10 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %4, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %4, i64 %indvars.iv.i
   tail call void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %10, i1 noundef zeroext %9)
   %11 = lshr i32 %.011.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2097,7 +2097,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12Encode
   %.011.i = phi i32 [ %7, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
   %8 = and i32 %.011.i, %2
   %9 = icmp ne i32 %8, 0
-  %10 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %4, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %4, i64 %indvars.iv.i
   tail call void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %10, i1 noundef zeroext %9)
   %11 = lshr i32 %.011.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

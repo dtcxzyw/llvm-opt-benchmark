@@ -708,7 +708,7 @@ define dso_local noundef i32 @e1000_read_mac_addr_generic(ptr noundef captures(n
   %13 = shl i32 %12, 3
   %14 = lshr i32 %8, %13
   %15 = trunc i32 %14 to i8
-  %16 = getelementptr [6 x i8], ptr %9, i64 0, i64 %11
+  %16 = getelementptr i8, ptr %9, i64 %11
   store i8 %15, ptr %16, align 1
   %17 = add nuw nsw i64 %11, 1
   %18 = icmp eq i64 %17, 4

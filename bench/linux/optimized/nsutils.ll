@@ -102,7 +102,7 @@ define dso_local range(i32 0, 3) i32 @acpi_ns_local(i32 noundef %0) local_unname
 
 5:                                                ; preds = %1
   %6 = zext i32 %0 to i64
-  %7 = getelementptr [31 x i8], ptr @acpi_gbl_ns_properties, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @acpi_gbl_ns_properties, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 2
   %10 = zext nneg i8 %9 to i32
@@ -304,7 +304,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_build_internal_name(ptr
 
 55:                                               ; preds = %49
   %56 = zext i8 %52 to i64
-  %57 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %56
+  %57 = getelementptr i8, ptr @_ctype, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = and i8 %58, 2
   %60 = icmp eq i8 %59, 0
@@ -530,7 +530,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
 
 85:                                               ; preds = %79
   %86 = zext i8 %82 to i64
-  %87 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %86
+  %87 = getelementptr i8, ptr @_ctype, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = and i8 %88, 2
   %90 = icmp eq i8 %89, 0
@@ -817,7 +817,7 @@ define dso_local range(i32 0, 2) i32 @acpi_ns_opens_scope(i32 noundef %0) local_
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr [31 x i8], ptr @acpi_gbl_ns_properties, i64 0, i64 %5
+  %6 = getelementptr i8, ptr @acpi_gbl_ns_properties, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 1
   %9 = zext nneg i8 %8 to i32

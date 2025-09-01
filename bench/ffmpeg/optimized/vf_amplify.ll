@@ -247,15 +247,15 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 
 42:                                               ; preds = %.lr.ph378, %.loopexit
   %indvars.iv456 = phi i64 [ 0, %.lr.ph378 ], [ %indvars.iv.next457, %.loopexit ]
-  %43 = getelementptr inbounds nuw [4 x i32], ptr %33, i64 0, i64 %indvars.iv456
+  %43 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv456
   %44 = load i32, ptr %43, align 4, !tbaa !50
   %45 = mul nsw i32 %44, %2
   %46 = sdiv i32 %45, %3
   %47 = mul nsw i32 %44, %34
   %48 = sdiv i32 %47, %3
-  %49 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv456
+  %49 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv456
   %50 = load ptr, ptr %49, align 8, !tbaa !64
-  %51 = getelementptr inbounds nuw [8 x i32], ptr %35, i64 0, i64 %indvars.iv456
+  %51 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv456
   %52 = load i32, ptr %51, align 4, !tbaa !50
   %53 = mul nsw i32 %52, %46
   %54 = sext i32 %53 to i64
@@ -273,22 +273,22 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br i1 %61, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader319
-  %62 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv456
+  %62 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv456
   %63 = load i32, ptr %62, align 4, !tbaa !50
   %.not381 = icmp eq i32 %63, 0
   br i1 %.not381, label %.loopexit, label %.preheader
 
 64:                                               ; preds = %42
   %65 = load ptr, ptr %39, align 8, !tbaa !42
-  %66 = getelementptr inbounds nuw [8 x ptr], ptr %65, i64 0, i64 %indvars.iv456
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv456
   %67 = load ptr, ptr %66, align 8, !tbaa !64
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 64
-  %69 = getelementptr inbounds nuw [8 x i32], ptr %68, i64 0, i64 %indvars.iv456
+  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv456
   %70 = load i32, ptr %69, align 4, !tbaa !50
   %71 = mul nsw i32 %70, %46
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %67, i64 %72
-  %74 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv456
+  %74 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv456
   %75 = load i32, ptr %74, align 4, !tbaa !50
   %76 = sub nsw i32 %48, %46
   tail call void @av_image_copy_plane(ptr noundef %55, i32 noundef %52, ptr noundef %73, i32 noundef %70, i32 noundef %75, i32 noundef %76) #8
@@ -307,10 +307,10 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 .lr.ph369.us:                                     ; preds = %.lr.ph371, %100
   %indvars.iv452 = phi i64 [ %indvars.iv.next453, %100 ], [ 0, %.lr.ph371 ]
   %78 = load ptr, ptr %39, align 8, !tbaa !42
-  %79 = getelementptr inbounds nuw [8 x ptr], ptr %78, i64 0, i64 %indvars.iv456
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv456
   %80 = load ptr, ptr %79, align 8, !tbaa !64
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 64
-  %82 = getelementptr inbounds nuw [8 x i32], ptr %81, i64 0, i64 %indvars.iv456
+  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv456
   %83 = load i32, ptr %82, align 4, !tbaa !50
   %84 = mul nsw i32 %83, %.0283373
   %85 = sext i32 %84 to i64
@@ -352,10 +352,10 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   %.0287368.us = phi i32 [ 0, %.lr.ph369.us ], [ %119, %105 ]
   %106 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv447
   %107 = load ptr, ptr %106, align 8, !tbaa !42
-  %108 = getelementptr inbounds nuw [8 x ptr], ptr %107, i64 0, i64 %indvars.iv456
+  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv456
   %109 = load ptr, ptr %108, align 8, !tbaa !64
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 64
-  %111 = getelementptr inbounds nuw [8 x i32], ptr %110, i64 0, i64 %indvars.iv456
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv456
   %112 = load i32, ptr %111, align 4, !tbaa !50
   %113 = mul nsw i32 %112, %.0283373
   %114 = sext i32 %113 to i64
@@ -389,10 +389,10 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 .lr.ph371.split:                                  ; preds = %.lr.ph371, %157
   %indvars.iv444 = phi i64 [ %indvars.iv.next445, %157 ], [ 0, %.lr.ph371 ]
   %130 = load ptr, ptr %39, align 8, !tbaa !42
-  %131 = getelementptr inbounds nuw [8 x ptr], ptr %130, i64 0, i64 %indvars.iv456
+  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv456
   %132 = load ptr, ptr %131, align 8, !tbaa !64
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 64
-  %134 = getelementptr inbounds nuw [8 x i32], ptr %133, i64 0, i64 %indvars.iv456
+  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv456
   %135 = load i32, ptr %134, align 4, !tbaa !50
   %136 = mul nsw i32 %135, %.0283373
   %137 = sext i32 %136 to i64
@@ -474,15 +474,15 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 185:                                              ; preds = %.lr.ph366, %.loopexit323
   %186 = phi i32 [ %172, %.lr.ph366 ], [ %300, %.loopexit323 ]
   %indvars.iv441 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next442, %.loopexit323 ]
-  %187 = getelementptr inbounds nuw [4 x i32], ptr %175, i64 0, i64 %indvars.iv441
+  %187 = getelementptr inbounds nuw i32, ptr %175, i64 %indvars.iv441
   %188 = load i32, ptr %187, align 4, !tbaa !50
   %189 = mul nsw i32 %188, %2
   %190 = sdiv i32 %189, %3
   %191 = mul nsw i32 %188, %176
   %192 = sdiv i32 %191, %3
-  %193 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv441
+  %193 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv441
   %194 = load ptr, ptr %193, align 8, !tbaa !64
-  %195 = getelementptr inbounds nuw [8 x i32], ptr %177, i64 0, i64 %indvars.iv441
+  %195 = getelementptr inbounds nuw i32, ptr %177, i64 %indvars.iv441
   %196 = load i32, ptr %195, align 4, !tbaa !50
   %197 = mul nsw i32 %196, %190
   %198 = sext i32 %197 to i64
@@ -501,7 +501,7 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br i1 %206, label %.preheader321.lr.ph, label %.loopexit323
 
 .preheader321.lr.ph:                              ; preds = %.preheader322
-  %207 = getelementptr inbounds nuw [4 x i32], ptr %179, i64 0, i64 %indvars.iv441
+  %207 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv441
   %208 = load i32, ptr %207, align 4, !tbaa !50
   %.not380 = icmp ult i32 %208, 2
   br i1 %.not380, label %.loopexit323, label %.preheader321.lr.ph.split.us
@@ -510,10 +510,10 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   %209 = sext i32 %208 to i64
   %210 = lshr i64 %209, 1
   %211 = load ptr, ptr %181, align 8, !tbaa !42
-  %212 = getelementptr inbounds nuw [8 x ptr], ptr %211, i64 0, i64 %indvars.iv441
+  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv441
   %213 = load ptr, ptr %212, align 8, !tbaa !64
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 64
-  %215 = getelementptr inbounds nuw [8 x i32], ptr %214, i64 0, i64 %indvars.iv441
+  %215 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv441
   %216 = load i32, ptr %215, align 4, !tbaa !50
   %umax434 = tail call i64 @llvm.umax.i64(i64 %210, i64 1)
   %217 = sext i32 %190 to i64
@@ -567,10 +567,10 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   %.0294344.us.us.us = phi i32 [ %252, %238 ], [ 0, %.lr.ph346.us.us.us ]
   %239 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv426
   %240 = load ptr, ptr %239, align 8, !tbaa !42
-  %241 = getelementptr inbounds nuw [8 x ptr], ptr %240, i64 0, i64 %indvars.iv441
+  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv441
   %242 = load ptr, ptr %241, align 8, !tbaa !64
   %243 = getelementptr inbounds nuw i8, ptr %240, i64 64
-  %244 = getelementptr inbounds nuw [8 x i32], ptr %243, i64 0, i64 %indvars.iv441
+  %244 = getelementptr inbounds nuw i32, ptr %243, i64 %indvars.iv441
   %245 = load i32, ptr %244, align 4, !tbaa !50
   %246 = sext i32 %245 to i64
   %247 = mul nsw i64 %indvars.iv436, %246
@@ -655,15 +655,15 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 
 287:                                              ; preds = %185
   %288 = load ptr, ptr %181, align 8, !tbaa !42
-  %289 = getelementptr inbounds nuw [8 x ptr], ptr %288, i64 0, i64 %indvars.iv441
+  %289 = getelementptr inbounds nuw ptr, ptr %288, i64 %indvars.iv441
   %290 = load ptr, ptr %289, align 8, !tbaa !64
   %291 = getelementptr inbounds nuw i8, ptr %288, i64 64
-  %292 = getelementptr inbounds nuw [8 x i32], ptr %291, i64 0, i64 %indvars.iv441
+  %292 = getelementptr inbounds nuw i32, ptr %291, i64 %indvars.iv441
   %293 = load i32, ptr %292, align 4, !tbaa !50
   %294 = mul nsw i32 %293, %190
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds i8, ptr %290, i64 %295
-  %297 = getelementptr inbounds nuw [4 x i32], ptr %179, i64 0, i64 %indvars.iv441
+  %297 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv441
   %298 = load i32, ptr %297, align 4, !tbaa !50
   %299 = sub nsw i32 %192, %190
   tail call void @av_image_copy_plane(ptr noundef %199, i32 noundef %196, ptr noundef %296, i32 noundef %293, i32 noundef %298, i32 noundef %299) #8
@@ -696,15 +696,15 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 313:                                              ; preds = %.lr.ph, %.loopexit327
   %314 = phi i32 [ %172, %.lr.ph ], [ %412, %.loopexit327 ]
   %indvars.iv413 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next414, %.loopexit327 ]
-  %315 = getelementptr inbounds nuw [4 x i32], ptr %304, i64 0, i64 %indvars.iv413
+  %315 = getelementptr inbounds nuw i32, ptr %304, i64 %indvars.iv413
   %316 = load i32, ptr %315, align 4, !tbaa !50
   %317 = mul nsw i32 %316, %2
   %318 = sdiv i32 %317, %3
   %319 = mul nsw i32 %316, %305
   %320 = sdiv i32 %319, %3
-  %321 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv413
+  %321 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv413
   %322 = load ptr, ptr %321, align 8, !tbaa !64
-  %323 = getelementptr inbounds nuw [8 x i32], ptr %306, i64 0, i64 %indvars.iv413
+  %323 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv413
   %324 = load i32, ptr %323, align 4, !tbaa !50
   %325 = mul nsw i32 %324, %318
   %326 = sext i32 %325 to i64
@@ -723,7 +723,7 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br i1 %334, label %.preheader325.lr.ph, label %.loopexit327
 
 .preheader325.lr.ph:                              ; preds = %.preheader326
-  %335 = getelementptr inbounds nuw [4 x i32], ptr %308, i64 0, i64 %indvars.iv413
+  %335 = getelementptr inbounds nuw i32, ptr %308, i64 %indvars.iv413
   %336 = load i32, ptr %335, align 4, !tbaa !50
   %.not379 = icmp ult i32 %336, 4
   br i1 %.not379, label %.loopexit327, label %.preheader325.lr.ph.split.us
@@ -732,10 +732,10 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   %337 = sext i32 %336 to i64
   %338 = lshr i64 %337, 2
   %339 = load ptr, ptr %310, align 8, !tbaa !42
-  %340 = getelementptr inbounds nuw [8 x ptr], ptr %339, i64 0, i64 %indvars.iv413
+  %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv413
   %341 = load ptr, ptr %340, align 8, !tbaa !64
   %342 = getelementptr inbounds nuw i8, ptr %339, i64 64
-  %343 = getelementptr inbounds nuw [8 x i32], ptr %342, i64 0, i64 %indvars.iv413
+  %343 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv413
   %344 = load i32, ptr %343, align 4, !tbaa !50
   %umax406 = tail call i64 @llvm.umax.i64(i64 %338, i64 1)
   %345 = sext i32 %318 to i64
@@ -779,10 +779,10 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   %.0281329.us.us.us = phi float [ %373, %360 ], [ 0.000000e+00, %.lr.ph.us.us.us ]
   %361 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv398
   %362 = load ptr, ptr %361, align 8, !tbaa !42
-  %363 = getelementptr inbounds nuw [8 x ptr], ptr %362, i64 0, i64 %indvars.iv413
+  %363 = getelementptr inbounds nuw ptr, ptr %362, i64 %indvars.iv413
   %364 = load ptr, ptr %363, align 8, !tbaa !64
   %365 = getelementptr inbounds nuw i8, ptr %362, i64 64
-  %366 = getelementptr inbounds nuw [8 x i32], ptr %365, i64 0, i64 %indvars.iv413
+  %366 = getelementptr inbounds nuw i32, ptr %365, i64 %indvars.iv413
   %367 = load i32, ptr %366, align 4, !tbaa !50
   %368 = sext i32 %367 to i64
   %369 = mul nsw i64 %indvars.iv408, %368
@@ -853,15 +853,15 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 
 399:                                              ; preds = %313
   %400 = load ptr, ptr %310, align 8, !tbaa !42
-  %401 = getelementptr inbounds nuw [8 x ptr], ptr %400, i64 0, i64 %indvars.iv413
+  %401 = getelementptr inbounds nuw ptr, ptr %400, i64 %indvars.iv413
   %402 = load ptr, ptr %401, align 8, !tbaa !64
   %403 = getelementptr inbounds nuw i8, ptr %400, i64 64
-  %404 = getelementptr inbounds nuw [8 x i32], ptr %403, i64 0, i64 %indvars.iv413
+  %404 = getelementptr inbounds nuw i32, ptr %403, i64 %indvars.iv413
   %405 = load i32, ptr %404, align 4, !tbaa !50
   %406 = mul nsw i32 %405, %318
   %407 = sext i32 %406 to i64
   %408 = getelementptr inbounds i8, ptr %402, i64 %407
-  %409 = getelementptr inbounds nuw [4 x i32], ptr %308, i64 0, i64 %indvars.iv413
+  %409 = getelementptr inbounds nuw i32, ptr %308, i64 %indvars.iv413
   %410 = load i32, ptr %409, align 4, !tbaa !50
   %411 = sub nsw i32 %320, %318
   tail call void @av_image_copy_plane(ptr noundef %327, i32 noundef %324, ptr noundef %408, i32 noundef %405, i32 noundef %410, i32 noundef %411) #8

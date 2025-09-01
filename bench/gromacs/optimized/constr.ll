@@ -1505,7 +1505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
 
 533:                                              ; preds = %.preheader, %533
   %indvars.iv203 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next204, %533 ]
-  %534 = getelementptr inbounds nuw [3 x float], ptr %531, i64 0, i64 %indvars.iv203
+  %534 = getelementptr inbounds nuw float, ptr %531, i64 %indvars.iv203
   %535 = load float, ptr %534, align 4, !tbaa !207
   %536 = fmul float %spec.select, %535
   store float %536, ptr %534, align 4, !tbaa !207
@@ -2300,7 +2300,7 @@ define internal void @_ZN3gmx11Constraints4Impl5applyEblifNS_19ArrayRefWithPaddi
 
 33:                                               ; preds = %25, %41
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %41 ]
-  %34 = getelementptr inbounds nuw [3 x i32], ptr %31, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !61
   %.not19 = icmp eq i32 %35, 0
   br i1 %.not19, label %41, label %36
@@ -2309,7 +2309,7 @@ define internal void @_ZN3gmx11Constraints4Impl5applyEblifNS_19ArrayRefWithPaddi
   %37 = load i64, ptr %3, align 8
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %38, i64 %indvars.iv24
-  %40 = getelementptr inbounds nuw [3 x float], ptr %39, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
   store float 0.000000e+00, ptr %40, align 4, !tbaa !207
   br label %41
 
@@ -2780,7 +2780,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.split.us:      ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %26, label %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit.thread.us.us.preheader, label %._crit_edge.split.us.us
 
 _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit.thread.us.us.preheader: ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.split.us
-  %27 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv153, i32 2
+  %27 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv153, i32 2
   %28 = load i32, ptr %27, align 16, !tbaa !219
   %29 = add i32 %28, 1
   %30 = sext i32 %29 to i64
@@ -2853,7 +2853,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.split:         ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %57, label %.lr.ph.preheader, label %._crit_edge.split
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.split
-  %58 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv142, i32 2
+  %58 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv142, i32 2
   %59 = load i32, ptr %58, align 16, !tbaa !219
   %60 = add i32 %59, 1
   %61 = sext i32 %60 to i64
@@ -3005,7 +3005,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i80: ; preds = %.noexc85
   br i1 %exitcond182.not, label %.split134.us, label %.split.us, !llvm.loop !379
 
 .lr.ph129.us:                                     ; preds = %.split.us
-  %119 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv179, i32 2
+  %119 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv179, i32 2
   %120 = load i32, ptr %119, align 16, !tbaa !219
   %121 = add i32 %120, 1
   %122 = sext i32 %121 to i64
@@ -3069,7 +3069,7 @@ _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit87.thread.us.us: 
   br i1 %148, label %.lr.ph129, label %._crit_edge130.split
 
 .lr.ph129:                                        ; preds = %.split
-  %149 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv168, i32 2
+  %149 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv168, i32 2
   %150 = load i32, ptr %149, align 16, !tbaa !219
   %151 = add i32 %150, 1
   %152 = sext i32 %151 to i64
@@ -4850,7 +4850,7 @@ define void @_ZN3gmx11Constraints4ImplC2ERK10gmx_mtop_tRK10t_inputrecP6pull_tP8_
 
 switch.lookup:                                    ; preds = %60
   %64 = zext nneg i32 %62 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN3gmx11Constraints4ImplC2ERK10gmx_mtop_tRK10t_inputrecP6pull_tP8_IO_FILEPK9t_commrecbPK14gmx_multisim_tP6t_nrnbP13gmx_wallcyclebPNS_25ObservablesReducerBuilderEii, i64 0, i64 %64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3gmx11Constraints4ImplC2ERK10gmx_mtop_tRK10t_inputrecP6pull_tP8_IO_FILEPK9t_commrecbPK14gmx_multisim_tP6t_nrnbP13gmx_wallcyclebPNS_25ObservablesReducerBuilderEii, i64 %64
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.edge
 

@@ -3984,7 +3984,7 @@ define internal fastcc void @"_ZN4core3ptr158drop_in_place$LT$alloc..vec..in_pla
 
 .lr.ph.i.i:                                       ; preds = %0, %"_ZN4core3ptr112drop_in_place$LT$$LP$wasi_common..sched..subscription..SubscriptionResult$C$wasi_common..sched..Userdata$RP$$GT$17hf9eeb06d73839ce1E.exit.i.i"
   %.07.i.i = phi i64 [ %7, %"_ZN4core3ptr112drop_in_place$LT$$LP$wasi_common..sched..subscription..SubscriptionResult$C$wasi_common..sched..Userdata$RP$$GT$17hf9eeb06d73839ce1E.exit.i.i" ], [ 0, %0 ]
-  %6 = getelementptr inbounds [0 x { { i64, [3 x i64] }, i64 }], ptr %.0.val, i64 0, i64 %.07.i.i
+  %6 = getelementptr inbounds { { i64, [3 x i64] }, i64 }, ptr %.0.val, i64 %.07.i.i
   %7 = add nuw i64 %.07.i.i, 1
   %8 = load i64, ptr %6, align 8, !range !28, !alias.scope !1208, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4036,7 +4036,7 @@ define internal fastcc void @"_ZN4core3ptr158drop_in_place$LT$alloc..vec..in_pla
   br label %24
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds [0 x { { i64, [3 x i64] }, i64 }], ptr %.0.val, i64 0, i64 %.1.i.i
+  %29 = getelementptr inbounds { { i64, [3 x i64] }, i64 }, ptr %.0.val, i64 %.1.i.i
   %30 = add i64 %.1.i.i, 1
   invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$$LP$wasi_common..sched..subscription..SubscriptionResult$C$wasi_common..sched..Userdata$RP$$GT$17hf9eeb06d73839ce1E"(ptr noalias noundef align 8 dereferenceable(40) %29) #30
           to label %24 unwind label %32
@@ -4067,7 +4067,7 @@ define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$alloc..vec..in_pla
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr112drop_in_place$LT$$LP$wasi_common..sched..subscription..SubscriptionResult$C$wasi_common..sched..Userdata$RP$$GT$17hf9eeb06d73839ce1E.exit.i.i"
   %.07.i.i = phi i64 [ %9, %"_ZN4core3ptr112drop_in_place$LT$$LP$wasi_common..sched..subscription..SubscriptionResult$C$wasi_common..sched..Userdata$RP$$GT$17hf9eeb06d73839ce1E.exit.i.i" ], [ 0, %1 ]
-  %8 = getelementptr inbounds [0 x { { i64, [3 x i64] }, i64 }], ptr %2, i64 0, i64 %.07.i.i
+  %8 = getelementptr inbounds { { i64, [3 x i64] }, i64 }, ptr %2, i64 %.07.i.i
   %9 = add nuw i64 %.07.i.i, 1
   %10 = load i64, ptr %8, align 8, !range !28, !alias.scope !1227, !noalias !1224, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4119,7 +4119,7 @@ define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$alloc..vec..in_pla
   br label %26
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds [0 x { { i64, [3 x i64] }, i64 }], ptr %2, i64 0, i64 %.1.i.i
+  %31 = getelementptr inbounds { { i64, [3 x i64] }, i64 }, ptr %2, i64 %.1.i.i
   %32 = add i64 %.1.i.i, 1
   invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$$LP$wasi_common..sched..subscription..SubscriptionResult$C$wasi_common..sched..Userdata$RP$$GT$17hf9eeb06d73839ce1E"(ptr noalias noundef align 8 dereferenceable(40) %31) #30
           to label %26 unwind label %33, !noalias !1224
@@ -5443,7 +5443,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 
 .lr.ph.i.i:                                       ; preds = %.loopexit, %"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E.exit.i.i"
   %.07.i.i = phi i64 [ %44, %"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E.exit.i.i" ], [ 0, %.loopexit ]
-  %43 = getelementptr inbounds [0 x { { [10 x i32], i32, [1 x i32] }, i64 }], ptr %31, i64 0, i64 %.07.i.i
+  %43 = getelementptr inbounds { { [10 x i32], i32, [1 x i32] }, i64 }, ptr %31, i64 %.07.i.i
   %44 = add nuw i64 %.07.i.i, 1
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %46 = load i32, ptr %45, align 8, !range !1164, !alias.scope !1664, !noalias !1663, !noundef !4
@@ -5488,7 +5488,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %54
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds [0 x { { [10 x i32], i32, [1 x i32] }, i64 }], ptr %31, i64 0, i64 %.1.i.i
+  %59 = getelementptr inbounds { { [10 x i32], i32, [1 x i32] }, i64 }, ptr %31, i64 %.1.i.i
   %60 = add i64 %.1.i.i, 1
   invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$wasi_common..sched..subscription..Subscription$C$wasi_common..sched..Userdata$RP$$GT$17hf62ff87a14e71666E"(ptr noalias noundef align 8 dereferenceable(56) %59) #30
           to label %54 unwind label %61, !noalias !1663

@@ -394,7 +394,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
 
 cleanup.done:                                     ; preds = %entry
   %idxprom = zext nneg i8 %nbit to i64
-  %arrayidx = getelementptr inbounds nuw [9 x i8], ptr @_ZN8proxygen5HPACKL10NBIT_MASKSE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr @_ZN8proxygen5HPACKL10NBIT_MASKSE, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
   %conv25 = zext i8 %3 to i64
   %cmp26 = icmp ult i64 %value, %conv25

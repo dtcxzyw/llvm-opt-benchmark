@@ -463,7 +463,7 @@ define dso_local noundef i64 @ordered_set_transition_multi(ptr noundef %0) local
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %2, i64 0, i64 %indvars.iv.next
+  %27 = getelementptr inbounds nuw %struct.NullableDatum, ptr %2, i64 %indvars.iv.next
   %28 = load i64, ptr %27, align 8
   %29 = load ptr, ptr %24, align 8
   %30 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
@@ -1801,7 +1801,7 @@ define internal fastcc i64 @hypothetical_rank_common(ptr noundef readonly captur
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %8, i64 0, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i64 %indvars.iv.next
   %39 = load i64, ptr %38, align 8
   %40 = load ptr, ptr %35, align 8
   %41 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
@@ -2050,7 +2050,7 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr noundef readonly capture
 72:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %8, i64 0, i64 %indvars.iv.next
+  %73 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i64 %indvars.iv.next
   %74 = load i64, ptr %73, align 8
   %75 = load ptr, ptr %70, align 8
   %76 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv

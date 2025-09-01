@@ -415,7 +415,7 @@ define hidden noundef i32 @_ZN12PhaseChaitin18use_prior_registerEP4NodejS1_P5Blo
 39:                                               ; preds = %18
   %40 = lshr i32 %33, 6
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [11 x i64], ptr %37, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr %37, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = and i32 %33, 63
   %45 = zext nneg i32 %44 to i64
@@ -3057,7 +3057,7 @@ _ZNK10Node_ArrayixEj.exit426.thread:              ; preds = %.lr.ph669, %_ZNK10N
   %699 = getelementptr inbounds nuw %class.LRG, ptr %698, i64 %606, i32 10
   %700 = lshr i64 %686, 6
   %701 = and i64 %700, 67108863
-  %702 = getelementptr inbounds nuw [11 x i64], ptr %699, i64 0, i64 %701
+  %702 = getelementptr inbounds nuw i64, ptr %699, i64 %701
   %703 = load i64, ptr %702, align 8
   %704 = and i64 %686, 63
   %705 = shl nuw i64 1, %704
@@ -3726,7 +3726,7 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit473
   %1040 = getelementptr inbounds nuw %class.LRG, ptr %1039, i64 %750, i32 10
   %1041 = lshr i32 %1034, 6
   %1042 = zext nneg i32 %1041 to i64
-  %1043 = getelementptr inbounds nuw [11 x i64], ptr %1040, i64 0, i64 %1042
+  %1043 = getelementptr inbounds nuw i64, ptr %1040, i64 %1042
   %1044 = load i64, ptr %1043, align 8
   %1045 = and i32 %1034, 63
   %1046 = zext nneg i32 %1045 to i64
@@ -3743,7 +3743,7 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit473
   %1053 = xor i64 %1052, -1
   %1054 = lshr i32 %752, 6
   %1055 = zext nneg i32 %1054 to i64
-  %1056 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %1055
+  %1056 = getelementptr inbounds nuw i64, ptr %3, i64 %1055
   %1057 = load i64, ptr %1056, align 8
   %1058 = and i64 %1057, %1053
   store i64 %1058, ptr %1056, align 8
@@ -3755,7 +3755,7 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit473
 .lr.ph.i474:                                      ; preds = %1049, %1069
   %.0712.i = phi i32 [ %1070, %1069 ], [ %1059, %1049 ]
   %1061 = zext i32 %.0712.i to i64
-  %1062 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %1061
+  %1062 = getelementptr inbounds nuw i64, ptr %3, i64 %1061
   %1063 = load i64, ptr %1062, align 8
   %.not9.i = icmp eq i64 %1063, 0
   br i1 %.not9.i, label %1069, label %1064
@@ -3927,7 +3927,7 @@ _ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread: ; preds = %_ZN10No
 1142:                                             ; preds = %1141
   %1143 = add i32 %.sroa.7.1, 1
   %1144 = zext i32 %.sroa.7.1 to i64
-  %1145 = getelementptr inbounds nuw [11 x i64], ptr %1136, i64 0, i64 %1144
+  %1145 = getelementptr inbounds nuw i64, ptr %1136, i64 %1144
   %1146 = load i64, ptr %1145, align 8
   %.not11.i.i = icmp eq i64 %1146, 0
   br i1 %.not11.i.i, label %1141, label %_ZN15RegMaskIteratorC2ERK7RegMask.exit, !llvm.loop !39
@@ -3973,7 +3973,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %1142
 1161:                                             ; preds = %.preheader.i492
   %1162 = add i32 %.sroa.7.3, 1
   %1163 = zext i32 %.sroa.7.3 to i64
-  %1164 = getelementptr inbounds nuw [11 x i64], ptr %1136, i64 0, i64 %1163
+  %1164 = getelementptr inbounds nuw i64, ptr %1136, i64 %1163
   %1165 = load i64, ptr %1164, align 8
   %.not11.i493 = icmp eq i64 %1165, 0
   br i1 %.not11.i493, label %.preheader.i492, label %1166, !llvm.loop !39
@@ -4147,7 +4147,7 @@ define linkonce_odr hidden noundef i32 @_ZNK13MachMergeNode9ideal_regEv(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %8, i32 4
+  %9 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %8, i32 4
   %10 = load i32, ptr %9, align 4
   ret i32 %10
 }

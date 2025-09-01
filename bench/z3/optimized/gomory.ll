@@ -1061,7 +1061,7 @@ _ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i.preheade
 
 _ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i: ; preds = %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i.preheader, %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit40.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit40.i ], [ 0, %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i.preheader ]
-  %58 = getelementptr inbounds nuw [64 x %"struct.std::__detail::_Scratch_list"], ptr %6, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw %"struct.std::__detail::_Scratch_list", ptr %6, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 16, !tbaa !34
   %60 = icmp eq ptr %59, %58
   br i1 %60, label %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit40.i, label %61
@@ -7090,7 +7090,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %22, %28
 36:                                               ; preds = %.preheader, %105
   %37 = phi i1 [ true, %.preheader ], [ false, %105 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %105 ]
-  %38 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !92
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 1073741824

@@ -1970,7 +1970,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63
 
 switch.lookup:                                    ; preds = %switch.early.test
   %83 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN2cv3dnn14dnn4_v202412233Net4Impl19setPreferableTargetEi, i64 0, i64 %83
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv3dnn14dnn4_v202412233Net4Impl19setPreferableTargetEi, i64 %83
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %84
 

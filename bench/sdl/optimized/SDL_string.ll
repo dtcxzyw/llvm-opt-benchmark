@@ -425,7 +425,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 12:                                               ; preds = %8
   %.mask = and i32 %11, 255
   %13 = zext nneg i32 %.mask to i64
-  %14 = getelementptr inbounds nuw [256 x %struct.CaseFoldHashBucket1_16], ptr @case_fold_hash1_16, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %struct.CaseFoldHashBucket1_16, ptr @case_fold_hash1_16, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8
   %.not108141.not = icmp eq i8 %16, 0
@@ -459,7 +459,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 ._crit_edge:                                      ; preds = %18, %12
   %25 = and i32 %11, 15
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [16 x %struct.CaseFoldHashBucket2_16], ptr @case_fold_hash2_16, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %struct.CaseFoldHashBucket2_16, ptr @case_fold_hash2_16, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i8, ptr %28, align 8
   %.not110143.not = icmp eq i8 %29, 0
@@ -498,7 +498,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 ._crit_edge146:                                   ; preds = %31, %._crit_edge
   %43 = and i32 %11, 3
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [4 x %struct.CaseFoldHashBucket3_16], ptr @case_fold_hash3_16, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.CaseFoldHashBucket3_16, ptr @case_fold_hash3_16, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i8, ptr %46, align 8
   %.not112149.not = icmp eq i8 %47, 0
@@ -543,7 +543,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 66:                                               ; preds = %8
   %67 = and i32 %11, 15
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw [16 x %struct.CaseFoldHashBucket1_32], ptr @case_fold_hash1_32, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %struct.CaseFoldHashBucket1_32, ptr @case_fold_hash1_32, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i8, ptr %70, align 8
   %.not106137.not = icmp eq i8 %71, 0
@@ -964,7 +964,7 @@ define hidden range(i32 -1, 2) i32 @SDL_wcscasecmp_REAL(ptr noundef readonly cap
 6:                                                ; preds = %5
   %7 = add nsw i32 %.023, 1
   %8 = sext i32 %.023 to i64
-  %9 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %8
+  %9 = getelementptr inbounds i32, ptr %3, i64 %8
   br label %15
 
 StepUTF32.exit:                                   ; preds = %5
@@ -989,7 +989,7 @@ StepUTF32.exit:                                   ; preds = %5
 16:                                               ; preds = %15
   %17 = add nsw i32 %.019, 1
   %18 = sext i32 %.019 to i64
-  %19 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %18
+  %19 = getelementptr inbounds i32, ptr %4, i64 %18
   br label %25
 
 StepUTF32.exit27:                                 ; preds = %15
@@ -1049,7 +1049,7 @@ define hidden range(i32 -1, 2) i32 @SDL_wcsncasecmp_REAL(ptr noundef %0, ptr nou
 7:                                                ; preds = %6
   %8 = add nsw i32 %.031, 1
   %9 = sext i32 %.031 to i64
-  %10 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr %4, i64 %9
   br label %25
 
 11:                                               ; preds = %6
@@ -1091,7 +1091,7 @@ StepUTF32.exit:                                   ; preds = %11, %12, %15
 26:                                               ; preds = %25
   %27 = add nsw i32 %.027, 1
   %28 = sext i32 %.027 to i64
-  %29 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds i32, ptr %5, i64 %28
   br label %44
 
 30:                                               ; preds = %25
@@ -1515,7 +1515,7 @@ define hidden range(i32 -1, 2) i32 @SDL_strncasecmp_REAL(ptr noundef %0, ptr nou
 11:                                               ; preds = %8
   %12 = add nsw i32 %.029, 1
   %13 = sext i32 %.029 to i64
-  %14 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %13
+  %14 = getelementptr inbounds i32, ptr %6, i64 %13
   br label %22
 
 15:                                               ; preds = %8
@@ -1541,7 +1541,7 @@ define hidden range(i32 -1, 2) i32 @SDL_strncasecmp_REAL(ptr noundef %0, ptr nou
 24:                                               ; preds = %22
   %25 = add nsw i32 %.025, 1
   %26 = sext i32 %.025 to i64
-  %27 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %26
+  %27 = getelementptr inbounds i32, ptr %7, i64 %26
   br label %35
 
 28:                                               ; preds = %22
@@ -1596,7 +1596,7 @@ define hidden noundef ptr @SDL_itoa_REAL(i32 noundef %0, ptr noundef returned ca
   %.015.i.i = phi ptr [ %6, %.preheader.i.i ], [ %13, %9 ]
   %.01114.i.i = phi i64 [ %7, %.preheader.i.i ], [ %14, %9 ]
   %10 = urem i64 %.01114.i.i, %8
-  %11 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @ntoa_table, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 1
   store i8 %12, ptr %.015.i.i, align 1
@@ -1641,7 +1641,7 @@ define hidden noundef ptr @SDL_itoa_REAL(i32 noundef %0, ptr noundef returned ca
   %.015.i11.i = phi ptr [ %1, %.preheader.i10.i ], [ %28, %24 ]
   %.01114.i12.i = phi i64 [ %4, %.preheader.i10.i ], [ %29, %24 ]
   %25 = urem i64 %.01114.i12.i, %23
-  %26 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @ntoa_table, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds nuw i8, ptr %.015.i11.i, i64 1
   store i8 %27, ptr %.015.i11.i, align 1
@@ -1700,7 +1700,7 @@ define hidden noundef ptr @SDL_ltoa_REAL(i64 noundef %0, ptr noundef returned ca
   %.015.i = phi ptr [ %5, %.preheader.i ], [ %12, %8 ]
   %.01114.i = phi i64 [ %6, %.preheader.i ], [ %13, %8 ]
   %9 = urem i64 %.01114.i, %7
-  %10 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @ntoa_table, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
   store i8 %11, ptr %.015.i, align 1
@@ -1745,7 +1745,7 @@ define hidden noundef ptr @SDL_ltoa_REAL(i64 noundef %0, ptr noundef returned ca
   %.015.i11 = phi ptr [ %1, %.preheader.i10 ], [ %27, %23 ]
   %.01114.i12 = phi i64 [ %0, %.preheader.i10 ], [ %28, %23 ]
   %24 = urem i64 %.01114.i12, %22
-  %25 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @ntoa_table, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds nuw i8, ptr %.015.i11, i64 1
   store i8 %26, ptr %.015.i11, align 1
@@ -1802,7 +1802,7 @@ define hidden noundef ptr @SDL_uitoa_REAL(i32 noundef %0, ptr noundef returned c
   %.015.i = phi ptr [ %1, %.preheader.i ], [ %10, %6 ]
   %.01114.i = phi i64 [ %4, %.preheader.i ], [ %11, %6 ]
   %7 = urem i64 %.01114.i, %5
-  %8 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @ntoa_table, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
   store i8 %9, ptr %.015.i, align 1
@@ -1858,7 +1858,7 @@ define hidden noundef ptr @SDL_ultoa_REAL(i64 noundef %0, ptr noundef returned c
   %.015 = phi ptr [ %1, %.preheader ], [ %9, %5 ]
   %.01114 = phi i64 [ %0, %.preheader ], [ %10, %5 ]
   %6 = urem i64 %.01114, %4
-  %7 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @ntoa_table, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   store i8 %8, ptr %.015, align 1
@@ -1917,7 +1917,7 @@ define hidden noundef ptr @SDL_lltoa_REAL(i64 noundef %0, ptr noundef returned c
   %.015.i = phi ptr [ %5, %.preheader.i ], [ %12, %8 ]
   %.01114.i = phi i64 [ %6, %.preheader.i ], [ %13, %8 ]
   %9 = urem i64 %.01114.i, %7
-  %10 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @ntoa_table, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
   store i8 %11, ptr %.015.i, align 1
@@ -1962,7 +1962,7 @@ define hidden noundef ptr @SDL_lltoa_REAL(i64 noundef %0, ptr noundef returned c
   %.015.i11 = phi ptr [ %1, %.preheader.i10 ], [ %27, %23 ]
   %.01114.i12 = phi i64 [ %0, %.preheader.i10 ], [ %28, %23 ]
   %24 = urem i64 %.01114.i12, %22
-  %25 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @ntoa_table, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds nuw i8, ptr %.015.i11, i64 1
   store i8 %26, ptr %.015.i11, align 1
@@ -2018,7 +2018,7 @@ define hidden noundef ptr @SDL_ulltoa_REAL(i64 noundef %0, ptr noundef returned 
   %.015 = phi ptr [ %1, %.preheader ], [ %9, %5 ]
   %.01114 = phi i64 [ %0, %.preheader ], [ %10, %5 ]
   %6 = urem i64 %.01114, %4
-  %7 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @ntoa_table, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   store i8 %8, ptr %.015, align 1
@@ -2154,7 +2154,7 @@ define hidden range(i32 -1, 2) i32 @SDL_strcasecmp_REAL(ptr noundef %0, ptr noun
 8:                                                ; preds = %7
   %9 = add nsw i32 %.022, 1
   %10 = sext i32 %.022 to i64
-  %11 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr %5, i64 %10
   br label %15
 
 12:                                               ; preds = %7
@@ -2173,7 +2173,7 @@ define hidden range(i32 -1, 2) i32 @SDL_strcasecmp_REAL(ptr noundef %0, ptr noun
 16:                                               ; preds = %15
   %17 = add nsw i32 %.018, 1
   %18 = sext i32 %.018 to i64
-  %19 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %18
+  %19 = getelementptr inbounds i32, ptr %6, i64 %18
   br label %23
 
 20:                                               ; preds = %15

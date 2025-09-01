@@ -10301,7 +10301,7 @@ define dso_local void @push_reconfig_to_slurmd() local_unnamed_addr #0 {
 
 32:                                               ; preds = %.preheader, %31
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %31 ]
-  %33 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i16, ptr %35, align 8
@@ -10348,7 +10348,7 @@ define dso_local void @push_reconfig_to_slurmd() local_unnamed_addr #0 {
 
 56:                                               ; preds = %._crit_edge, %77
   %indvars.iv26 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next27, %77 ]
-  %57 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv26
+  %57 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv26
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %2, align 8
   store ptr null, ptr %57, align 8

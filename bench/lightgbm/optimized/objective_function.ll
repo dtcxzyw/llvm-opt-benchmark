@@ -20239,9 +20239,9 @@ define internal void @_ZNK8LightGBM13BinaryLogloss12GetGradientsEPKdPfS3_.omp_ou
 38:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %39 = zext i1 %37 to i64
-  %40 = getelementptr inbounds nuw [2 x i32], ptr %25, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !127
-  %42 = getelementptr inbounds nuw [2 x double], ptr %26, i64 0, i64 %39
+  %42 = getelementptr inbounds nuw double, ptr %26, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !153
   %44 = sub nsw i32 0, %41
   %45 = sitofp i32 %44 to double
@@ -20372,9 +20372,9 @@ define internal void @_ZNK8LightGBM13BinaryLogloss12GetGradientsEPKdPfS3_.omp_ou
 39:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %40 = zext i1 %38 to i64
-  %41 = getelementptr inbounds nuw [2 x i32], ptr %25, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %25, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !127
-  %43 = getelementptr inbounds nuw [2 x double], ptr %26, i64 0, i64 %40
+  %43 = getelementptr inbounds nuw double, ptr %26, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !153
   %45 = sub nsw i32 0, %42
   %46 = sitofp i32 %45 to double

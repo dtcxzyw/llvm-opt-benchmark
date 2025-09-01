@@ -126,7 +126,7 @@ define dso_local void @intel_fbc_cleanup(ptr noundef readonly captures(none) %0)
   br i1 %10, label %33, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr [4 x ptr], ptr %3, i64 0, i64 %5
+  %12 = getelementptr ptr, ptr %3, i64 %5
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %33, label %15
@@ -682,7 +682,7 @@ define dso_local void @intel_fbc_invalidate(ptr noundef readonly captures(none) 
   br i1 %11, label %64, label %12
 
 12:                                               ; preds = %.split
-  %13 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %6
+  %13 = getelementptr ptr, ptr %5, i64 %6
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %64, label %16
@@ -805,7 +805,7 @@ define dso_local void @intel_fbc_flush(ptr noundef readonly captures(none) %0, i
   br i1 %11, label %34, label %12
 
 12:                                               ; preds = %.split.us
-  %13 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %6
+  %13 = getelementptr ptr, ptr %5, i64 %6
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %34, label %16
@@ -856,7 +856,7 @@ define dso_local void @intel_fbc_flush(ptr noundef readonly captures(none) %0, i
   br i1 %42, label %102, label %43
 
 43:                                               ; preds = %.split
-  %44 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %37
+  %44 = getelementptr ptr, ptr %5, i64 %37
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %102, label %47
@@ -2048,7 +2048,7 @@ define dso_local void @intel_fbc_reset_underrun(ptr noundef readonly captures(no
   br i1 %10, label %32, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr [4 x ptr], ptr %3, i64 0, i64 %5
+  %12 = getelementptr ptr, ptr %3, i64 %5
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %32, label %15
@@ -2110,7 +2110,7 @@ define dso_local void @intel_fbc_handle_fifo_underrun_irq(ptr noundef readonly c
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr [4 x ptr], ptr %3, i64 0, i64 %5
+  %12 = getelementptr ptr, ptr %3, i64 %5
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %25, label %15
@@ -2303,7 +2303,7 @@ define dso_local void @intel_fbc_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %87
 
 87:                                               ; preds = %86, %85, %80, %74, %72, %69, %55
-  %88 = getelementptr [4 x ptr], ptr %47, i64 0, i64 %49
+  %88 = getelementptr ptr, ptr %47, i64 %49
   store ptr %57, ptr %88, align 8
   br label %89
 
@@ -2335,7 +2335,7 @@ define dso_local void @intel_fbc_sanitize(ptr noundef readonly captures(none) %0
   br i1 %10, label %49, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr [4 x ptr], ptr %3, i64 0, i64 %5
+  %12 = getelementptr ptr, ptr %3, i64 %5
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %49, label %15
@@ -4164,7 +4164,7 @@ define internal void @i965_fbc_nuke(ptr noundef readonly captures(none) %0) #0 a
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = zext i32 %5 to i64
-  %11 = getelementptr [7 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr i32, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %9, align 4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -4666,7 +4666,7 @@ define internal void @i8xx_fbc_nuke(ptr noundef readonly captures(none) %0) #0 a
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = zext i32 %5 to i64
-  %11 = getelementptr [7 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr i32, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %9, align 4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32

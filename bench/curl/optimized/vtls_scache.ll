@@ -941,7 +941,7 @@ define internal fastcc i32 @cf_ssl_peer_key_add_hash(ptr noundef nonnull %0, ptr
 
 .preheader:                                       ; preds = %9, %13
   %.01527 = phi i64 [ %14, %13 ], [ 0, %9 ]
-  %15 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.01527
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %.01527
   %16 = load i8, ptr %15, align 1, !tbaa !147
   %17 = zext i8 %16 to i32
   %18 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %0, ptr noundef nonnull @.str.36, i32 noundef %17) #9

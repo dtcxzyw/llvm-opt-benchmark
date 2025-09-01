@@ -733,7 +733,7 @@ _ZN5serde2de10EnumAccess7variant17hd41a8cfd13bc6663E.exit.i: ; preds = %42
   br i1 %161, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805.exit.i", label %162
 
 162:                                              ; preds = %160
-  %163 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %157, i64 0, i64 %.sroa.0.0.i.i.i
+  %163 = getelementptr inbounds { i64, [8 x i64] }, ptr %157, i64 %.sroa.0.0.i.i.i
   %164 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(72) %163)
           to label %160 unwind label %167, !noalias !176
@@ -749,7 +749,7 @@ _ZN5serde2de10EnumAccess7variant17hd41a8cfd13bc6663E.exit.i: ; preds = %42
   br label %165
 
 169:                                              ; preds = %165
-  %170 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %157, i64 0, i64 %.sroa.0.1.i.i.i
+  %170 = getelementptr inbounds { i64, [8 x i64] }, ptr %157, i64 %.sroa.0.1.i.i.i
   %171 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(72) %170) #22
           to label %165 unwind label %172, !noalias !176
@@ -2867,7 +2867,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 34:                                               ; preds = %38, %.lr.ph.i
   %35 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %39, %38 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !763)
-  %36 = getelementptr inbounds [0 x i8], ptr %33, i64 0, i64 %35
+  %36 = getelementptr inbounds i8, ptr %33, i64 %35
   %37 = load i8, ptr %36, align 1, !noalias !764, !noundef !5
   switch i8 %37, label %40 [
     i8 32, label %38
@@ -2937,7 +2937,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 54:                                               ; preds = %50
   %.sroa.0.09.i.add = add nuw nsw i64 %.sroa.0.09.i.idx, 1
-  %55 = getelementptr inbounds [0 x i8], ptr %33, i64 0, i64 %48
+  %55 = getelementptr inbounds i8, ptr %33, i64 %48
   %56 = load i8, ptr %55, align 1, !noalias !780, !noundef !5
   %57 = add nuw i64 %48, 1
   store i64 %57, ptr %28, align 8, !alias.scope !782, !noalias !783
@@ -2980,7 +2980,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 70:                                               ; preds = %66
   %.sroa.0.09.i97.add = add nuw nsw i64 %.sroa.0.09.i97.idx, 1
-  %71 = getelementptr inbounds [0 x i8], ptr %33, i64 0, i64 %64
+  %71 = getelementptr inbounds i8, ptr %33, i64 %64
   %72 = load i8, ptr %71, align 1, !noalias !796, !noundef !5
   %73 = add nuw i64 %64, 1
   store i64 %73, ptr %28, align 8, !alias.scope !798, !noalias !799
@@ -3023,7 +3023,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 86:                                               ; preds = %82
   %.sroa.0.09.i102.add = add nuw nsw i64 %.sroa.0.09.i102.idx, 1
-  %87 = getelementptr inbounds [0 x i8], ptr %33, i64 0, i64 %80
+  %87 = getelementptr inbounds i8, ptr %33, i64 %80
   %88 = load i8, ptr %87, align 1, !noalias !812, !noundef !5
   %89 = add nuw i64 %80, 1
   store i64 %89, ptr %28, align 8, !alias.scope !814, !noalias !815
@@ -3278,7 +3278,7 @@ _ZN5serde2de9SeqAccess12next_element17hf154379318738b5bE.exit.i: ; preds = %159
   br i1 %168, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805.exit.i.i", label %169
 
 169:                                              ; preds = %167
-  %170 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %165, i64 0, i64 %.sroa.0.0.i.i.i.i
+  %170 = getelementptr inbounds { i64, [8 x i64] }, ptr %165, i64 %.sroa.0.0.i.i.i.i
   %171 = add i64 %.sroa.0.0.i.i.i.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(72) %170)
           to label %167 unwind label %174, !noalias !854
@@ -3294,7 +3294,7 @@ _ZN5serde2de9SeqAccess12next_element17hf154379318738b5bE.exit.i: ; preds = %159
   br label %172
 
 176:                                              ; preds = %172
-  %177 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %165, i64 0, i64 %.sroa.0.1.i.i.i.i
+  %177 = getelementptr inbounds { i64, [8 x i64] }, ptr %165, i64 %.sroa.0.1.i.i.i.i
   %178 = add i64 %.sroa.0.1.i.i.i.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(72) %177) #22
           to label %172 unwind label %179, !noalias !854
@@ -3815,7 +3815,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 22:                                               ; preds = %26, %.lr.ph.i
   %23 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %27, %26 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1010)
-  %24 = getelementptr inbounds [0 x i8], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds i8, ptr %21, i64 %23
   %25 = load i8, ptr %24, align 1, !noalias !1011, !noundef !5
   switch i8 %25, label %30 [
     i8 32, label %26
@@ -3925,7 +3925,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 63:                                               ; preds = %67, %.lr.ph.i.i.i.i.i
   %64 = phi i64 [ %.promoted.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %68, %67 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1059)
-  %65 = getelementptr inbounds [0 x i8], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds i8, ptr %62, i64 %64
   %66 = load i8, ptr %65, align 1, !noalias !1060, !noundef !5
   switch i8 %66, label %70 [
     i8 32, label %67
@@ -4022,7 +4022,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 97:                                               ; preds = %101, %.lr.ph.i29
   %98 = phi i64 [ %.promoted.i27, %.lr.ph.i29 ], [ %102, %101 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1079)
-  %99 = getelementptr inbounds [0 x i8], ptr %96, i64 0, i64 %98
+  %99 = getelementptr inbounds i8, ptr %96, i64 %98
   %100 = load i8, ptr %99, align 1, !noalias !1080, !noundef !5
   switch i8 %100, label %114 [
     i8 32, label %101
@@ -4110,7 +4110,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 22:                                               ; preds = %26, %.lr.ph.i
   %23 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %27, %26 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1097)
-  %24 = getelementptr inbounds [0 x i8], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds i8, ptr %21, i64 %23
   %25 = load i8, ptr %24, align 1, !noalias !1098, !noundef !5
   switch i8 %25, label %30 [
     i8 32, label %26
@@ -4230,7 +4230,7 @@ default.unreachable:                              ; preds = %76, %43
 64:                                               ; preds = %68, %.lr.ph.i.i.i.i.i
   %65 = phi i64 [ %.promoted.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %69, %68 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1146)
-  %66 = getelementptr inbounds [0 x i8], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds i8, ptr %63, i64 %65
   %67 = load i8, ptr %66, align 1, !noalias !1147, !noundef !5
   switch i8 %67, label %71 [
     i8 32, label %68
@@ -4336,7 +4336,7 @@ default.unreachable:                              ; preds = %76, %43
 100:                                              ; preds = %104, %.lr.ph.i29
   %101 = phi i64 [ %.promoted.i27, %.lr.ph.i29 ], [ %105, %104 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1166)
-  %102 = getelementptr inbounds [0 x i8], ptr %99, i64 0, i64 %101
+  %102 = getelementptr inbounds i8, ptr %99, i64 %101
   %103 = load i8, ptr %102, align 1, !noalias !1167, !noundef !5
   switch i8 %103, label %117 [
     i8 32, label %104
@@ -4418,7 +4418,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 12:                                               ; preds = %16, %.lr.ph.i
   %13 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %17, %16 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1184)
-  %14 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !noalias !1185, !noundef !5
   switch i8 %15, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17he5f4c6a5082e93c6E.exit.thread" [
     i8 32, label %16
@@ -4486,7 +4486,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 34:                                               ; preds = %30
   %.sroa.0.09.i.add = add nuw nsw i64 %.sroa.0.09.i.idx, 1
-  %35 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %28
+  %35 = getelementptr inbounds i8, ptr %11, i64 %28
   %36 = load i8, ptr %35, align 1, !noalias !1207, !noundef !5
   %37 = add nuw i64 %28, 1
   store i64 %37, ptr %6, align 8, !alias.scope !1209, !noalias !1210
@@ -4549,7 +4549,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 13:                                               ; preds = %17, %.lr.ph.i.i
   %14 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %18, %17 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1234)
-  %15 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds i8, ptr %12, i64 %14
   %16 = load i8, ptr %15, align 1, !noalias !1235, !noundef !5
   switch i8 %16, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17he5f4c6a5082e93c6E.exit.i" [
     i8 32, label %17
@@ -21429,7 +21429,7 @@ define hidden void @"_ZN161_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deseri
 12:                                               ; preds = %16, %.lr.ph.i.i
   %13 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %17, %16 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2600)
-  %14 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !noalias !2601, !noundef !5
   switch i8 %15, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17he5f4c6a5082e93c6E.exit.thread.i" [
     i8 32, label %16
@@ -21486,7 +21486,7 @@ define hidden void @"_ZN161_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deseri
 
 31:                                               ; preds = %27
   %.sroa.0.09.i.add.i = add nuw nsw i64 %.sroa.0.09.i.idx.i, 1
-  %32 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %25
+  %32 = getelementptr inbounds i8, ptr %11, i64 %25
   %33 = load i8, ptr %32, align 1, !noalias !2625, !noundef !5
   %34 = add nuw i64 %25, 1
   store i64 %34, ptr %6, align 8, !alias.scope !2627, !noalias !2628

@@ -391,7 +391,7 @@ define hidden void @SDL_ResetKeyboard_REAL() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %8
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %8 ]
-  %2 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 %indvars.iv
   %3 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %8
@@ -587,7 +587,7 @@ define hidden zeroext i1 @SDL_SetKeyboardFocus(ptr noundef %0) local_unnamed_add
 
 .preheader:                                       ; preds = %12, %21
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %21 ], [ 0, %12 ]
-  %15 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 %indvars.iv.i
   %16 = load i8, ptr %15, align 1, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %21
@@ -1033,13 +1033,13 @@ define internal fastcc zeroext i1 @SDL_SendKeyboardKeyInternal(i64 noundef %0, i
 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %4 to i64
-  %13 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 %12
   %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %5, label %16, label %28
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 10), i64 0, i64 %12
+  %17 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 10), i64 %12
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = and i32 %9, %19
@@ -1054,7 +1054,7 @@ define internal fastcc zeroext i1 @SDL_SendKeyboardKeyInternal(i64 noundef %0, i
   br label %104
 
 ._crit_edge:                                      ; preds = %16
-  %24 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 10), i64 0, i64 %12
+  %24 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 10), i64 %12
   %25 = trunc nuw nsw i32 %1 to i8
   %26 = and i8 %25, 5
   %27 = or i8 %18, %26
@@ -1065,13 +1065,13 @@ define internal fastcc zeroext i1 @SDL_SendKeyboardKeyInternal(i64 noundef %0, i
   br i1 %15, label %29, label %104
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 10), i64 0, i64 %12
+  %30 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 10), i64 %12
   store i8 0, ptr %30, align 1
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge
   %.1 = phi i1 [ false, %29 ], [ %15, %._crit_edge ]
-  %32 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 0, i64 %12
+  %32 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 %12
   store i8 %8, ptr %32, align 1
   %33 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 8), align 8
   %34 = tail call i32 @SDL_GetKeyFromScancode_REAL(i32 noundef %4, i16 noundef zeroext %33, i1 noundef zeroext true)
@@ -1312,7 +1312,7 @@ define hidden void @SDL_ReleaseAutoReleaseKeys() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 10), i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 10), i64 %indvars.iv
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 4
   br i1 %5, label %6, label %9
@@ -1364,7 +1364,7 @@ define hidden zeroext i1 @SDL_HardwareKeyboardKeyPressed() local_unnamed_addr #8
 
 2:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %3 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 10), i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 10), i64 %indvars.iv
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 1
   %.not = icmp eq i8 %5, 0

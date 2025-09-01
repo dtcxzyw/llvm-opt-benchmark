@@ -513,7 +513,7 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
 43:                                               ; preds = %37, %103
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %103 ]
   %.1100 = phi i32 [ %.051106, %37 ], [ %.3, %103 ]
-  %44 = getelementptr inbounds nuw [4 x [2 x i16]], ptr @_ZN5zxing11UnicomBlock10SEARCH_POSE, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [2 x i16], ptr @_ZN5zxing11UnicomBlock10SEARCH_POSE, i64 %indvars.iv
   %45 = load i16, ptr %44, align 4, !tbaa !63
   %46 = sext i16 %45 to i32
   %47 = add nsw i32 %41, %46

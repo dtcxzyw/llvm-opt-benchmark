@@ -268,9 +268,9 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 109:                                              ; preds = %104
   %110 = zext nneg i32 %106 to i64
-  %111 = getelementptr [5 x %struct.auto_out_pin], ptr %6, i64 0, i64 %110
+  %111 = getelementptr %struct.auto_out_pin, ptr %6, i64 %110
   store i16 %59, ptr %111, align 4
-  %112 = getelementptr [5 x %struct.auto_out_pin], ptr %6, i64 0, i64 %110, i32 1
+  %112 = getelementptr %struct.auto_out_pin, ptr %6, i64 %110, i32 1
   store i16 %86, ptr %112, align 2
   %113 = add nuw nsw i32 %106, 1
   store i32 %113, ptr %1, align 4
@@ -287,11 +287,11 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 118:                                              ; preds = %114
   %119 = zext nneg i32 %115 to i64
-  %120 = getelementptr [5 x %struct.auto_out_pin], ptr %7, i64 0, i64 %119
+  %120 = getelementptr %struct.auto_out_pin, ptr %7, i64 %119
   store i16 %59, ptr %120, align 4
   %121 = trunc i32 %60 to i16
   %122 = and i16 %121, 255
-  %123 = getelementptr [5 x %struct.auto_out_pin], ptr %7, i64 0, i64 %119, i32 1
+  %123 = getelementptr %struct.auto_out_pin, ptr %7, i64 %119, i32 1
   store i16 %122, ptr %123, align 2
   %124 = add nuw nsw i32 %115, 1
   store i32 %124, ptr %26, align 4
@@ -308,11 +308,11 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 129:                                              ; preds = %125
   %130 = zext nneg i32 %126 to i64
-  %131 = getelementptr [5 x %struct.auto_out_pin], ptr %8, i64 0, i64 %130
+  %131 = getelementptr %struct.auto_out_pin, ptr %8, i64 %130
   store i16 %59, ptr %131, align 4
   %132 = trunc i32 %60 to i16
   %133 = and i16 %132, 255
-  %134 = getelementptr [5 x %struct.auto_out_pin], ptr %8, i64 0, i64 %130, i32 1
+  %134 = getelementptr %struct.auto_out_pin, ptr %8, i64 %130, i32 1
   store i16 %133, ptr %134, align 2
   %135 = add nuw nsw i32 %126, 1
   store i32 %135, ptr %25, align 4
@@ -325,7 +325,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 139:                                              ; preds = %136
   %140 = sext i32 %137 to i64
-  %141 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %24, i64 0, i64 %140
+  %141 = getelementptr %struct.auto_pin_cfg_item, ptr %24, i64 %140
   store i16 %59, ptr %141, align 4
   %142 = load i32, ptr %23, align 4
   %143 = sext i32 %142 to i64
@@ -356,7 +356,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 160:                                              ; preds = %157
   %161 = sext i32 %158 to i64
-  %162 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %24, i64 0, i64 %161
+  %162 = getelementptr %struct.auto_pin_cfg_item, ptr %24, i64 %161
   store i16 %59, ptr %162, align 4
   %163 = load i32, ptr %23, align 4
   %164 = sext i32 %163 to i64
@@ -387,7 +387,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 181:                                              ; preds = %178
   %182 = sext i32 %179 to i64
-  %183 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %24, i64 0, i64 %182
+  %183 = getelementptr %struct.auto_pin_cfg_item, ptr %24, i64 %182
   store i16 %59, ptr %183, align 4
   %184 = load i32, ptr %23, align 4
   %185 = sext i32 %184 to i64
@@ -418,7 +418,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 202:                                              ; preds = %199
   %203 = sext i32 %200 to i64
-  %204 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %24, i64 0, i64 %203
+  %204 = getelementptr %struct.auto_pin_cfg_item, ptr %24, i64 %203
   store i16 %59, ptr %204, align 4
   %205 = load i32, ptr %23, align 4
   %206 = sext i32 %205 to i64
@@ -453,12 +453,12 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 224:                                              ; preds = %220
   %225 = zext nneg i32 %221 to i64
-  %226 = getelementptr [2 x i16], ptr %21, i64 0, i64 %225
+  %226 = getelementptr i16, ptr %21, i64 %225
   store i16 %59, ptr %226, align 2
   %227 = and i32 %60, 1056964608
   %228 = icmp eq i32 %227, 402653184
   %229 = select i1 %228, i32 2, i32 1
-  %230 = getelementptr [2 x i32], ptr %22, i64 0, i64 %225
+  %230 = getelementptr i32, ptr %22, i64 %225
   store i32 %229, ptr %230, align 4
   %231 = add nuw nsw i32 %221, 1
   store i32 %231, ptr %20, align 4
@@ -523,7 +523,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   br i1 %259, label %290, label %266
 
 266:                                              ; preds = %265
-  %267 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %255, i64 0, i64 %257
+  %267 = getelementptr %struct.auto_pin_cfg_item, ptr %255, i64 %257
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 4
   %269 = load i32, ptr %268, align 4
   %270 = icmp eq i32 %269, 0
@@ -558,7 +558,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   br i1 %258, label %323, label %291
 
 291:                                              ; preds = %290
-  %292 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %255, i64 0, i64 %257
+  %292 = getelementptr %struct.auto_pin_cfg_item, ptr %255, i64 %257
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 4
   %294 = load i32, ptr %293, align 4
   %295 = icmp eq i32 %294, 0
@@ -634,7 +634,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   br i1 %345, label %346, label %.loopexit49
 
 346:                                              ; preds = %337
-  %347 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %336, i64 0, i64 %338
+  %347 = getelementptr %struct.auto_pin_cfg_item, ptr %336, i64 %338
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 4
   %349 = load i32, ptr %348, align 4
   %350 = icmp eq i32 %349, 0
@@ -708,8 +708,8 @@ thread-pre-split.thread:                          ; preds = %386
   %394 = phi i32 [ %401, %405 ], [ 0, %386 ]
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %405 ], [ 0, %386 ]
   %395 = phi i32 [ %406, %405 ], [ %388, %386 ]
-  %396 = getelementptr [5 x %struct.auto_out_pin], ptr %8, i64 0, i64 %indvars.iv62, i32 1
-  %397 = getelementptr [5 x %struct.auto_out_pin], ptr %8, i64 0, i64 %indvars.iv62
+  %396 = getelementptr %struct.auto_out_pin, ptr %8, i64 %indvars.iv62, i32 1
+  %397 = getelementptr %struct.auto_out_pin, ptr %8, i64 %indvars.iv62
   %398 = getelementptr i8, ptr %397, i64 4
   %399 = sext i32 %395 to i64
   br label %400
@@ -734,7 +734,7 @@ thread-pre-split.thread:                          ; preds = %386
   %410 = add i32 %401, 1
   store i32 %410, ptr %1, align 4
   %411 = sext i32 %401 to i64
-  %412 = getelementptr [5 x %struct.auto_out_pin], ptr %6, i64 0, i64 %411
+  %412 = getelementptr %struct.auto_out_pin, ptr %6, i64 %411
   %413 = load i32, ptr %397, align 4
   store i32 %413, ptr %412, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1008,7 +1008,7 @@ thread-pre-split:                                 ; preds = %424, %.loopexit46, 
   %583 = phi i64 [ %589, %.preheader ], [ 0, %580 ]
   %584 = trunc i64 %583 to i32
   %585 = call ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef %1, i32 noundef %584)
-  %586 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %510, i64 0, i64 %583
+  %586 = getelementptr %struct.auto_pin_cfg_item, ptr %510, i64 %583
   %587 = load i16, ptr %586, align 4
   %588 = zext i16 %587 to i32
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %585, i32 noundef %588) #12
@@ -1110,7 +1110,7 @@ define internal i32 @compare_input_type(ptr noundef readonly captures(none) %0, 
 define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = sext i32 %2 to i64
-  %6 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %4, i64 0, i64 %5
+  %6 = getelementptr %struct.auto_pin_cfg_item, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %2, 0
@@ -1179,7 +1179,7 @@ define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef re
 .preheader:                                       ; preds = %45, %.thread5
   %49 = phi i64 [ %70, %.thread5 ], [ 0, %45 ]
   %50 = phi i32 [ %69, %.thread5 ], [ 0, %45 ]
-  %51 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %4, i64 0, i64 %49
+  %51 = getelementptr %struct.auto_pin_cfg_item, ptr %4, i64 %49
   %52 = load i16, ptr %51, align 4
   %53 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %52) #11
   %54 = lshr i32 %53, 24
@@ -1267,14 +1267,14 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
   %5 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %2) #11
   %6 = lshr i32 %5, 20
   %7 = and i32 %6, 15
-  switch i32 %7, label %49 [
+  switch i32 %7, label %50 [
     i32 10, label %8
-    i32 8, label %39
+    i32 8, label %40
     i32 9, label %.thread7
-    i32 3, label %45
-    i32 12, label %46
-    i32 13, label %47
-    i32 2, label %48
+    i32 3, label %46
+    i32 12, label %47
+    i32 13, label %48
+    i32 2, label %49
   ]
 
 8:                                                ; preds = %4
@@ -1321,32 +1321,30 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
 
 31:                                               ; preds = %28
   %32 = icmp eq i32 %23, 2
-  %33 = icmp eq i32 %23, 1
-  %34 = select i1 %32, i64 4, i64 2
-  %35 = select i1 %33, i64 3, i64 %34
+  %33 = select i1 %32, i64 5, i64 3
+  %34 = icmp eq i32 %23, 1
+  %35 = select i1 %34, i64 4, i64 %33
   br label %36
 
 36:                                               ; preds = %30, %26, %28, %31
-  %.ph = phi i64 [ %35, %31 ], [ 0, %28 ], [ 0, %26 ], [ 1, %30 ]
-  %37 = getelementptr [5 x ptr], ptr @hda_get_input_pin_label.mic_names, i64 0, i64 %.ph
-  %38 = load ptr, ptr %37, align 8
+  %.ph = phi i64 [ %35, %31 ], [ 1, %28 ], [ 1, %26 ], [ 2, %30 ]
+  %37 = getelementptr ptr, ptr @hda_get_input_pin_label.mic_names, i64 %.ph
+  %38 = getelementptr i8, ptr %37, i64 -8
+  %39 = load ptr, ptr %38, align 8
   br label %.thread7
 
-39:                                               ; preds = %4
-  br i1 %3, label %40, label %.thread7
+40:                                               ; preds = %4
+  br i1 %3, label %41, label %.thread7
 
-40:                                               ; preds = %39
-  %41 = and i32 %5, -1073741824
-  %42 = icmp eq i32 %41, 1073741824
-  br i1 %42, label %.thread7, label %43
+41:                                               ; preds = %40
+  %42 = and i32 %5, -1073741824
+  %43 = icmp eq i32 %42, 1073741824
+  br i1 %43, label %.thread7, label %44
 
-43:                                               ; preds = %40
-  %44 = and i32 %5, -268435456
-  %or.cond = icmp eq i32 %44, 536870912
+44:                                               ; preds = %41
+  %45 = and i32 %5, -268435456
+  %or.cond = icmp eq i32 %45, 536870912
   %spec.select = select i1 %or.cond, ptr @.str.34, ptr @.str.33
-  br label %.thread7
-
-45:                                               ; preds = %4
   br label %.thread7
 
 46:                                               ; preds = %4
@@ -1361,9 +1359,12 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
 49:                                               ; preds = %4
   br label %.thread7
 
-.thread7:                                         ; preds = %43, %40, %21, %49, %48, %47, %46, %45, %39, %36, %20, %15, %10, %4
-  %50 = phi ptr [ @.str.39, %49 ], [ @.str.31, %48 ], [ @.str.38, %47 ], [ @.str.37, %46 ], [ @.str.36, %45 ], [ %38, %36 ], [ @.str.30, %10 ], [ %19, %15 ], [ @.str.27, %20 ], [ @.str.33, %39 ], [ @.str.35, %4 ], [ @.str.32, %21 ], [ @.str.32, %40 ], [ %spec.select, %43 ]
-  ret ptr %50
+50:                                               ; preds = %4
+  br label %.thread7
+
+.thread7:                                         ; preds = %44, %41, %21, %50, %49, %48, %47, %46, %40, %36, %20, %15, %10, %4
+  %51 = phi ptr [ @.str.39, %50 ], [ @.str.31, %49 ], [ @.str.38, %48 ], [ @.str.37, %47 ], [ @.str.36, %46 ], [ %39, %36 ], [ @.str.30, %10 ], [ %19, %15 ], [ @.str.27, %20 ], [ @.str.33, %40 ], [ @.str.35, %4 ], [ @.str.32, %21 ], [ @.str.32, %41 ], [ %spec.select, %44 ]
+  ret ptr %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1379,7 +1380,7 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef 
 10:                                               ; preds = %9, %6
   %11 = and i32 %7, -1073741824
   %12 = icmp eq i32 %11, 1073741824
-  br i1 %12, label %101, label %13
+  br i1 %12, label %103, label %13
 
 13:                                               ; preds = %10
   %14 = lshr i32 %7, 20
@@ -1394,15 +1395,15 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef 
 
 16:                                               ; preds = %13
   tail call fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef %3, i32 noundef %4, ptr noundef %5)
-  br label %101
+  br label %103
 
 17:                                               ; preds = %13
   tail call fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef nonnull @.str.15, ptr noundef %3, i32 noundef %4, ptr noundef %5)
-  br label %101
+  br label %103
 
 18:                                               ; preds = %13
   tail call fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef %3, i32 noundef %4, ptr noundef %5)
-  br label %101
+  br label %103
 
 19:                                               ; preds = %13, %13
   %20 = and i32 %7, 1056964608
@@ -1421,7 +1422,7 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef 
 
 .preheader:                                       ; preds = %25, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %25 ]
-  %30 = getelementptr [2 x i16], ptr %26, i64 0, i64 %indvars.iv
+  %30 = getelementptr i16, ptr %26, i64 %indvars.iv
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %31, %1
   br i1 %32, label %hda_get_input_pin_label.exit.thread, label %33
@@ -1463,7 +1464,7 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef 
 53:                                               ; preds = %63, %51
   %54 = phi i32 [ %49, %51 ], [ %64, %63 ]
   %55 = phi i64 [ 0, %51 ], [ %65, %63 ]
-  %56 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %52, i64 0, i64 %55
+  %56 = getelementptr %struct.auto_pin_cfg_item, ptr %52, i64 %55
   %57 = load i16, ptr %56, align 4
   %58 = icmp eq i16 %57, %1
   br i1 %58, label %59, label %63
@@ -1522,9 +1523,9 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef 
 
 81:                                               ; preds = %78
   %82 = icmp eq i32 %73, 2
-  %83 = icmp eq i32 %73, 1
-  %84 = select i1 %82, i64 4, i64 2
-  %85 = select i1 %83, i64 3, i64 %84
+  %83 = select i1 %82, i64 5, i64 3
+  %84 = icmp eq i32 %73, 1
+  %85 = select i1 %84, i64 4, i64 %83
   br label %hda_get_input_pin_label.exit
 
 86:                                               ; preds = %.loopexit
@@ -1554,20 +1555,22 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef 
   br label %hda_get_input_pin_label.exit.thread
 
 hda_get_input_pin_label.exit:                     ; preds = %76, %78, %80, %81
-  %.ph.i = phi i64 [ %85, %81 ], [ 0, %78 ], [ 0, %76 ], [ 1, %80 ]
-  %96 = getelementptr [5 x ptr], ptr @hda_get_input_pin_label.mic_names, i64 0, i64 %.ph.i
-  %97 = load ptr, ptr %96, align 8
-  br label %hda_get_input_pin_label.exit.thread
+  %.ph.i = phi i64 [ %85, %81 ], [ 1, %78 ], [ 1, %76 ], [ 2, %80 ]
+  %96 = getelementptr ptr, ptr @hda_get_input_pin_label.mic_names, i64 %.ph.i
+  %97 = getelementptr i8, ptr %96, i64 -8
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %103, label %hda_get_input_pin_label.exit.thread
 
-hda_get_input_pin_label.exit.thread:              ; preds = %41, %.preheader, %59, %hda_get_input_pin_label.exit, %89, %86, %71, %.loopexit, %91, %92, %93, %94, %95, %25, %19
-  %98 = phi ptr [ %97, %hda_get_input_pin_label.exit ], [ %spec.select.i, %89 ], [ @.str.32, %86 ], [ @.str.32, %71 ], [ @.str.35, %.loopexit ], [ @.str.36, %91 ], [ @.str.37, %92 ], [ @.str.38, %93 ], [ @.str.31, %94 ], [ @.str.39, %95 ], [ %22, %25 ], [ %22, %19 ], [ %61, %59 ], [ %22, %.preheader ], [ %22, %41 ]
-  %99 = sext i32 %4 to i64
-  %100 = tail call i64 @strscpy(ptr noundef %3, ptr noundef nonnull %98, i64 noundef %99) #11
-  br label %101
+hda_get_input_pin_label.exit.thread:              ; preds = %41, %.preheader, %59, %89, %86, %71, %.loopexit, %91, %92, %93, %94, %95, %25, %19, %hda_get_input_pin_label.exit
+  %100 = phi ptr [ %98, %hda_get_input_pin_label.exit ], [ %spec.select.i, %89 ], [ @.str.32, %86 ], [ @.str.32, %71 ], [ @.str.35, %.loopexit ], [ @.str.36, %91 ], [ @.str.37, %92 ], [ @.str.38, %93 ], [ @.str.31, %94 ], [ @.str.39, %95 ], [ %22, %25 ], [ %22, %19 ], [ %61, %59 ], [ %22, %.preheader ], [ %22, %41 ]
+  %101 = sext i32 %4 to i64
+  %102 = tail call i64 @strscpy(ptr noundef %3, ptr noundef nonnull %100, i64 noundef %101) #11
+  br label %103
 
-101:                                              ; preds = %hda_get_input_pin_label.exit.thread, %18, %17, %16, %10
-  %102 = phi i32 [ 1, %hda_get_input_pin_label.exit.thread ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ 0, %10 ]
-  ret i32 %102
+103:                                              ; preds = %hda_get_input_pin_label.exit.thread, %hda_get_input_pin_label.exit, %18, %17, %16, %10
+  %104 = phi i32 [ 1, %hda_get_input_pin_label.exit.thread ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ 0, %10 ], [ 0, %hda_get_input_pin_label.exit ]
+  ret i32 %104
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1667,7 +1670,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
 
 61:                                               ; preds = %56
   %62 = and i64 %44, 2147483647
-  %63 = getelementptr [4 x ptr], ptr @check_output_sfx.channel_sfx, i64 0, i64 %62
+  %63 = getelementptr ptr, ptr @check_output_sfx.channel_sfx, i64 %62
   %64 = load ptr, ptr %63, align 8
   br label %.thread25
 
@@ -1717,7 +1720,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
 
 89:                                               ; preds = %84
   %90 = and i64 %72, 2147483647
-  %91 = getelementptr [4 x ptr], ptr @check_output_sfx.channel_sfx, i64 0, i64 %90
+  %91 = getelementptr ptr, ptr @check_output_sfx.channel_sfx, i64 %90
   %92 = load ptr, ptr %91, align 8
   br label %.thread25
 

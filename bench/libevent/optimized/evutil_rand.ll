@@ -108,7 +108,7 @@ define internal fastcc range(i32 -1, 1) i32 @arc4_stir() unnamed_addr #0 {
 .preheader6:                                      ; preds = %0, %.preheader6
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6 ], [ 0, %0 ]
   %4 = trunc i64 %indvars.iv.i to i8
-  %5 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %indvars.iv.i
   store i8 %4, ptr %5, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -131,7 +131,7 @@ arc4_init.exit:                                   ; preds = %.preheader6
 
 10:                                               ; preds = %7, %6
   %.09.i.i = phi i64 [ 0, %6 ], [ %8, %7 ]
-  %11 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 0, i64 %.09.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.09.i.i
   %12 = sub nuw nsw i64 32, %.09.i.i
   %13 = call i64 @getrandom(ptr noundef nonnull %11, i64 noundef %12, i32 noundef 0) #7
   %14 = icmp slt i64 %13, 0
@@ -149,7 +149,7 @@ arc4_init.exit:                                   ; preds = %.preheader6
   %20 = phi i8 [ %.promoted.i.i.i, %15 ], [ %30, %18 ]
   %21 = add i8 %19, 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = add i8 %24, %20
   %26 = and i32 %.07.i.i.i, 31
@@ -158,7 +158,7 @@ arc4_init.exit:                                   ; preds = %.preheader6
   %29 = load i8, ptr %28, align 1
   %30 = add i8 %25, %29
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %31
   %33 = load i8, ptr %32, align 1
   store i8 %33, ptr %23, align 1
   store i8 %24, ptr %32, align 1
@@ -186,7 +186,7 @@ arc4_seed_getrandom.exit.i:                       ; preds = %10, %35
 
 .preheader.i.i:                                   ; preds = %arc4_seed_getrandom.exit.i, %38
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %38 ], [ 0, %arc4_seed_getrandom.exit.i ]
-  %39 = getelementptr inbounds nuw [4 x ptr], ptr @arc4_seed_urandom.filenames, i64 0, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw ptr, ptr @arc4_seed_urandom.filenames, i64 %indvars.iv.i.i
   %40 = load ptr, ptr %39, align 8
   %41 = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %40)
   %42 = icmp eq i32 %41, 0
@@ -233,7 +233,7 @@ arc4_seed_urandom.exit.thread12.i:                ; preds = %38, %arc4_seed_uran
 58:                                               ; preds = %80, %57
   %indvars.iv.i2.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i4.i, %80 ]
   %.02128.i.i = phi i32 [ 0, %57 ], [ %.1.i.i, %80 ]
-  %59 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 0, i64 %indvars.iv.i2.i
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i2.i
   %60 = load i8, ptr %59, align 1
   %61 = call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %60) #7
   %.not.i3.i = icmp eq i32 %61, 0
@@ -249,7 +249,7 @@ arc4_seed_urandom.exit.thread12.i:                ; preds = %38, %arc4_seed_uran
 65:                                               ; preds = %62
   %66 = sdiv i32 %.02128.i.i, 2
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 %67
+  %68 = getelementptr inbounds i8, ptr %2, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = or i8 %69, %.tr.i.i
   store i8 %70, ptr %68, align 1
@@ -258,7 +258,7 @@ arc4_seed_urandom.exit.thread12.i:                ; preds = %38, %arc4_seed_uran
 71:                                               ; preds = %62
   %72 = ashr exact i32 %.02128.i.i, 1
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 %73
+  %74 = getelementptr inbounds i8, ptr %2, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = shl i8 %.tr.i.i, 4
   %77 = or i8 %75, %76
@@ -292,7 +292,7 @@ arc4_seed_urandom.exit.thread12.i:                ; preds = %38, %arc4_seed_uran
   %89 = phi i8 [ %.promoted.i.i5.i, %83 ], [ %99, %87 ]
   %90 = add i8 %88, 1
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = add i8 %93, %89
   %95 = urem i32 %.07.i.i6.i, %84
@@ -301,7 +301,7 @@ arc4_seed_urandom.exit.thread12.i:                ; preds = %38, %arc4_seed_uran
   %98 = load i8, ptr %97, align 1
   %99 = add i8 %94, %98
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %100
   %102 = load i8, ptr %101, align 1
   store i8 %102, ptr %92, align 1
   store i8 %93, ptr %101, align 1
@@ -343,11 +343,11 @@ arc4_seed.exit:                                   ; preds = %arc4_seed_urandom.e
   %109 = phi i8 [ %.promoted, %.preheader ], [ %114, %107 ]
   %110 = add i8 %108, 1
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = add i8 %109, %113
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %115
   %117 = load i8, ptr %116, align 1
   store i8 %117, ptr %112, align 1
   store i8 %113, ptr %116, align 1
@@ -358,61 +358,61 @@ arc4_seed.exit:                                   ; preds = %arc4_seed_urandom.e
 119:                                              ; preds = %107
   %120 = add i8 %108, 2
   %121 = zext i8 %120 to i64
-  %122 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = add i8 %114, %123
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %125
   %127 = load i8, ptr %126, align 1
   store i8 %127, ptr %122, align 1
   store i8 %123, ptr %126, align 1
   %128 = add i8 %108, 3
   %129 = zext i8 %128 to i64
-  %130 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = add i8 %131, %124
   %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %133
   %135 = load i8, ptr %134, align 1
   store i8 %135, ptr %130, align 1
   store i8 %131, ptr %134, align 1
   %.narrow.i4.i = add i8 %135, %131
   %136 = zext i8 %.narrow.i4.i to i64
-  %137 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %136
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   %140 = shl nuw nsw i32 %139, 16
   %141 = add i8 %108, 4
   %142 = zext i8 %141 to i64
-  %143 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = add i8 %144, %132
   %146 = zext i8 %145 to i64
-  %147 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %146
   %148 = load i8, ptr %147, align 1
   store i8 %148, ptr %143, align 1
   store i8 %144, ptr %147, align 1
   %.narrow.i5.i = add i8 %148, %144
   %149 = zext i8 %.narrow.i5.i to i64
-  %150 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %149
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = shl nuw nsw i32 %152, 8
   %154 = add i8 %108, 5
   store i8 %154, ptr @rs, align 1
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %155
   %157 = load i8, ptr %156, align 1
   %158 = add i8 %157, %145
   store i8 %158, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 1), align 1
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %159
   %161 = load i8, ptr %160, align 1
   store i8 %161, ptr %156, align 1
   store i8 %157, ptr %160, align 1
   %.narrow.i6.i = add i8 %161, %157
   %162 = zext i8 %.narrow.i6.i to i64
-  %163 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %162
   %164 = load i8, ptr %163, align 1
   %165 = zext i8 %164 to i32
   %.masked5 = and i32 %140, 983040
@@ -482,19 +482,19 @@ arc4_stir_if_needed.exit.i.i:                     ; preds = %12, %7
   %23 = add i8 %22, 1
   store i8 %23, ptr @rs, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 1), align 1
   %28 = add i8 %27, %26
   store i8 %28, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 1), align 1
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %29
   %31 = load i8, ptr %30, align 1
   store i8 %31, ptr %25, align 1
   store i8 %26, ptr %30, align 1
   %.narrow.i.i.i = add i8 %31, %26
   %32 = zext i8 %.narrow.i.i.i to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   store i8 %34, ptr %35, align 1
@@ -561,7 +561,7 @@ define void @evutil_secure_rng_add_bytes(ptr noundef readonly captures(none) %0,
   %19 = phi i8 [ %.lcssa1112.i, %.lr.ph.i ], [ %29, %17 ]
   %20 = add i8 %18, 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = add i8 %23, %19
   %25 = srem i32 %.07.i.i, %16
@@ -570,7 +570,7 @@ define void @evutil_secure_rng_add_bytes(ptr noundef readonly captures(none) %0,
   %28 = load i8, ptr %27, align 1
   %29 = add i8 %24, %28
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %30
   %32 = load i8, ptr %31, align 1
   store i8 %32, ptr %22, align 1
   store i8 %23, ptr %31, align 1
@@ -671,7 +671,7 @@ read_all.exit:                                    ; preds = %5
   %18 = phi i8 [ %.promoted.i, %13 ], [ %28, %16 ]
   %19 = add i8 %17, 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = add i8 %22, %18
   %24 = and i32 %.07.i, 31
@@ -680,7 +680,7 @@ read_all.exit:                                    ; preds = %5
   %27 = load i8, ptr %26, align 1
   %28 = add i8 %23, %27
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @rs, i64 2), i64 %29
   %31 = load i8, ptr %30, align 1
   store i8 %31, ptr %21, align 1
   store i8 %22, ptr %30, align 1

@@ -47,7 +47,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9Tok
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -377,7 +377,7 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9ena
 
 switch.lookup:                                    ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSA_.exit
   %13 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit
 
@@ -536,7 +536,7 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9ena
 
 switch.lookup64:                                  ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSA_.exit27
   %82 = zext nneg i32 %80 to i64
-  %switch.gep65 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %82
+  %switch.gep65 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 %82
   %switch.load66 = load ptr, ptr %switch.gep65, align 8
   br label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit29
 
@@ -703,7 +703,7 @@ define hidden noundef zeroext i8 @_ZN6Assimp3FBX4Util12DecodeBase64Ec(i8 noundef
 
 3:                                                ; preds = %1
   %4 = zext nneg i8 %0 to i64
-  %5 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp3FBX4UtilL17base64DecodeTableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL17base64DecodeTableE, i64 %4
   %6 = load i8, ptr %5, align 1
   br label %7
 
@@ -772,7 +772,7 @@ define hidden noundef i64 @_ZN6Assimp3FBX4Util12DecodeBase64EPKcmPhm(ptr noundef
 
 _ZN6Assimp3FBX4Util12DecodeBase64Ec.exit:         ; preds = %.lr.ph
   %21 = zext nneg i8 %19 to i64
-  %22 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp3FBX4UtilL17base64DecodeTableE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL17base64DecodeTableE, i64 %21
   %23 = load i8, ptr %22, align 1
   %.not = icmp eq i8 %23, -1
   br i1 %.not, label %.thread, label %24
@@ -813,7 +813,7 @@ _ZN6Assimp3FBX4Util12DecodeBase64Ec.exit:         ; preds = %.lr.ph
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef signext i8 @_ZN6Assimp3FBX4Util12EncodeBase64Ec(i8 noundef signext %0) local_unnamed_addr #0 {
   %2 = sext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %2
   %4 = load i8, ptr %3, align 1
   ret i8 %4
 }
@@ -836,27 +836,27 @@ define hidden void @_ZN6Assimp3FBX4Util15EncodeByteBlockEPKcRNSt7__cxx1112basic_
   %17 = or disjoint i8 %16, %13
   %18 = and i8 %15, 63
   %19 = zext nneg i8 %5 to i64
-  %20 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = load ptr, ptr %1, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %2
   store i8 %21, ptr %23, align 1
   %24 = zext nneg i8 %11 to i64
-  %25 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = load ptr, ptr %1, align 8
   %28 = getelementptr i8, ptr %27, i64 %2
   %29 = getelementptr i8, ptr %28, i64 1
   store i8 %26, ptr %29, align 1
   %30 = zext nneg i8 %17 to i64
-  %31 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr i8, ptr %33, i64 %2
   %35 = getelementptr i8, ptr %34, i64 2
   store i8 %32, ptr %35, align 1
   %36 = zext nneg i8 %18 to i64
-  %37 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = load ptr, ptr %1, align 8
   %40 = getelementptr i8, ptr %39, i64 %2
@@ -901,27 +901,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %27 = or disjoint i8 %26, %23
   %28 = and i8 %25, 63
   %29 = zext nneg i8 %15 to i64
-  %30 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %12
   store i8 %31, ptr %33, align 1
   %34 = zext nneg i8 %21 to i64
-  %35 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr i8, ptr %37, i64 %12
   %39 = getelementptr i8, ptr %38, i64 1
   store i8 %36, ptr %39, align 1
   %40 = zext nneg i8 %27 to i64
-  %41 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr i8, ptr %43, i64 %12
   %45 = getelementptr i8, ptr %44, i64 2
   store i8 %42, ptr %45, align 1
   %46 = zext nneg i8 %28 to i64
-  %47 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr i8, ptr %49, i64 %12
@@ -954,27 +954,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %64 = or disjoint i8 %63, %62
   %65 = and i8 %.sroa.0.2..sroa.0.2..sroa.0.2..sroa.0.2., 63
   %66 = zext nneg i8 %56 to i64
-  %67 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = load ptr, ptr %0, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %55
   store i8 %68, ptr %70, align 1
   %71 = zext nneg i8 %60 to i64
-  %72 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr i8, ptr %74, i64 %55
   %76 = getelementptr i8, ptr %75, i64 1
   store i8 %73, ptr %76, align 1
   %77 = zext nneg i8 %64 to i64
-  %78 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = load ptr, ptr %0, align 8
   %81 = getelementptr i8, ptr %80, i64 %55
   %82 = getelementptr i8, ptr %81, i64 2
   store i8 %79, ptr %82, align 1
   %83 = zext nneg i8 %65 to i64
-  %84 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = load ptr, ptr %0, align 8
   %87 = getelementptr i8, ptr %86, i64 %55

@@ -290,7 +290,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
 
 .critedge5:                                       ; preds = %.critedge5.backedge, %84
   %.266 = phi i64 [ 0, %84 ], [ %spec.select111, %.critedge5.backedge ]
-  %88 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %.266
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 %.266
   %89 = sub i64 255, %.266
   %90 = invoke i64 @read(i32 noundef 0, ptr noundef nonnull %88, i64 noundef %89)
           to label %91 unwind label %95

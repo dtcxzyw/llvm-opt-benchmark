@@ -245,15 +245,15 @@ bytestream2_peek_byte.exit228:                    ; preds = %119
 
 bytestream2_get_byte.exit:                        ; preds = %126, %127
   %.0.i238 = phi i64 [ 0, %126 ], [ %130, %127 ]
-  %131 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @cga_mode45_index, i64 0, i64 %.0.i238
+  %131 = getelementptr inbounds nuw [4 x i8], ptr @cga_mode45_index, i64 %.0.i238
   br label %132
 
 132:                                              ; preds = %bytestream2_get_byte.exit, %132
   %indvars.iv373 = phi i64 [ 0, %bytestream2_get_byte.exit ], [ %indvars.iv.next374, %132 ]
-  %133 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 0, i64 %indvars.iv373
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv373
   %134 = load i8, ptr %133, align 1, !tbaa !35
   %135 = zext i8 %134 to i64
-  %136 = getelementptr inbounds nuw [16 x i32], ptr @ff_cga_palette, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i32, ptr @ff_cga_palette, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !43
   %138 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv373
   store i32 %137, ptr %138, align 4, !tbaa !43
@@ -301,7 +301,7 @@ bytestream2_get_byte.exit:                        ; preds = %126, %127
 bytestream2_get_byte.exit240:                     ; preds = %148, %149
   %154 = phi ptr [ %.pre377, %148 ], [ %150, %149 ]
   %.0.i239 = phi i64 [ 0, %148 ], [ %153, %149 ]
-  %155 = getelementptr inbounds nuw [16 x i32], ptr @ff_cga_palette, i64 0, i64 %.0.i239
+  %155 = getelementptr inbounds nuw i32, ptr @ff_cga_palette, i64 %.0.i239
   %156 = load i32, ptr %155, align 4, !tbaa !43
   %157 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv359
   store i32 %156, ptr %157, align 4, !tbaa !43
@@ -343,7 +343,7 @@ bytestream2_get_byte.exit240:                     ; preds = %148, %149
 bytestream2_get_byte.exit242:                     ; preds = %166, %167
   %172 = phi ptr [ %.pre, %166 ], [ %168, %167 ]
   %.0.i241 = phi i64 [ 0, %166 ], [ %171, %167 ]
-  %173 = getelementptr inbounds nuw [64 x i32], ptr @ff_ega_palette, i64 0, i64 %.0.i241
+  %173 = getelementptr inbounds nuw i32, ptr @ff_ega_palette, i64 %.0.i241
   %174 = load i32, ptr %173, align 4, !tbaa !43
   %175 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv
   store i32 %174, ptr %175, align 4, !tbaa !43
@@ -428,10 +428,10 @@ bytestream2_get_be24.exit:                        ; preds = %188, %189
 
 .preheader:                                       ; preds = %.thread260, %.preheader
   %indvars.iv369 = phi i64 [ %indvars.iv.next370, %.preheader ], [ 0, %.thread260 ]
-  %212 = getelementptr inbounds nuw [4 x i8], ptr @cga_mode45_index, i64 0, i64 %indvars.iv369
+  %212 = getelementptr inbounds nuw i8, ptr @cga_mode45_index, i64 %indvars.iv369
   %213 = load i8, ptr %212, align 1, !tbaa !35
   %214 = zext i8 %213 to i64
-  %215 = getelementptr inbounds nuw [16 x i32], ptr @ff_cga_palette, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw i32, ptr @ff_cga_palette, i64 %214
   %216 = load i32, ptr %215, align 4, !tbaa !43
   %217 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv369
   store i32 %216, ptr %217, align 4, !tbaa !43

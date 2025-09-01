@@ -551,12 +551,12 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 119:                                              ; preds = %117, %119
   %.092 = phi i64 [ 0, %117 ], [ %126, %119 ]
-  %120 = getelementptr inbounds nuw [95 x float], ptr @_ZN7mitsubaL9d65_tableE, i64 0, i64 %.092
+  %120 = getelementptr inbounds nuw float, ptr @_ZN7mitsubaL9d65_tableE, i64 %.092
   %121 = load float, ptr %120, align 4
   %122 = fmul contract float %121, %118
   %123 = fmul contract float %122, 0x3F84AFFA00000000
   %124 = fpext float %123 to double
-  %125 = getelementptr inbounds nuw [95 x double], ptr %21, i64 0, i64 %.092
+  %125 = getelementptr inbounds nuw double, ptr %21, i64 %.092
   store double %124, ptr %125, align 8
   %126 = add nuw nsw i64 %.092, 1
   %exitcond.not = icmp eq i64 %126, 95

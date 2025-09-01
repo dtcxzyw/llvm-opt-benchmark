@@ -55,7 +55,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   %14 = load i8, ptr %.03542, align 1, !tbaa !12
   %15 = lshr i8 %14, 2
   %16 = zext nneg i8 %15 to i64
-  %17 = getelementptr inbounds nuw [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8encodingE, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %.03641, i64 1
   store i8 %18, ptr %.03641, align 1, !tbaa !12
@@ -67,7 +67,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   %25 = lshr i8 %24, 4
   %26 = or disjoint i8 %22, %25
   %27 = zext nneg i8 %26 to i64
-  %28 = getelementptr inbounds nuw [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8encodingE, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %.03641, i64 2
   store i8 %29, ptr %19, align 1, !tbaa !12
@@ -79,14 +79,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   %36 = lshr i8 %35, 6
   %37 = or disjoint i8 %33, %36
   %38 = zext nneg i8 %37 to i64
-  %39 = getelementptr inbounds nuw [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8encodingE, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !12
   %41 = getelementptr inbounds nuw i8, ptr %.03641, i64 3
   store i8 %40, ptr %30, align 1, !tbaa !12
   %42 = load i8, ptr %34, align 1, !tbaa !12
   %43 = and i8 %42, 63
   %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr inbounds nuw [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8encodingE, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !12
   %47 = getelementptr inbounds nuw i8, ptr %.03641, i64 4
   store i8 %46, ptr %41, align 1, !tbaa !12
@@ -99,7 +99,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   %51 = load i8, ptr %.035.lcssa, align 1, !tbaa !12
   %52 = lshr i8 %51, 2
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr inbounds nuw [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8encodingE, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !12
   %56 = getelementptr inbounds nuw i8, ptr %.036.lcssa, i64 1
   store i8 %55, ptr %.036.lcssa, align 1, !tbaa !12
@@ -107,7 +107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   %58 = shl i8 %57, 4
   %59 = and i8 %58, 48
   %60 = zext nneg i8 %59 to i64
-  %61 = getelementptr inbounds nuw [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8encodingE, i64 %60
   %62 = load i8, ptr %61, align 16, !tbaa !12
   %63 = getelementptr inbounds nuw i8, ptr %.036.lcssa, i64 2
   store i8 %62, ptr %56, align 1, !tbaa !12
@@ -121,7 +121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   %67 = load i8, ptr %.035.lcssa, align 1, !tbaa !12
   %68 = lshr i8 %67, 2
   %69 = zext nneg i8 %68 to i64
-  %70 = getelementptr inbounds nuw [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8encodingE, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !12
   %72 = getelementptr inbounds nuw i8, ptr %.036.lcssa, i64 1
   store i8 %71, ptr %.036.lcssa, align 1, !tbaa !12
@@ -133,7 +133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   %78 = lshr i8 %77, 4
   %79 = or disjoint i8 %75, %78
   %80 = zext nneg i8 %79 to i64
-  %81 = getelementptr inbounds nuw [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8encodingE, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !12
   %83 = getelementptr inbounds nuw i8, ptr %.036.lcssa, i64 2
   store i8 %82, ptr %72, align 1, !tbaa !12
@@ -141,7 +141,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   %85 = shl i8 %84, 2
   %86 = and i8 %85, 60
   %87 = zext nneg i8 %86 to i64
-  %88 = getelementptr inbounds nuw [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8encodingE, i64 %87
   %89 = load i8, ptr %88, align 4, !tbaa !12
   %90 = getelementptr inbounds nuw i8, ptr %.036.lcssa, i64 3
   store i8 %89, ptr %83, align 1, !tbaa !12
@@ -234,7 +234,7 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
 
 21:                                               ; preds = %.lr.ph
   %22 = zext i8 %18 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4YAMLL8decodingE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8decodingE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !12
   %.not45 = icmp eq i8 %24, -1
   br i1 %.not45, label %95, label %25

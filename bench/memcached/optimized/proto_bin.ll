@@ -89,7 +89,7 @@ define dso_local void @complete_nread_binary(ptr noundef %0) local_unnamed_addr 
   %15 = load i8, ptr %14, align 8, !tbaa !28
   %16 = and i8 %15, 63
   %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %13, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %struct.slab_stats, ptr %13, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !29
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !29
@@ -166,12 +166,12 @@ define dso_local void @complete_nread_binary(ptr noundef %0) local_unnamed_addr 
   %78 = getelementptr inbounds nuw i8, ptr %.0.i, i64 42
   %79 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %80 = sext i32 %77 to i64
-  %81 = getelementptr inbounds [0 x i8], ptr %78, i64 0, i64 %80
+  %81 = getelementptr inbounds i8, ptr %78, i64 %80
   store i8 13, ptr %81, align 1, !tbaa !28
   %82 = load i32, ptr %79, align 4, !tbaa !32
-  %83 = add nsw i32 %82, 1
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [0 x i8], ptr %78, i64 0, i64 %84
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr i8, ptr %78, i64 %83
+  %85 = getelementptr i8, ptr %84, i64 1
   store i8 10, ptr %85, align 1, !tbaa !28
   %86 = load i32, ptr %79, align 4, !tbaa !32
   %87 = add nsw i32 %86, 2
@@ -626,7 +626,7 @@ define dso_local range(i32 -1, 2) i32 @try_read_command_binary(ptr noundef %0) l
 
 24:                                               ; preds = %20, %17
   %25 = load ptr, ptr @stderr, align 8, !tbaa !58
-  %26 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1, !tbaa !28
   %28 = zext i8 %27 to i32
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.3, i32 noundef %28) #12
@@ -1262,7 +1262,7 @@ define internal fastcc void @add_bin_header(ptr noundef readonly captures(none) 
 
 39:                                               ; preds = %35, %32
   %40 = load ptr, ptr @stderr, align 8, !tbaa !58
-  %41 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1, !tbaa !28
   %43 = zext i8 %42 to i32
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.3, i32 noundef %43) #12
@@ -1820,7 +1820,7 @@ switch.edge:
   %68 = getelementptr inbounds nuw i8, ptr %.0107, i64 40
   %69 = load i8, ptr %68, align 8, !tbaa !28
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i64], ptr %67, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i64, ptr %67, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !36
   %73 = add i64 %72, 1
   store i64 %73, ptr %71, align 8, !tbaa !36

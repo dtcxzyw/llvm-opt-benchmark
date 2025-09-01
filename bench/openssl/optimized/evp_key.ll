@@ -222,7 +222,7 @@ define i32 @EVP_BytesToKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %.not89, label %57, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %55 = load i8, ptr %54, align 1, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %.273, i64 1
   store i8 %55, ptr %.273, align 1, !tbaa !3
@@ -265,7 +265,7 @@ define i32 @EVP_BytesToKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 66:                                               ; preds = %65
   %67 = zext i32 %.3 to i64
-  %68 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !3
   %70 = getelementptr inbounds nuw i8, ptr %.269, i64 1
   store i8 %69, ptr %.269, align 1, !tbaa !3

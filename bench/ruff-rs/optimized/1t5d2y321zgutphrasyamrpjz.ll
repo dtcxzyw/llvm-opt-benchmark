@@ -2396,10 +2396,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !333, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !334, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h014fd09242f05377E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h014fd09242f05377E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h014fd09242f05377E.465", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h014fd09242f05377E.465", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2505,10 +2505,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !333, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !347, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [31 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6bf68d8f74635136E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6bf68d8f74635136E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [31 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6bf68d8f74635136E.466", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6bf68d8f74635136E.466", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -23601,7 +23601,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN18ty_python_semantic1
 define noundef range(i8 0, 7) i8 @_ZN18ty_python_semantic14semantic_index6symbol5Scope4kind17h935c455e01d685adE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !427, !alias.scope !4434, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZN18ty_python_semantic14semantic_index6symbol17NodeWithScopeKind10scope_kind17h5845327dd849c42dE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ty_python_semantic14semantic_index6symbol17NodeWithScopeKind10scope_kind17h5845327dd849c42dE, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -24798,7 +24798,7 @@ default.unreachable12:                            ; preds = %2
 define noundef range(i8 0, 7) i8 @_ZN18ty_python_semantic14semantic_index6symbol17NodeWithScopeKind10scope_kind17h5845327dd849c42dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !427, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZN18ty_python_semantic14semantic_index6symbol17NodeWithScopeKind10scope_kind17h5845327dd849c42dE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ty_python_semantic14semantic_index6symbol17NodeWithScopeKind10scope_kind17h5845327dd849c42dE, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

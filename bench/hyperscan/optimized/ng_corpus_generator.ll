@@ -794,7 +794,7 @@ _ZN3ue212CodePointSetD2Ev.exit.i.i.i:             ; preds = %_ZNSt6vectorIN3ue21
 
 137:                                              ; preds = %140, %135
   %.0710.i.i.i.i.i.i = phi i64 [ 0, %135 ], [ %141, %140 ]
-  %138 = getelementptr inbounds nuw [4 x i64], ptr %136, i64 0, i64 %.0710.i.i.i.i.i.i
+  %138 = getelementptr inbounds nuw i64, ptr %136, i64 %.0710.i.i.i.i.i.i
   %139 = load i64, ptr %138, align 8
   %.not.i.i.i.i9.i.i = icmp eq i64 %139, 0
   br i1 %.not.i.i.i.i9.i.i, label %140, label %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i.i
@@ -837,7 +837,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i.i.i:    ; preds = %137
   br label %157
 
 150:                                              ; preds = %.lr.ph74.i.i.i
-  %151 = getelementptr inbounds nuw [4 x i64], ptr %136, i64 0, i64 %148
+  %151 = getelementptr inbounds nuw i64, ptr %136, i64 %148
   %152 = load i64, ptr %151, align 8
   %153 = shl nsw i64 -2, %149
   %154 = and i64 %152, %153
@@ -855,7 +855,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i.i.i:    ; preds = %137
 
 159:                                              ; preds = %157
   %.0.i.i.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i.i.i, 1
-  %160 = getelementptr inbounds nuw [4 x i64], ptr %136, i64 0, i64 %.0.i.i.i.i.i.i
+  %160 = getelementptr inbounds nuw i64, ptr %136, i64 %.0.i.i.i.i.i.i
   %161 = load i64, ptr %160, align 8
   %.not22.i.i.i.i.i.i = icmp eq i64 %161, 0
   br i1 %.not22.i.i.i.i.i.i, label %157, label %162, !llvm.loop !31
@@ -887,7 +887,7 @@ _ZNK3ue29CharReach9find_nextEm.exit.i.i.i.i:      ; preds = %162, %155
 
 170:                                              ; preds = %173, %167
   %.0710.i.i.i49.i.i.i = phi i64 [ 0, %167 ], [ %174, %173 ]
-  %171 = getelementptr inbounds nuw [4 x i64], ptr %169, i64 0, i64 %.0710.i.i.i49.i.i.i
+  %171 = getelementptr inbounds nuw i64, ptr %169, i64 %.0710.i.i.i49.i.i.i
   %172 = load i64, ptr %171, align 8
   %.not.i.i.i50.i.i.i = icmp eq i64 %172, 0
   br i1 %.not.i.i.i50.i.i.i, label %173, label %_ZNK3ue29CharReach10find_firstEv.exit.i51.i.i.i
@@ -929,7 +929,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i51.i.i.i:  ; preds = %170
   br label %189
 
 182:                                              ; preds = %.lr.ph69.i.i.i
-  %183 = getelementptr inbounds nuw [4 x i64], ptr %169, i64 0, i64 %181
+  %183 = getelementptr inbounds nuw i64, ptr %169, i64 %181
   %184 = load i64, ptr %183, align 8
   %185 = shl nsw i64 -2, %.sroa.2.0.insert.ext.i.i.i.i.i.i.i5568.i.i.i
   %186 = and i64 %184, %185
@@ -947,7 +947,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i51.i.i.i:  ; preds = %170
 
 191:                                              ; preds = %189
   %.0.i.i.i64.i.i.i = add nuw nsw i64 %.0.in.i.i.i63.i.i.i, 1
-  %192 = getelementptr inbounds nuw [4 x i64], ptr %169, i64 0, i64 %.0.i.i.i64.i.i.i
+  %192 = getelementptr inbounds nuw i64, ptr %169, i64 %.0.i.i.i64.i.i.i
   %193 = load i64, ptr %192, align 8
   %.not22.i.i.i65.i.i.i = icmp eq i64 %193, 0
   br i1 %.not22.i.i.i65.i.i.i, label %189, label %194, !llvm.loop !31
@@ -985,7 +985,7 @@ _ZN12_GLOBAL__N_116fillCodePointSetERKN3ue29CharReachEPNS0_12CodePointSetEh.exit
 
 203:                                              ; preds = %206, %200
   %.0710.i.i.i68.i.i.i = phi i64 [ 0, %200 ], [ %207, %206 ]
-  %204 = getelementptr inbounds nuw [4 x i64], ptr %202, i64 0, i64 %.0710.i.i.i68.i.i.i
+  %204 = getelementptr inbounds nuw i64, ptr %202, i64 %.0710.i.i.i68.i.i.i
   %205 = load i64, ptr %204, align 8
   %.not.i.i.i69.i.i.i = icmp eq i64 %205, 0
   br i1 %.not.i.i.i69.i.i.i, label %206, label %_ZNK3ue29CharReach10find_firstEv.exit.i70.i.i.i
@@ -1027,7 +1027,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i70.i.i.i:  ; preds = %203
   br label %222
 
 215:                                              ; preds = %.lr.ph63.i.i.i
-  %216 = getelementptr inbounds nuw [4 x i64], ptr %202, i64 0, i64 %214
+  %216 = getelementptr inbounds nuw i64, ptr %202, i64 %214
   %217 = load i64, ptr %216, align 8
   %218 = shl nsw i64 -2, %.sroa.2.0.insert.ext.i.i.i.i.i.i.i7462.i.i.i
   %219 = and i64 %217, %218
@@ -1045,7 +1045,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i70.i.i.i:  ; preds = %203
 
 224:                                              ; preds = %222
   %.0.i.i.i83.i.i.i = add nuw nsw i64 %.0.in.i.i.i82.i.i.i, 1
-  %225 = getelementptr inbounds nuw [4 x i64], ptr %202, i64 0, i64 %.0.i.i.i83.i.i.i
+  %225 = getelementptr inbounds nuw i64, ptr %202, i64 %.0.i.i.i83.i.i.i
   %226 = load i64, ptr %225, align 8
   %.not22.i.i.i84.i.i.i = icmp eq i64 %226, 0
   br i1 %.not22.i.i.i84.i.i.i, label %222, label %227, !llvm.loop !31
@@ -1090,7 +1090,7 @@ _ZN12_GLOBAL__N_115classify_vertexERKN3ue28NGHolderENS0_12graph_detail17vertex_d
 
 237:                                              ; preds = %240, %_ZN12_GLOBAL__N_115classify_vertexERKN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIS1_NS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEE.exit.i.i.i
   %.0710.i.i.i87.i.i.i = phi i64 [ 0, %_ZN12_GLOBAL__N_115classify_vertexERKN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIS1_NS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEE.exit.i.i.i ], [ %241, %240 ]
-  %238 = getelementptr inbounds nuw [4 x i64], ptr %236, i64 0, i64 %.0710.i.i.i87.i.i.i
+  %238 = getelementptr inbounds nuw i64, ptr %236, i64 %.0710.i.i.i87.i.i.i
   %239 = load i64, ptr %238, align 8
   %.not.i.i.i88.i.i.i = icmp eq i64 %239, 0
   br i1 %.not.i.i.i88.i.i.i, label %240, label %_ZNK3ue29CharReach10find_firstEv.exit.i89.i.i.i
@@ -1132,7 +1132,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i89.i.i.i:  ; preds = %237
   br label %256
 
 249:                                              ; preds = %.lr.ph.i.i.i
-  %250 = getelementptr inbounds nuw [4 x i64], ptr %236, i64 0, i64 %248
+  %250 = getelementptr inbounds nuw i64, ptr %236, i64 %248
   %251 = load i64, ptr %250, align 8
   %252 = shl nsw i64 -2, %.sroa.2.0.insert.ext.i.i.i.i.i.i.i9357.i.i.i
   %253 = and i64 %251, %252
@@ -1150,7 +1150,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i89.i.i.i:  ; preds = %237
 
 258:                                              ; preds = %256
   %.0.i.i.i102.i.i.i = add nuw nsw i64 %.0.in.i.i.i101.i.i.i, 1
-  %259 = getelementptr inbounds nuw [4 x i64], ptr %236, i64 0, i64 %.0.i.i.i102.i.i.i
+  %259 = getelementptr inbounds nuw i64, ptr %236, i64 %.0.i.i.i102.i.i.i
   %260 = load i64, ptr %259, align 8
   %.not22.i.i.i103.i.i.i = icmp eq i64 %260, 0
   br i1 %.not22.i.i.i103.i.i.i, label %256, label %261, !llvm.loop !31
@@ -5069,7 +5069,7 @@ _ZN3ue212CodePointSet4swapERS0_.exit.preheader:   ; preds = %16, %4
 
 _ZN3ue212CodePointSet4swapERS0_.exit:             ; preds = %_ZN3ue212CodePointSet4swapERS0_.exit.preheader, %28
   %.0710.i.i = phi i64 [ %29, %28 ], [ 0, %_ZN3ue212CodePointSet4swapERS0_.exit.preheader ]
-  %26 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.0710.i.i
+  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %.0710.i.i
   %27 = load i64, ptr %26, align 8
   %.not.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i, label %28, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -5137,7 +5137,7 @@ _ZN3ue212CodePointSetD2Ev.exit:                   ; preds = %._crit_edge50
   br label %59
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %50
+  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %50
   %54 = load i64, ptr %53, align 8
   %55 = shl nsw i64 -2, %51
   %56 = and i64 %54, %55
@@ -5155,7 +5155,7 @@ _ZN3ue212CodePointSetD2Ev.exit:                   ; preds = %._crit_edge50
 
 61:                                               ; preds = %59
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %62 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.0.i.i
+  %62 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
   %63 = load i64, ptr %62, align 8
   %.not22.i.i = icmp eq i64 %63, 0
   br i1 %.not22.i.i, label %59, label %64, !llvm.loop !31
@@ -7672,7 +7672,7 @@ _ZN12_GLOBAL__N_119CorpusGeneratorImpl9addRandomERK7min_maxPNSt7__cxx1112basic_s
 
 .preheader.i57.i:                                 ; preds = %121, %144
   %.0710.i.i.i58.i = phi i64 [ %145, %144 ], [ 0, %121 ]
-  %137 = getelementptr inbounds nuw [4 x i64], ptr %118, i64 0, i64 %.0710.i.i.i58.i
+  %137 = getelementptr inbounds nuw i64, ptr %118, i64 %.0710.i.i.i58.i
   %138 = load i64, ptr %137, align 8
   %.not.i.i.i59.i = icmp eq i64 %138, 0
   br i1 %.not.i.i.i59.i, label %144, label %139
@@ -7709,7 +7709,7 @@ _ZN12_GLOBAL__N_119CorpusGeneratorImpl9addRandomERK7min_maxPNSt7__cxx1112basic_s
 153:                                              ; preds = %.thread.i.i.i64.i, %.noexc74.i
   %.02036.i.i.i61.i = phi i64 [ 0, %.noexc74.i ], [ %157, %.thread.i.i.i64.i ]
   %.02635.i.i.i62.i = phi i64 [ 0, %.noexc74.i ], [ %166, %.thread.i.i.i64.i ]
-  %154 = getelementptr inbounds nuw [4 x i64], ptr %118, i64 0, i64 %.02635.i.i.i62.i
+  %154 = getelementptr inbounds nuw i64, ptr %118, i64 %.02635.i.i.i62.i
   %155 = load i64, ptr %154, align 8
   %156 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %155)
   %157 = add i64 %156, %.02036.i.i.i61.i
@@ -7779,7 +7779,7 @@ _ZN12_GLOBAL__N_119CorpusGeneratorImpl14getUnmatchCharERKN3ue29CharReachE.exit.i
 
 .preheader.i52.i:                                 ; preds = %_ZN12_GLOBAL__N_119CorpusGeneratorImpl14getUnmatchCharERKN3ue29CharReachE.exit.i.i.i, %190
   %.0710.i.i.i.i = phi i64 [ %191, %190 ], [ 0, %_ZN12_GLOBAL__N_119CorpusGeneratorImpl14getUnmatchCharERKN3ue29CharReachE.exit.i.i.i ]
-  %183 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %.0710.i.i.i.i
+  %183 = getelementptr inbounds nuw i64, ptr %6, i64 %.0710.i.i.i.i
   %184 = load i64, ptr %183, align 8
   %.not.i.i.i53.i = icmp eq i64 %184, 0
   br i1 %.not.i.i.i53.i, label %190, label %185
@@ -7816,7 +7816,7 @@ _ZN12_GLOBAL__N_119CorpusGeneratorImpl14getUnmatchCharERKN3ue29CharReachE.exit.i
 199:                                              ; preds = %.thread.i.i.i.i, %.noexc55.i
   %.02036.i.i.i.i = phi i64 [ 0, %.noexc55.i ], [ %203, %.thread.i.i.i.i ]
   %.02635.i.i.i.i = phi i64 [ 0, %.noexc55.i ], [ %212, %.thread.i.i.i.i ]
-  %200 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %.02635.i.i.i.i
+  %200 = getelementptr inbounds nuw i64, ptr %6, i64 %.02635.i.i.i.i
   %201 = load i64, ptr %200, align 8
   %202 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %201)
   %203 = add i64 %202, %.02036.i.i.i.i

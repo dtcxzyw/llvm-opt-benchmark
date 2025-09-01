@@ -1824,12 +1824,12 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit:    ; preds = %199, %201, %202, %_
   %.066156 = phi i64 [ 0, %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit ], [ %275, %.loopexit140 ]
   %.067155 = phi i64 [ 0, %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit ], [ %.168, %.loopexit140 ]
   %214 = load i32, ptr %6, align 4, !tbaa !9
-  %215 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_IX, i64 0, i64 %.066156
+  %215 = getelementptr inbounds nuw i32, ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_IX, i64 %.066156
   %216 = load i32, ptr %215, align 4, !tbaa !9
   %217 = load i32, ptr %7, align 4, !tbaa !9
-  %218 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_IY, i64 0, i64 %.066156
+  %218 = getelementptr inbounds nuw i32, ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_IY, i64 %.066156
   %219 = load i32, ptr %218, align 4, !tbaa !9
-  %220 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_DY, i64 0, i64 %.066156
+  %220 = getelementptr inbounds nuw i32, ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_DY, i64 %.066156
   %221 = load i32, ptr %220, align 4, !tbaa !9
   %222 = xor i32 %219, -1
   %223 = add i32 %217, %222
@@ -1841,7 +1841,7 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit:    ; preds = %199, %201, %202, %_
   br i1 %or.cond103, label %226, label %.loopexit140
 
 226:                                              ; preds = %213
-  %227 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_DX, i64 0, i64 %.066156
+  %227 = getelementptr inbounds nuw i32, ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_DX, i64 %.066156
   %228 = load i32, ptr %227, align 4, !tbaa !9
   %229 = xor i32 %216, -1
   %230 = add i32 %214, %229
@@ -3559,7 +3559,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit284.thread:   ; preds = %189, %_ZN7lodepngL9
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit292:  ; preds = %519, %522
   %.0.i.i291 = phi float [ %542, %522 ], [ 0.000000e+00, %519 ]
-  %543 = getelementptr inbounds nuw [9 x float], ptr %134, i64 0, i64 %.0213397
+  %543 = getelementptr inbounds nuw float, ptr %134, i64 %.0213397
   store float %.0.i.i291, ptr %543, align 4, !tbaa !79
   %544 = add nuw nsw i64 %.0213397, 1
   %exitcond.not = icmp eq i64 %544, 9
@@ -3602,7 +3602,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit292:  ; preds = %519, %522
 
 562:                                              ; preds = %554
   %563 = zext nneg i32 %560 to i64
-  %564 = getelementptr inbounds nuw [3 x %"struct.lodepng::LodePNGICCCurve"], ptr %9, i64 0, i64 %563
+  %564 = getelementptr inbounds nuw %"struct.lodepng::LodePNGICCCurve", ptr %9, i64 %563
   store i32 1, ptr %7, align 4, !tbaa !78
   %565 = add nuw nsw i64 %.0.i256, 12
   %566 = icmp ugt i64 %565, %2
@@ -3717,7 +3717,7 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit297:     ; preds = %.lr.ph, %613
 
 627:                                              ; preds = %.loopexit
   %628 = zext nneg i32 %560 to i64
-  %629 = getelementptr inbounds nuw [3 x %"struct.lodepng::LodePNGICCCurve"], ptr %9, i64 0, i64 %628
+  %629 = getelementptr inbounds nuw %"struct.lodepng::LodePNGICCCurve", ptr %9, i64 %628
   store i32 1, ptr %7, align 4, !tbaa !78
   %630 = add i64 %.2, 10
   %631 = icmp ugt i64 %630, %2
@@ -3998,7 +3998,7 @@ define internal fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11Lode
 
 .preheader48:                                     ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %11 = getelementptr inbounds nuw [3 x %"struct.lodepng::LodePNGICCCurve"], ptr %10, i64 0, i64 %2
+  %11 = getelementptr inbounds nuw %"struct.lodepng::LodePNGICCCurve", ptr %10, i64 %2
   br label %12
 
 12:                                               ; preds = %.preheader48, %12
@@ -4274,7 +4274,7 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %29, %28, %23, %21,
 
 41:                                               ; preds = %41, %.preheader71.i
   %.05375.i = phi i64 [ 0, %.preheader71.i ], [ %48, %41 ]
-  %42 = getelementptr inbounds nuw [3 x %"struct.lodepng::LodePNGICCCurve"], ptr %39, i64 0, i64 %.05375.i
+  %42 = getelementptr inbounds nuw %"struct.lodepng::LodePNGICCCurve", ptr %39, i64 %.05375.i
   %43 = add nuw nsw i64 %.05375.i, %40
   %44 = getelementptr inbounds nuw float, ptr %2, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !79
@@ -4863,7 +4863,7 @@ define internal fastcc noundef range(i32 0, 93) i32 @_ZN7lodepngL20convertFromXY
 
 11:                                               ; preds = %.preheader63, %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
   %.04568 = phi i64 [ 0, %.preheader63 ], [ %149, %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit ]
-  %12 = getelementptr inbounds nuw [3 x %"struct.lodepng::LodePNGICCCurve"], ptr %9, i64 0, i64 %.04568
+  %12 = getelementptr inbounds nuw %"struct.lodepng::LodePNGICCCurve", ptr %9, i64 %.04568
   %13 = getelementptr inbounds nuw float, ptr %10, i64 %.04568
   %14 = load float, ptr %13, align 4, !tbaa !79
   %15 = load i32, ptr %12, align 8, !tbaa !84
@@ -6729,7 +6729,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL9invMatrixEPf(pt
 
 77:                                               ; preds = %44, %77
   %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw [9 x double], ptr %2, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %79 = load double, ptr %78, align 8, !tbaa !142
   %80 = fptrunc double %79 to float
   %81 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv

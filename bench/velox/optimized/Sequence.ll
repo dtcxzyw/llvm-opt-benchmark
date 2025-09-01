@@ -9941,7 +9941,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i6
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i, %land.rhs.i.i.i, %lor.lhs.false.i.i
   %9 = add nsw i32 %conv.i141, -1
   %idxprom.i.i = zext i32 %9 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [12 x %"class.date::day"], ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i
   %10 = load i8, ptr %arrayidx.i.i, align 1
   %11 = zext i8 %10 to i32
   br label %_ZN4date14year_month_dayC2ERKNS_19year_month_day_lastE.exit
@@ -10211,7 +10211,7 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i
 cond.true.i.i.i:                                  ; preds = %land.rhs.i.i.i.i, %land.rhs.i.i
   %29 = add nsw i32 %.pre.i, -1
   %idxprom.i.i.i27 = zext i32 %29 to i64
-  %arrayidx.i.i.i28 = getelementptr inbounds nuw [12 x %"class.date::day"], ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 0, i64 %idxprom.i.i.i27
+  %arrayidx.i.i.i28 = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i.i27
   %30 = load i8, ptr %arrayidx.i.i.i28, align 1
   br label %_ZNK4date14year_month_day2okEv.exit.i
 
@@ -10245,7 +10245,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then31.i.i
 cond.true.i.i28.i:                                ; preds = %land.lhs.true.i.i.i, %land.rhs.i.i.i33.i, %lor.lhs.false.i.i.i
   %33 = add nsw i32 %.pre.i, -1
   %idxprom.i.i31.i = zext i32 %33 to i64
-  %arrayidx.i.i32.i = getelementptr inbounds nuw [12 x %"class.date::day"], ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 0, i64 %idxprom.i.i31.i
+  %arrayidx.i.i32.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i31.i
   %34 = load i8, ptr %arrayidx.i.i32.i, align 1
   br label %if.end44.i.i
 
@@ -12093,7 +12093,7 @@ cond.true.i.i:                                    ; preds = %_ZNK8facebook5velox
 
 cond.false.i.i:                                   ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit
   %idxprom.i4.i.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i5.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i
+  %arrayidx.i5.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i
   %7 = load i8, ptr %arrayidx.i5.i.i, align 1
   %div2.i6.i.i = lshr i32 %idx, 3
   %idxprom1.i.i.i = zext nneg i32 %div2.i6.i.i to i64
@@ -21149,7 +21149,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNK8facebook5velox
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i, %land.rhs.i.i.i, %lor.lhs.false.i.i
   %14 = add nsw i32 %conv.i133, -1
   %idxprom.i.i = zext i32 %14 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [12 x %"class.date::day"], ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i
   %15 = load i8, ptr %arrayidx.i.i, align 1
   %16 = zext i8 %15 to i32
   br label %_ZN4date14year_month_dayC2ERKNS_19year_month_day_lastE.exit
@@ -21451,7 +21451,7 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i
 cond.true.i.i.i:                                  ; preds = %land.rhs.i.i.i.i, %land.rhs.i.i
   %29 = add nsw i32 %.pre.i, -1
   %idxprom.i.i.i47 = zext i32 %29 to i64
-  %arrayidx.i.i.i48 = getelementptr inbounds nuw [12 x %"class.date::day"], ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 0, i64 %idxprom.i.i.i47
+  %arrayidx.i.i.i48 = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i.i47
   %30 = load i8, ptr %arrayidx.i.i.i48, align 1
   br label %_ZNK4date14year_month_day2okEv.exit.i
 
@@ -21485,7 +21485,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then31.i.i.i
 cond.true.i.i41.i:                                ; preds = %land.lhs.true.i.i.i, %land.rhs.i.i.i46.i, %lor.lhs.false.i.i.i
   %33 = add nsw i32 %.pre.i, -1
   %idxprom.i.i44.i = zext i32 %33 to i64
-  %arrayidx.i.i45.i = getelementptr inbounds nuw [12 x %"class.date::day"], ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 0, i64 %idxprom.i.i44.i
+  %arrayidx.i.i45.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i44.i
   %34 = load i8, ptr %arrayidx.i.i45.i, align 1
   br label %if.end44.i.i.i
 

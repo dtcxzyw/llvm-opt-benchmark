@@ -13365,7 +13365,7 @@ define dso_local void @_ZN4llvm16GenericScheduler10initPolicyENS_26MachineInstrB
   br i1 %.not.i, label %.critedge, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %14
-  %16 = getelementptr inbounds nuw [234 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !834
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.critedge, label %18

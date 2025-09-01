@@ -10499,9 +10499,9 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction24destroyNonTrivialCStructERS1_N
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN5clang7CodeGen15CodeGenFunction12getDestroyerENS_8QualType15DestructionKindE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(6496) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
 switch.lookup:
-  %switch.tableidx = add nsw i32 %1, -1
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_, i64 0, i64 %2
+  %2 = sext i32 %1 to i64
+  %3 = getelementptr ptr, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_, i64 %2
+  %switch.gep = getelementptr i8, ptr %3, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -10525,51 +10525,51 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8Qua
 switch.lookup:
   %4 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %.sroa.4.i.i = alloca %"struct.clang::CodeGen::DominatingValue<clang::CodeGen::Address>::saved_type", align 8
-  %switch.tableidx = add nsw i32 %1, -1
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_, i64 0, i64 %5
+  %5 = sext i32 %1 to i64
+  %6 = getelementptr ptr, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_, i64 %5
+  %switch.gep = getelementptr i8, ptr %6, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 6144
-  %7 = load ptr, ptr %6, align 8, !tbaa !1484
-  %.not.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i, label %8, label %15
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 6144
+  %8 = load ptr, ptr %7, align 8, !tbaa !1484
+  %.not.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i, label %9, label %16
 
-8:                                                ; preds = %switch.lookup
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %10 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %9, i32 noundef 1, i64 noundef 80) #20
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113DestroyObjectE, i64 16), ptr %10, align 8, !tbaa !653
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 %3, ptr %12, align 8, !tbaa !652
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store ptr %switch.load, ptr %13, align 8, !tbaa !1481
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store i8 1, ptr %14, align 8, !tbaa !1483
+9:                                                ; preds = %switch.lookup
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %11 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %10, i32 noundef 1, i64 noundef 80) #20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113DestroyObjectE, i64 16), ptr %11, align 8, !tbaa !653
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  store i64 %3, ptr %13, align 8, !tbaa !652
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  store ptr %switch.load, ptr %14, align 8, !tbaa !1481
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store i8 1, ptr %15, align 8, !tbaa !1483
   br label %_ZN5clang7CodeGen15CodeGenFunction11pushDestroyENS0_11CleanupKindENS0_7AddressENS_8QualTypeEPFvRS1_S3_S4_Eb.exit
 
-15:                                               ; preds = %switch.lookup
+16:                                               ; preds = %switch.lookup
   call void @_ZN5clang7CodeGen15DominatingValueINS0_7AddressEE4saveERNS0_15CodeGenFunctionES2_(ptr dead_on_unwind nonnull writable sret(%"struct.clang::CodeGen::DominatingValue<clang::CodeGen::Address>::saved_type") align 8 %.sroa.4.i.i, ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %17 = ptrtoint ptr %switch.load to i64
-  %18 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %16, i32 noundef 1, i64 noundef 72) #20
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_113DestroyObjectEJNS0_7AddressENS_8QualTypeEPFvRNS0_15CodeGenFunctionES5_S6_EbEEE, i64 16), ptr %18, align 8, !tbaa !653
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i8 1, ptr %19, align 8, !tbaa !1485
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %17, ptr %20, align 8, !tbaa !1486
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 %3, ptr %21, align 8, !tbaa !652
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.i.i, i64 40, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %18 = ptrtoint ptr %switch.load to i64
+  %19 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %17, i32 noundef 1, i64 noundef 72) #20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupIN12_GLOBAL__N_113DestroyObjectEJNS0_7AddressENS_8QualTypeEPFvRNS0_15CodeGenFunctionES5_S6_EbEEE, i64 16), ptr %19, align 8, !tbaa !653
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i8 1, ptr %20, align 8, !tbaa !1485
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i64 %18, ptr %21, align 8, !tbaa !1486
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i64 %3, ptr %22, align 8, !tbaa !652
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.i.i, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5clang7CodeGen15CodeGenFunction23createCleanupActiveFlagEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::RawAddress") align 8 %4, ptr noundef nonnull align 8 dereferenceable(6496) %0) #20
   call void @_ZN5clang7CodeGen15CodeGenFunction27initFullExprCleanupWithFlagENS0_10RawAddressE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::RawAddress") align 8 %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5clang7CodeGen15CodeGenFunction11pushDestroyENS0_11CleanupKindENS0_7AddressENS_8QualTypeEPFvRS1_S3_S4_Eb.exit
 
-_ZN5clang7CodeGen15CodeGenFunction11pushDestroyENS0_11CleanupKindENS0_7AddressENS_8QualTypeEPFvRS1_S3_S4_Eb.exit: ; preds = %8, %15
+_ZN5clang7CodeGen15CodeGenFunction11pushDestroyENS0_11CleanupKindENS0_7AddressENS_8QualTypeEPFvRS1_S3_S4_Eb.exit: ; preds = %9, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   ret void
 }

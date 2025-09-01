@@ -211,7 +211,7 @@ define dso_local void @InitializeQueryCompletion(ptr noundef writeonly captures(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local ptr @GetCommandTagName(i32 noundef %0) local_unnamed_addr #1 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %2
   %4 = load ptr, ptr %3, align 16
   ret ptr %4
 }
@@ -219,7 +219,7 @@ define dso_local ptr @GetCommandTagName(i32 noundef %0) local_unnamed_addr #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local ptr @GetCommandTagNameAndLen(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = zext i8 %6 to i64
@@ -231,7 +231,7 @@ define dso_local ptr @GetCommandTagNameAndLen(i32 noundef %0, ptr noundef writeo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local zeroext i1 @command_tag_display_rowcount(i32 noundef %0) local_unnamed_addr #1 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %2, i32 4
+  %3 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %2, i32 4
   %4 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %5 = trunc nuw i8 %4 to i1
   ret i1 %5
@@ -240,7 +240,7 @@ define dso_local zeroext i1 @command_tag_display_rowcount(i32 noundef %0) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local zeroext i1 @command_tag_event_trigger_ok(i32 noundef %0) local_unnamed_addr #1 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %2, i32 2
+  %3 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %2, i32 2
   %4 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %5 = trunc nuw i8 %4 to i1
   ret i1 %5
@@ -249,7 +249,7 @@ define dso_local zeroext i1 @command_tag_event_trigger_ok(i32 noundef %0) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local zeroext i1 @command_tag_table_rewrite_ok(i32 noundef %0) local_unnamed_addr #1 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %2, i32 3
+  %3 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %2, i32 3
   %4 = load i8, ptr %3, align 2, !range !4, !noundef !5
   %5 = trunc nuw i8 %4 to i1
   ret i1 %5
@@ -305,14 +305,14 @@ declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = load i32, ptr %1, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = zext i8 %8 to i64
   %10 = load ptr, ptr %6, align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %10, i64 %9, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %9
-  %12 = getelementptr inbounds nuw [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %5, i32 4
+  %12 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %5, i32 4
   %13 = load i8, ptr %12, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
   %.not = xor i1 %14, true

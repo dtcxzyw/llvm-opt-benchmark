@@ -7373,10 +7373,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
 
 _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit: ; preds = %163, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit ], [ 0, %163 ]
-  %166 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %167 = load i32, ptr %166, align 4
   %168 = icmp ne i32 %167, 0
-  %169 = getelementptr inbounds nuw [3 x i8], ptr %23, i64 0, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   %170 = zext i1 %168 to i8
   store i8 %170, ptr %169, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7422,10 +7422,10 @@ _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit: ; preds = %163, %_ZN6Assi
 
 _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit100: ; preds = %178, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit100
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit100 ], [ 0, %178 ]
-  %181 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %indvars.iv148
+  %181 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv148
   %182 = load i32, ptr %181, align 4
   %183 = icmp ne i32 %182, 0
-  %184 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 0, i64 %indvars.iv148
+  %184 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv148
   %185 = zext i1 %183 to i8
   store i8 %185, ptr %184, align 1
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
@@ -7471,10 +7471,10 @@ _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit100: ; preds = %178, %_ZN6A
 
 _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit109: ; preds = %193, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit109
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit109 ], [ 0, %193 ]
-  %196 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv152
+  %196 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv152
   %197 = load i32, ptr %196, align 4
   %198 = icmp ne i32 %197, 0
-  %199 = getelementptr inbounds nuw [3 x i8], ptr %25, i64 0, i64 %indvars.iv152
+  %199 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv152
   %200 = zext i1 %198 to i8
   store i8 %200, ptr %199, align 1
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
@@ -10955,7 +10955,7 @@ define hidden void @_ZN6Assimp3ASE6Parser22ParseLV3MeshTListBlockEjRNS0_4MeshEj(
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %9 = zext i32 %3 to i64
-  %10 = getelementptr inbounds nuw [8 x %"class.std::vector.20"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.std::vector.20", ptr %8, i64 %9
   %11 = zext i32 %1 to i64
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -10990,7 +10990,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %20, %22, %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 684
-  %31 = getelementptr inbounds nuw [8 x i32], ptr %30, i64 0, i64 %9
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %9
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %.pre = load ptr, ptr %0, align 8
   br label %.outer
@@ -11341,7 +11341,7 @@ _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPjRj.exit: ; preds = %_ZN6Assimp3A
 68:                                               ; preds = %56
   %69 = load i32, ptr %7, align 4
   %70 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %59, i64 %57, i32 1
-  %71 = getelementptr inbounds nuw [8 x [3 x i32]], ptr %70, i64 0, i64 %13
+  %71 = getelementptr inbounds nuw [3 x i32], ptr %70, i64 %13
   store i32 %69, ptr %71, align 4
   %72 = load i32, ptr %14, align 4
   %73 = load ptr, ptr %11, align 8
@@ -13874,7 +13874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float
@@ -14493,7 +14493,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit100:             ; preds = %.lr.ph.i93, %186
   %.08.lcssa.i98 = phi ptr [ %.0.lcssa.i.i81, %186 ], [ %192, %.lr.ph.i93 ]
   %.0.lcssa.i99 = phi i32 [ 0, %186 ], [ %191, %.lr.ph.i93 ]
   store ptr %.08.lcssa.i98, ptr %0, align 8
-  %195 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 0, i64 %.019
+  %195 = getelementptr inbounds nuw i32, ptr %1, i64 %.019
   store i32 %.0.lcssa.i99, ptr %195, align 4
   %196 = add nuw nsw i32 %.018267, 1
   %exitcond.not = icmp eq i32 %196, 3
@@ -17039,7 +17039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 
 46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i, %46
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw [8 x i32], ptr %42, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
   store i32 2, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -17108,7 +17108,7 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6Assimp3ASE4MeshEE9cons
 33:                                               ; preds = %33, %3
   %34 = phi i64 [ 0, %3 ], [ %44, %33 ]
   %35 = getelementptr inbounds nuw %"class.std::vector.20", ptr %31, i64 %34
-  %36 = getelementptr inbounds nuw [8 x %"class.std::vector.20"], ptr %32, i64 0, i64 %34
+  %36 = getelementptr inbounds nuw %"class.std::vector.20", ptr %32, i64 %34
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %35, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8

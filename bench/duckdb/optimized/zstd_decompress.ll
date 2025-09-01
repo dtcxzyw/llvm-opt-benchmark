@@ -472,10 +472,10 @@ define noundef i64 @_ZN11duckdb_zstd20ZSTD_frameHeaderSizeEPKvm(ptr noundef read
   %12 = xor i1 %11, true
   %13 = zext i1 %12 to i64
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds nuw [4 x i64], ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !57
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw [4 x i64], ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !57
   %.not.i = icmp ult i8 %6, 64
   %20 = and i1 %.not.i, %11
@@ -579,10 +579,10 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit: ;
   %35 = xor i1 %34, true
   %36 = zext i1 %35 to i64
   %37 = zext nneg i32 %31 to i64
-  %38 = getelementptr inbounds nuw [4 x i64], ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !57
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds nuw [4 x i64], ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !57
   %.not.i128 = icmp ult i8 %.sink158, 64
   %43 = and i1 %.not.i128, %34
@@ -1383,10 +1383,10 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit.i:
   %107 = xor i1 %106, true
   %108 = zext i1 %107 to i64
   %109 = zext nneg i32 %103 to i64
-  %110 = getelementptr inbounds nuw [4 x i64], ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !57
   %112 = zext nneg i32 %104 to i64
-  %113 = getelementptr inbounds nuw [4 x i64], ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %112
   %114 = load i64, ptr %113, align 8, !tbaa !57
   %.not.i.i75 = icmp ult i8 %101, 64
   %115 = and i1 %.not.i.i75, %106
@@ -1820,7 +1820,7 @@ define noundef range(i32 0, 6) i32 @_ZN11duckdb_zstd18ZSTD_nextInputTypeEPNS_11Z
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN11duckdb_zstd18ZSTD_nextInputTypeEPNS_11ZSTD_DCtx_sE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11duckdb_zstd18ZSTD_nextInputTypeEPNS_11ZSTD_DCtx_sE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -1923,10 +1923,10 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit: ;
   %47 = xor i1 %46, true
   %48 = zext i1 %47 to i64
   %49 = zext nneg i32 %43 to i64
-  %50 = getelementptr inbounds nuw [4 x i64], ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !57
   %52 = zext nneg i32 %44 to i64
-  %53 = getelementptr inbounds nuw [4 x i64], ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !57
   %.not.i164 = icmp ult i8 %41, 64
   %55 = and i1 %.not.i164, %46
@@ -2583,7 +2583,7 @@ define noundef i64 @_ZN11duckdb_zstd17ZSTD_loadDEntropyEPNS_21ZSTD_entropyDTable
 
 .critedge95:                                      ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %.469106, i64 4
-  %70 = getelementptr inbounds nuw [3 x i32], ptr %64, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
   store i32 %.469.val, ptr %70, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3

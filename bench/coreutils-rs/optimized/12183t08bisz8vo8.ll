@@ -1164,7 +1164,7 @@ _ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit: ;
 
 52:                                               ; preds = %.lr.ph, %67
   %.035 = phi i64 [ 1, %.lr.ph ], [ %68, %67 ]
-  %53 = getelementptr inbounds [0 x i8], ptr %19, i64 0, i64 %.035
+  %53 = getelementptr inbounds i8, ptr %19, i64 %.035
   %54 = load i8, ptr %53, align 1, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

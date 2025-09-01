@@ -216,9 +216,9 @@ define hidden void @proto_register_olsr() local_unnamed_addr #0 {
 2:                                                ; preds = %0, %2
   %indvars.iv9 = phi i64 [ 0, %0 ], [ %indvars.iv.next10, %2 ]
   %indvars.iv = phi i64 [ 5, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr [256 x i32], ptr @ett_olsr_message, i64 0, i64 %indvars.iv9
+  %3 = getelementptr i32, ptr @ett_olsr_message, i64 %indvars.iv9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr [261 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv
   store ptr %3, ptr %4, align 8
   %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next10, 256
@@ -343,7 +343,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %63 = tail call ptr @val_to_str_const(i32 noundef %45, ptr noundef nonnull @message_type_vals, ptr noundef nonnull @.str.123)
   %64 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %31, i32 noundef %62, ptr noundef %0, i32 noundef %.0166199, i32 noundef %61, ptr noundef null, ptr noundef nonnull @.str.122, ptr noundef %63, i32 noundef %45)
   %65 = zext i8 %44 to i64
-  %66 = getelementptr [256 x i32], ptr @ett_olsr_message, i64 0, i64 %65
+  %66 = getelementptr i32, ptr @ett_olsr_message, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = tail call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %67)
   %69 = load i32, ptr @hf_olsr_message_type, align 4

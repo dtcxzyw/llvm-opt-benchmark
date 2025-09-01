@@ -366,7 +366,7 @@ define dso_local i32 @scsi_execute_cmd(ptr noundef readonly captures(none) %0, p
   %42 = load i8, ptr %1, align 1
   %43 = lshr i8 %42, 5
   %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr [8 x i8], ptr @scsi_command_size_tbl, i64 0, i64 %44
+  %45 = getelementptr i8, ptr @scsi_command_size_tbl, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i16
   store i16 %47, ptr %28, align 4
@@ -3210,7 +3210,7 @@ define dso_local void @sdev_evt_send_simple(ptr noundef %0, i32 noundef %1, i32 
 10:                                               ; preds = %6, %3
   %11 = phi i64 [ 0, %3 ], [ %9, %6 ]
   %12 = or i32 %2, 256
-  %13 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %11, i64 5
+  %13 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %11, i64 5
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %12, i64 noundef 24) #19
   %16 = icmp eq ptr %15, null
@@ -3283,7 +3283,7 @@ define dso_local noundef ptr @sdev_evt_alloc(i32 noundef %0, i32 noundef %1) #0 
 9:                                                ; preds = %5, %2
   %10 = phi i64 [ 0, %2 ], [ %8, %5 ]
   %11 = or i32 %1, 256
-  %12 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %10, i64 5
+  %12 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10, i64 5
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %13, i32 noundef %11, i64 noundef 24) #19
   %15 = icmp eq ptr %14, null

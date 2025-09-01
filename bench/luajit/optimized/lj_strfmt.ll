@@ -173,7 +173,7 @@ define hidden i32 @lj_strfmt_parse(ptr noundef captures(none) initializes((16, 2
   br i1 %.not85.not.not, label %.thread, label %84
 
 .thread:                                          ; preds = %73
-  %77 = getelementptr inbounds nuw [56 x i8], ptr @strfmt_map, i64 0, i64 %74
+  %77 = getelementptr inbounds nuw i8, ptr @strfmt_map, i64 %74
   %78 = load i8, ptr %77, align 1, !tbaa !13
   %79 = zext i8 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %.7, i64 1
@@ -434,7 +434,7 @@ define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly captures(ret: ad
   %indvars.iv = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02025 = phi i64 [ %3, %.lr.ph.preheader ], [ %26, %.lr.ph ]
   %22 = and i64 %.02025, 15
-  %23 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @.str, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %24, ptr %25, align 1, !tbaa !13
@@ -647,7 +647,7 @@ lj_buf_more.exit:                                 ; preds = %2, %11
   %indvars.iv.i = phi i64 [ %31, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02025.i = phi i64 [ %13, %.lr.ph.preheader.i ], [ %36, %.lr.ph.i ]
   %32 = and i64 %.02025.i, 15
-  %33 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @.str, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %indvars.iv.i
   store i8 %34, ptr %35, align 1, !tbaa !13
@@ -1491,7 +1491,7 @@ lj_strfmt_parse.exit.thread155:                   ; preds = %84, %89
   br i1 %.not.i, label %lj_strfmt_parse.exit.thread, label %lj_strfmt_parse.exit.thread147
 
 lj_strfmt_parse.exit:                             ; preds = %89
-  %101 = getelementptr inbounds nuw [56 x i8], ptr @strfmt_map, i64 0, i64 %90
+  %101 = getelementptr inbounds nuw i8, ptr @strfmt_map, i64 %90
   %102 = load i8, ptr %101, align 1, !tbaa !13
   %103 = zext i8 %102 to i32
   %104 = getelementptr inbounds nuw i8, ptr %.7.i, i64 1
@@ -1935,7 +1935,7 @@ lj_buf_more.exit.i138:                            ; preds = %298, %287
   %indvars.iv.i.i = phi i64 [ %318, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02025.i.i = phi i64 [ %300, %.lr.ph.preheader.i.i ], [ %323, %.lr.ph.i.i ]
   %319 = and i64 %.02025.i.i, 15
-  %320 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr @.str, i64 %319
   %321 = load i8, ptr %320, align 1, !tbaa !13
   %322 = getelementptr inbounds nuw i8, ptr %.0.i.i139, i64 %indvars.iv.i.i
   store i8 %321, ptr %322, align 1, !tbaa !13
@@ -2023,7 +2023,7 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
 23:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = xor i64 %5, -1
-  %25 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !53
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #15
   %28 = and i64 %27, 4294967295
@@ -2099,7 +2099,7 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %indvars.iv.i = phi i64 [ %66, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02025.i = phi i64 [ %48, %.lr.ph.preheader.i ], [ %71, %.lr.ph.i ]
   %67 = and i64 %.02025.i, 15
-  %68 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @.str, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !13
   %70 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.i
   store i8 %69, ptr %70, align 1, !tbaa !13
@@ -2448,7 +2448,7 @@ lj_buf_more.exit.i:                               ; preds = %142, %132
   %indvars.iv.i.i = phi i64 [ %162, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02025.i.i = phi i64 [ %144, %.lr.ph.preheader.i.i ], [ %167, %.lr.ph.i.i ]
   %163 = and i64 %.02025.i.i, 15
-  %164 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i8, ptr @.str, i64 %163
   %165 = load i8, ptr %164, align 1, !tbaa !13
   %166 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 %indvars.iv.i.i
   store i8 %165, ptr %166, align 1, !tbaa !13

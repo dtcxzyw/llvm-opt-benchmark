@@ -536,13 +536,13 @@ define dso_local void @_ZN4llvm21getDefaultInlineOrderERNS_15AnalysisManagerINS_
 
 switch.lookup:                                    ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %6 to i64
-  %switch.gep48 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_.233, i64 0, i64 %9
+  %switch.gep48 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_.233, i64 %9
   %switch.load49 = load ptr, ptr %switch.gep48, align 8
   %10 = zext nneg i32 %6 to i64
-  %switch.gep50 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_.234, i64 0, i64 %10
+  %switch.gep50 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_.234, i64 %10
   %switch.load51 = load ptr, ptr %switch.gep50, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #23, !noalias !57
   store ptr %switch.load, ptr %11, align 8, !tbaa !3, !noalias !57
@@ -630,13 +630,13 @@ _ZNK4llvm15AnalysisManagerINS_6ModuleEJEE16isPassRegisteredINS_25PluginInlineOrd
 
 switch.lookup:                                    ; preds = %_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE16isPassRegisteredINS_25PluginInlineOrderAnalysisEEEbv.exit
   %32 = zext nneg i32 %30 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_, i64 %32
   %switch.load = load ptr, ptr %switch.gep, align 8
   %33 = zext nneg i32 %30 to i64
-  %switch.gep13 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_.233, i64 0, i64 %33
+  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_.233, i64 %33
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   %34 = zext nneg i32 %30 to i64
-  %switch.gep15 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_.234, i64 0, i64 %34
+  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_.234, i64 %34
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %35 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #23, !noalias !92
   store ptr %switch.load, ptr %35, align 8, !tbaa !3, !noalias !92

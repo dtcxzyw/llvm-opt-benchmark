@@ -38,7 +38,7 @@ define void @Ree_TruthPrecompute() local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %0, %Abc_TtPrintHexRev.exit
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %Abc_TtPrintHexRev.exit ]
-  %1 = getelementptr inbounds nuw [8 x i64], ptr @__const.Ree_TruthPrecompute.Truths, i64 0, i64 %indvars.iv
+  %1 = getelementptr inbounds nuw i64, ptr @__const.Ree_TruthPrecompute.Truths, i64 %indvars.iv
   %2 = load i64, ptr %1, align 8, !tbaa !3
   %3 = and i64 %2, -4340410370284600381
   %4 = shl i64 %2, 2
@@ -77,7 +77,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %11
 
 .preheader.i9:                                    ; preds = %19, %Abc_TtPrintHexRev.exit17
   %indvars.iv21 = phi i64 [ 0, %19 ], [ %indvars.iv.next22, %Abc_TtPrintHexRev.exit17 ]
-  %20 = getelementptr inbounds nuw [8 x i64], ptr @__const.Ree_TruthPrecompute.Truths, i64 0, i64 %indvars.iv21
+  %20 = getelementptr inbounds nuw i64, ptr @__const.Ree_TruthPrecompute.Truths, i64 %indvars.iv21
   %21 = load i64, ptr %20, align 8, !tbaa !3
   %22 = and i64 %21, -4340410370284600381
   %23 = shl i64 %21, 2
@@ -148,7 +148,7 @@ define void @Ree_TruthPrecompute2() local_unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = zext nneg i32 %3 to i64
   %7 = shl i64 %.013, %6
-  %8 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = and i64 %9, %7
   %11 = and i64 %9, %.013
@@ -557,10 +557,10 @@ Vec_IntPush.exit138:                              ; preds = %Vec_IntPush.exit138
 
 Ree_ManCutNotFind.exit.i.i:                       ; preds = %137, %136, %132
   %.0.i.i.i = phi i64 [ 0, %132 ], [ 1, %136 ], [ %138, %137 ]
-  %139 = getelementptr inbounds [3 x [8 x i32]], ptr @__const.Ree_ManCutTruthOne.Truths, i64 0, i64 %.0.i.i.i
+  %139 = getelementptr inbounds [8 x i32], ptr @__const.Ree_ManCutTruthOne.Truths, i64 %.0.i.i.i
   %140 = and i32 %128, 7
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw [8 x i32], ptr %139, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i32, ptr %139, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !16
   %144 = xor i32 %143, %sext.i.i
   br label %Ree_ManCutTruthOne.exit.i
@@ -582,7 +582,7 @@ Ree_ManCutNotFind.exit.i.i:                       ; preds = %137, %136, %132
 
 Ree_ManCutFind.exit.i.i:                          ; preds = %150, %148, %145
   %.0.i26.i.i = phi i64 [ 0, %145 ], [ 1, %148 ], [ %..i.i.i, %150 ]
-  %153 = getelementptr inbounds [3 x i32], ptr @__const.Ree_ManCutTruthOne.Truths.16, i64 0, i64 %.0.i26.i.i
+  %153 = getelementptr inbounds i32, ptr @__const.Ree_ManCutTruthOne.Truths.16, i64 %.0.i26.i.i
   %154 = load i32, ptr %153, align 4, !tbaa !16
   %155 = xor i32 %154, %sext.i.i
   br label %Ree_ManCutTruthOne.exit.i
@@ -636,10 +636,10 @@ Ree_ManCutTruthOne.exit.i:                        ; preds = %Ree_ManCutFind.exit
 
 Ree_ManCutNotFind.exit.i25.i:                     ; preds = %174, %173, %167
   %.0.i.i26.i = phi i64 [ 0, %167 ], [ 1, %173 ], [ %175, %174 ]
-  %176 = getelementptr inbounds [3 x [8 x i32]], ptr @__const.Ree_ManCutTruthOne.Truths, i64 0, i64 %.0.i.i26.i
+  %176 = getelementptr inbounds [8 x i32], ptr @__const.Ree_ManCutTruthOne.Truths, i64 %.0.i.i26.i
   %177 = and i32 %163, 7
   %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds nuw [8 x i32], ptr %176, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i32, ptr %176, i64 %178
   %180 = load i32, ptr %179, align 4, !tbaa !16
   %181 = xor i32 %180, %sext.i17.i
   br label %Ree_ManCutTruthOne.exit33.i
@@ -662,7 +662,7 @@ Ree_ManCutNotFind.exit.i25.i:                     ; preds = %174, %173, %167
 
 Ree_ManCutFind.exit.i19.i:                        ; preds = %188, %186, %182
   %.0.i26.i20.i = phi i64 [ 0, %182 ], [ 1, %186 ], [ %..i.i18.i, %188 ]
-  %191 = getelementptr inbounds [3 x i32], ptr @__const.Ree_ManCutTruthOne.Truths.16, i64 0, i64 %.0.i26.i20.i
+  %191 = getelementptr inbounds i32, ptr @__const.Ree_ManCutTruthOne.Truths.16, i64 %.0.i26.i20.i
   %192 = load i32, ptr %191, align 4, !tbaa !16
   %193 = xor i32 %192, %sext.i17.i
   br label %Ree_ManCutTruthOne.exit33.i
@@ -738,7 +738,7 @@ Ree_ManCutTruth.exit:                             ; preds = %Gia_ObjIsXor.exit.t
 .lr.ph:                                           ; preds = %222, %Vec_IntPush.exit155
   %225 = phi ptr [ %.pre.i151225, %Vec_IntPush.exit155 ], [ %.val, %222 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_IntPush.exit155 ], [ 0, %222 ]
-  %226 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %226 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %227 = load i32, ptr %226, align 4, !tbaa !16
   %228 = load i32, ptr %24, align 4, !tbaa !25
   %229 = load i32, ptr %4, align 8, !tbaa !20
@@ -2120,7 +2120,7 @@ Hash_IntObj.exit:                                 ; preds = %150, %155
 
 185:                                              ; preds = %180, %189
   %indvars.iv245 = phi i64 [ 0, %180 ], [ %indvars.iv.next246, %189 ]
-  %186 = getelementptr inbounds nuw [8 x i32], ptr @__const.Ree_ManDeriveAdds.SignMaj, i64 0, i64 %indvars.iv245
+  %186 = getelementptr inbounds nuw i32, ptr @__const.Ree_ManDeriveAdds.SignMaj, i64 %indvars.iv245
   %187 = load i32, ptr %186, align 4, !tbaa !16
   %188 = icmp eq i32 %184, %187
   br i1 %188, label %.thread.loopexit235, label %189
@@ -2132,7 +2132,7 @@ Hash_IntObj.exit:                                 ; preds = %150, %155
 
 .preheader:                                       ; preds = %189, %193
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %193 ], [ 0, %189 ]
-  %190 = getelementptr inbounds nuw [8 x i32], ptr @__const.Ree_ManDeriveAdds.SignAnd, i64 0, i64 %indvars.iv248
+  %190 = getelementptr inbounds nuw i32, ptr @__const.Ree_ManDeriveAdds.SignAnd, i64 %indvars.iv248
   %191 = load i32, ptr %190, align 4, !tbaa !16
   %192 = icmp eq i32 %184, %191
   br i1 %192, label %.thread.loopexit.split.loop.exit, label %193

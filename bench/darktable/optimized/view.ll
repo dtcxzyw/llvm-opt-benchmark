@@ -1200,7 +1200,7 @@ define void @dt_view_accels_refresh(ptr noundef readonly captures(none) %0) loca
 
 switch.lookup:                                    ; preds = %54
   %58 = zext nneg i32 %56 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dt_view_accels_refresh, i64 0, i64 %58
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_view_accels_refresh, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
   %59 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.load, i32 noundef 5) #19
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %2, ptr noundef %59) #19
@@ -1867,10 +1867,10 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %10
 
 44:                                               ; preds = %26
   %45 = zext i32 %37 to i64
-  %46 = getelementptr inbounds nuw [11 x i32], ptr %27, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %27, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !187
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 44
-  %49 = getelementptr inbounds nuw [11 x i32], ptr %48, i64 0, i64 %45
+  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %45
   %50 = load i32, ptr %49, align 4, !tbaa !187
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.22, i32 noundef %0, i32 noundef %33, i32 noundef %36, i32 noundef %47, i32 noundef %50, i32 noundef %39, i32 noundef %41) #19
   br label %51
@@ -4867,7 +4867,7 @@ define internal i32 @sort_views(ptr noundef %0, ptr noundef %1) #0 {
   %indvars.iv = phi i64 [ 0, %2 ], [ 1, %13 ]
   %.027 = phi i32 [ 2, %2 ], [ %spec.select, %13 ]
   %.02025 = phi i32 [ 2, %2 ], [ %.121, %13 ]
-  %15 = getelementptr inbounds nuw [2 x ptr], ptr @sort_views.view_order, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr @sort_views.view_order, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !141
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %16) #22
   %.not23 = icmp eq i32 %17, 0

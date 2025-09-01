@@ -166,7 +166,7 @@ nfaExecLimEx32_Compress_Repeats.exit:             ; preds = %queue_prev_byte.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %96 = zext i8 %.0.i to i64
-  %97 = getelementptr inbounds nuw [256 x i8], ptr %30, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %30, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i64
   %100 = getelementptr inbounds nuw i32, ptr %95, i64 %99
@@ -273,7 +273,7 @@ partial_load_u32.exit:                            ; preds = %12, %15, %17, %25, 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %33 = zext i8 %4 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw i32, ptr %32, i64 %36
@@ -470,7 +470,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_initCompressedState(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %32 = zext i8 %3 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw i32, ptr %31, i64 %35
@@ -720,7 +720,7 @@ moNfaReportCurrent32.exit:                        ; preds = %8, %15
   %99 = add i32 %93, -1
   store i32 %99, ptr %35, align 8
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %63, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw %struct.mq_item, ptr %63, i64 %100
   store i32 0, ptr %101, align 8
   %102 = sub i64 %82, %62
   %.idx89 = mul nuw nsw i64 %100, 24
@@ -733,7 +733,7 @@ moNfaReportCurrent32.exit:                        ; preds = %8, %15
   br label %.thread
 
 107:                                              ; preds = %92
-  %108 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %63, i64 0, i64 %.pre-phi
+  %108 = getelementptr inbounds nuw %struct.mq_item, ptr %63, i64 %.pre-phi
   %109 = load i32, ptr %108, align 8
   switch i32 %109, label %115 [
     i32 2, label %110
@@ -924,7 +924,7 @@ limexExpireExtendedState32.exit:                  ; preds = %196, %._crit_edge, 
   %206 = add i32 %203, -1
   store i32 %206, ptr %35, align 8
   %207 = zext i32 %206 to i64
-  %208 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %63, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw %struct.mq_item, ptr %63, i64 %207
   store i32 0, ptr %208, align 8
   %209 = sub i64 %.074.lcssa, %62
   %.idx84 = mul nuw nsw i64 %207, 24
@@ -1436,7 +1436,7 @@ processExceptional32.exit62.thread:               ; preds = %137, %133, %251, %2
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 %.058.i8581
   %256 = load i8, ptr %255, align 1
   %257 = zext i8 %256 to i64
-  %258 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 %257
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i64
   %261 = getelementptr inbounds nuw i32, ptr %6, i64 %260
@@ -1894,7 +1894,7 @@ processExceptional32.exit47.thread:               ; preds = %366, %362, %480, %4
   %484 = getelementptr inbounds nuw i8, ptr %1, i64 %.058.i592
   %485 = load i8, ptr %484, align 1
   %486 = zext i8 %485 to i64
-  %487 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %486
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 %486
   %488 = load i8, ptr %487, align 1
   %489 = zext i8 %488 to i64
   %490 = getelementptr inbounds nuw i32, ptr %6, i64 %489
@@ -2378,7 +2378,7 @@ processExceptional32.exit.thread:                 ; preds = %604, %600, %718, %7
   %722 = getelementptr inbounds nuw i8, ptr %1, i64 %.1236607
   %723 = load i8, ptr %722, align 1
   %724 = zext i8 %723 to i64
-  %725 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %724
+  %725 = getelementptr inbounds nuw i8, ptr %0, i64 %724
   %726 = load i8, ptr %725, align 1
   %727 = zext i8 %726 to i64
   %728 = getelementptr inbounds nuw i32, ptr %6, i64 %727
@@ -2568,7 +2568,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   %98 = add i32 %97, -1
   store i32 %98, ptr %37, align 8
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %66, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %99
   store i32 0, ptr %100, align 8
   %101 = load i64, ptr %5, align 8
   %102 = sub i64 %.0109150, %64
@@ -2611,7 +2611,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   %118 = add i32 %.pre170, -1
   store i32 %118, ptr %37, align 8
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %66, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %119
   store i32 0, ptr %120, align 8
   %121 = load i64, ptr %6, align 8
   %122 = sub i64 %.1110, %64
@@ -2640,7 +2640,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   %136 = add i32 %129, -1
   store i32 %136, ptr %37, align 8
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %66, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %137
   store i32 0, ptr %138, align 8
   %139 = sub i64 %86, %64
   %.idx128 = mul nuw nsw i64 %137, 24
@@ -2653,7 +2653,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   br label %.thread137
 
 144:                                              ; preds = %128
-  %145 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %66, i64 0, i64 %130
+  %145 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %130
   %146 = load i32, ptr %145, align 8
   switch i32 %146, label %152 [
     i32 2, label %147
@@ -2844,7 +2844,7 @@ limexExpireExtendedState32.exit:                  ; preds = %233, %._crit_edge, 
   %243 = add i32 %240, -1
   store i32 %243, ptr %37, align 8
   %244 = zext i32 %243 to i64
-  %245 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %66, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %244
   store i32 0, ptr %245, align 8
   %246 = sub i64 %.0109.lcssa, %64
   %.idx120 = mul nuw nsw i64 %244, 24
@@ -3287,7 +3287,7 @@ runException32.exit:                              ; preds = %219, %179, %175, %1
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 %.058.i9372
   %231 = load i8, ptr %230, align 1
   %232 = zext i8 %231 to i64
-  %233 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 %232
   %234 = load i8, ptr %233, align 1
   %235 = zext i8 %234 to i64
   %236 = getelementptr inbounds nuw i32, ptr %7, i64 %235
@@ -3680,7 +3680,7 @@ runException32.exit61:                            ; preds = %422, %382, %378, %3
   %433 = getelementptr inbounds nuw i8, ptr %1, i64 %.058.i376
   %434 = load i8, ptr %433, align 1
   %435 = zext i8 %434 to i64
-  %436 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %435
+  %436 = getelementptr inbounds nuw i8, ptr %0, i64 %435
   %437 = load i8, ptr %436, align 1
   %438 = zext i8 %437 to i64
   %439 = getelementptr inbounds nuw i32, ptr %7, i64 %438
@@ -4099,7 +4099,7 @@ runException32.exit69:                            ; preds = %634, %594, %590, %6
   %645 = getelementptr inbounds nuw i8, ptr %1, i64 %.1192385
   %646 = load i8, ptr %645, align 1
   %647 = zext i8 %646 to i64
-  %648 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %647
+  %648 = getelementptr inbounds nuw i8, ptr %0, i64 %647
   %649 = load i8, ptr %648, align 1
   %650 = zext i8 %649 to i64
   %651 = getelementptr inbounds nuw i32, ptr %7, i64 %650
@@ -4255,7 +4255,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx32_QR(ptr noundef %0, ptr n
 73:                                               ; preds = %67, %68
   %74 = load i32, ptr %6, align 8
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %29, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw %struct.mq_item, ptr %29, i64 %75
   %77 = load i32, ptr %76, align 8
   switch i32 %77, label %83 [
     i32 2, label %78
@@ -5031,7 +5031,7 @@ nfaExecLimEx32_Run_Exceptions.exit:               ; preds = %218, %220, %221, %2
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 %.058.i8336
   %225 = load i8, ptr %224, align 1
   %226 = zext i8 %225 to i64
-  %227 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 %226
   %228 = load i8, ptr %227, align 1
   %229 = zext i8 %228 to i64
   %230 = getelementptr inbounds nuw i32, ptr %6, i64 %229
@@ -5410,7 +5410,7 @@ nfaExecLimEx32_Run_Exceptions.exit23:             ; preds = %416, %418, %419, %4
   %422 = getelementptr inbounds nuw i8, ptr %1, i64 %.058.i340
   %423 = load i8, ptr %422, align 1
   %424 = zext i8 %423 to i64
-  %425 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %424
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 %424
   %426 = load i8, ptr %425, align 1
   %427 = zext i8 %426 to i64
   %428 = getelementptr inbounds nuw i32, ptr %6, i64 %427
@@ -5815,7 +5815,7 @@ nfaExecLimEx32_Run_Exceptions.exit29:             ; preds = %623, %625, %626, %6
   %629 = getelementptr inbounds nuw i8, ptr %1, i64 %.1189349
   %630 = load i8, ptr %629, align 1
   %631 = zext i8 %630 to i64
-  %632 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %631
+  %632 = getelementptr inbounds nuw i8, ptr %0, i64 %631
   %633 = load i8, ptr %632, align 1
   %634 = zext i8 %633 to i64
   %635 = getelementptr inbounds nuw i32, ptr %6, i64 %634
@@ -6439,7 +6439,7 @@ processExceptional32.exit.thread:                 ; preds = %109, %149, %105, %1
   %153 = getelementptr i8, ptr %152, i64 -1
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 %155
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i64
   %159 = getelementptr inbounds nuw i32, ptr %6, i64 %158

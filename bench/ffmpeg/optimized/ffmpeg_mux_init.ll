@@ -656,7 +656,7 @@ check_opt_bitexact.exit:                          ; preds = %113, %124
   br i1 %.not162.i, label %204, label %209
 
 204:                                              ; preds = %200
-  %205 = getelementptr inbounds nuw [4 x ptr], ptr @create_streams.map_func, i64 0, i64 %indvars.iv383.i
+  %205 = getelementptr inbounds nuw ptr, ptr @create_streams.map_func, i64 %indvars.iv383.i
   %206 = load ptr, ptr %205, align 8, !tbaa !68
   %207 = call i32 %206(ptr noundef nonnull %54, ptr noundef nonnull %0) #16
   %208 = icmp slt i32 %207, 0
@@ -3917,9 +3917,9 @@ define internal fastcc i32 @set_dispositions(ptr noundef nonnull readonly captur
   %22 = load ptr, ptr %21, align 8, !tbaa !141
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !175
-  %25 = add nsw i32 %24, 1
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %26
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr i32, ptr %3, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %27, align 4, !tbaa !4
@@ -3950,9 +3950,9 @@ define internal fastcc i32 @set_dispositions(ptr noundef nonnull readonly captur
 
 47:                                               ; preds = %39
   %48 = load i32, ptr %23, align 8, !tbaa !175
-  %49 = add nsw i32 %48, 1
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %50
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr i32, ptr %4, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 4
   store i32 1, ptr %51, align 4, !tbaa !4
   br label %52
 
@@ -4002,13 +4002,13 @@ define internal fastcc i32 @set_dispositions(ptr noundef nonnull readonly captur
   %75 = load i32, ptr %74, align 8, !tbaa !175
   %76 = add nsw i32 %75, 1
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %77
+  %78 = getelementptr inbounds i32, ptr %3, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = icmp slt i32 %79, 2
   br i1 %80, label %92, label %81
 
 81:                                               ; preds = %71
-  %82 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %77
+  %82 = getelementptr inbounds i32, ptr %4, i64 %77
   %83 = load i32, ptr %82, align 4, !tbaa !4
   %.not58 = icmp eq i32 %83, 0
   br i1 %.not58, label %84, label %92
@@ -6447,7 +6447,7 @@ define internal fastcc i32 @get_preset_file_2(ptr noundef nonnull %0, ptr nounde
 .split.us:                                        ; preds = %3, %15
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %15 ], [ 0, %3 ]
   %.01927.us = phi i32 [ %.1.us, %15 ], [ -1, %3 ]
-  %10 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv33
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv33
   %11 = load ptr, ptr %10, align 8, !tbaa !139
   %.not.us = icmp eq ptr %11, null
   br i1 %.not.us, label %15, label %.thread.us
@@ -6470,7 +6470,7 @@ define internal fastcc i32 @get_preset_file_2(ptr noundef nonnull %0, ptr nounde
 .split:                                           ; preds = %3, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %3 ]
   %.01927 = phi i32 [ %.1, %28 ], [ -1, %3 ]
-  %19 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !139
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %28, label %21
@@ -6745,7 +6745,7 @@ unescape.exit84:                                  ; preds = %49
 
 81:                                               ; preds = %72, %79
   %.0172 = phi i64 [ 0, %72 ], [ %80, %79 ]
-  %82 = getelementptr inbounds nuw [18 x %struct.anon], ptr @enc_stats_init.fmt_specs, i64 0, i64 %.0172
+  %82 = getelementptr inbounds nuw %struct.anon, ptr @enc_stats_init.fmt_specs, i64 %.0172
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !410
   %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %84) #17

@@ -5993,7 +5993,7 @@ entry:
   store i32 1, ptr %partsCount.i, align 16
   %and.i = and i32 %cond, 7
   %idxprom.i = zext nneg i32 %and.i to i64
-  %arrayidx1.i = getelementptr inbounds nuw [8 x i64], ptr @_ZZN4llvhL8powerOf5EPmjE16firstEightPowers, i64 0, i64 %idxprom.i
+  %arrayidx1.i = getelementptr inbounds nuw i64, ptr @_ZZN4llvhL8powerOf5EPmjE16firstEightPowers, i64 %idxprom.i
   %4 = load i64, ptr %arrayidx1.i, align 8
   store i64 %4, ptr %pow5Parts, align 16
   %tobool.not38.i = icmp samesign ult i32 %cond, 8
@@ -6010,7 +6010,7 @@ for.body.i:                                       ; preds = %if.end28.i, %for.bo
   %pow5.041.i = phi ptr [ %pow5s.i, %for.body.preheader.i ], [ %add.ptr30.i, %if.end28.i ]
   %p2.040.i = phi ptr [ %scratch.i, %for.body.preheader.i ], [ %p2.1.i, %if.end28.i ]
   %p1.039.i = phi ptr [ %pow5Parts, %for.body.preheader.i ], [ %p1.1.i, %if.end28.i ]
-  %arrayidx4.i = getelementptr inbounds nuw [16 x i32], ptr %partsCount.i, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds nuw i32, ptr %partsCount.i, i64 %indvars.iv.i
   %5 = load i32, ptr %arrayidx4.i, align 4
   %cmp.i = icmp eq i32 %5, 0
   br i1 %cmp.i, label %if.then.i, label %if.end17.i
@@ -6018,7 +6018,7 @@ for.body.i:                                       ; preds = %if.end28.i, %for.bo
 if.then.i:                                        ; preds = %for.body.i
   %6 = add nuw nsw i64 %indvars.iv.i, 4294967295
   %idxprom5.i = and i64 %6, 4294967295
-  %arrayidx6.i = getelementptr inbounds nuw [16 x i32], ptr %partsCount.i, i64 0, i64 %idxprom5.i
+  %arrayidx6.i = getelementptr inbounds nuw i32, ptr %partsCount.i, i64 %idxprom5.i
   %7 = load i32, ptr %arrayidx6.i, align 4
   %idx.ext.i = zext i32 %7 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i

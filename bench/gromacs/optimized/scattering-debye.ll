@@ -1305,7 +1305,7 @@ define void @_ZN3gmx22ComputeDebyeScattering39computeMonteCarloPairDistancesHist
 
 ._crit_edge.i:                                    ; preds = %117
   %.phi.trans.insert1.i = zext nneg i32 %114 to i64
-  %.phi.trans.insert2.i = getelementptr inbounds nuw [2 x i64], ptr %71, i64 0, i64 %.phi.trans.insert1.i
+  %.phi.trans.insert2.i = getelementptr inbounds nuw i64, ptr %71, i64 %.phi.trans.insert1.i
   %.pre.i = load i64, ptr %.phi.trans.insert2.i, align 8, !tbaa !83
   %119 = add nuw nsw i32 %114, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit
@@ -1506,7 +1506,7 @@ _ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit: ;
 
 ._crit_edge.i56:                                  ; preds = %208
   %.phi.trans.insert1.i58 = zext nneg i32 %205 to i64
-  %.phi.trans.insert2.i59 = getelementptr inbounds nuw [2 x i64], ptr %71, i64 0, i64 %.phi.trans.insert1.i58
+  %.phi.trans.insert2.i59 = getelementptr inbounds nuw i64, ptr %71, i64 %.phi.trans.insert1.i58
   %.pre.i60 = load i64, ptr %.phi.trans.insert2.i59, align 8, !tbaa !83
   %210 = add nuw nsw i32 %205, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit65

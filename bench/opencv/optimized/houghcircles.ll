@@ -387,11 +387,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
 
 137:                                              ; preds = %137, %134
   %indvars.iv.i = phi i64 [ 0, %134 ], [ %indvars.iv.next.i, %137 ]
-  %138 = getelementptr inbounds nuw [3 x float], ptr %136, i64 0, i64 %indvars.iv.i
+  %138 = getelementptr inbounds nuw float, ptr %136, i64 %indvars.iv.i
   %139 = load float, ptr %138, align 4, !tbaa !40, !noalias !36
   %140 = insertelement <4 x float> poison, float %139, i64 0
   %141 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %140)
-  %142 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %142 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   store i32 %141, ptr %142, align 4, !tbaa !39, !alias.scope !36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

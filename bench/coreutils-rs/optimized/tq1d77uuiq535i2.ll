@@ -6148,14 +6148,14 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h0f75c002d821cfccE(ptr no
 65:                                               ; preds = %57
   %66 = and i32 %.sroa.4.0.i.ph, 255
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %67
   %69 = load i8, ptr %68, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 70:                                               ; preds = %57
   %71 = and i32 %.sroa.4.0.i.ph, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %72
   %74 = load i8, ptr %73, align 1, !noundef !5
   %75 = lshr i8 %74, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -6323,14 +6323,14 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h2625e94c5f252d56E(ptr no
 68:                                               ; preds = %60
   %69 = and i32 %.sroa.4.0.i.ph, 255
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %70
   %72 = load i8, ptr %71, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 73:                                               ; preds = %60
   %74 = and i32 %.sroa.4.0.i.ph, 255
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %75
   %77 = load i8, ptr %76, align 1, !noundef !5
   %78 = lshr i8 %77, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -6380,7 +6380,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 92:                                               ; preds = %88
   %93 = zext nneg i32 %.sroa.4.0.i.ph to i64
   %94 = lshr i64 %93, 13
-  %95 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %94
   %96 = load i8, ptr %95, align 1, !noundef !5
   %97 = zext i8 %96 to i64
   %98 = shl nuw nsw i64 %97, 7
@@ -6391,7 +6391,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %102, label %103, label %112, !prof !1368
 
 103:                                              ; preds = %92
-  %104 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %101
+  %104 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %101
   %105 = load i8, ptr %104, align 1, !noundef !5
   %106 = zext i8 %105 to i64
   %107 = shl nuw nsw i64 %106, 4
@@ -6410,7 +6410,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; preds = %103
-  %114 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %110
+  %114 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %110
   %115 = load i8, ptr %114, align 1, !noundef !5
   %.tr.i.i = trunc i32 %.sroa.4.0.i.ph to i8
   %116 = shl i8 %.tr.i.i, 1
@@ -6547,7 +6547,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr no
 56:                                               ; preds = %52
   %57 = zext nneg i32 %.sroa.4.0.i.ph to i64
   %58 = lshr i64 %57, 13
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %58
   %60 = load i8, ptr %59, align 1, !noundef !5
   %61 = zext i8 %60 to i64
   %62 = shl nuw nsw i64 %61, 7
@@ -6558,7 +6558,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr no
   br i1 %66, label %67, label %76, !prof !1368
 
 67:                                               ; preds = %56
-  %68 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %65
+  %68 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %65
   %69 = load i8, ptr %68, align 1, !noundef !5
   %70 = zext i8 %69 to i64
   %71 = shl nuw nsw i64 %70, 4
@@ -6577,7 +6577,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr no
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; preds = %67
-  %78 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %74
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %74
   %79 = load i8, ptr %78, align 1, !noundef !5
   %.tr.i.i = trunc i32 %.sroa.4.0.i.ph to i8
   %80 = shl i8 %.tr.i.i, 1
@@ -6742,14 +6742,14 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h4691d1aac14e8592E(ptr no
 69:                                               ; preds = %61
   %70 = and i32 %.sroa.4.0.i.ph, 255
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %71
   %73 = load i8, ptr %72, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 74:                                               ; preds = %61
   %75 = and i32 %.sroa.4.0.i.ph, 255
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %76
   %78 = load i8, ptr %77, align 1, !noundef !5
   %79 = lshr i8 %78, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -6799,7 +6799,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 93:                                               ; preds = %89
   %94 = zext nneg i32 %.sroa.4.0.i.ph to i64
   %95 = lshr i64 %94, 13
-  %96 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %95
   %97 = load i8, ptr %96, align 1, !noundef !5
   %98 = zext i8 %97 to i64
   %99 = shl nuw nsw i64 %98, 7
@@ -6810,7 +6810,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %103, label %104, label %113, !prof !1368
 
 104:                                              ; preds = %93
-  %105 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %102
   %106 = load i8, ptr %105, align 1, !noundef !5
   %107 = zext i8 %106 to i64
   %108 = shl nuw nsw i64 %107, 4
@@ -6829,7 +6829,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; preds = %104
-  %115 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %111
+  %115 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %111
   %116 = load i8, ptr %115, align 1, !noundef !5
   %.tr.i.i = trunc i32 %.sroa.4.0.i.ph to i8
   %117 = shl i8 %.tr.i.i, 1
@@ -6989,7 +6989,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr no
 58:                                               ; preds = %54
   %59 = zext nneg i32 %.sroa.4.0.i.ph to i64
   %60 = lshr i64 %59, 13
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %60
   %62 = load i8, ptr %61, align 1, !noundef !5
   %63 = zext i8 %62 to i64
   %64 = shl nuw nsw i64 %63, 7
@@ -7000,7 +7000,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr no
   br i1 %68, label %69, label %78, !prof !1368
 
 69:                                               ; preds = %58
-  %70 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %67
+  %70 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %67
   %71 = load i8, ptr %70, align 1, !noundef !5
   %72 = zext i8 %71 to i64
   %73 = shl nuw nsw i64 %72, 4
@@ -7019,7 +7019,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr no
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; preds = %69
-  %80 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %76
+  %80 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %76
   %81 = load i8, ptr %80, align 1, !noundef !5
   %.tr.i.i = trunc i32 %.sroa.4.0.i.ph to i8
   %82 = shl i8 %.tr.i.i, 1
@@ -7183,14 +7183,14 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h8d4bf9a3b52d0a39E(ptr no
 63:                                               ; preds = %55
   %64 = and i32 %.sroa.4.0.i.ph, 255
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %65
   %67 = load i8, ptr %66, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 68:                                               ; preds = %55
   %69 = and i32 %.sroa.4.0.i.ph, 255
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %70
   %72 = load i8, ptr %71, align 1, !noundef !5
   %73 = lshr i8 %72, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -7340,14 +7340,14 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hb34c730f98e07b6eE(ptr no
 65:                                               ; preds = %57
   %66 = and i32 %.sroa.4.0.i.ph, 255
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %67
   %69 = load i8, ptr %68, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 70:                                               ; preds = %57
   %71 = and i32 %.sroa.4.0.i.ph, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %72
   %74 = load i8, ptr %73, align 1, !noundef !5
   %75 = lshr i8 %74, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -7492,7 +7492,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr no
 59:                                               ; preds = %55
   %60 = zext nneg i32 %.sroa.4.0.i.ph to i64
   %61 = lshr i64 %60, 13
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %61
   %63 = load i8, ptr %62, align 1, !noundef !5
   %64 = zext i8 %63 to i64
   %65 = shl nuw nsw i64 %64, 7
@@ -7503,7 +7503,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr no
   br i1 %69, label %70, label %79, !prof !1368
 
 70:                                               ; preds = %59
-  %71 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %68
+  %71 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %68
   %72 = load i8, ptr %71, align 1, !noundef !5
   %73 = zext i8 %72 to i64
   %74 = shl nuw nsw i64 %73, 4
@@ -7522,7 +7522,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr no
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; preds = %70
-  %81 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %77
+  %81 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %77
   %82 = load i8, ptr %81, align 1, !noundef !5
   %.tr.i.i = trunc i32 %.sroa.4.0.i.ph to i8
   %83 = shl i8 %.tr.i.i, 1
@@ -7681,14 +7681,14 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17he412f00c866b0d31E(ptr no
 67:                                               ; preds = %59
   %68 = and i32 %.sroa.4.0.i.ph, 255
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %69
   %71 = load i8, ptr %70, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 72:                                               ; preds = %59
   %73 = and i32 %.sroa.4.0.i.ph, 255
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %74
   %76 = load i8, ptr %75, align 1, !noundef !5
   %77 = lshr i8 %76, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -7846,7 +7846,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr no
 60:                                               ; preds = %56
   %61 = zext nneg i32 %.sroa.4.0.i.ph to i64
   %62 = lshr i64 %61, 13
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %62
   %64 = load i8, ptr %63, align 1, !noundef !5
   %65 = zext i8 %64 to i64
   %66 = shl nuw nsw i64 %65, 7
@@ -7857,7 +7857,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr no
   br i1 %70, label %71, label %80, !prof !1368
 
 71:                                               ; preds = %60
-  %72 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %69
+  %72 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %69
   %73 = load i8, ptr %72, align 1, !noundef !5
   %74 = zext i8 %73 to i64
   %75 = shl nuw nsw i64 %74, 4
@@ -7876,7 +7876,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr no
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; preds = %71
-  %82 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %78
+  %82 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %78
   %83 = load i8, ptr %82, align 1, !noundef !5
   %.tr.i.i = trunc i32 %.sroa.4.0.i.ph to i8
   %84 = shl i8 %.tr.i.i, 1
@@ -8059,14 +8059,14 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hf6f771c9aadeeee8E(ptr no
 71:                                               ; preds = %63
   %72 = and i32 %.sroa.4.0.i.ph, 255
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %73
   %75 = load i8, ptr %74, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 76:                                               ; preds = %63
   %77 = and i32 %.sroa.4.0.i.ph, 255
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %78
   %80 = load i8, ptr %79, align 1, !noundef !5
   %81 = lshr i8 %80, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -8116,7 +8116,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 95:                                               ; preds = %91
   %96 = zext nneg i32 %.sroa.4.0.i.ph to i64
   %97 = lshr i64 %96, 13
-  %98 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %97
   %99 = load i8, ptr %98, align 1, !noundef !5
   %100 = zext i8 %99 to i64
   %101 = shl nuw nsw i64 %100, 7
@@ -8127,7 +8127,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %105, label %106, label %115, !prof !1368
 
 106:                                              ; preds = %95
-  %107 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %104
+  %107 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %104
   %108 = load i8, ptr %107, align 1, !noundef !5
   %109 = zext i8 %108 to i64
   %110 = shl nuw nsw i64 %109, 4
@@ -8146,7 +8146,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; preds = %106
-  %117 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %113
+  %117 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %113
   %118 = load i8, ptr %117, align 1, !noundef !5
   %.tr.i.i = trunc i32 %.sroa.4.0.i.ph to i8
   %119 = shl i8 %.tr.i.i, 1
@@ -8326,14 +8326,14 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hf70047982a2aca0cE(ptr no
 70:                                               ; preds = %62
   %71 = and i32 %.sroa.4.0.i.ph, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %72
   %74 = load i8, ptr %73, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 75:                                               ; preds = %62
   %76 = and i32 %.sroa.4.0.i.ph, 255
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %77
   %79 = load i8, ptr %78, align 1, !noundef !5
   %80 = lshr i8 %79, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -8383,7 +8383,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 94:                                               ; preds = %90
   %95 = zext nneg i32 %.sroa.4.0.i.ph to i64
   %96 = lshr i64 %95, 13
-  %97 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %96
   %98 = load i8, ptr %97, align 1, !noundef !5
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %99, 7
@@ -8394,7 +8394,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %104, label %105, label %114, !prof !1368
 
 105:                                              ; preds = %94
-  %106 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %103
+  %106 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %103
   %107 = load i8, ptr %106, align 1, !noundef !5
   %108 = zext i8 %107 to i64
   %109 = shl nuw nsw i64 %108, 4
@@ -8413,7 +8413,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; preds = %105
-  %116 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %112
+  %116 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %112
   %117 = load i8, ptr %116, align 1, !noundef !5
   %.tr.i.i = trunc i32 %.sroa.4.0.i.ph to i8
   %118 = shl i8 %.tr.i.i, 1

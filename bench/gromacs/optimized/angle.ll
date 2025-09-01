@@ -2009,7 +2009,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinis
 
 switch.lookup:                                    ; preds = %62
   %76 = zext nneg i32 %63 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3gmx15analysismodules12_GLOBAL__N_15Angle15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, i64 %76
   %switch.load = load i32, ptr %switch.gep, align 4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 %switch.load, ptr %77, align 8, !tbaa !157

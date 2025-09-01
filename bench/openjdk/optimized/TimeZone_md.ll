@@ -119,7 +119,7 @@ define hidden ptr @findJavaTZ_md(ptr noundef readnone captures(none) %0) local_u
 40:                                               ; preds = %33
   %sext.i = shl i64 %34, 32
   %41 = ashr exact i64 %sext.i, 32
-  %42 = getelementptr inbounds [4097 x i8], ptr %4, i64 0, i64 %41
+  %42 = getelementptr inbounds i8, ptr %4, i64 %41
   store i8 0, ptr %42, align 1
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
   %44 = getelementptr inbounds i8, ptr %4, i64 %43
@@ -444,7 +444,7 @@ define internal fastcc ptr @findZoneinfoFile(ptr noundef readonly captures(none)
 .preheader45:                                     ; preds = %3, %getPathName.exit.thread
   %6 = phi i1 [ false, %getPathName.exit.thread ], [ true, %3 ]
   %indvars.iv = phi i64 [ 1, %getPathName.exit.thread ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw [2 x [4 x i8]], ptr @popularZones, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @popularZones, i64 %indvars.iv
   %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #15
   %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #15
   %10 = add i64 %8, 2

@@ -1099,7 +1099,7 @@ define noundef zeroext i1 @_ZN2cv4gapi3wip3gst15GStreamerSource4Priv4pullERNS1_4
   br i1 %.not.i47, label %27, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw [8 x ptr], ptr @constinit, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !85
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void %20(ptr noundef nonnull %21)
@@ -1257,7 +1257,7 @@ _ZN2cv10MediaFrameD2Ev.exit:                      ; preds = %_ZN2cv4util7variant
   br i1 %.not.i.i.i18, label %93, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw [8 x ptr], ptr @constinit, i64 0, i64 %87
+  %89 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %87
   %90 = load ptr, ptr %89, align 8, !tbaa !85
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void %90(ptr noundef nonnull %91)

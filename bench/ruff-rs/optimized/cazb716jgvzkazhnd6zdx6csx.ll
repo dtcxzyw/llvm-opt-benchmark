@@ -57611,7 +57611,7 @@ switch.lookup:                                    ; preds = %139
   %167 = load ptr, ptr %166, align 8, !nonnull !3, !align !320, !noundef !3
   %168 = load i8, ptr %167, align 1, !range !4119, !noundef !3
   %169 = zext nneg i8 %168 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN11ruff_linter5rules15flake8_simplify5rules21reimplemented_builtin27convert_for_loop_to_any_all17hb2d391479b14b917E, i64 0, i64 %169
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN11ruff_linter5rules15flake8_simplify5rules21reimplemented_builtin27convert_for_loop_to_any_all17hb2d391479b14b917E, i64 %169
   %switch.load = load i8, ptr %switch.gep, align 1
   %170 = call fastcc noundef nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8094f4c8e594064E"(ptr noalias noundef readonly align 8 dereferenceable(8) %165)
   %171 = invoke fastcc noundef nonnull align 1 ptr @_ZN5alloc5alloc15exchange_malloc17he7dced161648df71E(i64 noundef 1, i64 noundef 1)
@@ -70971,7 +70971,7 @@ switch.lookup:                                    ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %27 = load i8, ptr %26, align 8, !range !4931, !noundef !3
   %28 = zext nneg i8 %27 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN158_$LT$ruff_linter..rules..pylint..rules..non_augmented_assignment..AugmentedOperator$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h03a16eaf7352f606E", i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN158_$LT$ruff_linter..rules..pylint..rules..non_augmented_assignment..AugmentedOperator$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h03a16eaf7352f606E", i64 %28
   %switch.load = load i8, ptr %switch.gep, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @"_ZN127_$LT$ruff_python_ast..comparable..ComparableExpr$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h4c4e558ce1cac1e8E"(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %14, ptr noundef nonnull align 8 %16)
@@ -71413,7 +71413,7 @@ _ZN11ruff_linter7locator7Locator5slice17h2604da1ea4c3cb35E.exit: ; preds = %78, 
 define noundef range(i8 0, 13) i8 @"_ZN158_$LT$ruff_linter..rules..pylint..rules..non_augmented_assignment..AugmentedOperator$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h03a16eaf7352f606E"(i8 noundef range(i8 0, 13) %0) unnamed_addr #1 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN158_$LT$ruff_linter..rules..pylint..rules..non_augmented_assignment..AugmentedOperator$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h03a16eaf7352f606E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN158_$LT$ruff_linter..rules..pylint..rules..non_augmented_assignment..AugmentedOperator$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h03a16eaf7352f606E", i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

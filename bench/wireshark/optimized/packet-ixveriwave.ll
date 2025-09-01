@@ -3532,7 +3532,7 @@ switch.lookup:                                    ; preds = %4
 
 switch.lookup133:                                 ; preds = %127
   %141 = zext nneg i32 %128 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.decode_vht_sig, i64 0, i64 %141
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.decode_vht_sig, i64 %141
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split131
 

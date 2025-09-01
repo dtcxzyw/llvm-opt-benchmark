@@ -788,7 +788,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
 .lr.ph.i:                                         ; preds = %.preheader.i, %.loopexit.i
   %251 = phi i64 [ %290, %.loopexit.i ], [ %246, %.preheader.i ]
   %252 = and i64 %251, 2147483647
-  %253 = getelementptr inbounds nuw [101 x i8], ptr %4, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw i8, ptr %4, i64 %252
   store i8 0, ptr %253, align 1, !tbaa !34
   %254 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 10) #17
   %.not48.i = icmp eq ptr %254, null

@@ -767,11 +767,11 @@ define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef 
 
 62:                                               ; preds = %62, %31
   %63 = phi i64 [ 0, %31 ], [ %67, %62 ]
-  %64 = getelementptr [20 x ptr], ptr %59, i64 0, i64 %63
+  %64 = getelementptr ptr, ptr %59, i64 %63
   store ptr null, ptr %64, align 8
-  %65 = getelementptr [20 x i32], ptr %60, i64 0, i64 %63
+  %65 = getelementptr i32, ptr %60, i64 %63
   store i32 -22, ptr %65, align 4
-  %66 = getelementptr [20 x i32], ptr %61, i64 0, i64 %63
+  %66 = getelementptr i32, ptr %61, i64 %63
   store i32 -22, ptr %66, align 4
   %67 = add nuw nsw i64 %63, 1
   %68 = icmp eq i64 %67, 20
@@ -936,7 +936,7 @@ define dso_local void @power_supply_put_battery_info(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %11, %2
   %6 = phi i64 [ 0, %2 ], [ %12, %11 ]
-  %7 = getelementptr [20 x ptr], ptr %3, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -1470,13 +1470,13 @@ define dso_local ptr @power_supply_find_ocv2cap_table(ptr noundef readonly captu
   %10 = phi i64 [ 0, %7 ], [ %25, %16 ]
   %11 = phi i32 [ 2147483647, %7 ], [ %24, %16 ]
   %12 = phi i8 [ 0, %7 ], [ %23, %16 ]
-  %13 = getelementptr [20 x ptr], ptr %4, i64 0, i64 %10
+  %13 = getelementptr ptr, ptr %4, i64 %10
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %27, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr [20 x i32], ptr %8, i64 0, i64 %10
+  %17 = getelementptr i32, ptr %8, i64 %10
   %18 = load i32, ptr %17, align 4
   %19 = sub i32 %18, %1
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
@@ -1492,10 +1492,10 @@ define dso_local ptr @power_supply_find_ocv2cap_table(ptr noundef readonly captu
   %28 = phi i8 [ %12, %9 ], [ %23, %16 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %30 = zext i8 %28 to i64
-  %31 = getelementptr [20 x i32], ptr %29, i64 0, i64 %30
+  %31 = getelementptr i32, ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %2, align 4
-  %33 = getelementptr [20 x ptr], ptr %4, i64 0, i64 %30
+  %33 = getelementptr ptr, ptr %4, i64 %30
   %34 = load ptr, ptr %33, align 8
   br label %35
 
@@ -1519,13 +1519,13 @@ define dso_local i32 @power_supply_batinfo_ocv2cap(ptr noundef readonly captures
   %10 = phi i64 [ 0, %7 ], [ %25, %16 ]
   %11 = phi i32 [ 2147483647, %7 ], [ %24, %16 ]
   %12 = phi i8 [ 0, %7 ], [ %23, %16 ]
-  %13 = getelementptr [20 x ptr], ptr %4, i64 0, i64 %10
+  %13 = getelementptr ptr, ptr %4, i64 %10
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %27, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr [20 x i32], ptr %8, i64 0, i64 %10
+  %17 = getelementptr i32, ptr %8, i64 %10
   %18 = load i32, ptr %17, align 4
   %19 = sub i32 %18, %2
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
@@ -1541,9 +1541,9 @@ define dso_local i32 @power_supply_batinfo_ocv2cap(ptr noundef readonly captures
   %28 = phi i8 [ %12, %9 ], [ %23, %16 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %30 = zext i8 %28 to i64
-  %31 = getelementptr [20 x i32], ptr %29, i64 0, i64 %30
+  %31 = getelementptr i32, ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr [20 x ptr], ptr %4, i64 0, i64 %30
+  %33 = getelementptr ptr, ptr %4, i64 %30
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread, label %36

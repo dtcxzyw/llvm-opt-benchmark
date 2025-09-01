@@ -410,7 +410,7 @@ define internal range(i32 -2147483648, 1) i32 @nsv_read_packet(ptr noundef %0, p
 .preheader:                                       ; preds = %.preheader.preheader, %14
   %15 = phi i1 [ false, %14 ], [ true, %.preheader.preheader ]
   %indvars.iv = phi i64 [ 1, %14 ], [ 0, %.preheader.preheader ]
-  %16 = getelementptr inbounds nuw [2 x %struct.AVPacket], ptr %5, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.AVPacket, ptr %5, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !36
   %.not16 = icmp eq ptr %18, null
@@ -981,7 +981,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_read_chunk(ptr noundef
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !84
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %63
+  %64 = getelementptr inbounds ptr, ptr %3, i64 %63
   store ptr %60, ptr %64, align 8, !tbaa !56
   %.not159 = icmp eq i32 %56, 1
   br i1 %.not159, label %.thread156, label %65
@@ -992,7 +992,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_read_chunk(ptr noundef
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 12
   %69 = load i32, ptr %68, align 4, !tbaa !84
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %70
+  %71 = getelementptr inbounds ptr, ptr %3, i64 %70
   store ptr %67, ptr %71, align 8, !tbaa !56
   br label %.thread156
 

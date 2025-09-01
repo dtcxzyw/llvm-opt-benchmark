@@ -972,10 +972,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 3
   br i1 %.not.i.i, label %17, label %56
 
 17:                                               ; preds = %14
-  %18 = add nsw i32 %1, -1
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %19, i64 0, i64 %20
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr %struct.CompactAttribute, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -16
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, -1
   br i1 %23, label %24, label %54
@@ -987,10 +987,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 3
   %28 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %27
   %29 = zext nneg i32 %22 to i64
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %21, i64 6
+  %31 = getelementptr i8, ptr %20, i64 -10
   %32 = load i8, ptr %31, align 2, !range !4, !noundef !5
   %33 = trunc nuw i8 %32 to i1
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %34 = getelementptr i8, ptr %20, i64 -12
   %35 = load i16, ptr %34, align 4
   br i1 %33, label %36, label %52
 

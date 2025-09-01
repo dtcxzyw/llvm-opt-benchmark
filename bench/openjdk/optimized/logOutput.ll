@@ -63,7 +63,7 @@ define hidden void @_ZN9LogOutput8describeEP12outputStream(ptr noundef nonnull a
   br i1 %exitcond.not, label %21, label %12, !llvm.loop !6
 
 .thread:                                          ; preds = %12
-  %18 = getelementptr inbounds nuw [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.01115
+  %18 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN13LogDecorators5_nameE, i64 %.01115
   %19 = load ptr, ptr %18, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, i32 noundef %.01214.ph, ptr noundef %19) #13
   %20 = add nuw nsw i64 %.01115, 1
@@ -138,7 +138,7 @@ define hidden void @_ZN9LogOutput20update_config_stringEPKm(ptr noundef nonnull 
 
 13:                                               ; preds = %8
   %14 = zext nneg i32 %spec.select129 to i64
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN8LogLevel5_nameE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr @_ZN8LogLevel5_nameE, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.7, ptr noundef %16) #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -523,7 +523,7 @@ define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSe
 
 .lr.ph73:                                         ; preds = %._crit_edge, %.loopexit
   %.04871 = phi i64 [ %51, %.loopexit ], [ 0, %._crit_edge ]
-  %16 = getelementptr inbounds [32 x [5 x i32]], ptr %8, i64 0, i64 %.04871
+  %16 = getelementptr inbounds [5 x i32], ptr %8, i64 %.04871
   %wcslen.i = call i64 @wcslen(ptr nonnull %16)
   call void @qsort(ptr noundef nonnull %16, i64 noundef %wcslen.i, i64 noundef 4, ptr noundef nonnull @_ZL7tag_cmpPKN6LogTag4typeES2_) #13
   %17 = load i64, ptr %1, align 8

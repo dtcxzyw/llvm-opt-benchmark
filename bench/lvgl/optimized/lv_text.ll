@@ -844,7 +844,7 @@ lv_text_is_cmd.exit.i:                            ; preds = %50, %49, %.lr.ph.sp
 
 .preheader.i:                                     ; preds = %67, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %67 ]
-  %68 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %indvars.iv.i
   %69 = load i8, ptr %68, align 1, !tbaa !3
   %70 = sext i8 %69 to i32
   %71 = icmp eq i32 %.us-phi167.i, %70

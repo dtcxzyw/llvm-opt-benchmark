@@ -212,7 +212,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
 
 80:                                               ; preds = %68, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %indvars.iv = phi i64 [ 0, %68 ], [ %indvars.iv.next, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
-  %81 = getelementptr inbounds nuw [3 x %"class.std::vector.5"], ptr %35, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw %"class.std::vector.5", ptr %35, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4, !tbaa !4
   %84 = add nsw i32 %83, 1

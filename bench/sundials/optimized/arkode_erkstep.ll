@@ -1602,7 +1602,7 @@ define range(i32 -21, 1) i32 @erkStep_SetButcherTable(ptr noundef %0) local_unna
 
 switch.lookup:                                    ; preds = %11
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.erkStep_SetButcherTable, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.erkStep_SetButcherTable, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %17
 

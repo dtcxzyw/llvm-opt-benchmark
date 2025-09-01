@@ -797,7 +797,7 @@ X509_supported_extension.exit:                    ; preds = %328
 
 switch.lookup:                                    ; preds = %333
   %337 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.ossl_x509v3_cache_extensions, i64 0, i64 %337
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_x509v3_cache_extensions, i64 %337
   %switch.load = load i32, ptr %switch.gep, align 4
   %338 = load i32, ptr %17, align 8, !tbaa !13
   %339 = or i32 %338, %switch.load

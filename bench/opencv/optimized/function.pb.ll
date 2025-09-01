@@ -969,7 +969,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %63 = add nsw i32 %58, 1
   store i32 %63, ptr %12, align 8, !tbaa !20
   %64 = sext i32 %58 to i64
-  %65 = getelementptr inbounds [268435454 x ptr], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !25
   br label %_ZN17opencv_tensorflow18FunctionDefLibrary22_internal_add_functionEv.exit
 
@@ -1022,7 +1022,7 @@ _ZN17opencv_tensorflow18FunctionDefLibrary22_internal_add_functionEv.exit: ; pre
   %92 = add nsw i32 %87, 1
   store i32 %92, ptr %9, align 8, !tbaa !20
   %93 = sext i32 %87 to i64
-  %94 = getelementptr inbounds [268435454 x ptr], ptr %91, i64 0, i64 %93
+  %94 = getelementptr inbounds ptr, ptr %91, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !25
   br label %_ZN17opencv_tensorflow18FunctionDefLibrary22_internal_add_gradientEv.exit
 
@@ -1139,7 +1139,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %10,
   %14 = load ptr, ptr %6, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = sext i32 %.02028 to i64
-  %17 = getelementptr inbounds [268435454 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   store i8 10, ptr %.0.i21, align 1, !tbaa !39
   %19 = getelementptr inbounds nuw i8, ptr %.0.i21, i64 1
@@ -1189,7 +1189,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit25: ; preds = %3
   %37 = load ptr, ptr %9, align 8, !tbaa !16
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = sext i32 %.01930 to i64
-  %40 = getelementptr inbounds [268435454 x ptr], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   store i8 18, ptr %.0.i24, align 1, !tbaa !39
   %42 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1
@@ -2758,7 +2758,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %67 = add nsw i32 %62, 1
   store i32 %67, ptr %18, align 8, !tbaa !20
   %68 = sext i32 %62 to i64
-  %69 = getelementptr inbounds [268435454 x ptr], ptr %66, i64 0, i64 %68
+  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !25
   br label %_ZN17opencv_tensorflow16FunctionDef_Node17_internal_add_retB5cxx11Ev.exit
 
@@ -2866,7 +2866,7 @@ _ZN17opencv_tensorflow16FunctionDef_Node20_internal_mutable_opB5cxx11Ev.exit: ; 
   %125 = add nsw i32 %120, 1
   store i32 %125, ptr %13, align 8, !tbaa !20
   %126 = sext i32 %120 to i64
-  %127 = getelementptr inbounds [268435454 x ptr], ptr %124, i64 0, i64 %126
+  %127 = getelementptr inbounds ptr, ptr %124, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !25
   br label %_ZN17opencv_tensorflow16FunctionDef_Node17_internal_add_argB5cxx11Ev.exit
 
@@ -2946,7 +2946,7 @@ _ZN17opencv_tensorflow16FunctionDef_Node17_internal_add_argB5cxx11Ev.exit: ; pre
   %167 = add nsw i32 %162, 1
   store i32 %167, ptr %10, align 8, !tbaa !20
   %168 = sext i32 %162 to i64
-  %169 = getelementptr inbounds [268435454 x ptr], ptr %166, i64 0, i64 %168
+  %169 = getelementptr inbounds ptr, ptr %166, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !25
   br label %_ZN17opencv_tensorflow16FunctionDef_Node17_internal_add_depB5cxx11Ev.exit
 
@@ -3225,7 +3225,7 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow16FunctionDef_Node18_InternalS
   %.052114 = phi ptr [ %1, %.lr.ph ], [ %.0.i59, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %19 = load ptr, ptr %9, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = getelementptr inbounds nuw [268435454 x ptr], ptr %20, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = load ptr, ptr %22, align 8, !tbaa !123
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -3332,7 +3332,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %.2116 = phi ptr [ %.153, %.lr.ph117 ], [ %.0.i60, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit62 ]
   %76 = load ptr, ptr %70, align 8, !tbaa !16
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = getelementptr inbounds nuw [268435454 x ptr], ptr %77, i64 0, i64 %indvars.iv149
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv149
   %79 = load ptr, ptr %78, align 8, !tbaa !25
   %80 = load ptr, ptr %79, align 8, !tbaa !123
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -3387,7 +3387,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stri
   %.3121 = phi ptr [ %.2.lcssa, %.lr.ph123 ], [ %.0.i63, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit65 ]
   %105 = load ptr, ptr %74, align 8, !tbaa !16
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = getelementptr inbounds nuw [268435454 x ptr], ptr %106, i64 0, i64 %indvars.iv154
+  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv154
   %108 = load ptr, ptr %107, align 8, !tbaa !25
   %109 = load ptr, ptr %108, align 8, !tbaa !123
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -3925,7 +3925,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow16FunctionDef_Node12ByteSizeLo
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.028 = phi i64 [ %5, %.lr.ph ], [ %32, %18 ]
-  %19 = getelementptr inbounds nuw [268435454 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !25
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !53
@@ -3961,7 +3961,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow16FunctionDef_Node12ByteSizeLo
 41:                                               ; preds = %.lr.ph32, %41
   %indvars.iv53 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next54, %41 ]
   %.130 = phi i64 [ %13, %.lr.ph32 ], [ %55, %41 ]
-  %42 = getelementptr inbounds nuw [268435454 x ptr], ptr %17, i64 0, i64 %indvars.iv53
+  %42 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv53
   %43 = load ptr, ptr %42, align 8, !tbaa !25
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i64, ptr %44, align 8, !tbaa !53
@@ -4043,7 +4043,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 79:                                               ; preds = %.lr.ph38, %79
   %indvars.iv58 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next59, %79 ]
   %.236 = phi i64 [ %36, %.lr.ph38 ], [ %93, %79 ]
-  %80 = getelementptr inbounds nuw [268435454 x ptr], ptr %40, i64 0, i64 %indvars.iv58
+  %80 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv58
   %81 = load ptr, ptr %80, align 8, !tbaa !25
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !53
@@ -4986,7 +4986,7 @@ _ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit: ; preds
   %77 = add nsw i32 %72, 1
   store i32 %77, ptr %9, align 8, !tbaa !20
   %78 = sext i32 %72 to i64
-  %79 = getelementptr inbounds [268435454 x ptr], ptr %76, i64 0, i64 %78
+  %79 = getelementptr inbounds ptr, ptr %76, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !25
   br label %_ZN17opencv_tensorflow11FunctionDef18_internal_add_nodeEv.exit
 
@@ -5140,7 +5140,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit21: ; preds = %3
   %34 = load ptr, ptr %26, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = sext i32 %.01524 to i64
-  %37 = getelementptr inbounds [268435454 x ptr], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !25
   store i8 18, ptr %.0.i20, align 1, !tbaa !39
   %39 = getelementptr inbounds nuw i8, ptr %.0.i20, i64 1
@@ -7841,7 +7841,7 @@ define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf8internal8MapFieldIN
   %14 = phi ptr [ %23, %.lr.ph.i.i ], [ %10, %.preheader.i.i ]
   %.17.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ %8, %.preheader.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = getelementptr inbounds nuw [268435454 x ptr], ptr %15, i64 0, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !25
   %18 = load ptr, ptr %17, align 8, !tbaa !8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
@@ -12738,7 +12738,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw [11 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !401
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -13393,7 +13393,7 @@ _ZN6google8protobuf5Arena11OwnInternalIN17opencv_tensorflow35FunctionDef_Node_At
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %35 = sext i32 %20 to i64
-  %36 = getelementptr inbounds [268435454 x ptr], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = load ptr, ptr %0, align 8, !tbaa !10
   %39 = icmp ne ptr %38, null
@@ -13416,10 +13416,10 @@ _ZN6google8protobuf5Arena11OwnInternalIN17opencv_tensorflow35FunctionDef_Node_At
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %49 = sext i32 %20 to i64
-  %50 = getelementptr inbounds [268435454 x ptr], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !25
   %52 = sext i32 %31 to i64
-  %53 = getelementptr inbounds [268435454 x ptr], ptr %48, i64 0, i64 %52
+  %53 = getelementptr inbounds ptr, ptr %48, i64 %52
   store ptr %51, ptr %53, align 8, !tbaa !25
   %54 = load ptr, ptr %16, align 8, !tbaa !16
   %55 = load i32, ptr %54, align 8, !tbaa !21
@@ -13440,7 +13440,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %61, align 8, !tbaa !20
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds [268435454 x ptr], ptr %60, i64 0, i64 %64
+  %65 = getelementptr inbounds ptr, ptr %60, i64 %64
   store ptr %.0, ptr %65, align 8, !tbaa !25
   ret void
 }

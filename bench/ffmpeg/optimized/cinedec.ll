@@ -382,7 +382,7 @@ set_metadata_int.exit192:                         ; preds = %set_metadata_int.ex
 
 switch.lookup:                                    ; preds = %105
   %124 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.cine_read_header, i64 0, i64 %124
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cine_read_header, i64 %124
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %125
 

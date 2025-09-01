@@ -1263,10 +1263,10 @@ define internal noundef zeroext i1 @"_ZN104_$LT$ruff_linter..rules..flake8_pytes
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN104_$LT$ruff_linter..rules..flake8_pytest_style..types..ParametrizeNameType$u20$as$u20$core..fmt..Debug$GT$3fmt17h85e6ce02c6755553E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN104_$LT$ruff_linter..rules..flake8_pytest_style..types..ParametrizeNameType$u20$as$u20$core..fmt..Debug$GT$3fmt17h85e6ce02c6755553E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN104_$LT$ruff_linter..rules..flake8_pytest_style..types..ParametrizeNameType$u20$as$u20$core..fmt..Debug$GT$3fmt17h85e6ce02c6755553E.332", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN104_$LT$ruff_linter..rules..flake8_pytest_style..types..ParametrizeNameType$u20$as$u20$core..fmt..Debug$GT$3fmt17h85e6ce02c6755553E.332", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -21681,10 +21681,10 @@ define internal noundef zeroext i1 @"_ZN73_$LT$ruff_workspace..settings..LineEnd
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !376, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN73_$LT$ruff_workspace..settings..LineEnding$u20$as$u20$core..fmt..Debug$GT$3fmt17h7ef266b56ad5375fE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN73_$LT$ruff_workspace..settings..LineEnding$u20$as$u20$core..fmt..Debug$GT$3fmt17h7ef266b56ad5375fE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN73_$LT$ruff_workspace..settings..LineEnding$u20$as$u20$core..fmt..Debug$GT$3fmt17h7ef266b56ad5375fE.333", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN73_$LT$ruff_workspace..settings..LineEnding$u20$as$u20$core..fmt..Debug$GT$3fmt17h7ef266b56ad5375fE.333", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -21966,10 +21966,10 @@ define internal noundef zeroext i1 @"_ZN78_$LT$ruff_linter..settings..types..Uns
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN78_$LT$ruff_linter..settings..types..UnsafeFixes$u20$as$u20$core..fmt..Debug$GT$3fmt17h08cc5ac3f6e51676E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$ruff_linter..settings..types..UnsafeFixes$u20$as$u20$core..fmt..Debug$GT$3fmt17h08cc5ac3f6e51676E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN78_$LT$ruff_linter..settings..types..UnsafeFixes$u20$as$u20$core..fmt..Debug$GT$3fmt17h08cc5ac3f6e51676E.334", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$ruff_linter..settings..types..UnsafeFixes$u20$as$u20$core..fmt..Debug$GT$3fmt17h08cc5ac3f6e51676E.334", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -21980,10 +21980,10 @@ define internal noundef zeroext i1 @"_ZN79_$LT$ruff_linter..settings..types..Out
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !837, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @"switch.table._ZN79_$LT$ruff_linter..settings..types..OutputFormat$u20$as$u20$core..fmt..Debug$GT$3fmt17h281b7a19ee21d6a1E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN79_$LT$ruff_linter..settings..types..OutputFormat$u20$as$u20$core..fmt..Debug$GT$3fmt17h281b7a19ee21d6a1E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [12 x ptr], ptr @"switch.table._ZN79_$LT$ruff_linter..settings..types..OutputFormat$u20$as$u20$core..fmt..Debug$GT$3fmt17h281b7a19ee21d6a1E.335", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN79_$LT$ruff_linter..settings..types..OutputFormat$u20$as$u20$core..fmt..Debug$GT$3fmt17h281b7a19ee21d6a1E.335", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -21994,10 +21994,10 @@ define internal noundef zeroext i1 @"_ZN79_$LT$ruff_python_formatter..options..Q
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN79_$LT$ruff_python_formatter..options..QuoteStyle$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a768ed193132e3cE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN79_$LT$ruff_python_formatter..options..QuoteStyle$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a768ed193132e3cE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN79_$LT$ruff_python_formatter..options..QuoteStyle$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a768ed193132e3cE.336", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN79_$LT$ruff_python_formatter..options..QuoteStyle$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a768ed193132e3cE.336", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -22028,10 +22028,10 @@ define internal noundef zeroext i1 @"_ZN80_$LT$ruff_linter..settings..types..Pyt
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !70, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN80_$LT$ruff_linter..settings..types..PythonVersion$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9471086477d1b57E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN80_$LT$ruff_linter..settings..types..PythonVersion$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9471086477d1b57E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN80_$LT$ruff_linter..settings..types..PythonVersion$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9471086477d1b57E.337", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN80_$LT$ruff_linter..settings..types..PythonVersion$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9471086477d1b57E.337", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

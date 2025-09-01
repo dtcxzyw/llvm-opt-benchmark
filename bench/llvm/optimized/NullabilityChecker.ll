@@ -1371,7 +1371,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
 
 switch.lookup:                                    ; preds = %145, %143
   %148 = zext nneg i8 %.sroa.4.0.copyload to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 0, i64 %148
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 %148
   %switch.load = load ptr, ptr %switch.gep, align 8
   %149 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #25
   %150 = load ptr, ptr %116, align 8, !tbaa !231
@@ -4702,7 +4702,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_118NullabilityChecker9reportBugEN4
   %13 = alloca %"class.std::unique_ptr.864", align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %15 = zext nneg i32 %4 to i64
-  %16 = getelementptr inbounds nuw [5 x %"class.std::unique_ptr.122"], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !211
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %18, label %_ZNK12_GLOBAL__N_118NullabilityChecker10getBugTypeENS0_9CheckKindE.exit
@@ -4710,7 +4710,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_118NullabilityChecker9reportBugEN4
 18:                                               ; preds = %9
   %19 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = getelementptr inbounds nuw [5 x %"class.clang::ento::CheckerNameRef"], ptr %20, i64 0, i64 %15
+  %21 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %20, i64 %15
   %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !10
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !12
@@ -5318,7 +5318,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_114NullabilityMapEEENS0_17Progra
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.val = load i8, ptr %.1.i.i14.i, align 8, !tbaa !262
   %63 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 0, i64 %63
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 %63
   %switch.load = load ptr, ptr %switch.gep, align 8
   %64 = load i8, ptr %switch.load, align 1, !tbaa !270
   %.not.i = icmp eq i8 %64, 0
@@ -6833,7 +6833,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit123.i:            ; preds = %168, %166
 
 switch.lookup:                                    ; preds = %174
   %177 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_118NullabilityCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.286, i64 0, i64 %177
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_118NullabilityCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.286, i64 %177
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit.i
 
@@ -7080,18 +7080,18 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit149.i: ; pred
 
 281:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit149.i
   %282 = urem i32 %265, 10
-  %switch.tableidx62 = add nsw i32 %282, -1
-  %283 = icmp ult i32 %switch.tableidx62, 3
-  br i1 %283, label %switch.lookup61, label %_ZN4llvm16getOrdinalSuffixEj.exit155.i
+  %switch.tableidx61 = add nsw i32 %282, -1
+  %283 = icmp ult i32 %switch.tableidx61, 3
+  br i1 %283, label %switch.lookup62, label %_ZN4llvm16getOrdinalSuffixEj.exit155.i
 
-switch.lookup61:                                  ; preds = %281
-  %284 = zext nneg i32 %switch.tableidx62 to i64
-  %switch.gep63 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_118NullabilityCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.286, i64 0, i64 %284
+switch.lookup62:                                  ; preds = %281
+  %284 = zext nneg i32 %switch.tableidx61 to i64
+  %switch.gep63 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_118NullabilityCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.286, i64 %284
   %switch.load64 = load ptr, ptr %switch.gep63, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit155.i
 
-_ZN4llvm16getOrdinalSuffixEj.exit155.i:           ; preds = %281, %switch.lookup61, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit149.i
-  %.sroa.0.0.i152.i = phi ptr [ @.str.23, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit149.i ], [ %switch.load64, %switch.lookup61 ], [ @.str.23, %281 ]
+_ZN4llvm16getOrdinalSuffixEj.exit155.i:           ; preds = %281, %switch.lookup62, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit149.i
+  %.sroa.0.0.i152.i = phi ptr [ @.str.23, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit149.i ], [ %switch.load64, %switch.lookup62 ], [ @.str.23, %281 ]
   %285 = getelementptr inbounds nuw i8, ptr %279, i64 24
   %286 = load ptr, ptr %285, align 8, !tbaa !231
   %287 = getelementptr inbounds nuw i8, ptr %279, i64 32

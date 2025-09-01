@@ -139,22 +139,22 @@ define hidden void @Dfilter(ptr noundef captures(address) initializes((16, 24)) 
 
 19:                                               ; preds = %17
   %20 = zext nneg i8 %.037 to i64
-  %21 = getelementptr [61 x i16], ptr @yy_shift_ofst, i64 0, i64 %20
+  %21 = getelementptr i16, ptr @yy_shift_ofst, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
   %24 = add nuw nsw i64 %23, %15
-  %25 = getelementptr [516 x i8], ptr @yy_lookahead, i64 0, i64 %24
+  %25 = getelementptr i8, ptr @yy_lookahead, i64 %24
   %26 = load i8, ptr %25, align 1
   %.not.i = icmp eq i8 %26, %14
   br i1 %.not.i, label %30, label %27
 
 27:                                               ; preds = %19
-  %28 = getelementptr [61 x i8], ptr @yy_default, i64 0, i64 %20
+  %28 = getelementptr i8, ptr @yy_default, i64 %20
   %29 = load i8, ptr %28, align 1
   br label %yy_find_shift_action.exit
 
 30:                                               ; preds = %19
-  %31 = getelementptr [470 x i8], ptr @yy_action, i64 0, i64 %24
+  %31 = getelementptr i8, ptr @yy_action, i64 %24
   %32 = load i8, ptr %31, align 1
   br label %yy_find_shift_action.exit
 
@@ -1220,20 +1220,20 @@ new_function.exit:                                ; preds = %541, %546
 568:                                              ; preds = %560, %556, %new_function.exit, %new_function.exit47, %517, %501, %475, %463, %455, %451, %442, %437, %430, %423, %412, %403, %394, %385, %._crit_edge.i, %357, %354, %351, %348, %345, %342, %339, %336, %333, %324, %315, %306, %297, %288, %279, %272, %266, %resolve_unparsed.exit, %resolve_unparsed.exit50, %resolve_unparsed.exit52, %179, %resolve_unparsed.exit56, %117, %110, %88, %79, %70, %.thread, %66, %63
   %569 = phi ptr [ %65, %63 ], [ %65, %66 ], [ %39, %.thread ], [ %65, %70 ], [ %65, %79 ], [ %65, %88 ], [ %65, %110 ], [ %65, %117 ], [ %65, %resolve_unparsed.exit56 ], [ %65, %179 ], [ %65, %resolve_unparsed.exit52 ], [ %65, %resolve_unparsed.exit50 ], [ %65, %resolve_unparsed.exit ], [ %65, %266 ], [ %65, %272 ], [ %65, %279 ], [ %65, %288 ], [ %65, %297 ], [ %65, %306 ], [ %65, %315 ], [ %65, %324 ], [ %65, %333 ], [ %65, %336 ], [ %65, %339 ], [ %65, %342 ], [ %65, %345 ], [ %65, %348 ], [ %65, %351 ], [ %65, %354 ], [ %65, %357 ], [ %65, %._crit_edge.i ], [ %65, %385 ], [ %65, %394 ], [ %65, %403 ], [ %65, %412 ], [ %65, %423 ], [ %65, %430 ], [ %65, %437 ], [ %65, %442 ], [ %65, %451 ], [ %65, %455 ], [ %65, %463 ], [ %65, %475 ], [ %65, %501 ], [ %65, %517 ], [ %65, %new_function.exit47 ], [ %65, %new_function.exit ], [ %65, %556 ], [ %65, %560 ]
   %570 = zext nneg i32 %36 to i64
-  %571 = getelementptr [68 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %570
+  %571 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %570
   %572 = load i8, ptr %571, align 1
-  %573 = getelementptr [68 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %570
+  %573 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %570
   %574 = load i8, ptr %573, align 1
   %575 = sext i8 %574 to i64
   %576 = getelementptr %struct.yyStackEntry, ptr %569, i64 %575
   %577 = load i8, ptr %576, align 8
   %578 = zext i8 %577 to i64
-  %579 = getelementptr [35 x i16], ptr @yy_reduce_ofst, i64 0, i64 %578
+  %579 = getelementptr i16, ptr @yy_reduce_ofst, i64 %578
   %580 = load i16, ptr %579, align 2
   %581 = sext i16 %580 to i64
   %582 = zext i8 %572 to i64
-  %583 = add nsw i64 %581, %582
-  %584 = getelementptr [470 x i8], ptr @yy_action, i64 0, i64 %583
+  %583 = getelementptr i8, ptr @yy_action, i64 %581
+  %584 = getelementptr i8, ptr %583, i64 %582
   %585 = load i8, ptr %584, align 1
   %586 = getelementptr i8, ptr %576, i64 16
   store ptr %586, ptr %0, align 8

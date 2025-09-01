@@ -2896,7 +2896,7 @@ define hidden void @_ZN2os5Linux21capture_initial_stackEm(i64 noundef %0) local_
 
 44:                                               ; preds = %42
   %45 = call i64 @fread(ptr noundef nonnull %31, i64 noundef 1, i64 noundef 2047, ptr noundef nonnull %43)
-  %46 = getelementptr inbounds [2048 x i8], ptr %31, i64 0, i64 %45
+  %46 = getelementptr inbounds i8, ptr %31, i64 %45
   store i8 0, ptr %46, align 1
   %47 = call i32 @fclose(ptr noundef nonnull %43)
   %48 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 41) #27
@@ -3500,7 +3500,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %indvars.iv = phi i64 [ 0, %72 ], [ %indvars.iv.next, %85 ]
   %.sroa.3.090 = phi i16 [ 0, %72 ], [ %.sroa.3.1, %85 ]
   %.sroa.13.089 = phi ptr [ null, %72 ], [ %.sroa.13.1, %85 ]
-  %77 = getelementptr inbounds nuw [20 x %struct.arch_t], ptr @_ZZN2os8dll_loadEPKcPciE10arch_array, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw %struct.arch_t, ptr @_ZZN2os8dll_loadEPKcPciE10arch_array, i64 %indvars.iv
   %78 = load i16, ptr %77, align 16
   %79 = icmp eq i16 %73, %78
   br i1 %79, label %80, label %85
@@ -4241,7 +4241,7 @@ _ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread: ; preds = %.lr.ph.spl
 16:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw [14 x ptr], ptr @distro_files, i64 0, i64 %indvars.iv.next
+  %17 = getelementptr inbounds nuw ptr, ptr @distro_files, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !24
@@ -4556,7 +4556,7 @@ _ZN2os5Linux12get_mallinfoEPNS0_14glibc_mallinfoEPb.exit: ; preds = %28, %37
 63:                                               ; preds = %60, %57
   %.1.i = phi i8 [ 1, %60 ], [ %.015.i, %57 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %64 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZL27print_glibc_malloc_tunablesP12outputStreamE3var, i64 0, i64 %indvars.iv.next.i
+  %64 = getelementptr inbounds nuw ptr, ptr @_ZZL27print_glibc_malloc_tunablesP12outputStreamE3var, i64 %indvars.iv.next.i
   %65 = load ptr, ptr %64, align 8
   %.not.i13 = icmp eq i64 %indvars.iv.next.i, 9
   br i1 %.not.i13, label %66, label %57, !llvm.loop !25
@@ -4656,7 +4656,7 @@ define hidden void @_ZN2os19get_summary_os_infoEPcm(ptr noundef %0, i64 noundef 
 
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw [14 x ptr], ptr @distro_files, i64 0, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw ptr, ptr @distro_files, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !26
@@ -7092,7 +7092,7 @@ define hidden noundef zeroext i1 @_ZN2os14protect_memoryEPcmNS_8ProtTypeEb(ptr n
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2os14protect_memoryEPcmNS_8ProtTypeEb, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2os14protect_memoryEPcmNS_8ProtTypeEb, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = ptrtoint ptr %0 to i64
   %10 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
@@ -9664,7 +9664,7 @@ define internal fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb(i32 %.792
 
 12:                                               ; preds = %1
   %13 = call i64 @fread(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 2047, ptr noundef nonnull %10)
-  %14 = getelementptr inbounds [2048 x i8], ptr %2, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %2, i64 %13
   store i8 0, ptr %14, align 1
   %15 = call i32 @fclose(ptr noundef nonnull %10)
   %16 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 41) #27
@@ -9884,7 +9884,7 @@ define hidden noundef i32 @_ZN2os13get_core_pathEPcm(ptr noundef %0, i64 noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %3, i8 0, i64 129, i1 false)
   %6 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.249, i32 noundef 0) #26
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %71, label %8
+  br i1 %7, label %70, label %8
 
 8:                                                ; preds = %2
   %9 = call i64 @read(i32 noundef %6, ptr noundef nonnull %3, i64 noundef 129) #26
@@ -9894,115 +9894,114 @@ define hidden noundef i32 @_ZN2os13get_core_pathEPcm(ptr noundef %0, i64 noundef
   %12 = load i8, ptr %3, align 16
   %13 = icmp eq i8 %12, 10
   %or.cond5 = select i1 %or.cond, i1 true, i1 %13
-  br i1 %or.cond5, label %71, label %14
+  br i1 %or.cond5, label %70, label %14
 
 14:                                               ; preds = %8
-  %15 = add nsw i64 %9, -1
-  %16 = getelementptr inbounds nuw [129 x i8], ptr %3, i64 0, i64 %15
+  %15 = getelementptr i8, ptr %3, i64 %9
+  %16 = getelementptr i8, ptr %15, i64 -1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 10
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %14
   store i8 0, ptr %16, align 1
-  br label %22
+  br label %21
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw [129 x i8], ptr %3, i64 0, i64 %9
-  store i8 0, ptr %21, align 1
-  br label %22
+  store i8 0, ptr %15, align 1
+  br label %21
 
-22:                                               ; preds = %20, %19
-  %23 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.250) #27
-  %.not = icmp eq ptr %23, null
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  %25 = load i8, ptr %3, align 16
-  %26 = icmp eq i8 %25, 47
-  br i1 %26, label %27, label %33
+21:                                               ; preds = %20, %19
+  %22 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.250) #27
+  %.not = icmp eq ptr %22, null
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
+  %24 = load i8, ptr %3, align 16
+  %25 = icmp eq i8 %24, 47
+  br i1 %25, label %26, label %32
 
-27:                                               ; preds = %22
-  br i1 %.not, label %31, label %28
+26:                                               ; preds = %21
+  br i1 %.not, label %30, label %27
 
-28:                                               ; preds = %27
-  store i8 0, ptr %23, align 1
-  %29 = call noundef i32 @getpid() #26
-  %30 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.251, ptr noundef nonnull %3, i32 noundef %29, ptr noundef nonnull %24) #26
-  br label %49
+27:                                               ; preds = %26
+  store i8 0, ptr %22, align 1
+  %28 = call noundef i32 @getpid() #26
+  %29 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.251, ptr noundef nonnull %3, i32 noundef %28, ptr noundef nonnull %23) #26
+  br label %48
 
-31:                                               ; preds = %27
-  %32 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %3) #26
-  br label %49
+30:                                               ; preds = %26
+  %31 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %3) #26
+  br label %48
 
-33:                                               ; preds = %22
-  %34 = call noundef ptr @_ZN2os21get_current_directoryEPcm(ptr noundef nonnull %4, i64 noundef 4096) #26
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %71, label %36
+32:                                               ; preds = %21
+  %33 = call noundef ptr @_ZN2os21get_current_directoryEPcm(ptr noundef nonnull %4, i64 noundef 4096) #26
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %70, label %35
 
-36:                                               ; preds = %33
-  %37 = load i8, ptr %3, align 16
-  %38 = icmp eq i8 %37, 124
-  br i1 %38, label %39, label %43
+35:                                               ; preds = %32
+  %36 = load i8, ptr %3, align 16
+  %37 = icmp eq i8 %36, 124
+  br i1 %37, label %38, label %42
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %41 = call noundef i32 @getpid() #26
-  %42 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.252, ptr noundef nonnull %40, ptr noundef nonnull %34, i32 noundef %41) #26
-  br label %49
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %40 = call noundef i32 @getpid() #26
+  %41 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.252, ptr noundef nonnull %39, ptr noundef nonnull %33, i32 noundef %40) #26
+  br label %48
 
-43:                                               ; preds = %36
-  br i1 %.not, label %47, label %44
+42:                                               ; preds = %35
+  br i1 %.not, label %46, label %43
 
-44:                                               ; preds = %43
-  store i8 0, ptr %23, align 1
-  %45 = call noundef i32 @getpid() #26
-  %46 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.253, ptr noundef nonnull %34, ptr noundef nonnull %3, i32 noundef %45, ptr noundef nonnull %24) #26
-  br label %49
+43:                                               ; preds = %42
+  store i8 0, ptr %22, align 1
+  %44 = call noundef i32 @getpid() #26
+  %45 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.253, ptr noundef nonnull %33, ptr noundef nonnull %3, i32 noundef %44, ptr noundef nonnull %23) #26
+  br label %48
 
-47:                                               ; preds = %43
-  %48 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.254, ptr noundef nonnull %34, ptr noundef nonnull %3) #26
-  br label %49
+46:                                               ; preds = %42
+  %47 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.254, ptr noundef nonnull %33, ptr noundef nonnull %3) #26
+  br label %48
 
-49:                                               ; preds = %39, %47, %44, %28, %31
-  %.053 = phi i32 [ %30, %28 ], [ %32, %31 ], [ %42, %39 ], [ %46, %44 ], [ %48, %47 ]
-  %50 = icmp slt i32 %.053, 0
-  br i1 %50, label %71, label %51
+48:                                               ; preds = %38, %46, %43, %27, %30
+  %.053 = phi i32 [ %29, %27 ], [ %31, %30 ], [ %41, %38 ], [ %45, %43 ], [ %47, %46 ]
+  %49 = icmp slt i32 %.053, 0
+  br i1 %49, label %70, label %50
 
-51:                                               ; preds = %49
-  %52 = zext nneg i32 %.053 to i64
-  %53 = icmp ugt i64 %1, %52
-  %or.cond7 = and i1 %.not, %53
-  %54 = load i8, ptr %3, align 16
-  %55 = icmp ne i8 %54, 124
-  %or.cond11 = select i1 %or.cond7, i1 %55, i1 false
-  br i1 %or.cond11, label %56, label %68
+50:                                               ; preds = %48
+  %51 = zext nneg i32 %.053 to i64
+  %52 = icmp ugt i64 %1, %51
+  %or.cond7 = and i1 %.not, %52
+  %53 = load i8, ptr %3, align 16
+  %54 = icmp ne i8 %53, 124
+  %or.cond11 = select i1 %or.cond7, i1 %54, i1 false
+  br i1 %or.cond11, label %55, label %67
 
-56:                                               ; preds = %51
-  %57 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.255, i32 noundef 0) #26
-  %.not61 = icmp eq i32 %57, -1
-  br i1 %.not61, label %68, label %58
+55:                                               ; preds = %50
+  %56 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.255, i32 noundef 0) #26
+  %.not61 = icmp eq i32 %56, -1
+  br i1 %.not61, label %67, label %57
 
-58:                                               ; preds = %56
+57:                                               ; preds = %55
   store i8 0, ptr %5, align 1
-  %59 = call i64 @read(i32 noundef %57, ptr noundef nonnull %5, i64 noundef 1) #26
-  %60 = call i32 @close(i32 noundef %57) #26
-  %61 = load i8, ptr %5, align 1
-  %62 = icmp eq i8 %61, 49
-  br i1 %62, label %63, label %68
+  %58 = call i64 @read(i32 noundef %56, ptr noundef nonnull %5, i64 noundef 1) #26
+  %59 = call i32 @close(i32 noundef %56) #26
+  %60 = load i8, ptr %5, align 1
+  %61 = icmp eq i8 %60, 49
+  br i1 %61, label %62, label %67
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %52
-  %65 = sub i64 %1, %52
-  %66 = call noundef i32 @getpid() #26
-  %67 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %64, i64 noundef %65, ptr noundef nonnull @.str.256, i32 noundef %66) #26
-  br label %68
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %51
+  %64 = sub i64 %1, %51
+  %65 = call noundef i32 @getpid() #26
+  %66 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %63, i64 noundef %64, ptr noundef nonnull @.str.256, i32 noundef %65) #26
+  br label %67
 
-68:                                               ; preds = %56, %63, %58, %51
-  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
-  %70 = trunc i64 %69 to i32
-  br label %71
+67:                                               ; preds = %55, %62, %57, %50
+  %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
+  %69 = trunc i64 %68 to i32
+  br label %70
 
-71:                                               ; preds = %49, %33, %8, %2, %68
-  %.0 = phi i32 [ %70, %68 ], [ -1, %2 ], [ -1, %8 ], [ -1, %33 ], [ -1, %49 ]
+70:                                               ; preds = %48, %32, %8, %2, %67
+  %.0 = phi i32 [ %69, %67 ], [ -1, %2 ], [ -1, %8 ], [ -1, %32 ], [ -1, %48 ]
   ret i32 %.0
 }
 
@@ -10680,7 +10679,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }

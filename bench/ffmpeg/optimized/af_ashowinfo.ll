@@ -422,7 +422,7 @@ dump_replaygain.exit:                             ; preds = %115, %146, %147
 
 switch.lookup:                                    ; preds = %155
   %160 = zext nneg i32 %158 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.filter_frame, i64 0, i64 %160
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.filter_frame, i64 %160
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dump_audio_service_type.exit
 

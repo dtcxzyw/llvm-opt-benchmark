@@ -297,7 +297,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 
 92:                                               ; preds = %89
   %93 = zext nneg i32 %90 to i64
-  %94 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__MetadataTypeString, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw ptr, ptr @FLAC__MetadataTypeString, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !16
   br label %96
 
@@ -412,7 +412,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 
 .split.us.i.i.i.i:                                ; preds = %174, %.split.us.i.i.i.i
   %indvars.iv489.i.i.i.i = phi i64 [ %indvars.iv.next490.i.i.i.i, %.split.us.i.i.i.i ], [ 0, %174 ]
-  %177 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 0, i64 %indvars.iv489.i.i.i.i
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 %indvars.iv489.i.i.i.i
   %178 = load i8, ptr %177, align 1, !tbaa !32
   %179 = zext i8 %178 to i32
   %180 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.27, i32 noundef %179) #10
@@ -422,7 +422,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 
 .split.i.i.i.i:                                   ; preds = %174, %.split.i.i.i.i
   %indvars.iv485.i.i.i.i = phi i64 [ %indvars.iv.next486.i.i.i.i, %.split.i.i.i.i ], [ 0, %174 ]
-  %181 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 0, i64 %indvars.iv485.i.i.i.i
+  %181 = getelementptr inbounds nuw i8, ptr %176, i64 %indvars.iv485.i.i.i.i
   %182 = load i8, ptr %181, align 1, !tbaa !32
   %183 = zext i8 %182 to i32
   %184 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.27, i32 noundef %183) #10
@@ -448,7 +448,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 
 192:                                              ; preds = %192, %189
   %indvars.iv479.i.i.i.i = phi i64 [ 0, %189 ], [ %indvars.iv.next480.i.i.i.i, %192 ]
-  %193 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 0, i64 %indvars.iv479.i.i.i.i
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 %indvars.iv479.i.i.i.i
   %194 = load i8, ptr %193, align 1, !tbaa !32
   %195 = zext i8 %194 to i32
   %196 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.27, i32 noundef %195) #10
@@ -874,7 +874,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 
 437:                                              ; preds = %433
   %438 = zext nneg i32 %435 to i64
-  %439 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__StreamMetadata_Picture_TypeString, i64 0, i64 %438
+  %439 = getelementptr inbounds nuw ptr, ptr @FLAC__StreamMetadata_Picture_TypeString, i64 %438
   %440 = load ptr, ptr %439, align 8, !tbaa !16
   br label %441
 

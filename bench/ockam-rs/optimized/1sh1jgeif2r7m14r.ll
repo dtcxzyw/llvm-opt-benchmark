@@ -2216,7 +2216,7 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
 
 .lr.ph.i.us.i.i.i.i:                              ; preds = %144, %148
   %.05.i.us.i.i.i.i = phi i64 [ %149, %148 ], [ 0, %144 ]
-  %145 = getelementptr inbounds nuw [0 x i8], ptr %138, i64 0, i64 %.05.i.us.i.i.i.i
+  %145 = getelementptr inbounds nuw i8, ptr %138, i64 %.05.i.us.i.i.i.i
   %146 = load i8, ptr %145, align 1, !alias.scope !346, !noalias !345, !noundef !7
   %147 = icmp eq i8 %146, %140
   br i1 %147, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.us.i.i.i.i, label %148
@@ -2273,7 +2273,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.us.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %168, %172
   %.05.i.i.i.i.i = phi i64 [ %173, %172 ], [ 0, %168 ]
-  %169 = getelementptr inbounds nuw [0 x i8], ptr %162, i64 0, i64 %.05.i.i.i.i.i
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 %.05.i.i.i.i.i
   %170 = load i8, ptr %169, align 1, !alias.scope !346, !noalias !345, !noundef !7
   %171 = icmp eq i8 %170, %164
   br i1 %171, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i.i.i, label %172
@@ -4901,7 +4901,7 @@ _ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thre
   br i1 %37, label %38, label %66, !prof !811
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %32
+  %39 = getelementptr inbounds i8, ptr %1, i64 %32
   %40 = load i8, ptr %39, align 1, !alias.scope !806, !noalias !812, !noundef !7
   %41 = add nuw i64 %32, 1
   store i64 %41, ptr %3, align 8, !alias.scope !809, !noalias !814

@@ -148,8 +148,6 @@ $_ZN26UnsafeAccessErrorHandshake18is_async_exceptionEv = comdat any
 
 $_ZN17SignatureIterator16do_parameters_onI24AdapterSignatureIteratorEEvPT_ = comdat any
 
-$_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_ = comdat any
-
 $_ZN8JfrEventI28EventReservedStackActivationE11write_eventEv = comdat any
 
 $_ZN8JfrEventI28EventReservedStackActivationE17write_sized_eventEP9JfrBufferP6Threadmmb = comdat any
@@ -2225,7 +2223,7 @@ _Z21Bytecode_invoke_checkRK12methodHandlei.exit:  ; preds = %75, %79
 
 _ZNK15Bytecode_invoke18is_invokeinterfaceEv.exit.i: ; preds = %_Z21Bytecode_invoke_checkRK12methodHandlei.exit
   %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %83
+  %84 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %83
   %85 = load i32, ptr %84, align 4
   switch i32 %85, label %_ZNK15Bytecode_invoke8is_validEv.exit [
     i32 185, label %86
@@ -5049,7 +5047,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %42, %48
 
 56:                                               ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
   %57 = sext i32 %54 to i64
-  %58 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %57
+  %58 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %57
   %59 = load i32, ptr %58, align 4
   br label %_ZNK8Bytecode11invoke_codeEv.exit
 
@@ -7199,7 +7197,7 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary14create_adapterERP11Adapte
 switch.lookup:                                    ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %56 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN21AdapterHandlerLibrary11get_adapterERK12methodHandle, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN21AdapterHandlerLibrary11get_adapterERK12methodHandle, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   %57 = shl i32 %.01927.i, 4
   %58 = or i32 %switch.load, %57
@@ -7313,7 +7311,7 @@ define internal fastcc void @_ZL21post_adapter_creationPK11AdapterBlobPK19Adapte
   %6 = load i8, ptr @_ZN11JvmtiExport35_should_post_dynamic_code_generatedE, align 1
   %7 = trunc i8 %6 to i1
   %or.cond = select i1 %5, i1 true, i1 %7
-  br i1 %or.cond, label %8, label %46
+  br i1 %or.cond, label %8, label %44
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7329,59 +7327,58 @@ define internal fastcc void @_ZL21post_adapter_creationPK11AdapterBlobPK19Adapte
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %8 ]
-  %14 = phi i32 [ %19, %.lr.ph.i ], [ %13, %8 ]
+  %14 = phi i32 [ %17, %.lr.ph.i ], [ %13, %8 ]
   %15 = icmp slt i32 %14, 0
-  %16 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
-  %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
-  %.0.in.i.i = select i1 %15, ptr %16, ptr %18
+  %16 = load ptr, ptr %11, align 8
+  %.0.in.v.i.i = select i1 %15, ptr %11, ptr %16
+  %.0.in.i.i = getelementptr inbounds nuw i32, ptr %.0.in.v.i.i, i64 %indvars.iv.i
   %.0.i3.i = load i32, ptr %.0.in.i.i, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.67, i32 noundef %.0.i3.i) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = load i32, ptr %12, align 8
-  %.0.i.i = call noundef i32 @llvm.abs.i32(i32 %19, i1 true)
-  %20 = zext nneg i32 %.0.i.i to i64
-  %21 = icmp samesign ult i64 %indvars.iv.next.i, %20
-  br i1 %21, label %.lr.ph.i, label %_ZN18AdapterFingerPrint9as_stringEv.exit, !llvm.loop !74
+  %17 = load i32, ptr %12, align 8
+  %.0.i.i = call noundef i32 @llvm.abs.i32(i32 %17, i1 true)
+  %18 = zext nneg i32 %.0.i.i to i64
+  %19 = icmp samesign ult i64 %indvars.iv.next.i, %18
+  br i1 %19, label %.lr.ph.i, label %_ZN18AdapterFingerPrint9as_stringEv.exit, !llvm.loop !74
 
 _ZN18AdapterFingerPrint9as_stringEv.exit:         ; preds = %.lr.ph.i, %8
-  %22 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #18
+  %20 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #18
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %23 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.65, ptr noundef %10, ptr noundef %22) #18
-  %24 = call noundef zeroext i1 @_ZN5Forte10is_enabledEv() #18
-  br i1 %24, label %25, label %34
+  %21 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.65, ptr noundef %10, ptr noundef %20) #18
+  %22 = call noundef zeroext i1 @_ZN5Forte10is_enabledEv() #18
+  br i1 %22, label %23, label %32
 
-25:                                               ; preds = %_ZN18AdapterFingerPrint9as_stringEv.exit
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load i32, ptr %26, align 8
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load i32, ptr %30, align 8
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %0, i64 %32
-  call void @_ZN5Forte13register_stubEPKcPhS2_(ptr noundef nonnull %4, ptr noundef %29, ptr noundef %33) #18
-  br label %34
+23:                                               ; preds = %_ZN18AdapterFingerPrint9as_stringEv.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load i32, ptr %24, align 8
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i8, ptr %0, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = load i32, ptr %28, align 8
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds i8, ptr %0, i64 %30
+  call void @_ZN5Forte13register_stubEPKcPhS2_(ptr noundef nonnull %4, ptr noundef %27, ptr noundef %31) #18
+  br label %32
 
-34:                                               ; preds = %25, %_ZN18AdapterFingerPrint9as_stringEv.exit
-  %35 = load i8, ptr @_ZN11JvmtiExport35_should_post_dynamic_code_generatedE, align 1
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %46
+32:                                               ; preds = %23, %_ZN18AdapterFingerPrint9as_stringEv.exit
+  %33 = load i8, ptr @_ZN11JvmtiExport35_should_post_dynamic_code_generatedE, align 1
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %44
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load i32, ptr %38, align 8
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %0, i64 %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = load i32, ptr %42, align 8
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %0, i64 %44
-  call void @_ZN11JvmtiExport27post_dynamic_code_generatedEPKcPKvS3_(ptr noundef nonnull %4, ptr noundef %41, ptr noundef %45) #18
-  br label %46
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %37 = load i32, ptr %36, align 8
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %0, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %41 = load i32, ptr %40, align 8
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %0, i64 %42
+  call void @_ZN11JvmtiExport27post_dynamic_code_generatedEPKcPKvS3_(ptr noundef nonnull %4, ptr noundef %39, ptr noundef %43) #18
+  br label %44
 
-46:                                               ; preds = %2, %34, %37
+44:                                               ; preds = %2, %32, %35
   ret void
 }
 
@@ -7494,360 +7491,502 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary18get_simple_adapterERK12me
 define hidden noundef ptr @_ZN21AdapterHandlerLibrary11get_adapterERK12methodHandle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.AdapterFingerPrint, align 8
   %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca %class.AdapterSignatureIterator, align 8
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %7, align 8
-  %8 = and i32 %.sroa.0.0.copyload.i.i.i, 1024
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %9, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
+  %4 = alloca %class.AdapterSignatureIterator, align 8
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %6, align 8
+  %7 = and i32 %.sroa.0.0.copyload.i.i.i, 1024
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %8, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 46
-  %13 = load i16, ptr %12, align 2
-  switch i16 %13, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread [
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 46
+  %12 = load i16, ptr %11, align 2
+  switch i16 %12, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread [
     i16 0, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
-    i16 1, label %14
-    i16 2, label %28
+    i16 1, label %13
+    i16 2, label %27
   ]
 
-14:                                               ; preds = %9
-  %15 = and i32 %.sroa.0.0.copyload.i.i.i, 8
-  %.not13.i = icmp eq i32 %15, 0
-  br i1 %.not13.i, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit, label %16
+13:                                               ; preds = %8
+  %14 = and i32 %.sroa.0.0.copyload.i.i.i, 8
+  %.not13.i = icmp eq i32 %14, 0
+  br i1 %.not13.i, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit, label %15
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 38
-  %20 = load i16, ptr %19, align 2
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %22 = zext i16 %20 to i64
-  %23 = getelementptr inbounds nuw i64, ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 7
-  %26 = load i8, ptr %25, align 1
-  switch i8 %26, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread [
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 38
+  %19 = load i16, ptr %18, align 2
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %21 = zext i16 %19 to i64
+  %22 = getelementptr inbounds nuw i64, ptr %20, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 7
+  %25 = load i8, ptr %24, align 1
+  switch i8 %25, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread [
     i8 76, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
     i8 91, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
-    i8 73, label %27
-    i8 90, label %27
-    i8 67, label %27
-    i8 66, label %27
-    i8 83, label %27
+    i8 73, label %26
+    i8 90, label %26
+    i8 67, label %26
+    i8 66, label %26
+    i8 83, label %26
   ]
 
-27:                                               ; preds = %16, %16, %16, %16, %16
+26:                                               ; preds = %15, %15, %15, %15, %15
   br label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
 
-28:                                               ; preds = %9
-  %29 = and i32 %.sroa.0.0.copyload.i.i.i, 8
-  %.not12.i = icmp eq i32 %29, 0
-  br i1 %.not12.i, label %30, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread
+27:                                               ; preds = %8
+  %28 = and i32 %.sroa.0.0.copyload.i.i.i, 8
+  %.not12.i = icmp eq i32 %28, 0
+  br i1 %.not12.i, label %29, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %11, i64 38
-  %34 = load i16, ptr %33, align 2
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  %36 = zext i16 %34 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 7
-  %40 = load i8, ptr %39, align 1
-  switch i8 %40, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread [
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 38
+  %33 = load i16, ptr %32, align 2
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 72
+  %35 = zext i16 %33 to i64
+  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 7
+  %39 = load i8, ptr %38, align 1
+  switch i8 %39, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread [
     i8 76, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
     i8 91, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
-    i8 73, label %41
-    i8 90, label %41
-    i8 67, label %41
-    i8 66, label %41
-    i8 83, label %41
+    i8 73, label %40
+    i8 90, label %40
+    i8 67, label %40
+    i8 66, label %40
+    i8 83, label %40
   ]
 
-41:                                               ; preds = %30, %30, %30, %30, %30
+40:                                               ; preds = %29, %29, %29, %29, %29
   br label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
 
-_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit: ; preds = %30, %30, %16, %16, %14, %9, %1, %27, %41
-  %.0.i.in = phi ptr [ @_ZN21AdapterHandlerLibrary16_int_arg_handlerE, %27 ], [ @_ZN21AdapterHandlerLibrary20_obj_int_arg_handlerE, %41 ], [ @_ZN21AdapterHandlerLibrary24_abstract_method_handlerE, %1 ], [ @_ZN21AdapterHandlerLibrary15_no_arg_handlerE, %9 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %14 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %16 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %16 ], [ @_ZN21AdapterHandlerLibrary20_obj_obj_arg_handlerE, %30 ], [ @_ZN21AdapterHandlerLibrary20_obj_obj_arg_handlerE, %30 ]
+_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit: ; preds = %29, %29, %15, %15, %13, %8, %1, %26, %40
+  %.0.i.in = phi ptr [ @_ZN21AdapterHandlerLibrary16_int_arg_handlerE, %26 ], [ @_ZN21AdapterHandlerLibrary20_obj_int_arg_handlerE, %40 ], [ @_ZN21AdapterHandlerLibrary24_abstract_method_handlerE, %1 ], [ @_ZN21AdapterHandlerLibrary15_no_arg_handlerE, %8 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %13 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %15 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %15 ], [ @_ZN21AdapterHandlerLibrary20_obj_obj_arg_handlerE, %29 ], [ @_ZN21AdapterHandlerLibrary20_obj_obj_arg_handlerE, %29 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge, label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge: ; preds = %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert40 = getelementptr inbounds nuw i8, ptr %.pre, i64 46
-  %.pre41 = load i16, ptr %.phi.trans.insert40, align 2
+  %.phi.trans.insert63 = getelementptr inbounds nuw i8, ptr %.pre, i64 46
+  %.pre64 = load i16, ptr %.phi.trans.insert63, align 2
   br label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread
 
-_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread: ; preds = %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge, %28, %30, %16, %9
-  %42 = phi i16 [ %.pre41, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge ], [ 2, %28 ], [ 2, %30 ], [ 1, %16 ], [ %13, %9 ]
-  %43 = phi ptr [ %.pre, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge ], [ %11, %28 ], [ %11, %30 ], [ %11, %16 ], [ %11, %9 ]
-  %44 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 800
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %55 = load i64, ptr %54, align 8
-  store ptr null, ptr %4, align 8
-  %56 = zext i16 %42 to i32
-  %57 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %43, i64 38
-  %60 = load i16, ptr %59, align 2
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 72
-  %62 = zext i16 %60 to i64
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %62
-  %64 = load ptr, ptr %63, align 8
-  %65 = load volatile i64, ptr %43, align 8
-  %66 = load volatile i64, ptr %43, align 8
-  %67 = and i64 %66, 4294967295
-  %68 = icmp eq i64 %67, 0
-  %69 = icmp slt i64 %65, -9223372032559808512
-  %or.cond.i = select i1 %68, i1 true, i1 %69
+_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread: ; preds = %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge, %27, %29, %15, %8
+  %41 = phi i16 [ %.pre64, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge ], [ 2, %27 ], [ 2, %29 ], [ 1, %15 ], [ %12, %8 ]
+  %42 = phi ptr [ %.pre, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge ], [ %10, %27 ], [ %10, %29 ], [ %10, %15 ], [ %10, %8 ]
+  %43 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 800
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %54 = load i64, ptr %53, align 8
+  store ptr null, ptr %3, align 8
+  %55 = zext i16 %41 to i32
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %42, i64 38
+  %59 = load i16, ptr %58, align 2
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 72
+  %61 = zext i16 %59 to i64
+  %62 = getelementptr inbounds nuw i64, ptr %60, i64 %61
+  %63 = load ptr, ptr %62, align 8
+  %64 = load volatile i64, ptr %42, align 8
+  %65 = load volatile i64, ptr %42, align 8
+  %66 = and i64 %65, 4294967295
+  %67 = icmp eq i64 %66, 0
+  %68 = icmp slt i64 %64, -9223372032559808512
+  %or.cond.i = select i1 %67, i1 true, i1 %68
   br i1 %or.cond.i, label %_ZNK11ConstMethod11fingerprintEv.exit.thread, label %_ZNK11ConstMethod11fingerprintEv.exit
 
 _ZNK11ConstMethod11fingerprintEv.exit.thread:     ; preds = %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread
-  store ptr %64, ptr %5, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 99, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %71, align 8
+  store ptr %63, ptr %4, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 99, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %70, align 8
   br label %_ZN17SignatureIteratorC2EP6Symbolm.exit.i
 
 _ZNK11ConstMethod11fingerprintEv.exit:            ; preds = %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread
-  %72 = load volatile i64, ptr %43, align 8
-  store ptr %64, ptr %5, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 99, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %74, align 8
-  %.not.i.i = icmp eq i64 %72, 0
-  br i1 %.not.i.i, label %_ZN17SignatureIteratorC2EP6Symbolm.exit.i, label %75
+  %71 = load volatile i64, ptr %42, align 8
+  store ptr %63, ptr %4, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 99, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %73, align 8
+  %.not.i.i = icmp eq i64 %71, 0
+  br i1 %.not.i.i, label %_ZN17SignatureIteratorC2EP6Symbolm.exit.i, label %74
 
-75:                                               ; preds = %_ZNK11ConstMethod11fingerprintEv.exit
-  call void @_ZN17SignatureIterator15set_fingerprintEm(ptr noundef nonnull align 8 dereferenceable(52) %5, i64 noundef %72) #18
+74:                                               ; preds = %_ZNK11ConstMethod11fingerprintEv.exit
+  call void @_ZN17SignatureIterator15set_fingerprintEm(ptr noundef nonnull align 8 dereferenceable(52) %4, i64 noundef %71) #18
   br label %_ZN17SignatureIteratorC2EP6Symbolm.exit.i
 
-_ZN17SignatureIteratorC2EP6Symbolm.exit.i:        ; preds = %_ZNK11ConstMethod11fingerprintEv.exit.thread, %75, %_ZNK11ConstMethod11fingerprintEv.exit
+_ZN17SignatureIteratorC2EP6Symbolm.exit.i:        ; preds = %_ZNK11ConstMethod11fingerprintEv.exit.thread, %74, %_ZNK11ConstMethod11fingerprintEv.exit
   %.in = and i32 %.sroa.0.0.copyload.i.i.i, 8
-  %.not37 = icmp eq i32 %.in, 0
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 0, ptr %76, align 8
-  %77 = icmp ult i16 %42, 17
-  br i1 %77, label %78, label %80
+  %.not38 = icmp eq i32 %.in, 0
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store i32 0, ptr %75, align 8
+  %76 = icmp ult i16 %41, 17
+  br i1 %76, label %77, label %79
 
-78:                                               ; preds = %_ZN17SignatureIteratorC2EP6Symbolm.exit.i
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br label %83
+77:                                               ; preds = %_ZN17SignatureIteratorC2EP6Symbolm.exit.i
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  br label %82
 
-80:                                               ; preds = %_ZN17SignatureIteratorC2EP6Symbolm.exit.i
-  %81 = zext i16 %42 to i64
-  %82 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %81, i32 noundef 0) #18
-  br label %83
+79:                                               ; preds = %_ZN17SignatureIteratorC2EP6Symbolm.exit.i
+  %80 = zext i16 %41 to i64
+  %81 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %80, i32 noundef 0) #18
+  br label %82
 
-83:                                               ; preds = %80, %78
-  %84 = phi ptr [ %79, %78 ], [ %82, %80 ]
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %84, ptr %85, align 8
-  br i1 %.not37, label %86, label %_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit
+82:                                               ; preds = %79, %77
+  %83 = phi ptr [ %78, %77 ], [ %81, %79 ]
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %83, ptr %84, align 8
+  br i1 %.not38, label %85, label %_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr %76, align 8
-  %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %76, align 8
-  %89 = sext i32 %87 to i64
-  %90 = getelementptr inbounds i8, ptr %84, i64 %89
-  store i8 12, ptr %90, align 1
+85:                                               ; preds = %82
+  %86 = load i32, ptr %75, align 8
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %75, align 8
+  %88 = sext i32 %86 to i64
+  %89 = getelementptr inbounds i8, ptr %83, i64 %88
+  store i8 12, ptr %89, align 1
   br label %_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit
 
-_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit: ; preds = %83, %86
-  call void @_ZN17SignatureIterator16do_parameters_onI24AdapterSignatureIteratorEEvPT_(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef nonnull align 8 dereferenceable(52) %5)
-  %91 = load ptr, ptr %85, align 8
-  %92 = load ptr, ptr @AdapterHandlerLibrary_lock, align 8
-  %.not.i.i25 = icmp eq ptr %92, null
-  br i1 %.not.i.i25, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %93
+_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit: ; preds = %82, %85
+  call void @_ZN17SignatureIterator16do_parameters_onI24AdapterSignatureIteratorEEvPT_(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef nonnull align 8 dereferenceable(52) %4)
+  %90 = load ptr, ptr %84, align 8
+  %91 = load ptr, ptr @AdapterHandlerLibrary_lock, align 8
+  %.not.i.i25 = icmp eq ptr %91, null
+  br i1 %.not.i.i25, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %92
 
-93:                                               ; preds = %_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit
-  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %92) #18
+92:                                               ; preds = %_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit
+  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %91) #18
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit, %93
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN24AdapterSignatureIteratorC2EP6Symbolmbi.exit, %92
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %94 = add nuw nsw i32 %56, 7
-  %95 = lshr i32 %94, 3
-  %96 = icmp ult i16 %42, 25
-  br i1 %96, label %101, label %.thread.i.i
+  %93 = add nuw nsw i32 %55, 7
+  %94 = lshr i32 %93, 3
+  %95 = icmp ult i16 %41, 25
+  br i1 %95, label %100, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %97 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %95, ptr %97, align 8
-  %98 = shl nuw nsw i32 %95, 2
-  %99 = zext nneg i32 %98 to i64
-  %100 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %99, i8 noundef zeroext 4, i32 noundef 0) #18
-  store ptr %100, ptr %2, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %94, ptr %96, align 8
+  %97 = shl nuw nsw i32 %94, 2
+  %98 = zext nneg i32 %97 to i64
+  %99 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %98, i8 noundef zeroext 4, i32 noundef 0) #18
+  store ptr %99, ptr %2, align 8
   br label %.preheader.preheader.i.i
 
-101:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %102, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %103, align 4
+100:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 0, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 0, ptr %102, align 4
   store i32 0, ptr %2, align 8
-  %104 = sub nsw i32 0, %95
-  %105 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %104, ptr %105, align 8
-  %.not5.i = icmp eq i16 %42, 0
-  br i1 %.not5.i, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i, label %.preheader.preheader.i.i
+  %103 = sub nsw i32 0, %94
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %103, ptr %104, align 8
+  %.not.i27 = icmp eq i16 %41, 0
+  br i1 %.not.i27, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i, label %.preheader.preheader.i.i
 
-.preheader.preheader.i.i:                         ; preds = %101, %.thread.i.i
-  %.041.i.i = phi ptr [ %100, %.thread.i.i ], [ %2, %101 ]
-  %106 = zext i16 %42 to i64
-  %107 = call i32 @llvm.umax.i32(i32 %95, i32 1)
-  %wide.trip.count.i.i = zext nneg i32 %107 to i64
+.preheader.preheader.i.i:                         ; preds = %100, %.thread.i.i
+  %.041.i.i = phi ptr [ %99, %.thread.i.i ], [ %2, %100 ]
+  %105 = zext i16 %41 to i64
+  %106 = call i32 @llvm.umax.i32(i32 %94, i32 1)
+  %wide.trip.count.i.i = zext nneg i32 %106 to i64
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %.preheader.preheader.i.i
   %indvars.iv36.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next37.i.i, %._crit_edge.i.i ]
   %.02130.i.i = phi i32 [ 0, %.preheader.preheader.i.i ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
-  %108 = icmp slt i32 %.02130.i.i, %56
-  br i1 %108, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
+  %107 = icmp slt i32 %.02130.i.i, %55
+  br i1 %107, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %109 = sext i32 %.02130.i.i to i64
+  %108 = sext i32 %.02130.i.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %switch.lookup, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %109, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %switch.lookup ]
-  %.01828.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %118, %switch.lookup ]
-  %.01927.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %117, %switch.lookup ]
-  %110 = getelementptr inbounds i8, ptr %91, i64 %indvars.iv.i.i
-  %111 = load i8, ptr %110, align 1
-  %switch.tableidx = add i8 %111, -4
-  %112 = icmp ult i8 %switch.tableidx, 11
-  br i1 %112, label %switch.lookup, label %113
+  %indvars.iv.i.i = phi i64 [ %108, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %switch.lookup ]
+  %.01828.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %117, %switch.lookup ]
+  %.01927.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %116, %switch.lookup ]
+  %109 = getelementptr inbounds i8, ptr %90, i64 %indvars.iv.i.i
+  %110 = load i8, ptr %109, align 1
+  %switch.tableidx = add i8 %110, -4
+  %111 = icmp ult i8 %switch.tableidx, 11
+  br i1 %111, label %switch.lookup, label %112
 
-113:                                              ; preds = %.lr.ph.i.i
-  %114 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %114, align 1
+112:                                              ; preds = %.lr.ph.i.i
+  %113 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %113, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.9, i32 noundef 2161) #19
   unreachable
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %115 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN21AdapterHandlerLibrary11get_adapterERK12methodHandle, i64 0, i64 %115
+  %114 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN21AdapterHandlerLibrary11get_adapterERK12methodHandle, i64 %114
   %switch.load = load i32, ptr %switch.gep, align 4
-  %116 = shl i32 %.01927.i.i, 4
-  %117 = or i32 %switch.load, %116
-  %118 = add nuw nsw i32 %.01828.i.i, 1
-  %119 = icmp slt i64 %indvars.iv.next.i.i, %106
-  %120 = icmp samesign ult i32 %.01828.i.i, 7
-  %121 = select i1 %119, i1 %120, i1 false
-  br i1 %121, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !72
+  %115 = shl i32 %.01927.i.i, 4
+  %116 = or i32 %switch.load, %115
+  %117 = add nuw nsw i32 %.01828.i.i, 1
+  %118 = icmp slt i64 %indvars.iv.next.i.i, %105
+  %119 = icmp samesign ult i32 %.01828.i.i, 7
+  %120 = select i1 %118, i1 %119, i1 false
+  br i1 %120, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !72
 
 ._crit_edge.loopexit.i.i:                         ; preds = %switch.lookup
-  %122 = trunc nsw i64 %indvars.iv.next.i.i to i32
+  %121 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
-  %.1.lcssa.i.i = phi i32 [ %.02130.i.i, %.preheader.i.i ], [ %122, %._crit_edge.loopexit.i.i ]
-  %.019.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %117, %._crit_edge.loopexit.i.i ]
-  %123 = getelementptr inbounds nuw i32, ptr %.041.i.i, i64 %indvars.iv36.i.i
-  store i32 %.019.lcssa.i.i, ptr %123, align 4
+  %.1.lcssa.i.i = phi i32 [ %.02130.i.i, %.preheader.i.i ], [ %121, %._crit_edge.loopexit.i.i ]
+  %.019.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %116, %._crit_edge.loopexit.i.i ]
+  %122 = getelementptr inbounds nuw i32, ptr %.041.i.i, i64 %indvars.iv36.i.i
+  store i32 %.019.lcssa.i.i, ptr %122, align 4
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i, label %.preheader.i.i, !llvm.loop !73
+  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.loopexit.i, label %.preheader.i.i, !llvm.loop !73
 
-_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i:    ; preds = %._crit_edge.i.i, %101
+_ZN18AdapterFingerPrintC2EiP9BasicType.exit.loopexit.i: ; preds = %._crit_edge.i.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
+  br label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i
+
+_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i:    ; preds = %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.loopexit.i, %100
+  %123 = phi i32 [ %.pre.i, %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.loopexit.i ], [ %103, %100 ]
   %124 = load ptr, ptr @_ZL22_adapter_handler_table, align 8
-  store ptr %2, ptr %3, align 8
-  %125 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2348) %124, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not.i26 = icmp eq ptr %125, null
-  br i1 %.not.i26, label %128, label %126
+  %.fr26.i = freeze i32 %123
+  %.not.i.i.i.i = icmp eq i32 %.fr26.i, 0
+  br i1 %.not.i.i.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit.i.i, label %.lr.ph.i.i.i.i
 
-126:                                              ; preds = %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i
-  %127 = load ptr, ptr %125, align 8
-  br label %128
+.lr.ph.i.i.i.i:                                   ; preds = %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i
+  %.0.i.i.i.i.i = call noundef i32 @llvm.abs.i32(i32 %.fr26.i, i1 true)
+  %125 = icmp slt i32 %.fr26.i, 0
+  %126 = load ptr, ptr %2, align 8
+  %.0.in.v.i.i.i.i.i = select i1 %125, ptr %2, ptr %126
+  %wide.trip.count.i.i.i.i = zext nneg i32 %.0.i.i.i.i.i to i64
+  br label %127
 
-128:                                              ; preds = %126, %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i
-  %.0.i27 = phi ptr [ %127, %126 ], [ null, %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i ]
-  %129 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %130 = load i32, ptr %129, align 8
-  %131 = icmp sgt i32 %130, 0
-  br i1 %131, label %132, label %_ZL6lookupiP9BasicType.exit
+127:                                              ; preds = %127, %.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %127 ]
+  %.010.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %131, %127 ]
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %.0.in.v.i.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %.0.i8.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i, align 4
+  %128 = shl i32 %.010.i.i.i.i, 8
+  %129 = ashr i32 %.010.i.i.i.i, 5
+  %130 = xor i32 %129, %128
+  %131 = xor i32 %130, %.0.i8.i.i.i.i
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit.i.i, label %127, !llvm.loop !75
 
-132:                                              ; preds = %128
-  %133 = load ptr, ptr %2, align 8
-  call void @_Z8FreeHeapPv(ptr noundef %133) #18
+_ZN18AdapterFingerPrint12compute_hashERKPS_.exit.i.i: ; preds = %127, %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i
+  %.0.lcssa.i.i.i.i = phi i32 [ 0, %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i ], [ %131, %127 ]
+  %132 = urem i32 %.0.lcssa.i.i.i.i, 293
+  %133 = zext nneg i32 %132 to i64
+  %134 = getelementptr inbounds nuw ptr, ptr %124, i64 %133
+  %135 = load ptr, ptr %134, align 8
+  %.not18.i.i.i.i = icmp eq ptr %135, null
+  br i1 %.not18.i.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i, label %.lr.ph.i.i7.i.i
+
+.lr.ph.i.i7.i.i:                                  ; preds = %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit.i.i
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %137 = icmp slt i32 %.fr26.i, 0
+  %wide.trip.count.i.i.i.i.i.i = zext nneg i32 %.fr26.i to i64
+  %138 = load ptr, ptr %2, align 8
+  %139 = ptrtoint ptr %138 to i64
+  %140 = trunc i64 %139 to i32
+  %141 = lshr i64 %139, 32
+  %142 = trunc nuw i64 %141 to i32
+  %143 = load i32, ptr %136, align 8
+  br i1 %137, label %.lr.ph.i.i7.i.split.us.i, label %.lr.ph.i.i7.i.split.i
+
+.lr.ph.i.i7.i.split.us.i:                         ; preds = %.lr.ph.i.i7.i.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i
+  %144 = phi ptr [ %163, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i ], [ %135, %.lr.ph.i.i7.i.i ]
+  %145 = load i32, ptr %144, align 8
+  %146 = icmp eq i32 %145, %.0.lcssa.i.i.i.i
+  br i1 %146, label %147, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i
+
+147:                                              ; preds = %.lr.ph.i.i7.i.split.us.i
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %151 = load i32, ptr %150, align 8
+  %.not.i.i.i.i.i.us.i = icmp eq i32 %151, %.fr26.i
+  br i1 %.not.i.i.i.i.i.us.i, label %152, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i
+
+152:                                              ; preds = %147
+  %153 = load i32, ptr %149, align 8
+  %154 = icmp eq i32 %153, %140
+  br i1 %154, label %155, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i
+
+155:                                              ; preds = %152
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  %157 = load i32, ptr %156, align 4
+  %158 = icmp eq i32 %157, %142
+  br i1 %158, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i.i.us.i, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i
+
+_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i.i.us.i: ; preds = %155
+  %159 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %160 = load i32, ptr %159, align 8
+  %161 = icmp eq i32 %143, %160
+  br i1 %161, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread8.i, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i
+
+_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i: ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i.i.us.i, %155, %152, %147, %.lr.ph.i.i7.i.split.us.i
+  %162 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  %163 = load ptr, ptr %162, align 8
+  %.not.i.i8.i.us.i = icmp eq ptr %163, null
+  br i1 %.not.i.i8.i.us.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i, label %.lr.ph.i.i7.i.split.us.i, !llvm.loop !76
+
+.lr.ph.i.i7.i.split.i:                            ; preds = %.lr.ph.i.i7.i.i
+  br i1 %.not.i.i.i.i, label %.lr.ph.i.i7.i.split.split.us.i, label %.lr.ph.i.i7.i.split.split.i
+
+.lr.ph.i.i7.i.split.split.us.i:                   ; preds = %.lr.ph.i.i7.i.split.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i
+  %164 = phi ptr [ %173, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i ], [ %135, %.lr.ph.i.i7.i.split.i ]
+  %165 = load i32, ptr %164, align 8
+  %166 = icmp eq i32 %165, %.0.lcssa.i.i.i.i
+  br i1 %166, label %167, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i
+
+167:                                              ; preds = %.lr.ph.i.i7.i.split.split.us.i
+  %168 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %171 = load i32, ptr %170, align 8
+  %.not.i.i.i.i.i.us20.i = icmp eq i32 %171, 0
+  br i1 %.not.i.i.i.i.i.us20.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread8.i, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i
+
+_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i: ; preds = %167, %.lr.ph.i.i7.i.split.split.us.i
+  %172 = getelementptr inbounds nuw i8, ptr %164, i64 24
+  %173 = load ptr, ptr %172, align 8
+  %.not.i.i8.i.us22.i = icmp eq ptr %173, null
+  br i1 %.not.i.i8.i.us22.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i, label %.lr.ph.i.i7.i.split.split.us.i, !llvm.loop !76
+
+.lr.ph.i.i7.i.split.split.i:                      ; preds = %.lr.ph.i.i7.i.split.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i
+  %174 = phi ptr [ %190, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i ], [ %135, %.lr.ph.i.i7.i.split.i ]
+  %175 = load i32, ptr %174, align 8
+  %176 = icmp eq i32 %175, %.0.lcssa.i.i.i.i
+  br i1 %176, label %177, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i
+
+177:                                              ; preds = %.lr.ph.i.i7.i.split.split.i
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
+  %181 = load i32, ptr %180, align 8
+  %.not.i.i.i.i.i.i = icmp eq i32 %181, %.fr26.i
+  br i1 %.not.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i
+
+.preheader.i.i.i.i.i.i:                           ; preds = %177
+  %182 = load ptr, ptr %179, align 8
+  br label %184
+
+183:                                              ; preds = %184
+  %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread8.i, label %184, !llvm.loop !77
+
+184:                                              ; preds = %183, %.preheader.i.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %183 ]
+  %185 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv.i.i.i.i.i.i
+  %186 = load i32, ptr %185, align 4
+  %187 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv.i.i.i.i.i.i
+  %188 = load i32, ptr %187, align 4
+  %.not12.i.i.i.i.i.i = icmp eq i32 %186, %188
+  br i1 %.not12.i.i.i.i.i.i, label %183, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i
+
+_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i: ; preds = %184, %177, %.lr.ph.i.i7.i.split.split.i
+  %189 = getelementptr inbounds nuw i8, ptr %174, i64 24
+  %190 = load ptr, ptr %189, align 8
+  %.not.i.i8.i.i = icmp eq ptr %190, null
+  br i1 %.not.i.i8.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i, label %.lr.ph.i.i7.i.split.split.i, !llvm.loop !76
+
+_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread8.i: ; preds = %183, %167, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i.i.us.i
+  %191 = phi ptr [ %144, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i.i.us.i ], [ %164, %167 ], [ %174, %183 ]
+  %.0.i11.i = getelementptr inbounds nuw i8, ptr %191, i64 16
+  %192 = load ptr, ptr %.0.i11.i, align 8
+  br label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i
+
+_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i: ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread8.i, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit.i.i
+  %.0.i26 = phi ptr [ %192, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread8.i ], [ null, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit.i.i ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i ]
+  %193 = icmp sgt i32 %.fr26.i, 0
+  br i1 %193, label %194, label %_ZL6lookupiP9BasicType.exit
+
+194:                                              ; preds = %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i
+  %195 = load ptr, ptr %2, align 8
+  call void @_Z8FreeHeapPv(ptr noundef %195) #18
   br label %_ZL6lookupiP9BasicType.exit
 
-_ZL6lookupiP9BasicType.exit:                      ; preds = %128, %132
+_ZL6lookupiP9BasicType.exit:                      ; preds = %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i, %194
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not22 = icmp eq ptr %.0.i27, null
-  br i1 %.not22, label %134, label %136
+  %.not22 = icmp eq ptr %.0.i26, null
+  br i1 %.not22, label %196, label %198
 
-134:                                              ; preds = %_ZL6lookupiP9BasicType.exit
-  %135 = call noundef ptr @_ZN21AdapterHandlerLibrary14create_adapterERP11AdapterBlobiP9BasicTypeb(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %56, ptr noundef %91, i1 zeroext poison)
-  br label %136
+196:                                              ; preds = %_ZL6lookupiP9BasicType.exit
+  %197 = call noundef ptr @_ZN21AdapterHandlerLibrary14create_adapterERP11AdapterBlobiP9BasicTypeb(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %55, ptr noundef %90, i1 zeroext poison)
+  br label %198
 
-136:                                              ; preds = %_ZL6lookupiP9BasicType.exit, %134
-  %.018 = phi ptr [ %135, %134 ], [ %.0.i27, %_ZL6lookupiP9BasicType.exit ]
-  br i1 %.not.i.i25, label %_ZN11MutexLockerD2Ev.exit, label %137
+198:                                              ; preds = %_ZL6lookupiP9BasicType.exit, %196
+  %.018 = phi ptr [ %197, %196 ], [ %.0.i26, %_ZL6lookupiP9BasicType.exit ]
+  br i1 %.not.i.i25, label %_ZN11MutexLockerD2Ev.exit, label %199
 
-137:                                              ; preds = %136
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %92) #18
+199:                                              ; preds = %198
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %91) #18
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %136, %137
-  br i1 %.not22, label %138, label %141
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %198, %199
+  br i1 %.not22, label %200, label %203
 
-138:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
-  %139 = load ptr, ptr %4, align 8
-  %.not23 = icmp eq ptr %139, null
-  br i1 %.not23, label %141, label %140
+200:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
+  %201 = load ptr, ptr %3, align 8
+  %.not23 = icmp eq ptr %201, null
+  br i1 %.not23, label %203, label %202
 
-140:                                              ; preds = %138
-  call fastcc void @_ZL21post_adapter_creationPK11AdapterBlobPK19AdapterHandlerEntry(ptr noundef nonnull %139, ptr noundef %.018)
-  br label %141
+202:                                              ; preds = %200
+  call fastcc void @_ZL21post_adapter_creationPK11AdapterBlobPK19AdapterHandlerEntry(ptr noundef nonnull %201, ptr noundef %.018)
+  br label %203
 
-141:                                              ; preds = %138, %140, %_ZN11MutexLockerD2Ev.exit
-  %.2 = phi ptr [ %.0.i27, %_ZN11MutexLockerD2Ev.exit ], [ %.018, %140 ], [ %.018, %138 ]
-  %142 = load ptr, ptr %49, align 8
-  %.not.i.i.i.i = icmp eq ptr %142, null
-  br i1 %.not.i.i.i.i, label %144, label %143
+203:                                              ; preds = %200, %202, %_ZN11MutexLockerD2Ev.exit
+  %.2 = phi ptr [ %.0.i26, %_ZN11MutexLockerD2Ev.exit ], [ %.018, %202 ], [ %.018, %200 ]
+  %204 = load ptr, ptr %48, align 8
+  %.not.i.i.i.i29 = icmp eq ptr %204, null
+  br i1 %.not.i.i.i.i29, label %206, label %205
 
-143:                                              ; preds = %141
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %47, i64 noundef %55) #18
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %49) #18
-  br label %144
+205:                                              ; preds = %203
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %46, i64 noundef %54) #18
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %48) #18
+  br label %206
 
-144:                                              ; preds = %143, %141
-  %145 = load ptr, ptr %50, align 8
-  %.not8.i.i.i.i = icmp eq ptr %145, %51
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %146
+206:                                              ; preds = %205, %203
+  %207 = load ptr, ptr %49, align 8
+  %.not8.i.i.i.i = icmp eq ptr %207, %50
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %208
 
-146:                                              ; preds = %144
-  store ptr %49, ptr %48, align 8
-  store ptr %51, ptr %50, align 8
-  store ptr %53, ptr %52, align 8
+208:                                              ; preds = %206
+  store ptr %48, ptr %47, align 8
+  store ptr %50, ptr %49, align 8
+  store ptr %52, ptr %51, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %146, %144, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
-  %.017 = phi ptr [ %.0.i, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit ], [ %.2, %144 ], [ %.2, %146 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %208, %206, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
+  %.017 = phi ptr [ %.0.i, %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit ], [ %.2, %206 ], [ %.2, %208 ]
   ret ptr %.017
 }
 
@@ -7919,162 +8058,149 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
-  %.fr11.i.i = freeze i32 %6
-  %.not.i.i = icmp eq i32 %.fr11.i.i, 0
+  %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
-  %.0.i.i.i = tail call noundef i32 @llvm.abs.i32(i32 %.fr11.i.i, i1 true)
-  %7 = icmp slt i32 %.fr11.i.i, 0
+  %.0.i.i.i = tail call noundef i32 @llvm.abs.i32(i32 %6, i1 true)
+  %7 = icmp slt i32 %6, 0
   %8 = load ptr, ptr %4, align 8
-  %wide.trip.count18.i.i = zext nneg i32 %.0.i.i.i to i64
-  br i1 %7, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
+  %.0.in.v.i.i.i = select i1 %7, ptr %4, ptr %8
+  %wide.trip.count.i.i = zext nneg i32 %.0.i.i.i to i64
+  br label %9
 
-.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i
-  %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %.010.us.i.i = phi i32 [ %13, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %9 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv15.i.i
-  %.0.i8.us.i.i = load i32, ptr %9, align 4
-  %10 = shl i32 %.010.us.i.i, 8
-  %11 = ashr i32 %.010.us.i.i, 5
+9:                                                ; preds = %9, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %9 ]
+  %.010.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %13, %9 ]
+  %.0.in.i.i.i = getelementptr inbounds nuw i32, ptr %.0.in.v.i.i.i, i64 %indvars.iv.i.i
+  %.0.i8.i.i = load i32, ptr %.0.in.i.i.i, align 4
+  %10 = shl i32 %.010.i.i, 8
+  %11 = ashr i32 %.010.i.i, 5
   %12 = xor i32 %11, %10
-  %13 = xor i32 %12, %.0.i8.us.i.i
-  %indvars.iv.next16.i.i = add nuw nsw i64 %indvars.iv15.i.i, 1
-  %exitcond19.not.i.i = icmp eq i64 %indvars.iv.next16.i.i, %wide.trip.count18.i.i
-  br i1 %exitcond19.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.us.i.i, !llvm.loop !75
-
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
-  %.010.i.i = phi i32 [ %18, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
-  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i.i
-  %.0.i8.i.i = load i32, ptr %14, align 4
-  %15 = shl i32 %.010.i.i, 8
-  %16 = ashr i32 %.010.i.i, 5
-  %17 = xor i32 %16, %15
-  %18 = xor i32 %17, %.0.i8.i.i
+  %13 = xor i32 %12, %.0.i8.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count18.i.i
-  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !75
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %9, !llvm.loop !75
 
-_ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %3
-  %.0.lcssa.i.i = phi i32 [ 0, %3 ], [ %13, %.lr.ph.split.us.i.i ], [ %18, %.lr.ph.split.i.i ]
-  %19 = urem i32 %.0.lcssa.i.i, 293
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %.not18.i = icmp eq ptr %22, null
+_ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %9, %3
+  %.0.lcssa.i.i = phi i32 [ 0, %3 ], [ %13, %9 ]
+  %14 = urem i32 %.0.lcssa.i.i, 293
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  %.not18.i = icmp eq ptr %17, null
   br i1 %.not18.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = icmp slt i32 %.fr11.i.i, 0
-  %wide.trip.count.i.i.i = zext nneg i32 %.fr11.i.i to i64
-  br label %26
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %20 = icmp slt i32 %6, 0
+  %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
+  br label %21
 
-26:                                               ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i, %.lr.ph.i
-  %.pr = phi ptr [ %22, %.lr.ph.i ], [ %57, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i ]
-  %27 = load i32, ptr %.pr, align 8
-  %28 = icmp eq i32 %27, %.0.lcssa.i.i
-  br i1 %28, label %29, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
+21:                                               ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i, %.lr.ph.i
+  %.pr = phi ptr [ %17, %.lr.ph.i ], [ %52, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i ]
+  %22 = load i32, ptr %.pr, align 8
+  %23 = icmp eq i32 %22, %.0.lcssa.i.i
+  br i1 %23, label %24, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load i32, ptr %32, align 8
-  %.not.i.i.i = icmp eq i32 %33, %.fr11.i.i
-  br i1 %.not.i.i.i, label %34, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load i32, ptr %27, align 8
+  %.not.i.i.i = icmp eq i32 %28, %6
+  br i1 %.not.i.i.i, label %29, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
 
-34:                                               ; preds = %29
-  br i1 %25, label %37, label %.preheader.i.i.i
+29:                                               ; preds = %24
+  br i1 %20, label %32, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %34
+.preheader.i.i.i:                                 ; preds = %29
   br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %31, align 8
-  br label %47
+  %30 = load ptr, ptr %4, align 8
+  %31 = load ptr, ptr %26, align 8
+  br label %42
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %4, align 8
-  %39 = load i32, ptr %31, align 8
-  %40 = icmp eq i32 %38, %39
-  br i1 %40, label %41, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
+32:                                               ; preds = %29
+  %33 = load i32, ptr %4, align 8
+  %34 = load i32, ptr %26, align 8
+  %35 = icmp eq i32 %33, %34
+  br i1 %35, label %36, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
 
-41:                                               ; preds = %37
-  %42 = load i32, ptr %23, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %42, %44
-  br i1 %45, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
+36:                                               ; preds = %32
+  %37 = load i32, ptr %18, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %37, %39
+  br i1 %40, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
 
-46:                                               ; preds = %47
+41:                                               ; preds = %42
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %47, !llvm.loop !76
+  br i1 %exitcond.not.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %42, !llvm.loop !77
 
-47:                                               ; preds = %46, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %46 ]
-  %48 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i.i
-  %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i.i
-  %51 = load i32, ptr %50, align 4
-  %.not12.i.i.i = icmp eq i32 %49, %51
-  br i1 %.not12.i.i.i, label %46, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
+42:                                               ; preds = %41, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %41 ]
+  %43 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i.i.i
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i.i.i
+  %46 = load i32, ptr %45, align 4
+  %.not12.i.i.i = icmp eq i32 %44, %46
+  br i1 %.not12.i.i.i, label %41, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
 
-_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i:   ; preds = %41
-  %52 = load i32, ptr %24, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %52, %54
-  br i1 %55, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
+_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i:   ; preds = %36
+  %47 = load i32, ptr %19, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp eq i32 %47, %49
+  br i1 %50, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
 
-_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i: ; preds = %47, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i, %41, %37, %29, %26
-  %56 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
-  %57 = load ptr, ptr %56, align 8
-  %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, label %26, !llvm.loop !77
+_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i: ; preds = %42, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i, %36, %32, %24, %21
+  %51 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, label %21, !llvm.loop !76
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i, %.preheader.i.i.i, %46
-  %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
-  store ptr %58, ptr %59, align 8
-  br label %73
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i, %.preheader.i.i.i, %41
+  %53 = load ptr, ptr %2, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
+  store ptr %53, ptr %54, align 8
+  br label %68
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit: ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i
-  %60 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit
-  %.017.i15 = phi ptr [ %21, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit ], [ %60, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit ]
-  %61 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 32, i8 noundef zeroext 4) #18
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %69, label %63
+  %.017.i15 = phi ptr [ %16, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit ], [ %55, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit ]
+  %56 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 32, i8 noundef zeroext 4) #18
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %64, label %58
 
-63:                                               ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread
-  store i32 %.0.lcssa.i.i, ptr %61, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %65 = load ptr, ptr %1, align 8
-  store ptr %65, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %67 = load ptr, ptr %2, align 8
-  store ptr %67, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store ptr null, ptr %68, align 8
-  br label %69
+58:                                               ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread
+  store i32 %.0.lcssa.i.i, ptr %56, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %60 = load ptr, ptr %1, align 8
+  store ptr %60, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %62 = load ptr, ptr %2, align 8
+  store ptr %62, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  store ptr null, ptr %63, align 8
+  br label %64
 
-69:                                               ; preds = %63, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread
-  store ptr %61, ptr %.017.i15, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 2344
-  %71 = load i32, ptr %70, align 8
-  %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %70, align 8
-  br label %73
+64:                                               ; preds = %58, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread
+  store ptr %56, ptr %.017.i15, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2344
+  %66 = load i32, ptr %65, align 8
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %65, align 8
+  br label %68
 
-73:                                               ; preds = %69, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit
-  %.not16 = phi i1 [ true, %69 ], [ false, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit ]
+68:                                               ; preds = %64, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit
+  %.not16 = phi i1 [ true, %64 ], [ false, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit ]
   ret i1 %.not16
 }
 
@@ -8976,70 +9102,69 @@ define hidden void @_ZNK19AdapterHandlerEntry16print_adapter_onEP12outputStream(
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %2 ]
-  %8 = phi i32 [ %13, %.lr.ph.i ], [ %7, %2 ]
+  %8 = phi i32 [ %11, %.lr.ph.i ], [ %7, %2 ]
   %9 = icmp slt i32 %8, 0
-  %10 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
-  %.0.in.i.i = select i1 %9, ptr %10, ptr %12
+  %10 = load ptr, ptr %5, align 8
+  %.0.in.v.i.i = select i1 %9, ptr %5, ptr %10
+  %.0.in.i.i = getelementptr inbounds nuw i32, ptr %.0.in.v.i.i, i64 %indvars.iv.i
   %.0.i3.i = load i32, ptr %.0.in.i.i, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.67, i32 noundef %.0.i3.i) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %13 = load i32, ptr %6, align 8
-  %.0.i.i = call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
-  %14 = zext nneg i32 %.0.i.i to i64
-  %15 = icmp samesign ult i64 %indvars.iv.next.i, %14
-  br i1 %15, label %.lr.ph.i, label %_ZN18AdapterFingerPrint9as_stringEv.exit, !llvm.loop !74
+  %11 = load i32, ptr %6, align 8
+  %.0.i.i = call noundef i32 @llvm.abs.i32(i32 %11, i1 true)
+  %12 = zext nneg i32 %.0.i.i to i64
+  %13 = icmp samesign ult i64 %indvars.iv.next.i, %12
+  br i1 %13, label %.lr.ph.i, label %_ZN18AdapterFingerPrint9as_stringEv.exit, !llvm.loop !74
 
 _ZN18AdapterFingerPrint9as_stringEv.exit:         ; preds = %.lr.ph.i, %2
-  %16 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #18
+  %14 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #18
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.50, i64 noundef %4, ptr noundef %16) #18
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %21, label %19
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.50, i64 noundef %4, ptr noundef %14) #18
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %19, label %17
 
-19:                                               ; preds = %_ZN18AdapterFingerPrint9as_stringEv.exit
-  %20 = ptrtoint ptr %18 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.51, i64 noundef %20) #18
-  br label %21
+17:                                               ; preds = %_ZN18AdapterFingerPrint9as_stringEv.exit
+  %18 = ptrtoint ptr %16 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.51, i64 noundef %18) #18
+  br label %19
 
-21:                                               ; preds = %19, %_ZN18AdapterFingerPrint9as_stringEv.exit
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %.not7 = icmp eq ptr %23, null
-  br i1 %.not7, label %26, label %24
+19:                                               ; preds = %17, %_ZN18AdapterFingerPrint9as_stringEv.exit
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %.not7 = icmp eq ptr %21, null
+  br i1 %.not7, label %24, label %22
 
-24:                                               ; preds = %21
-  %25 = ptrtoint ptr %23 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.52, i64 noundef %25) #18
-  br label %26
+22:                                               ; preds = %19
+  %23 = ptrtoint ptr %21 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.52, i64 noundef %23) #18
+  br label %24
 
-26:                                               ; preds = %24, %21
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %.not8 = icmp eq ptr %28, null
-  br i1 %.not8, label %31, label %29
+24:                                               ; preds = %22, %19
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %.not8 = icmp eq ptr %26, null
+  br i1 %.not8, label %29, label %27
 
-29:                                               ; preds = %26
-  %30 = ptrtoint ptr %28 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.53, i64 noundef %30) #18
-  br label %31
+27:                                               ; preds = %24
+  %28 = ptrtoint ptr %26 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.53, i64 noundef %28) #18
+  br label %29
 
-31:                                               ; preds = %29, %26
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = load ptr, ptr %32, align 8
-  %.not9 = icmp eq ptr %33, null
-  br i1 %.not9, label %36, label %34
+29:                                               ; preds = %27, %24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %.not9 = icmp eq ptr %31, null
+  br i1 %.not9, label %34, label %32
 
-34:                                               ; preds = %31
-  %35 = ptrtoint ptr %33 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.54, i64 noundef %35) #18
-  br label %36
+32:                                               ; preds = %29
+  %33 = ptrtoint ptr %31 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.54, i64 noundef %33) #18
+  br label %34
 
-36:                                               ; preds = %34, %31
+34:                                               ; preds = %32, %29
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #18
   ret void
 }
@@ -10820,137 +10945,6 @@ _ZN24AdapterSignatureIterator7do_typeE9BasicType.exit3: ; preds = %40, %48
 
 declare void @_ZN17SignatureIterator15set_fingerprintEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_(ptr noundef nonnull align 8 dereferenceable(2348) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i32, ptr %4, align 8
-  %.fr11.i.i = freeze i32 %5
-  %.not.i.i = icmp eq i32 %.fr11.i.i, 0
-  br i1 %.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %2
-  %.0.i.i.i = tail call noundef i32 @llvm.abs.i32(i32 %.fr11.i.i, i1 true)
-  %6 = icmp slt i32 %.fr11.i.i, 0
-  %7 = load ptr, ptr %3, align 8
-  %wide.trip.count18.i.i = zext nneg i32 %.0.i.i.i to i64
-  br i1 %6, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
-
-.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i
-  %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %.010.us.i.i = phi i32 [ %12, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %8 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %indvars.iv15.i.i
-  %.0.i8.us.i.i = load i32, ptr %8, align 4
-  %9 = shl i32 %.010.us.i.i, 8
-  %10 = ashr i32 %.010.us.i.i, 5
-  %11 = xor i32 %10, %9
-  %12 = xor i32 %11, %.0.i8.us.i.i
-  %indvars.iv.next16.i.i = add nuw nsw i64 %indvars.iv15.i.i, 1
-  %exitcond19.not.i.i = icmp eq i64 %indvars.iv.next16.i.i, %wide.trip.count18.i.i
-  br i1 %exitcond19.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.us.i.i, !llvm.loop !75
-
-.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
-  %.010.i.i = phi i32 [ %17, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
-  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
-  %.0.i8.i.i = load i32, ptr %13, align 4
-  %14 = shl i32 %.010.i.i, 8
-  %15 = ashr i32 %.010.i.i, 5
-  %16 = xor i32 %15, %14
-  %17 = xor i32 %16, %.0.i8.i.i
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count18.i.i
-  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !75
-
-_ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %2
-  %.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %12, %.lr.ph.split.us.i.i ], [ %17, %.lr.ph.split.i.i ]
-  %18 = urem i32 %.0.lcssa.i.i, 293
-  %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %19
-  %21 = load ptr, ptr %20, align 8
-  %.not18.i.i = icmp eq ptr %21, null
-  br i1 %.not18.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %.lr.ph.i.i7
-
-.lr.ph.i.i7:                                      ; preds = %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %24 = icmp slt i32 %.fr11.i.i, 0
-  %wide.trip.count.i.i.i.i = zext nneg i32 %.fr11.i.i to i64
-  br label %25
-
-25:                                               ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i, %.lr.ph.i.i7
-  %26 = phi ptr [ %21, %.lr.ph.i.i7 ], [ %57, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i ]
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp eq i32 %27, %.0.lcssa.i.i
-  br i1 %28, label %29, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i
-
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load i32, ptr %32, align 8
-  %.not.i.i.i.i = icmp eq i32 %33, %.fr11.i.i
-  br i1 %.not.i.i.i.i, label %34, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i
-
-34:                                               ; preds = %29
-  br i1 %24, label %37, label %.preheader.i.i.i.i
-
-.preheader.i.i.i.i:                               ; preds = %34
-  br i1 %.not.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %.lr.ph.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i
-  %35 = load ptr, ptr %3, align 8
-  %36 = load ptr, ptr %31, align 8
-  br label %47
-
-37:                                               ; preds = %34
-  %38 = load i32, ptr %3, align 8
-  %39 = load i32, ptr %31, align 8
-  %40 = icmp eq i32 %38, %39
-  br i1 %40, label %41, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i
-
-41:                                               ; preds = %37
-  %42 = load i32, ptr %22, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %42, %44
-  br i1 %45, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i
-
-46:                                               ; preds = %47
-  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %47, !llvm.loop !76
-
-47:                                               ; preds = %46, %.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %46 ]
-  %48 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i.i.i
-  %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i.i.i
-  %51 = load i32, ptr %50, align 4
-  %.not12.i.i.i.i = icmp eq i32 %49, %51
-  br i1 %.not12.i.i.i.i, label %46, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i
-
-_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i: ; preds = %41
-  %52 = load i32, ptr %23, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %52, %54
-  br i1 %55, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i
-
-_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i: ; preds = %47, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i, %41, %37, %29, %25
-  %56 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %57 = load ptr, ptr %56, align 8
-  %.not.i.i8 = icmp eq ptr %57, null
-  br i1 %.not.i.i8, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %25, !llvm.loop !77
-
-_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %.preheader.i.i.i.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i, %46, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit
-  %58 = phi ptr [ null, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit ], [ %26, %46 ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i ], [ %26, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i ], [ %26, %.preheader.i.i.i.i ]
-  %.not = icmp eq ptr %58, null
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %.0 = select i1 %.not, ptr null, ptr %59
-  ret ptr %.0
-}
-
 declare void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #1
 
 declare void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
@@ -12269,14 +12263,14 @@ declare i32 @llvm.ctpop.i32(i32) #16
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

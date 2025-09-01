@@ -616,7 +616,7 @@ define hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7
 
 39:                                               ; preds = %36
   %40 = add nuw i64 %.sroa.013.028, 1
-  %41 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %37
+  %41 = getelementptr inbounds nuw i64, ptr %0, i64 %37
   %42 = load i64, ptr %41, align 8, !noundef !4
   %43 = add i64 %42, %32
   store i64 %43, ptr %41, align 8

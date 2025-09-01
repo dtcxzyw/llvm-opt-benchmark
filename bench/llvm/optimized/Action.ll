@@ -172,7 +172,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local noundef nonnull ptr @_ZN5clang6driver6Action12getClassNameENS1_11ActionClassE(i32 noundef %0) local_unnamed_addr #2 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @switch.table._ZN5clang6driver6Action12getClassNameENS1_11ActionClassE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang6driver6Action12getClassNameENS1_11ActionClassE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

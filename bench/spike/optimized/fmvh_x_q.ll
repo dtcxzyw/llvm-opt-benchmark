@@ -151,7 +151,7 @@ define noundef i64 @_Z19fast_rv64i_fmvh_x_qP11processor_t6insn_tm(ptr noundef ca
   %.sroa.2.0..sroa_idx.idx = and i64 %29, 496
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 %.sroa.2.0..sroa_idx.idx
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !22
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %27, i64 0, i64 %25
+  %30 = getelementptr inbounds nuw i64, ptr %27, i64 %25
   store i64 %.sroa.2.0.copyload, ptr %30, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -246,7 +246,7 @@ define noundef i64 @_Z21logged_rv64i_fmvh_x_qP11processor_t6insn_tm(ptr noundef 
 
 32:                                               ; preds = %22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %34 = getelementptr inbounds nuw [32 x i64], ptr %33, i64 0, i64 %29
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %29
   store i64 %.sroa.2.0.copyload, ptr %34, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -428,7 +428,7 @@ define noundef i64 @_Z19fast_rv64e_fmvh_x_qP11processor_t6insn_tm(ptr noundef ca
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %37 = getelementptr inbounds nuw [32 x i64], ptr %36, i64 0, i64 %27
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %27
   store i64 %.sroa.2.0.copyload, ptr %37, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -534,7 +534,7 @@ define noundef i64 @_Z21logged_rv64e_fmvh_x_qP11processor_t6insn_tm(ptr noundef 
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %41 = getelementptr inbounds nuw [32 x i64], ptr %40, i64 0, i64 %28
+  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %28
   store i64 %.sroa.2.0.copyload, ptr %41, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 

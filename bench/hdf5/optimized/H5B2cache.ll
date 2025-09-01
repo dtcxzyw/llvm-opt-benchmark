@@ -360,7 +360,7 @@ define internal ptr @H5B2__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr nou
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
   store ptr %142, ptr %6, align 8, !tbaa !18
   %143 = zext nneg i8 %36 to i64
-  %144 = getelementptr inbounds nuw [13 x ptr], ptr @H5B2_client_class_g, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw ptr, ptr @H5B2_client_class_g, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !42
   store ptr %145, ptr %5, align 8, !tbaa !43
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 16

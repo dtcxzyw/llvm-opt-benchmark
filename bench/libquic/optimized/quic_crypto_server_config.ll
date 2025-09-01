@@ -13512,7 +13512,7 @@ define void @_ZNK3net22QuicCryptoServerConfig21NewSourceAddressTokenB5cxx11ERKNS
   %25 = add nsw i32 %20, 1
   store i32 %25, ptr %19, align 8, !tbaa !273
   %26 = sext i32 %20 to i64
-  %27 = getelementptr inbounds [1 x ptr], ptr %24, i64 0, i64 %26
+  %27 = getelementptr inbounds ptr, ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
@@ -13550,7 +13550,7 @@ define void @_ZNK3net22QuicCryptoServerConfig21NewSourceAddressTokenB5cxx11ERKNS
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 8, !tbaa !273
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds [1 x ptr], ptr %42, i64 0, i64 %46
+  %47 = getelementptr inbounds ptr, ptr %42, i64 %46
   store ptr %40, ptr %47, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
@@ -13823,7 +13823,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %156 = add nsw i32 %151, 1
   store i32 %156, ptr %106, align 8, !tbaa !273
   %157 = sext i32 %151 to i64
-  %158 = getelementptr inbounds [1 x ptr], ptr %155, i64 0, i64 %157
+  %158 = getelementptr inbounds ptr, ptr %155, i64 %157
   %159 = load ptr, ptr %158, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit61
 
@@ -13859,7 +13859,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %174 = add nsw i32 %173, 1
   store i32 %174, ptr %106, align 8, !tbaa !273
   %175 = sext i32 %173 to i64
-  %176 = getelementptr inbounds [1 x ptr], ptr %172, i64 0, i64 %175
+  %176 = getelementptr inbounds ptr, ptr %172, i64 %175
   store ptr %170, ptr %176, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit61
 
@@ -14235,7 +14235,7 @@ define noundef range(i32 0, 17) i32 @_ZNK3net22QuicCryptoServerConfig23ParseSour
   %46 = add nsw i32 %41, 1
   store i32 %46, ptr %40, align 8, !tbaa !273
   %47 = sext i32 %41 to i64
-  %48 = getelementptr inbounds [1 x ptr], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
@@ -14273,7 +14273,7 @@ define noundef range(i32 0, 17) i32 @_ZNK3net22QuicCryptoServerConfig23ParseSour
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %64, align 8, !tbaa !273
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds [1 x ptr], ptr %63, i64 0, i64 %67
+  %68 = getelementptr inbounds ptr, ptr %63, i64 %67
   store ptr %61, ptr %68, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
@@ -15750,7 +15750,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40: ; preds = %81
 
 switch.lookup:                                    ; preds = %_ZN4base8AutoLockD2Ev.exit
   %92 = zext nneg i32 %67 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK3net22QuicCryptoServerConfig19ValidateServerNonceEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12QuicWallTimeE, i64 0, i64 %92
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3net22QuicCryptoServerConfig19ValidateServerNonceEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12QuicWallTimeE, i64 %92
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge38
 

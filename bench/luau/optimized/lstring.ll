@@ -303,7 +303,7 @@ _Z9luaS_hashPKcm.exit:                            ; preds = %.lr.ph46.i, %.prehe
 .critedge:                                        ; preds = %59, %_Z9luaS_hashPKcm.exit
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %.1.lcssa.i, ptr %61, align 8, !tbaa !31
-  %62 = getelementptr inbounds nuw [1 x i8], ptr %3, i64 0, i64 %6
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   store i8 0, ptr %62, align 1, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 -32768, ptr %63, align 4, !tbaa !50
@@ -538,7 +538,7 @@ _Z9luaS_hashPKcm.exit:                            ; preds = %.lr.ph46.i, %.prehe
   store i32 %4, ptr %76, align 4, !tbaa !51
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr readonly align 1 %1, i64 %2, i1 false)
-  %78 = getelementptr inbounds nuw [1 x i8], ptr %77, i64 0, i64 %2
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %2
   store i8 0, ptr %78, align 1, !tbaa !6
   %79 = load ptr, ptr %31, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 12

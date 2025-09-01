@@ -9645,7 +9645,7 @@ switch.hole_check:                                ; preds = %77
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %81 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @switch.table.dissect_secchan_nl_auth_message, i64 0, i64 %81
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.dissect_secchan_nl_auth_message, i64 %81
   %switch.load = load i8, ptr %switch.gep, align 1
   %82 = call fastcc ptr @find_or_create_schannel_netlogon_auth_vars(ptr noundef %2, ptr noundef %14, i8 noundef zeroext %switch.load)
   %.not84 = icmp eq ptr %82, null

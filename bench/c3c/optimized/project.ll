@@ -509,7 +509,7 @@ define dso_local ptr @project_load() local_unnamed_addr #0 {
 
 get_valid_string_setting.exit.i:                  ; preds = %40
   %47 = zext nneg i32 %43 to i64
-  %48 = getelementptr inbounds nuw [6 x ptr], ptr @project_add_targets.target_desc, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr @project_add_targets.target_desc, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = call ptr @calloc_arena(i64 noundef 416) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %50, ptr noundef nonnull readonly align 8 dereferenceable(416) %1, i64 416, i1 false)

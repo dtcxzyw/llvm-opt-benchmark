@@ -102,13 +102,13 @@ define internal noundef i32 @camelsrt_packet(ptr noundef %0, ptr noundef %1, ptr
 
 11:                                               ; preds = %5, %37
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %37 ]
-  %12 = getelementptr [10 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %12 = getelementptr i8, ptr %6, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %37, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %7, i64 0, i64 %indvars.iv
+  %15 = getelementptr %struct.camelsrt_msginfo_t, ptr %7, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i8, ptr %16, align 2, !range !7, !noundef !8
   %18 = trunc nuw i8 %17 to i1
@@ -126,20 +126,20 @@ define internal noundef i32 @camelsrt_packet(ptr noundef %0, ptr noundef %1, ptr
   br i1 %25, label %37, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr [10 x %struct._timestat_t], ptr %8, i64 0, i64 %indvars.iv
+  %27 = getelementptr %struct._timestat_t, ptr %8, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @time_stat_update(ptr noundef %27, ptr noundef nonnull %28, ptr noundef %1)
-  %29 = getelementptr [10 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %29 = getelementptr i32, ptr %9, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = icmp ult i32 %30, 500000
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %26
-  %33 = getelementptr [10 x [500000 x %struct.nstime_t]], ptr %10, i64 0, i64 %indvars.iv
+  %33 = getelementptr [500000 x %struct.nstime_t], ptr %10, i64 %indvars.iv
   %34 = add nuw nsw i32 %30, 1
   store i32 %34, ptr %29, align 4
   %35 = zext nneg i32 %30 to i64
-  %36 = getelementptr [500000 x %struct.nstime_t], ptr %33, i64 0, i64 %35
+  %36 = getelementptr %struct.nstime_t, ptr %33, i64 %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   br label %37
 
@@ -183,7 +183,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
 
 25:                                               ; preds = %1, %63
   %indvars.iv = phi i64 [ 2, %1 ], [ %indvars.iv.next, %63 ]
-  %26 = getelementptr [10 x %struct._timestat_t], ptr %9, i64 0, i64 %indvars.iv
+  %26 = getelementptr %struct._timestat_t, ptr %9, i64 %indvars.iv
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
   %29 = trunc nuw nsw i64 %indvars.iv to i32
@@ -251,7 +251,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
 
 67:                                               ; preds = %64, %67
   %indvars.iv147 = phi i64 [ 0, %64 ], [ %indvars.iv.next148, %67 ]
-  %68 = getelementptr [7 x double], ptr @__const.camelsrt_draw.criteria, i64 0, i64 %indvars.iv147
+  %68 = getelementptr double, ptr @__const.camelsrt_draw.criteria, i64 %indvars.iv147
   %69 = load double, ptr %68, align 8
   %70 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.14, double noundef %69)
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
@@ -278,13 +278,13 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
 
 81:                                               ; preds = %77, %.loopexit
   %indvars.iv169 = phi i64 [ 2, %77 ], [ %indvars.iv.next170, %.loopexit ]
-  %82 = getelementptr [10 x i32], ptr %79, i64 0, i64 %indvars.iv169
+  %82 = getelementptr i32, ptr %79, i64 %indvars.iv169
   %83 = load i32, ptr %82, align 4
   %.not = icmp eq i32 %83, 0
   br i1 %.not, label %145, label %.preheader
 
 .preheader:                                       ; preds = %81
-  %84 = getelementptr [10 x %struct._timestat_t], ptr %9, i64 0, i64 %indvars.iv169
+  %84 = getelementptr %struct._timestat_t, ptr %9, i64 %indvars.iv169
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load i64, ptr %85, align 8
   %87 = sitofp i64 %86 to double
@@ -303,7 +303,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %100 = tail call double @llvm.fmuladd.f64(double %95, double 1.000000e+03, double %99)
   %101 = fsub double %92, %100
   %102 = fcmp ogt double %101, 1.000000e-03
-  %103 = getelementptr [10 x [500000 x %struct.nstime_t]], ptr %80, i64 0, i64 %indvars.iv169
+  %103 = getelementptr [500000 x %struct.nstime_t], ptr %80, i64 %indvars.iv169
   %104 = uitofp i32 %83 to double
   br i1 %102, label %.lr.ph.us.preheader, label %.preheader.split
 
@@ -313,7 +313,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv160 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next161, %._crit_edge.us ]
-  %105 = getelementptr [7 x double], ptr @__const.camelsrt_draw.criteria, i64 0, i64 %indvars.iv160
+  %105 = getelementptr double, ptr @__const.camelsrt_draw.criteria, i64 %indvars.iv160
   %106 = load double, ptr %105, align 8
   %107 = fmul double %106, %104
   br label %108
@@ -355,7 +355,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
 122:                                              ; preds = %122, %108
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %122 ], [ 0, %108 ]
   %.0126135.us = phi i32 [ %.1127.us, %122 ], [ 0, %108 ]
-  %123 = getelementptr [500000 x %struct.nstime_t], ptr %103, i64 0, i64 %indvars.iv156
+  %123 = getelementptr %struct.nstime_t, ptr %103, i64 %indvars.iv156
   %124 = load i64, ptr %123, align 8
   %125 = mul i64 %124, 1000
   %126 = sitofp i64 %125 to double
@@ -372,7 +372,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   br i1 %exitcond159.not, label %109, label %122, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %118
-  %134 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv160
+  %134 = getelementptr double, ptr %2, i64 %indvars.iv160
   store double %.1120.us, ptr %134, align 8
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 7
@@ -380,7 +380,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.preheader.split ], [ 0, %.preheader ]
-  %135 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv152
+  %135 = getelementptr double, ptr %2, i64 %indvars.iv152
   store double %100, ptr %135, align 8
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 7
@@ -395,7 +395,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
 
 139:                                              ; preds = %.split.us, %139
   %indvars.iv164 = phi i64 [ 0, %.split.us ], [ %indvars.iv.next165, %139 ]
-  %140 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv164
+  %140 = getelementptr double, ptr %2, i64 %indvars.iv164
   %141 = load double, ptr %140, align 8
   %142 = fcmp ogt double %141, 9.999000e+03
   %143 = select i1 %142, double 9.999000e+03, double %141

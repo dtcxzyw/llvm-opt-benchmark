@@ -106,7 +106,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZNK8MachOper3regEP13PhaseRegAllocP
   %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8, i32 1
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   ret i32 %14
@@ -127,7 +127,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZNK8MachOper3regEP13PhaseRegAllocP
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -1365,7 +1365,7 @@ define hidden noundef zeroext i1 @_ZNK8MachNode13rematerializeEv(ptr noundef non
   %.08.i = phi i32 [ %78, %.lr.ph.i ], [ %71, %65 ]
   %.057.i = phi i64 [ %77, %.lr.ph.i ], [ 0, %65 ]
   %74 = zext i32 %.08.i to i64
-  %75 = getelementptr inbounds nuw [11 x i64], ptr %69, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i64, ptr %69, i64 %74
   %76 = load i64, ptr %75, align 8
   %77 = or i64 %76, %.057.i
   %78 = add i32 %.08.i, 1
@@ -1527,7 +1527,7 @@ define hidden noundef ptr @_ZNK12MachProjNode11bottom_typeEv(ptr noundef nonnull
 27:                                               ; preds = %16, %5
   %28 = load i32, ptr %2, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN4Type9mreg2typeE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr @_ZN4Type9mreg2typeE, i64 %29
   br label %31
 
 31:                                               ; preds = %1, %27, %22
@@ -1728,7 +1728,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17MachSafePoi
   %88 = load ptr, ptr %87, align 8
   %89 = tail call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(52) %phi.call) #13
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw [16 x ptr], ptr %85, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw ptr, ptr %85, i64 %90
   %92 = load ptr, ptr %91, align 8
   br label %_ZNK8MachNode10in_RegMaskEj.exit
 
@@ -1844,7 +1844,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK12MachCallNod
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(52) %37) #13
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw [16 x ptr], ptr %32, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %42
   %44 = load ptr, ptr %43, align 8
   br label %45
 
@@ -2127,7 +2127,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8MachNode9ideal_regEv(ptr noundef no
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %14, i32 4
+  %15 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %14, i32 4
   %16 = load i32, ptr %15, align 4
   br label %17
 

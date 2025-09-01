@@ -1081,7 +1081,7 @@ toupper.exit.thread:                              ; preds = %176, %toupper.exit
 472:                                              ; preds = %512, %.thread
   %.01520.i = phi i64 [ 0, %.thread ], [ %.1.i48, %512 ]
   %.01619.i = phi i64 [ 0, %.thread ], [ %513, %512 ]
-  %473 = getelementptr inbounds nuw [10 x ptr], ptr @status_bar_keys, i64 0, i64 %.01619.i
+  %473 = getelementptr inbounds nuw ptr, ptr @status_bar_keys, i64 %.01619.i
   %474 = load ptr, ptr %473, align 8, !tbaa !18
   %.not.i47 = icmp eq ptr %474, null
   br i1 %.not.i47, label %512, label %475
@@ -1712,7 +1712,7 @@ parse_queue.exit.thread.i:                        ; preds = %754
 759:                                              ; preds = %759, %.lr.ph203.i
   %.0202.i = phi i64 [ 1, %.lr.ph203.i ], [ %767, %759 ]
   %760 = load ptr, ptr %757, align 8, !tbaa !36
-  %761 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.0202.i
+  %761 = getelementptr inbounds nuw i8, ptr %9, i64 %.0202.i
   %762 = load i8, ptr %761, align 1, !tbaa !4
   %763 = sext i8 %762 to i64
   %764 = getelementptr inbounds i32, ptr %760, i64 %763
@@ -2733,7 +2733,7 @@ detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.
   %1269 = ptrtoint ptr %1260 to i64
   %1270 = ptrtoint ptr %1259 to i64
   %1271 = sub i64 %1269, %1270
-  %1272 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %1271
+  %1272 = getelementptr inbounds i8, ptr %3, i64 %1271
   store i8 0, ptr %1272, align 1, !tbaa !4
   br label %1273
 
@@ -3543,9 +3543,9 @@ declare ptr @optparse(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 no
 ; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @exit_program(i32 noundef range(i32 1, 6) %0, ptr noundef %1, i32 noundef range(i32 226, 1466) %2) unnamed_addr #14 {
 switch.lookup:
-  %switch.tableidx = add nsw i32 %0, -1
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.exit_program, i64 0, i64 %3
+  %3 = zext nneg i32 %0 to i64
+  %4 = getelementptr ptr, ptr @switch.table.exit_program, i64 %3
+  %switch.gep = getelementptr i8, ptr %4, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr @exit_reason, align 8, !tbaa !18
   store ptr %1, ptr @exit_func, align 8, !tbaa !18

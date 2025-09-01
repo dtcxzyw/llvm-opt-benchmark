@@ -50,7 +50,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   %20 = xor i32 %19, 128
   %21 = add nuw nsw i32 %20, %18
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [512 x i8], ptr @mix8, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @mix8, i64 %22
   %24 = load i8, ptr %23, align 1
   store i8 %24, ptr %.0116202, align 1
   %25 = getelementptr inbounds nuw i8, ptr %.0116202, i64 1

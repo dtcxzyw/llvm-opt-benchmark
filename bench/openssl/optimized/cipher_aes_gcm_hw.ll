@@ -112,7 +112,7 @@ define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %0, ptr noun
   %19 = load i8, ptr %.14761, align 1, !tbaa !13
   %20 = sub i32 15, %.162
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !13
   %24 = xor i8 %23, %19
   store i8 %24, ptr %22, align 1, !tbaa !13
@@ -163,7 +163,7 @@ define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %0, ptr noun
   %45 = getelementptr inbounds nuw i8, ptr %.248, i64 %.04465
   %46 = load i8, ptr %45, align 1, !tbaa !13
   %47 = sub i64 15, %.04465
-  %48 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !13
   %50 = xor i8 %49, %46
   store i8 %50, ptr %48, align 1, !tbaa !13

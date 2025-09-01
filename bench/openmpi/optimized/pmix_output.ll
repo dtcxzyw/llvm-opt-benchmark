@@ -213,7 +213,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %32
 
 54:                                               ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %54 ]
-  %55 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %indvars.iv
   store i8 0, ptr %55, align 8, !tbaa !34
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store i8 0, ptr %56, align 1, !tbaa !36
@@ -312,7 +312,7 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
 
 .preheader:                                       ; preds = %11, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %11 ]
-  %14 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %indvars.iv
   %15 = load i8, ptr %14, align 8, !tbaa !34, !range !26, !noundef !27
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %.loopexit.loopexit
@@ -335,7 +335,7 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
   %20 = icmp eq ptr %1, null
   %spec.store.select = select i1 %20, ptr @verbose, ptr %1
   %21 = sext i32 %.1 to i64
-  %22 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %21
+  %22 = getelementptr inbounds %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %21
   store i8 1, ptr %22, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 152
   %24 = load i8, ptr %23, align 8, !tbaa !45, !range !26, !noundef !27
@@ -485,7 +485,7 @@ define zeroext i1 @pmix_output_switch(i32 noundef %0, i1 noundef zeroext %1) loc
 
 7:                                                ; preds = %6
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 1
+  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8, i32 1
   %10 = load i8, ptr %9, align 1, !tbaa !36, !range !26, !noundef !27
   store i8 %3, ptr %9, align 1, !tbaa !36
   %11 = trunc nuw i8 %10 to i1
@@ -550,7 +550,7 @@ define void @pmix_output_close(i32 noundef %0) local_unnamed_addr #2 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3
   %5 = load i8, ptr %4, align 8, !tbaa !34, !range !26, !noundef !27
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %.loopexit
@@ -576,7 +576,7 @@ define internal fastcc void @free_descriptor(i32 noundef range(i32 0, -1) %0) un
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3
   %5 = load i8, ptr %4, align 8, !tbaa !34, !range !26, !noundef !27
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %33
@@ -671,7 +671,7 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
 
 9:                                                ; preds = %7, %6
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10
   %12 = load i8, ptr %11, align 8, !tbaa !34, !range !26, !noundef !27
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %make_string.exit.i
@@ -967,7 +967,7 @@ define void @pmix_output_set_verbosity(i32 noundef %0, i32 noundef %1) local_unn
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4, i32 2
   store i32 %1, ptr %5, align 4, !tbaa !47
   br label %6
 
@@ -1031,7 +1031,7 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4, !tbaa !47
   %.not = icmp slt i32 %9, %0
   br i1 %.not, label %.loopexit, label %10
@@ -1160,7 +1160,7 @@ define void @pmix_output_finalize() local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4
   %6 = load i8, ptr %5, align 8, !tbaa !34, !range !26, !noundef !27
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %pmix_output_close.exit
@@ -1214,7 +1214,7 @@ define i32 @pmix_output_get_verbosity(i32 noundef %0) local_unnamed_addr #14 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3
   %5 = load i8, ptr %4, align 8, !tbaa !34, !range !26, !noundef !27
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %10
@@ -1257,7 +1257,7 @@ define internal fastcc range(i32 -29, 1) i32 @open_file(i32 noundef range(i32 0,
   br i1 %4, label %28, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %indvars.iv
   %7 = load i8, ptr %6, align 8, !tbaa !34, !range !26, !noundef !27
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %28
@@ -1269,7 +1269,7 @@ define internal fastcc range(i32 -29, 1) i32 @open_file(i32 noundef range(i32 0,
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %2
+  %14 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %2
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !39
   %.not = icmp eq ptr %16, null
@@ -1346,7 +1346,7 @@ pmix_strncpy.exit:                                ; preds = %.preheader, %35
   br label %42
 
 42:                                               ; preds = %40, %pmix_strncpy.exit
-  %43 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %2
+  %43 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %2
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !39
   %.not51 = icmp eq ptr %45, null

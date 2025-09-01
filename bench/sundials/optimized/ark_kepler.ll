@@ -376,7 +376,7 @@ check_retval.exit101:                             ; preds = %132
   %mul = fneg double %149
   %exp2 = call double @exp2(double %mul) #14
   %150 = fmul double %143, %exp2
-  %151 = getelementptr inbounds nuw [8 x double], ptr %10, i64 0, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
   store double %150, ptr %151, align 8, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -392,7 +392,7 @@ check_retval.exit101:                             ; preds = %132
   %.087202 = phi double [ 0.000000e+00, %.preheader ], [ %177, %203 ]
   %.088201 = phi double [ 0.000000e+00, %.preheader ], [ %175, %203 ]
   %.089200 = phi double [ 0.000000e+00, %.preheader ], [ %174, %203 ]
-  %153 = getelementptr inbounds nuw [8 x double], ptr %10, i64 0, i64 %indvars.iv277
+  %153 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv277
   %154 = load double, ptr %153, align 8, !tbaa !32
   store double %154, ptr %21, align 8, !tbaa !20
   %155 = load ptr, ptr %5, align 8, !tbaa !4
@@ -414,11 +414,11 @@ check_retval.exit101:                             ; preds = %132
   %164 = call i64 @N_VGetLength(ptr noundef %141) #14
   %165 = sitofp i64 %164 to double
   %166 = fdiv double %163, %165
-  %167 = getelementptr inbounds nuw [8 x double], ptr %8, i64 0, i64 %indvars.iv277
+  %167 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv277
   store double %166, ptr %167, align 8, !tbaa !32
   %168 = load double, ptr %146, align 8, !tbaa !34
   %169 = call double @llvm.fabs.f64(double %168)
-  %170 = getelementptr inbounds nuw [8 x double], ptr %9, i64 0, i64 %indvars.iv277
+  %170 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv277
   store double %169, ptr %170, align 8, !tbaa !32
   %171 = fadd double %.082207, 1.000000e+00
   %172 = call double @log(double noundef %154) #14, !tbaa !33
@@ -438,24 +438,24 @@ check_retval.exit101:                             ; preds = %132
 
 184:                                              ; preds = %162
   %185 = add nsw i64 %indvars.iv277, -1
-  %186 = getelementptr inbounds nuw [8 x double], ptr %8, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw double, ptr %8, i64 %185
   %187 = load double, ptr %186, align 8, !tbaa !32
   %188 = fdiv double %166, %187
   %189 = call double @log(double noundef %188) #14, !tbaa !33
-  %190 = getelementptr inbounds nuw [8 x double], ptr %10, i64 0, i64 %185
+  %190 = getelementptr inbounds nuw double, ptr %10, i64 %185
   %191 = load double, ptr %190, align 8, !tbaa !32
   %192 = fdiv double %154, %191
   %193 = call double @log(double noundef %192) #14, !tbaa !33
   %194 = fdiv double %189, %193
-  %195 = getelementptr inbounds nuw [8 x double], ptr %6, i64 0, i64 %185
+  %195 = getelementptr inbounds nuw double, ptr %6, i64 %185
   store double %194, ptr %195, align 8, !tbaa !32
-  %196 = getelementptr inbounds nuw [8 x double], ptr %9, i64 0, i64 %185
+  %196 = getelementptr inbounds nuw double, ptr %9, i64 %185
   %197 = load double, ptr %196, align 8, !tbaa !32
   %198 = fdiv double %169, %197
   %199 = call double @log(double noundef %198) #14, !tbaa !33
   %200 = call double @log(double noundef %192) #14, !tbaa !33
   %201 = fdiv double %199, %200
-  %202 = getelementptr inbounds nuw [8 x double], ptr %7, i64 0, i64 %185
+  %202 = getelementptr inbounds nuw double, ptr %7, i64 %185
   store double %201, ptr %202, align 8, !tbaa !32
   br label %203
 

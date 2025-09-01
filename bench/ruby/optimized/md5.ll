@@ -692,14 +692,14 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr noundef writeonly c
 4:                                                ; preds = %2, %4
   %.015 = phi i64 [ 0, %2 ], [ %13, %4 ]
   %5 = lshr i64 %.015, 2
-  %6 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !6
   %.0.tr = trunc nuw nsw i64 %.015 to i32
   %8 = shl nuw nsw i32 %.0.tr, 3
   %9 = and i32 %8, 24
   %10 = lshr i32 %7, %9
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.015
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.015
   store i8 %11, ptr %12, align 1, !tbaa !12
   %13 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %13, 8
@@ -720,7 +720,7 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr noundef writeonly c
 22:                                               ; preds = %14, %22
   %.116 = phi i64 [ 0, %14 ], [ %31, %22 ]
   %23 = lshr i64 %.116, 2
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !6
   %.1.tr = trunc nuw nsw i64 %.116 to i32
   %26 = shl nuw nsw i32 %.1.tr, 3

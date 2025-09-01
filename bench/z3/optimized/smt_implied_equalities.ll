@@ -4230,7 +4230,7 @@ _ZNK11func_interp11num_entriesEv.exit.i.i:        ; preds = %536
 552:                                              ; preds = %549, %.lr.ph.i.i128
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i128 ], [ %indvars.iv.next.i.i, %549 ]
   %553 = load ptr, ptr %0, align 8, !tbaa !74
-  %554 = getelementptr inbounds nuw [0 x ptr], ptr %548, i64 0, i64 %indvars.iv.i.i
+  %554 = getelementptr inbounds nuw ptr, ptr %548, i64 %indvars.iv.i.i
   %555 = load ptr, ptr %554, align 8, !tbaa !59
   %556 = invoke noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %553, ptr noundef %555)
           to label %.noexc132 unwind label %.loopexit

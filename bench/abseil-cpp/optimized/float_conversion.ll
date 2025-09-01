@@ -2405,7 +2405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %28 = zext nneg i8 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i8], ptr @switch.table._ZN4absl19str_format_internal12_GLOBAL__N_118FallbackToSnprintfIdEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4absl19str_format_internal12_GLOBAL__N_118FallbackToSnprintfIdEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE, i64 %28
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
 
@@ -3573,7 +3573,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
   %66 = add i64 %65, 1
   store i64 %66, ptr %9, align 8, !tbaa !92
   %67 = sub i64 8, %65
-  %68 = getelementptr inbounds nuw [9 x i8], ptr %60, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 %67
   store i8 %64, ptr %68, align 1, !tbaa !12
   %69 = udiv i32 %.056.i.i.i.i.i, 10
   %.not25.i.i.i.i.i = icmp ult i32 %.056.i.i.i.i.i, 10
@@ -3824,7 +3824,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit25.i.i.i.i: ; preds 
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8, !tbaa !32
   %124 = sub i64 9, %120
-  %125 = getelementptr inbounds nuw [9 x i8], ptr %117, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %117, i64 %124
   %126 = icmp eq i64 %120, 0
   br i1 %126, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i, label %127
 
@@ -3885,7 +3885,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %160 = or disjoint i8 %159, 48
   %161 = add nuw nsw i64 %157, 1
   %162 = sub nuw nsw i64 8, %157
-  %163 = getelementptr inbounds nuw [9 x i8], ptr %117, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr %117, i64 %162
   store i8 %160, ptr %163, align 1, !tbaa !12
   %164 = udiv i32 %.06.i.i.i.i.i, 10
   %exitcond.not.i.i.i.i.i = icmp eq i64 %161, 9
@@ -6284,7 +6284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %27 = zext nneg i8 %25 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i8], ptr @switch.table._ZN4absl19str_format_internal12_GLOBAL__N_118FallbackToSnprintfIdEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4absl19str_format_internal12_GLOBAL__N_118FallbackToSnprintfIdEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE, i64 %27
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
 

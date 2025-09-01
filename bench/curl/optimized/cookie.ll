@@ -133,7 +133,7 @@ define hidden ptr @Curl_cookie_init(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .preheader:                                       ; preds = %6, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %6 ]
-  %9 = getelementptr inbounds nuw [63 x %struct.Curl_llist], ptr %8, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.Curl_llist, ptr %8, i64 %indvars.iv
   tail call void @Curl_llist_init(ptr noundef nonnull %9, ptr noundef null) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 63
@@ -902,7 +902,7 @@ cookie_tailmatch.exit.thread.i:                   ; preds = %cookie_tailmatch.ex
 264:                                              ; preds = %260
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 1 %.1248.i, i64 %.2244.i, i1 false)
-  %265 = getelementptr inbounds nuw [81 x i8], ptr %12, i64 0, i64 %.2244.i
+  %265 = getelementptr inbounds nuw i8, ptr %12, i64 %.2244.i
   store i8 0, ptr %265, align 1, !tbaa !88
   %266 = call i64 @Curl_getdate_capped(ptr noundef nonnull %12) #11
   store i64 %266, ptr %29, align 8, !tbaa !103
@@ -1570,7 +1570,7 @@ is_public_suffix.exit.thread:                     ; preds = %493, %496, %499, %i
   %542 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %543 = load ptr, ptr %542, align 8, !tbaa !106
   %544 = call fastcc i64 @cookiehash(ptr noundef %543)
-  %545 = getelementptr inbounds nuw [63 x %struct.Curl_llist], ptr %1, i64 0, i64 %544
+  %545 = getelementptr inbounds nuw %struct.Curl_llist, ptr %1, i64 %544
   call void @Curl_llist_append(ptr noundef nonnull %545, ptr noundef nonnull %19, ptr noundef nonnull %19) #11
   %546 = load i8, ptr %477, align 8
   %547 = and i8 %546, 1
@@ -1692,7 +1692,7 @@ define internal fastcc void @remove_expired(ptr noundef %0) unnamed_addr #0 {
 
 8:                                                ; preds = %6, %._crit_edge
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %._crit_edge ]
-  %9 = getelementptr inbounds nuw [63 x %struct.Curl_llist], ptr %0, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.Curl_llist, ptr %0, i64 %indvars.iv
   %10 = tail call ptr @Curl_llist_head(ptr noundef %9) #11
   %.not2630 = icmp eq ptr %10, null
   br i1 %.not2630, label %._crit_edge, label %.lr.ph
@@ -1768,7 +1768,7 @@ define internal fastcc range(i32 0, 16) i32 @replace_existing(ptr noundef %0, pt
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !106
   %8 = tail call fastcc i64 @cookiehash(ptr noundef %7)
-  %9 = getelementptr inbounds nuw [63 x %struct.Curl_llist], ptr %2, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.Curl_llist, ptr %2, i64 %8
   %10 = tail call ptr @Curl_llist_head(ptr noundef %9) #11
   %.not149 = icmp eq ptr %10, null
   br i1 %.not149, label %._crit_edge.thread, label %.lr.ph
@@ -2112,7 +2112,7 @@ define hidden range(i32 0, 3) i32 @Curl_cookie_getlist(ptr noundef %0, ptr nound
   br i1 %.not, label %._crit_edge.thread, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw [63 x %struct.Curl_llist], ptr %1, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw %struct.Curl_llist, ptr %1, i64 %7
   %10 = tail call i64 @Curl_llist_count(ptr noundef nonnull %9) #11
   %.not82 = icmp eq i64 %10, 0
   br i1 %.not82, label %._crit_edge.thread, label %11
@@ -2486,7 +2486,7 @@ define hidden void @Curl_cookie_clearall(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %1 ]
-  %2 = getelementptr inbounds nuw [63 x %struct.Curl_llist], ptr %0, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw %struct.Curl_llist, ptr %0, i64 %indvars.iv
   %3 = tail call ptr @Curl_llist_head(ptr noundef nonnull %2) #11
   %.not1314 = icmp eq ptr %3, null
   br i1 %.not1314, label %._crit_edge, label %.lr.ph
@@ -2548,7 +2548,7 @@ define hidden void @Curl_cookie_clearsess(ptr noundef %0) local_unnamed_addr #0 
 
 3:                                                ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %4 = getelementptr inbounds nuw [63 x %struct.Curl_llist], ptr %0, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.Curl_llist, ptr %0, i64 %indvars.iv
   %5 = tail call ptr @Curl_llist_head(ptr noundef nonnull %4) #11
   %.not1416 = icmp eq ptr %5, null
   br i1 %.not1416, label %._crit_edge, label %.lr.ph
@@ -2637,7 +2637,7 @@ define hidden ptr @Curl_cookie_list(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %5 ]
   %.02145.i = phi ptr [ %.122.lcssa.i, %._crit_edge.i ], [ null, %5 ]
   %9 = load ptr, ptr %3, align 8, !tbaa !77
-  %10 = getelementptr inbounds nuw [63 x %struct.Curl_llist], ptr %9, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %struct.Curl_llist, ptr %9, i64 %indvars.iv.i
   %11 = tail call ptr @Curl_llist_head(ptr noundef %10) #11
   %.not3041.i = icmp eq ptr %11, null
   br i1 %.not3041.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2796,7 +2796,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 .preheader.i:                                     ; preds = %29, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %29 ]
   %.04377.i = phi i64 [ %.144.lcssa.i, %._crit_edge.i ], [ 0, %29 ]
-  %34 = getelementptr inbounds nuw [63 x %struct.Curl_llist], ptr %10, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw %struct.Curl_llist, ptr %10, i64 %indvars.iv.i
   %35 = call ptr @Curl_llist_head(ptr noundef nonnull %34) #11
   %.not6673.i = icmp eq ptr %35, null
   br i1 %.not6673.i, label %._crit_edge.i, label %.lr.ph.i

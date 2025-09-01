@@ -1942,7 +1942,7 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %65 = load ptr, ptr %14, align 8, !tbaa !77
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 173
   %67 = shl nuw nsw i64 %indvars.iv.i, 4
-  %68 = getelementptr inbounds nuw [48 x i8], ptr %66, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %67
   %69 = call i32 @wc_Md5Final(ptr noundef nonnull %5, ptr noundef nonnull %68) #7
   br label %.thread53.i
 

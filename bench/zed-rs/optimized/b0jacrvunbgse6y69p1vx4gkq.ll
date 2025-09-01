@@ -25588,7 +25588,7 @@ define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$alloc..vec..in_pla
 
 10:                                               ; preds = %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17hb38b20076c9e42f0E.llvm.17897451826487304826.exit.i.i", %.lr.ph.i.i
   %.sroa.0.09.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %12, %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17hb38b20076c9e42f0E.llvm.17897451826487304826.exit.i.i" ]
-  %11 = getelementptr inbounds [0 x { i8, [15 x i8] }], ptr %3, i64 0, i64 %.sroa.0.09.i.i
+  %11 = getelementptr inbounds { i8, [15 x i8] }, ptr %3, i64 %.sroa.0.09.i.i
   %12 = add nuw i64 %.sroa.0.09.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !4872)
   %13 = load i8, ptr %11, align 8, !range !200, !alias.scope !4875, !noalias !4866, !noundef !4
@@ -25636,7 +25636,7 @@ define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$alloc..vec..in_pla
   br label %23
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds [0 x { i8, [15 x i8] }], ptr %3, i64 0, i64 %.sroa.0.1.i.i
+  %28 = getelementptr inbounds { i8, [15 x i8] }, ptr %3, i64 %.sroa.0.1.i.i
   %29 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17hb38b20076c9e42f0E.llvm.17897451826487304826"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28) #44
           to label %23 unwind label %30, !noalias !4866
@@ -34869,7 +34869,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator9partition17h05bf11aa9
   unreachable
 
 "_ZN9collab_ui12collab_panel11CollabPanel14update_entries28_$u7b$$u7b$closure$u7d$$u7d$17he734eca1b368ae50E.exit.i.i": ; preds = %24
-  %30 = getelementptr inbounds [0 x ptr], ptr %3, i64 0, i64 %27
+  %30 = getelementptr inbounds ptr, ptr %3, i64 %27
   %31 = load ptr, ptr %30, align 8, !noalias !7241, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i8, ptr %32, align 8, !range !200, !noalias !7241, !noundef !4
@@ -62221,7 +62221,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   unreachable
 
 "_ZN9collab_ui12collab_panel11CollabPanel14update_entries28_$u7b$$u7b$closure$u7d$$u7d$17he734eca1b368ae50E.exit.i": ; preds = %20
-  %26 = getelementptr inbounds [0 x ptr], ptr %.val.i, i64 0, i64 %23
+  %26 = getelementptr inbounds ptr, ptr %.val.i, i64 %23
   %27 = load ptr, ptr %26, align 8, !noalias !11451, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i8, ptr %28, align 8, !range !200, !noalias !11451, !noundef !4
@@ -70214,7 +70214,7 @@ _ZN4core3ops8function6FnOnce9call_once17h244bcc1a339bbb2fE.exit.i.i.i.i.i: ; pre
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i.i, %519
   %.sroa.01.05.i.i.i.i.i.i = phi i64 [ %520, %519 ], [ 0, %.preheader.i.i.i.i.i.i ]
-  %516 = getelementptr inbounds nuw [0 x i8], ptr %514, i64 0, i64 %.sroa.01.05.i.i.i.i.i.i
+  %516 = getelementptr inbounds nuw i8, ptr %514, i64 %.sroa.01.05.i.i.i.i.i.i
   %517 = load i8, ptr %516, align 1, !alias.scope !12659, !noalias !12662, !noundef !4
   %518 = icmp eq i8 %517, 10
   br i1 %518, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i, label %519

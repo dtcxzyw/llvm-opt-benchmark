@@ -529,7 +529,7 @@ define internal fastcc void @print_attr(ptr noundef readonly captures(address_is
 
 105:                                              ; preds = %101
   %106 = zext nneg i8 %103 to i64
-  %107 = getelementptr inbounds nuw [10 x ptr], ptr @print_attr.compressionnames, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw ptr, ptr @print_attr.compressionnames, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !87
   br label %109
 
@@ -874,7 +874,7 @@ define internal fastcc void @print_attr(ptr noundef readonly captures(address_is
 
 380:                                              ; preds = %368
   %381 = zext nneg i8 %373 to i64
-  %382 = getelementptr inbounds nuw [3 x ptr], ptr @print_attr.lvlModes, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw ptr, ptr @print_attr.lvlModes, i64 %381
   %383 = load ptr, ptr %382, align 8, !tbaa !87
   br label %384
 

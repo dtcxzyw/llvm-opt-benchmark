@@ -1136,7 +1136,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123PatternSortingPred
 21:                                               ; preds = %28, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %17 ]
   %.23252.i.i = phi i16 [ %29, %28 ], [ 0, %17 ]
-  %22 = getelementptr inbounds nuw [8 x i64], ptr %20, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !128
   %.not41.i.i = icmp eq i64 %23, 0
   br i1 %.not41.i.i, label %28, label %24
@@ -1176,7 +1176,7 @@ _ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit: ; preds = %28, %24, %3
 44:                                               ; preds = %47, %40
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %47 ], [ 0, %40 ]
   %.23252.i.i37 = phi i16 [ %48, %47 ], [ 0, %40 ]
-  %45 = getelementptr inbounds nuw [8 x i64], ptr %43, i64 0, i64 %indvars.iv73
+  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv73
   %46 = load i64, ptr %45, align 8, !tbaa !128
   %.not41.i.i38 = icmp eq i64 %46, 0
   br i1 %.not41.i.i38, label %47, label %_ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit41

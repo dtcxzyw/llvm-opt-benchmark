@@ -557,7 +557,7 @@ switch.lookup:                                    ; preds = %58
   %71 = icmp slt i64 %70, -9223372036854775804
   %72 = add i64 %70, -9223372036854775807
   %73 = select i1 %71, i64 %72, i64 0
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.ts_tagger_add_language, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds i32, ptr @switch.table.ts_tagger_add_language, i64 %73
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 

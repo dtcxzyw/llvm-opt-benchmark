@@ -22968,7 +22968,7 @@ define hidden void @php_dom_get_content_into_zval(ptr noundef %0, ptr noundef wr
   store i64 %11, ptr %17, align 8, !tbaa !126
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 1 %10, i64 %11, i1 false)
-  %19 = getelementptr inbounds nuw [1 x i8], ptr %18, i64 0, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %11
   store i8 0, ptr %19, align 1, !tbaa !44
   store ptr %14, ptr %1, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -22995,7 +22995,7 @@ zend_string_alloc.exit:                           ; preds = %21
   store i64 %23, ptr %30, align 8, !tbaa !126
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 1 %22, i64 %23, i1 false)
-  %32 = getelementptr inbounds nuw [1 x i8], ptr %31, i64 0, i64 %23
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %23
   store i8 0, ptr %32, align 1, !tbaa !44
   br label %zend_string_init_fast.exit
 
@@ -23010,7 +23010,7 @@ zend_string_alloc.exit:                           ; preds = %21
 37:                                               ; preds = %33
   %38 = load i8, ptr %22, align 1, !tbaa !44
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !131
   br label %zend_string_init_fast.exit
 
@@ -23056,7 +23056,7 @@ zend_string_init_fast.exit:                       ; preds = %zend_string_alloc.e
   store i64 %54, ptr %60, align 8, !tbaa !126
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 1 %53, i64 %54, i1 false)
-  %62 = getelementptr inbounds nuw [1 x i8], ptr %61, i64 0, i64 %54
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %54
   store i8 0, ptr %62, align 1, !tbaa !44
   store ptr %57, ptr %1, align 8, !tbaa !44
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8

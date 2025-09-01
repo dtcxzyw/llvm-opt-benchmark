@@ -238,7 +238,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %Vec_In
   br i1 %exitcond73.not.i, label %..loopexit27_crit_edge.us.us.i, label %50, !llvm.loop !49
 
 .preheader.us.us.i:                               ; preds = %.lr.ph33.split.us.split.us.i
-  %52 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 0, i64 %indvars.iv74.i
+  %52 = getelementptr inbounds nuw i32, ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 %indvars.iv74.i
   %53 = load i32, ptr %52, align 4, !tbaa !46
   br label %50
 

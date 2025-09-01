@@ -107,7 +107,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5YosyslsERSoRKNS_5SExp
   %.not.i.i.i = phi i1 [ true, %2 ], [ false, %12 ]
   %.0813.i.i.i = phi i64 [ 0, %2 ], [ 1, %12 ]
   %.0912.i.i.i = phi i64 [ 2, %2 ], [ %.1.i.i.i, %12 ]
-  %7 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt6vectorIN5Yosys5SExprESaIS8_EES5_EEmv.__found, i64 0, i64 %.0813.i.i.i
+  %7 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt6vectorIN5Yosys5SExprESaIS8_EES5_EEmv.__found, i64 %.0813.i.i.i
   %8 = load i8, ptr %7, align 1, !tbaa !10, !range !12, !noundef !13
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
@@ -149,7 +149,7 @@ _ZNK5Yosys5SExpr4atomB5cxx11Ev.exit:              ; preds = %15
   %.not.i.i.i20 = phi i1 [ false, %28 ], [ true, %_ZNK5Yosys5SExpr7is_atomEv.exit ]
   %.0813.i.i.i21 = phi i64 [ 1, %28 ], [ 0, %_ZNK5Yosys5SExpr7is_atomEv.exit ]
   %.0912.i.i.i22 = phi i64 [ %.1.i.i.i23, %28 ], [ 2, %_ZNK5Yosys5SExpr7is_atomEv.exit ]
-  %23 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN5Yosys5SExprESaIS2_EEJS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i21
+  %23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN5Yosys5SExprESaIS2_EEJS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i.i21
   %24 = load i8, ptr %23, align 1, !tbaa !10, !range !12, !noundef !13
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %28
@@ -811,7 +811,7 @@ define noundef i32 @_ZN5Yosys11SExprWriter9check_fitERKNS_5SExprEi(ptr noundef n
   %.not.i.i.i = phi i1 [ true, %3 ], [ false, %14 ]
   %.0813.i.i.i = phi i64 [ 0, %3 ], [ 1, %14 ]
   %.0912.i.i.i = phi i64 [ 2, %3 ], [ %.1.i.i.i, %14 ]
-  %9 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt6vectorIN5Yosys5SExprESaIS8_EES5_EEmv.__found, i64 0, i64 %.0813.i.i.i
+  %9 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt6vectorIN5Yosys5SExprESaIS8_EES5_EEmv.__found, i64 %.0813.i.i.i
   %10 = load i8, ptr %9, align 1, !tbaa !10, !range !12, !noundef !13
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %14
@@ -853,7 +853,7 @@ _ZNK5Yosys5SExpr4atomB5cxx11Ev.exit:              ; preds = %17
   %.not.i.i.i21 = phi i1 [ false, %30 ], [ true, %_ZNK5Yosys5SExpr7is_atomEv.exit ]
   %.0813.i.i.i22 = phi i64 [ 1, %30 ], [ 0, %_ZNK5Yosys5SExpr7is_atomEv.exit ]
   %.0912.i.i.i23 = phi i64 [ %.1.i.i.i24, %30 ], [ 2, %_ZNK5Yosys5SExpr7is_atomEv.exit ]
-  %25 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN5Yosys5SExprESaIS2_EEJS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i22
+  %25 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN5Yosys5SExprESaIS2_EEJS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i.i22
   %26 = load i8, ptr %25, align 1, !tbaa !10, !range !12, !noundef !13
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %30
@@ -1134,7 +1134,7 @@ define void @_ZN5Yosys11SExprWriter5printERKNS_5SExprEbb(ptr noundef nonnull ali
   %.not.i.i.i = phi i1 [ true, %4 ], [ false, %15 ]
   %.0813.i.i.i = phi i64 [ 0, %4 ], [ 1, %15 ]
   %.0912.i.i.i = phi i64 [ 2, %4 ], [ %.1.i.i.i, %15 ]
-  %10 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt6vectorIN5Yosys5SExprESaIS8_EES5_EEmv.__found, i64 0, i64 %.0813.i.i.i
+  %10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt6vectorIN5Yosys5SExprESaIS8_EES5_EEmv.__found, i64 %.0813.i.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !10, !range !12, !noundef !13
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %15
@@ -1176,7 +1176,7 @@ _ZNK5Yosys5SExpr4atomB5cxx11Ev.exit:              ; preds = %18
   %.not.i.i.i27 = phi i1 [ false, %30 ], [ true, %_ZNK5Yosys5SExpr7is_atomEv.exit ]
   %.0813.i.i.i28 = phi i64 [ 1, %30 ], [ 0, %_ZNK5Yosys5SExpr7is_atomEv.exit ]
   %.0912.i.i.i29 = phi i64 [ %.1.i.i.i30, %30 ], [ 2, %_ZNK5Yosys5SExpr7is_atomEv.exit ]
-  %25 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN5Yosys5SExprESaIS2_EEJS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i28
+  %25 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN5Yosys5SExprESaIS2_EEJS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i.i28
   %26 = load i8, ptr %25, align 1, !tbaa !10, !range !12, !noundef !13
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %30

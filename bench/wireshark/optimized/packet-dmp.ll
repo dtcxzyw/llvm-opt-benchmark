@@ -1289,10 +1289,10 @@ define hidden void @proto_register_dmp() local_unnamed_addr #0 {
 
 13:                                               ; preds = %13, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr [57 x %struct.enum_val_t], ptr @dmp_national_values, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr %struct.enum_val_t, ptr @dmp_national_values, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr [57 x %struct._value_string], ptr @nat_pol_id, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr %struct._value_string, ptr @nat_pol_id, i64 %indvars.iv.i
   store i32 %16, ptr %17, align 16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -3829,17 +3829,17 @@ get_nat_pol_id_short.exit.thread.i:               ; preds = %254
   br i1 %exitcond.i.i, label %.get_nat_pol_id_short.exit_crit_edge.i, label %260, !llvm.loop !16
 
 260:                                              ; preds = %.lr.ph.i419
-  %261 = getelementptr [57 x %struct.enum_val_t], ptr @dmp_national_values, i64 0, i64 %indvars.iv.next.i.i
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  %263 = load i32, ptr %262, align 8
-  %264 = icmp eq i32 %263, %249
-  br i1 %264, label %get_nat_pol_id_short.exit.loopexit.i, label %.lr.ph.i419, !llvm.loop !16
+  %261 = getelementptr %struct.enum_val_t, ptr @dmp_national_values, i64 %indvars.iv.next.i.i, i32 2
+  %262 = load i32, ptr %261, align 8
+  %263 = icmp eq i32 %262, %249
+  br i1 %263, label %get_nat_pol_id_short.exit.loopexit.i, label %.lr.ph.i419, !llvm.loop !16
 
 .get_nat_pol_id_short.exit_crit_edge.i:           ; preds = %.lr.ph.i419
   br label %get_nat_pol_id_short.exit.i, !llvm.loop !16
 
 get_nat_pol_id_short.exit.loopexit.i:             ; preds = %260
-  %265 = load ptr, ptr %261, align 8
+  %264 = getelementptr %struct.enum_val_t, ptr @dmp_national_values, i64 %indvars.iv.next.i.i
+  %265 = load ptr, ptr %264, align 8
   br label %get_nat_pol_id_short.exit.i
 
 get_nat_pol_id_short.exit.i:                      ; preds = %get_nat_pol_id_short.exit.loopexit.i, %.get_nat_pol_id_short.exit_crit_edge.i
@@ -3855,17 +3855,17 @@ get_nat_pol_id_short.exit.i:                      ; preds = %get_nat_pol_id_shor
   br i1 %exitcond.i120.i, label %.get_nat_pol_id_short.exit122_crit_edge.i, label %267, !llvm.loop !16
 
 267:                                              ; preds = %.lr.ph127.i
-  %268 = getelementptr [57 x %struct.enum_val_t], ptr @dmp_national_values, i64 0, i64 %indvars.iv.next.i119.i
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
-  %270 = load i32, ptr %269, align 8
-  %271 = icmp eq i32 %270, %249
-  br i1 %271, label %get_nat_pol_id_short.exit122.loopexit.i, label %.lr.ph127.i, !llvm.loop !16
+  %268 = getelementptr %struct.enum_val_t, ptr @dmp_national_values, i64 %indvars.iv.next.i119.i, i32 2
+  %269 = load i32, ptr %268, align 8
+  %270 = icmp eq i32 %269, %249
+  br i1 %270, label %get_nat_pol_id_short.exit122.loopexit.i, label %.lr.ph127.i, !llvm.loop !16
 
 .get_nat_pol_id_short.exit122_crit_edge.i:        ; preds = %.lr.ph127.i
   br label %get_nat_pol_id_short.exit122.i, !llvm.loop !16
 
 get_nat_pol_id_short.exit122.loopexit.i:          ; preds = %267
-  %272 = load ptr, ptr %268, align 8
+  %271 = getelementptr %struct.enum_val_t, ptr @dmp_national_values, i64 %indvars.iv.next.i119.i
+  %272 = load ptr, ptr %271, align 8
   br label %get_nat_pol_id_short.exit122.i
 
 get_nat_pol_id_short.exit122.i:                   ; preds = %get_nat_pol_id_short.exit122.loopexit.i, %.get_nat_pol_id_short.exit122_crit_edge.i
@@ -5281,7 +5281,7 @@ dissect_dmp_report.exit:                          ; preds = %dmp_dec_del_time.ex
 
 switch.lookup:                                    ; preds = %1059
   %1062 = zext nneg i32 %1060 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_dmp_content, i64 0, i64 %1062
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dmp_content, i64 %1062
   %switch.load = load ptr, ptr %switch.gep, align 8
   %1063 = load i32, ptr %switch.load, align 4
   %1064 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1063, ptr noundef %0, i32 noundef %.6, i32 noundef 4, i32 noundef 0)

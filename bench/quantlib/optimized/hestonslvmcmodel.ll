@@ -7833,7 +7833,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %entry
   %i.04.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.body.i.i.i ]
   %sub.i.i.i = sub nuw nsw i64 2, %i.04.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [3 x i64], ptr %storage_.i.i, i64 0, i64 %i.04.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %storage_.i.i, i64 %i.04.i.i.i
   store i64 %sub.i.i.i, ptr %arrayidx.i.i.i.i, align 8, !tbaa !36
   %inc.i.i.i = add nuw nsw i64 %i.04.i.i.i, 1
   %cmp.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
@@ -12122,17 +12122,17 @@ _ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit: ; preds = %for.body.i
 for.body.i4:                                      ; preds = %for.body.i4, %_ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit
   %n.014.i = phi i64 [ 0, %_ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit ], [ %inc.i, %for.body.i4 ]
   %stride.013.i = phi i64 [ 1, %_ZSt10accumulateIPmmSt10multipliesImEET0_T_S4_S3_T1_.exit ], [ %mul7.i, %for.body.i4 ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i64], ptr %storage_, i64 0, i64 %n.014.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %storage_, i64 %n.014.i
   %2 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !36
-  %arrayidx.i.i9.i = getelementptr inbounds nuw [3 x i8], ptr %ascending_.i.i, i64 0, i64 %2
+  %arrayidx.i.i9.i = getelementptr inbounds nuw i8, ptr %ascending_.i.i, i64 %2
   %3 = load i8, ptr %arrayidx.i.i9.i, align 1, !tbaa !242, !range !26, !noundef !27
   %loadedv.i.i = trunc nuw i8 %3 to i1
   %4 = sub nsw i64 0, %stride.013.i
   %mul.i = select i1 %loadedv.i.i, i64 %stride.013.i, i64 %4
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x i64], ptr %stride_list_, i64 0, i64 %2
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %stride_list_, i64 %2
   store i64 %mul.i, ptr %arrayidx.i.i, align 8, !tbaa !36
   %5 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !36
-  %arrayidx.i12.i = getelementptr inbounds nuw [3 x i64], ptr %extent_list_.ptr, i64 0, i64 %5
+  %arrayidx.i12.i = getelementptr inbounds nuw i64, ptr %extent_list_.ptr, i64 %5
   %6 = load i64, ptr %arrayidx.i12.i, align 8, !tbaa !36
   %mul7.i = mul i64 %6, %stride.013.i
   %inc.i = add nuw nsw i64 %n.014.i, 1
@@ -12157,16 +12157,16 @@ _ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i.i: ; preds 
 for.body.i.i:                                     ; preds = %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i.i, %for.inc.i.i
   %n.09.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i.i ]
   %offset.18.i.i = phi i64 [ %offset.2.i.i, %for.inc.i.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [3 x i8], ptr %ascending_.i.i, i64 0, i64 %n.09.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %ascending_.i.i, i64 %n.09.i.i
   %9 = load i8, ptr %arrayidx.i.i.i.i, align 1, !tbaa !242, !range !26, !noundef !27
   %loadedv.i.i.i = trunc nuw i8 %9 to i1
   br i1 %loadedv.i.i.i, label %for.inc.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %for.body.i.i
-  %arrayidx.i.i.i6 = getelementptr inbounds nuw [3 x i64], ptr %extent_list_.ptr, i64 0, i64 %n.09.i.i
+  %arrayidx.i.i.i6 = getelementptr inbounds nuw i64, ptr %extent_list_.ptr, i64 %n.09.i.i
   %10 = load i64, ptr %arrayidx.i.i.i6, align 8, !tbaa !36
   %sub.i.i = add i64 %10, -1
-  %arrayidx.i7.i.i = getelementptr inbounds nuw [3 x i64], ptr %stride_list_, i64 0, i64 %n.09.i.i
+  %arrayidx.i7.i.i = getelementptr inbounds nuw i64, ptr %stride_list_, i64 %n.09.i.i
   %11 = load i64, ptr %arrayidx.i7.i.i, align 8, !tbaa !36
   %mul.i.i7 = mul i64 %sub.i.i, %11
   %sub6.i.i = sub i64 %offset.18.i.i, %mul.i.i7
@@ -12185,9 +12185,9 @@ _ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descendin
 for.body.i2.i:                                    ; preds = %for.body.i2.i, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit.i
   %n.07.i.i = phi i64 [ 0, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit.i ], [ %inc.i6.i, %for.body.i2.i ]
   %offset.06.i.i = phi i64 [ 0, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE37calculate_descending_dimension_offsetINS_5arrayIlLm3EEENS5_ImLm3EEEEElRKT_RKT0_RKNS_21general_storage_orderILm3EEE.exit.i ], [ %sub.i5.i, %for.body.i2.i ]
-  %arrayidx.i.i3.i = getelementptr inbounds nuw [3 x i64], ptr %stride_list_, i64 0, i64 %n.07.i.i
+  %arrayidx.i.i3.i = getelementptr inbounds nuw i64, ptr %stride_list_, i64 %n.07.i.i
   %12 = load i64, ptr %arrayidx.i.i3.i, align 8, !tbaa !36
-  %arrayidx.i5.i.i = getelementptr inbounds nuw [3 x i64], ptr %index_base_list_, i64 0, i64 %n.07.i.i
+  %arrayidx.i5.i.i = getelementptr inbounds nuw i64, ptr %index_base_list_, i64 %n.07.i.i
   %13 = load i64, ptr %arrayidx.i5.i.i, align 8, !tbaa !36
   %mul.i4.i = mul nsw i64 %13, %12
   %sub.i5.i = sub nsw i64 %offset.06.i.i, %mul.i4.i
@@ -12218,16 +12218,16 @@ _ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i: ; preds = 
 for.body.i9:                                      ; preds = %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i, %for.inc.i
   %n.09.i = phi i64 [ %inc.i14, %for.inc.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i ]
   %offset.18.i = phi i64 [ %offset.2.i, %for.inc.i ], [ 0, %_ZNK5boost21general_storage_orderILm3EE18all_dims_ascendingEv.exit.i ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr %ascending_.i.i, i64 0, i64 %n.09.i
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr %ascending_.i.i, i64 %n.09.i
   %16 = load i8, ptr %arrayidx.i.i.i10, align 1, !tbaa !242, !range !26, !noundef !27
   %loadedv.i.i11 = trunc nuw i8 %16 to i1
   br i1 %loadedv.i.i11, label %for.inc.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.i9
-  %arrayidx.i.i12 = getelementptr inbounds nuw [3 x i64], ptr %extent_list_.ptr, i64 0, i64 %n.09.i
+  %arrayidx.i.i12 = getelementptr inbounds nuw i64, ptr %extent_list_.ptr, i64 %n.09.i
   %17 = load i64, ptr %arrayidx.i.i12, align 8, !tbaa !36
   %sub.i = add i64 %17, -1
-  %arrayidx.i7.i = getelementptr inbounds nuw [3 x i64], ptr %stride_list_, i64 0, i64 %n.09.i
+  %arrayidx.i7.i = getelementptr inbounds nuw i64, ptr %stride_list_, i64 %n.09.i
   %18 = load i64, ptr %arrayidx.i7.i, align 8, !tbaa !36
   %mul.i13 = mul i64 %sub.i, %18
   %sub6.i = sub i64 %offset.18.i, %mul.i13

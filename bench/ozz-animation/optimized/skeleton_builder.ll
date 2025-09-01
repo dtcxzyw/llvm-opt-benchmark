@@ -309,11 +309,11 @@ _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %._crit
   %.sink119 = phi <4 x float> [ %110, %98 ], [ zeroinitializer, %95 ]
   %.sink118 = phi <4 x float> [ %124, %98 ], [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, %95 ]
   %.sink = phi <4 x float> [ %134, %98 ], [ splat (float 1.000000e+00), %95 ]
-  %136 = getelementptr inbounds nuw [4 x <4 x float>], ptr %5, i64 0, i64 %indvars.iv111
+  %136 = getelementptr inbounds nuw <4 x float>, ptr %5, i64 %indvars.iv111
   store <4 x float> %.sink119, ptr %136, align 16, !tbaa !46
-  %137 = getelementptr inbounds nuw [4 x <4 x float>], ptr %7, i64 0, i64 %indvars.iv111
+  %137 = getelementptr inbounds nuw <4 x float>, ptr %7, i64 %indvars.iv111
   store <4 x float> %.sink118, ptr %137, align 16, !tbaa !46
-  %138 = getelementptr inbounds nuw [4 x <4 x float>], ptr %6, i64 0, i64 %indvars.iv111
+  %138 = getelementptr inbounds nuw <4 x float>, ptr %6, i64 %indvars.iv111
   store <4 x float> %.sink, ptr %138, align 16, !tbaa !46
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 4

@@ -3412,7 +3412,7 @@ define internal fastcc nonnull ptr @integer_to_bnptr(i64 noundef %0, ptr noundef
   %.02634 = phi i64 [ 7, %6 ], [ %13, %9 ]
   %.02733 = phi i64 [ %8, %6 ], [ %12, %9 ]
   %10 = trunc i64 %.02733 to i8
-  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.02634
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.02634
   store i8 %10, ptr %11, align 1, !tbaa !36
   %12 = lshr i64 %.02733, 8
   %13 = add nsw i64 %.02634, -1

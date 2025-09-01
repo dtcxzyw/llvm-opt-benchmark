@@ -132,7 +132,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
 
 .split.us.split:                                  ; preds = %.split.us.split.preheader, %54
   %50 = phi i64 [ %55, %54 ], [ %49, %.split.us.split.preheader ]
-  %51 = getelementptr [6 x ptr], ptr %48, i64 0, i64 %50
+  %51 = getelementptr ptr, ptr %48, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = tail call fastcc zeroext i1 @match_xfrm_state(ptr noundef %52, ptr noundef %4, i16 noundef zeroext %13)
   br i1 %53, label %.loopexit9, label %54
@@ -152,8 +152,8 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
 
 61:                                               ; preds = %.split
   %62 = sext i32 %59 to i64
-  %63 = getelementptr [4 x %struct.xt_policy_elem], ptr %4, i64 0, i64 %62
-  %64 = getelementptr [6 x ptr], ptr %44, i64 0, i64 %57
+  %63 = getelementptr %struct.xt_policy_elem, ptr %4, i64 %62
+  %64 = getelementptr ptr, ptr %44, i64 %57
   %65 = load ptr, ptr %64, align 8
   %66 = tail call fastcc zeroext i1 @match_xfrm_state(ptr noundef %65, ptr noundef %63, i16 noundef zeroext %13)
   br i1 %66, label %67, label %.loopexit9
@@ -227,7 +227,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   br i1 %107, label %108, label %.loopexit9
 
 108:                                              ; preds = %104
-  %109 = getelementptr [4 x %struct.xt_policy_elem], ptr %4, i64 0, i64 %indvars.iv
+  %109 = getelementptr %struct.xt_policy_elem, ptr %4, i64 %indvars.iv
   %110 = tail call fastcc zeroext i1 @match_xfrm_state(ptr noundef nonnull %102, ptr noundef %109, i16 noundef zeroext %13)
   br i1 %110, label %111, label %.loopexit9
 

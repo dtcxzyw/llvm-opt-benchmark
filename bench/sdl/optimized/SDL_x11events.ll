@@ -95,12 +95,12 @@ define hidden void @X11_ReconcileKeyboardState(ptr noundef readonly captures(non
 
 13:                                               ; preds = %1, %33
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %33 ]
-  %14 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = lshr i64 %indvars.iv, 3
   %18 = and i64 %17, 536870911
-  %19 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = and i32 %16, 7
@@ -450,23 +450,23 @@ define hidden noundef zeroext i1 @X11_TriggerHitTestAction(ptr noundef readonly 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 352
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %106, label %10
+  br i1 %.not, label %108, label %10
 
 10:                                               ; preds = %4
   %11 = fptosi float %2 to i32
   %12 = fptosi float %3 to i32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %14 = load i32, ptr %13, align 8
-  switch i32 %14, label %106 [
+  switch i32 %14, label %108 [
     i32 1, label %15
-    i32 2, label %InitiateWindowResize.exit
-    i32 3, label %InitiateWindowResize.exit
-    i32 4, label %InitiateWindowResize.exit
-    i32 5, label %InitiateWindowResize.exit
-    i32 6, label %InitiateWindowResize.exit
-    i32 7, label %InitiateWindowResize.exit
-    i32 8, label %InitiateWindowResize.exit
-    i32 9, label %InitiateWindowResize.exit
+    i32 2, label %62
+    i32 3, label %62
+    i32 4, label %62
+    i32 5, label %62
+    i32 6, label %62
+    i32 7, label %62
+    i32 8, label %62
+    i32 9, label %62
   ]
 
 15:                                               ; preds = %10
@@ -528,7 +528,7 @@ define hidden noundef zeroext i1 @X11_TriggerHitTestAction(ptr noundef readonly 
   %57 = load ptr, ptr @X11_XSync, align 8
   %58 = call i32 %57(ptr noundef %21, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %106
+  br label %108
 
 59:                                               ; preds = %15
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -539,68 +539,75 @@ define hidden noundef zeroext i1 @X11_TriggerHitTestAction(ptr noundef readonly 
   %.sroa.0.0.insert.ext = zext i32 %11 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %61, align 4
-  br label %106
+  br label %108
 
-InitiateWindowResize.exit:                        ; preds = %10, %10, %10, %10, %10, %10, %10, %10
-  %62 = add nsw i32 %14, -2
-  %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [8 x i32], ptr @X11_TriggerHitTestAction.directions, i64 0, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = getelementptr i8, ptr %0, i64 1656
-  %.val15 = load ptr, ptr %66, align 8
-  %67 = load ptr, ptr %.val15, align 8
+62:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10
+  %63 = zext nneg i32 %14 to i64
+  %64 = getelementptr i32, ptr @X11_TriggerHitTestAction.directions, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 -8
+  %66 = load i32, ptr %65, align 4
+  %67 = getelementptr i8, ptr %0, i64 1656
+  %.val15 = load ptr, ptr %67, align 8
+  %68 = load ptr, ptr %.val15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %68 = load ptr, ptr @X11_XUngrabPointer, align 8
-  %69 = tail call i32 %68(ptr noundef %67, i64 noundef 0) #12
-  %70 = load ptr, ptr @X11_XFlush, align 8
-  %71 = tail call i32 %70(ptr noundef %67) #12
-  store i32 33, ptr %5, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %73, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %.val15, i64 312
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %76, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 32, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %80 = load i32, ptr %79, align 8
-  %81 = sext i32 %80 to i64
-  %82 = sext i32 %11 to i64
-  %83 = add nsw i64 %81, %82
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 %83, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %86 = load i32, ptr %85, align 4
-  %87 = sext i32 %86 to i64
-  %88 = sext i32 %12 to i64
-  %89 = add nsw i64 %87, %88
-  %90 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %89, ptr %90, align 8
-  %91 = zext nneg i32 %65 to i64
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i64 %91, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i64 1, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i64 0, ptr %94, align 8
-  %95 = load ptr, ptr @X11_XSendEvent, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %67, i64 232
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %67, i64 224
-  %99 = load i32, ptr %98, align 8
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds %struct.Screen, ptr %97, i64 %100, i32 2
-  %102 = load i64, ptr %101, align 8
-  %103 = call i32 %95(ptr noundef %67, i64 noundef %102, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %5) #12
-  %104 = load ptr, ptr @X11_XSync, align 8
-  %105 = call i32 %104(ptr noundef %67, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %106
+  %or.cond.i = icmp ugt i32 %66, 7
+  br i1 %or.cond.i, label %InitiateWindowResize.exit, label %69
 
-106:                                              ; preds = %InitiateWindowResize.exit, %59, %19, %10, %4
+69:                                               ; preds = %62
+  %70 = load ptr, ptr @X11_XUngrabPointer, align 8
+  %71 = tail call i32 %70(ptr noundef %68, i64 noundef 0) #12
+  %72 = load ptr, ptr @X11_XFlush, align 8
+  %73 = tail call i32 %72(ptr noundef %68) #12
+  store i32 33, ptr %5, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %75 = load i64, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %75, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %.val15, i64 312
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 %78, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 32, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %82 = load i32, ptr %81, align 8
+  %83 = sext i32 %82 to i64
+  %84 = sext i32 %11 to i64
+  %85 = add nsw i64 %83, %84
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 %85, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %88 = load i32, ptr %87, align 4
+  %89 = sext i32 %88 to i64
+  %90 = sext i32 %12 to i64
+  %91 = add nsw i64 %89, %90
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 %91, ptr %92, align 8
+  %93 = zext nneg i32 %66 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store i64 %93, ptr %94, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i64 1, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store i64 0, ptr %96, align 8
+  %97 = load ptr, ptr @X11_XSendEvent, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %68, i64 232
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %68, i64 224
+  %101 = load i32, ptr %100, align 8
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds %struct.Screen, ptr %99, i64 %102, i32 2
+  %104 = load i64, ptr %103, align 8
+  %105 = call i32 %97(ptr noundef %68, i64 noundef %104, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %5) #12
+  %106 = load ptr, ptr @X11_XSync, align 8
+  %107 = call i32 %106(ptr noundef %68, i32 noundef 0) #12
+  br label %InitiateWindowResize.exit
+
+InitiateWindowResize.exit:                        ; preds = %62, %69
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %108
+
+108:                                              ; preds = %InitiateWindowResize.exit, %59, %19, %10, %4
   %.1 = phi i1 [ false, %4 ], [ true, %InitiateWindowResize.exit ], [ true, %59 ], [ true, %19 ], [ false, %10 ]
   ret i1 %.1
 }
@@ -741,7 +748,7 @@ define hidden void @X11_HandleKeyEvent(ptr noundef readonly captures(none) %0, p
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 616
   %.mask = and i32 %15, 255
   %19 = zext nneg i32 %.mask to i64
-  %20 = getelementptr inbounds nuw [256 x i32], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %23 = tail call i64 @SDL_GetTicksNS_REAL() #12
@@ -827,7 +834,7 @@ XLookupStringAsUTF8.exit.thread:                  ; preds = %44, %51, %55, %4, %
 
 65:                                               ; preds = %62
   %66 = sext i32 %.046 to i64
-  %67 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 %66
+  %67 = getelementptr inbounds i8, ptr %9, i64 %66
   store i8 0, ptr %67, align 1
   call void @X11_ClearComposition(ptr noundef nonnull %1) #12
   call void @SDL_SendKeyboardText(ptr noundef nonnull %9) #12
@@ -978,10 +985,10 @@ X11_ProcessHitTest.exit:                          ; preds = %24, %39
 
 switch.lookup:                                    ; preds = %40
   %42 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x float], ptr @switch.table.X11_HandleButtonPress, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table.X11_HandleButtonPress, i64 %42
   %switch.load = load float, ptr %switch.gep, align 4
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep59 = getelementptr inbounds nuw [4 x float], ptr @switch.table.X11_HandleButtonPress.7, i64 0, i64 %43
+  %switch.gep59 = getelementptr inbounds nuw float, ptr @switch.table.X11_HandleButtonPress.7, i64 %43
   %switch.load60 = load float, ptr %switch.gep59, align 4
   call void @SDL_SendMouseWheel(i64 noundef %11, ptr noundef %10, i32 noundef %2, float noundef %switch.load, float noundef %switch.load60, i32 noundef 0) #12
   br label %61
@@ -4127,7 +4134,7 @@ define internal fastcc i64 @X11_PickTargetFromAtoms(ptr noundef %0, i64 noundef 
 8:                                                ; preds = %7
   %9 = add nuw nsw i32 %.0, 1
   %10 = zext nneg i32 %.0 to i64
-  %11 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %5, i64 %10
   store i64 %2, ptr %11, align 8
   br label %12
 
@@ -4139,7 +4146,7 @@ define internal fastcc i64 @X11_PickTargetFromAtoms(ptr noundef %0, i64 noundef 
 13:                                               ; preds = %12
   %14 = add nuw nsw i32 %.1, 1
   %15 = zext nneg i32 %.1 to i64
-  %16 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %5, i64 %15
   store i64 %3, ptr %16, align 8
   br label %17
 

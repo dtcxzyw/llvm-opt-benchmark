@@ -2394,7 +2394,7 @@ define noundef ptr @get_preset_file(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 .preheader.split.us:                              ; preds = %.preheader, %17
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %17 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv39
+  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv39
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %.not33.us = icmp eq ptr %12, null
   br i1 %.not33.us, label %17, label %13
@@ -2421,7 +2421,7 @@ define noundef ptr @get_preset_file(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 .preheader.split:                                 ; preds = %.preheader, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.preheader ]
-  %23 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !9
   %.not33 = icmp eq ptr %24, null
   br i1 %.not33, label %33, label %25

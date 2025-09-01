@@ -17281,10 +17281,10 @@ _ZN12_GLOBAL__N_110MemMapping11handle_geomEv.exit: ; preds = %4527, %._crit_edge
 
 switch.lookup:                                    ; preds = %5877
   %5886 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_110MemMappingC2ERNS_9MapWorkerERN5Yosys3MemERKNS3_10MemLibrary7LibraryERKNS_11PassOptionsE, i64 0, i64 %5886
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_110MemMappingC2ERNS_9MapWorkerERN5Yosys3MemERKNS3_10MemLibrary7LibraryERKNS_11PassOptionsE, i64 %5886
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5887 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3108 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN12_GLOBAL__N_110MemMappingC2ERNS_9MapWorkerERN5Yosys3MemERKNS3_10MemLibrary7LibraryERKNS_11PassOptionsE.310, i64 0, i64 %5887
+  %switch.gep3108 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_110MemMappingC2ERNS_9MapWorkerERN5Yosys3MemERKNS3_10MemLibrary7LibraryERKNS_11PassOptionsE.310, i64 %5887
   %switch.load3109 = load i64, ptr %switch.gep3108, align 8
   %5888 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load3109)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.i unwind label %5884

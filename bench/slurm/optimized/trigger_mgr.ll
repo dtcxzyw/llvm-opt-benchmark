@@ -4541,7 +4541,7 @@ _trigger_clone.exit:                              ; preds = %784, %787
 
 829:                                              ; preds = %827
   %830 = call ptr @xstrdup(ptr noundef nonnull %828) #12
-  %831 = getelementptr inbounds nuw [64 x ptr], ptr %4, i64 0, i64 %indvars.iv.i123
+  %831 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i123
   store ptr %830, ptr %831, align 8
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i123, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i125, 63
@@ -4552,7 +4552,7 @@ _trigger_clone.exit:                              ; preds = %784, %787
   %833 = load ptr, ptr %832, align 8
   %834 = call ptr @xstrdup(ptr noundef %833) #12
   %835 = and i64 %indvars.iv.i123, 4294967295
-  %836 = getelementptr inbounds nuw [64 x ptr], ptr %4, i64 0, i64 %835
+  %836 = getelementptr inbounds nuw ptr, ptr %4, i64 %835
   store ptr %834, ptr %836, align 8
   %837 = icmp samesign ult i64 %indvars.iv.i123, 63
   br i1 %837, label %.lr.ph.preheader.i, label %._crit_edge.i126
@@ -4639,7 +4639,7 @@ _trigger_clone.exit:                              ; preds = %784, %787
 
 875:                                              ; preds = %875, %874
   %indvars.iv56.i = phi i64 [ 0, %874 ], [ %indvars.iv.next57.i, %875 ]
-  %876 = getelementptr inbounds nuw [64 x ptr], ptr %4, i64 0, i64 %indvars.iv56.i
+  %876 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv56.i
   call void @slurm_xfree(ptr noundef nonnull %876) #12
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next57.i, 64

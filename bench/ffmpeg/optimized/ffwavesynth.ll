@@ -559,7 +559,7 @@ wavesynth_enter_intervals.exit:                   ; preds = %._crit_edge45.i, %8
   br i1 %.not20.i.i, label %100, label %108
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds nuw [7 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %101 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
   %102 = load i32, ptr %101, align 4, !tbaa !50
   %103 = sub i32 %.122.i.i, %102
   %104 = mul i32 %96, 1284865837
@@ -578,7 +578,7 @@ wavesynth_enter_intervals.exit:                   ; preds = %._crit_edge45.i, %8
   %111 = add i32 %110, -144211633
   %112 = ashr i32 %111, 3
   %113 = add nsw i32 %112, %.1.lcssa.i.i
-  %114 = getelementptr inbounds nuw [128 x i32], ptr %36, i64 0, i64 %indvars.iv27.i.i
+  %114 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv27.i.i
   store i32 %113, ptr %114, align 4, !tbaa !50
   %indvars.iv.next28.i.i = add nuw nsw i64 %indvars.iv27.i.i, 1
   %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next28.i.i, 128
@@ -601,7 +601,7 @@ pink_fill.exit.i:                                 ; preds = %115, %91
   %120 = add i32 %119, 1
   store i32 %120, ptr %33, align 4, !tbaa !56
   %121 = zext i32 %119 to i64
-  %122 = getelementptr inbounds nuw [128 x i32], ptr %36, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i32, ptr %36, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !50
   %124 = ashr i32 %123, 16
   %125 = icmp sgt i32 %87, -1
@@ -757,7 +757,7 @@ wavesynth_synth_sample.exit:                      ; preds = %187, %.outer._crit_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.163 = phi ptr [ %.067, %.lr.ph.preheader ], [ %196, %.lr.ph ]
-  %192 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %193 = load i32, ptr %192, align 4, !tbaa !50
   %194 = lshr i32 %193, 16
   %195 = trunc nuw i32 %194 to i16
@@ -1018,7 +1018,7 @@ lcg_seek.exit66:                                  ; preds = %.lr.ph.i57, %83
   br i1 %.not20.i, label %109, label %117
 
 109:                                              ; preds = %104
-  %110 = getelementptr inbounds nuw [7 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %111 = load i32, ptr %110, align 4, !tbaa !50
   %112 = sub i32 %.122.i, %111
   %113 = mul i32 %105, 1284865837
@@ -1037,7 +1037,7 @@ lcg_seek.exit66:                                  ; preds = %.lr.ph.i57, %83
   %120 = add i32 %119, -144211633
   %121 = ashr i32 %120, 3
   %122 = add nsw i32 %121, %.1.lcssa.i
-  %123 = getelementptr inbounds nuw [128 x i32], ptr %101, i64 0, i64 %indvars.iv27.i
+  %123 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv27.i
   store i32 %122, ptr %123, align 4, !tbaa !50
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next28.i, 128

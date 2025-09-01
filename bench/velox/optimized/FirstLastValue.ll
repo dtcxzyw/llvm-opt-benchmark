@@ -4430,7 +4430,7 @@ cond.true.i.i.i:                                  ; preds = %for.body17.i.i
 
 cond.false.i.i.i:                                 ; preds = %for.body17.i.i
   %idxprom.i4.i.i.i = zext nneg i32 %and.i.i.i to i64
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i.i
   %26 = load i8, ptr %arrayidx.i5.i.i.i, align 1
   %and3.i.i.i.i = and i8 %26, %24
   br label %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i
@@ -7202,7 +7202,7 @@ cond.true.i.i.i:                                  ; preds = %for.body17.i.i
 
 cond.false.i.i.i:                                 ; preds = %for.body17.i.i
   %idxprom.i4.i.i.i = zext nneg i32 %and.i.i.i to i64
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i.i
   %26 = load i8, ptr %arrayidx.i5.i.i.i, align 1
   %and3.i.i.i.i = and i8 %26, %24
   br label %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i

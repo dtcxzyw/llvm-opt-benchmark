@@ -50,7 +50,7 @@ define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %0, i32 noundef %1, 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [65 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %18, label %12
@@ -209,7 +209,7 @@ define internal range(i32 -1, 1) i32 @sigfd_del(ptr noundef captures(none) %0, i
 
 27:                                               ; preds = %24, %16, %12
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %29 = getelementptr inbounds [65 x ptr], ptr %28, i64 0, i64 %7
+  %29 = getelementptr inbounds ptr, ptr %28, i64 %7
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 @event_del_nolock_(ptr noundef %30, i32 noundef 2) #7
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 56

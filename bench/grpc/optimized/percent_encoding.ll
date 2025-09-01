@@ -85,7 +85,7 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   %18 = load i8, ptr %.03957, align 1, !tbaa !9
   %19 = zext i8 %18 to i64
   %20 = lshr i64 %19, 6
-  %21 = getelementptr inbounds nuw [4 x i64], ptr %.0.i, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !10
   %23 = and i64 %19, 63
   %24 = shl nuw i64 1, %23
@@ -129,7 +129,7 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   %43 = load i8, ptr %.03863, align 1, !tbaa !9
   %44 = zext i8 %43 to i64
   %45 = lshr i64 %44, 6
-  %46 = getelementptr inbounds nuw [4 x i64], ptr %.0.i, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !10
   %48 = and i64 %44, 63
   %49 = shl nuw i64 1, %48
@@ -148,13 +148,13 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   store i8 37, ptr %.04362, align 1, !tbaa !9
   %56 = lshr i32 %54, 4
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !9
   %60 = getelementptr inbounds nuw i8, ptr %.04362, i64 2
   store i8 %59, ptr %55, align 1, !tbaa !9
   %61 = and i32 %54, 15
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !9
   %65 = getelementptr inbounds nuw i8, ptr %.04362, i64 3
   store i8 %64, ptr %60, align 1, !tbaa !9

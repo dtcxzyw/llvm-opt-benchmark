@@ -252,7 +252,7 @@ define internal i32 @jpeg2000_parse(ptr noundef readonly captures(none) %0, ptr 
 info_marker.exit.i:                               ; preds = %107
   %109 = lshr i64 %31, 16
   %110 = and i64 %109, 255
-  %111 = getelementptr inbounds nuw [256 x i8], ptr @info_marker.lut, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr @info_marker.lut, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !21
   %.not119.i = icmp eq i8 %112, 0
   br i1 %.not119.i, label %info_marker.exit.thread.i, label %113
@@ -285,7 +285,7 @@ info_marker.exit128.i:                            ; preds = %120
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !21
   %128 = zext i8 %127 to i64
-  %129 = getelementptr inbounds nuw [256 x i8], ptr @info_marker.lut, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @info_marker.lut, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !21
   %.not122.i = icmp eq i8 %130, 0
   br i1 %.not122.i, label %info_marker.exit.thread.i, label %131

@@ -1689,9 +1689,9 @@ define range(i32 -1, 1) i32 @H5Pset_shared_mesg_index(i64 noundef %0, i32 nounde
 
 83:                                               ; preds = %76
   %84 = zext i32 %1 to i64
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr %6, i64 %84
   store i32 %2, ptr %85, align 4, !tbaa !17
-  %86 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %84
+  %86 = getelementptr inbounds nuw i32, ptr %7, i64 %84
   store i32 %3, ptr %86, align 4, !tbaa !17
   %87 = call i32 @H5P_set(ptr noundef nonnull %50, ptr noundef nonnull @.str.35, ptr noundef nonnull %6) #8
   %88 = icmp slt i32 %87, 0
@@ -1863,7 +1863,7 @@ define range(i32 -1, 1) i32 @H5Pget_shared_mesg_index(i64 noundef %0, i32 nounde
 
 78:                                               ; preds = %77
   %79 = zext i32 %1 to i64
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr %6, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !17
   store i32 %81, ptr %2, align 4, !tbaa !17
   br label %82
@@ -1874,7 +1874,7 @@ define range(i32 -1, 1) i32 @H5Pget_shared_mesg_index(i64 noundef %0, i32 nounde
 
 83:                                               ; preds = %82
   %84 = zext i32 %1 to i64
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr %7, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !17
   store i32 %86, ptr %3, align 4, !tbaa !17
   br label %88

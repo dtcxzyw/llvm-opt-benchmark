@@ -43,7 +43,7 @@ define dso_local range(i32 0, 2) i32 @ValidGainFrequency(i64 noundef %0) local_u
 2:                                                ; preds = %6, %.preheader28.i
   %indvars.iv.i = phi i64 [ 0, %.preheader28.i ], [ %indvars.iv.next.i, %6 ]
   %.12232.i = phi i64 [ %.021.i, %.preheader28.i ], [ %spec.select.i, %6 ]
-  %3 = getelementptr inbounds nuw [13 x %struct.ReplayGainFilter], ptr @ReplayGainFilters, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw %struct.ReplayGainFilter, ptr @ReplayGainFilters, i64 %indvars.iv.i
   %4 = load i64, ptr %3, align 16, !tbaa !4
   %5 = icmp eq i64 %4, %.024.i.ph
   br i1 %5, label %CreateGainFilter.exit.thread, label %6
@@ -97,7 +97,7 @@ define dso_local range(i32 0, 2) i32 @InitGainAnalysis(i64 noundef %0) local_unn
 4:                                                ; preds = %8, %.preheader28.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader28.i.i ], [ %indvars.iv.next.i.i, %8 ]
   %.12232.i.i = phi i64 [ %.021.i.i, %.preheader28.i.i ], [ %spec.select.i.i, %8 ]
-  %5 = getelementptr inbounds nuw [13 x %struct.ReplayGainFilter], ptr @ReplayGainFilters, i64 0, i64 %indvars.iv.i.i
+  %5 = getelementptr inbounds nuw %struct.ReplayGainFilter, ptr @ReplayGainFilters, i64 %indvars.iv.i.i
   %6 = load i64, ptr %5, align 16, !tbaa !4
   %7 = icmp eq i64 %6, %.024.i.i.ph
   br i1 %7, label %CreateGainFilter.exit.i, label %8
@@ -222,13 +222,13 @@ ReallocateWindowBuffer.exit21.i:                  ; preds = %37
   store float 0.000000e+00, ptr %45, align 4, !tbaa !23
   %46 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %46, align 4, !tbaa !23
-  %47 = getelementptr inbounds nuw [20 x float], ptr @rinprebuf, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %47, align 4, !tbaa !23
   %48 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %48, align 4, !tbaa !23
   %49 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %49, align 4, !tbaa !23
-  %50 = getelementptr inbounds nuw [20 x float], ptr @linprebuf, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %50, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
@@ -290,11 +290,11 @@ define dso_local range(i32 0, 2) i32 @AnalyzeSamples(ptr noundef readonly captur
   %17 = getelementptr inbounds nuw float, ptr %0, i64 %16
   %18 = load float, ptr %17, align 4, !tbaa !23
   %19 = add nuw nsw i64 %indvars.iv, 10
-  %20 = getelementptr inbounds nuw [20 x float], ptr @linprebuf, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %19
   store float %18, ptr %20, align 4, !tbaa !23
   %21 = getelementptr inbounds nuw float, ptr %.095, i64 %16
   %22 = load float, ptr %21, align 4, !tbaa !23
-  %23 = getelementptr inbounds nuw [20 x float], ptr @rinprebuf, i64 0, i64 %19
+  %23 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %19
   store float %22, ptr %23, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = icmp samesign ugt i64 %spec.select, %indvars.iv.next
@@ -604,7 +604,7 @@ filter.exit137.thread:                            ; preds = %60, %._crit_edge, %
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %200, i32 0)
   %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 11999)
   %201 = zext nneg i32 %spec.store.select1 to i64
-  %202 = getelementptr inbounds nuw [12000 x i32], ptr @A, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i32, ptr @A, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !18
   %204 = add i32 %203, 1
   store i32 %204, ptr %202, align 4, !tbaa !18
@@ -664,11 +664,11 @@ filter.exit137.thread:                            ; preds = %60, %._crit_edge, %
   %235 = zext i32 %234 to i64
   %236 = getelementptr inbounds nuw float, ptr %230, i64 %235
   %237 = load float, ptr %236, align 4, !tbaa !23
-  %238 = getelementptr inbounds nuw [20 x float], ptr @linprebuf, i64 0, i64 %indvars.iv191
+  %238 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %indvars.iv191
   store float %237, ptr %238, align 4, !tbaa !23
   %239 = getelementptr inbounds nuw float, ptr %231, i64 %235
   %240 = load float, ptr %239, align 4, !tbaa !23
-  %241 = getelementptr inbounds nuw [20 x float], ptr @rinprebuf, i64 0, i64 %indvars.iv191
+  %241 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %indvars.iv191
   store float %240, ptr %241, align 4, !tbaa !23
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next192, 10
@@ -745,9 +745,9 @@ analyzeResult.exit:                               ; preds = %6, %20
 
 28:                                               ; preds = %analyzeResult.exit, %28
   %indvars.iv = phi i64 [ 0, %analyzeResult.exit ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw [12000 x i32], ptr @A, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr @A, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !18
-  %31 = getelementptr inbounds nuw [12000 x i32], ptr @B, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr @B, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !18
   %33 = add i32 %32, %30
   store i32 %33, ptr %31, align 4, !tbaa !18
@@ -762,13 +762,13 @@ analyzeResult.exit:                               ; preds = %6, %20
   store float 0.000000e+00, ptr %35, align 4, !tbaa !23
   %36 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv17
   store float 0.000000e+00, ptr %36, align 4, !tbaa !23
-  %37 = getelementptr inbounds nuw [20 x float], ptr @rinprebuf, i64 0, i64 %indvars.iv17
+  %37 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %indvars.iv17
   store float 0.000000e+00, ptr %37, align 4, !tbaa !23
   %38 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv17
   store float 0.000000e+00, ptr %38, align 4, !tbaa !23
   %39 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv17
   store float 0.000000e+00, ptr %39, align 4, !tbaa !23
-  %40 = getelementptr inbounds nuw [20 x float], ptr @linprebuf, i64 0, i64 %indvars.iv17
+  %40 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %indvars.iv17
   store float 0.000000e+00, ptr %40, align 4, !tbaa !23
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next18, 10

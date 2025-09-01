@@ -185,7 +185,7 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
   %31 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %30, i64 %indvars.iv
   %32 = load i8, ptr %8, align 8, !range !4, !noundef !5
   %33 = trunc nuw i8 %32 to i1
-  %34 = getelementptr inbounds nuw [32 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   br i1 %33, label %35, label %37
 
 35:                                               ; preds = %25
@@ -220,7 +220,7 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
   br i1 %.not, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw [32 x %struct.FmgrInfo], ptr %14, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %14, i64 %indvars.iv
   %55 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %51, i16 noundef zeroext 1) #7
   %56 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_copy(ptr noundef nonnull %54, ptr noundef %55, ptr noundef %56) #7
@@ -248,17 +248,17 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
 
 70:                                               ; preds = %57
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 120
-  %72 = getelementptr inbounds nuw [32 x %struct.FmgrInfo], ptr %14, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %14, i64 %indvars.iv
   %73 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_copy(ptr noundef nonnull %72, ptr noundef nonnull %71, ptr noundef %73) #7
   br label %74
 
 74:                                               ; preds = %70, %53
-  %75 = getelementptr inbounds nuw [32 x %struct.FmgrInfo], ptr %15, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %15, i64 %indvars.iv
   %76 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %51, i16 noundef zeroext 2) #7
   %77 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_copy(ptr noundef nonnull %75, ptr noundef %76, ptr noundef %77) #7
-  %78 = getelementptr inbounds nuw [32 x %struct.FmgrInfo], ptr %16, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %16, i64 %indvars.iv
   %79 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %51, i16 noundef zeroext 3) #7
   %80 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_copy(ptr noundef nonnull %78, ptr noundef %79, ptr noundef %80) #7
@@ -267,7 +267,7 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
   br i1 %.not103, label %86, label %82
 
 82:                                               ; preds = %74
-  %83 = getelementptr inbounds nuw [32 x %struct.FmgrInfo], ptr %17, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %17, i64 %indvars.iv
   %84 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %51, i16 noundef zeroext 6) #7
   %85 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_copy(ptr noundef nonnull %83, ptr noundef %84, ptr noundef %85) #7
@@ -279,7 +279,7 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
   br i1 %.not104, label %92, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw [32 x %struct.FmgrInfo], ptr %18, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %18, i64 %indvars.iv
   %90 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %51, i16 noundef zeroext 4) #7
   %91 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_copy(ptr noundef nonnull %89, ptr noundef %90, ptr noundef %91) #7
@@ -315,7 +315,7 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
   br i1 %.not106, label %113, label %109
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds nuw [32 x %struct.FmgrInfo], ptr %21, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %21, i64 %indvars.iv
   %111 = tail call ptr @index_getprocinfo(ptr noundef nonnull %1, i16 noundef signext %51, i16 noundef zeroext 5) #7
   %112 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_copy(ptr noundef nonnull %110, ptr noundef %111, ptr noundef %112) #7
@@ -323,14 +323,14 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
 
 113:                                              ; preds = %107, %109
   %.sink = phi i8 [ 1, %109 ], [ 0, %107 ]
-  %114 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
   store i8 %.sink, ptr %114, align 1
   %115 = load ptr, ptr %23, align 8
   %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4
   %.not107 = icmp eq i32 %117, 0
   %. = select i1 %.not107, i32 100, i32 %117
-  %118 = getelementptr inbounds nuw [32 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   store i32 %., ptr %118, align 4
   %119 = load i32, ptr %4, align 8
   %120 = sext i32 %119 to i64
@@ -387,7 +387,7 @@ define dso_local zeroext i16 @gintuple_get_attrnum(ptr noundef readonly captures
   br i1 %10, label %44, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %12 = getelementptr i8, ptr %8, i64 24
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %42
@@ -396,10 +396,10 @@ define dso_local zeroext i16 @gintuple_get_attrnum(ptr noundef readonly captures
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = zext nneg i32 %13 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 30
+  %19 = getelementptr i8, ptr %8, i64 30
   %20 = load i8, ptr %19, align 2, !range !4, !noundef !5
   %21 = trunc nuw i8 %20 to i1
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %22 = getelementptr i8, ptr %8, i64 28
   %23 = load i16, ptr %22, align 4
   br i1 %21, label %24, label %40
 
@@ -483,7 +483,7 @@ define dso_local i64 @gintuple_get_key(ptr noundef readonly captures(none) %0, p
   br i1 %11, label %45, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %13 = getelementptr i8, ptr %9, i64 24
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %43
@@ -492,10 +492,10 @@ define dso_local i64 @gintuple_get_key(ptr noundef readonly captures(none) %0, p
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = zext nneg i32 %14 to i64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 30
+  %20 = getelementptr i8, ptr %9, i64 30
   %21 = load i8, ptr %20, align 2, !range !4, !noundef !5
   %22 = trunc nuw i8 %21 to i1
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  %23 = getelementptr i8, ptr %9, i64 28
   %24 = load i16, ptr %23, align 4
   br i1 %22, label %25, label %41
 
@@ -555,103 +555,102 @@ define dso_local i64 @gintuple_get_key(ptr noundef readonly captures(none) %0, p
 
 50:                                               ; preds = %3
   %51 = tail call zeroext i16 @gintuple_get_attrnum(ptr noundef nonnull %0, ptr noundef %1)
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %53 = zext i16 %51 to i64
-  %54 = add nsw i64 %53, -1
-  %55 = getelementptr inbounds [32 x ptr], ptr %52, i64 0, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr i8, ptr %1, i64 6
-  %.val.i13 = load i16, ptr %57, align 2
-  %58 = icmp slt i16 %.val.i13, 0
-  br i1 %58, label %92, label %59
+  %52 = zext i16 %51 to i64
+  %53 = getelementptr i8, ptr %0, i64 16
+  %54 = getelementptr ptr, ptr %53, i64 %52
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr i8, ptr %1, i64 6
+  %.val.i13 = load i16, ptr %56, align 2
+  %57 = icmp slt i16 %.val.i13, 0
+  br i1 %57, label %91, label %58
 
-59:                                               ; preds = %50
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp sgt i32 %61, -1
-  br i1 %62, label %63, label %90
+58:                                               ; preds = %50
+  %59 = getelementptr i8, ptr %55, i64 40
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp sgt i32 %60, -1
+  br i1 %61, label %62, label %89
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %65 = zext nneg i32 %61 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
-  %67 = getelementptr inbounds nuw i8, ptr %56, i64 46
-  %68 = load i8, ptr %67, align 2, !range !4, !noundef !5
-  %69 = trunc nuw i8 %68 to i1
-  %70 = getelementptr inbounds nuw i8, ptr %56, i64 44
-  %71 = load i16, ptr %70, align 4
-  br i1 %69, label %72, label %88
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = zext nneg i32 %60 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 %64
+  %66 = getelementptr i8, ptr %55, i64 46
+  %67 = load i8, ptr %66, align 2, !range !4, !noundef !5
+  %68 = trunc nuw i8 %67 to i1
+  %69 = getelementptr i8, ptr %55, i64 44
+  %70 = load i16, ptr %69, align 4
+  br i1 %68, label %71, label %87
 
-72:                                               ; preds = %63
-  switch i16 %71, label %84 [
-    i16 1, label %73
-    i16 2, label %76
-    i16 4, label %79
-    i16 8, label %82
+71:                                               ; preds = %62
+  switch i16 %70, label %83 [
+    i16 1, label %72
+    i16 2, label %75
+    i16 4, label %78
+    i16 8, label %81
   ]
 
-73:                                               ; preds = %72
-  %74 = load i8, ptr %66, align 1
-  %75 = sext i8 %74 to i64
+72:                                               ; preds = %71
+  %73 = load i8, ptr %65, align 1
+  %74 = sext i8 %73 to i64
   br label %index_getattr.exit.thread
 
-76:                                               ; preds = %72
-  %77 = load i16, ptr %66, align 2
-  %78 = sext i16 %77 to i64
+75:                                               ; preds = %71
+  %76 = load i16, ptr %65, align 2
+  %77 = sext i16 %76 to i64
   br label %index_getattr.exit.thread
 
-79:                                               ; preds = %72
-  %80 = load i32, ptr %66, align 4
-  %81 = sext i32 %80 to i64
+78:                                               ; preds = %71
+  %79 = load i32, ptr %65, align 4
+  %80 = sext i32 %79 to i64
   br label %index_getattr.exit.thread
 
-82:                                               ; preds = %72
-  %83 = load i64, ptr %66, align 8
+81:                                               ; preds = %71
+  %82 = load i64, ptr %65, align 8
   br label %index_getattr.exit.thread
 
-84:                                               ; preds = %72
-  %85 = sext i16 %71 to i32
-  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %86)
-  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %85) #7
+83:                                               ; preds = %71
+  %84 = sext i16 %70 to i32
+  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %85)
+  %86 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %84) #7
   tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #7
   unreachable
 
-88:                                               ; preds = %63
-  %89 = ptrtoint ptr %66 to i64
+87:                                               ; preds = %62
+  %88 = ptrtoint ptr %65 to i64
   br label %index_getattr.exit.thread
 
-90:                                               ; preds = %59
-  %91 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %56) #7
+89:                                               ; preds = %58
+  %90 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %55) #7
   br label %index_getattr.exit.thread
 
-92:                                               ; preds = %50
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val19.i15 = load i8, ptr %93, align 1
-  %94 = and i8 %.val19.i15, 2
-  %.not.i20.i16 = icmp eq i8 %94, 0
-  br i1 %.not.i20.i16, label %.index_getattr.exit_crit_edge, label %97
+91:                                               ; preds = %50
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val19.i15 = load i8, ptr %92, align 1
+  %93 = and i8 %.val19.i15, 2
+  %.not.i20.i16 = icmp eq i8 %93, 0
+  br i1 %.not.i20.i16, label %.index_getattr.exit_crit_edge, label %96
 
-.index_getattr.exit_crit_edge:                    ; preds = %92
+.index_getattr.exit_crit_edge:                    ; preds = %91
   %.pre = load i8, ptr %4, align 8, !range !4
-  %95 = trunc nuw i8 %.pre to i1
-  %96 = select i1 %95, i64 0, i64 2
+  %94 = trunc nuw i8 %.pre to i1
+  %95 = select i1 %94, i64 0, i64 2
   br label %index_getattr.exit
 
-97:                                               ; preds = %92
-  %98 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %56) #7
+96:                                               ; preds = %91
+  %97 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %55) #7
   br label %index_getattr.exit.thread
 
 index_getattr.exit:                               ; preds = %.index_getattr.exit_crit_edge, %45
-  %99 = phi i64 [ 0, %45 ], [ %96, %.index_getattr.exit_crit_edge ]
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %99
-  %102 = load i8, ptr %101, align 1
+  %98 = phi i64 [ 0, %45 ], [ %95, %.index_getattr.exit_crit_edge ]
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %98
+  %101 = load i8, ptr %100, align 1
   br label %index_getattr.exit.thread
 
-index_getattr.exit.thread:                        ; preds = %90, %88, %82, %79, %76, %73, %97, %43, %41, %35, %32, %29, %26, %48, %index_getattr.exit
-  %.021 = phi i64 [ 0, %index_getattr.exit ], [ %89, %88 ], [ %83, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %91, %90 ], [ %98, %97 ], [ %42, %41 ], [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %44, %43 ], [ %49, %48 ]
-  %storemerge = phi i8 [ %102, %index_getattr.exit ], [ 0, %88 ], [ 0, %82 ], [ 0, %79 ], [ 0, %76 ], [ 0, %73 ], [ 0, %90 ], [ 0, %97 ], [ 0, %41 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %43 ], [ 0, %48 ]
+index_getattr.exit.thread:                        ; preds = %89, %87, %81, %78, %75, %72, %96, %43, %41, %35, %32, %29, %26, %48, %index_getattr.exit
+  %.021 = phi i64 [ 0, %index_getattr.exit ], [ %88, %87 ], [ %82, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %90, %89 ], [ %97, %96 ], [ %42, %41 ], [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %44, %43 ], [ %49, %48 ]
+  %storemerge = phi i8 [ %101, %index_getattr.exit ], [ 0, %87 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %89 ], [ 0, %96 ], [ 0, %41 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %43 ], [ 0, %48 ]
   store i8 %storemerge, ptr %2, align 1
   ret i64 %.021
 }
@@ -845,9 +844,9 @@ define dso_local i32 @ginCompareEntries(ptr noundef %0, i16 noundef zeroext %1, 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %13 = zext i16 %1 to i64
   %14 = add nsw i64 %13, -1
-  %15 = getelementptr inbounds [32 x %struct.FmgrInfo], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds %struct.FmgrInfo, ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 9528
-  %17 = getelementptr inbounds [32 x i32], ptr %16, i64 0, i64 %14
+  %17 = getelementptr inbounds i32, ptr %16, i64 %14
   %18 = load i32, ptr %17, align 4
   %19 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %15, i32 noundef %18, i64 noundef %2, i64 noundef %4) #7
   %20 = trunc i64 %19 to i32
@@ -887,9 +886,9 @@ define dso_local i32 @ginCompareAttEntries(ptr noundef %0, i16 noundef zeroext %
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %18 = zext i16 %1 to i64
   %19 = add nsw i64 %18, -1
-  %20 = getelementptr inbounds [32 x %struct.FmgrInfo], ptr %17, i64 0, i64 %19
+  %20 = getelementptr inbounds %struct.FmgrInfo, ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 9528
-  %22 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 %19
+  %22 = getelementptr inbounds i32, ptr %21, i64 %19
   %23 = load i32, ptr %22, align 4
   %24 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %20, i32 noundef %23, i64 noundef %2, i64 noundef %5) #7
   %25 = trunc i64 %24 to i32
@@ -921,9 +920,9 @@ define dso_local ptr @ginExtractEntries(ptr noundef %0, i16 noundef zeroext %1, 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1816
   %14 = zext i16 %1 to i64
   %15 = add nsw i64 %14, -1
-  %16 = getelementptr inbounds [32 x %struct.FmgrInfo], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds %struct.FmgrInfo, ptr %13, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 9528
-  %18 = getelementptr inbounds [32 x i32], ptr %17, i64 0, i64 %15
+  %18 = getelementptr inbounds i32, ptr %17, i64 %15
   %19 = load i32, ptr %18, align 4
   %20 = ptrtoint ptr %4 to i64
   %21 = ptrtoint ptr %7 to i64
@@ -996,7 +995,7 @@ define dso_local ptr @ginExtractEntries(ptr noundef %0, i16 noundef zeroext %1, 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre109, %.._crit_edge_crit_edge ], [ %54, %.lr.ph ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %57 = getelementptr inbounds [32 x %struct.FmgrInfo], ptr %56, i64 0, i64 %15
+  %57 = getelementptr inbounds %struct.FmgrInfo, ptr %56, i64 %15
   store ptr %57, ptr %8, align 8
   %58 = load i32, ptr %18, align 4
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 8

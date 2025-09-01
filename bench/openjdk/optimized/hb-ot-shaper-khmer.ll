@@ -43,7 +43,7 @@ define internal void @_ZL22collect_features_khmerP21hb_ot_shape_planner_t(ptr no
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [9 x %struct.hb_ot_map_feature_t], ptr @_ZL14khmer_features, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.hb_ot_map_feature_t, ptr @_ZL14khmer_features, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
@@ -58,7 +58,7 @@ define internal void @_ZL22collect_features_khmerP21hb_ot_shape_planner_t(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv16 = phi i64 [ 5, %.lr.ph.preheader ], [ %indvars.iv.next17, %.lr.ph ]
-  %8 = getelementptr inbounds nuw [9 x %struct.hb_ot_map_feature_t], ptr @_ZL14khmer_features, i64 0, i64 %indvars.iv16
+  %8 = getelementptr inbounds nuw %struct.hb_ot_map_feature_t, ptr @_ZL14khmer_features, i64 %indvars.iv16
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4
@@ -112,7 +112,7 @@ define internal noalias noundef ptr @_ZL17data_create_khmerPK18hb_ot_shape_plan_
 
 5:                                                ; preds = %.preheader, %_ZNK11hb_ot_map_t10get_1_maskEj.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNK11hb_ot_map_t10get_1_maskEj.exit ]
-  %6 = getelementptr inbounds nuw [9 x %struct.hb_ot_map_feature_t], ptr @_ZL14khmer_features, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.hb_ot_map_feature_t, ptr @_ZL14khmer_features, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 1
@@ -167,7 +167,7 @@ _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enab
 
 _ZNK11hb_ot_map_t10get_1_maskEj.exit:             ; preds = %27, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i, %10, %5
   %30 = phi i32 [ 0, %5 ], [ %29, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i ], [ 0, %10 ], [ 0, %27 ]
-  %31 = getelementptr inbounds nuw [9 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %30, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
@@ -691,18 +691,18 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %.1137 = phi i32 [ %spec.select173, %146 ], [ 0, %1 ]
   %.1 = phi i32 [ %150, %146 ], [ 0, %1 ]
   %8 = sext i32 %.1154 to i64
-  %9 = getelementptr inbounds [43 x i8], ptr @_ZL42_khmer_syllable_machine_from_state_actions, i64 0, i64 %8
+  %9 = getelementptr inbounds i8, ptr @_ZL42_khmer_syllable_machine_from_state_actions, i64 %8
   %10 = load i8, ptr %9, align 1
   %cond = icmp eq i8 %10, 7
   %spec.select = select i1 %cond, i32 %.1, i32 %.1137
   %11 = shl nsw i32 %.1154, 1
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr @_ZL34_khmer_syllable_machine_trans_keys, i64 %12
-  %14 = getelementptr inbounds [43 x i16], ptr @_ZL37_khmer_syllable_machine_index_offsets, i64 0, i64 %8
+  %14 = getelementptr inbounds i16, ptr @_ZL37_khmer_syllable_machine_index_offsets, i64 %8
   %15 = load i16, ptr %14, align 2
   %16 = sext i16 %15 to i64
   %17 = getelementptr inbounds i8, ptr @_ZL32_khmer_syllable_machine_indicies, i64 %16
-  %18 = getelementptr inbounds [43 x i8], ptr @_ZL33_khmer_syllable_machine_key_spans, i64 0, i64 %8
+  %18 = getelementptr inbounds i8, ptr @_ZL33_khmer_syllable_machine_key_spans, i64 %8
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i64
   %21 = load i8, ptr %13, align 2
@@ -736,7 +736,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %.0140 = phi i64 [ %157, %152 ], [ %34, %30 ]
   %.3139 = phi i32 [ %.0136, %152 ], [ %spec.select, %30 ]
   %.2 = phi i32 [ %5, %152 ], [ %.1, %30 ]
-  %36 = getelementptr inbounds [49 x i8], ptr @_ZL35_khmer_syllable_machine_trans_targs, i64 0, i64 %.0140
+  %36 = getelementptr inbounds i8, ptr @_ZL35_khmer_syllable_machine_trans_targs, i64 %.0140
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %39 = shl nuw i64 1, %.0140
@@ -745,7 +745,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %.not162, label %41, label %146
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds [49 x i8], ptr @_ZL37_khmer_syllable_machine_trans_actions, i64 0, i64 %.0140
+  %42 = getelementptr inbounds i8, ptr @_ZL37_khmer_syllable_machine_trans_actions, i64 %.0140
   %43 = load i8, ptr %42, align 1
   switch i8 %43, label %146 [
     i8 2, label %44
@@ -1018,7 +1018,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %.3144 = phi i32 [ %.2143, %35 ], [ %.2143, %41 ], [ %45, %44 ], [ %47, %._crit_edge203 ], [ %.2, %._crit_edge199 ], [ %.2, %._crit_edge195 ], [ %.2, %._crit_edge191 ], [ %.2143, %._crit_edge187 ], [ %.2143, %._crit_edge183 ], [ %.2143, %116 ], [ %.2143, %._crit_edge179 ], [ %.2143, %._crit_edge ], [ %143, %142 ], [ %145, %144 ]
   %.3 = phi i32 [ %.2, %35 ], [ %.2, %41 ], [ %.2, %44 ], [ %.2, %._crit_edge203 ], [ %58, %._crit_edge199 ], [ %68, %._crit_edge195 ], [ %82, %._crit_edge191 ], [ %93, %._crit_edge187 ], [ %103, %._crit_edge183 ], [ %.2, %116 ], [ %118, %._crit_edge179 ], [ %132, %._crit_edge ], [ %.2, %142 ], [ %.2, %144 ]
   %147 = sext i8 %37 to i64
-  %148 = getelementptr inbounds [43 x i8], ptr @_ZL40_khmer_syllable_machine_to_state_actions, i64 0, i64 %147
+  %148 = getelementptr inbounds i8, ptr @_ZL40_khmer_syllable_machine_to_state_actions, i64 %147
   %149 = load i8, ptr %148, align 1
   %cond1 = icmp eq i8 %149, 6
   %spec.select173 = select i1 %cond1, i32 0, i32 %.3139
@@ -1037,7 +1037,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
 
 152:                                              ; preds = %151
   %153 = sext i32 %.0153 to i64
-  %154 = getelementptr inbounds [43 x i16], ptr @_ZL33_khmer_syllable_machine_eof_trans, i64 0, i64 %153
+  %154 = getelementptr inbounds i16, ptr @_ZL33_khmer_syllable_machine_eof_trans, i64 %153
   %155 = load i16, ptr %154, align 2
   %156 = sext i16 %155 to i64
   %157 = add nsw i64 %156, -1

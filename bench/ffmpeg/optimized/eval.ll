@@ -129,10 +129,10 @@ define double @av_strtod(ptr noundef %0, ptr noundef writeonly captures(address_
   br i1 %or.cond, label %.thread, label %49
 
 .thread:                                          ; preds = %21, %30
-  %32 = phi i8 [ %31, %30 ], [ 31, %21 ]
-  %33 = zext nneg i8 %32 to i64
-  %34 = getelementptr inbounds nuw [54 x %struct.anon], ptr @si_prefixes, i64 0, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %32 = zext nneg i8 %19 to i64
+  %33 = getelementptr %struct.anon, ptr @si_prefixes, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 -1656
+  %35 = getelementptr i8, ptr %33, i64 -1640
   %36 = load i8, ptr %35, align 8, !tbaa !10
   %.not15 = icmp eq i8 %36, 0
   br i1 %.not15, label %thread-pre-split, label %37
@@ -150,7 +150,7 @@ define double @av_strtod(ptr noundef %0, ptr noundef writeonly captures(address_
   br label %thread-pre-split
 
 45:                                               ; preds = %37
-  %46 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %46 = getelementptr i8, ptr %33, i64 -1648
   %47 = load double, ptr %46, align 8, !tbaa !14
   %48 = fmul nsz double %.0, %47
   br label %thread-pre-split
@@ -590,7 +590,7 @@ define internal fastcc range(i32 -22, 1) i32 @expr_count(ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %.lr.ph47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv46, 1
-  %11 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge49, label %.lr.ph47, !llvm.loop !42
@@ -637,7 +637,7 @@ define range(i32 -22, 1) i32 @av_expr_count_func(ptr noundef readonly captures(a
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 4, ptr %7, align 4, !tbaa !44
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %8
+  %9 = getelementptr inbounds i32, ptr %5, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !44
   %11 = tail call fastcc i32 @expr_count(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %10)
   ret i32 %11
@@ -1334,7 +1334,7 @@ split:                                            ; preds = %413, %._crit_edge
 440:                                              ; preds = %438
   %441 = and i32 %.0354415, 255
   %442 = zext nneg i32 %441 to i64
-  %443 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %442
+  %443 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %442
   %444 = load i8, ptr %443, align 1, !tbaa !4
   %445 = uitofp i8 %444 to double
   %446 = fmul nsz double %435, %445
@@ -2118,10 +2118,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_primary(ptr noundef 
   br i1 %or.cond.i, label %.thread.i, label %54
 
 .thread.i:                                        ; preds = %35, %26
-  %37 = phi i8 [ %36, %35 ], [ 31, %26 ]
-  %38 = zext nneg i8 %37 to i64
-  %39 = getelementptr inbounds nuw [54 x %struct.anon], ptr @si_prefixes, i64 0, i64 %38
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %37 = zext nneg i8 %24 to i64
+  %38 = getelementptr %struct.anon, ptr @si_prefixes, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 -1656
+  %40 = getelementptr i8, ptr %38, i64 -1640
   %41 = load i8, ptr %40, align 8, !tbaa !10
   %.not15.i = icmp eq i8 %41, 0
   br i1 %.not15.i, label %thread-pre-split.i, label %42
@@ -2139,7 +2139,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_primary(ptr noundef 
   br label %thread-pre-split.i
 
 50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %51 = getelementptr i8, ptr %38, i64 -1648
   %52 = load double, ptr %51, align 8, !tbaa !14
   %53 = fmul nsz double %.0.i, %52
   br label %thread-pre-split.i
@@ -2252,7 +2252,7 @@ strmatch.exit.thread:                             ; preds = %.lr.ph.i, %strmatch
 
 .critedge:                                        ; preds = %.critedge.preheader, %strmatch.exit168.thread
   %indvars.iv288 = phi i64 [ %indvars.iv.next289, %strmatch.exit168.thread ], [ 0, %.critedge.preheader ]
-  %93 = getelementptr inbounds nuw [4 x %struct.anon.0], ptr @constants, i64 0, i64 %indvars.iv288
+  %93 = getelementptr inbounds nuw %struct.anon.0, ptr @constants, i64 %indvars.iv288
   %94 = load ptr, ptr %93, align 16, !tbaa !65
   %95 = load i8, ptr %94, align 1, !tbaa !4
   %.not26.i156 = icmp eq i8 %95, 0

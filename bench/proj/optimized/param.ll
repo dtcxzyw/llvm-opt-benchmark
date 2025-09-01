@@ -168,7 +168,7 @@ define noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef captures(addres
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %.0
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.0
   %14 = load i8, ptr %13, align 1, !tbaa !3
   switch i8 %14, label %17 [
     i8 61, label %15
@@ -249,7 +249,7 @@ define i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %0, ptr noundef %1, ptr
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %.preheader.i
-  %26 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %.0.i
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.0.i
   %27 = load i8, ptr %26, align 1, !tbaa !3
   switch i8 %27, label %30 [
     i8 61, label %28

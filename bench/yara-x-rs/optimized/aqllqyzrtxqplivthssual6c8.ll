@@ -30652,10 +30652,10 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [66 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc2f12baff0058652E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc2f12baff0058652E", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep1 = getelementptr inbounds nuw [66 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc2f12baff0058652E.1207", i64 0, i64 %7
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc2f12baff0058652E.1207", i64 %7
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   br label %"_ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9ff0eff68397c1c2E.exit"
@@ -48371,9 +48371,9 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$protobuf..enum_or_unknown..EnumOrUn
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i8 %5 to i64
   %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 62)
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8b8d9733a35d6c4fE", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8b8d9733a35d6c4fE", i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep5 = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8b8d9733a35d6c4fE.1208", i64 0, i64 %7
+  %switch.gep5 = getelementptr inbounds ptr, ptr @"switch.table._ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8b8d9733a35d6c4fE.1208", i64 %7
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load6, i64 noundef %switch.load)
   br label %23
@@ -48425,9 +48425,9 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$protobuf..enum_or_unknown..EnumOrUn
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i8 %5 to i64
   %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 62)
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb399e6ae79240338E", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb399e6ae79240338E", i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep5 = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb399e6ae79240338E.1209", i64 0, i64 %7
+  %switch.gep5 = getelementptr inbounds ptr, ptr @"switch.table._ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb399e6ae79240338E.1209", i64 %7
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load6, i64 noundef %switch.load)
   br label %23

@@ -167,7 +167,7 @@ define dso_local void @tso_build_data(ptr noundef readonly captures(none) %0, pt
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %29 = sext i32 %16 to i64
-  %30 = getelementptr [17 x %struct.bio_vec], ptr %28, i64 0, i64 %29
+  %30 = getelementptr %struct.bio_vec, ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   store i32 %32, ptr %7, align 4
@@ -424,7 +424,7 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr noundef captures(none) initi
 144:                                              ; preds = %134
   %145 = getelementptr inbounds nuw i8, ptr %139, i64 48
   %146 = sext i32 %135 to i64
-  %147 = getelementptr [17 x %struct.bio_vec], ptr %145, i64 0, i64 %146
+  %147 = getelementptr %struct.bio_vec, ptr %145, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load i32, ptr %148, align 8
   store i32 %149, ptr %128, align 4

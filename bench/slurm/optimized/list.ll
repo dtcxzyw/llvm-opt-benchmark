@@ -122,7 +122,7 @@ define dso_local noundef ptr @list_create(ptr noundef %0) #0 {
 17:                                               ; preds = %12, %17
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw [0 x %struct.listNode], ptr %14, i64 0, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw %struct.listNode, ptr %14, i64 %indvars.iv.next
   %19 = shl nuw nsw i64 %indvars.iv, 4
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -346,7 +346,7 @@ define dso_local noundef ptr @list_shallow_copy(ptr noundef %0) #0 {
 15:                                               ; preds = %15, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %15 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds nuw [0 x %struct.listNode], ptr %13, i64 0, i64 %indvars.iv.next.i
+  %16 = getelementptr inbounds nuw %struct.listNode, ptr %13, i64 %indvars.iv.next.i
   %17 = shl nuw nsw i64 %indvars.iv.i, 4
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8

@@ -8311,7 +8311,7 @@ define hidden void @_ZN3smt9theory_pb4ineq7to_exprERNS_7contextER11ast_manager(p
   %7 = load i32, ptr %6, align 8, !tbaa !11
   %8 = and i32 %7, 1
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %5, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %5, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i8, ptr %11, align 4, !tbaa !647, !range !648, !noundef !649
   %13 = trunc nuw i8 %12 to i1
@@ -9299,7 +9299,7 @@ _ZN3smt9theory_pb10init_watchEj.exit:             ; preds = %_ZNK6vectorIN3smt9t
   %26 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %24, i64 %25, i32 2
   %27 = and i32 %1, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x ptr], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !702
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread, label %36
@@ -9309,7 +9309,7 @@ _ZN3smt9theory_pb10init_watchEj.exit:             ; preds = %_ZNK6vectorIN3smt9t
   store ptr null, ptr %32, align 8, !tbaa !704
   %33 = load ptr, ptr %5, align 8, !tbaa !700
   %34 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %33, i64 %25, i32 2
-  %35 = getelementptr inbounds nuw [2 x ptr], ptr %34, i64 0, i64 %28
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %28
   store ptr %32, ptr %35, align 8, !tbaa !702
   br label %44
 
@@ -9801,7 +9801,7 @@ _ZNK6vectorIN3smt9theory_pb8var_infoELb0EjE4sizeEv.exit.i.i: ; preds = %_ZN3smt9
   %26 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %18, i64 %25, i32 2
   %27 = and i32 %.sroa.0.0.copyload.i.i, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x ptr], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !702
   %.not4.i.i = icmp eq ptr %30, null
   br i1 %.not4.i.i, label %_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4cardE.exit.i, label %31
@@ -10250,7 +10250,7 @@ _ZNK6vectorIN3smt9theory_pb8var_infoELb0EjE4sizeEv.exit.i: ; preds = %_ZNK6vecto
   %21 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %13, i64 %20, i32 2
   %22 = and i32 %.sroa.0.0.copyload.i, 1
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !702
   %.not4.i = icmp eq ptr %25, null
   br i1 %.not4.i, label %_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4cardE.exit, label %26
@@ -11524,7 +11524,7 @@ _ZN8rationalC2Ei.exit:                            ; preds = %83
 
 102:                                              ; preds = %.lr.ph250, %_ZN8rationalD2Ev.exit
   %indvars.iv258 = phi i64 [ 0, %.lr.ph250 ], [ %indvars.iv.next259, %_ZN8rationalD2Ev.exit ]
-  %103 = getelementptr inbounds nuw [0 x ptr], ptr %97, i64 0, i64 %indvars.iv258
+  %103 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv258
   %104 = load ptr, ptr %103, align 8, !tbaa !102
   %.not.i.i.i.i153 = icmp eq ptr %104, null
   br i1 %.not.i.i.i.i153, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %105
@@ -12307,7 +12307,7 @@ _ZN8rationalD2Ev.exit197:                         ; preds = %.noexc.i196
 
 428:                                              ; preds = %.lr.ph, %_ZN8rationalD2Ev.exit209
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit209 ]
-  %429 = getelementptr inbounds nuw [0 x ptr], ptr %408, i64 0, i64 %indvars.iv
+  %429 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv
   %430 = load ptr, ptr %429, align 8, !tbaa !102
   %431 = invoke i32 @_ZN3smt9theory_pb11compile_argEP4expr(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef %430)
           to label %432 unwind label %442
@@ -12882,7 +12882,7 @@ _ZN3smt9theory_pb12get_literalsEv.exit:           ; preds = %680, %677
   %685 = load i32, ptr %655, align 4, !tbaa !11
   %686 = and i32 %685, 1
   %687 = zext nneg i32 %686 to i64
-  %688 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %635, i64 0, i64 %687
+  %688 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %635, i64 %687
   %689 = load ptr, ptr %688, align 8, !tbaa !3
   %690 = icmp eq ptr %689, null
   br i1 %690, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit
@@ -12968,7 +12968,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %.critedge, %700
   %729 = load i32, ptr %655, align 4, !tbaa !11
   %730 = and i32 %729, 1
   %731 = zext nneg i32 %730 to i64
-  %732 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %635, i64 0, i64 %731
+  %732 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %635, i64 %731
   %733 = load ptr, ptr %732, align 8, !tbaa !3
   %734 = getelementptr inbounds nuw %"struct.std::pair", ptr %733, i64 %indvars.iv255
   %.sroa.0.0.copyload.i229 = load i32, ptr %734, align 8, !tbaa !9
@@ -12981,7 +12981,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %.critedge, %700
   %737 = load i32, ptr %655, align 4, !tbaa !11
   %738 = and i32 %737, 1
   %739 = zext nneg i32 %738 to i64
-  %740 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %635, i64 0, i64 %739
+  %740 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %635, i64 %739
   %741 = load ptr, ptr %740, align 8, !tbaa !3
   %742 = icmp eq ptr %741, null
   br i1 %742, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, !llvm.loop !771
@@ -14097,7 +14097,7 @@ define hidden void @_ZN3smt9theory_pb15init_watch_ineqERNS0_4ineqE(ptr nonnull r
   %19 = load i32, ptr %18, align 8, !tbaa !11
   %20 = and i32 %19, 1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit
@@ -14122,7 +14122,7 @@ _ZNK3smt9theory_pb4ineq4sizeEv.exit:              ; preds = %2, %30
   %33 = load i32, ptr %18, align 8, !tbaa !11
   %34 = and i32 %33, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !3
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, !llvm.loop !780
@@ -14306,7 +14306,7 @@ _ZNK6vectorIPN3smt9theory_pb4ineqELb0EjE4sizeEv.exit.thread: ; preds = %._ZNK6ve
   %28 = load i32, ptr %27, align 8, !tbaa !11
   %29 = and i32 %28, 1
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %26, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %26, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = zext i32 %4 to i64
   %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %32, i64 %33, i32 1
@@ -14337,7 +14337,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEEaSERK3mpz.exit: ; preds = %39, %41
   %47 = load i32, ptr %27, align 8, !tbaa !11
   %48 = and i32 %47, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %26, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %26, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw %"struct.std::pair", ptr %51, i64 %33
   %53 = add i32 %44, -1
@@ -14469,7 +14469,7 @@ _ZeqRK15_scoped_numeralI11mpz_managerILb0EEES4_.exit: ; preds = %134
   %138 = load i32, ptr %27, align 8, !tbaa !11
   %139 = and i32 %138, 1
   %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %26, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %26, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !3
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 12
@@ -14559,7 +14559,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEEaSERK3mpz.exit39: ; preds = %152, %148
   %187 = load i32, ptr %27, align 8, !tbaa !11
   %188 = and i32 %187, 1
   %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %26, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %26, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !3
   %192 = getelementptr inbounds nuw %"struct.std::pair", ptr %191, i64 %indvars.iv, i32 1
   %193 = load ptr, ptr %6, align 8, !tbaa !640
@@ -14597,7 +14597,7 @@ _ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit._crit_edge: ; preds = %_
 
 209:                                              ; preds = %_ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit._crit_edge, %202
   %.pre-phi53 = phi i64 [ %.pre52, %_ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit._crit_edge ], [ %189, %202 ]
-  %210 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %26, i64 0, i64 %.pre-phi53
+  %210 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %26, i64 %.pre-phi53
   %211 = load ptr, ptr %210, align 8, !tbaa !3
   %212 = getelementptr inbounds nuw %"struct.std::pair", ptr %211, i64 %indvars.iv, i32 1
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
@@ -14672,7 +14672,7 @@ define hidden void @_ZN3smt9theory_pb9add_watchERNS0_4ineqEj(ptr noundef nonnull
   %7 = load i32, ptr %6, align 8, !tbaa !11
   %8 = and i32 %7, 1
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %5, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = zext i32 %2 to i64
   %13 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %12
@@ -14720,7 +14720,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEEpLERK3mpz.exit: ; preds = %_ZN15_scoped
   %33 = load i32, ptr %6, align 8, !tbaa !11
   %34 = and i32 %33, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %5, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw %"struct.std::pair", ptr %37, i64 %12
   %39 = zext i32 %30 to i64
@@ -14948,7 +14948,7 @@ _ZN3smt9theory_pb10init_watchEj.exit:             ; preds = %_ZNK6vectorIN3smt9t
   %26 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %24, i64 %25
   %27 = and i32 %1, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x ptr], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !786
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread, label %36
@@ -14958,7 +14958,7 @@ _ZN3smt9theory_pb10init_watchEj.exit:             ; preds = %_ZNK6vectorIN3smt9t
   store ptr null, ptr %32, align 8, !tbaa !781
   %33 = load ptr, ptr %5, align 8, !tbaa !700
   %34 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %33, i64 %25
-  %35 = getelementptr inbounds nuw [2 x ptr], ptr %34, i64 0, i64 %28
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %28
   store ptr %32, ptr %35, align 8, !tbaa !786
   br label %44
 
@@ -15017,7 +15017,7 @@ _ZNK6vectorIN3smt9theory_pb8var_infoELb0EjE4sizeEv.exit: ; preds = %3
   %12 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %6, i64 %11
   %13 = and i32 %1, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !786
   %.not4 = icmp eq ptr %16, null
   br i1 %.not4, label %_ZN3smt9theory_pb6removeER10ptr_vectorINS0_4ineqEEPS2_.exit, label %17
@@ -15490,7 +15490,7 @@ _ZNK6vectorIN3smt9theory_pb8var_infoELb0EjE4sizeEv.exit: ; preds = %3
   %12 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %5, i64 %11, i32 2
   %13 = and i32 %1, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !702
   %.not4 = icmp eq ptr %16, null
   br i1 %.not4, label %_ZN3smt9theory_pb6removeER10ptr_vectorINS0_4cardEEPS2_.exit, label %17
@@ -16311,7 +16311,7 @@ _ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit: ; preds = %.invoke
 
 .lr.ph261:                                        ; preds = %.lr.ph261.preheader, %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit166
   %indvars.iv = phi i64 [ 2, %.lr.ph261.preheader ], [ %indvars.iv.next, %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit166 ]
-  %258 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %212, i64 0, i64 %indvars.iv
+  %258 = getelementptr inbounds nuw %"class.sat::literal", ptr %212, i64 %indvars.iv
   %.sroa.035.0.copyload = load i32, ptr %258, align 4, !tbaa !9
   %259 = lshr i32 %.sroa.035.0.copyload, 1
   %260 = load ptr, ptr %28, align 8, !tbaa !675
@@ -17435,7 +17435,7 @@ _ZN3smt9theory_pb10init_watchEj.exit:             ; preds = %_ZNK6vectorIN3smt9t
   %30 = zext i32 %1 to i64
   %31 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %29, i64 %30
   %32 = zext i1 %2 to i64
-  %33 = getelementptr inbounds nuw [2 x ptr], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !786
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %.critedge, label %.preheader72
@@ -17492,7 +17492,7 @@ _ZNK6vectorIPN3smt9theory_pb4ineqELb0EjE4sizeEv.exit: ; preds = %.preheader72, %
 56:                                               ; preds = %55, %.critedge
   %57 = phi ptr [ %.pre90, %55 ], [ %47, %.critedge ]
   %58 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %57, i64 %30, i32 2
-  %59 = getelementptr inbounds nuw [2 x ptr], ptr %58, i64 0, i64 %32
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %32
   %60 = load ptr, ptr %59, align 8, !tbaa !702
   %.not61 = icmp eq ptr %60, null
   br i1 %.not61, label %_ZNK6vectorIPN3smt9theory_pb4cardELb0EjE5emptyEv.exit.thread, label %61
@@ -17658,7 +17658,7 @@ define hidden noundef zeroext i1 @_ZN3smt9theory_pb15assign_watch_geEjbR10ptr_ve
   %19 = load i32, ptr %18, align 4, !tbaa !11
   %20 = and i32 %19, 1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   br label %24
 
@@ -17733,7 +17733,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEEaSERK3mpz.exit: ; preds = %45
   %55 = load i32, ptr %18, align 4, !tbaa !11
   %56 = and i32 %55, 1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw %"struct.std::pair", ptr %59, i64 %25, i32 1
   %61 = load ptr, ptr %6, align 8, !tbaa !640
@@ -17802,7 +17802,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %_ZltRK15_scoped_n
   %91 = load i32, ptr %18, align 8, !tbaa !11
   %92 = and i32 %91, 1
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !3
   %96 = icmp eq ptr %95, null
   br i1 %96, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.lr.ph
@@ -17946,7 +17946,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit98: ; preds = %_ZltRK15_scoped
   %160 = load i32, ptr %18, align 4, !tbaa !11
   %161 = and i32 %160, 1
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !3
   %165 = icmp eq ptr %164, null
   br i1 %165, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, !llvm.loop !827
@@ -17986,7 +17986,7 @@ _ZN3smt9theory_pb12get_literalsEv.exit.i:         ; preds = %175, %172
   %177 = load i32, ptr %18, align 4, !tbaa !11
   %178 = and i32 %177, 1
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !3
   %182 = icmp eq ptr %181, null
   br i1 %182, label %_ZN3smt9theory_pb22get_unhelpful_literalsERNS0_4ineqEb.exit, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.lr.ph.i
@@ -18058,7 +18058,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i: ; preds = %.noexc100, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %218 = and i32 %216, 1
   %219 = zext nneg i32 %218 to i64
-  %220 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %219
   %221 = load ptr, ptr %220, align 8, !tbaa !3
   %222 = icmp eq ptr %221, null
   br i1 %222, label %_ZN3smt9theory_pb22get_unhelpful_literalsERNS0_4ineqEb.exit, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.i, !llvm.loop !828
@@ -18248,7 +18248,7 @@ _ZN3smt9theory_pb12get_literalsEv.exit.i115:      ; preds = %303, %300
   %305 = load i32, ptr %18, align 4, !tbaa !11
   %306 = and i32 %305, 1
   %307 = zext nneg i32 %306 to i64
-  %308 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %307
   %309 = load ptr, ptr %308, align 8, !tbaa !3
   %310 = icmp eq ptr %309, null
   br i1 %310, label %_ZN3smt9theory_pb22get_unhelpful_literalsERNS0_4ineqEb.exit127, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.lr.ph.i116
@@ -18321,7 +18321,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i121: ; preds = %.noexc126,
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i118, 1
   %346 = and i32 %344, 1
   %347 = zext nneg i32 %346 to i64
-  %348 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %347
   %349 = load ptr, ptr %348, align 8, !tbaa !3
   %350 = icmp eq ptr %349, null
   br i1 %350, label %_ZN3smt9theory_pb22get_unhelpful_literalsERNS0_4ineqEb.exit127, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.i117, !llvm.loop !828
@@ -18408,7 +18408,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit136: ; preds = %_ZN15_scoped_n
   %385 = load i32, ptr %18, align 4, !tbaa !11
   %386 = and i32 %385, 1
   %387 = zext nneg i32 %386 to i64
-  %388 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %387
+  %388 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %387
   %389 = load ptr, ptr %388, align 8, !tbaa !3
   %390 = icmp eq ptr %389, null
   br i1 %390, label %.critedge151, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit138.lr.ph
@@ -18536,7 +18536,7 @@ _ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit143._crit_edge: ; preds =
   %445 = phi i32 [ %392, %438 ], [ %.pre163, %_ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit143 ]
   %446 = and i32 %445, 1
   %447 = zext nneg i32 %446 to i64
-  %448 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %447
+  %448 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %447
   %449 = load ptr, ptr %448, align 8, !tbaa !3
   %450 = getelementptr inbounds nuw %"struct.std::pair", ptr %449, i64 %indvars.iv156
   %.sroa.0.0.copyload.i144 = load i32, ptr %450, align 8, !tbaa !9
@@ -18552,7 +18552,7 @@ _ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit143._crit_edge: ; preds =
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %453 = and i32 %452, 1
   %454 = zext nneg i32 %453 to i64
-  %455 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %17, i64 0, i64 %454
+  %455 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %17, i64 %454
   %456 = load ptr, ptr %455, align 8, !tbaa !3
   %457 = icmp eq ptr %456, null
   br i1 %457, label %.critedge151, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit138, !llvm.loop !829
@@ -18851,7 +18851,7 @@ _ZN22_scoped_numeral_vectorI11mpz_managerILb0EEE9push_backERK3mpz.exit80: ; pred
   %145 = load i32, ptr %144, align 8, !tbaa !11
   %146 = and i32 %145, 1
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %143, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %143, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !3
   %150 = icmp eq ptr %149, null
   br i1 %150, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, label %151
@@ -18949,7 +18949,7 @@ _ZNK3smt9theory_pb4ineq4sizeEv.exit:              ; preds = %136, %151
   %193 = load i32, ptr %144, align 8, !tbaa !11
   %194 = and i32 %193, 1
   %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %143, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %143, i64 %195
   %197 = load ptr, ptr %196, align 8, !tbaa !3
   %198 = getelementptr inbounds nuw %"struct.std::pair", ptr %197, i64 %indvars.iv
   %.sroa.0.0.copyload.i101 = load i32, ptr %198, align 8, !tbaa !9
@@ -18985,7 +18985,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEEpLERK3mpz.exit: ; preds = %204
 213:                                              ; preds = %210
   %214 = and i32 %.pre171, 1
   %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %143, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %143, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !3
   %218 = getelementptr inbounds nuw %"struct.std::pair", ptr %217, i64 %indvars.iv, i32 1
   %219 = load ptr, ptr %5, align 8, !tbaa !640
@@ -19022,7 +19022,7 @@ _ZgtRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit._crit_edge: ; preds = %_
   %235 = phi i32 [ %.pre, %_ZgtRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit._crit_edge ], [ %.pre171, %210 ], [ %.pre171, %228 ]
   %236 = and i32 %235, 1
   %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %143, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %143, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !3
   %240 = getelementptr inbounds nuw %"struct.std::pair", ptr %239, i64 %indvars.iv, i32 1
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
@@ -19100,7 +19100,7 @@ _ZN3smt9theory_pb12get_literalsEv.exit.i:         ; preds = %275, %272
   %277 = load i32, ptr %144, align 8, !tbaa !11
   %278 = and i32 %277, 1
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %143, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %143, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !3
   %282 = icmp eq ptr %281, null
   br i1 %282, label %_ZN3smt9theory_pb22get_unhelpful_literalsERNS0_4ineqEb.exit, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.i
@@ -19168,7 +19168,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i: ; preds = %.noexc110, %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %317 = and i32 %315, 1
   %318 = zext nneg i32 %317 to i64
-  %319 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %143, i64 0, i64 %318
+  %319 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %143, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !3
   %321 = icmp eq ptr %320, null
   br i1 %321, label %_ZN3smt9theory_pb22get_unhelpful_literalsERNS0_4ineqEb.exit, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.i, !llvm.loop !828
@@ -19398,7 +19398,7 @@ _ZN3smt9theory_pb12get_literalsEv.exit.i126:      ; preds = %427, %424
   %429 = load i32, ptr %144, align 8, !tbaa !11
   %430 = and i32 %429, 1
   %431 = zext nneg i32 %430 to i64
-  %432 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %143, i64 0, i64 %431
+  %432 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %143, i64 %431
   %433 = load ptr, ptr %432, align 8, !tbaa !3
   %434 = icmp eq ptr %433, null
   br i1 %434, label %_ZN3smt9theory_pb22get_unhelpful_literalsERNS0_4ineqEb.exit138, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.i128
@@ -19467,7 +19467,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i132: ; preds = %.noexc137,
   %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i129, 1
   %469 = and i32 %467, 1
   %470 = zext nneg i32 %469 to i64
-  %471 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %143, i64 0, i64 %470
+  %471 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %143, i64 %470
   %472 = load ptr, ptr %471, align 8, !tbaa !3
   %473 = icmp eq ptr %472, null
   br i1 %473, label %_ZN3smt9theory_pb22get_unhelpful_literalsERNS0_4ineqEb.exit138, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.i128, !llvm.loop !828
@@ -19542,7 +19542,7 @@ _ZN3smt9theory_pb22get_unhelpful_literalsERNS0_4ineqEb.exit138: ; preds = %466, 
   %499 = load i32, ptr %144, align 8, !tbaa !11
   %500 = and i32 %499, 1
   %501 = zext nneg i32 %500 to i64
-  %502 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %143, i64 0, i64 %501
+  %502 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %143, i64 %501
   %503 = load ptr, ptr %502, align 8, !tbaa !3
   %504 = getelementptr inbounds nuw %"struct.std::pair", ptr %503, i64 %indvars.iv166
   %.sroa.0.0.copyload.i145 = load i32, ptr %504, align 8, !tbaa !9
@@ -19625,7 +19625,7 @@ _ZN3smt9theory_pb12get_literalsEv.exit:           ; preds = %3, %6
   %10 = load i32, ptr %9, align 8, !tbaa !11
   %11 = and i32 %10, 1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %8, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %8, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.lr.ph
@@ -19719,7 +19719,7 @@ _ZNK3smt9theory_pb4ineq4sizeEv.exit:              ; preds = %_ZNK3smt9theory_pb4
   %57 = load i32, ptr %9, align 8, !tbaa !11
   %58 = and i32 %57, 1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %8, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %8, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !3
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, !llvm.loop !835
@@ -19791,7 +19791,7 @@ _ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit: ; preds = %34
   %38 = load i32, ptr %10, align 8, !tbaa !11
   %39 = and i32 %38, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %9, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %9, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !3
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit
@@ -19914,7 +19914,7 @@ _ZN3smt9theory_pb12get_literalsEv.exit:           ; preds = %3, %6
   %10 = load i32, ptr %9, align 8, !tbaa !11
   %11 = and i32 %10, 1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %8, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %8, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.lr.ph
@@ -19988,7 +19988,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %36, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = and i32 %50, 1
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %8, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %8, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !3
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, !llvm.loop !828
@@ -20085,7 +20085,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEE5resetEv.exit24.preheader: ; preds = %_
   %19 = load i32, ptr %16, align 8, !tbaa !11
   %20 = and i32 %19, 1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %15, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %15, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit
@@ -20214,7 +20214,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEEpLERK3mpz.exit: ; preds = %_ZN15_scoped
   %85 = load i32, ptr %16, align 8, !tbaa !11
   %86 = and i32 %85, 1
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %15, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %15, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !3
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, !llvm.loop !837
@@ -21049,7 +21049,7 @@ _ZNK6vectorIN3smt9theory_pb8var_infoELb0EjE4sizeEv.exit.i.i: ; preds = %_ZN3smt9
   %74 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %23, i64 %73, i32 2
   %75 = and i32 %.sroa.0.0.copyload.i.i, 1
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [2 x ptr], ptr %74, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %74, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !702
   %.not4.i.i = icmp eq ptr %78, null
   br i1 %.not4.i.i, label %_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4cardE.exit.i, label %79
@@ -21474,7 +21474,7 @@ _ZNK6vectorIN3smt9theory_pb8var_infoELb0EjE4sizeEv.exit.i.i: ; preds = %_ZN3smt9
   %95 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %76, i64 %94, i32 2
   %96 = and i32 %.sroa.0.0.copyload.i.i, 1
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw [2 x ptr], ptr %95, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr %95, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !702
   %.not4.i.i = icmp eq ptr %99, null
   br i1 %.not4.i.i, label %_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4cardE.exit.i, label %100
@@ -21622,7 +21622,7 @@ define hidden void @_ZN3smt9theory_pb11clear_watchERNS0_4ineqE(ptr noundef nonnu
   %5 = load i32, ptr %4, align 8, !tbaa !11
   %6 = and i32 %5, 1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %3, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %3, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.lr.ph
@@ -21681,7 +21681,7 @@ _ZNK6vectorIN3smt9theory_pb8var_infoELb0EjE4sizeEv.exit.i: ; preds = %_ZNK3smt9t
   %40 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %.fr17, i64 %39
   %41 = and i32 %.sroa.0.0.copyload.i, 1
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %40, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !786
   %.not4.i = icmp eq ptr %44, null
   br i1 %.not4.i, label %_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4ineqE.exit, label %45
@@ -21730,7 +21730,7 @@ _ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4ineqE.exit: ; preds = %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = and i32 %60, 1
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %3, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %3, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, !llvm.loop !858
@@ -23337,7 +23337,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 74:                                               ; preds = %.lr.ph, %_ZN7obj_refI3app11ast_managerED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
-  %75 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %65, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw %"class.sat::literal", ptr %65, i64 %indvars.iv
   %.sroa.08.0.copyload = load i32, ptr %75, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN3smt9theory_pb12literal2exprEN3sat7literalE(ptr dead_on_unwind nonnull writable sret(%class.obj_ref.81) align 8 %7, ptr noundef nonnull align 8 dereferenceable(968) %1, i32 %.sroa.08.0.copyload)
@@ -25152,7 +25152,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit14: ; preds = %_ZN15_scoped_nu
   %27 = load i32, ptr %15, align 8, !tbaa !11
   %28 = and i32 %27, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %14, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %14, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %31, i64 %indvars.iv, i32 1
   %33 = load ptr, ptr %3, align 8, !tbaa !640
@@ -25163,7 +25163,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit14: ; preds = %_ZN15_scoped_nu
   %35 = load i32, ptr %15, align 8, !tbaa !11
   %36 = and i32 %35, 1
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %14, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %14, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %indvars.iv, i32 1
   %41 = load ptr, ptr %4, align 8, !tbaa !640
@@ -25201,7 +25201,7 @@ _ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit._crit_edge: ; preds = %_
 
 57:                                               ; preds = %_ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit._crit_edge, %50
   %.pre-phi21 = phi i64 [ %.pre20, %_ZltRK15_scoped_numeralI11mpz_managerILb0EEERK3mpz.exit._crit_edge ], [ %37, %50 ]
-  %58 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %14, i64 0, i64 %.pre-phi21
+  %58 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %14, i64 %.pre-phi21
   %59 = load ptr, ptr %58, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw %"struct.std::pair", ptr %59, i64 %indvars.iv, i32 1
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -25570,7 +25570,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %143, %139
   %146 = load i32, ptr %145, align 8, !tbaa !11
   %147 = and i32 %146, 1
   %148 = zext nneg i32 %147 to i64
-  %149 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %144, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %144, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !3
   %151 = icmp eq ptr %150, null
   br i1 %151, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit
@@ -25678,7 +25678,7 @@ _ZN8rationalpLERKS_.exit:                         ; preds = %_ZNK8uint_set8conta
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %191 = and i32 %190, 1
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %144, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %144, i64 %192
   %194 = load ptr, ptr %193, align 8, !tbaa !3
   %195 = icmp eq ptr %194, null
   br i1 %195, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, !llvm.loop !883
@@ -25876,7 +25876,7 @@ _ZN8rationalC2ERKS_.exit21:                       ; preds = %67, %63
   %69 = load i32, ptr %7, align 8, !tbaa !11
   %70 = and i32 %69, 1
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %68, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %68, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !3
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit
@@ -25967,7 +25967,7 @@ _ZN8rationalpLERKS_.exit:                         ; preds = %._ZN8rationalpLERKS
   %104 = phi i32 [ %.pre, %._ZN8rationalpLERKS_.exit_crit_edge ], [ %75, %93 ]
   %105 = and i32 %104, 1
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %68, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %68, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !3
   %109 = getelementptr inbounds nuw %"struct.std::pair", ptr %108, i64 %indvars.iv, i32 1
   %110 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !19
@@ -25983,7 +25983,7 @@ _ZN8rationalpLERKS_.exit27:                       ; preds = %_ZN8rationalpLERKS_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = and i32 %111, 1
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %68, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %68, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !3
   %116 = icmp eq ptr %115, null
   br i1 %116, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, !llvm.loop !884
@@ -26918,7 +26918,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %79 = load i32, ptr %8, align 8, !tbaa !11
   %80 = and i32 %79, 1
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %78, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %78, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !3
   %84 = icmp eq ptr %83, null
   br i1 %84, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit.lr.ph
@@ -27159,7 +27159,7 @@ _ZN3satlsERSoNS_7literalE.exit94:                 ; preds = %166, %168
   %211 = load i32, ptr %8, align 8, !tbaa !11
   %212 = and i32 %211, 1
   %213 = zext nneg i32 %212 to i64
-  %214 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %78, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %78, i64 %213
   %215 = load ptr, ptr %214, align 8, !tbaa !3
   %216 = icmp eq ptr %215, null
   br i1 %216, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit96.thread, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit96
@@ -27180,7 +27180,7 @@ _ZNK3smt9theory_pb4ineq4sizeEv.exit96:            ; preds = %210
 
 _ZNK3smt9theory_pb4ineq4sizeEv.exit96.thread:     ; preds = %210, %221, %_ZNK3smt9theory_pb4ineq4sizeEv.exit96
   %.pre-phi124 = phi i64 [ %213, %210 ], [ %.pre123, %221 ], [ %213, %_ZNK3smt9theory_pb4ineq4sizeEv.exit96 ]
-  %223 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %78, i64 0, i64 %.pre-phi124
+  %223 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %78, i64 %.pre-phi124
   %224 = load ptr, ptr %223, align 8, !tbaa !3
   %225 = icmp eq ptr %224, null
   br i1 %225, label %.critedge, label %_ZNK3smt9theory_pb4ineq4sizeEv.exit, !llvm.loop !887
@@ -27323,7 +27323,7 @@ define hidden noundef ptr @_ZN3smt9theory_pb8mk_valueEPNS_5enodeERNS_15model_gen
   %13 = phi ptr [ null, %.lr.ph ], [ %37, %_ZN3smt9theory_pb19pb_model_value_proc3addEPNS_5enodeE.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3smt9theory_pb19pb_model_value_proc3addEPNS_5enodeE.exit ]
   %14 = load ptr, ptr %10, align 8, !tbaa !675
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !102
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8656
   %18 = load i32, ptr %16, align 4, !tbaa !735
@@ -27378,7 +27378,7 @@ define hidden void @_ZNK3smt9theory_pb13display_watchERSojb(ptr noundef nonnull 
   %7 = zext i32 %2 to i64
   %8 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %6, i64 %7
   %9 = zext i1 %3 to i64
-  %10 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !786
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %53, label %12
@@ -28844,7 +28844,7 @@ _ZNK6vectorIN3smt9theory_pb8var_infoELb0EjE4sizeEv.exit.i: ; preds = %.lr.ph, %_
   %23 = load i32, ptr %22, align 4, !tbaa !11
   %24 = and i32 %23, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %21, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.smt::theory_pb::arg_t", ptr %21, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw %"struct.std::pair", ptr %27, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 8, !tbaa !9
@@ -28858,7 +28858,7 @@ _ZNK6vectorIN3smt9theory_pb8var_infoELb0EjE4sizeEv.exit.i: ; preds = %.lr.ph, %_
   %33 = getelementptr inbounds nuw %"struct.smt::theory_pb::var_info", ptr %9, i64 %32
   %34 = and i32 %.sroa.0.0.copyload.i, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [2 x ptr], ptr %33, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !786
   %.not4.i = icmp eq ptr %37, null
   br i1 %.not4.i, label %_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4ineqE.exit, label %38

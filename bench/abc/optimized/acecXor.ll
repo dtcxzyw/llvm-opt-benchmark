@@ -2921,7 +2921,7 @@ Vec_WrdStart.exit.i:                              ; preds = %13, %1
   br i1 %exitcond72.not.i, label %..loopexit28_crit_edge.us.us.i, label %34, !llvm.loop !95
 
 .preheader.us.us.i:                               ; preds = %.lr.ph34.split.us.split.us.i
-  %36 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73.i
+  %36 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73.i
   %37 = load i32, ptr %36, align 4, !tbaa !30
   br label %34
 

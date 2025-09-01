@@ -763,7 +763,7 @@ define internal fastcc void @"_ZN4core3ptr115drop_in_place$LT$$u5b$alloc_stdlib.
 
 2:                                                ; preds = %1, %"_ZN4core3ptr94drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli..enc..compat..Compat16x16$GT$$GT$17h21ff83b8e3b5a31cE.exit"
   %.08 = phi i64 [ 0, %1 ], [ %4, %"_ZN4core3ptr94drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli..enc..compat..Compat16x16$GT$$GT$17h21ff83b8e3b5a31cE.exit" ]
-  %3 = getelementptr inbounds nuw [4 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %0, i64 0, i64 %.08
+  %3 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} } }, ptr %0, i64 %.08
   %4 = add nuw nsw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
@@ -1118,7 +1118,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$14choose_
   br i1 %62, label %condstore.split, label %77, !prof !278
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.7.036
   store i8 0, ptr %68, align 1
   br label %85
 
@@ -1127,7 +1127,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$14choose_
   unreachable
 
 condstore.split:                                  ; preds = %66
-  %70 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.7.036
   %71 = icmp eq i64 %.0.sroa.speculated.i25, %36
   %spec.store.select = select i1 %71, i8 7, i8 4
   store i8 %spec.store.select, ptr %70, align 1
@@ -1143,7 +1143,7 @@ condstore.split:                                  ; preds = %66
   unreachable
 
 78:                                               ; preds = %63
-  %79 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.7.036
   store i8 3, ptr %79, align 1
   br label %85
 
@@ -1152,7 +1152,7 @@ condstore.split:                                  ; preds = %66
   unreachable
 
 81:                                               ; preds = %57
-  %82 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.7.036
   store i8 2, ptr %82, align 1
   br label %85
 
@@ -1172,7 +1172,7 @@ condstore.split:                                  ; preds = %66
   br i1 %87, label %91, label %95
 
 88:                                               ; preds = %51
-  %89 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.7.036
   store i8 1, ptr %89, align 1
   br label %85
 
@@ -1181,7 +1181,7 @@ condstore.split:                                  ; preds = %66
   unreachable
 
 91:                                               ; preds = %85
-  %92 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %.sroa.7.036
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.7.036
   store i8 %.039, ptr %92, align 1
   br label %93
 
@@ -1193,7 +1193,7 @@ condstore.split:                                  ; preds = %66
 
 95:                                               ; preds = %85
   %96 = zext nneg i8 %86 to i64
-  %97 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i32, ptr %3, i64 %96
   %98 = load i32, ptr %97, align 4, !noundef !12
   %99 = add i32 %98, 1
   store i32 %99, ptr %97, align 4
@@ -1240,7 +1240,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$16update_
   %38 = zext i8 %37 to i64
   %39 = sub i64 %2, %38
   %40 = and i64 %39, 7
-  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %40
   %42 = load i8, ptr %41, align 1, !noundef !12
   %43 = lshr i8 %42, 4
   %44 = zext nneg i8 %43 to i64
@@ -1257,547 +1257,544 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$16update_
   %.val2401 = load i64, ptr %53, align 8, !noundef !12
   %54 = mul i64 %4, 17
   %55 = icmp ult i64 %54, %.val2401
-  br i1 %55, label %56, label %191, !prof !278
+  br i1 %55, label %56, label %190, !prof !278
 
 56:                                               ; preds = %6
-  %57 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2400, i64 0, i64 %54
-  %58 = getelementptr inbounds nuw [0 x i16], ptr %57, i64 0, i64 %49
+  %57 = getelementptr inbounds { [16 x i16] }, ptr %.val2400, i64 %54
+  %58 = getelementptr inbounds nuw i16, ptr %57, i64 %49
   %59 = load i16, ptr %58, align 2, !noalias !280, !noundef !12
   %60 = icmp ult i8 %5, 16
   br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit, label %61
 
 61:                                               ; preds = %56
-  %62 = add nsw i64 %49, -1
-  %63 = getelementptr inbounds nuw [0 x i16], ptr %57, i64 0, i64 %62
-  %64 = load i16, ptr %63, align 2, !noalias !280, !noundef !12
-  %65 = sub i16 %59, %64
+  %62 = getelementptr i8, ptr %58, i64 -2
+  %63 = load i16, ptr %62, align 2, !noalias !280, !noundef !12
+  %64 = sub i16 %59, %63
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit
 
 _ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit: ; preds = %56, %61
-  %.0.i = phi i16 [ %59, %56 ], [ %65, %61 ]
-  %66 = zext i16 %.0.i to i64
-  %67 = getelementptr inbounds nuw i8, ptr %57, i64 30
-  %68 = load i16, ptr %67, align 2, !noalias !280, !noundef !12
-  %69 = zext i16 %68 to i64
-  %70 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %69
-  %71 = load float, ptr %70, align 4, !noalias !280, !noundef !12
-  %72 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %66
-  %73 = load float, ptr %72, align 4, !noalias !280, !noundef !12
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %75 = load i16, ptr %74, align 4, !noundef !12
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 278
-  %77 = load i16, ptr %76, align 2, !noundef !12
+  %.0.i = phi i16 [ %59, %56 ], [ %64, %61 ]
+  %65 = zext i16 %.0.i to i64
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 30
+  %67 = load i16, ptr %66, align 2, !noalias !280, !noundef !12
+  %68 = zext i16 %67 to i64
+  %69 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %68
+  %70 = load float, ptr %69, align 4, !noalias !280, !noundef !12
+  %71 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %65
+  %72 = load float, ptr %71, align 4, !noalias !280, !noundef !12
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %74 = load i16, ptr %73, align 4, !noundef !12
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 278
+  %76 = load i16, ptr %75, align 2, !noundef !12
   %.sroa.0.i.sroa.0.0.copyload = load <15 x i16>, ptr %57, align 2, !noalias !283
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !283
-  br label %78
+  br label %77
 
-78:                                               ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit, %78
-  %79 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit ], [ %81, %78 ]
-  %80 = getelementptr inbounds nuw [16 x i16], ptr %34, i64 0, i64 %79
-  store i16 %75, ptr %80, align 2, !noalias !283
-  %81 = add nuw nsw i64 %79, 1
-  %exitcond.not = icmp eq i64 %81, 16
-  br i1 %exitcond.not, label %82, label %78
+77:                                               ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit, %77
+  %78 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit ], [ %80, %77 ]
+  %79 = getelementptr inbounds nuw i16, ptr %34, i64 %78
+  store i16 %74, ptr %79, align 2, !noalias !283
+  %80 = add nuw nsw i64 %78, 1
+  %exitcond.not = icmp eq i64 %80, 16
+  br i1 %exitcond.not, label %81, label %77
 
-82:                                               ; preds = %78
-  %83 = load <16 x i16>, ptr %34, align 2, !noalias !283
+81:                                               ; preds = %77
+  %82 = load <16 x i16>, ptr %34, align 2, !noalias !283
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !283
-  %84 = zext nneg i8 %47 to i16
+  %83 = zext nneg i8 %47 to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !283
-  br label %85
+  br label %84
 
-85:                                               ; preds = %82, %85
-  %86 = phi i64 [ 0, %82 ], [ %88, %85 ]
-  %87 = getelementptr inbounds nuw [16 x i16], ptr %33, i64 0, i64 %86
-  store i16 %84, ptr %87, align 2, !noalias !283
-  %88 = add nuw nsw i64 %86, 1
-  %exitcond3331.not = icmp eq i64 %88, 16
-  br i1 %exitcond3331.not, label %89, label %85
+84:                                               ; preds = %81, %84
+  %85 = phi i64 [ 0, %81 ], [ %87, %84 ]
+  %86 = getelementptr inbounds nuw i16, ptr %33, i64 %85
+  store i16 %83, ptr %86, align 2, !noalias !283
+  %87 = add nuw nsw i64 %85, 1
+  %exitcond3331.not = icmp eq i64 %87, 16
+  br i1 %exitcond3331.not, label %88, label %84
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %91 = load <16 x i16>, ptr %33, align 2, !noalias !283
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %90 = load <16 x i16>, ptr %33, align 2, !noalias !283
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !283
-  %.sroa.02456.0.vec.extract = extractelement <16 x i16> %91, i64 0
-  %.sroa.02456.2.vec.extract = extractelement <16 x i16> %91, i64 1
-  %92 = icmp slt i16 %.sroa.02456.2.vec.extract, 2
-  %.sroa.02456.4.vec.extract = extractelement <16 x i16> %91, i64 2
-  %93 = icmp slt i16 %.sroa.02456.4.vec.extract, 3
-  %.sroa.02456.6.vec.extract = extractelement <16 x i16> %91, i64 3
-  %94 = icmp slt i16 %.sroa.02456.6.vec.extract, 4
-  %.sroa.02456.8.vec.extract = extractelement <16 x i16> %91, i64 4
-  %95 = icmp slt i16 %.sroa.02456.8.vec.extract, 5
-  %.sroa.02456.10.vec.extract = extractelement <16 x i16> %91, i64 5
-  %96 = icmp slt i16 %.sroa.02456.10.vec.extract, 6
-  %.sroa.02456.12.vec.extract = extractelement <16 x i16> %91, i64 6
-  %97 = icmp slt i16 %.sroa.02456.12.vec.extract, 7
-  %.sroa.02456.14.vec.extract = extractelement <16 x i16> %91, i64 7
-  %98 = icmp slt i16 %.sroa.02456.14.vec.extract, 8
-  %.sroa.02456.16.vec.extract = extractelement <16 x i16> %91, i64 8
-  %99 = icmp slt i16 %.sroa.02456.16.vec.extract, 9
-  %.sroa.02456.18.vec.extract = extractelement <16 x i16> %91, i64 9
-  %100 = icmp slt i16 %.sroa.02456.18.vec.extract, 10
-  %.sroa.02456.20.vec.extract = extractelement <16 x i16> %91, i64 10
-  %101 = icmp slt i16 %.sroa.02456.20.vec.extract, 11
-  %.sroa.02456.22.vec.extract = extractelement <16 x i16> %91, i64 11
-  %102 = icmp slt i16 %.sroa.02456.22.vec.extract, 12
-  %.sroa.02456.24.vec.extract = extractelement <16 x i16> %91, i64 12
-  %103 = icmp slt i16 %.sroa.02456.24.vec.extract, 13
-  %.sroa.02456.26.vec.extract = extractelement <16 x i16> %91, i64 13
-  %104 = icmp slt i16 %.sroa.02456.26.vec.extract, 14
-  %.sroa.02456.28.vec.extract = extractelement <16 x i16> %91, i64 14
-  %105 = icmp slt i16 %.sroa.02456.28.vec.extract, 15
-  %.sroa.02456.30.vec.extract = extractelement <16 x i16> %91, i64 15
-  %106 = icmp slt i16 %.sroa.02456.30.vec.extract, 16
-  %.sroa.0.0.vec.extract = extractelement <16 x i16> %83, i64 0
+  %.sroa.02456.0.vec.extract = extractelement <16 x i16> %90, i64 0
+  %.sroa.02456.2.vec.extract = extractelement <16 x i16> %90, i64 1
+  %91 = icmp slt i16 %.sroa.02456.2.vec.extract, 2
+  %.sroa.02456.4.vec.extract = extractelement <16 x i16> %90, i64 2
+  %92 = icmp slt i16 %.sroa.02456.4.vec.extract, 3
+  %.sroa.02456.6.vec.extract = extractelement <16 x i16> %90, i64 3
+  %93 = icmp slt i16 %.sroa.02456.6.vec.extract, 4
+  %.sroa.02456.8.vec.extract = extractelement <16 x i16> %90, i64 4
+  %94 = icmp slt i16 %.sroa.02456.8.vec.extract, 5
+  %.sroa.02456.10.vec.extract = extractelement <16 x i16> %90, i64 5
+  %95 = icmp slt i16 %.sroa.02456.10.vec.extract, 6
+  %.sroa.02456.12.vec.extract = extractelement <16 x i16> %90, i64 6
+  %96 = icmp slt i16 %.sroa.02456.12.vec.extract, 7
+  %.sroa.02456.14.vec.extract = extractelement <16 x i16> %90, i64 7
+  %97 = icmp slt i16 %.sroa.02456.14.vec.extract, 8
+  %.sroa.02456.16.vec.extract = extractelement <16 x i16> %90, i64 8
+  %98 = icmp slt i16 %.sroa.02456.16.vec.extract, 9
+  %.sroa.02456.18.vec.extract = extractelement <16 x i16> %90, i64 9
+  %99 = icmp slt i16 %.sroa.02456.18.vec.extract, 10
+  %.sroa.02456.20.vec.extract = extractelement <16 x i16> %90, i64 10
+  %100 = icmp slt i16 %.sroa.02456.20.vec.extract, 11
+  %.sroa.02456.22.vec.extract = extractelement <16 x i16> %90, i64 11
+  %101 = icmp slt i16 %.sroa.02456.22.vec.extract, 12
+  %.sroa.02456.24.vec.extract = extractelement <16 x i16> %90, i64 12
+  %102 = icmp slt i16 %.sroa.02456.24.vec.extract, 13
+  %.sroa.02456.26.vec.extract = extractelement <16 x i16> %90, i64 13
+  %103 = icmp slt i16 %.sroa.02456.26.vec.extract, 14
+  %.sroa.02456.28.vec.extract = extractelement <16 x i16> %90, i64 14
+  %104 = icmp slt i16 %.sroa.02456.28.vec.extract, 15
+  %.sroa.02456.30.vec.extract = extractelement <16 x i16> %90, i64 15
+  %105 = icmp slt i16 %.sroa.02456.30.vec.extract, 16
+  %.sroa.0.0.vec.extract = extractelement <16 x i16> %82, i64 0
   %.inv = icmp sgt i16 %.sroa.02456.0.vec.extract, 0
-  %107 = select i1 %.inv, i16 0, i16 %.sroa.0.0.vec.extract
-  %.sroa.0.2.vec.extract = extractelement <16 x i16> %83, i64 1
-  %108 = select i1 %92, i16 %.sroa.0.2.vec.extract, i16 0
-  %.sroa.0.4.vec.extract = extractelement <16 x i16> %83, i64 2
-  %109 = select i1 %93, i16 %.sroa.0.4.vec.extract, i16 0
-  %.sroa.0.6.vec.extract = extractelement <16 x i16> %83, i64 3
-  %110 = select i1 %94, i16 %.sroa.0.6.vec.extract, i16 0
-  %.sroa.0.8.vec.extract = extractelement <16 x i16> %83, i64 4
-  %111 = select i1 %95, i16 %.sroa.0.8.vec.extract, i16 0
-  %.sroa.0.10.vec.extract = extractelement <16 x i16> %83, i64 5
-  %112 = select i1 %96, i16 %.sroa.0.10.vec.extract, i16 0
-  %.sroa.0.12.vec.extract = extractelement <16 x i16> %83, i64 6
-  %113 = select i1 %97, i16 %.sroa.0.12.vec.extract, i16 0
-  %.sroa.0.14.vec.extract = extractelement <16 x i16> %83, i64 7
-  %114 = select i1 %98, i16 %.sroa.0.14.vec.extract, i16 0
-  %.sroa.0.16.vec.extract = extractelement <16 x i16> %83, i64 8
-  %115 = select i1 %99, i16 %.sroa.0.16.vec.extract, i16 0
-  %.sroa.0.18.vec.extract = extractelement <16 x i16> %83, i64 9
-  %116 = select i1 %100, i16 %.sroa.0.18.vec.extract, i16 0
-  %.sroa.0.20.vec.extract = extractelement <16 x i16> %83, i64 10
-  %117 = select i1 %101, i16 %.sroa.0.20.vec.extract, i16 0
-  %.sroa.0.22.vec.extract = extractelement <16 x i16> %83, i64 11
-  %118 = select i1 %102, i16 %.sroa.0.22.vec.extract, i16 0
-  %.sroa.0.24.vec.extract = extractelement <16 x i16> %83, i64 12
-  %119 = select i1 %103, i16 %.sroa.0.24.vec.extract, i16 0
-  %.sroa.0.26.vec.extract = extractelement <16 x i16> %83, i64 13
-  %120 = select i1 %104, i16 %.sroa.0.26.vec.extract, i16 0
-  %.sroa.0.28.vec.extract = extractelement <16 x i16> %83, i64 14
-  %121 = select i1 %105, i16 %.sroa.0.28.vec.extract, i16 0
-  %.sroa.0.30.vec.extract = extractelement <16 x i16> %83, i64 15
-  %122 = select i1 %106, i16 %.sroa.0.30.vec.extract, i16 0
+  %106 = select i1 %.inv, i16 0, i16 %.sroa.0.0.vec.extract
+  %.sroa.0.2.vec.extract = extractelement <16 x i16> %82, i64 1
+  %107 = select i1 %91, i16 %.sroa.0.2.vec.extract, i16 0
+  %.sroa.0.4.vec.extract = extractelement <16 x i16> %82, i64 2
+  %108 = select i1 %92, i16 %.sroa.0.4.vec.extract, i16 0
+  %.sroa.0.6.vec.extract = extractelement <16 x i16> %82, i64 3
+  %109 = select i1 %93, i16 %.sroa.0.6.vec.extract, i16 0
+  %.sroa.0.8.vec.extract = extractelement <16 x i16> %82, i64 4
+  %110 = select i1 %94, i16 %.sroa.0.8.vec.extract, i16 0
+  %.sroa.0.10.vec.extract = extractelement <16 x i16> %82, i64 5
+  %111 = select i1 %95, i16 %.sroa.0.10.vec.extract, i16 0
+  %.sroa.0.12.vec.extract = extractelement <16 x i16> %82, i64 6
+  %112 = select i1 %96, i16 %.sroa.0.12.vec.extract, i16 0
+  %.sroa.0.14.vec.extract = extractelement <16 x i16> %82, i64 7
+  %113 = select i1 %97, i16 %.sroa.0.14.vec.extract, i16 0
+  %.sroa.0.16.vec.extract = extractelement <16 x i16> %82, i64 8
+  %114 = select i1 %98, i16 %.sroa.0.16.vec.extract, i16 0
+  %.sroa.0.18.vec.extract = extractelement <16 x i16> %82, i64 9
+  %115 = select i1 %99, i16 %.sroa.0.18.vec.extract, i16 0
+  %.sroa.0.20.vec.extract = extractelement <16 x i16> %82, i64 10
+  %116 = select i1 %100, i16 %.sroa.0.20.vec.extract, i16 0
+  %.sroa.0.22.vec.extract = extractelement <16 x i16> %82, i64 11
+  %117 = select i1 %101, i16 %.sroa.0.22.vec.extract, i16 0
+  %.sroa.0.24.vec.extract = extractelement <16 x i16> %82, i64 12
+  %118 = select i1 %102, i16 %.sroa.0.24.vec.extract, i16 0
+  %.sroa.0.26.vec.extract = extractelement <16 x i16> %82, i64 13
+  %119 = select i1 %103, i16 %.sroa.0.26.vec.extract, i16 0
+  %.sroa.0.28.vec.extract = extractelement <16 x i16> %82, i64 14
+  %120 = select i1 %104, i16 %.sroa.0.28.vec.extract, i16 0
+  %.sroa.0.30.vec.extract = extractelement <16 x i16> %82, i64 15
+  %121 = select i1 %105, i16 %.sroa.0.30.vec.extract, i16 0
   %.sroa.02463.0.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 0
-  %123 = add i16 %107, %.sroa.02463.0.vec.extract
+  %122 = add i16 %106, %.sroa.02463.0.vec.extract
   %.sroa.02463.2.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 1
-  %124 = add i16 %108, %.sroa.02463.2.vec.extract
+  %123 = add i16 %107, %.sroa.02463.2.vec.extract
   %.sroa.02463.4.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 2
-  %125 = add i16 %109, %.sroa.02463.4.vec.extract
+  %124 = add i16 %108, %.sroa.02463.4.vec.extract
   %.sroa.02463.6.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 3
-  %126 = add i16 %110, %.sroa.02463.6.vec.extract
+  %125 = add i16 %109, %.sroa.02463.6.vec.extract
   %.sroa.02463.8.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 4
-  %127 = add i16 %111, %.sroa.02463.8.vec.extract
+  %126 = add i16 %110, %.sroa.02463.8.vec.extract
   %.sroa.02463.10.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 5
-  %128 = add i16 %112, %.sroa.02463.10.vec.extract
+  %127 = add i16 %111, %.sroa.02463.10.vec.extract
   %.sroa.02463.12.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 6
-  %129 = add i16 %113, %.sroa.02463.12.vec.extract
+  %128 = add i16 %112, %.sroa.02463.12.vec.extract
   %.sroa.02463.14.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 7
-  %130 = add i16 %114, %.sroa.02463.14.vec.extract
+  %129 = add i16 %113, %.sroa.02463.14.vec.extract
   %.sroa.02463.16.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 8
-  %131 = add i16 %115, %.sroa.02463.16.vec.extract
+  %130 = add i16 %114, %.sroa.02463.16.vec.extract
   %.sroa.02463.18.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 9
-  %132 = add i16 %116, %.sroa.02463.18.vec.extract
+  %131 = add i16 %115, %.sroa.02463.18.vec.extract
   %.sroa.02463.20.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 10
-  %133 = add i16 %117, %.sroa.02463.20.vec.extract
+  %132 = add i16 %116, %.sroa.02463.20.vec.extract
   %.sroa.02463.22.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 11
-  %134 = add i16 %118, %.sroa.02463.22.vec.extract
+  %133 = add i16 %117, %.sroa.02463.22.vec.extract
   %.sroa.02463.24.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 12
-  %135 = add i16 %119, %.sroa.02463.24.vec.extract
+  %134 = add i16 %118, %.sroa.02463.24.vec.extract
   %.sroa.02463.26.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 13
-  %136 = add i16 %120, %.sroa.02463.26.vec.extract
+  %135 = add i16 %119, %.sroa.02463.26.vec.extract
   %.sroa.02463.28.vec.extract = extractelement <15 x i16> %.sroa.0.i.sroa.0.0.copyload, i64 14
-  %137 = add i16 %121, %.sroa.02463.28.vec.extract
-  %138 = add i16 %122, %68
-  %.sroa.0.0.vec.insert.i1587 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %123, i64 0
-  %.sroa.0.2.vec.insert.i1588 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1587, i16 %124, i64 1
-  %.sroa.0.4.vec.insert.i1589 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1588, i16 %125, i64 2
-  %.sroa.0.6.vec.insert.i1590 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1589, i16 %126, i64 3
-  %.sroa.0.8.vec.insert.i1591 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1590, i16 %127, i64 4
-  %.sroa.0.10.vec.insert.i1592 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1591, i16 %128, i64 5
-  %.sroa.0.12.vec.insert.i1593 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1592, i16 %129, i64 6
-  %.sroa.0.14.vec.insert.i1594 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1593, i16 %130, i64 7
-  %.sroa.0.16.vec.insert.i1595 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1594, i16 %131, i64 8
-  %.sroa.0.18.vec.insert.i1596 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1595, i16 %132, i64 9
-  %.sroa.0.20.vec.insert.i1597 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1596, i16 %133, i64 10
-  %.sroa.0.22.vec.insert.i1598 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1597, i16 %134, i64 11
-  %.sroa.0.24.vec.insert.i1599 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1598, i16 %135, i64 12
-  %.sroa.0.26.vec.insert.i1600 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1599, i16 %136, i64 13
-  %.sroa.0.28.vec.insert.i1601 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1600, i16 %137, i64 14
+  %136 = add i16 %120, %.sroa.02463.28.vec.extract
+  %137 = add i16 %121, %67
+  %.sroa.0.0.vec.insert.i1587 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %122, i64 0
+  %.sroa.0.2.vec.insert.i1588 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1587, i16 %123, i64 1
+  %.sroa.0.4.vec.insert.i1589 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1588, i16 %124, i64 2
+  %.sroa.0.6.vec.insert.i1590 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1589, i16 %125, i64 3
+  %.sroa.0.8.vec.insert.i1591 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1590, i16 %126, i64 4
+  %.sroa.0.10.vec.insert.i1592 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1591, i16 %127, i64 5
+  %.sroa.0.12.vec.insert.i1593 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1592, i16 %128, i64 6
+  %.sroa.0.14.vec.insert.i1594 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1593, i16 %129, i64 7
+  %.sroa.0.16.vec.insert.i1595 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1594, i16 %130, i64 8
+  %.sroa.0.18.vec.insert.i1596 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1595, i16 %131, i64 9
+  %.sroa.0.20.vec.insert.i1597 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1596, i16 %132, i64 10
+  %.sroa.0.22.vec.insert.i1598 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1597, i16 %133, i64 11
+  %.sroa.0.24.vec.insert.i1599 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1598, i16 %134, i64 12
+  %.sroa.0.26.vec.insert.i1600 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1599, i16 %135, i64 13
+  %.sroa.0.28.vec.insert.i1601 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1600, i16 %136, i64 14
   %.sroa.02457.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1601, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i = icmp slt i16 %138, %77
-  br i1 %.not.i, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit, label %139
+  %.not.i = icmp slt i16 %137, %76
+  br i1 %.not.i, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit, label %138
 
-139:                                              ; preds = %89
-  %140 = add i16 %123, 1
-  %141 = add i16 %124, 2
-  %142 = add i16 %125, 3
-  %143 = add i16 %126, 4
-  %144 = add i16 %127, 5
-  %145 = add i16 %128, 6
-  %146 = add i16 %129, 7
-  %147 = add i16 %130, 8
-  %148 = add i16 %131, 9
-  %149 = add i16 %132, 10
-  %150 = add i16 %133, 11
-  %151 = add i16 %134, 12
-  %152 = add i16 %135, 13
-  %153 = add i16 %136, 14
-  %154 = add i16 %137, 15
-  %155 = add i16 %138, 16
-  %156 = ashr i16 %154, 2
-  %157 = ashr i16 %153, 2
-  %158 = ashr i16 %152, 2
-  %159 = ashr i16 %151, 2
-  %160 = ashr i16 %150, 2
-  %161 = ashr i16 %149, 2
-  %162 = ashr i16 %148, 2
-  %163 = ashr i16 %147, 2
-  %164 = ashr i16 %146, 2
-  %165 = ashr i16 %145, 2
-  %166 = ashr i16 %144, 2
-  %167 = ashr i16 %143, 2
-  %168 = ashr i16 %142, 2
-  %169 = ashr i16 %141, 2
-  %170 = ashr i16 %140, 2
-  %171 = ashr i16 %155, 2
-  %172 = sub i16 %140, %170
-  %173 = sub i16 %141, %169
-  %174 = sub i16 %142, %168
-  %175 = sub i16 %143, %167
-  %176 = sub i16 %144, %166
-  %177 = sub i16 %145, %165
-  %178 = sub i16 %146, %164
-  %179 = sub i16 %147, %163
-  %180 = sub i16 %148, %162
-  %181 = sub i16 %149, %161
-  %182 = sub i16 %150, %160
-  %183 = sub i16 %151, %159
-  %184 = sub i16 %152, %158
-  %185 = sub i16 %153, %157
-  %186 = sub i16 %154, %156
-  %187 = sub i16 %155, %171
-  %.sroa.0.0.vec.insert.i1843 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %172, i64 0
-  %.sroa.0.2.vec.insert.i1844 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1843, i16 %173, i64 1
-  %.sroa.0.4.vec.insert.i1845 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1844, i16 %174, i64 2
-  %.sroa.0.6.vec.insert.i1846 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1845, i16 %175, i64 3
-  %.sroa.0.8.vec.insert.i1847 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1846, i16 %176, i64 4
-  %.sroa.0.10.vec.insert.i1848 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1847, i16 %177, i64 5
-  %.sroa.0.12.vec.insert.i1849 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1848, i16 %178, i64 6
-  %.sroa.0.14.vec.insert.i1850 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1849, i16 %179, i64 7
-  %.sroa.0.16.vec.insert.i1851 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1850, i16 %180, i64 8
-  %.sroa.0.18.vec.insert.i1852 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1851, i16 %181, i64 9
-  %.sroa.0.20.vec.insert.i1853 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1852, i16 %182, i64 10
-  %.sroa.0.22.vec.insert.i1854 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1853, i16 %183, i64 11
-  %.sroa.0.24.vec.insert.i1855 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1854, i16 %184, i64 12
-  %.sroa.0.26.vec.insert.i1856 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1855, i16 %185, i64 13
-  %.sroa.0.28.vec.insert.i1857 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1856, i16 %186, i64 14
+138:                                              ; preds = %88
+  %139 = add i16 %122, 1
+  %140 = add i16 %123, 2
+  %141 = add i16 %124, 3
+  %142 = add i16 %125, 4
+  %143 = add i16 %126, 5
+  %144 = add i16 %127, 6
+  %145 = add i16 %128, 7
+  %146 = add i16 %129, 8
+  %147 = add i16 %130, 9
+  %148 = add i16 %131, 10
+  %149 = add i16 %132, 11
+  %150 = add i16 %133, 12
+  %151 = add i16 %134, 13
+  %152 = add i16 %135, 14
+  %153 = add i16 %136, 15
+  %154 = add i16 %137, 16
+  %155 = ashr i16 %153, 2
+  %156 = ashr i16 %152, 2
+  %157 = ashr i16 %151, 2
+  %158 = ashr i16 %150, 2
+  %159 = ashr i16 %149, 2
+  %160 = ashr i16 %148, 2
+  %161 = ashr i16 %147, 2
+  %162 = ashr i16 %146, 2
+  %163 = ashr i16 %145, 2
+  %164 = ashr i16 %144, 2
+  %165 = ashr i16 %143, 2
+  %166 = ashr i16 %142, 2
+  %167 = ashr i16 %141, 2
+  %168 = ashr i16 %140, 2
+  %169 = ashr i16 %139, 2
+  %170 = ashr i16 %154, 2
+  %171 = sub i16 %139, %169
+  %172 = sub i16 %140, %168
+  %173 = sub i16 %141, %167
+  %174 = sub i16 %142, %166
+  %175 = sub i16 %143, %165
+  %176 = sub i16 %144, %164
+  %177 = sub i16 %145, %163
+  %178 = sub i16 %146, %162
+  %179 = sub i16 %147, %161
+  %180 = sub i16 %148, %160
+  %181 = sub i16 %149, %159
+  %182 = sub i16 %150, %158
+  %183 = sub i16 %151, %157
+  %184 = sub i16 %152, %156
+  %185 = sub i16 %153, %155
+  %186 = sub i16 %154, %170
+  %.sroa.0.0.vec.insert.i1843 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %171, i64 0
+  %.sroa.0.2.vec.insert.i1844 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1843, i16 %172, i64 1
+  %.sroa.0.4.vec.insert.i1845 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1844, i16 %173, i64 2
+  %.sroa.0.6.vec.insert.i1846 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1845, i16 %174, i64 3
+  %.sroa.0.8.vec.insert.i1847 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1846, i16 %175, i64 4
+  %.sroa.0.10.vec.insert.i1848 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1847, i16 %176, i64 5
+  %.sroa.0.12.vec.insert.i1849 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1848, i16 %177, i64 6
+  %.sroa.0.14.vec.insert.i1850 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1849, i16 %178, i64 7
+  %.sroa.0.16.vec.insert.i1851 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1850, i16 %179, i64 8
+  %.sroa.0.18.vec.insert.i1852 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1851, i16 %180, i64 9
+  %.sroa.0.20.vec.insert.i1853 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1852, i16 %181, i64 10
+  %.sroa.0.22.vec.insert.i1854 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1853, i16 %182, i64 11
+  %.sroa.0.24.vec.insert.i1855 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1854, i16 %183, i64 12
+  %.sroa.0.26.vec.insert.i1856 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1855, i16 %184, i64 13
+  %.sroa.0.28.vec.insert.i1857 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1856, i16 %185, i64 14
   %.sroa.02467.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1857, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit: ; preds = %89, %139
-  %.sroa.0.i.sroa.0.0 = phi <15 x i16> [ %.sroa.02457.0.vec.extract, %89 ], [ %.sroa.02467.0.vec.extract, %139 ]
-  %.sroa.9.0.i = phi i16 [ %138, %89 ], [ %187, %139 ]
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit: ; preds = %88, %138
+  %.sroa.0.i.sroa.0.0 = phi <15 x i16> [ %.sroa.02457.0.vec.extract, %88 ], [ %.sroa.02467.0.vec.extract, %138 ]
+  %.sroa.9.0.i = phi i16 [ %137, %88 ], [ %186, %138 ]
   store <15 x i16> %.sroa.0.i.sroa.0.0, ptr %57, align 2, !noalias !283
-  store i16 %.sroa.9.0.i, ptr %67, align 2, !noalias !283
-  %188 = add nuw i64 %54, 1
-  %189 = add i64 %188, %49
-  %190 = icmp ult i64 %189, %.val2401
-  br i1 %190, label %192, label %328, !prof !278
+  store i16 %.sroa.9.0.i, ptr %66, align 2, !noalias !283
+  %187 = add nuw i64 %54, 1
+  %188 = add i64 %187, %49
+  %189 = icmp ult i64 %188, %.val2401
+  br i1 %189, label %191, label %326, !prof !278
 
-191:                                              ; preds = %6
+190:                                              ; preds = %6
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %54, i64 noundef %.val2401, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-192:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit
-  %193 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2400, i64 0, i64 %189
-  %194 = and i8 %5, 15
-  %195 = zext nneg i8 %194 to i64
-  %196 = getelementptr inbounds nuw [0 x i16], ptr %193, i64 0, i64 %195
-  %197 = load i16, ptr %196, align 2, !noalias !286, !noundef !12
-  %198 = icmp eq i8 %194, 0
-  br i1 %198, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit101, label %199
+191:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit
+  %192 = getelementptr inbounds { [16 x i16] }, ptr %.val2400, i64 %188
+  %193 = and i8 %5, 15
+  %194 = zext nneg i8 %193 to i64
+  %195 = getelementptr inbounds nuw i16, ptr %192, i64 %194
+  %196 = load i16, ptr %195, align 2, !noalias !286, !noundef !12
+  %197 = icmp eq i8 %193, 0
+  br i1 %197, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit101, label %198
 
-199:                                              ; preds = %192
-  %200 = add nsw i64 %195, -1
-  %201 = getelementptr inbounds nuw [0 x i16], ptr %193, i64 0, i64 %200
-  %202 = load i16, ptr %201, align 2, !noalias !286, !noundef !12
-  %203 = sub i16 %197, %202
+198:                                              ; preds = %191
+  %199 = getelementptr i8, ptr %195, i64 -2
+  %200 = load i16, ptr %199, align 2, !noalias !286, !noundef !12
+  %201 = sub i16 %196, %200
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit101
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit101: ; preds = %192, %199
-  %.0.i100 = phi i16 [ %197, %192 ], [ %203, %199 ]
-  %204 = zext i16 %.0.i100 to i64
-  %205 = getelementptr inbounds nuw i8, ptr %193, i64 30
-  %206 = load i16, ptr %205, align 2, !noalias !286, !noundef !12
-  %207 = zext i16 %206 to i64
-  %208 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %207
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit101: ; preds = %191, %198
+  %.0.i100 = phi i16 [ %196, %191 ], [ %201, %198 ]
+  %202 = zext i16 %.0.i100 to i64
+  %203 = getelementptr inbounds nuw i8, ptr %192, i64 30
+  %204 = load i16, ptr %203, align 2, !noalias !286, !noundef !12
+  %205 = zext i16 %204 to i64
+  %206 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %205
+  %207 = load float, ptr %206, align 4, !noalias !286, !noundef !12
+  %208 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %202
   %209 = load float, ptr %208, align 4, !noalias !286, !noundef !12
-  %210 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %204
-  %211 = load float, ptr %210, align 4, !noalias !286, !noundef !12
-  %212 = load i16, ptr %90, align 8, !noundef !12
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 274
-  %214 = load i16, ptr %213, align 2, !noundef !12
-  %.sroa.0.i131.sroa.0.0.copyload = load <15 x i16>, ptr %193, align 2, !noalias !289
+  %210 = load i16, ptr %89, align 8, !noundef !12
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 274
+  %212 = load i16, ptr %211, align 2, !noundef !12
+  %.sroa.0.i131.sroa.0.0.copyload = load <15 x i16>, ptr %192, align 2, !noalias !289
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !289
-  br label %215
+  br label %213
 
-215:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit101, %215
-  %216 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit101 ], [ %218, %215 ]
-  %217 = getelementptr inbounds nuw [16 x i16], ptr %32, i64 0, i64 %216
-  store i16 %212, ptr %217, align 2, !noalias !289
-  %218 = add nuw nsw i64 %216, 1
-  %exitcond3332.not = icmp eq i64 %218, 16
-  br i1 %exitcond3332.not, label %219, label %215
+213:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit101, %213
+  %214 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit101 ], [ %216, %213 ]
+  %215 = getelementptr inbounds nuw i16, ptr %32, i64 %214
+  store i16 %210, ptr %215, align 2, !noalias !289
+  %216 = add nuw nsw i64 %214, 1
+  %exitcond3332.not = icmp eq i64 %216, 16
+  br i1 %exitcond3332.not, label %217, label %213
 
-219:                                              ; preds = %215
-  %220 = load <16 x i16>, ptr %32, align 2, !noalias !289
+217:                                              ; preds = %213
+  %218 = load <16 x i16>, ptr %32, align 2, !noalias !289
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !289
-  %221 = zext nneg i8 %194 to i16
+  %219 = zext nneg i8 %193 to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !289
-  br label %222
+  br label %220
 
-222:                                              ; preds = %219, %222
-  %223 = phi i64 [ 0, %219 ], [ %225, %222 ]
-  %224 = getelementptr inbounds nuw [16 x i16], ptr %31, i64 0, i64 %223
-  store i16 %221, ptr %224, align 2, !noalias !289
-  %225 = add nuw nsw i64 %223, 1
-  %exitcond3333.not = icmp eq i64 %225, 16
-  br i1 %exitcond3333.not, label %226, label %222
+220:                                              ; preds = %217, %220
+  %221 = phi i64 [ 0, %217 ], [ %223, %220 ]
+  %222 = getelementptr inbounds nuw i16, ptr %31, i64 %221
+  store i16 %219, ptr %222, align 2, !noalias !289
+  %223 = add nuw nsw i64 %221, 1
+  %exitcond3333.not = icmp eq i64 %223, 16
+  br i1 %exitcond3333.not, label %224, label %220
 
-226:                                              ; preds = %222
-  %227 = fsub float %209, %211
-  %228 = load <16 x i16>, ptr %31, align 2, !noalias !289
+224:                                              ; preds = %220
+  %225 = fsub float %207, %209
+  %226 = load <16 x i16>, ptr %31, align 2, !noalias !289
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !289
-  %.sroa.02495.0.vec.extract = extractelement <16 x i16> %228, i64 0
-  %.sroa.02495.2.vec.extract = extractelement <16 x i16> %228, i64 1
-  %229 = icmp slt i16 %.sroa.02495.2.vec.extract, 2
-  %.sroa.02495.4.vec.extract = extractelement <16 x i16> %228, i64 2
-  %230 = icmp slt i16 %.sroa.02495.4.vec.extract, 3
-  %.sroa.02495.6.vec.extract = extractelement <16 x i16> %228, i64 3
-  %231 = icmp slt i16 %.sroa.02495.6.vec.extract, 4
-  %.sroa.02495.8.vec.extract = extractelement <16 x i16> %228, i64 4
-  %232 = icmp slt i16 %.sroa.02495.8.vec.extract, 5
-  %.sroa.02495.10.vec.extract = extractelement <16 x i16> %228, i64 5
-  %233 = icmp slt i16 %.sroa.02495.10.vec.extract, 6
-  %.sroa.02495.12.vec.extract = extractelement <16 x i16> %228, i64 6
-  %234 = icmp slt i16 %.sroa.02495.12.vec.extract, 7
-  %.sroa.02495.14.vec.extract = extractelement <16 x i16> %228, i64 7
-  %235 = icmp slt i16 %.sroa.02495.14.vec.extract, 8
-  %.sroa.02495.16.vec.extract = extractelement <16 x i16> %228, i64 8
-  %236 = icmp slt i16 %.sroa.02495.16.vec.extract, 9
-  %.sroa.02495.18.vec.extract = extractelement <16 x i16> %228, i64 9
-  %237 = icmp slt i16 %.sroa.02495.18.vec.extract, 10
-  %.sroa.02495.20.vec.extract = extractelement <16 x i16> %228, i64 10
-  %238 = icmp slt i16 %.sroa.02495.20.vec.extract, 11
-  %.sroa.02495.22.vec.extract = extractelement <16 x i16> %228, i64 11
-  %239 = icmp slt i16 %.sroa.02495.22.vec.extract, 12
-  %.sroa.02495.24.vec.extract = extractelement <16 x i16> %228, i64 12
-  %240 = icmp slt i16 %.sroa.02495.24.vec.extract, 13
-  %.sroa.02495.26.vec.extract = extractelement <16 x i16> %228, i64 13
-  %241 = icmp slt i16 %.sroa.02495.26.vec.extract, 14
-  %.sroa.02495.28.vec.extract = extractelement <16 x i16> %228, i64 14
-  %242 = icmp slt i16 %.sroa.02495.28.vec.extract, 15
-  %.sroa.02495.30.vec.extract = extractelement <16 x i16> %228, i64 15
-  %243 = icmp slt i16 %.sroa.02495.30.vec.extract, 16
-  %.sroa.02476.0.vec.extract = extractelement <16 x i16> %220, i64 0
+  %.sroa.02495.0.vec.extract = extractelement <16 x i16> %226, i64 0
+  %.sroa.02495.2.vec.extract = extractelement <16 x i16> %226, i64 1
+  %227 = icmp slt i16 %.sroa.02495.2.vec.extract, 2
+  %.sroa.02495.4.vec.extract = extractelement <16 x i16> %226, i64 2
+  %228 = icmp slt i16 %.sroa.02495.4.vec.extract, 3
+  %.sroa.02495.6.vec.extract = extractelement <16 x i16> %226, i64 3
+  %229 = icmp slt i16 %.sroa.02495.6.vec.extract, 4
+  %.sroa.02495.8.vec.extract = extractelement <16 x i16> %226, i64 4
+  %230 = icmp slt i16 %.sroa.02495.8.vec.extract, 5
+  %.sroa.02495.10.vec.extract = extractelement <16 x i16> %226, i64 5
+  %231 = icmp slt i16 %.sroa.02495.10.vec.extract, 6
+  %.sroa.02495.12.vec.extract = extractelement <16 x i16> %226, i64 6
+  %232 = icmp slt i16 %.sroa.02495.12.vec.extract, 7
+  %.sroa.02495.14.vec.extract = extractelement <16 x i16> %226, i64 7
+  %233 = icmp slt i16 %.sroa.02495.14.vec.extract, 8
+  %.sroa.02495.16.vec.extract = extractelement <16 x i16> %226, i64 8
+  %234 = icmp slt i16 %.sroa.02495.16.vec.extract, 9
+  %.sroa.02495.18.vec.extract = extractelement <16 x i16> %226, i64 9
+  %235 = icmp slt i16 %.sroa.02495.18.vec.extract, 10
+  %.sroa.02495.20.vec.extract = extractelement <16 x i16> %226, i64 10
+  %236 = icmp slt i16 %.sroa.02495.20.vec.extract, 11
+  %.sroa.02495.22.vec.extract = extractelement <16 x i16> %226, i64 11
+  %237 = icmp slt i16 %.sroa.02495.22.vec.extract, 12
+  %.sroa.02495.24.vec.extract = extractelement <16 x i16> %226, i64 12
+  %238 = icmp slt i16 %.sroa.02495.24.vec.extract, 13
+  %.sroa.02495.26.vec.extract = extractelement <16 x i16> %226, i64 13
+  %239 = icmp slt i16 %.sroa.02495.26.vec.extract, 14
+  %.sroa.02495.28.vec.extract = extractelement <16 x i16> %226, i64 14
+  %240 = icmp slt i16 %.sroa.02495.28.vec.extract, 15
+  %.sroa.02495.30.vec.extract = extractelement <16 x i16> %226, i64 15
+  %241 = icmp slt i16 %.sroa.02495.30.vec.extract, 16
+  %.sroa.02476.0.vec.extract = extractelement <16 x i16> %218, i64 0
   %.inv3316 = icmp sgt i16 %.sroa.02495.0.vec.extract, 0
-  %244 = select i1 %.inv3316, i16 0, i16 %.sroa.02476.0.vec.extract
-  %.sroa.02476.2.vec.extract = extractelement <16 x i16> %220, i64 1
-  %245 = select i1 %229, i16 %.sroa.02476.2.vec.extract, i16 0
-  %.sroa.02476.4.vec.extract = extractelement <16 x i16> %220, i64 2
-  %246 = select i1 %230, i16 %.sroa.02476.4.vec.extract, i16 0
-  %.sroa.02476.6.vec.extract = extractelement <16 x i16> %220, i64 3
-  %247 = select i1 %231, i16 %.sroa.02476.6.vec.extract, i16 0
-  %.sroa.02476.8.vec.extract = extractelement <16 x i16> %220, i64 4
-  %248 = select i1 %232, i16 %.sroa.02476.8.vec.extract, i16 0
-  %.sroa.02476.10.vec.extract = extractelement <16 x i16> %220, i64 5
-  %249 = select i1 %233, i16 %.sroa.02476.10.vec.extract, i16 0
-  %.sroa.02476.12.vec.extract = extractelement <16 x i16> %220, i64 6
-  %250 = select i1 %234, i16 %.sroa.02476.12.vec.extract, i16 0
-  %.sroa.02476.14.vec.extract = extractelement <16 x i16> %220, i64 7
-  %251 = select i1 %235, i16 %.sroa.02476.14.vec.extract, i16 0
-  %.sroa.02476.16.vec.extract = extractelement <16 x i16> %220, i64 8
-  %252 = select i1 %236, i16 %.sroa.02476.16.vec.extract, i16 0
-  %.sroa.02476.18.vec.extract = extractelement <16 x i16> %220, i64 9
-  %253 = select i1 %237, i16 %.sroa.02476.18.vec.extract, i16 0
-  %.sroa.02476.20.vec.extract = extractelement <16 x i16> %220, i64 10
-  %254 = select i1 %238, i16 %.sroa.02476.20.vec.extract, i16 0
-  %.sroa.02476.22.vec.extract = extractelement <16 x i16> %220, i64 11
-  %255 = select i1 %239, i16 %.sroa.02476.22.vec.extract, i16 0
-  %.sroa.02476.24.vec.extract = extractelement <16 x i16> %220, i64 12
-  %256 = select i1 %240, i16 %.sroa.02476.24.vec.extract, i16 0
-  %.sroa.02476.26.vec.extract = extractelement <16 x i16> %220, i64 13
-  %257 = select i1 %241, i16 %.sroa.02476.26.vec.extract, i16 0
-  %.sroa.02476.28.vec.extract = extractelement <16 x i16> %220, i64 14
-  %258 = select i1 %242, i16 %.sroa.02476.28.vec.extract, i16 0
-  %.sroa.02476.30.vec.extract = extractelement <16 x i16> %220, i64 15
-  %259 = select i1 %243, i16 %.sroa.02476.30.vec.extract, i16 0
+  %242 = select i1 %.inv3316, i16 0, i16 %.sroa.02476.0.vec.extract
+  %.sroa.02476.2.vec.extract = extractelement <16 x i16> %218, i64 1
+  %243 = select i1 %227, i16 %.sroa.02476.2.vec.extract, i16 0
+  %.sroa.02476.4.vec.extract = extractelement <16 x i16> %218, i64 2
+  %244 = select i1 %228, i16 %.sroa.02476.4.vec.extract, i16 0
+  %.sroa.02476.6.vec.extract = extractelement <16 x i16> %218, i64 3
+  %245 = select i1 %229, i16 %.sroa.02476.6.vec.extract, i16 0
+  %.sroa.02476.8.vec.extract = extractelement <16 x i16> %218, i64 4
+  %246 = select i1 %230, i16 %.sroa.02476.8.vec.extract, i16 0
+  %.sroa.02476.10.vec.extract = extractelement <16 x i16> %218, i64 5
+  %247 = select i1 %231, i16 %.sroa.02476.10.vec.extract, i16 0
+  %.sroa.02476.12.vec.extract = extractelement <16 x i16> %218, i64 6
+  %248 = select i1 %232, i16 %.sroa.02476.12.vec.extract, i16 0
+  %.sroa.02476.14.vec.extract = extractelement <16 x i16> %218, i64 7
+  %249 = select i1 %233, i16 %.sroa.02476.14.vec.extract, i16 0
+  %.sroa.02476.16.vec.extract = extractelement <16 x i16> %218, i64 8
+  %250 = select i1 %234, i16 %.sroa.02476.16.vec.extract, i16 0
+  %.sroa.02476.18.vec.extract = extractelement <16 x i16> %218, i64 9
+  %251 = select i1 %235, i16 %.sroa.02476.18.vec.extract, i16 0
+  %.sroa.02476.20.vec.extract = extractelement <16 x i16> %218, i64 10
+  %252 = select i1 %236, i16 %.sroa.02476.20.vec.extract, i16 0
+  %.sroa.02476.22.vec.extract = extractelement <16 x i16> %218, i64 11
+  %253 = select i1 %237, i16 %.sroa.02476.22.vec.extract, i16 0
+  %.sroa.02476.24.vec.extract = extractelement <16 x i16> %218, i64 12
+  %254 = select i1 %238, i16 %.sroa.02476.24.vec.extract, i16 0
+  %.sroa.02476.26.vec.extract = extractelement <16 x i16> %218, i64 13
+  %255 = select i1 %239, i16 %.sroa.02476.26.vec.extract, i16 0
+  %.sroa.02476.28.vec.extract = extractelement <16 x i16> %218, i64 14
+  %256 = select i1 %240, i16 %.sroa.02476.28.vec.extract, i16 0
+  %.sroa.02476.30.vec.extract = extractelement <16 x i16> %218, i64 15
+  %257 = select i1 %241, i16 %.sroa.02476.30.vec.extract, i16 0
   %.sroa.02502.0.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 0
-  %260 = add i16 %244, %.sroa.02502.0.vec.extract
+  %258 = add i16 %242, %.sroa.02502.0.vec.extract
   %.sroa.02502.2.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 1
-  %261 = add i16 %245, %.sroa.02502.2.vec.extract
+  %259 = add i16 %243, %.sroa.02502.2.vec.extract
   %.sroa.02502.4.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 2
-  %262 = add i16 %246, %.sroa.02502.4.vec.extract
+  %260 = add i16 %244, %.sroa.02502.4.vec.extract
   %.sroa.02502.6.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 3
-  %263 = add i16 %247, %.sroa.02502.6.vec.extract
+  %261 = add i16 %245, %.sroa.02502.6.vec.extract
   %.sroa.02502.8.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 4
-  %264 = add i16 %248, %.sroa.02502.8.vec.extract
+  %262 = add i16 %246, %.sroa.02502.8.vec.extract
   %.sroa.02502.10.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 5
-  %265 = add i16 %249, %.sroa.02502.10.vec.extract
+  %263 = add i16 %247, %.sroa.02502.10.vec.extract
   %.sroa.02502.12.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 6
-  %266 = add i16 %250, %.sroa.02502.12.vec.extract
+  %264 = add i16 %248, %.sroa.02502.12.vec.extract
   %.sroa.02502.14.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 7
-  %267 = add i16 %251, %.sroa.02502.14.vec.extract
+  %265 = add i16 %249, %.sroa.02502.14.vec.extract
   %.sroa.02502.16.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 8
-  %268 = add i16 %252, %.sroa.02502.16.vec.extract
+  %266 = add i16 %250, %.sroa.02502.16.vec.extract
   %.sroa.02502.18.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 9
-  %269 = add i16 %253, %.sroa.02502.18.vec.extract
+  %267 = add i16 %251, %.sroa.02502.18.vec.extract
   %.sroa.02502.20.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 10
-  %270 = add i16 %254, %.sroa.02502.20.vec.extract
+  %268 = add i16 %252, %.sroa.02502.20.vec.extract
   %.sroa.02502.22.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 11
-  %271 = add i16 %255, %.sroa.02502.22.vec.extract
+  %269 = add i16 %253, %.sroa.02502.22.vec.extract
   %.sroa.02502.24.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 12
-  %272 = add i16 %256, %.sroa.02502.24.vec.extract
+  %270 = add i16 %254, %.sroa.02502.24.vec.extract
   %.sroa.02502.26.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 13
-  %273 = add i16 %257, %.sroa.02502.26.vec.extract
+  %271 = add i16 %255, %.sroa.02502.26.vec.extract
   %.sroa.02502.28.vec.extract = extractelement <15 x i16> %.sroa.0.i131.sroa.0.0.copyload, i64 14
-  %274 = add i16 %258, %.sroa.02502.28.vec.extract
-  %275 = add i16 %259, %206
-  %.sroa.0.0.vec.insert.i1539 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %260, i64 0
-  %.sroa.0.2.vec.insert.i1540 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1539, i16 %261, i64 1
-  %.sroa.0.4.vec.insert.i1541 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1540, i16 %262, i64 2
-  %.sroa.0.6.vec.insert.i1542 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1541, i16 %263, i64 3
-  %.sroa.0.8.vec.insert.i1543 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1542, i16 %264, i64 4
-  %.sroa.0.10.vec.insert.i1544 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1543, i16 %265, i64 5
-  %.sroa.0.12.vec.insert.i1545 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1544, i16 %266, i64 6
-  %.sroa.0.14.vec.insert.i1546 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1545, i16 %267, i64 7
-  %.sroa.0.16.vec.insert.i1547 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1546, i16 %268, i64 8
-  %.sroa.0.18.vec.insert.i1548 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1547, i16 %269, i64 9
-  %.sroa.0.20.vec.insert.i1549 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1548, i16 %270, i64 10
-  %.sroa.0.22.vec.insert.i1550 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1549, i16 %271, i64 11
-  %.sroa.0.24.vec.insert.i1551 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1550, i16 %272, i64 12
-  %.sroa.0.26.vec.insert.i1552 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1551, i16 %273, i64 13
-  %.sroa.0.28.vec.insert.i1553 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1552, i16 %274, i64 14
+  %272 = add i16 %256, %.sroa.02502.28.vec.extract
+  %273 = add i16 %257, %204
+  %.sroa.0.0.vec.insert.i1539 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %258, i64 0
+  %.sroa.0.2.vec.insert.i1540 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1539, i16 %259, i64 1
+  %.sroa.0.4.vec.insert.i1541 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1540, i16 %260, i64 2
+  %.sroa.0.6.vec.insert.i1542 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1541, i16 %261, i64 3
+  %.sroa.0.8.vec.insert.i1543 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1542, i16 %262, i64 4
+  %.sroa.0.10.vec.insert.i1544 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1543, i16 %263, i64 5
+  %.sroa.0.12.vec.insert.i1545 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1544, i16 %264, i64 6
+  %.sroa.0.14.vec.insert.i1546 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1545, i16 %265, i64 7
+  %.sroa.0.16.vec.insert.i1547 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1546, i16 %266, i64 8
+  %.sroa.0.18.vec.insert.i1548 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1547, i16 %267, i64 9
+  %.sroa.0.20.vec.insert.i1549 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1548, i16 %268, i64 10
+  %.sroa.0.22.vec.insert.i1550 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1549, i16 %269, i64 11
+  %.sroa.0.24.vec.insert.i1551 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1550, i16 %270, i64 12
+  %.sroa.0.26.vec.insert.i1552 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1551, i16 %271, i64 13
+  %.sroa.0.28.vec.insert.i1553 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1552, i16 %272, i64 14
   %.sroa.02496.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1553, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i137 = icmp slt i16 %275, %214
-  br i1 %.not.i137, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit144, label %276
+  %.not.i137 = icmp slt i16 %273, %212
+  br i1 %.not.i137, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit144, label %274
 
-276:                                              ; preds = %226
-  %277 = add i16 %260, 1
-  %278 = add i16 %261, 2
-  %279 = add i16 %262, 3
-  %280 = add i16 %263, 4
-  %281 = add i16 %264, 5
-  %282 = add i16 %265, 6
-  %283 = add i16 %266, 7
-  %284 = add i16 %267, 8
-  %285 = add i16 %268, 9
-  %286 = add i16 %269, 10
-  %287 = add i16 %270, 11
-  %288 = add i16 %271, 12
-  %289 = add i16 %272, 13
-  %290 = add i16 %273, 14
-  %291 = add i16 %274, 15
-  %292 = add i16 %275, 16
-  %293 = ashr i16 %291, 2
-  %294 = ashr i16 %290, 2
-  %295 = ashr i16 %289, 2
-  %296 = ashr i16 %288, 2
-  %297 = ashr i16 %287, 2
-  %298 = ashr i16 %286, 2
-  %299 = ashr i16 %285, 2
-  %300 = ashr i16 %284, 2
-  %301 = ashr i16 %283, 2
-  %302 = ashr i16 %282, 2
-  %303 = ashr i16 %281, 2
-  %304 = ashr i16 %280, 2
-  %305 = ashr i16 %279, 2
-  %306 = ashr i16 %278, 2
-  %307 = ashr i16 %277, 2
-  %308 = ashr i16 %292, 2
-  %309 = sub i16 %277, %307
-  %310 = sub i16 %278, %306
-  %311 = sub i16 %279, %305
-  %312 = sub i16 %280, %304
-  %313 = sub i16 %281, %303
-  %314 = sub i16 %282, %302
-  %315 = sub i16 %283, %301
-  %316 = sub i16 %284, %300
-  %317 = sub i16 %285, %299
-  %318 = sub i16 %286, %298
-  %319 = sub i16 %287, %297
-  %320 = sub i16 %288, %296
-  %321 = sub i16 %289, %295
-  %322 = sub i16 %290, %294
-  %323 = sub i16 %291, %293
-  %324 = sub i16 %292, %308
-  %.sroa.0.0.vec.insert.i1827 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %309, i64 0
-  %.sroa.0.2.vec.insert.i1828 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1827, i16 %310, i64 1
-  %.sroa.0.4.vec.insert.i1829 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1828, i16 %311, i64 2
-  %.sroa.0.6.vec.insert.i1830 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1829, i16 %312, i64 3
-  %.sroa.0.8.vec.insert.i1831 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1830, i16 %313, i64 4
-  %.sroa.0.10.vec.insert.i1832 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1831, i16 %314, i64 5
-  %.sroa.0.12.vec.insert.i1833 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1832, i16 %315, i64 6
-  %.sroa.0.14.vec.insert.i1834 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1833, i16 %316, i64 7
-  %.sroa.0.16.vec.insert.i1835 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1834, i16 %317, i64 8
-  %.sroa.0.18.vec.insert.i1836 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1835, i16 %318, i64 9
-  %.sroa.0.20.vec.insert.i1837 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1836, i16 %319, i64 10
-  %.sroa.0.22.vec.insert.i1838 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1837, i16 %320, i64 11
-  %.sroa.0.24.vec.insert.i1839 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1838, i16 %321, i64 12
-  %.sroa.0.26.vec.insert.i1840 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1839, i16 %322, i64 13
-  %.sroa.0.28.vec.insert.i1841 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1840, i16 %323, i64 14
+274:                                              ; preds = %224
+  %275 = add i16 %258, 1
+  %276 = add i16 %259, 2
+  %277 = add i16 %260, 3
+  %278 = add i16 %261, 4
+  %279 = add i16 %262, 5
+  %280 = add i16 %263, 6
+  %281 = add i16 %264, 7
+  %282 = add i16 %265, 8
+  %283 = add i16 %266, 9
+  %284 = add i16 %267, 10
+  %285 = add i16 %268, 11
+  %286 = add i16 %269, 12
+  %287 = add i16 %270, 13
+  %288 = add i16 %271, 14
+  %289 = add i16 %272, 15
+  %290 = add i16 %273, 16
+  %291 = ashr i16 %289, 2
+  %292 = ashr i16 %288, 2
+  %293 = ashr i16 %287, 2
+  %294 = ashr i16 %286, 2
+  %295 = ashr i16 %285, 2
+  %296 = ashr i16 %284, 2
+  %297 = ashr i16 %283, 2
+  %298 = ashr i16 %282, 2
+  %299 = ashr i16 %281, 2
+  %300 = ashr i16 %280, 2
+  %301 = ashr i16 %279, 2
+  %302 = ashr i16 %278, 2
+  %303 = ashr i16 %277, 2
+  %304 = ashr i16 %276, 2
+  %305 = ashr i16 %275, 2
+  %306 = ashr i16 %290, 2
+  %307 = sub i16 %275, %305
+  %308 = sub i16 %276, %304
+  %309 = sub i16 %277, %303
+  %310 = sub i16 %278, %302
+  %311 = sub i16 %279, %301
+  %312 = sub i16 %280, %300
+  %313 = sub i16 %281, %299
+  %314 = sub i16 %282, %298
+  %315 = sub i16 %283, %297
+  %316 = sub i16 %284, %296
+  %317 = sub i16 %285, %295
+  %318 = sub i16 %286, %294
+  %319 = sub i16 %287, %293
+  %320 = sub i16 %288, %292
+  %321 = sub i16 %289, %291
+  %322 = sub i16 %290, %306
+  %.sroa.0.0.vec.insert.i1827 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %307, i64 0
+  %.sroa.0.2.vec.insert.i1828 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1827, i16 %308, i64 1
+  %.sroa.0.4.vec.insert.i1829 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1828, i16 %309, i64 2
+  %.sroa.0.6.vec.insert.i1830 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1829, i16 %310, i64 3
+  %.sroa.0.8.vec.insert.i1831 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1830, i16 %311, i64 4
+  %.sroa.0.10.vec.insert.i1832 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1831, i16 %312, i64 5
+  %.sroa.0.12.vec.insert.i1833 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1832, i16 %313, i64 6
+  %.sroa.0.14.vec.insert.i1834 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1833, i16 %314, i64 7
+  %.sroa.0.16.vec.insert.i1835 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1834, i16 %315, i64 8
+  %.sroa.0.18.vec.insert.i1836 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1835, i16 %316, i64 9
+  %.sroa.0.20.vec.insert.i1837 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1836, i16 %317, i64 10
+  %.sroa.0.22.vec.insert.i1838 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1837, i16 %318, i64 11
+  %.sroa.0.24.vec.insert.i1839 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1838, i16 %319, i64 12
+  %.sroa.0.26.vec.insert.i1840 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1839, i16 %320, i64 13
+  %.sroa.0.28.vec.insert.i1841 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1840, i16 %321, i64 14
   %.sroa.02506.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1841, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit144
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit144: ; preds = %226, %276
-  %.sroa.0.i131.sroa.0.0 = phi <15 x i16> [ %.sroa.02496.0.vec.extract, %226 ], [ %.sroa.02506.0.vec.extract, %276 ]
-  %.sroa.9.0.i142 = phi i16 [ %275, %226 ], [ %324, %276 ]
-  store <15 x i16> %.sroa.0.i131.sroa.0.0, ptr %193, align 2, !noalias !289
-  store i16 %.sroa.9.0.i142, ptr %205, align 2, !noalias !289
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.val2396 = load ptr, ptr %325, align 8, !nonnull !12, !align !279, !noundef !12
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %.val2397 = load i64, ptr %326, align 8, !noundef !12
-  %327 = icmp ult i64 %54, %.val2397
-  br i1 %327, label %329, label %396, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit144: ; preds = %224, %274
+  %.sroa.0.i131.sroa.0.0 = phi <15 x i16> [ %.sroa.02496.0.vec.extract, %224 ], [ %.sroa.02506.0.vec.extract, %274 ]
+  %.sroa.9.0.i142 = phi i16 [ %273, %224 ], [ %322, %274 ]
+  store <15 x i16> %.sroa.0.i131.sroa.0.0, ptr %192, align 2, !noalias !289
+  store i16 %.sroa.9.0.i142, ptr %203, align 2, !noalias !289
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.val2396 = load ptr, ptr %323, align 8, !nonnull !12, !align !279, !noundef !12
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %.val2397 = load i64, ptr %324, align 8, !noundef !12
+  %325 = icmp ult i64 %54, %.val2397
+  br i1 %325, label %327, label %393, !prof !278
 
-328:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %189, i64 noundef %.val2401, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+326:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %188, i64 noundef %.val2401, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-329:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit144
-  %330 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2396, i64 0, i64 %54
-  %331 = getelementptr inbounds nuw [0 x i16], ptr %330, i64 0, i64 %49
-  %332 = load i16, ptr %331, align 2, !noalias !292, !noundef !12
-  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103, label %333
+327:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit144
+  %328 = getelementptr inbounds { [16 x i16] }, ptr %.val2396, i64 %54
+  %329 = getelementptr inbounds nuw i16, ptr %328, i64 %49
+  %330 = load i16, ptr %329, align 2, !noalias !292, !noundef !12
+  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103, label %331
 
-333:                                              ; preds = %329
-  %334 = add nsw i64 %49, -1
-  %335 = getelementptr inbounds nuw [0 x i16], ptr %330, i64 0, i64 %334
-  %336 = load i16, ptr %335, align 2, !noalias !292, !noundef !12
-  %337 = sub i16 %332, %336
+331:                                              ; preds = %327
+  %332 = getelementptr i8, ptr %329, i64 -2
+  %333 = load i16, ptr %332, align 2, !noalias !292, !noundef !12
+  %334 = sub i16 %330, %333
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103: ; preds = %329, %333
-  %.0.i102 = phi i16 [ %332, %329 ], [ %337, %333 ]
-  %338 = zext i16 %.0.i102 to i64
-  %339 = getelementptr inbounds nuw i8, ptr %330, i64 30
-  %340 = load i16, ptr %339, align 2, !noalias !292, !noundef !12
-  %341 = zext i16 %340 to i64
-  %342 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %341
-  %343 = load float, ptr %342, align 4, !noalias !292, !noundef !12
-  %344 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %338
-  %345 = load float, ptr %344, align 4, !noalias !292, !noundef !12
-  %.sroa.0.i146.sroa.0.0.copyload = load <15 x i16>, ptr %330, align 2, !noalias !295
-  %.not.i152 = icmp slt i16 %340, 1024
-  br i1 %.not.i152, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit159, label %346
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103: ; preds = %327, %331
+  %.0.i102 = phi i16 [ %330, %327 ], [ %334, %331 ]
+  %335 = zext i16 %.0.i102 to i64
+  %336 = getelementptr inbounds nuw i8, ptr %328, i64 30
+  %337 = load i16, ptr %336, align 2, !noalias !292, !noundef !12
+  %338 = zext i16 %337 to i64
+  %339 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %338
+  %340 = load float, ptr %339, align 4, !noalias !292, !noundef !12
+  %341 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %335
+  %342 = load float, ptr %341, align 4, !noalias !292, !noundef !12
+  %.sroa.0.i146.sroa.0.0.copyload = load <15 x i16>, ptr %328, align 2, !noalias !295
+  %.not.i152 = icmp slt i16 %337, 1024
+  br i1 %.not.i152, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit159, label %343
 
-346:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103
+343:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103
   %.sroa.02541.0.vec.extract = extractelement <15 x i16> %.sroa.0.i146.sroa.0.0.copyload, i64 0
   %.sroa.02541.2.vec.extract = extractelement <15 x i16> %.sroa.0.i146.sroa.0.0.copyload, i64 1
   %.sroa.02541.4.vec.extract = extractelement <15 x i16> %.sroa.0.i146.sroa.0.0.copyload, i64 2
@@ -1813,113 +1810,112 @@ _ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103: ; preds = %329,
   %.sroa.02541.24.vec.extract = extractelement <15 x i16> %.sroa.0.i146.sroa.0.0.copyload, i64 12
   %.sroa.02541.26.vec.extract = extractelement <15 x i16> %.sroa.0.i146.sroa.0.0.copyload, i64 13
   %.sroa.02541.28.vec.extract = extractelement <15 x i16> %.sroa.0.i146.sroa.0.0.copyload, i64 14
-  %347 = add i16 %.sroa.02541.0.vec.extract, 1
-  %348 = add i16 %.sroa.02541.2.vec.extract, 2
-  %349 = add i16 %.sroa.02541.4.vec.extract, 3
-  %350 = add i16 %.sroa.02541.6.vec.extract, 4
-  %351 = add i16 %.sroa.02541.8.vec.extract, 5
-  %352 = add i16 %.sroa.02541.10.vec.extract, 6
-  %353 = add i16 %.sroa.02541.12.vec.extract, 7
-  %354 = add i16 %.sroa.02541.14.vec.extract, 8
-  %355 = add i16 %.sroa.02541.16.vec.extract, 9
-  %356 = add i16 %.sroa.02541.18.vec.extract, 10
-  %357 = add i16 %.sroa.02541.20.vec.extract, 11
-  %358 = add i16 %.sroa.02541.22.vec.extract, 12
-  %359 = add i16 %.sroa.02541.24.vec.extract, 13
-  %360 = add i16 %.sroa.02541.26.vec.extract, 14
-  %361 = add i16 %.sroa.02541.28.vec.extract, 15
-  %362 = add nuw i16 %340, 16
-  %363 = ashr i16 %361, 2
-  %364 = ashr i16 %360, 2
-  %365 = ashr i16 %359, 2
-  %366 = ashr i16 %358, 2
-  %367 = ashr i16 %357, 2
-  %368 = ashr i16 %356, 2
-  %369 = ashr i16 %355, 2
-  %370 = ashr i16 %354, 2
-  %371 = ashr i16 %353, 2
-  %372 = ashr i16 %352, 2
-  %373 = ashr i16 %351, 2
-  %374 = ashr i16 %350, 2
-  %375 = ashr i16 %349, 2
-  %376 = ashr i16 %348, 2
-  %377 = ashr i16 %347, 2
-  %378 = ashr i16 %362, 2
-  %379 = sub i16 %347, %377
-  %380 = sub i16 %348, %376
-  %381 = sub i16 %349, %375
-  %382 = sub i16 %350, %374
-  %383 = sub i16 %351, %373
-  %384 = sub i16 %352, %372
-  %385 = sub i16 %353, %371
-  %386 = sub i16 %354, %370
-  %387 = sub i16 %355, %369
-  %388 = sub i16 %356, %368
-  %389 = sub i16 %357, %367
-  %390 = sub i16 %358, %366
-  %391 = sub i16 %359, %365
-  %392 = sub i16 %360, %364
-  %393 = sub i16 %361, %363
-  %394 = sub i16 %362, %378
-  %.sroa.0.0.vec.insert.i1811 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %379, i64 0
-  %.sroa.0.2.vec.insert.i1812 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1811, i16 %380, i64 1
-  %.sroa.0.4.vec.insert.i1813 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1812, i16 %381, i64 2
-  %.sroa.0.6.vec.insert.i1814 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1813, i16 %382, i64 3
-  %.sroa.0.8.vec.insert.i1815 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1814, i16 %383, i64 4
-  %.sroa.0.10.vec.insert.i1816 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1815, i16 %384, i64 5
-  %.sroa.0.12.vec.insert.i1817 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1816, i16 %385, i64 6
-  %.sroa.0.14.vec.insert.i1818 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1817, i16 %386, i64 7
-  %.sroa.0.16.vec.insert.i1819 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1818, i16 %387, i64 8
-  %.sroa.0.18.vec.insert.i1820 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1819, i16 %388, i64 9
-  %.sroa.0.20.vec.insert.i1821 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1820, i16 %389, i64 10
-  %.sroa.0.22.vec.insert.i1822 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1821, i16 %390, i64 11
-  %.sroa.0.24.vec.insert.i1823 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1822, i16 %391, i64 12
-  %.sroa.0.26.vec.insert.i1824 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1823, i16 %392, i64 13
-  %.sroa.0.28.vec.insert.i1825 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1824, i16 %393, i64 14
+  %344 = add i16 %.sroa.02541.0.vec.extract, 1
+  %345 = add i16 %.sroa.02541.2.vec.extract, 2
+  %346 = add i16 %.sroa.02541.4.vec.extract, 3
+  %347 = add i16 %.sroa.02541.6.vec.extract, 4
+  %348 = add i16 %.sroa.02541.8.vec.extract, 5
+  %349 = add i16 %.sroa.02541.10.vec.extract, 6
+  %350 = add i16 %.sroa.02541.12.vec.extract, 7
+  %351 = add i16 %.sroa.02541.14.vec.extract, 8
+  %352 = add i16 %.sroa.02541.16.vec.extract, 9
+  %353 = add i16 %.sroa.02541.18.vec.extract, 10
+  %354 = add i16 %.sroa.02541.20.vec.extract, 11
+  %355 = add i16 %.sroa.02541.22.vec.extract, 12
+  %356 = add i16 %.sroa.02541.24.vec.extract, 13
+  %357 = add i16 %.sroa.02541.26.vec.extract, 14
+  %358 = add i16 %.sroa.02541.28.vec.extract, 15
+  %359 = add nuw i16 %337, 16
+  %360 = ashr i16 %358, 2
+  %361 = ashr i16 %357, 2
+  %362 = ashr i16 %356, 2
+  %363 = ashr i16 %355, 2
+  %364 = ashr i16 %354, 2
+  %365 = ashr i16 %353, 2
+  %366 = ashr i16 %352, 2
+  %367 = ashr i16 %351, 2
+  %368 = ashr i16 %350, 2
+  %369 = ashr i16 %349, 2
+  %370 = ashr i16 %348, 2
+  %371 = ashr i16 %347, 2
+  %372 = ashr i16 %346, 2
+  %373 = ashr i16 %345, 2
+  %374 = ashr i16 %344, 2
+  %375 = ashr i16 %359, 2
+  %376 = sub i16 %344, %374
+  %377 = sub i16 %345, %373
+  %378 = sub i16 %346, %372
+  %379 = sub i16 %347, %371
+  %380 = sub i16 %348, %370
+  %381 = sub i16 %349, %369
+  %382 = sub i16 %350, %368
+  %383 = sub i16 %351, %367
+  %384 = sub i16 %352, %366
+  %385 = sub i16 %353, %365
+  %386 = sub i16 %354, %364
+  %387 = sub i16 %355, %363
+  %388 = sub i16 %356, %362
+  %389 = sub i16 %357, %361
+  %390 = sub i16 %358, %360
+  %391 = sub i16 %359, %375
+  %.sroa.0.0.vec.insert.i1811 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %376, i64 0
+  %.sroa.0.2.vec.insert.i1812 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1811, i16 %377, i64 1
+  %.sroa.0.4.vec.insert.i1813 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1812, i16 %378, i64 2
+  %.sroa.0.6.vec.insert.i1814 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1813, i16 %379, i64 3
+  %.sroa.0.8.vec.insert.i1815 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1814, i16 %380, i64 4
+  %.sroa.0.10.vec.insert.i1816 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1815, i16 %381, i64 5
+  %.sroa.0.12.vec.insert.i1817 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1816, i16 %382, i64 6
+  %.sroa.0.14.vec.insert.i1818 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1817, i16 %383, i64 7
+  %.sroa.0.16.vec.insert.i1819 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1818, i16 %384, i64 8
+  %.sroa.0.18.vec.insert.i1820 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1819, i16 %385, i64 9
+  %.sroa.0.20.vec.insert.i1821 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1820, i16 %386, i64 10
+  %.sroa.0.22.vec.insert.i1822 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1821, i16 %387, i64 11
+  %.sroa.0.24.vec.insert.i1823 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1822, i16 %388, i64 12
+  %.sroa.0.26.vec.insert.i1824 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1823, i16 %389, i64 13
+  %.sroa.0.28.vec.insert.i1825 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1824, i16 %390, i64 14
   %.sroa.02545.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1825, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit159
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit159: ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103, %346
-  %.sroa.0.i146.sroa.0.0 = phi <15 x i16> [ %.sroa.0.i146.sroa.0.0.copyload, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103 ], [ %.sroa.02545.0.vec.extract, %346 ]
-  %.sroa.9.0.i157 = phi i16 [ %340, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103 ], [ %394, %346 ]
-  store <15 x i16> %.sroa.0.i146.sroa.0.0, ptr %330, align 2, !noalias !295
-  store i16 %.sroa.9.0.i157, ptr %339, align 2, !noalias !295
-  %395 = icmp ult i64 %189, %.val2397
-  br i1 %395, label %397, label %469, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit159: ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103, %343
+  %.sroa.0.i146.sroa.0.0 = phi <15 x i16> [ %.sroa.0.i146.sroa.0.0.copyload, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103 ], [ %.sroa.02545.0.vec.extract, %343 ]
+  %.sroa.9.0.i157 = phi i16 [ %337, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103 ], [ %391, %343 ]
+  store <15 x i16> %.sroa.0.i146.sroa.0.0, ptr %328, align 2, !noalias !295
+  store i16 %.sroa.9.0.i157, ptr %336, align 2, !noalias !295
+  %392 = icmp ult i64 %188, %.val2397
+  br i1 %392, label %394, label %465, !prof !278
 
-396:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit144
+393:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit144
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %54, i64 noundef %.val2397, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-397:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit159
-  %398 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2396, i64 0, i64 %189
-  %399 = getelementptr inbounds nuw [0 x i16], ptr %398, i64 0, i64 %195
-  %400 = load i16, ptr %399, align 2, !noalias !298, !noundef !12
-  br i1 %198, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105, label %401
+394:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit159
+  %395 = getelementptr inbounds { [16 x i16] }, ptr %.val2396, i64 %188
+  %396 = getelementptr inbounds nuw i16, ptr %395, i64 %194
+  %397 = load i16, ptr %396, align 2, !noalias !298, !noundef !12
+  br i1 %197, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105, label %398
 
-401:                                              ; preds = %397
-  %402 = add nsw i64 %195, -1
-  %403 = getelementptr inbounds nuw [0 x i16], ptr %398, i64 0, i64 %402
-  %404 = load i16, ptr %403, align 2, !noalias !298, !noundef !12
-  %405 = sub i16 %400, %404
+398:                                              ; preds = %394
+  %399 = getelementptr i8, ptr %396, i64 -2
+  %400 = load i16, ptr %399, align 2, !noalias !298, !noundef !12
+  %401 = sub i16 %397, %400
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105: ; preds = %397, %401
-  %.0.i104 = phi i16 [ %400, %397 ], [ %405, %401 ]
-  %406 = getelementptr inbounds nuw i8, ptr %398, i64 30
-  %407 = load i16, ptr %406, align 2, !noalias !298, !noundef !12
-  %.sroa.0.i161.sroa.0.0.copyload = load <15 x i16>, ptr %398, align 2, !noalias !301
-  %408 = zext i16 %.0.i104 to i64
-  %409 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %408
-  %410 = load float, ptr %409, align 4, !noalias !298, !noundef !12
-  %411 = zext i16 %407 to i64
-  %412 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %411
-  %413 = load float, ptr %412, align 4, !noalias !298, !noundef !12
-  %414 = fsub float %413, %410
-  %.not.i167 = icmp slt i16 %407, 1024
-  br i1 %.not.i167, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit174, label %415
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105: ; preds = %394, %398
+  %.0.i104 = phi i16 [ %397, %394 ], [ %401, %398 ]
+  %402 = getelementptr inbounds nuw i8, ptr %395, i64 30
+  %403 = load i16, ptr %402, align 2, !noalias !298, !noundef !12
+  %.sroa.0.i161.sroa.0.0.copyload = load <15 x i16>, ptr %395, align 2, !noalias !301
+  %404 = zext i16 %.0.i104 to i64
+  %405 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %404
+  %406 = load float, ptr %405, align 4, !noalias !298, !noundef !12
+  %407 = zext i16 %403 to i64
+  %408 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %407
+  %409 = load float, ptr %408, align 4, !noalias !298, !noundef !12
+  %410 = fsub float %409, %406
+  %.not.i167 = icmp slt i16 %403, 1024
+  br i1 %.not.i167, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit174, label %411
 
-415:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105
+411:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105
   %.sroa.02580.0.vec.extract = extractelement <15 x i16> %.sroa.0.i161.sroa.0.0.copyload, i64 0
   %.sroa.02580.2.vec.extract = extractelement <15 x i16> %.sroa.0.i161.sroa.0.0.copyload, i64 1
   %.sroa.02580.4.vec.extract = extractelement <15 x i16> %.sroa.0.i161.sroa.0.0.copyload, i64 2
@@ -1935,3204 +1931,3192 @@ _ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105: ; preds = %397,
   %.sroa.02580.24.vec.extract = extractelement <15 x i16> %.sroa.0.i161.sroa.0.0.copyload, i64 12
   %.sroa.02580.26.vec.extract = extractelement <15 x i16> %.sroa.0.i161.sroa.0.0.copyload, i64 13
   %.sroa.02580.28.vec.extract = extractelement <15 x i16> %.sroa.0.i161.sroa.0.0.copyload, i64 14
-  %416 = add i16 %.sroa.02580.0.vec.extract, 1
-  %417 = add i16 %.sroa.02580.2.vec.extract, 2
-  %418 = add i16 %.sroa.02580.4.vec.extract, 3
-  %419 = add i16 %.sroa.02580.6.vec.extract, 4
-  %420 = add i16 %.sroa.02580.8.vec.extract, 5
-  %421 = add i16 %.sroa.02580.10.vec.extract, 6
-  %422 = add i16 %.sroa.02580.12.vec.extract, 7
-  %423 = add i16 %.sroa.02580.14.vec.extract, 8
-  %424 = add i16 %.sroa.02580.16.vec.extract, 9
-  %425 = add i16 %.sroa.02580.18.vec.extract, 10
-  %426 = add i16 %.sroa.02580.20.vec.extract, 11
-  %427 = add i16 %.sroa.02580.22.vec.extract, 12
-  %428 = add i16 %.sroa.02580.24.vec.extract, 13
-  %429 = add i16 %.sroa.02580.26.vec.extract, 14
-  %430 = add i16 %.sroa.02580.28.vec.extract, 15
-  %431 = add nuw i16 %407, 16
-  %432 = ashr i16 %430, 2
-  %433 = ashr i16 %429, 2
-  %434 = ashr i16 %428, 2
-  %435 = ashr i16 %427, 2
-  %436 = ashr i16 %426, 2
-  %437 = ashr i16 %425, 2
-  %438 = ashr i16 %424, 2
-  %439 = ashr i16 %423, 2
-  %440 = ashr i16 %422, 2
-  %441 = ashr i16 %421, 2
-  %442 = ashr i16 %420, 2
-  %443 = ashr i16 %419, 2
-  %444 = ashr i16 %418, 2
-  %445 = ashr i16 %417, 2
-  %446 = ashr i16 %416, 2
-  %447 = ashr i16 %431, 2
-  %448 = sub i16 %416, %446
-  %449 = sub i16 %417, %445
-  %450 = sub i16 %418, %444
-  %451 = sub i16 %419, %443
-  %452 = sub i16 %420, %442
-  %453 = sub i16 %421, %441
-  %454 = sub i16 %422, %440
-  %455 = sub i16 %423, %439
-  %456 = sub i16 %424, %438
-  %457 = sub i16 %425, %437
-  %458 = sub i16 %426, %436
-  %459 = sub i16 %427, %435
-  %460 = sub i16 %428, %434
-  %461 = sub i16 %429, %433
-  %462 = sub i16 %430, %432
-  %463 = sub i16 %431, %447
-  %.sroa.0.0.vec.insert.i1795 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %448, i64 0
-  %.sroa.0.2.vec.insert.i1796 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1795, i16 %449, i64 1
-  %.sroa.0.4.vec.insert.i1797 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1796, i16 %450, i64 2
-  %.sroa.0.6.vec.insert.i1798 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1797, i16 %451, i64 3
-  %.sroa.0.8.vec.insert.i1799 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1798, i16 %452, i64 4
-  %.sroa.0.10.vec.insert.i1800 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1799, i16 %453, i64 5
-  %.sroa.0.12.vec.insert.i1801 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1800, i16 %454, i64 6
-  %.sroa.0.14.vec.insert.i1802 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1801, i16 %455, i64 7
-  %.sroa.0.16.vec.insert.i1803 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1802, i16 %456, i64 8
-  %.sroa.0.18.vec.insert.i1804 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1803, i16 %457, i64 9
-  %.sroa.0.20.vec.insert.i1805 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1804, i16 %458, i64 10
-  %.sroa.0.22.vec.insert.i1806 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1805, i16 %459, i64 11
-  %.sroa.0.24.vec.insert.i1807 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1806, i16 %460, i64 12
-  %.sroa.0.26.vec.insert.i1808 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1807, i16 %461, i64 13
-  %.sroa.0.28.vec.insert.i1809 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1808, i16 %462, i64 14
+  %412 = add i16 %.sroa.02580.0.vec.extract, 1
+  %413 = add i16 %.sroa.02580.2.vec.extract, 2
+  %414 = add i16 %.sroa.02580.4.vec.extract, 3
+  %415 = add i16 %.sroa.02580.6.vec.extract, 4
+  %416 = add i16 %.sroa.02580.8.vec.extract, 5
+  %417 = add i16 %.sroa.02580.10.vec.extract, 6
+  %418 = add i16 %.sroa.02580.12.vec.extract, 7
+  %419 = add i16 %.sroa.02580.14.vec.extract, 8
+  %420 = add i16 %.sroa.02580.16.vec.extract, 9
+  %421 = add i16 %.sroa.02580.18.vec.extract, 10
+  %422 = add i16 %.sroa.02580.20.vec.extract, 11
+  %423 = add i16 %.sroa.02580.22.vec.extract, 12
+  %424 = add i16 %.sroa.02580.24.vec.extract, 13
+  %425 = add i16 %.sroa.02580.26.vec.extract, 14
+  %426 = add i16 %.sroa.02580.28.vec.extract, 15
+  %427 = add nuw i16 %403, 16
+  %428 = ashr i16 %426, 2
+  %429 = ashr i16 %425, 2
+  %430 = ashr i16 %424, 2
+  %431 = ashr i16 %423, 2
+  %432 = ashr i16 %422, 2
+  %433 = ashr i16 %421, 2
+  %434 = ashr i16 %420, 2
+  %435 = ashr i16 %419, 2
+  %436 = ashr i16 %418, 2
+  %437 = ashr i16 %417, 2
+  %438 = ashr i16 %416, 2
+  %439 = ashr i16 %415, 2
+  %440 = ashr i16 %414, 2
+  %441 = ashr i16 %413, 2
+  %442 = ashr i16 %412, 2
+  %443 = ashr i16 %427, 2
+  %444 = sub i16 %412, %442
+  %445 = sub i16 %413, %441
+  %446 = sub i16 %414, %440
+  %447 = sub i16 %415, %439
+  %448 = sub i16 %416, %438
+  %449 = sub i16 %417, %437
+  %450 = sub i16 %418, %436
+  %451 = sub i16 %419, %435
+  %452 = sub i16 %420, %434
+  %453 = sub i16 %421, %433
+  %454 = sub i16 %422, %432
+  %455 = sub i16 %423, %431
+  %456 = sub i16 %424, %430
+  %457 = sub i16 %425, %429
+  %458 = sub i16 %426, %428
+  %459 = sub i16 %427, %443
+  %.sroa.0.0.vec.insert.i1795 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %444, i64 0
+  %.sroa.0.2.vec.insert.i1796 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1795, i16 %445, i64 1
+  %.sroa.0.4.vec.insert.i1797 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1796, i16 %446, i64 2
+  %.sroa.0.6.vec.insert.i1798 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1797, i16 %447, i64 3
+  %.sroa.0.8.vec.insert.i1799 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1798, i16 %448, i64 4
+  %.sroa.0.10.vec.insert.i1800 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1799, i16 %449, i64 5
+  %.sroa.0.12.vec.insert.i1801 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1800, i16 %450, i64 6
+  %.sroa.0.14.vec.insert.i1802 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1801, i16 %451, i64 7
+  %.sroa.0.16.vec.insert.i1803 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1802, i16 %452, i64 8
+  %.sroa.0.18.vec.insert.i1804 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1803, i16 %453, i64 9
+  %.sroa.0.20.vec.insert.i1805 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1804, i16 %454, i64 10
+  %.sroa.0.22.vec.insert.i1806 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1805, i16 %455, i64 11
+  %.sroa.0.24.vec.insert.i1807 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1806, i16 %456, i64 12
+  %.sroa.0.26.vec.insert.i1808 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1807, i16 %457, i64 13
+  %.sroa.0.28.vec.insert.i1809 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1808, i16 %458, i64 14
   %.sroa.02584.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1809, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit174
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit174: ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105, %415
-  %.sroa.0.i161.sroa.0.0 = phi <15 x i16> [ %.sroa.0.i161.sroa.0.0.copyload, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105 ], [ %.sroa.02584.0.vec.extract, %415 ]
-  %.sroa.9.0.i172 = phi i16 [ %407, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105 ], [ %463, %415 ]
-  store <15 x i16> %.sroa.0.i161.sroa.0.0, ptr %398, align 2, !noalias !301
-  store i16 %.sroa.9.0.i172, ptr %406, align 2, !noalias !301
-  %464 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %.val2392 = load ptr, ptr %464, align 8, !nonnull !12, !align !279, !noundef !12
-  %465 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.val2393 = load i64, ptr %465, align 8, !noundef !12
-  %466 = shl i64 %4, 1
-  %467 = or disjoint i64 %466, 1
-  %468 = icmp ult i64 %467, %.val2393
-  br i1 %468, label %470, label %598, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit174: ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105, %411
+  %.sroa.0.i161.sroa.0.0 = phi <15 x i16> [ %.sroa.0.i161.sroa.0.0.copyload, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105 ], [ %.sroa.02584.0.vec.extract, %411 ]
+  %.sroa.9.0.i172 = phi i16 [ %403, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105 ], [ %459, %411 ]
+  store <15 x i16> %.sroa.0.i161.sroa.0.0, ptr %395, align 2, !noalias !301
+  store i16 %.sroa.9.0.i172, ptr %402, align 2, !noalias !301
+  %460 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %.val2392 = load ptr, ptr %460, align 8, !nonnull !12, !align !279, !noundef !12
+  %461 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %.val2393 = load i64, ptr %461, align 8, !noundef !12
+  %462 = shl i64 %4, 1
+  %463 = or disjoint i64 %462, 1
+  %464 = icmp ult i64 %463, %.val2393
+  br i1 %464, label %466, label %593, !prof !278
 
-469:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit159
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %189, i64 noundef %.val2397, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+465:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit159
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %188, i64 noundef %.val2397, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-470:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit174
-  %471 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2392, i64 0, i64 %467
-  %472 = getelementptr inbounds nuw [0 x i16], ptr %471, i64 0, i64 %49
-  %473 = load i16, ptr %472, align 2, !noalias !304, !noundef !12
-  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit107, label %474
+466:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit174
+  %467 = getelementptr inbounds { [16 x i16] }, ptr %.val2392, i64 %463
+  %468 = getelementptr inbounds nuw i16, ptr %467, i64 %49
+  %469 = load i16, ptr %468, align 2, !noalias !304, !noundef !12
+  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit107, label %470
 
-474:                                              ; preds = %470
-  %475 = add nsw i64 %49, -1
-  %476 = getelementptr inbounds nuw [0 x i16], ptr %471, i64 0, i64 %475
-  %477 = load i16, ptr %476, align 2, !noalias !304, !noundef !12
-  %478 = sub i16 %473, %477
+470:                                              ; preds = %466
+  %471 = getelementptr i8, ptr %468, i64 -2
+  %472 = load i16, ptr %471, align 2, !noalias !304, !noundef !12
+  %473 = sub i16 %469, %472
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit107
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit107: ; preds = %470, %474
-  %.0.i106 = phi i16 [ %473, %470 ], [ %478, %474 ]
-  %479 = zext i16 %.0.i106 to i64
-  %480 = getelementptr inbounds nuw i8, ptr %471, i64 30
-  %481 = load i16, ptr %480, align 2, !noalias !304, !noundef !12
-  %482 = zext i16 %481 to i64
-  %483 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %482
-  %484 = load float, ptr %483, align 4, !noalias !304, !noundef !12
-  %485 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %479
-  %486 = load float, ptr %485, align 4, !noalias !304, !noundef !12
-  %.sroa.0.i176.sroa.0.0.copyload = load <15 x i16>, ptr %471, align 2, !noalias !307
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit107: ; preds = %466, %470
+  %.0.i106 = phi i16 [ %469, %466 ], [ %473, %470 ]
+  %474 = zext i16 %.0.i106 to i64
+  %475 = getelementptr inbounds nuw i8, ptr %467, i64 30
+  %476 = load i16, ptr %475, align 2, !noalias !304, !noundef !12
+  %477 = zext i16 %476 to i64
+  %478 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %477
+  %479 = load float, ptr %478, align 4, !noalias !304, !noundef !12
+  %480 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %474
+  %481 = load float, ptr %480, align 4, !noalias !304, !noundef !12
+  %.sroa.0.i176.sroa.0.0.copyload = load <15 x i16>, ptr %467, align 2, !noalias !307
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !307
-  br label %487
+  br label %482
 
-487:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit107, %487
-  %488 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit107 ], [ %490, %487 ]
-  %489 = getelementptr inbounds nuw [16 x i16], ptr %30, i64 0, i64 %488
-  store i16 %212, ptr %489, align 2, !noalias !307
-  %490 = add nuw nsw i64 %488, 1
-  %exitcond3336.not = icmp eq i64 %490, 16
-  br i1 %exitcond3336.not, label %491, label %487
+482:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit107, %482
+  %483 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit107 ], [ %485, %482 ]
+  %484 = getelementptr inbounds nuw i16, ptr %30, i64 %483
+  store i16 %210, ptr %484, align 2, !noalias !307
+  %485 = add nuw nsw i64 %483, 1
+  %exitcond3336.not = icmp eq i64 %485, 16
+  br i1 %exitcond3336.not, label %486, label %482
 
-491:                                              ; preds = %487
-  %492 = load <16 x i16>, ptr %30, align 2, !noalias !307
+486:                                              ; preds = %482
+  %487 = load <16 x i16>, ptr %30, align 2, !noalias !307
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !307
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !307
-  br label %493
+  br label %488
 
-493:                                              ; preds = %491, %493
-  %494 = phi i64 [ 0, %491 ], [ %496, %493 ]
-  %495 = getelementptr inbounds nuw [16 x i16], ptr %29, i64 0, i64 %494
-  store i16 %84, ptr %495, align 2, !noalias !307
-  %496 = add nuw nsw i64 %494, 1
-  %exitcond3337.not = icmp eq i64 %496, 16
-  br i1 %exitcond3337.not, label %497, label %493
+488:                                              ; preds = %486, %488
+  %489 = phi i64 [ 0, %486 ], [ %491, %488 ]
+  %490 = getelementptr inbounds nuw i16, ptr %29, i64 %489
+  store i16 %83, ptr %490, align 2, !noalias !307
+  %491 = add nuw nsw i64 %489, 1
+  %exitcond3337.not = icmp eq i64 %491, 16
+  br i1 %exitcond3337.not, label %492, label %488
 
-497:                                              ; preds = %493
-  %498 = load <16 x i16>, ptr %29, align 2, !noalias !307
+492:                                              ; preds = %488
+  %493 = load <16 x i16>, ptr %29, align 2, !noalias !307
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !307
-  %.sroa.02612.0.vec.extract = extractelement <16 x i16> %498, i64 0
-  %.sroa.02612.2.vec.extract = extractelement <16 x i16> %498, i64 1
-  %499 = icmp slt i16 %.sroa.02612.2.vec.extract, 2
-  %.sroa.02612.4.vec.extract = extractelement <16 x i16> %498, i64 2
-  %500 = icmp slt i16 %.sroa.02612.4.vec.extract, 3
-  %.sroa.02612.6.vec.extract = extractelement <16 x i16> %498, i64 3
-  %501 = icmp slt i16 %.sroa.02612.6.vec.extract, 4
-  %.sroa.02612.8.vec.extract = extractelement <16 x i16> %498, i64 4
-  %502 = icmp slt i16 %.sroa.02612.8.vec.extract, 5
-  %.sroa.02612.10.vec.extract = extractelement <16 x i16> %498, i64 5
-  %503 = icmp slt i16 %.sroa.02612.10.vec.extract, 6
-  %.sroa.02612.12.vec.extract = extractelement <16 x i16> %498, i64 6
-  %504 = icmp slt i16 %.sroa.02612.12.vec.extract, 7
-  %.sroa.02612.14.vec.extract = extractelement <16 x i16> %498, i64 7
-  %505 = icmp slt i16 %.sroa.02612.14.vec.extract, 8
-  %.sroa.02612.16.vec.extract = extractelement <16 x i16> %498, i64 8
-  %506 = icmp slt i16 %.sroa.02612.16.vec.extract, 9
-  %.sroa.02612.18.vec.extract = extractelement <16 x i16> %498, i64 9
-  %507 = icmp slt i16 %.sroa.02612.18.vec.extract, 10
-  %.sroa.02612.20.vec.extract = extractelement <16 x i16> %498, i64 10
-  %508 = icmp slt i16 %.sroa.02612.20.vec.extract, 11
-  %.sroa.02612.22.vec.extract = extractelement <16 x i16> %498, i64 11
-  %509 = icmp slt i16 %.sroa.02612.22.vec.extract, 12
-  %.sroa.02612.24.vec.extract = extractelement <16 x i16> %498, i64 12
-  %510 = icmp slt i16 %.sroa.02612.24.vec.extract, 13
-  %.sroa.02612.26.vec.extract = extractelement <16 x i16> %498, i64 13
-  %511 = icmp slt i16 %.sroa.02612.26.vec.extract, 14
-  %.sroa.02612.28.vec.extract = extractelement <16 x i16> %498, i64 14
-  %512 = icmp slt i16 %.sroa.02612.28.vec.extract, 15
-  %.sroa.02612.30.vec.extract = extractelement <16 x i16> %498, i64 15
-  %513 = icmp slt i16 %.sroa.02612.30.vec.extract, 16
-  %.sroa.02593.0.vec.extract = extractelement <16 x i16> %492, i64 0
+  %.sroa.02612.0.vec.extract = extractelement <16 x i16> %493, i64 0
+  %.sroa.02612.2.vec.extract = extractelement <16 x i16> %493, i64 1
+  %494 = icmp slt i16 %.sroa.02612.2.vec.extract, 2
+  %.sroa.02612.4.vec.extract = extractelement <16 x i16> %493, i64 2
+  %495 = icmp slt i16 %.sroa.02612.4.vec.extract, 3
+  %.sroa.02612.6.vec.extract = extractelement <16 x i16> %493, i64 3
+  %496 = icmp slt i16 %.sroa.02612.6.vec.extract, 4
+  %.sroa.02612.8.vec.extract = extractelement <16 x i16> %493, i64 4
+  %497 = icmp slt i16 %.sroa.02612.8.vec.extract, 5
+  %.sroa.02612.10.vec.extract = extractelement <16 x i16> %493, i64 5
+  %498 = icmp slt i16 %.sroa.02612.10.vec.extract, 6
+  %.sroa.02612.12.vec.extract = extractelement <16 x i16> %493, i64 6
+  %499 = icmp slt i16 %.sroa.02612.12.vec.extract, 7
+  %.sroa.02612.14.vec.extract = extractelement <16 x i16> %493, i64 7
+  %500 = icmp slt i16 %.sroa.02612.14.vec.extract, 8
+  %.sroa.02612.16.vec.extract = extractelement <16 x i16> %493, i64 8
+  %501 = icmp slt i16 %.sroa.02612.16.vec.extract, 9
+  %.sroa.02612.18.vec.extract = extractelement <16 x i16> %493, i64 9
+  %502 = icmp slt i16 %.sroa.02612.18.vec.extract, 10
+  %.sroa.02612.20.vec.extract = extractelement <16 x i16> %493, i64 10
+  %503 = icmp slt i16 %.sroa.02612.20.vec.extract, 11
+  %.sroa.02612.22.vec.extract = extractelement <16 x i16> %493, i64 11
+  %504 = icmp slt i16 %.sroa.02612.22.vec.extract, 12
+  %.sroa.02612.24.vec.extract = extractelement <16 x i16> %493, i64 12
+  %505 = icmp slt i16 %.sroa.02612.24.vec.extract, 13
+  %.sroa.02612.26.vec.extract = extractelement <16 x i16> %493, i64 13
+  %506 = icmp slt i16 %.sroa.02612.26.vec.extract, 14
+  %.sroa.02612.28.vec.extract = extractelement <16 x i16> %493, i64 14
+  %507 = icmp slt i16 %.sroa.02612.28.vec.extract, 15
+  %.sroa.02612.30.vec.extract = extractelement <16 x i16> %493, i64 15
+  %508 = icmp slt i16 %.sroa.02612.30.vec.extract, 16
+  %.sroa.02593.0.vec.extract = extractelement <16 x i16> %487, i64 0
   %.inv3319 = icmp sgt i16 %.sroa.02612.0.vec.extract, 0
-  %514 = select i1 %.inv3319, i16 0, i16 %.sroa.02593.0.vec.extract
-  %.sroa.02593.2.vec.extract = extractelement <16 x i16> %492, i64 1
-  %515 = select i1 %499, i16 %.sroa.02593.2.vec.extract, i16 0
-  %.sroa.02593.4.vec.extract = extractelement <16 x i16> %492, i64 2
-  %516 = select i1 %500, i16 %.sroa.02593.4.vec.extract, i16 0
-  %.sroa.02593.6.vec.extract = extractelement <16 x i16> %492, i64 3
-  %517 = select i1 %501, i16 %.sroa.02593.6.vec.extract, i16 0
-  %.sroa.02593.8.vec.extract = extractelement <16 x i16> %492, i64 4
-  %518 = select i1 %502, i16 %.sroa.02593.8.vec.extract, i16 0
-  %.sroa.02593.10.vec.extract = extractelement <16 x i16> %492, i64 5
-  %519 = select i1 %503, i16 %.sroa.02593.10.vec.extract, i16 0
-  %.sroa.02593.12.vec.extract = extractelement <16 x i16> %492, i64 6
-  %520 = select i1 %504, i16 %.sroa.02593.12.vec.extract, i16 0
-  %.sroa.02593.14.vec.extract = extractelement <16 x i16> %492, i64 7
-  %521 = select i1 %505, i16 %.sroa.02593.14.vec.extract, i16 0
-  %.sroa.02593.16.vec.extract = extractelement <16 x i16> %492, i64 8
-  %522 = select i1 %506, i16 %.sroa.02593.16.vec.extract, i16 0
-  %.sroa.02593.18.vec.extract = extractelement <16 x i16> %492, i64 9
-  %523 = select i1 %507, i16 %.sroa.02593.18.vec.extract, i16 0
-  %.sroa.02593.20.vec.extract = extractelement <16 x i16> %492, i64 10
-  %524 = select i1 %508, i16 %.sroa.02593.20.vec.extract, i16 0
-  %.sroa.02593.22.vec.extract = extractelement <16 x i16> %492, i64 11
-  %525 = select i1 %509, i16 %.sroa.02593.22.vec.extract, i16 0
-  %.sroa.02593.24.vec.extract = extractelement <16 x i16> %492, i64 12
-  %526 = select i1 %510, i16 %.sroa.02593.24.vec.extract, i16 0
-  %.sroa.02593.26.vec.extract = extractelement <16 x i16> %492, i64 13
-  %527 = select i1 %511, i16 %.sroa.02593.26.vec.extract, i16 0
-  %.sroa.02593.28.vec.extract = extractelement <16 x i16> %492, i64 14
-  %528 = select i1 %512, i16 %.sroa.02593.28.vec.extract, i16 0
-  %.sroa.02593.30.vec.extract = extractelement <16 x i16> %492, i64 15
-  %529 = select i1 %513, i16 %.sroa.02593.30.vec.extract, i16 0
+  %509 = select i1 %.inv3319, i16 0, i16 %.sroa.02593.0.vec.extract
+  %.sroa.02593.2.vec.extract = extractelement <16 x i16> %487, i64 1
+  %510 = select i1 %494, i16 %.sroa.02593.2.vec.extract, i16 0
+  %.sroa.02593.4.vec.extract = extractelement <16 x i16> %487, i64 2
+  %511 = select i1 %495, i16 %.sroa.02593.4.vec.extract, i16 0
+  %.sroa.02593.6.vec.extract = extractelement <16 x i16> %487, i64 3
+  %512 = select i1 %496, i16 %.sroa.02593.6.vec.extract, i16 0
+  %.sroa.02593.8.vec.extract = extractelement <16 x i16> %487, i64 4
+  %513 = select i1 %497, i16 %.sroa.02593.8.vec.extract, i16 0
+  %.sroa.02593.10.vec.extract = extractelement <16 x i16> %487, i64 5
+  %514 = select i1 %498, i16 %.sroa.02593.10.vec.extract, i16 0
+  %.sroa.02593.12.vec.extract = extractelement <16 x i16> %487, i64 6
+  %515 = select i1 %499, i16 %.sroa.02593.12.vec.extract, i16 0
+  %.sroa.02593.14.vec.extract = extractelement <16 x i16> %487, i64 7
+  %516 = select i1 %500, i16 %.sroa.02593.14.vec.extract, i16 0
+  %.sroa.02593.16.vec.extract = extractelement <16 x i16> %487, i64 8
+  %517 = select i1 %501, i16 %.sroa.02593.16.vec.extract, i16 0
+  %.sroa.02593.18.vec.extract = extractelement <16 x i16> %487, i64 9
+  %518 = select i1 %502, i16 %.sroa.02593.18.vec.extract, i16 0
+  %.sroa.02593.20.vec.extract = extractelement <16 x i16> %487, i64 10
+  %519 = select i1 %503, i16 %.sroa.02593.20.vec.extract, i16 0
+  %.sroa.02593.22.vec.extract = extractelement <16 x i16> %487, i64 11
+  %520 = select i1 %504, i16 %.sroa.02593.22.vec.extract, i16 0
+  %.sroa.02593.24.vec.extract = extractelement <16 x i16> %487, i64 12
+  %521 = select i1 %505, i16 %.sroa.02593.24.vec.extract, i16 0
+  %.sroa.02593.26.vec.extract = extractelement <16 x i16> %487, i64 13
+  %522 = select i1 %506, i16 %.sroa.02593.26.vec.extract, i16 0
+  %.sroa.02593.28.vec.extract = extractelement <16 x i16> %487, i64 14
+  %523 = select i1 %507, i16 %.sroa.02593.28.vec.extract, i16 0
+  %.sroa.02593.30.vec.extract = extractelement <16 x i16> %487, i64 15
+  %524 = select i1 %508, i16 %.sroa.02593.30.vec.extract, i16 0
   %.sroa.02619.0.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 0
-  %530 = add i16 %514, %.sroa.02619.0.vec.extract
+  %525 = add i16 %509, %.sroa.02619.0.vec.extract
   %.sroa.02619.2.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 1
-  %531 = add i16 %515, %.sroa.02619.2.vec.extract
+  %526 = add i16 %510, %.sroa.02619.2.vec.extract
   %.sroa.02619.4.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 2
-  %532 = add i16 %516, %.sroa.02619.4.vec.extract
+  %527 = add i16 %511, %.sroa.02619.4.vec.extract
   %.sroa.02619.6.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 3
-  %533 = add i16 %517, %.sroa.02619.6.vec.extract
+  %528 = add i16 %512, %.sroa.02619.6.vec.extract
   %.sroa.02619.8.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 4
-  %534 = add i16 %518, %.sroa.02619.8.vec.extract
+  %529 = add i16 %513, %.sroa.02619.8.vec.extract
   %.sroa.02619.10.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 5
-  %535 = add i16 %519, %.sroa.02619.10.vec.extract
+  %530 = add i16 %514, %.sroa.02619.10.vec.extract
   %.sroa.02619.12.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 6
-  %536 = add i16 %520, %.sroa.02619.12.vec.extract
+  %531 = add i16 %515, %.sroa.02619.12.vec.extract
   %.sroa.02619.14.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 7
-  %537 = add i16 %521, %.sroa.02619.14.vec.extract
+  %532 = add i16 %516, %.sroa.02619.14.vec.extract
   %.sroa.02619.16.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 8
-  %538 = add i16 %522, %.sroa.02619.16.vec.extract
+  %533 = add i16 %517, %.sroa.02619.16.vec.extract
   %.sroa.02619.18.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 9
-  %539 = add i16 %523, %.sroa.02619.18.vec.extract
+  %534 = add i16 %518, %.sroa.02619.18.vec.extract
   %.sroa.02619.20.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 10
-  %540 = add i16 %524, %.sroa.02619.20.vec.extract
+  %535 = add i16 %519, %.sroa.02619.20.vec.extract
   %.sroa.02619.22.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 11
-  %541 = add i16 %525, %.sroa.02619.22.vec.extract
+  %536 = add i16 %520, %.sroa.02619.22.vec.extract
   %.sroa.02619.24.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 12
-  %542 = add i16 %526, %.sroa.02619.24.vec.extract
+  %537 = add i16 %521, %.sroa.02619.24.vec.extract
   %.sroa.02619.26.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 13
-  %543 = add i16 %527, %.sroa.02619.26.vec.extract
+  %538 = add i16 %522, %.sroa.02619.26.vec.extract
   %.sroa.02619.28.vec.extract = extractelement <15 x i16> %.sroa.0.i176.sroa.0.0.copyload, i64 14
-  %544 = add i16 %528, %.sroa.02619.28.vec.extract
-  %545 = add i16 %529, %481
-  %.sroa.0.0.vec.insert.i1395 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %530, i64 0
-  %.sroa.0.2.vec.insert.i1396 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1395, i16 %531, i64 1
-  %.sroa.0.4.vec.insert.i1397 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1396, i16 %532, i64 2
-  %.sroa.0.6.vec.insert.i1398 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1397, i16 %533, i64 3
-  %.sroa.0.8.vec.insert.i1399 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1398, i16 %534, i64 4
-  %.sroa.0.10.vec.insert.i1400 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1399, i16 %535, i64 5
-  %.sroa.0.12.vec.insert.i1401 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1400, i16 %536, i64 6
-  %.sroa.0.14.vec.insert.i1402 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1401, i16 %537, i64 7
-  %.sroa.0.16.vec.insert.i1403 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1402, i16 %538, i64 8
-  %.sroa.0.18.vec.insert.i1404 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1403, i16 %539, i64 9
-  %.sroa.0.20.vec.insert.i1405 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1404, i16 %540, i64 10
-  %.sroa.0.22.vec.insert.i1406 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1405, i16 %541, i64 11
-  %.sroa.0.24.vec.insert.i1407 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1406, i16 %542, i64 12
-  %.sroa.0.26.vec.insert.i1408 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1407, i16 %543, i64 13
-  %.sroa.0.28.vec.insert.i1409 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1408, i16 %544, i64 14
+  %539 = add i16 %523, %.sroa.02619.28.vec.extract
+  %540 = add i16 %524, %476
+  %.sroa.0.0.vec.insert.i1395 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %525, i64 0
+  %.sroa.0.2.vec.insert.i1396 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1395, i16 %526, i64 1
+  %.sroa.0.4.vec.insert.i1397 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1396, i16 %527, i64 2
+  %.sroa.0.6.vec.insert.i1398 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1397, i16 %528, i64 3
+  %.sroa.0.8.vec.insert.i1399 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1398, i16 %529, i64 4
+  %.sroa.0.10.vec.insert.i1400 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1399, i16 %530, i64 5
+  %.sroa.0.12.vec.insert.i1401 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1400, i16 %531, i64 6
+  %.sroa.0.14.vec.insert.i1402 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1401, i16 %532, i64 7
+  %.sroa.0.16.vec.insert.i1403 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1402, i16 %533, i64 8
+  %.sroa.0.18.vec.insert.i1404 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1403, i16 %534, i64 9
+  %.sroa.0.20.vec.insert.i1405 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1404, i16 %535, i64 10
+  %.sroa.0.22.vec.insert.i1406 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1405, i16 %536, i64 11
+  %.sroa.0.24.vec.insert.i1407 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1406, i16 %537, i64 12
+  %.sroa.0.26.vec.insert.i1408 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1407, i16 %538, i64 13
+  %.sroa.0.28.vec.insert.i1409 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1408, i16 %539, i64 14
   %.sroa.02613.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1409, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i182 = icmp slt i16 %545, %214
-  br i1 %.not.i182, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189, label %546
+  %.not.i182 = icmp slt i16 %540, %212
+  br i1 %.not.i182, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189, label %541
 
-546:                                              ; preds = %497
-  %547 = add i16 %530, 1
-  %548 = add i16 %531, 2
-  %549 = add i16 %532, 3
-  %550 = add i16 %533, 4
-  %551 = add i16 %534, 5
-  %552 = add i16 %535, 6
-  %553 = add i16 %536, 7
-  %554 = add i16 %537, 8
-  %555 = add i16 %538, 9
-  %556 = add i16 %539, 10
-  %557 = add i16 %540, 11
-  %558 = add i16 %541, 12
-  %559 = add i16 %542, 13
-  %560 = add i16 %543, 14
-  %561 = add i16 %544, 15
-  %562 = add i16 %545, 16
-  %563 = ashr i16 %561, 2
-  %564 = ashr i16 %560, 2
-  %565 = ashr i16 %559, 2
-  %566 = ashr i16 %558, 2
-  %567 = ashr i16 %557, 2
-  %568 = ashr i16 %556, 2
-  %569 = ashr i16 %555, 2
-  %570 = ashr i16 %554, 2
-  %571 = ashr i16 %553, 2
-  %572 = ashr i16 %552, 2
-  %573 = ashr i16 %551, 2
-  %574 = ashr i16 %550, 2
-  %575 = ashr i16 %549, 2
-  %576 = ashr i16 %548, 2
-  %577 = ashr i16 %547, 2
-  %578 = ashr i16 %562, 2
-  %579 = sub i16 %547, %577
-  %580 = sub i16 %548, %576
-  %581 = sub i16 %549, %575
-  %582 = sub i16 %550, %574
-  %583 = sub i16 %551, %573
-  %584 = sub i16 %552, %572
-  %585 = sub i16 %553, %571
-  %586 = sub i16 %554, %570
-  %587 = sub i16 %555, %569
-  %588 = sub i16 %556, %568
-  %589 = sub i16 %557, %567
-  %590 = sub i16 %558, %566
-  %591 = sub i16 %559, %565
-  %592 = sub i16 %560, %564
-  %593 = sub i16 %561, %563
-  %594 = sub i16 %562, %578
-  %.sroa.0.0.vec.insert.i1779 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %579, i64 0
-  %.sroa.0.2.vec.insert.i1780 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1779, i16 %580, i64 1
-  %.sroa.0.4.vec.insert.i1781 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1780, i16 %581, i64 2
-  %.sroa.0.6.vec.insert.i1782 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1781, i16 %582, i64 3
-  %.sroa.0.8.vec.insert.i1783 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1782, i16 %583, i64 4
-  %.sroa.0.10.vec.insert.i1784 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1783, i16 %584, i64 5
-  %.sroa.0.12.vec.insert.i1785 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1784, i16 %585, i64 6
-  %.sroa.0.14.vec.insert.i1786 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1785, i16 %586, i64 7
-  %.sroa.0.16.vec.insert.i1787 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1786, i16 %587, i64 8
-  %.sroa.0.18.vec.insert.i1788 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1787, i16 %588, i64 9
-  %.sroa.0.20.vec.insert.i1789 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1788, i16 %589, i64 10
-  %.sroa.0.22.vec.insert.i1790 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1789, i16 %590, i64 11
-  %.sroa.0.24.vec.insert.i1791 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1790, i16 %591, i64 12
-  %.sroa.0.26.vec.insert.i1792 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1791, i16 %592, i64 13
-  %.sroa.0.28.vec.insert.i1793 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1792, i16 %593, i64 14
+541:                                              ; preds = %492
+  %542 = add i16 %525, 1
+  %543 = add i16 %526, 2
+  %544 = add i16 %527, 3
+  %545 = add i16 %528, 4
+  %546 = add i16 %529, 5
+  %547 = add i16 %530, 6
+  %548 = add i16 %531, 7
+  %549 = add i16 %532, 8
+  %550 = add i16 %533, 9
+  %551 = add i16 %534, 10
+  %552 = add i16 %535, 11
+  %553 = add i16 %536, 12
+  %554 = add i16 %537, 13
+  %555 = add i16 %538, 14
+  %556 = add i16 %539, 15
+  %557 = add i16 %540, 16
+  %558 = ashr i16 %556, 2
+  %559 = ashr i16 %555, 2
+  %560 = ashr i16 %554, 2
+  %561 = ashr i16 %553, 2
+  %562 = ashr i16 %552, 2
+  %563 = ashr i16 %551, 2
+  %564 = ashr i16 %550, 2
+  %565 = ashr i16 %549, 2
+  %566 = ashr i16 %548, 2
+  %567 = ashr i16 %547, 2
+  %568 = ashr i16 %546, 2
+  %569 = ashr i16 %545, 2
+  %570 = ashr i16 %544, 2
+  %571 = ashr i16 %543, 2
+  %572 = ashr i16 %542, 2
+  %573 = ashr i16 %557, 2
+  %574 = sub i16 %542, %572
+  %575 = sub i16 %543, %571
+  %576 = sub i16 %544, %570
+  %577 = sub i16 %545, %569
+  %578 = sub i16 %546, %568
+  %579 = sub i16 %547, %567
+  %580 = sub i16 %548, %566
+  %581 = sub i16 %549, %565
+  %582 = sub i16 %550, %564
+  %583 = sub i16 %551, %563
+  %584 = sub i16 %552, %562
+  %585 = sub i16 %553, %561
+  %586 = sub i16 %554, %560
+  %587 = sub i16 %555, %559
+  %588 = sub i16 %556, %558
+  %589 = sub i16 %557, %573
+  %.sroa.0.0.vec.insert.i1779 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %574, i64 0
+  %.sroa.0.2.vec.insert.i1780 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1779, i16 %575, i64 1
+  %.sroa.0.4.vec.insert.i1781 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1780, i16 %576, i64 2
+  %.sroa.0.6.vec.insert.i1782 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1781, i16 %577, i64 3
+  %.sroa.0.8.vec.insert.i1783 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1782, i16 %578, i64 4
+  %.sroa.0.10.vec.insert.i1784 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1783, i16 %579, i64 5
+  %.sroa.0.12.vec.insert.i1785 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1784, i16 %580, i64 6
+  %.sroa.0.14.vec.insert.i1786 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1785, i16 %581, i64 7
+  %.sroa.0.16.vec.insert.i1787 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1786, i16 %582, i64 8
+  %.sroa.0.18.vec.insert.i1788 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1787, i16 %583, i64 9
+  %.sroa.0.20.vec.insert.i1789 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1788, i16 %584, i64 10
+  %.sroa.0.22.vec.insert.i1790 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1789, i16 %585, i64 11
+  %.sroa.0.24.vec.insert.i1791 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1790, i16 %586, i64 12
+  %.sroa.0.26.vec.insert.i1792 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1791, i16 %587, i64 13
+  %.sroa.0.28.vec.insert.i1793 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1792, i16 %588, i64 14
   %.sroa.02623.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1793, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189: ; preds = %497, %546
-  %.sroa.0.i176.sroa.0.0 = phi <15 x i16> [ %.sroa.02613.0.vec.extract, %497 ], [ %.sroa.02623.0.vec.extract, %546 ]
-  %.sroa.9.0.i187 = phi i16 [ %545, %497 ], [ %594, %546 ]
-  store <15 x i16> %.sroa.0.i176.sroa.0.0, ptr %471, align 2, !noalias !307
-  store i16 %.sroa.9.0.i187, ptr %480, align 2, !noalias !307
-  %595 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2392, i64 0, i64 %466
-  %596 = getelementptr inbounds nuw [0 x i16], ptr %595, i64 0, i64 %195
-  %597 = load i16, ptr %596, align 2, !noalias !310, !noundef !12
-  br i1 %198, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit109, label %599
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189: ; preds = %492, %541
+  %.sroa.0.i176.sroa.0.0 = phi <15 x i16> [ %.sroa.02613.0.vec.extract, %492 ], [ %.sroa.02623.0.vec.extract, %541 ]
+  %.sroa.9.0.i187 = phi i16 [ %540, %492 ], [ %589, %541 ]
+  store <15 x i16> %.sroa.0.i176.sroa.0.0, ptr %467, align 2, !noalias !307
+  store i16 %.sroa.9.0.i187, ptr %475, align 2, !noalias !307
+  %590 = getelementptr inbounds { [16 x i16] }, ptr %.val2392, i64 %462
+  %591 = getelementptr inbounds nuw i16, ptr %590, i64 %194
+  %592 = load i16, ptr %591, align 2, !noalias !310, !noundef !12
+  br i1 %197, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit109, label %594
 
-598:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit174
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %467, i64 noundef %.val2393, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+593:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit174
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %463, i64 noundef %.val2393, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-599:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189
-  %600 = add nsw i64 %195, -1
-  %601 = getelementptr inbounds nuw [0 x i16], ptr %595, i64 0, i64 %600
-  %602 = load i16, ptr %601, align 2, !noalias !310, !noundef !12
-  %603 = sub i16 %597, %602
+594:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189
+  %595 = getelementptr i8, ptr %591, i64 -2
+  %596 = load i16, ptr %595, align 2, !noalias !310, !noundef !12
+  %597 = sub i16 %592, %596
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit109
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit109: ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189, %599
-  %.0.i108 = phi i16 [ %597, %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189 ], [ %603, %599 ]
-  %604 = zext i16 %.0.i108 to i64
-  %605 = getelementptr inbounds nuw i8, ptr %595, i64 30
-  %606 = load i16, ptr %605, align 2, !noalias !310, !noundef !12
-  %607 = zext i16 %606 to i64
-  %608 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %607
-  %609 = load float, ptr %608, align 4, !noalias !310, !noundef !12
-  %610 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %604
-  %611 = load float, ptr %610, align 4, !noalias !310, !noundef !12
-  %.sroa.0.i191.sroa.0.0.copyload = load <15 x i16>, ptr %595, align 2, !noalias !313
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit109: ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189, %594
+  %.0.i108 = phi i16 [ %592, %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189 ], [ %597, %594 ]
+  %598 = zext i16 %.0.i108 to i64
+  %599 = getelementptr inbounds nuw i8, ptr %590, i64 30
+  %600 = load i16, ptr %599, align 2, !noalias !310, !noundef !12
+  %601 = zext i16 %600 to i64
+  %602 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %601
+  %603 = load float, ptr %602, align 4, !noalias !310, !noundef !12
+  %604 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %598
+  %605 = load float, ptr %604, align 4, !noalias !310, !noundef !12
+  %.sroa.0.i191.sroa.0.0.copyload = load <15 x i16>, ptr %590, align 2, !noalias !313
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !313
-  br label %612
+  br label %606
 
-612:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit109, %612
-  %613 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit109 ], [ %615, %612 ]
-  %614 = getelementptr inbounds nuw [16 x i16], ptr %28, i64 0, i64 %613
-  store i16 %212, ptr %614, align 2, !noalias !313
-  %615 = add nuw nsw i64 %613, 1
-  %exitcond3338.not = icmp eq i64 %615, 16
-  br i1 %exitcond3338.not, label %616, label %612
+606:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit109, %606
+  %607 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit109 ], [ %609, %606 ]
+  %608 = getelementptr inbounds nuw i16, ptr %28, i64 %607
+  store i16 %210, ptr %608, align 2, !noalias !313
+  %609 = add nuw nsw i64 %607, 1
+  %exitcond3338.not = icmp eq i64 %609, 16
+  br i1 %exitcond3338.not, label %610, label %606
 
-616:                                              ; preds = %612
-  %617 = load <16 x i16>, ptr %28, align 2, !noalias !313
+610:                                              ; preds = %606
+  %611 = load <16 x i16>, ptr %28, align 2, !noalias !313
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !313
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !313
-  br label %618
+  br label %612
 
-618:                                              ; preds = %616, %618
-  %619 = phi i64 [ 0, %616 ], [ %621, %618 ]
-  %620 = getelementptr inbounds nuw [16 x i16], ptr %27, i64 0, i64 %619
-  store i16 %221, ptr %620, align 2, !noalias !313
-  %621 = add nuw nsw i64 %619, 1
-  %exitcond3339.not = icmp eq i64 %621, 16
-  br i1 %exitcond3339.not, label %622, label %618
+612:                                              ; preds = %610, %612
+  %613 = phi i64 [ 0, %610 ], [ %615, %612 ]
+  %614 = getelementptr inbounds nuw i16, ptr %27, i64 %613
+  store i16 %219, ptr %614, align 2, !noalias !313
+  %615 = add nuw nsw i64 %613, 1
+  %exitcond3339.not = icmp eq i64 %615, 16
+  br i1 %exitcond3339.not, label %616, label %612
 
-622:                                              ; preds = %618
-  %623 = fsub float %609, %611
-  %624 = load <16 x i16>, ptr %27, align 2, !noalias !313
+616:                                              ; preds = %612
+  %617 = fsub float %603, %605
+  %618 = load <16 x i16>, ptr %27, align 2, !noalias !313
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !313
-  %.sroa.02651.0.vec.extract = extractelement <16 x i16> %624, i64 0
-  %.sroa.02651.2.vec.extract = extractelement <16 x i16> %624, i64 1
-  %625 = icmp slt i16 %.sroa.02651.2.vec.extract, 2
-  %.sroa.02651.4.vec.extract = extractelement <16 x i16> %624, i64 2
-  %626 = icmp slt i16 %.sroa.02651.4.vec.extract, 3
-  %.sroa.02651.6.vec.extract = extractelement <16 x i16> %624, i64 3
-  %627 = icmp slt i16 %.sroa.02651.6.vec.extract, 4
-  %.sroa.02651.8.vec.extract = extractelement <16 x i16> %624, i64 4
-  %628 = icmp slt i16 %.sroa.02651.8.vec.extract, 5
-  %.sroa.02651.10.vec.extract = extractelement <16 x i16> %624, i64 5
-  %629 = icmp slt i16 %.sroa.02651.10.vec.extract, 6
-  %.sroa.02651.12.vec.extract = extractelement <16 x i16> %624, i64 6
-  %630 = icmp slt i16 %.sroa.02651.12.vec.extract, 7
-  %.sroa.02651.14.vec.extract = extractelement <16 x i16> %624, i64 7
-  %631 = icmp slt i16 %.sroa.02651.14.vec.extract, 8
-  %.sroa.02651.16.vec.extract = extractelement <16 x i16> %624, i64 8
-  %632 = icmp slt i16 %.sroa.02651.16.vec.extract, 9
-  %.sroa.02651.18.vec.extract = extractelement <16 x i16> %624, i64 9
-  %633 = icmp slt i16 %.sroa.02651.18.vec.extract, 10
-  %.sroa.02651.20.vec.extract = extractelement <16 x i16> %624, i64 10
-  %634 = icmp slt i16 %.sroa.02651.20.vec.extract, 11
-  %.sroa.02651.22.vec.extract = extractelement <16 x i16> %624, i64 11
-  %635 = icmp slt i16 %.sroa.02651.22.vec.extract, 12
-  %.sroa.02651.24.vec.extract = extractelement <16 x i16> %624, i64 12
-  %636 = icmp slt i16 %.sroa.02651.24.vec.extract, 13
-  %.sroa.02651.26.vec.extract = extractelement <16 x i16> %624, i64 13
-  %637 = icmp slt i16 %.sroa.02651.26.vec.extract, 14
-  %.sroa.02651.28.vec.extract = extractelement <16 x i16> %624, i64 14
-  %638 = icmp slt i16 %.sroa.02651.28.vec.extract, 15
-  %.sroa.02651.30.vec.extract = extractelement <16 x i16> %624, i64 15
-  %639 = icmp slt i16 %.sroa.02651.30.vec.extract, 16
-  %.sroa.02632.0.vec.extract = extractelement <16 x i16> %617, i64 0
+  %.sroa.02651.0.vec.extract = extractelement <16 x i16> %618, i64 0
+  %.sroa.02651.2.vec.extract = extractelement <16 x i16> %618, i64 1
+  %619 = icmp slt i16 %.sroa.02651.2.vec.extract, 2
+  %.sroa.02651.4.vec.extract = extractelement <16 x i16> %618, i64 2
+  %620 = icmp slt i16 %.sroa.02651.4.vec.extract, 3
+  %.sroa.02651.6.vec.extract = extractelement <16 x i16> %618, i64 3
+  %621 = icmp slt i16 %.sroa.02651.6.vec.extract, 4
+  %.sroa.02651.8.vec.extract = extractelement <16 x i16> %618, i64 4
+  %622 = icmp slt i16 %.sroa.02651.8.vec.extract, 5
+  %.sroa.02651.10.vec.extract = extractelement <16 x i16> %618, i64 5
+  %623 = icmp slt i16 %.sroa.02651.10.vec.extract, 6
+  %.sroa.02651.12.vec.extract = extractelement <16 x i16> %618, i64 6
+  %624 = icmp slt i16 %.sroa.02651.12.vec.extract, 7
+  %.sroa.02651.14.vec.extract = extractelement <16 x i16> %618, i64 7
+  %625 = icmp slt i16 %.sroa.02651.14.vec.extract, 8
+  %.sroa.02651.16.vec.extract = extractelement <16 x i16> %618, i64 8
+  %626 = icmp slt i16 %.sroa.02651.16.vec.extract, 9
+  %.sroa.02651.18.vec.extract = extractelement <16 x i16> %618, i64 9
+  %627 = icmp slt i16 %.sroa.02651.18.vec.extract, 10
+  %.sroa.02651.20.vec.extract = extractelement <16 x i16> %618, i64 10
+  %628 = icmp slt i16 %.sroa.02651.20.vec.extract, 11
+  %.sroa.02651.22.vec.extract = extractelement <16 x i16> %618, i64 11
+  %629 = icmp slt i16 %.sroa.02651.22.vec.extract, 12
+  %.sroa.02651.24.vec.extract = extractelement <16 x i16> %618, i64 12
+  %630 = icmp slt i16 %.sroa.02651.24.vec.extract, 13
+  %.sroa.02651.26.vec.extract = extractelement <16 x i16> %618, i64 13
+  %631 = icmp slt i16 %.sroa.02651.26.vec.extract, 14
+  %.sroa.02651.28.vec.extract = extractelement <16 x i16> %618, i64 14
+  %632 = icmp slt i16 %.sroa.02651.28.vec.extract, 15
+  %.sroa.02651.30.vec.extract = extractelement <16 x i16> %618, i64 15
+  %633 = icmp slt i16 %.sroa.02651.30.vec.extract, 16
+  %.sroa.02632.0.vec.extract = extractelement <16 x i16> %611, i64 0
   %.inv3320 = icmp sgt i16 %.sroa.02651.0.vec.extract, 0
-  %640 = select i1 %.inv3320, i16 0, i16 %.sroa.02632.0.vec.extract
-  %.sroa.02632.2.vec.extract = extractelement <16 x i16> %617, i64 1
-  %641 = select i1 %625, i16 %.sroa.02632.2.vec.extract, i16 0
-  %.sroa.02632.4.vec.extract = extractelement <16 x i16> %617, i64 2
-  %642 = select i1 %626, i16 %.sroa.02632.4.vec.extract, i16 0
-  %.sroa.02632.6.vec.extract = extractelement <16 x i16> %617, i64 3
-  %643 = select i1 %627, i16 %.sroa.02632.6.vec.extract, i16 0
-  %.sroa.02632.8.vec.extract = extractelement <16 x i16> %617, i64 4
-  %644 = select i1 %628, i16 %.sroa.02632.8.vec.extract, i16 0
-  %.sroa.02632.10.vec.extract = extractelement <16 x i16> %617, i64 5
-  %645 = select i1 %629, i16 %.sroa.02632.10.vec.extract, i16 0
-  %.sroa.02632.12.vec.extract = extractelement <16 x i16> %617, i64 6
-  %646 = select i1 %630, i16 %.sroa.02632.12.vec.extract, i16 0
-  %.sroa.02632.14.vec.extract = extractelement <16 x i16> %617, i64 7
-  %647 = select i1 %631, i16 %.sroa.02632.14.vec.extract, i16 0
-  %.sroa.02632.16.vec.extract = extractelement <16 x i16> %617, i64 8
-  %648 = select i1 %632, i16 %.sroa.02632.16.vec.extract, i16 0
-  %.sroa.02632.18.vec.extract = extractelement <16 x i16> %617, i64 9
-  %649 = select i1 %633, i16 %.sroa.02632.18.vec.extract, i16 0
-  %.sroa.02632.20.vec.extract = extractelement <16 x i16> %617, i64 10
-  %650 = select i1 %634, i16 %.sroa.02632.20.vec.extract, i16 0
-  %.sroa.02632.22.vec.extract = extractelement <16 x i16> %617, i64 11
-  %651 = select i1 %635, i16 %.sroa.02632.22.vec.extract, i16 0
-  %.sroa.02632.24.vec.extract = extractelement <16 x i16> %617, i64 12
-  %652 = select i1 %636, i16 %.sroa.02632.24.vec.extract, i16 0
-  %.sroa.02632.26.vec.extract = extractelement <16 x i16> %617, i64 13
-  %653 = select i1 %637, i16 %.sroa.02632.26.vec.extract, i16 0
-  %.sroa.02632.28.vec.extract = extractelement <16 x i16> %617, i64 14
-  %654 = select i1 %638, i16 %.sroa.02632.28.vec.extract, i16 0
-  %.sroa.02632.30.vec.extract = extractelement <16 x i16> %617, i64 15
-  %655 = select i1 %639, i16 %.sroa.02632.30.vec.extract, i16 0
+  %634 = select i1 %.inv3320, i16 0, i16 %.sroa.02632.0.vec.extract
+  %.sroa.02632.2.vec.extract = extractelement <16 x i16> %611, i64 1
+  %635 = select i1 %619, i16 %.sroa.02632.2.vec.extract, i16 0
+  %.sroa.02632.4.vec.extract = extractelement <16 x i16> %611, i64 2
+  %636 = select i1 %620, i16 %.sroa.02632.4.vec.extract, i16 0
+  %.sroa.02632.6.vec.extract = extractelement <16 x i16> %611, i64 3
+  %637 = select i1 %621, i16 %.sroa.02632.6.vec.extract, i16 0
+  %.sroa.02632.8.vec.extract = extractelement <16 x i16> %611, i64 4
+  %638 = select i1 %622, i16 %.sroa.02632.8.vec.extract, i16 0
+  %.sroa.02632.10.vec.extract = extractelement <16 x i16> %611, i64 5
+  %639 = select i1 %623, i16 %.sroa.02632.10.vec.extract, i16 0
+  %.sroa.02632.12.vec.extract = extractelement <16 x i16> %611, i64 6
+  %640 = select i1 %624, i16 %.sroa.02632.12.vec.extract, i16 0
+  %.sroa.02632.14.vec.extract = extractelement <16 x i16> %611, i64 7
+  %641 = select i1 %625, i16 %.sroa.02632.14.vec.extract, i16 0
+  %.sroa.02632.16.vec.extract = extractelement <16 x i16> %611, i64 8
+  %642 = select i1 %626, i16 %.sroa.02632.16.vec.extract, i16 0
+  %.sroa.02632.18.vec.extract = extractelement <16 x i16> %611, i64 9
+  %643 = select i1 %627, i16 %.sroa.02632.18.vec.extract, i16 0
+  %.sroa.02632.20.vec.extract = extractelement <16 x i16> %611, i64 10
+  %644 = select i1 %628, i16 %.sroa.02632.20.vec.extract, i16 0
+  %.sroa.02632.22.vec.extract = extractelement <16 x i16> %611, i64 11
+  %645 = select i1 %629, i16 %.sroa.02632.22.vec.extract, i16 0
+  %.sroa.02632.24.vec.extract = extractelement <16 x i16> %611, i64 12
+  %646 = select i1 %630, i16 %.sroa.02632.24.vec.extract, i16 0
+  %.sroa.02632.26.vec.extract = extractelement <16 x i16> %611, i64 13
+  %647 = select i1 %631, i16 %.sroa.02632.26.vec.extract, i16 0
+  %.sroa.02632.28.vec.extract = extractelement <16 x i16> %611, i64 14
+  %648 = select i1 %632, i16 %.sroa.02632.28.vec.extract, i16 0
+  %.sroa.02632.30.vec.extract = extractelement <16 x i16> %611, i64 15
+  %649 = select i1 %633, i16 %.sroa.02632.30.vec.extract, i16 0
   %.sroa.02658.0.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 0
-  %656 = add i16 %640, %.sroa.02658.0.vec.extract
+  %650 = add i16 %634, %.sroa.02658.0.vec.extract
   %.sroa.02658.2.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 1
-  %657 = add i16 %641, %.sroa.02658.2.vec.extract
+  %651 = add i16 %635, %.sroa.02658.2.vec.extract
   %.sroa.02658.4.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 2
-  %658 = add i16 %642, %.sroa.02658.4.vec.extract
+  %652 = add i16 %636, %.sroa.02658.4.vec.extract
   %.sroa.02658.6.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 3
-  %659 = add i16 %643, %.sroa.02658.6.vec.extract
+  %653 = add i16 %637, %.sroa.02658.6.vec.extract
   %.sroa.02658.8.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 4
-  %660 = add i16 %644, %.sroa.02658.8.vec.extract
+  %654 = add i16 %638, %.sroa.02658.8.vec.extract
   %.sroa.02658.10.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 5
-  %661 = add i16 %645, %.sroa.02658.10.vec.extract
+  %655 = add i16 %639, %.sroa.02658.10.vec.extract
   %.sroa.02658.12.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 6
-  %662 = add i16 %646, %.sroa.02658.12.vec.extract
+  %656 = add i16 %640, %.sroa.02658.12.vec.extract
   %.sroa.02658.14.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 7
-  %663 = add i16 %647, %.sroa.02658.14.vec.extract
+  %657 = add i16 %641, %.sroa.02658.14.vec.extract
   %.sroa.02658.16.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 8
-  %664 = add i16 %648, %.sroa.02658.16.vec.extract
+  %658 = add i16 %642, %.sroa.02658.16.vec.extract
   %.sroa.02658.18.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 9
-  %665 = add i16 %649, %.sroa.02658.18.vec.extract
+  %659 = add i16 %643, %.sroa.02658.18.vec.extract
   %.sroa.02658.20.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 10
-  %666 = add i16 %650, %.sroa.02658.20.vec.extract
+  %660 = add i16 %644, %.sroa.02658.20.vec.extract
   %.sroa.02658.22.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 11
-  %667 = add i16 %651, %.sroa.02658.22.vec.extract
+  %661 = add i16 %645, %.sroa.02658.22.vec.extract
   %.sroa.02658.24.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 12
-  %668 = add i16 %652, %.sroa.02658.24.vec.extract
+  %662 = add i16 %646, %.sroa.02658.24.vec.extract
   %.sroa.02658.26.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 13
-  %669 = add i16 %653, %.sroa.02658.26.vec.extract
+  %663 = add i16 %647, %.sroa.02658.26.vec.extract
   %.sroa.02658.28.vec.extract = extractelement <15 x i16> %.sroa.0.i191.sroa.0.0.copyload, i64 14
-  %670 = add i16 %654, %.sroa.02658.28.vec.extract
-  %671 = add i16 %655, %606
-  %.sroa.0.0.vec.insert.i1347 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %656, i64 0
-  %.sroa.0.2.vec.insert.i1348 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1347, i16 %657, i64 1
-  %.sroa.0.4.vec.insert.i1349 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1348, i16 %658, i64 2
-  %.sroa.0.6.vec.insert.i1350 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1349, i16 %659, i64 3
-  %.sroa.0.8.vec.insert.i1351 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1350, i16 %660, i64 4
-  %.sroa.0.10.vec.insert.i1352 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1351, i16 %661, i64 5
-  %.sroa.0.12.vec.insert.i1353 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1352, i16 %662, i64 6
-  %.sroa.0.14.vec.insert.i1354 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1353, i16 %663, i64 7
-  %.sroa.0.16.vec.insert.i1355 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1354, i16 %664, i64 8
-  %.sroa.0.18.vec.insert.i1356 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1355, i16 %665, i64 9
-  %.sroa.0.20.vec.insert.i1357 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1356, i16 %666, i64 10
-  %.sroa.0.22.vec.insert.i1358 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1357, i16 %667, i64 11
-  %.sroa.0.24.vec.insert.i1359 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1358, i16 %668, i64 12
-  %.sroa.0.26.vec.insert.i1360 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1359, i16 %669, i64 13
-  %.sroa.0.28.vec.insert.i1361 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1360, i16 %670, i64 14
+  %664 = add i16 %648, %.sroa.02658.28.vec.extract
+  %665 = add i16 %649, %600
+  %.sroa.0.0.vec.insert.i1347 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %650, i64 0
+  %.sroa.0.2.vec.insert.i1348 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1347, i16 %651, i64 1
+  %.sroa.0.4.vec.insert.i1349 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1348, i16 %652, i64 2
+  %.sroa.0.6.vec.insert.i1350 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1349, i16 %653, i64 3
+  %.sroa.0.8.vec.insert.i1351 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1350, i16 %654, i64 4
+  %.sroa.0.10.vec.insert.i1352 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1351, i16 %655, i64 5
+  %.sroa.0.12.vec.insert.i1353 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1352, i16 %656, i64 6
+  %.sroa.0.14.vec.insert.i1354 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1353, i16 %657, i64 7
+  %.sroa.0.16.vec.insert.i1355 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1354, i16 %658, i64 8
+  %.sroa.0.18.vec.insert.i1356 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1355, i16 %659, i64 9
+  %.sroa.0.20.vec.insert.i1357 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1356, i16 %660, i64 10
+  %.sroa.0.22.vec.insert.i1358 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1357, i16 %661, i64 11
+  %.sroa.0.24.vec.insert.i1359 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1358, i16 %662, i64 12
+  %.sroa.0.26.vec.insert.i1360 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1359, i16 %663, i64 13
+  %.sroa.0.28.vec.insert.i1361 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1360, i16 %664, i64 14
   %.sroa.02652.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1361, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i197 = icmp slt i16 %671, %214
-  br i1 %.not.i197, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit204, label %672
+  %.not.i197 = icmp slt i16 %665, %212
+  br i1 %.not.i197, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit204, label %666
 
-672:                                              ; preds = %622
-  %673 = add i16 %656, 1
-  %674 = add i16 %657, 2
-  %675 = add i16 %658, 3
-  %676 = add i16 %659, 4
-  %677 = add i16 %660, 5
-  %678 = add i16 %661, 6
-  %679 = add i16 %662, 7
-  %680 = add i16 %663, 8
-  %681 = add i16 %664, 9
-  %682 = add i16 %665, 10
-  %683 = add i16 %666, 11
-  %684 = add i16 %667, 12
-  %685 = add i16 %668, 13
-  %686 = add i16 %669, 14
-  %687 = add i16 %670, 15
-  %688 = add i16 %671, 16
-  %689 = ashr i16 %687, 2
-  %690 = ashr i16 %686, 2
-  %691 = ashr i16 %685, 2
-  %692 = ashr i16 %684, 2
-  %693 = ashr i16 %683, 2
-  %694 = ashr i16 %682, 2
-  %695 = ashr i16 %681, 2
-  %696 = ashr i16 %680, 2
-  %697 = ashr i16 %679, 2
-  %698 = ashr i16 %678, 2
-  %699 = ashr i16 %677, 2
-  %700 = ashr i16 %676, 2
-  %701 = ashr i16 %675, 2
-  %702 = ashr i16 %674, 2
-  %703 = ashr i16 %673, 2
-  %704 = ashr i16 %688, 2
-  %705 = sub i16 %673, %703
-  %706 = sub i16 %674, %702
-  %707 = sub i16 %675, %701
-  %708 = sub i16 %676, %700
-  %709 = sub i16 %677, %699
-  %710 = sub i16 %678, %698
-  %711 = sub i16 %679, %697
-  %712 = sub i16 %680, %696
-  %713 = sub i16 %681, %695
-  %714 = sub i16 %682, %694
-  %715 = sub i16 %683, %693
-  %716 = sub i16 %684, %692
-  %717 = sub i16 %685, %691
-  %718 = sub i16 %686, %690
-  %719 = sub i16 %687, %689
-  %720 = sub i16 %688, %704
-  %.sroa.0.0.vec.insert.i1763 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %705, i64 0
-  %.sroa.0.2.vec.insert.i1764 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1763, i16 %706, i64 1
-  %.sroa.0.4.vec.insert.i1765 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1764, i16 %707, i64 2
-  %.sroa.0.6.vec.insert.i1766 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1765, i16 %708, i64 3
-  %.sroa.0.8.vec.insert.i1767 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1766, i16 %709, i64 4
-  %.sroa.0.10.vec.insert.i1768 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1767, i16 %710, i64 5
-  %.sroa.0.12.vec.insert.i1769 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1768, i16 %711, i64 6
-  %.sroa.0.14.vec.insert.i1770 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1769, i16 %712, i64 7
-  %.sroa.0.16.vec.insert.i1771 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1770, i16 %713, i64 8
-  %.sroa.0.18.vec.insert.i1772 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1771, i16 %714, i64 9
-  %.sroa.0.20.vec.insert.i1773 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1772, i16 %715, i64 10
-  %.sroa.0.22.vec.insert.i1774 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1773, i16 %716, i64 11
-  %.sroa.0.24.vec.insert.i1775 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1774, i16 %717, i64 12
-  %.sroa.0.26.vec.insert.i1776 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1775, i16 %718, i64 13
-  %.sroa.0.28.vec.insert.i1777 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1776, i16 %719, i64 14
+666:                                              ; preds = %616
+  %667 = add i16 %650, 1
+  %668 = add i16 %651, 2
+  %669 = add i16 %652, 3
+  %670 = add i16 %653, 4
+  %671 = add i16 %654, 5
+  %672 = add i16 %655, 6
+  %673 = add i16 %656, 7
+  %674 = add i16 %657, 8
+  %675 = add i16 %658, 9
+  %676 = add i16 %659, 10
+  %677 = add i16 %660, 11
+  %678 = add i16 %661, 12
+  %679 = add i16 %662, 13
+  %680 = add i16 %663, 14
+  %681 = add i16 %664, 15
+  %682 = add i16 %665, 16
+  %683 = ashr i16 %681, 2
+  %684 = ashr i16 %680, 2
+  %685 = ashr i16 %679, 2
+  %686 = ashr i16 %678, 2
+  %687 = ashr i16 %677, 2
+  %688 = ashr i16 %676, 2
+  %689 = ashr i16 %675, 2
+  %690 = ashr i16 %674, 2
+  %691 = ashr i16 %673, 2
+  %692 = ashr i16 %672, 2
+  %693 = ashr i16 %671, 2
+  %694 = ashr i16 %670, 2
+  %695 = ashr i16 %669, 2
+  %696 = ashr i16 %668, 2
+  %697 = ashr i16 %667, 2
+  %698 = ashr i16 %682, 2
+  %699 = sub i16 %667, %697
+  %700 = sub i16 %668, %696
+  %701 = sub i16 %669, %695
+  %702 = sub i16 %670, %694
+  %703 = sub i16 %671, %693
+  %704 = sub i16 %672, %692
+  %705 = sub i16 %673, %691
+  %706 = sub i16 %674, %690
+  %707 = sub i16 %675, %689
+  %708 = sub i16 %676, %688
+  %709 = sub i16 %677, %687
+  %710 = sub i16 %678, %686
+  %711 = sub i16 %679, %685
+  %712 = sub i16 %680, %684
+  %713 = sub i16 %681, %683
+  %714 = sub i16 %682, %698
+  %.sroa.0.0.vec.insert.i1763 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %699, i64 0
+  %.sroa.0.2.vec.insert.i1764 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1763, i16 %700, i64 1
+  %.sroa.0.4.vec.insert.i1765 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1764, i16 %701, i64 2
+  %.sroa.0.6.vec.insert.i1766 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1765, i16 %702, i64 3
+  %.sroa.0.8.vec.insert.i1767 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1766, i16 %703, i64 4
+  %.sroa.0.10.vec.insert.i1768 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1767, i16 %704, i64 5
+  %.sroa.0.12.vec.insert.i1769 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1768, i16 %705, i64 6
+  %.sroa.0.14.vec.insert.i1770 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1769, i16 %706, i64 7
+  %.sroa.0.16.vec.insert.i1771 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1770, i16 %707, i64 8
+  %.sroa.0.18.vec.insert.i1772 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1771, i16 %708, i64 9
+  %.sroa.0.20.vec.insert.i1773 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1772, i16 %709, i64 10
+  %.sroa.0.22.vec.insert.i1774 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1773, i16 %710, i64 11
+  %.sroa.0.24.vec.insert.i1775 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1774, i16 %711, i64 12
+  %.sroa.0.26.vec.insert.i1776 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1775, i16 %712, i64 13
+  %.sroa.0.28.vec.insert.i1777 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1776, i16 %713, i64 14
   %.sroa.02662.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1777, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit204
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit204: ; preds = %622, %672
-  %.sroa.0.i191.sroa.0.0 = phi <15 x i16> [ %.sroa.02652.0.vec.extract, %622 ], [ %.sroa.02662.0.vec.extract, %672 ]
-  %.sroa.9.0.i202 = phi i16 [ %671, %622 ], [ %720, %672 ]
-  store <15 x i16> %.sroa.0.i191.sroa.0.0, ptr %595, align 2, !noalias !313
-  store i16 %.sroa.9.0.i202, ptr %605, align 2, !noalias !313
-  %721 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %.val2388 = load ptr, ptr %721, align 8, !nonnull !12, !align !279, !noundef !12
-  %722 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.val2389 = load i64, ptr %722, align 8, !noundef !12
-  %723 = and i64 %2, 7
-  %724 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 0, i64 %723
-  %725 = load i8, ptr %724, align 1, !noundef !12
-  %726 = zext i8 %725 to i64
-  %727 = shl nuw nsw i64 %726, 9
-  %728 = or i64 %727, %466
-  %729 = icmp ult i64 %728, %.val2389
-  br i1 %729, label %730, label %868, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit204: ; preds = %616, %666
+  %.sroa.0.i191.sroa.0.0 = phi <15 x i16> [ %.sroa.02652.0.vec.extract, %616 ], [ %.sroa.02662.0.vec.extract, %666 ]
+  %.sroa.9.0.i202 = phi i16 [ %665, %616 ], [ %714, %666 ]
+  store <15 x i16> %.sroa.0.i191.sroa.0.0, ptr %590, align 2, !noalias !313
+  store i16 %.sroa.9.0.i202, ptr %599, align 2, !noalias !313
+  %715 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %.val2388 = load ptr, ptr %715, align 8, !nonnull !12, !align !279, !noundef !12
+  %716 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %.val2389 = load i64, ptr %716, align 8, !noundef !12
+  %717 = and i64 %2, 7
+  %718 = getelementptr inbounds nuw i8, ptr %35, i64 %717
+  %719 = load i8, ptr %718, align 1, !noundef !12
+  %720 = zext i8 %719 to i64
+  %721 = shl nuw nsw i64 %720, 9
+  %722 = or i64 %721, %462
+  %723 = icmp ult i64 %722, %.val2389
+  br i1 %723, label %724, label %861, !prof !278
 
-730:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit204
-  %731 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2388, i64 0, i64 %728
-  %732 = getelementptr inbounds nuw [0 x i16], ptr %731, i64 0, i64 %49
-  %733 = load i16, ptr %732, align 2, !noalias !316, !noundef !12
-  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit111, label %734
+724:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit204
+  %725 = getelementptr inbounds { [16 x i16] }, ptr %.val2388, i64 %722
+  %726 = getelementptr inbounds nuw i16, ptr %725, i64 %49
+  %727 = load i16, ptr %726, align 2, !noalias !316, !noundef !12
+  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit111, label %728
 
-734:                                              ; preds = %730
-  %735 = add nsw i64 %49, -1
-  %736 = getelementptr inbounds nuw [0 x i16], ptr %731, i64 0, i64 %735
-  %737 = load i16, ptr %736, align 2, !noalias !316, !noundef !12
-  %738 = sub i16 %733, %737
+728:                                              ; preds = %724
+  %729 = getelementptr i8, ptr %726, i64 -2
+  %730 = load i16, ptr %729, align 2, !noalias !316, !noundef !12
+  %731 = sub i16 %727, %730
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit111
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit111: ; preds = %730, %734
-  %.0.i110 = phi i16 [ %733, %730 ], [ %738, %734 ]
-  %739 = zext i16 %.0.i110 to i64
-  %740 = getelementptr inbounds nuw i8, ptr %731, i64 30
-  %741 = load i16, ptr %740, align 2, !noalias !316, !noundef !12
-  %742 = zext i16 %741 to i64
-  %743 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %742
-  %744 = load float, ptr %743, align 4, !noalias !316, !noundef !12
-  %745 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %739
-  %746 = load float, ptr %745, align 4, !noalias !316, !noundef !12
-  %747 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %748 = load i16, ptr %747, align 4, !noundef !12
-  %749 = getelementptr inbounds nuw i8, ptr %0, i64 286
-  %750 = load i16, ptr %749, align 2, !noundef !12
-  %.sroa.0.i206.sroa.0.0.copyload = load <15 x i16>, ptr %731, align 2, !noalias !319
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit111: ; preds = %724, %728
+  %.0.i110 = phi i16 [ %727, %724 ], [ %731, %728 ]
+  %732 = zext i16 %.0.i110 to i64
+  %733 = getelementptr inbounds nuw i8, ptr %725, i64 30
+  %734 = load i16, ptr %733, align 2, !noalias !316, !noundef !12
+  %735 = zext i16 %734 to i64
+  %736 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %735
+  %737 = load float, ptr %736, align 4, !noalias !316, !noundef !12
+  %738 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %732
+  %739 = load float, ptr %738, align 4, !noalias !316, !noundef !12
+  %740 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %741 = load i16, ptr %740, align 4, !noundef !12
+  %742 = getelementptr inbounds nuw i8, ptr %0, i64 286
+  %743 = load i16, ptr %742, align 2, !noundef !12
+  %.sroa.0.i206.sroa.0.0.copyload = load <15 x i16>, ptr %725, align 2, !noalias !319
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !319
-  br label %751
+  br label %744
 
-751:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit111, %751
-  %752 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit111 ], [ %754, %751 ]
-  %753 = getelementptr inbounds nuw [16 x i16], ptr %26, i64 0, i64 %752
-  store i16 %748, ptr %753, align 2, !noalias !319
-  %754 = add nuw nsw i64 %752, 1
-  %exitcond3340.not = icmp eq i64 %754, 16
-  br i1 %exitcond3340.not, label %755, label %751
+744:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit111, %744
+  %745 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit111 ], [ %747, %744 ]
+  %746 = getelementptr inbounds nuw i16, ptr %26, i64 %745
+  store i16 %741, ptr %746, align 2, !noalias !319
+  %747 = add nuw nsw i64 %745, 1
+  %exitcond3340.not = icmp eq i64 %747, 16
+  br i1 %exitcond3340.not, label %748, label %744
 
-755:                                              ; preds = %751
-  %756 = load <16 x i16>, ptr %26, align 2, !noalias !319
+748:                                              ; preds = %744
+  %749 = load <16 x i16>, ptr %26, align 2, !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !319
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !319
-  br label %757
+  br label %750
 
-757:                                              ; preds = %755, %757
-  %758 = phi i64 [ 0, %755 ], [ %760, %757 ]
-  %759 = getelementptr inbounds nuw [16 x i16], ptr %25, i64 0, i64 %758
-  store i16 %84, ptr %759, align 2, !noalias !319
-  %760 = add nuw nsw i64 %758, 1
-  %exitcond3341.not = icmp eq i64 %760, 16
-  br i1 %exitcond3341.not, label %761, label %757
+750:                                              ; preds = %748, %750
+  %751 = phi i64 [ 0, %748 ], [ %753, %750 ]
+  %752 = getelementptr inbounds nuw i16, ptr %25, i64 %751
+  store i16 %83, ptr %752, align 2, !noalias !319
+  %753 = add nuw nsw i64 %751, 1
+  %exitcond3341.not = icmp eq i64 %753, 16
+  br i1 %exitcond3341.not, label %754, label %750
 
-761:                                              ; preds = %757
-  %762 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %763 = load <16 x i16>, ptr %25, align 2, !noalias !319
+754:                                              ; preds = %750
+  %755 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %756 = load <16 x i16>, ptr %25, align 2, !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !319
-  %.sroa.02690.0.vec.extract = extractelement <16 x i16> %763, i64 0
-  %.sroa.02690.2.vec.extract = extractelement <16 x i16> %763, i64 1
-  %764 = icmp slt i16 %.sroa.02690.2.vec.extract, 2
-  %.sroa.02690.4.vec.extract = extractelement <16 x i16> %763, i64 2
-  %765 = icmp slt i16 %.sroa.02690.4.vec.extract, 3
-  %.sroa.02690.6.vec.extract = extractelement <16 x i16> %763, i64 3
-  %766 = icmp slt i16 %.sroa.02690.6.vec.extract, 4
-  %.sroa.02690.8.vec.extract = extractelement <16 x i16> %763, i64 4
-  %767 = icmp slt i16 %.sroa.02690.8.vec.extract, 5
-  %.sroa.02690.10.vec.extract = extractelement <16 x i16> %763, i64 5
-  %768 = icmp slt i16 %.sroa.02690.10.vec.extract, 6
-  %.sroa.02690.12.vec.extract = extractelement <16 x i16> %763, i64 6
-  %769 = icmp slt i16 %.sroa.02690.12.vec.extract, 7
-  %.sroa.02690.14.vec.extract = extractelement <16 x i16> %763, i64 7
-  %770 = icmp slt i16 %.sroa.02690.14.vec.extract, 8
-  %.sroa.02690.16.vec.extract = extractelement <16 x i16> %763, i64 8
-  %771 = icmp slt i16 %.sroa.02690.16.vec.extract, 9
-  %.sroa.02690.18.vec.extract = extractelement <16 x i16> %763, i64 9
-  %772 = icmp slt i16 %.sroa.02690.18.vec.extract, 10
-  %.sroa.02690.20.vec.extract = extractelement <16 x i16> %763, i64 10
-  %773 = icmp slt i16 %.sroa.02690.20.vec.extract, 11
-  %.sroa.02690.22.vec.extract = extractelement <16 x i16> %763, i64 11
-  %774 = icmp slt i16 %.sroa.02690.22.vec.extract, 12
-  %.sroa.02690.24.vec.extract = extractelement <16 x i16> %763, i64 12
-  %775 = icmp slt i16 %.sroa.02690.24.vec.extract, 13
-  %.sroa.02690.26.vec.extract = extractelement <16 x i16> %763, i64 13
-  %776 = icmp slt i16 %.sroa.02690.26.vec.extract, 14
-  %.sroa.02690.28.vec.extract = extractelement <16 x i16> %763, i64 14
-  %777 = icmp slt i16 %.sroa.02690.28.vec.extract, 15
-  %.sroa.02690.30.vec.extract = extractelement <16 x i16> %763, i64 15
-  %778 = icmp slt i16 %.sroa.02690.30.vec.extract, 16
-  %.sroa.02671.0.vec.extract = extractelement <16 x i16> %756, i64 0
+  %.sroa.02690.0.vec.extract = extractelement <16 x i16> %756, i64 0
+  %.sroa.02690.2.vec.extract = extractelement <16 x i16> %756, i64 1
+  %757 = icmp slt i16 %.sroa.02690.2.vec.extract, 2
+  %.sroa.02690.4.vec.extract = extractelement <16 x i16> %756, i64 2
+  %758 = icmp slt i16 %.sroa.02690.4.vec.extract, 3
+  %.sroa.02690.6.vec.extract = extractelement <16 x i16> %756, i64 3
+  %759 = icmp slt i16 %.sroa.02690.6.vec.extract, 4
+  %.sroa.02690.8.vec.extract = extractelement <16 x i16> %756, i64 4
+  %760 = icmp slt i16 %.sroa.02690.8.vec.extract, 5
+  %.sroa.02690.10.vec.extract = extractelement <16 x i16> %756, i64 5
+  %761 = icmp slt i16 %.sroa.02690.10.vec.extract, 6
+  %.sroa.02690.12.vec.extract = extractelement <16 x i16> %756, i64 6
+  %762 = icmp slt i16 %.sroa.02690.12.vec.extract, 7
+  %.sroa.02690.14.vec.extract = extractelement <16 x i16> %756, i64 7
+  %763 = icmp slt i16 %.sroa.02690.14.vec.extract, 8
+  %.sroa.02690.16.vec.extract = extractelement <16 x i16> %756, i64 8
+  %764 = icmp slt i16 %.sroa.02690.16.vec.extract, 9
+  %.sroa.02690.18.vec.extract = extractelement <16 x i16> %756, i64 9
+  %765 = icmp slt i16 %.sroa.02690.18.vec.extract, 10
+  %.sroa.02690.20.vec.extract = extractelement <16 x i16> %756, i64 10
+  %766 = icmp slt i16 %.sroa.02690.20.vec.extract, 11
+  %.sroa.02690.22.vec.extract = extractelement <16 x i16> %756, i64 11
+  %767 = icmp slt i16 %.sroa.02690.22.vec.extract, 12
+  %.sroa.02690.24.vec.extract = extractelement <16 x i16> %756, i64 12
+  %768 = icmp slt i16 %.sroa.02690.24.vec.extract, 13
+  %.sroa.02690.26.vec.extract = extractelement <16 x i16> %756, i64 13
+  %769 = icmp slt i16 %.sroa.02690.26.vec.extract, 14
+  %.sroa.02690.28.vec.extract = extractelement <16 x i16> %756, i64 14
+  %770 = icmp slt i16 %.sroa.02690.28.vec.extract, 15
+  %.sroa.02690.30.vec.extract = extractelement <16 x i16> %756, i64 15
+  %771 = icmp slt i16 %.sroa.02690.30.vec.extract, 16
+  %.sroa.02671.0.vec.extract = extractelement <16 x i16> %749, i64 0
   %.inv3321 = icmp sgt i16 %.sroa.02690.0.vec.extract, 0
-  %779 = select i1 %.inv3321, i16 0, i16 %.sroa.02671.0.vec.extract
-  %.sroa.02671.2.vec.extract = extractelement <16 x i16> %756, i64 1
-  %780 = select i1 %764, i16 %.sroa.02671.2.vec.extract, i16 0
-  %.sroa.02671.4.vec.extract = extractelement <16 x i16> %756, i64 2
-  %781 = select i1 %765, i16 %.sroa.02671.4.vec.extract, i16 0
-  %.sroa.02671.6.vec.extract = extractelement <16 x i16> %756, i64 3
-  %782 = select i1 %766, i16 %.sroa.02671.6.vec.extract, i16 0
-  %.sroa.02671.8.vec.extract = extractelement <16 x i16> %756, i64 4
-  %783 = select i1 %767, i16 %.sroa.02671.8.vec.extract, i16 0
-  %.sroa.02671.10.vec.extract = extractelement <16 x i16> %756, i64 5
-  %784 = select i1 %768, i16 %.sroa.02671.10.vec.extract, i16 0
-  %.sroa.02671.12.vec.extract = extractelement <16 x i16> %756, i64 6
-  %785 = select i1 %769, i16 %.sroa.02671.12.vec.extract, i16 0
-  %.sroa.02671.14.vec.extract = extractelement <16 x i16> %756, i64 7
-  %786 = select i1 %770, i16 %.sroa.02671.14.vec.extract, i16 0
-  %.sroa.02671.16.vec.extract = extractelement <16 x i16> %756, i64 8
-  %787 = select i1 %771, i16 %.sroa.02671.16.vec.extract, i16 0
-  %.sroa.02671.18.vec.extract = extractelement <16 x i16> %756, i64 9
-  %788 = select i1 %772, i16 %.sroa.02671.18.vec.extract, i16 0
-  %.sroa.02671.20.vec.extract = extractelement <16 x i16> %756, i64 10
-  %789 = select i1 %773, i16 %.sroa.02671.20.vec.extract, i16 0
-  %.sroa.02671.22.vec.extract = extractelement <16 x i16> %756, i64 11
-  %790 = select i1 %774, i16 %.sroa.02671.22.vec.extract, i16 0
-  %.sroa.02671.24.vec.extract = extractelement <16 x i16> %756, i64 12
-  %791 = select i1 %775, i16 %.sroa.02671.24.vec.extract, i16 0
-  %.sroa.02671.26.vec.extract = extractelement <16 x i16> %756, i64 13
-  %792 = select i1 %776, i16 %.sroa.02671.26.vec.extract, i16 0
-  %.sroa.02671.28.vec.extract = extractelement <16 x i16> %756, i64 14
-  %793 = select i1 %777, i16 %.sroa.02671.28.vec.extract, i16 0
-  %.sroa.02671.30.vec.extract = extractelement <16 x i16> %756, i64 15
-  %794 = select i1 %778, i16 %.sroa.02671.30.vec.extract, i16 0
+  %772 = select i1 %.inv3321, i16 0, i16 %.sroa.02671.0.vec.extract
+  %.sroa.02671.2.vec.extract = extractelement <16 x i16> %749, i64 1
+  %773 = select i1 %757, i16 %.sroa.02671.2.vec.extract, i16 0
+  %.sroa.02671.4.vec.extract = extractelement <16 x i16> %749, i64 2
+  %774 = select i1 %758, i16 %.sroa.02671.4.vec.extract, i16 0
+  %.sroa.02671.6.vec.extract = extractelement <16 x i16> %749, i64 3
+  %775 = select i1 %759, i16 %.sroa.02671.6.vec.extract, i16 0
+  %.sroa.02671.8.vec.extract = extractelement <16 x i16> %749, i64 4
+  %776 = select i1 %760, i16 %.sroa.02671.8.vec.extract, i16 0
+  %.sroa.02671.10.vec.extract = extractelement <16 x i16> %749, i64 5
+  %777 = select i1 %761, i16 %.sroa.02671.10.vec.extract, i16 0
+  %.sroa.02671.12.vec.extract = extractelement <16 x i16> %749, i64 6
+  %778 = select i1 %762, i16 %.sroa.02671.12.vec.extract, i16 0
+  %.sroa.02671.14.vec.extract = extractelement <16 x i16> %749, i64 7
+  %779 = select i1 %763, i16 %.sroa.02671.14.vec.extract, i16 0
+  %.sroa.02671.16.vec.extract = extractelement <16 x i16> %749, i64 8
+  %780 = select i1 %764, i16 %.sroa.02671.16.vec.extract, i16 0
+  %.sroa.02671.18.vec.extract = extractelement <16 x i16> %749, i64 9
+  %781 = select i1 %765, i16 %.sroa.02671.18.vec.extract, i16 0
+  %.sroa.02671.20.vec.extract = extractelement <16 x i16> %749, i64 10
+  %782 = select i1 %766, i16 %.sroa.02671.20.vec.extract, i16 0
+  %.sroa.02671.22.vec.extract = extractelement <16 x i16> %749, i64 11
+  %783 = select i1 %767, i16 %.sroa.02671.22.vec.extract, i16 0
+  %.sroa.02671.24.vec.extract = extractelement <16 x i16> %749, i64 12
+  %784 = select i1 %768, i16 %.sroa.02671.24.vec.extract, i16 0
+  %.sroa.02671.26.vec.extract = extractelement <16 x i16> %749, i64 13
+  %785 = select i1 %769, i16 %.sroa.02671.26.vec.extract, i16 0
+  %.sroa.02671.28.vec.extract = extractelement <16 x i16> %749, i64 14
+  %786 = select i1 %770, i16 %.sroa.02671.28.vec.extract, i16 0
+  %.sroa.02671.30.vec.extract = extractelement <16 x i16> %749, i64 15
+  %787 = select i1 %771, i16 %.sroa.02671.30.vec.extract, i16 0
   %.sroa.02697.0.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 0
-  %795 = add i16 %779, %.sroa.02697.0.vec.extract
+  %788 = add i16 %772, %.sroa.02697.0.vec.extract
   %.sroa.02697.2.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 1
-  %796 = add i16 %780, %.sroa.02697.2.vec.extract
+  %789 = add i16 %773, %.sroa.02697.2.vec.extract
   %.sroa.02697.4.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 2
-  %797 = add i16 %781, %.sroa.02697.4.vec.extract
+  %790 = add i16 %774, %.sroa.02697.4.vec.extract
   %.sroa.02697.6.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 3
-  %798 = add i16 %782, %.sroa.02697.6.vec.extract
+  %791 = add i16 %775, %.sroa.02697.6.vec.extract
   %.sroa.02697.8.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 4
-  %799 = add i16 %783, %.sroa.02697.8.vec.extract
+  %792 = add i16 %776, %.sroa.02697.8.vec.extract
   %.sroa.02697.10.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 5
-  %800 = add i16 %784, %.sroa.02697.10.vec.extract
+  %793 = add i16 %777, %.sroa.02697.10.vec.extract
   %.sroa.02697.12.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 6
-  %801 = add i16 %785, %.sroa.02697.12.vec.extract
+  %794 = add i16 %778, %.sroa.02697.12.vec.extract
   %.sroa.02697.14.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 7
-  %802 = add i16 %786, %.sroa.02697.14.vec.extract
+  %795 = add i16 %779, %.sroa.02697.14.vec.extract
   %.sroa.02697.16.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 8
-  %803 = add i16 %787, %.sroa.02697.16.vec.extract
+  %796 = add i16 %780, %.sroa.02697.16.vec.extract
   %.sroa.02697.18.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 9
-  %804 = add i16 %788, %.sroa.02697.18.vec.extract
+  %797 = add i16 %781, %.sroa.02697.18.vec.extract
   %.sroa.02697.20.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 10
-  %805 = add i16 %789, %.sroa.02697.20.vec.extract
+  %798 = add i16 %782, %.sroa.02697.20.vec.extract
   %.sroa.02697.22.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 11
-  %806 = add i16 %790, %.sroa.02697.22.vec.extract
+  %799 = add i16 %783, %.sroa.02697.22.vec.extract
   %.sroa.02697.24.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 12
-  %807 = add i16 %791, %.sroa.02697.24.vec.extract
+  %800 = add i16 %784, %.sroa.02697.24.vec.extract
   %.sroa.02697.26.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 13
-  %808 = add i16 %792, %.sroa.02697.26.vec.extract
+  %801 = add i16 %785, %.sroa.02697.26.vec.extract
   %.sroa.02697.28.vec.extract = extractelement <15 x i16> %.sroa.0.i206.sroa.0.0.copyload, i64 14
-  %809 = add i16 %793, %.sroa.02697.28.vec.extract
-  %810 = add i16 %794, %741
-  %.sroa.0.0.vec.insert.i1299 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %795, i64 0
-  %.sroa.0.2.vec.insert.i1300 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1299, i16 %796, i64 1
-  %.sroa.0.4.vec.insert.i1301 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1300, i16 %797, i64 2
-  %.sroa.0.6.vec.insert.i1302 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1301, i16 %798, i64 3
-  %.sroa.0.8.vec.insert.i1303 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1302, i16 %799, i64 4
-  %.sroa.0.10.vec.insert.i1304 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1303, i16 %800, i64 5
-  %.sroa.0.12.vec.insert.i1305 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1304, i16 %801, i64 6
-  %.sroa.0.14.vec.insert.i1306 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1305, i16 %802, i64 7
-  %.sroa.0.16.vec.insert.i1307 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1306, i16 %803, i64 8
-  %.sroa.0.18.vec.insert.i1308 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1307, i16 %804, i64 9
-  %.sroa.0.20.vec.insert.i1309 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1308, i16 %805, i64 10
-  %.sroa.0.22.vec.insert.i1310 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1309, i16 %806, i64 11
-  %.sroa.0.24.vec.insert.i1311 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1310, i16 %807, i64 12
-  %.sroa.0.26.vec.insert.i1312 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1311, i16 %808, i64 13
-  %.sroa.0.28.vec.insert.i1313 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1312, i16 %809, i64 14
+  %802 = add i16 %786, %.sroa.02697.28.vec.extract
+  %803 = add i16 %787, %734
+  %.sroa.0.0.vec.insert.i1299 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %788, i64 0
+  %.sroa.0.2.vec.insert.i1300 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1299, i16 %789, i64 1
+  %.sroa.0.4.vec.insert.i1301 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1300, i16 %790, i64 2
+  %.sroa.0.6.vec.insert.i1302 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1301, i16 %791, i64 3
+  %.sroa.0.8.vec.insert.i1303 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1302, i16 %792, i64 4
+  %.sroa.0.10.vec.insert.i1304 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1303, i16 %793, i64 5
+  %.sroa.0.12.vec.insert.i1305 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1304, i16 %794, i64 6
+  %.sroa.0.14.vec.insert.i1306 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1305, i16 %795, i64 7
+  %.sroa.0.16.vec.insert.i1307 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1306, i16 %796, i64 8
+  %.sroa.0.18.vec.insert.i1308 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1307, i16 %797, i64 9
+  %.sroa.0.20.vec.insert.i1309 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1308, i16 %798, i64 10
+  %.sroa.0.22.vec.insert.i1310 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1309, i16 %799, i64 11
+  %.sroa.0.24.vec.insert.i1311 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1310, i16 %800, i64 12
+  %.sroa.0.26.vec.insert.i1312 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1311, i16 %801, i64 13
+  %.sroa.0.28.vec.insert.i1313 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1312, i16 %802, i64 14
   %.sroa.02691.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1313, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i212 = icmp slt i16 %810, %750
-  br i1 %.not.i212, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit219, label %811
+  %.not.i212 = icmp slt i16 %803, %743
+  br i1 %.not.i212, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit219, label %804
 
-811:                                              ; preds = %761
-  %812 = add i16 %795, 1
-  %813 = add i16 %796, 2
-  %814 = add i16 %797, 3
-  %815 = add i16 %798, 4
-  %816 = add i16 %799, 5
-  %817 = add i16 %800, 6
-  %818 = add i16 %801, 7
-  %819 = add i16 %802, 8
-  %820 = add i16 %803, 9
-  %821 = add i16 %804, 10
-  %822 = add i16 %805, 11
-  %823 = add i16 %806, 12
-  %824 = add i16 %807, 13
-  %825 = add i16 %808, 14
-  %826 = add i16 %809, 15
-  %827 = add i16 %810, 16
-  %828 = ashr i16 %826, 2
-  %829 = ashr i16 %825, 2
-  %830 = ashr i16 %824, 2
-  %831 = ashr i16 %823, 2
-  %832 = ashr i16 %822, 2
-  %833 = ashr i16 %821, 2
-  %834 = ashr i16 %820, 2
-  %835 = ashr i16 %819, 2
-  %836 = ashr i16 %818, 2
-  %837 = ashr i16 %817, 2
-  %838 = ashr i16 %816, 2
-  %839 = ashr i16 %815, 2
-  %840 = ashr i16 %814, 2
-  %841 = ashr i16 %813, 2
-  %842 = ashr i16 %812, 2
-  %843 = ashr i16 %827, 2
-  %844 = sub i16 %812, %842
-  %845 = sub i16 %813, %841
-  %846 = sub i16 %814, %840
-  %847 = sub i16 %815, %839
-  %848 = sub i16 %816, %838
-  %849 = sub i16 %817, %837
-  %850 = sub i16 %818, %836
-  %851 = sub i16 %819, %835
-  %852 = sub i16 %820, %834
-  %853 = sub i16 %821, %833
-  %854 = sub i16 %822, %832
-  %855 = sub i16 %823, %831
-  %856 = sub i16 %824, %830
-  %857 = sub i16 %825, %829
-  %858 = sub i16 %826, %828
-  %859 = sub i16 %827, %843
-  %.sroa.0.0.vec.insert.i1747 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %844, i64 0
-  %.sroa.0.2.vec.insert.i1748 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1747, i16 %845, i64 1
-  %.sroa.0.4.vec.insert.i1749 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1748, i16 %846, i64 2
-  %.sroa.0.6.vec.insert.i1750 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1749, i16 %847, i64 3
-  %.sroa.0.8.vec.insert.i1751 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1750, i16 %848, i64 4
-  %.sroa.0.10.vec.insert.i1752 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1751, i16 %849, i64 5
-  %.sroa.0.12.vec.insert.i1753 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1752, i16 %850, i64 6
-  %.sroa.0.14.vec.insert.i1754 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1753, i16 %851, i64 7
-  %.sroa.0.16.vec.insert.i1755 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1754, i16 %852, i64 8
-  %.sroa.0.18.vec.insert.i1756 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1755, i16 %853, i64 9
-  %.sroa.0.20.vec.insert.i1757 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1756, i16 %854, i64 10
-  %.sroa.0.22.vec.insert.i1758 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1757, i16 %855, i64 11
-  %.sroa.0.24.vec.insert.i1759 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1758, i16 %856, i64 12
-  %.sroa.0.26.vec.insert.i1760 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1759, i16 %857, i64 13
-  %.sroa.0.28.vec.insert.i1761 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1760, i16 %858, i64 14
+804:                                              ; preds = %754
+  %805 = add i16 %788, 1
+  %806 = add i16 %789, 2
+  %807 = add i16 %790, 3
+  %808 = add i16 %791, 4
+  %809 = add i16 %792, 5
+  %810 = add i16 %793, 6
+  %811 = add i16 %794, 7
+  %812 = add i16 %795, 8
+  %813 = add i16 %796, 9
+  %814 = add i16 %797, 10
+  %815 = add i16 %798, 11
+  %816 = add i16 %799, 12
+  %817 = add i16 %800, 13
+  %818 = add i16 %801, 14
+  %819 = add i16 %802, 15
+  %820 = add i16 %803, 16
+  %821 = ashr i16 %819, 2
+  %822 = ashr i16 %818, 2
+  %823 = ashr i16 %817, 2
+  %824 = ashr i16 %816, 2
+  %825 = ashr i16 %815, 2
+  %826 = ashr i16 %814, 2
+  %827 = ashr i16 %813, 2
+  %828 = ashr i16 %812, 2
+  %829 = ashr i16 %811, 2
+  %830 = ashr i16 %810, 2
+  %831 = ashr i16 %809, 2
+  %832 = ashr i16 %808, 2
+  %833 = ashr i16 %807, 2
+  %834 = ashr i16 %806, 2
+  %835 = ashr i16 %805, 2
+  %836 = ashr i16 %820, 2
+  %837 = sub i16 %805, %835
+  %838 = sub i16 %806, %834
+  %839 = sub i16 %807, %833
+  %840 = sub i16 %808, %832
+  %841 = sub i16 %809, %831
+  %842 = sub i16 %810, %830
+  %843 = sub i16 %811, %829
+  %844 = sub i16 %812, %828
+  %845 = sub i16 %813, %827
+  %846 = sub i16 %814, %826
+  %847 = sub i16 %815, %825
+  %848 = sub i16 %816, %824
+  %849 = sub i16 %817, %823
+  %850 = sub i16 %818, %822
+  %851 = sub i16 %819, %821
+  %852 = sub i16 %820, %836
+  %.sroa.0.0.vec.insert.i1747 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %837, i64 0
+  %.sroa.0.2.vec.insert.i1748 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1747, i16 %838, i64 1
+  %.sroa.0.4.vec.insert.i1749 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1748, i16 %839, i64 2
+  %.sroa.0.6.vec.insert.i1750 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1749, i16 %840, i64 3
+  %.sroa.0.8.vec.insert.i1751 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1750, i16 %841, i64 4
+  %.sroa.0.10.vec.insert.i1752 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1751, i16 %842, i64 5
+  %.sroa.0.12.vec.insert.i1753 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1752, i16 %843, i64 6
+  %.sroa.0.14.vec.insert.i1754 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1753, i16 %844, i64 7
+  %.sroa.0.16.vec.insert.i1755 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1754, i16 %845, i64 8
+  %.sroa.0.18.vec.insert.i1756 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1755, i16 %846, i64 9
+  %.sroa.0.20.vec.insert.i1757 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1756, i16 %847, i64 10
+  %.sroa.0.22.vec.insert.i1758 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1757, i16 %848, i64 11
+  %.sroa.0.24.vec.insert.i1759 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1758, i16 %849, i64 12
+  %.sroa.0.26.vec.insert.i1760 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1759, i16 %850, i64 13
+  %.sroa.0.28.vec.insert.i1761 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1760, i16 %851, i64 14
   %.sroa.02701.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1761, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit219
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit219: ; preds = %761, %811
-  %.sroa.0.i206.sroa.0.0 = phi <15 x i16> [ %.sroa.02691.0.vec.extract, %761 ], [ %.sroa.02701.0.vec.extract, %811 ]
-  %.sroa.9.0.i217 = phi i16 [ %810, %761 ], [ %859, %811 ]
-  store <15 x i16> %.sroa.0.i206.sroa.0.0, ptr %731, align 2, !noalias !319
-  store i16 %.sroa.9.0.i217, ptr %740, align 2, !noalias !319
-  %860 = shl nuw nsw i64 %726, 8
-  %861 = and i64 %860, 3840
-  %862 = shl nuw nsw i64 %49, 12
-  %863 = or i64 %4, %861
-  %864 = or i64 %863, %862
-  %865 = shl i64 %864, 1
-  %866 = or disjoint i64 %865, 1
-  %867 = icmp ult i64 %866, %.val2389
-  br i1 %867, label %869, label %1008, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit219: ; preds = %754, %804
+  %.sroa.0.i206.sroa.0.0 = phi <15 x i16> [ %.sroa.02691.0.vec.extract, %754 ], [ %.sroa.02701.0.vec.extract, %804 ]
+  %.sroa.9.0.i217 = phi i16 [ %803, %754 ], [ %852, %804 ]
+  store <15 x i16> %.sroa.0.i206.sroa.0.0, ptr %725, align 2, !noalias !319
+  store i16 %.sroa.9.0.i217, ptr %733, align 2, !noalias !319
+  %853 = shl nuw nsw i64 %720, 8
+  %854 = and i64 %853, 3840
+  %855 = shl nuw nsw i64 %49, 12
+  %856 = or i64 %4, %854
+  %857 = or i64 %856, %855
+  %858 = shl i64 %857, 1
+  %859 = or disjoint i64 %858, 1
+  %860 = icmp ult i64 %859, %.val2389
+  br i1 %860, label %862, label %1000, !prof !278
 
-868:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit204
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %728, i64 noundef %.val2389, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+861:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit204
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %722, i64 noundef %.val2389, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-869:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit219
-  %870 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2388, i64 0, i64 %866
-  %871 = getelementptr inbounds nuw [0 x i16], ptr %870, i64 0, i64 %195
-  %872 = load i16, ptr %871, align 2, !noalias !322, !noundef !12
-  br i1 %198, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit113, label %873
+862:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit219
+  %863 = getelementptr inbounds { [16 x i16] }, ptr %.val2388, i64 %859
+  %864 = getelementptr inbounds nuw i16, ptr %863, i64 %194
+  %865 = load i16, ptr %864, align 2, !noalias !322, !noundef !12
+  br i1 %197, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit113, label %866
 
-873:                                              ; preds = %869
-  %874 = add nsw i64 %195, -1
-  %875 = getelementptr inbounds nuw [0 x i16], ptr %870, i64 0, i64 %874
-  %876 = load i16, ptr %875, align 2, !noalias !322, !noundef !12
-  %877 = sub i16 %872, %876
+866:                                              ; preds = %862
+  %867 = getelementptr i8, ptr %864, i64 -2
+  %868 = load i16, ptr %867, align 2, !noalias !322, !noundef !12
+  %869 = sub i16 %865, %868
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit113
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit113: ; preds = %869, %873
-  %.0.i112 = phi i16 [ %872, %869 ], [ %877, %873 ]
-  %878 = zext i16 %.0.i112 to i64
-  %879 = getelementptr inbounds nuw i8, ptr %870, i64 30
-  %880 = load i16, ptr %879, align 2, !noalias !322, !noundef !12
-  %881 = zext i16 %880 to i64
-  %882 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %881
-  %883 = load float, ptr %882, align 4, !noalias !322, !noundef !12
-  %884 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %878
-  %885 = load float, ptr %884, align 4, !noalias !322, !noundef !12
-  %886 = load i16, ptr %762, align 8, !noundef !12
-  %887 = getelementptr inbounds nuw i8, ptr %0, i64 282
-  %888 = load i16, ptr %887, align 2, !noundef !12
-  %.sroa.0.i221.sroa.0.0.copyload = load <15 x i16>, ptr %870, align 2, !noalias !325
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit113: ; preds = %862, %866
+  %.0.i112 = phi i16 [ %865, %862 ], [ %869, %866 ]
+  %870 = zext i16 %.0.i112 to i64
+  %871 = getelementptr inbounds nuw i8, ptr %863, i64 30
+  %872 = load i16, ptr %871, align 2, !noalias !322, !noundef !12
+  %873 = zext i16 %872 to i64
+  %874 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %873
+  %875 = load float, ptr %874, align 4, !noalias !322, !noundef !12
+  %876 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %870
+  %877 = load float, ptr %876, align 4, !noalias !322, !noundef !12
+  %878 = load i16, ptr %755, align 8, !noundef !12
+  %879 = getelementptr inbounds nuw i8, ptr %0, i64 282
+  %880 = load i16, ptr %879, align 2, !noundef !12
+  %.sroa.0.i221.sroa.0.0.copyload = load <15 x i16>, ptr %863, align 2, !noalias !325
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !325
-  br label %889
+  br label %881
 
-889:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit113, %889
-  %890 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit113 ], [ %892, %889 ]
-  %891 = getelementptr inbounds nuw [16 x i16], ptr %24, i64 0, i64 %890
-  store i16 %886, ptr %891, align 2, !noalias !325
-  %892 = add nuw nsw i64 %890, 1
-  %exitcond3342.not = icmp eq i64 %892, 16
-  br i1 %exitcond3342.not, label %893, label %889
+881:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit113, %881
+  %882 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit113 ], [ %884, %881 ]
+  %883 = getelementptr inbounds nuw i16, ptr %24, i64 %882
+  store i16 %878, ptr %883, align 2, !noalias !325
+  %884 = add nuw nsw i64 %882, 1
+  %exitcond3342.not = icmp eq i64 %884, 16
+  br i1 %exitcond3342.not, label %885, label %881
 
-893:                                              ; preds = %889
-  %894 = load <16 x i16>, ptr %24, align 2, !noalias !325
+885:                                              ; preds = %881
+  %886 = load <16 x i16>, ptr %24, align 2, !noalias !325
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !325
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !325
-  br label %895
+  br label %887
 
-895:                                              ; preds = %893, %895
-  %896 = phi i64 [ 0, %893 ], [ %898, %895 ]
-  %897 = getelementptr inbounds nuw [16 x i16], ptr %23, i64 0, i64 %896
-  store i16 %221, ptr %897, align 2, !noalias !325
-  %898 = add nuw nsw i64 %896, 1
-  %exitcond3343.not = icmp eq i64 %898, 16
-  br i1 %exitcond3343.not, label %899, label %895
+887:                                              ; preds = %885, %887
+  %888 = phi i64 [ 0, %885 ], [ %890, %887 ]
+  %889 = getelementptr inbounds nuw i16, ptr %23, i64 %888
+  store i16 %219, ptr %889, align 2, !noalias !325
+  %890 = add nuw nsw i64 %888, 1
+  %exitcond3343.not = icmp eq i64 %890, 16
+  br i1 %exitcond3343.not, label %891, label %887
 
-899:                                              ; preds = %895
-  %900 = fsub float %883, %885
-  %901 = load <16 x i16>, ptr %23, align 2, !noalias !325
+891:                                              ; preds = %887
+  %892 = fsub float %875, %877
+  %893 = load <16 x i16>, ptr %23, align 2, !noalias !325
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !325
-  %.sroa.02729.0.vec.extract = extractelement <16 x i16> %901, i64 0
-  %.sroa.02729.2.vec.extract = extractelement <16 x i16> %901, i64 1
-  %902 = icmp slt i16 %.sroa.02729.2.vec.extract, 2
-  %.sroa.02729.4.vec.extract = extractelement <16 x i16> %901, i64 2
-  %903 = icmp slt i16 %.sroa.02729.4.vec.extract, 3
-  %.sroa.02729.6.vec.extract = extractelement <16 x i16> %901, i64 3
-  %904 = icmp slt i16 %.sroa.02729.6.vec.extract, 4
-  %.sroa.02729.8.vec.extract = extractelement <16 x i16> %901, i64 4
-  %905 = icmp slt i16 %.sroa.02729.8.vec.extract, 5
-  %.sroa.02729.10.vec.extract = extractelement <16 x i16> %901, i64 5
-  %906 = icmp slt i16 %.sroa.02729.10.vec.extract, 6
-  %.sroa.02729.12.vec.extract = extractelement <16 x i16> %901, i64 6
-  %907 = icmp slt i16 %.sroa.02729.12.vec.extract, 7
-  %.sroa.02729.14.vec.extract = extractelement <16 x i16> %901, i64 7
-  %908 = icmp slt i16 %.sroa.02729.14.vec.extract, 8
-  %.sroa.02729.16.vec.extract = extractelement <16 x i16> %901, i64 8
-  %909 = icmp slt i16 %.sroa.02729.16.vec.extract, 9
-  %.sroa.02729.18.vec.extract = extractelement <16 x i16> %901, i64 9
-  %910 = icmp slt i16 %.sroa.02729.18.vec.extract, 10
-  %.sroa.02729.20.vec.extract = extractelement <16 x i16> %901, i64 10
-  %911 = icmp slt i16 %.sroa.02729.20.vec.extract, 11
-  %.sroa.02729.22.vec.extract = extractelement <16 x i16> %901, i64 11
-  %912 = icmp slt i16 %.sroa.02729.22.vec.extract, 12
-  %.sroa.02729.24.vec.extract = extractelement <16 x i16> %901, i64 12
-  %913 = icmp slt i16 %.sroa.02729.24.vec.extract, 13
-  %.sroa.02729.26.vec.extract = extractelement <16 x i16> %901, i64 13
-  %914 = icmp slt i16 %.sroa.02729.26.vec.extract, 14
-  %.sroa.02729.28.vec.extract = extractelement <16 x i16> %901, i64 14
-  %915 = icmp slt i16 %.sroa.02729.28.vec.extract, 15
-  %.sroa.02729.30.vec.extract = extractelement <16 x i16> %901, i64 15
-  %916 = icmp slt i16 %.sroa.02729.30.vec.extract, 16
-  %.sroa.02710.0.vec.extract = extractelement <16 x i16> %894, i64 0
+  %.sroa.02729.0.vec.extract = extractelement <16 x i16> %893, i64 0
+  %.sroa.02729.2.vec.extract = extractelement <16 x i16> %893, i64 1
+  %894 = icmp slt i16 %.sroa.02729.2.vec.extract, 2
+  %.sroa.02729.4.vec.extract = extractelement <16 x i16> %893, i64 2
+  %895 = icmp slt i16 %.sroa.02729.4.vec.extract, 3
+  %.sroa.02729.6.vec.extract = extractelement <16 x i16> %893, i64 3
+  %896 = icmp slt i16 %.sroa.02729.6.vec.extract, 4
+  %.sroa.02729.8.vec.extract = extractelement <16 x i16> %893, i64 4
+  %897 = icmp slt i16 %.sroa.02729.8.vec.extract, 5
+  %.sroa.02729.10.vec.extract = extractelement <16 x i16> %893, i64 5
+  %898 = icmp slt i16 %.sroa.02729.10.vec.extract, 6
+  %.sroa.02729.12.vec.extract = extractelement <16 x i16> %893, i64 6
+  %899 = icmp slt i16 %.sroa.02729.12.vec.extract, 7
+  %.sroa.02729.14.vec.extract = extractelement <16 x i16> %893, i64 7
+  %900 = icmp slt i16 %.sroa.02729.14.vec.extract, 8
+  %.sroa.02729.16.vec.extract = extractelement <16 x i16> %893, i64 8
+  %901 = icmp slt i16 %.sroa.02729.16.vec.extract, 9
+  %.sroa.02729.18.vec.extract = extractelement <16 x i16> %893, i64 9
+  %902 = icmp slt i16 %.sroa.02729.18.vec.extract, 10
+  %.sroa.02729.20.vec.extract = extractelement <16 x i16> %893, i64 10
+  %903 = icmp slt i16 %.sroa.02729.20.vec.extract, 11
+  %.sroa.02729.22.vec.extract = extractelement <16 x i16> %893, i64 11
+  %904 = icmp slt i16 %.sroa.02729.22.vec.extract, 12
+  %.sroa.02729.24.vec.extract = extractelement <16 x i16> %893, i64 12
+  %905 = icmp slt i16 %.sroa.02729.24.vec.extract, 13
+  %.sroa.02729.26.vec.extract = extractelement <16 x i16> %893, i64 13
+  %906 = icmp slt i16 %.sroa.02729.26.vec.extract, 14
+  %.sroa.02729.28.vec.extract = extractelement <16 x i16> %893, i64 14
+  %907 = icmp slt i16 %.sroa.02729.28.vec.extract, 15
+  %.sroa.02729.30.vec.extract = extractelement <16 x i16> %893, i64 15
+  %908 = icmp slt i16 %.sroa.02729.30.vec.extract, 16
+  %.sroa.02710.0.vec.extract = extractelement <16 x i16> %886, i64 0
   %.inv3322 = icmp sgt i16 %.sroa.02729.0.vec.extract, 0
-  %917 = select i1 %.inv3322, i16 0, i16 %.sroa.02710.0.vec.extract
-  %.sroa.02710.2.vec.extract = extractelement <16 x i16> %894, i64 1
-  %918 = select i1 %902, i16 %.sroa.02710.2.vec.extract, i16 0
-  %.sroa.02710.4.vec.extract = extractelement <16 x i16> %894, i64 2
-  %919 = select i1 %903, i16 %.sroa.02710.4.vec.extract, i16 0
-  %.sroa.02710.6.vec.extract = extractelement <16 x i16> %894, i64 3
-  %920 = select i1 %904, i16 %.sroa.02710.6.vec.extract, i16 0
-  %.sroa.02710.8.vec.extract = extractelement <16 x i16> %894, i64 4
-  %921 = select i1 %905, i16 %.sroa.02710.8.vec.extract, i16 0
-  %.sroa.02710.10.vec.extract = extractelement <16 x i16> %894, i64 5
-  %922 = select i1 %906, i16 %.sroa.02710.10.vec.extract, i16 0
-  %.sroa.02710.12.vec.extract = extractelement <16 x i16> %894, i64 6
-  %923 = select i1 %907, i16 %.sroa.02710.12.vec.extract, i16 0
-  %.sroa.02710.14.vec.extract = extractelement <16 x i16> %894, i64 7
-  %924 = select i1 %908, i16 %.sroa.02710.14.vec.extract, i16 0
-  %.sroa.02710.16.vec.extract = extractelement <16 x i16> %894, i64 8
-  %925 = select i1 %909, i16 %.sroa.02710.16.vec.extract, i16 0
-  %.sroa.02710.18.vec.extract = extractelement <16 x i16> %894, i64 9
-  %926 = select i1 %910, i16 %.sroa.02710.18.vec.extract, i16 0
-  %.sroa.02710.20.vec.extract = extractelement <16 x i16> %894, i64 10
-  %927 = select i1 %911, i16 %.sroa.02710.20.vec.extract, i16 0
-  %.sroa.02710.22.vec.extract = extractelement <16 x i16> %894, i64 11
-  %928 = select i1 %912, i16 %.sroa.02710.22.vec.extract, i16 0
-  %.sroa.02710.24.vec.extract = extractelement <16 x i16> %894, i64 12
-  %929 = select i1 %913, i16 %.sroa.02710.24.vec.extract, i16 0
-  %.sroa.02710.26.vec.extract = extractelement <16 x i16> %894, i64 13
-  %930 = select i1 %914, i16 %.sroa.02710.26.vec.extract, i16 0
-  %.sroa.02710.28.vec.extract = extractelement <16 x i16> %894, i64 14
-  %931 = select i1 %915, i16 %.sroa.02710.28.vec.extract, i16 0
-  %.sroa.02710.30.vec.extract = extractelement <16 x i16> %894, i64 15
-  %932 = select i1 %916, i16 %.sroa.02710.30.vec.extract, i16 0
+  %909 = select i1 %.inv3322, i16 0, i16 %.sroa.02710.0.vec.extract
+  %.sroa.02710.2.vec.extract = extractelement <16 x i16> %886, i64 1
+  %910 = select i1 %894, i16 %.sroa.02710.2.vec.extract, i16 0
+  %.sroa.02710.4.vec.extract = extractelement <16 x i16> %886, i64 2
+  %911 = select i1 %895, i16 %.sroa.02710.4.vec.extract, i16 0
+  %.sroa.02710.6.vec.extract = extractelement <16 x i16> %886, i64 3
+  %912 = select i1 %896, i16 %.sroa.02710.6.vec.extract, i16 0
+  %.sroa.02710.8.vec.extract = extractelement <16 x i16> %886, i64 4
+  %913 = select i1 %897, i16 %.sroa.02710.8.vec.extract, i16 0
+  %.sroa.02710.10.vec.extract = extractelement <16 x i16> %886, i64 5
+  %914 = select i1 %898, i16 %.sroa.02710.10.vec.extract, i16 0
+  %.sroa.02710.12.vec.extract = extractelement <16 x i16> %886, i64 6
+  %915 = select i1 %899, i16 %.sroa.02710.12.vec.extract, i16 0
+  %.sroa.02710.14.vec.extract = extractelement <16 x i16> %886, i64 7
+  %916 = select i1 %900, i16 %.sroa.02710.14.vec.extract, i16 0
+  %.sroa.02710.16.vec.extract = extractelement <16 x i16> %886, i64 8
+  %917 = select i1 %901, i16 %.sroa.02710.16.vec.extract, i16 0
+  %.sroa.02710.18.vec.extract = extractelement <16 x i16> %886, i64 9
+  %918 = select i1 %902, i16 %.sroa.02710.18.vec.extract, i16 0
+  %.sroa.02710.20.vec.extract = extractelement <16 x i16> %886, i64 10
+  %919 = select i1 %903, i16 %.sroa.02710.20.vec.extract, i16 0
+  %.sroa.02710.22.vec.extract = extractelement <16 x i16> %886, i64 11
+  %920 = select i1 %904, i16 %.sroa.02710.22.vec.extract, i16 0
+  %.sroa.02710.24.vec.extract = extractelement <16 x i16> %886, i64 12
+  %921 = select i1 %905, i16 %.sroa.02710.24.vec.extract, i16 0
+  %.sroa.02710.26.vec.extract = extractelement <16 x i16> %886, i64 13
+  %922 = select i1 %906, i16 %.sroa.02710.26.vec.extract, i16 0
+  %.sroa.02710.28.vec.extract = extractelement <16 x i16> %886, i64 14
+  %923 = select i1 %907, i16 %.sroa.02710.28.vec.extract, i16 0
+  %.sroa.02710.30.vec.extract = extractelement <16 x i16> %886, i64 15
+  %924 = select i1 %908, i16 %.sroa.02710.30.vec.extract, i16 0
   %.sroa.02736.0.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 0
-  %933 = add i16 %917, %.sroa.02736.0.vec.extract
+  %925 = add i16 %909, %.sroa.02736.0.vec.extract
   %.sroa.02736.2.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 1
-  %934 = add i16 %918, %.sroa.02736.2.vec.extract
+  %926 = add i16 %910, %.sroa.02736.2.vec.extract
   %.sroa.02736.4.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 2
-  %935 = add i16 %919, %.sroa.02736.4.vec.extract
+  %927 = add i16 %911, %.sroa.02736.4.vec.extract
   %.sroa.02736.6.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 3
-  %936 = add i16 %920, %.sroa.02736.6.vec.extract
+  %928 = add i16 %912, %.sroa.02736.6.vec.extract
   %.sroa.02736.8.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 4
-  %937 = add i16 %921, %.sroa.02736.8.vec.extract
+  %929 = add i16 %913, %.sroa.02736.8.vec.extract
   %.sroa.02736.10.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 5
-  %938 = add i16 %922, %.sroa.02736.10.vec.extract
+  %930 = add i16 %914, %.sroa.02736.10.vec.extract
   %.sroa.02736.12.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 6
-  %939 = add i16 %923, %.sroa.02736.12.vec.extract
+  %931 = add i16 %915, %.sroa.02736.12.vec.extract
   %.sroa.02736.14.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 7
-  %940 = add i16 %924, %.sroa.02736.14.vec.extract
+  %932 = add i16 %916, %.sroa.02736.14.vec.extract
   %.sroa.02736.16.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 8
-  %941 = add i16 %925, %.sroa.02736.16.vec.extract
+  %933 = add i16 %917, %.sroa.02736.16.vec.extract
   %.sroa.02736.18.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 9
-  %942 = add i16 %926, %.sroa.02736.18.vec.extract
+  %934 = add i16 %918, %.sroa.02736.18.vec.extract
   %.sroa.02736.20.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 10
-  %943 = add i16 %927, %.sroa.02736.20.vec.extract
+  %935 = add i16 %919, %.sroa.02736.20.vec.extract
   %.sroa.02736.22.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 11
-  %944 = add i16 %928, %.sroa.02736.22.vec.extract
+  %936 = add i16 %920, %.sroa.02736.22.vec.extract
   %.sroa.02736.24.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 12
-  %945 = add i16 %929, %.sroa.02736.24.vec.extract
+  %937 = add i16 %921, %.sroa.02736.24.vec.extract
   %.sroa.02736.26.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 13
-  %946 = add i16 %930, %.sroa.02736.26.vec.extract
+  %938 = add i16 %922, %.sroa.02736.26.vec.extract
   %.sroa.02736.28.vec.extract = extractelement <15 x i16> %.sroa.0.i221.sroa.0.0.copyload, i64 14
-  %947 = add i16 %931, %.sroa.02736.28.vec.extract
-  %948 = add i16 %932, %880
-  %.sroa.0.0.vec.insert.i1251 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %933, i64 0
-  %.sroa.0.2.vec.insert.i1252 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1251, i16 %934, i64 1
-  %.sroa.0.4.vec.insert.i1253 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1252, i16 %935, i64 2
-  %.sroa.0.6.vec.insert.i1254 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1253, i16 %936, i64 3
-  %.sroa.0.8.vec.insert.i1255 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1254, i16 %937, i64 4
-  %.sroa.0.10.vec.insert.i1256 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1255, i16 %938, i64 5
-  %.sroa.0.12.vec.insert.i1257 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1256, i16 %939, i64 6
-  %.sroa.0.14.vec.insert.i1258 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1257, i16 %940, i64 7
-  %.sroa.0.16.vec.insert.i1259 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1258, i16 %941, i64 8
-  %.sroa.0.18.vec.insert.i1260 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1259, i16 %942, i64 9
-  %.sroa.0.20.vec.insert.i1261 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1260, i16 %943, i64 10
-  %.sroa.0.22.vec.insert.i1262 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1261, i16 %944, i64 11
-  %.sroa.0.24.vec.insert.i1263 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1262, i16 %945, i64 12
-  %.sroa.0.26.vec.insert.i1264 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1263, i16 %946, i64 13
-  %.sroa.0.28.vec.insert.i1265 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1264, i16 %947, i64 14
+  %939 = add i16 %923, %.sroa.02736.28.vec.extract
+  %940 = add i16 %924, %872
+  %.sroa.0.0.vec.insert.i1251 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %925, i64 0
+  %.sroa.0.2.vec.insert.i1252 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1251, i16 %926, i64 1
+  %.sroa.0.4.vec.insert.i1253 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1252, i16 %927, i64 2
+  %.sroa.0.6.vec.insert.i1254 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1253, i16 %928, i64 3
+  %.sroa.0.8.vec.insert.i1255 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1254, i16 %929, i64 4
+  %.sroa.0.10.vec.insert.i1256 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1255, i16 %930, i64 5
+  %.sroa.0.12.vec.insert.i1257 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1256, i16 %931, i64 6
+  %.sroa.0.14.vec.insert.i1258 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1257, i16 %932, i64 7
+  %.sroa.0.16.vec.insert.i1259 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1258, i16 %933, i64 8
+  %.sroa.0.18.vec.insert.i1260 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1259, i16 %934, i64 9
+  %.sroa.0.20.vec.insert.i1261 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1260, i16 %935, i64 10
+  %.sroa.0.22.vec.insert.i1262 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1261, i16 %936, i64 11
+  %.sroa.0.24.vec.insert.i1263 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1262, i16 %937, i64 12
+  %.sroa.0.26.vec.insert.i1264 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1263, i16 %938, i64 13
+  %.sroa.0.28.vec.insert.i1265 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1264, i16 %939, i64 14
   %.sroa.02730.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1265, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i227 = icmp slt i16 %948, %888
-  br i1 %.not.i227, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit234, label %949
+  %.not.i227 = icmp slt i16 %940, %880
+  br i1 %.not.i227, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit234, label %941
 
-949:                                              ; preds = %899
-  %950 = add i16 %933, 1
-  %951 = add i16 %934, 2
-  %952 = add i16 %935, 3
-  %953 = add i16 %936, 4
-  %954 = add i16 %937, 5
-  %955 = add i16 %938, 6
-  %956 = add i16 %939, 7
-  %957 = add i16 %940, 8
-  %958 = add i16 %941, 9
-  %959 = add i16 %942, 10
-  %960 = add i16 %943, 11
-  %961 = add i16 %944, 12
-  %962 = add i16 %945, 13
-  %963 = add i16 %946, 14
-  %964 = add i16 %947, 15
-  %965 = add i16 %948, 16
-  %966 = ashr i16 %964, 2
-  %967 = ashr i16 %963, 2
-  %968 = ashr i16 %962, 2
-  %969 = ashr i16 %961, 2
-  %970 = ashr i16 %960, 2
-  %971 = ashr i16 %959, 2
-  %972 = ashr i16 %958, 2
+941:                                              ; preds = %891
+  %942 = add i16 %925, 1
+  %943 = add i16 %926, 2
+  %944 = add i16 %927, 3
+  %945 = add i16 %928, 4
+  %946 = add i16 %929, 5
+  %947 = add i16 %930, 6
+  %948 = add i16 %931, 7
+  %949 = add i16 %932, 8
+  %950 = add i16 %933, 9
+  %951 = add i16 %934, 10
+  %952 = add i16 %935, 11
+  %953 = add i16 %936, 12
+  %954 = add i16 %937, 13
+  %955 = add i16 %938, 14
+  %956 = add i16 %939, 15
+  %957 = add i16 %940, 16
+  %958 = ashr i16 %956, 2
+  %959 = ashr i16 %955, 2
+  %960 = ashr i16 %954, 2
+  %961 = ashr i16 %953, 2
+  %962 = ashr i16 %952, 2
+  %963 = ashr i16 %951, 2
+  %964 = ashr i16 %950, 2
+  %965 = ashr i16 %949, 2
+  %966 = ashr i16 %948, 2
+  %967 = ashr i16 %947, 2
+  %968 = ashr i16 %946, 2
+  %969 = ashr i16 %945, 2
+  %970 = ashr i16 %944, 2
+  %971 = ashr i16 %943, 2
+  %972 = ashr i16 %942, 2
   %973 = ashr i16 %957, 2
-  %974 = ashr i16 %956, 2
-  %975 = ashr i16 %955, 2
-  %976 = ashr i16 %954, 2
-  %977 = ashr i16 %953, 2
-  %978 = ashr i16 %952, 2
-  %979 = ashr i16 %951, 2
-  %980 = ashr i16 %950, 2
-  %981 = ashr i16 %965, 2
-  %982 = sub i16 %950, %980
-  %983 = sub i16 %951, %979
-  %984 = sub i16 %952, %978
-  %985 = sub i16 %953, %977
-  %986 = sub i16 %954, %976
-  %987 = sub i16 %955, %975
-  %988 = sub i16 %956, %974
+  %974 = sub i16 %942, %972
+  %975 = sub i16 %943, %971
+  %976 = sub i16 %944, %970
+  %977 = sub i16 %945, %969
+  %978 = sub i16 %946, %968
+  %979 = sub i16 %947, %967
+  %980 = sub i16 %948, %966
+  %981 = sub i16 %949, %965
+  %982 = sub i16 %950, %964
+  %983 = sub i16 %951, %963
+  %984 = sub i16 %952, %962
+  %985 = sub i16 %953, %961
+  %986 = sub i16 %954, %960
+  %987 = sub i16 %955, %959
+  %988 = sub i16 %956, %958
   %989 = sub i16 %957, %973
-  %990 = sub i16 %958, %972
-  %991 = sub i16 %959, %971
-  %992 = sub i16 %960, %970
-  %993 = sub i16 %961, %969
-  %994 = sub i16 %962, %968
-  %995 = sub i16 %963, %967
-  %996 = sub i16 %964, %966
-  %997 = sub i16 %965, %981
-  %.sroa.0.0.vec.insert.i1731 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %982, i64 0
-  %.sroa.0.2.vec.insert.i1732 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1731, i16 %983, i64 1
-  %.sroa.0.4.vec.insert.i1733 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1732, i16 %984, i64 2
-  %.sroa.0.6.vec.insert.i1734 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1733, i16 %985, i64 3
-  %.sroa.0.8.vec.insert.i1735 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1734, i16 %986, i64 4
-  %.sroa.0.10.vec.insert.i1736 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1735, i16 %987, i64 5
-  %.sroa.0.12.vec.insert.i1737 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1736, i16 %988, i64 6
-  %.sroa.0.14.vec.insert.i1738 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1737, i16 %989, i64 7
-  %.sroa.0.16.vec.insert.i1739 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1738, i16 %990, i64 8
-  %.sroa.0.18.vec.insert.i1740 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1739, i16 %991, i64 9
-  %.sroa.0.20.vec.insert.i1741 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1740, i16 %992, i64 10
-  %.sroa.0.22.vec.insert.i1742 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1741, i16 %993, i64 11
-  %.sroa.0.24.vec.insert.i1743 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1742, i16 %994, i64 12
-  %.sroa.0.26.vec.insert.i1744 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1743, i16 %995, i64 13
-  %.sroa.0.28.vec.insert.i1745 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1744, i16 %996, i64 14
+  %.sroa.0.0.vec.insert.i1731 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %974, i64 0
+  %.sroa.0.2.vec.insert.i1732 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1731, i16 %975, i64 1
+  %.sroa.0.4.vec.insert.i1733 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1732, i16 %976, i64 2
+  %.sroa.0.6.vec.insert.i1734 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1733, i16 %977, i64 3
+  %.sroa.0.8.vec.insert.i1735 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1734, i16 %978, i64 4
+  %.sroa.0.10.vec.insert.i1736 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1735, i16 %979, i64 5
+  %.sroa.0.12.vec.insert.i1737 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1736, i16 %980, i64 6
+  %.sroa.0.14.vec.insert.i1738 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1737, i16 %981, i64 7
+  %.sroa.0.16.vec.insert.i1739 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1738, i16 %982, i64 8
+  %.sroa.0.18.vec.insert.i1740 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1739, i16 %983, i64 9
+  %.sroa.0.20.vec.insert.i1741 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1740, i16 %984, i64 10
+  %.sroa.0.22.vec.insert.i1742 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1741, i16 %985, i64 11
+  %.sroa.0.24.vec.insert.i1743 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1742, i16 %986, i64 12
+  %.sroa.0.26.vec.insert.i1744 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1743, i16 %987, i64 13
+  %.sroa.0.28.vec.insert.i1745 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1744, i16 %988, i64 14
   %.sroa.02740.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1745, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit234
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit234: ; preds = %899, %949
-  %.sroa.0.i221.sroa.0.0 = phi <15 x i16> [ %.sroa.02730.0.vec.extract, %899 ], [ %.sroa.02740.0.vec.extract, %949 ]
-  %.sroa.9.0.i232 = phi i16 [ %948, %899 ], [ %997, %949 ]
-  store <15 x i16> %.sroa.0.i221.sroa.0.0, ptr %870, align 2, !noalias !325
-  store i16 %.sroa.9.0.i232, ptr %879, align 2, !noalias !325
-  %998 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %.val2384 = load ptr, ptr %998, align 8, !nonnull !12, !align !279, !noundef !12
-  %999 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %.val2385 = load i64, ptr %999, align 8, !noundef !12
-  %1000 = add i64 %2, 7
-  %1001 = and i64 %1000, 7
-  %1002 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 0, i64 %1001
-  %1003 = load i8, ptr %1002, align 1, !noundef !12
-  %1004 = zext i8 %1003 to i64
-  %1005 = shl nuw nsw i64 %1004, 9
-  %1006 = or i64 %1005, %466
-  %1007 = icmp ult i64 %1006, %.val2385
-  br i1 %1007, label %1009, label %1141, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit234: ; preds = %891, %941
+  %.sroa.0.i221.sroa.0.0 = phi <15 x i16> [ %.sroa.02730.0.vec.extract, %891 ], [ %.sroa.02740.0.vec.extract, %941 ]
+  %.sroa.9.0.i232 = phi i16 [ %940, %891 ], [ %989, %941 ]
+  store <15 x i16> %.sroa.0.i221.sroa.0.0, ptr %863, align 2, !noalias !325
+  store i16 %.sroa.9.0.i232, ptr %871, align 2, !noalias !325
+  %990 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %.val2384 = load ptr, ptr %990, align 8, !nonnull !12, !align !279, !noundef !12
+  %991 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %.val2385 = load i64, ptr %991, align 8, !noundef !12
+  %992 = add i64 %2, 7
+  %993 = and i64 %992, 7
+  %994 = getelementptr inbounds nuw i8, ptr %35, i64 %993
+  %995 = load i8, ptr %994, align 1, !noundef !12
+  %996 = zext i8 %995 to i64
+  %997 = shl nuw nsw i64 %996, 9
+  %998 = or i64 %997, %462
+  %999 = icmp ult i64 %998, %.val2385
+  br i1 %999, label %1001, label %1132, !prof !278
 
-1008:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit219
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %866, i64 noundef %.val2389, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+1000:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit219
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %859, i64 noundef %.val2389, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-1009:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit234
-  %1010 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2384, i64 0, i64 %1006
-  %1011 = getelementptr inbounds nuw [0 x i16], ptr %1010, i64 0, i64 %49
-  %1012 = load i16, ptr %1011, align 2, !noalias !328, !noundef !12
-  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit115, label %1013
+1001:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit234
+  %1002 = getelementptr inbounds { [16 x i16] }, ptr %.val2384, i64 %998
+  %1003 = getelementptr inbounds nuw i16, ptr %1002, i64 %49
+  %1004 = load i16, ptr %1003, align 2, !noalias !328, !noundef !12
+  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit115, label %1005
 
-1013:                                             ; preds = %1009
-  %1014 = add nsw i64 %49, -1
-  %1015 = getelementptr inbounds nuw [0 x i16], ptr %1010, i64 0, i64 %1014
-  %1016 = load i16, ptr %1015, align 2, !noalias !328, !noundef !12
-  %1017 = sub i16 %1012, %1016
+1005:                                             ; preds = %1001
+  %1006 = getelementptr i8, ptr %1003, i64 -2
+  %1007 = load i16, ptr %1006, align 2, !noalias !328, !noundef !12
+  %1008 = sub i16 %1004, %1007
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit115
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit115: ; preds = %1009, %1013
-  %.0.i114 = phi i16 [ %1012, %1009 ], [ %1017, %1013 ]
-  %1018 = zext i16 %.0.i114 to i64
-  %1019 = getelementptr inbounds nuw i8, ptr %1010, i64 30
-  %1020 = load i16, ptr %1019, align 2, !noalias !328, !noundef !12
-  %1021 = zext i16 %1020 to i64
-  %1022 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1021
-  %1023 = load float, ptr %1022, align 4, !noalias !328, !noundef !12
-  %1024 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1018
-  %1025 = load float, ptr %1024, align 4, !noalias !328, !noundef !12
-  %.sroa.0.i236.sroa.0.0.copyload = load <15 x i16>, ptr %1010, align 2, !noalias !331
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit115: ; preds = %1001, %1005
+  %.0.i114 = phi i16 [ %1004, %1001 ], [ %1008, %1005 ]
+  %1009 = zext i16 %.0.i114 to i64
+  %1010 = getelementptr inbounds nuw i8, ptr %1002, i64 30
+  %1011 = load i16, ptr %1010, align 2, !noalias !328, !noundef !12
+  %1012 = zext i16 %1011 to i64
+  %1013 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1012
+  %1014 = load float, ptr %1013, align 4, !noalias !328, !noundef !12
+  %1015 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1009
+  %1016 = load float, ptr %1015, align 4, !noalias !328, !noundef !12
+  %.sroa.0.i236.sroa.0.0.copyload = load <15 x i16>, ptr %1002, align 2, !noalias !331
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !331
-  br label %1026
+  br label %1017
 
-1026:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit115, %1026
-  %1027 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit115 ], [ %1029, %1026 ]
-  %1028 = getelementptr inbounds nuw [16 x i16], ptr %22, i64 0, i64 %1027
-  store i16 %748, ptr %1028, align 2, !noalias !331
-  %1029 = add nuw nsw i64 %1027, 1
-  %exitcond3344.not = icmp eq i64 %1029, 16
-  br i1 %exitcond3344.not, label %1030, label %1026
+1017:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit115, %1017
+  %1018 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit115 ], [ %1020, %1017 ]
+  %1019 = getelementptr inbounds nuw i16, ptr %22, i64 %1018
+  store i16 %741, ptr %1019, align 2, !noalias !331
+  %1020 = add nuw nsw i64 %1018, 1
+  %exitcond3344.not = icmp eq i64 %1020, 16
+  br i1 %exitcond3344.not, label %1021, label %1017
 
-1030:                                             ; preds = %1026
-  %1031 = load <16 x i16>, ptr %22, align 2, !noalias !331
+1021:                                             ; preds = %1017
+  %1022 = load <16 x i16>, ptr %22, align 2, !noalias !331
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !331
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !331
-  br label %1032
+  br label %1023
 
-1032:                                             ; preds = %1030, %1032
-  %1033 = phi i64 [ 0, %1030 ], [ %1035, %1032 ]
-  %1034 = getelementptr inbounds nuw [16 x i16], ptr %21, i64 0, i64 %1033
-  store i16 %84, ptr %1034, align 2, !noalias !331
-  %1035 = add nuw nsw i64 %1033, 1
-  %exitcond3345.not = icmp eq i64 %1035, 16
-  br i1 %exitcond3345.not, label %1036, label %1032
+1023:                                             ; preds = %1021, %1023
+  %1024 = phi i64 [ 0, %1021 ], [ %1026, %1023 ]
+  %1025 = getelementptr inbounds nuw i16, ptr %21, i64 %1024
+  store i16 %83, ptr %1025, align 2, !noalias !331
+  %1026 = add nuw nsw i64 %1024, 1
+  %exitcond3345.not = icmp eq i64 %1026, 16
+  br i1 %exitcond3345.not, label %1027, label %1023
 
-1036:                                             ; preds = %1032
-  %1037 = load <16 x i16>, ptr %21, align 2, !noalias !331
+1027:                                             ; preds = %1023
+  %1028 = load <16 x i16>, ptr %21, align 2, !noalias !331
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !331
-  %.sroa.02768.0.vec.extract = extractelement <16 x i16> %1037, i64 0
-  %.sroa.02768.2.vec.extract = extractelement <16 x i16> %1037, i64 1
-  %1038 = icmp slt i16 %.sroa.02768.2.vec.extract, 2
-  %.sroa.02768.4.vec.extract = extractelement <16 x i16> %1037, i64 2
-  %1039 = icmp slt i16 %.sroa.02768.4.vec.extract, 3
-  %.sroa.02768.6.vec.extract = extractelement <16 x i16> %1037, i64 3
-  %1040 = icmp slt i16 %.sroa.02768.6.vec.extract, 4
-  %.sroa.02768.8.vec.extract = extractelement <16 x i16> %1037, i64 4
-  %1041 = icmp slt i16 %.sroa.02768.8.vec.extract, 5
-  %.sroa.02768.10.vec.extract = extractelement <16 x i16> %1037, i64 5
-  %1042 = icmp slt i16 %.sroa.02768.10.vec.extract, 6
-  %.sroa.02768.12.vec.extract = extractelement <16 x i16> %1037, i64 6
-  %1043 = icmp slt i16 %.sroa.02768.12.vec.extract, 7
-  %.sroa.02768.14.vec.extract = extractelement <16 x i16> %1037, i64 7
-  %1044 = icmp slt i16 %.sroa.02768.14.vec.extract, 8
-  %.sroa.02768.16.vec.extract = extractelement <16 x i16> %1037, i64 8
-  %1045 = icmp slt i16 %.sroa.02768.16.vec.extract, 9
-  %.sroa.02768.18.vec.extract = extractelement <16 x i16> %1037, i64 9
-  %1046 = icmp slt i16 %.sroa.02768.18.vec.extract, 10
-  %.sroa.02768.20.vec.extract = extractelement <16 x i16> %1037, i64 10
-  %1047 = icmp slt i16 %.sroa.02768.20.vec.extract, 11
-  %.sroa.02768.22.vec.extract = extractelement <16 x i16> %1037, i64 11
-  %1048 = icmp slt i16 %.sroa.02768.22.vec.extract, 12
-  %.sroa.02768.24.vec.extract = extractelement <16 x i16> %1037, i64 12
-  %1049 = icmp slt i16 %.sroa.02768.24.vec.extract, 13
-  %.sroa.02768.26.vec.extract = extractelement <16 x i16> %1037, i64 13
-  %1050 = icmp slt i16 %.sroa.02768.26.vec.extract, 14
-  %.sroa.02768.28.vec.extract = extractelement <16 x i16> %1037, i64 14
-  %1051 = icmp slt i16 %.sroa.02768.28.vec.extract, 15
-  %.sroa.02768.30.vec.extract = extractelement <16 x i16> %1037, i64 15
-  %1052 = icmp slt i16 %.sroa.02768.30.vec.extract, 16
-  %.sroa.02749.0.vec.extract = extractelement <16 x i16> %1031, i64 0
+  %.sroa.02768.0.vec.extract = extractelement <16 x i16> %1028, i64 0
+  %.sroa.02768.2.vec.extract = extractelement <16 x i16> %1028, i64 1
+  %1029 = icmp slt i16 %.sroa.02768.2.vec.extract, 2
+  %.sroa.02768.4.vec.extract = extractelement <16 x i16> %1028, i64 2
+  %1030 = icmp slt i16 %.sroa.02768.4.vec.extract, 3
+  %.sroa.02768.6.vec.extract = extractelement <16 x i16> %1028, i64 3
+  %1031 = icmp slt i16 %.sroa.02768.6.vec.extract, 4
+  %.sroa.02768.8.vec.extract = extractelement <16 x i16> %1028, i64 4
+  %1032 = icmp slt i16 %.sroa.02768.8.vec.extract, 5
+  %.sroa.02768.10.vec.extract = extractelement <16 x i16> %1028, i64 5
+  %1033 = icmp slt i16 %.sroa.02768.10.vec.extract, 6
+  %.sroa.02768.12.vec.extract = extractelement <16 x i16> %1028, i64 6
+  %1034 = icmp slt i16 %.sroa.02768.12.vec.extract, 7
+  %.sroa.02768.14.vec.extract = extractelement <16 x i16> %1028, i64 7
+  %1035 = icmp slt i16 %.sroa.02768.14.vec.extract, 8
+  %.sroa.02768.16.vec.extract = extractelement <16 x i16> %1028, i64 8
+  %1036 = icmp slt i16 %.sroa.02768.16.vec.extract, 9
+  %.sroa.02768.18.vec.extract = extractelement <16 x i16> %1028, i64 9
+  %1037 = icmp slt i16 %.sroa.02768.18.vec.extract, 10
+  %.sroa.02768.20.vec.extract = extractelement <16 x i16> %1028, i64 10
+  %1038 = icmp slt i16 %.sroa.02768.20.vec.extract, 11
+  %.sroa.02768.22.vec.extract = extractelement <16 x i16> %1028, i64 11
+  %1039 = icmp slt i16 %.sroa.02768.22.vec.extract, 12
+  %.sroa.02768.24.vec.extract = extractelement <16 x i16> %1028, i64 12
+  %1040 = icmp slt i16 %.sroa.02768.24.vec.extract, 13
+  %.sroa.02768.26.vec.extract = extractelement <16 x i16> %1028, i64 13
+  %1041 = icmp slt i16 %.sroa.02768.26.vec.extract, 14
+  %.sroa.02768.28.vec.extract = extractelement <16 x i16> %1028, i64 14
+  %1042 = icmp slt i16 %.sroa.02768.28.vec.extract, 15
+  %.sroa.02768.30.vec.extract = extractelement <16 x i16> %1028, i64 15
+  %1043 = icmp slt i16 %.sroa.02768.30.vec.extract, 16
+  %.sroa.02749.0.vec.extract = extractelement <16 x i16> %1022, i64 0
   %.inv3323 = icmp sgt i16 %.sroa.02768.0.vec.extract, 0
-  %1053 = select i1 %.inv3323, i16 0, i16 %.sroa.02749.0.vec.extract
-  %.sroa.02749.2.vec.extract = extractelement <16 x i16> %1031, i64 1
-  %1054 = select i1 %1038, i16 %.sroa.02749.2.vec.extract, i16 0
-  %.sroa.02749.4.vec.extract = extractelement <16 x i16> %1031, i64 2
-  %1055 = select i1 %1039, i16 %.sroa.02749.4.vec.extract, i16 0
-  %.sroa.02749.6.vec.extract = extractelement <16 x i16> %1031, i64 3
-  %1056 = select i1 %1040, i16 %.sroa.02749.6.vec.extract, i16 0
-  %.sroa.02749.8.vec.extract = extractelement <16 x i16> %1031, i64 4
-  %1057 = select i1 %1041, i16 %.sroa.02749.8.vec.extract, i16 0
-  %.sroa.02749.10.vec.extract = extractelement <16 x i16> %1031, i64 5
-  %1058 = select i1 %1042, i16 %.sroa.02749.10.vec.extract, i16 0
-  %.sroa.02749.12.vec.extract = extractelement <16 x i16> %1031, i64 6
-  %1059 = select i1 %1043, i16 %.sroa.02749.12.vec.extract, i16 0
-  %.sroa.02749.14.vec.extract = extractelement <16 x i16> %1031, i64 7
-  %1060 = select i1 %1044, i16 %.sroa.02749.14.vec.extract, i16 0
-  %.sroa.02749.16.vec.extract = extractelement <16 x i16> %1031, i64 8
-  %1061 = select i1 %1045, i16 %.sroa.02749.16.vec.extract, i16 0
-  %.sroa.02749.18.vec.extract = extractelement <16 x i16> %1031, i64 9
-  %1062 = select i1 %1046, i16 %.sroa.02749.18.vec.extract, i16 0
-  %.sroa.02749.20.vec.extract = extractelement <16 x i16> %1031, i64 10
-  %1063 = select i1 %1047, i16 %.sroa.02749.20.vec.extract, i16 0
-  %.sroa.02749.22.vec.extract = extractelement <16 x i16> %1031, i64 11
-  %1064 = select i1 %1048, i16 %.sroa.02749.22.vec.extract, i16 0
-  %.sroa.02749.24.vec.extract = extractelement <16 x i16> %1031, i64 12
-  %1065 = select i1 %1049, i16 %.sroa.02749.24.vec.extract, i16 0
-  %.sroa.02749.26.vec.extract = extractelement <16 x i16> %1031, i64 13
-  %1066 = select i1 %1050, i16 %.sroa.02749.26.vec.extract, i16 0
-  %.sroa.02749.28.vec.extract = extractelement <16 x i16> %1031, i64 14
-  %1067 = select i1 %1051, i16 %.sroa.02749.28.vec.extract, i16 0
-  %.sroa.02749.30.vec.extract = extractelement <16 x i16> %1031, i64 15
-  %1068 = select i1 %1052, i16 %.sroa.02749.30.vec.extract, i16 0
+  %1044 = select i1 %.inv3323, i16 0, i16 %.sroa.02749.0.vec.extract
+  %.sroa.02749.2.vec.extract = extractelement <16 x i16> %1022, i64 1
+  %1045 = select i1 %1029, i16 %.sroa.02749.2.vec.extract, i16 0
+  %.sroa.02749.4.vec.extract = extractelement <16 x i16> %1022, i64 2
+  %1046 = select i1 %1030, i16 %.sroa.02749.4.vec.extract, i16 0
+  %.sroa.02749.6.vec.extract = extractelement <16 x i16> %1022, i64 3
+  %1047 = select i1 %1031, i16 %.sroa.02749.6.vec.extract, i16 0
+  %.sroa.02749.8.vec.extract = extractelement <16 x i16> %1022, i64 4
+  %1048 = select i1 %1032, i16 %.sroa.02749.8.vec.extract, i16 0
+  %.sroa.02749.10.vec.extract = extractelement <16 x i16> %1022, i64 5
+  %1049 = select i1 %1033, i16 %.sroa.02749.10.vec.extract, i16 0
+  %.sroa.02749.12.vec.extract = extractelement <16 x i16> %1022, i64 6
+  %1050 = select i1 %1034, i16 %.sroa.02749.12.vec.extract, i16 0
+  %.sroa.02749.14.vec.extract = extractelement <16 x i16> %1022, i64 7
+  %1051 = select i1 %1035, i16 %.sroa.02749.14.vec.extract, i16 0
+  %.sroa.02749.16.vec.extract = extractelement <16 x i16> %1022, i64 8
+  %1052 = select i1 %1036, i16 %.sroa.02749.16.vec.extract, i16 0
+  %.sroa.02749.18.vec.extract = extractelement <16 x i16> %1022, i64 9
+  %1053 = select i1 %1037, i16 %.sroa.02749.18.vec.extract, i16 0
+  %.sroa.02749.20.vec.extract = extractelement <16 x i16> %1022, i64 10
+  %1054 = select i1 %1038, i16 %.sroa.02749.20.vec.extract, i16 0
+  %.sroa.02749.22.vec.extract = extractelement <16 x i16> %1022, i64 11
+  %1055 = select i1 %1039, i16 %.sroa.02749.22.vec.extract, i16 0
+  %.sroa.02749.24.vec.extract = extractelement <16 x i16> %1022, i64 12
+  %1056 = select i1 %1040, i16 %.sroa.02749.24.vec.extract, i16 0
+  %.sroa.02749.26.vec.extract = extractelement <16 x i16> %1022, i64 13
+  %1057 = select i1 %1041, i16 %.sroa.02749.26.vec.extract, i16 0
+  %.sroa.02749.28.vec.extract = extractelement <16 x i16> %1022, i64 14
+  %1058 = select i1 %1042, i16 %.sroa.02749.28.vec.extract, i16 0
+  %.sroa.02749.30.vec.extract = extractelement <16 x i16> %1022, i64 15
+  %1059 = select i1 %1043, i16 %.sroa.02749.30.vec.extract, i16 0
   %.sroa.02775.0.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 0
-  %1069 = add i16 %1053, %.sroa.02775.0.vec.extract
+  %1060 = add i16 %1044, %.sroa.02775.0.vec.extract
   %.sroa.02775.2.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 1
-  %1070 = add i16 %1054, %.sroa.02775.2.vec.extract
+  %1061 = add i16 %1045, %.sroa.02775.2.vec.extract
   %.sroa.02775.4.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 2
-  %1071 = add i16 %1055, %.sroa.02775.4.vec.extract
+  %1062 = add i16 %1046, %.sroa.02775.4.vec.extract
   %.sroa.02775.6.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 3
-  %1072 = add i16 %1056, %.sroa.02775.6.vec.extract
+  %1063 = add i16 %1047, %.sroa.02775.6.vec.extract
   %.sroa.02775.8.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 4
-  %1073 = add i16 %1057, %.sroa.02775.8.vec.extract
+  %1064 = add i16 %1048, %.sroa.02775.8.vec.extract
   %.sroa.02775.10.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 5
-  %1074 = add i16 %1058, %.sroa.02775.10.vec.extract
+  %1065 = add i16 %1049, %.sroa.02775.10.vec.extract
   %.sroa.02775.12.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 6
-  %1075 = add i16 %1059, %.sroa.02775.12.vec.extract
+  %1066 = add i16 %1050, %.sroa.02775.12.vec.extract
   %.sroa.02775.14.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 7
-  %1076 = add i16 %1060, %.sroa.02775.14.vec.extract
+  %1067 = add i16 %1051, %.sroa.02775.14.vec.extract
   %.sroa.02775.16.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 8
-  %1077 = add i16 %1061, %.sroa.02775.16.vec.extract
+  %1068 = add i16 %1052, %.sroa.02775.16.vec.extract
   %.sroa.02775.18.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 9
-  %1078 = add i16 %1062, %.sroa.02775.18.vec.extract
+  %1069 = add i16 %1053, %.sroa.02775.18.vec.extract
   %.sroa.02775.20.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 10
-  %1079 = add i16 %1063, %.sroa.02775.20.vec.extract
+  %1070 = add i16 %1054, %.sroa.02775.20.vec.extract
   %.sroa.02775.22.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 11
-  %1080 = add i16 %1064, %.sroa.02775.22.vec.extract
+  %1071 = add i16 %1055, %.sroa.02775.22.vec.extract
   %.sroa.02775.24.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 12
-  %1081 = add i16 %1065, %.sroa.02775.24.vec.extract
+  %1072 = add i16 %1056, %.sroa.02775.24.vec.extract
   %.sroa.02775.26.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 13
-  %1082 = add i16 %1066, %.sroa.02775.26.vec.extract
+  %1073 = add i16 %1057, %.sroa.02775.26.vec.extract
   %.sroa.02775.28.vec.extract = extractelement <15 x i16> %.sroa.0.i236.sroa.0.0.copyload, i64 14
-  %1083 = add i16 %1067, %.sroa.02775.28.vec.extract
-  %1084 = add i16 %1068, %1020
-  %.sroa.0.0.vec.insert.i1203 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1069, i64 0
-  %.sroa.0.2.vec.insert.i1204 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1203, i16 %1070, i64 1
-  %.sroa.0.4.vec.insert.i1205 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1204, i16 %1071, i64 2
-  %.sroa.0.6.vec.insert.i1206 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1205, i16 %1072, i64 3
-  %.sroa.0.8.vec.insert.i1207 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1206, i16 %1073, i64 4
-  %.sroa.0.10.vec.insert.i1208 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1207, i16 %1074, i64 5
-  %.sroa.0.12.vec.insert.i1209 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1208, i16 %1075, i64 6
-  %.sroa.0.14.vec.insert.i1210 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1209, i16 %1076, i64 7
-  %.sroa.0.16.vec.insert.i1211 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1210, i16 %1077, i64 8
-  %.sroa.0.18.vec.insert.i1212 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1211, i16 %1078, i64 9
-  %.sroa.0.20.vec.insert.i1213 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1212, i16 %1079, i64 10
-  %.sroa.0.22.vec.insert.i1214 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1213, i16 %1080, i64 11
-  %.sroa.0.24.vec.insert.i1215 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1214, i16 %1081, i64 12
-  %.sroa.0.26.vec.insert.i1216 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1215, i16 %1082, i64 13
-  %.sroa.0.28.vec.insert.i1217 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1216, i16 %1083, i64 14
+  %1074 = add i16 %1058, %.sroa.02775.28.vec.extract
+  %1075 = add i16 %1059, %1011
+  %.sroa.0.0.vec.insert.i1203 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1060, i64 0
+  %.sroa.0.2.vec.insert.i1204 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1203, i16 %1061, i64 1
+  %.sroa.0.4.vec.insert.i1205 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1204, i16 %1062, i64 2
+  %.sroa.0.6.vec.insert.i1206 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1205, i16 %1063, i64 3
+  %.sroa.0.8.vec.insert.i1207 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1206, i16 %1064, i64 4
+  %.sroa.0.10.vec.insert.i1208 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1207, i16 %1065, i64 5
+  %.sroa.0.12.vec.insert.i1209 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1208, i16 %1066, i64 6
+  %.sroa.0.14.vec.insert.i1210 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1209, i16 %1067, i64 7
+  %.sroa.0.16.vec.insert.i1211 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1210, i16 %1068, i64 8
+  %.sroa.0.18.vec.insert.i1212 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1211, i16 %1069, i64 9
+  %.sroa.0.20.vec.insert.i1213 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1212, i16 %1070, i64 10
+  %.sroa.0.22.vec.insert.i1214 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1213, i16 %1071, i64 11
+  %.sroa.0.24.vec.insert.i1215 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1214, i16 %1072, i64 12
+  %.sroa.0.26.vec.insert.i1216 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1215, i16 %1073, i64 13
+  %.sroa.0.28.vec.insert.i1217 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1216, i16 %1074, i64 14
   %.sroa.02769.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1217, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i242 = icmp slt i16 %1084, %750
-  br i1 %.not.i242, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit249, label %1085
+  %.not.i242 = icmp slt i16 %1075, %743
+  br i1 %.not.i242, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit249, label %1076
 
-1085:                                             ; preds = %1036
-  %1086 = add i16 %1069, 1
-  %1087 = add i16 %1070, 2
-  %1088 = add i16 %1071, 3
-  %1089 = add i16 %1072, 4
-  %1090 = add i16 %1073, 5
-  %1091 = add i16 %1074, 6
-  %1092 = add i16 %1075, 7
-  %1093 = add i16 %1076, 8
-  %1094 = add i16 %1077, 9
-  %1095 = add i16 %1078, 10
-  %1096 = add i16 %1079, 11
-  %1097 = add i16 %1080, 12
-  %1098 = add i16 %1081, 13
-  %1099 = add i16 %1082, 14
-  %1100 = add i16 %1083, 15
-  %1101 = add i16 %1084, 16
-  %1102 = ashr i16 %1100, 2
-  %1103 = ashr i16 %1099, 2
-  %1104 = ashr i16 %1098, 2
-  %1105 = ashr i16 %1097, 2
-  %1106 = ashr i16 %1096, 2
-  %1107 = ashr i16 %1095, 2
-  %1108 = ashr i16 %1094, 2
-  %1109 = ashr i16 %1093, 2
-  %1110 = ashr i16 %1092, 2
-  %1111 = ashr i16 %1091, 2
-  %1112 = ashr i16 %1090, 2
-  %1113 = ashr i16 %1089, 2
-  %1114 = ashr i16 %1088, 2
-  %1115 = ashr i16 %1087, 2
-  %1116 = ashr i16 %1086, 2
-  %1117 = ashr i16 %1101, 2
-  %1118 = sub i16 %1086, %1116
-  %1119 = sub i16 %1087, %1115
-  %1120 = sub i16 %1088, %1114
-  %1121 = sub i16 %1089, %1113
-  %1122 = sub i16 %1090, %1112
-  %1123 = sub i16 %1091, %1111
-  %1124 = sub i16 %1092, %1110
-  %1125 = sub i16 %1093, %1109
-  %1126 = sub i16 %1094, %1108
-  %1127 = sub i16 %1095, %1107
-  %1128 = sub i16 %1096, %1106
-  %1129 = sub i16 %1097, %1105
-  %1130 = sub i16 %1098, %1104
-  %1131 = sub i16 %1099, %1103
-  %1132 = sub i16 %1100, %1102
-  %1133 = sub i16 %1101, %1117
-  %.sroa.0.0.vec.insert.i1715 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1118, i64 0
-  %.sroa.0.2.vec.insert.i1716 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1715, i16 %1119, i64 1
-  %.sroa.0.4.vec.insert.i1717 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1716, i16 %1120, i64 2
-  %.sroa.0.6.vec.insert.i1718 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1717, i16 %1121, i64 3
-  %.sroa.0.8.vec.insert.i1719 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1718, i16 %1122, i64 4
-  %.sroa.0.10.vec.insert.i1720 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1719, i16 %1123, i64 5
-  %.sroa.0.12.vec.insert.i1721 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1720, i16 %1124, i64 6
-  %.sroa.0.14.vec.insert.i1722 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1721, i16 %1125, i64 7
-  %.sroa.0.16.vec.insert.i1723 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1722, i16 %1126, i64 8
-  %.sroa.0.18.vec.insert.i1724 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1723, i16 %1127, i64 9
-  %.sroa.0.20.vec.insert.i1725 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1724, i16 %1128, i64 10
-  %.sroa.0.22.vec.insert.i1726 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1725, i16 %1129, i64 11
-  %.sroa.0.24.vec.insert.i1727 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1726, i16 %1130, i64 12
-  %.sroa.0.26.vec.insert.i1728 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1727, i16 %1131, i64 13
-  %.sroa.0.28.vec.insert.i1729 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1728, i16 %1132, i64 14
+1076:                                             ; preds = %1027
+  %1077 = add i16 %1060, 1
+  %1078 = add i16 %1061, 2
+  %1079 = add i16 %1062, 3
+  %1080 = add i16 %1063, 4
+  %1081 = add i16 %1064, 5
+  %1082 = add i16 %1065, 6
+  %1083 = add i16 %1066, 7
+  %1084 = add i16 %1067, 8
+  %1085 = add i16 %1068, 9
+  %1086 = add i16 %1069, 10
+  %1087 = add i16 %1070, 11
+  %1088 = add i16 %1071, 12
+  %1089 = add i16 %1072, 13
+  %1090 = add i16 %1073, 14
+  %1091 = add i16 %1074, 15
+  %1092 = add i16 %1075, 16
+  %1093 = ashr i16 %1091, 2
+  %1094 = ashr i16 %1090, 2
+  %1095 = ashr i16 %1089, 2
+  %1096 = ashr i16 %1088, 2
+  %1097 = ashr i16 %1087, 2
+  %1098 = ashr i16 %1086, 2
+  %1099 = ashr i16 %1085, 2
+  %1100 = ashr i16 %1084, 2
+  %1101 = ashr i16 %1083, 2
+  %1102 = ashr i16 %1082, 2
+  %1103 = ashr i16 %1081, 2
+  %1104 = ashr i16 %1080, 2
+  %1105 = ashr i16 %1079, 2
+  %1106 = ashr i16 %1078, 2
+  %1107 = ashr i16 %1077, 2
+  %1108 = ashr i16 %1092, 2
+  %1109 = sub i16 %1077, %1107
+  %1110 = sub i16 %1078, %1106
+  %1111 = sub i16 %1079, %1105
+  %1112 = sub i16 %1080, %1104
+  %1113 = sub i16 %1081, %1103
+  %1114 = sub i16 %1082, %1102
+  %1115 = sub i16 %1083, %1101
+  %1116 = sub i16 %1084, %1100
+  %1117 = sub i16 %1085, %1099
+  %1118 = sub i16 %1086, %1098
+  %1119 = sub i16 %1087, %1097
+  %1120 = sub i16 %1088, %1096
+  %1121 = sub i16 %1089, %1095
+  %1122 = sub i16 %1090, %1094
+  %1123 = sub i16 %1091, %1093
+  %1124 = sub i16 %1092, %1108
+  %.sroa.0.0.vec.insert.i1715 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1109, i64 0
+  %.sroa.0.2.vec.insert.i1716 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1715, i16 %1110, i64 1
+  %.sroa.0.4.vec.insert.i1717 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1716, i16 %1111, i64 2
+  %.sroa.0.6.vec.insert.i1718 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1717, i16 %1112, i64 3
+  %.sroa.0.8.vec.insert.i1719 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1718, i16 %1113, i64 4
+  %.sroa.0.10.vec.insert.i1720 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1719, i16 %1114, i64 5
+  %.sroa.0.12.vec.insert.i1721 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1720, i16 %1115, i64 6
+  %.sroa.0.14.vec.insert.i1722 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1721, i16 %1116, i64 7
+  %.sroa.0.16.vec.insert.i1723 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1722, i16 %1117, i64 8
+  %.sroa.0.18.vec.insert.i1724 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1723, i16 %1118, i64 9
+  %.sroa.0.20.vec.insert.i1725 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1724, i16 %1119, i64 10
+  %.sroa.0.22.vec.insert.i1726 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1725, i16 %1120, i64 11
+  %.sroa.0.24.vec.insert.i1727 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1726, i16 %1121, i64 12
+  %.sroa.0.26.vec.insert.i1728 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1727, i16 %1122, i64 13
+  %.sroa.0.28.vec.insert.i1729 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1728, i16 %1123, i64 14
   %.sroa.02779.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1729, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit249
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit249: ; preds = %1036, %1085
-  %.sroa.0.i236.sroa.0.0 = phi <15 x i16> [ %.sroa.02769.0.vec.extract, %1036 ], [ %.sroa.02779.0.vec.extract, %1085 ]
-  %.sroa.9.0.i247 = phi i16 [ %1084, %1036 ], [ %1133, %1085 ]
-  store <15 x i16> %.sroa.0.i236.sroa.0.0, ptr %1010, align 2, !noalias !331
-  store i16 %.sroa.9.0.i247, ptr %1019, align 2, !noalias !331
-  %1134 = shl nuw nsw i64 %1004, 8
-  %1135 = and i64 %1134, 3840
-  %1136 = or i64 %4, %1135
-  %1137 = or i64 %1136, %862
-  %1138 = shl i64 %1137, 1
-  %1139 = or disjoint i64 %1138, 1
-  %1140 = icmp ult i64 %1139, %.val2385
-  br i1 %1140, label %1142, label %1278, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit249: ; preds = %1027, %1076
+  %.sroa.0.i236.sroa.0.0 = phi <15 x i16> [ %.sroa.02769.0.vec.extract, %1027 ], [ %.sroa.02779.0.vec.extract, %1076 ]
+  %.sroa.9.0.i247 = phi i16 [ %1075, %1027 ], [ %1124, %1076 ]
+  store <15 x i16> %.sroa.0.i236.sroa.0.0, ptr %1002, align 2, !noalias !331
+  store i16 %.sroa.9.0.i247, ptr %1010, align 2, !noalias !331
+  %1125 = shl nuw nsw i64 %996, 8
+  %1126 = and i64 %1125, 3840
+  %1127 = or i64 %4, %1126
+  %1128 = or i64 %1127, %855
+  %1129 = shl i64 %1128, 1
+  %1130 = or disjoint i64 %1129, 1
+  %1131 = icmp ult i64 %1130, %.val2385
+  br i1 %1131, label %1133, label %1268, !prof !278
 
-1141:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit234
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1006, i64 noundef %.val2385, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+1132:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit234
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %998, i64 noundef %.val2385, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-1142:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit249
-  %1143 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2384, i64 0, i64 %1139
-  %1144 = getelementptr inbounds nuw [0 x i16], ptr %1143, i64 0, i64 %195
-  %1145 = load i16, ptr %1144, align 2, !noalias !334, !noundef !12
-  br i1 %198, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit117, label %1146
+1133:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit249
+  %1134 = getelementptr inbounds { [16 x i16] }, ptr %.val2384, i64 %1130
+  %1135 = getelementptr inbounds nuw i16, ptr %1134, i64 %194
+  %1136 = load i16, ptr %1135, align 2, !noalias !334, !noundef !12
+  br i1 %197, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit117, label %1137
 
-1146:                                             ; preds = %1142
-  %1147 = add nsw i64 %195, -1
-  %1148 = getelementptr inbounds nuw [0 x i16], ptr %1143, i64 0, i64 %1147
-  %1149 = load i16, ptr %1148, align 2, !noalias !334, !noundef !12
-  %1150 = sub i16 %1145, %1149
+1137:                                             ; preds = %1133
+  %1138 = getelementptr i8, ptr %1135, i64 -2
+  %1139 = load i16, ptr %1138, align 2, !noalias !334, !noundef !12
+  %1140 = sub i16 %1136, %1139
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit117
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit117: ; preds = %1142, %1146
-  %.0.i116 = phi i16 [ %1145, %1142 ], [ %1150, %1146 ]
-  %1151 = zext i16 %.0.i116 to i64
-  %1152 = getelementptr inbounds nuw i8, ptr %1143, i64 30
-  %1153 = load i16, ptr %1152, align 2, !noalias !334, !noundef !12
-  %1154 = zext i16 %1153 to i64
-  %1155 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1154
-  %1156 = load float, ptr %1155, align 4, !noalias !334, !noundef !12
-  %1157 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1151
-  %1158 = load float, ptr %1157, align 4, !noalias !334, !noundef !12
-  %.sroa.0.i251.sroa.0.0.copyload = load <15 x i16>, ptr %1143, align 2, !noalias !337
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit117: ; preds = %1133, %1137
+  %.0.i116 = phi i16 [ %1136, %1133 ], [ %1140, %1137 ]
+  %1141 = zext i16 %.0.i116 to i64
+  %1142 = getelementptr inbounds nuw i8, ptr %1134, i64 30
+  %1143 = load i16, ptr %1142, align 2, !noalias !334, !noundef !12
+  %1144 = zext i16 %1143 to i64
+  %1145 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1144
+  %1146 = load float, ptr %1145, align 4, !noalias !334, !noundef !12
+  %1147 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1141
+  %1148 = load float, ptr %1147, align 4, !noalias !334, !noundef !12
+  %.sroa.0.i251.sroa.0.0.copyload = load <15 x i16>, ptr %1134, align 2, !noalias !337
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !337
-  br label %1159
+  br label %1149
 
-1159:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit117, %1159
-  %1160 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit117 ], [ %1162, %1159 ]
-  %1161 = getelementptr inbounds nuw [16 x i16], ptr %20, i64 0, i64 %1160
-  store i16 %886, ptr %1161, align 2, !noalias !337
-  %1162 = add nuw nsw i64 %1160, 1
-  %exitcond3346.not = icmp eq i64 %1162, 16
-  br i1 %exitcond3346.not, label %1163, label %1159
+1149:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit117, %1149
+  %1150 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit117 ], [ %1152, %1149 ]
+  %1151 = getelementptr inbounds nuw i16, ptr %20, i64 %1150
+  store i16 %878, ptr %1151, align 2, !noalias !337
+  %1152 = add nuw nsw i64 %1150, 1
+  %exitcond3346.not = icmp eq i64 %1152, 16
+  br i1 %exitcond3346.not, label %1153, label %1149
 
-1163:                                             ; preds = %1159
-  %1164 = load <16 x i16>, ptr %20, align 2, !noalias !337
+1153:                                             ; preds = %1149
+  %1154 = load <16 x i16>, ptr %20, align 2, !noalias !337
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !337
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !337
-  br label %1165
+  br label %1155
 
-1165:                                             ; preds = %1163, %1165
-  %1166 = phi i64 [ 0, %1163 ], [ %1168, %1165 ]
-  %1167 = getelementptr inbounds nuw [16 x i16], ptr %19, i64 0, i64 %1166
-  store i16 %221, ptr %1167, align 2, !noalias !337
-  %1168 = add nuw nsw i64 %1166, 1
-  %exitcond3347.not = icmp eq i64 %1168, 16
-  br i1 %exitcond3347.not, label %1169, label %1165
+1155:                                             ; preds = %1153, %1155
+  %1156 = phi i64 [ 0, %1153 ], [ %1158, %1155 ]
+  %1157 = getelementptr inbounds nuw i16, ptr %19, i64 %1156
+  store i16 %219, ptr %1157, align 2, !noalias !337
+  %1158 = add nuw nsw i64 %1156, 1
+  %exitcond3347.not = icmp eq i64 %1158, 16
+  br i1 %exitcond3347.not, label %1159, label %1155
 
-1169:                                             ; preds = %1165
-  %1170 = fsub float %1156, %1158
-  %1171 = load <16 x i16>, ptr %19, align 2, !noalias !337
+1159:                                             ; preds = %1155
+  %1160 = fsub float %1146, %1148
+  %1161 = load <16 x i16>, ptr %19, align 2, !noalias !337
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !337
-  %.sroa.02807.0.vec.extract = extractelement <16 x i16> %1171, i64 0
-  %.sroa.02807.2.vec.extract = extractelement <16 x i16> %1171, i64 1
-  %1172 = icmp slt i16 %.sroa.02807.2.vec.extract, 2
-  %.sroa.02807.4.vec.extract = extractelement <16 x i16> %1171, i64 2
-  %1173 = icmp slt i16 %.sroa.02807.4.vec.extract, 3
-  %.sroa.02807.6.vec.extract = extractelement <16 x i16> %1171, i64 3
-  %1174 = icmp slt i16 %.sroa.02807.6.vec.extract, 4
-  %.sroa.02807.8.vec.extract = extractelement <16 x i16> %1171, i64 4
-  %1175 = icmp slt i16 %.sroa.02807.8.vec.extract, 5
-  %.sroa.02807.10.vec.extract = extractelement <16 x i16> %1171, i64 5
-  %1176 = icmp slt i16 %.sroa.02807.10.vec.extract, 6
-  %.sroa.02807.12.vec.extract = extractelement <16 x i16> %1171, i64 6
-  %1177 = icmp slt i16 %.sroa.02807.12.vec.extract, 7
-  %.sroa.02807.14.vec.extract = extractelement <16 x i16> %1171, i64 7
-  %1178 = icmp slt i16 %.sroa.02807.14.vec.extract, 8
-  %.sroa.02807.16.vec.extract = extractelement <16 x i16> %1171, i64 8
-  %1179 = icmp slt i16 %.sroa.02807.16.vec.extract, 9
-  %.sroa.02807.18.vec.extract = extractelement <16 x i16> %1171, i64 9
-  %1180 = icmp slt i16 %.sroa.02807.18.vec.extract, 10
-  %.sroa.02807.20.vec.extract = extractelement <16 x i16> %1171, i64 10
-  %1181 = icmp slt i16 %.sroa.02807.20.vec.extract, 11
-  %.sroa.02807.22.vec.extract = extractelement <16 x i16> %1171, i64 11
-  %1182 = icmp slt i16 %.sroa.02807.22.vec.extract, 12
-  %.sroa.02807.24.vec.extract = extractelement <16 x i16> %1171, i64 12
-  %1183 = icmp slt i16 %.sroa.02807.24.vec.extract, 13
-  %.sroa.02807.26.vec.extract = extractelement <16 x i16> %1171, i64 13
-  %1184 = icmp slt i16 %.sroa.02807.26.vec.extract, 14
-  %.sroa.02807.28.vec.extract = extractelement <16 x i16> %1171, i64 14
-  %1185 = icmp slt i16 %.sroa.02807.28.vec.extract, 15
-  %.sroa.02807.30.vec.extract = extractelement <16 x i16> %1171, i64 15
-  %1186 = icmp slt i16 %.sroa.02807.30.vec.extract, 16
-  %.sroa.02788.0.vec.extract = extractelement <16 x i16> %1164, i64 0
+  %.sroa.02807.0.vec.extract = extractelement <16 x i16> %1161, i64 0
+  %.sroa.02807.2.vec.extract = extractelement <16 x i16> %1161, i64 1
+  %1162 = icmp slt i16 %.sroa.02807.2.vec.extract, 2
+  %.sroa.02807.4.vec.extract = extractelement <16 x i16> %1161, i64 2
+  %1163 = icmp slt i16 %.sroa.02807.4.vec.extract, 3
+  %.sroa.02807.6.vec.extract = extractelement <16 x i16> %1161, i64 3
+  %1164 = icmp slt i16 %.sroa.02807.6.vec.extract, 4
+  %.sroa.02807.8.vec.extract = extractelement <16 x i16> %1161, i64 4
+  %1165 = icmp slt i16 %.sroa.02807.8.vec.extract, 5
+  %.sroa.02807.10.vec.extract = extractelement <16 x i16> %1161, i64 5
+  %1166 = icmp slt i16 %.sroa.02807.10.vec.extract, 6
+  %.sroa.02807.12.vec.extract = extractelement <16 x i16> %1161, i64 6
+  %1167 = icmp slt i16 %.sroa.02807.12.vec.extract, 7
+  %.sroa.02807.14.vec.extract = extractelement <16 x i16> %1161, i64 7
+  %1168 = icmp slt i16 %.sroa.02807.14.vec.extract, 8
+  %.sroa.02807.16.vec.extract = extractelement <16 x i16> %1161, i64 8
+  %1169 = icmp slt i16 %.sroa.02807.16.vec.extract, 9
+  %.sroa.02807.18.vec.extract = extractelement <16 x i16> %1161, i64 9
+  %1170 = icmp slt i16 %.sroa.02807.18.vec.extract, 10
+  %.sroa.02807.20.vec.extract = extractelement <16 x i16> %1161, i64 10
+  %1171 = icmp slt i16 %.sroa.02807.20.vec.extract, 11
+  %.sroa.02807.22.vec.extract = extractelement <16 x i16> %1161, i64 11
+  %1172 = icmp slt i16 %.sroa.02807.22.vec.extract, 12
+  %.sroa.02807.24.vec.extract = extractelement <16 x i16> %1161, i64 12
+  %1173 = icmp slt i16 %.sroa.02807.24.vec.extract, 13
+  %.sroa.02807.26.vec.extract = extractelement <16 x i16> %1161, i64 13
+  %1174 = icmp slt i16 %.sroa.02807.26.vec.extract, 14
+  %.sroa.02807.28.vec.extract = extractelement <16 x i16> %1161, i64 14
+  %1175 = icmp slt i16 %.sroa.02807.28.vec.extract, 15
+  %.sroa.02807.30.vec.extract = extractelement <16 x i16> %1161, i64 15
+  %1176 = icmp slt i16 %.sroa.02807.30.vec.extract, 16
+  %.sroa.02788.0.vec.extract = extractelement <16 x i16> %1154, i64 0
   %.inv3324 = icmp sgt i16 %.sroa.02807.0.vec.extract, 0
-  %1187 = select i1 %.inv3324, i16 0, i16 %.sroa.02788.0.vec.extract
-  %.sroa.02788.2.vec.extract = extractelement <16 x i16> %1164, i64 1
-  %1188 = select i1 %1172, i16 %.sroa.02788.2.vec.extract, i16 0
-  %.sroa.02788.4.vec.extract = extractelement <16 x i16> %1164, i64 2
-  %1189 = select i1 %1173, i16 %.sroa.02788.4.vec.extract, i16 0
-  %.sroa.02788.6.vec.extract = extractelement <16 x i16> %1164, i64 3
-  %1190 = select i1 %1174, i16 %.sroa.02788.6.vec.extract, i16 0
-  %.sroa.02788.8.vec.extract = extractelement <16 x i16> %1164, i64 4
-  %1191 = select i1 %1175, i16 %.sroa.02788.8.vec.extract, i16 0
-  %.sroa.02788.10.vec.extract = extractelement <16 x i16> %1164, i64 5
-  %1192 = select i1 %1176, i16 %.sroa.02788.10.vec.extract, i16 0
-  %.sroa.02788.12.vec.extract = extractelement <16 x i16> %1164, i64 6
-  %1193 = select i1 %1177, i16 %.sroa.02788.12.vec.extract, i16 0
-  %.sroa.02788.14.vec.extract = extractelement <16 x i16> %1164, i64 7
-  %1194 = select i1 %1178, i16 %.sroa.02788.14.vec.extract, i16 0
-  %.sroa.02788.16.vec.extract = extractelement <16 x i16> %1164, i64 8
-  %1195 = select i1 %1179, i16 %.sroa.02788.16.vec.extract, i16 0
-  %.sroa.02788.18.vec.extract = extractelement <16 x i16> %1164, i64 9
-  %1196 = select i1 %1180, i16 %.sroa.02788.18.vec.extract, i16 0
-  %.sroa.02788.20.vec.extract = extractelement <16 x i16> %1164, i64 10
-  %1197 = select i1 %1181, i16 %.sroa.02788.20.vec.extract, i16 0
-  %.sroa.02788.22.vec.extract = extractelement <16 x i16> %1164, i64 11
-  %1198 = select i1 %1182, i16 %.sroa.02788.22.vec.extract, i16 0
-  %.sroa.02788.24.vec.extract = extractelement <16 x i16> %1164, i64 12
-  %1199 = select i1 %1183, i16 %.sroa.02788.24.vec.extract, i16 0
-  %.sroa.02788.26.vec.extract = extractelement <16 x i16> %1164, i64 13
-  %1200 = select i1 %1184, i16 %.sroa.02788.26.vec.extract, i16 0
-  %.sroa.02788.28.vec.extract = extractelement <16 x i16> %1164, i64 14
-  %1201 = select i1 %1185, i16 %.sroa.02788.28.vec.extract, i16 0
-  %.sroa.02788.30.vec.extract = extractelement <16 x i16> %1164, i64 15
-  %1202 = select i1 %1186, i16 %.sroa.02788.30.vec.extract, i16 0
+  %1177 = select i1 %.inv3324, i16 0, i16 %.sroa.02788.0.vec.extract
+  %.sroa.02788.2.vec.extract = extractelement <16 x i16> %1154, i64 1
+  %1178 = select i1 %1162, i16 %.sroa.02788.2.vec.extract, i16 0
+  %.sroa.02788.4.vec.extract = extractelement <16 x i16> %1154, i64 2
+  %1179 = select i1 %1163, i16 %.sroa.02788.4.vec.extract, i16 0
+  %.sroa.02788.6.vec.extract = extractelement <16 x i16> %1154, i64 3
+  %1180 = select i1 %1164, i16 %.sroa.02788.6.vec.extract, i16 0
+  %.sroa.02788.8.vec.extract = extractelement <16 x i16> %1154, i64 4
+  %1181 = select i1 %1165, i16 %.sroa.02788.8.vec.extract, i16 0
+  %.sroa.02788.10.vec.extract = extractelement <16 x i16> %1154, i64 5
+  %1182 = select i1 %1166, i16 %.sroa.02788.10.vec.extract, i16 0
+  %.sroa.02788.12.vec.extract = extractelement <16 x i16> %1154, i64 6
+  %1183 = select i1 %1167, i16 %.sroa.02788.12.vec.extract, i16 0
+  %.sroa.02788.14.vec.extract = extractelement <16 x i16> %1154, i64 7
+  %1184 = select i1 %1168, i16 %.sroa.02788.14.vec.extract, i16 0
+  %.sroa.02788.16.vec.extract = extractelement <16 x i16> %1154, i64 8
+  %1185 = select i1 %1169, i16 %.sroa.02788.16.vec.extract, i16 0
+  %.sroa.02788.18.vec.extract = extractelement <16 x i16> %1154, i64 9
+  %1186 = select i1 %1170, i16 %.sroa.02788.18.vec.extract, i16 0
+  %.sroa.02788.20.vec.extract = extractelement <16 x i16> %1154, i64 10
+  %1187 = select i1 %1171, i16 %.sroa.02788.20.vec.extract, i16 0
+  %.sroa.02788.22.vec.extract = extractelement <16 x i16> %1154, i64 11
+  %1188 = select i1 %1172, i16 %.sroa.02788.22.vec.extract, i16 0
+  %.sroa.02788.24.vec.extract = extractelement <16 x i16> %1154, i64 12
+  %1189 = select i1 %1173, i16 %.sroa.02788.24.vec.extract, i16 0
+  %.sroa.02788.26.vec.extract = extractelement <16 x i16> %1154, i64 13
+  %1190 = select i1 %1174, i16 %.sroa.02788.26.vec.extract, i16 0
+  %.sroa.02788.28.vec.extract = extractelement <16 x i16> %1154, i64 14
+  %1191 = select i1 %1175, i16 %.sroa.02788.28.vec.extract, i16 0
+  %.sroa.02788.30.vec.extract = extractelement <16 x i16> %1154, i64 15
+  %1192 = select i1 %1176, i16 %.sroa.02788.30.vec.extract, i16 0
   %.sroa.02814.0.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 0
-  %1203 = add i16 %1187, %.sroa.02814.0.vec.extract
+  %1193 = add i16 %1177, %.sroa.02814.0.vec.extract
   %.sroa.02814.2.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 1
-  %1204 = add i16 %1188, %.sroa.02814.2.vec.extract
+  %1194 = add i16 %1178, %.sroa.02814.2.vec.extract
   %.sroa.02814.4.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 2
-  %1205 = add i16 %1189, %.sroa.02814.4.vec.extract
+  %1195 = add i16 %1179, %.sroa.02814.4.vec.extract
   %.sroa.02814.6.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 3
-  %1206 = add i16 %1190, %.sroa.02814.6.vec.extract
+  %1196 = add i16 %1180, %.sroa.02814.6.vec.extract
   %.sroa.02814.8.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 4
-  %1207 = add i16 %1191, %.sroa.02814.8.vec.extract
+  %1197 = add i16 %1181, %.sroa.02814.8.vec.extract
   %.sroa.02814.10.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 5
-  %1208 = add i16 %1192, %.sroa.02814.10.vec.extract
+  %1198 = add i16 %1182, %.sroa.02814.10.vec.extract
   %.sroa.02814.12.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 6
-  %1209 = add i16 %1193, %.sroa.02814.12.vec.extract
+  %1199 = add i16 %1183, %.sroa.02814.12.vec.extract
   %.sroa.02814.14.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 7
-  %1210 = add i16 %1194, %.sroa.02814.14.vec.extract
+  %1200 = add i16 %1184, %.sroa.02814.14.vec.extract
   %.sroa.02814.16.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 8
-  %1211 = add i16 %1195, %.sroa.02814.16.vec.extract
+  %1201 = add i16 %1185, %.sroa.02814.16.vec.extract
   %.sroa.02814.18.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 9
-  %1212 = add i16 %1196, %.sroa.02814.18.vec.extract
+  %1202 = add i16 %1186, %.sroa.02814.18.vec.extract
   %.sroa.02814.20.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 10
-  %1213 = add i16 %1197, %.sroa.02814.20.vec.extract
+  %1203 = add i16 %1187, %.sroa.02814.20.vec.extract
   %.sroa.02814.22.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 11
-  %1214 = add i16 %1198, %.sroa.02814.22.vec.extract
+  %1204 = add i16 %1188, %.sroa.02814.22.vec.extract
   %.sroa.02814.24.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 12
-  %1215 = add i16 %1199, %.sroa.02814.24.vec.extract
+  %1205 = add i16 %1189, %.sroa.02814.24.vec.extract
   %.sroa.02814.26.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 13
-  %1216 = add i16 %1200, %.sroa.02814.26.vec.extract
+  %1206 = add i16 %1190, %.sroa.02814.26.vec.extract
   %.sroa.02814.28.vec.extract = extractelement <15 x i16> %.sroa.0.i251.sroa.0.0.copyload, i64 14
-  %1217 = add i16 %1201, %.sroa.02814.28.vec.extract
-  %1218 = add i16 %1202, %1153
-  %.sroa.0.0.vec.insert.i1155 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1203, i64 0
-  %.sroa.0.2.vec.insert.i1156 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1155, i16 %1204, i64 1
-  %.sroa.0.4.vec.insert.i1157 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1156, i16 %1205, i64 2
-  %.sroa.0.6.vec.insert.i1158 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1157, i16 %1206, i64 3
-  %.sroa.0.8.vec.insert.i1159 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1158, i16 %1207, i64 4
-  %.sroa.0.10.vec.insert.i1160 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1159, i16 %1208, i64 5
-  %.sroa.0.12.vec.insert.i1161 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1160, i16 %1209, i64 6
-  %.sroa.0.14.vec.insert.i1162 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1161, i16 %1210, i64 7
-  %.sroa.0.16.vec.insert.i1163 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1162, i16 %1211, i64 8
-  %.sroa.0.18.vec.insert.i1164 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1163, i16 %1212, i64 9
-  %.sroa.0.20.vec.insert.i1165 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1164, i16 %1213, i64 10
-  %.sroa.0.22.vec.insert.i1166 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1165, i16 %1214, i64 11
-  %.sroa.0.24.vec.insert.i1167 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1166, i16 %1215, i64 12
-  %.sroa.0.26.vec.insert.i1168 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1167, i16 %1216, i64 13
-  %.sroa.0.28.vec.insert.i1169 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1168, i16 %1217, i64 14
+  %1207 = add i16 %1191, %.sroa.02814.28.vec.extract
+  %1208 = add i16 %1192, %1143
+  %.sroa.0.0.vec.insert.i1155 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1193, i64 0
+  %.sroa.0.2.vec.insert.i1156 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1155, i16 %1194, i64 1
+  %.sroa.0.4.vec.insert.i1157 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1156, i16 %1195, i64 2
+  %.sroa.0.6.vec.insert.i1158 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1157, i16 %1196, i64 3
+  %.sroa.0.8.vec.insert.i1159 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1158, i16 %1197, i64 4
+  %.sroa.0.10.vec.insert.i1160 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1159, i16 %1198, i64 5
+  %.sroa.0.12.vec.insert.i1161 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1160, i16 %1199, i64 6
+  %.sroa.0.14.vec.insert.i1162 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1161, i16 %1200, i64 7
+  %.sroa.0.16.vec.insert.i1163 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1162, i16 %1201, i64 8
+  %.sroa.0.18.vec.insert.i1164 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1163, i16 %1202, i64 9
+  %.sroa.0.20.vec.insert.i1165 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1164, i16 %1203, i64 10
+  %.sroa.0.22.vec.insert.i1166 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1165, i16 %1204, i64 11
+  %.sroa.0.24.vec.insert.i1167 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1166, i16 %1205, i64 12
+  %.sroa.0.26.vec.insert.i1168 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1167, i16 %1206, i64 13
+  %.sroa.0.28.vec.insert.i1169 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1168, i16 %1207, i64 14
   %.sroa.02808.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1169, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i257 = icmp slt i16 %1218, %888
-  br i1 %.not.i257, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit264, label %1219
+  %.not.i257 = icmp slt i16 %1208, %880
+  br i1 %.not.i257, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit264, label %1209
 
-1219:                                             ; preds = %1169
-  %1220 = add i16 %1203, 1
-  %1221 = add i16 %1204, 2
-  %1222 = add i16 %1205, 3
-  %1223 = add i16 %1206, 4
-  %1224 = add i16 %1207, 5
-  %1225 = add i16 %1208, 6
-  %1226 = add i16 %1209, 7
-  %1227 = add i16 %1210, 8
-  %1228 = add i16 %1211, 9
-  %1229 = add i16 %1212, 10
-  %1230 = add i16 %1213, 11
-  %1231 = add i16 %1214, 12
-  %1232 = add i16 %1215, 13
-  %1233 = add i16 %1216, 14
-  %1234 = add i16 %1217, 15
-  %1235 = add i16 %1218, 16
-  %1236 = ashr i16 %1234, 2
-  %1237 = ashr i16 %1233, 2
-  %1238 = ashr i16 %1232, 2
-  %1239 = ashr i16 %1231, 2
-  %1240 = ashr i16 %1230, 2
-  %1241 = ashr i16 %1229, 2
-  %1242 = ashr i16 %1228, 2
-  %1243 = ashr i16 %1227, 2
-  %1244 = ashr i16 %1226, 2
-  %1245 = ashr i16 %1225, 2
-  %1246 = ashr i16 %1224, 2
-  %1247 = ashr i16 %1223, 2
-  %1248 = ashr i16 %1222, 2
-  %1249 = ashr i16 %1221, 2
-  %1250 = ashr i16 %1220, 2
-  %1251 = ashr i16 %1235, 2
-  %1252 = sub i16 %1220, %1250
-  %1253 = sub i16 %1221, %1249
-  %1254 = sub i16 %1222, %1248
-  %1255 = sub i16 %1223, %1247
-  %1256 = sub i16 %1224, %1246
-  %1257 = sub i16 %1225, %1245
-  %1258 = sub i16 %1226, %1244
-  %1259 = sub i16 %1227, %1243
-  %1260 = sub i16 %1228, %1242
-  %1261 = sub i16 %1229, %1241
-  %1262 = sub i16 %1230, %1240
-  %1263 = sub i16 %1231, %1239
-  %1264 = sub i16 %1232, %1238
-  %1265 = sub i16 %1233, %1237
-  %1266 = sub i16 %1234, %1236
-  %1267 = sub i16 %1235, %1251
-  %.sroa.0.0.vec.insert.i1699 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1252, i64 0
-  %.sroa.0.2.vec.insert.i1700 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1699, i16 %1253, i64 1
-  %.sroa.0.4.vec.insert.i1701 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1700, i16 %1254, i64 2
-  %.sroa.0.6.vec.insert.i1702 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1701, i16 %1255, i64 3
-  %.sroa.0.8.vec.insert.i1703 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1702, i16 %1256, i64 4
-  %.sroa.0.10.vec.insert.i1704 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1703, i16 %1257, i64 5
-  %.sroa.0.12.vec.insert.i1705 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1704, i16 %1258, i64 6
-  %.sroa.0.14.vec.insert.i1706 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1705, i16 %1259, i64 7
-  %.sroa.0.16.vec.insert.i1707 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1706, i16 %1260, i64 8
-  %.sroa.0.18.vec.insert.i1708 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1707, i16 %1261, i64 9
-  %.sroa.0.20.vec.insert.i1709 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1708, i16 %1262, i64 10
-  %.sroa.0.22.vec.insert.i1710 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1709, i16 %1263, i64 11
-  %.sroa.0.24.vec.insert.i1711 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1710, i16 %1264, i64 12
-  %.sroa.0.26.vec.insert.i1712 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1711, i16 %1265, i64 13
-  %.sroa.0.28.vec.insert.i1713 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1712, i16 %1266, i64 14
+1209:                                             ; preds = %1159
+  %1210 = add i16 %1193, 1
+  %1211 = add i16 %1194, 2
+  %1212 = add i16 %1195, 3
+  %1213 = add i16 %1196, 4
+  %1214 = add i16 %1197, 5
+  %1215 = add i16 %1198, 6
+  %1216 = add i16 %1199, 7
+  %1217 = add i16 %1200, 8
+  %1218 = add i16 %1201, 9
+  %1219 = add i16 %1202, 10
+  %1220 = add i16 %1203, 11
+  %1221 = add i16 %1204, 12
+  %1222 = add i16 %1205, 13
+  %1223 = add i16 %1206, 14
+  %1224 = add i16 %1207, 15
+  %1225 = add i16 %1208, 16
+  %1226 = ashr i16 %1224, 2
+  %1227 = ashr i16 %1223, 2
+  %1228 = ashr i16 %1222, 2
+  %1229 = ashr i16 %1221, 2
+  %1230 = ashr i16 %1220, 2
+  %1231 = ashr i16 %1219, 2
+  %1232 = ashr i16 %1218, 2
+  %1233 = ashr i16 %1217, 2
+  %1234 = ashr i16 %1216, 2
+  %1235 = ashr i16 %1215, 2
+  %1236 = ashr i16 %1214, 2
+  %1237 = ashr i16 %1213, 2
+  %1238 = ashr i16 %1212, 2
+  %1239 = ashr i16 %1211, 2
+  %1240 = ashr i16 %1210, 2
+  %1241 = ashr i16 %1225, 2
+  %1242 = sub i16 %1210, %1240
+  %1243 = sub i16 %1211, %1239
+  %1244 = sub i16 %1212, %1238
+  %1245 = sub i16 %1213, %1237
+  %1246 = sub i16 %1214, %1236
+  %1247 = sub i16 %1215, %1235
+  %1248 = sub i16 %1216, %1234
+  %1249 = sub i16 %1217, %1233
+  %1250 = sub i16 %1218, %1232
+  %1251 = sub i16 %1219, %1231
+  %1252 = sub i16 %1220, %1230
+  %1253 = sub i16 %1221, %1229
+  %1254 = sub i16 %1222, %1228
+  %1255 = sub i16 %1223, %1227
+  %1256 = sub i16 %1224, %1226
+  %1257 = sub i16 %1225, %1241
+  %.sroa.0.0.vec.insert.i1699 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1242, i64 0
+  %.sroa.0.2.vec.insert.i1700 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1699, i16 %1243, i64 1
+  %.sroa.0.4.vec.insert.i1701 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1700, i16 %1244, i64 2
+  %.sroa.0.6.vec.insert.i1702 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1701, i16 %1245, i64 3
+  %.sroa.0.8.vec.insert.i1703 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1702, i16 %1246, i64 4
+  %.sroa.0.10.vec.insert.i1704 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1703, i16 %1247, i64 5
+  %.sroa.0.12.vec.insert.i1705 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1704, i16 %1248, i64 6
+  %.sroa.0.14.vec.insert.i1706 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1705, i16 %1249, i64 7
+  %.sroa.0.16.vec.insert.i1707 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1706, i16 %1250, i64 8
+  %.sroa.0.18.vec.insert.i1708 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1707, i16 %1251, i64 9
+  %.sroa.0.20.vec.insert.i1709 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1708, i16 %1252, i64 10
+  %.sroa.0.22.vec.insert.i1710 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1709, i16 %1253, i64 11
+  %.sroa.0.24.vec.insert.i1711 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1710, i16 %1254, i64 12
+  %.sroa.0.26.vec.insert.i1712 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1711, i16 %1255, i64 13
+  %.sroa.0.28.vec.insert.i1713 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1712, i16 %1256, i64 14
   %.sroa.02818.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1713, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit264
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit264: ; preds = %1169, %1219
-  %.sroa.0.i251.sroa.0.0 = phi <15 x i16> [ %.sroa.02808.0.vec.extract, %1169 ], [ %.sroa.02818.0.vec.extract, %1219 ]
-  %.sroa.9.0.i262 = phi i16 [ %1218, %1169 ], [ %1267, %1219 ]
-  store <15 x i16> %.sroa.0.i251.sroa.0.0, ptr %1143, align 2, !noalias !337
-  store i16 %.sroa.9.0.i262, ptr %1152, align 2, !noalias !337
-  %1268 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.val2380 = load ptr, ptr %1268, align 8, !nonnull !12, !align !279, !noundef !12
-  %1269 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %.val2381 = load i64, ptr %1269, align 8, !noundef !12
-  %1270 = add i64 %2, 6
-  %1271 = and i64 %1270, 7
-  %1272 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 0, i64 %1271
-  %1273 = load i8, ptr %1272, align 1, !noundef !12
-  %1274 = zext i8 %1273 to i64
-  %1275 = shl nuw nsw i64 %1274, 9
-  %1276 = or i64 %1275, %466
-  %1277 = icmp ult i64 %1276, %.val2381
-  br i1 %1277, label %1279, label %1411, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit264: ; preds = %1159, %1209
+  %.sroa.0.i251.sroa.0.0 = phi <15 x i16> [ %.sroa.02808.0.vec.extract, %1159 ], [ %.sroa.02818.0.vec.extract, %1209 ]
+  %.sroa.9.0.i262 = phi i16 [ %1208, %1159 ], [ %1257, %1209 ]
+  store <15 x i16> %.sroa.0.i251.sroa.0.0, ptr %1134, align 2, !noalias !337
+  store i16 %.sroa.9.0.i262, ptr %1142, align 2, !noalias !337
+  %1258 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %.val2380 = load ptr, ptr %1258, align 8, !nonnull !12, !align !279, !noundef !12
+  %1259 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %.val2381 = load i64, ptr %1259, align 8, !noundef !12
+  %1260 = add i64 %2, 6
+  %1261 = and i64 %1260, 7
+  %1262 = getelementptr inbounds nuw i8, ptr %35, i64 %1261
+  %1263 = load i8, ptr %1262, align 1, !noundef !12
+  %1264 = zext i8 %1263 to i64
+  %1265 = shl nuw nsw i64 %1264, 9
+  %1266 = or i64 %1265, %462
+  %1267 = icmp ult i64 %1266, %.val2381
+  br i1 %1267, label %1269, label %1400, !prof !278
 
-1278:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit249
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1139, i64 noundef %.val2385, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+1268:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit249
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1130, i64 noundef %.val2385, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-1279:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit264
-  %1280 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2380, i64 0, i64 %1276
-  %1281 = getelementptr inbounds nuw [0 x i16], ptr %1280, i64 0, i64 %49
-  %1282 = load i16, ptr %1281, align 2, !noalias !340, !noundef !12
-  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit119, label %1283
+1269:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit264
+  %1270 = getelementptr inbounds { [16 x i16] }, ptr %.val2380, i64 %1266
+  %1271 = getelementptr inbounds nuw i16, ptr %1270, i64 %49
+  %1272 = load i16, ptr %1271, align 2, !noalias !340, !noundef !12
+  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit119, label %1273
 
-1283:                                             ; preds = %1279
-  %1284 = add nsw i64 %49, -1
-  %1285 = getelementptr inbounds nuw [0 x i16], ptr %1280, i64 0, i64 %1284
-  %1286 = load i16, ptr %1285, align 2, !noalias !340, !noundef !12
-  %1287 = sub i16 %1282, %1286
+1273:                                             ; preds = %1269
+  %1274 = getelementptr i8, ptr %1271, i64 -2
+  %1275 = load i16, ptr %1274, align 2, !noalias !340, !noundef !12
+  %1276 = sub i16 %1272, %1275
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit119
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit119: ; preds = %1279, %1283
-  %.0.i118 = phi i16 [ %1282, %1279 ], [ %1287, %1283 ]
-  %1288 = zext i16 %.0.i118 to i64
-  %1289 = getelementptr inbounds nuw i8, ptr %1280, i64 30
-  %1290 = load i16, ptr %1289, align 2, !noalias !340, !noundef !12
-  %1291 = zext i16 %1290 to i64
-  %1292 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1291
-  %1293 = load float, ptr %1292, align 4, !noalias !340, !noundef !12
-  %1294 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1288
-  %1295 = load float, ptr %1294, align 4, !noalias !340, !noundef !12
-  %.sroa.0.i266.sroa.0.0.copyload = load <15 x i16>, ptr %1280, align 2, !noalias !343
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit119: ; preds = %1269, %1273
+  %.0.i118 = phi i16 [ %1272, %1269 ], [ %1276, %1273 ]
+  %1277 = zext i16 %.0.i118 to i64
+  %1278 = getelementptr inbounds nuw i8, ptr %1270, i64 30
+  %1279 = load i16, ptr %1278, align 2, !noalias !340, !noundef !12
+  %1280 = zext i16 %1279 to i64
+  %1281 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1280
+  %1282 = load float, ptr %1281, align 4, !noalias !340, !noundef !12
+  %1283 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1277
+  %1284 = load float, ptr %1283, align 4, !noalias !340, !noundef !12
+  %.sroa.0.i266.sroa.0.0.copyload = load <15 x i16>, ptr %1270, align 2, !noalias !343
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !343
-  br label %1296
+  br label %1285
 
-1296:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit119, %1296
-  %1297 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit119 ], [ %1299, %1296 ]
-  %1298 = getelementptr inbounds nuw [16 x i16], ptr %18, i64 0, i64 %1297
-  store i16 %748, ptr %1298, align 2, !noalias !343
-  %1299 = add nuw nsw i64 %1297, 1
-  %exitcond3348.not = icmp eq i64 %1299, 16
-  br i1 %exitcond3348.not, label %1300, label %1296
+1285:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit119, %1285
+  %1286 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit119 ], [ %1288, %1285 ]
+  %1287 = getelementptr inbounds nuw i16, ptr %18, i64 %1286
+  store i16 %741, ptr %1287, align 2, !noalias !343
+  %1288 = add nuw nsw i64 %1286, 1
+  %exitcond3348.not = icmp eq i64 %1288, 16
+  br i1 %exitcond3348.not, label %1289, label %1285
 
-1300:                                             ; preds = %1296
-  %1301 = load <16 x i16>, ptr %18, align 2, !noalias !343
+1289:                                             ; preds = %1285
+  %1290 = load <16 x i16>, ptr %18, align 2, !noalias !343
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !343
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !343
-  br label %1302
+  br label %1291
 
-1302:                                             ; preds = %1300, %1302
-  %1303 = phi i64 [ 0, %1300 ], [ %1305, %1302 ]
-  %1304 = getelementptr inbounds nuw [16 x i16], ptr %17, i64 0, i64 %1303
-  store i16 %84, ptr %1304, align 2, !noalias !343
-  %1305 = add nuw nsw i64 %1303, 1
-  %exitcond3349.not = icmp eq i64 %1305, 16
-  br i1 %exitcond3349.not, label %1306, label %1302
+1291:                                             ; preds = %1289, %1291
+  %1292 = phi i64 [ 0, %1289 ], [ %1294, %1291 ]
+  %1293 = getelementptr inbounds nuw i16, ptr %17, i64 %1292
+  store i16 %83, ptr %1293, align 2, !noalias !343
+  %1294 = add nuw nsw i64 %1292, 1
+  %exitcond3349.not = icmp eq i64 %1294, 16
+  br i1 %exitcond3349.not, label %1295, label %1291
 
-1306:                                             ; preds = %1302
-  %1307 = load <16 x i16>, ptr %17, align 2, !noalias !343
+1295:                                             ; preds = %1291
+  %1296 = load <16 x i16>, ptr %17, align 2, !noalias !343
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !343
-  %.sroa.02846.0.vec.extract = extractelement <16 x i16> %1307, i64 0
-  %.sroa.02846.2.vec.extract = extractelement <16 x i16> %1307, i64 1
-  %1308 = icmp slt i16 %.sroa.02846.2.vec.extract, 2
-  %.sroa.02846.4.vec.extract = extractelement <16 x i16> %1307, i64 2
-  %1309 = icmp slt i16 %.sroa.02846.4.vec.extract, 3
-  %.sroa.02846.6.vec.extract = extractelement <16 x i16> %1307, i64 3
-  %1310 = icmp slt i16 %.sroa.02846.6.vec.extract, 4
-  %.sroa.02846.8.vec.extract = extractelement <16 x i16> %1307, i64 4
-  %1311 = icmp slt i16 %.sroa.02846.8.vec.extract, 5
-  %.sroa.02846.10.vec.extract = extractelement <16 x i16> %1307, i64 5
-  %1312 = icmp slt i16 %.sroa.02846.10.vec.extract, 6
-  %.sroa.02846.12.vec.extract = extractelement <16 x i16> %1307, i64 6
-  %1313 = icmp slt i16 %.sroa.02846.12.vec.extract, 7
-  %.sroa.02846.14.vec.extract = extractelement <16 x i16> %1307, i64 7
-  %1314 = icmp slt i16 %.sroa.02846.14.vec.extract, 8
-  %.sroa.02846.16.vec.extract = extractelement <16 x i16> %1307, i64 8
-  %1315 = icmp slt i16 %.sroa.02846.16.vec.extract, 9
-  %.sroa.02846.18.vec.extract = extractelement <16 x i16> %1307, i64 9
-  %1316 = icmp slt i16 %.sroa.02846.18.vec.extract, 10
-  %.sroa.02846.20.vec.extract = extractelement <16 x i16> %1307, i64 10
-  %1317 = icmp slt i16 %.sroa.02846.20.vec.extract, 11
-  %.sroa.02846.22.vec.extract = extractelement <16 x i16> %1307, i64 11
-  %1318 = icmp slt i16 %.sroa.02846.22.vec.extract, 12
-  %.sroa.02846.24.vec.extract = extractelement <16 x i16> %1307, i64 12
-  %1319 = icmp slt i16 %.sroa.02846.24.vec.extract, 13
-  %.sroa.02846.26.vec.extract = extractelement <16 x i16> %1307, i64 13
-  %1320 = icmp slt i16 %.sroa.02846.26.vec.extract, 14
-  %.sroa.02846.28.vec.extract = extractelement <16 x i16> %1307, i64 14
-  %1321 = icmp slt i16 %.sroa.02846.28.vec.extract, 15
-  %.sroa.02846.30.vec.extract = extractelement <16 x i16> %1307, i64 15
-  %1322 = icmp slt i16 %.sroa.02846.30.vec.extract, 16
-  %.sroa.02827.0.vec.extract = extractelement <16 x i16> %1301, i64 0
+  %.sroa.02846.0.vec.extract = extractelement <16 x i16> %1296, i64 0
+  %.sroa.02846.2.vec.extract = extractelement <16 x i16> %1296, i64 1
+  %1297 = icmp slt i16 %.sroa.02846.2.vec.extract, 2
+  %.sroa.02846.4.vec.extract = extractelement <16 x i16> %1296, i64 2
+  %1298 = icmp slt i16 %.sroa.02846.4.vec.extract, 3
+  %.sroa.02846.6.vec.extract = extractelement <16 x i16> %1296, i64 3
+  %1299 = icmp slt i16 %.sroa.02846.6.vec.extract, 4
+  %.sroa.02846.8.vec.extract = extractelement <16 x i16> %1296, i64 4
+  %1300 = icmp slt i16 %.sroa.02846.8.vec.extract, 5
+  %.sroa.02846.10.vec.extract = extractelement <16 x i16> %1296, i64 5
+  %1301 = icmp slt i16 %.sroa.02846.10.vec.extract, 6
+  %.sroa.02846.12.vec.extract = extractelement <16 x i16> %1296, i64 6
+  %1302 = icmp slt i16 %.sroa.02846.12.vec.extract, 7
+  %.sroa.02846.14.vec.extract = extractelement <16 x i16> %1296, i64 7
+  %1303 = icmp slt i16 %.sroa.02846.14.vec.extract, 8
+  %.sroa.02846.16.vec.extract = extractelement <16 x i16> %1296, i64 8
+  %1304 = icmp slt i16 %.sroa.02846.16.vec.extract, 9
+  %.sroa.02846.18.vec.extract = extractelement <16 x i16> %1296, i64 9
+  %1305 = icmp slt i16 %.sroa.02846.18.vec.extract, 10
+  %.sroa.02846.20.vec.extract = extractelement <16 x i16> %1296, i64 10
+  %1306 = icmp slt i16 %.sroa.02846.20.vec.extract, 11
+  %.sroa.02846.22.vec.extract = extractelement <16 x i16> %1296, i64 11
+  %1307 = icmp slt i16 %.sroa.02846.22.vec.extract, 12
+  %.sroa.02846.24.vec.extract = extractelement <16 x i16> %1296, i64 12
+  %1308 = icmp slt i16 %.sroa.02846.24.vec.extract, 13
+  %.sroa.02846.26.vec.extract = extractelement <16 x i16> %1296, i64 13
+  %1309 = icmp slt i16 %.sroa.02846.26.vec.extract, 14
+  %.sroa.02846.28.vec.extract = extractelement <16 x i16> %1296, i64 14
+  %1310 = icmp slt i16 %.sroa.02846.28.vec.extract, 15
+  %.sroa.02846.30.vec.extract = extractelement <16 x i16> %1296, i64 15
+  %1311 = icmp slt i16 %.sroa.02846.30.vec.extract, 16
+  %.sroa.02827.0.vec.extract = extractelement <16 x i16> %1290, i64 0
   %.inv3325 = icmp sgt i16 %.sroa.02846.0.vec.extract, 0
-  %1323 = select i1 %.inv3325, i16 0, i16 %.sroa.02827.0.vec.extract
-  %.sroa.02827.2.vec.extract = extractelement <16 x i16> %1301, i64 1
-  %1324 = select i1 %1308, i16 %.sroa.02827.2.vec.extract, i16 0
-  %.sroa.02827.4.vec.extract = extractelement <16 x i16> %1301, i64 2
-  %1325 = select i1 %1309, i16 %.sroa.02827.4.vec.extract, i16 0
-  %.sroa.02827.6.vec.extract = extractelement <16 x i16> %1301, i64 3
-  %1326 = select i1 %1310, i16 %.sroa.02827.6.vec.extract, i16 0
-  %.sroa.02827.8.vec.extract = extractelement <16 x i16> %1301, i64 4
-  %1327 = select i1 %1311, i16 %.sroa.02827.8.vec.extract, i16 0
-  %.sroa.02827.10.vec.extract = extractelement <16 x i16> %1301, i64 5
-  %1328 = select i1 %1312, i16 %.sroa.02827.10.vec.extract, i16 0
-  %.sroa.02827.12.vec.extract = extractelement <16 x i16> %1301, i64 6
-  %1329 = select i1 %1313, i16 %.sroa.02827.12.vec.extract, i16 0
-  %.sroa.02827.14.vec.extract = extractelement <16 x i16> %1301, i64 7
-  %1330 = select i1 %1314, i16 %.sroa.02827.14.vec.extract, i16 0
-  %.sroa.02827.16.vec.extract = extractelement <16 x i16> %1301, i64 8
-  %1331 = select i1 %1315, i16 %.sroa.02827.16.vec.extract, i16 0
-  %.sroa.02827.18.vec.extract = extractelement <16 x i16> %1301, i64 9
-  %1332 = select i1 %1316, i16 %.sroa.02827.18.vec.extract, i16 0
-  %.sroa.02827.20.vec.extract = extractelement <16 x i16> %1301, i64 10
-  %1333 = select i1 %1317, i16 %.sroa.02827.20.vec.extract, i16 0
-  %.sroa.02827.22.vec.extract = extractelement <16 x i16> %1301, i64 11
-  %1334 = select i1 %1318, i16 %.sroa.02827.22.vec.extract, i16 0
-  %.sroa.02827.24.vec.extract = extractelement <16 x i16> %1301, i64 12
-  %1335 = select i1 %1319, i16 %.sroa.02827.24.vec.extract, i16 0
-  %.sroa.02827.26.vec.extract = extractelement <16 x i16> %1301, i64 13
-  %1336 = select i1 %1320, i16 %.sroa.02827.26.vec.extract, i16 0
-  %.sroa.02827.28.vec.extract = extractelement <16 x i16> %1301, i64 14
-  %1337 = select i1 %1321, i16 %.sroa.02827.28.vec.extract, i16 0
-  %.sroa.02827.30.vec.extract = extractelement <16 x i16> %1301, i64 15
-  %1338 = select i1 %1322, i16 %.sroa.02827.30.vec.extract, i16 0
+  %1312 = select i1 %.inv3325, i16 0, i16 %.sroa.02827.0.vec.extract
+  %.sroa.02827.2.vec.extract = extractelement <16 x i16> %1290, i64 1
+  %1313 = select i1 %1297, i16 %.sroa.02827.2.vec.extract, i16 0
+  %.sroa.02827.4.vec.extract = extractelement <16 x i16> %1290, i64 2
+  %1314 = select i1 %1298, i16 %.sroa.02827.4.vec.extract, i16 0
+  %.sroa.02827.6.vec.extract = extractelement <16 x i16> %1290, i64 3
+  %1315 = select i1 %1299, i16 %.sroa.02827.6.vec.extract, i16 0
+  %.sroa.02827.8.vec.extract = extractelement <16 x i16> %1290, i64 4
+  %1316 = select i1 %1300, i16 %.sroa.02827.8.vec.extract, i16 0
+  %.sroa.02827.10.vec.extract = extractelement <16 x i16> %1290, i64 5
+  %1317 = select i1 %1301, i16 %.sroa.02827.10.vec.extract, i16 0
+  %.sroa.02827.12.vec.extract = extractelement <16 x i16> %1290, i64 6
+  %1318 = select i1 %1302, i16 %.sroa.02827.12.vec.extract, i16 0
+  %.sroa.02827.14.vec.extract = extractelement <16 x i16> %1290, i64 7
+  %1319 = select i1 %1303, i16 %.sroa.02827.14.vec.extract, i16 0
+  %.sroa.02827.16.vec.extract = extractelement <16 x i16> %1290, i64 8
+  %1320 = select i1 %1304, i16 %.sroa.02827.16.vec.extract, i16 0
+  %.sroa.02827.18.vec.extract = extractelement <16 x i16> %1290, i64 9
+  %1321 = select i1 %1305, i16 %.sroa.02827.18.vec.extract, i16 0
+  %.sroa.02827.20.vec.extract = extractelement <16 x i16> %1290, i64 10
+  %1322 = select i1 %1306, i16 %.sroa.02827.20.vec.extract, i16 0
+  %.sroa.02827.22.vec.extract = extractelement <16 x i16> %1290, i64 11
+  %1323 = select i1 %1307, i16 %.sroa.02827.22.vec.extract, i16 0
+  %.sroa.02827.24.vec.extract = extractelement <16 x i16> %1290, i64 12
+  %1324 = select i1 %1308, i16 %.sroa.02827.24.vec.extract, i16 0
+  %.sroa.02827.26.vec.extract = extractelement <16 x i16> %1290, i64 13
+  %1325 = select i1 %1309, i16 %.sroa.02827.26.vec.extract, i16 0
+  %.sroa.02827.28.vec.extract = extractelement <16 x i16> %1290, i64 14
+  %1326 = select i1 %1310, i16 %.sroa.02827.28.vec.extract, i16 0
+  %.sroa.02827.30.vec.extract = extractelement <16 x i16> %1290, i64 15
+  %1327 = select i1 %1311, i16 %.sroa.02827.30.vec.extract, i16 0
   %.sroa.02853.0.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 0
-  %1339 = add i16 %1323, %.sroa.02853.0.vec.extract
+  %1328 = add i16 %1312, %.sroa.02853.0.vec.extract
   %.sroa.02853.2.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 1
-  %1340 = add i16 %1324, %.sroa.02853.2.vec.extract
+  %1329 = add i16 %1313, %.sroa.02853.2.vec.extract
   %.sroa.02853.4.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 2
-  %1341 = add i16 %1325, %.sroa.02853.4.vec.extract
+  %1330 = add i16 %1314, %.sroa.02853.4.vec.extract
   %.sroa.02853.6.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 3
-  %1342 = add i16 %1326, %.sroa.02853.6.vec.extract
+  %1331 = add i16 %1315, %.sroa.02853.6.vec.extract
   %.sroa.02853.8.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 4
-  %1343 = add i16 %1327, %.sroa.02853.8.vec.extract
+  %1332 = add i16 %1316, %.sroa.02853.8.vec.extract
   %.sroa.02853.10.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 5
-  %1344 = add i16 %1328, %.sroa.02853.10.vec.extract
+  %1333 = add i16 %1317, %.sroa.02853.10.vec.extract
   %.sroa.02853.12.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 6
-  %1345 = add i16 %1329, %.sroa.02853.12.vec.extract
+  %1334 = add i16 %1318, %.sroa.02853.12.vec.extract
   %.sroa.02853.14.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 7
-  %1346 = add i16 %1330, %.sroa.02853.14.vec.extract
+  %1335 = add i16 %1319, %.sroa.02853.14.vec.extract
   %.sroa.02853.16.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 8
-  %1347 = add i16 %1331, %.sroa.02853.16.vec.extract
+  %1336 = add i16 %1320, %.sroa.02853.16.vec.extract
   %.sroa.02853.18.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 9
-  %1348 = add i16 %1332, %.sroa.02853.18.vec.extract
+  %1337 = add i16 %1321, %.sroa.02853.18.vec.extract
   %.sroa.02853.20.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 10
-  %1349 = add i16 %1333, %.sroa.02853.20.vec.extract
+  %1338 = add i16 %1322, %.sroa.02853.20.vec.extract
   %.sroa.02853.22.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 11
-  %1350 = add i16 %1334, %.sroa.02853.22.vec.extract
+  %1339 = add i16 %1323, %.sroa.02853.22.vec.extract
   %.sroa.02853.24.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 12
-  %1351 = add i16 %1335, %.sroa.02853.24.vec.extract
+  %1340 = add i16 %1324, %.sroa.02853.24.vec.extract
   %.sroa.02853.26.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 13
-  %1352 = add i16 %1336, %.sroa.02853.26.vec.extract
+  %1341 = add i16 %1325, %.sroa.02853.26.vec.extract
   %.sroa.02853.28.vec.extract = extractelement <15 x i16> %.sroa.0.i266.sroa.0.0.copyload, i64 14
-  %1353 = add i16 %1337, %.sroa.02853.28.vec.extract
-  %1354 = add i16 %1338, %1290
-  %.sroa.0.0.vec.insert.i1107 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1339, i64 0
-  %.sroa.0.2.vec.insert.i1108 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1107, i16 %1340, i64 1
-  %.sroa.0.4.vec.insert.i1109 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1108, i16 %1341, i64 2
-  %.sroa.0.6.vec.insert.i1110 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1109, i16 %1342, i64 3
-  %.sroa.0.8.vec.insert.i1111 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1110, i16 %1343, i64 4
-  %.sroa.0.10.vec.insert.i1112 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1111, i16 %1344, i64 5
-  %.sroa.0.12.vec.insert.i1113 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1112, i16 %1345, i64 6
-  %.sroa.0.14.vec.insert.i1114 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1113, i16 %1346, i64 7
-  %.sroa.0.16.vec.insert.i1115 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1114, i16 %1347, i64 8
-  %.sroa.0.18.vec.insert.i1116 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1115, i16 %1348, i64 9
-  %.sroa.0.20.vec.insert.i1117 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1116, i16 %1349, i64 10
-  %.sroa.0.22.vec.insert.i1118 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1117, i16 %1350, i64 11
-  %.sroa.0.24.vec.insert.i1119 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1118, i16 %1351, i64 12
-  %.sroa.0.26.vec.insert.i1120 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1119, i16 %1352, i64 13
-  %.sroa.0.28.vec.insert.i1121 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1120, i16 %1353, i64 14
+  %1342 = add i16 %1326, %.sroa.02853.28.vec.extract
+  %1343 = add i16 %1327, %1279
+  %.sroa.0.0.vec.insert.i1107 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1328, i64 0
+  %.sroa.0.2.vec.insert.i1108 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1107, i16 %1329, i64 1
+  %.sroa.0.4.vec.insert.i1109 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1108, i16 %1330, i64 2
+  %.sroa.0.6.vec.insert.i1110 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1109, i16 %1331, i64 3
+  %.sroa.0.8.vec.insert.i1111 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1110, i16 %1332, i64 4
+  %.sroa.0.10.vec.insert.i1112 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1111, i16 %1333, i64 5
+  %.sroa.0.12.vec.insert.i1113 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1112, i16 %1334, i64 6
+  %.sroa.0.14.vec.insert.i1114 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1113, i16 %1335, i64 7
+  %.sroa.0.16.vec.insert.i1115 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1114, i16 %1336, i64 8
+  %.sroa.0.18.vec.insert.i1116 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1115, i16 %1337, i64 9
+  %.sroa.0.20.vec.insert.i1117 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1116, i16 %1338, i64 10
+  %.sroa.0.22.vec.insert.i1118 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1117, i16 %1339, i64 11
+  %.sroa.0.24.vec.insert.i1119 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1118, i16 %1340, i64 12
+  %.sroa.0.26.vec.insert.i1120 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1119, i16 %1341, i64 13
+  %.sroa.0.28.vec.insert.i1121 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1120, i16 %1342, i64 14
   %.sroa.02847.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1121, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i272 = icmp slt i16 %1354, %750
-  br i1 %.not.i272, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit279, label %1355
+  %.not.i272 = icmp slt i16 %1343, %743
+  br i1 %.not.i272, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit279, label %1344
 
-1355:                                             ; preds = %1306
-  %1356 = add i16 %1339, 1
-  %1357 = add i16 %1340, 2
-  %1358 = add i16 %1341, 3
-  %1359 = add i16 %1342, 4
-  %1360 = add i16 %1343, 5
-  %1361 = add i16 %1344, 6
-  %1362 = add i16 %1345, 7
-  %1363 = add i16 %1346, 8
-  %1364 = add i16 %1347, 9
-  %1365 = add i16 %1348, 10
-  %1366 = add i16 %1349, 11
-  %1367 = add i16 %1350, 12
-  %1368 = add i16 %1351, 13
-  %1369 = add i16 %1352, 14
-  %1370 = add i16 %1353, 15
-  %1371 = add i16 %1354, 16
-  %1372 = ashr i16 %1370, 2
-  %1373 = ashr i16 %1369, 2
-  %1374 = ashr i16 %1368, 2
-  %1375 = ashr i16 %1367, 2
-  %1376 = ashr i16 %1366, 2
-  %1377 = ashr i16 %1365, 2
-  %1378 = ashr i16 %1364, 2
-  %1379 = ashr i16 %1363, 2
-  %1380 = ashr i16 %1362, 2
-  %1381 = ashr i16 %1361, 2
-  %1382 = ashr i16 %1360, 2
-  %1383 = ashr i16 %1359, 2
-  %1384 = ashr i16 %1358, 2
-  %1385 = ashr i16 %1357, 2
-  %1386 = ashr i16 %1356, 2
-  %1387 = ashr i16 %1371, 2
-  %1388 = sub i16 %1356, %1386
-  %1389 = sub i16 %1357, %1385
-  %1390 = sub i16 %1358, %1384
-  %1391 = sub i16 %1359, %1383
-  %1392 = sub i16 %1360, %1382
-  %1393 = sub i16 %1361, %1381
-  %1394 = sub i16 %1362, %1380
-  %1395 = sub i16 %1363, %1379
-  %1396 = sub i16 %1364, %1378
-  %1397 = sub i16 %1365, %1377
-  %1398 = sub i16 %1366, %1376
-  %1399 = sub i16 %1367, %1375
-  %1400 = sub i16 %1368, %1374
-  %1401 = sub i16 %1369, %1373
-  %1402 = sub i16 %1370, %1372
-  %1403 = sub i16 %1371, %1387
-  %.sroa.0.0.vec.insert.i1683 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1388, i64 0
-  %.sroa.0.2.vec.insert.i1684 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1683, i16 %1389, i64 1
-  %.sroa.0.4.vec.insert.i1685 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1684, i16 %1390, i64 2
-  %.sroa.0.6.vec.insert.i1686 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1685, i16 %1391, i64 3
-  %.sroa.0.8.vec.insert.i1687 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1686, i16 %1392, i64 4
-  %.sroa.0.10.vec.insert.i1688 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1687, i16 %1393, i64 5
-  %.sroa.0.12.vec.insert.i1689 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1688, i16 %1394, i64 6
-  %.sroa.0.14.vec.insert.i1690 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1689, i16 %1395, i64 7
-  %.sroa.0.16.vec.insert.i1691 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1690, i16 %1396, i64 8
-  %.sroa.0.18.vec.insert.i1692 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1691, i16 %1397, i64 9
-  %.sroa.0.20.vec.insert.i1693 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1692, i16 %1398, i64 10
-  %.sroa.0.22.vec.insert.i1694 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1693, i16 %1399, i64 11
-  %.sroa.0.24.vec.insert.i1695 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1694, i16 %1400, i64 12
-  %.sroa.0.26.vec.insert.i1696 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1695, i16 %1401, i64 13
-  %.sroa.0.28.vec.insert.i1697 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1696, i16 %1402, i64 14
+1344:                                             ; preds = %1295
+  %1345 = add i16 %1328, 1
+  %1346 = add i16 %1329, 2
+  %1347 = add i16 %1330, 3
+  %1348 = add i16 %1331, 4
+  %1349 = add i16 %1332, 5
+  %1350 = add i16 %1333, 6
+  %1351 = add i16 %1334, 7
+  %1352 = add i16 %1335, 8
+  %1353 = add i16 %1336, 9
+  %1354 = add i16 %1337, 10
+  %1355 = add i16 %1338, 11
+  %1356 = add i16 %1339, 12
+  %1357 = add i16 %1340, 13
+  %1358 = add i16 %1341, 14
+  %1359 = add i16 %1342, 15
+  %1360 = add i16 %1343, 16
+  %1361 = ashr i16 %1359, 2
+  %1362 = ashr i16 %1358, 2
+  %1363 = ashr i16 %1357, 2
+  %1364 = ashr i16 %1356, 2
+  %1365 = ashr i16 %1355, 2
+  %1366 = ashr i16 %1354, 2
+  %1367 = ashr i16 %1353, 2
+  %1368 = ashr i16 %1352, 2
+  %1369 = ashr i16 %1351, 2
+  %1370 = ashr i16 %1350, 2
+  %1371 = ashr i16 %1349, 2
+  %1372 = ashr i16 %1348, 2
+  %1373 = ashr i16 %1347, 2
+  %1374 = ashr i16 %1346, 2
+  %1375 = ashr i16 %1345, 2
+  %1376 = ashr i16 %1360, 2
+  %1377 = sub i16 %1345, %1375
+  %1378 = sub i16 %1346, %1374
+  %1379 = sub i16 %1347, %1373
+  %1380 = sub i16 %1348, %1372
+  %1381 = sub i16 %1349, %1371
+  %1382 = sub i16 %1350, %1370
+  %1383 = sub i16 %1351, %1369
+  %1384 = sub i16 %1352, %1368
+  %1385 = sub i16 %1353, %1367
+  %1386 = sub i16 %1354, %1366
+  %1387 = sub i16 %1355, %1365
+  %1388 = sub i16 %1356, %1364
+  %1389 = sub i16 %1357, %1363
+  %1390 = sub i16 %1358, %1362
+  %1391 = sub i16 %1359, %1361
+  %1392 = sub i16 %1360, %1376
+  %.sroa.0.0.vec.insert.i1683 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1377, i64 0
+  %.sroa.0.2.vec.insert.i1684 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1683, i16 %1378, i64 1
+  %.sroa.0.4.vec.insert.i1685 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1684, i16 %1379, i64 2
+  %.sroa.0.6.vec.insert.i1686 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1685, i16 %1380, i64 3
+  %.sroa.0.8.vec.insert.i1687 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1686, i16 %1381, i64 4
+  %.sroa.0.10.vec.insert.i1688 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1687, i16 %1382, i64 5
+  %.sroa.0.12.vec.insert.i1689 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1688, i16 %1383, i64 6
+  %.sroa.0.14.vec.insert.i1690 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1689, i16 %1384, i64 7
+  %.sroa.0.16.vec.insert.i1691 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1690, i16 %1385, i64 8
+  %.sroa.0.18.vec.insert.i1692 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1691, i16 %1386, i64 9
+  %.sroa.0.20.vec.insert.i1693 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1692, i16 %1387, i64 10
+  %.sroa.0.22.vec.insert.i1694 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1693, i16 %1388, i64 11
+  %.sroa.0.24.vec.insert.i1695 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1694, i16 %1389, i64 12
+  %.sroa.0.26.vec.insert.i1696 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1695, i16 %1390, i64 13
+  %.sroa.0.28.vec.insert.i1697 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1696, i16 %1391, i64 14
   %.sroa.02857.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1697, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit279
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit279: ; preds = %1306, %1355
-  %.sroa.0.i266.sroa.0.0 = phi <15 x i16> [ %.sroa.02847.0.vec.extract, %1306 ], [ %.sroa.02857.0.vec.extract, %1355 ]
-  %.sroa.9.0.i277 = phi i16 [ %1354, %1306 ], [ %1403, %1355 ]
-  store <15 x i16> %.sroa.0.i266.sroa.0.0, ptr %1280, align 2, !noalias !343
-  store i16 %.sroa.9.0.i277, ptr %1289, align 2, !noalias !343
-  %1404 = shl nuw nsw i64 %1274, 8
-  %1405 = and i64 %1404, 3840
-  %1406 = or i64 %4, %1405
-  %1407 = or i64 %1406, %862
-  %1408 = shl i64 %1407, 1
-  %1409 = or disjoint i64 %1408, 1
-  %1410 = icmp ult i64 %1409, %.val2381
-  br i1 %1410, label %1412, label %1548, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit279: ; preds = %1295, %1344
+  %.sroa.0.i266.sroa.0.0 = phi <15 x i16> [ %.sroa.02847.0.vec.extract, %1295 ], [ %.sroa.02857.0.vec.extract, %1344 ]
+  %.sroa.9.0.i277 = phi i16 [ %1343, %1295 ], [ %1392, %1344 ]
+  store <15 x i16> %.sroa.0.i266.sroa.0.0, ptr %1270, align 2, !noalias !343
+  store i16 %.sroa.9.0.i277, ptr %1278, align 2, !noalias !343
+  %1393 = shl nuw nsw i64 %1264, 8
+  %1394 = and i64 %1393, 3840
+  %1395 = or i64 %4, %1394
+  %1396 = or i64 %1395, %855
+  %1397 = shl i64 %1396, 1
+  %1398 = or disjoint i64 %1397, 1
+  %1399 = icmp ult i64 %1398, %.val2381
+  br i1 %1399, label %1401, label %1536, !prof !278
 
-1411:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit264
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1276, i64 noundef %.val2381, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+1400:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit264
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1266, i64 noundef %.val2381, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-1412:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit279
-  %1413 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2380, i64 0, i64 %1409
-  %1414 = getelementptr inbounds nuw [0 x i16], ptr %1413, i64 0, i64 %195
-  %1415 = load i16, ptr %1414, align 2, !noalias !346, !noundef !12
-  br i1 %198, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit121, label %1416
+1401:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit279
+  %1402 = getelementptr inbounds { [16 x i16] }, ptr %.val2380, i64 %1398
+  %1403 = getelementptr inbounds nuw i16, ptr %1402, i64 %194
+  %1404 = load i16, ptr %1403, align 2, !noalias !346, !noundef !12
+  br i1 %197, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit121, label %1405
 
-1416:                                             ; preds = %1412
-  %1417 = add nsw i64 %195, -1
-  %1418 = getelementptr inbounds nuw [0 x i16], ptr %1413, i64 0, i64 %1417
-  %1419 = load i16, ptr %1418, align 2, !noalias !346, !noundef !12
-  %1420 = sub i16 %1415, %1419
+1405:                                             ; preds = %1401
+  %1406 = getelementptr i8, ptr %1403, i64 -2
+  %1407 = load i16, ptr %1406, align 2, !noalias !346, !noundef !12
+  %1408 = sub i16 %1404, %1407
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit121
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit121: ; preds = %1412, %1416
-  %.0.i120 = phi i16 [ %1415, %1412 ], [ %1420, %1416 ]
-  %1421 = zext i16 %.0.i120 to i64
-  %1422 = getelementptr inbounds nuw i8, ptr %1413, i64 30
-  %1423 = load i16, ptr %1422, align 2, !noalias !346, !noundef !12
-  %1424 = zext i16 %1423 to i64
-  %1425 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1424
-  %1426 = load float, ptr %1425, align 4, !noalias !346, !noundef !12
-  %1427 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1421
-  %1428 = load float, ptr %1427, align 4, !noalias !346, !noundef !12
-  %.sroa.0.i281.sroa.0.0.copyload = load <15 x i16>, ptr %1413, align 2, !noalias !349
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit121: ; preds = %1401, %1405
+  %.0.i120 = phi i16 [ %1404, %1401 ], [ %1408, %1405 ]
+  %1409 = zext i16 %.0.i120 to i64
+  %1410 = getelementptr inbounds nuw i8, ptr %1402, i64 30
+  %1411 = load i16, ptr %1410, align 2, !noalias !346, !noundef !12
+  %1412 = zext i16 %1411 to i64
+  %1413 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1412
+  %1414 = load float, ptr %1413, align 4, !noalias !346, !noundef !12
+  %1415 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1409
+  %1416 = load float, ptr %1415, align 4, !noalias !346, !noundef !12
+  %.sroa.0.i281.sroa.0.0.copyload = load <15 x i16>, ptr %1402, align 2, !noalias !349
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !349
-  br label %1429
+  br label %1417
 
-1429:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit121, %1429
-  %1430 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit121 ], [ %1432, %1429 ]
-  %1431 = getelementptr inbounds nuw [16 x i16], ptr %16, i64 0, i64 %1430
-  store i16 %886, ptr %1431, align 2, !noalias !349
-  %1432 = add nuw nsw i64 %1430, 1
-  %exitcond3350.not = icmp eq i64 %1432, 16
-  br i1 %exitcond3350.not, label %1433, label %1429
+1417:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit121, %1417
+  %1418 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit121 ], [ %1420, %1417 ]
+  %1419 = getelementptr inbounds nuw i16, ptr %16, i64 %1418
+  store i16 %878, ptr %1419, align 2, !noalias !349
+  %1420 = add nuw nsw i64 %1418, 1
+  %exitcond3350.not = icmp eq i64 %1420, 16
+  br i1 %exitcond3350.not, label %1421, label %1417
 
-1433:                                             ; preds = %1429
-  %1434 = load <16 x i16>, ptr %16, align 2, !noalias !349
+1421:                                             ; preds = %1417
+  %1422 = load <16 x i16>, ptr %16, align 2, !noalias !349
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !349
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !349
-  br label %1435
+  br label %1423
 
-1435:                                             ; preds = %1433, %1435
-  %1436 = phi i64 [ 0, %1433 ], [ %1438, %1435 ]
-  %1437 = getelementptr inbounds nuw [16 x i16], ptr %15, i64 0, i64 %1436
-  store i16 %221, ptr %1437, align 2, !noalias !349
-  %1438 = add nuw nsw i64 %1436, 1
-  %exitcond3351.not = icmp eq i64 %1438, 16
-  br i1 %exitcond3351.not, label %1439, label %1435
+1423:                                             ; preds = %1421, %1423
+  %1424 = phi i64 [ 0, %1421 ], [ %1426, %1423 ]
+  %1425 = getelementptr inbounds nuw i16, ptr %15, i64 %1424
+  store i16 %219, ptr %1425, align 2, !noalias !349
+  %1426 = add nuw nsw i64 %1424, 1
+  %exitcond3351.not = icmp eq i64 %1426, 16
+  br i1 %exitcond3351.not, label %1427, label %1423
 
-1439:                                             ; preds = %1435
-  %1440 = fsub float %1426, %1428
-  %1441 = load <16 x i16>, ptr %15, align 2, !noalias !349
+1427:                                             ; preds = %1423
+  %1428 = fsub float %1414, %1416
+  %1429 = load <16 x i16>, ptr %15, align 2, !noalias !349
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !349
-  %.sroa.02885.0.vec.extract = extractelement <16 x i16> %1441, i64 0
-  %.sroa.02885.2.vec.extract = extractelement <16 x i16> %1441, i64 1
-  %1442 = icmp slt i16 %.sroa.02885.2.vec.extract, 2
-  %.sroa.02885.4.vec.extract = extractelement <16 x i16> %1441, i64 2
-  %1443 = icmp slt i16 %.sroa.02885.4.vec.extract, 3
-  %.sroa.02885.6.vec.extract = extractelement <16 x i16> %1441, i64 3
-  %1444 = icmp slt i16 %.sroa.02885.6.vec.extract, 4
-  %.sroa.02885.8.vec.extract = extractelement <16 x i16> %1441, i64 4
-  %1445 = icmp slt i16 %.sroa.02885.8.vec.extract, 5
-  %.sroa.02885.10.vec.extract = extractelement <16 x i16> %1441, i64 5
-  %1446 = icmp slt i16 %.sroa.02885.10.vec.extract, 6
-  %.sroa.02885.12.vec.extract = extractelement <16 x i16> %1441, i64 6
-  %1447 = icmp slt i16 %.sroa.02885.12.vec.extract, 7
-  %.sroa.02885.14.vec.extract = extractelement <16 x i16> %1441, i64 7
-  %1448 = icmp slt i16 %.sroa.02885.14.vec.extract, 8
-  %.sroa.02885.16.vec.extract = extractelement <16 x i16> %1441, i64 8
-  %1449 = icmp slt i16 %.sroa.02885.16.vec.extract, 9
-  %.sroa.02885.18.vec.extract = extractelement <16 x i16> %1441, i64 9
-  %1450 = icmp slt i16 %.sroa.02885.18.vec.extract, 10
-  %.sroa.02885.20.vec.extract = extractelement <16 x i16> %1441, i64 10
-  %1451 = icmp slt i16 %.sroa.02885.20.vec.extract, 11
-  %.sroa.02885.22.vec.extract = extractelement <16 x i16> %1441, i64 11
-  %1452 = icmp slt i16 %.sroa.02885.22.vec.extract, 12
-  %.sroa.02885.24.vec.extract = extractelement <16 x i16> %1441, i64 12
-  %1453 = icmp slt i16 %.sroa.02885.24.vec.extract, 13
-  %.sroa.02885.26.vec.extract = extractelement <16 x i16> %1441, i64 13
-  %1454 = icmp slt i16 %.sroa.02885.26.vec.extract, 14
-  %.sroa.02885.28.vec.extract = extractelement <16 x i16> %1441, i64 14
-  %1455 = icmp slt i16 %.sroa.02885.28.vec.extract, 15
-  %.sroa.02885.30.vec.extract = extractelement <16 x i16> %1441, i64 15
-  %1456 = icmp slt i16 %.sroa.02885.30.vec.extract, 16
-  %.sroa.02866.0.vec.extract = extractelement <16 x i16> %1434, i64 0
+  %.sroa.02885.0.vec.extract = extractelement <16 x i16> %1429, i64 0
+  %.sroa.02885.2.vec.extract = extractelement <16 x i16> %1429, i64 1
+  %1430 = icmp slt i16 %.sroa.02885.2.vec.extract, 2
+  %.sroa.02885.4.vec.extract = extractelement <16 x i16> %1429, i64 2
+  %1431 = icmp slt i16 %.sroa.02885.4.vec.extract, 3
+  %.sroa.02885.6.vec.extract = extractelement <16 x i16> %1429, i64 3
+  %1432 = icmp slt i16 %.sroa.02885.6.vec.extract, 4
+  %.sroa.02885.8.vec.extract = extractelement <16 x i16> %1429, i64 4
+  %1433 = icmp slt i16 %.sroa.02885.8.vec.extract, 5
+  %.sroa.02885.10.vec.extract = extractelement <16 x i16> %1429, i64 5
+  %1434 = icmp slt i16 %.sroa.02885.10.vec.extract, 6
+  %.sroa.02885.12.vec.extract = extractelement <16 x i16> %1429, i64 6
+  %1435 = icmp slt i16 %.sroa.02885.12.vec.extract, 7
+  %.sroa.02885.14.vec.extract = extractelement <16 x i16> %1429, i64 7
+  %1436 = icmp slt i16 %.sroa.02885.14.vec.extract, 8
+  %.sroa.02885.16.vec.extract = extractelement <16 x i16> %1429, i64 8
+  %1437 = icmp slt i16 %.sroa.02885.16.vec.extract, 9
+  %.sroa.02885.18.vec.extract = extractelement <16 x i16> %1429, i64 9
+  %1438 = icmp slt i16 %.sroa.02885.18.vec.extract, 10
+  %.sroa.02885.20.vec.extract = extractelement <16 x i16> %1429, i64 10
+  %1439 = icmp slt i16 %.sroa.02885.20.vec.extract, 11
+  %.sroa.02885.22.vec.extract = extractelement <16 x i16> %1429, i64 11
+  %1440 = icmp slt i16 %.sroa.02885.22.vec.extract, 12
+  %.sroa.02885.24.vec.extract = extractelement <16 x i16> %1429, i64 12
+  %1441 = icmp slt i16 %.sroa.02885.24.vec.extract, 13
+  %.sroa.02885.26.vec.extract = extractelement <16 x i16> %1429, i64 13
+  %1442 = icmp slt i16 %.sroa.02885.26.vec.extract, 14
+  %.sroa.02885.28.vec.extract = extractelement <16 x i16> %1429, i64 14
+  %1443 = icmp slt i16 %.sroa.02885.28.vec.extract, 15
+  %.sroa.02885.30.vec.extract = extractelement <16 x i16> %1429, i64 15
+  %1444 = icmp slt i16 %.sroa.02885.30.vec.extract, 16
+  %.sroa.02866.0.vec.extract = extractelement <16 x i16> %1422, i64 0
   %.inv3326 = icmp sgt i16 %.sroa.02885.0.vec.extract, 0
-  %1457 = select i1 %.inv3326, i16 0, i16 %.sroa.02866.0.vec.extract
-  %.sroa.02866.2.vec.extract = extractelement <16 x i16> %1434, i64 1
-  %1458 = select i1 %1442, i16 %.sroa.02866.2.vec.extract, i16 0
-  %.sroa.02866.4.vec.extract = extractelement <16 x i16> %1434, i64 2
-  %1459 = select i1 %1443, i16 %.sroa.02866.4.vec.extract, i16 0
-  %.sroa.02866.6.vec.extract = extractelement <16 x i16> %1434, i64 3
-  %1460 = select i1 %1444, i16 %.sroa.02866.6.vec.extract, i16 0
-  %.sroa.02866.8.vec.extract = extractelement <16 x i16> %1434, i64 4
-  %1461 = select i1 %1445, i16 %.sroa.02866.8.vec.extract, i16 0
-  %.sroa.02866.10.vec.extract = extractelement <16 x i16> %1434, i64 5
-  %1462 = select i1 %1446, i16 %.sroa.02866.10.vec.extract, i16 0
-  %.sroa.02866.12.vec.extract = extractelement <16 x i16> %1434, i64 6
-  %1463 = select i1 %1447, i16 %.sroa.02866.12.vec.extract, i16 0
-  %.sroa.02866.14.vec.extract = extractelement <16 x i16> %1434, i64 7
-  %1464 = select i1 %1448, i16 %.sroa.02866.14.vec.extract, i16 0
-  %.sroa.02866.16.vec.extract = extractelement <16 x i16> %1434, i64 8
-  %1465 = select i1 %1449, i16 %.sroa.02866.16.vec.extract, i16 0
-  %.sroa.02866.18.vec.extract = extractelement <16 x i16> %1434, i64 9
-  %1466 = select i1 %1450, i16 %.sroa.02866.18.vec.extract, i16 0
-  %.sroa.02866.20.vec.extract = extractelement <16 x i16> %1434, i64 10
-  %1467 = select i1 %1451, i16 %.sroa.02866.20.vec.extract, i16 0
-  %.sroa.02866.22.vec.extract = extractelement <16 x i16> %1434, i64 11
-  %1468 = select i1 %1452, i16 %.sroa.02866.22.vec.extract, i16 0
-  %.sroa.02866.24.vec.extract = extractelement <16 x i16> %1434, i64 12
-  %1469 = select i1 %1453, i16 %.sroa.02866.24.vec.extract, i16 0
-  %.sroa.02866.26.vec.extract = extractelement <16 x i16> %1434, i64 13
-  %1470 = select i1 %1454, i16 %.sroa.02866.26.vec.extract, i16 0
-  %.sroa.02866.28.vec.extract = extractelement <16 x i16> %1434, i64 14
-  %1471 = select i1 %1455, i16 %.sroa.02866.28.vec.extract, i16 0
-  %.sroa.02866.30.vec.extract = extractelement <16 x i16> %1434, i64 15
-  %1472 = select i1 %1456, i16 %.sroa.02866.30.vec.extract, i16 0
+  %1445 = select i1 %.inv3326, i16 0, i16 %.sroa.02866.0.vec.extract
+  %.sroa.02866.2.vec.extract = extractelement <16 x i16> %1422, i64 1
+  %1446 = select i1 %1430, i16 %.sroa.02866.2.vec.extract, i16 0
+  %.sroa.02866.4.vec.extract = extractelement <16 x i16> %1422, i64 2
+  %1447 = select i1 %1431, i16 %.sroa.02866.4.vec.extract, i16 0
+  %.sroa.02866.6.vec.extract = extractelement <16 x i16> %1422, i64 3
+  %1448 = select i1 %1432, i16 %.sroa.02866.6.vec.extract, i16 0
+  %.sroa.02866.8.vec.extract = extractelement <16 x i16> %1422, i64 4
+  %1449 = select i1 %1433, i16 %.sroa.02866.8.vec.extract, i16 0
+  %.sroa.02866.10.vec.extract = extractelement <16 x i16> %1422, i64 5
+  %1450 = select i1 %1434, i16 %.sroa.02866.10.vec.extract, i16 0
+  %.sroa.02866.12.vec.extract = extractelement <16 x i16> %1422, i64 6
+  %1451 = select i1 %1435, i16 %.sroa.02866.12.vec.extract, i16 0
+  %.sroa.02866.14.vec.extract = extractelement <16 x i16> %1422, i64 7
+  %1452 = select i1 %1436, i16 %.sroa.02866.14.vec.extract, i16 0
+  %.sroa.02866.16.vec.extract = extractelement <16 x i16> %1422, i64 8
+  %1453 = select i1 %1437, i16 %.sroa.02866.16.vec.extract, i16 0
+  %.sroa.02866.18.vec.extract = extractelement <16 x i16> %1422, i64 9
+  %1454 = select i1 %1438, i16 %.sroa.02866.18.vec.extract, i16 0
+  %.sroa.02866.20.vec.extract = extractelement <16 x i16> %1422, i64 10
+  %1455 = select i1 %1439, i16 %.sroa.02866.20.vec.extract, i16 0
+  %.sroa.02866.22.vec.extract = extractelement <16 x i16> %1422, i64 11
+  %1456 = select i1 %1440, i16 %.sroa.02866.22.vec.extract, i16 0
+  %.sroa.02866.24.vec.extract = extractelement <16 x i16> %1422, i64 12
+  %1457 = select i1 %1441, i16 %.sroa.02866.24.vec.extract, i16 0
+  %.sroa.02866.26.vec.extract = extractelement <16 x i16> %1422, i64 13
+  %1458 = select i1 %1442, i16 %.sroa.02866.26.vec.extract, i16 0
+  %.sroa.02866.28.vec.extract = extractelement <16 x i16> %1422, i64 14
+  %1459 = select i1 %1443, i16 %.sroa.02866.28.vec.extract, i16 0
+  %.sroa.02866.30.vec.extract = extractelement <16 x i16> %1422, i64 15
+  %1460 = select i1 %1444, i16 %.sroa.02866.30.vec.extract, i16 0
   %.sroa.02892.0.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 0
-  %1473 = add i16 %1457, %.sroa.02892.0.vec.extract
+  %1461 = add i16 %1445, %.sroa.02892.0.vec.extract
   %.sroa.02892.2.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 1
-  %1474 = add i16 %1458, %.sroa.02892.2.vec.extract
+  %1462 = add i16 %1446, %.sroa.02892.2.vec.extract
   %.sroa.02892.4.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 2
-  %1475 = add i16 %1459, %.sroa.02892.4.vec.extract
+  %1463 = add i16 %1447, %.sroa.02892.4.vec.extract
   %.sroa.02892.6.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 3
-  %1476 = add i16 %1460, %.sroa.02892.6.vec.extract
+  %1464 = add i16 %1448, %.sroa.02892.6.vec.extract
   %.sroa.02892.8.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 4
-  %1477 = add i16 %1461, %.sroa.02892.8.vec.extract
+  %1465 = add i16 %1449, %.sroa.02892.8.vec.extract
   %.sroa.02892.10.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 5
-  %1478 = add i16 %1462, %.sroa.02892.10.vec.extract
+  %1466 = add i16 %1450, %.sroa.02892.10.vec.extract
   %.sroa.02892.12.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 6
-  %1479 = add i16 %1463, %.sroa.02892.12.vec.extract
+  %1467 = add i16 %1451, %.sroa.02892.12.vec.extract
   %.sroa.02892.14.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 7
-  %1480 = add i16 %1464, %.sroa.02892.14.vec.extract
+  %1468 = add i16 %1452, %.sroa.02892.14.vec.extract
   %.sroa.02892.16.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 8
-  %1481 = add i16 %1465, %.sroa.02892.16.vec.extract
+  %1469 = add i16 %1453, %.sroa.02892.16.vec.extract
   %.sroa.02892.18.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 9
-  %1482 = add i16 %1466, %.sroa.02892.18.vec.extract
+  %1470 = add i16 %1454, %.sroa.02892.18.vec.extract
   %.sroa.02892.20.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 10
-  %1483 = add i16 %1467, %.sroa.02892.20.vec.extract
+  %1471 = add i16 %1455, %.sroa.02892.20.vec.extract
   %.sroa.02892.22.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 11
-  %1484 = add i16 %1468, %.sroa.02892.22.vec.extract
+  %1472 = add i16 %1456, %.sroa.02892.22.vec.extract
   %.sroa.02892.24.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 12
-  %1485 = add i16 %1469, %.sroa.02892.24.vec.extract
+  %1473 = add i16 %1457, %.sroa.02892.24.vec.extract
   %.sroa.02892.26.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 13
-  %1486 = add i16 %1470, %.sroa.02892.26.vec.extract
+  %1474 = add i16 %1458, %.sroa.02892.26.vec.extract
   %.sroa.02892.28.vec.extract = extractelement <15 x i16> %.sroa.0.i281.sroa.0.0.copyload, i64 14
-  %1487 = add i16 %1471, %.sroa.02892.28.vec.extract
-  %1488 = add i16 %1472, %1423
-  %.sroa.0.0.vec.insert.i1059 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1473, i64 0
-  %.sroa.0.2.vec.insert.i1060 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1059, i16 %1474, i64 1
-  %.sroa.0.4.vec.insert.i1061 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1060, i16 %1475, i64 2
-  %.sroa.0.6.vec.insert.i1062 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1061, i16 %1476, i64 3
-  %.sroa.0.8.vec.insert.i1063 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1062, i16 %1477, i64 4
-  %.sroa.0.10.vec.insert.i1064 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1063, i16 %1478, i64 5
-  %.sroa.0.12.vec.insert.i1065 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1064, i16 %1479, i64 6
-  %.sroa.0.14.vec.insert.i1066 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1065, i16 %1480, i64 7
-  %.sroa.0.16.vec.insert.i1067 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1066, i16 %1481, i64 8
-  %.sroa.0.18.vec.insert.i1068 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1067, i16 %1482, i64 9
-  %.sroa.0.20.vec.insert.i1069 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1068, i16 %1483, i64 10
-  %.sroa.0.22.vec.insert.i1070 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1069, i16 %1484, i64 11
-  %.sroa.0.24.vec.insert.i1071 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1070, i16 %1485, i64 12
-  %.sroa.0.26.vec.insert.i1072 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1071, i16 %1486, i64 13
-  %.sroa.0.28.vec.insert.i1073 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1072, i16 %1487, i64 14
+  %1475 = add i16 %1459, %.sroa.02892.28.vec.extract
+  %1476 = add i16 %1460, %1411
+  %.sroa.0.0.vec.insert.i1059 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1461, i64 0
+  %.sroa.0.2.vec.insert.i1060 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1059, i16 %1462, i64 1
+  %.sroa.0.4.vec.insert.i1061 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1060, i16 %1463, i64 2
+  %.sroa.0.6.vec.insert.i1062 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1061, i16 %1464, i64 3
+  %.sroa.0.8.vec.insert.i1063 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1062, i16 %1465, i64 4
+  %.sroa.0.10.vec.insert.i1064 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1063, i16 %1466, i64 5
+  %.sroa.0.12.vec.insert.i1065 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1064, i16 %1467, i64 6
+  %.sroa.0.14.vec.insert.i1066 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1065, i16 %1468, i64 7
+  %.sroa.0.16.vec.insert.i1067 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1066, i16 %1469, i64 8
+  %.sroa.0.18.vec.insert.i1068 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1067, i16 %1470, i64 9
+  %.sroa.0.20.vec.insert.i1069 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1068, i16 %1471, i64 10
+  %.sroa.0.22.vec.insert.i1070 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1069, i16 %1472, i64 11
+  %.sroa.0.24.vec.insert.i1071 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1070, i16 %1473, i64 12
+  %.sroa.0.26.vec.insert.i1072 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1071, i16 %1474, i64 13
+  %.sroa.0.28.vec.insert.i1073 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1072, i16 %1475, i64 14
   %.sroa.02886.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1073, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i287 = icmp slt i16 %1488, %888
-  br i1 %.not.i287, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit294, label %1489
+  %.not.i287 = icmp slt i16 %1476, %880
+  br i1 %.not.i287, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit294, label %1477
 
-1489:                                             ; preds = %1439
-  %1490 = add i16 %1473, 1
-  %1491 = add i16 %1474, 2
-  %1492 = add i16 %1475, 3
-  %1493 = add i16 %1476, 4
-  %1494 = add i16 %1477, 5
-  %1495 = add i16 %1478, 6
-  %1496 = add i16 %1479, 7
-  %1497 = add i16 %1480, 8
-  %1498 = add i16 %1481, 9
-  %1499 = add i16 %1482, 10
-  %1500 = add i16 %1483, 11
-  %1501 = add i16 %1484, 12
-  %1502 = add i16 %1485, 13
-  %1503 = add i16 %1486, 14
-  %1504 = add i16 %1487, 15
-  %1505 = add i16 %1488, 16
-  %1506 = ashr i16 %1504, 2
-  %1507 = ashr i16 %1503, 2
-  %1508 = ashr i16 %1502, 2
-  %1509 = ashr i16 %1501, 2
-  %1510 = ashr i16 %1500, 2
-  %1511 = ashr i16 %1499, 2
-  %1512 = ashr i16 %1498, 2
-  %1513 = ashr i16 %1497, 2
-  %1514 = ashr i16 %1496, 2
-  %1515 = ashr i16 %1495, 2
-  %1516 = ashr i16 %1494, 2
-  %1517 = ashr i16 %1493, 2
-  %1518 = ashr i16 %1492, 2
-  %1519 = ashr i16 %1491, 2
-  %1520 = ashr i16 %1490, 2
-  %1521 = ashr i16 %1505, 2
-  %1522 = sub i16 %1490, %1520
-  %1523 = sub i16 %1491, %1519
-  %1524 = sub i16 %1492, %1518
-  %1525 = sub i16 %1493, %1517
-  %1526 = sub i16 %1494, %1516
-  %1527 = sub i16 %1495, %1515
-  %1528 = sub i16 %1496, %1514
-  %1529 = sub i16 %1497, %1513
-  %1530 = sub i16 %1498, %1512
-  %1531 = sub i16 %1499, %1511
-  %1532 = sub i16 %1500, %1510
-  %1533 = sub i16 %1501, %1509
-  %1534 = sub i16 %1502, %1508
-  %1535 = sub i16 %1503, %1507
-  %1536 = sub i16 %1504, %1506
-  %1537 = sub i16 %1505, %1521
-  %.sroa.0.0.vec.insert.i1667 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1522, i64 0
-  %.sroa.0.2.vec.insert.i1668 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1667, i16 %1523, i64 1
-  %.sroa.0.4.vec.insert.i1669 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1668, i16 %1524, i64 2
-  %.sroa.0.6.vec.insert.i1670 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1669, i16 %1525, i64 3
-  %.sroa.0.8.vec.insert.i1671 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1670, i16 %1526, i64 4
-  %.sroa.0.10.vec.insert.i1672 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1671, i16 %1527, i64 5
-  %.sroa.0.12.vec.insert.i1673 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1672, i16 %1528, i64 6
-  %.sroa.0.14.vec.insert.i1674 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1673, i16 %1529, i64 7
-  %.sroa.0.16.vec.insert.i1675 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1674, i16 %1530, i64 8
-  %.sroa.0.18.vec.insert.i1676 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1675, i16 %1531, i64 9
-  %.sroa.0.20.vec.insert.i1677 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1676, i16 %1532, i64 10
-  %.sroa.0.22.vec.insert.i1678 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1677, i16 %1533, i64 11
-  %.sroa.0.24.vec.insert.i1679 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1678, i16 %1534, i64 12
-  %.sroa.0.26.vec.insert.i1680 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1679, i16 %1535, i64 13
-  %.sroa.0.28.vec.insert.i1681 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1680, i16 %1536, i64 14
+1477:                                             ; preds = %1427
+  %1478 = add i16 %1461, 1
+  %1479 = add i16 %1462, 2
+  %1480 = add i16 %1463, 3
+  %1481 = add i16 %1464, 4
+  %1482 = add i16 %1465, 5
+  %1483 = add i16 %1466, 6
+  %1484 = add i16 %1467, 7
+  %1485 = add i16 %1468, 8
+  %1486 = add i16 %1469, 9
+  %1487 = add i16 %1470, 10
+  %1488 = add i16 %1471, 11
+  %1489 = add i16 %1472, 12
+  %1490 = add i16 %1473, 13
+  %1491 = add i16 %1474, 14
+  %1492 = add i16 %1475, 15
+  %1493 = add i16 %1476, 16
+  %1494 = ashr i16 %1492, 2
+  %1495 = ashr i16 %1491, 2
+  %1496 = ashr i16 %1490, 2
+  %1497 = ashr i16 %1489, 2
+  %1498 = ashr i16 %1488, 2
+  %1499 = ashr i16 %1487, 2
+  %1500 = ashr i16 %1486, 2
+  %1501 = ashr i16 %1485, 2
+  %1502 = ashr i16 %1484, 2
+  %1503 = ashr i16 %1483, 2
+  %1504 = ashr i16 %1482, 2
+  %1505 = ashr i16 %1481, 2
+  %1506 = ashr i16 %1480, 2
+  %1507 = ashr i16 %1479, 2
+  %1508 = ashr i16 %1478, 2
+  %1509 = ashr i16 %1493, 2
+  %1510 = sub i16 %1478, %1508
+  %1511 = sub i16 %1479, %1507
+  %1512 = sub i16 %1480, %1506
+  %1513 = sub i16 %1481, %1505
+  %1514 = sub i16 %1482, %1504
+  %1515 = sub i16 %1483, %1503
+  %1516 = sub i16 %1484, %1502
+  %1517 = sub i16 %1485, %1501
+  %1518 = sub i16 %1486, %1500
+  %1519 = sub i16 %1487, %1499
+  %1520 = sub i16 %1488, %1498
+  %1521 = sub i16 %1489, %1497
+  %1522 = sub i16 %1490, %1496
+  %1523 = sub i16 %1491, %1495
+  %1524 = sub i16 %1492, %1494
+  %1525 = sub i16 %1493, %1509
+  %.sroa.0.0.vec.insert.i1667 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1510, i64 0
+  %.sroa.0.2.vec.insert.i1668 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1667, i16 %1511, i64 1
+  %.sroa.0.4.vec.insert.i1669 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1668, i16 %1512, i64 2
+  %.sroa.0.6.vec.insert.i1670 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1669, i16 %1513, i64 3
+  %.sroa.0.8.vec.insert.i1671 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1670, i16 %1514, i64 4
+  %.sroa.0.10.vec.insert.i1672 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1671, i16 %1515, i64 5
+  %.sroa.0.12.vec.insert.i1673 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1672, i16 %1516, i64 6
+  %.sroa.0.14.vec.insert.i1674 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1673, i16 %1517, i64 7
+  %.sroa.0.16.vec.insert.i1675 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1674, i16 %1518, i64 8
+  %.sroa.0.18.vec.insert.i1676 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1675, i16 %1519, i64 9
+  %.sroa.0.20.vec.insert.i1677 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1676, i16 %1520, i64 10
+  %.sroa.0.22.vec.insert.i1678 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1677, i16 %1521, i64 11
+  %.sroa.0.24.vec.insert.i1679 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1678, i16 %1522, i64 12
+  %.sroa.0.26.vec.insert.i1680 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1679, i16 %1523, i64 13
+  %.sroa.0.28.vec.insert.i1681 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1680, i16 %1524, i64 14
   %.sroa.02896.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1681, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit294
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit294: ; preds = %1439, %1489
-  %.sroa.0.i281.sroa.0.0 = phi <15 x i16> [ %.sroa.02886.0.vec.extract, %1439 ], [ %.sroa.02896.0.vec.extract, %1489 ]
-  %.sroa.9.0.i292 = phi i16 [ %1488, %1439 ], [ %1537, %1489 ]
-  store <15 x i16> %.sroa.0.i281.sroa.0.0, ptr %1413, align 2, !noalias !349
-  store i16 %.sroa.9.0.i292, ptr %1422, align 2, !noalias !349
-  %1538 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.val2376 = load ptr, ptr %1538, align 8, !nonnull !12, !align !279, !noundef !12
-  %1539 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %.val2377 = load i64, ptr %1539, align 8, !noundef !12
-  %1540 = add i64 %2, 5
-  %1541 = and i64 %1540, 7
-  %1542 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 0, i64 %1541
-  %1543 = load i8, ptr %1542, align 1, !noundef !12
-  %1544 = zext i8 %1543 to i64
-  %1545 = shl nuw nsw i64 %1544, 9
-  %1546 = or i64 %1545, %466
-  %1547 = icmp ult i64 %1546, %.val2377
-  br i1 %1547, label %1549, label %1681, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit294: ; preds = %1427, %1477
+  %.sroa.0.i281.sroa.0.0 = phi <15 x i16> [ %.sroa.02886.0.vec.extract, %1427 ], [ %.sroa.02896.0.vec.extract, %1477 ]
+  %.sroa.9.0.i292 = phi i16 [ %1476, %1427 ], [ %1525, %1477 ]
+  store <15 x i16> %.sroa.0.i281.sroa.0.0, ptr %1402, align 2, !noalias !349
+  store i16 %.sroa.9.0.i292, ptr %1410, align 2, !noalias !349
+  %1526 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %.val2376 = load ptr, ptr %1526, align 8, !nonnull !12, !align !279, !noundef !12
+  %1527 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %.val2377 = load i64, ptr %1527, align 8, !noundef !12
+  %1528 = add i64 %2, 5
+  %1529 = and i64 %1528, 7
+  %1530 = getelementptr inbounds nuw i8, ptr %35, i64 %1529
+  %1531 = load i8, ptr %1530, align 1, !noundef !12
+  %1532 = zext i8 %1531 to i64
+  %1533 = shl nuw nsw i64 %1532, 9
+  %1534 = or i64 %1533, %462
+  %1535 = icmp ult i64 %1534, %.val2377
+  br i1 %1535, label %1537, label %1668, !prof !278
 
-1548:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit279
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1409, i64 noundef %.val2381, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+1536:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit279
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1398, i64 noundef %.val2381, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-1549:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit294
-  %1550 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2376, i64 0, i64 %1546
-  %1551 = getelementptr inbounds nuw [0 x i16], ptr %1550, i64 0, i64 %49
-  %1552 = load i16, ptr %1551, align 2, !noalias !352, !noundef !12
-  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit123, label %1553
+1537:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit294
+  %1538 = getelementptr inbounds { [16 x i16] }, ptr %.val2376, i64 %1534
+  %1539 = getelementptr inbounds nuw i16, ptr %1538, i64 %49
+  %1540 = load i16, ptr %1539, align 2, !noalias !352, !noundef !12
+  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit123, label %1541
 
-1553:                                             ; preds = %1549
-  %1554 = add nsw i64 %49, -1
-  %1555 = getelementptr inbounds nuw [0 x i16], ptr %1550, i64 0, i64 %1554
-  %1556 = load i16, ptr %1555, align 2, !noalias !352, !noundef !12
-  %1557 = sub i16 %1552, %1556
+1541:                                             ; preds = %1537
+  %1542 = getelementptr i8, ptr %1539, i64 -2
+  %1543 = load i16, ptr %1542, align 2, !noalias !352, !noundef !12
+  %1544 = sub i16 %1540, %1543
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit123
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit123: ; preds = %1549, %1553
-  %.0.i122 = phi i16 [ %1552, %1549 ], [ %1557, %1553 ]
-  %1558 = zext i16 %.0.i122 to i64
-  %1559 = getelementptr inbounds nuw i8, ptr %1550, i64 30
-  %1560 = load i16, ptr %1559, align 2, !noalias !352, !noundef !12
-  %1561 = zext i16 %1560 to i64
-  %1562 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1561
-  %1563 = load float, ptr %1562, align 4, !noalias !352, !noundef !12
-  %1564 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1558
-  %1565 = load float, ptr %1564, align 4, !noalias !352, !noundef !12
-  %.sroa.0.i296.sroa.0.0.copyload = load <15 x i16>, ptr %1550, align 2, !noalias !355
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit123: ; preds = %1537, %1541
+  %.0.i122 = phi i16 [ %1540, %1537 ], [ %1544, %1541 ]
+  %1545 = zext i16 %.0.i122 to i64
+  %1546 = getelementptr inbounds nuw i8, ptr %1538, i64 30
+  %1547 = load i16, ptr %1546, align 2, !noalias !352, !noundef !12
+  %1548 = zext i16 %1547 to i64
+  %1549 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1548
+  %1550 = load float, ptr %1549, align 4, !noalias !352, !noundef !12
+  %1551 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1545
+  %1552 = load float, ptr %1551, align 4, !noalias !352, !noundef !12
+  %.sroa.0.i296.sroa.0.0.copyload = load <15 x i16>, ptr %1538, align 2, !noalias !355
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !355
-  br label %1566
+  br label %1553
 
-1566:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit123, %1566
-  %1567 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit123 ], [ %1569, %1566 ]
-  %1568 = getelementptr inbounds nuw [16 x i16], ptr %14, i64 0, i64 %1567
-  store i16 %748, ptr %1568, align 2, !noalias !355
-  %1569 = add nuw nsw i64 %1567, 1
-  %exitcond3352.not = icmp eq i64 %1569, 16
-  br i1 %exitcond3352.not, label %1570, label %1566
+1553:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit123, %1553
+  %1554 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit123 ], [ %1556, %1553 ]
+  %1555 = getelementptr inbounds nuw i16, ptr %14, i64 %1554
+  store i16 %741, ptr %1555, align 2, !noalias !355
+  %1556 = add nuw nsw i64 %1554, 1
+  %exitcond3352.not = icmp eq i64 %1556, 16
+  br i1 %exitcond3352.not, label %1557, label %1553
 
-1570:                                             ; preds = %1566
-  %1571 = load <16 x i16>, ptr %14, align 2, !noalias !355
+1557:                                             ; preds = %1553
+  %1558 = load <16 x i16>, ptr %14, align 2, !noalias !355
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !355
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !355
-  br label %1572
+  br label %1559
 
-1572:                                             ; preds = %1570, %1572
-  %1573 = phi i64 [ 0, %1570 ], [ %1575, %1572 ]
-  %1574 = getelementptr inbounds nuw [16 x i16], ptr %13, i64 0, i64 %1573
-  store i16 %84, ptr %1574, align 2, !noalias !355
-  %1575 = add nuw nsw i64 %1573, 1
-  %exitcond3353.not = icmp eq i64 %1575, 16
-  br i1 %exitcond3353.not, label %1576, label %1572
+1559:                                             ; preds = %1557, %1559
+  %1560 = phi i64 [ 0, %1557 ], [ %1562, %1559 ]
+  %1561 = getelementptr inbounds nuw i16, ptr %13, i64 %1560
+  store i16 %83, ptr %1561, align 2, !noalias !355
+  %1562 = add nuw nsw i64 %1560, 1
+  %exitcond3353.not = icmp eq i64 %1562, 16
+  br i1 %exitcond3353.not, label %1563, label %1559
 
-1576:                                             ; preds = %1572
-  %1577 = load <16 x i16>, ptr %13, align 2, !noalias !355
+1563:                                             ; preds = %1559
+  %1564 = load <16 x i16>, ptr %13, align 2, !noalias !355
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !355
-  %.sroa.02924.0.vec.extract = extractelement <16 x i16> %1577, i64 0
-  %.sroa.02924.2.vec.extract = extractelement <16 x i16> %1577, i64 1
-  %1578 = icmp slt i16 %.sroa.02924.2.vec.extract, 2
-  %.sroa.02924.4.vec.extract = extractelement <16 x i16> %1577, i64 2
-  %1579 = icmp slt i16 %.sroa.02924.4.vec.extract, 3
-  %.sroa.02924.6.vec.extract = extractelement <16 x i16> %1577, i64 3
-  %1580 = icmp slt i16 %.sroa.02924.6.vec.extract, 4
-  %.sroa.02924.8.vec.extract = extractelement <16 x i16> %1577, i64 4
-  %1581 = icmp slt i16 %.sroa.02924.8.vec.extract, 5
-  %.sroa.02924.10.vec.extract = extractelement <16 x i16> %1577, i64 5
-  %1582 = icmp slt i16 %.sroa.02924.10.vec.extract, 6
-  %.sroa.02924.12.vec.extract = extractelement <16 x i16> %1577, i64 6
-  %1583 = icmp slt i16 %.sroa.02924.12.vec.extract, 7
-  %.sroa.02924.14.vec.extract = extractelement <16 x i16> %1577, i64 7
-  %1584 = icmp slt i16 %.sroa.02924.14.vec.extract, 8
-  %.sroa.02924.16.vec.extract = extractelement <16 x i16> %1577, i64 8
-  %1585 = icmp slt i16 %.sroa.02924.16.vec.extract, 9
-  %.sroa.02924.18.vec.extract = extractelement <16 x i16> %1577, i64 9
-  %1586 = icmp slt i16 %.sroa.02924.18.vec.extract, 10
-  %.sroa.02924.20.vec.extract = extractelement <16 x i16> %1577, i64 10
-  %1587 = icmp slt i16 %.sroa.02924.20.vec.extract, 11
-  %.sroa.02924.22.vec.extract = extractelement <16 x i16> %1577, i64 11
-  %1588 = icmp slt i16 %.sroa.02924.22.vec.extract, 12
-  %.sroa.02924.24.vec.extract = extractelement <16 x i16> %1577, i64 12
-  %1589 = icmp slt i16 %.sroa.02924.24.vec.extract, 13
-  %.sroa.02924.26.vec.extract = extractelement <16 x i16> %1577, i64 13
-  %1590 = icmp slt i16 %.sroa.02924.26.vec.extract, 14
-  %.sroa.02924.28.vec.extract = extractelement <16 x i16> %1577, i64 14
-  %1591 = icmp slt i16 %.sroa.02924.28.vec.extract, 15
-  %.sroa.02924.30.vec.extract = extractelement <16 x i16> %1577, i64 15
-  %1592 = icmp slt i16 %.sroa.02924.30.vec.extract, 16
-  %.sroa.02905.0.vec.extract = extractelement <16 x i16> %1571, i64 0
+  %.sroa.02924.0.vec.extract = extractelement <16 x i16> %1564, i64 0
+  %.sroa.02924.2.vec.extract = extractelement <16 x i16> %1564, i64 1
+  %1565 = icmp slt i16 %.sroa.02924.2.vec.extract, 2
+  %.sroa.02924.4.vec.extract = extractelement <16 x i16> %1564, i64 2
+  %1566 = icmp slt i16 %.sroa.02924.4.vec.extract, 3
+  %.sroa.02924.6.vec.extract = extractelement <16 x i16> %1564, i64 3
+  %1567 = icmp slt i16 %.sroa.02924.6.vec.extract, 4
+  %.sroa.02924.8.vec.extract = extractelement <16 x i16> %1564, i64 4
+  %1568 = icmp slt i16 %.sroa.02924.8.vec.extract, 5
+  %.sroa.02924.10.vec.extract = extractelement <16 x i16> %1564, i64 5
+  %1569 = icmp slt i16 %.sroa.02924.10.vec.extract, 6
+  %.sroa.02924.12.vec.extract = extractelement <16 x i16> %1564, i64 6
+  %1570 = icmp slt i16 %.sroa.02924.12.vec.extract, 7
+  %.sroa.02924.14.vec.extract = extractelement <16 x i16> %1564, i64 7
+  %1571 = icmp slt i16 %.sroa.02924.14.vec.extract, 8
+  %.sroa.02924.16.vec.extract = extractelement <16 x i16> %1564, i64 8
+  %1572 = icmp slt i16 %.sroa.02924.16.vec.extract, 9
+  %.sroa.02924.18.vec.extract = extractelement <16 x i16> %1564, i64 9
+  %1573 = icmp slt i16 %.sroa.02924.18.vec.extract, 10
+  %.sroa.02924.20.vec.extract = extractelement <16 x i16> %1564, i64 10
+  %1574 = icmp slt i16 %.sroa.02924.20.vec.extract, 11
+  %.sroa.02924.22.vec.extract = extractelement <16 x i16> %1564, i64 11
+  %1575 = icmp slt i16 %.sroa.02924.22.vec.extract, 12
+  %.sroa.02924.24.vec.extract = extractelement <16 x i16> %1564, i64 12
+  %1576 = icmp slt i16 %.sroa.02924.24.vec.extract, 13
+  %.sroa.02924.26.vec.extract = extractelement <16 x i16> %1564, i64 13
+  %1577 = icmp slt i16 %.sroa.02924.26.vec.extract, 14
+  %.sroa.02924.28.vec.extract = extractelement <16 x i16> %1564, i64 14
+  %1578 = icmp slt i16 %.sroa.02924.28.vec.extract, 15
+  %.sroa.02924.30.vec.extract = extractelement <16 x i16> %1564, i64 15
+  %1579 = icmp slt i16 %.sroa.02924.30.vec.extract, 16
+  %.sroa.02905.0.vec.extract = extractelement <16 x i16> %1558, i64 0
   %.inv3327 = icmp sgt i16 %.sroa.02924.0.vec.extract, 0
-  %1593 = select i1 %.inv3327, i16 0, i16 %.sroa.02905.0.vec.extract
-  %.sroa.02905.2.vec.extract = extractelement <16 x i16> %1571, i64 1
-  %1594 = select i1 %1578, i16 %.sroa.02905.2.vec.extract, i16 0
-  %.sroa.02905.4.vec.extract = extractelement <16 x i16> %1571, i64 2
-  %1595 = select i1 %1579, i16 %.sroa.02905.4.vec.extract, i16 0
-  %.sroa.02905.6.vec.extract = extractelement <16 x i16> %1571, i64 3
-  %1596 = select i1 %1580, i16 %.sroa.02905.6.vec.extract, i16 0
-  %.sroa.02905.8.vec.extract = extractelement <16 x i16> %1571, i64 4
-  %1597 = select i1 %1581, i16 %.sroa.02905.8.vec.extract, i16 0
-  %.sroa.02905.10.vec.extract = extractelement <16 x i16> %1571, i64 5
-  %1598 = select i1 %1582, i16 %.sroa.02905.10.vec.extract, i16 0
-  %.sroa.02905.12.vec.extract = extractelement <16 x i16> %1571, i64 6
-  %1599 = select i1 %1583, i16 %.sroa.02905.12.vec.extract, i16 0
-  %.sroa.02905.14.vec.extract = extractelement <16 x i16> %1571, i64 7
-  %1600 = select i1 %1584, i16 %.sroa.02905.14.vec.extract, i16 0
-  %.sroa.02905.16.vec.extract = extractelement <16 x i16> %1571, i64 8
-  %1601 = select i1 %1585, i16 %.sroa.02905.16.vec.extract, i16 0
-  %.sroa.02905.18.vec.extract = extractelement <16 x i16> %1571, i64 9
-  %1602 = select i1 %1586, i16 %.sroa.02905.18.vec.extract, i16 0
-  %.sroa.02905.20.vec.extract = extractelement <16 x i16> %1571, i64 10
-  %1603 = select i1 %1587, i16 %.sroa.02905.20.vec.extract, i16 0
-  %.sroa.02905.22.vec.extract = extractelement <16 x i16> %1571, i64 11
-  %1604 = select i1 %1588, i16 %.sroa.02905.22.vec.extract, i16 0
-  %.sroa.02905.24.vec.extract = extractelement <16 x i16> %1571, i64 12
-  %1605 = select i1 %1589, i16 %.sroa.02905.24.vec.extract, i16 0
-  %.sroa.02905.26.vec.extract = extractelement <16 x i16> %1571, i64 13
-  %1606 = select i1 %1590, i16 %.sroa.02905.26.vec.extract, i16 0
-  %.sroa.02905.28.vec.extract = extractelement <16 x i16> %1571, i64 14
-  %1607 = select i1 %1591, i16 %.sroa.02905.28.vec.extract, i16 0
-  %.sroa.02905.30.vec.extract = extractelement <16 x i16> %1571, i64 15
-  %1608 = select i1 %1592, i16 %.sroa.02905.30.vec.extract, i16 0
+  %1580 = select i1 %.inv3327, i16 0, i16 %.sroa.02905.0.vec.extract
+  %.sroa.02905.2.vec.extract = extractelement <16 x i16> %1558, i64 1
+  %1581 = select i1 %1565, i16 %.sroa.02905.2.vec.extract, i16 0
+  %.sroa.02905.4.vec.extract = extractelement <16 x i16> %1558, i64 2
+  %1582 = select i1 %1566, i16 %.sroa.02905.4.vec.extract, i16 0
+  %.sroa.02905.6.vec.extract = extractelement <16 x i16> %1558, i64 3
+  %1583 = select i1 %1567, i16 %.sroa.02905.6.vec.extract, i16 0
+  %.sroa.02905.8.vec.extract = extractelement <16 x i16> %1558, i64 4
+  %1584 = select i1 %1568, i16 %.sroa.02905.8.vec.extract, i16 0
+  %.sroa.02905.10.vec.extract = extractelement <16 x i16> %1558, i64 5
+  %1585 = select i1 %1569, i16 %.sroa.02905.10.vec.extract, i16 0
+  %.sroa.02905.12.vec.extract = extractelement <16 x i16> %1558, i64 6
+  %1586 = select i1 %1570, i16 %.sroa.02905.12.vec.extract, i16 0
+  %.sroa.02905.14.vec.extract = extractelement <16 x i16> %1558, i64 7
+  %1587 = select i1 %1571, i16 %.sroa.02905.14.vec.extract, i16 0
+  %.sroa.02905.16.vec.extract = extractelement <16 x i16> %1558, i64 8
+  %1588 = select i1 %1572, i16 %.sroa.02905.16.vec.extract, i16 0
+  %.sroa.02905.18.vec.extract = extractelement <16 x i16> %1558, i64 9
+  %1589 = select i1 %1573, i16 %.sroa.02905.18.vec.extract, i16 0
+  %.sroa.02905.20.vec.extract = extractelement <16 x i16> %1558, i64 10
+  %1590 = select i1 %1574, i16 %.sroa.02905.20.vec.extract, i16 0
+  %.sroa.02905.22.vec.extract = extractelement <16 x i16> %1558, i64 11
+  %1591 = select i1 %1575, i16 %.sroa.02905.22.vec.extract, i16 0
+  %.sroa.02905.24.vec.extract = extractelement <16 x i16> %1558, i64 12
+  %1592 = select i1 %1576, i16 %.sroa.02905.24.vec.extract, i16 0
+  %.sroa.02905.26.vec.extract = extractelement <16 x i16> %1558, i64 13
+  %1593 = select i1 %1577, i16 %.sroa.02905.26.vec.extract, i16 0
+  %.sroa.02905.28.vec.extract = extractelement <16 x i16> %1558, i64 14
+  %1594 = select i1 %1578, i16 %.sroa.02905.28.vec.extract, i16 0
+  %.sroa.02905.30.vec.extract = extractelement <16 x i16> %1558, i64 15
+  %1595 = select i1 %1579, i16 %.sroa.02905.30.vec.extract, i16 0
   %.sroa.02931.0.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 0
-  %1609 = add i16 %1593, %.sroa.02931.0.vec.extract
+  %1596 = add i16 %1580, %.sroa.02931.0.vec.extract
   %.sroa.02931.2.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 1
-  %1610 = add i16 %1594, %.sroa.02931.2.vec.extract
+  %1597 = add i16 %1581, %.sroa.02931.2.vec.extract
   %.sroa.02931.4.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 2
-  %1611 = add i16 %1595, %.sroa.02931.4.vec.extract
+  %1598 = add i16 %1582, %.sroa.02931.4.vec.extract
   %.sroa.02931.6.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 3
-  %1612 = add i16 %1596, %.sroa.02931.6.vec.extract
+  %1599 = add i16 %1583, %.sroa.02931.6.vec.extract
   %.sroa.02931.8.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 4
-  %1613 = add i16 %1597, %.sroa.02931.8.vec.extract
+  %1600 = add i16 %1584, %.sroa.02931.8.vec.extract
   %.sroa.02931.10.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 5
-  %1614 = add i16 %1598, %.sroa.02931.10.vec.extract
+  %1601 = add i16 %1585, %.sroa.02931.10.vec.extract
   %.sroa.02931.12.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 6
-  %1615 = add i16 %1599, %.sroa.02931.12.vec.extract
+  %1602 = add i16 %1586, %.sroa.02931.12.vec.extract
   %.sroa.02931.14.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 7
-  %1616 = add i16 %1600, %.sroa.02931.14.vec.extract
+  %1603 = add i16 %1587, %.sroa.02931.14.vec.extract
   %.sroa.02931.16.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 8
-  %1617 = add i16 %1601, %.sroa.02931.16.vec.extract
+  %1604 = add i16 %1588, %.sroa.02931.16.vec.extract
   %.sroa.02931.18.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 9
-  %1618 = add i16 %1602, %.sroa.02931.18.vec.extract
+  %1605 = add i16 %1589, %.sroa.02931.18.vec.extract
   %.sroa.02931.20.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 10
-  %1619 = add i16 %1603, %.sroa.02931.20.vec.extract
+  %1606 = add i16 %1590, %.sroa.02931.20.vec.extract
   %.sroa.02931.22.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 11
-  %1620 = add i16 %1604, %.sroa.02931.22.vec.extract
+  %1607 = add i16 %1591, %.sroa.02931.22.vec.extract
   %.sroa.02931.24.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 12
-  %1621 = add i16 %1605, %.sroa.02931.24.vec.extract
+  %1608 = add i16 %1592, %.sroa.02931.24.vec.extract
   %.sroa.02931.26.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 13
-  %1622 = add i16 %1606, %.sroa.02931.26.vec.extract
+  %1609 = add i16 %1593, %.sroa.02931.26.vec.extract
   %.sroa.02931.28.vec.extract = extractelement <15 x i16> %.sroa.0.i296.sroa.0.0.copyload, i64 14
-  %1623 = add i16 %1607, %.sroa.02931.28.vec.extract
-  %1624 = add i16 %1608, %1560
-  %.sroa.0.0.vec.insert.i1011 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1609, i64 0
-  %.sroa.0.2.vec.insert.i1012 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1011, i16 %1610, i64 1
-  %.sroa.0.4.vec.insert.i1013 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1012, i16 %1611, i64 2
-  %.sroa.0.6.vec.insert.i1014 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1013, i16 %1612, i64 3
-  %.sroa.0.8.vec.insert.i1015 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1014, i16 %1613, i64 4
-  %.sroa.0.10.vec.insert.i1016 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1015, i16 %1614, i64 5
-  %.sroa.0.12.vec.insert.i1017 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1016, i16 %1615, i64 6
-  %.sroa.0.14.vec.insert.i1018 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1017, i16 %1616, i64 7
-  %.sroa.0.16.vec.insert.i1019 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1018, i16 %1617, i64 8
-  %.sroa.0.18.vec.insert.i1020 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1019, i16 %1618, i64 9
-  %.sroa.0.20.vec.insert.i1021 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1020, i16 %1619, i64 10
-  %.sroa.0.22.vec.insert.i1022 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1021, i16 %1620, i64 11
-  %.sroa.0.24.vec.insert.i1023 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1022, i16 %1621, i64 12
-  %.sroa.0.26.vec.insert.i1024 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1023, i16 %1622, i64 13
-  %.sroa.0.28.vec.insert.i1025 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1024, i16 %1623, i64 14
+  %1610 = add i16 %1594, %.sroa.02931.28.vec.extract
+  %1611 = add i16 %1595, %1547
+  %.sroa.0.0.vec.insert.i1011 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1596, i64 0
+  %.sroa.0.2.vec.insert.i1012 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1011, i16 %1597, i64 1
+  %.sroa.0.4.vec.insert.i1013 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1012, i16 %1598, i64 2
+  %.sroa.0.6.vec.insert.i1014 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1013, i16 %1599, i64 3
+  %.sroa.0.8.vec.insert.i1015 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1014, i16 %1600, i64 4
+  %.sroa.0.10.vec.insert.i1016 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1015, i16 %1601, i64 5
+  %.sroa.0.12.vec.insert.i1017 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1016, i16 %1602, i64 6
+  %.sroa.0.14.vec.insert.i1018 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1017, i16 %1603, i64 7
+  %.sroa.0.16.vec.insert.i1019 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1018, i16 %1604, i64 8
+  %.sroa.0.18.vec.insert.i1020 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1019, i16 %1605, i64 9
+  %.sroa.0.20.vec.insert.i1021 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1020, i16 %1606, i64 10
+  %.sroa.0.22.vec.insert.i1022 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1021, i16 %1607, i64 11
+  %.sroa.0.24.vec.insert.i1023 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1022, i16 %1608, i64 12
+  %.sroa.0.26.vec.insert.i1024 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1023, i16 %1609, i64 13
+  %.sroa.0.28.vec.insert.i1025 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1024, i16 %1610, i64 14
   %.sroa.02925.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1025, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i302 = icmp slt i16 %1624, %750
-  br i1 %.not.i302, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit309, label %1625
+  %.not.i302 = icmp slt i16 %1611, %743
+  br i1 %.not.i302, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit309, label %1612
 
-1625:                                             ; preds = %1576
-  %1626 = add i16 %1609, 1
-  %1627 = add i16 %1610, 2
-  %1628 = add i16 %1611, 3
-  %1629 = add i16 %1612, 4
-  %1630 = add i16 %1613, 5
-  %1631 = add i16 %1614, 6
-  %1632 = add i16 %1615, 7
-  %1633 = add i16 %1616, 8
-  %1634 = add i16 %1617, 9
-  %1635 = add i16 %1618, 10
-  %1636 = add i16 %1619, 11
-  %1637 = add i16 %1620, 12
-  %1638 = add i16 %1621, 13
-  %1639 = add i16 %1622, 14
-  %1640 = add i16 %1623, 15
-  %1641 = add i16 %1624, 16
-  %1642 = ashr i16 %1640, 2
-  %1643 = ashr i16 %1639, 2
-  %1644 = ashr i16 %1638, 2
-  %1645 = ashr i16 %1637, 2
-  %1646 = ashr i16 %1636, 2
-  %1647 = ashr i16 %1635, 2
-  %1648 = ashr i16 %1634, 2
-  %1649 = ashr i16 %1633, 2
-  %1650 = ashr i16 %1632, 2
-  %1651 = ashr i16 %1631, 2
-  %1652 = ashr i16 %1630, 2
-  %1653 = ashr i16 %1629, 2
-  %1654 = ashr i16 %1628, 2
-  %1655 = ashr i16 %1627, 2
-  %1656 = ashr i16 %1626, 2
-  %1657 = ashr i16 %1641, 2
-  %1658 = sub i16 %1626, %1656
-  %1659 = sub i16 %1627, %1655
-  %1660 = sub i16 %1628, %1654
-  %1661 = sub i16 %1629, %1653
-  %1662 = sub i16 %1630, %1652
-  %1663 = sub i16 %1631, %1651
-  %1664 = sub i16 %1632, %1650
-  %1665 = sub i16 %1633, %1649
-  %1666 = sub i16 %1634, %1648
-  %1667 = sub i16 %1635, %1647
-  %1668 = sub i16 %1636, %1646
-  %1669 = sub i16 %1637, %1645
-  %1670 = sub i16 %1638, %1644
-  %1671 = sub i16 %1639, %1643
-  %1672 = sub i16 %1640, %1642
-  %1673 = sub i16 %1641, %1657
-  %.sroa.0.0.vec.insert.i1651 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1658, i64 0
-  %.sroa.0.2.vec.insert.i1652 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1651, i16 %1659, i64 1
-  %.sroa.0.4.vec.insert.i1653 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1652, i16 %1660, i64 2
-  %.sroa.0.6.vec.insert.i1654 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1653, i16 %1661, i64 3
-  %.sroa.0.8.vec.insert.i1655 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1654, i16 %1662, i64 4
-  %.sroa.0.10.vec.insert.i1656 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1655, i16 %1663, i64 5
-  %.sroa.0.12.vec.insert.i1657 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1656, i16 %1664, i64 6
-  %.sroa.0.14.vec.insert.i1658 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1657, i16 %1665, i64 7
-  %.sroa.0.16.vec.insert.i1659 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1658, i16 %1666, i64 8
-  %.sroa.0.18.vec.insert.i1660 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1659, i16 %1667, i64 9
-  %.sroa.0.20.vec.insert.i1661 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1660, i16 %1668, i64 10
-  %.sroa.0.22.vec.insert.i1662 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1661, i16 %1669, i64 11
-  %.sroa.0.24.vec.insert.i1663 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1662, i16 %1670, i64 12
-  %.sroa.0.26.vec.insert.i1664 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1663, i16 %1671, i64 13
-  %.sroa.0.28.vec.insert.i1665 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1664, i16 %1672, i64 14
+1612:                                             ; preds = %1563
+  %1613 = add i16 %1596, 1
+  %1614 = add i16 %1597, 2
+  %1615 = add i16 %1598, 3
+  %1616 = add i16 %1599, 4
+  %1617 = add i16 %1600, 5
+  %1618 = add i16 %1601, 6
+  %1619 = add i16 %1602, 7
+  %1620 = add i16 %1603, 8
+  %1621 = add i16 %1604, 9
+  %1622 = add i16 %1605, 10
+  %1623 = add i16 %1606, 11
+  %1624 = add i16 %1607, 12
+  %1625 = add i16 %1608, 13
+  %1626 = add i16 %1609, 14
+  %1627 = add i16 %1610, 15
+  %1628 = add i16 %1611, 16
+  %1629 = ashr i16 %1627, 2
+  %1630 = ashr i16 %1626, 2
+  %1631 = ashr i16 %1625, 2
+  %1632 = ashr i16 %1624, 2
+  %1633 = ashr i16 %1623, 2
+  %1634 = ashr i16 %1622, 2
+  %1635 = ashr i16 %1621, 2
+  %1636 = ashr i16 %1620, 2
+  %1637 = ashr i16 %1619, 2
+  %1638 = ashr i16 %1618, 2
+  %1639 = ashr i16 %1617, 2
+  %1640 = ashr i16 %1616, 2
+  %1641 = ashr i16 %1615, 2
+  %1642 = ashr i16 %1614, 2
+  %1643 = ashr i16 %1613, 2
+  %1644 = ashr i16 %1628, 2
+  %1645 = sub i16 %1613, %1643
+  %1646 = sub i16 %1614, %1642
+  %1647 = sub i16 %1615, %1641
+  %1648 = sub i16 %1616, %1640
+  %1649 = sub i16 %1617, %1639
+  %1650 = sub i16 %1618, %1638
+  %1651 = sub i16 %1619, %1637
+  %1652 = sub i16 %1620, %1636
+  %1653 = sub i16 %1621, %1635
+  %1654 = sub i16 %1622, %1634
+  %1655 = sub i16 %1623, %1633
+  %1656 = sub i16 %1624, %1632
+  %1657 = sub i16 %1625, %1631
+  %1658 = sub i16 %1626, %1630
+  %1659 = sub i16 %1627, %1629
+  %1660 = sub i16 %1628, %1644
+  %.sroa.0.0.vec.insert.i1651 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1645, i64 0
+  %.sroa.0.2.vec.insert.i1652 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1651, i16 %1646, i64 1
+  %.sroa.0.4.vec.insert.i1653 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1652, i16 %1647, i64 2
+  %.sroa.0.6.vec.insert.i1654 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1653, i16 %1648, i64 3
+  %.sroa.0.8.vec.insert.i1655 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1654, i16 %1649, i64 4
+  %.sroa.0.10.vec.insert.i1656 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1655, i16 %1650, i64 5
+  %.sroa.0.12.vec.insert.i1657 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1656, i16 %1651, i64 6
+  %.sroa.0.14.vec.insert.i1658 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1657, i16 %1652, i64 7
+  %.sroa.0.16.vec.insert.i1659 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1658, i16 %1653, i64 8
+  %.sroa.0.18.vec.insert.i1660 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1659, i16 %1654, i64 9
+  %.sroa.0.20.vec.insert.i1661 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1660, i16 %1655, i64 10
+  %.sroa.0.22.vec.insert.i1662 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1661, i16 %1656, i64 11
+  %.sroa.0.24.vec.insert.i1663 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1662, i16 %1657, i64 12
+  %.sroa.0.26.vec.insert.i1664 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1663, i16 %1658, i64 13
+  %.sroa.0.28.vec.insert.i1665 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1664, i16 %1659, i64 14
   %.sroa.02935.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1665, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit309
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit309: ; preds = %1576, %1625
-  %.sroa.0.i296.sroa.0.0 = phi <15 x i16> [ %.sroa.02925.0.vec.extract, %1576 ], [ %.sroa.02935.0.vec.extract, %1625 ]
-  %.sroa.9.0.i307 = phi i16 [ %1624, %1576 ], [ %1673, %1625 ]
-  store <15 x i16> %.sroa.0.i296.sroa.0.0, ptr %1550, align 2, !noalias !355
-  store i16 %.sroa.9.0.i307, ptr %1559, align 2, !noalias !355
-  %1674 = shl nuw nsw i64 %1544, 8
-  %1675 = and i64 %1674, 3840
-  %1676 = or i64 %4, %1675
-  %1677 = or i64 %1676, %862
-  %1678 = shl i64 %1677, 1
-  %1679 = or disjoint i64 %1678, 1
-  %1680 = icmp ult i64 %1679, %.val2377
-  br i1 %1680, label %1682, label %1815, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit309: ; preds = %1563, %1612
+  %.sroa.0.i296.sroa.0.0 = phi <15 x i16> [ %.sroa.02925.0.vec.extract, %1563 ], [ %.sroa.02935.0.vec.extract, %1612 ]
+  %.sroa.9.0.i307 = phi i16 [ %1611, %1563 ], [ %1660, %1612 ]
+  store <15 x i16> %.sroa.0.i296.sroa.0.0, ptr %1538, align 2, !noalias !355
+  store i16 %.sroa.9.0.i307, ptr %1546, align 2, !noalias !355
+  %1661 = shl nuw nsw i64 %1532, 8
+  %1662 = and i64 %1661, 3840
+  %1663 = or i64 %4, %1662
+  %1664 = or i64 %1663, %855
+  %1665 = shl i64 %1664, 1
+  %1666 = or disjoint i64 %1665, 1
+  %1667 = icmp ult i64 %1666, %.val2377
+  br i1 %1667, label %1669, label %1801, !prof !278
 
-1681:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit294
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1546, i64 noundef %.val2377, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+1668:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit294
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1534, i64 noundef %.val2377, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-1682:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit309
-  %1683 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2376, i64 0, i64 %1679
-  %1684 = getelementptr inbounds nuw [0 x i16], ptr %1683, i64 0, i64 %195
-  %1685 = load i16, ptr %1684, align 2, !noalias !358, !noundef !12
-  br i1 %198, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit125, label %1686
+1669:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit309
+  %1670 = getelementptr inbounds { [16 x i16] }, ptr %.val2376, i64 %1666
+  %1671 = getelementptr inbounds nuw i16, ptr %1670, i64 %194
+  %1672 = load i16, ptr %1671, align 2, !noalias !358, !noundef !12
+  br i1 %197, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit125, label %1673
 
-1686:                                             ; preds = %1682
-  %1687 = add nsw i64 %195, -1
-  %1688 = getelementptr inbounds nuw [0 x i16], ptr %1683, i64 0, i64 %1687
-  %1689 = load i16, ptr %1688, align 2, !noalias !358, !noundef !12
-  %1690 = sub i16 %1685, %1689
+1673:                                             ; preds = %1669
+  %1674 = getelementptr i8, ptr %1671, i64 -2
+  %1675 = load i16, ptr %1674, align 2, !noalias !358, !noundef !12
+  %1676 = sub i16 %1672, %1675
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit125
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit125: ; preds = %1682, %1686
-  %.0.i124 = phi i16 [ %1685, %1682 ], [ %1690, %1686 ]
-  %1691 = zext i16 %.0.i124 to i64
-  %1692 = getelementptr inbounds nuw i8, ptr %1683, i64 30
-  %1693 = load i16, ptr %1692, align 2, !noalias !358, !noundef !12
-  %1694 = zext i16 %1693 to i64
-  %1695 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1694
-  %1696 = load float, ptr %1695, align 4, !noalias !358, !noundef !12
-  %1697 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1691
-  %1698 = load float, ptr %1697, align 4, !noalias !358, !noundef !12
-  %.sroa.0.i311.sroa.0.0.copyload = load <15 x i16>, ptr %1683, align 2, !noalias !361
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit125: ; preds = %1669, %1673
+  %.0.i124 = phi i16 [ %1672, %1669 ], [ %1676, %1673 ]
+  %1677 = zext i16 %.0.i124 to i64
+  %1678 = getelementptr inbounds nuw i8, ptr %1670, i64 30
+  %1679 = load i16, ptr %1678, align 2, !noalias !358, !noundef !12
+  %1680 = zext i16 %1679 to i64
+  %1681 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1680
+  %1682 = load float, ptr %1681, align 4, !noalias !358, !noundef !12
+  %1683 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1677
+  %1684 = load float, ptr %1683, align 4, !noalias !358, !noundef !12
+  %.sroa.0.i311.sroa.0.0.copyload = load <15 x i16>, ptr %1670, align 2, !noalias !361
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !361
-  br label %1699
+  br label %1685
 
-1699:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit125, %1699
-  %1700 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit125 ], [ %1702, %1699 ]
-  %1701 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 0, i64 %1700
-  store i16 %886, ptr %1701, align 2, !noalias !361
-  %1702 = add nuw nsw i64 %1700, 1
-  %exitcond3354.not = icmp eq i64 %1702, 16
-  br i1 %exitcond3354.not, label %1703, label %1699
+1685:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit125, %1685
+  %1686 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit125 ], [ %1688, %1685 ]
+  %1687 = getelementptr inbounds nuw i16, ptr %12, i64 %1686
+  store i16 %878, ptr %1687, align 2, !noalias !361
+  %1688 = add nuw nsw i64 %1686, 1
+  %exitcond3354.not = icmp eq i64 %1688, 16
+  br i1 %exitcond3354.not, label %1689, label %1685
 
-1703:                                             ; preds = %1699
-  %1704 = load <16 x i16>, ptr %12, align 2, !noalias !361
+1689:                                             ; preds = %1685
+  %1690 = load <16 x i16>, ptr %12, align 2, !noalias !361
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !361
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !361
-  br label %1705
+  br label %1691
 
-1705:                                             ; preds = %1703, %1705
-  %1706 = phi i64 [ 0, %1703 ], [ %1708, %1705 ]
-  %1707 = getelementptr inbounds nuw [16 x i16], ptr %11, i64 0, i64 %1706
-  store i16 %221, ptr %1707, align 2, !noalias !361
-  %1708 = add nuw nsw i64 %1706, 1
-  %exitcond3355.not = icmp eq i64 %1708, 16
-  br i1 %exitcond3355.not, label %1709, label %1705
+1691:                                             ; preds = %1689, %1691
+  %1692 = phi i64 [ 0, %1689 ], [ %1694, %1691 ]
+  %1693 = getelementptr inbounds nuw i16, ptr %11, i64 %1692
+  store i16 %219, ptr %1693, align 2, !noalias !361
+  %1694 = add nuw nsw i64 %1692, 1
+  %exitcond3355.not = icmp eq i64 %1694, 16
+  br i1 %exitcond3355.not, label %1695, label %1691
 
-1709:                                             ; preds = %1705
-  %1710 = fsub float %1696, %1698
-  %1711 = load <16 x i16>, ptr %11, align 2, !noalias !361
+1695:                                             ; preds = %1691
+  %1696 = fsub float %1682, %1684
+  %1697 = load <16 x i16>, ptr %11, align 2, !noalias !361
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !361
-  %.sroa.02963.0.vec.extract = extractelement <16 x i16> %1711, i64 0
-  %.sroa.02963.2.vec.extract = extractelement <16 x i16> %1711, i64 1
-  %1712 = icmp slt i16 %.sroa.02963.2.vec.extract, 2
-  %.sroa.02963.4.vec.extract = extractelement <16 x i16> %1711, i64 2
-  %1713 = icmp slt i16 %.sroa.02963.4.vec.extract, 3
-  %.sroa.02963.6.vec.extract = extractelement <16 x i16> %1711, i64 3
-  %1714 = icmp slt i16 %.sroa.02963.6.vec.extract, 4
-  %.sroa.02963.8.vec.extract = extractelement <16 x i16> %1711, i64 4
-  %1715 = icmp slt i16 %.sroa.02963.8.vec.extract, 5
-  %.sroa.02963.10.vec.extract = extractelement <16 x i16> %1711, i64 5
-  %1716 = icmp slt i16 %.sroa.02963.10.vec.extract, 6
-  %.sroa.02963.12.vec.extract = extractelement <16 x i16> %1711, i64 6
-  %1717 = icmp slt i16 %.sroa.02963.12.vec.extract, 7
-  %.sroa.02963.14.vec.extract = extractelement <16 x i16> %1711, i64 7
-  %1718 = icmp slt i16 %.sroa.02963.14.vec.extract, 8
-  %.sroa.02963.16.vec.extract = extractelement <16 x i16> %1711, i64 8
-  %1719 = icmp slt i16 %.sroa.02963.16.vec.extract, 9
-  %.sroa.02963.18.vec.extract = extractelement <16 x i16> %1711, i64 9
-  %1720 = icmp slt i16 %.sroa.02963.18.vec.extract, 10
-  %.sroa.02963.20.vec.extract = extractelement <16 x i16> %1711, i64 10
-  %1721 = icmp slt i16 %.sroa.02963.20.vec.extract, 11
-  %.sroa.02963.22.vec.extract = extractelement <16 x i16> %1711, i64 11
-  %1722 = icmp slt i16 %.sroa.02963.22.vec.extract, 12
-  %.sroa.02963.24.vec.extract = extractelement <16 x i16> %1711, i64 12
-  %1723 = icmp slt i16 %.sroa.02963.24.vec.extract, 13
-  %.sroa.02963.26.vec.extract = extractelement <16 x i16> %1711, i64 13
-  %1724 = icmp slt i16 %.sroa.02963.26.vec.extract, 14
-  %.sroa.02963.28.vec.extract = extractelement <16 x i16> %1711, i64 14
-  %1725 = icmp slt i16 %.sroa.02963.28.vec.extract, 15
-  %.sroa.02963.30.vec.extract = extractelement <16 x i16> %1711, i64 15
-  %1726 = icmp slt i16 %.sroa.02963.30.vec.extract, 16
-  %.sroa.02944.0.vec.extract = extractelement <16 x i16> %1704, i64 0
+  %.sroa.02963.0.vec.extract = extractelement <16 x i16> %1697, i64 0
+  %.sroa.02963.2.vec.extract = extractelement <16 x i16> %1697, i64 1
+  %1698 = icmp slt i16 %.sroa.02963.2.vec.extract, 2
+  %.sroa.02963.4.vec.extract = extractelement <16 x i16> %1697, i64 2
+  %1699 = icmp slt i16 %.sroa.02963.4.vec.extract, 3
+  %.sroa.02963.6.vec.extract = extractelement <16 x i16> %1697, i64 3
+  %1700 = icmp slt i16 %.sroa.02963.6.vec.extract, 4
+  %.sroa.02963.8.vec.extract = extractelement <16 x i16> %1697, i64 4
+  %1701 = icmp slt i16 %.sroa.02963.8.vec.extract, 5
+  %.sroa.02963.10.vec.extract = extractelement <16 x i16> %1697, i64 5
+  %1702 = icmp slt i16 %.sroa.02963.10.vec.extract, 6
+  %.sroa.02963.12.vec.extract = extractelement <16 x i16> %1697, i64 6
+  %1703 = icmp slt i16 %.sroa.02963.12.vec.extract, 7
+  %.sroa.02963.14.vec.extract = extractelement <16 x i16> %1697, i64 7
+  %1704 = icmp slt i16 %.sroa.02963.14.vec.extract, 8
+  %.sroa.02963.16.vec.extract = extractelement <16 x i16> %1697, i64 8
+  %1705 = icmp slt i16 %.sroa.02963.16.vec.extract, 9
+  %.sroa.02963.18.vec.extract = extractelement <16 x i16> %1697, i64 9
+  %1706 = icmp slt i16 %.sroa.02963.18.vec.extract, 10
+  %.sroa.02963.20.vec.extract = extractelement <16 x i16> %1697, i64 10
+  %1707 = icmp slt i16 %.sroa.02963.20.vec.extract, 11
+  %.sroa.02963.22.vec.extract = extractelement <16 x i16> %1697, i64 11
+  %1708 = icmp slt i16 %.sroa.02963.22.vec.extract, 12
+  %.sroa.02963.24.vec.extract = extractelement <16 x i16> %1697, i64 12
+  %1709 = icmp slt i16 %.sroa.02963.24.vec.extract, 13
+  %.sroa.02963.26.vec.extract = extractelement <16 x i16> %1697, i64 13
+  %1710 = icmp slt i16 %.sroa.02963.26.vec.extract, 14
+  %.sroa.02963.28.vec.extract = extractelement <16 x i16> %1697, i64 14
+  %1711 = icmp slt i16 %.sroa.02963.28.vec.extract, 15
+  %.sroa.02963.30.vec.extract = extractelement <16 x i16> %1697, i64 15
+  %1712 = icmp slt i16 %.sroa.02963.30.vec.extract, 16
+  %.sroa.02944.0.vec.extract = extractelement <16 x i16> %1690, i64 0
   %.inv3328 = icmp sgt i16 %.sroa.02963.0.vec.extract, 0
-  %1727 = select i1 %.inv3328, i16 0, i16 %.sroa.02944.0.vec.extract
-  %.sroa.02944.2.vec.extract = extractelement <16 x i16> %1704, i64 1
-  %1728 = select i1 %1712, i16 %.sroa.02944.2.vec.extract, i16 0
-  %.sroa.02944.4.vec.extract = extractelement <16 x i16> %1704, i64 2
-  %1729 = select i1 %1713, i16 %.sroa.02944.4.vec.extract, i16 0
-  %.sroa.02944.6.vec.extract = extractelement <16 x i16> %1704, i64 3
-  %1730 = select i1 %1714, i16 %.sroa.02944.6.vec.extract, i16 0
-  %.sroa.02944.8.vec.extract = extractelement <16 x i16> %1704, i64 4
-  %1731 = select i1 %1715, i16 %.sroa.02944.8.vec.extract, i16 0
-  %.sroa.02944.10.vec.extract = extractelement <16 x i16> %1704, i64 5
-  %1732 = select i1 %1716, i16 %.sroa.02944.10.vec.extract, i16 0
-  %.sroa.02944.12.vec.extract = extractelement <16 x i16> %1704, i64 6
-  %1733 = select i1 %1717, i16 %.sroa.02944.12.vec.extract, i16 0
-  %.sroa.02944.14.vec.extract = extractelement <16 x i16> %1704, i64 7
-  %1734 = select i1 %1718, i16 %.sroa.02944.14.vec.extract, i16 0
-  %.sroa.02944.16.vec.extract = extractelement <16 x i16> %1704, i64 8
-  %1735 = select i1 %1719, i16 %.sroa.02944.16.vec.extract, i16 0
-  %.sroa.02944.18.vec.extract = extractelement <16 x i16> %1704, i64 9
-  %1736 = select i1 %1720, i16 %.sroa.02944.18.vec.extract, i16 0
-  %.sroa.02944.20.vec.extract = extractelement <16 x i16> %1704, i64 10
-  %1737 = select i1 %1721, i16 %.sroa.02944.20.vec.extract, i16 0
-  %.sroa.02944.22.vec.extract = extractelement <16 x i16> %1704, i64 11
-  %1738 = select i1 %1722, i16 %.sroa.02944.22.vec.extract, i16 0
-  %.sroa.02944.24.vec.extract = extractelement <16 x i16> %1704, i64 12
-  %1739 = select i1 %1723, i16 %.sroa.02944.24.vec.extract, i16 0
-  %.sroa.02944.26.vec.extract = extractelement <16 x i16> %1704, i64 13
-  %1740 = select i1 %1724, i16 %.sroa.02944.26.vec.extract, i16 0
-  %.sroa.02944.28.vec.extract = extractelement <16 x i16> %1704, i64 14
-  %1741 = select i1 %1725, i16 %.sroa.02944.28.vec.extract, i16 0
-  %.sroa.02944.30.vec.extract = extractelement <16 x i16> %1704, i64 15
-  %1742 = select i1 %1726, i16 %.sroa.02944.30.vec.extract, i16 0
+  %1713 = select i1 %.inv3328, i16 0, i16 %.sroa.02944.0.vec.extract
+  %.sroa.02944.2.vec.extract = extractelement <16 x i16> %1690, i64 1
+  %1714 = select i1 %1698, i16 %.sroa.02944.2.vec.extract, i16 0
+  %.sroa.02944.4.vec.extract = extractelement <16 x i16> %1690, i64 2
+  %1715 = select i1 %1699, i16 %.sroa.02944.4.vec.extract, i16 0
+  %.sroa.02944.6.vec.extract = extractelement <16 x i16> %1690, i64 3
+  %1716 = select i1 %1700, i16 %.sroa.02944.6.vec.extract, i16 0
+  %.sroa.02944.8.vec.extract = extractelement <16 x i16> %1690, i64 4
+  %1717 = select i1 %1701, i16 %.sroa.02944.8.vec.extract, i16 0
+  %.sroa.02944.10.vec.extract = extractelement <16 x i16> %1690, i64 5
+  %1718 = select i1 %1702, i16 %.sroa.02944.10.vec.extract, i16 0
+  %.sroa.02944.12.vec.extract = extractelement <16 x i16> %1690, i64 6
+  %1719 = select i1 %1703, i16 %.sroa.02944.12.vec.extract, i16 0
+  %.sroa.02944.14.vec.extract = extractelement <16 x i16> %1690, i64 7
+  %1720 = select i1 %1704, i16 %.sroa.02944.14.vec.extract, i16 0
+  %.sroa.02944.16.vec.extract = extractelement <16 x i16> %1690, i64 8
+  %1721 = select i1 %1705, i16 %.sroa.02944.16.vec.extract, i16 0
+  %.sroa.02944.18.vec.extract = extractelement <16 x i16> %1690, i64 9
+  %1722 = select i1 %1706, i16 %.sroa.02944.18.vec.extract, i16 0
+  %.sroa.02944.20.vec.extract = extractelement <16 x i16> %1690, i64 10
+  %1723 = select i1 %1707, i16 %.sroa.02944.20.vec.extract, i16 0
+  %.sroa.02944.22.vec.extract = extractelement <16 x i16> %1690, i64 11
+  %1724 = select i1 %1708, i16 %.sroa.02944.22.vec.extract, i16 0
+  %.sroa.02944.24.vec.extract = extractelement <16 x i16> %1690, i64 12
+  %1725 = select i1 %1709, i16 %.sroa.02944.24.vec.extract, i16 0
+  %.sroa.02944.26.vec.extract = extractelement <16 x i16> %1690, i64 13
+  %1726 = select i1 %1710, i16 %.sroa.02944.26.vec.extract, i16 0
+  %.sroa.02944.28.vec.extract = extractelement <16 x i16> %1690, i64 14
+  %1727 = select i1 %1711, i16 %.sroa.02944.28.vec.extract, i16 0
+  %.sroa.02944.30.vec.extract = extractelement <16 x i16> %1690, i64 15
+  %1728 = select i1 %1712, i16 %.sroa.02944.30.vec.extract, i16 0
   %.sroa.02970.0.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 0
-  %1743 = add i16 %1727, %.sroa.02970.0.vec.extract
+  %1729 = add i16 %1713, %.sroa.02970.0.vec.extract
   %.sroa.02970.2.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 1
-  %1744 = add i16 %1728, %.sroa.02970.2.vec.extract
+  %1730 = add i16 %1714, %.sroa.02970.2.vec.extract
   %.sroa.02970.4.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 2
-  %1745 = add i16 %1729, %.sroa.02970.4.vec.extract
+  %1731 = add i16 %1715, %.sroa.02970.4.vec.extract
   %.sroa.02970.6.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 3
-  %1746 = add i16 %1730, %.sroa.02970.6.vec.extract
+  %1732 = add i16 %1716, %.sroa.02970.6.vec.extract
   %.sroa.02970.8.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 4
-  %1747 = add i16 %1731, %.sroa.02970.8.vec.extract
+  %1733 = add i16 %1717, %.sroa.02970.8.vec.extract
   %.sroa.02970.10.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 5
-  %1748 = add i16 %1732, %.sroa.02970.10.vec.extract
+  %1734 = add i16 %1718, %.sroa.02970.10.vec.extract
   %.sroa.02970.12.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 6
-  %1749 = add i16 %1733, %.sroa.02970.12.vec.extract
+  %1735 = add i16 %1719, %.sroa.02970.12.vec.extract
   %.sroa.02970.14.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 7
-  %1750 = add i16 %1734, %.sroa.02970.14.vec.extract
+  %1736 = add i16 %1720, %.sroa.02970.14.vec.extract
   %.sroa.02970.16.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 8
-  %1751 = add i16 %1735, %.sroa.02970.16.vec.extract
+  %1737 = add i16 %1721, %.sroa.02970.16.vec.extract
   %.sroa.02970.18.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 9
-  %1752 = add i16 %1736, %.sroa.02970.18.vec.extract
+  %1738 = add i16 %1722, %.sroa.02970.18.vec.extract
   %.sroa.02970.20.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 10
-  %1753 = add i16 %1737, %.sroa.02970.20.vec.extract
+  %1739 = add i16 %1723, %.sroa.02970.20.vec.extract
   %.sroa.02970.22.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 11
-  %1754 = add i16 %1738, %.sroa.02970.22.vec.extract
+  %1740 = add i16 %1724, %.sroa.02970.22.vec.extract
   %.sroa.02970.24.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 12
-  %1755 = add i16 %1739, %.sroa.02970.24.vec.extract
+  %1741 = add i16 %1725, %.sroa.02970.24.vec.extract
   %.sroa.02970.26.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 13
-  %1756 = add i16 %1740, %.sroa.02970.26.vec.extract
+  %1742 = add i16 %1726, %.sroa.02970.26.vec.extract
   %.sroa.02970.28.vec.extract = extractelement <15 x i16> %.sroa.0.i311.sroa.0.0.copyload, i64 14
-  %1757 = add i16 %1741, %.sroa.02970.28.vec.extract
-  %1758 = add i16 %1742, %1693
-  %.sroa.0.0.vec.insert.i963 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1743, i64 0
-  %.sroa.0.2.vec.insert.i964 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i963, i16 %1744, i64 1
-  %.sroa.0.4.vec.insert.i965 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i964, i16 %1745, i64 2
-  %.sroa.0.6.vec.insert.i966 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i965, i16 %1746, i64 3
-  %.sroa.0.8.vec.insert.i967 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i966, i16 %1747, i64 4
-  %.sroa.0.10.vec.insert.i968 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i967, i16 %1748, i64 5
-  %.sroa.0.12.vec.insert.i969 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i968, i16 %1749, i64 6
-  %.sroa.0.14.vec.insert.i970 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i969, i16 %1750, i64 7
-  %.sroa.0.16.vec.insert.i971 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i970, i16 %1751, i64 8
-  %.sroa.0.18.vec.insert.i972 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i971, i16 %1752, i64 9
-  %.sroa.0.20.vec.insert.i973 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i972, i16 %1753, i64 10
-  %.sroa.0.22.vec.insert.i974 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i973, i16 %1754, i64 11
-  %.sroa.0.24.vec.insert.i975 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i974, i16 %1755, i64 12
-  %.sroa.0.26.vec.insert.i976 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i975, i16 %1756, i64 13
-  %.sroa.0.28.vec.insert.i977 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i976, i16 %1757, i64 14
+  %1743 = add i16 %1727, %.sroa.02970.28.vec.extract
+  %1744 = add i16 %1728, %1679
+  %.sroa.0.0.vec.insert.i963 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1729, i64 0
+  %.sroa.0.2.vec.insert.i964 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i963, i16 %1730, i64 1
+  %.sroa.0.4.vec.insert.i965 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i964, i16 %1731, i64 2
+  %.sroa.0.6.vec.insert.i966 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i965, i16 %1732, i64 3
+  %.sroa.0.8.vec.insert.i967 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i966, i16 %1733, i64 4
+  %.sroa.0.10.vec.insert.i968 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i967, i16 %1734, i64 5
+  %.sroa.0.12.vec.insert.i969 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i968, i16 %1735, i64 6
+  %.sroa.0.14.vec.insert.i970 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i969, i16 %1736, i64 7
+  %.sroa.0.16.vec.insert.i971 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i970, i16 %1737, i64 8
+  %.sroa.0.18.vec.insert.i972 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i971, i16 %1738, i64 9
+  %.sroa.0.20.vec.insert.i973 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i972, i16 %1739, i64 10
+  %.sroa.0.22.vec.insert.i974 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i973, i16 %1740, i64 11
+  %.sroa.0.24.vec.insert.i975 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i974, i16 %1741, i64 12
+  %.sroa.0.26.vec.insert.i976 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i975, i16 %1742, i64 13
+  %.sroa.0.28.vec.insert.i977 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i976, i16 %1743, i64 14
   %.sroa.02964.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i977, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i317 = icmp slt i16 %1758, %888
-  br i1 %.not.i317, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit324, label %1759
+  %.not.i317 = icmp slt i16 %1744, %880
+  br i1 %.not.i317, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit324, label %1745
 
-1759:                                             ; preds = %1709
-  %1760 = add i16 %1743, 1
-  %1761 = add i16 %1744, 2
-  %1762 = add i16 %1745, 3
-  %1763 = add i16 %1746, 4
-  %1764 = add i16 %1747, 5
-  %1765 = add i16 %1748, 6
-  %1766 = add i16 %1749, 7
-  %1767 = add i16 %1750, 8
-  %1768 = add i16 %1751, 9
-  %1769 = add i16 %1752, 10
-  %1770 = add i16 %1753, 11
-  %1771 = add i16 %1754, 12
-  %1772 = add i16 %1755, 13
-  %1773 = add i16 %1756, 14
-  %1774 = add i16 %1757, 15
-  %1775 = add i16 %1758, 16
-  %1776 = ashr i16 %1774, 2
-  %1777 = ashr i16 %1773, 2
-  %1778 = ashr i16 %1772, 2
-  %1779 = ashr i16 %1771, 2
-  %1780 = ashr i16 %1770, 2
-  %1781 = ashr i16 %1769, 2
-  %1782 = ashr i16 %1768, 2
-  %1783 = ashr i16 %1767, 2
-  %1784 = ashr i16 %1766, 2
-  %1785 = ashr i16 %1765, 2
-  %1786 = ashr i16 %1764, 2
-  %1787 = ashr i16 %1763, 2
-  %1788 = ashr i16 %1762, 2
-  %1789 = ashr i16 %1761, 2
-  %1790 = ashr i16 %1760, 2
-  %1791 = ashr i16 %1775, 2
-  %1792 = sub i16 %1760, %1790
-  %1793 = sub i16 %1761, %1789
-  %1794 = sub i16 %1762, %1788
-  %1795 = sub i16 %1763, %1787
-  %1796 = sub i16 %1764, %1786
-  %1797 = sub i16 %1765, %1785
-  %1798 = sub i16 %1766, %1784
-  %1799 = sub i16 %1767, %1783
-  %1800 = sub i16 %1768, %1782
-  %1801 = sub i16 %1769, %1781
-  %1802 = sub i16 %1770, %1780
-  %1803 = sub i16 %1771, %1779
-  %1804 = sub i16 %1772, %1778
-  %1805 = sub i16 %1773, %1777
-  %1806 = sub i16 %1774, %1776
-  %1807 = sub i16 %1775, %1791
-  %.sroa.0.0.vec.insert.i1635 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1792, i64 0
-  %.sroa.0.2.vec.insert.i1636 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1635, i16 %1793, i64 1
-  %.sroa.0.4.vec.insert.i1637 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1636, i16 %1794, i64 2
-  %.sroa.0.6.vec.insert.i1638 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1637, i16 %1795, i64 3
-  %.sroa.0.8.vec.insert.i1639 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1638, i16 %1796, i64 4
-  %.sroa.0.10.vec.insert.i1640 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1639, i16 %1797, i64 5
-  %.sroa.0.12.vec.insert.i1641 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1640, i16 %1798, i64 6
-  %.sroa.0.14.vec.insert.i1642 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1641, i16 %1799, i64 7
-  %.sroa.0.16.vec.insert.i1643 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1642, i16 %1800, i64 8
-  %.sroa.0.18.vec.insert.i1644 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1643, i16 %1801, i64 9
-  %.sroa.0.20.vec.insert.i1645 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1644, i16 %1802, i64 10
-  %.sroa.0.22.vec.insert.i1646 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1645, i16 %1803, i64 11
-  %.sroa.0.24.vec.insert.i1647 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1646, i16 %1804, i64 12
-  %.sroa.0.26.vec.insert.i1648 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1647, i16 %1805, i64 13
-  %.sroa.0.28.vec.insert.i1649 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1648, i16 %1806, i64 14
+1745:                                             ; preds = %1695
+  %1746 = add i16 %1729, 1
+  %1747 = add i16 %1730, 2
+  %1748 = add i16 %1731, 3
+  %1749 = add i16 %1732, 4
+  %1750 = add i16 %1733, 5
+  %1751 = add i16 %1734, 6
+  %1752 = add i16 %1735, 7
+  %1753 = add i16 %1736, 8
+  %1754 = add i16 %1737, 9
+  %1755 = add i16 %1738, 10
+  %1756 = add i16 %1739, 11
+  %1757 = add i16 %1740, 12
+  %1758 = add i16 %1741, 13
+  %1759 = add i16 %1742, 14
+  %1760 = add i16 %1743, 15
+  %1761 = add i16 %1744, 16
+  %1762 = ashr i16 %1760, 2
+  %1763 = ashr i16 %1759, 2
+  %1764 = ashr i16 %1758, 2
+  %1765 = ashr i16 %1757, 2
+  %1766 = ashr i16 %1756, 2
+  %1767 = ashr i16 %1755, 2
+  %1768 = ashr i16 %1754, 2
+  %1769 = ashr i16 %1753, 2
+  %1770 = ashr i16 %1752, 2
+  %1771 = ashr i16 %1751, 2
+  %1772 = ashr i16 %1750, 2
+  %1773 = ashr i16 %1749, 2
+  %1774 = ashr i16 %1748, 2
+  %1775 = ashr i16 %1747, 2
+  %1776 = ashr i16 %1746, 2
+  %1777 = ashr i16 %1761, 2
+  %1778 = sub i16 %1746, %1776
+  %1779 = sub i16 %1747, %1775
+  %1780 = sub i16 %1748, %1774
+  %1781 = sub i16 %1749, %1773
+  %1782 = sub i16 %1750, %1772
+  %1783 = sub i16 %1751, %1771
+  %1784 = sub i16 %1752, %1770
+  %1785 = sub i16 %1753, %1769
+  %1786 = sub i16 %1754, %1768
+  %1787 = sub i16 %1755, %1767
+  %1788 = sub i16 %1756, %1766
+  %1789 = sub i16 %1757, %1765
+  %1790 = sub i16 %1758, %1764
+  %1791 = sub i16 %1759, %1763
+  %1792 = sub i16 %1760, %1762
+  %1793 = sub i16 %1761, %1777
+  %.sroa.0.0.vec.insert.i1635 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1778, i64 0
+  %.sroa.0.2.vec.insert.i1636 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1635, i16 %1779, i64 1
+  %.sroa.0.4.vec.insert.i1637 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1636, i16 %1780, i64 2
+  %.sroa.0.6.vec.insert.i1638 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1637, i16 %1781, i64 3
+  %.sroa.0.8.vec.insert.i1639 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1638, i16 %1782, i64 4
+  %.sroa.0.10.vec.insert.i1640 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1639, i16 %1783, i64 5
+  %.sroa.0.12.vec.insert.i1641 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1640, i16 %1784, i64 6
+  %.sroa.0.14.vec.insert.i1642 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1641, i16 %1785, i64 7
+  %.sroa.0.16.vec.insert.i1643 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1642, i16 %1786, i64 8
+  %.sroa.0.18.vec.insert.i1644 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1643, i16 %1787, i64 9
+  %.sroa.0.20.vec.insert.i1645 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1644, i16 %1788, i64 10
+  %.sroa.0.22.vec.insert.i1646 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1645, i16 %1789, i64 11
+  %.sroa.0.24.vec.insert.i1647 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1646, i16 %1790, i64 12
+  %.sroa.0.26.vec.insert.i1648 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1647, i16 %1791, i64 13
+  %.sroa.0.28.vec.insert.i1649 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1648, i16 %1792, i64 14
   %.sroa.02974.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1649, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit324
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit324: ; preds = %1709, %1759
-  %.sroa.0.i311.sroa.0.0 = phi <15 x i16> [ %.sroa.02964.0.vec.extract, %1709 ], [ %.sroa.02974.0.vec.extract, %1759 ]
-  %.sroa.9.0.i322 = phi i16 [ %1758, %1709 ], [ %1807, %1759 ]
-  store <15 x i16> %.sroa.0.i311.sroa.0.0, ptr %1683, align 2, !noalias !361
-  store i16 %.sroa.9.0.i322, ptr %1692, align 2, !noalias !361
-  %1808 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %.val2372 = load ptr, ptr %1808, align 8, !nonnull !12, !align !279, !noundef !12
-  %1809 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %.val2373 = load i64, ptr %1809, align 8, !noundef !12
-  %1810 = zext i8 %42 to i64
-  %1811 = shl nuw nsw i64 %1810, 8
-  %1812 = and i64 %1811, 61440
-  %1813 = or i64 %1812, %4
-  %1814 = icmp ult i64 %1813, %.val2373
-  br i1 %1814, label %1816, label %1946, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit324: ; preds = %1695, %1745
+  %.sroa.0.i311.sroa.0.0 = phi <15 x i16> [ %.sroa.02964.0.vec.extract, %1695 ], [ %.sroa.02974.0.vec.extract, %1745 ]
+  %.sroa.9.0.i322 = phi i16 [ %1744, %1695 ], [ %1793, %1745 ]
+  store <15 x i16> %.sroa.0.i311.sroa.0.0, ptr %1670, align 2, !noalias !361
+  store i16 %.sroa.9.0.i322, ptr %1678, align 2, !noalias !361
+  %1794 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %.val2372 = load ptr, ptr %1794, align 8, !nonnull !12, !align !279, !noundef !12
+  %1795 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %.val2373 = load i64, ptr %1795, align 8, !noundef !12
+  %1796 = zext i8 %42 to i64
+  %1797 = shl nuw nsw i64 %1796, 8
+  %1798 = and i64 %1797, 61440
+  %1799 = or i64 %1798, %4
+  %1800 = icmp ult i64 %1799, %.val2373
+  br i1 %1800, label %1802, label %1931, !prof !278
 
-1815:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit309
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1679, i64 noundef %.val2377, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+1801:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit309
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1666, i64 noundef %.val2377, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-1816:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit324
-  %1817 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2372, i64 0, i64 %1813
-  %1818 = getelementptr inbounds nuw [0 x i16], ptr %1817, i64 0, i64 %49
-  %1819 = load i16, ptr %1818, align 2, !noalias !364, !noundef !12
-  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit127, label %1820
+1802:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit324
+  %1803 = getelementptr inbounds { [16 x i16] }, ptr %.val2372, i64 %1799
+  %1804 = getelementptr inbounds nuw i16, ptr %1803, i64 %49
+  %1805 = load i16, ptr %1804, align 2, !noalias !364, !noundef !12
+  br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit127, label %1806
 
-1820:                                             ; preds = %1816
-  %1821 = add nsw i64 %49, -1
-  %1822 = getelementptr inbounds nuw [0 x i16], ptr %1817, i64 0, i64 %1821
-  %1823 = load i16, ptr %1822, align 2, !noalias !364, !noundef !12
-  %1824 = sub i16 %1819, %1823
+1806:                                             ; preds = %1802
+  %1807 = getelementptr i8, ptr %1804, i64 -2
+  %1808 = load i16, ptr %1807, align 2, !noalias !364, !noundef !12
+  %1809 = sub i16 %1805, %1808
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit127
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit127: ; preds = %1816, %1820
-  %.0.i126 = phi i16 [ %1819, %1816 ], [ %1824, %1820 ]
-  %1825 = zext i16 %.0.i126 to i64
-  %1826 = getelementptr inbounds nuw i8, ptr %1817, i64 30
-  %1827 = load i16, ptr %1826, align 2, !noalias !364, !noundef !12
-  %1828 = zext i16 %1827 to i64
-  %1829 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1828
-  %1830 = load float, ptr %1829, align 4, !noalias !364, !noundef !12
-  %1831 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1825
-  %1832 = load float, ptr %1831, align 4, !noalias !364, !noundef !12
-  %.sroa.0.i326.sroa.0.0.copyload = load <15 x i16>, ptr %1817, align 2, !noalias !367
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit127: ; preds = %1802, %1806
+  %.0.i126 = phi i16 [ %1805, %1802 ], [ %1809, %1806 ]
+  %1810 = zext i16 %.0.i126 to i64
+  %1811 = getelementptr inbounds nuw i8, ptr %1803, i64 30
+  %1812 = load i16, ptr %1811, align 2, !noalias !364, !noundef !12
+  %1813 = zext i16 %1812 to i64
+  %1814 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1813
+  %1815 = load float, ptr %1814, align 4, !noalias !364, !noundef !12
+  %1816 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1810
+  %1817 = load float, ptr %1816, align 4, !noalias !364, !noundef !12
+  %.sroa.0.i326.sroa.0.0.copyload = load <15 x i16>, ptr %1803, align 2, !noalias !367
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !367
-  br label %1833
+  br label %1818
 
-1833:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit127, %1833
-  %1834 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit127 ], [ %1836, %1833 ]
-  %1835 = getelementptr inbounds nuw [16 x i16], ptr %10, i64 0, i64 %1834
-  store i16 %748, ptr %1835, align 2, !noalias !367
-  %1836 = add nuw nsw i64 %1834, 1
-  %exitcond3356.not = icmp eq i64 %1836, 16
-  br i1 %exitcond3356.not, label %1837, label %1833
+1818:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit127, %1818
+  %1819 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit127 ], [ %1821, %1818 ]
+  %1820 = getelementptr inbounds nuw i16, ptr %10, i64 %1819
+  store i16 %741, ptr %1820, align 2, !noalias !367
+  %1821 = add nuw nsw i64 %1819, 1
+  %exitcond3356.not = icmp eq i64 %1821, 16
+  br i1 %exitcond3356.not, label %1822, label %1818
 
-1837:                                             ; preds = %1833
-  %1838 = load <16 x i16>, ptr %10, align 2, !noalias !367
+1822:                                             ; preds = %1818
+  %1823 = load <16 x i16>, ptr %10, align 2, !noalias !367
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !367
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !367
-  br label %1839
+  br label %1824
 
-1839:                                             ; preds = %1837, %1839
-  %1840 = phi i64 [ 0, %1837 ], [ %1842, %1839 ]
-  %1841 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %1840
-  store i16 %84, ptr %1841, align 2, !noalias !367
-  %1842 = add nuw nsw i64 %1840, 1
-  %exitcond3357.not = icmp eq i64 %1842, 16
-  br i1 %exitcond3357.not, label %1843, label %1839
+1824:                                             ; preds = %1822, %1824
+  %1825 = phi i64 [ 0, %1822 ], [ %1827, %1824 ]
+  %1826 = getelementptr inbounds nuw i16, ptr %9, i64 %1825
+  store i16 %83, ptr %1826, align 2, !noalias !367
+  %1827 = add nuw nsw i64 %1825, 1
+  %exitcond3357.not = icmp eq i64 %1827, 16
+  br i1 %exitcond3357.not, label %1828, label %1824
 
-1843:                                             ; preds = %1839
-  %1844 = load <16 x i16>, ptr %9, align 2, !noalias !367
+1828:                                             ; preds = %1824
+  %1829 = load <16 x i16>, ptr %9, align 2, !noalias !367
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !367
-  %.sroa.03002.0.vec.extract = extractelement <16 x i16> %1844, i64 0
-  %.sroa.03002.2.vec.extract = extractelement <16 x i16> %1844, i64 1
-  %1845 = icmp slt i16 %.sroa.03002.2.vec.extract, 2
-  %.sroa.03002.4.vec.extract = extractelement <16 x i16> %1844, i64 2
-  %1846 = icmp slt i16 %.sroa.03002.4.vec.extract, 3
-  %.sroa.03002.6.vec.extract = extractelement <16 x i16> %1844, i64 3
-  %1847 = icmp slt i16 %.sroa.03002.6.vec.extract, 4
-  %.sroa.03002.8.vec.extract = extractelement <16 x i16> %1844, i64 4
-  %1848 = icmp slt i16 %.sroa.03002.8.vec.extract, 5
-  %.sroa.03002.10.vec.extract = extractelement <16 x i16> %1844, i64 5
-  %1849 = icmp slt i16 %.sroa.03002.10.vec.extract, 6
-  %.sroa.03002.12.vec.extract = extractelement <16 x i16> %1844, i64 6
-  %1850 = icmp slt i16 %.sroa.03002.12.vec.extract, 7
-  %.sroa.03002.14.vec.extract = extractelement <16 x i16> %1844, i64 7
-  %1851 = icmp slt i16 %.sroa.03002.14.vec.extract, 8
-  %.sroa.03002.16.vec.extract = extractelement <16 x i16> %1844, i64 8
-  %1852 = icmp slt i16 %.sroa.03002.16.vec.extract, 9
-  %.sroa.03002.18.vec.extract = extractelement <16 x i16> %1844, i64 9
-  %1853 = icmp slt i16 %.sroa.03002.18.vec.extract, 10
-  %.sroa.03002.20.vec.extract = extractelement <16 x i16> %1844, i64 10
-  %1854 = icmp slt i16 %.sroa.03002.20.vec.extract, 11
-  %.sroa.03002.22.vec.extract = extractelement <16 x i16> %1844, i64 11
-  %1855 = icmp slt i16 %.sroa.03002.22.vec.extract, 12
-  %.sroa.03002.24.vec.extract = extractelement <16 x i16> %1844, i64 12
-  %1856 = icmp slt i16 %.sroa.03002.24.vec.extract, 13
-  %.sroa.03002.26.vec.extract = extractelement <16 x i16> %1844, i64 13
-  %1857 = icmp slt i16 %.sroa.03002.26.vec.extract, 14
-  %.sroa.03002.28.vec.extract = extractelement <16 x i16> %1844, i64 14
-  %1858 = icmp slt i16 %.sroa.03002.28.vec.extract, 15
-  %.sroa.03002.30.vec.extract = extractelement <16 x i16> %1844, i64 15
-  %1859 = icmp slt i16 %.sroa.03002.30.vec.extract, 16
-  %.sroa.02983.0.vec.extract = extractelement <16 x i16> %1838, i64 0
+  %.sroa.03002.0.vec.extract = extractelement <16 x i16> %1829, i64 0
+  %.sroa.03002.2.vec.extract = extractelement <16 x i16> %1829, i64 1
+  %1830 = icmp slt i16 %.sroa.03002.2.vec.extract, 2
+  %.sroa.03002.4.vec.extract = extractelement <16 x i16> %1829, i64 2
+  %1831 = icmp slt i16 %.sroa.03002.4.vec.extract, 3
+  %.sroa.03002.6.vec.extract = extractelement <16 x i16> %1829, i64 3
+  %1832 = icmp slt i16 %.sroa.03002.6.vec.extract, 4
+  %.sroa.03002.8.vec.extract = extractelement <16 x i16> %1829, i64 4
+  %1833 = icmp slt i16 %.sroa.03002.8.vec.extract, 5
+  %.sroa.03002.10.vec.extract = extractelement <16 x i16> %1829, i64 5
+  %1834 = icmp slt i16 %.sroa.03002.10.vec.extract, 6
+  %.sroa.03002.12.vec.extract = extractelement <16 x i16> %1829, i64 6
+  %1835 = icmp slt i16 %.sroa.03002.12.vec.extract, 7
+  %.sroa.03002.14.vec.extract = extractelement <16 x i16> %1829, i64 7
+  %1836 = icmp slt i16 %.sroa.03002.14.vec.extract, 8
+  %.sroa.03002.16.vec.extract = extractelement <16 x i16> %1829, i64 8
+  %1837 = icmp slt i16 %.sroa.03002.16.vec.extract, 9
+  %.sroa.03002.18.vec.extract = extractelement <16 x i16> %1829, i64 9
+  %1838 = icmp slt i16 %.sroa.03002.18.vec.extract, 10
+  %.sroa.03002.20.vec.extract = extractelement <16 x i16> %1829, i64 10
+  %1839 = icmp slt i16 %.sroa.03002.20.vec.extract, 11
+  %.sroa.03002.22.vec.extract = extractelement <16 x i16> %1829, i64 11
+  %1840 = icmp slt i16 %.sroa.03002.22.vec.extract, 12
+  %.sroa.03002.24.vec.extract = extractelement <16 x i16> %1829, i64 12
+  %1841 = icmp slt i16 %.sroa.03002.24.vec.extract, 13
+  %.sroa.03002.26.vec.extract = extractelement <16 x i16> %1829, i64 13
+  %1842 = icmp slt i16 %.sroa.03002.26.vec.extract, 14
+  %.sroa.03002.28.vec.extract = extractelement <16 x i16> %1829, i64 14
+  %1843 = icmp slt i16 %.sroa.03002.28.vec.extract, 15
+  %.sroa.03002.30.vec.extract = extractelement <16 x i16> %1829, i64 15
+  %1844 = icmp slt i16 %.sroa.03002.30.vec.extract, 16
+  %.sroa.02983.0.vec.extract = extractelement <16 x i16> %1823, i64 0
   %.inv3329 = icmp sgt i16 %.sroa.03002.0.vec.extract, 0
-  %1860 = select i1 %.inv3329, i16 0, i16 %.sroa.02983.0.vec.extract
-  %.sroa.02983.2.vec.extract = extractelement <16 x i16> %1838, i64 1
-  %1861 = select i1 %1845, i16 %.sroa.02983.2.vec.extract, i16 0
-  %.sroa.02983.4.vec.extract = extractelement <16 x i16> %1838, i64 2
-  %1862 = select i1 %1846, i16 %.sroa.02983.4.vec.extract, i16 0
-  %.sroa.02983.6.vec.extract = extractelement <16 x i16> %1838, i64 3
-  %1863 = select i1 %1847, i16 %.sroa.02983.6.vec.extract, i16 0
-  %.sroa.02983.8.vec.extract = extractelement <16 x i16> %1838, i64 4
-  %1864 = select i1 %1848, i16 %.sroa.02983.8.vec.extract, i16 0
-  %.sroa.02983.10.vec.extract = extractelement <16 x i16> %1838, i64 5
-  %1865 = select i1 %1849, i16 %.sroa.02983.10.vec.extract, i16 0
-  %.sroa.02983.12.vec.extract = extractelement <16 x i16> %1838, i64 6
-  %1866 = select i1 %1850, i16 %.sroa.02983.12.vec.extract, i16 0
-  %.sroa.02983.14.vec.extract = extractelement <16 x i16> %1838, i64 7
-  %1867 = select i1 %1851, i16 %.sroa.02983.14.vec.extract, i16 0
-  %.sroa.02983.16.vec.extract = extractelement <16 x i16> %1838, i64 8
-  %1868 = select i1 %1852, i16 %.sroa.02983.16.vec.extract, i16 0
-  %.sroa.02983.18.vec.extract = extractelement <16 x i16> %1838, i64 9
-  %1869 = select i1 %1853, i16 %.sroa.02983.18.vec.extract, i16 0
-  %.sroa.02983.20.vec.extract = extractelement <16 x i16> %1838, i64 10
-  %1870 = select i1 %1854, i16 %.sroa.02983.20.vec.extract, i16 0
-  %.sroa.02983.22.vec.extract = extractelement <16 x i16> %1838, i64 11
-  %1871 = select i1 %1855, i16 %.sroa.02983.22.vec.extract, i16 0
-  %.sroa.02983.24.vec.extract = extractelement <16 x i16> %1838, i64 12
-  %1872 = select i1 %1856, i16 %.sroa.02983.24.vec.extract, i16 0
-  %.sroa.02983.26.vec.extract = extractelement <16 x i16> %1838, i64 13
-  %1873 = select i1 %1857, i16 %.sroa.02983.26.vec.extract, i16 0
-  %.sroa.02983.28.vec.extract = extractelement <16 x i16> %1838, i64 14
-  %1874 = select i1 %1858, i16 %.sroa.02983.28.vec.extract, i16 0
-  %.sroa.02983.30.vec.extract = extractelement <16 x i16> %1838, i64 15
-  %1875 = select i1 %1859, i16 %.sroa.02983.30.vec.extract, i16 0
+  %1845 = select i1 %.inv3329, i16 0, i16 %.sroa.02983.0.vec.extract
+  %.sroa.02983.2.vec.extract = extractelement <16 x i16> %1823, i64 1
+  %1846 = select i1 %1830, i16 %.sroa.02983.2.vec.extract, i16 0
+  %.sroa.02983.4.vec.extract = extractelement <16 x i16> %1823, i64 2
+  %1847 = select i1 %1831, i16 %.sroa.02983.4.vec.extract, i16 0
+  %.sroa.02983.6.vec.extract = extractelement <16 x i16> %1823, i64 3
+  %1848 = select i1 %1832, i16 %.sroa.02983.6.vec.extract, i16 0
+  %.sroa.02983.8.vec.extract = extractelement <16 x i16> %1823, i64 4
+  %1849 = select i1 %1833, i16 %.sroa.02983.8.vec.extract, i16 0
+  %.sroa.02983.10.vec.extract = extractelement <16 x i16> %1823, i64 5
+  %1850 = select i1 %1834, i16 %.sroa.02983.10.vec.extract, i16 0
+  %.sroa.02983.12.vec.extract = extractelement <16 x i16> %1823, i64 6
+  %1851 = select i1 %1835, i16 %.sroa.02983.12.vec.extract, i16 0
+  %.sroa.02983.14.vec.extract = extractelement <16 x i16> %1823, i64 7
+  %1852 = select i1 %1836, i16 %.sroa.02983.14.vec.extract, i16 0
+  %.sroa.02983.16.vec.extract = extractelement <16 x i16> %1823, i64 8
+  %1853 = select i1 %1837, i16 %.sroa.02983.16.vec.extract, i16 0
+  %.sroa.02983.18.vec.extract = extractelement <16 x i16> %1823, i64 9
+  %1854 = select i1 %1838, i16 %.sroa.02983.18.vec.extract, i16 0
+  %.sroa.02983.20.vec.extract = extractelement <16 x i16> %1823, i64 10
+  %1855 = select i1 %1839, i16 %.sroa.02983.20.vec.extract, i16 0
+  %.sroa.02983.22.vec.extract = extractelement <16 x i16> %1823, i64 11
+  %1856 = select i1 %1840, i16 %.sroa.02983.22.vec.extract, i16 0
+  %.sroa.02983.24.vec.extract = extractelement <16 x i16> %1823, i64 12
+  %1857 = select i1 %1841, i16 %.sroa.02983.24.vec.extract, i16 0
+  %.sroa.02983.26.vec.extract = extractelement <16 x i16> %1823, i64 13
+  %1858 = select i1 %1842, i16 %.sroa.02983.26.vec.extract, i16 0
+  %.sroa.02983.28.vec.extract = extractelement <16 x i16> %1823, i64 14
+  %1859 = select i1 %1843, i16 %.sroa.02983.28.vec.extract, i16 0
+  %.sroa.02983.30.vec.extract = extractelement <16 x i16> %1823, i64 15
+  %1860 = select i1 %1844, i16 %.sroa.02983.30.vec.extract, i16 0
   %.sroa.03009.0.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 0
-  %1876 = add i16 %1860, %.sroa.03009.0.vec.extract
+  %1861 = add i16 %1845, %.sroa.03009.0.vec.extract
   %.sroa.03009.2.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 1
-  %1877 = add i16 %1861, %.sroa.03009.2.vec.extract
+  %1862 = add i16 %1846, %.sroa.03009.2.vec.extract
   %.sroa.03009.4.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 2
-  %1878 = add i16 %1862, %.sroa.03009.4.vec.extract
+  %1863 = add i16 %1847, %.sroa.03009.4.vec.extract
   %.sroa.03009.6.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 3
-  %1879 = add i16 %1863, %.sroa.03009.6.vec.extract
+  %1864 = add i16 %1848, %.sroa.03009.6.vec.extract
   %.sroa.03009.8.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 4
-  %1880 = add i16 %1864, %.sroa.03009.8.vec.extract
+  %1865 = add i16 %1849, %.sroa.03009.8.vec.extract
   %.sroa.03009.10.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 5
-  %1881 = add i16 %1865, %.sroa.03009.10.vec.extract
+  %1866 = add i16 %1850, %.sroa.03009.10.vec.extract
   %.sroa.03009.12.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 6
-  %1882 = add i16 %1866, %.sroa.03009.12.vec.extract
+  %1867 = add i16 %1851, %.sroa.03009.12.vec.extract
   %.sroa.03009.14.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 7
-  %1883 = add i16 %1867, %.sroa.03009.14.vec.extract
+  %1868 = add i16 %1852, %.sroa.03009.14.vec.extract
   %.sroa.03009.16.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 8
-  %1884 = add i16 %1868, %.sroa.03009.16.vec.extract
+  %1869 = add i16 %1853, %.sroa.03009.16.vec.extract
   %.sroa.03009.18.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 9
-  %1885 = add i16 %1869, %.sroa.03009.18.vec.extract
+  %1870 = add i16 %1854, %.sroa.03009.18.vec.extract
   %.sroa.03009.20.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 10
-  %1886 = add i16 %1870, %.sroa.03009.20.vec.extract
+  %1871 = add i16 %1855, %.sroa.03009.20.vec.extract
   %.sroa.03009.22.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 11
-  %1887 = add i16 %1871, %.sroa.03009.22.vec.extract
+  %1872 = add i16 %1856, %.sroa.03009.22.vec.extract
   %.sroa.03009.24.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 12
-  %1888 = add i16 %1872, %.sroa.03009.24.vec.extract
+  %1873 = add i16 %1857, %.sroa.03009.24.vec.extract
   %.sroa.03009.26.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 13
-  %1889 = add i16 %1873, %.sroa.03009.26.vec.extract
+  %1874 = add i16 %1858, %.sroa.03009.26.vec.extract
   %.sroa.03009.28.vec.extract = extractelement <15 x i16> %.sroa.0.i326.sroa.0.0.copyload, i64 14
-  %1890 = add i16 %1874, %.sroa.03009.28.vec.extract
-  %1891 = add i16 %1875, %1827
-  %.sroa.0.0.vec.insert.i915 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1876, i64 0
-  %.sroa.0.2.vec.insert.i916 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i915, i16 %1877, i64 1
-  %.sroa.0.4.vec.insert.i917 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i916, i16 %1878, i64 2
-  %.sroa.0.6.vec.insert.i918 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i917, i16 %1879, i64 3
-  %.sroa.0.8.vec.insert.i919 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i918, i16 %1880, i64 4
-  %.sroa.0.10.vec.insert.i920 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i919, i16 %1881, i64 5
-  %.sroa.0.12.vec.insert.i921 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i920, i16 %1882, i64 6
-  %.sroa.0.14.vec.insert.i922 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i921, i16 %1883, i64 7
-  %.sroa.0.16.vec.insert.i923 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i922, i16 %1884, i64 8
-  %.sroa.0.18.vec.insert.i924 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i923, i16 %1885, i64 9
-  %.sroa.0.20.vec.insert.i925 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i924, i16 %1886, i64 10
-  %.sroa.0.22.vec.insert.i926 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i925, i16 %1887, i64 11
-  %.sroa.0.24.vec.insert.i927 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i926, i16 %1888, i64 12
-  %.sroa.0.26.vec.insert.i928 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i927, i16 %1889, i64 13
-  %.sroa.0.28.vec.insert.i929 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i928, i16 %1890, i64 14
+  %1875 = add i16 %1859, %.sroa.03009.28.vec.extract
+  %1876 = add i16 %1860, %1812
+  %.sroa.0.0.vec.insert.i915 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1861, i64 0
+  %.sroa.0.2.vec.insert.i916 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i915, i16 %1862, i64 1
+  %.sroa.0.4.vec.insert.i917 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i916, i16 %1863, i64 2
+  %.sroa.0.6.vec.insert.i918 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i917, i16 %1864, i64 3
+  %.sroa.0.8.vec.insert.i919 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i918, i16 %1865, i64 4
+  %.sroa.0.10.vec.insert.i920 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i919, i16 %1866, i64 5
+  %.sroa.0.12.vec.insert.i921 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i920, i16 %1867, i64 6
+  %.sroa.0.14.vec.insert.i922 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i921, i16 %1868, i64 7
+  %.sroa.0.16.vec.insert.i923 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i922, i16 %1869, i64 8
+  %.sroa.0.18.vec.insert.i924 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i923, i16 %1870, i64 9
+  %.sroa.0.20.vec.insert.i925 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i924, i16 %1871, i64 10
+  %.sroa.0.22.vec.insert.i926 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i925, i16 %1872, i64 11
+  %.sroa.0.24.vec.insert.i927 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i926, i16 %1873, i64 12
+  %.sroa.0.26.vec.insert.i928 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i927, i16 %1874, i64 13
+  %.sroa.0.28.vec.insert.i929 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i928, i16 %1875, i64 14
   %.sroa.03003.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i929, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i332 = icmp slt i16 %1891, %750
-  br i1 %.not.i332, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit339, label %1892
+  %.not.i332 = icmp slt i16 %1876, %743
+  br i1 %.not.i332, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit339, label %1877
 
-1892:                                             ; preds = %1843
-  %1893 = add i16 %1876, 1
-  %1894 = add i16 %1877, 2
-  %1895 = add i16 %1878, 3
-  %1896 = add i16 %1879, 4
-  %1897 = add i16 %1880, 5
-  %1898 = add i16 %1881, 6
-  %1899 = add i16 %1882, 7
-  %1900 = add i16 %1883, 8
-  %1901 = add i16 %1884, 9
-  %1902 = add i16 %1885, 10
-  %1903 = add i16 %1886, 11
-  %1904 = add i16 %1887, 12
-  %1905 = add i16 %1888, 13
-  %1906 = add i16 %1889, 14
-  %1907 = add i16 %1890, 15
-  %1908 = add i16 %1891, 16
-  %1909 = ashr i16 %1907, 2
-  %1910 = ashr i16 %1906, 2
-  %1911 = ashr i16 %1905, 2
-  %1912 = ashr i16 %1904, 2
-  %1913 = ashr i16 %1903, 2
-  %1914 = ashr i16 %1902, 2
-  %1915 = ashr i16 %1901, 2
-  %1916 = ashr i16 %1900, 2
-  %1917 = ashr i16 %1899, 2
-  %1918 = ashr i16 %1898, 2
-  %1919 = ashr i16 %1897, 2
-  %1920 = ashr i16 %1896, 2
-  %1921 = ashr i16 %1895, 2
-  %1922 = ashr i16 %1894, 2
-  %1923 = ashr i16 %1893, 2
-  %1924 = ashr i16 %1908, 2
-  %1925 = sub i16 %1893, %1923
-  %1926 = sub i16 %1894, %1922
-  %1927 = sub i16 %1895, %1921
-  %1928 = sub i16 %1896, %1920
-  %1929 = sub i16 %1897, %1919
-  %1930 = sub i16 %1898, %1918
-  %1931 = sub i16 %1899, %1917
-  %1932 = sub i16 %1900, %1916
-  %1933 = sub i16 %1901, %1915
-  %1934 = sub i16 %1902, %1914
-  %1935 = sub i16 %1903, %1913
-  %1936 = sub i16 %1904, %1912
-  %1937 = sub i16 %1905, %1911
-  %1938 = sub i16 %1906, %1910
-  %1939 = sub i16 %1907, %1909
-  %1940 = sub i16 %1908, %1924
-  %.sroa.0.0.vec.insert.i1619 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1925, i64 0
-  %.sroa.0.2.vec.insert.i1620 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1619, i16 %1926, i64 1
-  %.sroa.0.4.vec.insert.i1621 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1620, i16 %1927, i64 2
-  %.sroa.0.6.vec.insert.i1622 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1621, i16 %1928, i64 3
-  %.sroa.0.8.vec.insert.i1623 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1622, i16 %1929, i64 4
-  %.sroa.0.10.vec.insert.i1624 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1623, i16 %1930, i64 5
-  %.sroa.0.12.vec.insert.i1625 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1624, i16 %1931, i64 6
-  %.sroa.0.14.vec.insert.i1626 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1625, i16 %1932, i64 7
-  %.sroa.0.16.vec.insert.i1627 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1626, i16 %1933, i64 8
-  %.sroa.0.18.vec.insert.i1628 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1627, i16 %1934, i64 9
-  %.sroa.0.20.vec.insert.i1629 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1628, i16 %1935, i64 10
-  %.sroa.0.22.vec.insert.i1630 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1629, i16 %1936, i64 11
-  %.sroa.0.24.vec.insert.i1631 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1630, i16 %1937, i64 12
-  %.sroa.0.26.vec.insert.i1632 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1631, i16 %1938, i64 13
-  %.sroa.0.28.vec.insert.i1633 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1632, i16 %1939, i64 14
+1877:                                             ; preds = %1828
+  %1878 = add i16 %1861, 1
+  %1879 = add i16 %1862, 2
+  %1880 = add i16 %1863, 3
+  %1881 = add i16 %1864, 4
+  %1882 = add i16 %1865, 5
+  %1883 = add i16 %1866, 6
+  %1884 = add i16 %1867, 7
+  %1885 = add i16 %1868, 8
+  %1886 = add i16 %1869, 9
+  %1887 = add i16 %1870, 10
+  %1888 = add i16 %1871, 11
+  %1889 = add i16 %1872, 12
+  %1890 = add i16 %1873, 13
+  %1891 = add i16 %1874, 14
+  %1892 = add i16 %1875, 15
+  %1893 = add i16 %1876, 16
+  %1894 = ashr i16 %1892, 2
+  %1895 = ashr i16 %1891, 2
+  %1896 = ashr i16 %1890, 2
+  %1897 = ashr i16 %1889, 2
+  %1898 = ashr i16 %1888, 2
+  %1899 = ashr i16 %1887, 2
+  %1900 = ashr i16 %1886, 2
+  %1901 = ashr i16 %1885, 2
+  %1902 = ashr i16 %1884, 2
+  %1903 = ashr i16 %1883, 2
+  %1904 = ashr i16 %1882, 2
+  %1905 = ashr i16 %1881, 2
+  %1906 = ashr i16 %1880, 2
+  %1907 = ashr i16 %1879, 2
+  %1908 = ashr i16 %1878, 2
+  %1909 = ashr i16 %1893, 2
+  %1910 = sub i16 %1878, %1908
+  %1911 = sub i16 %1879, %1907
+  %1912 = sub i16 %1880, %1906
+  %1913 = sub i16 %1881, %1905
+  %1914 = sub i16 %1882, %1904
+  %1915 = sub i16 %1883, %1903
+  %1916 = sub i16 %1884, %1902
+  %1917 = sub i16 %1885, %1901
+  %1918 = sub i16 %1886, %1900
+  %1919 = sub i16 %1887, %1899
+  %1920 = sub i16 %1888, %1898
+  %1921 = sub i16 %1889, %1897
+  %1922 = sub i16 %1890, %1896
+  %1923 = sub i16 %1891, %1895
+  %1924 = sub i16 %1892, %1894
+  %1925 = sub i16 %1893, %1909
+  %.sroa.0.0.vec.insert.i1619 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1910, i64 0
+  %.sroa.0.2.vec.insert.i1620 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1619, i16 %1911, i64 1
+  %.sroa.0.4.vec.insert.i1621 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1620, i16 %1912, i64 2
+  %.sroa.0.6.vec.insert.i1622 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1621, i16 %1913, i64 3
+  %.sroa.0.8.vec.insert.i1623 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1622, i16 %1914, i64 4
+  %.sroa.0.10.vec.insert.i1624 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1623, i16 %1915, i64 5
+  %.sroa.0.12.vec.insert.i1625 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1624, i16 %1916, i64 6
+  %.sroa.0.14.vec.insert.i1626 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1625, i16 %1917, i64 7
+  %.sroa.0.16.vec.insert.i1627 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1626, i16 %1918, i64 8
+  %.sroa.0.18.vec.insert.i1628 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1627, i16 %1919, i64 9
+  %.sroa.0.20.vec.insert.i1629 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1628, i16 %1920, i64 10
+  %.sroa.0.22.vec.insert.i1630 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1629, i16 %1921, i64 11
+  %.sroa.0.24.vec.insert.i1631 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1630, i16 %1922, i64 12
+  %.sroa.0.26.vec.insert.i1632 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1631, i16 %1923, i64 13
+  %.sroa.0.28.vec.insert.i1633 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1632, i16 %1924, i64 14
   %.sroa.03013.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1633, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit339
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit339: ; preds = %1843, %1892
-  %.sroa.0.i326.sroa.0.0 = phi <15 x i16> [ %.sroa.03003.0.vec.extract, %1843 ], [ %.sroa.03013.0.vec.extract, %1892 ]
-  %.sroa.9.0.i337 = phi i16 [ %1891, %1843 ], [ %1940, %1892 ]
-  store <15 x i16> %.sroa.0.i326.sroa.0.0, ptr %1817, align 2, !noalias !367
-  store i16 %.sroa.9.0.i337, ptr %1826, align 2, !noalias !367
-  %1941 = shl nuw nsw i64 %49, 16
-  %1942 = or disjoint i64 %1811, %1941
-  %1943 = or i64 %1942, %4
-  %1944 = add i64 %1943, 65536
-  %1945 = icmp ult i64 %1944, %.val2373
-  br i1 %1945, label %1947, label %2076, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit339: ; preds = %1828, %1877
+  %.sroa.0.i326.sroa.0.0 = phi <15 x i16> [ %.sroa.03003.0.vec.extract, %1828 ], [ %.sroa.03013.0.vec.extract, %1877 ]
+  %.sroa.9.0.i337 = phi i16 [ %1876, %1828 ], [ %1925, %1877 ]
+  store <15 x i16> %.sroa.0.i326.sroa.0.0, ptr %1803, align 2, !noalias !367
+  store i16 %.sroa.9.0.i337, ptr %1811, align 2, !noalias !367
+  %1926 = shl nuw nsw i64 %49, 16
+  %1927 = or disjoint i64 %1797, %1926
+  %1928 = or i64 %1927, %4
+  %1929 = add i64 %1928, 65536
+  %1930 = icmp ult i64 %1929, %.val2373
+  br i1 %1930, label %1932, label %2060, !prof !278
 
-1946:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit324
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1813, i64 noundef %.val2373, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+1931:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit324
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1799, i64 noundef %.val2373, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-1947:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit339
-  %1948 = getelementptr inbounds [0 x { [16 x i16] }], ptr %.val2372, i64 0, i64 %1944
-  %1949 = getelementptr inbounds nuw [0 x i16], ptr %1948, i64 0, i64 %195
-  %1950 = load i16, ptr %1949, align 2, !noalias !370, !noundef !12
-  br i1 %198, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit129, label %1951
+1932:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit339
+  %1933 = getelementptr inbounds { [16 x i16] }, ptr %.val2372, i64 %1929
+  %1934 = getelementptr inbounds nuw i16, ptr %1933, i64 %194
+  %1935 = load i16, ptr %1934, align 2, !noalias !370, !noundef !12
+  br i1 %197, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit129, label %1936
 
-1951:                                             ; preds = %1947
-  %1952 = add nsw i64 %195, -1
-  %1953 = getelementptr inbounds nuw [0 x i16], ptr %1948, i64 0, i64 %1952
-  %1954 = load i16, ptr %1953, align 2, !noalias !370, !noundef !12
-  %1955 = sub i16 %1950, %1954
+1936:                                             ; preds = %1932
+  %1937 = getelementptr i8, ptr %1934, i64 -2
+  %1938 = load i16, ptr %1937, align 2, !noalias !370, !noundef !12
+  %1939 = sub i16 %1935, %1938
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit129
 
-_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit129: ; preds = %1947, %1951
-  %.0.i128 = phi i16 [ %1950, %1947 ], [ %1955, %1951 ]
-  %1956 = zext i16 %.0.i128 to i64
-  %1957 = getelementptr inbounds nuw i8, ptr %1948, i64 30
-  %1958 = load i16, ptr %1957, align 2, !noalias !370, !noundef !12
-  %1959 = zext i16 %1958 to i64
-  %1960 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1959
-  %1961 = load float, ptr %1960, align 4, !noalias !370, !noundef !12
-  %1962 = getelementptr inbounds nuw [65536 x float], ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 0, i64 %1956
-  %1963 = load float, ptr %1962, align 4, !noalias !370, !noundef !12
-  %.sroa.0.i341.sroa.0.0.copyload = load <15 x i16>, ptr %1948, align 2, !noalias !373
+_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit129: ; preds = %1932, %1936
+  %.0.i128 = phi i16 [ %1935, %1932 ], [ %1939, %1936 ]
+  %1940 = zext i16 %.0.i128 to i64
+  %1941 = getelementptr inbounds nuw i8, ptr %1933, i64 30
+  %1942 = load i16, ptr %1941, align 2, !noalias !370, !noundef !12
+  %1943 = zext i16 %1942 to i64
+  %1944 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1943
+  %1945 = load float, ptr %1944, align 4, !noalias !370, !noundef !12
+  %1946 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17h876792eb8b814017E, i64 %1940
+  %1947 = load float, ptr %1946, align 4, !noalias !370, !noundef !12
+  %.sroa.0.i341.sroa.0.0.copyload = load <15 x i16>, ptr %1933, align 2, !noalias !373
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !373
-  br label %1964
+  br label %1948
 
-1964:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit129, %1964
-  %1965 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit129 ], [ %1967, %1964 ]
-  %1966 = getelementptr inbounds nuw [16 x i16], ptr %8, i64 0, i64 %1965
-  store i16 %886, ptr %1966, align 2, !noalias !373
-  %1967 = add nuw nsw i64 %1965, 1
-  %exitcond3358.not = icmp eq i64 %1967, 16
-  br i1 %exitcond3358.not, label %1968, label %1964
+1948:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit129, %1948
+  %1949 = phi i64 [ 0, %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit129 ], [ %1951, %1948 ]
+  %1950 = getelementptr inbounds nuw i16, ptr %8, i64 %1949
+  store i16 %878, ptr %1950, align 2, !noalias !373
+  %1951 = add nuw nsw i64 %1949, 1
+  %exitcond3358.not = icmp eq i64 %1951, 16
+  br i1 %exitcond3358.not, label %1952, label %1948
 
-1968:                                             ; preds = %1964
-  %1969 = load <16 x i16>, ptr %8, align 2, !noalias !373
+1952:                                             ; preds = %1948
+  %1953 = load <16 x i16>, ptr %8, align 2, !noalias !373
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !373
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !373
-  br label %1970
+  br label %1954
 
-1970:                                             ; preds = %1968, %1970
-  %1971 = phi i64 [ 0, %1968 ], [ %1973, %1970 ]
-  %1972 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %1971
-  store i16 %221, ptr %1972, align 2, !noalias !373
-  %1973 = add nuw nsw i64 %1971, 1
-  %exitcond3359.not = icmp eq i64 %1973, 16
-  br i1 %exitcond3359.not, label %1974, label %1970
+1954:                                             ; preds = %1952, %1954
+  %1955 = phi i64 [ 0, %1952 ], [ %1957, %1954 ]
+  %1956 = getelementptr inbounds nuw i16, ptr %7, i64 %1955
+  store i16 %219, ptr %1956, align 2, !noalias !373
+  %1957 = add nuw nsw i64 %1955, 1
+  %exitcond3359.not = icmp eq i64 %1957, 16
+  br i1 %exitcond3359.not, label %1958, label %1954
 
-1974:                                             ; preds = %1970
-  %1975 = fsub float %1961, %1963
-  %1976 = load <16 x i16>, ptr %7, align 2, !noalias !373
+1958:                                             ; preds = %1954
+  %1959 = fsub float %1945, %1947
+  %1960 = load <16 x i16>, ptr %7, align 2, !noalias !373
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !373
-  %.sroa.03041.0.vec.extract = extractelement <16 x i16> %1976, i64 0
-  %.sroa.03041.2.vec.extract = extractelement <16 x i16> %1976, i64 1
-  %1977 = icmp slt i16 %.sroa.03041.2.vec.extract, 2
-  %.sroa.03041.4.vec.extract = extractelement <16 x i16> %1976, i64 2
-  %1978 = icmp slt i16 %.sroa.03041.4.vec.extract, 3
-  %.sroa.03041.6.vec.extract = extractelement <16 x i16> %1976, i64 3
-  %1979 = icmp slt i16 %.sroa.03041.6.vec.extract, 4
-  %.sroa.03041.8.vec.extract = extractelement <16 x i16> %1976, i64 4
-  %1980 = icmp slt i16 %.sroa.03041.8.vec.extract, 5
-  %.sroa.03041.10.vec.extract = extractelement <16 x i16> %1976, i64 5
-  %1981 = icmp slt i16 %.sroa.03041.10.vec.extract, 6
-  %.sroa.03041.12.vec.extract = extractelement <16 x i16> %1976, i64 6
-  %1982 = icmp slt i16 %.sroa.03041.12.vec.extract, 7
-  %.sroa.03041.14.vec.extract = extractelement <16 x i16> %1976, i64 7
-  %1983 = icmp slt i16 %.sroa.03041.14.vec.extract, 8
-  %.sroa.03041.16.vec.extract = extractelement <16 x i16> %1976, i64 8
-  %1984 = icmp slt i16 %.sroa.03041.16.vec.extract, 9
-  %.sroa.03041.18.vec.extract = extractelement <16 x i16> %1976, i64 9
-  %1985 = icmp slt i16 %.sroa.03041.18.vec.extract, 10
-  %.sroa.03041.20.vec.extract = extractelement <16 x i16> %1976, i64 10
-  %1986 = icmp slt i16 %.sroa.03041.20.vec.extract, 11
-  %.sroa.03041.22.vec.extract = extractelement <16 x i16> %1976, i64 11
-  %1987 = icmp slt i16 %.sroa.03041.22.vec.extract, 12
-  %.sroa.03041.24.vec.extract = extractelement <16 x i16> %1976, i64 12
-  %1988 = icmp slt i16 %.sroa.03041.24.vec.extract, 13
-  %.sroa.03041.26.vec.extract = extractelement <16 x i16> %1976, i64 13
-  %1989 = icmp slt i16 %.sroa.03041.26.vec.extract, 14
-  %.sroa.03041.28.vec.extract = extractelement <16 x i16> %1976, i64 14
-  %1990 = icmp slt i16 %.sroa.03041.28.vec.extract, 15
-  %.sroa.03041.30.vec.extract = extractelement <16 x i16> %1976, i64 15
-  %1991 = icmp slt i16 %.sroa.03041.30.vec.extract, 16
-  %.sroa.03022.0.vec.extract = extractelement <16 x i16> %1969, i64 0
+  %.sroa.03041.0.vec.extract = extractelement <16 x i16> %1960, i64 0
+  %.sroa.03041.2.vec.extract = extractelement <16 x i16> %1960, i64 1
+  %1961 = icmp slt i16 %.sroa.03041.2.vec.extract, 2
+  %.sroa.03041.4.vec.extract = extractelement <16 x i16> %1960, i64 2
+  %1962 = icmp slt i16 %.sroa.03041.4.vec.extract, 3
+  %.sroa.03041.6.vec.extract = extractelement <16 x i16> %1960, i64 3
+  %1963 = icmp slt i16 %.sroa.03041.6.vec.extract, 4
+  %.sroa.03041.8.vec.extract = extractelement <16 x i16> %1960, i64 4
+  %1964 = icmp slt i16 %.sroa.03041.8.vec.extract, 5
+  %.sroa.03041.10.vec.extract = extractelement <16 x i16> %1960, i64 5
+  %1965 = icmp slt i16 %.sroa.03041.10.vec.extract, 6
+  %.sroa.03041.12.vec.extract = extractelement <16 x i16> %1960, i64 6
+  %1966 = icmp slt i16 %.sroa.03041.12.vec.extract, 7
+  %.sroa.03041.14.vec.extract = extractelement <16 x i16> %1960, i64 7
+  %1967 = icmp slt i16 %.sroa.03041.14.vec.extract, 8
+  %.sroa.03041.16.vec.extract = extractelement <16 x i16> %1960, i64 8
+  %1968 = icmp slt i16 %.sroa.03041.16.vec.extract, 9
+  %.sroa.03041.18.vec.extract = extractelement <16 x i16> %1960, i64 9
+  %1969 = icmp slt i16 %.sroa.03041.18.vec.extract, 10
+  %.sroa.03041.20.vec.extract = extractelement <16 x i16> %1960, i64 10
+  %1970 = icmp slt i16 %.sroa.03041.20.vec.extract, 11
+  %.sroa.03041.22.vec.extract = extractelement <16 x i16> %1960, i64 11
+  %1971 = icmp slt i16 %.sroa.03041.22.vec.extract, 12
+  %.sroa.03041.24.vec.extract = extractelement <16 x i16> %1960, i64 12
+  %1972 = icmp slt i16 %.sroa.03041.24.vec.extract, 13
+  %.sroa.03041.26.vec.extract = extractelement <16 x i16> %1960, i64 13
+  %1973 = icmp slt i16 %.sroa.03041.26.vec.extract, 14
+  %.sroa.03041.28.vec.extract = extractelement <16 x i16> %1960, i64 14
+  %1974 = icmp slt i16 %.sroa.03041.28.vec.extract, 15
+  %.sroa.03041.30.vec.extract = extractelement <16 x i16> %1960, i64 15
+  %1975 = icmp slt i16 %.sroa.03041.30.vec.extract, 16
+  %.sroa.03022.0.vec.extract = extractelement <16 x i16> %1953, i64 0
   %.inv3330 = icmp sgt i16 %.sroa.03041.0.vec.extract, 0
-  %1992 = select i1 %.inv3330, i16 0, i16 %.sroa.03022.0.vec.extract
-  %.sroa.03022.2.vec.extract = extractelement <16 x i16> %1969, i64 1
-  %1993 = select i1 %1977, i16 %.sroa.03022.2.vec.extract, i16 0
-  %.sroa.03022.4.vec.extract = extractelement <16 x i16> %1969, i64 2
-  %1994 = select i1 %1978, i16 %.sroa.03022.4.vec.extract, i16 0
-  %.sroa.03022.6.vec.extract = extractelement <16 x i16> %1969, i64 3
-  %1995 = select i1 %1979, i16 %.sroa.03022.6.vec.extract, i16 0
-  %.sroa.03022.8.vec.extract = extractelement <16 x i16> %1969, i64 4
-  %1996 = select i1 %1980, i16 %.sroa.03022.8.vec.extract, i16 0
-  %.sroa.03022.10.vec.extract = extractelement <16 x i16> %1969, i64 5
-  %1997 = select i1 %1981, i16 %.sroa.03022.10.vec.extract, i16 0
-  %.sroa.03022.12.vec.extract = extractelement <16 x i16> %1969, i64 6
-  %1998 = select i1 %1982, i16 %.sroa.03022.12.vec.extract, i16 0
-  %.sroa.03022.14.vec.extract = extractelement <16 x i16> %1969, i64 7
-  %1999 = select i1 %1983, i16 %.sroa.03022.14.vec.extract, i16 0
-  %.sroa.03022.16.vec.extract = extractelement <16 x i16> %1969, i64 8
-  %2000 = select i1 %1984, i16 %.sroa.03022.16.vec.extract, i16 0
-  %.sroa.03022.18.vec.extract = extractelement <16 x i16> %1969, i64 9
-  %2001 = select i1 %1985, i16 %.sroa.03022.18.vec.extract, i16 0
-  %.sroa.03022.20.vec.extract = extractelement <16 x i16> %1969, i64 10
-  %2002 = select i1 %1986, i16 %.sroa.03022.20.vec.extract, i16 0
-  %.sroa.03022.22.vec.extract = extractelement <16 x i16> %1969, i64 11
-  %2003 = select i1 %1987, i16 %.sroa.03022.22.vec.extract, i16 0
-  %.sroa.03022.24.vec.extract = extractelement <16 x i16> %1969, i64 12
-  %2004 = select i1 %1988, i16 %.sroa.03022.24.vec.extract, i16 0
-  %.sroa.03022.26.vec.extract = extractelement <16 x i16> %1969, i64 13
-  %2005 = select i1 %1989, i16 %.sroa.03022.26.vec.extract, i16 0
-  %.sroa.03022.28.vec.extract = extractelement <16 x i16> %1969, i64 14
-  %2006 = select i1 %1990, i16 %.sroa.03022.28.vec.extract, i16 0
-  %.sroa.03022.30.vec.extract = extractelement <16 x i16> %1969, i64 15
-  %2007 = select i1 %1991, i16 %.sroa.03022.30.vec.extract, i16 0
+  %1976 = select i1 %.inv3330, i16 0, i16 %.sroa.03022.0.vec.extract
+  %.sroa.03022.2.vec.extract = extractelement <16 x i16> %1953, i64 1
+  %1977 = select i1 %1961, i16 %.sroa.03022.2.vec.extract, i16 0
+  %.sroa.03022.4.vec.extract = extractelement <16 x i16> %1953, i64 2
+  %1978 = select i1 %1962, i16 %.sroa.03022.4.vec.extract, i16 0
+  %.sroa.03022.6.vec.extract = extractelement <16 x i16> %1953, i64 3
+  %1979 = select i1 %1963, i16 %.sroa.03022.6.vec.extract, i16 0
+  %.sroa.03022.8.vec.extract = extractelement <16 x i16> %1953, i64 4
+  %1980 = select i1 %1964, i16 %.sroa.03022.8.vec.extract, i16 0
+  %.sroa.03022.10.vec.extract = extractelement <16 x i16> %1953, i64 5
+  %1981 = select i1 %1965, i16 %.sroa.03022.10.vec.extract, i16 0
+  %.sroa.03022.12.vec.extract = extractelement <16 x i16> %1953, i64 6
+  %1982 = select i1 %1966, i16 %.sroa.03022.12.vec.extract, i16 0
+  %.sroa.03022.14.vec.extract = extractelement <16 x i16> %1953, i64 7
+  %1983 = select i1 %1967, i16 %.sroa.03022.14.vec.extract, i16 0
+  %.sroa.03022.16.vec.extract = extractelement <16 x i16> %1953, i64 8
+  %1984 = select i1 %1968, i16 %.sroa.03022.16.vec.extract, i16 0
+  %.sroa.03022.18.vec.extract = extractelement <16 x i16> %1953, i64 9
+  %1985 = select i1 %1969, i16 %.sroa.03022.18.vec.extract, i16 0
+  %.sroa.03022.20.vec.extract = extractelement <16 x i16> %1953, i64 10
+  %1986 = select i1 %1970, i16 %.sroa.03022.20.vec.extract, i16 0
+  %.sroa.03022.22.vec.extract = extractelement <16 x i16> %1953, i64 11
+  %1987 = select i1 %1971, i16 %.sroa.03022.22.vec.extract, i16 0
+  %.sroa.03022.24.vec.extract = extractelement <16 x i16> %1953, i64 12
+  %1988 = select i1 %1972, i16 %.sroa.03022.24.vec.extract, i16 0
+  %.sroa.03022.26.vec.extract = extractelement <16 x i16> %1953, i64 13
+  %1989 = select i1 %1973, i16 %.sroa.03022.26.vec.extract, i16 0
+  %.sroa.03022.28.vec.extract = extractelement <16 x i16> %1953, i64 14
+  %1990 = select i1 %1974, i16 %.sroa.03022.28.vec.extract, i16 0
+  %.sroa.03022.30.vec.extract = extractelement <16 x i16> %1953, i64 15
+  %1991 = select i1 %1975, i16 %.sroa.03022.30.vec.extract, i16 0
   %.sroa.03048.0.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 0
-  %2008 = add i16 %1992, %.sroa.03048.0.vec.extract
+  %1992 = add i16 %1976, %.sroa.03048.0.vec.extract
   %.sroa.03048.2.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 1
-  %2009 = add i16 %1993, %.sroa.03048.2.vec.extract
+  %1993 = add i16 %1977, %.sroa.03048.2.vec.extract
   %.sroa.03048.4.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 2
-  %2010 = add i16 %1994, %.sroa.03048.4.vec.extract
+  %1994 = add i16 %1978, %.sroa.03048.4.vec.extract
   %.sroa.03048.6.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 3
-  %2011 = add i16 %1995, %.sroa.03048.6.vec.extract
+  %1995 = add i16 %1979, %.sroa.03048.6.vec.extract
   %.sroa.03048.8.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 4
-  %2012 = add i16 %1996, %.sroa.03048.8.vec.extract
+  %1996 = add i16 %1980, %.sroa.03048.8.vec.extract
   %.sroa.03048.10.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 5
-  %2013 = add i16 %1997, %.sroa.03048.10.vec.extract
+  %1997 = add i16 %1981, %.sroa.03048.10.vec.extract
   %.sroa.03048.12.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 6
-  %2014 = add i16 %1998, %.sroa.03048.12.vec.extract
+  %1998 = add i16 %1982, %.sroa.03048.12.vec.extract
   %.sroa.03048.14.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 7
-  %2015 = add i16 %1999, %.sroa.03048.14.vec.extract
+  %1999 = add i16 %1983, %.sroa.03048.14.vec.extract
   %.sroa.03048.16.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 8
-  %2016 = add i16 %2000, %.sroa.03048.16.vec.extract
+  %2000 = add i16 %1984, %.sroa.03048.16.vec.extract
   %.sroa.03048.18.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 9
-  %2017 = add i16 %2001, %.sroa.03048.18.vec.extract
+  %2001 = add i16 %1985, %.sroa.03048.18.vec.extract
   %.sroa.03048.20.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 10
-  %2018 = add i16 %2002, %.sroa.03048.20.vec.extract
+  %2002 = add i16 %1986, %.sroa.03048.20.vec.extract
   %.sroa.03048.22.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 11
-  %2019 = add i16 %2003, %.sroa.03048.22.vec.extract
+  %2003 = add i16 %1987, %.sroa.03048.22.vec.extract
   %.sroa.03048.24.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 12
-  %2020 = add i16 %2004, %.sroa.03048.24.vec.extract
+  %2004 = add i16 %1988, %.sroa.03048.24.vec.extract
   %.sroa.03048.26.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 13
-  %2021 = add i16 %2005, %.sroa.03048.26.vec.extract
+  %2005 = add i16 %1989, %.sroa.03048.26.vec.extract
   %.sroa.03048.28.vec.extract = extractelement <15 x i16> %.sroa.0.i341.sroa.0.0.copyload, i64 14
-  %2022 = add i16 %2006, %.sroa.03048.28.vec.extract
-  %2023 = add i16 %2007, %1958
-  %.sroa.0.0.vec.insert.i867 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %2008, i64 0
-  %.sroa.0.2.vec.insert.i868 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i867, i16 %2009, i64 1
-  %.sroa.0.4.vec.insert.i869 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i868, i16 %2010, i64 2
-  %.sroa.0.6.vec.insert.i870 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i869, i16 %2011, i64 3
-  %.sroa.0.8.vec.insert.i871 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i870, i16 %2012, i64 4
-  %.sroa.0.10.vec.insert.i872 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i871, i16 %2013, i64 5
-  %.sroa.0.12.vec.insert.i873 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i872, i16 %2014, i64 6
-  %.sroa.0.14.vec.insert.i874 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i873, i16 %2015, i64 7
-  %.sroa.0.16.vec.insert.i875 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i874, i16 %2016, i64 8
-  %.sroa.0.18.vec.insert.i876 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i875, i16 %2017, i64 9
-  %.sroa.0.20.vec.insert.i877 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i876, i16 %2018, i64 10
-  %.sroa.0.22.vec.insert.i878 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i877, i16 %2019, i64 11
-  %.sroa.0.24.vec.insert.i879 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i878, i16 %2020, i64 12
-  %.sroa.0.26.vec.insert.i880 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i879, i16 %2021, i64 13
-  %.sroa.0.28.vec.insert.i881 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i880, i16 %2022, i64 14
+  %2006 = add i16 %1990, %.sroa.03048.28.vec.extract
+  %2007 = add i16 %1991, %1942
+  %.sroa.0.0.vec.insert.i867 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %1992, i64 0
+  %.sroa.0.2.vec.insert.i868 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i867, i16 %1993, i64 1
+  %.sroa.0.4.vec.insert.i869 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i868, i16 %1994, i64 2
+  %.sroa.0.6.vec.insert.i870 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i869, i16 %1995, i64 3
+  %.sroa.0.8.vec.insert.i871 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i870, i16 %1996, i64 4
+  %.sroa.0.10.vec.insert.i872 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i871, i16 %1997, i64 5
+  %.sroa.0.12.vec.insert.i873 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i872, i16 %1998, i64 6
+  %.sroa.0.14.vec.insert.i874 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i873, i16 %1999, i64 7
+  %.sroa.0.16.vec.insert.i875 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i874, i16 %2000, i64 8
+  %.sroa.0.18.vec.insert.i876 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i875, i16 %2001, i64 9
+  %.sroa.0.20.vec.insert.i877 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i876, i16 %2002, i64 10
+  %.sroa.0.22.vec.insert.i878 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i877, i16 %2003, i64 11
+  %.sroa.0.24.vec.insert.i879 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i878, i16 %2004, i64 12
+  %.sroa.0.26.vec.insert.i880 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i879, i16 %2005, i64 13
+  %.sroa.0.28.vec.insert.i881 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i880, i16 %2006, i64 14
   %.sroa.03042.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i881, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %.not.i347 = icmp slt i16 %2023, %888
-  br i1 %.not.i347, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit354, label %2024
+  %.not.i347 = icmp slt i16 %2007, %880
+  br i1 %.not.i347, label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit354, label %2008
 
-2024:                                             ; preds = %1974
-  %2025 = add i16 %2008, 1
-  %2026 = add i16 %2009, 2
-  %2027 = add i16 %2010, 3
-  %2028 = add i16 %2011, 4
-  %2029 = add i16 %2012, 5
-  %2030 = add i16 %2013, 6
-  %2031 = add i16 %2014, 7
-  %2032 = add i16 %2015, 8
-  %2033 = add i16 %2016, 9
-  %2034 = add i16 %2017, 10
-  %2035 = add i16 %2018, 11
-  %2036 = add i16 %2019, 12
-  %2037 = add i16 %2020, 13
-  %2038 = add i16 %2021, 14
-  %2039 = add i16 %2022, 15
-  %2040 = add i16 %2023, 16
-  %2041 = ashr i16 %2039, 2
-  %2042 = ashr i16 %2038, 2
-  %2043 = ashr i16 %2037, 2
-  %2044 = ashr i16 %2036, 2
-  %2045 = ashr i16 %2035, 2
-  %2046 = ashr i16 %2034, 2
-  %2047 = ashr i16 %2033, 2
-  %2048 = ashr i16 %2032, 2
-  %2049 = ashr i16 %2031, 2
-  %2050 = ashr i16 %2030, 2
-  %2051 = ashr i16 %2029, 2
-  %2052 = ashr i16 %2028, 2
-  %2053 = ashr i16 %2027, 2
-  %2054 = ashr i16 %2026, 2
-  %2055 = ashr i16 %2025, 2
-  %2056 = ashr i16 %2040, 2
-  %2057 = sub i16 %2025, %2055
-  %2058 = sub i16 %2026, %2054
-  %2059 = sub i16 %2027, %2053
-  %2060 = sub i16 %2028, %2052
-  %2061 = sub i16 %2029, %2051
-  %2062 = sub i16 %2030, %2050
-  %2063 = sub i16 %2031, %2049
-  %2064 = sub i16 %2032, %2048
-  %2065 = sub i16 %2033, %2047
-  %2066 = sub i16 %2034, %2046
-  %2067 = sub i16 %2035, %2045
-  %2068 = sub i16 %2036, %2044
-  %2069 = sub i16 %2037, %2043
-  %2070 = sub i16 %2038, %2042
-  %2071 = sub i16 %2039, %2041
-  %2072 = sub i16 %2040, %2056
-  %.sroa.0.0.vec.insert.i1603 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %2057, i64 0
-  %.sroa.0.2.vec.insert.i1604 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1603, i16 %2058, i64 1
-  %.sroa.0.4.vec.insert.i1605 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1604, i16 %2059, i64 2
-  %.sroa.0.6.vec.insert.i1606 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1605, i16 %2060, i64 3
-  %.sroa.0.8.vec.insert.i1607 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1606, i16 %2061, i64 4
-  %.sroa.0.10.vec.insert.i1608 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1607, i16 %2062, i64 5
-  %.sroa.0.12.vec.insert.i1609 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1608, i16 %2063, i64 6
-  %.sroa.0.14.vec.insert.i1610 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1609, i16 %2064, i64 7
-  %.sroa.0.16.vec.insert.i1611 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1610, i16 %2065, i64 8
-  %.sroa.0.18.vec.insert.i1612 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1611, i16 %2066, i64 9
-  %.sroa.0.20.vec.insert.i1613 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1612, i16 %2067, i64 10
-  %.sroa.0.22.vec.insert.i1614 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1613, i16 %2068, i64 11
-  %.sroa.0.24.vec.insert.i1615 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1614, i16 %2069, i64 12
-  %.sroa.0.26.vec.insert.i1616 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1615, i16 %2070, i64 13
-  %.sroa.0.28.vec.insert.i1617 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1616, i16 %2071, i64 14
+2008:                                             ; preds = %1958
+  %2009 = add i16 %1992, 1
+  %2010 = add i16 %1993, 2
+  %2011 = add i16 %1994, 3
+  %2012 = add i16 %1995, 4
+  %2013 = add i16 %1996, 5
+  %2014 = add i16 %1997, 6
+  %2015 = add i16 %1998, 7
+  %2016 = add i16 %1999, 8
+  %2017 = add i16 %2000, 9
+  %2018 = add i16 %2001, 10
+  %2019 = add i16 %2002, 11
+  %2020 = add i16 %2003, 12
+  %2021 = add i16 %2004, 13
+  %2022 = add i16 %2005, 14
+  %2023 = add i16 %2006, 15
+  %2024 = add i16 %2007, 16
+  %2025 = ashr i16 %2023, 2
+  %2026 = ashr i16 %2022, 2
+  %2027 = ashr i16 %2021, 2
+  %2028 = ashr i16 %2020, 2
+  %2029 = ashr i16 %2019, 2
+  %2030 = ashr i16 %2018, 2
+  %2031 = ashr i16 %2017, 2
+  %2032 = ashr i16 %2016, 2
+  %2033 = ashr i16 %2015, 2
+  %2034 = ashr i16 %2014, 2
+  %2035 = ashr i16 %2013, 2
+  %2036 = ashr i16 %2012, 2
+  %2037 = ashr i16 %2011, 2
+  %2038 = ashr i16 %2010, 2
+  %2039 = ashr i16 %2009, 2
+  %2040 = ashr i16 %2024, 2
+  %2041 = sub i16 %2009, %2039
+  %2042 = sub i16 %2010, %2038
+  %2043 = sub i16 %2011, %2037
+  %2044 = sub i16 %2012, %2036
+  %2045 = sub i16 %2013, %2035
+  %2046 = sub i16 %2014, %2034
+  %2047 = sub i16 %2015, %2033
+  %2048 = sub i16 %2016, %2032
+  %2049 = sub i16 %2017, %2031
+  %2050 = sub i16 %2018, %2030
+  %2051 = sub i16 %2019, %2029
+  %2052 = sub i16 %2020, %2028
+  %2053 = sub i16 %2021, %2027
+  %2054 = sub i16 %2022, %2026
+  %2055 = sub i16 %2023, %2025
+  %2056 = sub i16 %2024, %2040
+  %.sroa.0.0.vec.insert.i1603 = insertelement <16 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef, i16 undef>, i16 %2041, i64 0
+  %.sroa.0.2.vec.insert.i1604 = insertelement <16 x i16> %.sroa.0.0.vec.insert.i1603, i16 %2042, i64 1
+  %.sroa.0.4.vec.insert.i1605 = insertelement <16 x i16> %.sroa.0.2.vec.insert.i1604, i16 %2043, i64 2
+  %.sroa.0.6.vec.insert.i1606 = insertelement <16 x i16> %.sroa.0.4.vec.insert.i1605, i16 %2044, i64 3
+  %.sroa.0.8.vec.insert.i1607 = insertelement <16 x i16> %.sroa.0.6.vec.insert.i1606, i16 %2045, i64 4
+  %.sroa.0.10.vec.insert.i1608 = insertelement <16 x i16> %.sroa.0.8.vec.insert.i1607, i16 %2046, i64 5
+  %.sroa.0.12.vec.insert.i1609 = insertelement <16 x i16> %.sroa.0.10.vec.insert.i1608, i16 %2047, i64 6
+  %.sroa.0.14.vec.insert.i1610 = insertelement <16 x i16> %.sroa.0.12.vec.insert.i1609, i16 %2048, i64 7
+  %.sroa.0.16.vec.insert.i1611 = insertelement <16 x i16> %.sroa.0.14.vec.insert.i1610, i16 %2049, i64 8
+  %.sroa.0.18.vec.insert.i1612 = insertelement <16 x i16> %.sroa.0.16.vec.insert.i1611, i16 %2050, i64 9
+  %.sroa.0.20.vec.insert.i1613 = insertelement <16 x i16> %.sroa.0.18.vec.insert.i1612, i16 %2051, i64 10
+  %.sroa.0.22.vec.insert.i1614 = insertelement <16 x i16> %.sroa.0.20.vec.insert.i1613, i16 %2052, i64 11
+  %.sroa.0.24.vec.insert.i1615 = insertelement <16 x i16> %.sroa.0.22.vec.insert.i1614, i16 %2053, i64 12
+  %.sroa.0.26.vec.insert.i1616 = insertelement <16 x i16> %.sroa.0.24.vec.insert.i1615, i16 %2054, i64 13
+  %.sroa.0.28.vec.insert.i1617 = insertelement <16 x i16> %.sroa.0.26.vec.insert.i1616, i16 %2055, i64 14
   %.sroa.03052.0.vec.extract = shufflevector <16 x i16> %.sroa.0.28.vec.insert.i1617, <16 x i16> poison, <15 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
   br label %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit354
 
-_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit354: ; preds = %1974, %2024
-  %.sroa.0.i341.sroa.0.0 = phi <15 x i16> [ %.sroa.03042.0.vec.extract, %1974 ], [ %.sroa.03052.0.vec.extract, %2024 ]
-  %.sroa.9.0.i352 = phi i16 [ %2023, %1974 ], [ %2072, %2024 ]
-  store <15 x i16> %.sroa.0.i341.sroa.0.0, ptr %1948, align 2, !noalias !373
-  store i16 %.sroa.9.0.i352, ptr %1957, align 2, !noalias !373
-  %2073 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %.val2404 = load ptr, ptr %2073, align 8, !nonnull !12, !align !268, !noundef !12
-  %2074 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %.val2405 = load i64, ptr %2074, align 8, !noundef !12
-  %2075 = icmp ult i64 %51, %.val2405
-  br i1 %2075, label %2077, label %2103, !prof !278
+_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit354: ; preds = %1958, %2008
+  %.sroa.0.i341.sroa.0.0 = phi <15 x i16> [ %.sroa.03042.0.vec.extract, %1958 ], [ %.sroa.03052.0.vec.extract, %2008 ]
+  %.sroa.9.0.i352 = phi i16 [ %2007, %1958 ], [ %2056, %2008 ]
+  store <15 x i16> %.sroa.0.i341.sroa.0.0, ptr %1933, align 2, !noalias !373
+  store i16 %.sroa.9.0.i352, ptr %1941, align 2, !noalias !373
+  %2057 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %.val2404 = load ptr, ptr %2057, align 8, !nonnull !12, !align !268, !noundef !12
+  %2058 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %.val2405 = load i64, ptr %2058, align 8, !noundef !12
+  %2059 = icmp ult i64 %51, %.val2405
+  br i1 %2059, label %2061, label %2087, !prof !278
 
-2076:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit339
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1944, i64 noundef %.val2373, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
+2060:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit339
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1929, i64 noundef %.val2373, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.38) #21
   unreachable
 
-2077:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit354
-  %2078 = getelementptr inbounds [0 x { [8 x float] }], ptr %.val2404, i64 0, i64 %51
-  %2079 = load float, ptr %2078, align 4, !noundef !12
-  %2080 = fadd float %227, %2079
-  store float %2080, ptr %2078, align 4
-  %2081 = getelementptr inbounds nuw i8, ptr %2078, i64 4
-  %2082 = load float, ptr %2081, align 4, !noundef !12
-  %2083 = fadd float %1975, %2082
-  store float %2083, ptr %2081, align 4
-  %2084 = getelementptr inbounds nuw i8, ptr %2078, i64 8
-  %2085 = load float, ptr %2084, align 4, !noundef !12
-  %2086 = fadd float %414, %2085
-  store float %2086, ptr %2084, align 4
-  %2087 = getelementptr inbounds nuw i8, ptr %2078, i64 12
-  %2088 = load float, ptr %2087, align 4, !noundef !12
-  %2089 = fadd float %623, %2088
-  store float %2089, ptr %2087, align 4
-  %2090 = getelementptr inbounds nuw i8, ptr %2078, i64 16
-  %2091 = load float, ptr %2090, align 4, !noundef !12
-  %2092 = fadd float %900, %2091
-  store float %2092, ptr %2090, align 4
-  %2093 = getelementptr inbounds nuw i8, ptr %2078, i64 20
-  %2094 = load float, ptr %2093, align 4, !noundef !12
-  %2095 = fadd float %1170, %2094
-  store float %2095, ptr %2093, align 4
-  %2096 = getelementptr inbounds nuw i8, ptr %2078, i64 24
-  %2097 = load float, ptr %2096, align 4, !noundef !12
-  %2098 = fadd float %1440, %2097
-  store float %2098, ptr %2096, align 4
-  %2099 = getelementptr inbounds nuw i8, ptr %2078, i64 28
-  %2100 = load float, ptr %2099, align 4, !noundef !12
-  %2101 = fadd float %1710, %2100
-  store float %2101, ptr %2099, align 4
-  %2102 = icmp ult i64 %46, %.val2405
-  br i1 %2102, label %2104, label %2137, !prof !278
+2061:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit354
+  %2062 = getelementptr inbounds { [8 x float] }, ptr %.val2404, i64 %51
+  %2063 = load float, ptr %2062, align 4, !noundef !12
+  %2064 = fadd float %225, %2063
+  store float %2064, ptr %2062, align 4
+  %2065 = getelementptr inbounds nuw i8, ptr %2062, i64 4
+  %2066 = load float, ptr %2065, align 4, !noundef !12
+  %2067 = fadd float %1959, %2066
+  store float %2067, ptr %2065, align 4
+  %2068 = getelementptr inbounds nuw i8, ptr %2062, i64 8
+  %2069 = load float, ptr %2068, align 4, !noundef !12
+  %2070 = fadd float %410, %2069
+  store float %2070, ptr %2068, align 4
+  %2071 = getelementptr inbounds nuw i8, ptr %2062, i64 12
+  %2072 = load float, ptr %2071, align 4, !noundef !12
+  %2073 = fadd float %617, %2072
+  store float %2073, ptr %2071, align 4
+  %2074 = getelementptr inbounds nuw i8, ptr %2062, i64 16
+  %2075 = load float, ptr %2074, align 4, !noundef !12
+  %2076 = fadd float %892, %2075
+  store float %2076, ptr %2074, align 4
+  %2077 = getelementptr inbounds nuw i8, ptr %2062, i64 20
+  %2078 = load float, ptr %2077, align 4, !noundef !12
+  %2079 = fadd float %1160, %2078
+  store float %2079, ptr %2077, align 4
+  %2080 = getelementptr inbounds nuw i8, ptr %2062, i64 24
+  %2081 = load float, ptr %2080, align 4, !noundef !12
+  %2082 = fadd float %1428, %2081
+  store float %2082, ptr %2080, align 4
+  %2083 = getelementptr inbounds nuw i8, ptr %2062, i64 28
+  %2084 = load float, ptr %2083, align 4, !noundef !12
+  %2085 = fadd float %1696, %2084
+  store float %2085, ptr %2083, align 4
+  %2086 = icmp ult i64 %46, %.val2405
+  br i1 %2086, label %2088, label %2121, !prof !278
 
-2103:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit354
+2087:                                             ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit354
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %51, i64 noundef %.val2405, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.47) #21
   unreachable
 
-2104:                                             ; preds = %2077
-  %2105 = fsub float %1830, %1832
-  %2106 = fsub float %1563, %1565
-  %2107 = fsub float %1293, %1295
-  %2108 = fsub float %1023, %1025
-  %2109 = fsub float %744, %746
-  %2110 = fsub float %484, %486
-  %2111 = fsub float %343, %345
-  %2112 = fsub float %71, %73
-  %2113 = getelementptr inbounds [0 x { [8 x float] }], ptr %.val2404, i64 0, i64 %46
-  %2114 = load float, ptr %2113, align 4, !noundef !12
-  %2115 = fadd float %2112, %2114
-  store float %2115, ptr %2113, align 4
-  %2116 = getelementptr inbounds nuw i8, ptr %2113, i64 4
-  %2117 = load float, ptr %2116, align 4, !noundef !12
-  %2118 = fadd float %2105, %2117
-  store float %2118, ptr %2116, align 4
-  %2119 = getelementptr inbounds nuw i8, ptr %2113, i64 8
-  %2120 = load float, ptr %2119, align 4, !noundef !12
-  %2121 = fadd float %2111, %2120
-  store float %2121, ptr %2119, align 4
-  %2122 = getelementptr inbounds nuw i8, ptr %2113, i64 12
-  %2123 = load float, ptr %2122, align 4, !noundef !12
-  %2124 = fadd float %2110, %2123
-  store float %2124, ptr %2122, align 4
-  %2125 = getelementptr inbounds nuw i8, ptr %2113, i64 16
-  %2126 = load float, ptr %2125, align 4, !noundef !12
-  %2127 = fadd float %2109, %2126
-  store float %2127, ptr %2125, align 4
-  %2128 = getelementptr inbounds nuw i8, ptr %2113, i64 20
-  %2129 = load float, ptr %2128, align 4, !noundef !12
-  %2130 = fadd float %2108, %2129
-  store float %2130, ptr %2128, align 4
-  %2131 = getelementptr inbounds nuw i8, ptr %2113, i64 24
-  %2132 = load float, ptr %2131, align 4, !noundef !12
-  %2133 = fadd float %2107, %2132
-  store float %2133, ptr %2131, align 4
-  %2134 = getelementptr inbounds nuw i8, ptr %2113, i64 28
-  %2135 = load float, ptr %2134, align 4, !noundef !12
-  %2136 = fadd float %2106, %2135
-  store float %2136, ptr %2134, align 4
+2088:                                             ; preds = %2061
+  %2089 = fsub float %1815, %1817
+  %2090 = fsub float %1550, %1552
+  %2091 = fsub float %1282, %1284
+  %2092 = fsub float %1014, %1016
+  %2093 = fsub float %737, %739
+  %2094 = fsub float %479, %481
+  %2095 = fsub float %340, %342
+  %2096 = fsub float %70, %72
+  %2097 = getelementptr inbounds { [8 x float] }, ptr %.val2404, i64 %46
+  %2098 = load float, ptr %2097, align 4, !noundef !12
+  %2099 = fadd float %2096, %2098
+  store float %2099, ptr %2097, align 4
+  %2100 = getelementptr inbounds nuw i8, ptr %2097, i64 4
+  %2101 = load float, ptr %2100, align 4, !noundef !12
+  %2102 = fadd float %2089, %2101
+  store float %2102, ptr %2100, align 4
+  %2103 = getelementptr inbounds nuw i8, ptr %2097, i64 8
+  %2104 = load float, ptr %2103, align 4, !noundef !12
+  %2105 = fadd float %2095, %2104
+  store float %2105, ptr %2103, align 4
+  %2106 = getelementptr inbounds nuw i8, ptr %2097, i64 12
+  %2107 = load float, ptr %2106, align 4, !noundef !12
+  %2108 = fadd float %2094, %2107
+  store float %2108, ptr %2106, align 4
+  %2109 = getelementptr inbounds nuw i8, ptr %2097, i64 16
+  %2110 = load float, ptr %2109, align 4, !noundef !12
+  %2111 = fadd float %2093, %2110
+  store float %2111, ptr %2109, align 4
+  %2112 = getelementptr inbounds nuw i8, ptr %2097, i64 20
+  %2113 = load float, ptr %2112, align 4, !noundef !12
+  %2114 = fadd float %2092, %2113
+  store float %2114, ptr %2112, align 4
+  %2115 = getelementptr inbounds nuw i8, ptr %2097, i64 24
+  %2116 = load float, ptr %2115, align 4, !noundef !12
+  %2117 = fadd float %2091, %2116
+  store float %2117, ptr %2115, align 4
+  %2118 = getelementptr inbounds nuw i8, ptr %2097, i64 28
+  %2119 = load float, ptr %2118, align 4, !noundef !12
+  %2120 = fadd float %2090, %2119
+  store float %2120, ptr %2118, align 4
   ret void
 
-2137:                                             ; preds = %2077
+2121:                                             ; preds = %2061
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %46, i64 noundef %.val2405, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.48) #21
   unreachable
 }
@@ -6543,7 +6527,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 5562
   %30 = load i8, ptr %29, align 2, !range !536, !noundef !12
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %704, label %32
+  br i1 %31, label %706, label %32
 
 32:                                               ; preds = %5
   br i1 %1, label %40, label %33
@@ -6556,7 +6540,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   %37 = zext nneg i32 %36 to i64
   %38 = shl nuw i64 1, %37
   %39 = icmp ugt i64 %24, %38
-  br i1 %39, label %704, label %41
+  br i1 %39, label %706, label %41
 
 40:                                               ; preds = %32
   store i8 1, ptr %29, align 2
@@ -6643,10 +6627,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   unreachable
 
 .thread:                                          ; preds = %79
-  %83 = getelementptr inbounds nuw [0 x i8], ptr %.val249, i64 0, i64 %77
+  %83 = getelementptr inbounds nuw i8, ptr %.val249, i64 %77
   %84 = load i8, ptr %83, align 1, !noundef !12
   %85 = zext i8 %84 to i16
-  %86 = getelementptr inbounds nuw [0 x i8], ptr %.val249, i64 0, i64 %80
+  %86 = getelementptr inbounds nuw i8, ptr %.val249, i64 %80
   %87 = load i8, ptr %86, align 1, !noundef !12
   %88 = zext i8 %87 to i16
   %89 = shl nuw i16 %88, 8
@@ -6745,10 +6729,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   unreachable
 
 134:                                              ; preds = %130
-  %135 = getelementptr inbounds nuw [0 x i8], ptr %.val245, i64 0, i64 %127
+  %135 = getelementptr inbounds nuw i8, ptr %.val245, i64 %127
   %136 = load i8, ptr %135, align 1, !noundef !12
   %137 = zext i8 %136 to i16
-  %138 = getelementptr inbounds nuw [0 x i8], ptr %.val245, i64 0, i64 %131
+  %138 = getelementptr inbounds nuw i8, ptr %.val245, i64 %131
   %139 = load i8, ptr %138, align 1, !noundef !12
   %140 = zext i8 %139 to i16
   %141 = shl nuw i16 %140, 8
@@ -6771,7 +6755,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   unreachable
 
 152:                                              ; preds = %134
-  %153 = getelementptr inbounds nuw [0 x i8], ptr %122, i64 0, i64 %149
+  %153 = getelementptr inbounds nuw i8, ptr %122, i64 %149
   %154 = load i8, ptr %153, align 1, !noundef !12
   store i8 %154, ptr %145, align 1
   %155 = icmp samesign ugt i64 %45, 1
@@ -6800,7 +6784,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   br i1 %155, label %.sink.split, label %171
 
 167:                                              ; preds = %157
-  %168 = getelementptr inbounds nuw [0 x i8], ptr %122, i64 0, i64 %159
+  %168 = getelementptr inbounds nuw i8, ptr %122, i64 %159
   %169 = load i8, ptr %168, align 1, !noundef !12
   store i8 %169, ptr %145, align 1
   br label %161
@@ -6924,8 +6908,8 @@ thread-pre-split293:                              ; preds = %"_ZN4core3ptr64drop
   %or.cond = icmp ult i32 %218, 2
   br i1 %or.cond, label %thread-pre-split293.thread, label %221
 
-common.resume:                                    ; preds = %597, %306, %705, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284"
-  %common.resume.op = phi { ptr, i32 } [ %706, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284" ], [ %706, %705 ], [ %307, %306 ], [ %598, %597 ]
+common.resume:                                    ; preds = %598, %306, %707, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284"
+  %common.resume.op = phi { ptr, i32 } [ %708, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284" ], [ %708, %707 ], [ %307, %306 ], [ %599, %598 ]
   resume { ptr, i32 } %common.resume.op
 
 thread-pre-split293.thread:                       ; preds = %192, %thread-pre-split293
@@ -7047,10 +7031,10 @@ thread-pre-split293.thread:                       ; preds = %192, %thread-pre-sp
   unreachable
 
 _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds = %278
-  %282 = getelementptr inbounds nuw [0 x i8], ptr %.val241, i64 0, i64 %266
+  %282 = getelementptr inbounds nuw i8, ptr %.val241, i64 %266
   %283 = load i8, ptr %282, align 1, !noundef !12
   %284 = zext i8 %283 to i16
-  %285 = getelementptr inbounds nuw [0 x i8], ptr %.val241, i64 0, i64 %279
+  %285 = getelementptr inbounds nuw i8, ptr %.val241, i64 %279
   %286 = load i8, ptr %285, align 1, !noundef !12
   %287 = zext i8 %286 to i16
   %288 = shl nuw i16 %287, 8
@@ -7156,7 +7140,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %332 = phi i64 [ %319, %327 ], [ %.val258, %330 ]
   %333 = phi ptr [ @anon.e9f42dff1fd369047582a93c3ee51670.71, %327 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.72, %330 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %328, i64 noundef %332, ptr noalias noundef readonly align 8 dereferenceable(24) %333) #21
-          to label %.cont unwind label %705
+          to label %.cont unwind label %707
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -7171,7 +7155,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %337 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %337, align 8
   %338 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hb9deea6d3d712364E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
-          to label %339 unwind label %705
+          to label %339 unwind label %707
 
 339:                                              ; preds = %334
   %340 = extractvalue { ptr, i64 } %338, 0
@@ -7323,7 +7307,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
 418:                                              ; preds = %386
   %419 = load i64, ptr %365, align 8, !noundef !12
   %.not201 = icmp eq i64 %419, 0
-  br i1 %.not201, label %450, label %448
+  br i1 %.not201, label %451, label %449
 
 420:                                              ; preds = %386
   %421 = load i64, ptr %22, align 8, !alias.scope !598, !noundef !12
@@ -7370,79 +7354,79 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit275: ; pre
   br label %.sink.split383
 
 switch.lookup:                                    ; preds = %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit275
-  %switch.tableidx = add nsw i64 %443, -1
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE.37, i64 0, i64 %switch.tableidx
+  %446 = getelementptr i64, ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE.37, i64 %443
+  %switch.gep = getelementptr i8, ptr %446, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
-  %447 = getelementptr inbounds nuw i8, ptr %446, i64 40
-  store i32 0, ptr %447, align 8
+  %447 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 40
+  store i32 0, ptr %448, align 8
   br label %445
 
-448:                                              ; preds = %418
+449:                                              ; preds = %418
   %.val262 = load i64, ptr %382, align 8, !noundef !12
-  %449 = icmp ult i64 %411, %.val262
-  br i1 %449, label %453, label %460, !prof !278
+  %450 = icmp ult i64 %411, %.val262
+  br i1 %450, label %454, label %461, !prof !278
 
-450:                                              ; preds = %418, %453
-  %451 = phi i64 [ %411, %418 ], [ %456, %453 ]
-  %452 = phi i64 [ %410, %418 ], [ %459, %453 ]
-  br i1 %1, label %thread-pre-split301, label %461
+451:                                              ; preds = %418, %454
+  %452 = phi i64 [ %411, %418 ], [ %457, %454 ]
+  %453 = phi i64 [ %410, %418 ], [ %460, %454 ]
+  br i1 %1, label %thread-pre-split301, label %462
 
-453:                                              ; preds = %448
+454:                                              ; preds = %449
   %.val261 = load ptr, ptr %381, align 8, !nonnull !12, !align !268, !noundef !12
-  %454 = getelementptr inbounds [0 x { i32, i32, i32, i16, i16 }], ptr %.val261, i64 0, i64 %411
-  call void @_ZN6brotli3enc6encode17InitInsertCommand17h19a94d9a4c7967ffE(ptr noalias noundef nonnull align 4 dereferenceable(16) %454, i64 noundef %419)
-  %455 = load i64, ptr %222, align 8, !noundef !12
-  %456 = add i64 %455, 1
-  store i64 %456, ptr %222, align 8
-  %457 = load i64, ptr %391, align 8, !noundef !12
-  %458 = load i64, ptr %365, align 8, !noundef !12
-  %459 = add i64 %458, %457
-  store i64 %459, ptr %391, align 8
+  %455 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val261, i64 %411
+  call void @_ZN6brotli3enc6encode17InitInsertCommand17h19a94d9a4c7967ffE(ptr noalias noundef nonnull align 4 dereferenceable(16) %455, i64 noundef %419)
+  %456 = load i64, ptr %222, align 8, !noundef !12
+  %457 = add i64 %456, 1
+  store i64 %457, ptr %222, align 8
+  %458 = load i64, ptr %391, align 8, !noundef !12
+  %459 = load i64, ptr %365, align 8, !noundef !12
+  %460 = add i64 %459, %458
+  store i64 %460, ptr %391, align 8
   store i64 0, ptr %365, align 8
-  br label %450
+  br label %451
 
-460:                                              ; preds = %448
+461:                                              ; preds = %449
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %411, i64 noundef %.val262, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.74) #21
   unreachable
 
-461:                                              ; preds = %450
-  %462 = load i64, ptr %20, align 8, !noundef !12
-  %463 = load i64, ptr %47, align 8, !noundef !12
-  %464 = icmp eq i64 %462, %463
-  br i1 %464, label %469, label %465
+462:                                              ; preds = %451
+  %463 = load i64, ptr %20, align 8, !noundef !12
+  %464 = load i64, ptr %47, align 8, !noundef !12
+  %465 = icmp eq i64 %463, %464
+  br i1 %465, label %470, label %466
 
-thread-pre-split301:                              ; preds = %450
+thread-pre-split301:                              ; preds = %451
   %.pr302 = load i64, ptr %47, align 8
-  br label %465
+  br label %466
 
-465:                                              ; preds = %thread-pre-split301, %461
-  %466 = phi i64 [ %.pr302, %thread-pre-split301 ], [ %463, %461 ]
+466:                                              ; preds = %thread-pre-split301, %462
+  %467 = phi i64 [ %.pr302, %thread-pre-split301 ], [ %464, %462 ]
   %.val208 = load i64, ptr %311, align 8, !noundef !12
-  %467 = load i64, ptr %312, align 8, !noundef !12
-  %468 = icmp ugt i64 %467, %.val208
-  br i1 %468, label %634, label %470
+  %468 = load i64, ptr %312, align 8, !noundef !12
+  %469 = icmp ugt i64 %468, %.val208
+  br i1 %469, label %635, label %471
 
-469:                                              ; preds = %461
+470:                                              ; preds = %462
   store i64 %.1112, ptr %3, align 8
   br label %.sink.split383
 
-470:                                              ; preds = %465
+471:                                              ; preds = %466
   %.val207 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
-  %471 = load i64, ptr %20, align 8, !noundef !12
-  %472 = sub i64 %471, %466
-  %473 = sub nuw i64 %.val208, %467
-  %474 = getelementptr inbounds i8, ptr %.val207, i64 %467
-  %475 = and i64 %472, 4294967295
-  %476 = getelementptr inbounds nuw i8, ptr %0, i64 5569
-  %477 = getelementptr inbounds nuw i8, ptr %0, i64 5567
-  %478 = load i8, ptr %477, align 1, !noundef !12
-  %479 = getelementptr inbounds nuw i8, ptr %0, i64 5568
-  %480 = load i8, ptr %479, align 8, !noundef !12
+  %472 = load i64, ptr %20, align 8, !noundef !12
+  %473 = sub i64 %472, %467
+  %474 = sub nuw i64 %.val208, %468
+  %475 = getelementptr inbounds i8, ptr %.val207, i64 %468
+  %476 = and i64 %473, 4294967295
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 5569
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 5567
+  %479 = load i8, ptr %478, align 1, !noundef !12
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 5568
+  %481 = load i8, ptr %480, align 8, !noundef !12
   %.val259 = load ptr, ptr %381, align 8, !nonnull !12, !align !268, !noundef !12
   %.val260 = load i64, ptr %382, align 8, !noundef !12
-  %481 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 5544
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 5544
   %.val = load ptr, ptr %53, align 8, !nonnull !12, !align !50, !noundef !12
   %.val206 = load i64, ptr %54, align 8, !noundef !12
   call void @llvm.experimental.noalias.scope.decl(metadata !601)
@@ -7450,460 +7434,460 @@ thread-pre-split301:                              ; preds = %450
   call void @llvm.experimental.noalias.scope.decl(metadata !606)
   call void @llvm.experimental.noalias.scope.decl(metadata !608)
   call void @llvm.experimental.noalias.scope.decl(metadata !610)
-  %483 = getelementptr inbounds nuw i8, ptr %0, i64 230
-  %484 = load i8, ptr %483, align 2, !range !536, !alias.scope !601, !noalias !612, !noundef !12
-  %485 = trunc nuw i8 %484 to i1
-  br i1 %485, label %491, label %486
+  %484 = getelementptr inbounds nuw i8, ptr %0, i64 230
+  %485 = load i8, ptr %484, align 2, !range !536, !alias.scope !601, !noalias !612, !noundef !12
+  %486 = trunc nuw i8 %485 to i1
+  br i1 %486, label %492, label %487
 
-486:                                              ; preds = %470
-  %487 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %488 = load i8, ptr %487, align 4, !range !536, !alias.scope !601, !noalias !612, !noundef !12
-  %489 = trunc nuw i8 %488 to i1
-  br i1 %489, label %490, label %491
+487:                                              ; preds = %471
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %489 = load i8, ptr %488, align 4, !range !536, !alias.scope !601, !noalias !612, !noundef !12
+  %490 = trunc nuw i8 %489 to i1
+  br i1 %490, label %491, label %492
 
-490:                                              ; preds = %486
+491:                                              ; preds = %487
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e9f42dff1fd369047582a93c3ee51670.132, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.133) #21, !noalias !621
   unreachable
 
-491:                                              ; preds = %486, %470
-  %.0.i276 = phi i1 [ %1, %486 ], [ false, %470 ]
-  %492 = trunc i64 %466 to i32
-  %493 = icmp ugt i64 %466, 3221225471
-  br i1 %493, label %551, label %494
+492:                                              ; preds = %487, %471
+  %.0.i276 = phi i1 [ %1, %487 ], [ false, %471 ]
+  %493 = trunc i64 %467 to i32
+  %494 = icmp ugt i64 %467, 3221225471
+  br i1 %494, label %552, label %495
 
-494:                                              ; preds = %551, %491
-  %.019.i = phi i32 [ %557, %551 ], [ %492, %491 ]
+495:                                              ; preds = %552, %492
+  %.019.i = phi i32 [ %558, %552 ], [ %493, %492 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !621
   call void @llvm.experimental.noalias.scope.decl(metadata !622)
   call void @llvm.experimental.noalias.scope.decl(metadata !625)
-  %495 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %496 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %497 = load i32, ptr %496, align 8, !range !627, !alias.scope !628, !noalias !629, !noundef !12
-  %498 = load i32, ptr %182, align 8, !alias.scope !628, !noalias !629, !noundef !12
-  %499 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %500 = load i8, ptr %499, align 8, !range !536, !alias.scope !628, !noalias !629, !noundef !12
-  %501 = load i32, ptr %392, align 4, !alias.scope !628, !noalias !629, !noundef !12
-  %502 = load i32, ptr %34, align 8, !alias.scope !628, !noalias !629, !noundef !12
-  %503 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %504 = load i64, ptr %503, align 8, !alias.scope !628, !noalias !629, !noundef !12
-  %505 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %506 = load i32, ptr %505, align 4, !alias.scope !628, !noalias !629, !noundef !12
-  %507 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %508 = getelementptr inbounds nuw i8, ptr %0, i64 225
-  %509 = load i8, ptr %508, align 1, !range !536, !alias.scope !628, !noalias !629, !noundef !12
-  %510 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %511 = load i8, ptr %510, align 4, !alias.scope !628, !noalias !629, !noundef !12
-  %512 = getelementptr inbounds nuw i8, ptr %0, i64 221
-  %513 = load i8, ptr %512, align 1, !alias.scope !628, !noalias !629, !noundef !12
-  %514 = getelementptr inbounds nuw i8, ptr %0, i64 222
-  %515 = load i8, ptr %514, align 2, !alias.scope !628, !noalias !629, !noundef !12
-  %516 = getelementptr inbounds nuw i8, ptr %0, i64 223
-  %517 = load i8, ptr %516, align 1, !alias.scope !628, !noalias !629, !noundef !12
-  %518 = getelementptr inbounds nuw i8, ptr %0, i64 226
-  %519 = load i8, ptr %518, align 2, !range !536, !alias.scope !628, !noalias !629, !noundef !12
-  %520 = getelementptr inbounds nuw i8, ptr %0, i64 227
-  %521 = load i8, ptr %520, align 1, !range !536, !alias.scope !628, !noalias !629, !noundef !12
-  %522 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %523 = load i8, ptr %522, align 4, !range !536, !alias.scope !628, !noalias !629, !noundef !12
-  %524 = getelementptr inbounds nuw i8, ptr %0, i64 229
-  %525 = load i8, ptr %524, align 1, !range !536, !alias.scope !628, !noalias !629, !noundef !12
-  %526 = load i8, ptr %69, align 1, !range !536, !alias.scope !628, !noalias !629, !noundef !12
-  %527 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %528 = load i8, ptr %527, align 8, !range !536, !alias.scope !628, !noalias !629, !noundef !12
-  %529 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %529, ptr noundef nonnull readonly align 8 dereferenceable(24) %495, i64 24, i1 false), !alias.scope !630, !noalias !612
-  %530 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store i32 %497, ptr %530, align 8, !alias.scope !622, !noalias !631
-  %531 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %498 = load i32, ptr %497, align 8, !range !627, !alias.scope !628, !noalias !629, !noundef !12
+  %499 = load i32, ptr %182, align 8, !alias.scope !628, !noalias !629, !noundef !12
+  %500 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %501 = load i8, ptr %500, align 8, !range !536, !alias.scope !628, !noalias !629, !noundef !12
+  %502 = load i32, ptr %392, align 4, !alias.scope !628, !noalias !629, !noundef !12
+  %503 = load i32, ptr %34, align 8, !alias.scope !628, !noalias !629, !noundef !12
+  %504 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %505 = load i64, ptr %504, align 8, !alias.scope !628, !noalias !629, !noundef !12
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %507 = load i32, ptr %506, align 4, !alias.scope !628, !noalias !629, !noundef !12
+  %508 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %509 = getelementptr inbounds nuw i8, ptr %0, i64 225
+  %510 = load i8, ptr %509, align 1, !range !536, !alias.scope !628, !noalias !629, !noundef !12
+  %511 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %512 = load i8, ptr %511, align 4, !alias.scope !628, !noalias !629, !noundef !12
+  %513 = getelementptr inbounds nuw i8, ptr %0, i64 221
+  %514 = load i8, ptr %513, align 1, !alias.scope !628, !noalias !629, !noundef !12
+  %515 = getelementptr inbounds nuw i8, ptr %0, i64 222
+  %516 = load i8, ptr %515, align 2, !alias.scope !628, !noalias !629, !noundef !12
+  %517 = getelementptr inbounds nuw i8, ptr %0, i64 223
+  %518 = load i8, ptr %517, align 1, !alias.scope !628, !noalias !629, !noundef !12
+  %519 = getelementptr inbounds nuw i8, ptr %0, i64 226
+  %520 = load i8, ptr %519, align 2, !range !536, !alias.scope !628, !noalias !629, !noundef !12
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 227
+  %522 = load i8, ptr %521, align 1, !range !536, !alias.scope !628, !noalias !629, !noundef !12
+  %523 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %524 = load i8, ptr %523, align 4, !range !536, !alias.scope !628, !noalias !629, !noundef !12
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 229
+  %526 = load i8, ptr %525, align 1, !range !536, !alias.scope !628, !noalias !629, !noundef !12
+  %527 = load i8, ptr %69, align 1, !range !536, !alias.scope !628, !noalias !629, !noundef !12
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %529 = load i8, ptr %528, align 8, !range !536, !alias.scope !628, !noalias !629, !noundef !12
+  %530 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %530, ptr noundef nonnull readonly align 8 dereferenceable(24) %496, i64 24, i1 false), !alias.scope !630, !noalias !612
+  %531 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 %498, ptr %531, align 8, !alias.scope !622, !noalias !631
-  %532 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store i8 %500, ptr %532, align 8, !alias.scope !622, !noalias !631
-  %533 = getelementptr inbounds nuw i8, ptr %9, i64 76
-  store i32 %501, ptr %533, align 4, !alias.scope !622, !noalias !631
-  %534 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i32 %502, ptr %534, align 8, !alias.scope !622, !noalias !631
-  %535 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i64 %504, ptr %535, align 8, !alias.scope !622, !noalias !631
-  %536 = getelementptr inbounds nuw i8, ptr %9, i64 84
-  store i32 %506, ptr %536, align 4, !alias.scope !622, !noalias !631
-  %537 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %537, ptr noundef nonnull readonly align 8 dereferenceable(24) %507, i64 24, i1 false), !alias.scope !630, !noalias !612
-  %538 = getelementptr inbounds nuw i8, ptr %9, i64 97
-  store i8 %509, ptr %538, align 1, !alias.scope !622, !noalias !631
-  %539 = getelementptr inbounds nuw i8, ptr %9, i64 92
-  store i8 %511, ptr %539, align 4, !alias.scope !622, !noalias !631
-  %540 = getelementptr inbounds nuw i8, ptr %9, i64 93
-  store i8 %513, ptr %540, align 1, !alias.scope !622, !noalias !631
-  %541 = getelementptr inbounds nuw i8, ptr %9, i64 94
-  store i8 %515, ptr %541, align 2, !alias.scope !622, !noalias !631
-  %542 = getelementptr inbounds nuw i8, ptr %9, i64 95
-  store i8 %517, ptr %542, align 1, !alias.scope !622, !noalias !631
+  %532 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store i32 %499, ptr %532, align 8, !alias.scope !622, !noalias !631
+  %533 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store i8 %501, ptr %533, align 8, !alias.scope !622, !noalias !631
+  %534 = getelementptr inbounds nuw i8, ptr %9, i64 76
+  store i32 %502, ptr %534, align 4, !alias.scope !622, !noalias !631
+  %535 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i32 %503, ptr %535, align 8, !alias.scope !622, !noalias !631
+  %536 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i64 %505, ptr %536, align 8, !alias.scope !622, !noalias !631
+  %537 = getelementptr inbounds nuw i8, ptr %9, i64 84
+  store i32 %507, ptr %537, align 4, !alias.scope !622, !noalias !631
+  %538 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %538, ptr noundef nonnull readonly align 8 dereferenceable(24) %508, i64 24, i1 false), !alias.scope !630, !noalias !612
+  %539 = getelementptr inbounds nuw i8, ptr %9, i64 97
+  store i8 %510, ptr %539, align 1, !alias.scope !622, !noalias !631
+  %540 = getelementptr inbounds nuw i8, ptr %9, i64 92
+  store i8 %512, ptr %540, align 4, !alias.scope !622, !noalias !631
+  %541 = getelementptr inbounds nuw i8, ptr %9, i64 93
+  store i8 %514, ptr %541, align 1, !alias.scope !622, !noalias !631
+  %542 = getelementptr inbounds nuw i8, ptr %9, i64 94
+  store i8 %516, ptr %542, align 2, !alias.scope !622, !noalias !631
+  %543 = getelementptr inbounds nuw i8, ptr %9, i64 95
+  store i8 %518, ptr %543, align 1, !alias.scope !622, !noalias !631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull readonly align 8 dereferenceable(112) %68, i64 16, i1 false), !alias.scope !630, !noalias !612
-  %543 = getelementptr inbounds nuw i8, ptr %9, i64 98
-  store i8 %519, ptr %543, align 2, !alias.scope !622, !noalias !631
-  %544 = getelementptr inbounds nuw i8, ptr %9, i64 99
-  store i8 %521, ptr %544, align 1, !alias.scope !622, !noalias !631
-  %545 = getelementptr inbounds nuw i8, ptr %9, i64 100
-  store i8 %523, ptr %545, align 4, !alias.scope !622, !noalias !631
-  %546 = getelementptr inbounds nuw i8, ptr %9, i64 101
-  store i8 %525, ptr %546, align 1, !alias.scope !622, !noalias !631
-  %547 = getelementptr inbounds nuw i8, ptr %9, i64 102
-  store i8 %484, ptr %547, align 2, !alias.scope !622, !noalias !631
-  %548 = getelementptr inbounds nuw i8, ptr %9, i64 103
-  store i8 %526, ptr %548, align 1, !alias.scope !622, !noalias !631
-  %549 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store i8 %528, ptr %549, align 8, !alias.scope !622, !noalias !631
-  %550 = icmp eq i64 %475, 0
-  br i1 %550, label %558, label %562
+  %544 = getelementptr inbounds nuw i8, ptr %9, i64 98
+  store i8 %520, ptr %544, align 2, !alias.scope !622, !noalias !631
+  %545 = getelementptr inbounds nuw i8, ptr %9, i64 99
+  store i8 %522, ptr %545, align 1, !alias.scope !622, !noalias !631
+  %546 = getelementptr inbounds nuw i8, ptr %9, i64 100
+  store i8 %524, ptr %546, align 4, !alias.scope !622, !noalias !631
+  %547 = getelementptr inbounds nuw i8, ptr %9, i64 101
+  store i8 %526, ptr %547, align 1, !alias.scope !622, !noalias !631
+  %548 = getelementptr inbounds nuw i8, ptr %9, i64 102
+  store i8 %485, ptr %548, align 2, !alias.scope !622, !noalias !631
+  %549 = getelementptr inbounds nuw i8, ptr %9, i64 103
+  store i8 %527, ptr %549, align 1, !alias.scope !622, !noalias !631
+  %550 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  store i8 %529, ptr %550, align 8, !alias.scope !622, !noalias !631
+  %551 = icmp eq i64 %476, 0
+  br i1 %551, label %559, label %563
 
-551:                                              ; preds = %491
-  %552 = and i32 %492, 1073741823
-  %553 = shl i32 %492, 1
-  %554 = ashr exact i32 %553, 1
-  %555 = and i32 %554, -1073741824
-  %556 = or disjoint i32 %555, %552
-  %557 = xor i32 %556, -2147483648
-  br label %494
+552:                                              ; preds = %492
+  %553 = and i32 %493, 1073741823
+  %554 = shl i32 %493, 1
+  %555 = ashr exact i32 %554, 1
+  %556 = and i32 %555, -1073741824
+  %557 = or disjoint i32 %556, %553
+  %558 = xor i32 %557, -2147483648
+  br label %495
 
-558:                                              ; preds = %494
+559:                                              ; preds = %495
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hf4851fa4b68a36a6E(i64 noundef 2, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206), !noalias !632
-  %559 = load i64, ptr %18, align 8, !alias.scope !608, !noalias !633, !noundef !12
-  %560 = add i64 %559, 7
-  %561 = and i64 %560, 4294967288
-  store i64 %561, ptr %18, align 8, !alias.scope !608, !noalias !633
+  %560 = load i64, ptr %18, align 8, !alias.scope !608, !noalias !633, !noundef !12
+  %561 = add i64 %560, 7
+  %562 = and i64 %561, 4294967288
+  store i64 %562, ptr %18, align 8, !alias.scope !608, !noalias !633
   br label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
 
-562:                                              ; preds = %494
-  %563 = call noundef i32 @_ZN6brotli3enc6encode14ShouldCompress17hd6a17b1fab2575bdE(ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef range(i64 0, 4294967296) %350, i64 noundef %466, i64 noundef range(i64 0, 4294967296) %475, i64 noundef %452, i64 noundef %451), !noalias !634
-  %564 = icmp eq i32 %563, 0
-  br i1 %564, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i", label %568
+563:                                              ; preds = %495
+  %564 = call noundef i32 @_ZN6brotli3enc6encode14ShouldCompress17hd6a17b1fab2575bdE(ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef range(i64 0, 4294967296) %350, i64 noundef %467, i64 noundef range(i64 0, 4294967296) %476, i64 noundef %453, i64 noundef %452), !noalias !634
+  %565 = icmp eq i32 %564, 0
+  br i1 %565, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i", label %569
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i": ; preds = %562
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %380, ptr noundef nonnull readonly align 8 dereferenceable(16) %481, i64 16, i1 false), !alias.scope !635, !noalias !639
-  %565 = zext i1 %.0.i276 to i32
-  %566 = zext i32 %.019.i to i64
-  call void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMetaBlock17ha1d76817ba9e2b81E(ptr noalias noundef nonnull align 1 %42, i32 noundef %565, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %566, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, i64 noundef range(i64 0, 4294967296) %475, ptr noalias noundef nonnull align 8 dereferenceable(8) %482, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, i1 noundef zeroext false, ptr noalias noundef nonnull align 1 %4), !noalias !641
-  %567 = xor i1 %1, %.0.i276
-  br i1 %567, label %573, label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i": ; preds = %563
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %380, ptr noundef nonnull readonly align 8 dereferenceable(16) %482, i64 16, i1 false), !alias.scope !635, !noalias !639
+  %566 = zext i1 %.0.i276 to i32
+  %567 = zext i32 %.019.i to i64
+  call void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMetaBlock17ha1d76817ba9e2b81E(ptr noalias noundef nonnull align 1 %42, i32 noundef %566, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %567, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, i64 noundef range(i64 0, 4294967296) %476, ptr noalias noundef nonnull align 8 dereferenceable(8) %483, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, i1 noundef zeroext false, ptr noalias noundef nonnull align 1 %4), !noalias !641
+  %568 = xor i1 %1, %.0.i276
+  br i1 %568, label %574, label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
 
-568:                                              ; preds = %562
-  %569 = load i64, ptr %18, align 8, !alias.scope !608, !noalias !633, !noundef !12
-  %570 = lshr i64 %569, 3
-  %571 = add nuw nsw i64 %570, 1
-  %572 = icmp ult i64 %571, %.val206
-  br i1 %572, label %574, label %580, !prof !278
+569:                                              ; preds = %563
+  %570 = load i64, ptr %18, align 8, !alias.scope !608, !noalias !633, !noundef !12
+  %571 = lshr i64 %570, 3
+  %572 = add nuw nsw i64 %571, 1
+  %573 = icmp ult i64 %572, %.val206
+  br i1 %573, label %575, label %581, !prof !278
 
-573:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i"
+574:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i"
   call void @_ZN6brotli3enc17brotli_bit_stream29BrotliWriteEmptyLastMetaBlock17h779b88827274cb74E(ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206), !noalias !641
   br label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
 
-574:                                              ; preds = %568
-  %575 = getelementptr inbounds nuw [0 x i8], ptr %.val, i64 0, i64 %571
-  %576 = load i8, ptr %575, align 1, !alias.scope !610, !noalias !642, !noundef !12
-  %577 = getelementptr inbounds nuw [0 x i8], ptr %.val, i64 0, i64 %570
-  %578 = load i8, ptr %577, align 1, !alias.scope !610, !noalias !642, !noundef !12
-  %579 = icmp slt i32 %498, 3
-  br i1 %579, label %583, label %581
+575:                                              ; preds = %569
+  %576 = getelementptr inbounds nuw i8, ptr %.val, i64 %572
+  %577 = load i8, ptr %576, align 1, !alias.scope !610, !noalias !642, !noundef !12
+  %578 = getelementptr inbounds nuw i8, ptr %.val, i64 %571
+  %579 = load i8, ptr %578, align 1, !alias.scope !610, !noalias !642, !noundef !12
+  %580 = icmp slt i32 %499, 3
+  br i1 %580, label %584, label %582
 
-580:                                              ; preds = %568
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %571, i64 noundef %.val206, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.137) #21, !noalias !634
+581:                                              ; preds = %569
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %572, i64 noundef %.val206, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.137) #21, !noalias !634
   unreachable
 
-581:                                              ; preds = %574
-  %582 = icmp eq i32 %498, 3
-  br i1 %582, label %588, label %586
+582:                                              ; preds = %575
+  %583 = icmp eq i32 %499, 3
+  br i1 %583, label %589, label %587
 
-583:                                              ; preds = %574
-  %584 = zext i32 %.019.i to i64
-  %585 = zext i1 %.0.i276 to i32
-  call void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast17ha344c61e8b9d5e5eE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %584, i64 noundef range(i64 0, 4294967296) %475, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %585, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %481, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %451, ptr noalias noundef nonnull align 8 dereferenceable(8) %482, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4), !noalias !643
-  br label %619
+584:                                              ; preds = %575
+  %585 = zext i32 %.019.i to i64
+  %586 = zext i1 %.0.i276 to i32
+  call void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast17ha344c61e8b9d5e5eE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %585, i64 noundef range(i64 0, 4294967296) %476, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %586, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %482, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %452, ptr noalias noundef nonnull align 8 dereferenceable(8) %483, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4), !noalias !643
+  br label %620
 
-586:                                              ; preds = %581
+587:                                              ; preds = %582
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !621
   call void @"_ZN102_$LT$brotli..enc..brotli_bit_stream..MetaBlockSplit$LT$Alloc$GT$$u20$as$u20$core..default..Default$GT$7default17h0b5cf102879d0f7cE"(ptr noalias noundef nonnull sret({ { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64, i64, i64, i64 }) align 8 captures(none) dereferenceable(264) %8), !noalias !634
-  %587 = icmp samesign ult i32 %498, 10
-  br i1 %587, label %593, label %591
+  %588 = icmp samesign ult i32 %499, 10
+  br i1 %588, label %594, label %592
 
-588:                                              ; preds = %581
-  %589 = zext i32 %.019.i to i64
-  %590 = zext i1 %.0.i276 to i32
-  call void @_ZN6brotli3enc17brotli_bit_stream27BrotliStoreMetaBlockTrivial17h8a43dc9afc4266a4E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %589, i64 noundef range(i64 0, 4294967296) %475, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %590, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %481, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %451, ptr noalias noundef nonnull align 8 dereferenceable(8) %482, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4), !noalias !643
-  br label %619
+589:                                              ; preds = %582
+  %590 = zext i32 %.019.i to i64
+  %591 = zext i1 %.0.i276 to i32
+  call void @_ZN6brotli3enc17brotli_bit_stream27BrotliStoreMetaBlockTrivial17h8a43dc9afc4266a4E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %590, i64 noundef range(i64 0, 4294967296) %476, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %591, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %482, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %452, ptr noalias noundef nonnull align 8 dereferenceable(8) %483, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4), !noalias !643
+  br label %620
 
-591:                                              ; preds = %586
-  %592 = zext i32 %.019.i to i64
-  invoke void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03f7565E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %592, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull align 8 dereferenceable(112) %9, i8 noundef %478, i8 noundef %480, ptr noalias noundef nonnull align 4 %.val259, i64 noundef %.val260, i64 noundef %451, i8 noundef range(i8 0, 4) %362, ptr noalias noundef nonnull align 1 %476, ptr noalias noundef nonnull align 1 %476, ptr noalias noundef nonnull align 1 %476, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
-          to label %611 unwind label %597, !noalias !644
+592:                                              ; preds = %587
+  %593 = zext i32 %.019.i to i64
+  invoke void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03f7565E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %593, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull align 8 dereferenceable(112) %9, i8 noundef %479, i8 noundef %481, ptr noalias noundef nonnull align 4 %.val259, i64 noundef %.val260, i64 noundef %452, i8 noundef range(i8 0, 4) %362, ptr noalias noundef nonnull align 1 %477, ptr noalias noundef nonnull align 1 %477, ptr noalias noundef nonnull align 1 %477, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
+          to label %612 unwind label %598, !noalias !644
 
-593:                                              ; preds = %586
+594:                                              ; preds = %587
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !621
   store i64 1, ptr %7, align 8, !noalias !621
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !621
   store ptr @anon.e9f42dff1fd369047582a93c3ee51670.3.llvm.14674892691807634323, ptr %6, align 8, !noalias !621
-  %594 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %594, align 8, !noalias !621
-  %595 = icmp eq i32 %506, 0
-  %596 = zext i32 %.019.i to i64
-  br i1 %595, label %599, label %.invoke.i
+  %595 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %595, align 8, !noalias !621
+  %596 = icmp eq i32 %507, 0
+  %597 = zext i32 %.019.i to i64
+  br i1 %596, label %600, label %.invoke.i
 
-597:                                              ; preds = %615, %611, %608, %.invoke.i, %599, %591
-  %598 = landingpad { ptr, i32 }
+598:                                              ; preds = %616, %612, %609, %.invoke.i, %600, %592
+  %599 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr113drop_in_place$LT$brotli..enc..brotli_bit_stream..MetaBlockSplit$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h6d5d3b468bbd91faE"(ptr noalias noundef nonnull align 8 dereferenceable(264) %8) #23
-          to label %common.resume unwind label %617, !noalias !645
+          to label %common.resume unwind label %618, !noalias !645
 
-599:                                              ; preds = %593
-  invoke void @_ZN6brotli3enc6encode32DecideOverLiteralContextModeling17h9c1c8d4b5e84c3a3E(ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %596, i64 noundef range(i64 0, 4294967296) %475, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %498, i64 noundef %504, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-          to label %600 unwind label %597, !noalias !634
+600:                                              ; preds = %594
+  invoke void @_ZN6brotli3enc6encode32DecideOverLiteralContextModeling17h9c1c8d4b5e84c3a3E(ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %597, i64 noundef range(i64 0, 4294967296) %476, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %499, i64 noundef %505, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+          to label %601 unwind label %598, !noalias !634
 
-600:                                              ; preds = %599
+601:                                              ; preds = %600
   %.pre.i = load i64, ptr %7, align 8, !noalias !621
-  %601 = icmp eq i64 %.pre.i, 1
-  br i1 %601, label %.invoke.i, label %602
+  %602 = icmp eq i64 %.pre.i, 1
+  br i1 %602, label %.invoke.i, label %603
 
-602:                                              ; preds = %600
-  %603 = load i64, ptr %594, align 8, !noalias !621, !noundef !12
-  %604 = load ptr, ptr %6, align 8, !noalias !621, !nonnull !12, !align !268, !noundef !12
+603:                                              ; preds = %601
+  %604 = load i64, ptr %595, align 8, !noalias !621, !noundef !12
+  %605 = load ptr, ptr %6, align 8, !noalias !621, !nonnull !12, !align !268, !noundef !12
   br label %.invoke.i
 
-.invoke.i:                                        ; preds = %602, %600, %593
-  %605 = phi i64 [ %.pre.i, %602 ], [ 1, %593 ], [ 1, %600 ]
-  %606 = phi ptr [ %604, %602 ], [ @anon.3805415b65ff0bcf60b60eb7923a431b.13.llvm.10804153884081904121, %593 ], [ @anon.3805415b65ff0bcf60b60eb7923a431b.13.llvm.10804153884081904121, %600 ]
-  %607 = phi i64 [ %603, %602 ], [ 0, %593 ], [ 0, %600 ]
-  invoke void @_ZN6brotli3enc9metablock34BrotliBuildMetaBlockGreedyInternal17h1577f881041447f5E.llvm.10804153884081904121(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %596, i64 noundef range(i64 0, 4294967296) %350, i8 noundef %478, i8 noundef %480, i8 noundef range(i8 0, 4) %362, i64 noundef %605, ptr noalias noundef nonnull readonly align 4 %606, i64 noundef %607, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %451, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
-          to label %_ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i unwind label %597, !noalias !646
+.invoke.i:                                        ; preds = %603, %601, %594
+  %606 = phi i64 [ %.pre.i, %603 ], [ 1, %594 ], [ 1, %601 ]
+  %607 = phi ptr [ %605, %603 ], [ @anon.3805415b65ff0bcf60b60eb7923a431b.13.llvm.10804153884081904121, %594 ], [ @anon.3805415b65ff0bcf60b60eb7923a431b.13.llvm.10804153884081904121, %601 ]
+  %608 = phi i64 [ %604, %603 ], [ 0, %594 ], [ 0, %601 ]
+  invoke void @_ZN6brotli3enc9metablock34BrotliBuildMetaBlockGreedyInternal17h1577f881041447f5E.llvm.10804153884081904121(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %597, i64 noundef range(i64 0, 4294967296) %350, i8 noundef %479, i8 noundef %481, i8 noundef range(i8 0, 4) %362, i64 noundef %606, ptr noalias noundef nonnull readonly align 4 %607, i64 noundef %608, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %452, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
+          to label %_ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i unwind label %598, !noalias !646
 
 _ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i: ; preds = %.invoke.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !621
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !621
-  br label %611
+  br label %612
 
-608:                                              ; preds = %611
-  %609 = zext i32 %.019.i to i64
-  %610 = zext i1 %.0.i276 to i32
-  invoke void @_ZN6brotli3enc17brotli_bit_stream20BrotliStoreMetaBlock17h5e60812fe2ed9393E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %609, i64 noundef range(i64 0, 4294967296) %475, i64 noundef range(i64 0, 4294967296) %350, i8 noundef %478, i8 noundef %480, i32 noundef %610, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %9, i8 noundef range(i8 0, 4) %362, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %481, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %451, ptr noalias noundef nonnull align 8 dereferenceable(264) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %482, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4)
-          to label %615 unwind label %597, !noalias !645
+609:                                              ; preds = %612
+  %610 = zext i32 %.019.i to i64
+  %611 = zext i1 %.0.i276 to i32
+  invoke void @_ZN6brotli3enc17brotli_bit_stream20BrotliStoreMetaBlock17h5e60812fe2ed9393E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %610, i64 noundef range(i64 0, 4294967296) %476, i64 noundef range(i64 0, 4294967296) %350, i8 noundef %479, i8 noundef %481, i32 noundef %611, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %9, i8 noundef range(i8 0, 4) %362, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %482, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %452, ptr noalias noundef nonnull align 8 dereferenceable(264) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %483, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4)
+          to label %616 unwind label %598, !noalias !645
 
-611:                                              ; preds = %_ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i, %591
-  %612 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %613 = load i32, ptr %612, align 8, !noalias !621, !noundef !12
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %613, i32 544)
-  %614 = zext nneg i32 %spec.store.select.i to i64
-  invoke void @_ZN6brotli3enc9metablock24BrotliOptimizeHistograms17h5e8a8a4e2cd6e335E(i64 noundef %614, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
-          to label %608 unwind label %597, !noalias !644
+612:                                              ; preds = %_ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i, %592
+  %613 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %614 = load i32, ptr %613, align 8, !noalias !621, !noundef !12
+  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %614, i32 544)
+  %615 = zext nneg i32 %spec.store.select.i to i64
+  invoke void @_ZN6brotli3enc9metablock24BrotliOptimizeHistograms17h5e8a8a4e2cd6e335E(i64 noundef %615, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
+          to label %609 unwind label %598, !noalias !644
 
-615:                                              ; preds = %608
+616:                                              ; preds = %609
   invoke void @"_ZN6brotli3enc17brotli_bit_stream27MetaBlockSplit$LT$Alloc$GT$7destroy17h0274c366185f8e94E"(ptr noalias noundef nonnull align 8 dereferenceable(264) %8, ptr noalias noundef nonnull align 1 %42)
-          to label %616 unwind label %597, !noalias !645
+          to label %617 unwind label %598, !noalias !645
 
-616:                                              ; preds = %615
+617:                                              ; preds = %616
   call void @"_ZN4core3ptr113drop_in_place$LT$brotli..enc..brotli_bit_stream..MetaBlockSplit$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h6d5d3b468bbd91faE"(ptr noalias noundef nonnull align 8 dereferenceable(264) %8), !noalias !645
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !621
-  br label %619
+  br label %620
 
-617:                                              ; preds = %597
-  %618 = landingpad { ptr, i32 }
+618:                                              ; preds = %598
+  %619 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !645
   unreachable
 
-619:                                              ; preds = %616, %588, %583
-  %620 = add nuw nsw i64 %475, 4
-  %621 = add nuw nsw i64 %620, %570
-  %622 = load i64, ptr %18, align 8, !alias.scope !608, !noalias !633, !noundef !12
-  %623 = lshr i64 %622, 3
-  %624 = icmp samesign ult i64 %621, %623
-  br i1 %624, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i", label %628
+620:                                              ; preds = %617, %589, %584
+  %621 = add nuw nsw i64 %476, 4
+  %622 = add nuw nsw i64 %621, %571
+  %623 = load i64, ptr %18, align 8, !alias.scope !608, !noalias !633, !noundef !12
+  %624 = lshr i64 %623, 3
+  %625 = icmp samesign ult i64 %622, %624
+  br i1 %625, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i", label %629
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i": ; preds = %619
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %380, ptr noundef nonnull readonly align 8 dereferenceable(16) %481, i64 16, i1 false), !alias.scope !647, !noalias !651
-  store i8 %578, ptr %577, align 1, !alias.scope !610, !noalias !642
-  store i8 %576, ptr %575, align 1, !alias.scope !610, !noalias !642
-  %625 = and i64 %569, 255
-  store i64 %625, ptr %18, align 8, !alias.scope !608, !noalias !633
-  %626 = zext i1 %.0.i276 to i32
-  %627 = zext i32 %.019.i to i64
-  call void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMetaBlock17ha1d76817ba9e2b81E(ptr noalias noundef nonnull align 1 %42, i32 noundef %626, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %627, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, i64 noundef range(i64 0, 4294967296) %475, ptr noalias noundef nonnull align 8 dereferenceable(8) %482, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, i1 noundef zeroext true, ptr noalias noundef nonnull align 1 %4), !noalias !606
-  br label %628
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i": ; preds = %620
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %380, ptr noundef nonnull readonly align 8 dereferenceable(16) %482, i64 16, i1 false), !alias.scope !647, !noalias !651
+  store i8 %579, ptr %578, align 1, !alias.scope !610, !noalias !642
+  store i8 %577, ptr %576, align 1, !alias.scope !610, !noalias !642
+  %626 = and i64 %570, 255
+  store i64 %626, ptr %18, align 8, !alias.scope !608, !noalias !633
+  %627 = zext i1 %.0.i276 to i32
+  %628 = zext i32 %.019.i to i64
+  call void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMetaBlock17ha1d76817ba9e2b81E(ptr noalias noundef nonnull align 1 %42, i32 noundef %627, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %628, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, i64 noundef range(i64 0, 4294967296) %476, ptr noalias noundef nonnull align 8 dereferenceable(8) %483, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, i1 noundef zeroext true, ptr noalias noundef nonnull align 1 %4), !noalias !606
+  br label %629
 
-628:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i", %619
-  %629 = xor i1 %1, %.0.i276
-  br i1 %629, label %630, label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
+629:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i", %620
+  %630 = xor i1 %1, %.0.i276
+  br i1 %630, label %631, label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
 
-630:                                              ; preds = %628
+631:                                              ; preds = %629
   call void @_ZN6brotli3enc17brotli_bit_stream29BrotliWriteEmptyLastMetaBlock17h779b88827274cb74E(ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206), !noalias !606
   br label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
 
-_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit: ; preds = %558, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i", %573, %628, %630
+_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit: ; preds = %559, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i", %574, %629, %631
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !621
   %.val235 = load ptr, ptr %53, align 8, !nonnull !12, !align !50, !noundef !12
   %.val236 = load i64, ptr %54, align 8, !noundef !12
-  %631 = load i64, ptr %18, align 8, !noundef !12
-  %632 = lshr i64 %631, 3
-  %633 = icmp ult i64 %632, %.val236
-  br i1 %633, label %635, label %638, !prof !278
+  %632 = load i64, ptr %18, align 8, !noundef !12
+  %633 = lshr i64 %632, 3
+  %634 = icmp ult i64 %633, %.val236
+  br i1 %634, label %636, label %639, !prof !278
 
-634:                                              ; preds = %465
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %467, i64 noundef %.val208, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.82) #21
+635:                                              ; preds = %466
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %468, i64 noundef %.val208, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.82) #21
   unreachable
 
-635:                                              ; preds = %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
-  %636 = add nuw nsw i64 %632, 1
-  %637 = icmp ult i64 %636, %.val236
-  br i1 %637, label %639, label %674, !prof !278
+636:                                              ; preds = %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
+  %637 = add nuw nsw i64 %633, 1
+  %638 = icmp ult i64 %637, %.val236
+  br i1 %638, label %640, label %675, !prof !278
 
-638:                                              ; preds = %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %632, i64 noundef %.val236, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.75) #21
+639:                                              ; preds = %_ZN6brotli3enc6encode22WriteMetaBlockInternal17h81b37aedb3339db8E.exit
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %633, i64 noundef %.val236, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.75) #21
   unreachable
 
-639:                                              ; preds = %635
-  %640 = getelementptr inbounds nuw [0 x i8], ptr %.val235, i64 0, i64 %632
-  %641 = load i8, ptr %640, align 1, !noundef !12
-  %642 = zext i8 %641 to i16
-  %643 = getelementptr inbounds nuw [0 x i8], ptr %.val235, i64 0, i64 %636
-  %644 = load i8, ptr %643, align 1, !noundef !12
-  %645 = zext i8 %644 to i16
-  %646 = shl nuw i16 %645, 8
-  %647 = or disjoint i16 %646, %642
-  store i16 %647, ptr %52, align 8
-  %648 = trunc i64 %631 to i8
-  %649 = and i8 %648, 7
-  store i8 %649, ptr %42, align 2
-  %650 = load i64, ptr %20, align 8, !noundef !12
-  store i64 %650, ptr %47, align 8
-  %651 = load i64, ptr %22, align 8, !alias.scope !653, !noundef !12
-  %652 = trunc i64 %651 to i32
-  %653 = icmp ugt i64 %651, 3221225471
-  br i1 %653, label %657, label %654
+640:                                              ; preds = %636
+  %641 = getelementptr inbounds nuw i8, ptr %.val235, i64 %633
+  %642 = load i8, ptr %641, align 1, !noundef !12
+  %643 = zext i8 %642 to i16
+  %644 = getelementptr inbounds nuw i8, ptr %.val235, i64 %637
+  %645 = load i8, ptr %644, align 1, !noundef !12
+  %646 = zext i8 %645 to i16
+  %647 = shl nuw i16 %646, 8
+  %648 = or disjoint i16 %647, %643
+  store i16 %648, ptr %52, align 8
+  %649 = trunc i64 %632 to i8
+  %650 = and i8 %649, 7
+  store i8 %650, ptr %42, align 2
+  %651 = load i64, ptr %20, align 8, !noundef !12
+  store i64 %651, ptr %47, align 8
+  %652 = load i64, ptr %22, align 8, !alias.scope !653, !noundef !12
+  %653 = trunc i64 %652 to i32
+  %654 = icmp ugt i64 %652, 3221225471
+  br i1 %654, label %658, label %655
 
-654:                                              ; preds = %657, %639
-  %.04.i277 = phi i32 [ %663, %657 ], [ %652, %639 ]
-  %655 = trunc i64 %650 to i32
-  %656 = icmp ugt i64 %650, 3221225471
-  br i1 %656, label %664, label %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
+655:                                              ; preds = %658, %640
+  %.04.i277 = phi i32 [ %664, %658 ], [ %653, %640 ]
+  %656 = trunc i64 %651 to i32
+  %657 = icmp ugt i64 %651, 3221225471
+  br i1 %657, label %665, label %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
 
-657:                                              ; preds = %639
-  %658 = and i32 %652, 1073741823
-  %659 = shl i32 %652, 1
-  %660 = ashr exact i32 %659, 1
-  %661 = and i32 %660, -1073741824
-  %662 = or disjoint i32 %661, %658
-  %663 = xor i32 %662, -2147483648
-  br label %654
+658:                                              ; preds = %640
+  %659 = and i32 %653, 1073741823
+  %660 = shl i32 %653, 1
+  %661 = ashr exact i32 %660, 1
+  %662 = and i32 %661, -1073741824
+  %663 = or disjoint i32 %662, %659
+  %664 = xor i32 %663, -2147483648
+  br label %655
 
-664:                                              ; preds = %654
-  %665 = and i32 %655, 1073741823
-  %666 = shl i32 %655, 1
-  %667 = ashr exact i32 %666, 1
-  %668 = and i32 %667, -1073741824
-  %669 = or disjoint i32 %668, %665
-  %670 = xor i32 %669, -2147483648
+665:                                              ; preds = %655
+  %666 = and i32 %656, 1073741823
+  %667 = shl i32 %656, 1
+  %668 = ashr exact i32 %667, 1
+  %669 = and i32 %668, -1073741824
+  %670 = or disjoint i32 %669, %666
+  %671 = xor i32 %670, -2147483648
   br label %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
 
-_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279: ; preds = %654, %664
-  %.0.i278 = phi i32 [ %670, %664 ], [ %655, %654 ]
-  store i64 %650, ptr %22, align 8, !alias.scope !653
-  %671 = icmp ult i32 %.0.i278, %.04.i277
-  %672 = load i64, ptr %0, align 8, !range !61
-  %673 = icmp ne i64 %672, 0
-  %or.cond31.not = select i1 %671, i1 %673, i1 false
-  br i1 %or.cond31.not, label %switch.lookup384, label %675
+_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279: ; preds = %655, %665
+  %.0.i278 = phi i32 [ %671, %665 ], [ %656, %655 ]
+  store i64 %651, ptr %22, align 8, !alias.scope !653
+  %672 = icmp ult i32 %.0.i278, %.04.i277
+  %673 = load i64, ptr %0, align 8, !range !61
+  %674 = icmp ne i64 %673, 0
+  %or.cond31.not = select i1 %672, i1 %674, i1 false
+  br i1 %or.cond31.not, label %switch.lookup385, label %676
 
-674:                                              ; preds = %635
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %636, i64 noundef %.val236, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.76) #21
+675:                                              ; preds = %636
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %637, i64 noundef %.val236, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.76) #21
   unreachable
 
-675:                                              ; preds = %switch.lookup384, %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
+676:                                              ; preds = %switch.lookup385, %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
   %.val232 = load i64, ptr %311, align 8, !noundef !12
-  %676 = load i64, ptr %312, align 8, !noundef !12
-  %677 = icmp ugt i64 %676, %.val232
-  br i1 %677, label %683, label %680
+  %677 = load i64, ptr %312, align 8, !noundef !12
+  %678 = icmp ugt i64 %677, %.val232
+  br i1 %678, label %685, label %682
 
-switch.lookup384:                                 ; preds = %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
-  %switch.tableidx385 = add nsw i64 %672, -1
-  %switch.gep386 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE.37, i64 0, i64 %switch.tableidx385
+switch.lookup385:                                 ; preds = %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
+  %679 = getelementptr i64, ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE.37, i64 %673
+  %switch.gep386 = getelementptr i8, ptr %679, i64 -8
   %switch.load387 = load i64, ptr %switch.gep386, align 8
-  %678 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load387
-  %679 = getelementptr inbounds nuw i8, ptr %678, i64 40
-  store i32 0, ptr %679, align 8
-  br label %675
+  %680 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load387
+  %681 = getelementptr inbounds nuw i8, ptr %680, i64 40
+  store i32 0, ptr %681, align 8
+  br label %676
 
-680:                                              ; preds = %675
+682:                                              ; preds = %676
   %.val231 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
-  %681 = sub nuw i64 %.val232, %676
-  %682 = getelementptr inbounds i8, ptr %.val231, i64 %676
-  %.not203 = icmp eq i64 %650, 0
-  br i1 %.not203, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit", label %684
+  %683 = sub nuw i64 %.val232, %677
+  %684 = getelementptr inbounds i8, ptr %.val231, i64 %677
+  %.not203 = icmp eq i64 %651, 0
+  br i1 %.not203, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit", label %686
 
-683:                                              ; preds = %675
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %676, i64 noundef %.val232, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.81) #21
+685:                                              ; preds = %676
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %677, i64 noundef %.val232, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.81) #21
   unreachable
 
-684:                                              ; preds = %680
-  %685 = add i32 %655, -1
-  %686 = and i32 %685, %28
-  %687 = zext i32 %686 to i64
-  %688 = icmp ugt i64 %681, %687
-  br i1 %688, label %689, label %692, !prof !278
+686:                                              ; preds = %682
+  %687 = add i32 %656, -1
+  %688 = and i32 %687, %28
+  %689 = zext i32 %688 to i64
+  %690 = icmp ugt i64 %683, %689
+  br i1 %690, label %691, label %694, !prof !278
 
-689:                                              ; preds = %684
-  %690 = getelementptr inbounds nuw [0 x i8], ptr %682, i64 0, i64 %687
-  %691 = load i8, ptr %690, align 1, !noundef !12
-  store i8 %691, ptr %477, align 1
-  %.not = icmp eq i64 %650, 1
-  br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit", label %693
+691:                                              ; preds = %686
+  %692 = getelementptr inbounds nuw i8, ptr %684, i64 %689
+  %693 = load i8, ptr %692, align 1, !noundef !12
+  store i8 %693, ptr %478, align 1
+  %.not = icmp eq i64 %651, 1
+  br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit", label %695
 
-692:                                              ; preds = %684
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %687, i64 noundef %681, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.77) #21
+694:                                              ; preds = %686
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %689, i64 noundef %683, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.77) #21
   unreachable
 
-693:                                              ; preds = %689
-  %694 = add i32 %655, -2
-  %695 = and i32 %694, %28
-  %696 = zext i32 %695 to i64
-  %697 = icmp ugt i64 %681, %696
-  br i1 %697, label %700, label %703, !prof !278
+695:                                              ; preds = %691
+  %696 = add i32 %656, -2
+  %697 = and i32 %696, %28
+  %698 = zext i32 %697 to i64
+  %699 = icmp ugt i64 %683, %698
+  br i1 %699, label %702, label %705, !prof !278
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit": ; preds = %680, %700, %689
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit": ; preds = %682, %702, %691
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %222, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %481, ptr noundef nonnull readonly align 8 dereferenceable(16) %380, i64 16, i1 false), !alias.scope !656, !noalias !660
-  %698 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 0, ptr %698, align 8
-  %699 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 0, ptr %699, align 4
-  store i64 %632, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %482, ptr noundef nonnull readonly align 8 dereferenceable(16) %380, i64 16, i1 false), !alias.scope !656, !noalias !660
+  %700 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 0, ptr %700, align 8
+  %701 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  store i32 0, ptr %701, align 4
+  store i64 %633, ptr %3, align 8
   br label %.sink.split383
 
-700:                                              ; preds = %693
-  %701 = getelementptr inbounds nuw [0 x i8], ptr %682, i64 0, i64 %696
-  %702 = load i8, ptr %701, align 1, !noundef !12
-  store i8 %702, ptr %479, align 8
+702:                                              ; preds = %695
+  %703 = getelementptr inbounds nuw i8, ptr %684, i64 %698
+  %704 = load i8, ptr %703, align 1, !noundef !12
+  store i8 %704, ptr %480, align 8
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit"
 
-703:                                              ; preds = %693
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %696, i64 noundef %681, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.78) #21
+705:                                              ; preds = %695
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %698, i64 noundef %683, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.78) #21
   unreachable
 
-.sink.split383:                                   ; preds = %236, %445, %469, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit"
+.sink.split383:                                   ; preds = %236, %445, %470, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %704
+  br label %706
 
-704:                                              ; preds = %.sink.split383, %5, %33
+706:                                              ; preds = %.sink.split383, %5, %33
   %.1 = phi i32 [ 0, %5 ], [ 0, %33 ], [ 1, %.sink.split383 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret i32 %.1
 
-705:                                              ; preds = %.invoke, %334
-  %706 = landingpad { ptr, i32 }
+707:                                              ; preds = %.invoke, %334
+  %708 = landingpad { ptr, i32 }
           cleanup
-  %707 = icmp eq i64 %319, 0
-  br i1 %707, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284"
+  %709 = icmp eq i64 %319, 0
+  br i1 %709, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284": ; preds = %705
-  %708 = shl nsw i64 %319, 4
-  call void @__rust_dealloc(ptr noundef nonnull %317, i64 noundef %708, i64 noundef 4) #22, !noalias !662
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284": ; preds = %707
+  %710 = shl nsw i64 %319, 4
+  call void @__rust_dealloc(ptr noundef nonnull %317, i64 noundef %710, i64 noundef 4) #22, !noalias !662
   br label %common.resume
 }
 
@@ -7938,7 +7922,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 5562
   %30 = load i8, ptr %29, align 2, !range !536, !noundef !12
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %704, label %32
+  br i1 %31, label %706, label %32
 
 32:                                               ; preds = %5
   br i1 %1, label %40, label %33
@@ -7951,7 +7935,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   %37 = zext nneg i32 %36 to i64
   %38 = shl nuw i64 1, %37
   %39 = icmp ugt i64 %24, %38
-  br i1 %39, label %704, label %41
+  br i1 %39, label %706, label %41
 
 40:                                               ; preds = %32
   store i8 1, ptr %29, align 2
@@ -8038,10 +8022,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   unreachable
 
 .thread:                                          ; preds = %79
-  %83 = getelementptr inbounds nuw [0 x i8], ptr %.val249, i64 0, i64 %77
+  %83 = getelementptr inbounds nuw i8, ptr %.val249, i64 %77
   %84 = load i8, ptr %83, align 1, !noundef !12
   %85 = zext i8 %84 to i16
-  %86 = getelementptr inbounds nuw [0 x i8], ptr %.val249, i64 0, i64 %80
+  %86 = getelementptr inbounds nuw i8, ptr %.val249, i64 %80
   %87 = load i8, ptr %86, align 1, !noundef !12
   %88 = zext i8 %87 to i16
   %89 = shl nuw i16 %88, 8
@@ -8140,10 +8124,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   unreachable
 
 134:                                              ; preds = %130
-  %135 = getelementptr inbounds nuw [0 x i8], ptr %.val245, i64 0, i64 %127
+  %135 = getelementptr inbounds nuw i8, ptr %.val245, i64 %127
   %136 = load i8, ptr %135, align 1, !noundef !12
   %137 = zext i8 %136 to i16
-  %138 = getelementptr inbounds nuw [0 x i8], ptr %.val245, i64 0, i64 %131
+  %138 = getelementptr inbounds nuw i8, ptr %.val245, i64 %131
   %139 = load i8, ptr %138, align 1, !noundef !12
   %140 = zext i8 %139 to i16
   %141 = shl nuw i16 %140, 8
@@ -8166,7 +8150,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   unreachable
 
 152:                                              ; preds = %134
-  %153 = getelementptr inbounds nuw [0 x i8], ptr %122, i64 0, i64 %149
+  %153 = getelementptr inbounds nuw i8, ptr %122, i64 %149
   %154 = load i8, ptr %153, align 1, !noundef !12
   store i8 %154, ptr %145, align 1
   %155 = icmp samesign ugt i64 %45, 1
@@ -8195,7 +8179,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode10Encod
   br i1 %155, label %.sink.split, label %171
 
 167:                                              ; preds = %157
-  %168 = getelementptr inbounds nuw [0 x i8], ptr %122, i64 0, i64 %159
+  %168 = getelementptr inbounds nuw i8, ptr %122, i64 %159
   %169 = load i8, ptr %168, align 1, !noundef !12
   store i8 %169, ptr %145, align 1
   br label %161
@@ -8319,8 +8303,8 @@ thread-pre-split293:                              ; preds = %"_ZN4core3ptr64drop
   %or.cond = icmp ult i32 %218, 2
   br i1 %or.cond, label %thread-pre-split293.thread, label %221
 
-common.resume:                                    ; preds = %597, %306, %705, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284"
-  %common.resume.op = phi { ptr, i32 } [ %706, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284" ], [ %706, %705 ], [ %307, %306 ], [ %598, %597 ]
+common.resume:                                    ; preds = %598, %306, %707, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284"
+  %common.resume.op = phi { ptr, i32 } [ %708, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284" ], [ %708, %707 ], [ %307, %306 ], [ %599, %598 ]
   resume { ptr, i32 } %common.resume.op
 
 thread-pre-split293.thread:                       ; preds = %192, %thread-pre-split293
@@ -8442,10 +8426,10 @@ thread-pre-split293.thread:                       ; preds = %192, %thread-pre-sp
   unreachable
 
 _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds = %278
-  %282 = getelementptr inbounds nuw [0 x i8], ptr %.val241, i64 0, i64 %266
+  %282 = getelementptr inbounds nuw i8, ptr %.val241, i64 %266
   %283 = load i8, ptr %282, align 1, !noundef !12
   %284 = zext i8 %283 to i16
-  %285 = getelementptr inbounds nuw [0 x i8], ptr %.val241, i64 0, i64 %279
+  %285 = getelementptr inbounds nuw i8, ptr %.val241, i64 %279
   %286 = load i8, ptr %285, align 1, !noundef !12
   %287 = zext i8 %286 to i16
   %288 = shl nuw i16 %287, 8
@@ -8551,7 +8535,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %332 = phi i64 [ %319, %327 ], [ %.val258, %330 ]
   %333 = phi ptr [ @anon.e9f42dff1fd369047582a93c3ee51670.71, %327 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.72, %330 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %328, i64 noundef %332, ptr noalias noundef readonly align 8 dereferenceable(24) %333) #21
-          to label %.cont unwind label %705
+          to label %.cont unwind label %707
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -8566,7 +8550,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %337 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %337, align 8
   %338 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hb9deea6d3d712364E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
-          to label %339 unwind label %705
+          to label %339 unwind label %707
 
 339:                                              ; preds = %334
   %340 = extractvalue { ptr, i64 } %338, 0
@@ -8718,7 +8702,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
 418:                                              ; preds = %386
   %419 = load i64, ptr %365, align 8, !noundef !12
   %.not201 = icmp eq i64 %419, 0
-  br i1 %.not201, label %450, label %448
+  br i1 %.not201, label %451, label %449
 
 420:                                              ; preds = %386
   %421 = load i64, ptr %22, align 8, !alias.scope !729, !noundef !12
@@ -8765,79 +8749,79 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit275: ; pre
   br label %.sink.split383
 
 switch.lookup:                                    ; preds = %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit275
-  %switch.tableidx = add nsw i64 %443, -1
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE.37, i64 0, i64 %switch.tableidx
+  %446 = getelementptr i64, ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE.37, i64 %443
+  %switch.gep = getelementptr i8, ptr %446, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
-  %447 = getelementptr inbounds nuw i8, ptr %446, i64 40
-  store i32 0, ptr %447, align 8
+  %447 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 40
+  store i32 0, ptr %448, align 8
   br label %445
 
-448:                                              ; preds = %418
+449:                                              ; preds = %418
   %.val262 = load i64, ptr %382, align 8, !noundef !12
-  %449 = icmp ult i64 %411, %.val262
-  br i1 %449, label %453, label %460, !prof !278
+  %450 = icmp ult i64 %411, %.val262
+  br i1 %450, label %454, label %461, !prof !278
 
-450:                                              ; preds = %418, %453
-  %451 = phi i64 [ %411, %418 ], [ %456, %453 ]
-  %452 = phi i64 [ %410, %418 ], [ %459, %453 ]
-  br i1 %1, label %thread-pre-split301, label %461
+451:                                              ; preds = %418, %454
+  %452 = phi i64 [ %411, %418 ], [ %457, %454 ]
+  %453 = phi i64 [ %410, %418 ], [ %460, %454 ]
+  br i1 %1, label %thread-pre-split301, label %462
 
-453:                                              ; preds = %448
+454:                                              ; preds = %449
   %.val261 = load ptr, ptr %381, align 8, !nonnull !12, !align !268, !noundef !12
-  %454 = getelementptr inbounds [0 x { i32, i32, i32, i16, i16 }], ptr %.val261, i64 0, i64 %411
-  call void @_ZN6brotli3enc6encode17InitInsertCommand17h19a94d9a4c7967ffE(ptr noalias noundef nonnull align 4 dereferenceable(16) %454, i64 noundef %419)
-  %455 = load i64, ptr %222, align 8, !noundef !12
-  %456 = add i64 %455, 1
-  store i64 %456, ptr %222, align 8
-  %457 = load i64, ptr %391, align 8, !noundef !12
-  %458 = load i64, ptr %365, align 8, !noundef !12
-  %459 = add i64 %458, %457
-  store i64 %459, ptr %391, align 8
+  %455 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val261, i64 %411
+  call void @_ZN6brotli3enc6encode17InitInsertCommand17h19a94d9a4c7967ffE(ptr noalias noundef nonnull align 4 dereferenceable(16) %455, i64 noundef %419)
+  %456 = load i64, ptr %222, align 8, !noundef !12
+  %457 = add i64 %456, 1
+  store i64 %457, ptr %222, align 8
+  %458 = load i64, ptr %391, align 8, !noundef !12
+  %459 = load i64, ptr %365, align 8, !noundef !12
+  %460 = add i64 %459, %458
+  store i64 %460, ptr %391, align 8
   store i64 0, ptr %365, align 8
-  br label %450
+  br label %451
 
-460:                                              ; preds = %448
+461:                                              ; preds = %449
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %411, i64 noundef %.val262, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.74) #21
   unreachable
 
-461:                                              ; preds = %450
-  %462 = load i64, ptr %20, align 8, !noundef !12
-  %463 = load i64, ptr %47, align 8, !noundef !12
-  %464 = icmp eq i64 %462, %463
-  br i1 %464, label %469, label %465
+462:                                              ; preds = %451
+  %463 = load i64, ptr %20, align 8, !noundef !12
+  %464 = load i64, ptr %47, align 8, !noundef !12
+  %465 = icmp eq i64 %463, %464
+  br i1 %465, label %470, label %466
 
-thread-pre-split301:                              ; preds = %450
+thread-pre-split301:                              ; preds = %451
   %.pr302 = load i64, ptr %47, align 8
-  br label %465
+  br label %466
 
-465:                                              ; preds = %thread-pre-split301, %461
-  %466 = phi i64 [ %.pr302, %thread-pre-split301 ], [ %463, %461 ]
+466:                                              ; preds = %thread-pre-split301, %462
+  %467 = phi i64 [ %.pr302, %thread-pre-split301 ], [ %464, %462 ]
   %.val208 = load i64, ptr %311, align 8, !noundef !12
-  %467 = load i64, ptr %312, align 8, !noundef !12
-  %468 = icmp ugt i64 %467, %.val208
-  br i1 %468, label %634, label %470
+  %468 = load i64, ptr %312, align 8, !noundef !12
+  %469 = icmp ugt i64 %468, %.val208
+  br i1 %469, label %635, label %471
 
-469:                                              ; preds = %461
+470:                                              ; preds = %462
   store i64 %.1112, ptr %3, align 8
   br label %.sink.split383
 
-470:                                              ; preds = %465
+471:                                              ; preds = %466
   %.val207 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
-  %471 = load i64, ptr %20, align 8, !noundef !12
-  %472 = sub i64 %471, %466
-  %473 = sub nuw i64 %.val208, %467
-  %474 = getelementptr inbounds i8, ptr %.val207, i64 %467
-  %475 = and i64 %472, 4294967295
-  %476 = getelementptr inbounds nuw i8, ptr %0, i64 5569
-  %477 = getelementptr inbounds nuw i8, ptr %0, i64 5567
-  %478 = load i8, ptr %477, align 1, !noundef !12
-  %479 = getelementptr inbounds nuw i8, ptr %0, i64 5568
-  %480 = load i8, ptr %479, align 8, !noundef !12
+  %472 = load i64, ptr %20, align 8, !noundef !12
+  %473 = sub i64 %472, %467
+  %474 = sub nuw i64 %.val208, %468
+  %475 = getelementptr inbounds i8, ptr %.val207, i64 %468
+  %476 = and i64 %473, 4294967295
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 5569
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 5567
+  %479 = load i8, ptr %478, align 1, !noundef !12
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 5568
+  %481 = load i8, ptr %480, align 8, !noundef !12
   %.val259 = load ptr, ptr %381, align 8, !nonnull !12, !align !268, !noundef !12
   %.val260 = load i64, ptr %382, align 8, !noundef !12
-  %481 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 5544
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 5544
   %.val = load ptr, ptr %53, align 8, !nonnull !12, !align !50, !noundef !12
   %.val206 = load i64, ptr %54, align 8, !noundef !12
   call void @llvm.experimental.noalias.scope.decl(metadata !732)
@@ -8845,460 +8829,460 @@ thread-pre-split301:                              ; preds = %450
   call void @llvm.experimental.noalias.scope.decl(metadata !737)
   call void @llvm.experimental.noalias.scope.decl(metadata !739)
   call void @llvm.experimental.noalias.scope.decl(metadata !741)
-  %483 = getelementptr inbounds nuw i8, ptr %0, i64 230
-  %484 = load i8, ptr %483, align 2, !range !536, !alias.scope !732, !noalias !743, !noundef !12
-  %485 = trunc nuw i8 %484 to i1
-  br i1 %485, label %491, label %486
+  %484 = getelementptr inbounds nuw i8, ptr %0, i64 230
+  %485 = load i8, ptr %484, align 2, !range !536, !alias.scope !732, !noalias !743, !noundef !12
+  %486 = trunc nuw i8 %485 to i1
+  br i1 %486, label %492, label %487
 
-486:                                              ; preds = %470
-  %487 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %488 = load i8, ptr %487, align 4, !range !536, !alias.scope !732, !noalias !743, !noundef !12
-  %489 = trunc nuw i8 %488 to i1
-  br i1 %489, label %490, label %491
+487:                                              ; preds = %471
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %489 = load i8, ptr %488, align 4, !range !536, !alias.scope !732, !noalias !743, !noundef !12
+  %490 = trunc nuw i8 %489 to i1
+  br i1 %490, label %491, label %492
 
-490:                                              ; preds = %486
+491:                                              ; preds = %487
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e9f42dff1fd369047582a93c3ee51670.132, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.133) #21, !noalias !752
   unreachable
 
-491:                                              ; preds = %486, %470
-  %.0.i276 = phi i1 [ %1, %486 ], [ false, %470 ]
-  %492 = trunc i64 %466 to i32
-  %493 = icmp ugt i64 %466, 3221225471
-  br i1 %493, label %551, label %494
+492:                                              ; preds = %487, %471
+  %.0.i276 = phi i1 [ %1, %487 ], [ false, %471 ]
+  %493 = trunc i64 %467 to i32
+  %494 = icmp ugt i64 %467, 3221225471
+  br i1 %494, label %552, label %495
 
-494:                                              ; preds = %551, %491
-  %.019.i = phi i32 [ %557, %551 ], [ %492, %491 ]
+495:                                              ; preds = %552, %492
+  %.019.i = phi i32 [ %558, %552 ], [ %493, %492 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !752
   call void @llvm.experimental.noalias.scope.decl(metadata !753)
   call void @llvm.experimental.noalias.scope.decl(metadata !756)
-  %495 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %496 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %497 = load i32, ptr %496, align 8, !range !627, !alias.scope !758, !noalias !759, !noundef !12
-  %498 = load i32, ptr %182, align 8, !alias.scope !758, !noalias !759, !noundef !12
-  %499 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %500 = load i8, ptr %499, align 8, !range !536, !alias.scope !758, !noalias !759, !noundef !12
-  %501 = load i32, ptr %392, align 4, !alias.scope !758, !noalias !759, !noundef !12
-  %502 = load i32, ptr %34, align 8, !alias.scope !758, !noalias !759, !noundef !12
-  %503 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %504 = load i64, ptr %503, align 8, !alias.scope !758, !noalias !759, !noundef !12
-  %505 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %506 = load i32, ptr %505, align 4, !alias.scope !758, !noalias !759, !noundef !12
-  %507 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %508 = getelementptr inbounds nuw i8, ptr %0, i64 225
-  %509 = load i8, ptr %508, align 1, !range !536, !alias.scope !758, !noalias !759, !noundef !12
-  %510 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %511 = load i8, ptr %510, align 4, !alias.scope !758, !noalias !759, !noundef !12
-  %512 = getelementptr inbounds nuw i8, ptr %0, i64 221
-  %513 = load i8, ptr %512, align 1, !alias.scope !758, !noalias !759, !noundef !12
-  %514 = getelementptr inbounds nuw i8, ptr %0, i64 222
-  %515 = load i8, ptr %514, align 2, !alias.scope !758, !noalias !759, !noundef !12
-  %516 = getelementptr inbounds nuw i8, ptr %0, i64 223
-  %517 = load i8, ptr %516, align 1, !alias.scope !758, !noalias !759, !noundef !12
-  %518 = getelementptr inbounds nuw i8, ptr %0, i64 226
-  %519 = load i8, ptr %518, align 2, !range !536, !alias.scope !758, !noalias !759, !noundef !12
-  %520 = getelementptr inbounds nuw i8, ptr %0, i64 227
-  %521 = load i8, ptr %520, align 1, !range !536, !alias.scope !758, !noalias !759, !noundef !12
-  %522 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %523 = load i8, ptr %522, align 4, !range !536, !alias.scope !758, !noalias !759, !noundef !12
-  %524 = getelementptr inbounds nuw i8, ptr %0, i64 229
-  %525 = load i8, ptr %524, align 1, !range !536, !alias.scope !758, !noalias !759, !noundef !12
-  %526 = load i8, ptr %69, align 1, !range !536, !alias.scope !758, !noalias !759, !noundef !12
-  %527 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %528 = load i8, ptr %527, align 8, !range !536, !alias.scope !758, !noalias !759, !noundef !12
-  %529 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %529, ptr noundef nonnull readonly align 8 dereferenceable(24) %495, i64 24, i1 false), !alias.scope !760, !noalias !743
-  %530 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store i32 %497, ptr %530, align 8, !alias.scope !753, !noalias !761
-  %531 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %498 = load i32, ptr %497, align 8, !range !627, !alias.scope !758, !noalias !759, !noundef !12
+  %499 = load i32, ptr %182, align 8, !alias.scope !758, !noalias !759, !noundef !12
+  %500 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %501 = load i8, ptr %500, align 8, !range !536, !alias.scope !758, !noalias !759, !noundef !12
+  %502 = load i32, ptr %392, align 4, !alias.scope !758, !noalias !759, !noundef !12
+  %503 = load i32, ptr %34, align 8, !alias.scope !758, !noalias !759, !noundef !12
+  %504 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %505 = load i64, ptr %504, align 8, !alias.scope !758, !noalias !759, !noundef !12
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %507 = load i32, ptr %506, align 4, !alias.scope !758, !noalias !759, !noundef !12
+  %508 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %509 = getelementptr inbounds nuw i8, ptr %0, i64 225
+  %510 = load i8, ptr %509, align 1, !range !536, !alias.scope !758, !noalias !759, !noundef !12
+  %511 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %512 = load i8, ptr %511, align 4, !alias.scope !758, !noalias !759, !noundef !12
+  %513 = getelementptr inbounds nuw i8, ptr %0, i64 221
+  %514 = load i8, ptr %513, align 1, !alias.scope !758, !noalias !759, !noundef !12
+  %515 = getelementptr inbounds nuw i8, ptr %0, i64 222
+  %516 = load i8, ptr %515, align 2, !alias.scope !758, !noalias !759, !noundef !12
+  %517 = getelementptr inbounds nuw i8, ptr %0, i64 223
+  %518 = load i8, ptr %517, align 1, !alias.scope !758, !noalias !759, !noundef !12
+  %519 = getelementptr inbounds nuw i8, ptr %0, i64 226
+  %520 = load i8, ptr %519, align 2, !range !536, !alias.scope !758, !noalias !759, !noundef !12
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 227
+  %522 = load i8, ptr %521, align 1, !range !536, !alias.scope !758, !noalias !759, !noundef !12
+  %523 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %524 = load i8, ptr %523, align 4, !range !536, !alias.scope !758, !noalias !759, !noundef !12
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 229
+  %526 = load i8, ptr %525, align 1, !range !536, !alias.scope !758, !noalias !759, !noundef !12
+  %527 = load i8, ptr %69, align 1, !range !536, !alias.scope !758, !noalias !759, !noundef !12
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %529 = load i8, ptr %528, align 8, !range !536, !alias.scope !758, !noalias !759, !noundef !12
+  %530 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %530, ptr noundef nonnull readonly align 8 dereferenceable(24) %496, i64 24, i1 false), !alias.scope !760, !noalias !743
+  %531 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 %498, ptr %531, align 8, !alias.scope !753, !noalias !761
-  %532 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store i8 %500, ptr %532, align 8, !alias.scope !753, !noalias !761
-  %533 = getelementptr inbounds nuw i8, ptr %9, i64 76
-  store i32 %501, ptr %533, align 4, !alias.scope !753, !noalias !761
-  %534 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i32 %502, ptr %534, align 8, !alias.scope !753, !noalias !761
-  %535 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i64 %504, ptr %535, align 8, !alias.scope !753, !noalias !761
-  %536 = getelementptr inbounds nuw i8, ptr %9, i64 84
-  store i32 %506, ptr %536, align 4, !alias.scope !753, !noalias !761
-  %537 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %537, ptr noundef nonnull readonly align 8 dereferenceable(24) %507, i64 24, i1 false), !alias.scope !760, !noalias !743
-  %538 = getelementptr inbounds nuw i8, ptr %9, i64 97
-  store i8 %509, ptr %538, align 1, !alias.scope !753, !noalias !761
-  %539 = getelementptr inbounds nuw i8, ptr %9, i64 92
-  store i8 %511, ptr %539, align 4, !alias.scope !753, !noalias !761
-  %540 = getelementptr inbounds nuw i8, ptr %9, i64 93
-  store i8 %513, ptr %540, align 1, !alias.scope !753, !noalias !761
-  %541 = getelementptr inbounds nuw i8, ptr %9, i64 94
-  store i8 %515, ptr %541, align 2, !alias.scope !753, !noalias !761
-  %542 = getelementptr inbounds nuw i8, ptr %9, i64 95
-  store i8 %517, ptr %542, align 1, !alias.scope !753, !noalias !761
+  %532 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store i32 %499, ptr %532, align 8, !alias.scope !753, !noalias !761
+  %533 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store i8 %501, ptr %533, align 8, !alias.scope !753, !noalias !761
+  %534 = getelementptr inbounds nuw i8, ptr %9, i64 76
+  store i32 %502, ptr %534, align 4, !alias.scope !753, !noalias !761
+  %535 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i32 %503, ptr %535, align 8, !alias.scope !753, !noalias !761
+  %536 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i64 %505, ptr %536, align 8, !alias.scope !753, !noalias !761
+  %537 = getelementptr inbounds nuw i8, ptr %9, i64 84
+  store i32 %507, ptr %537, align 4, !alias.scope !753, !noalias !761
+  %538 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %538, ptr noundef nonnull readonly align 8 dereferenceable(24) %508, i64 24, i1 false), !alias.scope !760, !noalias !743
+  %539 = getelementptr inbounds nuw i8, ptr %9, i64 97
+  store i8 %510, ptr %539, align 1, !alias.scope !753, !noalias !761
+  %540 = getelementptr inbounds nuw i8, ptr %9, i64 92
+  store i8 %512, ptr %540, align 4, !alias.scope !753, !noalias !761
+  %541 = getelementptr inbounds nuw i8, ptr %9, i64 93
+  store i8 %514, ptr %541, align 1, !alias.scope !753, !noalias !761
+  %542 = getelementptr inbounds nuw i8, ptr %9, i64 94
+  store i8 %516, ptr %542, align 2, !alias.scope !753, !noalias !761
+  %543 = getelementptr inbounds nuw i8, ptr %9, i64 95
+  store i8 %518, ptr %543, align 1, !alias.scope !753, !noalias !761
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull readonly align 8 dereferenceable(112) %68, i64 16, i1 false), !alias.scope !760, !noalias !743
-  %543 = getelementptr inbounds nuw i8, ptr %9, i64 98
-  store i8 %519, ptr %543, align 2, !alias.scope !753, !noalias !761
-  %544 = getelementptr inbounds nuw i8, ptr %9, i64 99
-  store i8 %521, ptr %544, align 1, !alias.scope !753, !noalias !761
-  %545 = getelementptr inbounds nuw i8, ptr %9, i64 100
-  store i8 %523, ptr %545, align 4, !alias.scope !753, !noalias !761
-  %546 = getelementptr inbounds nuw i8, ptr %9, i64 101
-  store i8 %525, ptr %546, align 1, !alias.scope !753, !noalias !761
-  %547 = getelementptr inbounds nuw i8, ptr %9, i64 102
-  store i8 %484, ptr %547, align 2, !alias.scope !753, !noalias !761
-  %548 = getelementptr inbounds nuw i8, ptr %9, i64 103
-  store i8 %526, ptr %548, align 1, !alias.scope !753, !noalias !761
-  %549 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store i8 %528, ptr %549, align 8, !alias.scope !753, !noalias !761
-  %550 = icmp eq i64 %475, 0
-  br i1 %550, label %558, label %562
+  %544 = getelementptr inbounds nuw i8, ptr %9, i64 98
+  store i8 %520, ptr %544, align 2, !alias.scope !753, !noalias !761
+  %545 = getelementptr inbounds nuw i8, ptr %9, i64 99
+  store i8 %522, ptr %545, align 1, !alias.scope !753, !noalias !761
+  %546 = getelementptr inbounds nuw i8, ptr %9, i64 100
+  store i8 %524, ptr %546, align 4, !alias.scope !753, !noalias !761
+  %547 = getelementptr inbounds nuw i8, ptr %9, i64 101
+  store i8 %526, ptr %547, align 1, !alias.scope !753, !noalias !761
+  %548 = getelementptr inbounds nuw i8, ptr %9, i64 102
+  store i8 %485, ptr %548, align 2, !alias.scope !753, !noalias !761
+  %549 = getelementptr inbounds nuw i8, ptr %9, i64 103
+  store i8 %527, ptr %549, align 1, !alias.scope !753, !noalias !761
+  %550 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  store i8 %529, ptr %550, align 8, !alias.scope !753, !noalias !761
+  %551 = icmp eq i64 %476, 0
+  br i1 %551, label %559, label %563
 
-551:                                              ; preds = %491
-  %552 = and i32 %492, 1073741823
-  %553 = shl i32 %492, 1
-  %554 = ashr exact i32 %553, 1
-  %555 = and i32 %554, -1073741824
-  %556 = or disjoint i32 %555, %552
-  %557 = xor i32 %556, -2147483648
-  br label %494
+552:                                              ; preds = %492
+  %553 = and i32 %493, 1073741823
+  %554 = shl i32 %493, 1
+  %555 = ashr exact i32 %554, 1
+  %556 = and i32 %555, -1073741824
+  %557 = or disjoint i32 %556, %553
+  %558 = xor i32 %557, -2147483648
+  br label %495
 
-558:                                              ; preds = %494
+559:                                              ; preds = %495
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hf4851fa4b68a36a6E(i64 noundef 2, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206), !noalias !762
-  %559 = load i64, ptr %18, align 8, !alias.scope !739, !noalias !763, !noundef !12
-  %560 = add i64 %559, 7
-  %561 = and i64 %560, 4294967288
-  store i64 %561, ptr %18, align 8, !alias.scope !739, !noalias !763
+  %560 = load i64, ptr %18, align 8, !alias.scope !739, !noalias !763, !noundef !12
+  %561 = add i64 %560, 7
+  %562 = and i64 %561, 4294967288
+  store i64 %562, ptr %18, align 8, !alias.scope !739, !noalias !763
   br label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
 
-562:                                              ; preds = %494
-  %563 = call noundef i32 @_ZN6brotli3enc6encode14ShouldCompress17hd6a17b1fab2575bdE(ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef range(i64 0, 4294967296) %350, i64 noundef %466, i64 noundef range(i64 0, 4294967296) %475, i64 noundef %452, i64 noundef %451), !noalias !764
-  %564 = icmp eq i32 %563, 0
-  br i1 %564, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i", label %568
+563:                                              ; preds = %495
+  %564 = call noundef i32 @_ZN6brotli3enc6encode14ShouldCompress17hd6a17b1fab2575bdE(ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef range(i64 0, 4294967296) %350, i64 noundef %467, i64 noundef range(i64 0, 4294967296) %476, i64 noundef %453, i64 noundef %452), !noalias !764
+  %565 = icmp eq i32 %564, 0
+  br i1 %565, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i", label %569
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i": ; preds = %562
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %380, ptr noundef nonnull readonly align 8 dereferenceable(16) %481, i64 16, i1 false), !alias.scope !765, !noalias !769
-  %565 = zext i1 %.0.i276 to i32
-  %566 = zext i32 %.019.i to i64
-  call void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMetaBlock17h0f0e9d8174f4aa65E(ptr noalias noundef nonnull align 1 %42, i32 noundef %565, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %566, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, i64 noundef range(i64 0, 4294967296) %475, ptr noalias noundef nonnull align 8 dereferenceable(8) %482, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, i1 noundef zeroext false, ptr noalias noundef nonnull align 1 %4), !noalias !771
-  %567 = xor i1 %1, %.0.i276
-  br i1 %567, label %573, label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i": ; preds = %563
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %380, ptr noundef nonnull readonly align 8 dereferenceable(16) %482, i64 16, i1 false), !alias.scope !765, !noalias !769
+  %566 = zext i1 %.0.i276 to i32
+  %567 = zext i32 %.019.i to i64
+  call void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMetaBlock17h0f0e9d8174f4aa65E(ptr noalias noundef nonnull align 1 %42, i32 noundef %566, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %567, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, i64 noundef range(i64 0, 4294967296) %476, ptr noalias noundef nonnull align 8 dereferenceable(8) %483, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, i1 noundef zeroext false, ptr noalias noundef nonnull align 1 %4), !noalias !771
+  %568 = xor i1 %1, %.0.i276
+  br i1 %568, label %574, label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
 
-568:                                              ; preds = %562
-  %569 = load i64, ptr %18, align 8, !alias.scope !739, !noalias !763, !noundef !12
-  %570 = lshr i64 %569, 3
-  %571 = add nuw nsw i64 %570, 1
-  %572 = icmp ult i64 %571, %.val206
-  br i1 %572, label %574, label %580, !prof !278
+569:                                              ; preds = %563
+  %570 = load i64, ptr %18, align 8, !alias.scope !739, !noalias !763, !noundef !12
+  %571 = lshr i64 %570, 3
+  %572 = add nuw nsw i64 %571, 1
+  %573 = icmp ult i64 %572, %.val206
+  br i1 %573, label %575, label %581, !prof !278
 
-573:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i"
+574:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i"
   call void @_ZN6brotli3enc17brotli_bit_stream29BrotliWriteEmptyLastMetaBlock17h779b88827274cb74E(ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206), !noalias !771
   br label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
 
-574:                                              ; preds = %568
-  %575 = getelementptr inbounds nuw [0 x i8], ptr %.val, i64 0, i64 %571
-  %576 = load i8, ptr %575, align 1, !alias.scope !741, !noalias !772, !noundef !12
-  %577 = getelementptr inbounds nuw [0 x i8], ptr %.val, i64 0, i64 %570
-  %578 = load i8, ptr %577, align 1, !alias.scope !741, !noalias !772, !noundef !12
-  %579 = icmp slt i32 %498, 3
-  br i1 %579, label %583, label %581
+575:                                              ; preds = %569
+  %576 = getelementptr inbounds nuw i8, ptr %.val, i64 %572
+  %577 = load i8, ptr %576, align 1, !alias.scope !741, !noalias !772, !noundef !12
+  %578 = getelementptr inbounds nuw i8, ptr %.val, i64 %571
+  %579 = load i8, ptr %578, align 1, !alias.scope !741, !noalias !772, !noundef !12
+  %580 = icmp slt i32 %499, 3
+  br i1 %580, label %584, label %582
 
-580:                                              ; preds = %568
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %571, i64 noundef %.val206, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.137) #21, !noalias !764
+581:                                              ; preds = %569
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %572, i64 noundef %.val206, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.137) #21, !noalias !764
   unreachable
 
-581:                                              ; preds = %574
-  %582 = icmp eq i32 %498, 3
-  br i1 %582, label %588, label %586
+582:                                              ; preds = %575
+  %583 = icmp eq i32 %499, 3
+  br i1 %583, label %589, label %587
 
-583:                                              ; preds = %574
-  %584 = zext i32 %.019.i to i64
-  %585 = zext i1 %.0.i276 to i32
-  call void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast17h9db05c55d8c4fe60E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %584, i64 noundef range(i64 0, 4294967296) %475, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %585, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %481, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %451, ptr noalias noundef nonnull align 8 dereferenceable(8) %482, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4), !noalias !773
-  br label %619
+584:                                              ; preds = %575
+  %585 = zext i32 %.019.i to i64
+  %586 = zext i1 %.0.i276 to i32
+  call void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast17h9db05c55d8c4fe60E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %585, i64 noundef range(i64 0, 4294967296) %476, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %586, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %482, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %452, ptr noalias noundef nonnull align 8 dereferenceable(8) %483, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4), !noalias !773
+  br label %620
 
-586:                                              ; preds = %581
+587:                                              ; preds = %582
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !752
   call void @"_ZN102_$LT$brotli..enc..brotli_bit_stream..MetaBlockSplit$LT$Alloc$GT$$u20$as$u20$core..default..Default$GT$7default17h0b5cf102879d0f7cE"(ptr noalias noundef nonnull sret({ { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64, i64, i64, i64 }) align 8 captures(none) dereferenceable(264) %8), !noalias !764
-  %587 = icmp samesign ult i32 %498, 10
-  br i1 %587, label %593, label %591
+  %588 = icmp samesign ult i32 %499, 10
+  br i1 %588, label %594, label %592
 
-588:                                              ; preds = %581
-  %589 = zext i32 %.019.i to i64
-  %590 = zext i1 %.0.i276 to i32
-  call void @_ZN6brotli3enc17brotli_bit_stream27BrotliStoreMetaBlockTrivial17h75421ac989ef7f4aE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %589, i64 noundef range(i64 0, 4294967296) %475, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %590, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %481, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %451, ptr noalias noundef nonnull align 8 dereferenceable(8) %482, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4), !noalias !773
-  br label %619
+589:                                              ; preds = %582
+  %590 = zext i32 %.019.i to i64
+  %591 = zext i1 %.0.i276 to i32
+  call void @_ZN6brotli3enc17brotli_bit_stream27BrotliStoreMetaBlockTrivial17h75421ac989ef7f4aE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %590, i64 noundef range(i64 0, 4294967296) %476, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %591, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %482, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %452, ptr noalias noundef nonnull align 8 dereferenceable(8) %483, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4), !noalias !773
+  br label %620
 
-591:                                              ; preds = %586
-  %592 = zext i32 %.019.i to i64
-  invoke void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03f7565E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %592, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull align 8 dereferenceable(112) %9, i8 noundef %478, i8 noundef %480, ptr noalias noundef nonnull align 4 %.val259, i64 noundef %.val260, i64 noundef %451, i8 noundef range(i8 0, 4) %362, ptr noalias noundef nonnull align 1 %476, ptr noalias noundef nonnull align 1 %476, ptr noalias noundef nonnull align 1 %476, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
-          to label %611 unwind label %597, !noalias !774
+592:                                              ; preds = %587
+  %593 = zext i32 %.019.i to i64
+  invoke void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03f7565E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %593, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull align 8 dereferenceable(112) %9, i8 noundef %479, i8 noundef %481, ptr noalias noundef nonnull align 4 %.val259, i64 noundef %.val260, i64 noundef %452, i8 noundef range(i8 0, 4) %362, ptr noalias noundef nonnull align 1 %477, ptr noalias noundef nonnull align 1 %477, ptr noalias noundef nonnull align 1 %477, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
+          to label %612 unwind label %598, !noalias !774
 
-593:                                              ; preds = %586
+594:                                              ; preds = %587
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !752
   store i64 1, ptr %7, align 8, !noalias !752
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !752
   store ptr @anon.e9f42dff1fd369047582a93c3ee51670.3.llvm.14674892691807634323, ptr %6, align 8, !noalias !752
-  %594 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %594, align 8, !noalias !752
-  %595 = icmp eq i32 %506, 0
-  %596 = zext i32 %.019.i to i64
-  br i1 %595, label %599, label %.invoke.i
+  %595 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %595, align 8, !noalias !752
+  %596 = icmp eq i32 %507, 0
+  %597 = zext i32 %.019.i to i64
+  br i1 %596, label %600, label %.invoke.i
 
-597:                                              ; preds = %615, %611, %608, %.invoke.i, %599, %591
-  %598 = landingpad { ptr, i32 }
+598:                                              ; preds = %616, %612, %609, %.invoke.i, %600, %592
+  %599 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr113drop_in_place$LT$brotli..enc..brotli_bit_stream..MetaBlockSplit$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h6d5d3b468bbd91faE"(ptr noalias noundef nonnull align 8 dereferenceable(264) %8) #23
-          to label %common.resume unwind label %617, !noalias !775
+          to label %common.resume unwind label %618, !noalias !775
 
-599:                                              ; preds = %593
-  invoke void @_ZN6brotli3enc6encode32DecideOverLiteralContextModeling17h9c1c8d4b5e84c3a3E(ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %596, i64 noundef range(i64 0, 4294967296) %475, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %498, i64 noundef %504, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-          to label %600 unwind label %597, !noalias !764
+600:                                              ; preds = %594
+  invoke void @_ZN6brotli3enc6encode32DecideOverLiteralContextModeling17h9c1c8d4b5e84c3a3E(ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %597, i64 noundef range(i64 0, 4294967296) %476, i64 noundef range(i64 0, 4294967296) %350, i32 noundef %499, i64 noundef %505, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+          to label %601 unwind label %598, !noalias !764
 
-600:                                              ; preds = %599
+601:                                              ; preds = %600
   %.pre.i = load i64, ptr %7, align 8, !noalias !752
-  %601 = icmp eq i64 %.pre.i, 1
-  br i1 %601, label %.invoke.i, label %602
+  %602 = icmp eq i64 %.pre.i, 1
+  br i1 %602, label %.invoke.i, label %603
 
-602:                                              ; preds = %600
-  %603 = load i64, ptr %594, align 8, !noalias !752, !noundef !12
-  %604 = load ptr, ptr %6, align 8, !noalias !752, !nonnull !12, !align !268, !noundef !12
+603:                                              ; preds = %601
+  %604 = load i64, ptr %595, align 8, !noalias !752, !noundef !12
+  %605 = load ptr, ptr %6, align 8, !noalias !752, !nonnull !12, !align !268, !noundef !12
   br label %.invoke.i
 
-.invoke.i:                                        ; preds = %602, %600, %593
-  %605 = phi i64 [ %.pre.i, %602 ], [ 1, %593 ], [ 1, %600 ]
-  %606 = phi ptr [ %604, %602 ], [ @anon.3805415b65ff0bcf60b60eb7923a431b.13.llvm.10804153884081904121, %593 ], [ @anon.3805415b65ff0bcf60b60eb7923a431b.13.llvm.10804153884081904121, %600 ]
-  %607 = phi i64 [ %603, %602 ], [ 0, %593 ], [ 0, %600 ]
-  invoke void @_ZN6brotli3enc9metablock34BrotliBuildMetaBlockGreedyInternal17h1577f881041447f5E.llvm.10804153884081904121(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %596, i64 noundef range(i64 0, 4294967296) %350, i8 noundef %478, i8 noundef %480, i8 noundef range(i8 0, 4) %362, i64 noundef %605, ptr noalias noundef nonnull readonly align 4 %606, i64 noundef %607, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %451, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
-          to label %_ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i unwind label %597, !noalias !776
+.invoke.i:                                        ; preds = %603, %601, %594
+  %606 = phi i64 [ %.pre.i, %603 ], [ 1, %594 ], [ 1, %601 ]
+  %607 = phi ptr [ %605, %603 ], [ @anon.3805415b65ff0bcf60b60eb7923a431b.13.llvm.10804153884081904121, %594 ], [ @anon.3805415b65ff0bcf60b60eb7923a431b.13.llvm.10804153884081904121, %601 ]
+  %608 = phi i64 [ %604, %603 ], [ 0, %594 ], [ 0, %601 ]
+  invoke void @_ZN6brotli3enc9metablock34BrotliBuildMetaBlockGreedyInternal17h1577f881041447f5E.llvm.10804153884081904121(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %597, i64 noundef range(i64 0, 4294967296) %350, i8 noundef %479, i8 noundef %481, i8 noundef range(i8 0, 4) %362, i64 noundef %606, ptr noalias noundef nonnull readonly align 4 %607, i64 noundef %608, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %452, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
+          to label %_ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i unwind label %598, !noalias !776
 
 _ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i: ; preds = %.invoke.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !752
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !752
-  br label %611
+  br label %612
 
-608:                                              ; preds = %611
-  %609 = zext i32 %.019.i to i64
-  %610 = zext i1 %.0.i276 to i32
-  invoke void @_ZN6brotli3enc17brotli_bit_stream20BrotliStoreMetaBlock17h42438f2782e2d264E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %609, i64 noundef range(i64 0, 4294967296) %475, i64 noundef range(i64 0, 4294967296) %350, i8 noundef %478, i8 noundef %480, i32 noundef %610, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %9, i8 noundef range(i8 0, 4) %362, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %481, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %451, ptr noalias noundef nonnull align 8 dereferenceable(264) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %482, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4)
-          to label %615 unwind label %597, !noalias !775
+609:                                              ; preds = %612
+  %610 = zext i32 %.019.i to i64
+  %611 = zext i1 %.0.i276 to i32
+  invoke void @_ZN6brotli3enc17brotli_bit_stream20BrotliStoreMetaBlock17h42438f2782e2d264E(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %610, i64 noundef range(i64 0, 4294967296) %476, i64 noundef range(i64 0, 4294967296) %350, i8 noundef %479, i8 noundef %481, i32 noundef %611, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %9, i8 noundef range(i8 0, 4) %362, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %482, ptr noalias noundef nonnull readonly align 4 %.val259, i64 noundef %.val260, i64 noundef %452, ptr noalias noundef nonnull align 8 dereferenceable(264) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %483, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, ptr noalias noundef nonnull align 1 %4)
+          to label %616 unwind label %598, !noalias !775
 
-611:                                              ; preds = %_ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i, %591
-  %612 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %613 = load i32, ptr %612, align 8, !noalias !752, !noundef !12
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %613, i32 544)
-  %614 = zext nneg i32 %spec.store.select.i to i64
-  invoke void @_ZN6brotli3enc9metablock24BrotliOptimizeHistograms17h5e8a8a4e2cd6e335E(i64 noundef %614, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
-          to label %608 unwind label %597, !noalias !774
+612:                                              ; preds = %_ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507becdfcd620dddE.exit.i, %592
+  %613 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %614 = load i32, ptr %613, align 8, !noalias !752, !noundef !12
+  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %614, i32 544)
+  %615 = zext nneg i32 %spec.store.select.i to i64
+  invoke void @_ZN6brotli3enc9metablock24BrotliOptimizeHistograms17h5e8a8a4e2cd6e335E(i64 noundef %615, ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
+          to label %609 unwind label %598, !noalias !774
 
-615:                                              ; preds = %608
+616:                                              ; preds = %609
   invoke void @"_ZN6brotli3enc17brotli_bit_stream27MetaBlockSplit$LT$Alloc$GT$7destroy17h0274c366185f8e94E"(ptr noalias noundef nonnull align 8 dereferenceable(264) %8, ptr noalias noundef nonnull align 1 %42)
-          to label %616 unwind label %597, !noalias !775
+          to label %617 unwind label %598, !noalias !775
 
-616:                                              ; preds = %615
+617:                                              ; preds = %616
   call void @"_ZN4core3ptr113drop_in_place$LT$brotli..enc..brotli_bit_stream..MetaBlockSplit$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h6d5d3b468bbd91faE"(ptr noalias noundef nonnull align 8 dereferenceable(264) %8), !noalias !775
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !752
-  br label %619
+  br label %620
 
-617:                                              ; preds = %597
-  %618 = landingpad { ptr, i32 }
+618:                                              ; preds = %598
+  %619 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !775
   unreachable
 
-619:                                              ; preds = %616, %588, %583
-  %620 = add nuw nsw i64 %475, 4
-  %621 = add nuw nsw i64 %620, %570
-  %622 = load i64, ptr %18, align 8, !alias.scope !739, !noalias !763, !noundef !12
-  %623 = lshr i64 %622, 3
-  %624 = icmp samesign ult i64 %621, %623
-  br i1 %624, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i", label %628
+620:                                              ; preds = %617, %589, %584
+  %621 = add nuw nsw i64 %476, 4
+  %622 = add nuw nsw i64 %621, %571
+  %623 = load i64, ptr %18, align 8, !alias.scope !739, !noalias !763, !noundef !12
+  %624 = lshr i64 %623, 3
+  %625 = icmp samesign ult i64 %622, %624
+  br i1 %625, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i", label %629
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i": ; preds = %619
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %380, ptr noundef nonnull readonly align 8 dereferenceable(16) %481, i64 16, i1 false), !alias.scope !777, !noalias !781
-  store i8 %578, ptr %577, align 1, !alias.scope !741, !noalias !772
-  store i8 %576, ptr %575, align 1, !alias.scope !741, !noalias !772
-  %625 = and i64 %569, 255
-  store i64 %625, ptr %18, align 8, !alias.scope !739, !noalias !763
-  %626 = zext i1 %.0.i276 to i32
-  %627 = zext i32 %.019.i to i64
-  call void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMetaBlock17h0f0e9d8174f4aa65E(ptr noalias noundef nonnull align 1 %42, i32 noundef %626, ptr noalias noundef nonnull readonly align 1 %474, i64 noundef %473, i64 noundef %627, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, i64 noundef range(i64 0, 4294967296) %475, ptr noalias noundef nonnull align 8 dereferenceable(8) %482, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, i1 noundef zeroext true, ptr noalias noundef nonnull align 1 %4), !noalias !737
-  br label %628
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i": ; preds = %620
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %380, ptr noundef nonnull readonly align 8 dereferenceable(16) %482, i64 16, i1 false), !alias.scope !777, !noalias !781
+  store i8 %579, ptr %578, align 1, !alias.scope !741, !noalias !772
+  store i8 %577, ptr %576, align 1, !alias.scope !741, !noalias !772
+  %626 = and i64 %570, 255
+  store i64 %626, ptr %18, align 8, !alias.scope !739, !noalias !763
+  %627 = zext i1 %.0.i276 to i32
+  %628 = zext i32 %.019.i to i64
+  call void @_ZN6brotli3enc17brotli_bit_stream32BrotliStoreUncompressedMetaBlock17h0f0e9d8174f4aa65E(ptr noalias noundef nonnull align 1 %42, i32 noundef %627, ptr noalias noundef nonnull readonly align 1 %475, i64 noundef %474, i64 noundef %628, i64 noundef range(i64 0, 4294967296) %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, i64 noundef range(i64 0, 4294967296) %476, ptr noalias noundef nonnull align 8 dereferenceable(8) %483, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206, i1 noundef zeroext true, ptr noalias noundef nonnull align 1 %4), !noalias !737
+  br label %629
 
-628:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i", %619
-  %629 = xor i1 %1, %.0.i276
-  br i1 %629, label %630, label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
+629:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit29.i", %620
+  %630 = xor i1 %1, %.0.i276
+  br i1 %630, label %631, label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
 
-630:                                              ; preds = %628
+631:                                              ; preds = %629
   call void @_ZN6brotli3enc17brotli_bit_stream29BrotliWriteEmptyLastMetaBlock17h779b88827274cb74E(ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val206), !noalias !737
   br label %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
 
-_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit: ; preds = %558, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i", %573, %628, %630
+_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit: ; preds = %559, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit.i", %574, %629, %631
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !752
   %.val235 = load ptr, ptr %53, align 8, !nonnull !12, !align !50, !noundef !12
   %.val236 = load i64, ptr %54, align 8, !noundef !12
-  %631 = load i64, ptr %18, align 8, !noundef !12
-  %632 = lshr i64 %631, 3
-  %633 = icmp ult i64 %632, %.val236
-  br i1 %633, label %635, label %638, !prof !278
+  %632 = load i64, ptr %18, align 8, !noundef !12
+  %633 = lshr i64 %632, 3
+  %634 = icmp ult i64 %633, %.val236
+  br i1 %634, label %636, label %639, !prof !278
 
-634:                                              ; preds = %465
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %467, i64 noundef %.val208, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.82) #21
+635:                                              ; preds = %466
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %468, i64 noundef %.val208, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.82) #21
   unreachable
 
-635:                                              ; preds = %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
-  %636 = add nuw nsw i64 %632, 1
-  %637 = icmp ult i64 %636, %.val236
-  br i1 %637, label %639, label %674, !prof !278
+636:                                              ; preds = %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
+  %637 = add nuw nsw i64 %633, 1
+  %638 = icmp ult i64 %637, %.val236
+  br i1 %638, label %640, label %675, !prof !278
 
-638:                                              ; preds = %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %632, i64 noundef %.val236, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.75) #21
+639:                                              ; preds = %_ZN6brotli3enc6encode22WriteMetaBlockInternal17hcee52e0918b7dd97E.exit
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %633, i64 noundef %.val236, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.75) #21
   unreachable
 
-639:                                              ; preds = %635
-  %640 = getelementptr inbounds nuw [0 x i8], ptr %.val235, i64 0, i64 %632
-  %641 = load i8, ptr %640, align 1, !noundef !12
-  %642 = zext i8 %641 to i16
-  %643 = getelementptr inbounds nuw [0 x i8], ptr %.val235, i64 0, i64 %636
-  %644 = load i8, ptr %643, align 1, !noundef !12
-  %645 = zext i8 %644 to i16
-  %646 = shl nuw i16 %645, 8
-  %647 = or disjoint i16 %646, %642
-  store i16 %647, ptr %52, align 8
-  %648 = trunc i64 %631 to i8
-  %649 = and i8 %648, 7
-  store i8 %649, ptr %42, align 2
-  %650 = load i64, ptr %20, align 8, !noundef !12
-  store i64 %650, ptr %47, align 8
-  %651 = load i64, ptr %22, align 8, !alias.scope !783, !noundef !12
-  %652 = trunc i64 %651 to i32
-  %653 = icmp ugt i64 %651, 3221225471
-  br i1 %653, label %657, label %654
+640:                                              ; preds = %636
+  %641 = getelementptr inbounds nuw i8, ptr %.val235, i64 %633
+  %642 = load i8, ptr %641, align 1, !noundef !12
+  %643 = zext i8 %642 to i16
+  %644 = getelementptr inbounds nuw i8, ptr %.val235, i64 %637
+  %645 = load i8, ptr %644, align 1, !noundef !12
+  %646 = zext i8 %645 to i16
+  %647 = shl nuw i16 %646, 8
+  %648 = or disjoint i16 %647, %643
+  store i16 %648, ptr %52, align 8
+  %649 = trunc i64 %632 to i8
+  %650 = and i8 %649, 7
+  store i8 %650, ptr %42, align 2
+  %651 = load i64, ptr %20, align 8, !noundef !12
+  store i64 %651, ptr %47, align 8
+  %652 = load i64, ptr %22, align 8, !alias.scope !783, !noundef !12
+  %653 = trunc i64 %652 to i32
+  %654 = icmp ugt i64 %652, 3221225471
+  br i1 %654, label %658, label %655
 
-654:                                              ; preds = %657, %639
-  %.04.i277 = phi i32 [ %663, %657 ], [ %652, %639 ]
-  %655 = trunc i64 %650 to i32
-  %656 = icmp ugt i64 %650, 3221225471
-  br i1 %656, label %664, label %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
+655:                                              ; preds = %658, %640
+  %.04.i277 = phi i32 [ %664, %658 ], [ %653, %640 ]
+  %656 = trunc i64 %651 to i32
+  %657 = icmp ugt i64 %651, 3221225471
+  br i1 %657, label %665, label %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
 
-657:                                              ; preds = %639
-  %658 = and i32 %652, 1073741823
-  %659 = shl i32 %652, 1
-  %660 = ashr exact i32 %659, 1
-  %661 = and i32 %660, -1073741824
-  %662 = or disjoint i32 %661, %658
-  %663 = xor i32 %662, -2147483648
-  br label %654
+658:                                              ; preds = %640
+  %659 = and i32 %653, 1073741823
+  %660 = shl i32 %653, 1
+  %661 = ashr exact i32 %660, 1
+  %662 = and i32 %661, -1073741824
+  %663 = or disjoint i32 %662, %659
+  %664 = xor i32 %663, -2147483648
+  br label %655
 
-664:                                              ; preds = %654
-  %665 = and i32 %655, 1073741823
-  %666 = shl i32 %655, 1
-  %667 = ashr exact i32 %666, 1
-  %668 = and i32 %667, -1073741824
-  %669 = or disjoint i32 %668, %665
-  %670 = xor i32 %669, -2147483648
+665:                                              ; preds = %655
+  %666 = and i32 %656, 1073741823
+  %667 = shl i32 %656, 1
+  %668 = ashr exact i32 %667, 1
+  %669 = and i32 %668, -1073741824
+  %670 = or disjoint i32 %669, %666
+  %671 = xor i32 %670, -2147483648
   br label %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
 
-_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279: ; preds = %654, %664
-  %.0.i278 = phi i32 [ %670, %664 ], [ %655, %654 ]
-  store i64 %650, ptr %22, align 8, !alias.scope !783
-  %671 = icmp ult i32 %.0.i278, %.04.i277
-  %672 = load i64, ptr %0, align 8, !range !61
-  %673 = icmp ne i64 %672, 0
-  %or.cond31.not = select i1 %671, i1 %673, i1 false
-  br i1 %or.cond31.not, label %switch.lookup384, label %675
+_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279: ; preds = %655, %665
+  %.0.i278 = phi i32 [ %671, %665 ], [ %656, %655 ]
+  store i64 %651, ptr %22, align 8, !alias.scope !783
+  %672 = icmp ult i32 %.0.i278, %.04.i277
+  %673 = load i64, ptr %0, align 8, !range !61
+  %674 = icmp ne i64 %673, 0
+  %or.cond31.not = select i1 %672, i1 %674, i1 false
+  br i1 %or.cond31.not, label %switch.lookup385, label %676
 
-674:                                              ; preds = %635
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %636, i64 noundef %.val236, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.76) #21
+675:                                              ; preds = %636
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %637, i64 noundef %.val236, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.76) #21
   unreachable
 
-675:                                              ; preds = %switch.lookup384, %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
+676:                                              ; preds = %switch.lookup385, %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
   %.val232 = load i64, ptr %311, align 8, !noundef !12
-  %676 = load i64, ptr %312, align 8, !noundef !12
-  %677 = icmp ugt i64 %676, %.val232
-  br i1 %677, label %683, label %680
+  %677 = load i64, ptr %312, align 8, !noundef !12
+  %678 = icmp ugt i64 %677, %.val232
+  br i1 %678, label %685, label %682
 
-switch.lookup384:                                 ; preds = %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
-  %switch.tableidx385 = add nsw i64 %672, -1
-  %switch.gep386 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE.37, i64 0, i64 %switch.tableidx385
+switch.lookup385:                                 ; preds = %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit279
+  %679 = getelementptr i64, ptr @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE.37, i64 %673
+  %switch.gep386 = getelementptr i8, ptr %679, i64 -8
   %switch.load387 = load i64, ptr %switch.gep386, align 8
-  %678 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load387
-  %679 = getelementptr inbounds nuw i8, ptr %678, i64 40
-  store i32 0, ptr %679, align 8
-  br label %675
+  %680 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load387
+  %681 = getelementptr inbounds nuw i8, ptr %680, i64 40
+  store i32 0, ptr %681, align 8
+  br label %676
 
-680:                                              ; preds = %675
+682:                                              ; preds = %676
   %.val231 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
-  %681 = sub nuw i64 %.val232, %676
-  %682 = getelementptr inbounds i8, ptr %.val231, i64 %676
-  %.not203 = icmp eq i64 %650, 0
-  br i1 %.not203, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit", label %684
+  %683 = sub nuw i64 %.val232, %677
+  %684 = getelementptr inbounds i8, ptr %.val231, i64 %677
+  %.not203 = icmp eq i64 %651, 0
+  br i1 %.not203, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit", label %686
 
-683:                                              ; preds = %675
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %676, i64 noundef %.val232, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.81) #21
+685:                                              ; preds = %676
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %677, i64 noundef %.val232, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.81) #21
   unreachable
 
-684:                                              ; preds = %680
-  %685 = add i32 %655, -1
-  %686 = and i32 %685, %28
-  %687 = zext i32 %686 to i64
-  %688 = icmp ugt i64 %681, %687
-  br i1 %688, label %689, label %692, !prof !278
+686:                                              ; preds = %682
+  %687 = add i32 %656, -1
+  %688 = and i32 %687, %28
+  %689 = zext i32 %688 to i64
+  %690 = icmp ugt i64 %683, %689
+  br i1 %690, label %691, label %694, !prof !278
 
-689:                                              ; preds = %684
-  %690 = getelementptr inbounds nuw [0 x i8], ptr %682, i64 0, i64 %687
-  %691 = load i8, ptr %690, align 1, !noundef !12
-  store i8 %691, ptr %477, align 1
-  %.not = icmp eq i64 %650, 1
-  br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit", label %693
+691:                                              ; preds = %686
+  %692 = getelementptr inbounds nuw i8, ptr %684, i64 %689
+  %693 = load i8, ptr %692, align 1, !noundef !12
+  store i8 %693, ptr %478, align 1
+  %.not = icmp eq i64 %651, 1
+  br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit", label %695
 
-692:                                              ; preds = %684
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %687, i64 noundef %681, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.77) #21
+694:                                              ; preds = %686
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %689, i64 noundef %683, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.77) #21
   unreachable
 
-693:                                              ; preds = %689
-  %694 = add i32 %655, -2
-  %695 = and i32 %694, %28
-  %696 = zext i32 %695 to i64
-  %697 = icmp ugt i64 %681, %696
-  br i1 %697, label %700, label %703, !prof !278
+695:                                              ; preds = %691
+  %696 = add i32 %656, -2
+  %697 = and i32 %696, %28
+  %698 = zext i32 %697 to i64
+  %699 = icmp ugt i64 %683, %698
+  br i1 %699, label %702, label %705, !prof !278
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit": ; preds = %680, %700, %689
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit": ; preds = %682, %702, %691
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %222, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %481, ptr noundef nonnull readonly align 8 dereferenceable(16) %380, i64 16, i1 false), !alias.scope !786, !noalias !790
-  %698 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 0, ptr %698, align 8
-  %699 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 0, ptr %699, align 4
-  store i64 %632, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %482, ptr noundef nonnull readonly align 8 dereferenceable(16) %380, i64 16, i1 false), !alias.scope !786, !noalias !790
+  %700 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 0, ptr %700, align 8
+  %701 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  store i32 0, ptr %701, align 4
+  store i64 %633, ptr %3, align 8
   br label %.sink.split383
 
-700:                                              ; preds = %693
-  %701 = getelementptr inbounds nuw [0 x i8], ptr %682, i64 0, i64 %696
-  %702 = load i8, ptr %701, align 1, !noundef !12
-  store i8 %702, ptr %479, align 8
+702:                                              ; preds = %695
+  %703 = getelementptr inbounds nuw i8, ptr %684, i64 %698
+  %704 = load i8, ptr %703, align 1, !noundef !12
+  store i8 %704, ptr %480, align 8
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit"
 
-703:                                              ; preds = %693
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %696, i64 noundef %681, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.78) #21
+705:                                              ; preds = %695
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %698, i64 noundef %683, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.78) #21
   unreachable
 
-.sink.split383:                                   ; preds = %236, %445, %469, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit"
+.sink.split383:                                   ; preds = %236, %445, %470, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %704
+  br label %706
 
-704:                                              ; preds = %.sink.split383, %5, %33
+706:                                              ; preds = %.sink.split383, %5, %33
   %.1 = phi i32 [ 0, %5 ], [ 0, %33 ], [ 1, %.sink.split383 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret i32 %.1
 
-705:                                              ; preds = %.invoke, %334
-  %706 = landingpad { ptr, i32 }
+707:                                              ; preds = %.invoke, %334
+  %708 = landingpad { ptr, i32 }
           cleanup
-  %707 = icmp eq i64 %319, 0
-  br i1 %707, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284"
+  %709 = icmp eq i64 %319, 0
+  br i1 %709, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284": ; preds = %705
-  %708 = shl nsw i64 %319, 4
-  call void @__rust_dealloc(ptr noundef nonnull %317, i64 noundef %708, i64 noundef 4) #22, !noalias !792
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i284": ; preds = %707
+  %710 = shl nsw i64 %319, 4
+  call void @__rust_dealloc(ptr noundef nonnull %317, i64 noundef %710, i64 noundef 4) #22, !noalias !792
   br label %common.resume
 }
 
@@ -10278,7 +10262,7 @@ define internal fastcc void @_ZN6brotli3enc6encode17ExtendLastCommand17hb108d9f3
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %.val18 = load ptr, ptr %10, align 8, !nonnull !12, !align !268, !noundef !12
-  %11 = getelementptr inbounds [0 x { i32, i32, i32, i16, i16 }], ptr %.val18, i64 0, i64 %7
+  %11 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val18, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %14 = load i32, ptr %13, align 4, !noundef !12
@@ -10532,9 +10516,9 @@ _ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit: ; preds = %
   unreachable
 
 173:                                              ; preds = %166
-  %174 = getelementptr inbounds [0 x i8], ptr %.val16, i64 0, i64 %164
+  %174 = getelementptr inbounds i8, ptr %.val16, i64 %164
   %175 = load i8, ptr %174, align 1, !noundef !12
-  %176 = getelementptr inbounds [0 x i8], ptr %.val16, i64 0, i64 %170
+  %176 = getelementptr inbounds i8, ptr %.val16, i64 %170
   %177 = load i8, ptr %176, align 1, !noundef !12
   %178 = icmp eq i8 %175, %177
   br i1 %178, label %180, label %.loopexit.loopexit
@@ -10878,7 +10862,7 @@ define internal fastcc void @_ZN6brotli3enc6encode20RingBufferInitBuffer17h32ba6
   br i1 %53, label %54, label %57, !prof !278
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw [0 x i8], ptr %13, i64 0, i64 %52
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 %52
   store i8 0, ptr %55, align 1
   %56 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %56, 7
@@ -11057,7 +11041,7 @@ _ZN6brotli3enc6encode19RingBufferWriteTail17hf042404714e97d67E.exit.i: ; preds =
   br i1 %.not.i, label %78, label %107
 
 70:                                               ; preds = %33
-  %71 = getelementptr inbounds [0 x i8], ptr %.val48.i, i64 0, i64 %41
+  %71 = getelementptr inbounds i8, ptr %.val48.i, i64 %41
   store i8 0, ptr %71, align 1, !noalias !1028
   %72 = add i64 %40, -1
   %73 = icmp ult i64 %72, %.val49.i
@@ -11068,7 +11052,7 @@ _ZN6brotli3enc6encode19RingBufferWriteTail17hf042404714e97d67E.exit.i: ; preds =
   unreachable
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds [0 x i8], ptr %.val48.i, i64 0, i64 %72
+  %76 = getelementptr inbounds i8, ptr %.val48.i, i64 %72
   store i8 0, ptr %76, align 1, !noalias !1028
   %.pre.i = load i32, ptr %6, align 4, !alias.scope !993, !noalias !996
   %.pre1.i = load i32, ptr %9, align 8, !alias.scope !1013, !noalias !1014
@@ -11204,9 +11188,9 @@ _ZN6brotli3enc6encode19RingBufferWriteTail17hf042404714e97d67E.exit.i: ; preds =
   unreachable
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds [0 x i8], ptr %.val54.i, i64 0, i64 %120
+  %127 = getelementptr inbounds i8, ptr %.val54.i, i64 %120
   %128 = load i8, ptr %127, align 1, !noalias !1028, !noundef !12
-  %129 = getelementptr inbounds [0 x i8], ptr %.val54.i, i64 0, i64 %123
+  %129 = getelementptr inbounds i8, ptr %.val54.i, i64 %123
   store i8 %128, ptr %129, align 1, !noalias !1028
   %130 = add i64 %119, -1
   %131 = icmp ult i64 %130, %.val55.i
@@ -11226,9 +11210,9 @@ _ZN6brotli3enc6encode19RingBufferWriteTail17hf042404714e97d67E.exit.i: ; preds =
   unreachable
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds [0 x i8], ptr %.val54.i, i64 0, i64 %130
+  %138 = getelementptr inbounds i8, ptr %.val54.i, i64 %130
   %139 = load i8, ptr %138, align 1, !noalias !1028, !noundef !12
-  %140 = getelementptr inbounds [0 x i8], ptr %.val54.i, i64 0, i64 %134
+  %140 = getelementptr inbounds i8, ptr %.val54.i, i64 %134
   store i8 %139, ptr %140, align 1, !noalias !1028
   %141 = trunc i64 %1 to i32
   %142 = add i32 %45, %141
@@ -13312,10 +13296,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
   br i1 %226, label %condstore.split, label %.invoke252, !prof !278
 
 condstore.split:                                  ; preds = %224
-  %227 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.0, i64 0, i64 %207
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %207
   %228 = load i8, ptr %227, align 1, !noundef !12
   %229 = zext i8 %228 to i16
-  %230 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.0, i64 0, i64 %225
+  %230 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %225
   %231 = load i8, ptr %230, align 1, !noundef !12
   %232 = zext i8 %231 to i16
   %233 = shl nuw i16 %232, 8

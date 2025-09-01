@@ -285,9 +285,9 @@ define noundef ptr @Amap_ManCutCreate(ptr noundef readonly captures(none) %0, pt
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw [0 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !3
-  %26 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   store i32 %25, ptr %26, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %1, align 4
@@ -298,13 +298,13 @@ define noundef ptr @Amap_ManCutCreate(ptr noundef readonly captures(none) %0, pt
 
 31:                                               ; preds = %.lr.ph38, %31
   %indvars.iv42 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next43, %31 ]
-  %32 = getelementptr inbounds nuw [0 x i32], ptr %21, i64 0, i64 %indvars.iv42
+  %32 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv42
   %33 = load i32, ptr %32, align 4, !tbaa !3
   %34 = load i32, ptr %1, align 4
   %35 = lshr i32 %34, 17
   %36 = zext nneg i32 %35 to i64
-  %37 = add nuw nsw i64 %indvars.iv42, %36
-  %38 = getelementptr inbounds nuw [0 x i32], ptr %22, i64 0, i64 %37
+  %37 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv42
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %36
   store i32 %33, ptr %38, align 4, !tbaa !3
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %39 = load i32, ptr %2, align 4
@@ -483,9 +483,9 @@ define noundef ptr @Amap_ManCutCreate3(ptr noundef readonly captures(none) %0, p
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [0 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !3
-  %30 = getelementptr inbounds nuw [0 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   store i32 %29, ptr %30, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %1, align 4
@@ -506,13 +506,13 @@ define noundef ptr @Amap_ManCutCreate3(ptr noundef readonly captures(none) %0, p
 
 38:                                               ; preds = %.lr.ph49, %38
   %indvars.iv56 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next57, %38 ]
-  %39 = getelementptr inbounds nuw [0 x i32], ptr %25, i64 0, i64 %indvars.iv56
+  %39 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv56
   %40 = load i32, ptr %39, align 4, !tbaa !3
   %41 = load i32, ptr %1, align 4
   %42 = lshr i32 %41, 17
   %43 = zext nneg i32 %42 to i64
-  %44 = add nuw nsw i64 %indvars.iv56, %43
-  %45 = getelementptr inbounds nuw [0 x i32], ptr %26, i64 0, i64 %44
+  %44 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv56
+  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %43
   store i32 %40, ptr %45, align 4, !tbaa !3
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %46 = load i32, ptr %2, align 4
@@ -523,7 +523,7 @@ define noundef ptr @Amap_ManCutCreate3(ptr noundef readonly captures(none) %0, p
 
 50:                                               ; preds = %.lr.ph51, %50
   %indvars.iv59 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next60, %50 ]
-  %51 = getelementptr inbounds nuw [0 x i32], ptr %36, i64 0, i64 %indvars.iv59
+  %51 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv59
   %52 = load i32, ptr %51, align 4, !tbaa !3
   %53 = load i32, ptr %1, align 4
   %54 = lshr i32 %53, 17
@@ -533,7 +533,7 @@ define noundef ptr @Amap_ManCutCreate3(ptr noundef readonly captures(none) %0, p
   %58 = add nuw nsw i32 %54, %57
   %59 = add nuw nsw i32 %58, %56
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %37, i64 %60
   store i32 %52, ptr %61, align 4, !tbaa !3
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %62 = load i32, ptr %3, align 4
@@ -1027,7 +1027,7 @@ define void @Amap_ManPrintCuts(ptr noundef readonly captures(none) %0) local_unn
 
 switch.lookup:                                    ; preds = %1
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Amap_ManPrintCuts, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Amap_ManPrintCuts, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
   br label %12
@@ -1063,7 +1063,7 @@ switch.lookup:                                    ; preds = %1
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [0 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = ashr i32 %29, 1
   %31 = and i32 %29, 1

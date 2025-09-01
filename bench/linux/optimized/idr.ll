@@ -928,7 +928,7 @@ define dso_local i32 @ida_alloc_range(ptr noundef %0, i32 noundef %1, i32 nounde
 
 148:                                              ; preds = %147, %.thread17
   %149 = phi i64 [ 0, %.thread17 ], [ %22, %147 ]
-  %150 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %149, i64 7
+  %150 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %149, i64 7
   %151 = load ptr, ptr %150, align 8
   %152 = call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %151, i32 noundef %23, i64 noundef 128) #9
   %153 = icmp eq ptr %152, null
@@ -1095,20 +1095,20 @@ define dso_local void @ida_destroy(ptr noundef %0) #0 align 16 {
   %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
   %9 = call ptr @xas_find(ptr noundef nonnull %2, i64 noundef -1) #7
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.loopexit7, label %.preheader
+  br i1 %10, label %.loopexit8, label %.preheader7
 
-.preheader:                                       ; preds = %1, %.loopexit6
-  %11 = phi ptr [ %54, %.loopexit6 ], [ %9, %1 ]
+.preheader7:                                      ; preds = %1, %.loopexit6
+  %11 = phi ptr [ %52, %.loopexit6 ], [ %9, %1 ]
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %16
 
-15:                                               ; preds = %.preheader
+15:                                               ; preds = %.preheader7
   call void @kfree(ptr noundef nonnull %11) #7
   br label %16
 
-16:                                               ; preds = %15, %.preheader
+16:                                               ; preds = %15, %.preheader7
   %17 = call ptr @xas_store(ptr noundef nonnull %2, ptr noundef null) #7
   %18 = load ptr, ptr %6, align 8
   %19 = ptrtoint ptr %18 to i64
@@ -1129,50 +1129,49 @@ define dso_local void @ida_destroy(ptr noundef %0) #0 align 16 {
   %30 = load i64, ptr %4, align 8
   %31 = and i64 %30, 63
   %32 = icmp eq i64 %31, %29
-  br i1 %32, label %33, label %.loopexit, !prof !28
+  br i1 %32, label %.preheader, label %.loopexit, !prof !28
 
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  br label %35
+.preheader:                                       ; preds = %27
+  %33 = getelementptr i8, ptr %18, i64 48
+  br label %34
 
-35:                                               ; preds = %49, %33
-  %36 = phi i8 [ %28, %33 ], [ %50, %49 ]
-  %37 = phi i64 [ %30, %33 ], [ %51, %49 ]
-  %38 = icmp eq i64 %37, -1
-  %39 = icmp eq i8 %36, 63
-  %40 = select i1 %38, i1 true, i1 %39
-  br i1 %40, label %.loopexit, label %41, !prof !36
+34:                                               ; preds = %.preheader, %47
+  %35 = phi i8 [ %48, %47 ], [ %28, %.preheader ]
+  %36 = phi i64 [ %49, %47 ], [ %30, %.preheader ]
+  %37 = icmp eq i64 %36, -1
+  %38 = icmp eq i8 %35, 63
+  %39 = select i1 %37, i1 true, i1 %38
+  br i1 %39, label %.loopexit, label %40, !prof !36
 
-41:                                               ; preds = %35
-  %42 = zext i8 %36 to i64
-  %43 = add nuw nsw i64 %42, 1
-  %44 = getelementptr [64 x ptr], ptr %34, i64 0, i64 %43
-  %45 = load volatile ptr, ptr %44, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %47 = and i64 %46, 3
-  %48 = icmp eq i64 %47, 2
-  br i1 %48, label %.loopexit, label %49, !prof !5
+40:                                               ; preds = %34
+  %41 = zext i8 %35 to i64
+  %42 = getelementptr ptr, ptr %33, i64 %41
+  %43 = load volatile ptr, ptr %42, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = and i64 %44, 3
+  %46 = icmp eq i64 %45, 2
+  br i1 %46, label %.loopexit, label %47, !prof !5
 
-49:                                               ; preds = %41
-  %50 = add i8 %36, 1
-  store i8 %50, ptr %5, align 2
-  %51 = add nuw i64 %37, 1
-  store i64 %51, ptr %4, align 8
-  %52 = icmp eq ptr %45, null
-  br i1 %52, label %35, label %.loopexit6, !llvm.loop !37
+47:                                               ; preds = %40
+  %48 = add i8 %35, 1
+  store i8 %48, ptr %5, align 2
+  %49 = add nuw i64 %36, 1
+  store i64 %49, ptr %4, align 8
+  %50 = icmp eq ptr %43, null
+  br i1 %50, label %34, label %.loopexit6, !llvm.loop !37
 
-.loopexit:                                        ; preds = %41, %35, %27, %24, %16
-  %53 = call ptr @xas_find(ptr noundef nonnull %2, i64 noundef -1) #7
+.loopexit:                                        ; preds = %40, %34, %27, %24, %16
+  %51 = call ptr @xas_find(ptr noundef nonnull %2, i64 noundef -1) #7
   br label %.loopexit6
 
-.loopexit6:                                       ; preds = %49, %.loopexit
-  %54 = phi ptr [ %53, %.loopexit ], [ %45, %49 ]
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit7, label %.preheader, !llvm.loop !38
+.loopexit6:                                       ; preds = %47, %.loopexit
+  %52 = phi ptr [ %51, %.loopexit ], [ %43, %47 ]
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.loopexit8, label %.preheader7, !llvm.loop !38
 
-.loopexit7:                                       ; preds = %.loopexit6, %1
-  %56 = load ptr, ptr %2, align 8
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %56, i64 noundef %8) #7
+.loopexit8:                                       ; preds = %.loopexit6, %1
+  %54 = load ptr, ptr %2, align 8
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %54, i64 noundef %8) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

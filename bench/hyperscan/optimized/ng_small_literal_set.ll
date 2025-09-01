@@ -1382,7 +1382,7 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit211.i: ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader.i:                                     ; preds = %144, %548
   %.0710.i.i.i = phi i64 [ %549, %548 ], [ 0, %144 ]
-  %546 = getelementptr inbounds nuw [4 x i64], ptr %79, i64 0, i64 %.0710.i.i.i
+  %546 = getelementptr inbounds nuw i64, ptr %79, i64 %.0710.i.i.i
   %547 = load i64, ptr %546, align 8
   %.not.i.i212.i = icmp eq i64 %547, 0
   br i1 %.not.i.i212.i, label %548, label %_ZNK3ue29CharReach10find_firstEv.exit.i
@@ -1424,7 +1424,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %.preheader.i
   %.0.i.i = select i1 %563, i64 %.0144514.i, i64 %565
   %566 = lshr i64 %.0.i.i, 6
   %567 = and i64 %566, 3
-  %568 = getelementptr inbounds nuw [4 x i64], ptr %79, i64 0, i64 %567
+  %568 = getelementptr inbounds nuw i64, ptr %79, i64 %567
   %569 = load i64, ptr %568, align 8
   %570 = and i64 %.0.i.i, 63
   %571 = shl nuw i64 1, %570
@@ -1435,7 +1435,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %.preheader.i
 573:                                              ; preds = %564
   %574 = lshr i64 %.0.i174.i, 6
   %575 = and i64 %574, 3
-  %576 = getelementptr inbounds nuw [4 x i64], ptr %79, i64 0, i64 %575
+  %576 = getelementptr inbounds nuw i64, ptr %79, i64 %575
   %577 = load i64, ptr %576, align 8
   %578 = and i64 %.0.i174.i, 63
   %579 = shl nuw i64 1, %578
@@ -1646,7 +1646,7 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit219.i: ; preds = %_ZNKSt7__cxx1112bas
   br label %645
 
 638:                                              ; preds = %635
-  %639 = getelementptr inbounds nuw [4 x i64], ptr %79, i64 0, i64 %636
+  %639 = getelementptr inbounds nuw i64, ptr %79, i64 %636
   %640 = load i64, ptr %639, align 8
   %641 = shl nsw i64 -2, %637
   %642 = and i64 %640, %641
@@ -1664,7 +1664,7 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit219.i: ; preds = %_ZNKSt7__cxx1112bas
 
 647:                                              ; preds = %645
   %.0.i.i.i = add nuw nsw i64 %.0.in.i.i.i, 1
-  %648 = getelementptr inbounds nuw [4 x i64], ptr %79, i64 0, i64 %.0.i.i.i
+  %648 = getelementptr inbounds nuw i64, ptr %79, i64 %.0.i.i.i
   %649 = load i64, ptr %648, align 8
   %.not22.i.i.i = icmp eq i64 %649, 0
   br i1 %.not22.i.i.i, label %645, label %650, !llvm.loop !72

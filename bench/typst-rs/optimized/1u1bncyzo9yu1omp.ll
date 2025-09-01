@@ -5582,7 +5582,7 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread3: ; preds
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %10, align 8, !alias.scope !1046, !noalias !1043, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds [0 x { { [24 x i8], i8, [7 x i8] } }], ptr %39, i64 0, i64 %35
+  %40 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %39, i64 %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1051)
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i8, ptr %41, align 8, !range !15, !alias.scope !1051, !noalias !1043, !noundef !4
@@ -5774,7 +5774,7 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread9: ; preds
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %9, align 8, !alias.scope !1089, !noalias !1086, !nonnull !4, !noundef !4
-  %53 = getelementptr inbounds [0 x { { [24 x i8], i8, [7 x i8] } }], ptr %52, i64 0, i64 %48
+  %53 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %52, i64 %48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1093)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i8, ptr %54, align 8, !range !15, !alias.scope !1093, !noalias !1086, !noundef !4

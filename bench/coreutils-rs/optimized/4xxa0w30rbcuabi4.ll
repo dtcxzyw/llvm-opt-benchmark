@@ -162,7 +162,7 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
 
 .lr.ph.i.us.i.i.i:                                ; preds = %27, %31
   %.05.i.us.i.i.i = phi i64 [ %32, %31 ], [ 0, %27 ]
-  %28 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %.05.i.us.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %.05.i.us.i.i.i
   %29 = load i8, ptr %28, align 1, !alias.scope !21, !noalias !20, !noundef !12
   %30 = icmp eq i8 %29, %23
   br i1 %30, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i, label %31
@@ -219,7 +219,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %51, %55
   %.05.i.i.i.i = phi i64 [ %56, %55 ], [ 0, %51 ]
-  %52 = getelementptr inbounds nuw [0 x i8], ptr %45, i64 0, i64 %.05.i.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 %.05.i.i.i.i
   %53 = load i8, ptr %52, align 1, !alias.scope !21, !noalias !20, !noundef !12
   %54 = icmp eq i8 %53, %47
   br i1 %54, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %55
@@ -597,9 +597,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h0ca2eb9
   unreachable
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %45
+  %56 = getelementptr inbounds i8, ptr %4, i64 %45
   %57 = load i8, ptr %56, align 1, !noundef !12
-  %58 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %52
+  %58 = getelementptr inbounds i8, ptr %2, i64 %52
   %59 = load i8, ptr %58, align 1, !noundef !12
   %.not28 = icmp eq i8 %57, %59
   br i1 %.not28, label %40, label %61
@@ -620,9 +620,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h0ca2eb9
 
 66:                                               ; preds = %63
   %67 = add nuw i64 %.sroa.04.0, 1
-  %68 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.sroa.04.0
+  %68 = getelementptr inbounds i8, ptr %4, i64 %.sroa.04.0
   %69 = load i8, ptr %68, align 1, !noundef !12
-  %70 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %64
+  %70 = getelementptr inbounds i8, ptr %2, i64 %64
   %71 = load i8, ptr %70, align 1, !noundef !12
   %.not = icmp eq i8 %69, %71
   br i1 %.not, label %37, label %74
@@ -3730,7 +3730,7 @@ common.resume:                                    ; preds = %.body, %.body.i, %5
 136:                                              ; preds = %132
   %137 = zext nneg i32 %130 to i64
   %138 = lshr i64 %137, 13
-  %139 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %138
   %140 = load i8, ptr %139, align 1, !noalias !854, !noundef !12
   %141 = zext i8 %140 to i64
   %142 = shl nuw nsw i64 %141, 7
@@ -3741,7 +3741,7 @@ common.resume:                                    ; preds = %.body, %.body.i, %5
   br i1 %146, label %147, label %.invoke.i, !prof !59
 
 147:                                              ; preds = %136
-  %148 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %145
+  %148 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %145
   %149 = load i8, ptr %148, align 1, !noalias !854, !noundef !12
   %150 = zext i8 %149 to i64
   %151 = shl nuw nsw i64 %150, 4
@@ -3762,7 +3762,7 @@ common.resume:                                    ; preds = %.body, %.body.i, %5
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i53.i: ; preds = %147
-  %159 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %154
+  %159 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %154
   %160 = load i8, ptr %159, align 1, !noalias !854, !noundef !12
   %.tr.i.i.i.i.i54.i = trunc i32 %130 to i8
   %161 = shl i8 %.tr.i.i.i.i.i54.i, 1
@@ -4830,7 +4830,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h3051b6276d8984
 584:                                              ; preds = %580
   %585 = zext nneg i32 %578 to i64
   %586 = lshr i64 %585, 13
-  %587 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %586
+  %587 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %586
   %588 = load i8, ptr %587, align 1, !noalias !965, !noundef !12
   %589 = zext i8 %588 to i64
   %590 = shl nuw nsw i64 %589, 7
@@ -4841,7 +4841,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h3051b6276d8984
   br i1 %594, label %595, label %.invoke644.i, !prof !59
 
 595:                                              ; preds = %584
-  %596 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %593
+  %596 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %593
   %597 = load i8, ptr %596, align 1, !noalias !965, !noundef !12
   %598 = zext i8 %597 to i64
   %599 = shl nuw nsw i64 %598, 4
@@ -4862,7 +4862,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h3051b6276d8984
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i.i: ; preds = %595
-  %607 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %602
+  %607 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %602
   %608 = load i8, ptr %607, align 1, !noalias !965, !noundef !12
   %.tr.i.i.i.i.i.i = trunc i32 %578 to i8
   %609 = shl i8 %.tr.i.i.i.i.i.i, 1
@@ -5363,7 +5363,7 @@ _ZN7uu_more10break_buff17h5fd9d99d8f26781bE.exit: ; preds = %88
 
 .lr.ph.i.i.i116:                                  ; preds = %798, %809
   %.05.i.i.i = phi i64 [ %810, %809 ], [ 0, %798 ]
-  %806 = getelementptr inbounds nuw [0 x i8], ptr %782, i64 0, i64 %.05.i.i.i
+  %806 = getelementptr inbounds nuw i8, ptr %782, i64 %.05.i.i.i
   %807 = load i8, ptr %806, align 1, !alias.scope !1059, !noalias !1062, !noundef !12
   %808 = icmp eq i8 %807, %799
   br i1 %808, label %.thread41.i, label %809
@@ -5403,7 +5403,7 @@ _ZN7uu_more10break_buff17h5fd9d99d8f26781bE.exit: ; preds = %88
   unreachable
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17hbc46ebf7deb69080E.exit.i.i.i.i": ; preds = %820
-  %824 = getelementptr inbounds nuw [0 x i8], ptr %785, i64 0, i64 %821
+  %824 = getelementptr inbounds nuw i8, ptr %785, i64 %821
   %825 = load i8, ptr %824, align 1, !alias.scope !1068, !noalias !1070, !noundef !12
   %.not.i.not.i.i.i.i = icmp eq i8 %825, %812
   br i1 %.not.i.not.i.i.i.i, label %817, label %826
@@ -5473,7 +5473,7 @@ _ZN7uu_more10break_buff17h5fd9d99d8f26781bE.exit: ; preds = %88
   %852 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, %838
   %853 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, %839
   %854 = and <16 x i1> %852, %853
-  %855 = getelementptr inbounds nuw [4 x i16], ptr %19, i64 0, i64 %.sroa.022.0143.i.i.i
+  %855 = getelementptr inbounds nuw i16, ptr %19, i64 %.sroa.022.0143.i.i.i
   store <16 x i1> %854, ptr %855, align 2, !noalias !1078
   %exitcond.not.i38.i.i = icmp eq i64 %848, 4
   br i1 %exitcond.not.i38.i.i, label %.preheader139.i.i.i, label %847
@@ -5491,7 +5491,7 @@ _ZN7uu_more10break_buff17h5fd9d99d8f26781bE.exit: ; preds = %88
   %.sroa.028.0145.i.i.i = phi i64 [ %861, %865 ], [ 0, %847 ]
   %.2144.i.i.i = phi i8 [ %.3.i.i.i, %865 ], [ 0, %847 ]
   %861 = add nuw nsw i64 %.sroa.028.0145.i.i.i, 1
-  %862 = getelementptr inbounds nuw [4 x i16], ptr %19, i64 0, i64 %.sroa.028.0145.i.i.i
+  %862 = getelementptr inbounds nuw i16, ptr %19, i64 %.sroa.028.0145.i.i.i
   %863 = load i16, ptr %862, align 2, !noalias !1078, !noundef !12
   %864 = icmp eq i16 %863, 0
   br i1 %864, label %865, label %866

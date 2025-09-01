@@ -993,7 +993,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pte_alloc(ptr noundef %0, ptr 
   %40 = phi i32 [ %38, %36 ], [ 1, %29 ]
   %41 = sub i32 0, %40
   %42 = lshr i64 %33, 58
-  %43 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %42
+  %43 = getelementptr ptr, ptr @node_data, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %41 to i64
   tail call void @mod_node_page_state(ptr noundef %44, i32 noundef 38, i64 noundef %45) #18
@@ -2481,7 +2481,7 @@ vm_normal_page.exit:                              ; preds = %398, %413
 
 634:                                              ; preds = %629
   %635 = sext i32 %632 to i64
-  %636 = getelementptr [4 x %struct.percpu_counter], ptr %256, i64 0, i64 %630
+  %636 = getelementptr %struct.percpu_counter, ptr %256, i64 %630
   %637 = load i32, ptr @percpu_counter_batch, align 4
   call void @percpu_counter_add_batch(ptr noundef %636, i64 noundef %635, i32 noundef %637) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rss_stat, i64 8), i32 2) #18
@@ -3258,7 +3258,7 @@ vm_normal_page.exit:                              ; preds = %192, %194, %203, %2
 
 389:                                              ; preds = %383, %352
   %390 = phi i64 [ %388, %383 ], [ 1, %352 ]
-  %391 = getelementptr [4 x i32], ptr %9, i64 0, i64 %390
+  %391 = getelementptr i32, ptr %9, i64 %390
   %392 = load i32, ptr %391, align 4
   %393 = add i32 %392, -1
   store i32 %393, ptr %391, align 4
@@ -3603,7 +3603,7 @@ vm_normal_page.exit:                              ; preds = %192, %194, %203, %2
 
 606:                                              ; preds = %600, %569
   %607 = phi i64 [ %605, %600 ], [ 1, %569 ]
-  %608 = getelementptr [4 x i32], ptr %9, i64 0, i64 %607
+  %608 = getelementptr i32, ptr %9, i64 %607
   %609 = load i32, ptr %608, align 4
   %610 = add i32 %609, -1
   store i32 %610, ptr %608, align 4
@@ -3661,7 +3661,7 @@ vm_normal_page.exit:                              ; preds = %192, %194, %203, %2
 
 636:                                              ; preds = %631
   %637 = sext i32 %634 to i64
-  %638 = getelementptr [4 x %struct.percpu_counter], ptr %630, i64 0, i64 %632
+  %638 = getelementptr %struct.percpu_counter, ptr %630, i64 %632
   %639 = load i32, ptr @percpu_counter_batch, align 4
   call void @percpu_counter_add_batch(ptr noundef %638, i64 noundef %637, i32 noundef %639) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rss_stat, i64 8), i32 2) #18
@@ -8764,7 +8764,7 @@ vm_normal_page.exit:                              ; preds = %39, %54
   %581 = select i1 %580, i32 0, i32 3
   %582 = getelementptr inbounds nuw i8, ptr %363, i64 824
   %583 = zext nneg i32 %581 to i64
-  %584 = getelementptr [4 x %struct.percpu_counter], ptr %582, i64 0, i64 %583
+  %584 = getelementptr %struct.percpu_counter, ptr %582, i64 %583
   %585 = load i32, ptr @percpu_counter_batch, align 4
   call void @percpu_counter_add_batch(ptr noundef %584, i64 noundef -1, i32 noundef %585) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rss_stat, i64 8), i32 2) #18
@@ -9299,7 +9299,7 @@ define dso_local void @set_pte_range(ptr noundef readonly captures(none) %0, ptr
   %112 = select i1 %111, i32 0, i32 3
   %113 = getelementptr inbounds nuw i8, ptr %83, i64 824
   %114 = zext nneg i32 %112 to i64
-  %115 = getelementptr [4 x %struct.percpu_counter], ptr %113, i64 0, i64 %114
+  %115 = getelementptr %struct.percpu_counter, ptr %113, i64 %114
   %116 = load i32, ptr @percpu_counter_batch, align 4
   tail call void @percpu_counter_add_batch(ptr noundef %115, i64 noundef %12, i32 noundef %116) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rss_stat, i64 8), i32 2) #18
@@ -10856,7 +10856,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   %738 = phi i32 [ %736, %734 ], [ 1, %727 ]
   %739 = sub i32 0, %738
   %740 = lshr i64 %731, 58
-  %741 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %740
+  %741 = getelementptr ptr, ptr @node_data, i64 %740
   %742 = load ptr, ptr %741, align 8
   %743 = sext i32 %739 to i64
   call void @mod_node_page_state(ptr noundef %742, i32 noundef 38, i64 noundef %743) #18
@@ -11463,7 +11463,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pud_alloc(ptr noundef %0, ptr 
 21:                                               ; preds = %10, %17
   %22 = phi i64 [ %20, %17 ], [ 1, %10 ]
   %23 = lshr i64 %14, 58
-  %24 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr @node_data, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void @mod_node_page_state(ptr noundef %25, i32 noundef 38, i64 noundef %22) #18
   %26 = load i64, ptr @vmemmap_base, align 8
@@ -11566,7 +11566,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pud_alloc(ptr noundef %0, ptr 
   %81 = phi i32 [ %79, %77 ], [ 1, %70 ]
   %82 = sub i32 0, %81
   %83 = lshr i64 %74, 58
-  %84 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %83
+  %84 = getelementptr ptr, ptr @node_data, i64 %83
   %85 = load ptr, ptr %84, align 8
   %86 = sext i32 %82 to i64
   tail call void @mod_node_page_state(ptr noundef %85, i32 noundef 38, i64 noundef %86) #18
@@ -11626,7 +11626,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pmd_alloc(ptr noundef %0, ptr 
 21:                                               ; preds = %9, %17
   %22 = phi i64 [ %20, %17 ], [ 1, %9 ]
   %23 = lshr i64 %14, 58
-  %24 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr @node_data, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void @mod_node_page_state(ptr noundef %25, i32 noundef 38, i64 noundef %22) #18
   %26 = load i64, ptr @vmemmap_base, align 8
@@ -11705,7 +11705,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pmd_alloc(ptr noundef %0, ptr 
   %74 = phi i32 [ %72, %70 ], [ 1, %63 ]
   %75 = sub i32 0, %74
   %76 = lshr i64 %67, 58
-  %77 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %76
+  %77 = getelementptr ptr, ptr @node_data, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %75 to i64
   tail call void @mod_node_page_state(ptr noundef %78, i32 noundef 38, i64 noundef %79) #18
@@ -13319,7 +13319,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @insert_page_into_pte_locke
   %68 = select i1 %67, i32 0, i32 3
   %69 = getelementptr inbounds nuw i8, ptr %39, i64 824
   %70 = zext nneg i32 %68 to i64
-  %71 = getelementptr [4 x %struct.percpu_counter], ptr %69, i64 0, i64 %70
+  %71 = getelementptr %struct.percpu_counter, ptr %69, i64 %70
   %72 = load i32, ptr @percpu_counter_batch, align 4
   tail call void @percpu_counter_add_batch(ptr noundef %71, i64 noundef 1, i32 noundef %72) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rss_stat, i64 8), i32 2) #18

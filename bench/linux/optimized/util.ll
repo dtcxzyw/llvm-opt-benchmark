@@ -293,7 +293,7 @@ define dso_local i32 @ipc_addid(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
 113:                                              ; preds = %70
   %114 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %115 = zext i32 %107 to i64
-  %116 = getelementptr [0 x ptr], ptr %114, i64 0, i64 %115
+  %116 = getelementptr ptr, ptr %114, i64 %115
   br label %117
 
 117:                                              ; preds = %113, %111
@@ -661,7 +661,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
 56:                                               ; preds = %17
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %58 = zext i32 %50 to i64
-  %59 = getelementptr [0 x ptr], ptr %57, i64 0, i64 %58
+  %59 = getelementptr ptr, ptr %57, i64 %58
   br label %60
 
 60:                                               ; preds = %56, %54
@@ -1283,7 +1283,7 @@ define dso_local i32 @ipcget(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 56:                                               ; preds = %22
   %57 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %58 = zext i32 %50 to i64
-  %59 = getelementptr [0 x ptr], ptr %57, i64 0, i64 %58
+  %59 = getelementptr ptr, ptr %57, i64 %58
   br label %60
 
 60:                                               ; preds = %56, %54
@@ -1777,7 +1777,7 @@ define internal ptr @sysvipc_proc_start(ptr noundef readonly captures(none) %0, 
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr [3 x %struct.ipc_ids], ptr %8, i64 0, i64 %11
+  %12 = getelementptr %struct.ipc_ids, ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   tail call void @down_read(ptr noundef nonnull %13) #15
   %14 = load i64, ptr %1, align 8
@@ -1835,7 +1835,7 @@ define internal void @sysvipc_proc_stop(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr [3 x %struct.ipc_ids], ptr %10, i64 0, i64 %13, i32 2
+  %14 = getelementptr %struct.ipc_ids, ptr %10, i64 %13, i32 2
   tail call void @up_read(ptr noundef %14) #15
   ret void
 }
@@ -1867,7 +1867,7 @@ define internal ptr @sysvipc_proc_next(ptr noundef readonly captures(none) %0, p
   %18 = trunc i64 %13 to i32
   %19 = add i32 %18, -1
   store i32 %19, ptr %4, align 4
-  %20 = getelementptr [3 x %struct.ipc_ids], ptr %14, i64 0, i64 %17, i32 3
+  %20 = getelementptr %struct.ipc_ids, ptr %14, i64 %17, i32 3
   %21 = call ptr @idr_get_next(ptr noundef %20, ptr noundef nonnull %4) #15
   %22 = icmp eq ptr %21, null
   br i1 %22, label %27, label %23

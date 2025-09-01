@@ -337,7 +337,7 @@ define i64 @Cnf_CutDeriveTruth(ptr noundef readnone captures(none) %0, ptr nound
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.024.lcssa, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !32
   %.phi.trans.insert45 = sext i32 %.pre to i64
-  %.phi.trans.insert46 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %.phi.trans.insert45
+  %.phi.trans.insert46 = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %.phi.trans.insert45
   %.pre47 = load i64, ptr %.phi.trans.insert46, align 8, !tbaa !33
   br label %.critedge2
 
@@ -353,9 +353,9 @@ define i64 @Cnf_CutDeriveTruth(ptr noundef readnone captures(none) %0, ptr nound
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 8, !tbaa !32
-  %15 = getelementptr inbounds nuw [6 x i64], ptr @Cnf_CutDeriveTruth.Truth6, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.Truth6, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8, !tbaa !33
-  %17 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.S, i64 %indvars.iv
   store i64 %16, ptr %17, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val29 = load i32, ptr %4, align 4, !tbaa !3
@@ -381,10 +381,10 @@ define i64 @Cnf_CutDeriveTruth(ptr noundef readnone captures(none) %0, ptr nound
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load i32, ptr %29, align 8, !tbaa !32
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %31
+  %32 = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !33
   %34 = and i64 %26, 1
-  %35 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.C, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !33
   %37 = xor i64 %36, %33
   %38 = getelementptr i8, ptr %21, i64 16
@@ -395,15 +395,15 @@ define i64 @Cnf_CutDeriveTruth(ptr noundef readnone captures(none) %0, ptr nound
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load i32, ptr %42, align 8, !tbaa !32
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %44
+  %45 = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !33
   %47 = and i64 %39, 1
-  %48 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.C, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !33
   %50 = xor i64 %49, %46
   %51 = and i64 %50, %37
   %52 = sext i32 %23 to i64
-  %53 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %52
+  %53 = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %52
   store i64 %51, ptr %53, align 8, !tbaa !33
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %.val28 = load i32, ptr %7, align 4, !tbaa !3
@@ -850,7 +850,7 @@ Vec_IntPush.exit178:                              ; preds = %Vec_IntPush.exit178
   %.phi.trans.insert.i179 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i, i64 40
   %.pre.i180 = load i32, ptr %.phi.trans.insert.i179, align 8, !tbaa !32
   %.phi.trans.insert45.i = sext i32 %.pre.i180 to i64
-  %.phi.trans.insert46.i = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %.phi.trans.insert45.i
+  %.phi.trans.insert46.i = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %.phi.trans.insert45.i
   %.pre47.i = load i64, ptr %.phi.trans.insert46.i, align 8, !tbaa !33
   br label %Cnf_CutDeriveTruth.exit
 
@@ -866,9 +866,9 @@ Vec_IntPush.exit178:                              ; preds = %Vec_IntPush.exit178
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 40
   %205 = trunc nuw nsw i64 %indvars.iv.i183 to i32
   store i32 %205, ptr %204, align 8, !tbaa !32
-  %206 = getelementptr inbounds nuw [6 x i64], ptr @Cnf_CutDeriveTruth.Truth6, i64 0, i64 %indvars.iv.i183
+  %206 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.Truth6, i64 %indvars.iv.i183
   %207 = load i64, ptr %206, align 8, !tbaa !33
-  %208 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %indvars.iv.i183
+  %208 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.S, i64 %indvars.iv.i183
   store i64 %207, ptr %208, align 8, !tbaa !33
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i183, 1
   %.val29.i = load i32, ptr %17, align 4, !tbaa !3
@@ -894,10 +894,10 @@ Vec_IntPush.exit178:                              ; preds = %Vec_IntPush.exit178
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 40
   %221 = load i32, ptr %220, align 8, !tbaa !32
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %222
+  %223 = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %222
   %224 = load i64, ptr %223, align 8, !tbaa !33
   %225 = and i64 %217, 1
-  %226 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.C, i64 %225
   %227 = load i64, ptr %226, align 8, !tbaa !33
   %228 = xor i64 %227, %224
   %229 = getelementptr i8, ptr %212, i64 16
@@ -908,15 +908,15 @@ Vec_IntPush.exit178:                              ; preds = %Vec_IntPush.exit178
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 40
   %234 = load i32, ptr %233, align 8, !tbaa !32
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %235
+  %236 = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %235
   %237 = load i64, ptr %236, align 8, !tbaa !33
   %238 = and i64 %230, 1
-  %239 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.C, i64 %238
   %240 = load i64, ptr %239, align 8, !tbaa !33
   %241 = xor i64 %240, %237
   %242 = and i64 %241, %228
   %243 = sext i32 %214 to i64
-  %244 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %243
+  %244 = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %243
   store i64 %242, ptr %244, align 8, !tbaa !33
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %.val28.i = load i32, ptr %25, align 4, !tbaa !3
@@ -2298,7 +2298,7 @@ define i32 @Cnf_CutCountClauses(ptr readnone captures(none) %0, ptr noundef read
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.024.lcssa.i, i64 40
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !32
   %.phi.trans.insert45.i = sext i32 %.pre.i to i64
-  %.phi.trans.insert46.i = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %.phi.trans.insert45.i
+  %.phi.trans.insert46.i = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %.phi.trans.insert45.i
   %.pre47.i = load i64, ptr %.phi.trans.insert46.i, align 8, !tbaa !33
   br label %Cnf_CutDeriveTruth.exit
 
@@ -2314,9 +2314,9 @@ define i32 @Cnf_CutCountClauses(ptr readnone captures(none) %0, ptr noundef read
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %49, ptr %48, align 8, !tbaa !32
-  %50 = getelementptr inbounds nuw [6 x i64], ptr @Cnf_CutDeriveTruth.Truth6, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.Truth6, i64 %indvars.iv.i
   %51 = load i64, ptr %50, align 8, !tbaa !33
-  %52 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.S, i64 %indvars.iv.i
   store i64 %51, ptr %52, align 8, !tbaa !33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val29.i = load i32, ptr %6, align 4, !tbaa !3
@@ -2342,10 +2342,10 @@ define i32 @Cnf_CutCountClauses(ptr readnone captures(none) %0, ptr noundef read
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load i32, ptr %64, align 8, !tbaa !32
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %66
+  %67 = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !33
   %69 = and i64 %61, 1
-  %70 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.C, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !33
   %72 = xor i64 %71, %68
   %73 = getelementptr i8, ptr %56, i64 16
@@ -2356,15 +2356,15 @@ define i32 @Cnf_CutCountClauses(ptr readnone captures(none) %0, ptr noundef read
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !32
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %79
+  %80 = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %79
   %81 = load i64, ptr %80, align 8, !tbaa !33
   %82 = and i64 %74, 1
-  %83 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i64, ptr @Cnf_CutDeriveTruth.C, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !33
   %85 = xor i64 %84, %81
   %86 = and i64 %85, %72
   %87 = sext i32 %58 to i64
-  %88 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %87
+  %88 = getelementptr inbounds i64, ptr @Cnf_CutDeriveTruth.S, i64 %87
   store i64 %86, ptr %88, align 8, !tbaa !33
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %.val28.i = load i32, ptr %42, align 4, !tbaa !3

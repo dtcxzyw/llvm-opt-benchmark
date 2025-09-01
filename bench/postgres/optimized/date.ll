@@ -622,10 +622,10 @@ define dso_local noundef ptr @GetSQLCurrentTime(i32 noundef %0) local_unnamed_ad
 22:                                               ; preds = %1
   %23 = icmp sgt i64 %20, -1
   %24 = zext nneg i32 %0 to i64
-  %25 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeOffsets, i64 %24
   %26 = load i64, ptr %25, align 8
   %.fr16.i = freeze i64 %26
-  %27 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %24
+  %27 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeScales, i64 %24
   %28 = load i64, ptr %27, align 8
   br i1 %23, label %29, label %33
 
@@ -688,10 +688,10 @@ define dso_local void @AdjustTimeForTypmod(ptr noundef captures(none) %0, i32 no
   %.fr15 = freeze i64 %4
   %5 = icmp sgt i64 %.fr15, -1
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeOffsets, i64 %6
   %8 = load i64, ptr %7, align 8
   %.fr16 = freeze i64 %8
-  %9 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %6
+  %9 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeScales, i64 %6
   %10 = load i64, ptr %9, align 8
   br i1 %5, label %11, label %15
 
@@ -749,10 +749,10 @@ define dso_local i64 @GetSQLLocalTime(i32 noundef %0) local_unnamed_addr #0 {
 19:                                               ; preds = %1
   %20 = icmp sgt i64 %18, -1
   %21 = zext nneg i32 %0 to i64
-  %22 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeOffsets, i64 %21
   %23 = load i64, ptr %22, align 8
   %.fr16.i = freeze i64 %23
-  %24 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %21
+  %24 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeScales, i64 %21
   %25 = load i64, ptr %24, align 8
   br i1 %20, label %26, label %30
 
@@ -3652,10 +3652,10 @@ define dso_local i64 @time_in(ptr noundef captures(none) %0) local_unnamed_addr 
 40:                                               ; preds = %25
   %41 = icmp sgt i64 %39, -1
   %42 = and i64 %15, 7
-  %43 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeOffsets, i64 %42
   %44 = load i64, ptr %43, align 8
   %.fr16.i = freeze i64 %44
-  %45 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %42
+  %45 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeScales, i64 %42
   %46 = load i64, ptr %45, align 8
   br i1 %41, label %47, label %51
 
@@ -3847,10 +3847,10 @@ define dso_local i64 @time_recv(ptr noundef readonly captures(none) %0) local_un
 
 14:                                               ; preds = %12
   %15 = and i64 %6, 7
-  %16 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeOffsets, i64 %15
   %17 = load i64, ptr %16, align 8
   %.fr16.i = freeze i64 %17
-  %18 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %15
+  %18 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeScales, i64 %15
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %.fr16.i, %.fr15.i
   %21 = srem i64 %20, %19
@@ -4026,10 +4026,10 @@ define dso_local i64 @time_scale(ptr noundef readonly captures(none) %0) local_u
 7:                                                ; preds = %1
   %8 = icmp sgt i64 %.fr15.i, -1
   %9 = and i64 %5, 7
-  %10 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeOffsets, i64 %9
   %11 = load i64, ptr %10, align 8
   %.fr16.i = freeze i64 %11
-  %12 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %9
+  %12 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeScales, i64 %9
   %13 = load i64, ptr %12, align 8
   br i1 %8, label %14, label %18
 
@@ -4966,10 +4966,10 @@ define dso_local noundef i64 @timetz_in(ptr noundef captures(none) %0) local_unn
 43:                                               ; preds = %25
   %44 = icmp sgt i64 %41, -1
   %45 = and i64 %15, 7
-  %46 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeOffsets, i64 %45
   %47 = load i64, ptr %46, align 8
   %.fr16.i = freeze i64 %47
-  %48 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %45
+  %48 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeScales, i64 %45
   %49 = load i64, ptr %48, align 8
   br i1 %44, label %50, label %54
 
@@ -5137,10 +5137,10 @@ define dso_local i64 @timetz_recv(ptr noundef readonly captures(none) %0) local_
   %.fr15.i = freeze i64 %24
   %25 = icmp sgt i64 %.fr15.i, -1
   %26 = and i64 %6, 7
-  %27 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeOffsets, i64 %26
   %28 = load i64, ptr %27, align 8
   %.fr16.i = freeze i64 %28
-  %29 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %26
+  %29 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeScales, i64 %26
   %30 = load i64, ptr %29, align 8
   br i1 %25, label %31, label %35
 
@@ -5277,10 +5277,10 @@ define dso_local noundef i64 @timetz_scale(ptr noundef readonly captures(none) %
 13:                                               ; preds = %1
   %14 = icmp sgt i64 %.fr15.i, -1
   %15 = and i64 %6, 7
-  %16 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeOffsets, i64 %15
   %17 = load i64, ptr %16, align 8
   %.fr16.i = freeze i64 %17
-  %18 = getelementptr inbounds nuw [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %15
+  %18 = getelementptr inbounds nuw i64, ptr @AdjustTimeForTypmod.TimeScales, i64 %15
   %19 = load i64, ptr %18, align 8
   br i1 %14, label %20, label %24
 

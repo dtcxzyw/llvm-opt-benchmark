@@ -100,7 +100,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local zeroext i1 @i915_pci_resource_valid(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
-  %5 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %4
+  %5 = getelementptr %struct.resource, ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = icmp ne i64 %7, 0
@@ -210,7 +210,7 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
   %44 = icmp eq i8 %43, 2
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %46 = zext i1 %44 to i64
-  %47 = getelementptr [11 x %struct.resource], ptr %45, i64 0, i64 %46
+  %47 = getelementptr %struct.resource, ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = icmp ne i64 %49, 0

@@ -402,7 +402,7 @@ define hidden void @_ZN4cvc58internal3smt20WitnessFormGenerator11getProofForENS0
   %15 = icmp eq i32 %14, 2
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %17 = zext i1 %15 to i64
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !84, !noalias !81
   store ptr %19, ptr %4, align 8, !tbaa !78, !alias.scope !81
   %20 = load i64, ptr %19, align 8, !noalias !81
@@ -448,7 +448,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %25, %31, %33
   %43 = icmp eq i32 %42, 2
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %45 = zext i1 %43 to i64
-  %46 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !84, !noalias !87
   store ptr %47, ptr %6, align 8, !tbaa !78, !alias.scope !87
   %48 = load i64, ptr %47, align 8, !noalias !87
@@ -522,7 +522,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %63, %66, %72
   %84 = icmp eq i32 %83, 2
   %spec.select.i.i = select i1 %84, i64 2, i64 1
   %85 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %86 = getelementptr inbounds nuw [0 x ptr], ptr %85, i64 0, i64 %spec.select.i.i
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %spec.select.i.i
   %87 = load ptr, ptr %86, align 8, !tbaa !84, !noalias !90
   %88 = load i64, ptr %87, align 8, !noalias !90
   %89 = lshr i64 %88, 40

@@ -230,7 +230,7 @@ define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCert
 5:                                                ; preds = %3, %4
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %.01118 = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %7 = getelementptr inbounds nuw [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %.01118
+  %7 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertSet", ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 %.01118
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = icmp eq i64 %9, %1
@@ -282,7 +282,7 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
 12:                                               ; preds = %.lr.ph, %.thread64
   %13 = phi i1 [ true, %.lr.ph ], [ false, %.thread64 ]
   %.04175 = phi i64 [ 0, %.lr.ph ], [ 1, %.thread64 ]
-  %14 = getelementptr inbounds nuw [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %.04175
+  %14 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertSet", ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 %.04175
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !11
   %.not51 = icmp eq i64 %16, %.0.copyload

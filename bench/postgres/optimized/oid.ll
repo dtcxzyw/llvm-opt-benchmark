@@ -192,7 +192,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %31 = call i32 @uint32in_subr(ptr noundef %30, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef null) #13
   %32 = getelementptr inbounds nuw i8, ptr %.127.us, i64 24
   %33 = sext i32 %.044.us to i64
-  %34 = getelementptr inbounds [0 x i32], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds i32, ptr %32, i64 %33
   store i32 %31, ptr %34, align 4
   %35 = add i32 %.044.us, 1
   %.promoted.us = load ptr, ptr %2, align 8
@@ -246,7 +246,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %56 = call i32 @uint32in_subr(ptr noundef %55, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull %.fr) #13
   %57 = getelementptr inbounds nuw i8, ptr %.127, i64 24
   %58 = sext i32 %.044 to i64
-  %59 = getelementptr inbounds [0 x i32], ptr %57, i64 0, i64 %58
+  %59 = getelementptr inbounds i32, ptr %57, i64 %58
   store i32 %56, ptr %59, align 4
   %60 = load i32, ptr %.fr, align 4
   %61 = icmp eq i32 %60, 446
@@ -331,7 +331,7 @@ define dso_local i64 @oidvectorout(ptr noundef readonly captures(none) %0) local
 
 16:                                               ; preds = %14, %13
   %.1 = phi ptr [ %15, %14 ], [ %.01315, %13 ]
-  %17 = getelementptr inbounds nuw [0 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.1, ptr noundef nonnull @.str.1, i32 noundef %18) #13
   %scevgep = getelementptr i8, ptr %.1, i64 1

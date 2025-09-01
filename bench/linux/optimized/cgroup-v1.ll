@@ -1008,7 +1008,7 @@ define dso_local noundef i32 @proc_cgroupstats_show(ptr noundef %0, ptr noundef 
 
 3:                                                ; preds = %3, %2
   %4 = phi i64 [ 0, %2 ], [ %18, %3 ]
-  %5 = getelementptr [0 x ptr], ptr @cgroup_subsys, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr @cgroup_subsys, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
@@ -1369,7 +1369,7 @@ define dso_local range(i32 -518, -519) i32 @cgroup1_parse_param(ptr noundef %0, 
 
 14:                                               ; preds = %41, %12
   %15 = phi i64 [ 0, %12 ], [ %42, %41 ]
-  %16 = getelementptr [0 x ptr], ptr @cgroup_subsys, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr @cgroup_subsys, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %19 = load ptr, ptr %18, align 8
@@ -1562,7 +1562,7 @@ define dso_local range(i32 -518, -519) i32 @cgroup1_parse_param(ptr noundef %0, 
   %120 = getelementptr i8, ptr %112, i64 %118
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i64
-  %123 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %122
+  %123 = getelementptr i8, ptr @_ctype, i64 %122
   %124 = load i8, ptr %123, align 1
   %125 = and i8 %124, 7
   %126 = icmp eq i8 %125, 0
@@ -1935,7 +1935,7 @@ define internal noundef i32 @cgroup1_show_options(ptr noundef %0, ptr noundef %1
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr [0 x ptr], ptr @cgroup_subsys, i64 0, i64 %6
+  %13 = getelementptr ptr, ptr @cgroup_subsys, i64 %6
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 168
   %16 = load ptr, ptr %15, align 8
@@ -2142,7 +2142,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cgroup1_get_tree(ptr noundef %0)
   br i1 %29, label %83, label %30
 
 30:                                               ; preds = %22
-  %31 = getelementptr [0 x ptr], ptr @cgroup_subsys, i64 0, i64 %23
+  %31 = getelementptr ptr, ptr @cgroup_subsys, i64 %23
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 176
   %34 = load ptr, ptr %33, align 8
@@ -2603,7 +2603,7 @@ define internal noundef i32 @cgroup_no_v1(ptr noundef %0) #9 section ".init.text
 20:                                               ; preds = %39, %17
   %21 = phi i64 [ 0, %17 ], [ %41, %39 ]
   %22 = phi i16 [ %18, %17 ], [ %40, %39 ]
-  %23 = getelementptr [0 x ptr], ptr @cgroup_subsys, i64 0, i64 %21
+  %23 = getelementptr ptr, ptr @cgroup_subsys, i64 %21
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 160
   %26 = load ptr, ptr %25, align 8

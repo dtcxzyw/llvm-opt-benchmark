@@ -6287,7 +6287,7 @@ zend_string_alloc.exit:                           ; preds = %61, %63
   store i64 %2, ptr %69, align 8, !tbaa !25
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %70, ptr align 1 %1, i64 %2, i1 false)
-  %71 = getelementptr inbounds nuw [1 x i8], ptr %70, i64 0, i64 %2
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %2
   store i8 0, ptr %71, align 1, !tbaa !5
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store ptr %66, ptr %72, align 8, !tbaa !18
@@ -6397,7 +6397,7 @@ zend_string_alloc.exit:                           ; preds = %32, %34
   store i64 %2, ptr %42, align 8, !tbaa !25
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr align 1 %1, i64 %2, i1 false)
-  %44 = getelementptr inbounds nuw [1 x i8], ptr %43, i64 0, i64 %2
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %2
   store i8 0, ptr %44, align 1, !tbaa !5
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %37, ptr %45, align 8, !tbaa !18
@@ -6577,7 +6577,7 @@ zend_string_alloc.exit:                           ; preds = %70, %72
   store i64 %2, ptr %78, align 8, !tbaa !25
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %79, ptr align 1 %1, i64 %2, i1 false)
-  %80 = getelementptr inbounds nuw [1 x i8], ptr %79, i64 0, i64 %2
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %2
   store i8 0, ptr %80, align 1, !tbaa !5
   %81 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store ptr %75, ptr %81, align 8, !tbaa !18
@@ -6772,7 +6772,7 @@ zend_string_alloc.exit:                           ; preds = %76, %78
   store i64 %2, ptr %84, align 8, !tbaa !25
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %85, ptr align 1 %1, i64 %2, i1 false)
-  %86 = getelementptr inbounds nuw [1 x i8], ptr %85, i64 0, i64 %2
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %2
   store i8 0, ptr %86, align 1, !tbaa !5
   %87 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr %81, ptr %87, align 8, !tbaa !18

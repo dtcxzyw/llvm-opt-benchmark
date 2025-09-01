@@ -1206,7 +1206,7 @@ _ZL13getOpcodeNameB5cxx11PKN4llvm6RecordERKNS_18CodeGenDAGPatternsE.exit.i: ; pr
 406:                                              ; preds = %413, %402
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %413 ], [ 0, %402 ]
   %.23252.i.i.i = phi i16 [ %414, %413 ], [ 0, %402 ]
-  %407 = getelementptr inbounds nuw [8 x i64], ptr %405, i64 0, i64 %indvars.iv.i
+  %407 = getelementptr inbounds nuw i64, ptr %405, i64 %indvars.iv.i
   %408 = load i64, ptr %407, align 8, !tbaa !18
   %.not41.i.i.i = icmp eq i64 %408, 0
   br i1 %.not41.i.i.i, label %413, label %409
@@ -1255,7 +1255,7 @@ _ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit.i: ; preds = %413, %409
 432:                                              ; preds = %439, %425
   %indvars.iv363.i = phi i64 [ %indvars.iv.next364.i, %439 ], [ 0, %425 ]
   %.23252.i.i135.i = phi i16 [ %440, %439 ], [ 0, %425 ]
-  %433 = getelementptr inbounds nuw [8 x i64], ptr %431, i64 0, i64 %indvars.iv363.i
+  %433 = getelementptr inbounds nuw i64, ptr %431, i64 %indvars.iv363.i
   %434 = load i64, ptr %433, align 8, !tbaa !18
   %.not41.i.i136.i = icmp eq i64 %434, 0
   br i1 %.not41.i.i136.i, label %439, label %435
@@ -1565,7 +1565,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit125.thread.i.i:  ; preds = %_ZN4llvmeqENS_9Stri
 562:                                              ; preds = %569, %558
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %569 ], [ 0, %558 ]
   %.23252.i.i.i.i = phi i16 [ %570, %569 ], [ 0, %558 ]
-  %563 = getelementptr inbounds nuw [8 x i64], ptr %561, i64 0, i64 %indvars.iv.i.i
+  %563 = getelementptr inbounds nuw i64, ptr %561, i64 %indvars.iv.i.i
   %564 = load i64, ptr %563, align 8, !tbaa !18
   %.not41.i.i.i.i = icmp eq i64 %564, 0
   br i1 %.not41.i.i.i.i, label %569, label %565

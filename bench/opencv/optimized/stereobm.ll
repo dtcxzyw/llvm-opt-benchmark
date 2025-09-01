@@ -3885,7 +3885,7 @@ _ZNSt12_Vector_baseIPtSaIS0_EEC2EmRKS1_.exit.thread.i99: ; preds = %_ZNSt6vector
 107:                                              ; preds = %.preheader126, %113
   %108 = phi i1 [ true, %.preheader126 ], [ false, %113 ]
   %.039129 = phi i64 [ 0, %.preheader126 ], [ 1, %113 ]
-  %109 = getelementptr inbounds nuw [2 x ptr], ptr %53, i64 0, i64 %.039129
+  %109 = getelementptr inbounds nuw ptr, ptr %53, i64 %.039129
   %110 = load i32, ptr %75, align 4, !tbaa !32
   %111 = sext i32 %110 to i64
   %112 = add i64 %76, %111
@@ -3917,7 +3917,7 @@ _ZNSt12_Vector_baseIPtSaIS0_EEC2EmRKS1_.exit.thread.i99: ; preds = %_ZNSt6vector
   %120 = sub i32 %119, %57
   %121 = tail call i32 @llvm.abs.i32(i32 %120, i1 true)
   %122 = trunc i32 %121 to i8
-  %123 = getelementptr inbounds nuw [256 x i8], ptr %116, i64 0, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw i8, ptr %116, i64 %indvars.iv
   store i8 %122, ptr %123, align 1, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next, 256
@@ -4736,9 +4736,9 @@ define linkonce_odr hidden void @_ZNK2cv16PrefilterInvokerclERKNS_5RangeE(ptr no
   %16 = load ptr, ptr %9, align 8, !tbaa !159
   %17 = load i32, ptr %16, align 4, !tbaa !29
   %18 = icmp eq i32 %17, 0
-  %19 = getelementptr inbounds [2 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !111
-  %21 = getelementptr inbounds [2 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !111
   br i1 %18, label %23, label %237
 
@@ -4749,7 +4749,7 @@ define linkonce_odr hidden void @_ZNK2cv16PrefilterInvokerclERKNS_5RangeE(ptr no
   %27 = load i32, ptr %26, align 4, !tbaa !33
   %28 = load ptr, ptr %13, align 8, !tbaa !161
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 144
-  %30 = getelementptr inbounds [2 x ptr], ptr %29, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !137
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -4797,7 +4797,7 @@ define linkonce_odr hidden void @_ZNK2cv16PrefilterInvokerclERKNS_5RangeE(ptr no
   %spec.select.i = select i1 %61, i32 %42, i32 %63
   %64 = trunc i32 %spec.select.i to i8
   %65 = select i1 %60, i8 0, i8 %64
-  %66 = getelementptr inbounds nuw [2816 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %65, ptr %66, align 1, !tbaa !45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2816
@@ -4988,9 +4988,9 @@ define linkonce_odr hidden void @_ZNK2cv16PrefilterInvokerclERKNS_5RangeE(ptr no
   %161 = mul nsw i32 %.0.lcssa.i, %53
   %162 = sub nsw i32 %160, %161
   %163 = ashr i32 %162, 10
-  %164 = add nsw i32 %163, 1280
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds [2816 x i8], ptr %4, i64 0, i64 %165
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr i8, ptr %4, i64 %164
+  %166 = getelementptr i8, ptr %165, i64 1280
   %167 = load i8, ptr %166, align 1, !tbaa !45
   store i8 %167, ptr %124, align 1, !tbaa !45
   br i1 %93, label %.lr.ph195.i, label %._crit_edge196.i
@@ -5032,9 +5032,9 @@ define linkonce_odr hidden void @_ZNK2cv16PrefilterInvokerclERKNS_5RangeE(ptr no
   %197 = mul nsw i32 %175, %53
   %198 = sub nsw i32 %196, %197
   %199 = ashr i32 %198, 10
-  %200 = add nsw i32 %199, 1280
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds [2816 x i8], ptr %4, i64 0, i64 %201
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr i8, ptr %4, i64 %200
+  %202 = getelementptr i8, ptr %201, i64 1280
   %203 = load i8, ptr %202, align 1, !tbaa !45
   %204 = getelementptr inbounds nuw i8, ptr %124, i64 %indvars.iv236.i
   store i8 %203, ptr %204, align 1, !tbaa !45
@@ -5074,9 +5074,9 @@ define linkonce_odr hidden void @_ZNK2cv16PrefilterInvokerclERKNS_5RangeE(ptr no
   %.neg202.i = mul i32 %.neg.i, %53
   %230 = add i32 %229, %.neg202.i
   %231 = ashr i32 %230, 10
-  %232 = add nsw i32 %231, 1280
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds [2816 x i8], ptr %4, i64 0, i64 %233
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr i8, ptr %4, i64 %232
+  %234 = getelementptr i8, ptr %233, i64 1280
   %235 = load i8, ptr %234, align 1, !tbaa !45
   %236 = getelementptr inbounds nuw i8, ptr %124, i64 %212
   store i8 %235, ptr %236, align 1, !tbaa !45
@@ -5113,7 +5113,7 @@ _ZN2cvL13prefilterNormERKNS_3MatERS0_iiPi.exit:   ; preds = %._crit_edge196.i, %
   %spec.select.i10 = select i1 %252, i32 %246, i32 %254
   %255 = trunc i32 %spec.select.i10 to i8
   %256 = select i1 %251, i8 0, i8 %255
-  %257 = getelementptr inbounds nuw [2304 x i8], ptr %3, i64 0, i64 %indvars.iv.i9
+  %257 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i9
   store i8 %256, ptr %257, align 1, !tbaa !45
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 2304
@@ -5190,41 +5190,41 @@ _ZN2cvL13prefilterNormERKNS_3MatERS0_iiPi.exit:   ; preds = %._crit_edge196.i, %
   %301 = getelementptr inbounds i8, ptr %282, i64 %300
   %302 = load i8, ptr %301, align 1, !tbaa !45
   %303 = zext i8 %302 to i32
-  %304 = getelementptr inbounds nuw i8, ptr %279, i64 %indvars.iv.next111.i
-  %305 = load i8, ptr %304, align 1, !tbaa !45
-  %306 = zext i8 %305 to i32
-  %307 = getelementptr inbounds i8, ptr %279, i64 %300
-  %308 = load i8, ptr %307, align 1, !tbaa !45
-  %309 = zext i8 %308 to i32
-  %310 = sub nsw i32 %306, %309
-  %311 = getelementptr inbounds nuw i8, ptr %283, i64 %indvars.iv.next111.i
-  %312 = load i8, ptr %311, align 1, !tbaa !45
-  %313 = zext i8 %312 to i32
-  %314 = getelementptr inbounds i8, ptr %283, i64 %300
-  %315 = load i8, ptr %314, align 1, !tbaa !45
-  %316 = zext i8 %315 to i32
-  %317 = sub nsw i32 %313, %316
-  %318 = getelementptr inbounds nuw i8, ptr %286, i64 %indvars.iv.next111.i
-  %319 = load i8, ptr %318, align 1, !tbaa !45
-  %320 = zext i8 %319 to i32
-  %321 = getelementptr inbounds i8, ptr %286, i64 %300
-  %322 = load i8, ptr %321, align 1, !tbaa !45
-  %323 = zext i8 %322 to i32
-  %324 = shl nsw i32 %310, 1
-  %325 = or disjoint i32 %299, 1024
-  %326 = sub nuw nsw i32 %325, %303
-  %327 = add nsw i32 %326, %324
-  %328 = add nsw i32 %327, %317
-  %329 = zext nneg i32 %328 to i64
-  %330 = getelementptr inbounds nuw [2304 x i8], ptr %3, i64 0, i64 %329
+  %304 = sub nsw i32 %299, %303
+  %305 = getelementptr inbounds nuw i8, ptr %279, i64 %indvars.iv.next111.i
+  %306 = load i8, ptr %305, align 1, !tbaa !45
+  %307 = zext i8 %306 to i32
+  %308 = getelementptr inbounds i8, ptr %279, i64 %300
+  %309 = load i8, ptr %308, align 1, !tbaa !45
+  %310 = zext i8 %309 to i32
+  %311 = sub nsw i32 %307, %310
+  %312 = getelementptr inbounds nuw i8, ptr %283, i64 %indvars.iv.next111.i
+  %313 = load i8, ptr %312, align 1, !tbaa !45
+  %314 = zext i8 %313 to i32
+  %315 = getelementptr inbounds i8, ptr %283, i64 %300
+  %316 = load i8, ptr %315, align 1, !tbaa !45
+  %317 = zext i8 %316 to i32
+  %318 = sub nsw i32 %314, %317
+  %319 = getelementptr inbounds nuw i8, ptr %286, i64 %indvars.iv.next111.i
+  %320 = load i8, ptr %319, align 1, !tbaa !45
+  %321 = zext i8 %320 to i32
+  %322 = getelementptr inbounds i8, ptr %286, i64 %300
+  %323 = load i8, ptr %322, align 1, !tbaa !45
+  %324 = zext i8 %323 to i32
+  %325 = shl nsw i32 %311, 1
+  %326 = add nsw i32 %304, %325
+  %327 = add nsw i32 %326, %318
+  %328 = sext i32 %327 to i64
+  %329 = getelementptr i8, ptr %3, i64 %328
+  %330 = getelementptr i8, ptr %329, i64 1024
   %331 = load i8, ptr %330, align 1, !tbaa !45
-  %332 = shl nsw i32 %317, 1
-  %333 = add nsw i32 %310, 1024
-  %334 = add nuw nsw i32 %333, %320
-  %335 = add nsw i32 %334, %332
-  %336 = sub nuw nsw i32 %335, %323
-  %337 = zext nneg i32 %336 to i64
-  %338 = getelementptr inbounds nuw [2304 x i8], ptr %3, i64 0, i64 %337
+  %332 = shl nsw i32 %318, 1
+  %333 = add nsw i32 %311, %321
+  %334 = add nsw i32 %333, %332
+  %335 = sub nsw i32 %334, %324
+  %336 = sext i32 %335 to i64
+  %337 = getelementptr i8, ptr %3, i64 %336
+  %338 = getelementptr i8, ptr %337, i64 1024
   %339 = load i8, ptr %338, align 1, !tbaa !45
   %340 = getelementptr inbounds nuw i8, ptr %291, i64 %indvars.iv110.i
   store i8 %331, ptr %340, align 1, !tbaa !45

@@ -77,14 +77,14 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef %0, i64 no
   store ptr %13, ptr %4, align 8, !tbaa !11
   %14 = urem i8 %11, 6
   %15 = zext nneg i8 %14 to i64
-  %16 = getelementptr inbounds nuw [6 x %struct.op_table_entry], ptr @ops, i64 0, i64 %15, i32 2
+  %16 = getelementptr inbounds nuw %struct.op_table_entry, ptr @ops, i64 %15, i32 2
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   call void %17(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %.not = icmp samesign ult i8 %14, 2
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds nuw [6 x %struct.op_table_entry], ptr @ops, i64 0, i64 %15, i32 3
+  %19 = getelementptr inbounds nuw %struct.op_table_entry, ptr @ops, i64 %15, i32 3
   %20 = load ptr, ptr %19, align 8, !tbaa !15
   %21 = load ptr, ptr %5, align 8, !tbaa !4
   %22 = load ptr, ptr %6, align 8, !tbaa !4
@@ -540,7 +540,7 @@ switch.lookup:
   store i64 %6, ptr %1, align 8, !tbaa !9
   %7 = urem i16 %.0.copyload.i25.i, 3
   %8 = zext nneg i16 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.keygen_ml_dsa_real_key_helper, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.keygen_ml_dsa_real_key_helper, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef nonnull %switch.load, ptr noundef null) #6
   %.not11 = icmp eq ptr %9, null

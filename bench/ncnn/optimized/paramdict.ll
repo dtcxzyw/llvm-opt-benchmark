@@ -84,12 +84,12 @@ _ZN4ncnn16ParamDictPrivateC2Ev.exit:              ; preds = %3
 12:                                               ; preds = %_ZN4ncnn3MatD2Ev.exit.i, %_ZN4ncnn16ParamDictPrivateC2Ev.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN4ncnn16ParamDictPrivateC2Ev.exit ], [ %indvars.iv.next.i, %_ZN4ncnn3MatD2Ev.exit.i ]
   %13 = load ptr, ptr %11, align 8, !tbaa !21
-  %14 = getelementptr inbounds nuw [32 x %struct.anon], ptr %13, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw %struct.anon, ptr %13, i64 %indvars.iv.i
   store i32 0, ptr %14, align 8, !tbaa !24
-  %15 = getelementptr inbounds nuw [32 x %struct.anon], ptr %13, i64 0, i64 %indvars.iv.i, i32 1
+  %15 = getelementptr inbounds nuw %struct.anon, ptr %13, i64 %indvars.iv.i, i32 1
   store i32 0, ptr %15, align 4, !tbaa !20
   %16 = load ptr, ptr %11, align 8, !tbaa !21
-  %17 = getelementptr inbounds nuw [32 x %struct.anon], ptr %16, i64 0, i64 %indvars.iv.i, i32 2
+  %17 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %indvars.iv.i, i32 2
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   %.not.i.i.i = icmp eq ptr %19, null
@@ -129,9 +129,9 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %32, %31, %27, %20, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %17, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %34, i8 0, i64 28, i1 false)
   %.pre.i = load ptr, ptr %11, align 8, !tbaa !21
-  %.phi.trans.insert.i = getelementptr inbounds nuw [32 x %struct.anon], ptr %.pre.i, i64 0, i64 %indvars.iv.i, i32 3
+  %.phi.trans.insert.i = getelementptr inbounds nuw %struct.anon, ptr %.pre.i, i64 %indvars.iv.i, i32 3
   %.pre53.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw [32 x %struct.anon], ptr %.pre.i, i64 0, i64 %indvars.iv.i, i32 3, i32 1
+  %35 = getelementptr inbounds nuw %struct.anon, ptr %.pre.i, i64 %indvars.iv.i, i32 3, i32 1
   store i64 0, ptr %35, align 8, !tbaa !18
   store i8 0, ptr %.pre53.i, align 1, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -161,12 +161,12 @@ define hidden void @_ZN4ncnn9ParamDict5clearEv(ptr noundef nonnull readonly alig
 4:                                                ; preds = %1, %_ZN4ncnn3MatD2Ev.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN4ncnn3MatD2Ev.exit ]
   %5 = load ptr, ptr %2, align 8, !tbaa !21
-  %6 = getelementptr inbounds nuw [32 x %struct.anon], ptr %5, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.anon, ptr %5, i64 %indvars.iv
   store i32 0, ptr %6, align 8, !tbaa !24
-  %7 = getelementptr inbounds nuw [32 x %struct.anon], ptr %5, i64 0, i64 %indvars.iv, i32 1
+  %7 = getelementptr inbounds nuw %struct.anon, ptr %5, i64 %indvars.iv, i32 1
   store i32 0, ptr %7, align 4, !tbaa !20
   %8 = load ptr, ptr %2, align 8, !tbaa !21
-  %9 = getelementptr inbounds nuw [32 x %struct.anon], ptr %8, i64 0, i64 %indvars.iv, i32 2
+  %9 = getelementptr inbounds nuw %struct.anon, ptr %8, i64 %indvars.iv, i32 2
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %.not.i.i = icmp eq ptr %11, null
@@ -206,9 +206,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %19, %23, %24, %12, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %26, i8 0, i64 28, i1 false)
   %.pre = load ptr, ptr %2, align 8, !tbaa !21
-  %.phi.trans.insert = getelementptr inbounds nuw [32 x %struct.anon], ptr %.pre, i64 0, i64 %indvars.iv, i32 3
+  %.phi.trans.insert = getelementptr inbounds nuw %struct.anon, ptr %.pre, i64 %indvars.iv, i32 3
   %.pre53 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !29
-  %27 = getelementptr inbounds nuw [32 x %struct.anon], ptr %.pre, i64 0, i64 %indvars.iv, i32 3, i32 1
+  %27 = getelementptr inbounds nuw %struct.anon, ptr %.pre, i64 %indvars.iv, i32 3, i32 1
   store i64 0, ptr %27, align 8, !tbaa !18
   store i8 0, ptr %.pre53, align 1, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -360,19 +360,19 @@ _ZN4ncnn16ParamDictPrivateC2Ev.exit:              ; preds = %4
 15:                                               ; preds = %_ZN4ncnn16ParamDictPrivateC2Ev.exit, %_ZN4ncnn3MataSERKS0_.exit
   %indvars.iv = phi i64 [ 0, %_ZN4ncnn16ParamDictPrivateC2Ev.exit ], [ %indvars.iv.next, %_ZN4ncnn3MataSERKS0_.exit ]
   %16 = load ptr, ptr %13, align 8, !tbaa !21
-  %17 = getelementptr inbounds nuw [32 x %struct.anon], ptr %16, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 8, !tbaa !24
   %19 = load ptr, ptr %12, align 8, !tbaa !21
-  %20 = getelementptr inbounds nuw [32 x %struct.anon], ptr %19, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.anon, ptr %19, i64 %indvars.iv
   store i32 %18, ptr %20, align 8, !tbaa !24
   %21 = add i32 %18, -1
   %or.cond3 = icmp ult i32 %21, 3
   br i1 %or.cond3, label %22, label %26
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw [32 x %struct.anon], ptr %16, i64 0, i64 %indvars.iv, i32 1
+  %23 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %indvars.iv, i32 1
   %24 = load i32, ptr %23, align 4, !tbaa !20
-  %25 = getelementptr inbounds nuw [32 x %struct.anon], ptr %19, i64 0, i64 %indvars.iv, i32 1
+  %25 = getelementptr inbounds nuw %struct.anon, ptr %19, i64 %indvars.iv, i32 1
   store i32 %24, ptr %25, align 4, !tbaa !20
   br label %_ZN4ncnn3MataSERKS0_.exit
 
@@ -381,14 +381,14 @@ _ZN4ncnn16ParamDictPrivateC2Ev.exit:              ; preds = %4
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw [32 x %struct.anon], ptr %16, i64 0, i64 %indvars.iv, i32 3
-  %30 = getelementptr inbounds nuw [32 x %struct.anon], ptr %19, i64 0, i64 %indvars.iv, i32 3
+  %29 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %indvars.iv, i32 3
+  %30 = getelementptr inbounds nuw %struct.anon, ptr %19, i64 %indvars.iv, i32 3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %29)
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw [32 x %struct.anon], ptr %16, i64 0, i64 %indvars.iv, i32 2
-  %33 = getelementptr inbounds nuw [32 x %struct.anon], ptr %19, i64 0, i64 %indvars.iv, i32 2
+  %32 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %indvars.iv, i32 2
+  %33 = getelementptr inbounds nuw %struct.anon, ptr %19, i64 %indvars.iv, i32 2
   %34 = icmp eq ptr %19, %16
   br i1 %34, label %_ZN4ncnn3MataSERKS0_.exit, label %35
 
@@ -502,19 +502,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ncnn9ParamDic
 6:                                                ; preds = %.preheader, %_ZN4ncnn3MataSERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN4ncnn3MataSERKS0_.exit ]
   %7 = load ptr, ptr %4, align 8, !tbaa !21
-  %8 = getelementptr inbounds nuw [32 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.anon, ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8, !tbaa !24
   %10 = load ptr, ptr %5, align 8, !tbaa !21
-  %11 = getelementptr inbounds nuw [32 x %struct.anon], ptr %10, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.anon, ptr %10, i64 %indvars.iv
   store i32 %9, ptr %11, align 8, !tbaa !24
   %12 = add i32 %9, -1
   %or.cond3 = icmp ult i32 %12, 3
   br i1 %or.cond3, label %13, label %17
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw [32 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv, i32 1
+  %14 = getelementptr inbounds nuw %struct.anon, ptr %7, i64 %indvars.iv, i32 1
   %15 = load i32, ptr %14, align 4, !tbaa !20
-  %16 = getelementptr inbounds nuw [32 x %struct.anon], ptr %10, i64 0, i64 %indvars.iv, i32 1
+  %16 = getelementptr inbounds nuw %struct.anon, ptr %10, i64 %indvars.iv, i32 1
   store i32 %15, ptr %16, align 4, !tbaa !20
   br label %_ZN4ncnn3MataSERKS0_.exit
 
@@ -523,14 +523,14 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ncnn9ParamDic
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw [32 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv, i32 3
-  %21 = getelementptr inbounds nuw [32 x %struct.anon], ptr %10, i64 0, i64 %indvars.iv, i32 3
+  %20 = getelementptr inbounds nuw %struct.anon, ptr %7, i64 %indvars.iv, i32 3
+  %21 = getelementptr inbounds nuw %struct.anon, ptr %10, i64 %indvars.iv, i32 3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20)
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw [32 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv, i32 2
-  %24 = getelementptr inbounds nuw [32 x %struct.anon], ptr %10, i64 0, i64 %indvars.iv, i32 2
+  %23 = getelementptr inbounds nuw %struct.anon, ptr %7, i64 %indvars.iv, i32 2
+  %24 = getelementptr inbounds nuw %struct.anon, ptr %10, i64 %indvars.iv, i32 2
   %25 = icmp eq ptr %10, %7
   br i1 %25, label %_ZN4ncnn3MataSERKS0_.exit, label %26
 
@@ -637,7 +637,7 @@ define hidden noundef i32 @_ZNK4ncnn9ParamDict4typeEi(ptr noundef nonnull readon
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !21
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [32 x %struct.anon], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.anon, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8, !tbaa !24
   ret i32 %7
 }
@@ -647,7 +647,7 @@ define hidden noundef i32 @_ZNK4ncnn9ParamDict3getEii(ptr noundef nonnull readon
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [32 x %struct.anon], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.anon, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %12, label %9
@@ -667,7 +667,7 @@ define hidden noundef nofpclass(nan inf) float @_ZNK4ncnn9ParamDict3getEif(ptr n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [32 x %struct.anon], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.anon, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %12, label %9
@@ -687,7 +687,7 @@ define hidden void @_ZNK4ncnn9ParamDict3getEiRKNS_3MatE(ptr dead_on_unwind noali
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !21
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [32 x %struct.anon], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.anon, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 8, !tbaa !24
   %.not = icmp eq i32 %9, 0
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -751,7 +751,7 @@ define hidden void @_ZNK4ncnn9ParamDict3getEiRKNSt7__cxx1112basic_stringIcSt11ch
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [32 x %struct.anon], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds %struct.anon, ptr %7, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !24
   %.not = icmp eq i32 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -810,9 +810,9 @@ define hidden void @_ZN4ncnn9ParamDict3setEii(ptr noundef nonnull readonly align
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [32 x %struct.anon], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.anon, ptr %5, i64 %6
   store i32 2, ptr %7, align 8, !tbaa !24
-  %8 = getelementptr inbounds [32 x %struct.anon], ptr %5, i64 0, i64 %6, i32 1
+  %8 = getelementptr inbounds %struct.anon, ptr %5, i64 %6, i32 1
   store i32 %2, ptr %8, align 4, !tbaa !20
   ret void
 }
@@ -822,9 +822,9 @@ define hidden void @_ZN4ncnn9ParamDict3setEif(ptr noundef nonnull readonly align
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [32 x %struct.anon], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.anon, ptr %5, i64 %6
   store i32 3, ptr %7, align 8, !tbaa !24
-  %8 = getelementptr inbounds [32 x %struct.anon], ptr %5, i64 0, i64 %6, i32 1
+  %8 = getelementptr inbounds %struct.anon, ptr %5, i64 %6, i32 1
   store float %2, ptr %8, align 4, !tbaa !20
   ret void
 }
@@ -834,9 +834,9 @@ define hidden void @_ZN4ncnn9ParamDict3setEiRKNS_3MatE(ptr noundef nonnull reado
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [32 x %struct.anon], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.anon, ptr %5, i64 %6
   store i32 4, ptr %7, align 8, !tbaa !24
-  %8 = getelementptr inbounds [32 x %struct.anon], ptr %5, i64 0, i64 %6, i32 2
+  %8 = getelementptr inbounds %struct.anon, ptr %5, i64 %6, i32 2
   %9 = icmp eq ptr %8, %2
   br i1 %9, label %_ZN4ncnn3MataSERKS0_.exit, label %10
 
@@ -938,9 +938,9 @@ define hidden void @_ZN4ncnn9ParamDict3setEiRKNSt7__cxx1112basic_stringIcSt11cha
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [32 x %struct.anon], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.anon, ptr %5, i64 %6
   store i32 7, ptr %7, align 8, !tbaa !24
-  %8 = getelementptr inbounds [32 x %struct.anon], ptr %5, i64 0, i64 %6, i32 3
+  %8 = getelementptr inbounds %struct.anon, ptr %5, i64 %6, i32 3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
   ret void
 }
@@ -966,12 +966,12 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9ParamDict10load_paramERKNS_
 17:                                               ; preds = %_ZN4ncnn3MatD2Ev.exit.i, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %_ZN4ncnn3MatD2Ev.exit.i ]
   %18 = load ptr, ptr %16, align 8, !tbaa !21
-  %19 = getelementptr inbounds nuw [32 x %struct.anon], ptr %18, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw %struct.anon, ptr %18, i64 %indvars.iv.i
   store i32 0, ptr %19, align 8, !tbaa !24
-  %20 = getelementptr inbounds nuw [32 x %struct.anon], ptr %18, i64 0, i64 %indvars.iv.i, i32 1
+  %20 = getelementptr inbounds nuw %struct.anon, ptr %18, i64 %indvars.iv.i, i32 1
   store i32 0, ptr %20, align 4, !tbaa !20
   %21 = load ptr, ptr %16, align 8, !tbaa !21
-  %22 = getelementptr inbounds nuw [32 x %struct.anon], ptr %21, i64 0, i64 %indvars.iv.i, i32 2
+  %22 = getelementptr inbounds nuw %struct.anon, ptr %21, i64 %indvars.iv.i, i32 2
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   %.not.i.i.i = icmp eq ptr %24, null
@@ -1011,9 +1011,9 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %37, %36, %32, %25, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %22, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %39, i8 0, i64 28, i1 false)
   %.pre.i = load ptr, ptr %16, align 8, !tbaa !21
-  %.phi.trans.insert.i = getelementptr inbounds nuw [32 x %struct.anon], ptr %.pre.i, i64 0, i64 %indvars.iv.i, i32 3
+  %.phi.trans.insert.i = getelementptr inbounds nuw %struct.anon, ptr %.pre.i, i64 %indvars.iv.i, i32 3
   %.pre53.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !29
-  %40 = getelementptr inbounds nuw [32 x %struct.anon], ptr %.pre.i, i64 0, i64 %indvars.iv.i, i32 3, i32 1
+  %40 = getelementptr inbounds nuw %struct.anon, ptr %.pre.i, i64 %indvars.iv.i, i32 3, i32 1
   store i64 0, ptr %40, align 8, !tbaa !18
   store i8 0, ptr %.pre53.i, align 1, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1085,7 +1085,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %_ZN4ncnn3MatD2Ev.ex
   %75 = load ptr, ptr %16, align 8, !tbaa !21
   %76 = load i32, ptr %5, align 4, !tbaa !42
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds [32 x %struct.anon], ptr %75, i64 0, i64 %77, i32 2
+  %78 = getelementptr inbounds %struct.anon, ptr %75, i64 %77, i32 2
   %79 = load i32, ptr %6, align 4, !tbaa !42
   call void @_ZN4ncnn3Mat6createEimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %78, i32 noundef %79, i64 noundef 4, ptr noundef null)
   %80 = load i32, ptr %6, align 4, !tbaa !42
@@ -1131,7 +1131,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %_ZN4ncnn3MatD2Ev.ex
   %96 = load ptr, ptr %16, align 8, !tbaa !21
   %97 = load i32, ptr %5, align 4, !tbaa !42
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds [32 x %struct.anon], ptr %96, i64 0, i64 %98, i32 2
+  %99 = getelementptr inbounds %struct.anon, ptr %96, i64 %98, i32 2
   %100 = load ptr, ptr %99, align 8, !tbaa !28
   %101 = load i8, ptr %7, align 16, !tbaa !20
   switch i8 %101, label %103 [
@@ -1302,7 +1302,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit:                ; preds = %.preheader, %88
   %154 = load ptr, ptr %16, align 8, !tbaa !21
   %155 = load i32, ptr %5, align 4, !tbaa !42
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds [32 x %struct.anon], ptr %154, i64 0, i64 %156, i32 2
+  %157 = getelementptr inbounds %struct.anon, ptr %154, i64 %156, i32 2
   %158 = load ptr, ptr %157, align 8, !tbaa !28
   %159 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv
   %160 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, ptr noundef %159) #22
@@ -1324,7 +1324,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit..critedge_crit_edge: ; preds = %_ZN4ncnnL13vst
   %.pre-phi = phi i64 [ %.pre383, %_ZN4ncnnL13vstr_is_floatEPKc.exit..critedge_crit_edge ], [ %98, %_ZN4ncnnL13vstr_to_floatEPKc.exit ]
   %164 = phi ptr [ %.pre, %_ZN4ncnnL13vstr_is_floatEPKc.exit..critedge_crit_edge ], [ %96, %_ZN4ncnnL13vstr_to_floatEPKc.exit ]
   %165 = phi i32 [ 5, %_ZN4ncnnL13vstr_is_floatEPKc.exit..critedge_crit_edge ], [ 6, %_ZN4ncnnL13vstr_to_floatEPKc.exit ]
-  %166 = getelementptr inbounds [32 x %struct.anon], ptr %164, i64 0, i64 %.pre-phi
+  %166 = getelementptr inbounds %struct.anon, ptr %164, i64 %.pre-phi
   store i32 %165, ptr %166, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1486,7 +1486,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %225 = load ptr, ptr %16, align 8, !tbaa !21
   %226 = load i32, ptr %5, align 4, !tbaa !42
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds [32 x %struct.anon], ptr %225, i64 0, i64 %227, i32 3
+  %228 = getelementptr inbounds %struct.anon, ptr %225, i64 %227, i32 3
   %229 = load ptr, ptr %228, align 8, !tbaa !29
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %231 = icmp eq ptr %229, %230
@@ -1693,7 +1693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %_Z
   %294 = load ptr, ptr %16, align 8, !tbaa !21
   %295 = load i32, ptr %5, align 4, !tbaa !42
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds [32 x %struct.anon], ptr %294, i64 0, i64 %296, i32 3
+  %297 = getelementptr inbounds %struct.anon, ptr %294, i64 %296, i32 3
   %298 = load ptr, ptr %297, align 8, !tbaa !29
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 16
   %300 = icmp eq ptr %298, %299
@@ -1808,7 +1808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %338 = load ptr, ptr %16, align 8, !tbaa !21
   %339 = load i32, ptr %5, align 4, !tbaa !42
   %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds [32 x %struct.anon], ptr %338, i64 0, i64 %340
+  %341 = getelementptr inbounds %struct.anon, ptr %338, i64 %340
   store i32 7, ptr %341, align 8, !tbaa !24
   br label %342, !llvm.loop !58
 
@@ -2114,7 +2114,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit157:        ; preds = %_ZNSt6vectorIiSaIiE
   %429 = load ptr, ptr %16, align 8, !tbaa !21
   %430 = load i32, ptr %5, align 4, !tbaa !42
   %431 = sext i32 %430 to i64
-  %432 = getelementptr inbounds [32 x %struct.anon], ptr %429, i64 0, i64 %431, i32 2
+  %432 = getelementptr inbounds %struct.anon, ptr %429, i64 %431, i32 2
   br i1 %not.switch.i137, label %433, label %445
 
 433:                                              ; preds = %428
@@ -2130,7 +2130,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit157:        ; preds = %_ZNSt6vectorIiSaIiE
   %440 = load ptr, ptr %16, align 8, !tbaa !21
   %441 = load i32, ptr %5, align 4, !tbaa !42
   %442 = sext i32 %441 to i64
-  %443 = getelementptr inbounds [32 x %struct.anon], ptr %440, i64 0, i64 %442, i32 2
+  %443 = getelementptr inbounds %struct.anon, ptr %440, i64 %442, i32 2
   %444 = load ptr, ptr %443, align 8, !tbaa !60
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %444, ptr align 4 %.sroa.0195.8, i64 %436, i1 false)
   br label %.critedge102
@@ -2148,7 +2148,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit157:        ; preds = %_ZNSt6vectorIiSaIiE
   %452 = load ptr, ptr %16, align 8, !tbaa !21
   %453 = load i32, ptr %5, align 4, !tbaa !42
   %454 = sext i32 %453 to i64
-  %455 = getelementptr inbounds [32 x %struct.anon], ptr %452, i64 0, i64 %454, i32 2
+  %455 = getelementptr inbounds %struct.anon, ptr %452, i64 %454, i32 2
   %456 = load ptr, ptr %455, align 8, !tbaa !60
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %456, ptr align 4 %.sroa.0.9, i64 %448, i1 false)
   br label %.critedge102
@@ -2158,7 +2158,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit157:        ; preds = %_ZNSt6vectorIiSaIiE
   %458 = load ptr, ptr %16, align 8, !tbaa !21
   %459 = load i32, ptr %5, align 4, !tbaa !42
   %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds [32 x %struct.anon], ptr %458, i64 0, i64 %460
+  %461 = getelementptr inbounds %struct.anon, ptr %458, i64 %460
   store i32 %457, ptr %461, align 8, !tbaa !24
   %.not.i.i.i168 = icmp eq ptr %.sroa.0.9, null
   br i1 %.not.i.i.i168, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %462
@@ -2243,7 +2243,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit175:                 ; preds = %482, %483
   %494 = load ptr, ptr %16, align 8, !tbaa !21
   %495 = load i32, ptr %5, align 4, !tbaa !42
   %496 = sext i32 %495 to i64
-  %497 = getelementptr inbounds [32 x %struct.anon], ptr %494, i64 0, i64 %496, i32 1
+  %497 = getelementptr inbounds %struct.anon, ptr %494, i64 %496, i32 1
   store float %493, ptr %497, align 4, !tbaa !20
   br label %508
 
@@ -2251,7 +2251,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit175:                 ; preds = %482, %483
   %499 = load ptr, ptr %16, align 8, !tbaa !21
   %500 = load i32, ptr %5, align 4, !tbaa !42
   %501 = sext i32 %500 to i64
-  %502 = getelementptr inbounds [32 x %struct.anon], ptr %499, i64 0, i64 %501, i32 1
+  %502 = getelementptr inbounds %struct.anon, ptr %499, i64 %501, i32 1
   %503 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %8, ptr noundef nonnull @.str.3, ptr noundef nonnull %502) #22
   %.not76 = icmp eq i32 %503, 1
   br i1 %.not76, label %508, label %504
@@ -2268,7 +2268,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit175:                 ; preds = %482, %483
   %510 = load ptr, ptr %16, align 8, !tbaa !21
   %511 = load i32, ptr %5, align 4, !tbaa !42
   %512 = sext i32 %511 to i64
-  %513 = getelementptr inbounds [32 x %struct.anon], ptr %510, i64 0, i64 %512
+  %513 = getelementptr inbounds %struct.anon, ptr %510, i64 %512
   store i32 %509, ptr %513, align 8, !tbaa !24
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
@@ -2509,12 +2509,12 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9ParamDict14load_param_binER
 7:                                                ; preds = %_ZN4ncnn3MatD2Ev.exit.i, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %_ZN4ncnn3MatD2Ev.exit.i ]
   %8 = load ptr, ptr %6, align 8, !tbaa !21
-  %9 = getelementptr inbounds nuw [32 x %struct.anon], ptr %8, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.anon, ptr %8, i64 %indvars.iv.i
   store i32 0, ptr %9, align 8, !tbaa !24
-  %10 = getelementptr inbounds nuw [32 x %struct.anon], ptr %8, i64 0, i64 %indvars.iv.i, i32 1
+  %10 = getelementptr inbounds nuw %struct.anon, ptr %8, i64 %indvars.iv.i, i32 1
   store i32 0, ptr %10, align 4, !tbaa !20
   %11 = load ptr, ptr %6, align 8, !tbaa !21
-  %12 = getelementptr inbounds nuw [32 x %struct.anon], ptr %11, i64 0, i64 %indvars.iv.i, i32 2
+  %12 = getelementptr inbounds nuw %struct.anon, ptr %11, i64 %indvars.iv.i, i32 2
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %.not.i.i.i = icmp eq ptr %14, null
@@ -2554,9 +2554,9 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %27, %26, %22, %15, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %12, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %29, i8 0, i64 28, i1 false)
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !21
-  %.phi.trans.insert.i = getelementptr inbounds nuw [32 x %struct.anon], ptr %.pre.i, i64 0, i64 %indvars.iv.i, i32 3
+  %.phi.trans.insert.i = getelementptr inbounds nuw %struct.anon, ptr %.pre.i, i64 %indvars.iv.i, i32 3
   %.pre53.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !29
-  %30 = getelementptr inbounds nuw [32 x %struct.anon], ptr %.pre.i, i64 0, i64 %indvars.iv.i, i32 3, i32 1
+  %30 = getelementptr inbounds nuw %struct.anon, ptr %.pre.i, i64 %indvars.iv.i, i32 3, i32 1
   store i64 0, ptr %30, align 8, !tbaa !18
   store i8 0, ptr %.pre53.i, align 1, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2693,7 +2693,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %85, %_ZNSt6vectorIc
   %87 = load ptr, ptr %6, align 8, !tbaa !21
   %88 = load i32, ptr %3, align 4, !tbaa !42
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [32 x %struct.anon], ptr %87, i64 0, i64 %89, i32 3
+  %90 = getelementptr inbounds %struct.anon, ptr %87, i64 %89, i32 3
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !18
   %93 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #22
@@ -2704,7 +2704,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit82.thread:           ; preds = %85
   %95 = load ptr, ptr %6, align 8, !tbaa !21
   %96 = load i32, ptr %3, align 4, !tbaa !42
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [32 x %struct.anon], ptr %95, i64 0, i64 %97
+  %98 = getelementptr inbounds %struct.anon, ptr %95, i64 %97
   store i32 7, ptr %98, align 8, !tbaa !24
   call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %74) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2741,13 +2741,13 @@ _ZNSt6vectorIcSaIcEED2Ev.exit82:                  ; preds = %83
   %111 = load ptr, ptr %6, align 8, !tbaa !21
   %112 = load i32, ptr %3, align 4, !tbaa !42
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds [32 x %struct.anon], ptr %111, i64 0, i64 %113, i32 2
+  %114 = getelementptr inbounds %struct.anon, ptr %111, i64 %113, i32 2
   %115 = load i32, ptr %5, align 4, !tbaa !42
   call void @_ZN4ncnn3Mat6createEimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %114, i32 noundef %115, i64 noundef 4, ptr noundef null)
   %116 = load ptr, ptr %6, align 8, !tbaa !21
   %117 = load i32, ptr %3, align 4, !tbaa !42
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds [32 x %struct.anon], ptr %116, i64 0, i64 %118, i32 2
+  %119 = getelementptr inbounds %struct.anon, ptr %116, i64 %118, i32 2
   %120 = load ptr, ptr %119, align 8, !tbaa !28
   %121 = load i32, ptr %5, align 4, !tbaa !42
   %122 = sext i32 %121 to i64
@@ -2766,7 +2766,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit82:                  ; preds = %83
   %131 = load ptr, ptr %6, align 8, !tbaa !21
   %132 = load i32, ptr %3, align 4, !tbaa !42
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds [32 x %struct.anon], ptr %131, i64 0, i64 %133
+  %134 = getelementptr inbounds %struct.anon, ptr %131, i64 %133
   store i32 4, ptr %134, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %155
@@ -2782,7 +2782,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit82:                  ; preds = %83
 .thread133:                                       ; preds = %thread-pre-split.thread
   %139 = load ptr, ptr %6, align 8, !tbaa !21
   %140 = sext i32 %39 to i64
-  %141 = getelementptr inbounds [32 x %struct.anon], ptr %139, i64 0, i64 %140, i32 1
+  %141 = getelementptr inbounds %struct.anon, ptr %139, i64 %140, i32 1
   %142 = load ptr, ptr %1, align 8, !tbaa !4
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
@@ -2801,7 +2801,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit82:                  ; preds = %83
   %151 = load ptr, ptr %6, align 8, !tbaa !21
   %152 = load i32, ptr %3, align 4, !tbaa !42
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds [32 x %struct.anon], ptr %151, i64 0, i64 %153
+  %154 = getelementptr inbounds %struct.anon, ptr %151, i64 %153
   store i32 1, ptr %154, align 8, !tbaa !24
   br label %155
 

@@ -458,7 +458,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   %61 = phi i32 [ 0, %.lr.ph198.i ], [ %104, %98 ]
   %62 = phi i32 [ 0, %.lr.ph198.i ], [ %106, %98 ]
   %63 = phi i32 [ 0, %.lr.ph198.i ], [ %105, %98 ]
-  %64 = getelementptr inbounds nuw [0 x i32], ptr %50, i64 0, i64 %indvars.iv225.i
+  %64 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv225.i
   %65 = load i32, ptr %64, align 4
   switch i32 %65, label %98 [
     i32 2283, label %66
@@ -2956,7 +2956,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds %struct.NullableDatum, ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i8, ptr %19, align 8, !range !9, !noundef !10
   %21 = trunc nuw i8 %20 to i1
@@ -3025,7 +3025,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
   %57 = trunc nuw nsw i64 %indvars.iv to i32
   %58 = add i32 %1, %57
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %56, i64 0, i64 %59
+  %60 = getelementptr inbounds %struct.NullableDatum, ptr %56, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i8, ptr %61, align 8, !range !9, !noundef !10
   %63 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv
@@ -3051,7 +3051,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
   %72 = trunc nuw nsw i64 %indvars.iv79 to i32
   %73 = add i32 %1, %72
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %56, i64 0, i64 %74
+  %75 = getelementptr inbounds %struct.NullableDatum, ptr %56, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i8, ptr %76, align 8, !range !9, !noundef !10
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv79

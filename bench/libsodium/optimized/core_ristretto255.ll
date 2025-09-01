@@ -225,9 +225,9 @@ define hidden range(i32 -1, 1) i32 @crypto_core_ristretto255_scalar_from_string(
 .preheader:                                       ; preds = %5, %.preheader
   %.012 = phi i64 [ %13, %.preheader ], [ 0, %5 ]
   %9 = sub nuw nsw i64 47, %.012
-  %10 = getelementptr [48 x i8], ptr %7, i64 0, i64 %9
+  %10 = getelementptr i8, ptr %7, i64 %9
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr [64 x i8], ptr %6, i64 0, i64 %.012
+  %12 = getelementptr i8, ptr %6, i64 %.012
   store i8 %11, ptr %12, align 1
   %13 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %13, 48

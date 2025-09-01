@@ -881,7 +881,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
   %.117.i = phi ptr [ %57, %.preheader.i13 ], [ %.117.i.ph, %.preheader.i13.preheader ]
   %.11316.i = phi i64 [ %58, %.preheader.i13 ], [ %.012.i, %.preheader.i13.preheader ]
   %54 = urem i64 %.11316.i, 10
-  %55 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %56, ptr %57, align 1
@@ -954,7 +954,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i17: ; p
   %.117.i20 = phi ptr [ %83, %.preheader.i19 ], [ %.117.i20.ph, %.preheader.i19.preheader ]
   %.11316.i21 = phi i64 [ %84, %.preheader.i19 ], [ %.012.i15, %.preheader.i19.preheader ]
   %80 = urem i64 %.11316.i21, 10
-  %81 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = getelementptr inbounds i8, ptr %.117.i20, i64 -1
   store i8 %82, ptr %83, align 1
@@ -1334,7 +1334,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i.i: ; p
   %.117.i.i = phi ptr [ %64, %.preheader.i65.i ], [ %59, %.preheader.preheader.i.i ]
   %.11316.i.i = phi i64 [ %65, %.preheader.i65.i ], [ %.012.i.i, %.preheader.preheader.i.i ]
   %61 = urem i64 %.11316.i.i, 10
-  %62 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = getelementptr inbounds i8, ptr %.117.i.i, i64 -1
   store i8 %63, ptr %64, align 1
@@ -1419,7 +1419,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i80.i: ;
   %.117.i83.i = phi ptr [ %91, %.preheader.i82.i ], [ %.117.i83.i.ph, %.preheader.i82.i.preheader ]
   %.11316.i84.i = phi i64 [ %92, %.preheader.i82.i ], [ %indvars.iv.next.i, %.preheader.i82.i.preheader ]
   %88 = urem i64 %.11316.i84.i, 10
-  %89 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = getelementptr inbounds i8, ptr %.117.i83.i, i64 -1
   store i8 %90, ptr %91, align 1
@@ -3524,7 +3524,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
   %.117.i = phi ptr [ %39, %.preheader.i ], [ %.117.i.ph, %.preheader.i.preheader ]
   %.11316.i = phi i64 [ %40, %.preheader.i ], [ %.012.i, %.preheader.i.preheader ]
   %36 = urem i64 %.11316.i, 10
-  %37 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %38, ptr %39, align 1
@@ -3663,7 +3663,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i43: ; p
   %.117.i46 = phi ptr [ %87, %.preheader.i45 ], [ %.117.i46.ph, %.preheader.i45.preheader ]
   %.11316.i47 = phi i64 [ %88, %.preheader.i45 ], [ %.012.i41, %.preheader.i45.preheader ]
   %84 = urem i64 %.11316.i47, 10
-  %85 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = getelementptr inbounds i8, ptr %.117.i46, i64 -1
   store i8 %86, ptr %87, align 1
@@ -3763,7 +3763,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81.thread: ; 
   %.117.i74 = phi ptr [ %124, %.preheader.i73 ], [ %.117.i74.ph, %.preheader.i73.preheader ]
   %.11316.i75 = phi i64 [ %125, %.preheader.i73 ], [ %112, %.preheader.i73.preheader ]
   %121 = urem i64 %.11316.i75, 10
-  %122 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = getelementptr inbounds i8, ptr %.117.i74, i64 -1
   store i8 %123, ptr %124, align 1
@@ -3840,7 +3840,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96: ; p
   %.117.i99 = phi ptr [ %149, %.preheader.i98 ], [ %.117.i99.ph, %.preheader.i98.preheader ]
   %.11316.i100 = phi i64 [ %150, %.preheader.i98 ], [ %.012.i94, %.preheader.i98.preheader ]
   %146 = urem i64 %.11316.i100, 10
-  %147 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = getelementptr inbounds i8, ptr %.117.i99, i64 -1
   store i8 %148, ptr %149, align 1
@@ -3958,7 +3958,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit: ; preds
   %.117 = phi ptr [ %19, %.preheader ], [ %.117.ph, %.preheader.preheader ]
   %.11316 = phi i64 [ %20, %.preheader ], [ %.012, %.preheader.preheader ]
   %16 = urem i64 %.11316, 10
-  %17 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = getelementptr inbounds i8, ptr %.117, i64 -1
   store i8 %18, ptr %19, align 1
@@ -5745,7 +5745,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
   %.117.i = phi ptr [ %58, %.preheader.i13 ], [ %.117.i.ph, %.preheader.i13.preheader ]
   %.11316.i = phi i64 [ %59, %.preheader.i13 ], [ %.012.i, %.preheader.i13.preheader ]
   %55 = urem i64 %.11316.i, 10
-  %56 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %57, ptr %58, align 1
@@ -5818,7 +5818,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i17: ; p
   %.117.i20 = phi ptr [ %84, %.preheader.i19 ], [ %.117.i20.ph, %.preheader.i19.preheader ]
   %.11316.i21 = phi i64 [ %85, %.preheader.i19 ], [ %.012.i15, %.preheader.i19.preheader ]
   %81 = urem i64 %.11316.i21, 10
-  %82 = getelementptr inbounds nuw [11 x i8], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = getelementptr inbounds i8, ptr %.117.i20, i64 -1
   store i8 %83, ptr %84, align 1

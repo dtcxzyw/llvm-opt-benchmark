@@ -3727,14 +3727,14 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.th
 
 174:                                              ; preds = %174, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %174 ]
-  %175 = getelementptr inbounds nuw [1024 x i64], ptr %12, i64 0, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
   %176 = load i64, ptr %175, align 8
   %177 = load ptr, ptr %170, align 8
   %178 = getelementptr inbounds nuw i64, ptr %177, i64 %indvars.iv.i
   store i64 %176, ptr %178, align 8
   %179 = load ptr, ptr %171, align 8
   %180 = getelementptr inbounds nuw %struct.iovec, ptr %179, i64 %indvars.iv.i
-  %181 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %13, i64 0, i64 %indvars.iv.i
+  %181 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, ptr noundef nonnull align 16 dereferenceable(16) %181, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3745,14 +3745,14 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.th
   %183 = trunc nuw i64 %indvars.iv145.i to i32
   %184 = add i32 %167, %183
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw [1024 x i64], ptr %12, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i64, ptr %12, i64 %185
   %187 = load i64, ptr %186, align 8
   %188 = load ptr, ptr %172, align 8
   %189 = getelementptr inbounds nuw i64, ptr %188, i64 %indvars.iv145.i
   store i64 %187, ptr %189, align 8
   %190 = load ptr, ptr %173, align 8
   %191 = getelementptr inbounds nuw %struct.iovec, ptr %190, i64 %indvars.iv145.i
-  %192 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %13, i64 0, i64 %185
+  %192 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull align 16 dereferenceable(16) %192, i64 16, i1 false)
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond149.not.i = icmp eq i64 %indvars.iv.next146.i, %wide.trip.count148.i
@@ -4332,14 +4332,14 @@ vring_split_desc_read.exit.i:                     ; preds = %369, %367
 
 449:                                              ; preds = %449, %.lr.ph.i15
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i18, %449 ]
-  %450 = getelementptr inbounds nuw [1024 x i64], ptr %6, i64 0, i64 %indvars.iv.i17
+  %450 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i17
   %451 = load i64, ptr %450, align 8
   %452 = load ptr, ptr %445, align 8
   %453 = getelementptr inbounds nuw i64, ptr %452, i64 %indvars.iv.i17
   store i64 %451, ptr %453, align 8
   %454 = load ptr, ptr %446, align 8
   %455 = getelementptr inbounds nuw %struct.iovec, ptr %454, i64 %indvars.iv.i17
-  %456 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %7, i64 0, i64 %indvars.iv.i17
+  %456 = getelementptr inbounds nuw %struct.iovec, ptr %7, i64 %indvars.iv.i17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %455, ptr noundef nonnull align 16 dereferenceable(16) %456, i64 16, i1 false)
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i16
@@ -4350,14 +4350,14 @@ vring_split_desc_read.exit.i:                     ; preds = %369, %367
   %458 = trunc nuw i64 %indvars.iv139.i to i32
   %459 = add i32 %441, %458
   %460 = zext i32 %459 to i64
-  %461 = getelementptr inbounds nuw [1024 x i64], ptr %6, i64 0, i64 %460
+  %461 = getelementptr inbounds nuw i64, ptr %6, i64 %460
   %462 = load i64, ptr %461, align 8
   %463 = load ptr, ptr %447, align 8
   %464 = getelementptr inbounds nuw i64, ptr %463, i64 %indvars.iv139.i
   store i64 %462, ptr %464, align 8
   %465 = load ptr, ptr %448, align 8
   %466 = getelementptr inbounds nuw %struct.iovec, ptr %465, i64 %indvars.iv139.i
-  %467 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %7, i64 0, i64 %460
+  %467 = getelementptr inbounds nuw %struct.iovec, ptr %7, i64 %460
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %466, ptr noundef nonnull align 16 dereferenceable(16) %467, i64 16, i1 false)
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
   %exitcond143.not.i = icmp eq i64 %indvars.iv.next140.i, %wide.trip.count142.i
@@ -4842,7 +4842,7 @@ define dso_local noundef ptr @qemu_get_virtqueue_element(ptr noundef readonly ca
 27:                                               ; preds = %.lr.ph, %27
   %.040 = phi i32 [ 0, %.lr.ph ], [ %33, %27 ]
   %28 = sext i32 %.040 to i64
-  %29 = getelementptr inbounds [1024 x i64], ptr %20, i64 0, i64 %28
+  %29 = getelementptr inbounds i64, ptr %20, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %21, align 8
   %32 = getelementptr inbounds i64, ptr %31, i64 %28
@@ -4870,7 +4870,7 @@ define dso_local noundef ptr @qemu_get_virtqueue_element(ptr noundef readonly ca
 40:                                               ; preds = %.lr.ph42, %40
   %.141 = phi i32 [ 0, %.lr.ph42 ], [ %46, %40 ]
   %41 = sext i32 %.141 to i64
-  %42 = getelementptr inbounds [1024 x i64], ptr %25, i64 0, i64 %41
+  %42 = getelementptr inbounds i64, ptr %25, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = load ptr, ptr %26, align 8
   %45 = getelementptr inbounds i64, ptr %44, i64 %41
@@ -5075,7 +5075,7 @@ define dso_local void @qemu_put_virtqueue_element(ptr noundef readonly captures(
   %20 = sext i32 %.034 to i64
   %21 = getelementptr inbounds i64, ptr %14, i64 %20
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds [1024 x i64], ptr %15, i64 0, i64 %20
+  %23 = getelementptr inbounds i64, ptr %15, i64 %20
   store i64 %22, ptr %23, align 8
   %24 = add nuw i32 %.034, 1
   %exitcond.not = icmp eq i32 %24, %8
@@ -5095,7 +5095,7 @@ define dso_local void @qemu_put_virtqueue_element(ptr noundef readonly captures(
   %29 = sext i32 %.135 to i64
   %30 = getelementptr inbounds i64, ptr %17, i64 %29
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds [1024 x i64], ptr %18, i64 0, i64 %29
+  %32 = getelementptr inbounds i64, ptr %18, i64 %29
   store i64 %31, ptr %32, align 8
   %33 = add nuw i32 %.135, 1
   %exitcond45.not = icmp eq i32 %33, %11
@@ -7941,7 +7941,7 @@ define dso_local void @virtio_init(ptr noundef %0, i16 noundef zeroext %1, i64 n
 
 46:                                               ; preds = %43
   %47 = zext nneg i16 %1 to i64
-  %48 = getelementptr inbounds nuw [42 x ptr], ptr @virtio_device_names, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr @virtio_device_names, i64 %47
   %49 = load ptr, ptr %48, align 8
   %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %50, label %virtio_id_to_name.exit
@@ -9074,7 +9074,7 @@ define dso_local noalias noundef ptr @qmp_x_query_virtio_queue_element(ptr nound
 
 10:                                               ; preds = %5
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %4, ptr noundef nonnull @.str.44, i32 noundef 4269, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.60, ptr noundef %0) #24
-  br label %249
+  br label %248
 
 11:                                               ; preds = %5
   %12 = zext i16 %1 to i32
@@ -9092,7 +9092,7 @@ define dso_local noalias noundef ptr @qmp_x_query_virtio_queue_element(ptr nound
 
 20:                                               ; preds = %14, %11
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %4, ptr noundef nonnull @.str.44, i32 noundef 4274, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.59, i32 noundef %12) #24
-  br label %249
+  br label %248
 
 21:                                               ; preds = %14
   %22 = getelementptr i8, ptr %8, i64 176
@@ -9103,7 +9103,7 @@ define dso_local noalias noundef ptr @qmp_x_query_virtio_queue_element(ptr nound
 
 24:                                               ; preds = %21
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %4, ptr noundef nonnull @.str.44, i32 noundef 4280, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.61) #24
-  br label %249
+  br label %248
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -9230,7 +9230,7 @@ vring_avail_ring.exit:                            ; preds = %80, %78, %60, %58, 
 
 85:                                               ; preds = %vring_avail_ring.exit
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %4, ptr noundef nonnull @.str.44, i32 noundef 4307, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.62) #24
-  br label %237
+  br label %236
 
 86:                                               ; preds = %vring_avail_ring.exit
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 32
@@ -9242,7 +9242,7 @@ vring_avail_ring.exit:                            ; preds = %80, %78, %60, %58, 
 
 92:                                               ; preds = %86
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %4, ptr noundef nonnull @.str.44, i32 noundef 4311, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.42) #24
-  br label %237
+  br label %236
 
 93:                                               ; preds = %86
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -9299,7 +9299,7 @@ vring_split_desc_read.exit:                       ; preds = %102, %104
 
 121:                                              ; preds = %109
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %4, ptr noundef nonnull @.str.44, i32 noundef 4323, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.63) #24
-  br label %236
+  br label %235
 
 122:                                              ; preds = %.thread, %vring_split_desc_read.exit
   %.0143 = phi ptr [ %94, %vring_split_desc_read.exit ], [ %6, %.thread ]
@@ -9472,7 +9472,7 @@ vring_used_idx.exit:                              ; preds = %vring_used_flags.ex
 
 191:                                              ; preds = %.lr.ph, %virtqueue_split_read_next_desc.exit
   %.0145199 = phi ptr [ null, %.lr.ph ], [ %192, %virtqueue_split_read_next_desc.exit ]
-  %.0148198 = phi i32 [ 0, %.lr.ph ], [ %215, %virtqueue_split_read_next_desc.exit ]
+  %.0148198 = phi i32 [ 0, %.lr.ph ], [ %214, %virtqueue_split_read_next_desc.exit ]
   %192 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   %193 = call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #23
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 8
@@ -9485,135 +9485,134 @@ vring_used_idx.exit:                              ; preds = %vring_used_flags.ex
   %198 = load i16, ptr %106, align 4
   br label %199
 
-199:                                              ; preds = %210, %191
-  %indvars.iv.i = phi i64 [ 0, %191 ], [ %indvars.iv.next.i, %210 ]
-  %200 = phi i16 [ 1, %191 ], [ %212, %210 ]
-  %201 = phi ptr [ @__const.qmp_decode_vring_desc_flags.map, %191 ], [ %211, %210 ]
-  %.0911.i = phi ptr [ null, %191 ], [ %.1.i, %210 ]
-  %202 = and i16 %200, %198
-  %203 = icmp eq i16 %202, 0
-  br i1 %203, label %210, label %204
+199:                                              ; preds = %209, %191
+  %indvars.iv.i = phi i64 [ 0, %191 ], [ %indvars.iv.next.i, %209 ]
+  %200 = phi i16 [ 1, %191 ], [ %211, %209 ]
+  %.0911.i = phi ptr [ null, %191 ], [ %.1.i, %209 ]
+  %201 = and i16 %200, %198
+  %202 = icmp eq i16 %201, 0
+  br i1 %202, label %209, label %203
 
-204:                                              ; preds = %199
-  %205 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
-  %206 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %207 = load ptr, ptr %206, align 8
-  %208 = call noalias ptr @g_strdup(ptr noundef %207) #24
-  %209 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store ptr %208, ptr %209, align 8
-  store ptr %.0911.i, ptr %205, align 8
-  br label %210
+203:                                              ; preds = %199
+  %204 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
+  %205 = getelementptr inbounds nuw %struct.anon.9, ptr @__const.qmp_decode_vring_desc_flags.map, i64 %indvars.iv.i, i32 1
+  %206 = load ptr, ptr %205, align 8
+  %207 = call noalias ptr @g_strdup(ptr noundef %206) #24
+  %208 = getelementptr inbounds nuw i8, ptr %204, i64 8
+  store ptr %207, ptr %208, align 8
+  store ptr %.0911.i, ptr %204, align 8
+  br label %209
 
-210:                                              ; preds = %204, %199
-  %.1.i = phi ptr [ %.0911.i, %199 ], [ %205, %204 ]
+209:                                              ; preds = %203, %199
+  %.1.i = phi ptr [ %.0911.i, %199 ], [ %204, %203 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %211 = getelementptr inbounds nuw [6 x %struct.anon.9], ptr @__const.qmp_decode_vring_desc_flags.map, i64 0, i64 %indvars.iv.next.i
-  %212 = load i16, ptr %211, align 16
+  %210 = getelementptr inbounds nuw %struct.anon.9, ptr @__const.qmp_decode_vring_desc_flags.map, i64 %indvars.iv.next.i
+  %211 = load i16, ptr %210, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.i, label %qmp_decode_vring_desc_flags.exit, label %199, !llvm.loop !57
 
-qmp_decode_vring_desc_flags.exit:                 ; preds = %210
-  %213 = load ptr, ptr %194, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  store ptr %.1.i, ptr %214, align 8
+qmp_decode_vring_desc_flags.exit:                 ; preds = %209
+  %212 = load ptr, ptr %194, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
+  store ptr %.1.i, ptr %213, align 8
   store ptr %.0145199, ptr %192, align 8
-  %215 = add nuw i32 %.0148198, 1
-  %216 = load i16, ptr %106, align 4
-  %217 = and i16 %216, 1
-  %.not.i184 = icmp eq i16 %217, 0
-  br i1 %.not.i184, label %virtqueue_split_read_next_desc.exit.thread, label %218
+  %214 = add nuw i32 %.0148198, 1
+  %215 = load i16, ptr %106, align 4
+  %216 = and i16 %215, 1
+  %.not.i184 = icmp eq i16 %216, 0
+  br i1 %.not.i184, label %virtqueue_split_read_next_desc.exit.thread, label %217
 
-218:                                              ; preds = %qmp_decode_vring_desc_flags.exit
-  %219 = load i16, ptr %189, align 2
-  %220 = zext i16 %219 to i32
-  %.not10.i = icmp ugt i32 %.0141, %220
-  br i1 %.not10.i, label %222, label %221
+217:                                              ; preds = %qmp_decode_vring_desc_flags.exit
+  %218 = load i16, ptr %189, align 2
+  %219 = zext i16 %218 to i32
+  %.not10.i = icmp ugt i32 %.0141, %219
+  br i1 %.not10.i, label %221, label %220
 
-221:                                              ; preds = %218
-  call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.174, i32 noundef %220)
+220:                                              ; preds = %217
+  call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.174, i32 noundef %219)
   br label %virtqueue_split_read_next_desc.exit.thread
 
-222:                                              ; preds = %218
-  %223 = zext i16 %219 to i64
-  %224 = shl nuw nsw i64 %223, 4
-  %225 = load i64, ptr %190, align 16
-  %226 = icmp uge i64 %224, %225
-  %227 = sub nuw i64 %225, %224
-  %.not.i.i.i = icmp ult i64 %227, 16
-  %or.cond.i.i.i = select i1 %226, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %228, label %229
+221:                                              ; preds = %217
+  %222 = zext i16 %218 to i64
+  %223 = shl nuw nsw i64 %222, 4
+  %224 = load i64, ptr %190, align 16
+  %225 = icmp uge i64 %223, %224
+  %226 = sub nuw i64 %224, %223
+  %.not.i.i.i = icmp ult i64 %226, 16
+  %or.cond.i.i.i = select i1 %225, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i.i.i, label %227, label %228
 
-228:                                              ; preds = %222
+227:                                              ; preds = %221
   call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i32 noundef 3065, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #25
   unreachable
 
-229:                                              ; preds = %222
-  %230 = load ptr, ptr %.0143, align 16
-  %.not22.i.i.i = icmp eq ptr %230, null
-  br i1 %.not22.i.i.i, label %233, label %231, !prof !9
+228:                                              ; preds = %221
+  %229 = load ptr, ptr %.0143, align 16
+  %.not22.i.i.i = icmp eq ptr %229, null
+  br i1 %.not22.i.i.i, label %232, label %230, !prof !9
 
-231:                                              ; preds = %229
-  %232 = getelementptr inbounds nuw i8, ptr %230, i64 %224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %232, i64 noundef range(i64 2, 17) 16, i1 noundef false) #24
+230:                                              ; preds = %228
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 %223
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %231, i64 noundef range(i64 2, 17) 16, i1 noundef false) #24
   br label %virtqueue_split_read_next_desc.exit
 
-233:                                              ; preds = %229
-  %234 = call i32 @address_space_read_cached_slow(ptr noundef nonnull %.0143, i64 noundef range(i64 -34359738368, 34359738365) %224, ptr noundef nonnull %7, i64 noundef 16) #24
+232:                                              ; preds = %228
+  %233 = call i32 @address_space_read_cached_slow(ptr noundef nonnull %.0143, i64 noundef range(i64 -34359738368, 34359738365) %223, ptr noundef nonnull %7, i64 noundef 16) #24
   br label %virtqueue_split_read_next_desc.exit
 
-virtqueue_split_read_next_desc.exit:              ; preds = %231, %233
-  %exitcond.not = icmp eq i32 %215, %.0141
+virtqueue_split_read_next_desc.exit:              ; preds = %230, %232
+  %exitcond.not = icmp eq i32 %214, %.0141
   br i1 %exitcond.not, label %virtqueue_split_read_next_desc.exit.thread, label %191, !llvm.loop !58
 
-virtqueue_split_read_next_desc.exit.thread:       ; preds = %virtqueue_split_read_next_desc.exit, %qmp_decode_vring_desc_flags.exit, %vring_used_idx.exit, %221
-  %.1146 = phi ptr [ %192, %221 ], [ null, %vring_used_idx.exit ], [ %192, %qmp_decode_vring_desc_flags.exit ], [ %192, %virtqueue_split_read_next_desc.exit ]
-  %235 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  store ptr %.1146, ptr %235, align 8
-  br label %236
+virtqueue_split_read_next_desc.exit.thread:       ; preds = %virtqueue_split_read_next_desc.exit, %qmp_decode_vring_desc_flags.exit, %vring_used_idx.exit, %220
+  %.1146 = phi ptr [ %192, %220 ], [ null, %vring_used_idx.exit ], [ %192, %qmp_decode_vring_desc_flags.exit ], [ %192, %virtqueue_split_read_next_desc.exit ]
+  %234 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  store ptr %.1146, ptr %234, align 8
+  br label %235
 
-236:                                              ; preds = %121, %virtqueue_split_read_next_desc.exit.thread
+235:                                              ; preds = %121, %virtqueue_split_read_next_desc.exit.thread
   %.1135 = phi ptr [ %123, %virtqueue_split_read_next_desc.exit.thread ], [ null, %121 ]
   call void @address_space_cache_destroy(ptr noundef nonnull %6) #24
-  br label %237
+  br label %236
 
-237:                                              ; preds = %85, %92, %236
-  %cond = phi ptr [ null, %92 ], [ %.1135, %236 ], [ null, %85 ]
-  %238 = call ptr @get_ptr_rcu_reader() #24
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 12
-  %240 = load i32, ptr %239, align 4
-  %.not.i.i.i.i187 = icmp eq i32 %240, 0
-  br i1 %.not.i.i.i.i187, label %241, label %242
+236:                                              ; preds = %85, %92, %235
+  %cond = phi ptr [ null, %92 ], [ %.1135, %235 ], [ null, %85 ]
+  %237 = call ptr @get_ptr_rcu_reader() #24
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 12
+  %239 = load i32, ptr %238, align 4
+  %.not.i.i.i.i187 = icmp eq i32 %239, 0
+  br i1 %.not.i.i.i.i187, label %240, label %241
 
-241:                                              ; preds = %237
+240:                                              ; preds = %236
   call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #25
   unreachable
 
-242:                                              ; preds = %237
-  %243 = add i32 %240, -1
-  store i32 %243, ptr %239, align 4
-  %.not8.i.i.i.i = icmp eq i32 %243, 0
-  br i1 %.not8.i.i.i.i, label %244, label %glib_autoptr_cleanup_RCUReadAuto.exit
+241:                                              ; preds = %236
+  %242 = add i32 %239, -1
+  store i32 %242, ptr %238, align 4
+  %.not8.i.i.i.i = icmp eq i32 %242, 0
+  br i1 %.not8.i.i.i.i, label %243, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-244:                                              ; preds = %242
-  store atomic i64 0, ptr %238 release, align 8
+243:                                              ; preds = %241
+  store atomic i64 0, ptr %237 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !13
   fence seq_cst
-  %245 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  %246 = load atomic i8, ptr %245 monotonic, align 8
-  %247 = trunc i8 %246 to i1
-  br i1 %247, label %248, label %glib_autoptr_cleanup_RCUReadAuto.exit, !prof !9
+  %244 = getelementptr inbounds nuw i8, ptr %237, i64 8
+  %245 = load atomic i8, ptr %244 monotonic, align 8
+  %246 = trunc i8 %245 to i1
+  br i1 %246, label %247, label %glib_autoptr_cleanup_RCUReadAuto.exit, !prof !9
 
-248:                                              ; preds = %244
-  store atomic i8 0, ptr %245 monotonic, align 8
+247:                                              ; preds = %243
+  store atomic i8 0, ptr %244 monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #24
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %242, %244, %248
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %241, %243, %247
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %249
+  br label %248
 
-249:                                              ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %24, %20, %10
+248:                                              ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %24, %20, %10
   %.0 = phi ptr [ null, %10 ], [ null, %20 ], [ null, %24 ], [ %cond, %glib_autoptr_cleanup_RCUReadAuto.exit ]
   ret ptr %.0
 }

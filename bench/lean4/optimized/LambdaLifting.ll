@@ -72,7 +72,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_LambdaLifting_hasInst
 10:                                               ; preds = %.lr.ph, %124
   %.047113 = phi i64 [ %1, %.lr.ph ], [ %125, %124 ]
   %.050112 = phi ptr [ %7, %.lr.ph ], [ %55, %124 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.047113
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %.047113
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -18266,7 +18266,7 @@ lean_dec.exit139:                                 ; preds = %100, %99, %97, %lea
 104:                                              ; preds = %34, %lean_dec.exit148
   %105 = lshr i64 %32, 1
   %106 = getelementptr inbounds nuw i8, ptr %.096, i64 24
-  %107 = getelementptr inbounds nuw [0 x ptr], ptr %106, i64 0, i64 %105
+  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
   %108 = load ptr, ptr %107, align 8, !tbaa !4
   %109 = ptrtoint ptr %108 to i64
   %110 = and i64 %109, 1
@@ -23451,7 +23451,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_lambdaLifting___el
   %.061168 = phi i64 [ %1, %.lr.ph ], [ %209, %208 ]
   %.064167 = phi ptr [ %3, %.lr.ph ], [ %93, %208 ]
   %.067166 = phi ptr [ %8, %.lr.ph ], [ %77, %208 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.061168
+  %20 = getelementptr inbounds nuw ptr, ptr %10, i64 %.061168
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -24284,7 +24284,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_eagerLambdaLifting
   %.093236 = phi i64 [ %1, %.lr.ph ], [ %.497, %lean_dec.exit133 ]
   %.098235 = phi ptr [ %3, %.lr.ph ], [ %.4102, %lean_dec.exit133 ]
   %.0103234 = phi ptr [ %8, %.lr.ph ], [ %.4107, %lean_dec.exit133 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.093236
+  %20 = getelementptr inbounds nuw ptr, ptr %10, i64 %.093236
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1

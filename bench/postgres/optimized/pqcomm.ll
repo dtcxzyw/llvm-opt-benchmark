@@ -1328,7 +1328,7 @@ define dso_local range(i32 -1, 256) i32 @pq_getbyte() local_unnamed_addr #0 {
   %7 = add nsw i32 %2, 1
   store i32 %7, ptr @PqRecvPointer, align 4
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [8192 x i8], ptr @PqRecvBuffer, i64 0, i64 %8
+  %9 = getelementptr inbounds i8, ptr @PqRecvBuffer, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   br label %.loopexit
@@ -1448,7 +1448,7 @@ define dso_local range(i32 -1, 256) i32 @pq_peekbyte() local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [8192 x i8], ptr @PqRecvBuffer, i64 0, i64 %7
+  %8 = getelementptr inbounds i8, ptr @PqRecvBuffer, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   br label %.loopexit
@@ -1469,7 +1469,7 @@ define dso_local range(i32 -1, -2147483648) i32 @pq_getbyte_if_available(ptr nou
   %6 = add nsw i32 %2, 1
   store i32 %6, ptr @PqRecvPointer, align 4
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [8192 x i8], ptr @PqRecvBuffer, i64 0, i64 %7
+  %8 = getelementptr inbounds i8, ptr @PqRecvBuffer, i64 %7
   %9 = load i8, ptr %8, align 1
   store i8 %9, ptr %0, align 1
   br label %33
@@ -2519,7 +2519,7 @@ define dso_local noundef zeroext i1 @pq_check_connection() local_unnamed_addr #0
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw [3 x %struct.WaitEvent], ptr %1, i64 0, i64 %indvars.iv, i32 1
+  %9 = getelementptr inbounds nuw %struct.WaitEvent, ptr %1, i64 %indvars.iv, i32 1
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 128
   %.not = icmp eq i32 %11, 0

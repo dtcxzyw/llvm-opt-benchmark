@@ -586,7 +586,7 @@ define dso_local void @__early_set_fixmap(i32 noundef %0, i64 noundef %1, i64 %2
 11:                                               ; preds = %3
   %12 = lshr exact i64 %8, 12
   %13 = and i64 %12, 511
-  %14 = getelementptr [512 x %struct.pte_t], ptr @bm_pte, i64 0, i64 %13
+  %14 = getelementptr %struct.pte_t, ptr @bm_pte, i64 %13
   %15 = load i64, ptr @__supported_pte_mask, align 8
   %16 = and i64 %15, %2
   %17 = icmp eq i64 %16, 0

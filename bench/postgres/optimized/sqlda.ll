@@ -606,7 +606,7 @@ sqlda_native_total_size.exit:                     ; preds = %4, %11
   %30 = tail call i32 @PQftype(ptr noundef %1, i32 noundef %29) #6
   %31 = tail call i32 @sqlda_dynamic_type(i32 noundef %30, i32 noundef %3) #6
   %32 = trunc i32 %31 to i16
-  %33 = getelementptr inbounds nuw [1 x %struct.sqlvar_struct], ptr %27, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %struct.sqlvar_struct, ptr %27, i64 %indvars.iv
   store i16 %32, ptr %33, align 8
   %34 = tail call ptr @PQfname(ptr noundef %1, i32 noundef %29) #6
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #7
@@ -651,7 +651,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
 18:                                               ; preds = %.lr.ph, %181
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %181 ]
   %.0195196 = phi i64 [ %16, %.lr.ph ], [ %.0194, %181 ]
-  %19 = getelementptr inbounds nuw [1 x %struct.sqlvar_struct], ptr %17, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.sqlvar_struct, ptr %17, i64 %indvars.iv
   %20 = load i16, ptr %19, align 8
   switch i16 %20, label %154 [
     i16 3, label %21

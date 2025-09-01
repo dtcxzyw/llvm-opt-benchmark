@@ -85,11 +85,11 @@ define internal i32 @DOTypeNameCompare(ptr noundef readonly captures(none) %0, p
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %3, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [47 x i32], ptr @dbObjectTypePriority, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @dbObjectTypePriority, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %4, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [47 x i32], ptr @dbObjectTypePriority, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @dbObjectTypePriority, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = sub i32 %8, %12
   %.not = icmp eq i32 %13, 0

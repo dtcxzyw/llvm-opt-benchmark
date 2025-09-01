@@ -902,7 +902,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %16, %19
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2cv12cpu_baseline16getTransformFuncEi(i32 noundef %0) local_unnamed_addr #6 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline16getTransformFuncEiE12transformTab, i64 0, i64 %2
+  %3 = getelementptr inbounds ptr, ptr @_ZZN2cv12cpu_baseline16getTransformFuncEiE12transformTab, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   ret ptr %4
 }
@@ -3626,7 +3626,7 @@ _ZN2cv12cpu_baselineL10transform_IddEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2cv12cpu_baseline20getDiagTransformFuncEi(i32 noundef %0) local_unnamed_addr #6 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline20getDiagTransformFuncEiE16diagTransformTab, i64 0, i64 %2
+  %3 = getelementptr inbounds ptr, ptr @_ZZN2cv12cpu_baseline20getDiagTransformFuncEiE16diagTransformTab, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   ret ptr %4
 }
@@ -17497,7 +17497,7 @@ _ZN2cv3Mat2atIdEERT_i.exit153:                    ; preds = %.thread208, %273, %
 
 .noexc155:                                        ; preds = %314
   %315 = zext nneg i32 %41 to i64
-  %316 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline20getDiagTransformFuncEiE16diagTransformTab, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv12cpu_baseline20getDiagTransformFuncEiE16diagTransformTab, i64 %315
   %317 = load ptr, ptr %316, align 8, !tbaa !10
   %318 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %319 = load i32, ptr %318, align 8, !tbaa !3
@@ -17526,7 +17526,7 @@ _ZN2cvL20getDiagTransformFuncEi.exit:             ; preds = %.noexc155, %320
 
 .noexc157:                                        ; preds = %.thread172
   %324 = zext nneg i32 %41 to i64
-  %325 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline16getTransformFuncEiE12transformTab, i64 0, i64 %324
+  %325 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv12cpu_baseline16getTransformFuncEiE12transformTab, i64 %324
   %326 = load ptr, ptr %325, align 8, !tbaa !10
   %327 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %328 = load i32, ptr %327, align 8, !tbaa !3
@@ -21886,7 +21886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
   %61 = add nuw nsw i32 %60, 1
   %62 = and i32 %58, 7
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL14getDotProdFuncEiE10dotProdTab, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr @_ZZN2cvL14getDotProdFuncEiE10dotProdTab, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !10
   %.not53 = icmp eq i32 %62, 7
   br i1 %.not53, label %66, label %79
@@ -27514,13 +27514,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %800
   %818 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i, i64 0, i64 %818
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i, i64 %818
   %switch.load = load ptr, ptr %switch.gep, align 8
   %819 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1488 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i.7, i64 0, i64 %819
+  %switch.gep1488 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i.7, i64 %819
   %switch.load1489 = load ptr, ptr %switch.gep1488, align 8
   %820 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1490 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i.8, i64 0, i64 %820
+  %switch.gep1490 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i.8, i64 %820
   %switch.load1491 = load ptr, ptr %switch.gep1490, align 8
   %821 = icmp eq i32 %.sroa.01159.0, 1
   %822 = icmp eq i32 %.01243, 1

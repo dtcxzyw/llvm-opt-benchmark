@@ -245,7 +245,7 @@ define internal fastcc noundef ptr @_ZL23createConverterFromFileP18UConverterLoa
 
 23:                                               ; preds = %19
   %24 = sext i8 %16 to i64
-  %25 = getelementptr inbounds [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %24
+  %25 = getelementptr inbounds ptr, ptr @_ZL13converterData, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = shl nuw i64 1, %24
   %28 = and i64 %27, 515
@@ -687,7 +687,7 @@ define ptr @ucnv_loadSharedData_77(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.01420.i = phi i32 [ 34, %71 ], [ %.1.i, %82 ]
   %.01519.i = phi i32 [ 0, %71 ], [ %.116.i, %82 ]
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [34 x %struct.anon], ptr @_ZL11cnvNameType, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw %struct.anon, ptr @_ZL11cnvNameType, i64 %76
   %78 = load ptr, ptr %77, align 16, !tbaa !49
   %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %78) #11
   %80 = icmp slt i32 %79, 0
@@ -713,7 +713,7 @@ _ZL26getAlgorithmicTypeFromNamePKc.exit:          ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %87 = load i32, ptr %86, align 8, !tbaa !53
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %88
+  %89 = getelementptr inbounds ptr, ptr @_ZL13converterData, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = shl nuw i64 1, %88
@@ -1311,7 +1311,7 @@ define noundef ptr @ucnv_createAlgorithmicConverter_77(ptr noundef %0, i32 nound
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZL13converterData, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !33
   %12 = shl nuw nsw i64 1, %9
   %13 = and i64 %12, 515

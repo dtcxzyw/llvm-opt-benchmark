@@ -82,7 +82,7 @@ define ptr @Abc_SclHashLookup(ptr noundef readonly captures(none) %0, ptr nounde
   %7 = sext i8 %6 to i32
   %8 = urem i32 %.01013.i, 10
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [10 x i32], ptr @Abc_SclHashString.s_Primes, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @Abc_SclHashString.s_Primes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = mul nsw i32 %7, %7
   %13 = mul i32 %12, %11
@@ -214,7 +214,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
   %26 = sext i8 %25 to i32
   %27 = urem i32 %.01013.i.i, 10
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [10 x i32], ptr @Abc_SclHashString.s_Primes, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr @Abc_SclHashString.s_Primes, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !14
   %31 = mul nsw i32 %26, %26
   %32 = mul i32 %31, %30
@@ -316,7 +316,7 @@ define i32 @Abc_SclCellFind(ptr noundef readonly captures(none) %0, ptr noundef 
   %7 = sext i8 %6 to i32
   %8 = urem i32 %.01013.i.i, 10
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [10 x i32], ptr @Abc_SclHashString.s_Primes, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @Abc_SclHashString.s_Primes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = mul nsw i32 %7, %7
   %13 = mul i32 %12, %11

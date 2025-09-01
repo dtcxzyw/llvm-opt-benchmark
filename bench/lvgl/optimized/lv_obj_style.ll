@@ -1600,7 +1600,7 @@ define internal fastcc range(i32 0, 2) i32 @get_selector_style_prop(ptr noundef 
 
 9:                                                ; preds = %7
   %10 = zext i8 %2 to i64
-  %11 = getelementptr inbounds nuw [0 x i8], ptr @lv_style_builtin_prop_flag_lookup_table, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @lv_style_builtin_prop_flag_lookup_table, i64 %10
   br label %18
 
 12:                                               ; preds = %7

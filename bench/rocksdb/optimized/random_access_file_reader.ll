@@ -6263,8 +6263,8 @@ _ZN7rocksdb21GetFileReadHistogramsEPNS_10StatisticsENS_3Env10IOActivityE.exit102
   %402 = getelementptr inbounds nuw i8, ptr %393, i64 32
   %403 = load atomic i8, ptr %402 monotonic, align 1
   %404 = icmp ugt i8 %403, 3
-  %switch.tableidx275 = add i8 %397, -3
-  %405 = icmp ult i8 %switch.tableidx275, 5
+  %switch.tableidx274 = add i8 %397, -3
+  %405 = icmp ult i8 %switch.tableidx274, 5
   %or.cond281 = and i1 %404, %405
   %narrow279 = add nuw nsw i8 %397, 18
   %switch.offset277 = zext nneg i8 %narrow279 to i32

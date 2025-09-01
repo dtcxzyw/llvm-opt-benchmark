@@ -795,7 +795,7 @@ define dso_local noundef ptr @_Z12lua_typenameP9lua_Statei(ptr noundef readnone 
 
 4:                                                ; preds = %2
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %5
+  %6 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !57
   br label %8
 
@@ -2929,7 +2929,7 @@ _ZL10getcurrenvP9lua_State.exit:                  ; preds = %26, %28
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %44 = load ptr, ptr %37, align 8, !tbaa !19
   %45 = getelementptr inbounds %struct.lua_TValue, ptr %44, i64 %indvars.iv.next
-  %46 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %42, i64 0, i64 %indvars.iv.next
+  %46 = getelementptr inbounds %struct.lua_TValue, ptr %42, i64 %indvars.iv.next
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !20
   %.not30 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not30, label %._crit_edge.loopexit, label %43, !llvm.loop !75
@@ -3560,7 +3560,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   %37 = load ptr, ptr %36, align 8, !tbaa !30
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2856
   %39 = sext i32 %28 to i64
-  %40 = getelementptr inbounds [11 x ptr], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
   br label %41
 
 41:                                               ; preds = %35, %32, %29
@@ -4155,7 +4155,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   %63 = load ptr, ptr %62, align 8, !tbaa !30
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2856
   %65 = sext i32 %30 to i64
-  %66 = getelementptr inbounds [11 x ptr], ptr %64, i64 0, i64 %65
+  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
   store ptr %.0, ptr %66, align 8, !tbaa !74
   br label %67
 
@@ -4962,7 +4962,7 @@ define dso_local noundef nonnull ptr @_Z34lua_newuserdatataggedwithmetatableP9lu
   %20 = load ptr, ptr %4, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4448
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds [128 x ptr], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !74
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !81
@@ -5136,9 +5136,9 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %43 = add nsw i32 %2, -1
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %42, i64 0, i64 %44
+  %43 = zext nneg i32 %2 to i64
+  %44 = getelementptr %struct.lua_TValue, ptr %42, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 -16
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
 46:                                               ; preds = %31
@@ -5158,7 +5158,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %55 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %56 = add nsw i32 %2, -1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %55, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw %struct.lua_TValue, ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %60 = load i32, ptr %59, align 4, !tbaa !47
   %61 = icmp eq i32 %60, 12
@@ -5260,9 +5260,9 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %37 = add nsw i32 %2, -1
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %36, i64 0, i64 %38
+  %37 = zext nneg i32 %2 to i64
+  %38 = getelementptr %struct.lua_TValue, ptr %36, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 -16
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
 40:                                               ; preds = %25
@@ -5282,7 +5282,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %50 = add nsw i32 %2, -1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %49, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %struct.lua_TValue, ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %54 = load i32, ptr %53, align 4, !tbaa !47
   %55 = icmp eq i32 %54, 12
@@ -5537,7 +5537,7 @@ define dso_local void @_Z19lua_setuserdatadtorP9lua_StateiPFvS0_PvE(ptr noundef 
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3424
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [128 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !111
   ret void
 }
@@ -5548,7 +5548,7 @@ define dso_local noundef ptr @_Z19lua_getuserdatadtorP9lua_Statei(ptr noundef re
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3424
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [128 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !111
   ret ptr %8
 }
@@ -5595,7 +5595,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4448
   %27 = sext i32 %1 to i64
-  %28 = getelementptr inbounds [128 x ptr], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
   store ptr %23, ptr %28, align 8, !tbaa !74
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = getelementptr inbounds i8, ptr %22, i64 -16
@@ -5621,7 +5621,7 @@ define dso_local void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef %0, 
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4448
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds [128 x ptr], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !74
   %.not12 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5654,7 +5654,7 @@ define dso_local void @_Z24lua_setlightuserdatanameP9lua_StateiPKc(ptr noundef %
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 5472
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [128 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !109
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %19
@@ -5664,7 +5664,7 @@ define dso_local void @_Z24lua_setlightuserdatanameP9lua_StateiPKc(ptr noundef %
   %12 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %11)
   %13 = load ptr, ptr %4, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 5472
-  %15 = getelementptr inbounds [128 x ptr], ptr %14, i64 0, i64 %7
+  %15 = getelementptr inbounds ptr, ptr %14, i64 %7
   store ptr %12, ptr %15, align 8, !tbaa !109
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !112
@@ -5682,7 +5682,7 @@ define dso_local noundef ptr @_Z24lua_getlightuserdatanameP9lua_Statei(ptr nound
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 5472
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [128 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !109
   %.not = icmp eq ptr %8, null
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5781,8 +5781,8 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %19, %29, %34
 
 53:                                               ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
-  %54 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %46, i64 0, i64 %indvars.iv
-  %55 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %47, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.lua_TValue, ptr %46, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw %struct.lua_TValue, ptr %47, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load i8, ptr %37, align 4, !tbaa !101
@@ -5917,7 +5917,7 @@ define dso_local noundef i64 @_Z14lua_totalbytesP9lua_Statei(ptr noundef readonl
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 760
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw [256 x i64], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
   %.in = select i1 %3, ptr %6, ptr %9
   %10 = load i64, ptr %.in, align 8, !tbaa !60
   ret i64 %10
@@ -6015,7 +6015,7 @@ _ZL10getcurrenvP9lua_State.exit:                  ; preds = %16, %18
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %46 = sub nuw nsw i32 -10003, %1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %struct.lua_TValue, ptr %45, i64 %47
   %49 = select i1 %.not, ptr @luaO_nilobject_, ptr %48
   br label %50
 

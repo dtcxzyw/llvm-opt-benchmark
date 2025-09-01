@@ -1850,7 +1850,7 @@ split_mail.exit.i:                                ; preds = %694, %691, %split_m
 
 switch.lookup:                                    ; preds = %721
   %725 = zext nneg i32 %722 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.cmd_am, i64 0, i64 %725
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cmd_am, i64 %725
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.val57.i = load ptr, ptr %33, align 8, !tbaa !23
   %726 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.83, ptr noundef %.val57.i, ptr noundef nonnull @.str.16) #21
@@ -1862,17 +1862,17 @@ switch.lookup:                                    ; preds = %721
   %729 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.83, ptr noundef %.val70.i, ptr noundef nonnull @.str.118) #21
   call void (ptr, ptr, ...) @write_file(ptr noundef %729, ptr noundef nonnull @.str.183, ptr noundef nonnull %728) #21
   %730 = load i32, ptr %170, align 8, !tbaa !30
-  %switch.tableidx108 = add i32 %730, 1
-  %731 = icmp ult i32 %switch.tableidx108, 3
-  br i1 %731, label %switch.lookup107, label %732
+  %switch.tableidx107 = add i32 %730, 1
+  %731 = icmp ult i32 %switch.tableidx107, 3
+  br i1 %731, label %switch.lookup108, label %732
 
 732:                                              ; preds = %switch.lookup
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.85, i32 noundef 1054, ptr noundef nonnull @.str.131) #22
   unreachable
 
-switch.lookup107:                                 ; preds = %switch.lookup
-  %733 = zext nneg i32 %switch.tableidx108 to i64
-  %switch.gep109 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.cmd_am.11, i64 0, i64 %733
+switch.lookup108:                                 ; preds = %switch.lookup
+  %733 = zext nneg i32 %switch.tableidx107 to i64
+  %switch.gep109 = getelementptr inbounds nuw ptr, ptr @switch.table.cmd_am.11, i64 %733
   %switch.load110 = load ptr, ptr %switch.gep109, align 8
   %.val58.i = load ptr, ptr %33, align 8, !tbaa !23
   %734 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.83, ptr noundef %.val58.i, ptr noundef nonnull @.str.24) #21
@@ -1882,13 +1882,13 @@ switch.lookup107:                                 ; preds = %switch.lookup
   %736 = icmp ult i32 %switch.tableidx, 4
   br i1 %736, label %switch.lookup104, label %737
 
-737:                                              ; preds = %switch.lookup107
+737:                                              ; preds = %switch.lookup108
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.85, i32 noundef 1072, ptr noundef nonnull @.str.135) #22
   unreachable
 
-switch.lookup104:                                 ; preds = %switch.lookup107
+switch.lookup104:                                 ; preds = %switch.lookup108
   %738 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep105 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.cmd_am.10, i64 0, i64 %738
+  %switch.gep105 = getelementptr inbounds nuw ptr, ptr @switch.table.cmd_am.10, i64 %738
   %switch.load106 = load ptr, ptr %switch.gep105, align 8
   %.val59.i = load ptr, ptr %33, align 8, !tbaa !23
   %739 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.83, ptr noundef %.val59.i, ptr noundef nonnull @.str.26) #21
@@ -2261,7 +2261,7 @@ am_skip.exit:                                     ; preds = %874, %876
 
 902:                                              ; preds = %904, %898
   %.0811.i.i.i.i = phi i64 [ 0, %898 ], [ %905, %904 ]
-  %903 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i
+  %903 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %901, %903
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %904
 
@@ -2296,7 +2296,7 @@ oidclr.exit.i.i:                                  ; preds = %904, %.split.loop.e
 
 915:                                              ; preds = %917, %911
   %.0811.i.i7.i.i = phi i64 [ 0, %911 ], [ %918, %917 ]
-  %916 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i7.i.i
+  %916 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i7.i.i
   %.not.i.i8.i.i = icmp eq ptr %914, %916
   br i1 %.not.i.i8.i.i, label %.split.loop.exit9.i.i11.i.i, label %917
 
@@ -2914,7 +2914,7 @@ read_commit_msg.exit:                             ; preds = %32, %33
 
 44:                                               ; preds = %46, %39
   %.0811.i.i = phi i64 [ 0, %39 ], [ %47, %46 ]
-  %45 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %45 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %43, %45
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %46
 
@@ -5081,7 +5081,7 @@ define internal noundef i32 @stgit_patch_to_mail(ptr noundef captures(none) %0, 
   %13 = phi i8 [ %12, %10 ], [ %9, %7 ]
   %.07.i = phi ptr [ %11, %10 ], [ %8, %7 ]
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !47
   %17 = and i8 %16, 1
   %.not5.i = icmp eq i8 %17, 0
@@ -6084,7 +6084,7 @@ define internal fastcc void @am_next(ptr noundef nonnull captures(none) initiali
 
 19:                                               ; preds = %21, %1
   %.0811.i.i = phi i64 [ 0, %1 ], [ %22, %21 ]
-  %20 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %20 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %18, %20
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %21
 

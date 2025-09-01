@@ -136,7 +136,7 @@ _ZNK5Block8get_nodeEj.exit51:                     ; preds = %22, %25
 
 switch.lookup:                                    ; preds = %68
   %76 = zext nneg i32 %72 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN8Peephole15test_may_removeEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8Peephole15test_may_removeEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj, i64 %76
   %switch.load = load i32, ptr %switch.gep, align 4
   %77 = or i32 %switch.load, %.04162
   %78 = getelementptr inbounds nuw i8, ptr %.04261, i64 8
@@ -255,7 +255,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %6, %10
 
 _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %28
   %41 = sext i16 %37 to i64
-  %42 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %41
+  %42 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = load i8, ptr @UseAPX, align 1
   %45 = trunc i8 %44 to i1
@@ -317,7 +317,7 @@ _ZN7OptoReg8as_VMRegEi.exit104:                   ; preds = %66, %62
 
 80:                                               ; preds = %_ZN7OptoReg8as_VMRegEi.exit104
   %81 = sext i16 %76 to i64
-  %82 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %81
+  %82 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %81
   %83 = load ptr, ptr %82, align 8
   br label %_ZN7OptoReg8as_VMRegEi.exit106
 

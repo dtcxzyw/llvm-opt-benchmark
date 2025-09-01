@@ -1519,7 +1519,7 @@ define dso_local void @grab_include_directives() local_unnamed_addr #0 {
 15:                                               ; preds = %9, %12, %7
   call void @slurm_xfree(ptr noundef nonnull %1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw [13 x ptr], ptr @slurmd_config_files, i64 0, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw ptr, ptr @slurmd_config_files, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %.not, label %3, label %4, !llvm.loop !23

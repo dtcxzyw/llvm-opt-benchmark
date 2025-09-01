@@ -1595,7 +1595,7 @@ thread-pre-split:                                 ; preds = %448, %463
   %483 = select i1 %480, i32 32895, i32 %482
   store i32 %483, ptr %479, align 4
   %484 = zext i32 %121 to i64
-  %485 = getelementptr [44 x %struct.anon.30], ptr @rtl_chip_infos, i64 0, i64 %484
+  %485 = getelementptr %struct.anon.30, ptr @rtl_chip_infos, i64 %484
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 8
   %487 = load ptr, ptr %486, align 8
   %488 = getelementptr i8, ptr %4, i64 9104
@@ -2205,7 +2205,7 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %28 = phi i32 [ %47, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %29 = phi i32 [ %48, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %30 = phi i32 [ %49, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %31 = getelementptr [256 x %struct.ring_info], ptr %10, i64 0, i64 %27
+  %31 = getelementptr %struct.ring_info, ptr %10, i64 %27
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %11, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
@@ -2456,7 +2456,7 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
 180:                                              ; preds = %174
   %181 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %182 = load i64, ptr %181, align 8
-  %183 = getelementptr [256 x ptr], ptr %117, i64 0, i64 %125
+  %183 = getelementptr ptr, ptr %117, i64 %125
   %184 = load ptr, ptr %183, align 8
   %185 = load i64, ptr @vmemmap_base, align 8
   %186 = ptrtoint ptr %184 to i64
@@ -3072,7 +3072,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
   %27 = or disjoint i32 %25, -2147467265
   store volatile i32 %27, ptr %34, align 8
-  %28 = getelementptr [256 x ptr], ptr %20, i64 0, i64 %32
+  %28 = getelementptr ptr, ptr %20, i64 %32
   store ptr %44, ptr %28, align 8
   %29 = add nuw nsw i64 %32, 1
   %30 = icmp eq i64 %29, 256
@@ -3115,7 +3115,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %55
   %51 = phi i64 [ %66, %55 ], [ 0, %.loopexit.preheader ]
-  %52 = getelementptr [256 x ptr], ptr %20, i64 0, i64 %51
+  %52 = getelementptr ptr, ptr %20, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.thread13, label %55
@@ -3318,7 +3318,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
 
 174:                                              ; preds = %.preheader, %179
   %175 = phi i64 [ %190, %179 ], [ 0, %.preheader ]
-  %176 = getelementptr [256 x ptr], ptr %20, i64 0, i64 %175
+  %176 = getelementptr ptr, ptr %20, i64 %175
   %177 = load ptr, ptr %176, align 8
   %178 = icmp eq ptr %177, null
   br i1 %178, label %.thread13, label %179
@@ -3378,7 +3378,7 @@ define internal noundef i32 @rtl8169_close(ptr noundef initializes((8960, 8968))
 
 12:                                               ; preds = %17, %1
   %13 = phi i64 [ 0, %1 ], [ %28, %17 ]
-  %14 = getelementptr [256 x ptr], ptr %10, i64 0, i64 %13
+  %14 = getelementptr ptr, ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %30, label %17
@@ -3980,7 +3980,7 @@ __skb_put.exit:                                   ; preds = %232
   %332 = or i32 %331, 268435456
   store i32 %332, ptr %330, align 8
   %333 = getelementptr i8, ptr %1, i64 4840
-  %334 = getelementptr [256 x %struct.ring_info], ptr %333, i64 0, i64 %.pre-phi
+  %334 = getelementptr %struct.ring_info, ptr %333, i64 %.pre-phi
   store ptr %0, ptr %334, align 8
   %335 = load ptr, ptr %4, align 8
   %336 = load i32, ptr %6, align 4
@@ -4557,7 +4557,7 @@ define internal void @rtl_set_rx_mode(ptr noundef readonly captures(address) %0)
   %28 = tail call i32 @crc32_le(i32 noundef -1, ptr noundef nonnull %27, i64 noundef 6) #23
   %29 = and i32 %28, 255
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr [256 x i8], ptr @byte_rev_table, i64 0, i64 %30
+  %31 = getelementptr i8, ptr @byte_rev_table, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = lshr i32 %33, 2
@@ -4565,7 +4565,7 @@ define internal void @rtl_set_rx_mode(ptr noundef readonly captures(address) %0)
   %36 = shl nuw i32 1, %35
   %37 = lshr i32 %33, 7
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr [2 x i32], ptr %2, i64 0, i64 %38
+  %39 = getelementptr i32, ptr %2, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = or i32 %36, %40
   store i32 %41, ptr %39, align 4
@@ -6653,7 +6653,7 @@ define internal fastcc void @rtl_reset_work(ptr noundef %0) unnamed_addr #0 alig
   br i1 %78, label %79, label %103
 
 79:                                               ; preds = %73
-  %80 = getelementptr [44 x ptr], ptr @rtl_hw_config.hw_configs, i64 0, i64 %75
+  %80 = getelementptr ptr, ptr @rtl_hw_config.hw_configs, i64 %75
   %81 = load ptr, ptr %80, align 8
   tail call void %81(ptr noundef %0) #19
   br label %thread-pre-split
@@ -6684,7 +6684,7 @@ define internal fastcc void @rtl_reset_work(ptr noundef %0) unnamed_addr #0 alig
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %91
-  %98 = getelementptr [44 x ptr], ptr @rtl_hw_config.hw_configs, i64 0, i64 %93
+  %98 = getelementptr ptr, ptr @rtl_hw_config.hw_configs, i64 %93
   %99 = load ptr, ptr %98, align 8
   tail call void %99(ptr noundef %0) #19
   br label %100
@@ -9023,7 +9023,7 @@ define internal void @rtl_hw_start_8411_2(ptr noundef %0) #0 align 16 {
 
 31:                                               ; preds = %31, %1
   %32 = phi i64 [ 0, %1 ], [ %42, %31 ]
-  %33 = getelementptr [111 x i16], ptr @rtl8411b_fix_phy_down.fix_data, i64 0, i64 %32
+  %33 = getelementptr i16, ptr @rtl8411b_fix_phy_down.fix_data, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = trunc i64 %32 to i32
@@ -13351,7 +13351,7 @@ define internal i32 @rtl_get_coalesce(ptr noundef readonly captures(none) %0, pt
   %36 = load i16, ptr %35, align 8
   %37 = and i16 %36, 3
   %38 = zext nneg i16 %37 to i64
-  %39 = getelementptr [4 x i32], ptr %34, i64 0, i64 %38
+  %39 = getelementptr i32, ptr %34, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %5, align 8
   %42 = getelementptr i8, ptr %41, i64 226
@@ -13464,7 +13464,7 @@ define internal range(i32 -2147483648, 1) i32 @rtl_set_coalesce(ptr noundef capt
 
 47:                                               ; preds = %56, %42
   %48 = phi i64 [ 0, %42 ], [ %57, %56 ]
-  %49 = getelementptr [4 x i32], ptr %43, i64 0, i64 %48
+  %49 = getelementptr i32, ptr %43, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = mul i32 %50, 15
   %52 = udiv i32 %51, 1000
@@ -14082,7 +14082,7 @@ define internal fastcc void @__rtl8169_set_wol(ptr noundef %0, i32 noundef %1) u
 136:                                              ; preds = %136, %.loopexit
   %137 = phi i64 [ 0, %.loopexit ], [ %156, %136 ]
   %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr [6 x %struct.anon.84], ptr @__rtl8169_set_wol.cfg, i64 0, i64 %137
+  %139 = getelementptr %struct.anon.84, ptr @__rtl8169_set_wol.cfg, i64 %137
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i16, ptr %140, align 4
   %142 = zext i16 %141 to i64

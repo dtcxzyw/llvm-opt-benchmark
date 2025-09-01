@@ -2189,7 +2189,7 @@ _ZN3ozz3log6LoggerlsIA15_cEERSoRKT_.exit:         ; preds = %_ZN3ozz9animation7o
 
 switch.lookup:                                    ; preds = %38
   %40 = zext nneg i32 %37 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1, i64 0, i64 %40
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_116JsonTypeToStringEN4Json9ValueTypeE.exit
 
@@ -2224,7 +2224,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit77: ; preds = %_ZStl
 
 switch.lookup193:                                 ; preds = %50
   %52 = zext nneg i32 %49 to i64
-  %switch.gep194 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1, i64 0, i64 %52
+  %switch.gep194 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1, i64 %52
   %switch.load195 = load ptr, ptr %switch.gep194, align 8
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_116JsonTypeToStringEN4Json9ValueTypeE.exit79
 

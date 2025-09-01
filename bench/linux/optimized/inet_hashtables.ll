@@ -2057,7 +2057,7 @@ define dso_local noundef zeroext i1 @inet_ehash_nolisten(ptr noundef %0, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr [64 x i32], ptr %12, i64 0, i64 %15
+  %16 = getelementptr i32, ptr %12, i64 %15
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, ptr elementtype(i32) %16) #16, !srcloc !48
   br label %23
 
@@ -2111,7 +2111,7 @@ define dso_local i32 @__inet_hash(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 208
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr [64 x i32], ptr %19, i64 0, i64 %22
+  %23 = getelementptr i32, ptr %19, i64 %22
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, ptr elementtype(i32) %23) #16, !srcloc !48
   br label %30
 
@@ -2378,7 +2378,7 @@ define dso_local i32 @__inet_hash(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 208
   %195 = load i32, ptr %194, align 8
   %196 = zext i32 %195 to i64
-  %197 = getelementptr [64 x i32], ptr %193, i64 0, i64 %196
+  %197 = getelementptr i32, ptr %193, i64 %196
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %197, ptr elementtype(i32) %197) #16, !srcloc !48
   br label %198
 
@@ -2533,7 +2533,7 @@ define dso_local void @inet_unhash(ptr noundef %0) #0 align 16 {
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 208
   %90 = load i32, ptr %89, align 8
   %91 = zext i32 %90 to i64
-  %92 = getelementptr [64 x i32], ptr %88, i64 0, i64 %91
+  %92 = getelementptr i32, ptr %88, i64 %91
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %92, ptr elementtype(i32) %92) #16, !srcloc !58
   tail call void @_raw_spin_unlock(ptr noundef %63) #16
   br label %125
@@ -2582,7 +2582,7 @@ define dso_local void @inet_unhash(ptr noundef %0) #0 align 16 {
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 208
   %122 = load i32, ptr %121, align 8
   %123 = zext i32 %122 to i64
-  %124 = getelementptr [64 x i32], ptr %120, i64 0, i64 %123
+  %124 = getelementptr i32, ptr %120, i64 %123
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %124, ptr elementtype(i32) %124) #16, !srcloc !58
   tail call void @_raw_spin_unlock_bh(ptr noundef %102) #16
   br label %125
@@ -3876,7 +3876,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
   %324 = getelementptr inbounds nuw i8, ptr %320, i64 208
   %325 = load i32, ptr %324, align 8
   %326 = zext i32 %325 to i64
-  %327 = getelementptr [64 x i32], ptr %323, i64 0, i64 %326
+  %327 = getelementptr i32, ptr %323, i64 %326
   call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %327, ptr elementtype(i32) %327) #16, !srcloc !48
   br label %334
 
@@ -3941,7 +3941,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
   %.val27 = load i32, ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %.val26, i64 4
   %363 = zext i32 %.val27 to i64
-  %364 = getelementptr [64 x i32], ptr %362, i64 0, i64 %363
+  %364 = getelementptr i32, ptr %362, i64 %363
   call void asm sideeffect "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %364, i32 -1, ptr elementtype(i32) %364) #16, !srcloc !67
   call void @_raw_spin_lock(ptr noundef %357) #16
   %365 = load ptr, ptr %345, align 8
@@ -4272,7 +4272,7 @@ define internal noundef range(i32 -99, 1) i32 @__inet_check_established(ptr noun
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 208
   %133 = load i32, ptr %132, align 8
   %134 = zext i32 %133 to i64
-  %135 = getelementptr [64 x i32], ptr %131, i64 0, i64 %134
+  %135 = getelementptr i32, ptr %131, i64 %134
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %135, ptr elementtype(i32) %135) #16, !srcloc !48
   %136 = icmp eq ptr %3, null
   br i1 %136, label %138, label %137

@@ -971,7 +971,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %284, %286
 
 369:                                              ; preds = %415, %.lr.ph55.i
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %415 ], [ 0, %.lr.ph55.i ]
-  %370 = getelementptr inbounds nuw [0 x ptr], ptr %359, i64 0, i64 %indvars.iv105
+  %370 = getelementptr inbounds nuw ptr, ptr %359, i64 %indvars.iv105
   %371 = load ptr, ptr %370, align 8
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 48
   %373 = load i32, ptr %372, align 8

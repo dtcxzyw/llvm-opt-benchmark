@@ -168,7 +168,7 @@ define hidden noundef ptr @_ZN8FrameMap23java_calling_conventionEPK13GrowableArr
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @type2size, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, %.04552
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -305,7 +305,7 @@ _ZNK7LIR_Opr10is_addressEv.exit:                  ; preds = %_ZN26GrowableArrayW
 _ZNK7LIR_Opr10is_addressEv.exit.thread:           ; preds = %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit, %75, %_ZNK7LIR_Opr10is_addressEv.exit
   %.148 = phi i64 [ %83, %75 ], [ %.04759, %_ZNK7LIR_Opr10is_addressEv.exit ], [ %.04759, %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit ]
   %84 = zext i8 %49 to i64
-  %85 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr @type2size, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = add nsw i32 %86, %.360
   %88 = icmp slt i32 %87, %.045.lcssa
@@ -363,7 +363,7 @@ define hidden noundef ptr @_ZN8FrameMap20c_calling_conventionEPK13GrowableArrayI
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @type2size, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, %.04451
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -498,7 +498,7 @@ _ZNK7LIR_Opr10is_addressEv.exit:                  ; preds = %_ZN26GrowableArrayW
 _ZNK7LIR_Opr10is_addressEv.exit.thread:           ; preds = %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit, %72, %_ZNK7LIR_Opr10is_addressEv.exit
   %.147 = phi i64 [ %80, %72 ], [ %.04658, %_ZNK7LIR_Opr10is_addressEv.exit ], [ %.04658, %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit ]
   %81 = zext i8 %46 to i64
-  %82 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i32, ptr @type2size, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = add nsw i32 %83, %.359
   %85 = icmp slt i32 %84, %.044.lcssa
@@ -645,7 +645,7 @@ switch.hole_check:                                ; preds = %49
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %73 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN8FrameMapC2EP8ciMethodii, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8FrameMapC2EP8ciMethodii, i64 %73
   %switch.load = load i32, ptr %switch.gep, align 4
   %74 = shl i32 %.020, 14
   %75 = or disjoint i32 %switch.load, %74
@@ -712,7 +712,7 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %79, %85, %92, %93, 
   %100 = phi i32 [ %.pre24, %79 ], [ %37, %92 ], [ %37, %93 ], [ %37, %94 ], [ %37, %95 ], [ %37, %96 ], [ %37, %97 ], [ %37, %85 ]
   %101 = phi ptr [ %.pre23, %79 ], [ %38, %92 ], [ %38, %93 ], [ %38, %94 ], [ %38, %95 ], [ %38, %96 ], [ %38, %97 ], [ %38, %85 ]
   %.0.i = phi i64 [ %84, %79 ], [ 11, %92 ], [ 6, %93 ], [ 7, %94 ], [ 12, %95 ], [ 15, %96 ], [ 17, %97 ], [ 10, %85 ]
-  %102 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %.0.i
+  %102 = getelementptr inbounds nuw i32, ptr @type2size, i64 %.0.i
   %103 = load i32, ptr %102, align 4
   %104 = add nsw i32 %103, %.020
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -816,13 +816,13 @@ define hidden noundef zeroext i1 @_ZN8FrameMap14finalize_frameEi(ptr noundef non
 
 switch.lookup:                                    ; preds = %52
   %61 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN8FrameMap14finalize_frameEi, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8FrameMap14finalize_frameEi, i64 %61
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK7LIR_Opr4typeEv.exit
 
 _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %45
   %.0.i = phi i64 [ %51, %45 ], [ %switch.load, %switch.lookup ]
-  %62 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %.0.i
+  %62 = getelementptr inbounds nuw i32, ptr @type2size, i64 %.0.i
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, %.079
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -1661,7 +1661,7 @@ plpgsql_build_datatype.exit352.i:                 ; preds = %592
   %indvars.iv366.i = phi i64 [ 0, %.lr.ph361.i ], [ %indvars.iv.next367.i, %631 ]
   %632 = getelementptr inbounds nuw i32, ptr %.0286.i, i64 %indvars.iv366.i
   %633 = load i32, ptr %632, align 4
-  %634 = getelementptr inbounds nuw [100 x i32], ptr %629, i64 0, i64 %indvars.iv366.i
+  %634 = getelementptr inbounds nuw i32, ptr %629, i64 %indvars.iv366.i
   store i32 %633, ptr %634, align 4
   %indvars.iv.next367.i = add nuw nsw i64 %indvars.iv366.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next367.i, %630
@@ -3452,7 +3452,7 @@ define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %
   %.01721 = phi i32 [ %45, %49 ], [ 0, %42 ]
   %45 = add i32 %.01721, 1
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [252 x %struct.ExceptionLabelMap], ptr @exception_label_map, i64 0, i64 %46
+  %47 = getelementptr inbounds %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %46
   %48 = load ptr, ptr %47, align 16
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %54, label %49, !llvm.loop !11
@@ -3526,7 +3526,7 @@ define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_add
   %.1 = phi ptr [ %13, %12 ], [ %.025, %.preheader ]
   %19 = add i32 %.02024, 1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [252 x %struct.ExceptionLabelMap], ptr @exception_label_map, i64 0, i64 %20
+  %21 = getelementptr inbounds %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %20
   %22 = load ptr, ptr %21, align 16
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %23, label %.preheader, !llvm.loop !12

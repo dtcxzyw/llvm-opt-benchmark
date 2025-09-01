@@ -56,9 +56,9 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr noundef readonly captures
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %24 = add nsw i32 %11, -1
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %23, i64 0, i64 %25
+  %24 = zext nneg i32 %11 to i64
+  %25 = getelementptr %struct.ParamExternData, ptr %23, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -16
   br label %27
 
 27:                                               ; preds = %22, %20

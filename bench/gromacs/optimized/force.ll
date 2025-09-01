@@ -1220,7 +1220,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.thread: ; preds = %4
 .preheader.i:                                     ; preds = %472, %.preheader10.i
   %indvars.iv14.i = phi i64 [ 0, %.preheader10.i ], [ %indvars.iv.next15.i, %472 ]
   %470 = getelementptr inbounds nuw [3 x float], ptr %67, i64 %indvars.iv14.i
-  %471 = getelementptr inbounds nuw [3 x [3 x float]], ptr %469, i64 0, i64 %indvars.iv14.i
+  %471 = getelementptr inbounds nuw [3 x float], ptr %469, i64 %indvars.iv14.i
   br label %473
 
 472:                                              ; preds = %473
@@ -1230,9 +1230,9 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.thread: ; preds = %4
 
 473:                                              ; preds = %473, %.preheader.i
   %indvars.iv.i78 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i79, %473 ]
-  %474 = getelementptr inbounds nuw [3 x float], ptr %470, i64 0, i64 %indvars.iv.i78
+  %474 = getelementptr inbounds nuw float, ptr %470, i64 %indvars.iv.i78
   %475 = load float, ptr %474, align 4, !tbaa !148
-  %476 = getelementptr inbounds nuw [3 x float], ptr %471, i64 0, i64 %indvars.iv.i78
+  %476 = getelementptr inbounds nuw float, ptr %471, i64 %indvars.iv.i78
   %477 = load float, ptr %476, align 4, !tbaa !148
   %478 = fadd float %475, %477
   store float %478, ptr %476, align 4, !tbaa !148
@@ -1247,7 +1247,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %472
 .preheader.i82:                                   ; preds = %482, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit
   %indvars.iv14.i83 = phi i64 [ 0, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit ], [ %indvars.iv.next15.i87, %482 ]
   %480 = getelementptr inbounds nuw [3 x float], ptr %479, i64 %indvars.iv14.i83
-  %481 = getelementptr inbounds nuw [3 x [3 x float]], ptr %469, i64 0, i64 %indvars.iv14.i83
+  %481 = getelementptr inbounds nuw [3 x float], ptr %469, i64 %indvars.iv14.i83
   br label %483
 
 482:                                              ; preds = %483
@@ -1257,9 +1257,9 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %472
 
 483:                                              ; preds = %483, %.preheader.i82
   %indvars.iv.i84 = phi i64 [ 0, %.preheader.i82 ], [ %indvars.iv.next.i85, %483 ]
-  %484 = getelementptr inbounds nuw [3 x float], ptr %480, i64 0, i64 %indvars.iv.i84
+  %484 = getelementptr inbounds nuw float, ptr %480, i64 %indvars.iv.i84
   %485 = load float, ptr %484, align 4, !tbaa !148
-  %486 = getelementptr inbounds nuw [3 x float], ptr %481, i64 0, i64 %indvars.iv.i84
+  %486 = getelementptr inbounds nuw float, ptr %481, i64 %indvars.iv.i84
   %487 = load float, ptr %486, align 4, !tbaa !148
   %488 = fadd float %485, %487
   store float %488, ptr %486, align 4, !tbaa !148

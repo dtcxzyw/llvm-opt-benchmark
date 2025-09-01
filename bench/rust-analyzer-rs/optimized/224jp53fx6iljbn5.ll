@@ -629,7 +629,7 @@ _ZN6parser6parser6Parser5at_ts17hf08b800e2db90132E.exit: ; preds = %92, %_ZN6par
   %112 = phi i64 [ %107, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i ], [ 1, %92 ]
   %113 = and i64 %112, 63
   %114 = shl nuw i64 1, %113
-  %115 = getelementptr inbounds nuw [3 x i64], ptr @anon.48e64575eb3ecb51a4b49cddc09271b6.5, i64 0, i64 %111
+  %115 = getelementptr inbounds nuw i64, ptr @anon.48e64575eb3ecb51a4b49cddc09271b6.5, i64 %111
   %116 = load i64, ptr %115, align 8, !alias.scope !114, !noundef !4
   %117 = and i64 %114, %116
   %.not = icmp eq i64 %117, 0
@@ -1847,7 +1847,7 @@ define hidden void @_ZN6parser9token_set8TokenSet3new17h7314c434172fc72dE(ptr no
 
 .lr.ph:                                           ; preds = %3, %10
   %.08 = phi i64 [ %16, %10 ], [ 0, %3 ]
-  %5 = getelementptr inbounds [0 x i16], ptr %1, i64 0, i64 %.08
+  %5 = getelementptr inbounds i16, ptr %1, i64 %.08
   %6 = load i16, ptr %5, align 2, !range !17, !noundef !4
   %7 = zext nneg i16 %6 to i64
   %8 = lshr i64 %7, 6
@@ -1857,7 +1857,7 @@ define hidden void @_ZN6parser9token_set8TokenSet3new17h7314c434172fc72dE(ptr no
 10:                                               ; preds = %.lr.ph
   %11 = and i64 %7, 63
   %12 = shl nuw i64 1, %11
-  %13 = getelementptr inbounds nuw [3 x i64], ptr %4, i64 0, i64 %8
+  %13 = getelementptr inbounds nuw i64, ptr %4, i64 %8
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = or i64 %14, %12
   store i64 %15, ptr %13, align 8
@@ -1905,7 +1905,7 @@ define hidden noundef zeroext i1 @_ZN6parser9token_set8TokenSet8contains17h30a4f
 7:                                                ; preds = %2
   %8 = and i64 %4, 63
   %9 = shl nuw i64 1, %8
-  %10 = getelementptr inbounds nuw [3 x i64], ptr %0, i64 0, i64 %5
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %5
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = and i64 %11, %9
   %13 = icmp ne i64 %12, 0

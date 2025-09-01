@@ -1328,7 +1328,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit107: ; preds = %_ZNS
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit109: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit107
   %413 = sext i32 %200 to i64
-  %414 = getelementptr inbounds [7 x ptr], ptr @__const.main.b, i64 0, i64 %413
+  %414 = getelementptr inbounds ptr, ptr @__const.main.b, i64 %413
   %415 = load ptr, ptr %414, align 8, !tbaa !29
   %416 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %415) #13
   %417 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %410, ptr noundef nonnull %415, i64 noundef %416)

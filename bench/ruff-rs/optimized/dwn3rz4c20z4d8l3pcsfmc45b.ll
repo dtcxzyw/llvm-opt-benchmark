@@ -18933,7 +18933,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types5class10KnownClas
 define hidden noundef range(i8 0, 3) i8 @_ZN18ty_python_semantic5types5class10KnownClass4bool17hde8ef2d95c683325E(i8 noundef range(i8 0, 57) %0) unnamed_addr #10 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [57 x i8], ptr @switch.table._ZN18ty_python_semantic5types5class10KnownClass4bool17hde8ef2d95c683325E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ty_python_semantic5types5class10KnownClass4bool17hde8ef2d95c683325E, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

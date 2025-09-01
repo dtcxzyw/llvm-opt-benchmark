@@ -528,7 +528,7 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
 
 193:                                              ; preds = %191
   %194 = sext i32 %.187 to i64
-  %195 = getelementptr inbounds nuw [107 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw %"struct.std::array.12", ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %196, ptr noundef nonnull align 4 dereferenceable(24) %195, i64 24, i1 false), !tbaa.struct !29
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull align 8 dereferenceable(24) %9) #14
@@ -555,7 +555,7 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
 206:                                              ; preds = %._crit_edge182
   %207 = srem i32 %200, 103
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds nuw [107 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw %"struct.std::array.12", ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %205, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %210, ptr noundef nonnull align 4 dereferenceable(24) %209, i64 24, i1 false), !tbaa.struct !29
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %205, ptr noundef nonnull align 8 dereferenceable(24) %9) #14

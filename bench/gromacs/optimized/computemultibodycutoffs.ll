@@ -530,14 +530,14 @@ _ZN7t_graphD2Ev.exit81:                           ; preds = %_ZNSt6vectorIiSaIiE
 .loopexit.i:                                      ; preds = %.loopexit.i.preheader, %230
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %230 ], [ 0, %.loopexit.i.preheader ]
   %.056.i.i = phi i1 [ %.1.i.i, %230 ], [ false, %.loopexit.i.preheader ]
-  %221 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv.i.i, i32 5
+  %221 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv.i.i, i32 5
   %222 = load i32, ptr %221, align 4, !tbaa !195
   %223 = and i32 %222, 2
   %.not.i.i = icmp eq i32 %223, 0
   br i1 %.not.i.i, label %230, label %224
 
 224:                                              ; preds = %.loopexit.i
-  %225 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %172, i64 0, i64 %indvars.iv.i.i
+  %225 = getelementptr inbounds nuw %struct.InteractionList, ptr %172, i64 %indvars.iv.i.i
   %226 = load ptr, ptr %225, align 8, !tbaa !198
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %228 = load ptr, ptr %227, align 8, !tbaa !198
@@ -592,14 +592,14 @@ _ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_g
   br i1 %241, label %242, label %.loopexit10.i
 
 242:                                              ; preds = %.noexc92
-  %243 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv35.i, i32 2
+  %243 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv35.i, i32 2
   %244 = load i32, ptr %243, align 16, !tbaa !207
   %.fr612 = freeze i32 %244
   %245 = icmp sgt i32 %.fr612, 1
   br i1 %245, label %.preheader9.i, label %.loopexit10.i
 
 .preheader9.i:                                    ; preds = %242
-  %246 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %172, i64 0, i64 %indvars.iv35.i
+  %246 = getelementptr inbounds nuw %struct.InteractionList, ptr %172, i64 %indvars.iv35.i
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %248 = load ptr, ptr %247, align 8, !tbaa !173
   %249 = load ptr, ptr %246, align 8, !tbaa !171
@@ -969,8 +969,8 @@ _ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t
   br i1 %377, label %378, label %.loopexit76.i
 
 378:                                              ; preds = %.noexc107
-  %379 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %172, i64 0, i64 %indvars.iv101.i
-  %380 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv101.i, i32 2
+  %379 = getelementptr inbounds nuw %struct.InteractionList, ptr %172, i64 %indvars.iv101.i
+  %380 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv101.i, i32 2
   %381 = load i32, ptr %380, align 16, !tbaa !207
   %.fr = freeze i32 %381
   %382 = icmp sgt i32 %.fr, 1
@@ -1412,8 +1412,8 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112: ; preds = %.loopexit367
   br i1 %537, label %538, label %.loopexit39.i
 
 538:                                              ; preds = %535
-  %539 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %525, i64 0, i64 %indvars.iv59.i
-  %540 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv59.i, i32 2
+  %539 = getelementptr inbounds nuw %struct.InteractionList, ptr %525, i64 %indvars.iv59.i
+  %540 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv59.i, i32 2
   %541 = load i32, ptr %540, align 16, !tbaa !207
   %.fr613 = freeze i32 %541
   %542 = getelementptr inbounds nuw i8, ptr %539, i64 8
@@ -1744,7 +1744,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit126:              ; preds = %_ZNKSt7__cxx1112bas
 
 666:                                              ; preds = %659
   %667 = zext nneg i32 %.sroa.9241.3 to i64
-  %668 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %667, i32 1
+  %668 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %667, i32 1
   %669 = load ptr, ptr %668, align 8, !tbaa !238
   br label %670
 
@@ -1828,7 +1828,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit134:              ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %703, align 8, !tbaa !232
   %704 = fpext float %694 to double
   %705 = sext i32 %.sroa.8.3 to i64
-  %706 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %705, i32 1
+  %706 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %705, i32 1
   %707 = load ptr, ptr %706, align 8, !tbaa !238
   %708 = add nsw i32 %.sroa.11.3, 1
   %709 = add nsw i32 %.sroa.14.3, 1

@@ -6093,8 +6093,8 @@ _ZN4cvc58internal12NodeTemplateILb0EE3endENS0_4kind6Kind_tE.exit: ; preds = %12
   %44 = zext i1 %43 to i64
   %spec.select.i.i.i = add nuw i64 %.sroa.12.0310, %44
   %sext.i = shl i64 %spec.select.i.i.i, 32
-  %45 = ashr exact i64 %sext.i, 32
-  %46 = getelementptr inbounds [0 x ptr], ptr %31, i64 0, i64 %45
+  %45 = ashr exact i64 %sext.i, 29
+  %46 = getelementptr inbounds i8, ptr %31, i64 %45
   %storemerge.in.i.sroa.speculate.load..noexc72 = load ptr, ptr %46, align 8, !tbaa !441, !noalias !455
   store ptr %storemerge.in.i.sroa.speculate.load..noexc72, ptr %6, align 8, !tbaa !302, !alias.scope !455
   %47 = call noundef zeroext i1 @_ZNK4cvc58internal4prop9CnfStream10hasLiteralENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(352) %33, ptr noundef nonnull %6)
@@ -6117,8 +6117,8 @@ _ZN4cvc58internal12NodeTemplateILb0EE3endENS0_4kind6Kind_tE.exit: ; preds = %12
   %58 = zext i1 %57 to i64
   %spec.select.i.i.i130 = add nuw i64 %.sroa.12.0310, %58
   %sext.i131 = shl i64 %spec.select.i.i.i130, 32
-  %59 = ashr exact i64 %sext.i131, 32
-  %60 = getelementptr inbounds [0 x ptr], ptr %31, i64 0, i64 %59
+  %59 = ashr exact i64 %sext.i131, 29
+  %60 = getelementptr inbounds i8, ptr %31, i64 %59
   %storemerge.in.i132.sroa.speculate.load..noexc134 = load ptr, ptr %60, align 8, !tbaa !441, !noalias !461
   br label %61
 

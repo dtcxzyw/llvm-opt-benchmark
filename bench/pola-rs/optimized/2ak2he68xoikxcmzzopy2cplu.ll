@@ -167767,10 +167767,10 @@ define internal noundef zeroext i1 @"_ZN90_$LT$polars_core..datatypes..temporal.
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !8078, !noundef !6
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE.1347", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE.1347", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -218582,10 +218582,10 @@ define hidden void @_ZN10polars_ops6series3ops10to_dummies12sort_columns17ha538b
 define { ptr, i64 } @"_ZN10polars_ops6series3ops12linear_space118_$LT$impl$u20$core..convert..From$LT$polars_ops..series..ops..linear_space..ClosedInterval$GT$$u20$for$u20$$RF$str$GT$4from17hb7452200357d44f5E"(i8 noundef range(i8 0, 4) %0) unnamed_addr #14 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN10polars_ops6series3ops12linear_space122_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..series..ops..linear_space..ClosedInterval$GT$$u20$for$u20$$RF$str$GT$4from17h56c066ac7101eae8E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN10polars_ops6series3ops12linear_space122_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..series..ops..linear_space..ClosedInterval$GT$$u20$for$u20$$RF$str$GT$4from17h56c066ac7101eae8E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN10polars_ops6series3ops12linear_space122_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..series..ops..linear_space..ClosedInterval$GT$$u20$for$u20$$RF$str$GT$4from17h56c066ac7101eae8E.1349", i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN10polars_ops6series3ops12linear_space122_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..series..ops..linear_space..ClosedInterval$GT$$u20$for$u20$$RF$str$GT$4from17h56c066ac7101eae8E.1349", i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -218597,10 +218597,10 @@ define { ptr, i64 } @"_ZN10polars_ops6series3ops12linear_space122_$LT$impl$u20$c
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !24878, !noundef !6
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN10polars_ops6series3ops12linear_space122_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..series..ops..linear_space..ClosedInterval$GT$$u20$for$u20$$RF$str$GT$4from17h56c066ac7101eae8E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN10polars_ops6series3ops12linear_space122_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..series..ops..linear_space..ClosedInterval$GT$$u20$for$u20$$RF$str$GT$4from17h56c066ac7101eae8E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN10polars_ops6series3ops12linear_space122_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..series..ops..linear_space..ClosedInterval$GT$$u20$for$u20$$RF$str$GT$4from17h56c066ac7101eae8E.1349", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN10polars_ops6series3ops12linear_space122_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..series..ops..linear_space..ClosedInterval$GT$$u20$for$u20$$RF$str$GT$4from17h56c066ac7101eae8E.1349", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

@@ -427,7 +427,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @drm_ioctl(ptr noundef r
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !19
   %13 = call zeroext i1 @drm_dev_enter(ptr noundef %12, ptr noundef nonnull %4) #11
-  br i1 %13, label %14, label %174
+  br i1 %13, label %14, label %171
 
 14:                                               ; preds = %3
   %15 = load i32, ptr %4, align 4
@@ -435,12 +435,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @drm_ioctl(ptr noundef r
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = and i32 %1, 65280
   %17 = icmp eq i32 %16, 25600
-  br i1 %17, label %18, label %175
+  br i1 %17, label %18, label %172
 
 18:                                               ; preds = %14
   %19 = add nsw i32 %8, -64
   %20 = icmp ult i32 %19, 96
-  br i1 %20, label %21, label %37
+  br i1 %20, label %21, label %35
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -459,212 +459,211 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @drm_ioctl(ptr noundef r
   %32 = load ptr, ptr %22, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 184
   %34 = load ptr, ptr %33, align 8
-  %35 = zext nneg i32 %31 to i64
-  %36 = getelementptr %struct.drm_ioctl_desc, ptr %34, i64 %35
-  br label %46
+  br label %42
 
-37:                                               ; preds = %18
-  %38 = icmp samesign ugt i32 %8, 208
-  br i1 %38, label %.thread12, label %39
+35:                                               ; preds = %18
+  %36 = icmp samesign ugt i32 %8, 208
+  br i1 %36, label %.thread12, label %37
 
-39:                                               ; preds = %37
-  %40 = zext nneg i32 %8 to i64
-  %41 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 209, i64 %40) #11, !srcloc !20
-  %42 = trunc i64 %41 to i32
-  %43 = and i32 %8, %42
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr [209 x %struct.drm_ioctl_desc], ptr @drm_ioctls, i64 0, i64 %44
-  br label %46
+37:                                               ; preds = %35
+  %38 = zext nneg i32 %8 to i64
+  %39 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 209, i64 %38) #11, !srcloc !20
+  %40 = trunc i64 %39 to i32
+  %41 = and i32 %8, %40
+  br label %42
 
-46:                                               ; preds = %.thread, %39
-  %47 = phi i32 [ %43, %39 ], [ %8, %.thread ]
-  %48 = phi ptr [ %45, %39 ], [ %36, %.thread ]
-  %49 = load i32, ptr %48, align 8
-  %50 = lshr i32 %49, 16
-  %51 = and i32 %50, 16383
-  %52 = lshr i32 %1, 16
-  %53 = and i32 %52, 16383
-  %54 = and i32 %49, %1
-  %55 = and i32 %54, 1073741824
-  %56 = icmp eq i32 %55, 0
-  %57 = select i1 %56, i32 0, i32 %53
-  %58 = icmp slt i32 %54, 0
-  %59 = select i1 %58, i32 %53, i32 0
-  %60 = call i32 @llvm.umax.i32(i32 %57, i32 %59)
-  %61 = call i32 @llvm.umax.i32(i32 %60, i32 %51)
-  %62 = icmp eq ptr %12, null
-  br i1 %62, label %66, label %63
+42:                                               ; preds = %.thread, %37
+  %.sink25 = phi i32 [ %31, %.thread ], [ %41, %37 ]
+  %.sink = phi ptr [ %34, %.thread ], [ @drm_ioctls, %37 ]
+  %43 = phi i32 [ %8, %.thread ], [ %41, %37 ]
+  %44 = zext nneg i32 %.sink25 to i64
+  %45 = getelementptr %struct.drm_ioctl_desc, ptr %.sink, i64 %44
+  %46 = load i32, ptr %45, align 8
+  %47 = lshr i32 %46, 16
+  %48 = and i32 %47, 16383
+  %49 = lshr i32 %1, 16
+  %50 = and i32 %49, 16383
+  %51 = and i32 %46, %1
+  %52 = and i32 %51, 1073741824
+  %53 = icmp eq i32 %52, 0
+  %54 = select i1 %53, i32 0, i32 %50
+  %55 = icmp slt i32 %51, 0
+  %56 = select i1 %55, i32 %50, i32 0
+  %57 = call i32 @llvm.umax.i32(i32 %54, i32 %56)
+  %58 = call i32 @llvm.umax.i32(i32 %57, i32 %48)
+  %59 = icmp eq ptr %12, null
+  br i1 %59, label %63, label %60
 
-63:                                               ; preds = %46
-  %64 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %65 = load ptr, ptr %64, align 8
-  br label %66
+60:                                               ; preds = %42
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %62 = load ptr, ptr %61, align 8
+  br label %63
 
-66:                                               ; preds = %63, %46
-  %67 = phi ptr [ %65, %63 ], [ null, %46 ]
-  %68 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !11
-  %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1800
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 1320
-  %72 = load i32, ptr %71, align 8
-  %73 = load ptr, ptr %9, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 644
-  %77 = load i32, ptr %76, align 4
-  %78 = lshr i32 %77, 12
-  %79 = and i32 %78, 65280
-  %80 = and i32 %77, 65535
-  %81 = or i32 %79, %80
-  %82 = zext nneg i32 %81 to i64
-  %83 = load i8, ptr %7, align 8, !range !9, !noundef !10
-  %84 = zext nneg i8 %83 to i32
-  %85 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %86 = load ptr, ptr %85, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %67, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %70, i32 noundef %72, i64 noundef %82, i32 noundef %84, ptr noundef %86) #11
-  %87 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %96, !prof !5
+63:                                               ; preds = %60, %42
+  %64 = phi ptr [ %62, %60 ], [ null, %42 ]
+  %65 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !11
+  %66 = inttoptr i64 %65 to ptr
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1800
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 1320
+  %69 = load i32, ptr %68, align 8
+  %70 = load ptr, ptr %9, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 644
+  %74 = load i32, ptr %73, align 4
+  %75 = lshr i32 %74, 12
+  %76 = and i32 %75, 65280
+  %77 = and i32 %74, 65535
+  %78 = or i32 %76, %77
+  %79 = zext nneg i32 %78 to i64
+  %80 = load i8, ptr %7, align 8, !range !9, !noundef !10
+  %81 = zext nneg i8 %80 to i32
+  %82 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %83 = load ptr, ptr %82, align 8
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %64, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %67, i32 noundef %69, i64 noundef %79, i32 noundef %81, ptr noundef %83) #11
+  %84 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %87, label %93, !prof !5
 
-90:                                               ; preds = %66
-  br i1 %62, label %94, label %91
+87:                                               ; preds = %63
+  br i1 %59, label %91, label %88
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %93 = load ptr, ptr %92, align 8
-  br label %94
+88:                                               ; preds = %87
+  %89 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %90 = load ptr, ptr %89, align 8
+  br label %91
 
-94:                                               ; preds = %91, %90
-  %95 = phi ptr [ %93, %91 ], [ null, %90 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %95, i32 noundef 0, ptr noundef nonnull @.str.2) #11
-  br label %123
+91:                                               ; preds = %88, %87
+  %92 = phi ptr [ %90, %88 ], [ null, %87 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %92, i32 noundef 0, ptr noundef nonnull @.str.2) #11
+  br label %120
 
-96:                                               ; preds = %66
-  %97 = icmp samesign ult i32 %61, 129
-  br i1 %97, label %102, label %98
+93:                                               ; preds = %63
+  %94 = icmp samesign ult i32 %58, 129
+  br i1 %94, label %99, label %95
 
-98:                                               ; preds = %96
-  %99 = zext nneg i32 %61 to i64
-  %100 = call noalias align 8 ptr @__kmalloc(i64 noundef %99, i32 noundef 3264) #13
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %123, label %102
+95:                                               ; preds = %93
+  %96 = zext nneg i32 %58 to i64
+  %97 = call noalias align 8 ptr @__kmalloc(i64 noundef %96, i32 noundef 3264) #13
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %120, label %99
 
-102:                                              ; preds = %98, %96
-  %103 = phi ptr [ %100, %98 ], [ %5, %96 ]
-  %104 = inttoptr i64 %2 to ptr
-  %105 = zext nneg i32 %57 to i64
-  %106 = call i64 @_copy_from_user(ptr noundef nonnull %103, ptr noundef %104, i64 noundef %105) #11
-  %107 = icmp eq i64 %106, 0
-  br i1 %107, label %108, label %123
+99:                                               ; preds = %95, %93
+  %100 = phi ptr [ %97, %95 ], [ %5, %93 ]
+  %101 = inttoptr i64 %2 to ptr
+  %102 = zext nneg i32 %54 to i64
+  %103 = call i64 @_copy_from_user(ptr noundef nonnull %100, ptr noundef %101, i64 noundef %102) #11
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %105, label %120
 
-108:                                              ; preds = %102
-  %109 = icmp samesign ugt i32 %61, %57
-  br i1 %109, label %110, label %114
+105:                                              ; preds = %99
+  %106 = icmp samesign ugt i32 %58, %54
+  br i1 %106, label %107, label %111
 
-110:                                              ; preds = %108
-  %111 = getelementptr i8, ptr %103, i64 %105
-  %112 = sub nuw nsw i32 %61, %57
-  %113 = zext nneg i32 %112 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %111, i8 0, i64 %113, i1 false)
-  br label %114
+107:                                              ; preds = %105
+  %108 = getelementptr i8, ptr %100, i64 %102
+  %109 = sub nuw nsw i32 %58, %54
+  %110 = zext nneg i32 %109 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %108, i8 0, i64 %110, i1 false)
+  br label %111
 
-114:                                              ; preds = %110, %108
-  %115 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %116 = load i32, ptr %115, align 4
-  %117 = call i64 @drm_ioctl_kernel(ptr noundef %0, ptr noundef nonnull %88, ptr noundef nonnull %103, i32 noundef %116), !range !21
-  %118 = zext nneg i32 %59 to i64
-  %119 = trunc nsw i64 %117 to i32
-  %120 = call i64 @_copy_to_user(ptr noundef %104, ptr noundef nonnull %103, i64 noundef %118) #11
-  %121 = icmp eq i64 %120, 0
-  %122 = select i1 %121, i32 %119, i32 -14
-  br label %123
+111:                                              ; preds = %107, %105
+  %112 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %113 = load i32, ptr %112, align 4
+  %114 = call i64 @drm_ioctl_kernel(ptr noundef %0, ptr noundef nonnull %85, ptr noundef nonnull %100, i32 noundef %113), !range !21
+  %115 = zext nneg i32 %56 to i64
+  %116 = trunc nsw i64 %114 to i32
+  %117 = call i64 @_copy_to_user(ptr noundef %101, ptr noundef nonnull %100, i64 noundef %115) #11
+  %118 = icmp eq i64 %117, 0
+  %119 = select i1 %118, i32 %116, i32 -14
+  br label %120
 
-123:                                              ; preds = %114, %102, %98, %94
-  %124 = phi ptr [ null, %94 ], [ null, %98 ], [ %103, %102 ], [ %103, %114 ]
-  %125 = phi i32 [ -22, %94 ], [ -12, %98 ], [ -14, %102 ], [ %122, %114 ]
-  %126 = icmp eq ptr %48, null
-  br i1 %126, label %.thread12, label %153
+120:                                              ; preds = %111, %99, %95, %91
+  %121 = phi ptr [ null, %91 ], [ null, %95 ], [ %100, %99 ], [ %100, %111 ]
+  %122 = phi i32 [ -22, %91 ], [ -12, %95 ], [ -14, %99 ], [ %119, %111 ]
+  %123 = icmp eq ptr %45, null
+  br i1 %123, label %.thread12, label %150
 
-.thread12:                                        ; preds = %21, %37, %123
-  %127 = phi i32 [ %47, %123 ], [ %8, %37 ], [ %8, %21 ]
-  %128 = phi i32 [ %125, %123 ], [ -22, %37 ], [ -22, %21 ]
-  %129 = phi ptr [ %124, %123 ], [ null, %37 ], [ null, %21 ]
-  %130 = icmp eq ptr %12, null
-  br i1 %130, label %134, label %131
+.thread12:                                        ; preds = %21, %35, %120
+  %124 = phi i32 [ %43, %120 ], [ %8, %35 ], [ %8, %21 ]
+  %125 = phi i32 [ %122, %120 ], [ -22, %35 ], [ -22, %21 ]
+  %126 = phi ptr [ %121, %120 ], [ null, %35 ], [ null, %21 ]
+  %127 = icmp eq ptr %12, null
+  br i1 %127, label %131, label %128
 
-131:                                              ; preds = %.thread12
-  %132 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %133 = load ptr, ptr %132, align 8
-  br label %134
+128:                                              ; preds = %.thread12
+  %129 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %130 = load ptr, ptr %129, align 8
+  br label %131
 
-134:                                              ; preds = %131, %.thread12
-  %135 = phi ptr [ %133, %131 ], [ null, %.thread12 ]
-  %136 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !11
-  %137 = inttoptr i64 %136 to ptr
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1800
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 1320
-  %140 = load i32, ptr %139, align 8
-  %141 = load ptr, ptr %9, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 644
-  %145 = load i32, ptr %144, align 4
-  %146 = lshr i32 %145, 12
-  %147 = and i32 %146, 65280
-  %148 = and i32 %145, 65535
-  %149 = or i32 %147, %148
-  %150 = zext nneg i32 %149 to i64
-  %151 = load i8, ptr %7, align 8, !range !9, !noundef !10
-  %152 = zext nneg i8 %151 to i32
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %135, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %138, i32 noundef %140, i64 noundef %150, i32 noundef %152, i32 noundef %1, i32 noundef %127) #11
-  br label %153
+131:                                              ; preds = %128, %.thread12
+  %132 = phi ptr [ %130, %128 ], [ null, %.thread12 ]
+  %133 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !11
+  %134 = inttoptr i64 %133 to ptr
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 1800
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 1320
+  %137 = load i32, ptr %136, align 8
+  %138 = load ptr, ptr %9, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 644
+  %142 = load i32, ptr %141, align 4
+  %143 = lshr i32 %142, 12
+  %144 = and i32 %143, 65280
+  %145 = and i32 %142, 65535
+  %146 = or i32 %144, %145
+  %147 = zext nneg i32 %146 to i64
+  %148 = load i8, ptr %7, align 8, !range !9, !noundef !10
+  %149 = zext nneg i8 %148 to i32
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %132, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %135, i32 noundef %137, i64 noundef %147, i32 noundef %149, i32 noundef %1, i32 noundef %124) #11
+  br label %150
 
-153:                                              ; preds = %134, %123
-  %154 = phi i32 [ %128, %134 ], [ %125, %123 ]
-  %155 = phi ptr [ %129, %134 ], [ %124, %123 ]
-  %156 = icmp eq ptr %155, %5
-  br i1 %156, label %158, label %157
+150:                                              ; preds = %131, %120
+  %151 = phi i32 [ %125, %131 ], [ %122, %120 ]
+  %152 = phi ptr [ %126, %131 ], [ %121, %120 ]
+  %153 = icmp eq ptr %152, %5
+  br i1 %153, label %155, label %154
 
-157:                                              ; preds = %153
-  call void @kfree(ptr noundef %155) #11
-  br label %158
+154:                                              ; preds = %150
+  call void @kfree(ptr noundef %152) #11
+  br label %155
 
-158:                                              ; preds = %157, %153
-  %159 = icmp eq i32 %154, 0
-  br i1 %159, label %172, label %160
+155:                                              ; preds = %154, %150
+  %156 = icmp eq i32 %151, 0
+  br i1 %156, label %169, label %157
 
-160:                                              ; preds = %158
-  %161 = icmp eq ptr %12, null
-  br i1 %161, label %165, label %162
+157:                                              ; preds = %155
+  %158 = icmp eq ptr %12, null
+  br i1 %158, label %162, label %159
 
-162:                                              ; preds = %160
-  %163 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %164 = load ptr, ptr %163, align 8
-  br label %165
+159:                                              ; preds = %157
+  %160 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %161 = load ptr, ptr %160, align 8
+  br label %162
 
-165:                                              ; preds = %162, %160
-  %166 = phi ptr [ %164, %162 ], [ null, %160 ]
-  %167 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !11
-  %168 = inttoptr i64 %167 to ptr
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 1800
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 1320
-  %171 = load i32, ptr %170, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %166, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %169, i32 noundef %171, i32 noundef %154) #11
+162:                                              ; preds = %159, %157
+  %163 = phi ptr [ %161, %159 ], [ null, %157 ]
+  %164 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !11
+  %165 = inttoptr i64 %164 to ptr
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 1800
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 1320
+  %168 = load i32, ptr %167, align 8
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %163, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %166, i32 noundef %168, i32 noundef %151) #11
+  br label %169
+
+169:                                              ; preds = %162, %155
+  %170 = sext i32 %151 to i64
   br label %172
 
-172:                                              ; preds = %165, %158
-  %173 = sext i32 %154 to i64
-  br label %175
-
-174:                                              ; preds = %3
+171:                                              ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %175
+  br label %172
 
-175:                                              ; preds = %174, %172, %14
-  %176 = phi i64 [ %173, %172 ], [ -25, %14 ], [ -19, %174 ]
+172:                                              ; preds = %171, %169, %14
+  %173 = phi i64 [ %170, %169 ], [ -25, %14 ], [ -19, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i64 %176
+  ret i64 %173
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -687,7 +686,7 @@ define dso_local noundef zeroext i1 @drm_ioctl_flags(i32 noundef %0, ptr noundef
   %10 = trunc i64 %9 to i32
   %11 = and i32 %0, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr [209 x %struct.drm_ioctl_desc], ptr @drm_ioctls, i64 0, i64 %12, i32 1
+  %13 = getelementptr %struct.drm_ioctl_desc, ptr @drm_ioctls, i64 %12, i32 1
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %1, align 4
   br label %15

@@ -4937,7 +4937,7 @@ default.unreachable.i:                            ; preds = %82
   br i1 %or.cond.i, label %94, label %97
 
 94:                                               ; preds = %86
-  %95 = getelementptr inbounds nuw [4 x ptr], ptr @side_port, i64 0, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw ptr, ptr @side_port, i64 %indvars.iv.i
   %96 = load ptr, ptr %95, align 8, !tbaa !103
   br label %97
 
@@ -5258,9 +5258,9 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
   br i1 %or.cond171, label %switch.lookup, label %invflip_side.exit
 
 129:                                              ; preds = %117
-  %switch.tableidx162 = add i8 %.0128, -1
-  %130 = icmp ult i8 %switch.tableidx162, 8
-  %switch.shifted165 = lshr i8 -117, %switch.tableidx162
+  %switch.tableidx161 = add i8 %.0128, -1
+  %130 = icmp ult i8 %switch.tableidx161, 8
+  %switch.shifted165 = lshr i8 -117, %switch.tableidx161
   %switch.lobit166 = trunc i8 %switch.shifted165 to i1
   %or.cond172 = select i1 %130, i1 %switch.lobit166, i1 false
   br i1 %or.cond172, label %switch.lookup164, label %invflip_side.exit
@@ -5276,7 +5276,7 @@ switch.lookup:                                    ; preds = %127
   br label %invflip_side.exit
 
 switch.lookup164:                                 ; preds = %129
-  %132 = shl nuw nsw i8 %switch.tableidx162, 3
+  %132 = shl nuw nsw i8 %switch.tableidx161, 3
   %switch.shiftamt168 = zext nneg i8 %132 to i64
   %switch.downshift169 = lshr i64 72057594071483400, %switch.shiftamt168
   %switch.masked170 = trunc i64 %switch.downshift169 to i8
@@ -8317,7 +8317,7 @@ findFillDflt.exit:                                ; preds = %57, %61
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %80 = load double, ptr %79, align 8, !tbaa !201
   %81 = fadd double %.sroa.0.0.copyload.us, %80
-  %82 = getelementptr inbounds nuw [2 x %struct.pointf_s], ptr %4, i64 0, i64 %.090.us
+  %82 = getelementptr inbounds nuw %struct.pointf_s, ptr %4, i64 %.090.us
   store double %81, ptr %82, align 16, !tbaa !16
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %84 = load double, ptr %83, align 8, !tbaa !202

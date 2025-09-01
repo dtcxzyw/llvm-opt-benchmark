@@ -138,9 +138,9 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
 12:                                               ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
   %.130 = phi double [ %.032, %.preheader ], [ %19, %12 ]
-  %13 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !4
-  %15 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !4
   %17 = fsub float %14, %16
   %18 = fpext float %17 to double
@@ -179,9 +179,9 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
 28:                                               ; preds = %28, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %28 ]
   %.142.i = phi double [ %.044.i, %.preheader.i ], [ %36, %28 ]
-  %29 = getelementptr inbounds nuw [3 x float], ptr %26, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i
   %30 = load float, ptr %29, align 4, !tbaa !4
-  %31 = getelementptr inbounds nuw [3 x float], ptr %27, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv.i
   %32 = load float, ptr %31, align 4, !tbaa !4
   %33 = fmul float %32, %32
   %34 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %33)

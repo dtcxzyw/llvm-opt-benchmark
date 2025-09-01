@@ -1300,7 +1300,7 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
 
 42:                                               ; preds = %.preheader, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.preheader ]
-  %43 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %44 = load i8, ptr %43, align 1
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv
   %46 = load i8, ptr %45, align 1
@@ -1947,7 +1947,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %43 = ptrtoint ptr %34 to i64
   %44 = ptrtoint ptr %12 to i64
   %45 = sub i64 %43, %44
-  %46 = getelementptr inbounds [16 x i8], ptr %13, i64 0, i64 %45
+  %46 = getelementptr inbounds i8, ptr %13, i64 %45
   store i8 58, ptr %46, align 1
   br label %47
 

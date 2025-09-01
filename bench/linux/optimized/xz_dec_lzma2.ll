@@ -971,8 +971,8 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %101 = load i32, ptr %69, align 4
   %102 = zext i32 %101 to i64
   %103 = zext i32 %100 to i64
-  %.split = getelementptr [12 x [16 x i16]], ptr %68, i64 0, i64 %102
-  %104 = getelementptr [16 x i16], ptr %.split, i64 0, i64 %103
+  %.split = getelementptr [16 x i16], ptr %68, i64 %102
+  %104 = getelementptr i16, ptr %.split, i64 %103
   %105 = load i32, ptr %0, align 8
   %106 = icmp ult i32 %105, 16777216
   %.pre = load i32, ptr %70, align 4
@@ -1045,7 +1045,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %154 = trunc i64 %153 to i32
   %155 = add i32 %148, %154
   %156 = zext i32 %155 to i64
-  %157 = getelementptr [16 x [768 x i16]], ptr %91, i64 0, i64 %156
+  %157 = getelementptr [768 x i16], ptr %91, i64 %156
   %158 = icmp ult i32 %101, 7
   br i1 %158, label %.preheader, label %201
 
@@ -1256,7 +1256,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %290 = lshr i16 %121, 5
   %291 = sub i16 %121, %290
   store i16 %291, ptr %104, align 2
-  %292 = getelementptr [12 x i16], ptr %72, i64 0, i64 %102
+  %292 = getelementptr i16, ptr %72, i64 %102
   %293 = icmp ult i32 %288, 16777216
   br i1 %293, label %294, label %303
 
@@ -1293,7 +1293,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %315 = lshr i16 %308, 5
   %316 = sub i16 %308, %315
   store i16 %316, ptr %292, align 2
-  %317 = getelementptr [12 x i16], ptr %73, i64 0, i64 %102
+  %317 = getelementptr i16, ptr %73, i64 %102
   %318 = icmp ult i32 %313, 16777216
   br i1 %318, label %319, label %328
 
@@ -1330,8 +1330,8 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %341 = add i16 %333, %340
   store i16 %341, ptr %317, align 2
   %342 = icmp ult i32 %335, 16777216
-  %.split75 = getelementptr [12 x [16 x i16]], ptr %79, i64 0, i64 %102
-  %343 = getelementptr [16 x i16], ptr %.split75, i64 0, i64 %103
+  %.split75 = getelementptr [16 x i16], ptr %79, i64 %102
+  %343 = getelementptr i16, ptr %.split75, i64 %103
   br i1 %342, label %344, label %353
 
 344:                                              ; preds = %337
@@ -1389,7 +1389,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %377 = sub i16 %333, %376
   store i16 %377, ptr %317, align 2
   %378 = icmp ult i32 %374, 16777216
-  %379 = getelementptr [12 x i16], ptr %74, i64 0, i64 %102
+  %379 = getelementptr i16, ptr %74, i64 %102
   br i1 %378, label %380, label %389
 
 380:                                              ; preds = %373
@@ -1434,7 +1434,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %407 = lshr i16 %394, 5
   %408 = sub i16 %394, %407
   store i16 %408, ptr %379, align 2
-  %409 = getelementptr [12 x i16], ptr %75, i64 0, i64 %102
+  %409 = getelementptr i16, ptr %75, i64 %102
   %410 = icmp ult i32 %405, 16777216
   br i1 %410, label %411, label %420
 
@@ -1526,7 +1526,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %461 = tail call i32 @llvm.umin.i32(i32 %460, i32 5)
   %462 = add nsw i32 %461, -2
   %463 = zext i32 %462 to i64
-  %464 = getelementptr [4 x [64 x i16]], ptr %83, i64 0, i64 %463
+  %464 = getelementptr [64 x i16], ptr %83, i64 %463
   %465 = load i32, ptr %0, align 8
   %466 = load i32, ptr %70, align 4
   br label %467
@@ -1963,7 +1963,7 @@ define internal fastcc void @lzma_len(ptr noundef captures(none) initializes((14
   store i16 %35, ptr %1, align 2
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %37 = zext i32 %2 to i64
-  %38 = getelementptr [16 x [8 x i16]], ptr %36, i64 0, i64 %37
+  %38 = getelementptr [8 x i16], ptr %36, i64 %37
   br label %85
 
 39:                                               ; preds = %20
@@ -2019,7 +2019,7 @@ define internal fastcc void @lzma_len(ptr noundef captures(none) initializes((14
   store i16 %74, ptr %45, align 2
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %76 = zext i32 %2 to i64
-  %77 = getelementptr [16 x [8 x i16]], ptr %75, i64 0, i64 %76
+  %77 = getelementptr [8 x i16], ptr %75, i64 %76
   br label %85
 
 78:                                               ; preds = %60

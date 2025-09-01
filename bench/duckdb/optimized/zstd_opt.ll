@@ -83,8 +83,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt0EP
   %26 = zext nneg i32 %25 to i64
   %27 = select i1 %brmerge.i, i64 %.mux.i, i64 %26
   %28 = zext nneg i32 %5 to i64
-  %29 = getelementptr inbounds nuw [3 x [4 x ptr]], ptr @__const._ZN11duckdb_zstdL26ZSTD_selectBtGetAllMatchesEPKNS_17ZSTD_matchState_tENS_15ZSTD_dictMode_eE.getAllMatchesFns, i64 0, i64 %28
-  %30 = getelementptr inbounds nuw [4 x ptr], ptr %29, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN11duckdb_zstdL26ZSTD_selectBtGetAllMatchesEPKNS_17ZSTD_matchState_tENS_15ZSTD_dictMode_eE.getAllMatchesFns, i64 %28
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
   %31 = load ptr, ptr %30, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %33 = load i32, ptr %32, align 4, !tbaa !25
@@ -224,7 +224,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt0EP
 
 117:                                              ; preds = %112
   %118 = and i64 %83, 63
-  %119 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !43
   %121 = zext i8 %120 to i32
   br label %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i
@@ -232,7 +232,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt0EP
 _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i:          ; preds = %117, %114
   %122 = phi i32 [ %116, %114 ], [ %121, %117 ]
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !43
   %126 = zext i8 %125 to i32
   %127 = load i32, ptr %59, align 4, !tbaa !41
@@ -358,7 +358,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit17.us: ; preds =
 
 191:                                              ; preds = %182
   %192 = zext nneg i32 %183 to i64
-  %193 = getelementptr inbounds nuw [128 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 %192
   %194 = load i8, ptr %193, align 1, !tbaa !43
   %195 = zext i8 %194 to i32
   br label %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit17
@@ -366,7 +366,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit17.us: ; preds =
 _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit17: ; preds = %188, %191
   %196 = phi i32 [ %190, %188 ], [ %195, %191 ]
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw [53 x i8], ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 %197
   %199 = load i8, ptr %198, align 1, !tbaa !43
   %200 = zext i8 %199 to i32
   %201 = getelementptr inbounds nuw i32, ptr %178, i64 %197
@@ -493,7 +493,7 @@ _ZN11duckdb_zstdL20ZSTD_rawLiteralsCostEPKhjPKNS_10optState_tEi.exit: ; preds = 
 
 272:                                              ; preds = %267
   %273 = zext nneg i32 %234 to i64
-  %274 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 %273
   %275 = load i8, ptr %274, align 1, !tbaa !43
   %276 = zext i8 %275 to i32
   br label %286
@@ -512,7 +512,7 @@ _ZN11duckdb_zstdL20ZSTD_rawLiteralsCostEPKhjPKNS_10optState_tEi.exit: ; preds = 
 286:                                              ; preds = %269, %272
   %287 = phi i32 [ %271, %269 ], [ %276, %272 ]
   %288 = zext nneg i32 %287 to i64
-  %289 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %288
   %290 = load i8, ptr %289, align 1, !tbaa !43
   %291 = zext i8 %290 to i32
   %292 = load i32, ptr %59, align 4, !tbaa !41
@@ -552,7 +552,7 @@ _ZN11duckdb_zstdL20ZSTD_rawLiteralsCostEPKhjPKNS_10optState_tEi.exit: ; preds = 
 
 314:                                              ; preds = %308
   %315 = zext nneg i32 %233 to i64
-  %316 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 %315
   %317 = load i8, ptr %316, align 1, !tbaa !43
   %318 = zext i8 %317 to i32
   br label %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i24
@@ -563,7 +563,7 @@ _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i24:        ; preds = %314, %310
   %.0.i21.ph8992 = phi i32 [ %299, %314 ], [ %.0.i21.ph8993, %310 ]
   %320 = phi i32 [ %318, %314 ], [ %313, %310 ]
   %321 = zext nneg i32 %320 to i64
-  %322 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %321
+  %322 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %321
   %323 = load i8, ptr %322, align 1, !tbaa !43
   %324 = zext i8 %323 to i32
   %325 = getelementptr inbounds nuw i32, ptr %319, i64 %321
@@ -882,7 +882,7 @@ _ZN11duckdb_zstdL18ZSTD_getMatchPriceEjjPKNS_10optState_tEi.exit8.us: ; preds = 
 
 473:                                              ; preds = %463
   %474 = zext nneg i32 %465 to i64
-  %475 = getelementptr inbounds nuw [128 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 %474
   %476 = load i8, ptr %475, align 1, !tbaa !43
   %477 = zext i8 %476 to i32
   br label %_ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit34
@@ -890,7 +890,7 @@ _ZN11duckdb_zstdL18ZSTD_getMatchPriceEjjPKNS_10optState_tEi.exit8.us: ; preds = 
 _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit34:          ; preds = %470, %473
   %478 = phi i32 [ %472, %470 ], [ %477, %473 ]
   %479 = zext nneg i32 %478 to i64
-  %480 = getelementptr inbounds nuw [53 x i8], ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 %479
   %481 = load i8, ptr %480, align 1, !tbaa !43
   %482 = zext i8 %481 to i32
   %483 = getelementptr inbounds nuw i32, ptr %461, i64 %479
@@ -1248,7 +1248,7 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit34:          ; preds = %470, %473
 
 613:                                              ; preds = %608
   %614 = zext nneg i32 %586 to i64
-  %615 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 0, i64 %614
+  %615 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 %614
   %616 = load i8, ptr %615, align 1, !tbaa !43
   %617 = zext i8 %616 to i32
   br label %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i52
@@ -1286,7 +1286,7 @@ _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i52:        ; preds = %613, %610
 
 640:                                              ; preds = %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i52
   %641 = zext nneg i32 %635 to i64
-  %642 = getelementptr inbounds nuw [128 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 0, i64 %641
+  %642 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 %641
   %643 = load i8, ptr %642, align 1, !tbaa !43
   %644 = zext i8 %643 to i32
   br label %_ZN11duckdb_zstdL16ZSTD_updateStatsEPNS_10optState_tEjPKhjj.exit
@@ -1547,8 +1547,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt2EP
   %27 = zext nneg i32 %26 to i64
   %28 = select i1 %brmerge.i, i64 %.mux.i, i64 %27
   %29 = zext nneg i32 %5 to i64
-  %30 = getelementptr inbounds nuw [3 x [4 x ptr]], ptr @__const._ZN11duckdb_zstdL26ZSTD_selectBtGetAllMatchesEPKNS_17ZSTD_matchState_tENS_15ZSTD_dictMode_eE.getAllMatchesFns, i64 0, i64 %29
-  %31 = getelementptr inbounds nuw [4 x ptr], ptr %30, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN11duckdb_zstdL26ZSTD_selectBtGetAllMatchesEPKNS_17ZSTD_matchState_tENS_15ZSTD_dictMode_eE.getAllMatchesFns, i64 %29
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %34 = load i32, ptr %33, align 4, !tbaa !25
@@ -1697,7 +1697,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt2EP
 
 126:                                              ; preds = %121
   %127 = and i64 %85, 63
-  %128 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 %127
   %129 = load i8, ptr %128, align 1, !tbaa !43
   %130 = zext i8 %129 to i32
   br label %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i
@@ -1705,7 +1705,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_compressBlock_opt2EP
 _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i:          ; preds = %126, %123
   %131 = phi i32 [ %125, %123 ], [ %130, %126 ]
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !43
   %135 = zext i8 %134 to i32
   %136 = load i32, ptr %60, align 4, !tbaa !41
@@ -1834,7 +1834,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit17.us: ; preds =
 
 202:                                              ; preds = %190
   %203 = zext nneg i32 %191 to i64
-  %204 = getelementptr inbounds nuw [128 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 %203
   %205 = load i8, ptr %204, align 1, !tbaa !43
   %206 = zext i8 %205 to i32
   br label %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit17
@@ -1842,7 +1842,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit17.us: ; preds =
 _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit17: ; preds = %199, %202
   %207 = phi i32 [ %201, %199 ], [ %206, %202 ]
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw [53 x i8], ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 %208
   %210 = load i8, ptr %209, align 1, !tbaa !43
   %211 = zext i8 %210 to i32
   %212 = getelementptr inbounds nuw i32, ptr %187, i64 %208
@@ -1982,7 +1982,7 @@ _ZN11duckdb_zstdL20ZSTD_rawLiteralsCostEPKhjPKNS_10optState_tEi.exit: ; preds = 
 
 297:                                              ; preds = %292
   %298 = zext nneg i32 %252 to i64
-  %299 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 %298
   %300 = load i8, ptr %299, align 1, !tbaa !43
   %301 = zext i8 %300 to i32
   br label %317
@@ -2007,7 +2007,7 @@ _ZN11duckdb_zstdL20ZSTD_rawLiteralsCostEPKhjPKNS_10optState_tEi.exit: ; preds = 
 317:                                              ; preds = %294, %297
   %318 = phi i32 [ %296, %294 ], [ %301, %297 ]
   %319 = zext nneg i32 %318 to i64
-  %320 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %319
   %321 = load i8, ptr %320, align 1, !tbaa !43
   %322 = zext i8 %321 to i32
   %323 = shl nuw nsw i32 %322, 8
@@ -2055,7 +2055,7 @@ _ZN11duckdb_zstdL20ZSTD_rawLiteralsCostEPKhjPKNS_10optState_tEi.exit: ; preds = 
 
 354:                                              ; preds = %347
   %355 = zext nneg i32 %251 to i64
-  %356 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 %355
   %357 = load i8, ptr %356, align 1, !tbaa !43
   %358 = zext i8 %357 to i32
   br label %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i25
@@ -2066,7 +2066,7 @@ _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i25:        ; preds = %354, %349
   %.0.i21.ph152155 = phi i32 [ %.0.i21.ph152156, %349 ], [ %334, %354 ]
   %361 = phi i32 [ %353, %349 ], [ %358, %354 ]
   %362 = zext nneg i32 %361 to i64
-  %363 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %362
+  %363 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %362
   %364 = load i8, ptr %363, align 1, !tbaa !43
   %365 = zext i8 %364 to i32
   %366 = getelementptr inbounds nuw i32, ptr %359, i64 %362
@@ -2232,7 +2232,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit56.thread: ; pre
 
 467:                                              ; preds = %462
   %468 = zext nneg i32 %450 to i64
-  %469 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 0, i64 %468
+  %469 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 %468
   %470 = load i8, ptr %469, align 1, !tbaa !43
   %471 = zext i8 %470 to i32
   br label %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit68
@@ -2240,7 +2240,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit56.thread: ; pre
 _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit68: ; preds = %464, %467
   %472 = phi i32 [ %466, %464 ], [ %471, %467 ]
   %473 = zext nneg i32 %472 to i64
-  %474 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %473
+  %474 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %473
   %475 = load i8, ptr %474, align 1, !tbaa !43
   %476 = zext i8 %475 to i32
   %477 = shl nuw nsw i32 %476, 8
@@ -2284,7 +2284,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit68: ; preds = %4
 
 503:                                              ; preds = %498
   %504 = zext nneg i32 %252 to i64
-  %505 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 0, i64 %504
+  %505 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 %504
   %506 = load i8, ptr %505, align 1, !tbaa !43
   %507 = zext i8 %506 to i32
   br label %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i69
@@ -2293,7 +2293,7 @@ _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i69:        ; preds = %503, %500
   %.0.i65165168 = phi i32 [ %.0.i65165169, %500 ], [ %486, %503 ]
   %508 = phi i32 [ %502, %500 ], [ %507, %503 ]
   %509 = zext nneg i32 %508 to i64
-  %510 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %509
+  %510 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %509
   %511 = load i8, ptr %510, align 1, !tbaa !43
   %512 = zext i8 %511 to i32
   %513 = getelementptr inbounds nuw i32, ptr %386, i64 %509
@@ -2682,7 +2682,7 @@ _ZN11duckdb_zstdL18ZSTD_getMatchPriceEjjPKNS_10optState_tEi.exit7.us: ; preds = 
 
 694:                                              ; preds = %681
   %695 = zext nneg i32 %683 to i64
-  %696 = getelementptr inbounds nuw [128 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 0, i64 %695
+  %696 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 %695
   %697 = load i8, ptr %696, align 1, !tbaa !43
   %698 = zext i8 %697 to i32
   br label %_ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit97
@@ -2690,7 +2690,7 @@ _ZN11duckdb_zstdL18ZSTD_getMatchPriceEjjPKNS_10optState_tEi.exit7.us: ; preds = 
 _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit97:          ; preds = %691, %694
   %699 = phi i32 [ %693, %691 ], [ %698, %694 ]
   %700 = zext nneg i32 %699 to i64
-  %701 = getelementptr inbounds nuw [53 x i8], ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 0, i64 %700
+  %701 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 %700
   %702 = load i8, ptr %701, align 1, !tbaa !43
   %703 = zext i8 %702 to i32
   %704 = getelementptr inbounds nuw i32, ptr %680, i64 %700
@@ -3055,7 +3055,7 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit97:          ; preds = %691, %694
 
 839:                                              ; preds = %834
   %840 = zext nneg i32 %812 to i64
-  %841 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 0, i64 %840
+  %841 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_LLcodeEjE7LL_Code, i64 %840
   %842 = load i8, ptr %841, align 1, !tbaa !43
   %843 = zext i8 %842 to i32
   br label %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i115
@@ -3093,7 +3093,7 @@ _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i115:       ; preds = %839, %836
 
 866:                                              ; preds = %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i115
   %867 = zext nneg i32 %861 to i64
-  %868 = getelementptr inbounds nuw [128 x i8], ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 0, i64 %867
+  %868 = getelementptr inbounds nuw i8, ptr @_ZZN11duckdb_zstdL11ZSTD_MLcodeEjE7ML_Code, i64 %867
   %869 = load i8, ptr %868, align 1, !tbaa !43
   %870 = zext i8 %869 to i32
   br label %_ZN11duckdb_zstdL16ZSTD_updateStatsEPNS_10optState_tEjPKhjj.exit

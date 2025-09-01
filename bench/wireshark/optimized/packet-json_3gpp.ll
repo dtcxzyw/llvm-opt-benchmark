@@ -446,13 +446,13 @@ define hidden void @proto_register_json_3gpp() local_unnamed_addr #0 {
 
 4:                                                ; preds = %4, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr [12 x %struct.hf_register_info], ptr @register_static_headers.hf, i64 0, i64 %indvars.iv.i, i32 1
+  %5 = getelementptr %struct.hf_register_info, ptr @register_static_headers.hf, i64 %indvars.iv.i, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @g_strdup(ptr noundef %6)
   %8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #5
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr [13 x ptr], ptr @register_static_headers.json_decode_fn, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr ptr, ptr @register_static_headers.json_decode_fn, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %11, ptr %12, align 8

@@ -638,7 +638,7 @@ switch.lookup242:                                 ; preds = %157, %153, %dnxhd_i
   %162 = and i8 %161, 3
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %164 = zext nneg i8 %162 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dnxhd_decode_header, i64 0, i64 %164
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dnxhd_decode_header, i64 %164
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %163, align 4, !tbaa !91
   %165 = load i8, ptr %159, align 1, !tbaa !76
@@ -916,7 +916,7 @@ switch.lookup242:                                 ; preds = %157, %153, %dnxhd_i
   %310 = getelementptr inbounds i8, ptr %301, i64 %309
   %311 = load i32, ptr %310, align 1, !tbaa !76
   %312 = tail call i32 @llvm.bswap.i32(i32 %311)
-  %313 = getelementptr inbounds nuw [512 x i32], ptr %302, i64 0, i64 %indvars.iv
+  %313 = getelementptr inbounds nuw i32, ptr %302, i64 %indvars.iv
   store i32 %312, ptr %313, align 4, !tbaa !75
   %314 = load i32, ptr %295, align 4, !tbaa !56
   %315 = sub nsw i32 %3, %314
@@ -947,7 +947,7 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [512 x i32], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds i32, ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !75
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !43
@@ -1142,13 +1142,13 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %134 = load i8, ptr %133, align 1, !tbaa !76
   %135 = zext i8 %134 to i32
   %136 = mul nuw nsw i32 %.0184.i, %135
-  %137 = getelementptr inbounds nuw [64 x i32], ptr %50, i64 0, i64 %indvars.iv.i
+  %137 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i
   store i32 %136, ptr %137, align 4, !tbaa !75
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv.i
   %139 = load i8, ptr %138, align 1, !tbaa !76
   %140 = zext i8 %139 to i32
   %141 = mul nuw nsw i32 %.0184.i, %140
-  %142 = getelementptr inbounds nuw [64 x i32], ptr %51, i64 0, i64 %indvars.iv.i
+  %142 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
   store i32 %141, ptr %142, align 4, !tbaa !75
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -1375,7 +1375,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [12 x [64 x i16]], ptr %1, i64 0, i64 %8
+  %9 = getelementptr inbounds [64 x i16], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -1460,7 +1460,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
 ._crit_edge:                                      ; preds = %63
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
-  %.phi.trans.insert12 = getelementptr inbounds [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert11
+  %.phi.trans.insert12 = getelementptr inbounds i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert11
   %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
   br label %77
 
@@ -1475,7 +1475,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %71 = select i1 %isnotneg.i, i32 %70, i32 %69
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %73 = sext i32 %.0181.i to i64
-  %74 = getelementptr inbounds [3 x i32], ptr %72, i64 0, i64 %73
+  %74 = getelementptr inbounds i32, ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !75
   %76 = add nsw i32 %75, %71
   store i32 %76, ptr %74, align 4, !tbaa !75
@@ -1631,7 +1631,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
 
 182:                                              ; preds = %177
   %183 = sext i32 %178 to i64
-  %184 = getelementptr inbounds [64 x i8], ptr %121, i64 0, i64 %183
+  %184 = getelementptr inbounds i8, ptr %121, i64 %183
   %185 = load i8, ptr %184, align 1, !tbaa !76
   %186 = getelementptr inbounds i32, ptr %.0190.i, i64 %183
   %187 = load i32, ptr %186, align 4, !tbaa !75
@@ -1713,7 +1713,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [12 x [64 x i16]], ptr %1, i64 0, i64 %8
+  %9 = getelementptr inbounds [64 x i16], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -1798,7 +1798,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
 ._crit_edge:                                      ; preds = %63
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
-  %.phi.trans.insert12 = getelementptr inbounds [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert11
+  %.phi.trans.insert12 = getelementptr inbounds i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert11
   %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
   br label %78
 
@@ -1814,7 +1814,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %72 = shl nsw i32 %71, 2
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %74 = sext i32 %.0181.i to i64
-  %75 = getelementptr inbounds [3 x i32], ptr %73, i64 0, i64 %74
+  %75 = getelementptr inbounds i32, ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !75
   %77 = add nsw i32 %76, %72
   store i32 %77, ptr %75, align 4, !tbaa !75
@@ -1970,7 +1970,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
 
 183:                                              ; preds = %178
   %184 = sext i32 %179 to i64
-  %185 = getelementptr inbounds [64 x i8], ptr %122, i64 0, i64 %184
+  %185 = getelementptr inbounds i8, ptr %122, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !76
   %187 = getelementptr inbounds i32, ptr %.0190.i, i64 %184
   %188 = load i32, ptr %187, align 4, !tbaa !75
@@ -2052,7 +2052,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [12 x [64 x i16]], ptr %1, i64 0, i64 %8
+  %9 = getelementptr inbounds [64 x i16], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -2117,7 +2117,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
 ._crit_edge:                                      ; preds = %50
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
-  %.phi.trans.insert12 = getelementptr inbounds [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert11
+  %.phi.trans.insert12 = getelementptr inbounds i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert11
   %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
   br label %65
 
@@ -2133,7 +2133,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %59 = shl nsw i32 %58, 2
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %61 = sext i32 %.0181.i to i64
-  %62 = getelementptr inbounds [3 x i32], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds i32, ptr %60, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !75
   %64 = add nsw i32 %63, %59
   store i32 %64, ptr %62, align 4, !tbaa !75
@@ -2289,7 +2289,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
 
 170:                                              ; preds = %165
   %171 = sext i32 %166 to i64
-  %172 = getelementptr inbounds [64 x i8], ptr %109, i64 0, i64 %171
+  %172 = getelementptr inbounds i8, ptr %109, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !76
   %174 = getelementptr inbounds i32, ptr %28, i64 %171
   %175 = load i32, ptr %174, align 4, !tbaa !75
@@ -2367,7 +2367,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [12 x [64 x i16]], ptr %1, i64 0, i64 %8
+  %9 = getelementptr inbounds [64 x i16], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -2432,7 +2432,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
 ._crit_edge:                                      ; preds = %50
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
-  %.phi.trans.insert12 = getelementptr inbounds [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert11
+  %.phi.trans.insert12 = getelementptr inbounds i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert11
   %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
   br label %64
 
@@ -2447,7 +2447,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %58 = select i1 %isnotneg.i, i32 %57, i32 %56
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %60 = sext i32 %.0181.i to i64
-  %61 = getelementptr inbounds [3 x i32], ptr %59, i64 0, i64 %60
+  %61 = getelementptr inbounds i32, ptr %59, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !75
   %63 = add nsw i32 %62, %58
   store i32 %63, ptr %61, align 4, !tbaa !75
@@ -2603,7 +2603,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
 
 169:                                              ; preds = %164
   %170 = sext i32 %165 to i64
-  %171 = getelementptr inbounds [64 x i8], ptr %108, i64 0, i64 %170
+  %171 = getelementptr inbounds i8, ptr %108, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !76
   %173 = getelementptr inbounds i32, ptr %28, i64 %170
   %174 = load i32, ptr %173, align 4, !tbaa !75
@@ -2681,7 +2681,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [12 x [64 x i16]], ptr %1, i64 0, i64 %8
+  %9 = getelementptr inbounds [64 x i16], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -2766,7 +2766,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
 ._crit_edge:                                      ; preds = %63
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
-  %.phi.trans.insert12 = getelementptr inbounds [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert11
+  %.phi.trans.insert12 = getelementptr inbounds i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert11
   %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
   br label %77
 
@@ -2781,7 +2781,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %71 = select i1 %isnotneg.i, i32 %70, i32 %69
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %73 = sext i32 %.0181.i to i64
-  %74 = getelementptr inbounds [3 x i32], ptr %72, i64 0, i64 %73
+  %74 = getelementptr inbounds i32, ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !75
   %76 = add nsw i32 %75, %71
   store i32 %76, ptr %74, align 4, !tbaa !75
@@ -2937,7 +2937,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
 
 182:                                              ; preds = %177
   %183 = sext i32 %178 to i64
-  %184 = getelementptr inbounds [64 x i8], ptr %121, i64 0, i64 %183
+  %184 = getelementptr inbounds i8, ptr %121, i64 %183
   %185 = load i8, ptr %184, align 1, !tbaa !76
   %186 = getelementptr inbounds i32, ptr %.0190.i, i64 %183
   %187 = load i32, ptr %186, align 4, !tbaa !75

@@ -174,7 +174,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN15cmVariabl
 20:                                               ; preds = %18, %10, %1
   %spec.store.select = call i32 @llvm.umin.i32(i32 %0, i32 5)
   %21 = zext nneg i32 %spec.store.select to i64
-  %22 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 %21
   ret ptr %22
 
 .thread:                                          ; preds = %12

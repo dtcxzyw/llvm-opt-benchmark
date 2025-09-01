@@ -1319,7 +1319,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit40:              ; preds = %.lr.ph.i33
 
 _ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit46:       ; preds = %99, %101
   %.0.lcssa.i.i45 = phi ptr [ %.0.i.i42, %99 ], [ %scevgep.i.i41, %101 ]
-  %104 = getelementptr inbounds nuw [5 x float], ptr %95, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv
   %105 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef %.0.lcssa.i.i45, ptr noundef nonnull align 4 dereferenceable(4) %104, i1 noundef zeroext true)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.025.ph
@@ -1706,7 +1706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float
@@ -2472,7 +2472,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %86 = trunc nuw nsw i64 %83 to i32
   store i32 %86, ptr %1, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %64, ptr align 1 %.pre138, i64 %83, i1 false)
-  %87 = getelementptr inbounds nuw [1024 x i8], ptr %64, i64 0, i64 %83
+  %87 = getelementptr inbounds nuw i8, ptr %64, i64 %83
   store i8 0, ptr %87, align 1
   br label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2712,7 +2712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %201 = zext nneg i32 %spec.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %199, ptr nonnull align 4 %200, i64 %201, i1 false)
-  %202 = getelementptr inbounds nuw [1024 x i8], ptr %199, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 %201
   store i8 0, ptr %202, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -2804,7 +2804,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %169, %197
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %241 = zext nneg i32 %spec.select.i92 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %239, ptr nonnull align 4 %240, i64 %241, i1 false)
-  %242 = getelementptr inbounds nuw [1024 x i8], ptr %239, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw i8, ptr %239, i64 %241
   store i8 0, ptr %242, align 1
   br label %_ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE12emplace_backIJRP7aiSceneRP6aiNodeEEERS1_DpOT_.exit
 
@@ -2850,7 +2850,7 @@ _ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE12emplace_backIJRP7aiSceneRP6aiNod
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %262 = zext nneg i32 %spec.select.i94 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %260, ptr nonnull align 4 %261, i64 %262, i1 false)
-  %263 = getelementptr inbounds nuw [1024 x i8], ptr %260, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw i8, ptr %260, i64 %262
   store i8 0, ptr %263, align 1
   br label %_ZN8aiStringaSERKS_.exit95
 

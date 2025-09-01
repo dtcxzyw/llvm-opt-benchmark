@@ -127,7 +127,7 @@ define hidden noalias noundef ptr @_ZN4FLAC8Metadata5local15construct_blockEP20F
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -3227,7 +3227,7 @@ define noalias noundef ptr @_ZN4FLAC8Metadata14SimpleIterator9get_blockEv(ptr no
 
 switch.lookup:                                    ; preds = %6
   %12 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split.i
 
@@ -3621,7 +3621,7 @@ define noalias noundef ptr @_ZN4FLAC8Metadata8Iterator9get_blockEv(ptr noundef n
 
 switch.lookup:                                    ; preds = %6
   %12 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4FLAC8Metadata8Iterator9get_blockEv, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %13
 

@@ -626,7 +626,7 @@ isdumpline.exit128:                               ; preds = %167
 
 .preheader:                                       ; preds = %isdumpline.exit128
   %174 = sext i32 %.072157 to i64
-  %175 = getelementptr [241 x i8], ptr %6, i64 0, i64 %174
+  %175 = getelementptr i8, ptr %6, i64 %174
   %176 = load i8, ptr %175, align 1
   %.not94151 = icmp eq i8 %176, 0
   br i1 %.not94151, label %.critedge3, label %.lr.ph153
@@ -660,7 +660,7 @@ isdumpline.exit128.thread:                        ; preds = %154, %.preheader.i1
 188:                                              ; preds = %.lr.ph153
   %189 = add i32 %.2152, 1
   %190 = sext i32 %189 to i64
-  %191 = getelementptr [241 x i8], ptr %6, i64 0, i64 %190
+  %191 = getelementptr i8, ptr %6, i64 %190
   %192 = load i8, ptr %191, align 1
   %.not94 = icmp eq i8 %192, 0
   br i1 %.not94, label %.critedge3, label %.lr.ph153, !llvm.loop !16
@@ -691,7 +691,7 @@ isdumpline.exit128.thread:                        ; preds = %154, %.preheader.i1
 
 204:                                              ; preds = %204, %.lr.ph.i130
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i130 ], [ %indvars.iv.next.i, %204 ]
-  %205 = getelementptr [16 x i32], ptr @parse_single_hex_dump_line.offsets, i64 0, i64 %indvars.iv.i
+  %205 = getelementptr i32, ptr @parse_single_hex_dump_line.offsets, i64 %indvars.iv.i
   %206 = load i32, ptr %205, align 4
   %207 = add i32 %206, %.1
   %208 = sext i32 %207 to i64

@@ -111,7 +111,7 @@ define hidden noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull rea
   %.0130166 = phi i32 [ -1640531527, %.lr.ph ], [ %61, %8 ]
   %9 = add i64 %indvars.iv, 4294967295
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !25
@@ -119,7 +119,7 @@ define hidden noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull rea
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = add i64 %indvars.iv, 4294967294
   %18 = and i64 %17, 4294967295
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !25
@@ -127,7 +127,7 @@ define hidden noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull rea
   %24 = load i32, ptr %23, align 4, !tbaa !27
   %25 = add i32 %24, %.0128167
   %26 = add nsw i64 %indvars.iv, -3
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %6, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !25
@@ -272,11 +272,11 @@ define hidden noundef zeroext i1 @_ZNK3euf6etable5cg_eqclEPNS_5enodeES3_(ptr nou
 
 10:                                               ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !25
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !25
@@ -2139,11 +2139,11 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE14has_free_cellsEv
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %45
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %45 ], [ 0, %.preheader.i.i ]
-  %46 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i.i
   %47 = load ptr, ptr %46, align 8, !tbaa !24
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %49 = load ptr, ptr %48, align 8, !tbaa !25
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %53 = load ptr, ptr %52, align 8, !tbaa !25
@@ -2668,11 +2668,11 @@ define linkonce_odr hidden void @_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_has
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %27
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %27 ], [ 0, %.preheader.i.i ]
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i.i
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = load ptr, ptr %30, align 8, !tbaa !25
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i
   %33 = load ptr, ptr %32, align 8, !tbaa !24
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load ptr, ptr %34, align 8, !tbaa !25
@@ -2937,11 +2937,11 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.e
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %132
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %132 ], [ 0, %.preheader.i.i.i ]
-  %133 = getelementptr inbounds nuw [0 x ptr], ptr %131, i64 0, i64 %indvars.iv.i.i.i
+  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv.i.i.i
   %134 = load ptr, ptr %133, align 8, !tbaa !24
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 64
   %136 = load ptr, ptr %135, align 8, !tbaa !25
-  %137 = getelementptr inbounds nuw [0 x ptr], ptr %117, i64 0, i64 %indvars.iv.i.i.i
+  %137 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i.i.i
   %138 = load ptr, ptr %137, align 8, !tbaa !24
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 64
   %140 = load ptr, ptr %139, align 8, !tbaa !25
@@ -3304,11 +3304,11 @@ _ZNK10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE6equalsERKS2_S8_.e
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %135
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %135 ], [ 0, %.preheader.i.i.i ]
-  %136 = getelementptr inbounds nuw [0 x ptr], ptr %134, i64 0, i64 %indvars.iv.i.i.i
+  %136 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv.i.i.i
   %137 = load ptr, ptr %136, align 8, !tbaa !24
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 64
   %139 = load ptr, ptr %138, align 8, !tbaa !25
-  %140 = getelementptr inbounds nuw [0 x ptr], ptr %120, i64 0, i64 %indvars.iv.i.i.i
+  %140 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv.i.i.i
   %141 = load ptr, ptr %140, align 8, !tbaa !24
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 64
   %143 = load ptr, ptr %142, align 8, !tbaa !25
@@ -5585,7 +5585,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE11alloc_tableEj.exi
   %.0130166.i = phi i32 [ -1640531527, %.lr.ph.i62 ], [ %153, %100 ]
   %101 = add nsw i64 %indvars.iv.i, 4294967295
   %102 = and i64 %101, 4294967295
-  %103 = getelementptr inbounds nuw [0 x ptr], ptr %98, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw ptr, ptr %98, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !24
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 64
   %106 = load ptr, ptr %105, align 8, !tbaa !25
@@ -5593,7 +5593,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE11alloc_tableEj.exi
   %108 = load i32, ptr %107, align 4, !tbaa !27
   %109 = add nsw i64 %indvars.iv.i, 4294967294
   %110 = and i64 %109, 4294967295
-  %111 = getelementptr inbounds nuw [0 x ptr], ptr %98, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw ptr, ptr %98, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !24
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %114 = load ptr, ptr %113, align 8, !tbaa !25
@@ -5601,7 +5601,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE11alloc_tableEj.exi
   %116 = load i32, ptr %115, align 4, !tbaa !27
   %117 = add i32 %116, %.0128167.i
   %118 = add nsw i64 %indvars.iv.i, -3
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %98, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw ptr, ptr %98, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !24
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 64
   %122 = load ptr, ptr %121, align 8, !tbaa !25

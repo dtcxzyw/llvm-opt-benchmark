@@ -99,7 +99,7 @@ define i32 @FTC_ImageCache_New(ptr noundef %0, ptr noundef writeonly captures(ad
   %40 = add i32 %39, 1
   store i32 %40, ptr %10, align 8, !tbaa !17
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw [16 x ptr], ptr %38, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
   store ptr %14, ptr %42, align 8, !tbaa !40
   br label %.thread.i.i
 
@@ -1279,7 +1279,7 @@ define i32 @FTC_SBitCache_New(ptr noundef %0, ptr noundef writeonly captures(add
   %40 = add i32 %39, 1
   store i32 %40, ptr %10, align 8, !tbaa !17
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw [16 x ptr], ptr %38, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
   store ptr %14, ptr %42, align 8, !tbaa !40
   br label %.thread.i.i
 
@@ -2396,7 +2396,7 @@ ftc_cache_done.exit:                              ; preds = %28, %30, %.loopexit
   %63 = add i32 %62, 1
   store i32 %63, ptr %10, align 8, !tbaa !17
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw [16 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   store ptr %14, ptr %65, align 8, !tbaa !40
   br label %.thread.i
 
@@ -2556,7 +2556,7 @@ FTC_MruNode_Up.exit:                              ; preds = %59
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 52
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %79 = zext nneg i32 %.pre-phi136 to i64
-  %80 = getelementptr inbounds nuw [128 x i16], ptr %78, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i16, ptr %78, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !132
   %82 = zext i16 %81 to i32
   %83 = icmp eq i16 %81, -1
@@ -2661,7 +2661,7 @@ FTC_Manager_LookupFace.exit.thread:               ; preds = %84, %.loopexit.i
   %128 = load i32, ptr %77, align 4, !tbaa !131
   %129 = sub i32 %3, %128
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw [128 x i16], ptr %78, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i16, ptr %78, i64 %130
   store i16 %127, ptr %131, align 2, !tbaa !132
   br label %132
 
@@ -3095,7 +3095,7 @@ define void @FTC_Manager_Done(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %12, %18 ]
   %12 = add nsw i64 %indvars.iv, -1
-  %13 = getelementptr inbounds nuw [16 x ptr], ptr %9, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !40
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %18, label %15
@@ -3420,7 +3420,7 @@ FTC_MruList_RemoveSelection.exit:                 ; preds = %31, %3
 
 35:                                               ; preds = %.lr.ph, %FTC_Cache_RemoveFaceID.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %FTC_Cache_RemoveFaceID.exit ]
-  %36 = getelementptr inbounds nuw [16 x ptr], ptr %34, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !40
   %38 = load i32, ptr %37, align 8, !tbaa !30
   %.not40.i = icmp eq i32 %38, 0
@@ -4254,7 +4254,7 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
 
 31:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw [16 x %struct.FTC_SBitRec_], ptr %30, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw %struct.FTC_SBitRec_, ptr %30, i64 %indvars.iv.i
   store i8 -1, ptr %32, align 8, !tbaa !118
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store i8 0, ptr %33, align 1, !tbaa !214
@@ -4919,7 +4919,7 @@ define internal fastcc void @ftc_node_destroy(ptr noundef %0, ptr noundef captur
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i16, ptr %4, align 8, !tbaa !102
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !103

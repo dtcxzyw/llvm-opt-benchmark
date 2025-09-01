@@ -1111,7 +1111,7 @@ define hidden ptr @cmsCreateBCHSWabstractProfileTHR(ptr noundef %0, i32 noundef 
 
 .preheader:                                       ; preds = %27, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %27 ]
-  %32 = getelementptr inbounds nuw [15 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   store i32 %1, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -1566,7 +1566,7 @@ FixColorSpaces.exit:                              ; preds = %88, %89, %90, %.thr
 
 124:                                              ; preds = %123
   %125 = tail call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i) #7
-  %126 = getelementptr inbounds nuw [5 x i32], ptr %120, i64 0, i64 %indvars.iv.i.i
+  %126 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i.i
   %127 = load i32, ptr %126, align 4
   %.not14.i.i = icmp eq i32 %125, %127
   br i1 %.not14.i.i, label %128, label %CheckOne.exit.thread.i
@@ -1642,7 +1642,7 @@ CheckOne.exit.thread.i:                           ; preds = %124, %123, %CheckOn
 
 149:                                              ; preds = %148
   %150 = call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i134) #7
-  %151 = getelementptr inbounds nuw [5 x i32], ptr %145, i64 0, i64 %indvars.iv.i.i133
+  %151 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i.i133
   %152 = load i32, ptr %151, align 4
   %.not14.i.i136 = icmp eq i32 %150, %152
   br i1 %.not14.i.i136, label %153, label %CheckOne.exit.thread.i121
@@ -1756,7 +1756,7 @@ CheckOne.exit.thread.i121:                        ; preds = %149, %148, %CheckOn
 
 193:                                              ; preds = %192
   %194 = call i32 @cmsStageType(ptr noundef nonnull %.01119.i.i162) #7
-  %195 = getelementptr inbounds nuw [5 x i32], ptr %189, i64 0, i64 %indvars.iv.i.i161
+  %195 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv.i.i161
   %196 = load i32, ptr %195, align 4
   %.not14.i.i164 = icmp eq i32 %194, %196
   br i1 %.not14.i.i164, label %197, label %CheckOne.exit.thread.i149

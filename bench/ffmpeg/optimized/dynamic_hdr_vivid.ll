@@ -139,7 +139,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
 85:                                               ; preds = %.lr.ph344, %.loopexit
   %indvars.iv356 = phi i64 [ 0, %.lr.ph344 ], [ %indvars.iv.next357, %.loopexit ]
   %.sroa.34.4342 = phi i32 [ %83, %.lr.ph344 ], [ %.sroa.34.6, %.loopexit ]
-  %86 = getelementptr inbounds nuw [2 x %struct.AVHDRVividColorToneMappingParams], ptr %84, i64 0, i64 %indvars.iv356
+  %86 = getelementptr inbounds nuw %struct.AVHDRVividColorToneMappingParams, ptr %84, i64 %indvars.iv356
   %87 = icmp sgt i32 %.sroa.34.4342, %invariant.op340
   br i1 %87, label %.thread321, label %88
 
@@ -360,7 +360,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
 254:                                              ; preds = %.lr.ph, %280
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %280 ]
   %.sroa.34.10338 = phi i32 [ %251, %.lr.ph ], [ %324, %280 ]
-  %255 = getelementptr inbounds nuw [2 x %struct.AVHDRVivid3SplineParams], ptr %252, i64 0, i64 %indvars.iv
+  %255 = getelementptr inbounds nuw %struct.AVHDRVivid3SplineParams, ptr %252, i64 %indvars.iv
   %256 = lshr i32 %.sroa.34.10338, 3
   %257 = zext nneg i32 %256 to i64
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 %257
@@ -517,7 +517,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
 359:                                              ; preds = %.lr.ph348, %359
   %indvars.iv359 = phi i64 [ 0, %.lr.ph348 ], [ %indvars.iv.next360, %359 ]
   %.sroa.34.12346 = phi i32 [ %356, %.lr.ph348 ], [ %370, %359 ]
-  %360 = getelementptr inbounds nuw [8 x %struct.AVRational], ptr %357, i64 0, i64 %indvars.iv359
+  %360 = getelementptr inbounds nuw %struct.AVRational, ptr %357, i64 %indvars.iv359
   %361 = lshr i32 %.sroa.34.12346, 3
   %362 = zext nneg i32 %361 to i64
   %363 = getelementptr inbounds nuw i8, ptr %1, i64 %362

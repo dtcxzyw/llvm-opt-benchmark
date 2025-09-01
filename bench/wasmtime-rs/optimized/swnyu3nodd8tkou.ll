@@ -317,9 +317,9 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   unreachable
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.sroa.09.0
+  %76 = getelementptr inbounds i8, ptr %4, i64 %.sroa.09.0
   %77 = load i8, ptr %76, align 1, !noundef !3
-  %78 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %72
+  %78 = getelementptr inbounds i8, ptr %2, i64 %72
   %79 = load i8, ptr %78, align 1, !noundef !3
   %.not29 = icmp eq i8 %77, %79
   br i1 %.not29, label %60, label %81
@@ -346,9 +346,9 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   unreachable
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %51
+  %91 = getelementptr inbounds i8, ptr %4, i64 %51
   %92 = load i8, ptr %91, align 1, !noundef !3
-  %93 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %87
+  %93 = getelementptr inbounds i8, ptr %2, i64 %87
   %94 = load i8, ptr %93, align 1, !noundef !3
   %.not27 = icmp eq i8 %92, %94
   br i1 %.not27, label %48, label %96
@@ -509,9 +509,9 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   unreachable
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.sroa.09.0
+  %76 = getelementptr inbounds i8, ptr %4, i64 %.sroa.09.0
   %77 = load i8, ptr %76, align 1, !noundef !3
-  %78 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %72
+  %78 = getelementptr inbounds i8, ptr %2, i64 %72
   %79 = load i8, ptr %78, align 1, !noundef !3
   %.not29 = icmp eq i8 %77, %79
   br i1 %.not29, label %60, label %81
@@ -538,9 +538,9 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   unreachable
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %51
+  %91 = getelementptr inbounds i8, ptr %4, i64 %51
   %92 = load i8, ptr %91, align 1, !noundef !3
-  %93 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %87
+  %93 = getelementptr inbounds i8, ptr %2, i64 %87
   %94 = load i8, ptr %93, align 1, !noundef !3
   %.not27 = icmp eq i8 %92, %94
   br i1 %.not27, label %48, label %96

@@ -215,9 +215,9 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
 
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [6 x float], ptr %1, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !9
-  %13 = getelementptr inbounds nuw [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.dt_iop_basecurve_node_t, ptr %8, i64 %indvars.iv
   store float %12, ptr %13, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -233,9 +233,9 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
 
 15:                                               ; preds = %.preheader, %15
   %indvars.iv77 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next78, %15 ]
-  %16 = getelementptr inbounds nuw [6 x float], ptr %9, i64 0, i64 %indvars.iv77
+  %16 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv77
   %17 = load float, ptr %16, align 4, !tbaa !9
-  %18 = getelementptr inbounds nuw [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %indvars.iv77, i32 1
+  %18 = getelementptr inbounds nuw %struct.dt_iop_basecurve_node_t, ptr %8, i64 %indvars.iv77, i32 1
   store float %17, ptr %18, align 4, !tbaa !19
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 6
@@ -2214,12 +2214,12 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %57 = phi i8 [ 0, %.lr.ph ], [ %66, %56 ]
-  %58 = getelementptr inbounds nuw [20 x %struct.dt_iop_basecurve_node_t], ptr %1, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %struct.dt_iop_basecurve_node_t, ptr %1, i64 %indvars.iv
   %59 = load float, ptr %58, align 4, !tbaa !11
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %61 = load float, ptr %60, align 4, !tbaa !19
   %62 = zext i8 %57 to i64
-  %63 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %55, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %55, i64 %62
   store float %59, ptr %63, align 8, !tbaa !170
   %.idx.i = shl nuw nsw i64 %62, 3
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i
@@ -2232,11 +2232,11 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 
 67:                                               ; preds = %.lr.ph65, %67
   %indvars.iv66 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next67, %67 ]
-  %68 = getelementptr inbounds nuw [20 x %struct.dt_iop_basecurve_node_t], ptr %1, i64 0, i64 %indvars.iv66
+  %68 = getelementptr inbounds nuw %struct.dt_iop_basecurve_node_t, ptr %1, i64 %indvars.iv66
   %69 = load float, ptr %68, align 4, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load float, ptr %70, align 4, !tbaa !19
-  %72 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %31, i64 0, i64 %indvars.iv66
+  %72 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %31, i64 %indvars.iv66
   store float %69, ptr %72, align 8, !tbaa !170
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store float %71, ptr %73, align 4, !tbaa !172
@@ -2275,9 +2275,9 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 dt_draw_curve_calc_values.exit:                   ; preds = %81
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %88 = load i32, ptr %87, align 4, !tbaa !13
-  %89 = add nsw i32 %88, -1
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %1, i64 0, i64 %90
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %1, i64 %89
+  %91 = getelementptr i8, ptr %90, i64 -8
   %92 = load float, ptr %91, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %93 = fmul reassoc nsz arcp contract afn float %92, 0x3FE6666660000000
@@ -2296,7 +2296,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %81
   %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 65535)
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw [65536 x float], ptr %75, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw float, ptr %75, i64 %103
   %105 = load float, ptr %104, align 4, !tbaa !9
   store float %105, ptr %6, align 16, !tbaa !9
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -2305,7 +2305,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %81
   %109 = tail call i32 @llvm.smax.i32(i32 %108, i32 0)
   %110 = tail call i32 @llvm.umin.i32(i32 %109, i32 65535)
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [65536 x float], ptr %75, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw float, ptr %75, i64 %111
   %113 = load float, ptr %112, align 4, !tbaa !9
   store float %113, ptr %106, align 4, !tbaa !9
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2314,7 +2314,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %81
   %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 0)
   %118 = tail call i32 @llvm.umin.i32(i32 %117, i32 65535)
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [65536 x float], ptr %75, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw float, ptr %75, i64 %119
   %121 = load float, ptr %120, align 4, !tbaa !9
   store float %121, ptr %114, align 8, !tbaa !9
   %122 = fmul reassoc nsz arcp contract afn float %92, 6.553600e+04
@@ -2323,7 +2323,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %81
   %125 = tail call i32 @llvm.umin.i32(i32 %124, i32 65535)
   %126 = zext nneg i32 %125 to i64
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %128 = getelementptr inbounds nuw [65536 x float], ptr %75, i64 0, i64 %126
+  %128 = getelementptr inbounds nuw float, ptr %75, i64 %126
   %129 = load float, ptr %128, align 4, !tbaa !9
   store float %129, ptr %127, align 4, !tbaa !9
   %130 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %129
@@ -2703,12 +2703,12 @@ _iop_gui_alloc.exit:                              ; preds = %1, %5
 118:                                              ; preds = %.lr.ph, %118
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %118 ]
   %119 = phi i8 [ 0, %.lr.ph ], [ %128, %118 ]
-  %120 = getelementptr inbounds nuw [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw %struct.dt_iop_basecurve_node_t, ptr %8, i64 %indvars.iv
   %121 = load float, ptr %120, align 4, !tbaa !11
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %123 = load float, ptr %122, align 4, !tbaa !19
   %124 = zext i8 %119 to i64
-  %125 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %26, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %26, i64 %124
   store float %121, ptr %125, align 8, !tbaa !170
   %.idx.i = shl nuw nsw i64 %124, 3
   %126 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
@@ -2857,12 +2857,12 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %46 = phi i8 [ 0, %.lr.ph ], [ %55, %45 ]
-  %47 = getelementptr inbounds nuw [20 x %struct.dt_iop_basecurve_node_t], ptr %12, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw %struct.dt_iop_basecurve_node_t, ptr %12, i64 %indvars.iv
   %48 = load float, ptr %47, align 4, !tbaa !11
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %50 = load float, ptr %49, align 4, !tbaa !19
   %51 = zext i8 %46 to i64
-  %52 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %44, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %44, i64 %51
   store float %48, ptr %52, align 8, !tbaa !170
   %.idx.i = shl nuw nsw i64 %51, 3
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i
@@ -2875,11 +2875,11 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
 
 56:                                               ; preds = %.lr.ph239, %56
   %indvars.iv244 = phi i64 [ 0, %.lr.ph239 ], [ %indvars.iv.next245, %56 ]
-  %57 = getelementptr inbounds nuw [20 x %struct.dt_iop_basecurve_node_t], ptr %12, i64 0, i64 %indvars.iv244
+  %57 = getelementptr inbounds nuw %struct.dt_iop_basecurve_node_t, ptr %12, i64 %indvars.iv244
   %58 = load float, ptr %57, align 4, !tbaa !11
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %60 = load float, ptr %59, align 4, !tbaa !19
-  %61 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %23, i64 0, i64 %indvars.iv244
+  %61 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %23, i64 %indvars.iv244
   store float %58, ptr %61, align 8, !tbaa !170
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store float %60, ptr %62, align 4, !tbaa !172
@@ -2952,7 +2952,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %76
   %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
   %95 = tail call i32 @llvm.umin.i32(i32 %94, i32 255)
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw [256 x float], ptr %73, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw float, ptr %73, i64 %96
   %98 = load float, ptr %97, align 4, !tbaa !9
   store float %98, ptr %5, align 16, !tbaa !9
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2961,7 +2961,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %76
   %102 = tail call i32 @llvm.smax.i32(i32 %101, i32 0)
   %103 = tail call i32 @llvm.umin.i32(i32 %102, i32 255)
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds nuw [256 x float], ptr %73, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw float, ptr %73, i64 %104
   %106 = load float, ptr %105, align 4, !tbaa !9
   store float %106, ptr %99, align 4, !tbaa !9
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2970,7 +2970,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %76
   %110 = tail call i32 @llvm.smax.i32(i32 %109, i32 0)
   %111 = tail call i32 @llvm.umin.i32(i32 %110, i32 255)
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x float], ptr %73, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw float, ptr %73, i64 %112
   %114 = load float, ptr %113, align 4, !tbaa !9
   store float %114, ptr %107, align 8, !tbaa !9
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -2979,7 +2979,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %76
   %118 = tail call i32 @llvm.smax.i32(i32 %117, i32 0)
   %119 = tail call i32 @llvm.umin.i32(i32 %118, i32 255)
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [256 x float], ptr %73, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw float, ptr %73, i64 %120
   %122 = load float, ptr %121, align 4, !tbaa !9
   store float %122, ptr %115, align 4, !tbaa !9
   %123 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %122
@@ -3401,7 +3401,7 @@ to_log.exit206:                                   ; preds = %327, %335
   br label %to_log.exit210
 
 369:                                              ; preds = %347
-  %370 = getelementptr inbounds nuw [256 x float], ptr %73, i64 0, i64 %indvars.iv254
+  %370 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv254
   %371 = load float, ptr %370, align 4, !tbaa !9
   %372 = load float, ptr %225, align 8, !tbaa !191
   %373 = fcmp reassoc nsz arcp contract afn ogt float %372, 0.000000e+00
@@ -3703,9 +3703,9 @@ thread-pre-split:                                 ; preds = %18, %27
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %.lr.ph166
   %indvars.iv177 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next178, %.lr.ph166 ]
-  %148 = getelementptr inbounds nuw [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %indvars.iv177
+  %148 = getelementptr inbounds nuw %struct.dt_iop_basecurve_node_t, ptr %8, i64 %indvars.iv177
   %149 = load float, ptr %148, align 4, !tbaa !11
-  %150 = getelementptr inbounds nuw [20 x %struct.dt_iop_basecurve_node_t], ptr %6, i64 0, i64 %indvars.iv177
+  %150 = getelementptr inbounds nuw %struct.dt_iop_basecurve_node_t, ptr %6, i64 %indvars.iv177
   store float %149, ptr %150, align 4, !tbaa !11
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %152 = load float, ptr %151, align 4, !tbaa !19
@@ -4295,7 +4295,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [15 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -4569,8 +4569,8 @@ define internal fastcc void @gauss_blur(ptr noundef readonly captures(none) %0, 
   %23 = add nsw i64 %12, %22
   %.idx207 = shl i64 %23, 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx207
-  %25 = add nsw i64 %indvars.iv, 2
-  %26 = getelementptr inbounds [5 x float], ptr @__const.gauss_blur.w, i64 0, i64 %25
+  %25 = getelementptr float, ptr @__const.gauss_blur.w, i64 %indvars.iv
+  %26 = getelementptr i8, ptr %25, i64 8
   %27 = load float, ptr %26, align 4, !tbaa !9
   br label %30
 
@@ -4610,8 +4610,8 @@ define internal fastcc void @gauss_blur(ptr noundef readonly captures(none) %0, 
   %40 = add nsw i64 %38, %indvars.iv261
   %.idx205 = shl i64 %40, 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx205
-  %42 = add nsw i64 %indvars.iv261, 2
-  %43 = getelementptr inbounds [5 x float], ptr @__const.gauss_blur.w, i64 0, i64 %42
+  %42 = getelementptr float, ptr @__const.gauss_blur.w, i64 %indvars.iv261
+  %43 = getelementptr i8, ptr %42, i64 8
   %44 = load float, ptr %43, align 4, !tbaa !9
   br label %47
 
@@ -4659,8 +4659,8 @@ define internal fastcc void @gauss_blur(ptr noundef readonly captures(none) %0, 
   %60 = add i64 %.209, %12
   %.idx203 = shl i64 %60, 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx203
-  %62 = add nsw i64 %indvars.iv270, 2
-  %63 = getelementptr inbounds [5 x float], ptr @__const.gauss_blur.w, i64 0, i64 %62
+  %62 = getelementptr float, ptr @__const.gauss_blur.w, i64 %indvars.iv270
+  %63 = getelementptr i8, ptr %62, i64 8
   %64 = load float, ptr %63, align 4, !tbaa !9
   br label %68
 
@@ -4717,8 +4717,8 @@ define internal fastcc void @gauss_blur(ptr noundef readonly captures(none) %0, 
   %84 = add nsw i64 %83, %indvars.iv306
   %.idx200 = shl i64 %84, 4
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx200
-  %86 = add nsw i64 %indvars.iv282, 2
-  %87 = getelementptr inbounds [5 x float], ptr @__const.gauss_blur.w, i64 0, i64 %86
+  %86 = getelementptr float, ptr @__const.gauss_blur.w, i64 %indvars.iv282
+  %87 = getelementptr i8, ptr %86, i64 8
   %88 = load float, ptr %87, align 4, !tbaa !9
   br label %91
 
@@ -4761,8 +4761,8 @@ define internal fastcc void @gauss_blur(ptr noundef readonly captures(none) %0, 
   %104 = add nsw i64 %103, %indvars.iv306
   %.idx198 = shl i64 %104, 4
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx198
-  %106 = add nsw i64 %indvars.iv290, 2
-  %107 = getelementptr inbounds [5 x float], ptr @__const.gauss_blur.w, i64 0, i64 %106
+  %106 = getelementptr float, ptr @__const.gauss_blur.w, i64 %indvars.iv290
+  %107 = getelementptr i8, ptr %106, i64 8
   %108 = load float, ptr %107, align 4, !tbaa !9
   br label %111
 
@@ -4812,8 +4812,8 @@ define internal fastcc void @gauss_blur(ptr noundef readonly captures(none) %0, 
   %126 = add i64 %125, %indvars.iv306
   %.idx = shl i64 %126, 4
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %128 = add nsw i64 %indvars.iv299, 2
-  %129 = getelementptr inbounds [5 x float], ptr @__const.gauss_blur.w, i64 0, i64 %128
+  %128 = getelementptr float, ptr @__const.gauss_blur.w, i64 %indvars.iv299
+  %129 = getelementptr i8, ptr %128, i64 8
   %130 = load float, ptr %129, align 4, !tbaa !9
   br label %134
 
@@ -4932,13 +4932,13 @@ define internal fastcc float @dt_draw_curve_calc_value(ptr noundef readonly capt
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %8, i64 %indvars.iv
   %13 = load float, ptr %12, align 8, !tbaa !170
-  %14 = getelementptr inbounds nuw [20 x float], ptr %3, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   store float %13, ptr %14, align 4, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = load float, ptr %15, align 4, !tbaa !172
-  %17 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %16, ptr %17, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -1199,7 +1199,7 @@ define hidden void @_ZN1q5queue11instantiateERNS0_5entryE(ptr noundef nonnull al
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !534
   %30 = load ptr, ptr %29, align 8, !tbaa !535
   %31 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv

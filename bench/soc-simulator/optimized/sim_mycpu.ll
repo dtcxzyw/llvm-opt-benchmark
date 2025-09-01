@@ -2697,7 +2697,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
   %399 = load ptr, ptr %174, align 8, !tbaa !172
   %400 = load i32, ptr %399, align 4, !tbaa !56
   %401 = zext i8 %388 to i64
-  %402 = getelementptr inbounds nuw [32 x i32], ptr %139, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i32, ptr %139, i64 %401
   store i32 %400, ptr %402, align 4, !tbaa !56
   store i8 15, ptr %172, align 8, !tbaa !326
   store i32 %400, ptr %149, align 4, !tbaa !313
@@ -2872,7 +2872,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
   %508 = load ptr, ptr %137, align 8, !tbaa !88
   %509 = load i8, ptr %508, align 1, !tbaa !59
   %510 = zext i8 %509 to i64
-  %511 = getelementptr inbounds nuw [2 x i32], ptr %14, i64 0, i64 %510
+  %511 = getelementptr inbounds nuw i32, ptr %14, i64 %510
   store i32 %507, ptr %511, align 4, !tbaa !56
   %512 = icmp eq i8 %509, 0
   br i1 %512, label %513, label %531
@@ -4122,7 +4122,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
   %386 = load ptr, ptr %237, align 8, !tbaa !172
   %387 = load i32, ptr %386, align 4, !tbaa !56
   %388 = zext i8 %385 to i64
-  %389 = getelementptr inbounds nuw [32 x i32], ptr %238, i64 0, i64 %388
+  %389 = getelementptr inbounds nuw i32, ptr %238, i64 %388
   store i32 %387, ptr %389, align 4, !tbaa !56
   store i8 15, ptr %239, align 8, !tbaa !326
   store i32 %387, ptr %240, align 4, !tbaa !313
@@ -20676,13 +20676,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %117 = lshr i32 %108, 21
   %118 = and i32 %117, 31
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [32 x i32], ptr %116, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i32, ptr %116, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !56
   %122 = sext i32 %121 to i64
   %123 = lshr i32 %108, 16
   %124 = and i32 %123, 31
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [32 x i32], ptr %116, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr %116, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !56
   %128 = sext i32 %127 to i64
   %129 = add nsw i64 %128, %122
@@ -20703,7 +20703,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %139 = and i8 %138, 31
   %140 = trunc i64 %129 to i32
   %141 = zext nneg i8 %139 to i64
-  %142 = getelementptr inbounds nuw [32 x i32], ptr %116, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i32, ptr %116, i64 %141
   store i32 %140, ptr %142, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %139, ptr %25, align 1, !tbaa !329
@@ -20723,16 +20723,16 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %151 = lshr i32 %108, 21
   %152 = and i32 %151, 31
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [32 x i32], ptr %150, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i32, ptr %150, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !56
   %156 = lshr i32 %108, 16
   %157 = and i32 %156, 31
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw [32 x i32], ptr %150, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i32, ptr %150, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !56
   %161 = add nsw i32 %160, %155
   %162 = zext nneg i8 %149 to i64
-  %163 = getelementptr inbounds nuw [32 x i32], ptr %150, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i32, ptr %150, i64 %162
   store i32 %161, ptr %163, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %149, ptr %25, align 1, !tbaa !329
@@ -20749,13 +20749,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %169 = lshr i32 %108, 21
   %170 = and i32 %169, 31
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw [32 x i32], ptr %168, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw i32, ptr %168, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !56
   %174 = sext i32 %173 to i64
   %175 = lshr i32 %108, 16
   %176 = and i32 %175, 31
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw [32 x i32], ptr %168, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i32, ptr %168, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !56
   %180 = sext i32 %179 to i64
   %181 = sub nsw i64 %174, %180
@@ -20776,7 +20776,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %191 = and i8 %190, 31
   %192 = trunc i64 %181 to i32
   %193 = zext nneg i8 %191 to i64
-  %194 = getelementptr inbounds nuw [32 x i32], ptr %168, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr %168, i64 %193
   store i32 %192, ptr %194, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %191, ptr %25, align 1, !tbaa !329
@@ -20796,16 +20796,16 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %203 = lshr i32 %108, 21
   %204 = and i32 %203, 31
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr inbounds nuw [32 x i32], ptr %202, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i32, ptr %202, i64 %205
   %207 = load i32, ptr %206, align 4, !tbaa !56
   %208 = lshr i32 %108, 16
   %209 = and i32 %208, 31
   %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds nuw [32 x i32], ptr %202, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw i32, ptr %202, i64 %210
   %212 = load i32, ptr %211, align 4, !tbaa !56
   %213 = sub i32 %207, %212
   %214 = zext nneg i8 %201 to i64
-  %215 = getelementptr inbounds nuw [32 x i32], ptr %202, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw i32, ptr %202, i64 %214
   store i32 %213, ptr %215, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %201, ptr %25, align 1, !tbaa !329
@@ -20825,17 +20825,17 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %224 = lshr i32 %108, 21
   %225 = and i32 %224, 31
   %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds nuw [32 x i32], ptr %223, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i32, ptr %223, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !56
   %229 = lshr i32 %108, 16
   %230 = and i32 %229, 31
   %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw [32 x i32], ptr %223, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i32, ptr %223, i64 %231
   %233 = load i32, ptr %232, align 4, !tbaa !56
   %234 = icmp slt i32 %228, %233
   %235 = zext i1 %234 to i32
   %236 = zext nneg i8 %222 to i64
-  %237 = getelementptr inbounds nuw [32 x i32], ptr %223, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i32, ptr %223, i64 %236
   store i32 %235, ptr %237, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %222, ptr %25, align 1, !tbaa !329
@@ -20855,17 +20855,17 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %246 = lshr i32 %108, 21
   %247 = and i32 %246, 31
   %248 = zext nneg i32 %247 to i64
-  %249 = getelementptr inbounds nuw [32 x i32], ptr %245, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw i32, ptr %245, i64 %248
   %250 = load i32, ptr %249, align 4, !tbaa !56
   %251 = lshr i32 %108, 16
   %252 = and i32 %251, 31
   %253 = zext nneg i32 %252 to i64
-  %254 = getelementptr inbounds nuw [32 x i32], ptr %245, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw i32, ptr %245, i64 %253
   %255 = load i32, ptr %254, align 4, !tbaa !56
   %256 = icmp ult i32 %250, %255
   %257 = zext i1 %256 to i32
   %258 = zext nneg i8 %244 to i64
-  %259 = getelementptr inbounds nuw [32 x i32], ptr %245, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw i32, ptr %245, i64 %258
   store i32 %257, ptr %259, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %244, ptr %25, align 1, !tbaa !329
@@ -20882,13 +20882,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %265 = lshr i32 %108, 21
   %266 = and i32 %265, 31
   %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds nuw [32 x i32], ptr %264, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw i32, ptr %264, i64 %267
   %269 = load i32, ptr %268, align 4, !tbaa !56
   %270 = sext i32 %269 to i64
   %271 = lshr i32 %108, 16
   %272 = and i32 %271, 31
   %273 = zext nneg i32 %272 to i64
-  %274 = getelementptr inbounds nuw [32 x i32], ptr %264, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw i32, ptr %264, i64 %273
   %275 = load i32, ptr %274, align 4, !tbaa !56
   %276 = sext i32 %275 to i64
   %277 = mul nsw i64 %276, %270
@@ -20911,13 +20911,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %288 = lshr i32 %108, 21
   %289 = and i32 %288, 31
   %290 = zext nneg i32 %289 to i64
-  %291 = getelementptr inbounds nuw [32 x i32], ptr %287, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw i32, ptr %287, i64 %290
   %292 = load i32, ptr %291, align 4, !tbaa !56
   %293 = zext i32 %292 to i64
   %294 = lshr i32 %108, 16
   %295 = and i32 %294, 31
   %296 = zext nneg i32 %295 to i64
-  %297 = getelementptr inbounds nuw [32 x i32], ptr %287, i64 0, i64 %296
+  %297 = getelementptr inbounds nuw i32, ptr %287, i64 %296
   %298 = load i32, ptr %297, align 4, !tbaa !56
   %299 = zext i32 %298 to i64
   %300 = mul nuw i64 %299, %293
@@ -20940,13 +20940,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %311 = lshr i32 %108, 21
   %312 = and i32 %311, 31
   %313 = zext nneg i32 %312 to i64
-  %314 = getelementptr inbounds nuw [32 x i32], ptr %310, i64 0, i64 %313
+  %314 = getelementptr inbounds nuw i32, ptr %310, i64 %313
   %315 = load i32, ptr %314, align 4, !tbaa !56
   %316 = sext i32 %315 to i64
   %317 = lshr i32 %108, 16
   %318 = and i32 %317, 31
   %319 = zext nneg i32 %318 to i64
-  %320 = getelementptr inbounds nuw [32 x i32], ptr %310, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw i32, ptr %310, i64 %319
   %321 = load i32, ptr %320, align 4, !tbaa !56
   %322 = sext i32 %321 to i64
   %323 = sdiv i64 %316, %322
@@ -20969,12 +20969,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %334 = lshr i32 %108, 21
   %335 = and i32 %334, 31
   %336 = zext nneg i32 %335 to i64
-  %337 = getelementptr inbounds nuw [32 x i32], ptr %333, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw i32, ptr %333, i64 %336
   %338 = load i32, ptr %337, align 4, !tbaa !56
   %339 = lshr i32 %108, 16
   %340 = and i32 %339, 31
   %341 = zext nneg i32 %340 to i64
-  %342 = getelementptr inbounds nuw [32 x i32], ptr %333, i64 0, i64 %341
+  %342 = getelementptr inbounds nuw i32, ptr %333, i64 %341
   %343 = load i32, ptr %342, align 4, !tbaa !56
   %344 = udiv i32 %338, %343
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -20997,16 +20997,16 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %356 = lshr i32 %108, 21
   %357 = and i32 %356, 31
   %358 = zext nneg i32 %357 to i64
-  %359 = getelementptr inbounds nuw [32 x i32], ptr %355, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw i32, ptr %355, i64 %358
   %360 = load i32, ptr %359, align 4, !tbaa !56
   %361 = lshr i32 %108, 16
   %362 = and i32 %361, 31
   %363 = zext nneg i32 %362 to i64
-  %364 = getelementptr inbounds nuw [32 x i32], ptr %355, i64 0, i64 %363
+  %364 = getelementptr inbounds nuw i32, ptr %355, i64 %363
   %365 = load i32, ptr %364, align 4, !tbaa !56
   %366 = and i32 %365, %360
   %367 = zext nneg i8 %354 to i64
-  %368 = getelementptr inbounds nuw [32 x i32], ptr %355, i64 0, i64 %367
+  %368 = getelementptr inbounds nuw i32, ptr %355, i64 %367
   store i32 %366, ptr %368, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %354, ptr %25, align 1, !tbaa !329
@@ -21026,17 +21026,17 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %377 = lshr i32 %108, 21
   %378 = and i32 %377, 31
   %379 = zext nneg i32 %378 to i64
-  %380 = getelementptr inbounds nuw [32 x i32], ptr %376, i64 0, i64 %379
+  %380 = getelementptr inbounds nuw i32, ptr %376, i64 %379
   %381 = load i32, ptr %380, align 4, !tbaa !56
   %382 = lshr i32 %108, 16
   %383 = and i32 %382, 31
   %384 = zext nneg i32 %383 to i64
-  %385 = getelementptr inbounds nuw [32 x i32], ptr %376, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw i32, ptr %376, i64 %384
   %386 = load i32, ptr %385, align 4, !tbaa !56
   %387 = or i32 %386, %381
   %388 = xor i32 %387, -1
   %389 = zext nneg i8 %375 to i64
-  %390 = getelementptr inbounds nuw [32 x i32], ptr %376, i64 0, i64 %389
+  %390 = getelementptr inbounds nuw i32, ptr %376, i64 %389
   store i32 %388, ptr %390, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %375, ptr %25, align 1, !tbaa !329
@@ -21056,16 +21056,16 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %399 = lshr i32 %108, 21
   %400 = and i32 %399, 31
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw [32 x i32], ptr %398, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i32, ptr %398, i64 %401
   %403 = load i32, ptr %402, align 4, !tbaa !56
   %404 = lshr i32 %108, 16
   %405 = and i32 %404, 31
   %406 = zext nneg i32 %405 to i64
-  %407 = getelementptr inbounds nuw [32 x i32], ptr %398, i64 0, i64 %406
+  %407 = getelementptr inbounds nuw i32, ptr %398, i64 %406
   %408 = load i32, ptr %407, align 4, !tbaa !56
   %409 = or i32 %408, %403
   %410 = zext nneg i8 %397 to i64
-  %411 = getelementptr inbounds nuw [32 x i32], ptr %398, i64 0, i64 %410
+  %411 = getelementptr inbounds nuw i32, ptr %398, i64 %410
   store i32 %409, ptr %411, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %397, ptr %25, align 1, !tbaa !329
@@ -21085,16 +21085,16 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %420 = lshr i32 %108, 21
   %421 = and i32 %420, 31
   %422 = zext nneg i32 %421 to i64
-  %423 = getelementptr inbounds nuw [32 x i32], ptr %419, i64 0, i64 %422
+  %423 = getelementptr inbounds nuw i32, ptr %419, i64 %422
   %424 = load i32, ptr %423, align 4, !tbaa !56
   %425 = lshr i32 %108, 16
   %426 = and i32 %425, 31
   %427 = zext nneg i32 %426 to i64
-  %428 = getelementptr inbounds nuw [32 x i32], ptr %419, i64 0, i64 %427
+  %428 = getelementptr inbounds nuw i32, ptr %419, i64 %427
   %429 = load i32, ptr %428, align 4, !tbaa !56
   %430 = xor i32 %429, %424
   %431 = zext nneg i8 %418 to i64
-  %432 = getelementptr inbounds nuw [32 x i32], ptr %419, i64 0, i64 %431
+  %432 = getelementptr inbounds nuw i32, ptr %419, i64 %431
   store i32 %430, ptr %432, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %418, ptr %25, align 1, !tbaa !329
@@ -21114,17 +21114,17 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %441 = lshr i32 %108, 16
   %442 = and i32 %441, 31
   %443 = zext nneg i32 %442 to i64
-  %444 = getelementptr inbounds nuw [32 x i32], ptr %440, i64 0, i64 %443
+  %444 = getelementptr inbounds nuw i32, ptr %440, i64 %443
   %445 = load i32, ptr %444, align 4, !tbaa !56
   %446 = lshr i32 %108, 21
   %447 = and i32 %446, 31
   %448 = zext nneg i32 %447 to i64
-  %449 = getelementptr inbounds nuw [32 x i32], ptr %440, i64 0, i64 %448
+  %449 = getelementptr inbounds nuw i32, ptr %440, i64 %448
   %450 = load i32, ptr %449, align 4, !tbaa !56
   %451 = and i32 %450, 31
   %452 = shl i32 %445, %451
   %453 = zext nneg i8 %439 to i64
-  %454 = getelementptr inbounds nuw [32 x i32], ptr %440, i64 0, i64 %453
+  %454 = getelementptr inbounds nuw i32, ptr %440, i64 %453
   store i32 %452, ptr %454, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %439, ptr %25, align 1, !tbaa !329
@@ -21144,13 +21144,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %463 = lshr i32 %108, 16
   %464 = and i32 %463, 31
   %465 = zext nneg i32 %464 to i64
-  %466 = getelementptr inbounds nuw [32 x i32], ptr %462, i64 0, i64 %465
+  %466 = getelementptr inbounds nuw i32, ptr %462, i64 %465
   %467 = load i32, ptr %466, align 4, !tbaa !56
   %468 = lshr i32 %108, 6
   %469 = and i32 %468, 31
   %470 = shl i32 %467, %469
   %471 = zext nneg i8 %461 to i64
-  %472 = getelementptr inbounds nuw [32 x i32], ptr %462, i64 0, i64 %471
+  %472 = getelementptr inbounds nuw i32, ptr %462, i64 %471
   store i32 %470, ptr %472, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %461, ptr %25, align 1, !tbaa !329
@@ -21170,17 +21170,17 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %481 = lshr i32 %108, 16
   %482 = and i32 %481, 31
   %483 = zext nneg i32 %482 to i64
-  %484 = getelementptr inbounds nuw [32 x i32], ptr %480, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw i32, ptr %480, i64 %483
   %485 = load i32, ptr %484, align 4, !tbaa !56
   %486 = lshr i32 %108, 21
   %487 = and i32 %486, 31
   %488 = zext nneg i32 %487 to i64
-  %489 = getelementptr inbounds nuw [32 x i32], ptr %480, i64 0, i64 %488
+  %489 = getelementptr inbounds nuw i32, ptr %480, i64 %488
   %490 = load i32, ptr %489, align 4, !tbaa !56
   %491 = and i32 %490, 31
   %492 = ashr i32 %485, %491
   %493 = zext nneg i8 %479 to i64
-  %494 = getelementptr inbounds nuw [32 x i32], ptr %480, i64 0, i64 %493
+  %494 = getelementptr inbounds nuw i32, ptr %480, i64 %493
   store i32 %492, ptr %494, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %479, ptr %25, align 1, !tbaa !329
@@ -21200,13 +21200,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %503 = lshr i32 %108, 16
   %504 = and i32 %503, 31
   %505 = zext nneg i32 %504 to i64
-  %506 = getelementptr inbounds nuw [32 x i32], ptr %502, i64 0, i64 %505
+  %506 = getelementptr inbounds nuw i32, ptr %502, i64 %505
   %507 = load i32, ptr %506, align 4, !tbaa !56
   %508 = lshr i32 %108, 6
   %509 = and i32 %508, 31
   %510 = ashr i32 %507, %509
   %511 = zext nneg i8 %501 to i64
-  %512 = getelementptr inbounds nuw [32 x i32], ptr %502, i64 0, i64 %511
+  %512 = getelementptr inbounds nuw i32, ptr %502, i64 %511
   store i32 %510, ptr %512, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %501, ptr %25, align 1, !tbaa !329
@@ -21226,17 +21226,17 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %521 = lshr i32 %108, 16
   %522 = and i32 %521, 31
   %523 = zext nneg i32 %522 to i64
-  %524 = getelementptr inbounds nuw [32 x i32], ptr %520, i64 0, i64 %523
+  %524 = getelementptr inbounds nuw i32, ptr %520, i64 %523
   %525 = load i32, ptr %524, align 4, !tbaa !56
   %526 = lshr i32 %108, 21
   %527 = and i32 %526, 31
   %528 = zext nneg i32 %527 to i64
-  %529 = getelementptr inbounds nuw [32 x i32], ptr %520, i64 0, i64 %528
+  %529 = getelementptr inbounds nuw i32, ptr %520, i64 %528
   %530 = load i32, ptr %529, align 4, !tbaa !56
   %531 = and i32 %530, 31
   %532 = lshr i32 %525, %531
   %533 = zext nneg i8 %519 to i64
-  %534 = getelementptr inbounds nuw [32 x i32], ptr %520, i64 0, i64 %533
+  %534 = getelementptr inbounds nuw i32, ptr %520, i64 %533
   store i32 %532, ptr %534, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %519, ptr %25, align 1, !tbaa !329
@@ -21256,13 +21256,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %543 = lshr i32 %108, 16
   %544 = and i32 %543, 31
   %545 = zext nneg i32 %544 to i64
-  %546 = getelementptr inbounds nuw [32 x i32], ptr %542, i64 0, i64 %545
+  %546 = getelementptr inbounds nuw i32, ptr %542, i64 %545
   %547 = load i32, ptr %546, align 4, !tbaa !56
   %548 = lshr i32 %108, 6
   %549 = and i32 %548, 31
   %550 = lshr i32 %547, %549
   %551 = zext nneg i8 %541 to i64
-  %552 = getelementptr inbounds nuw [32 x i32], ptr %542, i64 0, i64 %551
+  %552 = getelementptr inbounds nuw i32, ptr %542, i64 %551
   store i32 %550, ptr %552, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %541, ptr %25, align 1, !tbaa !329
@@ -21280,7 +21280,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %558 = lshr i32 %108, 21
   %559 = and i32 %558, 31
   %560 = zext nneg i32 %559 to i64
-  %561 = getelementptr inbounds nuw [32 x i32], ptr %557, i64 0, i64 %560
+  %561 = getelementptr inbounds nuw i32, ptr %557, i64 %560
   %562 = load i32, ptr %561, align 4, !tbaa !56
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %562, ptr %563, align 8, !tbaa !744
@@ -21298,7 +21298,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %569 = lshr i32 %108, 21
   %570 = and i32 %569, 31
   %571 = zext nneg i32 %570 to i64
-  %572 = getelementptr inbounds nuw [32 x i32], ptr %568, i64 0, i64 %571
+  %572 = getelementptr inbounds nuw i32, ptr %568, i64 %571
   %573 = load i32, ptr %572, align 4, !tbaa !56
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %573, ptr %574, align 8, !tbaa !744
@@ -21309,7 +21309,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %578 = add i32 %577, 8
   %579 = and i32 %575, 31
   %580 = zext nneg i32 %579 to i64
-  %581 = getelementptr inbounds nuw [32 x i32], ptr %568, i64 0, i64 %580
+  %581 = getelementptr inbounds nuw i32, ptr %568, i64 %580
   store i32 %578, ptr %581, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %576, ptr %25, align 1, !tbaa !329
@@ -21329,7 +21329,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %590 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %591 = and i32 %586, 31
   %592 = zext nneg i32 %591 to i64
-  %593 = getelementptr inbounds nuw [32 x i32], ptr %590, i64 0, i64 %592
+  %593 = getelementptr inbounds nuw i32, ptr %590, i64 %592
   store i32 %589, ptr %593, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %587, ptr %25, align 1, !tbaa !329
@@ -21349,7 +21349,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %603 = and i32 %598, 31
   %604 = zext nneg i32 %603 to i64
-  %605 = getelementptr inbounds nuw [32 x i32], ptr %602, i64 0, i64 %604
+  %605 = getelementptr inbounds nuw i32, ptr %602, i64 %604
   store i32 %601, ptr %605, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %599, ptr %25, align 1, !tbaa !329
@@ -21366,7 +21366,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %611 = lshr i32 %108, 21
   %612 = and i32 %611, 31
   %613 = zext nneg i32 %612 to i64
-  %614 = getelementptr inbounds nuw [32 x i32], ptr %610, i64 0, i64 %613
+  %614 = getelementptr inbounds nuw i32, ptr %610, i64 %613
   %615 = load i32, ptr %614, align 4, !tbaa !56
   %616 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i32 %615, ptr %616, align 4, !tbaa !743
@@ -21382,7 +21382,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %622 = lshr i32 %108, 21
   %623 = and i32 %622, 31
   %624 = zext nneg i32 %623 to i64
-  %625 = getelementptr inbounds nuw [32 x i32], ptr %621, i64 0, i64 %624
+  %625 = getelementptr inbounds nuw i32, ptr %621, i64 %624
   %626 = load i32, ptr %625, align 4, !tbaa !56
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %626, ptr %627, align 8, !tbaa !742
@@ -21406,7 +21406,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %635 = lshr i32 %108, 16
   %636 = and i32 %635, 31
   %637 = zext nneg i32 %636 to i64
-  %638 = getelementptr inbounds nuw [32 x i32], ptr %634, i64 0, i64 %637
+  %638 = getelementptr inbounds nuw i32, ptr %634, i64 %637
   %639 = load i32, ptr %638, align 4, !tbaa !56
   %640 = icmp eq i32 %639, 0
   br i1 %640, label %2105, label %641
@@ -21418,10 +21418,10 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %645 = lshr i32 %108, 21
   %646 = and i32 %645, 31
   %647 = zext nneg i32 %646 to i64
-  %648 = getelementptr inbounds nuw [32 x i32], ptr %634, i64 0, i64 %647
+  %648 = getelementptr inbounds nuw i32, ptr %634, i64 %647
   %649 = load i32, ptr %648, align 4, !tbaa !56
   %650 = zext nneg i8 %644 to i64
-  %651 = getelementptr inbounds nuw [32 x i32], ptr %634, i64 0, i64 %650
+  %651 = getelementptr inbounds nuw i32, ptr %634, i64 %650
   store i32 %649, ptr %651, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %644, ptr %25, align 1, !tbaa !329
@@ -21438,7 +21438,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %657 = lshr i32 %108, 16
   %658 = and i32 %657, 31
   %659 = zext nneg i32 %658 to i64
-  %660 = getelementptr inbounds nuw [32 x i32], ptr %656, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw i32, ptr %656, i64 %659
   %661 = load i32, ptr %660, align 4, !tbaa !56
   %662 = icmp eq i32 %661, 0
   br i1 %662, label %663, label %2105
@@ -21450,10 +21450,10 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %667 = lshr i32 %108, 21
   %668 = and i32 %667, 31
   %669 = zext nneg i32 %668 to i64
-  %670 = getelementptr inbounds nuw [32 x i32], ptr %656, i64 0, i64 %669
+  %670 = getelementptr inbounds nuw i32, ptr %656, i64 %669
   %671 = load i32, ptr %670, align 4, !tbaa !56
   %672 = zext nneg i8 %666 to i64
-  %673 = getelementptr inbounds nuw [32 x i32], ptr %656, i64 0, i64 %672
+  %673 = getelementptr inbounds nuw i32, ptr %656, i64 %672
   store i32 %671, ptr %673, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %666, ptr %25, align 1, !tbaa !329
@@ -21465,12 +21465,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %676 = lshr i32 %108, 21
   %677 = and i32 %676, 31
   %678 = zext nneg i32 %677 to i64
-  %679 = getelementptr inbounds nuw [32 x i32], ptr %675, i64 0, i64 %678
+  %679 = getelementptr inbounds nuw i32, ptr %675, i64 %678
   %680 = load i32, ptr %679, align 4, !tbaa !56
   %681 = lshr i32 %108, 16
   %682 = and i32 %681, 31
   %683 = zext nneg i32 %682 to i64
-  %684 = getelementptr inbounds nuw [32 x i32], ptr %675, i64 0, i64 %683
+  %684 = getelementptr inbounds nuw i32, ptr %675, i64 %683
   %685 = load i32, ptr %684, align 4, !tbaa !56
   %686 = icmp eq i32 %680, %685
   br i1 %686, label %687, label %2105
@@ -21484,12 +21484,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %690 = lshr i32 %108, 21
   %691 = and i32 %690, 31
   %692 = zext nneg i32 %691 to i64
-  %693 = getelementptr inbounds nuw [32 x i32], ptr %689, i64 0, i64 %692
+  %693 = getelementptr inbounds nuw i32, ptr %689, i64 %692
   %694 = load i32, ptr %693, align 4, !tbaa !56
   %695 = lshr i32 %108, 16
   %696 = and i32 %695, 31
   %697 = zext nneg i32 %696 to i64
-  %698 = getelementptr inbounds nuw [32 x i32], ptr %689, i64 0, i64 %697
+  %698 = getelementptr inbounds nuw i32, ptr %689, i64 %697
   %699 = load i32, ptr %698, align 4, !tbaa !56
   %700 = icmp slt i32 %694, %699
   br i1 %700, label %2105, label %701
@@ -21503,12 +21503,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %704 = lshr i32 %108, 21
   %705 = and i32 %704, 31
   %706 = zext nneg i32 %705 to i64
-  %707 = getelementptr inbounds nuw [32 x i32], ptr %703, i64 0, i64 %706
+  %707 = getelementptr inbounds nuw i32, ptr %703, i64 %706
   %708 = load i32, ptr %707, align 4, !tbaa !56
   %709 = lshr i32 %108, 16
   %710 = and i32 %709, 31
   %711 = zext nneg i32 %710 to i64
-  %712 = getelementptr inbounds nuw [32 x i32], ptr %703, i64 0, i64 %711
+  %712 = getelementptr inbounds nuw i32, ptr %703, i64 %711
   %713 = load i32, ptr %712, align 4, !tbaa !56
   %714 = icmp ult i32 %708, %713
   br i1 %714, label %2105, label %715
@@ -21522,12 +21522,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %718 = lshr i32 %108, 21
   %719 = and i32 %718, 31
   %720 = zext nneg i32 %719 to i64
-  %721 = getelementptr inbounds nuw [32 x i32], ptr %717, i64 0, i64 %720
+  %721 = getelementptr inbounds nuw i32, ptr %717, i64 %720
   %722 = load i32, ptr %721, align 4, !tbaa !56
   %723 = lshr i32 %108, 16
   %724 = and i32 %723, 31
   %725 = zext nneg i32 %724 to i64
-  %726 = getelementptr inbounds nuw [32 x i32], ptr %717, i64 0, i64 %725
+  %726 = getelementptr inbounds nuw i32, ptr %717, i64 %725
   %727 = load i32, ptr %726, align 4, !tbaa !56
   %728 = icmp slt i32 %722, %727
   br i1 %728, label %729, label %2105
@@ -21541,12 +21541,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %732 = lshr i32 %108, 21
   %733 = and i32 %732, 31
   %734 = zext nneg i32 %733 to i64
-  %735 = getelementptr inbounds nuw [32 x i32], ptr %731, i64 0, i64 %734
+  %735 = getelementptr inbounds nuw i32, ptr %731, i64 %734
   %736 = load i32, ptr %735, align 4, !tbaa !56
   %737 = lshr i32 %108, 16
   %738 = and i32 %737, 31
   %739 = zext nneg i32 %738 to i64
-  %740 = getelementptr inbounds nuw [32 x i32], ptr %731, i64 0, i64 %739
+  %740 = getelementptr inbounds nuw i32, ptr %731, i64 %739
   %741 = load i32, ptr %740, align 4, !tbaa !56
   %742 = icmp ult i32 %736, %741
   br i1 %742, label %743, label %2105
@@ -21560,12 +21560,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %746 = lshr i32 %108, 21
   %747 = and i32 %746, 31
   %748 = zext nneg i32 %747 to i64
-  %749 = getelementptr inbounds nuw [32 x i32], ptr %745, i64 0, i64 %748
+  %749 = getelementptr inbounds nuw i32, ptr %745, i64 %748
   %750 = load i32, ptr %749, align 4, !tbaa !56
   %751 = lshr i32 %108, 16
   %752 = and i32 %751, 31
   %753 = zext nneg i32 %752 to i64
-  %754 = getelementptr inbounds nuw [32 x i32], ptr %745, i64 0, i64 %753
+  %754 = getelementptr inbounds nuw i32, ptr %745, i64 %753
   %755 = load i32, ptr %754, align 4, !tbaa !56
   %756 = icmp eq i32 %750, %755
   br i1 %756, label %2105, label %757
@@ -21599,16 +21599,16 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %768 = lshr i32 %108, 21
   %769 = and i32 %768, 31
   %770 = zext nneg i32 %769 to i64
-  %771 = getelementptr inbounds nuw [32 x i32], ptr %767, i64 0, i64 %770
+  %771 = getelementptr inbounds nuw i32, ptr %767, i64 %770
   %772 = load i32, ptr %771, align 4, !tbaa !56
   %773 = lshr i32 %108, 16
   %774 = and i32 %773, 31
   %775 = zext nneg i32 %774 to i64
-  %776 = getelementptr inbounds nuw [32 x i32], ptr %767, i64 0, i64 %775
+  %776 = getelementptr inbounds nuw i32, ptr %767, i64 %775
   %777 = load i32, ptr %776, align 4, !tbaa !56
   %778 = mul nsw i32 %777, %772
   %779 = zext nneg i8 %766 to i64
-  %780 = getelementptr inbounds nuw [32 x i32], ptr %767, i64 0, i64 %779
+  %780 = getelementptr inbounds nuw i32, ptr %767, i64 %779
   store i32 %778, ptr %780, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %766, ptr %25, align 1, !tbaa !329
@@ -21633,13 +21633,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %794 = lshr i32 %108, 21
   %795 = and i32 %794, 31
   %796 = zext nneg i32 %795 to i64
-  %797 = getelementptr inbounds nuw [32 x i32], ptr %793, i64 0, i64 %796
+  %797 = getelementptr inbounds nuw i32, ptr %793, i64 %796
   %798 = load i32, ptr %797, align 4, !tbaa !56
   %799 = sext i32 %798 to i64
   %800 = lshr i32 %108, 16
   %801 = and i32 %800, 31
   %802 = zext nneg i32 %801 to i64
-  %803 = getelementptr inbounds nuw [32 x i32], ptr %793, i64 0, i64 %802
+  %803 = getelementptr inbounds nuw i32, ptr %793, i64 %802
   %804 = load i32, ptr %803, align 4, !tbaa !56
   %805 = sext i32 %804 to i64
   %806 = mul nsw i64 %805, %799
@@ -21669,13 +21669,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %824 = lshr i32 %108, 21
   %825 = and i32 %824, 31
   %826 = zext nneg i32 %825 to i64
-  %827 = getelementptr inbounds nuw [32 x i32], ptr %823, i64 0, i64 %826
+  %827 = getelementptr inbounds nuw i32, ptr %823, i64 %826
   %828 = load i32, ptr %827, align 4, !tbaa !56
   %829 = zext i32 %828 to i64
   %830 = lshr i32 %108, 16
   %831 = and i32 %830, 31
   %832 = zext nneg i32 %831 to i64
-  %833 = getelementptr inbounds nuw [32 x i32], ptr %823, i64 0, i64 %832
+  %833 = getelementptr inbounds nuw i32, ptr %823, i64 %832
   %834 = load i32, ptr %833, align 4, !tbaa !56
   %835 = zext i32 %834 to i64
   %836 = mul nuw i64 %835, %829
@@ -21705,13 +21705,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %854 = lshr i32 %108, 21
   %855 = and i32 %854, 31
   %856 = zext nneg i32 %855 to i64
-  %857 = getelementptr inbounds nuw [32 x i32], ptr %853, i64 0, i64 %856
+  %857 = getelementptr inbounds nuw i32, ptr %853, i64 %856
   %858 = load i32, ptr %857, align 4, !tbaa !56
   %859 = sext i32 %858 to i64
   %860 = lshr i32 %108, 16
   %861 = and i32 %860, 31
   %862 = zext nneg i32 %861 to i64
-  %863 = getelementptr inbounds nuw [32 x i32], ptr %853, i64 0, i64 %862
+  %863 = getelementptr inbounds nuw i32, ptr %853, i64 %862
   %864 = load i32, ptr %863, align 4, !tbaa !56
   %865 = sext i32 %864 to i64
   %866 = mul nsw i64 %865, %859
@@ -21741,13 +21741,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %884 = lshr i32 %108, 21
   %885 = and i32 %884, 31
   %886 = zext nneg i32 %885 to i64
-  %887 = getelementptr inbounds nuw [32 x i32], ptr %883, i64 0, i64 %886
+  %887 = getelementptr inbounds nuw i32, ptr %883, i64 %886
   %888 = load i32, ptr %887, align 4, !tbaa !56
   %889 = zext i32 %888 to i64
   %890 = lshr i32 %108, 16
   %891 = and i32 %890, 31
   %892 = zext nneg i32 %891 to i64
-  %893 = getelementptr inbounds nuw [32 x i32], ptr %883, i64 0, i64 %892
+  %893 = getelementptr inbounds nuw i32, ptr %883, i64 %892
   %894 = load i32, ptr %893, align 4, !tbaa !56
   %895 = zext i32 %894 to i64
   %896 = mul nuw i64 %895, %889
@@ -21769,7 +21769,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %906 = lshr i32 %108, 21
   %907 = and i32 %906, 31
   %908 = zext nneg i32 %907 to i64
-  %909 = getelementptr inbounds nuw [32 x i32], ptr %905, i64 0, i64 %908
+  %909 = getelementptr inbounds nuw i32, ptr %905, i64 %908
   %910 = load i32, ptr %909, align 4, !tbaa !56
   br label %911
 
@@ -21795,7 +21795,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %923 = trunc i32 %922 to i8
   %924 = and i8 %923, 31
   %925 = zext nneg i8 %924 to i64
-  %926 = getelementptr inbounds nuw [32 x i32], ptr %905, i64 0, i64 %925
+  %926 = getelementptr inbounds nuw i32, ptr %905, i64 %925
   store i32 %921, ptr %926, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %924, ptr %25, align 1, !tbaa !329
@@ -21812,7 +21812,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %932 = lshr i32 %108, 21
   %933 = and i32 %932, 31
   %934 = zext nneg i32 %933 to i64
-  %935 = getelementptr inbounds nuw [32 x i32], ptr %931, i64 0, i64 %934
+  %935 = getelementptr inbounds nuw i32, ptr %931, i64 %934
   %936 = load i32, ptr %935, align 4, !tbaa !56
   br label %937
 
@@ -21838,7 +21838,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %949 = trunc i32 %948 to i8
   %950 = and i8 %949, 31
   %951 = zext nneg i8 %950 to i64
-  %952 = getelementptr inbounds nuw [32 x i32], ptr %931, i64 0, i64 %951
+  %952 = getelementptr inbounds nuw i32, ptr %931, i64 %951
   store i32 %947, ptr %952, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %950, ptr %25, align 1, !tbaa !329
@@ -21850,7 +21850,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %955 = lshr i32 %108, 21
   %956 = and i32 %955, 31
   %957 = zext nneg i32 %956 to i64
-  %958 = getelementptr inbounds nuw [32 x i32], ptr %954, i64 0, i64 %957
+  %958 = getelementptr inbounds nuw i32, ptr %954, i64 %957
   %959 = load i32, ptr %958, align 4, !tbaa !56
   %960 = sext i32 %959 to i64
   %961 = shl i32 %108, 16
@@ -21874,7 +21874,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %974 = and i8 %973, 31
   %975 = trunc i64 %964 to i32
   %976 = zext nneg i8 %974 to i64
-  %977 = getelementptr inbounds nuw [32 x i32], ptr %954, i64 0, i64 %976
+  %977 = getelementptr inbounds nuw i32, ptr %954, i64 %976
   store i32 %975, ptr %977, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %974, ptr %25, align 1, !tbaa !329
@@ -21886,7 +21886,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %980 = lshr i32 %108, 21
   %981 = and i32 %980, 31
   %982 = zext nneg i32 %981 to i64
-  %983 = getelementptr inbounds nuw [32 x i32], ptr %979, i64 0, i64 %982
+  %983 = getelementptr inbounds nuw i32, ptr %979, i64 %982
   %984 = load i32, ptr %983, align 4, !tbaa !56
   %985 = shl i32 %108, 16
   %986 = ashr exact i32 %985, 16
@@ -21895,7 +21895,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %989 = trunc i32 %988 to i8
   %990 = and i8 %989, 31
   %991 = zext nneg i8 %990 to i64
-  %992 = getelementptr inbounds nuw [32 x i32], ptr %979, i64 0, i64 %991
+  %992 = getelementptr inbounds nuw i32, ptr %979, i64 %991
   store i32 %987, ptr %992, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %990, ptr %25, align 1, !tbaa !329
@@ -21907,7 +21907,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %995 = lshr i32 %108, 21
   %996 = and i32 %995, 31
   %997 = zext nneg i32 %996 to i64
-  %998 = getelementptr inbounds nuw [32 x i32], ptr %994, i64 0, i64 %997
+  %998 = getelementptr inbounds nuw i32, ptr %994, i64 %997
   %999 = load i32, ptr %998, align 4, !tbaa !56
   %1000 = shl i32 %108, 16
   %1001 = ashr exact i32 %1000, 16
@@ -21917,7 +21917,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1005 = trunc i32 %1004 to i8
   %1006 = and i8 %1005, 31
   %1007 = zext nneg i8 %1006 to i64
-  %1008 = getelementptr inbounds nuw [32 x i32], ptr %994, i64 0, i64 %1007
+  %1008 = getelementptr inbounds nuw i32, ptr %994, i64 %1007
   store i32 %1003, ptr %1008, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1006, ptr %25, align 1, !tbaa !329
@@ -21929,7 +21929,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1011 = lshr i32 %108, 21
   %1012 = and i32 %1011, 31
   %1013 = zext nneg i32 %1012 to i64
-  %1014 = getelementptr inbounds nuw [32 x i32], ptr %1010, i64 0, i64 %1013
+  %1014 = getelementptr inbounds nuw i32, ptr %1010, i64 %1013
   %1015 = load i32, ptr %1014, align 4, !tbaa !56
   %1016 = shl i32 %108, 16
   %1017 = ashr exact i32 %1016, 16
@@ -21939,7 +21939,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1021 = trunc i32 %1020 to i8
   %1022 = and i8 %1021, 31
   %1023 = zext nneg i8 %1022 to i64
-  %1024 = getelementptr inbounds nuw [32 x i32], ptr %1010, i64 0, i64 %1023
+  %1024 = getelementptr inbounds nuw i32, ptr %1010, i64 %1023
   store i32 %1019, ptr %1024, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1022, ptr %25, align 1, !tbaa !329
@@ -21951,7 +21951,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1027 = lshr i32 %108, 21
   %1028 = and i32 %1027, 31
   %1029 = zext nneg i32 %1028 to i64
-  %1030 = getelementptr inbounds nuw [32 x i32], ptr %1026, i64 0, i64 %1029
+  %1030 = getelementptr inbounds nuw i32, ptr %1026, i64 %1029
   %1031 = load i32, ptr %1030, align 4, !tbaa !56
   %1032 = and i32 %108, 65535
   %1033 = and i32 %1032, %1031
@@ -21959,7 +21959,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1035 = trunc i32 %1034 to i8
   %1036 = and i8 %1035, 31
   %1037 = zext nneg i8 %1036 to i64
-  %1038 = getelementptr inbounds nuw [32 x i32], ptr %1026, i64 0, i64 %1037
+  %1038 = getelementptr inbounds nuw i32, ptr %1026, i64 %1037
   store i32 %1033, ptr %1038, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1036, ptr %25, align 1, !tbaa !329
@@ -21978,7 +21978,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1046 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %1047 = and i32 %1044, 31
   %1048 = zext nneg i32 %1047 to i64
-  %1049 = getelementptr inbounds nuw [32 x i32], ptr %1046, i64 0, i64 %1048
+  %1049 = getelementptr inbounds nuw i32, ptr %1046, i64 %1048
   store i32 %1043, ptr %1049, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1045, ptr %25, align 1, !tbaa !329
@@ -21990,7 +21990,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1052 = lshr i32 %108, 21
   %1053 = and i32 %1052, 31
   %1054 = zext nneg i32 %1053 to i64
-  %1055 = getelementptr inbounds nuw [32 x i32], ptr %1051, i64 0, i64 %1054
+  %1055 = getelementptr inbounds nuw i32, ptr %1051, i64 %1054
   %1056 = load i32, ptr %1055, align 4, !tbaa !56
   %1057 = and i32 %108, 65535
   %1058 = or i32 %1056, %1057
@@ -21998,7 +21998,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1060 = trunc i32 %1059 to i8
   %1061 = and i8 %1060, 31
   %1062 = zext nneg i8 %1061 to i64
-  %1063 = getelementptr inbounds nuw [32 x i32], ptr %1051, i64 0, i64 %1062
+  %1063 = getelementptr inbounds nuw i32, ptr %1051, i64 %1062
   store i32 %1058, ptr %1063, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1061, ptr %25, align 1, !tbaa !329
@@ -22010,7 +22010,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1066 = lshr i32 %108, 21
   %1067 = and i32 %1066, 31
   %1068 = zext nneg i32 %1067 to i64
-  %1069 = getelementptr inbounds nuw [32 x i32], ptr %1065, i64 0, i64 %1068
+  %1069 = getelementptr inbounds nuw i32, ptr %1065, i64 %1068
   %1070 = load i32, ptr %1069, align 4, !tbaa !56
   %1071 = and i32 %108, 65535
   %1072 = xor i32 %1070, %1071
@@ -22018,7 +22018,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1074 = trunc i32 %1073 to i8
   %1075 = and i8 %1074, 31
   %1076 = zext nneg i8 %1075 to i64
-  %1077 = getelementptr inbounds nuw [32 x i32], ptr %1065, i64 0, i64 %1076
+  %1077 = getelementptr inbounds nuw i32, ptr %1065, i64 %1076
   store i32 %1072, ptr %1077, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1075, ptr %25, align 1, !tbaa !329
@@ -22038,12 +22038,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1086 = lshr i32 %108, 21
   %1087 = and i32 %1086, 31
   %1088 = zext nneg i32 %1087 to i64
-  %1089 = getelementptr inbounds nuw [32 x i32], ptr %1085, i64 0, i64 %1088
+  %1089 = getelementptr inbounds nuw i32, ptr %1085, i64 %1088
   %1090 = load i32, ptr %1089, align 4, !tbaa !56
   %1091 = lshr i32 %108, 16
   %1092 = and i32 %1091, 31
   %1093 = zext nneg i32 %1092 to i64
-  %1094 = getelementptr inbounds nuw [32 x i32], ptr %1085, i64 0, i64 %1093
+  %1094 = getelementptr inbounds nuw i32, ptr %1085, i64 %1093
   %1095 = load i32, ptr %1094, align 4, !tbaa !56
   %1096 = icmp eq i32 %1090, %1095
   br i1 %1096, label %1097, label %2105
@@ -22086,12 +22086,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1120 = lshr i32 %108, 21
   %1121 = and i32 %1120, 31
   %1122 = zext nneg i32 %1121 to i64
-  %1123 = getelementptr inbounds nuw [32 x i32], ptr %1119, i64 0, i64 %1122
+  %1123 = getelementptr inbounds nuw i32, ptr %1119, i64 %1122
   %1124 = load i32, ptr %1123, align 4, !tbaa !56
   %1125 = lshr i32 %108, 16
   %1126 = and i32 %1125, 31
   %1127 = zext nneg i32 %1126 to i64
-  %1128 = getelementptr inbounds nuw [32 x i32], ptr %1119, i64 0, i64 %1127
+  %1128 = getelementptr inbounds nuw i32, ptr %1119, i64 %1127
   %1129 = load i32, ptr %1128, align 4, !tbaa !56
   %1130 = icmp eq i32 %1124, %1129
   br i1 %1130, label %2105, label %1131
@@ -22139,7 +22139,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1157 = lshr i32 %108, 21
   %1158 = and i32 %1157, 31
   %1159 = zext nneg i32 %1158 to i64
-  %1160 = getelementptr inbounds nuw [32 x i32], ptr %1156, i64 0, i64 %1159
+  %1160 = getelementptr inbounds nuw i32, ptr %1156, i64 %1159
   %1161 = load i32, ptr %1160, align 4, !tbaa !56
   %1162 = icmp sgt i32 %1161, 0
   br i1 %1162, label %1163, label %2105
@@ -22187,7 +22187,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1189 = lshr i32 %108, 21
   %1190 = and i32 %1189, 31
   %1191 = zext nneg i32 %1190 to i64
-  %1192 = getelementptr inbounds nuw [32 x i32], ptr %1188, i64 0, i64 %1191
+  %1192 = getelementptr inbounds nuw i32, ptr %1188, i64 %1191
   %1193 = load i32, ptr %1192, align 4, !tbaa !56
   %1194 = icmp slt i32 %1193, 1
   br i1 %1194, label %1195, label %2105
@@ -22246,7 +22246,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1221 = lshr i32 %108, 21
   %1222 = and i32 %1221, 31
   %1223 = zext nneg i32 %1222 to i64
-  %1224 = getelementptr inbounds nuw [32 x i32], ptr %1220, i64 0, i64 %1223
+  %1224 = getelementptr inbounds nuw i32, ptr %1220, i64 %1223
   %1225 = load i32, ptr %1224, align 4, !tbaa !56
   %1226 = icmp sgt i32 %1225, -1
   br i1 %1226, label %1227, label %2105
@@ -22289,7 +22289,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1250 = lshr i32 %108, 21
   %1251 = and i32 %1250, 31
   %1252 = zext nneg i32 %1251 to i64
-  %1253 = getelementptr inbounds nuw [32 x i32], ptr %1249, i64 0, i64 %1252
+  %1253 = getelementptr inbounds nuw i32, ptr %1249, i64 %1252
   %1254 = load i32, ptr %1253, align 4, !tbaa !56
   %1255 = icmp slt i32 %1254, 0
   br i1 %1255, label %1256, label %2105
@@ -22332,7 +22332,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1279 = lshr i32 %108, 21
   %1280 = and i32 %1279, 31
   %1281 = zext nneg i32 %1280 to i64
-  %1282 = getelementptr inbounds nuw [32 x i32], ptr %1278, i64 0, i64 %1281
+  %1282 = getelementptr inbounds nuw i32, ptr %1278, i64 %1281
   %1283 = load i32, ptr %1282, align 4, !tbaa !56
   %1284 = icmp sgt i32 %1283, -1
   %1285 = load i32, ptr %21, align 8, !tbaa !294
@@ -22375,7 +22375,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1307 = lshr i32 %108, 21
   %1308 = and i32 %1307, 31
   %1309 = zext nneg i32 %1308 to i64
-  %1310 = getelementptr inbounds nuw [32 x i32], ptr %1306, i64 0, i64 %1309
+  %1310 = getelementptr inbounds nuw i32, ptr %1306, i64 %1309
   %1311 = load i32, ptr %1310, align 4, !tbaa !56
   %1312 = icmp slt i32 %1311, 0
   %1313 = load i32, ptr %21, align 8, !tbaa !294
@@ -22410,7 +22410,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1329 = lshr i32 %108, 21
   %1330 = and i32 %1329, 31
   %1331 = zext nneg i32 %1330 to i64
-  %1332 = getelementptr inbounds nuw [32 x i32], ptr %1328, i64 0, i64 %1331
+  %1332 = getelementptr inbounds nuw i32, ptr %1328, i64 %1331
   %1333 = load i32, ptr %1332, align 4, !tbaa !56
   %1334 = shl i32 %108, 16
   %1335 = ashr exact i32 %1334, 16
@@ -22426,7 +22426,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1340 = lshr i32 %108, 21
   %1341 = and i32 %1340, 31
   %1342 = zext nneg i32 %1341 to i64
-  %1343 = getelementptr inbounds nuw [32 x i32], ptr %1339, i64 0, i64 %1342
+  %1343 = getelementptr inbounds nuw i32, ptr %1339, i64 %1342
   %1344 = load i32, ptr %1343, align 4, !tbaa !56
   %1345 = shl i32 %108, 16
   %1346 = ashr exact i32 %1345, 16
@@ -22442,7 +22442,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1351 = lshr i32 %108, 21
   %1352 = and i32 %1351, 31
   %1353 = zext nneg i32 %1352 to i64
-  %1354 = getelementptr inbounds nuw [32 x i32], ptr %1350, i64 0, i64 %1353
+  %1354 = getelementptr inbounds nuw i32, ptr %1350, i64 %1353
   %1355 = load i32, ptr %1354, align 4, !tbaa !56
   %1356 = shl i32 %108, 16
   %1357 = ashr exact i32 %1356, 16
@@ -22458,7 +22458,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1362 = lshr i32 %108, 21
   %1363 = and i32 %1362, 31
   %1364 = zext nneg i32 %1363 to i64
-  %1365 = getelementptr inbounds nuw [32 x i32], ptr %1361, i64 0, i64 %1364
+  %1365 = getelementptr inbounds nuw i32, ptr %1361, i64 %1364
   %1366 = load i32, ptr %1365, align 4, !tbaa !56
   %1367 = shl i32 %108, 16
   %1368 = ashr exact i32 %1367, 16
@@ -22474,7 +22474,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1373 = lshr i32 %108, 21
   %1374 = and i32 %1373, 31
   %1375 = zext nneg i32 %1374 to i64
-  %1376 = getelementptr inbounds nuw [32 x i32], ptr %1372, i64 0, i64 %1375
+  %1376 = getelementptr inbounds nuw i32, ptr %1372, i64 %1375
   %1377 = load i32, ptr %1376, align 4, !tbaa !56
   %1378 = shl i32 %108, 16
   %1379 = ashr exact i32 %1378, 16
@@ -22490,7 +22490,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1384 = lshr i32 %108, 21
   %1385 = and i32 %1384, 31
   %1386 = zext nneg i32 %1385 to i64
-  %1387 = getelementptr inbounds nuw [32 x i32], ptr %1383, i64 0, i64 %1386
+  %1387 = getelementptr inbounds nuw i32, ptr %1383, i64 %1386
   %1388 = load i32, ptr %1387, align 4, !tbaa !56
   %1389 = shl i32 %108, 16
   %1390 = ashr exact i32 %1389, 16
@@ -22542,7 +22542,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1416 = lshr i32 %108, 21
   %1417 = and i32 %1416, 31
   %1418 = zext nneg i32 %1417 to i64
-  %1419 = getelementptr inbounds nuw [32 x i32], ptr %1415, i64 0, i64 %1418
+  %1419 = getelementptr inbounds nuw i32, ptr %1415, i64 %1418
   %1420 = load i32, ptr %1419, align 4, !tbaa !56
   %1421 = shl i32 %108, 16
   %1422 = ashr exact i32 %1421, 16
@@ -22575,7 +22575,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1443 = load i8, ptr %5, align 1, !tbaa !59
   %1444 = sext i8 %1443 to i32
   %1445 = zext nneg i8 %1442 to i64
-  %1446 = getelementptr inbounds nuw [32 x i32], ptr %1415, i64 0, i64 %1445
+  %1446 = getelementptr inbounds nuw i32, ptr %1415, i64 %1445
   store i32 %1444, ptr %1446, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1442, ptr %25, align 1, !tbaa !329
@@ -22591,7 +22591,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1450 = lshr i32 %108, 21
   %1451 = and i32 %1450, 31
   %1452 = zext nneg i32 %1451 to i64
-  %1453 = getelementptr inbounds nuw [32 x i32], ptr %1449, i64 0, i64 %1452
+  %1453 = getelementptr inbounds nuw i32, ptr %1449, i64 %1452
   %1454 = load i32, ptr %1453, align 4, !tbaa !56
   %1455 = shl i32 %108, 16
   %1456 = ashr exact i32 %1455, 16
@@ -22624,7 +22624,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1477 = load i8, ptr %6, align 1, !tbaa !59
   %1478 = zext i8 %1477 to i32
   %1479 = zext nneg i8 %1476 to i64
-  %1480 = getelementptr inbounds nuw [32 x i32], ptr %1449, i64 0, i64 %1479
+  %1480 = getelementptr inbounds nuw i32, ptr %1449, i64 %1479
   store i32 %1478, ptr %1480, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1476, ptr %25, align 1, !tbaa !329
@@ -22640,7 +22640,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1484 = lshr i32 %108, 21
   %1485 = and i32 %1484, 31
   %1486 = zext nneg i32 %1485 to i64
-  %1487 = getelementptr inbounds nuw [32 x i32], ptr %1483, i64 0, i64 %1486
+  %1487 = getelementptr inbounds nuw i32, ptr %1483, i64 %1486
   %1488 = load i32, ptr %1487, align 4, !tbaa !56
   %1489 = shl i32 %108, 16
   %1490 = ashr exact i32 %1489, 16
@@ -22673,7 +22673,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1511 = load i16, ptr %7, align 2, !tbaa !750
   %1512 = sext i16 %1511 to i32
   %1513 = zext nneg i8 %1510 to i64
-  %1514 = getelementptr inbounds nuw [32 x i32], ptr %1483, i64 0, i64 %1513
+  %1514 = getelementptr inbounds nuw i32, ptr %1483, i64 %1513
   store i32 %1512, ptr %1514, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1510, ptr %25, align 1, !tbaa !329
@@ -22689,7 +22689,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1518 = lshr i32 %108, 21
   %1519 = and i32 %1518, 31
   %1520 = zext nneg i32 %1519 to i64
-  %1521 = getelementptr inbounds nuw [32 x i32], ptr %1517, i64 0, i64 %1520
+  %1521 = getelementptr inbounds nuw i32, ptr %1517, i64 %1520
   %1522 = load i32, ptr %1521, align 4, !tbaa !56
   %1523 = shl i32 %108, 16
   %1524 = ashr exact i32 %1523, 16
@@ -22722,7 +22722,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1545 = load i16, ptr %8, align 2, !tbaa !750
   %1546 = zext i16 %1545 to i32
   %1547 = zext nneg i8 %1544 to i64
-  %1548 = getelementptr inbounds nuw [32 x i32], ptr %1517, i64 0, i64 %1547
+  %1548 = getelementptr inbounds nuw i32, ptr %1517, i64 %1547
   store i32 %1546, ptr %1548, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1544, ptr %25, align 1, !tbaa !329
@@ -22738,7 +22738,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1552 = lshr i32 %108, 21
   %1553 = and i32 %1552, 31
   %1554 = zext nneg i32 %1553 to i64
-  %1555 = getelementptr inbounds nuw [32 x i32], ptr %1551, i64 0, i64 %1554
+  %1555 = getelementptr inbounds nuw i32, ptr %1551, i64 %1554
   %1556 = load i32, ptr %1555, align 4, !tbaa !56
   %1557 = shl i32 %108, 16
   %1558 = ashr exact i32 %1557, 16
@@ -22778,7 +22778,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1581 = and i8 %1580, 31
   %1582 = load i32, ptr %9, align 4, !tbaa !56
   %1583 = zext nneg i8 %1581 to i64
-  %1584 = getelementptr inbounds nuw [32 x i32], ptr %1551, i64 0, i64 %1583
+  %1584 = getelementptr inbounds nuw i32, ptr %1551, i64 %1583
   store i32 %1582, ptr %1584, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1581, ptr %25, align 1, !tbaa !329
@@ -22794,7 +22794,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1588 = lshr i32 %108, 21
   %1589 = and i32 %1588, 31
   %1590 = zext nneg i32 %1589 to i64
-  %1591 = getelementptr inbounds nuw [32 x i32], ptr %1587, i64 0, i64 %1590
+  %1591 = getelementptr inbounds nuw i32, ptr %1587, i64 %1590
   %1592 = load i32, ptr %1591, align 4, !tbaa !56
   %1593 = shl i32 %108, 16
   %1594 = ashr exact i32 %1593, 16
@@ -22842,7 +22842,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1621 = lshr i32 %1620, 16
   %1622 = and i32 %1621, 31
   %1623 = zext nneg i32 %1622 to i64
-  %1624 = getelementptr inbounds nuw [32 x i32], ptr %1587, i64 0, i64 %1623
+  %1624 = getelementptr inbounds nuw i32, ptr %1587, i64 %1623
   %1625 = load i32, ptr %1624, align 4, !tbaa !56
   %1626 = and i32 %1625, 16777215
   %1627 = or disjoint i32 %1626, %1619
@@ -22855,7 +22855,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1632 = lshr i32 %1631, 16
   %1633 = and i32 %1632, 31
   %1634 = zext nneg i32 %1633 to i64
-  %1635 = getelementptr inbounds nuw [32 x i32], ptr %1587, i64 0, i64 %1634
+  %1635 = getelementptr inbounds nuw i32, ptr %1587, i64 %1634
   %1636 = load i32, ptr %1635, align 4, !tbaa !56
   %1637 = and i32 %1636, 65535
   %1638 = or disjoint i32 %1637, %1630
@@ -22868,7 +22868,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1643 = lshr i32 %1642, 16
   %1644 = and i32 %1643, 31
   %1645 = zext nneg i32 %1644 to i64
-  %1646 = getelementptr inbounds nuw [32 x i32], ptr %1587, i64 0, i64 %1645
+  %1646 = getelementptr inbounds nuw i32, ptr %1587, i64 %1645
   %1647 = load i32, ptr %1646, align 4, !tbaa !56
   %1648 = and i32 %1647, 255
   %1649 = or disjoint i32 %1648, %1641
@@ -22883,7 +22883,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1653 = trunc i32 %1651 to i8
   %1654 = and i8 %1653, 31
   %1655 = zext nneg i8 %1654 to i64
-  %1656 = getelementptr inbounds nuw [32 x i32], ptr %1587, i64 0, i64 %1655
+  %1656 = getelementptr inbounds nuw i32, ptr %1587, i64 %1655
   store i32 %1652, ptr %1656, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1654, ptr %25, align 1, !tbaa !329
@@ -22899,7 +22899,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1660 = lshr i32 %108, 21
   %1661 = and i32 %1660, 31
   %1662 = zext nneg i32 %1661 to i64
-  %1663 = getelementptr inbounds nuw [32 x i32], ptr %1659, i64 0, i64 %1662
+  %1663 = getelementptr inbounds nuw i32, ptr %1659, i64 %1662
   %1664 = load i32, ptr %1663, align 4, !tbaa !56
   %1665 = shl i32 %108, 16
   %1666 = ashr exact i32 %1665, 16
@@ -22947,7 +22947,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1693 = lshr i32 %1692, 16
   %1694 = and i32 %1693, 31
   %1695 = zext nneg i32 %1694 to i64
-  %1696 = getelementptr inbounds nuw [32 x i32], ptr %1659, i64 0, i64 %1695
+  %1696 = getelementptr inbounds nuw i32, ptr %1659, i64 %1695
   %1697 = load i32, ptr %1696, align 4, !tbaa !56
   %1698 = and i32 %1697, -16777216
   %1699 = or disjoint i32 %1698, %1691
@@ -22960,7 +22960,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1704 = lshr i32 %1703, 16
   %1705 = and i32 %1704, 31
   %1706 = zext nneg i32 %1705 to i64
-  %1707 = getelementptr inbounds nuw [32 x i32], ptr %1659, i64 0, i64 %1706
+  %1707 = getelementptr inbounds nuw i32, ptr %1659, i64 %1706
   %1708 = load i32, ptr %1707, align 4, !tbaa !56
   %1709 = and i32 %1708, -65536
   %1710 = or disjoint i32 %1709, %1702
@@ -22973,7 +22973,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1715 = lshr i32 %1714, 16
   %1716 = and i32 %1715, 31
   %1717 = zext nneg i32 %1716 to i64
-  %1718 = getelementptr inbounds nuw [32 x i32], ptr %1659, i64 0, i64 %1717
+  %1718 = getelementptr inbounds nuw i32, ptr %1659, i64 %1717
   %1719 = load i32, ptr %1718, align 4, !tbaa !56
   %1720 = and i32 %1719, -256
   %1721 = or disjoint i32 %1720, %1713
@@ -22985,7 +22985,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1725 = trunc i32 %1723 to i8
   %1726 = and i8 %1725, 31
   %1727 = zext nneg i8 %1726 to i64
-  %1728 = getelementptr inbounds nuw [32 x i32], ptr %1659, i64 0, i64 %1727
+  %1728 = getelementptr inbounds nuw i32, ptr %1659, i64 %1727
   store i32 %1724, ptr %1728, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1726, ptr %25, align 1, !tbaa !329
@@ -23001,7 +23001,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1732 = lshr i32 %108, 21
   %1733 = and i32 %1732, 31
   %1734 = zext nneg i32 %1733 to i64
-  %1735 = getelementptr inbounds nuw [32 x i32], ptr %1731, i64 0, i64 %1734
+  %1735 = getelementptr inbounds nuw i32, ptr %1731, i64 %1734
   %1736 = load i32, ptr %1735, align 4, !tbaa !56
   %1737 = shl i32 %108, 16
   %1738 = ashr exact i32 %1737, 16
@@ -23009,7 +23009,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1740 = lshr i32 %108, 16
   %1741 = and i32 %1740, 31
   %1742 = zext nneg i32 %1741 to i64
-  %1743 = getelementptr inbounds nuw [32 x i32], ptr %1731, i64 0, i64 %1742
+  %1743 = getelementptr inbounds nuw i32, ptr %1731, i64 %1742
   %1744 = load i32, ptr %90, align 8
   %1745 = and i32 %1744, 6
   %1746 = icmp eq i32 %1745, 0
@@ -23034,7 +23034,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1760 = lshr i32 %108, 21
   %1761 = and i32 %1760, 31
   %1762 = zext nneg i32 %1761 to i64
-  %1763 = getelementptr inbounds nuw [32 x i32], ptr %1759, i64 0, i64 %1762
+  %1763 = getelementptr inbounds nuw i32, ptr %1759, i64 %1762
   %1764 = load i32, ptr %1763, align 4, !tbaa !56
   %1765 = shl i32 %108, 16
   %1766 = ashr exact i32 %1765, 16
@@ -23042,7 +23042,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1768 = lshr i32 %108, 16
   %1769 = and i32 %1768, 31
   %1770 = zext nneg i32 %1769 to i64
-  %1771 = getelementptr inbounds nuw [32 x i32], ptr %1759, i64 0, i64 %1770
+  %1771 = getelementptr inbounds nuw i32, ptr %1759, i64 %1770
   %1772 = load i32, ptr %90, align 8
   %1773 = and i32 %1772, 6
   %1774 = icmp eq i32 %1773, 0
@@ -23067,7 +23067,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1788 = lshr i32 %108, 21
   %1789 = and i32 %1788, 31
   %1790 = zext nneg i32 %1789 to i64
-  %1791 = getelementptr inbounds nuw [32 x i32], ptr %1787, i64 0, i64 %1790
+  %1791 = getelementptr inbounds nuw i32, ptr %1787, i64 %1790
   %1792 = load i32, ptr %1791, align 4, !tbaa !56
   %1793 = shl i32 %108, 16
   %1794 = ashr exact i32 %1793, 16
@@ -23075,7 +23075,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1796 = lshr i32 %108, 16
   %1797 = and i32 %1796, 31
   %1798 = zext nneg i32 %1797 to i64
-  %1799 = getelementptr inbounds nuw [32 x i32], ptr %1787, i64 0, i64 %1798
+  %1799 = getelementptr inbounds nuw i32, ptr %1787, i64 %1798
   %1800 = load i32, ptr %90, align 8
   %1801 = and i32 %1800, 6
   %1802 = icmp eq i32 %1801, 0
@@ -23100,7 +23100,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1816 = lshr i32 %108, 21
   %1817 = and i32 %1816, 31
   %1818 = zext nneg i32 %1817 to i64
-  %1819 = getelementptr inbounds nuw [32 x i32], ptr %1815, i64 0, i64 %1818
+  %1819 = getelementptr inbounds nuw i32, ptr %1815, i64 %1818
   %1820 = load i32, ptr %1819, align 4, !tbaa !56
   %1821 = shl i32 %108, 16
   %1822 = ashr exact i32 %1821, 16
@@ -23139,7 +23139,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1843 = lshr i32 %1842, 16
   %1844 = and i32 %1843, 31
   %1845 = zext nneg i32 %1844 to i64
-  %1846 = getelementptr inbounds nuw [32 x i32], ptr %1815, i64 0, i64 %1845
+  %1846 = getelementptr inbounds nuw i32, ptr %1815, i64 %1845
   %1847 = load i32, ptr %1846, align 4, !tbaa !56
   %1848 = lshr i32 %1847, 24
   %1849 = load i32, ptr %12, align 4, !tbaa !56
@@ -23152,7 +23152,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1854 = lshr i32 %1853, 16
   %1855 = and i32 %1854, 31
   %1856 = zext nneg i32 %1855 to i64
-  %1857 = getelementptr inbounds nuw [32 x i32], ptr %1815, i64 0, i64 %1856
+  %1857 = getelementptr inbounds nuw i32, ptr %1815, i64 %1856
   %1858 = load i32, ptr %1857, align 4, !tbaa !56
   %1859 = lshr i32 %1858, 16
   %1860 = load i32, ptr %12, align 4, !tbaa !56
@@ -23165,7 +23165,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1865 = lshr i32 %1864, 16
   %1866 = and i32 %1865, 31
   %1867 = zext nneg i32 %1866 to i64
-  %1868 = getelementptr inbounds nuw [32 x i32], ptr %1815, i64 0, i64 %1867
+  %1868 = getelementptr inbounds nuw i32, ptr %1815, i64 %1867
   %1869 = load i32, ptr %1868, align 4, !tbaa !56
   %1870 = lshr i32 %1869, 8
   %1871 = load i32, ptr %12, align 4, !tbaa !56
@@ -23178,7 +23178,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1876 = lshr i32 %1875, 16
   %1877 = and i32 %1876, 31
   %1878 = zext nneg i32 %1877 to i64
-  %1879 = getelementptr inbounds nuw [32 x i32], ptr %1815, i64 0, i64 %1878
+  %1879 = getelementptr inbounds nuw i32, ptr %1815, i64 %1878
   %1880 = load i32, ptr %1879, align 4, !tbaa !56
   br label %1881
 
@@ -23214,7 +23214,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1900 = lshr i32 %108, 21
   %1901 = and i32 %1900, 31
   %1902 = zext nneg i32 %1901 to i64
-  %1903 = getelementptr inbounds nuw [32 x i32], ptr %1899, i64 0, i64 %1902
+  %1903 = getelementptr inbounds nuw i32, ptr %1899, i64 %1902
   %1904 = load i32, ptr %1903, align 4, !tbaa !56
   %1905 = shl i32 %108, 16
   %1906 = ashr exact i32 %1905, 16
@@ -23253,7 +23253,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1927 = lshr i32 %1926, 16
   %1928 = and i32 %1927, 31
   %1929 = zext nneg i32 %1928 to i64
-  %1930 = getelementptr inbounds nuw [32 x i32], ptr %1899, i64 0, i64 %1929
+  %1930 = getelementptr inbounds nuw i32, ptr %1899, i64 %1929
   %1931 = load i32, ptr %1930, align 4, !tbaa !56
   br label %1965
 
@@ -23262,7 +23262,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1934 = lshr i32 %1933, 16
   %1935 = and i32 %1934, 31
   %1936 = zext nneg i32 %1935 to i64
-  %1937 = getelementptr inbounds nuw [32 x i32], ptr %1899, i64 0, i64 %1936
+  %1937 = getelementptr inbounds nuw i32, ptr %1899, i64 %1936
   %1938 = load i32, ptr %1937, align 4, !tbaa !56
   %1939 = shl i32 %1938, 8
   %1940 = load i32, ptr %13, align 4, !tbaa !56
@@ -23275,7 +23275,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1945 = lshr i32 %1944, 16
   %1946 = and i32 %1945, 31
   %1947 = zext nneg i32 %1946 to i64
-  %1948 = getelementptr inbounds nuw [32 x i32], ptr %1899, i64 0, i64 %1947
+  %1948 = getelementptr inbounds nuw i32, ptr %1899, i64 %1947
   %1949 = load i32, ptr %1948, align 4, !tbaa !56
   %1950 = shl i32 %1949, 16
   %1951 = load i32, ptr %13, align 4, !tbaa !56
@@ -23288,7 +23288,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1956 = lshr i32 %1955, 16
   %1957 = and i32 %1956, 31
   %1958 = zext nneg i32 %1957 to i64
-  %1959 = getelementptr inbounds nuw [32 x i32], ptr %1899, i64 0, i64 %1958
+  %1959 = getelementptr inbounds nuw i32, ptr %1899, i64 %1958
   %1960 = load i32, ptr %1959, align 4, !tbaa !56
   %1961 = shl i32 %1960, 24
   %1962 = load i32, ptr %13, align 4, !tbaa !56
@@ -23364,7 +23364,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %2004 = call noundef i32 @_ZN8mips_cp0ILi32EE4mfc0Ejj(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %2003, i32 noundef %1994) #27
   %2005 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %2006 = zext nneg i8 %2001 to i64
-  %2007 = getelementptr inbounds nuw [32 x i32], ptr %2005, i64 0, i64 %2006
+  %2007 = getelementptr inbounds nuw i32, ptr %2005, i64 %2006
   store i32 %2004, ptr %2007, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %2001, ptr %25, align 1, !tbaa !329
@@ -23379,7 +23379,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %2013 = lshr i32 %108, 16
   %2014 = and i32 %2013, 31
   %2015 = zext nneg i32 %2014 to i64
-  %2016 = getelementptr inbounds nuw [32 x i32], ptr %2012, i64 0, i64 %2015
+  %2016 = getelementptr inbounds nuw i32, ptr %2012, i64 %2015
   %2017 = load i32, ptr %2016, align 4, !tbaa !56
   call void @_ZN8mips_cp0ILi32EE4mtc0Ejjj(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %2010, i32 noundef %2011, i32 noundef %2017) #27
   br label %2105
@@ -23429,7 +23429,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %2035 = lshr i32 %108, 21
   %2036 = and i32 %2035, 31
   %2037 = zext nneg i32 %2036 to i64
-  %2038 = getelementptr inbounds nuw [32 x i32], ptr %2034, i64 0, i64 %2037
+  %2038 = getelementptr inbounds nuw i32, ptr %2034, i64 %2037
   %2039 = load i32, ptr %2038, align 4, !tbaa !56
   %2040 = shl i32 %108, 16
   %2041 = ashr exact i32 %2040, 16
@@ -23469,7 +23469,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %2064 = and i8 %2063, 31
   %2065 = load i32, ptr %14, align 4, !tbaa !56
   %2066 = zext nneg i8 %2064 to i64
-  %2067 = getelementptr inbounds nuw [32 x i32], ptr %2034, i64 0, i64 %2066
+  %2067 = getelementptr inbounds nuw i32, ptr %2034, i64 %2066
   store i32 %2065, ptr %2067, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %2064, ptr %25, align 1, !tbaa !329
@@ -23485,7 +23485,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %2071 = lshr i32 %108, 21
   %2072 = and i32 %2071, 31
   %2073 = zext nneg i32 %2072 to i64
-  %2074 = getelementptr inbounds nuw [32 x i32], ptr %2070, i64 0, i64 %2073
+  %2074 = getelementptr inbounds nuw i32, ptr %2070, i64 %2073
   %2075 = load i32, ptr %2074, align 4, !tbaa !56
   %2076 = shl i32 %108, 16
   %2077 = ashr exact i32 %2076, 16
@@ -23493,7 +23493,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %2079 = lshr i32 %108, 16
   %2080 = and i32 %2079, 31
   %2081 = zext nneg i32 %2080 to i64
-  %2082 = getelementptr inbounds nuw [32 x i32], ptr %2070, i64 0, i64 %2081
+  %2082 = getelementptr inbounds nuw i32, ptr %2070, i64 %2081
   %2083 = load i32, ptr %90, align 8
   %2084 = and i32 %2083, 6
   %2085 = icmp eq i32 %2084, 0
@@ -23519,7 +23519,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %2100 = trunc i32 %2099 to i8
   %2101 = and i8 %2100, 31
   %2102 = zext nneg i8 %2101 to i64
-  %2103 = getelementptr inbounds nuw [32 x i32], ptr %2070, i64 0, i64 %2102
+  %2103 = getelementptr inbounds nuw i32, ptr %2070, i64 %2102
   store i32 1, ptr %2103, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %2101, ptr %25, align 1, !tbaa !329
@@ -24280,7 +24280,7 @@ define linkonce_odr dso_local void @_ZN8mips_cp0ILi32EE4tlbrEv(ptr noundef nonnu
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = and i32 %5, 255
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [32 x %struct.mips_tlb], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.mips_tlb, ptr %6, i64 %8
   %10 = load i64, ptr %9, align 4, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i32, ptr %11, align 4, !tbaa !59
@@ -24377,7 +24377,7 @@ define linkonce_odr dso_local void @_ZN8mips_cp0ILi32EE5tlbwiEv(ptr noundef nonn
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = and i32 %45, 255
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [32 x %struct.mips_tlb], ptr %46, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %struct.mips_tlb, ptr %46, i64 %48
   store i64 %36, ptr %49, align 4, !tbaa !59
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %41, ptr %50, align 4, !tbaa !59
@@ -24433,7 +24433,7 @@ define linkonce_odr dso_local void @_ZN8mips_cp0ILi32EE5tlbwrEv(ptr noundef nonn
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = and i32 %45, 255
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [32 x %struct.mips_tlb], ptr %46, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %struct.mips_tlb, ptr %46, i64 %48
   store i64 %36, ptr %49, align 4, !tbaa !59
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %41, ptr %50, align 4, !tbaa !59
@@ -24701,7 +24701,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8mips_mmuILi32EE9tlb_matchEjh(ptr 
 
 6:                                                ; preds = %24, %3
   %7 = phi i64 [ 0, %3 ], [ %25, %24 ]
-  %8 = getelementptr inbounds nuw [32 x %struct.mips_tlb], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.mips_tlb, ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 19

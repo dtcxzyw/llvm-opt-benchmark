@@ -909,7 +909,7 @@ define dso_local zeroext i8 @trace_find_mark(i64 noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %7, %1
   %3 = phi i64 [ 0, %1 ], [ %8, %7 ]
-  %4 = getelementptr [6 x %struct.trace_mark], ptr @mark, i64 0, i64 %3
+  %4 = getelementptr %struct.trace_mark, ptr @mark, i64 %3
   %5 = load i64, ptr %4, align 16
   %6 = icmp ult i64 %5, %0
   br i1 %6, label %10, label %7
@@ -925,7 +925,7 @@ define dso_local zeroext i8 @trace_find_mark(i64 noundef %0) local_unnamed_addr 
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr [6 x %struct.trace_mark], ptr @mark, i64 0, i64 %11, i32 1
+  %14 = getelementptr %struct.trace_mark, ptr @mark, i64 %11, i32 1
   %15 = load i8, ptr %14, align 8
   br label %.thread
 
@@ -1143,7 +1143,7 @@ define dso_local range(i32 0, 2) i32 @trace_print_lat_context(ptr noundef %0) lo
 
 73:                                               ; preds = %78, %71
   %74 = phi i64 [ 0, %71 ], [ %79, %78 ]
-  %75 = getelementptr [6 x %struct.trace_mark], ptr @mark, i64 0, i64 %74
+  %75 = getelementptr %struct.trace_mark, ptr @mark, i64 %74
   %76 = load i64, ptr %75, align 16
   %77 = icmp ult i64 %76, %72
   br i1 %77, label %81, label %78
@@ -1159,7 +1159,7 @@ define dso_local range(i32 0, 2) i32 @trace_print_lat_context(ptr noundef %0) lo
   br i1 %83, label %.thread4, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr [6 x %struct.trace_mark], ptr @mark, i64 0, i64 %82, i32 1
+  %85 = getelementptr %struct.trace_mark, ptr @mark, i64 %82, i32 1
   %86 = load i8, ptr %85, align 8
   %87 = zext i8 %86 to i32
   br label %.thread4
@@ -1201,7 +1201,7 @@ declare dso_local ptr @trace_find_next_entry(ptr noundef, ptr noundef, ptr nound
 define dso_local ptr @ftrace_find_event(i32 noundef %0) local_unnamed_addr #4 align 16 {
   %2 = and i32 %0, 127
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr [128 x %struct.hlist_head], ptr @event_hash, i64 0, i64 %3
+  %4 = getelementptr %struct.hlist_head, ptr @event_hash, i64 %3
   br label %5
 
 5:                                                ; preds = %9, %1
@@ -1295,7 +1295,7 @@ define dso_local i32 @register_trace_event(ptr noundef %0) #0 align 16 {
 20:                                               ; preds = %17
   %21 = and i32 %11, 127
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr [128 x %struct.hlist_head], ptr @event_hash, i64 0, i64 %22
+  %23 = getelementptr %struct.hlist_head, ptr @event_hash, i64 %22
   br label %24
 
 24:                                               ; preds = %28, %20
@@ -1360,7 +1360,7 @@ define dso_local i32 @register_trace_event(ptr noundef %0) #0 align 16 {
   %55 = load i32, ptr %10, align 8
   %56 = and i32 %55, 127
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr [128 x %struct.hlist_head], ptr @event_hash, i64 0, i64 %57
+  %58 = getelementptr %struct.hlist_head, ptr @event_hash, i64 %57
   %59 = load ptr, ptr %58, align 8
   store volatile ptr %59, ptr %0, align 8
   %60 = icmp eq ptr %59, null
@@ -1686,7 +1686,7 @@ define dso_local i32 @print_event_fields(ptr noundef %0, ptr noundef %1) local_u
 120:                                              ; preds = %119
   %121 = load i8, ptr %83, align 1
   %122 = zext i8 %121 to i64
-  %123 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %122
+  %123 = getelementptr i8, ptr @_ctype, i64 %122
   %124 = load i8, ptr %123, align 1
   %125 = and i8 %124, -105
   %126 = icmp eq i8 %125, 0
@@ -1870,7 +1870,7 @@ define dso_local noundef i32 @init_events() local_unnamed_addr #5 section ".init
 
 11:                                               ; preds = %8, %1
   %12 = add nuw nsw i64 %2, 1
-  %13 = getelementptr [14 x ptr], ptr @events, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr @events, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq i64 %12, 13
   br i1 %15, label %16, label %1, !llvm.loop !48
@@ -2031,13 +2031,13 @@ define internal i32 @trace_ctx_print(ptr noundef %0, i32 %1, ptr readnone captur
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 23
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr [10 x i8], ptr @task_index_to_char.state_char, i64 0, i64 %9
+  %10 = getelementptr i8, ptr @task_index_to_char.state_char, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [10 x i8], ptr @task_index_to_char.state_char, i64 0, i64 %15
+  %16 = getelementptr i8, ptr @task_index_to_char.state_char, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -2068,12 +2068,12 @@ define internal i32 @trace_ctx_raw(ptr noundef %0, i32 %1, ptr readnone captures
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 21
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [10 x i8], ptr @task_index_to_char.state_char, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @task_index_to_char.state_char, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 23
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [10 x i8], ptr @task_index_to_char.state_char, i64 0, i64 %13
+  %14 = getelementptr i8, ptr @task_index_to_char.state_char, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8344
@@ -2106,14 +2106,14 @@ define internal i32 @trace_ctx_hex(ptr noundef %0, i32 %1, ptr readnone captures
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 21
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr [10 x i8], ptr @task_index_to_char.state_char, i64 0, i64 %10
+  %11 = getelementptr i8, ptr @task_index_to_char.state_char, i64 %10
   %12 = load i8, ptr %11, align 1
   store i8 %12, ptr %4, align 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 23
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [10 x i8], ptr @task_index_to_char.state_char, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @task_index_to_char.state_char, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   store i32 %19, ptr %5, align 4
@@ -2168,13 +2168,13 @@ define internal i32 @trace_wake_print(ptr noundef %0, i32 %1, ptr readnone captu
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 23
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr [10 x i8], ptr @task_index_to_char.state_char, i64 0, i64 %9
+  %10 = getelementptr i8, ptr @task_index_to_char.state_char, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [10 x i8], ptr @task_index_to_char.state_char, i64 0, i64 %15
+  %16 = getelementptr i8, ptr @task_index_to_char.state_char, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -2205,7 +2205,7 @@ define internal i32 @trace_wake_raw(ptr noundef %0, i32 %1, ptr readnone capture
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 23
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [10 x i8], ptr @task_index_to_char.state_char, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @task_index_to_char.state_char, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8344
@@ -2239,7 +2239,7 @@ define internal i32 @trace_wake_hex(ptr noundef %0, i32 %1, ptr readnone capture
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 23
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr [10 x i8], ptr @task_index_to_char.state_char, i64 0, i64 %11
+  %12 = getelementptr i8, ptr @task_index_to_char.state_char, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   store i32 %14, ptr %5, align 4
@@ -2393,7 +2393,7 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
 
 .split.us:                                        ; preds = %.split.us.preheader, %56
   %41 = phi i64 [ %57, %56 ], [ 0, %.split.us.preheader ]
-  %42 = getelementptr [8 x i64], ptr %40, i64 0, i64 %41
+  %42 = getelementptr i64, ptr %40, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.critedge, label %45
@@ -2427,7 +2427,7 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
 
 .split:                                           ; preds = %27, %107
   %59 = phi i64 [ %108, %107 ], [ 0, %27 ]
-  %60 = getelementptr [8 x i64], ptr %29, i64 0, i64 %59
+  %60 = getelementptr i64, ptr %29, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %.split7.us, label %63
@@ -2924,7 +2924,7 @@ define internal i32 @trace_timerlat_print(ptr noundef %0, i32 %1, ptr readnone c
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr [3 x ptr], ptr @timerlat_lat_context, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr @timerlat_lat_context, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i64, ptr %18, align 8
@@ -2991,7 +2991,7 @@ define internal i32 @trace_raw_data(ptr noundef %0, i32 %1, ptr readnone capture
 18:                                               ; preds = %18, %16
   %19 = phi i64 [ 0, %16 ], [ %25, %18 ]
   %20 = phi i32 [ 0, %16 ], [ %24, %18 ]
-  %21 = getelementptr [0 x i8], ptr %17, i64 0, i64 %19
+  %21 = getelementptr i8, ptr %17, i64 %19
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.75, i32 noundef %23) #10

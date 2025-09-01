@@ -574,12 +574,12 @@ Base64_SkipNewline.exit212:                       ; preds = %159, %.Base64_SkipN
   %191 = zext nneg i8 %190 to i32
   %192 = and i32 %191, 63
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [80 x i8], ptr @base64Decode, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @base64Decode, i64 %193
   %195 = load i8, ptr %194, align 1, !tbaa !7
   %196 = and i32 %191, 15
-  %197 = or disjoint i32 %196, 64
-  %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw [80 x i8], ptr @base64Decode, i64 0, i64 %198
+  %197 = zext nneg i32 %196 to i64
+  %198 = getelementptr inbounds nuw i8, ptr @base64Decode, i64 %197
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 64
   %200 = load i8, ptr %199, align 1, !tbaa !7
   %.inv8.i = icmp samesign ult i8 %46, 107
   %201 = select i1 %.inv8.i, i8 %195, i8 %200
@@ -587,12 +587,12 @@ Base64_SkipNewline.exit212:                       ; preds = %159, %.Base64_SkipN
   %203 = zext nneg i8 %202 to i32
   %204 = and i32 %203, 63
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr inbounds nuw [80 x i8], ptr @base64Decode, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i8, ptr @base64Decode, i64 %205
   %207 = load i8, ptr %206, align 1, !tbaa !7
   %208 = and i32 %203, 15
-  %209 = or disjoint i32 %208, 64
-  %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds nuw [80 x i8], ptr @base64Decode, i64 0, i64 %210
+  %209 = zext nneg i32 %208 to i64
+  %210 = getelementptr inbounds nuw i8, ptr @base64Decode, i64 %209
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 64
   %212 = load i8, ptr %211, align 1, !tbaa !7
   %.inv8.i214 = icmp samesign ult i8 %87, 107
   %213 = select i1 %.inv8.i214, i8 %207, i8 %212
@@ -603,12 +603,12 @@ Base64_SkipNewline.exit212:                       ; preds = %159, %.Base64_SkipN
   %216 = zext nneg i8 %215 to i32
   %217 = and i32 %216, 63
   %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds nuw [80 x i8], ptr @base64Decode, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw i8, ptr @base64Decode, i64 %218
   %220 = load i8, ptr %219, align 1, !tbaa !7
   %221 = and i32 %216, 15
-  %222 = or disjoint i32 %221, 64
-  %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw [80 x i8], ptr @base64Decode, i64 0, i64 %223
+  %222 = zext nneg i32 %221 to i64
+  %223 = getelementptr inbounds nuw i8, ptr @base64Decode, i64 %222
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 64
   %225 = load i8, ptr %224, align 1, !tbaa !7
   %.inv8.i216 = icmp samesign ult i8 %126, 107
   %226 = select i1 %.inv8.i216, i8 %220, i8 %225
@@ -624,12 +624,12 @@ Base64_SkipNewline.exit212:                       ; preds = %159, %.Base64_SkipN
   %232 = zext nneg i8 %231 to i32
   %233 = and i32 %232, 63
   %234 = zext nneg i32 %233 to i64
-  %235 = getelementptr inbounds nuw [80 x i8], ptr @base64Decode, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw i8, ptr @base64Decode, i64 %234
   %236 = load i8, ptr %235, align 1, !tbaa !7
   %237 = and i32 %232, 15
-  %238 = or disjoint i32 %237, 64
-  %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw [80 x i8], ptr @base64Decode, i64 0, i64 %239
+  %238 = zext nneg i32 %237 to i64
+  %239 = getelementptr inbounds nuw i8, ptr @base64Decode, i64 %238
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 64
   %241 = load i8, ptr %240, align 1, !tbaa !7
   %.inv8.i218 = icmp samesign ult i8 %165, 107
   %242 = select i1 %.inv8.i218, i8 %236, i8 %241
@@ -784,7 +784,7 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %42 = and i8 %36, 63
   %43 = load i32, ptr %3, align 4, !tbaa !3
   %44 = zext nneg i8 %37 to i64
-  %45 = getelementptr inbounds nuw [64 x i8], ptr @base64Encode, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @base64Encode, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !7
   br i1 %21, label %47, label %51
 
@@ -889,7 +889,7 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %95 = or disjoint i8 %94, %93
   %96 = load i32, ptr %3, align 4, !tbaa !3
   %97 = zext nneg i8 %95 to i64
-  %98 = getelementptr inbounds nuw [64 x i8], ptr @base64Encode, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @base64Encode, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !7
   br i1 %21, label %100, label %104
 
@@ -990,7 +990,7 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %.8258.ph = phi i32 [ %110, %109 ], [ %118, %136 ], [ %141, %137 ], [ %133, %129 ], [ %125, %121 ], [ %116, %115 ], [ %110, %111 ]
   %145 = load i32, ptr %3, align 4, !tbaa !3
   %146 = zext nneg i8 %41 to i64
-  %147 = getelementptr inbounds nuw [64 x i8], ptr @base64Encode, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr @base64Encode, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !7
   br i1 %21, label %149, label %153
 
@@ -1091,7 +1091,7 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %.9.ph = phi i32 [ %159, %158 ], [ %167, %185 ], [ %190, %186 ], [ %182, %178 ], [ %174, %170 ], [ %165, %164 ], [ %159, %160 ]
   %194 = load i32, ptr %3, align 4, !tbaa !3
   %195 = zext nneg i8 %42 to i64
-  %196 = getelementptr inbounds nuw [64 x i8], ptr @base64Encode, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw i8, ptr @base64Encode, i64 %195
   %197 = load i8, ptr %196, align 1, !tbaa !7
   br i1 %21, label %198, label %202
 
@@ -1279,7 +1279,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   %284 = zext nneg i32 %283 to i64
   %285 = load i32, ptr %3, align 4, !tbaa !3
   %286 = zext nneg i8 %281 to i64
-  %287 = getelementptr inbounds nuw [64 x i8], ptr @base64Encode, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw i8, ptr @base64Encode, i64 %286
   %288 = load i8, ptr %287, align 1, !tbaa !7
   %.not416 = icmp eq i32 %4, 1
   br i1 %.not416, label %289, label %293
@@ -1386,7 +1386,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   %338 = or disjoint i8 %335, %337
   %339 = load i32, ptr %3, align 4, !tbaa !3
   %340 = zext nneg i8 %338 to i64
-  %341 = getelementptr inbounds nuw [64 x i8], ptr @base64Encode, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw i8, ptr @base64Encode, i64 %340
   %342 = load i8, ptr %341, align 1, !tbaa !7
   br i1 %.not416, label %343, label %347
 
@@ -1489,7 +1489,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   br i1 %269, label %389, label %436
 
 389:                                              ; preds = %387
-  %390 = getelementptr inbounds nuw [64 x i8], ptr @base64Encode, i64 0, i64 %284
+  %390 = getelementptr inbounds nuw i8, ptr @base64Encode, i64 %284
   %391 = load i8, ptr %390, align 4, !tbaa !7
   br i1 %.not416, label %392, label %396
 

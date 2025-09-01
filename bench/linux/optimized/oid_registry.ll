@@ -69,7 +69,7 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr noundef readonly capture
   %30 = add i32 %29, %27
   %31 = lshr i32 %30, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr [98 x %struct.anon], ptr @oid_search_table, i64 0, i64 %32
+  %33 = getelementptr %struct.anon, ptr @oid_search_table, i64 %32
   %34 = load i8, ptr %33, align 4
   %35 = zext i8 %34 to i32
   %36 = icmp samesign ult i32 %24, %35
@@ -77,7 +77,7 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr noundef readonly capture
 
 37:                                               ; preds = %46, %28
   %38 = icmp ult i32 %27, %31
-  br i1 %38, label %28, label %.loopexit, !llvm.loop !8
+  br i1 %38, label %28, label %.loopexit9, !llvm.loop !8
 
 39:                                               ; preds = %28
   %40 = icmp samesign ugt i32 %24, %35
@@ -87,70 +87,74 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr noundef readonly capture
   %42 = add nuw i32 %31, 1
   br label %.loopexit8
 
-.loopexit8:                                       ; preds = %68, %61, %41
-  %43 = phi i32 [ %42, %41 ], [ %63, %61 ], [ %78, %68 ]
-  %44 = phi i32 [ %29, %41 ], [ %29, %61 ], [ %79, %68 ]
+.loopexit8:                                       ; preds = %66, %58, %41
+  %43 = phi i32 [ %42, %41 ], [ %60, %58 ], [ %74, %66 ]
+  %44 = phi i32 [ %29, %41 ], [ %29, %58 ], [ %75, %66 ]
   %45 = icmp ult i32 %43, %44
-  br i1 %45, label %25, label %.loopexit, !llvm.loop !8
+  br i1 %45, label %25, label %.loopexit9, !llvm.loop !8
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = add nuw nsw i32 %49, 1
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr [99 x i16], ptr @oid_index, i64 0, i64 %51
-  %53 = load i16, ptr %52, align 2
-  %54 = zext i16 %53 to i64
-  %55 = zext i8 %48 to i64
-  %56 = getelementptr [99 x i16], ptr @oid_index, i64 0, i64 %55
-  %57 = load i16, ptr %56, align 2
-  %58 = zext i16 %57 to i64
-  %59 = sub nsw i64 %54, %58
-  %60 = icmp ugt i64 %59, %1
-  br i1 %60, label %37, label %61
+  %49 = zext i8 %48 to i64
+  %50 = getelementptr i16, ptr @oid_index, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 2
+  %52 = load i16, ptr %51, align 2
+  %53 = zext i16 %52 to i64
+  %54 = load i16, ptr %50, align 2
+  %55 = zext i16 %54 to i64
+  %56 = sub nsw i64 %53, %55
+  %57 = icmp ugt i64 %56, %1
+  br i1 %57, label %37, label %58
 
-61:                                               ; preds = %46
-  %62 = icmp ult i64 %59, %1
-  %63 = add nuw i32 %31, 1
-  br i1 %62, label %.loopexit8, label %.preheader
+58:                                               ; preds = %46
+  %59 = icmp ult i64 %56, %1
+  %60 = add nuw i32 %31, 1
+  br i1 %59, label %.loopexit8, label %.preheader
 
-.preheader:                                       ; preds = %61, %68
-  %64 = phi i32 [ %78, %68 ], [ %27, %61 ]
-  %65 = phi i32 [ %79, %68 ], [ %29, %61 ]
-  %66 = phi i64 [ %69, %68 ], [ %59, %61 ]
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %.loopexit, label %68
+.preheader:                                       ; preds = %58
+  %invariant.gep = getelementptr i8, ptr @oid_data, i64 %55
+  br label %61
 
-68:                                               ; preds = %.preheader
-  %69 = add nsw i64 %66, -1
-  %70 = add nuw nsw i64 %69, %58
-  %71 = getelementptr [702 x i8], ptr @oid_data, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = getelementptr i8, ptr %0, i64 %69
-  %74 = load i8, ptr %73, align 1
-  %75 = icmp ugt i8 %72, %74
-  %76 = icmp ult i8 %72, %74
-  %77 = select i1 %76, i32 %63, i32 %64
-  %78 = select i1 %75, i32 %64, i32 %77
-  %79 = select i1 %75, i32 %31, i32 %65
-  %80 = icmp eq i8 %72, %74
-  br i1 %80, label %.preheader, label %.loopexit8, !llvm.loop !8
+61:                                               ; preds = %.preheader, %66
+  %62 = phi i32 [ %74, %66 ], [ %27, %.preheader ]
+  %63 = phi i32 [ %75, %66 ], [ %29, %.preheader ]
+  %64 = phi i64 [ %67, %66 ], [ %56, %.preheader ]
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %.loopexit, label %66
 
-.loopexit:                                        ; preds = %.loopexit8, %37, %.preheader
-  %81 = phi i32 [ %49, %.preheader ], [ 98, %37 ], [ 98, %.loopexit8 ]
-  ret i32 %81
+66:                                               ; preds = %61
+  %67 = add nsw i64 %64, -1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %67
+  %68 = load i8, ptr %gep, align 1
+  %69 = getelementptr i8, ptr %0, i64 %67
+  %70 = load i8, ptr %69, align 1
+  %71 = icmp ugt i8 %68, %70
+  %72 = icmp ult i8 %68, %70
+  %73 = select i1 %72, i32 %60, i32 %62
+  %74 = select i1 %71, i32 %62, i32 %73
+  %75 = select i1 %71, i32 %31, i32 %63
+  %76 = icmp eq i8 %68, %70
+  br i1 %76, label %61, label %.loopexit8, !llvm.loop !8
+
+.loopexit:                                        ; preds = %61
+  %77 = zext i8 %48 to i32
+  br label %.loopexit9
+
+.loopexit9:                                       ; preds = %.loopexit8, %37, %.loopexit
+  %78 = phi i32 [ %77, %.loopexit ], [ 98, %37 ], [ 98, %.loopexit8 ]
+  ret i32 %78
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = icmp ult i64 %1, 3
-  br i1 %4, label %95, label %5
+  br i1 %4, label %92, label %5
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 6
-  br i1 %7, label %8, label %95
+  br i1 %7, label %8, label %92
 
 8:                                                ; preds = %5
   %9 = getelementptr i8, ptr %0, i64 1
@@ -158,7 +162,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr noundef readonly c
   %11 = zext i8 %10 to i64
   %12 = add i64 %1, -2
   %13 = icmp eq i64 %12, %11
-  br i1 %13, label %14, label %95
+  br i1 %13, label %14, label %92
 
 14:                                               ; preds = %8
   %15 = getelementptr i8, ptr %0, i64 2
@@ -200,7 +204,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr noundef readonly c
   %43 = add i32 %42, %40
   %44 = lshr i32 %43, 1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr [98 x %struct.anon], ptr @oid_search_table, i64 0, i64 %45
+  %46 = getelementptr %struct.anon, ptr @oid_search_table, i64 %45
   %47 = load i8, ptr %46, align 4
   %48 = zext i8 %47 to i32
   %49 = icmp samesign ult i32 %37, %48
@@ -208,7 +212,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr noundef readonly c
 
 50:                                               ; preds = %59, %41
   %51 = icmp ult i32 %40, %44
-  br i1 %51, label %41, label %.loopexit, !llvm.loop !8
+  br i1 %51, label %41, label %.loopexit10, !llvm.loop !8
 
 52:                                               ; preds = %41
   %53 = icmp samesign ugt i32 %37, %48
@@ -218,64 +222,68 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr noundef readonly c
   %55 = add nuw i32 %44, 1
   br label %.loopexit9
 
-.loopexit9:                                       ; preds = %81, %74, %54
-  %56 = phi i32 [ %55, %54 ], [ %76, %74 ], [ %91, %81 ]
-  %57 = phi i32 [ %42, %54 ], [ %42, %74 ], [ %92, %81 ]
+.loopexit9:                                       ; preds = %79, %71, %54
+  %56 = phi i32 [ %55, %54 ], [ %73, %71 ], [ %87, %79 ]
+  %57 = phi i32 [ %42, %54 ], [ %42, %71 ], [ %88, %79 ]
   %58 = icmp ult i32 %56, %57
-  br i1 %58, label %38, label %.loopexit, !llvm.loop !8
+  br i1 %58, label %38, label %.loopexit10, !llvm.loop !8
 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  %63 = add nuw nsw i32 %62, 1
-  %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr [99 x i16], ptr @oid_index, i64 0, i64 %64
-  %66 = load i16, ptr %65, align 2
-  %67 = zext i16 %66 to i64
-  %68 = zext i8 %61 to i64
-  %69 = getelementptr [99 x i16], ptr @oid_index, i64 0, i64 %68
-  %70 = load i16, ptr %69, align 2
-  %71 = zext i16 %70 to i64
-  %72 = sub nsw i64 %67, %71
-  %73 = icmp ugt i64 %72, %11
-  br i1 %73, label %50, label %74
+  %62 = zext i8 %61 to i64
+  %63 = getelementptr i16, ptr @oid_index, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 2
+  %65 = load i16, ptr %64, align 2
+  %66 = zext i16 %65 to i64
+  %67 = load i16, ptr %63, align 2
+  %68 = zext i16 %67 to i64
+  %69 = sub nsw i64 %66, %68
+  %70 = icmp ugt i64 %69, %11
+  br i1 %70, label %50, label %71
 
-74:                                               ; preds = %59
-  %75 = icmp ult i64 %72, %11
-  %76 = add nuw i32 %44, 1
-  br i1 %75, label %.loopexit9, label %.preheader
+71:                                               ; preds = %59
+  %72 = icmp ult i64 %69, %11
+  %73 = add nuw i32 %44, 1
+  br i1 %72, label %.loopexit9, label %.preheader
 
-.preheader:                                       ; preds = %74, %81
-  %77 = phi i32 [ %91, %81 ], [ %40, %74 ]
-  %78 = phi i32 [ %92, %81 ], [ %42, %74 ]
-  %79 = phi i64 [ %82, %81 ], [ %72, %74 ]
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %.loopexit, label %81
+.preheader:                                       ; preds = %71
+  %invariant.gep = getelementptr i8, ptr @oid_data, i64 %68
+  br label %74
 
-81:                                               ; preds = %.preheader
-  %82 = add nsw i64 %79, -1
-  %83 = add nuw nsw i64 %82, %71
-  %84 = getelementptr [702 x i8], ptr @oid_data, i64 0, i64 %83
-  %85 = load i8, ptr %84, align 1
-  %86 = getelementptr i8, ptr %15, i64 %82
-  %87 = load i8, ptr %86, align 1
-  %88 = icmp ugt i8 %85, %87
-  %89 = icmp ult i8 %85, %87
-  %90 = select i1 %89, i32 %76, i32 %77
-  %91 = select i1 %88, i32 %77, i32 %90
-  %92 = select i1 %88, i32 %44, i32 %78
-  %93 = icmp eq i8 %85, %87
-  br i1 %93, label %.preheader, label %.loopexit9, !llvm.loop !8
+74:                                               ; preds = %.preheader, %79
+  %75 = phi i32 [ %87, %79 ], [ %40, %.preheader ]
+  %76 = phi i32 [ %88, %79 ], [ %42, %.preheader ]
+  %77 = phi i64 [ %80, %79 ], [ %69, %.preheader ]
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %.loopexit, label %79
 
-.loopexit:                                        ; preds = %.loopexit9, %50, %.preheader
-  %94 = phi i32 [ %62, %.preheader ], [ 98, %50 ], [ 98, %.loopexit9 ]
-  store i32 %94, ptr %2, align 4
-  br label %95
+79:                                               ; preds = %74
+  %80 = add nsw i64 %77, -1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %80
+  %81 = load i8, ptr %gep, align 1
+  %82 = getelementptr i8, ptr %15, i64 %80
+  %83 = load i8, ptr %82, align 1
+  %84 = icmp ugt i8 %81, %83
+  %85 = icmp ult i8 %81, %83
+  %86 = select i1 %85, i32 %73, i32 %75
+  %87 = select i1 %84, i32 %75, i32 %86
+  %88 = select i1 %84, i32 %44, i32 %76
+  %89 = icmp eq i8 %81, %83
+  br i1 %89, label %74, label %.loopexit9, !llvm.loop !8
 
-95:                                               ; preds = %.loopexit, %8, %5, %3
-  %96 = phi i32 [ 0, %.loopexit ], [ -74, %8 ], [ -74, %5 ], [ -74, %3 ]
-  ret i32 %96
+.loopexit:                                        ; preds = %74
+  %90 = zext i8 %61 to i32
+  br label %.loopexit10
+
+.loopexit10:                                      ; preds = %.loopexit9, %50, %.loopexit
+  %91 = phi i32 [ %90, %.loopexit ], [ 98, %50 ], [ 98, %.loopexit9 ]
+  store i32 %91, ptr %2, align 4
+  br label %92
+
+92:                                               ; preds = %.loopexit10, %8, %5, %3
+  %93 = phi i32 [ 0, %.loopexit10 ], [ -74, %8 ], [ -74, %5 ], [ -74, %3 ]
+  ret i32 %93
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
@@ -381,27 +389,25 @@ define dso_local range(i32 -73, -74) i32 @sprint_OID(i32 noundef %0, ptr noundef
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr [99 x i16], ptr @oid_index, i64 0, i64 %7
+  %8 = getelementptr i16, ptr @oid_index, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
   %11 = getelementptr i8, ptr @oid_data, i64 %10
-  %12 = add nuw nsw i32 %0, 1
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr [99 x i16], ptr @oid_index, i64 0, i64 %13
-  %15 = load i16, ptr %14, align 2
-  %16 = zext i16 %15 to i64
-  %17 = sub nsw i64 %16, %10
-  %18 = tail call i32 @sprint_oid(ptr noundef %11, i64 noundef %17, ptr noundef %1, i64 noundef %2)
-  %19 = icmp eq i32 %18, -74
-  br i1 %19, label %20, label %21, !prof !11
+  %12 = getelementptr i8, ptr %8, i64 2
+  %13 = load i16, ptr %12, align 2
+  %14 = zext i16 %13 to i64
+  %15 = sub nsw i64 %14, %10
+  %16 = tail call i32 @sprint_oid(ptr noundef %11, i64 noundef %15, ptr noundef %1, i64 noundef %2)
+  %17 = icmp eq i32 %16, -74
+  br i1 %17, label %18, label %19, !prof !11
 
-20:                                               ; preds = %6
+18:                                               ; preds = %6
   tail call void asm sideeffect "311: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 311b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 311) #5, !srcloc !14
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 195, i32 0, i64 12) #5, !srcloc !15
   unreachable
 
-21:                                               ; preds = %6
-  ret i32 %18
+19:                                               ; preds = %6
+  ret i32 %16
 }
 
 attributes #0 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

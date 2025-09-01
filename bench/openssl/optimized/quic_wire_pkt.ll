@@ -34,7 +34,7 @@ define range(i32 0, 2) i32 @ossl_quic_hdr_protector_init(ptr noundef captures(no
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ossl_quic_hdr_protector_init, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_quic_hdr_protector_init, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = tail call ptr @EVP_CIPHER_CTX_new() #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -154,15 +154,16 @@ define range(i32 0, 2) i32 @ossl_quic_hdr_protector_decrypt(ptr noundef readonly
   br label %20
 
 20:                                               ; preds = %20, %12
-  %indvars.iv.i = phi i64 [ 0, %12 ], [ %21, %20 ]
-  %21 = add nuw nsw i64 %indvars.iv.i, 1
-  %22 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %21
+  %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %20 ]
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i
   %25 = load i8, ptr %24, align 1, !tbaa !23
   %26 = xor i8 %25, %23
   store i8 %26, ptr %24, align 1, !tbaa !23
-  %exitcond.i = icmp eq i64 %21, %wide.trip.count.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.i, label %ossl_quic_hdr_protector_decrypt_fields.exit, label %20, !llvm.loop !24
 
 ossl_quic_hdr_protector_decrypt_fields.exit:      ; preds = %20, %2
@@ -193,15 +194,16 @@ define range(i32 0, 2) i32 @ossl_quic_hdr_protector_decrypt_fields(ptr noundef r
   br label %16
 
 16:                                               ; preds = %8, %16
-  %indvars.iv = phi i64 [ 0, %8 ], [ %17, %16 ]
-  %17 = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %17
+  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %16 ]
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1, !tbaa !23
   %22 = xor i8 %21, %19
   store i8 %22, ptr %20, align 1, !tbaa !23
-  %exitcond = icmp eq i64 %17, %wide.trip.count
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %.loopexit, label %16, !llvm.loop !24
 
 .loopexit:                                        ; preds = %16, %5
@@ -323,15 +325,16 @@ define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt(ptr noundef readonly
   br label %16
 
 16:                                               ; preds = %16, %12
-  %indvars.iv.i = phi i64 [ 0, %12 ], [ %17, %16 ]
-  %17 = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %17
+  %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %16 ]
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1, !tbaa !23
   %22 = xor i8 %21, %19
   store i8 %22, ptr %20, align 1, !tbaa !23
-  %exitcond.i = icmp eq i64 %17, %wide.trip.count.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.i, label %23, label %16, !llvm.loop !27
 
 23:                                               ; preds = %16
@@ -366,15 +369,16 @@ define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt_fields(ptr noundef r
   br label %12
 
 12:                                               ; preds = %8, %12
-  %indvars.iv = phi i64 [ 0, %8 ], [ %13, %12 ]
-  %13 = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %13
+  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !23
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !23
   %18 = xor i8 %17, %15
   store i8 %18, ptr %16, align 1, !tbaa !23
-  %exitcond = icmp eq i64 %13, %wide.trip.count
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %19, label %12, !llvm.loop !27
 
 19:                                               ; preds = %12

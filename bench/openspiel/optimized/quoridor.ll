@@ -5749,7 +5749,7 @@ _ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit: ; preds = %2
 
 .lr.ph154.preheader:                              ; preds = %.preheader129
   %249 = zext i8 %242 to i64
-  %250 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %4, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %249
   br label %.lr.ph154.outer
 
 .lr.ph154.outer:                                  ; preds = %.thread, %.lr.ph154.preheader
@@ -6549,7 +6549,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %62, %.preheader ], [ %61, %.preheader.preheader ]
   %indvars.iv.i.i = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader ]
   %.078.i.i = phi i32 [ %67, %.preheader ], [ 0, %.preheader.preheader ]
-  %64 = getelementptr inbounds nuw [2 x i32], ptr %41, i64 0, i64 %indvars.iv.i.i
+  %64 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i.i
   %65 = load i32, ptr %64, align 4
   %66 = mul nsw i32 %65, %.078.i.i
   %67 = add nsw i32 %66, %indvars.iv.i.i.sroa.phi.sroa.speculated
@@ -6599,7 +6599,7 @@ _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10ope
   %indvars.iv.i.i21.sroa.phi.sroa.speculated = phi i32 [ %86, %.lr.ph ], [ %75, %87 ]
   %indvars.iv.i.i21 = phi i64 [ 0, %.lr.ph ], [ 1, %87 ]
   %.078.i.i22 = phi i32 [ 0, %.lr.ph ], [ %92, %87 ]
-  %89 = getelementptr inbounds nuw [2 x i32], ptr %41, i64 0, i64 %indvars.iv.i.i21
+  %89 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i.i21
   %90 = load i32, ptr %89, align 4
   %91 = mul nsw i32 %90, %.078.i.i22
   %92 = add nsw i32 %91, %indvars.iv.i.i21.sroa.phi.sroa.speculated

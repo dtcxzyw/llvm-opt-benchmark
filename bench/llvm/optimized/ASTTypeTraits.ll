@@ -1094,7 +1094,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr no
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.011.i = phi i32 [ %8, %.lr.ph.i ], [ %1, %.preheader.i ]
   %6 = zext i32 %.011.i to i64
-  %7 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %6
   %8 = load i32, ptr %7, align 16, !tbaa !8
   %9 = icmp ne i32 %8, %3
   %10 = icmp ne i32 %8, 0
@@ -1124,7 +1124,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeK
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.011 = phi i32 [ %7, %.lr.ph ], [ %1, %.preheader ]
   %5 = zext i32 %.011 to i64
-  %6 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %5
   %7 = load i32, ptr %6, align 16, !tbaa !8
   %8 = icmp ne i32 %7, %0
   %9 = icmp ne i32 %7, 0
@@ -1156,7 +1156,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_Pj(ptr 
   %.019.i = phi i32 [ %10, %.lr.ph.i ], [ 0, %.preheader.i ]
   %.01418.i = phi i32 [ %9, %.lr.ph.i ], [ %1, %.preheader.i ]
   %7 = zext i32 %.01418.i to i64
-  %8 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %7
   %9 = load i32, ptr %8, align 16, !tbaa !8
   %10 = add i32 %.019.i, 1
   %11 = icmp ne i32 %9, %4
@@ -1198,7 +1198,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeK
   %.019 = phi i32 [ %9, %.lr.ph ], [ 0, %.preheader ]
   %.01418 = phi i32 [ %8, %.lr.ph ], [ %1, %.preheader ]
   %6 = zext i32 %.01418 to i64
-  %7 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %6
   %8 = load i32, ptr %7, align 16, !tbaa !8
   %9 = add i32 %.019, 1
   %10 = icmp ne i32 %8, %0
@@ -1237,7 +1237,7 @@ define dso_local i32 @_ZNK5clang11ASTNodeKind12getCladeKindEv(ptr noundef nonnul
 
 4:                                                ; preds = %3
   %5 = zext i32 %.06 to i64
-  %6 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %5
   %7 = load i32, ptr %6, align 16, !tbaa !8
   %.not8 = icmp eq i32 %7, 0
   br i1 %.not8, label %.thread, label %3, !llvm.loop !17
@@ -1250,7 +1250,7 @@ define dso_local i32 @_ZNK5clang11ASTNodeKind12getCladeKindEv(ptr noundef nonnul
 define dso_local { ptr, i64 } @_ZNK5clang11ASTNodeKind11asStringRefEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %3, i32 1
+  %4 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %3, i32 1
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %6
@@ -1280,7 +1280,7 @@ define dso_local i32 @_ZN5clang11ASTNodeKind18getMostDerivedTypeES0_S0_(i32 %0, 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.011.i.i = phi i32 [ %7, %.lr.ph.i.i ], [ %1, %.preheader.i.i ]
   %5 = zext i32 %.011.i.i to i64
-  %6 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %5
   %7 = load i32, ptr %6, align 16, !tbaa !8
   %8 = icmp ne i32 %7, %0
   %9 = icmp ne i32 %7, 0
@@ -1294,7 +1294,7 @@ _ZNK5clang11ASTNodeKind8isBaseOfES0_.exit:        ; preds = %.lr.ph.i.i
 .lr.ph.i.i5:                                      ; preds = %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit, %.lr.ph.i.i5
   %.011.i.i6 = phi i32 [ %14, %.lr.ph.i.i5 ], [ %0, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit ]
   %12 = zext i32 %.011.i.i6 to i64
-  %13 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %12
   %14 = load i32, ptr %13, align 16, !tbaa !8
   %15 = icmp ne i32 %14, %1
   %16 = icmp ne i32 %14, 0
@@ -1332,7 +1332,7 @@ define dso_local i32 @_ZN5clang11ASTNodeKind28getMostDerivedCommonAncestorES0_S0
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.011.i = phi i32 [ %7, %.lr.ph.i ], [ %.fr9, %.preheader.i ]
   %5 = zext i32 %.011.i to i64
-  %6 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %5
   %7 = load i32, ptr %6, align 16, !tbaa !8
   %8 = icmp ne i32 %7, %.018
   %9 = icmp ne i32 %7, 0
@@ -1345,7 +1345,7 @@ _ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit: ; preds = %.lr.ph.i
 
 .split:                                           ; preds = %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit
   %12 = zext i32 %.018 to i64
-  %13 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %12
   %14 = load i32, ptr %13, align 16, !tbaa !8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.preheader.i, !llvm.loop !19
@@ -1362,7 +1362,7 @@ switch.lookup:
   %2 = load i32, ptr %1, align 4
   %3 = and i32 %2, 127
   %4 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [87 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_4DeclE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_4DeclE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1373,7 +1373,7 @@ switch.lookup:
   %1 = load i16, ptr %0, align 8
   %2 = and i16 %1, 511
   %3 = zext nneg i16 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [257 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1384,7 +1384,7 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 16
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [58 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_4TypeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_4TypeE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1402,7 +1402,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
   %8 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [59 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_7TypeLocE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_7TypeLocE, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
@@ -1417,7 +1417,7 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %1, align 4, !tbaa !28
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [113 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_9OMPClauseE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_9OMPClauseE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1503,7 +1503,7 @@ define dso_local void @_ZNK5clang12DynTypedNode5printERN4llvm11raw_ostreamERKNS_
 .lr.ph.i.i.i.i:                                   ; preds = %18, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi i32 [ %28, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.copyload.i, %18 ]
   %26 = zext i32 %.011.i.i.i.i to i64
-  %27 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %26
   %28 = load i32, ptr %27, align 16, !tbaa !8
   switch i32 %28, label %.lr.ph.i.i.i.i [
     i32 73, label %_ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit
@@ -1533,7 +1533,7 @@ _ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i
 .lr.ph.i.i.i.i97:                                 ; preds = %32, %.lr.ph.i.i.i.i97
   %.011.i.i.i.i98 = phi i32 [ %35, %.lr.ph.i.i.i.i97 ], [ %.sroa.0.0.copyload.i, %32 ]
   %33 = zext i32 %.011.i.i.i.i98 to i64
-  %34 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %33
   %35 = load i32, ptr %34, align 16, !tbaa !8
   switch i32 %35, label %.lr.ph.i.i.i.i97 [
     i32 77, label %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit
@@ -1554,7 +1554,7 @@ _ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 .lr.ph.i.i.i.i102:                                ; preds = %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i102
   %.011.i.i.i.i103 = phi i32 [ %39, %.lr.ph.i.i.i.i102 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread ]
   %37 = zext i32 %.011.i.i.i.i103 to i64
-  %38 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %37
   %39 = load i32, ptr %38, align 16, !tbaa !8
   switch i32 %39, label %.lr.ph.i.i.i.i102 [
     i32 176, label %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit
@@ -1578,7 +1578,7 @@ _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 .lr.ph.i.i.i.i107:                                ; preds = %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i107
   %.011.i.i.i.i108 = phi i32 [ %44, %.lr.ph.i.i.i.i107 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread ]
   %42 = zext i32 %.011.i.i.i.i108 to i64
-  %43 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %42
   %44 = load i32, ptr %43, align 16, !tbaa !8
   switch i32 %44, label %.lr.ph.i.i.i.i107 [
     i32 450, label %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit
@@ -1610,7 +1610,7 @@ _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 .lr.ph.i.i.i.i112:                                ; preds = %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i112
   %.011.i.i.i.i113 = phi i32 [ %52, %.lr.ph.i.i.i.i112 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread ]
   %50 = zext i32 %.011.i.i.i.i113 to i64
-  %51 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %50
   %52 = load i32, ptr %51, align 16, !tbaa !8
   switch i32 %52, label %.lr.ph.i.i.i.i112 [
     i32 614, label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit
@@ -1645,7 +1645,7 @@ _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
   %58 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1049)
   %59 = load i32, ptr %0, align 8, !tbaa !3
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %60, i32 1
+  %61 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %60, i32 1
   %62 = load ptr, ptr %61, align 8, !tbaa !18
   %.not.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i, label %_ZNK5clang11ASTNodeKind11asStringRefEv.exit, label %63
@@ -1761,7 +1761,7 @@ define dso_local void @_ZNK5clang12DynTypedNode4dumpERN4llvm11raw_ostreamERKNS_1
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi i32 [ %7, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.copyload.i, %3 ]
   %5 = zext i32 %.011.i.i.i.i to i64
-  %6 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %5
   %7 = load i32, ptr %6, align 16, !tbaa !8
   switch i32 %7, label %.lr.ph.i.i.i.i [
     i32 77, label %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit
@@ -1786,7 +1786,7 @@ _ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 .lr.ph.i.i.i.i31:                                 ; preds = %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i31
   %.011.i.i.i.i32 = phi i32 [ %12, %.lr.ph.i.i.i.i31 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread ]
   %10 = zext i32 %.011.i.i.i.i32 to i64
-  %11 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %10
   %12 = load i32, ptr %11, align 16, !tbaa !8
   switch i32 %12, label %.lr.ph.i.i.i.i31 [
     i32 176, label %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit
@@ -1811,7 +1811,7 @@ _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 .lr.ph.i.i.i.i36:                                 ; preds = %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i36
   %.011.i.i.i.i37 = phi i32 [ %17, %.lr.ph.i.i.i.i36 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread ]
   %15 = zext i32 %.011.i.i.i.i37 to i64
-  %16 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %15
   %17 = load i32, ptr %16, align 16, !tbaa !8
   switch i32 %17, label %.lr.ph.i.i.i.i36 [
     i32 450, label %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit
@@ -1847,7 +1847,7 @@ _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 .lr.ph.i.i.i.i43:                                 ; preds = %23, %.lr.ph.i.i.i.i43
   %.011.i.i.i.i44 = phi i32 [ %26, %.lr.ph.i.i.i.i43 ], [ %.sroa.0.0.copyload.i, %23 ]
   %24 = zext i32 %.011.i.i.i.i44 to i64
-  %25 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %24
   %26 = load i32, ptr %25, align 16, !tbaa !8
   switch i32 %26, label %.lr.ph.i.i.i.i43 [
     i32 73, label %_ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit
@@ -1862,7 +1862,7 @@ _ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i
   %27 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1050)
   %28 = load i32, ptr %0, align 8, !tbaa !3
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %29, i32 1
+  %30 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %29, i32 1
   %31 = load ptr, ptr %30, align 8, !tbaa !18
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNK5clang11ASTNodeKind11asStringRefEv.exit, label %32
@@ -1925,7 +1925,7 @@ define dso_local i64 @_ZNK5clang12DynTypedNode14getSourceRangeEv(ptr noundef non
 .lr.ph.i.i.i.i:                                   ; preds = %7, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi i32 [ %12, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.copyload.i, %7 ]
   %10 = zext i32 %.011.i.i.i.i to i64
-  %11 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %10
   %12 = load i32, ptr %11, align 16, !tbaa !8
   switch i32 %12, label %.lr.ph.i.i.i.i [
     i32 73, label %.loopexit
@@ -1946,7 +1946,7 @@ define dso_local i64 @_ZNK5clang12DynTypedNode14getSourceRangeEv(ptr noundef non
 .lr.ph.i.i.i.i82:                                 ; preds = %.loopexit233, %.lr.ph.i.i.i.i82
   %.011.i.i.i.i83 = phi i32 [ %17, %.lr.ph.i.i.i.i82 ], [ %.sroa.0.0.copyload.i, %.loopexit233 ]
   %15 = zext i32 %.011.i.i.i.i83 to i64
-  %16 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %15
   %17 = load i32, ptr %16, align 16, !tbaa !8
   switch i32 %17, label %.lr.ph.i.i.i.i82 [
     i32 77, label %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit
@@ -1975,7 +1975,7 @@ _ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 .lr.ph.i.i.i.i87:                                 ; preds = %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i87
   %.011.i.i.i.i88 = phi i32 [ %25, %.lr.ph.i.i.i.i87 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread ]
   %23 = zext i32 %.011.i.i.i.i88 to i64
-  %24 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %23
   %25 = load i32, ptr %24, align 16, !tbaa !8
   switch i32 %25, label %.lr.ph.i.i.i.i87 [
     i32 176, label %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit
@@ -2009,7 +2009,7 @@ _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
 .lr.ph.i.i.i.i94:                                 ; preds = %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i94
   %.011.i.i.i.i95 = phi i32 [ %32, %.lr.ph.i.i.i.i94 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread ]
   %30 = zext i32 %.011.i.i.i.i95 to i64
-  %31 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %30
   %32 = load i32, ptr %31, align 16, !tbaa !8
   switch i32 %32, label %.lr.ph.i.i.i.i94 [
     i32 516, label %_ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit
@@ -2054,7 +2054,7 @@ _ZNK5clang12DynTypedNode3getINS_9OMPClauseEEEPKT_v.exit.thread: ; preds = %.lr.p
 .lr.ph.i.i.i.i104:                                ; preds = %37, %.lr.ph.i.i.i.i104
   %.011.i.i.i.i105 = phi i32 [ %41, %.lr.ph.i.i.i.i104 ], [ %.sroa.0.0.copyload.i, %37 ]
   %39 = zext i32 %.011.i.i.i.i105 to i64
-  %40 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.clang::ASTNodeKind::KindInfo", ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 %39
   %41 = load i32, ptr %40, align 16, !tbaa !8
   switch i32 %41, label %.lr.ph.i.i.i.i104 [
     i32 614, label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit

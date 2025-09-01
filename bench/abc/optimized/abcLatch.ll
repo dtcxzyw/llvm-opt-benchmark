@@ -1884,7 +1884,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %101
   %175 = lshr i32 %158, %161
   %176 = xor i32 %175, %174
   %177 = and i32 %176, 1
-  %178 = getelementptr inbounds nuw [32 x i32], ptr %2, i64 0, i64 %indvars.iv223
+  %178 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv223
   store i32 %177, ptr %178, align 4, !tbaa !28
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count226

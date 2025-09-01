@@ -32,7 +32,7 @@ define i32 @sqlite3IcuInit(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw [12 x %struct.IcuScalar], ptr @sqlite3IcuInit.scalars, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %struct.IcuScalar, ptr @sqlite3IcuInit.scalars, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 16, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !13
@@ -359,7 +359,7 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
 31:                                               ; preds = %29
   %32 = and i32 %24, 15
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [17 x i8], ptr @.str.15, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !20
   %36 = zext i8 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 1
@@ -386,7 +386,7 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
   %51 = zext i8 %50 to i32
   %52 = lshr i32 %51, 4
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [17 x i8], ptr @.str.16, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @.str.16, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !20
   %56 = sext i8 %55 to i32
   %57 = shl nuw nsw i32 1, %46
@@ -572,9 +572,9 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %8, label %9, label %.loopexit112
 
 9:                                                ; preds = %select.unfold
-  %10 = add nsw i32 %7, -192
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [64 x i8], ptr @icuUtf8Trans1, i64 0, i64 %11
+  %10 = zext i8 %6 to i64
+  %11 = getelementptr i8, ptr @icuUtf8Trans1, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -192
   %13 = load i8, ptr %12, align 1, !tbaa !20
   %14 = zext i8 %13 to i32
   %15 = load i8, ptr %5, align 1, !tbaa !20
@@ -715,9 +715,9 @@ select.unfold.outer.backedge:                     ; preds = %.preheader111, %59,
   br i1 %71, label %72, label %.loopexit110
 
 72:                                               ; preds = %67
-  %73 = add nsw i32 %70, -192
-  %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [64 x i8], ptr @icuUtf8Trans1, i64 0, i64 %74
+  %73 = zext i8 %69 to i64
+  %74 = getelementptr i8, ptr @icuUtf8Trans1, i64 %73
+  %75 = getelementptr i8, ptr %74, i64 -192
   %76 = load i8, ptr %75, align 1, !tbaa !20
   %77 = zext i8 %76 to i32
   %78 = load i8, ptr %68, align 1, !tbaa !20

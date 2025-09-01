@@ -151,7 +151,7 @@ define internal fastcc ptr @fetch_array_arg_replace_nulls(ptr noundef %0, i32 no
 18:                                               ; preds = %16, %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.NullableDatum, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
@@ -1859,17 +1859,17 @@ define dso_local i64 @array_agg_array_combine(ptr noundef %0) local_unnamed_addr
 
 107:                                              ; preds = %.lr.ph, %106
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %106 ]
-  %108 = getelementptr inbounds nuw [6 x i32], ptr %98, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds nuw [6 x i32], ptr %99, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4
   %.not110 = icmp eq i32 %109, %111
   br i1 %.not110, label %112, label %117
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw [6 x i32], ptr %100, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds nuw [6 x i32], ptr %101, i64 0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
   %116 = load i32, ptr %115, align 4
   %.not111 = icmp eq i32 %114, %116
   br i1 %.not111, label %106, label %117

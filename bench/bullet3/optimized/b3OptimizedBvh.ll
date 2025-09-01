@@ -794,7 +794,7 @@ define dso_local void @_ZN14b3OptimizedBvh14updateBvhNodesEP23b3StridingMeshInte
   %.sroa.0.0.vec.insert.i.us = insertelement <2 x float> poison, float %85, i64 0
   %.sroa.0.4.vec.insert.i.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i.us, float %88, i64 1
   %.sroa.3.12.vec.insert.i.us = insertelement <2 x float> <float poison, float 0.000000e+00>, float %91, i64 0
-  %92 = getelementptr inbounds nuw [3 x %class.b3Vector3], ptr %14, i64 0, i64 %indvars.iv154
+  %92 = getelementptr inbounds nuw %class.b3Vector3, ptr %14, i64 %indvars.iv154
   store <2 x float> %.sroa.0.4.vec.insert.i.us, ptr %92, align 16
   %.sroa.425.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %92, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.us, ptr %.sroa.425.0..sroa_idx.us, align 8, !tbaa !44
@@ -954,7 +954,7 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:                   ; preds = %181, %80
   %.sroa.0.0.vec.insert.i104 = insertelement <2 x float> poison, float %187, i64 0
   %.sroa.0.4.vec.insert.i105 = insertelement <2 x float> %.sroa.0.0.vec.insert.i104, float %191, i64 1
   %.sroa.3.12.vec.insert.i106 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %195, i64 0
-  %196 = getelementptr inbounds nuw [3 x %class.b3Vector3], ptr %14, i64 0, i64 %indvars.iv151
+  %196 = getelementptr inbounds nuw %class.b3Vector3, ptr %14, i64 %indvars.iv151
   store <2 x float> %.sroa.0.4.vec.insert.i105, ptr %196, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %196, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i106, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !44
@@ -979,19 +979,19 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:                   ; preds = %181, %80
 
 210:                                              ; preds = %197, %210
   %indvars.iv = phi i64 [ 0, %197 ], [ %indvars.iv.next, %210 ]
-  %211 = getelementptr inbounds nuw [3 x i16], ptr %198, i64 0, i64 %indvars.iv
+  %211 = getelementptr inbounds nuw i16, ptr %198, i64 %indvars.iv
   %212 = load i16, ptr %211, align 2, !tbaa !51
-  %213 = getelementptr inbounds nuw [3 x i16], ptr %37, i64 0, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv
   store i16 %212, ptr %213, align 2, !tbaa !51
-  %214 = getelementptr inbounds nuw [3 x i16], ptr %206, i64 0, i64 %indvars.iv
+  %214 = getelementptr inbounds nuw i16, ptr %206, i64 %indvars.iv
   %215 = load i16, ptr %214, align 2, !tbaa !51
   %spec.store.select = call i16 @llvm.umin.i16(i16 %212, i16 %215)
   store i16 %spec.store.select, ptr %213, align 2
-  %216 = getelementptr inbounds nuw [3 x i16], ptr %207, i64 0, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw i16, ptr %207, i64 %indvars.iv
   %217 = load i16, ptr %216, align 2, !tbaa !51
-  %218 = getelementptr inbounds nuw [3 x i16], ptr %208, i64 0, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw i16, ptr %208, i64 %indvars.iv
   store i16 %217, ptr %218, align 2, !tbaa !51
-  %219 = getelementptr inbounds nuw [3 x i16], ptr %209, i64 0, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw i16, ptr %209, i64 %indvars.iv
   %220 = load i16, ptr %219, align 2, !tbaa !51
   %spec.store.select87 = call i16 @llvm.umax.i16(i16 %217, i16 %220)
   store i16 %spec.store.select87, ptr %218, align 2

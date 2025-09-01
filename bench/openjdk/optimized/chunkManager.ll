@@ -948,13 +948,13 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds nuw [15 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, %10
   store i32 %13, ptr %11, align 4
   %14 = trunc nuw nsw i64 %indvars.iv to i8
   %15 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa(ptr noundef nonnull align 8 dereferenceable(360) %5, i8 noundef signext %14) #10
-  %16 = getelementptr inbounds nuw [15 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8

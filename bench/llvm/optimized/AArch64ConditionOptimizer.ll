@@ -1399,18 +1399,18 @@ switch.early.test:                                ; preds = %21
 
 _ZL16getComplementOpci.exit:                      ; preds = %22, %switch.early.test, %switch.early.test, %24, %23, %21, %12
   %.04.shrunk = phi i16 [ %5, %21 ], [ %5, %switch.early.test ], [ %5, %switch.early.test ], [ %5, %12 ], [ 1491, %23 ], [ 1494, %24 ], [ %spec.select, %22 ]
-  %switch.tableidx = add nsw i32 %2, -10
-  %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i, i64 0, i64 %26
+  %26 = sext i32 %2 to i64
+  %27 = getelementptr i32, ptr @switch.table._ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i, i64 %26
+  %switch.gep = getelementptr i8, ptr %27, i64 -40
   %switch.load = load i32, ptr %switch.gep, align 4
   %.04 = zext i16 %.04.shrunk to i32
-  %27 = add nsw i32 %.0, %17
-  %28 = tail call i32 @llvm.abs.i32(i32 %27, i1 true)
+  %28 = add nsw i32 %.0, %17
+  %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
   store i32 %switch.load, ptr %0, align 4, !tbaa !267
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.04, ptr %29, align 4, !tbaa !270
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %28, ptr %30, align 4, !tbaa !272
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.04, ptr %30, align 4, !tbaa !270
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %29, ptr %31, align 4, !tbaa !272
   ret void
 }
 
@@ -1636,33 +1636,33 @@ switch.early.test.i:                              ; preds = %24
 
 _ZL16getComplementOpci.exit.i:                    ; preds = %27, %26, %25, %switch.early.test.i, %switch.early.test.i, %24, %15
   %.04.shrunk.i = phi i16 [ %8, %24 ], [ %8, %switch.early.test.i ], [ %8, %switch.early.test.i ], [ %8, %15 ], [ 1491, %26 ], [ 1494, %27 ], [ %spec.select.i, %25 ]
-  %switch.tableidx = add nsw i32 %2, -10
-  %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i, i64 0, i64 %29
+  %29 = sext i32 %2 to i64
+  %30 = getelementptr i32, ptr @switch.table._ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i, i64 %29
+  %switch.gep = getelementptr i8, ptr %30, i64 -40
   %switch.load = load i32, ptr %switch.gep, align 4
   %.04.i = zext i16 %.04.shrunk.i to i32
-  %30 = add nsw i32 %.0.i, %20
-  %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
+  %31 = add nsw i32 %.0.i, %20
+  %32 = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
   store i32 %switch.load, ptr %6, align 4, !tbaa !267, !alias.scope !288
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %.04.i, ptr %32, align 4, !tbaa !270, !alias.scope !288
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %31, ptr %33, align 4, !tbaa !272, !alias.scope !288
-  %34 = icmp eq i32 %31, %4
-  br i1 %34, label %35, label %40
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %.04.i, ptr %33, align 4, !tbaa !270, !alias.scope !288
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %32, ptr %34, align 4, !tbaa !272, !alias.scope !288
+  %35 = icmp eq i32 %32, %4
+  br i1 %35, label %36, label %41
 
-35:                                               ; preds = %_ZL16getComplementOpci.exit.i
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  %37 = load i16, ptr %36, align 4, !tbaa !260
-  %38 = icmp eq i16 %.04.shrunk.i, %37
-  br i1 %38, label %39, label %40
+36:                                               ; preds = %_ZL16getComplementOpci.exit.i
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 68
+  %38 = load i16, ptr %37, align 4, !tbaa !260
+  %39 = icmp eq i16 %.04.shrunk.i, %38
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   call fastcc void @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer9modifyCmpEPN4llvm12MachineInstrERKSt5tupleIJijNS1_9AArch64CC8CondCodeEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %_ZL16getComplementOpci.exit.i, %35, %39
-  %.0 = phi i1 [ true, %39 ], [ false, %35 ], [ false, %_ZL16getComplementOpci.exit.i ]
+41:                                               ; preds = %_ZL16getComplementOpci.exit.i, %36, %40
+  %.0 = phi i1 [ true, %40 ], [ false, %36 ], [ false, %_ZL16getComplementOpci.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

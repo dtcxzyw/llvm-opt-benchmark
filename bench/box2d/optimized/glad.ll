@@ -2149,7 +2149,7 @@ define dso_local range(i32 0, 2) i32 @gladLoadGL() local_unnamed_addr #0 {
 4:                                                ; preds = %3, %0
   %5 = phi i1 [ true, %0 ], [ false, %3 ]
   %indvars.iv.i = phi i64 [ 0, %0 ], [ 1, %3 ]
-  %6 = getelementptr inbounds nuw [2 x ptr], ptr @open_gl.NAMES, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw ptr, ptr @open_gl.NAMES, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = tail call ptr @dlopen(ptr noundef %7, i32 noundef 258) #8
   store ptr %8, ptr @libGL, align 8, !tbaa !11
@@ -2210,7 +2210,7 @@ get_proc.exit6321:                                ; preds = %13
 
 .preheader.i.i:                                   ; preds = %21, %24
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %21 ]
-  %25 = getelementptr inbounds nuw [4 x ptr], ptr @__const.find_coreGL.prefixes, i64 0, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw ptr, ptr @__const.find_coreGL.prefixes, i64 %indvars.iv.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !6
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #9
   %28 = tail call i32 @strncmp(ptr noundef nonnull %23, ptr noundef nonnull %26, i64 noundef %27) #9
@@ -33158,7 +33158,7 @@ define dso_local range(i32 0, 2) i32 @gladLoadGLLoader(ptr noundef readonly %0) 
 
 .preheader.i:                                     ; preds = %9, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %9 ]
-  %13 = getelementptr inbounds nuw [4 x ptr], ptr @__const.find_coreGL.prefixes, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw ptr, ptr @__const.find_coreGL.prefixes, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !6
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #9
   %16 = tail call i32 @strncmp(ptr noundef nonnull %11, ptr noundef nonnull %14, i64 noundef %15) #9

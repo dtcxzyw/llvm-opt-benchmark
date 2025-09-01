@@ -186,7 +186,7 @@ define dso_local void @smgrrelease(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @mdclose(ptr noundef %0, i32 noundef %6) #11
-  %7 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 -1, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -202,7 +202,7 @@ define dso_local void @smgrclose(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
   %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @mdclose(ptr noundef %0, i32 noundef %4) #11
-  %5 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
   store i32 -1, ptr %5, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -286,7 +286,7 @@ define dso_local void @smgrreleaseall() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %8 ]
   %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @mdclose(ptr noundef nonnull %6, i32 noundef %9) #11
-  %10 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   store i32 -1, ptr %10, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -331,7 +331,7 @@ define dso_local void @smgrreleaserellocator(i64 %0, i64 %1) local_unnamed_addr 
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %11 ]
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @mdclose(ptr noundef nonnull %8, i32 noundef %12) #11
-  %13 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   store i32 -1, ptr %13, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -502,7 +502,7 @@ define dso_local void @smgrextend(ptr noundef %0, i32 noundef %1, i32 noundef %2
   tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, %2
   %11 = add i32 %2, 1
@@ -516,7 +516,7 @@ define dso_local void @smgrzeroextend(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @mdzeroextend(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, %2
   %11 = add i32 %3, %2
@@ -568,7 +568,7 @@ define dso_local i32 @smgrnblocks(ptr noundef %0, i32 noundef %1) local_unnamed_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp eq i32 %9, -1
   br i1 %.not.i, label %10, label %smgrnblocks_cached.exit
@@ -577,7 +577,7 @@ define dso_local i32 @smgrnblocks(ptr noundef %0, i32 noundef %1) local_unnamed_
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %7, %5 ]
   %11 = tail call i32 @mdnblocks(ptr noundef %0, i32 noundef %1) #11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %13 = getelementptr inbounds [4 x i32], ptr %12, i64 0, i64 %.pre-phi
+  %13 = getelementptr inbounds i32, ptr %12, i64 %.pre-phi
   store i32 %11, ptr %13, align 4
   br label %smgrnblocks_cached.exit
 
@@ -595,7 +595,7 @@ define dso_local i32 @smgrnblocks_cached(ptr noundef readonly captures(none) %0,
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %10, label %11
@@ -628,7 +628,7 @@ define dso_local void @smgrtruncate(ptr noundef %0, ptr noundef %1, i32 noundef 
   %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x i32], ptr %10, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr %10, i64 %14
   store i32 -1, ptr %15, align 4
   %16 = load i32, ptr %12, align 4
   %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
@@ -639,7 +639,7 @@ define dso_local void @smgrtruncate(ptr noundef %0, ptr noundef %1, i32 noundef 
   %21 = load i32, ptr %19, align 4
   %22 = load i32, ptr %12, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [4 x i32], ptr %10, i64 0, i64 %23
+  %24 = getelementptr inbounds i32, ptr %10, i64 %23
   store i32 %21, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -692,7 +692,7 @@ define dso_local noundef zeroext i1 @ProcessBarrierSmgrRelease() local_unnamed_a
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %8 ]
   %9 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   call void @mdclose(ptr noundef nonnull %6, i32 noundef %9) #11
-  %10 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
   store i32 -1, ptr %10, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4

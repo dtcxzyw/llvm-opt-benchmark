@@ -516,7 +516,7 @@ bytestream2_get_byte.exit581.i:                   ; preds = %190, %.lr.ph1051.i
   %199 = getelementptr i8, ptr %198, i64 4
   store i32 %195, ptr %199, align 4, !tbaa !68
   %200 = lshr i32 %.0.i580.i, 5
-  %201 = getelementptr inbounds [16 x %struct.Decorr], ptr %56, i64 0, i64 %197
+  %201 = getelementptr inbounds %struct.Decorr, ptr %56, i64 %197
   store i32 %200, ptr %201, align 8, !tbaa !70
   %indvars.iv.next1217.i = add nuw nsw i64 %indvars.iv1216.i, 1
   %exitcond1220.not.i = icmp eq i64 %indvars.iv.next1217.i, %186
@@ -651,7 +651,7 @@ bytestream2_get_byte.exit585.i:                   ; preds = %233
   %.04571039.i = phi i32 [ 0, %.lr.ph1042.preheader.i ], [ %.2.i, %491 ]
   %.sroa.0696.61038.i = phi ptr [ %.sroa.0696.1.i, %.lr.ph1042.preheader.i ], [ %.sroa.0696.8.i, %491 ]
   %indvars.iv.next1209.i = add nsw i64 %indvars.iv1208.i, -1
-  %257 = getelementptr inbounds nuw [16 x %struct.Decorr], ptr %56, i64 0, i64 %indvars.iv.next1209.i
+  %257 = getelementptr inbounds nuw %struct.Decorr, ptr %56, i64 %indvars.iv.next1209.i
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 4
   %259 = load i32, ptr %258, align 4, !tbaa !68
   %260 = icmp sgt i32 %259, 8
@@ -680,7 +680,7 @@ bytestream2_get_le16.exit.i:                      ; preds = %265, %261
   %271 = zext nneg i16 %268 to i32
   %272 = and i16 %spec.select.i.i, 255
   %273 = zext nneg i16 %272 to i64
-  %274 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %273
   %275 = load i8, ptr %274, align 1, !tbaa !43
   %276 = zext i8 %275 to i32
   %277 = or disjoint i32 %276, 256
@@ -721,7 +721,7 @@ bytestream2_get_le16.exit652.i:                   ; preds = %291, %wp_exp2.exit.
   %297 = zext nneg i16 %294 to i32
   %298 = and i16 %spec.select.i620.i, 255
   %299 = zext nneg i16 %298 to i64
-  %300 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %299
   %301 = load i8, ptr %300, align 1, !tbaa !43
   %302 = zext i8 %301 to i32
   %303 = or disjoint i32 %302, 256
@@ -767,7 +767,7 @@ bytestream2_get_le16.exit654.i:                   ; preds = %319, %315
   %325 = zext nneg i16 %322 to i32
   %326 = and i16 %spec.select.i623.i, 255
   %327 = zext nneg i16 %326 to i64
-  %328 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %327
+  %328 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %327
   %329 = load i8, ptr %328, align 1, !tbaa !43
   %330 = zext i8 %329 to i32
   %331 = or disjoint i32 %330, 256
@@ -808,7 +808,7 @@ bytestream2_get_le16.exit656.i:                   ; preds = %345, %wp_exp2.exit6
   %351 = zext nneg i16 %348 to i32
   %352 = and i16 %spec.select.i626.i, 255
   %353 = zext nneg i16 %352 to i64
-  %354 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %353
+  %354 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %353
   %355 = load i8, ptr %354, align 1, !tbaa !43
   %356 = zext i8 %355 to i32
   %357 = or disjoint i32 %356, 256
@@ -873,7 +873,7 @@ bytestream2_get_le16.exit658.i:                   ; preds = %380, %376
   %386 = zext nneg i16 %383 to i32
   %387 = and i16 %spec.select.i629.i, 255
   %388 = zext nneg i16 %387 to i64
-  %389 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %388
+  %389 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %388
   %390 = load i8, ptr %389, align 1, !tbaa !43
   %391 = zext i8 %390 to i32
   %392 = or disjoint i32 %391, 256
@@ -914,7 +914,7 @@ bytestream2_get_le16.exit660.i:                   ; preds = %406, %wp_exp2.exit6
   %412 = zext nneg i16 %409 to i32
   %413 = and i16 %spec.select.i632.i, 255
   %414 = zext nneg i16 %413 to i64
-  %415 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %414
+  %415 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %414
   %416 = load i8, ptr %415, align 1, !tbaa !43
   %417 = zext i8 %416 to i32
   %418 = or disjoint i32 %417, 256
@@ -961,7 +961,7 @@ bytestream2_get_le16.exit662.i:                   ; preds = %434, %430
   %440 = zext nneg i16 %437 to i32
   %441 = and i16 %spec.select.i635.i, 255
   %442 = zext nneg i16 %441 to i64
-  %443 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %442
+  %443 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %442
   %444 = load i8, ptr %443, align 1, !tbaa !43
   %445 = zext i8 %444 to i32
   %446 = or disjoint i32 %445, 256
@@ -978,7 +978,7 @@ bytestream2_get_le16.exit662.i:                   ; preds = %434, %430
 
 wp_exp2.exit637.i:                                ; preds = %439, %bytestream2_get_le16.exit662.i
   %.015.i636.i = phi i32 [ %455, %439 ], [ -2147483648, %bytestream2_get_le16.exit662.i ]
-  %456 = getelementptr inbounds nuw [8 x i32], ptr %373, i64 0, i64 %indvars.iv1205.i
+  %456 = getelementptr inbounds nuw i32, ptr %373, i64 %indvars.iv1205.i
   store i32 %.015.i636.i, ptr %456, align 4, !tbaa !75
   %457 = load i32, ptr %99, align 8, !tbaa !57
   %.not530.i = icmp eq i32 %457, 0
@@ -1007,7 +1007,7 @@ bytestream2_get_le16.exit664.i:                   ; preds = %462, %458
   %468 = zext nneg i16 %465 to i32
   %469 = and i16 %spec.select.i638.i, 255
   %470 = zext nneg i16 %469 to i64
-  %471 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %470
+  %471 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %470
   %472 = load i8, ptr %471, align 1, !tbaa !43
   %473 = zext i8 %472 to i32
   %474 = or disjoint i32 %473, 256
@@ -1024,7 +1024,7 @@ bytestream2_get_le16.exit664.i:                   ; preds = %462, %458
 
 wp_exp2.exit640.i:                                ; preds = %467, %bytestream2_get_le16.exit664.i
   %.015.i639.i = phi i32 [ %483, %467 ], [ -2147483648, %bytestream2_get_le16.exit664.i ]
-  %484 = getelementptr inbounds nuw [8 x i32], ptr %374, i64 0, i64 %indvars.iv1205.i
+  %484 = getelementptr inbounds nuw i32, ptr %374, i64 %indvars.iv1205.i
   store i32 %.015.i639.i, ptr %484, align 4, !tbaa !75
   br label %485
 
@@ -1077,7 +1077,7 @@ wp_exp2.exit640.i:                                ; preds = %467, %bytestream2_g
 .preheader888.i:                                  ; preds = %531, %.preheader888.preheader.i
   %indvars.iv1202.i = phi i64 [ 0, %.preheader888.preheader.i ], [ %indvars.iv.next1203.i, %531 ]
   %.sroa.0696.111028.i = phi ptr [ %.sroa.0696.1.i, %.preheader888.preheader.i ], [ %.sroa.0696.48.i, %531 ]
-  %503 = getelementptr inbounds nuw [2 x %struct.WvChannel], ptr %57, i64 0, i64 %indvars.iv1202.i
+  %503 = getelementptr inbounds nuw %struct.WvChannel, ptr %57, i64 %indvars.iv1202.i
   br label %504
 
 504:                                              ; preds = %wp_exp2.exit643.i, %.preheader888.i
@@ -1105,7 +1105,7 @@ bytestream2_get_le16.exit666.i:                   ; preds = %508, %504
   %514 = zext nneg i16 %511 to i32
   %515 = and i16 %spec.select.i641.i, 255
   %516 = zext nneg i16 %515 to i64
-  %517 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %516
+  %517 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %516
   %518 = load i8, ptr %517, align 1, !tbaa !43
   %519 = zext i8 %518 to i32
   %520 = or disjoint i32 %519, 256
@@ -1122,7 +1122,7 @@ bytestream2_get_le16.exit666.i:                   ; preds = %508, %504
 
 wp_exp2.exit643.i:                                ; preds = %513, %bytestream2_get_le16.exit666.i
   %.015.i642.i = phi i32 [ %529, %513 ], [ -2147483648, %bytestream2_get_le16.exit666.i ]
-  %530 = getelementptr inbounds nuw [3 x i32], ptr %503, i64 0, i64 %indvars.iv1198.i
+  %530 = getelementptr inbounds nuw i32, ptr %503, i64 %indvars.iv1198.i
   store i32 %.015.i642.i, ptr %530, align 4, !tbaa !75
   %indvars.iv.next1199.i = add nuw nsw i64 %indvars.iv1198.i, 1
   %exitcond1201.not.i = icmp eq i64 %indvars.iv.next1199.i, 3
@@ -1173,7 +1173,7 @@ bytestream2_get_le16.exit668.i:                   ; preds = %538, %.lr.ph.i
   %544 = zext nneg i16 %541 to i32
   %545 = and i16 %spec.select.i644.i, 255
   %546 = zext nneg i16 %545 to i64
-  %547 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %546
+  %547 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %546
   %548 = load i8, ptr %547, align 1, !tbaa !43
   %549 = zext i8 %548 to i32
   %550 = or disjoint i32 %549, 256
@@ -1273,7 +1273,7 @@ bytestream2_get_le16.exit672.i:                   ; preds = %582, %.lr.ph1023.i
   %588 = zext nneg i16 %585 to i32
   %589 = and i16 %spec.select.i647.i, 255
   %590 = zext nneg i16 %589 to i64
-  %591 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %590
+  %591 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %590
   %592 = load i8, ptr %591, align 1, !tbaa !43
   %593 = zext i8 %592 to i32
   %594 = or disjoint i32 %593, 256
@@ -1958,7 +1958,7 @@ bytestream2_get_le24.exit679.i:                   ; preds = %.lr.ph1019.i, %wp_e
 
 876:                                              ; preds = %870
   %877 = zext nneg i32 %873 to i64
-  %878 = getelementptr inbounds nuw [16 x i32], ptr @wv_rates, i64 0, i64 %877
+  %878 = getelementptr inbounds nuw i32, ptr @wv_rates, i64 %877
   %879 = load i32, ptr %878, align 4, !tbaa !75
   br label %880
 
@@ -3424,8 +3424,8 @@ bytestream2_get_byte.exit263:                     ; preds = %47
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %bytestream2_get_byte.exit263
-  %.not380 = icmp ult ptr %.0173302, %37
-  br i1 %.not380, label %.lr.ph.preheader, label %.critedge6
+  %.not381 = icmp ult ptr %.0173302, %37
+  br i1 %.not381, label %.lr.ph.preheader, label %.critedge6
 
 .lr.ph.preheader:                                 ; preds = %53
   %54 = sub i64 %39, %.0173302355
@@ -3512,8 +3512,8 @@ bytestream2_get_byte.exit261:                     ; preds = %70
   %indvars.iv365 = phi i64 [ 0, %.critedge257 ], [ %indvars.iv.next366, %.loopexit ]
   %.0210319 = phi i32 [ 0, %.critedge257 ], [ %.2212, %.loopexit ]
   %.0213318 = phi ptr [ %7, %.critedge257 ], [ %.2215, %.loopexit ]
-  %90 = getelementptr inbounds nuw [32 x [256 x i8]], ptr %86, i64 0, i64 %indvars.iv365
-  %91 = getelementptr inbounds nuw [32 x [256 x i16]], ptr %87, i64 0, i64 %indvars.iv365
+  %90 = getelementptr inbounds nuw [256 x i8], ptr %86, i64 %indvars.iv365
+  %91 = getelementptr inbounds nuw [256 x i16], ptr %87, i64 %indvars.iv365
   br label %93
 
 92:                                               ; preds = %93
@@ -3523,12 +3523,12 @@ bytestream2_get_byte.exit261:                     ; preds = %70
 93:                                               ; preds = %.preheader, %93
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %93 ]
   %.0163309 = phi i32 [ 0, %.preheader ], [ %97, %93 ]
-  %94 = getelementptr inbounds nuw [256 x i8], ptr %90, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 %indvars.iv
   %95 = load i8, ptr %94, align 1, !tbaa !43
   %96 = zext i8 %95 to i32
   %97 = add nuw nsw i32 %.0163309, %96
   %98 = trunc i32 %97 to i16
-  %99 = getelementptr inbounds nuw [256 x i16], ptr %91, i64 0, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw i16, ptr %91, i64 %indvars.iv
   store i16 %98, ptr %99, align 2, !tbaa !143
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -3540,14 +3540,14 @@ bytestream2_get_byte.exit261:                     ; preds = %70
   br i1 %102, label %.critedge259, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw [32 x ptr], ptr %89, i64 0, i64 %indvars.iv365
+  %104 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv365
   store ptr %.0213318, ptr %104, align 8, !tbaa !116
   br label %105
 
 105:                                              ; preds = %103, %._crit_edge
   %indvars.iv361 = phi i64 [ 0, %103 ], [ %indvars.iv.next362, %._crit_edge ]
   %.3216316 = phi ptr [ %.0213318, %103 ], [ %.4217.lcssa, %._crit_edge ]
-  %106 = getelementptr inbounds nuw [256 x i8], ptr %90, i64 0, i64 %indvars.iv361
+  %106 = getelementptr inbounds nuw i8, ptr %90, i64 %indvars.iv361
   %107 = load i8, ptr %106, align 1, !tbaa !43
   %.not254311 = icmp eq i8 %107, 0
   br i1 %.not254311, label %._crit_edge, label %.lr.ph314
@@ -3626,7 +3626,7 @@ bytestream2_get_be32.exit:                        ; preds = %123, %124
   %.1207335 = phi i32 [ 0, %.lr.ph344 ], [ %.3209, %.critedge8 ]
   %131 = add nsw i32 %.in, -1
   %132 = zext nneg i32 %.1207335 to i64
-  %133 = getelementptr inbounds nuw [32 x [256 x i16]], ptr %87, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw [256 x i16], ptr %87, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 510
   %135 = load i16, ptr %134, align 2, !tbaa !143
   %.not243 = icmp eq i16 %135, 0
@@ -3675,7 +3675,7 @@ bytestream2_get_be32.exit270:                     ; preds = %139, %149, %150, %1
 
 156:                                              ; preds = %bytestream2_get_be32.exit270
   %.not246 = icmp eq ptr %.0169342, null
-  %157 = getelementptr inbounds nuw [32 x ptr], ptr %89, i64 0, i64 %132
+  %157 = getelementptr inbounds nuw ptr, ptr %89, i64 %132
   %158 = load ptr, ptr %157, align 8, !tbaa !116
   %159 = zext nneg i32 %155 to i64
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 %159
@@ -3691,7 +3691,7 @@ bytestream2_get_be32.exit270:                     ; preds = %139, %149, %150, %1
 164:                                              ; preds = %163
   %165 = add nsw i32 %162, -1
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw [256 x i16], ptr %133, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw i16, ptr %133, i64 %166
   %168 = load i16, ptr %167, align 2, !tbaa !143
   %169 = zext i16 %168 to i32
   %170 = mul i32 %.0159, %169
@@ -3708,9 +3708,9 @@ bytestream2_get_be32.exit270:                     ; preds = %139, %149, %150, %1
   br i1 %.not248, label %183, label %175
 
 175:                                              ; preds = %174
-  %176 = add nsw i32 %162, -1
-  %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw [256 x i16], ptr %133, i64 0, i64 %177
+  %176 = zext i8 %161 to i64
+  %177 = getelementptr i16, ptr %133, i64 %176
+  %178 = getelementptr i8, ptr %177, i64 -2
   %179 = load i16, ptr %178, align 2, !tbaa !143
   %180 = zext i16 %179 to i32
   %181 = mul i32 %.0159, %180
@@ -3743,9 +3743,9 @@ bytestream2_get_be32.exit270:                     ; preds = %139, %149, %150, %1
   %.4195 = phi i32 [ %.5196, %188 ], [ %.3194, %172 ]
   %.2171 = phi ptr [ %.3172, %188 ], [ null, %172 ]
   %.2167 = phi ptr [ %.3168, %188 ], [ %173, %172 ]
-  %191 = getelementptr inbounds nuw [32 x [256 x i8]], ptr %86, i64 0, i64 %132
+  %191 = getelementptr inbounds nuw [256 x i8], ptr %86, i64 %132
   %192 = zext i8 %161 to i64
-  %193 = getelementptr inbounds nuw [256 x i8], ptr %191, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 %192
   %194 = load i8, ptr %193, align 1, !tbaa !43
   %195 = zext i8 %194 to i32
   %196 = mul i32 %.0159, %195
@@ -4058,7 +4058,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_stereo(ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %266 ]
   %.0247348 = phi i32 [ %32, %.lr.ph ], [ %.1248, %266 ]
   %.0253347 = phi i32 [ %29, %.lr.ph ], [ %.1254, %266 ]
-  %38 = getelementptr inbounds nuw [16 x %struct.Decorr], ptr %12, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %struct.Decorr, ptr %12, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !68
   %41 = icmp sgt i32 %40, 0
@@ -4113,10 +4113,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_stereo(ptr nound
 
 74:                                               ; preds = %42
   %75 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %76 = getelementptr inbounds nuw [8 x i32], ptr %75, i64 0, i64 %36
+  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %36
   %77 = load i32, ptr %76, align 4, !tbaa !75
   %78 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %79 = getelementptr inbounds nuw [8 x i32], ptr %78, i64 0, i64 %36
+  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %36
   %80 = load i32, ptr %79, align 4, !tbaa !75
   %81 = add nuw nsw i32 %40, %.0244
   %82 = and i32 %81, 7
@@ -4202,10 +4202,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_stereo(ptr nound
 
 136:                                              ; preds = %127, %124
   %137 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %138 = getelementptr inbounds nuw [8 x i32], ptr %137, i64 0, i64 %.0260
+  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %.0260
   store i32 %.0250, ptr %138, align 4, !tbaa !75
   %139 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %140 = getelementptr inbounds nuw [8 x i32], ptr %139, i64 0, i64 %.0260
+  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %.0260
   store i32 %.0245, ptr %140, align 4, !tbaa !75
   br label %266
 
@@ -5046,7 +5046,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_mono(ptr noundef
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %74
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %74 ], [ 0, %.lr.ph ]
   %.088132.us = phi i32 [ %.190.us, %74 ], [ %27, %.lr.ph ]
-  %32 = getelementptr inbounds nuw [16 x %struct.Decorr], ptr %11, i64 0, i64 %indvars.iv137
+  %32 = getelementptr inbounds nuw %struct.Decorr, ptr %11, i64 %indvars.iv137
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !68
   %35 = icmp sgt i32 %34, 8
@@ -5054,7 +5054,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_mono(ptr noundef
 
 36:                                               ; preds = %.lr.ph.split.us
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %38 = getelementptr inbounds nuw [8 x i32], ptr %37, i64 0, i64 %31
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
   %39 = load i32, ptr %38, align 4, !tbaa !75
   %40 = add nsw i32 %34, %.087
   %41 = and i32 %40, 7
@@ -5114,7 +5114,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_mono(ptr noundef
 
 74:                                               ; preds = %66, %58
   %75 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %76 = getelementptr inbounds nuw [8 x i32], ptr %75, i64 0, i64 %.078.us
+  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %.078.us
   store i32 %.190.us, ptr %76, align 4, !tbaa !75
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
@@ -5123,7 +5123,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_mono(ptr noundef
 .lr.ph.split:                                     ; preds = %.lr.ph, %122
   %indvars.iv = phi i64 [ %indvars.iv.next, %122 ], [ 0, %.lr.ph ]
   %.088132 = phi i32 [ %.190, %122 ], [ %27, %.lr.ph ]
-  %77 = getelementptr inbounds nuw [16 x %struct.Decorr], ptr %11, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw %struct.Decorr, ptr %11, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !68
   %80 = icmp sgt i32 %79, 8
@@ -5157,7 +5157,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_mono(ptr noundef
 
 96:                                               ; preds = %.lr.ph.split
   %97 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %98 = getelementptr inbounds nuw [8 x i32], ptr %97, i64 0, i64 %31
+  %98 = getelementptr inbounds nuw i32, ptr %97, i64 %31
   %99 = load i32, ptr %98, align 4, !tbaa !75
   %100 = add nsw i32 %79, %.087
   %101 = and i32 %100, 7
@@ -5194,7 +5194,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_unpack_mono(ptr noundef
 
 122:                                              ; preds = %114, %103
   %123 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %124 = getelementptr inbounds nuw [8 x i32], ptr %123, i64 0, i64 %.078
+  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %.078
   store i32 %.190, ptr %124, align 4, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count140
@@ -5557,7 +5557,7 @@ define internal fastcc i32 @wv_get_value(ptr noundef captures(none) %0, ptr noun
   %6 = alloca [2 x i32], align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1580
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw [2 x %struct.WvChannel], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.WvChannel, ptr %7, i64 %8
   store i32 0, ptr %3, align 4, !tbaa !75
   %10 = load i32, ptr %7, align 4, !tbaa !75
   %11 = icmp ult i32 %10, 2
@@ -5796,7 +5796,7 @@ get_unary_0_33.exit193:                           ; preds = %.preheader
 
 127:                                              ; preds = %135, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %135 ]
-  %128 = getelementptr inbounds nuw [2 x %struct.WvChannel], ptr %7, i64 0, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw %struct.WvChannel, ptr %7, i64 %indvars.iv.i
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 20
   %130 = load i32, ptr %129, align 4, !tbaa !83
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 24
@@ -5809,13 +5809,13 @@ get_unary_0_33.exit193:                           ; preds = %.preheader
   %136 = add i32 %132, %130
   store i32 %136, ptr %129, align 4, !tbaa !83
   %137 = lshr i32 %136, 16
-  %138 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %138 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   store i32 %137, ptr %138, align 4, !tbaa !75
   %139 = getelementptr inbounds nuw i8, ptr %128, i64 12
   %140 = load i32, ptr %139, align 4, !tbaa !80
   %141 = add nsw i32 %140, 128
   %142 = ashr i32 %141, 8
-  %143 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   store i32 %142, ptr %143, align 4, !tbaa !75
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -5891,7 +5891,7 @@ get_unary_0_33.exit193:                           ; preds = %.preheader
 
 .lr.ph61.split.us.i:                              ; preds = %.lr.ph61.i, %wp_exp2.exit.us.i
   %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %wp_exp2.exit.us.i ], [ 0, %.lr.ph61.i ]
-  %171 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %indvars.iv70.i
+  %171 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv70.i
   %172 = load i32, ptr %171, align 4, !tbaa !75
   %173 = trunc i32 %172 to i16
   %spec.select.i.us.i = tail call i16 @llvm.abs.i16(i16 %173, i1 false)
@@ -5903,7 +5903,7 @@ get_unary_0_33.exit193:                           ; preds = %.preheader
   %177 = zext nneg i16 %174 to i32
   %178 = and i16 %spec.select.i.us.i, 255
   %179 = zext nneg i16 %178 to i64
-  %180 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %179
   %181 = load i8, ptr %180, align 1, !tbaa !43
   %182 = zext i8 %181 to i32
   %183 = or disjoint i32 %182, 256
@@ -5929,9 +5929,9 @@ wp_exp2.exit.us.i:                                ; preds = %176, %.lr.ph61.spli
 
 .lr.ph61.split.i:                                 ; preds = %.lr.ph61.i, %wp_exp2.exit53.i
   %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %wp_exp2.exit53.i ], [ 0, %.lr.ph61.i ]
-  %194 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %indvars.iv65.i
+  %194 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv65.i
   %195 = load i32, ptr %194, align 4, !tbaa !75
-  %196 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %indvars.iv65.i
+  %196 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv65.i
   %197 = load i32, ptr %196, align 4, !tbaa !75
   %198 = sub nsw i32 %195, %197
   %199 = icmp sgt i32 %198, -256
@@ -5951,7 +5951,7 @@ wp_exp2.exit.us.i:                                ; preds = %176, %.lr.ph61.spli
   %208 = zext nneg i16 %205 to i32
   %209 = and i16 %spec.select.i51.i, 255
   %210 = zext nneg i16 %209 to i64
-  %211 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_exp2_table, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw i8, ptr @ff_wp_exp2_table, i64 %210
   %212 = load i8, ptr %211, align 1, !tbaa !43
   %213 = zext i8 %212 to i32
   %214 = or disjoint i32 %213, 256
@@ -6097,7 +6097,7 @@ update_error_limit.exit:                          ; preds = %127
   %.110.i169 = select i1 %.not11.i168, i32 %spec.select.i166, i32 %292
   %.1.i170 = select i1 %.not11.i168, i32 %spec.select12.i167, i32 %293
   %294 = zext nneg i32 %.110.i169 to i64
-  %295 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %294
   %296 = load i8, ptr %295, align 1, !tbaa !43
   %297 = zext i8 %296 to i32
   %298 = add nuw nsw i32 %.1.i170, %297
@@ -6298,7 +6298,7 @@ get_tail.exit:                                    ; preds = %288, %get_bits_long
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %415
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %416
   %417 = zext nneg i32 %.110.i to i64
-  %418 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %417
+  %418 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %417
   %419 = load i8, ptr %418, align 1, !tbaa !43
   %420 = zext i8 %419 to i32
   %421 = add nuw nsw i32 %.1.i, %420
@@ -6312,7 +6312,7 @@ get_tail.exit:                                    ; preds = %288, %get_bits_long
   %427 = shl i32 %413, %426
   %428 = and i32 %427, 254
   %429 = zext nneg i32 %428 to i64
-  %430 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_log2_table, i64 0, i64 %429
+  %430 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %429
   %431 = load i8, ptr %430, align 2, !tbaa !43
   %432 = zext i8 %431 to i32
   %433 = or disjoint i32 %424, %432
@@ -6323,7 +6323,7 @@ get_tail.exit:                                    ; preds = %288, %get_bits_long
   %436 = lshr i32 %413, %435
   %437 = and i32 %436, 255
   %438 = zext nneg i32 %437 to i64
-  %439 = getelementptr inbounds nuw [256 x i8], ptr @ff_wp_log2_table, i64 0, i64 %438
+  %439 = getelementptr inbounds nuw i8, ptr @ff_wp_log2_table, i64 %438
   %440 = load i8, ptr %439, align 1, !tbaa !43
   %441 = zext i8 %440 to i32
   %442 = or disjoint i32 %424, %441
@@ -6463,7 +6463,7 @@ define internal fastcc float @wv_get_value_float(ptr noundef captures(none) %0, 
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %52
   %.1.i.neg102 = select i1 %.not11.i, i32 %spec.select12.i.neg, i32 %.neg101
   %53 = zext nneg i32 %.110.i to i64
-  %54 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !43
   %56 = zext i8 %55 to i32
   %.neg100 = add nsw i32 %.1.i.neg102, 23

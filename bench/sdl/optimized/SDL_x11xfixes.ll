@@ -123,7 +123,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %2, %SDL_RectEmpty.e
 
 18:                                               ; preds = %24, %14
   %indvars.iv.i.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i.i, %24 ]
-  %19 = getelementptr inbounds nuw [4 x i64], ptr %17, i64 0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i.i
   %20 = load i64, ptr %19, align 8
   %.not15.i.i = icmp eq i64 %20, 0
   br i1 %.not15.i.i, label %24, label %21
@@ -157,7 +157,7 @@ X11_DestroyPointerBarrier.exit.i:                 ; preds = %24
 
 33:                                               ; preds = %39, %28
   %indvars.iv.i74.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i76.i, %39 ]
-  %34 = getelementptr inbounds nuw [4 x i64], ptr %32, i64 0, i64 %indvars.iv.i74.i
+  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv.i74.i
   %35 = load i64, ptr %34, align 8
   %.not15.i75.i = icmp eq i64 %35, 0
   br i1 %.not15.i75.i, label %39, label %36
@@ -226,7 +226,7 @@ define hidden noundef zeroext i1 @X11_ConfineCursorWithFlags(ptr noundef readonl
 
 14:                                               ; preds = %20, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %20 ]
-  %15 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i
   %16 = load i64, ptr %15, align 8
   %.not15.i = icmp eq i64 %16, 0
   br i1 %.not15.i, label %20, label %17
@@ -369,7 +369,7 @@ X11_DestroyPointerBarrier.exit:                   ; preds = %20
 
 110:                                              ; preds = %116, %107
   %indvars.iv.i74 = phi i64 [ 0, %107 ], [ %indvars.iv.next.i76, %116 ]
-  %111 = getelementptr inbounds nuw [4 x i64], ptr %109, i64 0, i64 %indvars.iv.i74
+  %111 = getelementptr inbounds nuw i64, ptr %109, i64 %indvars.iv.i74
   %112 = load i64, ptr %111, align 8
   %.not15.i75 = icmp eq i64 %112, 0
   br i1 %.not15.i75, label %116, label %113
@@ -422,7 +422,7 @@ define hidden void @X11_DestroyPointerBarrier(ptr noundef readonly captures(none
 
 9:                                                ; preds = %5, %15
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
   %.not15 = icmp eq i64 %11, 0
   br i1 %.not15, label %15, label %12

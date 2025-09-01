@@ -2735,8 +2735,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %indvars.iv.i = phi i64 [ 2, %245 ], [ %indvars.iv.next.i, %262 ]
   %263 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv.i
   %264 = load i32, ptr %263, align 4, !tbaa !72, !noalias !120
-  %265 = add nsw i64 %indvars.iv.i, -2
-  %266 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %265
+  %265 = getelementptr i32, ptr %10, i64 %indvars.iv.i
+  %266 = getelementptr i8, ptr %265, i64 -8
   store i32 %264, ptr %266, align 4, !tbaa !72, !noalias !120
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2822,8 +2822,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i110: ; preds = %
   %indvars.iv.i113 = phi i64 [ 2, %282 ], [ %indvars.iv.next.i114, %300 ]
   %301 = getelementptr inbounds nuw i32, ptr %284, i64 %indvars.iv.i113
   %302 = load i32, ptr %301, align 4, !tbaa !72, !noalias !129
-  %303 = add nsw i64 %indvars.iv.i113, -2
-  %304 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %303
+  %303 = getelementptr i32, ptr %7, i64 %indvars.iv.i113
+  %304 = getelementptr i8, ptr %303, i64 -8
   store i32 %302, ptr %304, align 4, !tbaa !72, !noalias !129
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
   %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %wide.trip.count.i112

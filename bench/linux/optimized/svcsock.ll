@@ -1078,7 +1078,7 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
 
 96:                                               ; preds = %138, %91
   %97 = phi i64 [ 0, %91 ], [ %139, %138 ]
-  %98 = getelementptr [260 x ptr], ptr %94, i64 0, i64 %97
+  %98 = getelementptr ptr, ptr %94, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %133, label %101
@@ -1137,7 +1137,7 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
   br label %133
 
 133:                                              ; preds = %132, %126, %96
-  %134 = getelementptr [259 x ptr], ptr %95, i64 0, i64 %97
+  %134 = getelementptr ptr, ptr %95, i64 %97
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null
   br i1 %136, label %137, label %138, !prof !33
@@ -1190,7 +1190,7 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
   %164 = phi i32 [ 0, %160 ], [ %171, %162 ]
   %165 = zext i32 %164 to i64
   %166 = getelementptr %struct.bio_vec, ptr %157, i64 %165
-  %167 = getelementptr [260 x ptr], ptr %161, i64 0, i64 %165
+  %167 = getelementptr ptr, ptr %161, i64 %165
   %168 = load ptr, ptr %167, align 8
   store ptr %168, ptr %166, align 8
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 8
@@ -1209,7 +1209,7 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
 176:                                              ; preds = %174, %151
   %177 = phi i64 [ 0, %151 ], [ %175, %174 ]
   %178 = getelementptr i8, ptr %0, i64 736
-  %179 = getelementptr [260 x ptr], ptr %178, i64 0, i64 %177
+  %179 = getelementptr ptr, ptr %178, i64 %177
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   store ptr %179, ptr %180, align 8
   %181 = getelementptr i8, ptr %179, i64 8
@@ -1476,9 +1476,9 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
 
 320:                                              ; preds = %320, %315
   %321 = phi i64 [ 0, %315 ], [ %325, %320 ]
-  %322 = getelementptr [260 x ptr], ptr %178, i64 0, i64 %321
+  %322 = getelementptr ptr, ptr %178, i64 %321
   %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr [259 x ptr], ptr %319, i64 0, i64 %321
+  %324 = getelementptr ptr, ptr %319, i64 %321
   store ptr %323, ptr %324, align 8
   store ptr null, ptr %322, align 8
   %325 = add nuw nsw i64 %321, 1
@@ -1862,7 +1862,7 @@ define internal void @svc_tcp_sock_detach(ptr noundef %0) #0 align 16 {
 
 29:                                               ; preds = %68, %24
   %30 = phi i64 [ 0, %24 ], [ %69, %68 ]
-  %31 = getelementptr [259 x ptr], ptr %28, i64 0, i64 %30
+  %31 = getelementptr ptr, ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35

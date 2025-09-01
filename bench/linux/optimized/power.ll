@@ -605,7 +605,7 @@ define dso_local void @acpi_power_add_remove_device(ptr noundef %0, i1 noundef z
   %16 = phi i64 [ %19, %15 ], [ 0, %.preheader ]
   %.idx = shl i64 %16, 5
   %17 = getelementptr i8, ptr %14, i64 %.idx
-  %18 = getelementptr [4 x %struct.attribute_group], ptr @attr_groups, i64 0, i64 %16
+  %18 = getelementptr %struct.attribute_group, ptr @attr_groups, i64 %16
   tail call fastcc void @acpi_power_expose_hide(ptr noundef %0, ptr noundef %17, ptr noundef %18, i1 noundef zeroext %1)
   %19 = add nuw nsw i64 %16, 1
   %20 = icmp eq i64 %19, 4

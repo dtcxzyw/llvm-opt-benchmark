@@ -284,17 +284,17 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %47 = add i32 %46, 40
   %48 = and i32 %47, 63
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %33, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !50
   %52 = add i32 %46, 9
   %53 = and i32 %52, 63
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %33, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !50
   %57 = add i32 %56, %51
   %58 = and i32 %46, 63
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %33, i64 %59
   store i32 %57, ptr %60, align 4, !tbaa !50
   %61 = add i32 %46, 1
   store i32 %61, ptr %45, align 4, !tbaa !66
@@ -317,17 +317,17 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %70 = add i32 %69, 40
   %71 = and i32 %70, 63
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i32, ptr %33, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !50
   %75 = add i32 %69, 9
   %76 = and i32 %75, 63
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr %33, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !50
   %80 = add i32 %79, %74
   %81 = and i32 %69, 63
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr %33, i64 %82
   store i32 %80, ptr %83, align 4, !tbaa !50
   %84 = add i32 %69, 1
   store i32 %84, ptr %68, align 4, !tbaa !66
@@ -349,17 +349,17 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %93 = add i32 %92, 40
   %94 = and i32 %93, 63
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %33, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !50
   %98 = add i32 %92, 9
   %99 = and i32 %98, 63
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i32, ptr %33, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !50
   %103 = add i32 %102, %97
   %104 = and i32 %92, 63
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %33, i64 %105
   store i32 %103, ptr %106, align 4, !tbaa !50
   %107 = add i32 %92, 1
   store i32 %107, ptr %91, align 4, !tbaa !66
@@ -381,17 +381,17 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %116 = add i32 %115, 40
   %117 = and i32 %116, 63
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i32, ptr %33, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !50
   %121 = add i32 %115, 9
   %122 = and i32 %121, 63
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i32, ptr %33, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !50
   %126 = add i32 %125, %120
   %127 = and i32 %115, 63
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [64 x i32], ptr %33, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i32, ptr %33, i64 %128
   store i32 %126, ptr %129, align 4, !tbaa !50
   %130 = add i32 %115, 1
   store i32 %130, ptr %114, align 4, !tbaa !66
@@ -406,8 +406,8 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
 
 .preheader:                                       ; preds = %132, %137
   %indvars.iv71 = phi i64 [ 0, %132 ], [ %indvars.iv.next72, %137 ]
-  %135 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %133, i64 0, i64 %indvars.iv71
-  %136 = getelementptr inbounds nuw [8 x [4 x float]], ptr %134, i64 0, i64 %indvars.iv71
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv71
+  %136 = getelementptr inbounds nuw [4 x float], ptr %134, i64 %indvars.iv71
   br label %138
 
 137:                                              ; preds = %138
@@ -417,11 +417,11 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
 
 138:                                              ; preds = %.preheader, %138
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %138 ]
-  %139 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 0, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 %indvars.iv
   %140 = load i8, ptr %139, align 1, !tbaa !69
   %141 = uitofp i8 %140 to float
   %142 = fdiv nsz float %141, 2.550000e+02
-  %143 = getelementptr inbounds nuw [4 x float], ptr %136, i64 0, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw float, ptr %136, i64 %indvars.iv
   store float %142, ptr %143, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

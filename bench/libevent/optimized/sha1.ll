@@ -61,7 +61,7 @@ define hidden void @builtin_SHA1(ptr noundef writeonly captures(none) %0, ptr no
   %20 = xor i32 %19, 24
   %21 = lshr i32 %17, %20
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -91,7 +91,7 @@ define hidden void @builtin_SHA1(ptr noundef writeonly captures(none) %0, ptr no
   %indvars.iv21.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next22.i, %29 ]
   %30 = lshr i64 %indvars.iv21.i, 2
   %31 = and i64 %30, 1073741823
-  %32 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %6, i64 %31
   %33 = load i32, ptr %32, align 4
   %indvars.iv21.tr.i = trunc i64 %indvars.iv21.i to i32
   %34 = shl i32 %indvars.iv21.tr.i, 3
@@ -139,7 +139,7 @@ define internal fastcc void @SHA1Update(ptr noundef nonnull captures(none) %0, p
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   %22 = sub nuw nsw i32 64, %15
   %23 = zext nneg i32 %22 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %23, i1 false)
@@ -1175,7 +1175,7 @@ define internal fastcc void @SHA1Update(ptr noundef nonnull captures(none) %0, p
   %.1 = phi i32 [ %22, %18 ], [ 0, %1010 ]
   %.0 = phi i64 [ 0, %18 ], [ %1011, %1010 ]
   %1013 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1014 = getelementptr inbounds nuw [64 x i8], ptr %1013, i64 0, i64 %.0
+  %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 %.0
   %1015 = zext nneg i32 %.1 to i64
   %1016 = getelementptr inbounds nuw i8, ptr %1, i64 %1015
   %1017 = sub nsw i32 %2, %.1

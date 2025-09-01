@@ -2024,10 +2024,10 @@ default.unreachable2929:                          ; preds = %467
   %indvars.iv.next2786 = add nuw nsw i64 %indvars.iv2785, 1
   %562 = trunc nuw i64 %indvars.iv.next2786 to i32
   store i32 %562, ptr %55, align 4, !tbaa !49
-  %563 = getelementptr inbounds nuw [19 x i16], ptr @cm_zlib_inflate.order, i64 0, i64 %indvars.iv2785
+  %563 = getelementptr inbounds nuw i16, ptr @cm_zlib_inflate.order, i64 %indvars.iv2785
   %564 = load i16, ptr %563, align 2, !tbaa !83
   %565 = zext i16 %564 to i64
-  %566 = getelementptr inbounds nuw [320 x i16], ptr %56, i64 0, i64 %565
+  %566 = getelementptr inbounds nuw i16, ptr %56, i64 %565
   store i16 %561, ptr %566, align 2, !tbaa !83
   %567 = lshr i64 %.37965.lcssa, 3
   %568 = add i32 %.37.lcssa, -3
@@ -2037,10 +2037,10 @@ default.unreachable2929:                          ; preds = %467
 .lr.ph1941:                                       ; preds = %.lr.ph1941.preheader, %.lr.ph1941
   %indvars.iv2788 = phi i64 [ %548, %.lr.ph1941.preheader ], [ %indvars.iv.next2789, %.lr.ph1941 ]
   %indvars.iv.next2789 = add nuw nsw i64 %indvars.iv2788, 1
-  %569 = getelementptr inbounds nuw [19 x i16], ptr @cm_zlib_inflate.order, i64 0, i64 %indvars.iv2788
+  %569 = getelementptr inbounds nuw i16, ptr @cm_zlib_inflate.order, i64 %indvars.iv2788
   %570 = load i16, ptr %569, align 2, !tbaa !83
   %571 = zext i16 %570 to i64
-  %572 = getelementptr inbounds nuw [320 x i16], ptr %56, i64 0, i64 %571
+  %572 = getelementptr inbounds nuw i16, ptr %56, i64 %571
   store i16 0, ptr %572, align 2, !tbaa !83
   %573 = and i64 %indvars.iv.next2789, 4294967295
   %exitcond2791.not = icmp eq i64 %573, 19
@@ -2157,7 +2157,7 @@ default.unreachable2929:                          ; preds = %467
   %611 = add i32 %.lcssa199419971999, 1
   store i32 %611, ptr %55, align 4, !tbaa !49
   %612 = zext i32 %.lcssa199419971999 to i64
-  %613 = getelementptr inbounds nuw [320 x i16], ptr %56, i64 0, i64 %612
+  %613 = getelementptr inbounds nuw i16, ptr %56, i64 %612
   store i16 %.sroa.42.0.copyload.le, ptr %613, align 2, !tbaa !83
   br label %695
 
@@ -2239,7 +2239,7 @@ default.unreachable2929:                          ; preds = %467
 642:                                              ; preds = %._crit_edge1978
   %643 = add i32 %.lcssa199419971999, -1
   %644 = zext i32 %643 to i64
-  %645 = getelementptr inbounds nuw [320 x i16], ptr %56, i64 0, i64 %644
+  %645 = getelementptr inbounds nuw i16, ptr %56, i64 %644
   %646 = load i16, ptr %645, align 2, !tbaa !83
   %647 = trunc i64 %638 to i32
   %648 = and i32 %647, 3
@@ -2346,7 +2346,7 @@ default.unreachable2929:                          ; preds = %467
   %691 = add nsw i32 %.69071995, -1
   %692 = add i32 %690, 1
   %693 = zext i32 %690 to i64
-  %694 = getelementptr inbounds nuw [320 x i16], ptr %56, i64 0, i64 %693
+  %694 = getelementptr inbounds nuw i16, ptr %56, i64 %693
   store i16 %.0897, ptr %694, align 2, !tbaa !83
   %.not1184 = icmp eq i32 %691, 0
   br i1 %.not1184, label %.loopexit, label %.preheader, !llvm.loop !90
@@ -4045,7 +4045,7 @@ inflateStateCheck.exit:                           ; preds = %16
   %storemerge64 = phi i32 [ %43, %.lr.ph ], [ %38, %30 ]
   %40 = trunc i64 %39 to i8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %40, ptr %41, align 1, !tbaa !42
   %42 = lshr i64 %39, 8
   %43 = add i32 %storemerge64, -8

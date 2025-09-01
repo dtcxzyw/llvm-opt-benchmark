@@ -477,8 +477,8 @@ _ZN10decode_env9src_tableEv.exit:                 ; preds = %3, %11
   br i1 %.not44, label %78, label %72
 
 72:                                               ; preds = %.lr.ph55
-  %73 = add i64 %71, -1
-  %74 = getelementptr inbounds [500 x i8], ptr %4, i64 0, i64 %73
+  %73 = getelementptr i8, ptr %4, i64 %71
+  %74 = getelementptr i8, ptr %73, i64 -1
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %75, 10
   br i1 %76, label %77, label %78
@@ -764,7 +764,7 @@ define hidden void @_ZN10decode_env15process_optionsEP12outputStream(ptr noundef
   br i1 %17, label %_ZN10decode_env15collect_optionsEPKc.exit, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds [512 x i8], ptr %12, i64 0, i64 %13
+  %19 = getelementptr inbounds i8, ptr %12, i64 %13
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %22, label %20
 
@@ -1923,9 +1923,9 @@ _ZN12Disassembler8dll_loadEPciiS0_iP12outputStream.exit44: ; preds = %35, %42
   br i1 %or.cond3, label %48, label %69
 
 48:                                               ; preds = %44
-  %49 = add nsw i32 %.031, -1
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [4097 x i8], ptr %3, i64 0, i64 %50
+  %49 = zext nneg i32 %.031 to i64
+  %50 = getelementptr i8, ptr %3, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 -1
   store i8 0, ptr %51, align 1
   %52 = call noundef ptr @_ZN2os14file_separatorEv() #12
   %53 = load i8, ptr %52, align 1

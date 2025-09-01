@@ -1924,7 +1924,7 @@ _ZN5zxing3RefINS_11ResultPointEED2Ev.exit266:     ; preds = %_ZN5zxing3RefINS_11
           to label %403 unwind label %415
 
 403:                                              ; preds = %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit266
-  %404 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN5zxing6qrcode8Detector24processFinderPatternInfoENS_3RefINS0_17FinderPatternInfoEEERNS_12ErrorHandlerE.dimensionDiff, i64 0, i64 %indvars.iv
+  %404 = getelementptr inbounds nuw i32, ptr @__const._ZN5zxing6qrcode8Detector24processFinderPatternInfoENS_3RefINS0_17FinderPatternInfoEEERNS_12ErrorHandlerE.dimensionDiff, i64 %indvars.iv
   %405 = load i32, ptr %404, align 4, !tbaa !91
   %406 = add nsw i32 %405, %342
   %407 = invoke noundef ptr @_ZN5zxing6qrcode7Version33getProvisionalVersionForDimensionEiRNS_12ErrorHandlerE(i32 noundef %406, ptr noundef nonnull align 8 dereferenceable(48) %3)

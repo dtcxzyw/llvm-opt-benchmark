@@ -14087,7 +14087,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN84_$LT$gpui..
 define void @"_ZN2ui10components6button11button_like128_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..TintColor$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h55eef2808b318dd1E"(ptr dead_on_unwind noalias noundef writable writeonly sret([20 x i8]) align 4 captures(none) dereferenceable(20) %0, i8 noundef %1) unnamed_addr #17 {
 switch.lookup:
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %0, align 4
   ret void
@@ -14103,7 +14103,7 @@ define void @"_ZN2ui10components6button11button_like130_$LT$impl$u20$core..conve
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZN2ui10components6button11button_like128_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..TintColor$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h55eef2808b318dd1E.exit"
 

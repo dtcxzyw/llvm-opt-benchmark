@@ -322,7 +322,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %113, %130
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %140 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %139, i64 0, i64 %123
+  %140 = getelementptr inbounds nuw %struct.float128_t, ptr %139, i64 %123
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.not.i140 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   %141 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
@@ -906,7 +906,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %113, %130
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %140 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %139, i64 0, i64 %123
+  %140 = getelementptr inbounds nuw %struct.float128_t, ptr %139, i64 %123
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.not.i140 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   %141 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
@@ -1364,7 +1364,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %113, %130
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %140 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %139, i64 0, i64 %123
+  %140 = getelementptr inbounds nuw %struct.float128_t, ptr %139, i64 %123
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.not.i140 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   %141 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
@@ -1824,7 +1824,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %113, %130
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %140 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %139, i64 0, i64 %123
+  %140 = getelementptr inbounds nuw %struct.float128_t, ptr %139, i64 %123
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.not.i140 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   %141 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
@@ -2282,7 +2282,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %113, %130
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %140 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %139, i64 0, i64 %123
+  %140 = getelementptr inbounds nuw %struct.float128_t, ptr %139, i64 %123
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.not.i140 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   %141 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
@@ -2742,7 +2742,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %113, %130
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %140 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %139, i64 0, i64 %123
+  %140 = getelementptr inbounds nuw %struct.float128_t, ptr %139, i64 %123
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.not.i140 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   %141 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
@@ -3200,7 +3200,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %113, %130
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %140 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %139, i64 0, i64 %123
+  %140 = getelementptr inbounds nuw %struct.float128_t, ptr %139, i64 %123
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.not.i140 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   %141 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
@@ -3660,7 +3660,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %113, %130
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %140 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %139, i64 0, i64 %123
+  %140 = getelementptr inbounds nuw %struct.float128_t, ptr %139, i64 %123
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.not.i140 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
   %141 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)

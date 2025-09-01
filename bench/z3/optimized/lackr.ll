@@ -2527,9 +2527,9 @@ define hidden noundef zeroext i1 @_ZN5lackr4ackrEP3appS1_(ptr noundef nonnull al
 
 16:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !84
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !84
   %21 = load ptr, ptr %0, align 8, !tbaa !129
   %22 = invoke noundef zeroext i1 @_ZNK11ast_manager9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %21, ptr noundef %18, ptr noundef %20)
@@ -6111,7 +6111,7 @@ _ZN11ackr_helper7app_occC2Ev.exit33:              ; preds = %.loopexit
   br i1 %153, label %154, label %.critedge
 
 154:                                              ; preds = %150
-  %155 = getelementptr inbounds nuw [0 x ptr], ptr %149, i64 0, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8, !tbaa !84
   %157 = call noundef zeroext i1 @_ZNK11ast_manager15is_unique_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %14, ptr noundef %156)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

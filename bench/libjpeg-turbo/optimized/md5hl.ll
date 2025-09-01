@@ -93,18 +93,18 @@ define dso_local noundef ptr @MD5FileChunk(ptr noundef readonly captures(none) %
 
 38:                                               ; preds = %38, %.thread.i
   %indvars.iv.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %40 = load i8, ptr %39, align 1, !tbaa !14
   %41 = lshr i8 %40, 4
   %42 = zext nneg i8 %41 to i64
-  %43 = getelementptr inbounds nuw [17 x i8], ptr @MD5End.hex, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @MD5End.hex, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !14
   %45 = shl nuw nsw i64 %indvars.iv.i, 1
   %46 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 %45
   store i8 %44, ptr %46, align 1, !tbaa !14
   %47 = and i8 %40, 15
   %48 = zext nneg i8 %47 to i64
-  %49 = getelementptr inbounds nuw [17 x i8], ptr @MD5End.hex, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @MD5End.hex, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !14
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store i8 %50, ptr %51, align 1, !tbaa !14

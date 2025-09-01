@@ -155,10 +155,10 @@ Abc_ConvertSopToBdd2Count.exit:                   ; preds = %Abc_ConvertSopToBdd
   %41 = mul nsw i32 %.039, %4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %1, i64 %42
-  %44 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !6
   %46 = tail call ptr @Abc_ConvertSopToBdd2_rec(ptr noundef %0, ptr noundef %43, ptr noundef %2, i32 noundef %45, i32 noundef %4, i32 noundef %39)
-  %47 = getelementptr inbounds nuw [5 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %46, ptr %47, align 8, !tbaa !10
   tail call void @Cudd_Ref(ptr noundef %46) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

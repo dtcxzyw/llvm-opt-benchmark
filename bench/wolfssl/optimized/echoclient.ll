@@ -315,7 +315,7 @@ tcp_connect.exit:                                 ; preds = %tcp_socket.exit.i
 
 120:                                              ; preds = %114
   %121 = zext nneg i32 %115 to i64
-  %122 = getelementptr inbounds nuw [1025 x i8], ptr %5, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 %121
   store i8 0, ptr %122, align 1, !tbaa !38
   %123 = call i32 @fputs(ptr noundef nonnull %5, ptr noundef nonnull %.062)
   %124 = icmp slt i32 %123, 0

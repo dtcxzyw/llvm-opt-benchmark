@@ -2260,19 +2260,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit363: ; preds = %_Z
   %769 = fmul float %768, %751
   store float %769, ptr %767, align 4, !tbaa !68
   %770 = fpext float %761 to double
-  %771 = getelementptr inbounds nuw [16 x double], ptr %752, i64 0, i64 %758
+  %771 = getelementptr inbounds nuw double, ptr %752, i64 %758
   store double %770, ptr %771, align 8, !tbaa !92
   %772 = fpext float %765 to double
-  %773 = getelementptr inbounds nuw [16 x double], ptr %752, i64 0, i64 %762
+  %773 = getelementptr inbounds nuw double, ptr %752, i64 %762
   store double %772, ptr %773, align 8, !tbaa !92
   %774 = fpext float %769 to double
-  %775 = getelementptr inbounds nuw [16 x double], ptr %752, i64 0, i64 %766
+  %775 = getelementptr inbounds nuw double, ptr %752, i64 %766
   store double %774, ptr %775, align 8, !tbaa !92
   %776 = or disjoint i64 %758, 3
   %777 = getelementptr inbounds nuw float, ptr %744, i64 %776
   %778 = load float, ptr %777, align 4, !tbaa !68
   %779 = fpext float %778 to double
-  %780 = getelementptr inbounds nuw [16 x double], ptr %752, i64 0, i64 %776
+  %780 = getelementptr inbounds nuw double, ptr %752, i64 %776
   store double %779, ptr %780, align 8, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

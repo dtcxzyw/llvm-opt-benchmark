@@ -286,7 +286,7 @@ _ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_trai
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = lshr i64 %24, 52
-  %26 = getelementptr inbounds nuw [4096 x %"struct.OpenImageIO::v3_1_0::TableRepMap"], ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TableRepMap", ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %25
   store ptr %23, ptr %4, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %22, ptr %27, align 8, !tbaa !20
@@ -431,7 +431,7 @@ _ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_trai
   store i64 %82, ptr %5, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %83 = lshr i64 %82, 52
-  %84 = getelementptr inbounds nuw [4096 x %"struct.OpenImageIO::v3_1_0::TableRepMap"], ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TableRepMap", ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %83
   store ptr %81, ptr %3, align 8, !tbaa !23
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %80, ptr %85, align 8, !tbaa !20
@@ -479,7 +479,7 @@ _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.th
 _ZN11OpenImageIO6v3_1_012_GLOBAL__N_111reverse_mapEv.exit: ; preds = %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, %89, %98
   %100 = load i64, ptr %5, align 8, !tbaa !27
   %101 = lshr i64 %100, 56
-  %102 = getelementptr inbounds nuw [256 x %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO::v3_1_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin"], ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO::v3_1_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin", ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 %101
   %103 = cmpxchg weak ptr %102, i32 0, i32 1073741824 acquire acquire, align 4
   %104 = extractvalue { i32, i1 } %103, 1
   br i1 %104, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8lock_binERSA_.exit, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i
@@ -523,7 +523,7 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_
   %116 = phi i64 [ %113, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8lock_binERSA_.exit ], [ %183, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8iteratorD2Ev.exit56 ]
   %.023 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8lock_binERSA_.exit ], [ %184, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8iteratorD2Ev.exit56 ]
   %117 = lshr i64 %116, 56
-  %118 = getelementptr inbounds nuw [256 x %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO::v3_1_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin"], ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 0, i64 %117
+  %118 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO::v3_1_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin", ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %120 = load i64, ptr %119, align 32, !tbaa !45, !noalias !46
   %.not.not.i.i.i.i = icmp eq i64 %120, 0
@@ -588,7 +588,7 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_
   %149 = load i64, ptr %21, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %150 = lshr i64 %116, 52
-  %151 = getelementptr inbounds nuw [4096 x %"struct.OpenImageIO::v3_1_0::TableRepMap"], ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TableRepMap", ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %150
   store ptr %148, ptr %2, align 8, !tbaa !23
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %149, ptr %152, align 8, !tbaa !20
@@ -924,7 +924,7 @@ define ptr @_ZN11OpenImageIO6v3_1_07ustring9from_hashEm(i64 noundef %0) local_un
 
 _ZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEv.exit: ; preds = %1, %4, %7
   %10 = lshr i64 %0, 52
-  %11 = getelementptr inbounds nuw [4096 x %"struct.OpenImageIO::v3_1_0::TableRepMap"], ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TableRepMap", ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %10
   %12 = atomicrmw add ptr %11, i32 1 acquire, align 4
   %13 = and i32 %12, 1073741824
   %.not.i.i.i.i = icmp eq i32 %13, 0

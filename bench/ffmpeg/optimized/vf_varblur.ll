@@ -50,7 +50,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #1 {
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %8) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -192,14 +192,14 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #0 {
   %84 = icmp sgt i32 %83, 8
   %85 = select i1 %84, i32 3, i32 2
   %86 = shl i32 %82, %85
-  %87 = getelementptr inbounds nuw [4 x i32], ptr %75, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv
   store i32 %86, ptr %87, align 4, !tbaa !51
   %88 = sext i32 %86 to i64
   %89 = load i32, ptr %28, align 4, !tbaa !36
   %90 = add nsw i32 %89, 1
   %91 = sext i32 %90 to i64
   %92 = tail call noalias ptr @av_calloc(i64 noundef %88, i64 noundef %91) #10
-  %93 = getelementptr inbounds nuw [4 x ptr], ptr %76, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
   store ptr %92, ptr %93, align 8, !tbaa !55
   %.not90 = icmp eq ptr %92, null
   br i1 %.not90, label %.loopexit, label %77
@@ -982,17 +982,17 @@ define internal i32 @varblur_frame(ptr noundef %0) #0 {
   br i1 %.not46.i, label %81, label %67
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds nuw [8 x ptr], ptr %28, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8, !tbaa !55
-  %70 = getelementptr inbounds nuw [4 x i32], ptr %48, i64 0, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 4, !tbaa !51
-  %72 = getelementptr inbounds nuw [4 x ptr], ptr %49, i64 0, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8, !tbaa !55
-  %74 = getelementptr inbounds nuw [8 x i32], ptr %50, i64 0, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i
   %75 = load i32, ptr %74, align 4, !tbaa !51
-  %76 = getelementptr inbounds nuw [4 x i32], ptr %51, i64 0, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 4, !tbaa !51
-  %78 = getelementptr inbounds nuw [4 x i32], ptr %52, i64 0, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv.i
   %79 = load i32, ptr %78, align 4, !tbaa !51
   %80 = load ptr, ptr %53, align 8, !tbaa !48
   call void %80(ptr noundef %69, i32 noundef %75, i32 noundef %77, i32 noundef %79, ptr noundef %73, i32 noundef %71) #10
@@ -1096,25 +1096,25 @@ define internal noundef i32 @blur_planes(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not.us, label %54, label %31
 
 31:                                               ; preds = %.lr.ph.split.us
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %.fr, i64 0, i64 %indvars.iv66
+  %32 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %indvars.iv66
   %33 = load ptr, ptr %32, align 8, !tbaa !55
-  %34 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv66
+  %34 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv66
   %35 = load i32, ptr %34, align 4, !tbaa !51
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv66
+  %36 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv66
   %37 = load i32, ptr %36, align 4, !tbaa !51
-  %38 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv66
+  %38 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv66
   %39 = load i32, ptr %38, align 4, !tbaa !51
   %40 = mul nsw i32 %39, %16
   %41 = sdiv i32 %40, %3
   %42 = mul nsw i32 %39, %2
   %43 = sdiv i32 %42, %3
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv66
+  %44 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv66
   %45 = load i32, ptr %44, align 4, !tbaa !51
-  %46 = getelementptr inbounds nuw [4 x ptr], ptr %22, i64 0, i64 %indvars.iv66
+  %46 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv66
   %47 = load ptr, ptr %46, align 8, !tbaa !55
-  %48 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %indvars.iv66
+  %48 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv66
   %49 = load i32, ptr %48, align 4, !tbaa !51
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv66
+  %50 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv66
   %51 = load ptr, ptr %50, align 8, !tbaa !55
   %52 = load ptr, ptr %24, align 8, !tbaa !47
   %53 = tail call i32 %52(ptr noundef %0, ptr noundef %33, i32 noundef %35, ptr noundef %51, i32 noundef %49, i32 noundef %37, i32 noundef %39, ptr noundef %47, i32 noundef %45, i32 noundef %43, i32 noundef %41) #10
@@ -1133,17 +1133,17 @@ define internal noundef i32 @blur_planes(ptr noundef %0, ptr noundef readonly ca
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.lr.ph ]
-  %58 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !51
   %60 = mul nsw i32 %59, %2
   %61 = sdiv i32 %60, %3
   %62 = mul nsw i32 %59, %16
   %63 = sdiv i32 %62, %3
-  %64 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !51
-  %66 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !51
-  %68 = getelementptr inbounds nuw [8 x ptr], ptr %.fr, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !55
   %70 = load i32, ptr %20, align 8, !tbaa !87
   %71 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1153,9 +1153,9 @@ define internal noundef i32 @blur_planes(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not, label %74, label %90
 
 74:                                               ; preds = %.lr.ph.split
-  %75 = getelementptr inbounds nuw [8 x ptr], ptr %.fr63, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw ptr, ptr %.fr63, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8, !tbaa !55
-  %77 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !51
   %79 = mul nsw i32 %67, %61
   %80 = sext i32 %79 to i64
@@ -1172,13 +1172,13 @@ define internal noundef i32 @blur_planes(ptr noundef %0, ptr noundef readonly ca
   br label %101
 
 90:                                               ; preds = %.lr.ph.split
-  %91 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4, !tbaa !51
-  %93 = getelementptr inbounds nuw [4 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8, !tbaa !55
-  %95 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !51
-  %97 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8, !tbaa !55
   %99 = load ptr, ptr %24, align 8, !tbaa !47
   %100 = tail call i32 %99(ptr noundef %0, ptr noundef %69, i32 noundef %67, ptr noundef %98, i32 noundef %96, i32 noundef %65, i32 noundef %59, ptr noundef %94, i32 noundef %92, i32 noundef %61, i32 noundef %63) #10

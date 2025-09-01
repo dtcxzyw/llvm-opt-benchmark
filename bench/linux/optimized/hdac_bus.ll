@@ -119,65 +119,63 @@ define internal void @snd_hdac_bus_process_unsol_events(ptr noundef %0) #0 align
   %10 = getelementptr i8, ptr %0, i64 -648
   br label %11
 
-11:                                               ; preds = %37, %8
-  %12 = phi i32 [ %6, %8 ], [ %38, %37 ]
-  %13 = phi i32 [ %5, %8 ], [ %39, %37 ]
+11:                                               ; preds = %35, %8
+  %12 = phi i32 [ %6, %8 ], [ %36, %35 ]
+  %13 = phi i32 [ %5, %8 ], [ %37, %35 ]
   %14 = add i32 %13, 1
   %15 = and i32 %14, 63
   store i32 %15, ptr %3, align 8
   %16 = shl nuw nsw i32 %15, 1
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr [128 x i32], ptr %9, i64 0, i64 %17
+  %18 = getelementptr i32, ptr %9, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = or disjoint i32 %16, 1
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr [128 x i32], ptr %9, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4
-  %24 = and i32 %23, 16
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %37, label %26
+  %20 = getelementptr i8, ptr %18, i64 4
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %21, 16
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %35, label %24
 
-26:                                               ; preds = %11
-  %27 = and i32 %23, 15
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr [16 x ptr], ptr %10, i64 0, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %37, label %32
+24:                                               ; preds = %11
+  %25 = and i32 %21, 15
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr ptr, ptr %10, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %35, label %30
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 944
-  %34 = load i8, ptr %33, align 8
-  %35 = and i8 %34, 8
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %37, label %41
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 944
+  %32 = load i8, ptr %31, align 8
+  %33 = and i8 %32, 8
+  %34 = icmp eq i8 %33, 0
+  br i1 %34, label %35, label %39
 
-37:                                               ; preds = %48, %32, %26, %11
-  %38 = phi i32 [ %.pre4, %48 ], [ %12, %32 ], [ %12, %26 ], [ %12, %11 ]
-  %39 = phi i32 [ %.pre, %48 ], [ %15, %32 ], [ %15, %26 ], [ %15, %11 ]
-  %40 = icmp eq i32 %39, %38
-  br i1 %40, label %.loopexit, label %11, !llvm.loop !6
+35:                                               ; preds = %46, %30, %24, %11
+  %36 = phi i32 [ %.pre4, %46 ], [ %12, %30 ], [ %12, %24 ], [ %12, %11 ]
+  %37 = phi i32 [ %.pre, %46 ], [ %15, %30 ], [ %15, %24 ], [ %15, %11 ]
+  %38 = icmp eq i32 %37, %36
+  br i1 %38, label %.loopexit, label %11, !llvm.loop !6
 
-41:                                               ; preds = %32
+39:                                               ; preds = %30
   tail call void @_raw_spin_unlock_irq(ptr noundef %2) #8
-  %42 = getelementptr inbounds nuw i8, ptr %30, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 104
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 168
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 168
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %48, label %47
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %46, label %45
 
-47:                                               ; preds = %41
-  tail call void %45(ptr noundef nonnull %30, i32 noundef %19) #8
-  br label %48
+45:                                               ; preds = %39
+  tail call void %43(ptr noundef nonnull %28, i32 noundef %19) #8
+  br label %46
 
-48:                                               ; preds = %47, %41
+46:                                               ; preds = %45, %39
   tail call void @_raw_spin_lock_irq(ptr noundef %2) #8
   %.pre = load i32, ptr %3, align 8
   %.pre4 = load i32, ptr %4, align 4
-  br label %37
+  br label %35
 
-.loopexit:                                        ; preds = %37, %1
+.loopexit:                                        ; preds = %35, %1
   tail call void @_raw_spin_unlock_irq(ptr noundef %2) #8
   ret void
 }
@@ -381,7 +379,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_bus_queue_event(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %41, label %5
+  br i1 %4, label %39, label %5
 
 5:                                                ; preds = %3
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_hda_unsol_event, i64 8), i32 2) #8
@@ -432,18 +430,16 @@ define dso_local void @snd_hdac_bus_queue_event(ptr noundef %0, i32 noundef %1, 
   %31 = shl nuw nsw i32 %30, 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %33 = zext nneg i32 %31 to i64
-  %34 = getelementptr [128 x i32], ptr %32, i64 0, i64 %33
+  %34 = getelementptr i32, ptr %32, i64 %33
   store i32 %1, ptr %34, align 4
-  %35 = or disjoint i32 %31, 1
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr [128 x i32], ptr %32, i64 0, i64 %36
-  store i32 %2, ptr %37, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %39 = load ptr, ptr @system_wq, align 8
-  %40 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %39, ptr noundef nonnull %38) #8
-  br label %41
+  %35 = getelementptr i8, ptr %34, i64 4
+  store i32 %2, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %37 = load ptr, ptr @system_wq, align 8
+  %38 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %37, ptr noundef nonnull %36) #8
+  br label %39
 
-41:                                               ; preds = %26, %3
+39:                                               ; preds = %26, %3
   ret void
 }
 
@@ -453,7 +449,7 @@ define dso_local noundef range(i32 -16, 1) i32 @snd_hdac_bus_add_device(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr [16 x ptr], ptr %3, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %12, label %10
@@ -475,7 +471,7 @@ define dso_local noundef range(i32 -16, 1) i32 @snd_hdac_bus_add_device(ptr noun
   store volatile ptr %13, ptr %16, align 8
   %18 = load i32, ptr %4, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr [16 x ptr], ptr %3, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %3, i64 %19
   store ptr %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %22 = load i32, ptr %4, align 8
@@ -526,7 +522,7 @@ define dso_local void @snd_hdac_bus_remove_device(ptr noundef %0, ptr noundef %1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr [16 x ptr], ptr %15, i64 0, i64 %18
+  %19 = getelementptr ptr, ptr %15, i64 %18
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %21 = load i32, ptr %16, align 8

@@ -536,10 +536,10 @@ define void @_ZNK9grpc_core4Rbac8ToStringB5cxx11Ev(ptr dead_on_unwind noalias wr
 
 switch.lookup:                                    ; preds = %2
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK9grpc_core4Rbac8ToStringB5cxx11Ev, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK9grpc_core4Rbac8ToStringB5cxx11Ev, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   %19 = zext nneg i32 %16 to i64
-  %switch.gep187 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK9grpc_core4Rbac8ToStringB5cxx11Ev.1, i64 0, i64 %19
+  %switch.gep187 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9grpc_core4Rbac8ToStringB5cxx11Ev.1, i64 %19
   %switch.load188 = load ptr, ptr %switch.gep187, align 8
   store i64 %switch.load, ptr %7, align 8, !tbaa !50
   %.sroa.4114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8

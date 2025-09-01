@@ -2007,7 +2007,7 @@ zend_string_alloc.exit:                           ; preds = %4
   store i64 %.47, ptr %23, align 8, !tbaa !8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1072) %24, ptr noundef nonnull align 16 dereferenceable(1072) %., i64 range(i64 1072, 1098) %.47, i1 false)
-  %25 = getelementptr inbounds nuw [1 x i8], ptr %24, i64 0, i64 %.47
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.47
   store i8 0, ptr %25, align 1, !tbaa !4
   %26 = call ptr @pcre_get_compiled_regex(ptr noundef nonnull %20, ptr noundef nonnull %5) #15
   %27 = load i32, ptr %21, align 4, !tbaa !4

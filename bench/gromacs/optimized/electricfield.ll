@@ -1808,7 +1808,7 @@ _ZNK3gmx12_GLOBAL__N_113ElectricField8isActiveEv.exit.thread: ; preds = %3
 
 24:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_113ElectricField8isActiveEv.exit.thread, %.loopexit
   %indvars.iv30 = phi i64 [ 0, %_ZNK3gmx12_GLOBAL__N_113ElectricField8isActiveEv.exit.thread ], [ %indvars.iv.next31, %.loopexit ]
-  %25 = getelementptr inbounds nuw [3 x %"class.gmx::(anonymous namespace)::ElectricFieldDimension"], ptr %4, i64 0, i64 %indvars.iv30
+  %25 = getelementptr inbounds nuw %"class.gmx::(anonymous namespace)::ElectricFieldDimension", ptr %4, i64 %indvars.iv30
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load float, ptr %26, align 4, !tbaa !97
   %28 = fcmp ogt float %27, 0.000000e+00
@@ -1860,7 +1860,7 @@ _ZNK3gmx12_GLOBAL__N_113ElectricField5fieldEif.exit: ; preds = %30, %51
   br i1 %62, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %invariant.gep = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv30
+  %invariant.gep = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv30
   %wide.trip.count = zext nneg i32 %61 to i64
   br label %63
 

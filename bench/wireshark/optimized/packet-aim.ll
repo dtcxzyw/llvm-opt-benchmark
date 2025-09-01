@@ -2795,57 +2795,56 @@ define internal i32 @dissect_aim_tlv_value_client_short_capabilities(ptr noundef
   br label %11
 
 11:                                               ; preds = %.lr.ph, %dissect_aim_short_capability.exit
-  %.08 = phi i32 [ 0, %.lr.ph ], [ %27, %dissect_aim_short_capability.exit ]
+  %.08 = phi i32 [ 0, %.lr.ph ], [ %26, %dissect_aim_short_capability.exit ]
   %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %.08)
   %13 = zext i16 %12 to i64
   %.sroa.0.sroa.0.0.insert.insert.i.i = or disjoint i64 %13, 1283891477277442048
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.sroa.0.0.insert.insert.i.i, ptr %5, align 8
   store i64 92716621111938, ptr %10, align 8
-  br label %17
+  br label %16
 
-14:                                               ; preds = %17
+14:                                               ; preds = %16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %15 = getelementptr [34 x %struct._aim_client_capability], ptr @known_client_caps, i64 0, i64 %indvars.iv.next.i.i.i
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 33
-  br i1 %exitcond.i.i.i, label %aim_find_short_capability.exit.thread.i, label %17, !llvm.loop !18
+  br i1 %exitcond.i.i.i, label %aim_find_short_capability.exit.thread.i, label %16, !llvm.loop !18
 
 aim_find_short_capability.exit.thread.i:          ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %16 = load i32, ptr @hf_aim_nickinfo_short_caps, align 4
+  %15 = load i32, ptr @hf_aim_nickinfo_short_caps, align 4
   br label %dissect_aim_short_capability.exit
 
-17:                                               ; preds = %14, %11
+16:                                               ; preds = %14, %11
   %indvars.iv.i.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i.i, %14 ]
-  %18 = phi ptr [ @known_client_caps, %11 ], [ %15, %14 ]
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %19, ptr noundef nonnull dereferenceable(16) %5, i64 16)
+  %17 = getelementptr %struct._aim_client_capability, ptr @known_client_caps, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %18, ptr noundef nonnull dereferenceable(16) %5, i64 16)
   %.not8.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not8.i.i.i, label %aim_find_short_capability.exit.i, label %14
 
-aim_find_short_capability.exit.i:                 ; preds = %17
+aim_find_short_capability.exit.i:                 ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %20 = load i32, ptr @hf_aim_nickinfo_short_caps, align 4
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %dissect_aim_short_capability.exit, label %21
+  %19 = load i32, ptr @hf_aim_nickinfo_short_caps, align 4
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %dissect_aim_short_capability.exit, label %20
 
-21:                                               ; preds = %aim_find_short_capability.exit.i
-  %22 = load ptr, ptr %18, align 8
+20:                                               ; preds = %aim_find_short_capability.exit.i
+  %21 = load ptr, ptr %17, align 8
   br label %dissect_aim_short_capability.exit
 
-dissect_aim_short_capability.exit:                ; preds = %aim_find_short_capability.exit.thread.i, %aim_find_short_capability.exit.i, %21
-  %23 = phi i32 [ %20, %21 ], [ %20, %aim_find_short_capability.exit.i ], [ %16, %aim_find_short_capability.exit.thread.i ]
-  %24 = phi ptr [ %22, %21 ], [ @.str.110, %aim_find_short_capability.exit.i ], [ @.str.110, %aim_find_short_capability.exit.thread.i ]
-  %25 = zext i16 %12 to i32
-  %26 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef %.08, i32 noundef 2, i32 noundef %25, ptr noundef nonnull @.str.535, ptr noundef %24, i32 noundef %25)
-  %27 = add i32 %.08, 2
-  %28 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %27)
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %11, label %._crit_edge, !llvm.loop !19
+dissect_aim_short_capability.exit:                ; preds = %aim_find_short_capability.exit.thread.i, %aim_find_short_capability.exit.i, %20
+  %22 = phi i32 [ %19, %20 ], [ %19, %aim_find_short_capability.exit.i ], [ %15, %aim_find_short_capability.exit.thread.i ]
+  %23 = phi ptr [ %21, %20 ], [ @.str.110, %aim_find_short_capability.exit.i ], [ @.str.110, %aim_find_short_capability.exit.thread.i ]
+  %24 = zext i16 %12 to i32
+  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %7, i32 noundef %22, ptr noundef %2, i32 noundef %.08, i32 noundef 2, i32 noundef %24, ptr noundef nonnull @.str.535, ptr noundef %23, i32 noundef %24)
+  %26 = add i32 %.08, 2
+  %27 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %26)
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %11, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %dissect_aim_short_capability.exit, %4
-  %30 = tail call i32 @tvb_reported_length(ptr noundef %2)
-  ret i32 %30
+  %29 = tail call i32 @tvb_reported_length(ptr noundef %2)
+  ret i32 %29
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2864,71 +2863,70 @@ define internal fastcc noundef i32 @dissect_aim_capability(ptr noundef %0, ptr n
   store i64 %6, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %9, align 8
-  br label %13
+  br label %12
 
-10:                                               ; preds = %13
+10:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = getelementptr [34 x %struct._aim_client_capability], ptr @known_client_caps, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 33
-  br i1 %exitcond.i, label %aim_find_capability.exit.thread, label %13, !llvm.loop !18
+  br i1 %exitcond.i, label %aim_find_capability.exit.thread, label %12, !llvm.loop !18
 
 aim_find_capability.exit.thread:                  ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %12 = load i32, ptr @hf_aim_nickinfo_caps, align 4
-  br label %19
+  %11 = load i32, ptr @hf_aim_nickinfo_caps, align 4
+  br label %18
 
-13:                                               ; preds = %10, %3
+12:                                               ; preds = %10, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %10 ]
-  %14 = phi ptr [ @known_client_caps, %3 ], [ %11, %10 ]
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %15, ptr noundef nonnull dereferenceable(16) %4, i64 16)
+  %13 = getelementptr %struct._aim_client_capability, ptr @known_client_caps, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %14, ptr noundef nonnull dereferenceable(16) %4, i64 16)
   %.not8.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not8.i, label %aim_find_capability.exit, label %10
 
-aim_find_capability.exit:                         ; preds = %13
+aim_find_capability.exit:                         ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %16 = load i32, ptr @hf_aim_nickinfo_caps, align 4
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %19, label %17
+  %15 = load i32, ptr @hf_aim_nickinfo_caps, align 4
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %18, label %16
 
-17:                                               ; preds = %aim_find_capability.exit
-  %18 = load ptr, ptr %14, align 8
-  br label %19
+16:                                               ; preds = %aim_find_capability.exit
+  %17 = load ptr, ptr %13, align 8
+  br label %18
 
-19:                                               ; preds = %aim_find_capability.exit.thread, %aim_find_capability.exit, %17
-  %20 = phi i32 [ %16, %17 ], [ %16, %aim_find_capability.exit ], [ %12, %aim_find_capability.exit.thread ]
-  %21 = phi ptr [ %18, %17 ], [ @.str.110, %aim_find_capability.exit ], [ @.str.110, %aim_find_capability.exit.thread ]
-  %22 = lshr i64 %8, 56
-  %23 = trunc nuw nsw i64 %22 to i32
-  %24 = lshr i64 %8, 48
-  %25 = trunc nuw nsw i64 %24 to i32
-  %26 = lshr i64 %8, 40
-  %27 = trunc nuw nsw i64 %26 to i32
-  %28 = lshr i64 %8, 32
-  %29 = trunc nuw i64 %28 to i32
-  %30 = trunc i64 %8 to i32
-  %31 = lshr i32 %30, 24
-  %32 = trunc i64 %8 to i32
-  %33 = lshr i32 %32, 16
-  %34 = trunc i64 %8 to i32
-  %35 = lshr i32 %34, 8
-  %36 = trunc i64 %8 to i32
-  %37 = lshr i64 %6, 48
-  %38 = trunc nuw nsw i64 %37 to i32
-  %39 = lshr i64 %6, 32
-  %40 = trunc nuw i64 %39 to i32
-  %41 = trunc i64 %6 to i32
-  %42 = and i32 %40, 65535
-  %43 = and i32 %36, 255
-  %44 = and i32 %35, 255
-  %45 = and i32 %33, 255
-  %46 = and i32 %29, 255
-  %47 = and i32 %27, 255
-  %48 = and i32 %25, 255
-  %49 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull @.str.660, ptr noundef %21, i32 noundef %41, i32 noundef %42, i32 noundef %38, i32 noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef %31, i32 noundef %46, i32 noundef %47, i32 noundef %48, i32 noundef %23)
-  %50 = add i32 %2, 16
+18:                                               ; preds = %aim_find_capability.exit.thread, %aim_find_capability.exit, %16
+  %19 = phi i32 [ %15, %16 ], [ %15, %aim_find_capability.exit ], [ %11, %aim_find_capability.exit.thread ]
+  %20 = phi ptr [ %17, %16 ], [ @.str.110, %aim_find_capability.exit ], [ @.str.110, %aim_find_capability.exit.thread ]
+  %21 = lshr i64 %8, 56
+  %22 = trunc nuw nsw i64 %21 to i32
+  %23 = lshr i64 %8, 48
+  %24 = trunc nuw nsw i64 %23 to i32
+  %25 = lshr i64 %8, 40
+  %26 = trunc nuw nsw i64 %25 to i32
+  %27 = lshr i64 %8, 32
+  %28 = trunc nuw i64 %27 to i32
+  %29 = trunc i64 %8 to i32
+  %30 = lshr i32 %29, 24
+  %31 = trunc i64 %8 to i32
+  %32 = lshr i32 %31, 16
+  %33 = trunc i64 %8 to i32
+  %34 = lshr i32 %33, 8
+  %35 = trunc i64 %8 to i32
+  %36 = lshr i64 %6, 48
+  %37 = trunc nuw nsw i64 %36 to i32
+  %38 = lshr i64 %6, 32
+  %39 = trunc nuw i64 %38 to i32
+  %40 = trunc i64 %6 to i32
+  %41 = and i32 %39, 65535
+  %42 = and i32 %35, 255
+  %43 = and i32 %34, 255
+  %44 = and i32 %32, 255
+  %45 = and i32 %28, 255
+  %46 = and i32 %26, 255
+  %47 = and i32 %24, 255
+  %48 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %2, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull @.str.660, ptr noundef %20, i32 noundef %40, i32 noundef %41, i32 noundef %37, i32 noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %30, i32 noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %22)
+  %49 = add i32 %2, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %50
+  ret i32 %49
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3865,13 +3863,13 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
   br i1 %exitcond, label %._crit_edge63, label %24, !llvm.loop !35
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr [52 x %struct.anon.0], ptr @icq_calls, i64 0, i64 %indvars.iv.next
+  %25 = getelementptr %struct.anon.0, ptr @icq_calls, i64 %indvars.iv.next
   %26 = load i16, ptr %25, align 8
   %27 = icmp eq i16 %26, %20
   br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %28 = getelementptr %struct.anon.0, ptr @icq_calls, i64 %indvars.iv.next, i32 1
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -4235,7 +4233,7 @@ define internal noundef i32 @dissect_aim_msg_client_err(ptr noundef %0, ptr noun
   br label %50
 
 46:                                               ; preds = %50
-  %47 = getelementptr [3 x %struct._aim_client_plugin], ptr @known_client_plugins, i64 0, i64 %indvars.iv.i.i.i
+  %47 = getelementptr %struct._aim_client_plugin, ptr @known_client_plugins, i64 %indvars.iv.i.i.i
   br i1 %exitcond.i.i.i, label %aim_find_plugin.exit.thread.i.i, label %50, !llvm.loop !37
 
 aim_find_plugin.exit.thread.i.i:                  ; preds = %46

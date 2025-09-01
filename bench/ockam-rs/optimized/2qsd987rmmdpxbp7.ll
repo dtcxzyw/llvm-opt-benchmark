@@ -8139,7 +8139,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !13, !align !15, !noundef !13
-  %29 = getelementptr inbounds nuw [256 x ptr], ptr %28, i64 0, i64 %26
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
   br label %37
 
@@ -8920,7 +8920,7 @@ common.resume:                                    ; preds = %91, %.body
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %1, align 8, !alias.scope !1328, !noalias !1335, !nonnull !13, !align !15, !noundef !13
-  %36 = getelementptr inbounds [0 x { ptr, i8 }], ptr %35, i64 0, i64 %28
+  %36 = getelementptr inbounds { ptr, i8 }, ptr %35, i64 %28
   %37 = call noundef align 8 dereferenceable(16) ptr @_ZN11sqlx_sqlite5value14SqliteValueRef5value17hbcf163c4c4486f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %36), !noalias !1334
   store ptr %37, ptr %22, align 8
   %38 = call noundef zeroext i1 @"_ZN81_$LT$sqlx_sqlite..value..SqliteValueRef$u20$as$u20$sqlx_core..value..ValueRef$GT$7is_null17h26da363a52642f57E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %22)

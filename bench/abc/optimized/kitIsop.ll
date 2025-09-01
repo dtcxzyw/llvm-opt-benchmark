@@ -1253,7 +1253,7 @@ Vec_IntFetch.exit92:                              ; preds = %93
 
 ._crit_edge:                                      ; preds = %134, %.preheader
   %138 = sext i32 %.0 to i64
-  %139 = getelementptr inbounds [5 x i32], ptr @__const.Kit_TruthIsop5_rec.uMasks, i64 0, i64 %138
+  %139 = getelementptr inbounds i32, ptr @__const.Kit_TruthIsop5_rec.uMasks, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !12
   %141 = xor i32 %140, -1
   %142 = and i32 %47, %141

@@ -2786,7 +2786,7 @@ define internal range(i32 -22, 1) i32 @opt_target(ptr noundef %0, ptr readnone c
   %52 = select i1 %51, ptr @.str.559, ptr @.str.560
   %53 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.343, ptr noundef nonnull %52, ptr noundef nonnull @options) #15
   %54 = zext nneg i32 %.078.ph to i64
-  %55 = getelementptr inbounds nuw [3 x ptr], ptr @opt_target.frame_rates, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr @opt_target.frame_rates, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !22
   %57 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.338, ptr noundef %56, ptr noundef nonnull @options) #15
   %58 = select i1 %51, ptr @.str.562, ptr @.str.563
@@ -2817,7 +2817,7 @@ define internal range(i32 -22, 1) i32 @opt_target(ptr noundef %0, ptr readnone c
   %77 = select i1 %76, ptr @.str.580, ptr @.str.581
   %78 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.343, ptr noundef nonnull %77, ptr noundef nonnull @options) #15
   %79 = zext nneg i32 %.078.ph to i64
-  %80 = getelementptr inbounds nuw [3 x ptr], ptr @opt_target.frame_rates, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr @opt_target.frame_rates, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !22
   %82 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.338, ptr noundef %81, ptr noundef nonnull @options) #15
   %83 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.348, ptr noundef nonnull @.str.582, ptr noundef nonnull @options) #15
@@ -2846,7 +2846,7 @@ define internal range(i32 -22, 1) i32 @opt_target(ptr noundef %0, ptr readnone c
   %101 = select i1 %100, ptr @.str.590, ptr @.str.591
   %102 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.343, ptr noundef nonnull %101, ptr noundef nonnull @options) #15
   %103 = zext nneg i32 %.078.ph to i64
-  %104 = getelementptr inbounds nuw [3 x ptr], ptr @opt_target.frame_rates, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw ptr, ptr @opt_target.frame_rates, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !22
   %106 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.338, ptr noundef %105, ptr noundef nonnull @options) #15
   %107 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.348, ptr noundef nonnull @.str.582, ptr noundef nonnull @options) #15
@@ -2884,7 +2884,7 @@ sub_0:                                            ; preds = %94
   %129 = select i1 %.not90, ptr @.str.600, ptr %128
   %130 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.348, ptr noundef nonnull %129, ptr noundef nonnull @options) #15
   %131 = zext nneg i32 %.078.ph to i64
-  %132 = getelementptr inbounds nuw [3 x ptr], ptr @opt_target.frame_rates, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw ptr, ptr @opt_target.frame_rates, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !22
   %134 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.338, ptr noundef %133, ptr noundef nonnull @options) #15
   %135 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull @.str.423, ptr noundef nonnull @.str.597, ptr noundef nonnull @options) #15

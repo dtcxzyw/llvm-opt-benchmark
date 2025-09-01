@@ -120,7 +120,7 @@ define internal i32 @lead_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 35:                                               ; preds = %35, %29
   %indvars.iv.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %indvars.iv.i
   %37 = load i8, ptr %36, align 1, !tbaa !31
   %38 = zext i8 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr @ff_mjpeg_std_luminance_quant_tbl, i64 %38
@@ -143,7 +143,7 @@ calc_dequant.exit:                                ; preds = %35
 
 48:                                               ; preds = %48, %calc_dequant.exit
   %indvars.iv.i310 = phi i64 [ 0, %calc_dequant.exit ], [ %indvars.iv.next.i312, %48 ]
-  %49 = getelementptr inbounds nuw [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %indvars.iv.i310
+  %49 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %indvars.iv.i310
   %50 = load i8, ptr %49, align 1, !tbaa !31
   %51 = zext i8 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr @ff_mjpeg_std_chrominance_quant_tbl, i64 %51
@@ -461,10 +461,10 @@ get_vlc2.exit.i:                                  ; preds = %192, %174
   %240 = load i16, ptr %239, align 2, !tbaa !33
   %241 = trunc nsw i32 %237 to i16
   %242 = mul i16 %240, %241
-  %243 = getelementptr inbounds nuw [64 x i8], ptr %103, i64 0, i64 %238
+  %243 = getelementptr inbounds nuw i8, ptr %103, i64 %238
   %244 = load i8, ptr %243, align 1, !tbaa !31
   %245 = zext i8 %244 to i64
-  %246 = getelementptr inbounds nuw [64 x i16], ptr %8, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw i16, ptr %8, i64 %245
   store i16 %242, ptr %246, align 2, !tbaa !33
   br label %247
 
@@ -484,8 +484,8 @@ decode_block.exit:                                ; preds = %get_vlc2.exit.i, %2
   %.sroa.8.22 = phi i32 [ %149, %132 ], [ %.sroa.8.21, %.thread52.i ], [ %.sroa.8.3520, %128 ], [ %213, %216 ], [ %213, %get_vlc2.exit.i ]
   %.0.i = phi i32 [ -1094995529, %132 ], [ 0, %.thread52.i ], [ -1094995529, %128 ], [ -1094995529, %216 ], [ -1094995529, %get_vlc2.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %250 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %129
-  %251 = getelementptr inbounds nuw [8 x i32], ptr %105, i64 0, i64 %129
+  %250 = getelementptr inbounds nuw ptr, ptr %1, i64 %129
+  %251 = getelementptr inbounds nuw i32, ptr %105, i64 %129
   br label %252
 
 252:                                              ; preds = %decode_block.exit, %258
@@ -521,9 +521,9 @@ decode_block.exit:                                ; preds = %get_vlc2.exit.i, %2
   %.0289394 = phi i32 [ %123, %.thread ], [ %113, %124 ]
   %269 = zext nneg i32 %121 to i64
   %270 = getelementptr inbounds nuw i16, ptr %9, i64 %269
-  %271 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %269
+  %271 = getelementptr inbounds nuw ptr, ptr %1, i64 %269
   %272 = load ptr, ptr %271, align 8, !tbaa !48
-  %273 = getelementptr inbounds nuw [8 x i32], ptr %105, i64 0, i64 %269
+  %273 = getelementptr inbounds nuw i32, ptr %105, i64 %269
   %274 = load i32, ptr %273, align 4, !tbaa !49
   %275 = mul nsw i32 %274, %.0288395
   %276 = sext i32 %275 to i64
@@ -682,10 +682,10 @@ get_vlc2.exit.i326:                               ; preds = %342, %324
   %390 = load i16, ptr %389, align 2, !tbaa !33
   %391 = trunc nsw i32 %387 to i16
   %392 = mul i16 %390, %391
-  %393 = getelementptr inbounds nuw [64 x i8], ptr %103, i64 0, i64 %388
+  %393 = getelementptr inbounds nuw i8, ptr %103, i64 %388
   %394 = load i8, ptr %393, align 1, !tbaa !31
   %395 = zext i8 %394 to i64
-  %396 = getelementptr inbounds nuw [64 x i16], ptr %7, i64 0, i64 %395
+  %396 = getelementptr inbounds nuw i16, ptr %7, i64 %395
   store i16 %392, ptr %396, align 2, !tbaa !33
   br label %397
 
@@ -821,12 +821,12 @@ decode_block.exit335:                             ; preds = %get_vlc2.exit.i326,
   %.0260 = phi i32 [ %443, %440 ], [ %430, %434 ]
   %448 = getelementptr inbounds i16, ptr %9, i64 %439
   %449 = icmp samesign ugt i32 %.0282508, 3
-  %.sroa.sel = select i1 %449, ptr %47, ptr %10
-  %450 = getelementptr inbounds [8 x ptr], ptr %1, i64 0, i64 %439
+  %.sroa.sel378 = select i1 %449, ptr %47, ptr %10
+  %450 = getelementptr inbounds ptr, ptr %1, i64 %439
   %451 = load ptr, ptr %450, align 8, !tbaa !48
   %452 = mul nsw i32 %.0260, %.0262
   %453 = add nsw i32 %452, %.0285518
-  %454 = getelementptr inbounds [8 x i32], ptr %419, i64 0, i64 %439
+  %454 = getelementptr inbounds i32, ptr %419, i64 %439
   %455 = load i32, ptr %454, align 4, !tbaa !49
   %456 = mul nsw i32 %453, %455
   %457 = sext i32 %456 to i64
@@ -896,7 +896,7 @@ decode_block.exit335:                             ; preds = %get_vlc2.exit.i326,
 506:                                              ; preds = %488, %487
   %.promoted.i343 = phi i32 [ %498, %488 ], [ %485, %487 ]
   %507 = phi i16 [ %505, %488 ], [ %.pre.i341, %487 ]
-  %508 = load i16, ptr %.sroa.sel, align 16, !tbaa !33
+  %508 = load i16, ptr %.sroa.sel378, align 16, !tbaa !33
   %509 = mul i16 %508, %507
   %510 = add i16 %509, 1024
   store i16 %510, ptr %6, align 16, !tbaa !33
@@ -987,14 +987,14 @@ get_vlc2.exit.i345:                               ; preds = %529, %511
   %573 = sub nsw i32 0, %572
   %574 = select i1 %isnotneg.i48.i351, i32 %573, i32 %572
   %575 = zext nneg i32 %555 to i64
-  %576 = getelementptr inbounds nuw i16, ptr %.sroa.sel, i64 %575
+  %576 = getelementptr inbounds nuw i16, ptr %.sroa.sel378, i64 %575
   %577 = load i16, ptr %576, align 2, !tbaa !33
   %578 = trunc nsw i32 %574 to i16
   %579 = mul i16 %577, %578
-  %580 = getelementptr inbounds nuw [64 x i8], ptr %421, i64 0, i64 %575
+  %580 = getelementptr inbounds nuw i8, ptr %421, i64 %575
   %581 = load i8, ptr %580, align 1, !tbaa !31
   %582 = zext i8 %581 to i64
-  %583 = getelementptr inbounds nuw [64 x i16], ptr %6, i64 0, i64 %582
+  %583 = getelementptr inbounds nuw i16, ptr %6, i64 %582
   store i16 %579, ptr %583, align 2, !tbaa !33
   br label %584
 
@@ -1119,10 +1119,10 @@ copy_block8.exit:                                 ; preds = %602, %decode_block.
   %.not457 = icmp eq i64 %indvars.iv540, 0
   %630 = select i1 %.not457, ptr @luma_ac_vlc, ptr @chroma_ac_vlc
   %631 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv540
-  %.sroa.sel378 = select i1 %.not457, ptr %10, ptr %47
-  %632 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv540
+  %.sroa.sel = select i1 %.not457, ptr %10, ptr %47
+  %632 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv540
   %633 = load ptr, ptr %632, align 8, !tbaa !48
-  %634 = getelementptr inbounds nuw [8 x i32], ptr %412, i64 0, i64 %indvars.iv540
+  %634 = getelementptr inbounds nuw i32, ptr %412, i64 %indvars.iv540
   %635 = load i32, ptr %634, align 4, !tbaa !49
   %636 = mul nsw i32 %635, %627
   %637 = sext i32 %636 to i64
@@ -1188,7 +1188,7 @@ copy_block8.exit:                                 ; preds = %602, %decode_block.
 682:                                              ; preds = %664, %663
   %.promoted.i363 = phi i32 [ %674, %664 ], [ %661, %663 ]
   %683 = phi i16 [ %681, %664 ], [ %.pre.i361, %663 ]
-  %684 = load i16, ptr %.sroa.sel378, align 16, !tbaa !33
+  %684 = load i16, ptr %.sroa.sel, align 16, !tbaa !33
   %685 = mul i16 %684, %683
   %686 = add i16 %685, 1024
   store i16 %686, ptr %5, align 16, !tbaa !33
@@ -1279,14 +1279,14 @@ get_vlc2.exit.i365:                               ; preds = %705, %687
   %749 = sub nsw i32 0, %748
   %750 = select i1 %isnotneg.i48.i371, i32 %749, i32 %748
   %751 = zext nneg i32 %731 to i64
-  %752 = getelementptr inbounds nuw i16, ptr %.sroa.sel378, i64 %751
+  %752 = getelementptr inbounds nuw i16, ptr %.sroa.sel, i64 %751
   %753 = load i16, ptr %752, align 2, !tbaa !33
   %754 = trunc nsw i32 %750 to i16
   %755 = mul i16 %753, %754
-  %756 = getelementptr inbounds nuw [64 x i8], ptr %414, i64 0, i64 %751
+  %756 = getelementptr inbounds nuw i8, ptr %414, i64 %751
   %757 = load i8, ptr %756, align 1, !tbaa !31
   %758 = zext i8 %757 to i64
-  %759 = getelementptr inbounds nuw [64 x i16], ptr %5, i64 0, i64 %758
+  %759 = getelementptr inbounds nuw i16, ptr %5, i64 %758
   store i16 %755, ptr %759, align 2, !tbaa !33
   br label %760
 

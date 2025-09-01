@@ -1338,7 +1338,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %.thread293.thread, 
   %330 = trunc i64 %indvars.iv.i.i to i32
   %331 = add i32 %330, 2
   %332 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %.1266, i32 noundef %331)
-  %333 = getelementptr [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %333 = getelementptr i8, ptr %5, i64 %indvars.iv.i.i
   store i8 %332, ptr %333, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16

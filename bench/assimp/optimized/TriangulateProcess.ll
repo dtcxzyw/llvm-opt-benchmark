@@ -584,20 +584,20 @@ split:                                            ; preds = %.preheader348, %_ZN
   %213 = getelementptr inbounds nuw i8, ptr %.0197395, i64 8
   store ptr %212, ptr %213, align 8
   %214 = zext nneg i32 %.1215 to i64
-  %215 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw i32, ptr %4, i64 %214
   %216 = load i32, ptr %215, align 4
   store i32 %216, ptr %212, align 4
   %217 = add nuw nsw i32 %.1215, 1
   %218 = and i32 %217, 3
   %219 = zext nneg i32 %218 to i64
-  %220 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw i32, ptr %4, i64 %219
   %221 = load i32, ptr %220, align 4
   %222 = load ptr, ptr %213, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 4
   store i32 %221, ptr %223, align 4
   %224 = xor i32 %.1215, 2
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw i32, ptr %4, i64 %225
   %227 = load i32, ptr %226, align 4
   %228 = load ptr, ptr %213, align 8
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
@@ -619,7 +619,7 @@ split:                                            ; preds = %.preheader348, %_ZN
   %238 = add nuw nsw i32 %.1215, 3
   %239 = and i32 %238, 3
   %240 = zext nneg i32 %239 to i64
-  %241 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw i32, ptr %4, i64 %240
   %242 = load i32, ptr %241, align 4
   %243 = load ptr, ptr %233, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8

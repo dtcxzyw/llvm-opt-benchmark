@@ -1398,10 +1398,10 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
 
 98:                                               ; preds = %98, %94
   %99 = phi i64 [ 0, %94 ], [ %104, %98 ]
-  %100 = getelementptr [3 x i32], ptr %96, i64 0, i64 %99
+  %100 = getelementptr i32, ptr %96, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = zext i32 %101 to i64
-  %103 = getelementptr [3 x i64], ptr %97, i64 0, i64 %99
+  %103 = getelementptr i64, ptr %97, i64 %99
   store i64 %102, ptr %103, align 8
   %104 = add nuw nsw i64 %99, 1
   %105 = icmp eq i64 %104, 3
@@ -1944,7 +1944,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   br label %477
 
 472:                                              ; preds = %458
-  %473 = getelementptr [3 x i64], ptr %97, i64 0, i64 %467
+  %473 = getelementptr i64, ptr %97, i64 %467
   %474 = load i64, ptr %473, align 8, !noalias !21
   %475 = tail call i64 @llvm.umax.i64(i64 %474, i64 1)
   %476 = icmp eq i64 %467, 1
@@ -2060,7 +2060,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %555 = getelementptr i8, ptr %554, i64 64
   tail call void @llvm.prefetch.p0(ptr %555, i32 0, i32 3, i32 1)
   %556 = add i64 %549, %497
-  %557 = getelementptr [8 x %struct.seq_t], ptr %9, i64 0, i64 %372
+  %557 = getelementptr %struct.seq_t, ptr %9, i64 %372
   store i64 %514, ptr %557, align 8
   %558 = getelementptr inbounds nuw i8, ptr %557, i64 8
   store i64 %497, ptr %558, align 8
@@ -2249,7 +2249,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   br label %691
 
 686:                                              ; preds = %671
-  %687 = getelementptr [3 x i64], ptr %97, i64 0, i64 %681
+  %687 = getelementptr i64, ptr %97, i64 %681
   %688 = load i64, ptr %687, align 8, !noalias !27
   %689 = tail call i64 @llvm.umax.i64(i64 %688, i64 1)
   %690 = icmp eq i64 %681, 1
@@ -2363,7 +2363,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %767 = load ptr, ptr %8, align 8
   %768 = and i32 %579, 7
   %769 = zext nneg i32 %768 to i64
-  %770 = getelementptr [8 x %struct.seq_t], ptr %9, i64 0, i64 %769
+  %770 = getelementptr %struct.seq_t, ptr %9, i64 %769
   %771 = load i64, ptr %770, align 8
   %772 = getelementptr i8, ptr %767, i64 %771
   %773 = load ptr, ptr %85, align 8
@@ -2577,7 +2577,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
   br i1 %898, label %899, label %921
 
 899:                                              ; preds = %897
-  %900 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %834
+  %900 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %834
   %901 = load i32, ptr %900, align 4
   %902 = load i8, ptr %882, align 1
   store i8 %902, ptr %881, align 1
@@ -2593,7 +2593,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
   %910 = load i8, ptr %909, align 1
   %911 = getelementptr i8, ptr %881, i64 3
   store i8 %910, ptr %911, align 1
-  %912 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %834
+  %912 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %834
   %913 = load i32, ptr %912, align 4
   %914 = zext i32 %913 to i64
   %915 = getelementptr i8, ptr %882, i64 %914
@@ -2792,7 +2792,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
   br i1 %1033, label %1034, label %1056
 
 1034:                                             ; preds = %1032
-  %1035 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %969
+  %1035 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %969
   %1036 = load i32, ptr %1035, align 4
   %1037 = load i8, ptr %1016, align 1
   store i8 %1037, ptr %1017, align 1
@@ -2808,7 +2808,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
   %1045 = load i8, ptr %1044, align 1
   %1046 = getelementptr i8, ptr %1017, i64 3
   store i8 %1045, ptr %1046, align 1
-  %1047 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %969
+  %1047 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %969
   %1048 = load i32, ptr %1047, align 4
   %1049 = zext i32 %1048 to i64
   %1050 = getelementptr i8, ptr %1016, i64 %1049
@@ -2875,7 +2875,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
 1088:                                             ; preds = %727
   %1089 = and i32 %579, 7
   %1090 = zext nneg i32 %1089 to i64
-  %1091 = getelementptr [8 x %struct.seq_t], ptr %9, i64 0, i64 %1090
+  %1091 = getelementptr %struct.seq_t, ptr %9, i64 %1090
   %1092 = load i64, ptr %1091, align 8
   %1093 = getelementptr inbounds nuw i8, ptr %1091, i64 8
   %1094 = load i64, ptr %1093, align 8
@@ -2991,7 +2991,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
   br i1 %1162, label %1163, label %1185
 
 1163:                                             ; preds = %1161
-  %1164 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %1096
+  %1164 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %1096
   %1165 = load i32, ptr %1164, align 4
   %1166 = load i8, ptr %1145, align 1
   store i8 %1166, ptr %1146, align 1
@@ -3007,7 +3007,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
   %1174 = load i8, ptr %1173, align 1
   %1175 = getelementptr i8, ptr %1146, i64 3
   store i8 %1174, ptr %1175, align 1
-  %1176 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %1096
+  %1176 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %1096
   %1177 = load i32, ptr %1176, align 4
   %1178 = zext i32 %1177 to i64
   %1179 = getelementptr i8, ptr %1145, i64 %1178
@@ -3088,7 +3088,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
   tail call void @llvm.prefetch.p0(ptr %1226, i32 0, i32 3, i32 1)
   %1227 = and i32 %579, 7
   %1228 = zext nneg i32 %1227 to i64
-  %1229 = getelementptr [8 x %struct.seq_t], ptr %9, i64 0, i64 %1228
+  %1229 = getelementptr %struct.seq_t, ptr %9, i64 %1228
   store i64 %729, ptr %1229, align 8
   %1230 = getelementptr inbounds nuw i8, ptr %1229, i64 8
   store i64 %712, ptr %1230, align 8
@@ -3139,7 +3139,7 @@ thread-pre-split:                                 ; preds = %775, %.loopexit154
   %1259 = phi ptr [ %1252, %1251 ], [ %1246, %.loopexit168 ]
   %1260 = and i32 %1257, 7
   %1261 = zext nneg i32 %1260 to i64
-  %1262 = getelementptr [8 x %struct.seq_t], ptr %9, i64 0, i64 %1261
+  %1262 = getelementptr %struct.seq_t, ptr %9, i64 %1261
   %1263 = load i32, ptr %73, align 8
   %1264 = icmp eq i32 %1263, 2
   br i1 %1264, label %1265, label %1577
@@ -3359,7 +3359,7 @@ thread-pre-split110:                              ; preds = %1271, %.loopexit132
   br i1 %1394, label %1395, label %1417
 
 1395:                                             ; preds = %1393
-  %1396 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %1330
+  %1396 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %1330
   %1397 = load i32, ptr %1396, align 4
   %1398 = load i8, ptr %1377, align 1
   store i8 %1398, ptr %1378, align 1
@@ -3375,7 +3375,7 @@ thread-pre-split110:                              ; preds = %1271, %.loopexit132
   %1406 = load i8, ptr %1405, align 1
   %1407 = getelementptr i8, ptr %1378, i64 3
   store i8 %1406, ptr %1407, align 1
-  %1408 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %1330
+  %1408 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %1330
   %1409 = load i32, ptr %1408, align 4
   %1410 = zext i32 %1409 to i64
   %1411 = getelementptr i8, ptr %1377, i64 %1410
@@ -3560,7 +3560,7 @@ thread-pre-split110:                              ; preds = %1271, %.loopexit132
   br i1 %1522, label %1523, label %1545
 
 1523:                                             ; preds = %1521
-  %1524 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %1458
+  %1524 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %1458
   %1525 = load i32, ptr %1524, align 4
   %1526 = load i8, ptr %1505, align 1
   store i8 %1526, ptr %1506, align 1
@@ -3576,7 +3576,7 @@ thread-pre-split110:                              ; preds = %1271, %.loopexit132
   %1534 = load i8, ptr %1533, align 1
   %1535 = getelementptr i8, ptr %1506, i64 3
   store i8 %1534, ptr %1535, align 1
-  %1536 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %1458
+  %1536 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %1458
   %1537 = load i32, ptr %1536, align 4
   %1538 = zext i32 %1537 to i64
   %1539 = getelementptr i8, ptr %1505, i64 %1538
@@ -3756,7 +3756,7 @@ thread-pre-split110:                              ; preds = %1271, %.loopexit132
   br i1 %1648, label %1649, label %1671
 
 1649:                                             ; preds = %1647
-  %1650 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %1582
+  %1650 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %1582
   %1651 = load i32, ptr %1650, align 4
   %1652 = load i8, ptr %1631, align 1
   store i8 %1652, ptr %1632, align 1
@@ -3772,7 +3772,7 @@ thread-pre-split110:                              ; preds = %1271, %.loopexit132
   %1660 = load i8, ptr %1659, align 1
   %1661 = getelementptr i8, ptr %1632, i64 3
   store i8 %1660, ptr %1661, align 1
-  %1662 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %1582
+  %1662 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %1582
   %1663 = load i32, ptr %1662, align 4
   %1664 = zext i32 %1663 to i64
   %1665 = getelementptr i8, ptr %1631, i64 %1664
@@ -3845,10 +3845,10 @@ thread-pre-split110:                              ; preds = %1271, %.loopexit132
 
 1707:                                             ; preds = %1707, %.loopexit147
   %1708 = phi i64 [ 0, %.loopexit147 ], [ %1713, %1707 ]
-  %1709 = getelementptr [3 x i64], ptr %97, i64 0, i64 %1708
+  %1709 = getelementptr i64, ptr %97, i64 %1708
   %1710 = load i64, ptr %1709, align 8
   %1711 = trunc i64 %1710 to i32
-  %1712 = getelementptr [3 x i32], ptr %96, i64 0, i64 %1708
+  %1712 = getelementptr i32, ptr %96, i64 %1708
   store i32 %1711, ptr %1712, align 4
   %1713 = add nuw nsw i64 %1708, 1
   %1714 = icmp eq i64 %1713, 3
@@ -4010,10 +4010,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 34:                                               ; preds = %34, %30
   %35 = phi i64 [ 0, %30 ], [ %40, %34 ]
-  %36 = getelementptr [3 x i32], ptr %32, i64 0, i64 %35
+  %36 = getelementptr i32, ptr %32, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = zext i32 %37 to i64
-  %39 = getelementptr [3 x i64], ptr %33, i64 0, i64 %35
+  %39 = getelementptr i64, ptr %33, i64 %35
   store i64 %38, ptr %39, align 8
   %40 = add nuw nsw i64 %35, 1
   %41 = icmp eq i64 %40, 3
@@ -4448,7 +4448,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br label %344
 
 339:                                              ; preds = %325
-  %340 = getelementptr [3 x i64], ptr %33, i64 0, i64 %334
+  %340 = getelementptr i64, ptr %33, i64 %334
   %341 = load i64, ptr %340, align 8, !noalias !39
   %342 = tail call i64 @llvm.umax.i64(i64 %341, i64 1)
   %343 = icmp eq i64 %334, 1
@@ -4699,7 +4699,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %501, label %502, label %524
 
 502:                                              ; preds = %500
-  %503 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %434
+  %503 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %434
   %504 = load i32, ptr %503, align 4
   %505 = load i8, ptr %485, align 1
   store i8 %505, ptr %484, align 1
@@ -4715,7 +4715,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %513 = load i8, ptr %512, align 1
   %514 = getelementptr i8, ptr %484, i64 3
   store i8 %513, ptr %514, align 1
-  %515 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %434
+  %515 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %434
   %516 = load i32, ptr %515, align 4
   %517 = zext i32 %516 to i64
   %518 = getelementptr i8, ptr %485, i64 %517
@@ -4938,7 +4938,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br label %674
 
 669:                                              ; preds = %654
-  %670 = getelementptr [3 x i64], ptr %33, i64 0, i64 %664
+  %670 = getelementptr i64, ptr %33, i64 %664
   %671 = load i64, ptr %670, align 8, !noalias !44
   %672 = tail call i64 @llvm.umax.i64(i64 %671, i64 1)
   %673 = icmp eq i64 %664, 1
@@ -5279,7 +5279,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %881, label %882, label %904
 
 882:                                              ; preds = %880
-  %883 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.lcssa169
+  %883 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.lcssa169
   %884 = load i32, ptr %883, align 4
   %885 = load i8, ptr %865, align 1
   store i8 %885, ptr %864, align 1
@@ -5295,7 +5295,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %893 = load i8, ptr %892, align 1
   %894 = getelementptr i8, ptr %864, i64 3
   store i8 %893, ptr %894, align 1
-  %895 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.lcssa169
+  %895 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.lcssa169
   %896 = load i32, ptr %895, align 4
   %897 = zext i32 %896 to i64
   %898 = getelementptr i8, ptr %865, i64 %897
@@ -5531,7 +5531,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br label %1060
 
 1055:                                             ; preds = %1040
-  %1056 = getelementptr [3 x i64], ptr %33, i64 0, i64 %1050
+  %1056 = getelementptr i64, ptr %33, i64 %1050
   %1057 = load i64, ptr %1056, align 8, !noalias !52
   %1058 = tail call i64 @llvm.umax.i64(i64 %1057, i64 1)
   %1059 = icmp eq i64 %1050, 1
@@ -5756,7 +5756,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %1198, label %1199, label %1221
 
 1199:                                             ; preds = %1197
-  %1200 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %1066
+  %1200 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %1066
   %1201 = load i32, ptr %1200, align 4
   %1202 = load i8, ptr %1182, align 1
   store i8 %1202, ptr %1181, align 1
@@ -5772,7 +5772,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1210 = load i8, ptr %1209, align 1
   %1211 = getelementptr i8, ptr %1181, i64 3
   store i8 %1210, ptr %1211, align 1
-  %1212 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %1066
+  %1212 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %1066
   %1213 = load i32, ptr %1212, align 4
   %1214 = zext i32 %1213 to i64
   %1215 = getelementptr i8, ptr %1182, i64 %1214
@@ -5927,10 +5927,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 1301:                                             ; preds = %.preheader379, %1301
   %1302 = phi i64 [ %1307, %1301 ], [ 0, %.preheader379 ]
-  %1303 = getelementptr [3 x i64], ptr %33, i64 0, i64 %1302
+  %1303 = getelementptr i64, ptr %33, i64 %1302
   %1304 = load i64, ptr %1303, align 8
   %1305 = trunc i64 %1304 to i32
-  %1306 = getelementptr [3 x i32], ptr %32, i64 0, i64 %1302
+  %1306 = getelementptr i32, ptr %32, i64 %1302
   store i32 %1305, ptr %1306, align 4
   %1307 = add nuw nsw i64 %1302, 1
   %1308 = icmp eq i64 %1307, 3
@@ -6082,10 +6082,10 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
 
 42:                                               ; preds = %42, %38
   %43 = phi i64 [ 0, %38 ], [ %48, %42 ]
-  %44 = getelementptr [3 x i32], ptr %40, i64 0, i64 %43
+  %44 = getelementptr i32, ptr %40, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = zext i32 %45 to i64
-  %47 = getelementptr [3 x i64], ptr %41, i64 0, i64 %43
+  %47 = getelementptr i64, ptr %41, i64 %43
   store i64 %46, ptr %47, align 8
   %48 = add nuw nsw i64 %43, 1
   %49 = icmp eq i64 %48, 3
@@ -6540,7 +6540,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   br label %367
 
 362:                                              ; preds = %347
-  %363 = getelementptr [3 x i64], ptr %41, i64 0, i64 %357
+  %363 = getelementptr i64, ptr %41, i64 %357
   %364 = load i64, ptr %363, align 8, !noalias !62
   %365 = tail call i64 @llvm.umax.i64(i64 %364, i64 1)
   %366 = icmp eq i64 %357, 1
@@ -6765,7 +6765,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   br i1 %505, label %506, label %528
 
 506:                                              ; preds = %504
-  %507 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %373
+  %507 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %373
   %508 = load i32, ptr %507, align 4
   %509 = load i8, ptr %489, align 1
   store i8 %509, ptr %488, align 1
@@ -6781,7 +6781,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   %517 = load i8, ptr %516, align 1
   %518 = getelementptr i8, ptr %488, i64 3
   store i8 %517, ptr %518, align 1
-  %519 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %373
+  %519 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %373
   %520 = load i32, ptr %519, align 4
   %521 = zext i32 %520 to i64
   %522 = getelementptr i8, ptr %489, i64 %521
@@ -6938,10 +6938,10 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
 
 608:                                              ; preds = %.preheader129, %608
   %609 = phi i64 [ %614, %608 ], [ 0, %.preheader129 ]
-  %610 = getelementptr [3 x i64], ptr %41, i64 0, i64 %609
+  %610 = getelementptr i64, ptr %41, i64 %609
   %611 = load i64, ptr %610, align 8
   %612 = trunc i64 %611 to i32
-  %613 = getelementptr [3 x i32], ptr %40, i64 0, i64 %609
+  %613 = getelementptr i32, ptr %40, i64 %609
   store i32 %612, ptr %613, align 4
   %614 = add nuw nsw i64 %609, 1
   %615 = icmp eq i64 %614, 3
@@ -7109,10 +7109,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 
 35:                                               ; preds = %35, %31
   %36 = phi i64 [ 0, %31 ], [ %41, %35 ]
-  %37 = getelementptr [3 x i32], ptr %33, i64 0, i64 %36
+  %37 = getelementptr i32, ptr %33, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
-  %40 = getelementptr [3 x i64], ptr %34, i64 0, i64 %36
+  %40 = getelementptr i64, ptr %34, i64 %36
   store i64 %39, ptr %40, align 8
   %41 = add nuw nsw i64 %36, 1
   %42 = icmp eq i64 %41, 3
@@ -7656,7 +7656,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   br label %416
 
 411:                                              ; preds = %397
-  %412 = getelementptr [3 x i64], ptr %34, i64 0, i64 %406
+  %412 = getelementptr i64, ptr %34, i64 %406
   %413 = load i64, ptr %412, align 8, !noalias !66
   %414 = tail call i64 @llvm.umax.i64(i64 %413, i64 1)
   %415 = icmp eq i64 %406, 1
@@ -7776,7 +7776,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %494 = getelementptr i8, ptr %493, i64 64
   tail call void @llvm.prefetch.p0(ptr %494, i32 0, i32 3, i32 1)
   %495 = add i64 %488, %436
-  %496 = getelementptr [8 x %struct.seq_t], ptr %8, i64 0, i64 %309
+  %496 = getelementptr %struct.seq_t, ptr %8, i64 %309
   store i64 %453, ptr %496, align 8
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
   store i64 %436, ptr %497, align 8
@@ -7966,7 +7966,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   br label %632
 
 627:                                              ; preds = %612
-  %628 = getelementptr [3 x i64], ptr %34, i64 0, i64 %622
+  %628 = getelementptr i64, ptr %34, i64 %622
   %629 = load i64, ptr %628, align 8, !noalias !69
   %630 = tail call i64 @llvm.umax.i64(i64 %629, i64 1)
   %631 = icmp eq i64 %622, 1
@@ -8084,7 +8084,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %708 = load ptr, ptr %7, align 8
   %709 = and i32 %518, 7
   %710 = zext nneg i32 %709 to i64
-  %711 = getelementptr [8 x %struct.seq_t], ptr %8, i64 0, i64 %710
+  %711 = getelementptr %struct.seq_t, ptr %8, i64 %710
   %712 = load i64, ptr %711, align 8
   %713 = getelementptr i8, ptr %708, i64 %712
   %714 = load ptr, ptr %22, align 8
@@ -8298,7 +8298,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   br i1 %839, label %840, label %862
 
 840:                                              ; preds = %838
-  %841 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %775
+  %841 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %775
   %842 = load i32, ptr %841, align 4
   %843 = load i8, ptr %823, align 1
   store i8 %843, ptr %822, align 1
@@ -8314,7 +8314,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   %851 = load i8, ptr %850, align 1
   %852 = getelementptr i8, ptr %822, i64 3
   store i8 %851, ptr %852, align 1
-  %853 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %775
+  %853 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %775
   %854 = load i32, ptr %853, align 4
   %855 = zext i32 %854 to i64
   %856 = getelementptr i8, ptr %823, i64 %855
@@ -8513,7 +8513,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   br i1 %974, label %975, label %997
 
 975:                                              ; preds = %973
-  %976 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %910
+  %976 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %910
   %977 = load i32, ptr %976, align 4
   %978 = load i8, ptr %957, align 1
   store i8 %978, ptr %958, align 1
@@ -8529,7 +8529,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   %986 = load i8, ptr %985, align 1
   %987 = getelementptr i8, ptr %958, i64 3
   store i8 %986, ptr %987, align 1
-  %988 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %910
+  %988 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %910
   %989 = load i32, ptr %988, align 4
   %990 = zext i32 %989 to i64
   %991 = getelementptr i8, ptr %957, i64 %990
@@ -8596,7 +8596,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
 1029:                                             ; preds = %668
   %1030 = and i32 %518, 7
   %1031 = zext nneg i32 %1030 to i64
-  %1032 = getelementptr [8 x %struct.seq_t], ptr %8, i64 0, i64 %1031
+  %1032 = getelementptr %struct.seq_t, ptr %8, i64 %1031
   %1033 = load i64, ptr %1032, align 8
   %1034 = getelementptr inbounds nuw i8, ptr %1032, i64 8
   %1035 = load i64, ptr %1034, align 8
@@ -8712,7 +8712,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   br i1 %1103, label %1104, label %1126
 
 1104:                                             ; preds = %1102
-  %1105 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %1037
+  %1105 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %1037
   %1106 = load i32, ptr %1105, align 4
   %1107 = load i8, ptr %1086, align 1
   store i8 %1107, ptr %1087, align 1
@@ -8728,7 +8728,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   %1115 = load i8, ptr %1114, align 1
   %1116 = getelementptr i8, ptr %1087, i64 3
   store i8 %1115, ptr %1116, align 1
-  %1117 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %1037
+  %1117 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %1037
   %1118 = load i32, ptr %1117, align 4
   %1119 = zext i32 %1118 to i64
   %1120 = getelementptr i8, ptr %1086, i64 %1119
@@ -8809,7 +8809,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   tail call void @llvm.prefetch.p0(ptr %1167, i32 0, i32 3, i32 1)
   %1168 = and i32 %518, 7
   %1169 = zext nneg i32 %1168 to i64
-  %1170 = getelementptr [8 x %struct.seq_t], ptr %8, i64 0, i64 %1169
+  %1170 = getelementptr %struct.seq_t, ptr %8, i64 %1169
   store i64 %670, ptr %1170, align 8
   %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 8
   store i64 %653, ptr %1171, align 8
@@ -8860,7 +8860,7 @@ thread-pre-split:                                 ; preds = %716, %.loopexit154
   %1200 = phi ptr [ %1193, %1192 ], [ %1187, %.loopexit168 ]
   %1201 = and i32 %1198, 7
   %1202 = zext nneg i32 %1201 to i64
-  %1203 = getelementptr [8 x %struct.seq_t], ptr %8, i64 0, i64 %1202
+  %1203 = getelementptr %struct.seq_t, ptr %8, i64 %1202
   %1204 = load i32, ptr %10, align 8
   %1205 = icmp eq i32 %1204, 2
   br i1 %1205, label %1206, label %1518
@@ -9080,7 +9080,7 @@ thread-pre-split110:                              ; preds = %1212, %.loopexit132
   br i1 %1335, label %1336, label %1358
 
 1336:                                             ; preds = %1334
-  %1337 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %1271
+  %1337 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %1271
   %1338 = load i32, ptr %1337, align 4
   %1339 = load i8, ptr %1318, align 1
   store i8 %1339, ptr %1319, align 1
@@ -9096,7 +9096,7 @@ thread-pre-split110:                              ; preds = %1212, %.loopexit132
   %1347 = load i8, ptr %1346, align 1
   %1348 = getelementptr i8, ptr %1319, i64 3
   store i8 %1347, ptr %1348, align 1
-  %1349 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %1271
+  %1349 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %1271
   %1350 = load i32, ptr %1349, align 4
   %1351 = zext i32 %1350 to i64
   %1352 = getelementptr i8, ptr %1318, i64 %1351
@@ -9281,7 +9281,7 @@ thread-pre-split110:                              ; preds = %1212, %.loopexit132
   br i1 %1463, label %1464, label %1486
 
 1464:                                             ; preds = %1462
-  %1465 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %1399
+  %1465 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %1399
   %1466 = load i32, ptr %1465, align 4
   %1467 = load i8, ptr %1446, align 1
   store i8 %1467, ptr %1447, align 1
@@ -9297,7 +9297,7 @@ thread-pre-split110:                              ; preds = %1212, %.loopexit132
   %1475 = load i8, ptr %1474, align 1
   %1476 = getelementptr i8, ptr %1447, i64 3
   store i8 %1475, ptr %1476, align 1
-  %1477 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %1399
+  %1477 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %1399
   %1478 = load i32, ptr %1477, align 4
   %1479 = zext i32 %1478 to i64
   %1480 = getelementptr i8, ptr %1446, i64 %1479
@@ -9477,7 +9477,7 @@ thread-pre-split110:                              ; preds = %1212, %.loopexit132
   br i1 %1589, label %1590, label %1612
 
 1590:                                             ; preds = %1588
-  %1591 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %1523
+  %1591 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %1523
   %1592 = load i32, ptr %1591, align 4
   %1593 = load i8, ptr %1572, align 1
   store i8 %1593, ptr %1573, align 1
@@ -9493,7 +9493,7 @@ thread-pre-split110:                              ; preds = %1212, %.loopexit132
   %1601 = load i8, ptr %1600, align 1
   %1602 = getelementptr i8, ptr %1573, i64 3
   store i8 %1601, ptr %1602, align 1
-  %1603 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %1523
+  %1603 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %1523
   %1604 = load i32, ptr %1603, align 4
   %1605 = zext i32 %1604 to i64
   %1606 = getelementptr i8, ptr %1572, i64 %1605
@@ -9566,10 +9566,10 @@ thread-pre-split110:                              ; preds = %1212, %.loopexit132
 
 1648:                                             ; preds = %1648, %.loopexit147
   %1649 = phi i64 [ 0, %.loopexit147 ], [ %1654, %1648 ]
-  %1650 = getelementptr [3 x i64], ptr %34, i64 0, i64 %1649
+  %1650 = getelementptr i64, ptr %34, i64 %1649
   %1651 = load i64, ptr %1650, align 8
   %1652 = trunc i64 %1651 to i32
-  %1653 = getelementptr [3 x i32], ptr %33, i64 0, i64 %1649
+  %1653 = getelementptr i32, ptr %33, i64 %1649
   store i32 %1652, ptr %1653, align 4
   %1654 = add nuw nsw i64 %1649, 1
   %1655 = icmp eq i64 %1654, 3
@@ -9912,7 +9912,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %19, label %20, label %42
 
 20:                                               ; preds = %18
-  %21 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %7
+  %21 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %7
   %22 = load i32, ptr %21, align 4
   %23 = load i8, ptr %2, align 1
   store i8 %23, ptr %0, align 1
@@ -9928,7 +9928,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   %31 = load i8, ptr %30, align 1
   %32 = getelementptr i8, ptr %0, i64 3
   store i8 %31, ptr %32, align 1
-  %33 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %7
+  %33 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %7
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   %36 = getelementptr i8, ptr %2, i64 %35
@@ -10239,10 +10239,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 28:                                               ; preds = %28, %24
   %29 = phi i64 [ 0, %24 ], [ %34, %28 ]
-  %30 = getelementptr [3 x i32], ptr %26, i64 0, i64 %29
+  %30 = getelementptr i32, ptr %26, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
-  %33 = getelementptr [3 x i64], ptr %27, i64 0, i64 %29
+  %33 = getelementptr i64, ptr %27, i64 %29
   store i64 %32, ptr %33, align 8
   %34 = add nuw nsw i64 %29, 1
   %35 = icmp eq i64 %34, 3
@@ -10677,7 +10677,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br label %338
 
 333:                                              ; preds = %319
-  %334 = getelementptr [3 x i64], ptr %27, i64 0, i64 %328
+  %334 = getelementptr i64, ptr %27, i64 %328
   %335 = load i64, ptr %334, align 8, !noalias !74
   %336 = tail call i64 @llvm.umax.i64(i64 %335, i64 1)
   %337 = icmp eq i64 %328, 1
@@ -10928,7 +10928,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %494, label %495, label %517
 
 495:                                              ; preds = %493
-  %496 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %427
+  %496 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %427
   %497 = load i32, ptr %496, align 4
   %498 = load i8, ptr %478, align 1
   store i8 %498, ptr %477, align 1
@@ -10944,7 +10944,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %506 = load i8, ptr %505, align 1
   %507 = getelementptr i8, ptr %477, i64 3
   store i8 %506, ptr %507, align 1
-  %508 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %427
+  %508 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %427
   %509 = load i32, ptr %508, align 4
   %510 = zext i32 %509 to i64
   %511 = getelementptr i8, ptr %478, i64 %510
@@ -11168,7 +11168,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br label %669
 
 664:                                              ; preds = %649
-  %665 = getelementptr [3 x i64], ptr %27, i64 0, i64 %659
+  %665 = getelementptr i64, ptr %27, i64 %659
   %666 = load i64, ptr %665, align 8, !noalias !77
   %667 = tail call i64 @llvm.umax.i64(i64 %666, i64 1)
   %668 = icmp eq i64 %659, 1
@@ -11513,7 +11513,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %876, label %877, label %899
 
 877:                                              ; preds = %875
-  %878 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.lcssa173
+  %878 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.lcssa173
   %879 = load i32, ptr %878, align 4
   %880 = load i8, ptr %860, align 1
   store i8 %880, ptr %859, align 1
@@ -11529,7 +11529,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %888 = load i8, ptr %887, align 1
   %889 = getelementptr i8, ptr %859, i64 3
   store i8 %888, ptr %889, align 1
-  %890 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.lcssa173
+  %890 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.lcssa173
   %891 = load i32, ptr %890, align 4
   %892 = zext i32 %891 to i64
   %893 = getelementptr i8, ptr %860, i64 %892
@@ -11766,7 +11766,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br label %1057
 
 1052:                                             ; preds = %1037
-  %1053 = getelementptr [3 x i64], ptr %27, i64 0, i64 %1047
+  %1053 = getelementptr i64, ptr %27, i64 %1047
   %1054 = load i64, ptr %1053, align 8, !noalias !80
   %1055 = tail call i64 @llvm.umax.i64(i64 %1054, i64 1)
   %1056 = icmp eq i64 %1047, 1
@@ -11995,7 +11995,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %1195, label %1196, label %1218
 
 1196:                                             ; preds = %1194
-  %1197 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink352
+  %1197 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sink352
   %1198 = load i32, ptr %1197, align 4
   %1199 = load i8, ptr %1179, align 1
   store i8 %1199, ptr %1178, align 1
@@ -12011,7 +12011,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1207 = load i8, ptr %1206, align 1
   %1208 = getelementptr i8, ptr %1178, i64 3
   store i8 %1207, ptr %1208, align 1
-  %1209 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink352
+  %1209 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sink352
   %1210 = load i32, ptr %1209, align 4
   %1211 = zext i32 %1210 to i64
   %1212 = getelementptr i8, ptr %1179, i64 %1211
@@ -12166,10 +12166,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 1298:                                             ; preds = %.preheader387, %1298
   %1299 = phi i64 [ %1304, %1298 ], [ 0, %.preheader387 ]
-  %1300 = getelementptr [3 x i64], ptr %27, i64 0, i64 %1299
+  %1300 = getelementptr i64, ptr %27, i64 %1299
   %1301 = load i64, ptr %1300, align 8
   %1302 = trunc i64 %1301 to i32
-  %1303 = getelementptr [3 x i32], ptr %26, i64 0, i64 %1299
+  %1303 = getelementptr i32, ptr %26, i64 %1299
   store i32 %1302, ptr %1303, align 4
   %1304 = add nuw nsw i64 %1299, 1
   %1305 = icmp eq i64 %1304, 3
@@ -12307,10 +12307,10 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
 
 36:                                               ; preds = %36, %32
   %37 = phi i64 [ 0, %32 ], [ %42, %36 ]
-  %38 = getelementptr [3 x i32], ptr %34, i64 0, i64 %37
+  %38 = getelementptr i32, ptr %34, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
-  %41 = getelementptr [3 x i64], ptr %35, i64 0, i64 %37
+  %41 = getelementptr i64, ptr %35, i64 %37
   store i64 %40, ptr %41, align 8
   %42 = add nuw nsw i64 %37, 1
   %43 = icmp eq i64 %42, 3
@@ -12766,7 +12766,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   br label %363
 
 358:                                              ; preds = %343
-  %359 = getelementptr [3 x i64], ptr %35, i64 0, i64 %353
+  %359 = getelementptr i64, ptr %35, i64 %353
   %360 = load i64, ptr %359, align 8, !noalias !83
   %361 = tail call i64 @llvm.umax.i64(i64 %360, i64 1)
   %362 = icmp eq i64 %353, 1
@@ -12995,7 +12995,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   br i1 %501, label %502, label %524
 
 502:                                              ; preds = %500
-  %503 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink118
+  %503 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sink118
   %504 = load i32, ptr %503, align 4
   %505 = load i8, ptr %485, align 1
   store i8 %505, ptr %484, align 1
@@ -13011,7 +13011,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   %513 = load i8, ptr %512, align 1
   %514 = getelementptr i8, ptr %484, i64 3
   store i8 %513, ptr %514, align 1
-  %515 = getelementptr [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink118
+  %515 = getelementptr i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sink118
   %516 = load i32, ptr %515, align 4
   %517 = zext i32 %516 to i64
   %518 = getelementptr i8, ptr %485, i64 %517
@@ -13168,10 +13168,10 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
 
 604:                                              ; preds = %.preheader133, %604
   %605 = phi i64 [ %610, %604 ], [ 0, %.preheader133 ]
-  %606 = getelementptr [3 x i64], ptr %35, i64 0, i64 %605
+  %606 = getelementptr i64, ptr %35, i64 %605
   %607 = load i64, ptr %606, align 8
   %608 = trunc i64 %607 to i32
-  %609 = getelementptr [3 x i32], ptr %34, i64 0, i64 %605
+  %609 = getelementptr i32, ptr %34, i64 %605
   store i32 %608, ptr %609, align 4
   %610 = add nuw nsw i64 %605, 1
   %611 = icmp eq i64 %610, 3

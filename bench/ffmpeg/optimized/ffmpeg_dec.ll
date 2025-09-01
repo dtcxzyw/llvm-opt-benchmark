@@ -516,7 +516,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @dec_open(ptr noundef initi
   %.not171 = phi i1 [ true, %.preheader ], [ false, %45 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %45 ]
   %47 = tail call ptr @av_frame_alloc() #13
-  %48 = getelementptr inbounds nuw [2 x ptr], ptr %44, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   store ptr %47, ptr %48, align 8, !tbaa !70
   %.not137 = icmp eq ptr %47, null
   br i1 %.not137, label %clone_side_data.exit, label %45
@@ -1677,7 +1677,7 @@ dec_standalone_open.exit:                         ; preds = %118, %122
 
 251:                                              ; preds = %247
   %252 = load i32, ptr %225, align 4, !tbaa !223
-  %253 = getelementptr inbounds nuw [4 x i32], ptr %244, i64 0, i64 %indvars.iv.i.i
+  %253 = getelementptr inbounds nuw i32, ptr %244, i64 %indvars.iv.i.i
   %254 = load i32, ptr %253, align 4, !tbaa !27
   %255 = mul nsw i32 %254, %252
   %256 = sext i32 %255 to i64
@@ -1685,22 +1685,22 @@ dec_standalone_open.exit:                         ; preds = %118, %122
 
 257:                                              ; preds = %251, %247
   %258 = phi i64 [ %256, %251 ], [ 1024, %247 ]
-  %259 = getelementptr inbounds nuw [4 x ptr], ptr %243, i64 0, i64 %indvars.iv.i.i
+  %259 = getelementptr inbounds nuw ptr, ptr %243, i64 %indvars.iv.i.i
   %260 = load ptr, ptr %259, align 8, !tbaa !138
   %.not76.i.i = icmp eq ptr %260, null
   br i1 %.not76.i.i, label %268, label %261
 
 261:                                              ; preds = %257
   %262 = call ptr @av_memdup(ptr noundef nonnull %260, i64 noundef %258) #13
-  %263 = getelementptr inbounds nuw [4 x ptr], ptr %245, i64 0, i64 %indvars.iv.i.i
+  %263 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv.i.i
   store ptr %262, ptr %263, align 8, !tbaa !138
   %.not77.i.i = icmp eq ptr %262, null
   br i1 %.not77.i.i, label %.loopexit.i.i, label %264
 
 264:                                              ; preds = %261
-  %265 = getelementptr inbounds nuw [4 x i32], ptr %244, i64 0, i64 %indvars.iv.i.i
+  %265 = getelementptr inbounds nuw i32, ptr %244, i64 %indvars.iv.i.i
   %266 = load i32, ptr %265, align 4, !tbaa !27
-  %267 = getelementptr inbounds nuw [4 x i32], ptr %246, i64 0, i64 %indvars.iv.i.i
+  %267 = getelementptr inbounds nuw i32, ptr %246, i64 %indvars.iv.i.i
   store i32 %266, ptr %267, align 4, !tbaa !27
   br label %268
 

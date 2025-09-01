@@ -5055,7 +5055,7 @@ _Z12isRepetitiveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thre
   %1842 = sub nsw i32 %1839, %1841
   store double 2.550000e+02, ptr %117, align 8, !tbaa !128
   %1843 = zext nneg i32 %.0260 to i64
-  %1844 = getelementptr inbounds nuw [2 x %"class.std::__cxx11::basic_string"], ptr %32, i64 0, i64 %1843
+  %1844 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %32, i64 %1843
   %.sroa.21250.0.insert.ext = zext i32 %1842 to i64
   %.sroa.21250.0.insert.shift = shl nuw i64 %.sroa.21250.0.insert.ext, 32
   %.sroa.01249.0.insert.ext = zext i32 %1838 to i64
@@ -5080,7 +5080,7 @@ _Z12isRepetitiveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thre
   %1851 = add i32 %.neg345, %1850
   store double 2.550000e+02, ptr %119, align 8, !tbaa !128
   %1852 = zext nneg i32 %.0264 to i64
-  %1853 = getelementptr inbounds nuw [2 x %"class.std::__cxx11::basic_string"], ptr %33, i64 0, i64 %1852
+  %1853 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %1852
   %.sroa.21248.0.insert.ext = zext i32 %1851 to i64
   %.sroa.21248.0.insert.shift = shl nuw i64 %.sroa.21248.0.insert.ext, 32
   %.sroa.01247.0.insert.ext = zext i32 %1849 to i64
@@ -5103,7 +5103,7 @@ _Z12isRepetitiveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thre
   %1860 = add nsw i32 %1859, -5
   store double 2.550000e+02, ptr %121, align 8, !tbaa !128
   %1861 = zext nneg i32 %.0268 to i64
-  %1862 = getelementptr inbounds nuw [2 x %"class.std::__cxx11::basic_string"], ptr %34, i64 0, i64 %1861
+  %1862 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %34, i64 %1861
   %.sroa.2.0.insert.ext = zext i32 %1860 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.01246.0.insert.ext = zext i32 %1858 to i64
@@ -5468,7 +5468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit870: ; preds = %_Z
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit872: ; preds = %1958
   %1961 = zext nneg i32 %1959 to i64
-  %1962 = getelementptr inbounds nuw [2 x %"class.std::__cxx11::basic_string"], ptr %33, i64 0, i64 %1961
+  %1962 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %1961
   %1963 = load ptr, ptr %1962, align 16, !tbaa !13
   %1964 = getelementptr inbounds nuw i8, ptr %1962, i64 8
   %1965 = load i64, ptr %1964, align 8, !tbaa !16
@@ -5523,7 +5523,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1215: ; preds = %.noexc1218,
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit878: ; preds = %1985
   %1988 = zext nneg i32 %1986 to i64
-  %1989 = getelementptr inbounds nuw [2 x %"class.std::__cxx11::basic_string"], ptr %34, i64 0, i64 %1988
+  %1989 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %34, i64 %1988
   %1990 = load ptr, ptr %1989, align 16, !tbaa !13
   %1991 = getelementptr inbounds nuw i8, ptr %1989, i64 8
   %1992 = load i64, ptr %1991, align 8, !tbaa !16
@@ -5578,7 +5578,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1226: ; preds = %.noexc1229,
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit884: ; preds = %2012
   %2015 = zext nneg i32 %2013 to i64
-  %2016 = getelementptr inbounds nuw [2 x %"class.std::__cxx11::basic_string"], ptr %32, i64 0, i64 %2015
+  %2016 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %32, i64 %2015
   %2017 = load ptr, ptr %2016, align 16, !tbaa !13
   %2018 = getelementptr inbounds nuw i8, ptr %2016, i64 8
   %2019 = load i64, ptr %2018, align 8, !tbaa !16

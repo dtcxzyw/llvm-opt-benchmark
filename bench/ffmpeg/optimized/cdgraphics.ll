@@ -241,11 +241,11 @@ bytestream2_get_byte.exit83:                      ; preds = %._crit_edge, %21
 
 103:                                              ; preds = %.preheader96, %103
   %indvars.iv = phi i64 [ 0, %.preheader96 ], [ %indvars.iv.next, %103 ]
-  %104 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %105 = load i8, ptr %104, align 1, !tbaa !30
   %106 = shl i8 %105, 2
   %107 = xor i8 %106, -1
-  %108 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv
   store i8 %107, ptr %108, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -374,7 +374,7 @@ define internal fastcc void @cdg_load_palette(ptr noundef readonly captures(none
   %23 = and i8 %15, 15
   %narrow = mul nuw i8 %23, 17
   %24 = or disjoint i64 %indvars.iv, %4
-  %25 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !30
   %27 = zext i8 %26 to i32
   %28 = shl nuw i32 %27, 24

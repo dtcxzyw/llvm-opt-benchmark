@@ -814,7 +814,7 @@ define internal fastcc range(i64 -576460752303423487, 576460752303423489) i64 @s
 
 30:                                               ; preds = %38, %28
   %indvars.iv.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i.i, %38 ]
-  %31 = getelementptr inbounds nuw [9 x ptr], ptr %29, i64 0, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !63
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %38, label %33
@@ -1461,7 +1461,7 @@ markold.exit69.i:                                 ; preds = %87, %markold.exit63
 109:                                              ; preds = %104
   %110 = and i8 %99, -32
   %111 = zext nneg i32 %105 to i64
-  %112 = getelementptr inbounds nuw [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @sweepgen.nextage, i64 %111
   %113 = load i8, ptr %112, align 1, !tbaa !33
   %114 = or i8 %113, %110
   store i8 %114, ptr %98, align 1, !tbaa !27
@@ -1532,7 +1532,7 @@ sweepgen.exit.i:                                  ; preds = %122, %markold.exit6
 141:                                              ; preds = %136
   %142 = and i8 %131, -32
   %143 = zext nneg i32 %137 to i64
-  %144 = getelementptr inbounds nuw [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @sweepgen.nextage, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !33
   %146 = or i8 %145, %142
   store i8 %146, ptr %130, align 1, !tbaa !27
@@ -1613,7 +1613,7 @@ sweepgen.exit84.i:                                ; preds = %sweepgen.exit84.loo
 177:                                              ; preds = %172
   %178 = and i8 %167, -32
   %179 = zext nneg i32 %173 to i64
-  %180 = getelementptr inbounds nuw [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i8, ptr @sweepgen.nextage, i64 %179
   %181 = load i8, ptr %180, align 1, !tbaa !33
   %182 = or i8 %181, %178
   store i8 %182, ptr %166, align 1, !tbaa !27
@@ -1678,7 +1678,7 @@ sweepgen.exit97.i:                                ; preds = %187, %sweepgen.exit
 206:                                              ; preds = %201
   %207 = and i8 %196, -32
   %208 = zext nneg i32 %202 to i64
-  %209 = getelementptr inbounds nuw [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr @sweepgen.nextage, i64 %208
   %210 = load i8, ptr %209, align 1, !tbaa !33
   %211 = or i8 %210, %207
   store i8 %211, ptr %195, align 1, !tbaa !27
@@ -1750,7 +1750,7 @@ sweepgen.exit110.i:                               ; preds = %sweepgen.exit110.lo
 236:                                              ; preds = %231
   %237 = and i8 %226, -32
   %238 = zext nneg i32 %232 to i64
-  %239 = getelementptr inbounds nuw [7 x i8], ptr @sweepgen.nextage, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr @sweepgen.nextage, i64 %238
   %240 = load i8, ptr %239, align 1, !tbaa !33
   %241 = or i8 %240, %237
   store i8 %241, ptr %225, align 1, !tbaa !27
@@ -2395,7 +2395,7 @@ define internal fastcc void @atomic(ptr noundef %0) unnamed_addr #0 {
 
 24:                                               ; preds = %32, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %32 ]
-  %25 = getelementptr inbounds nuw [9 x ptr], ptr %23, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8, !tbaa !63
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %32, label %27
@@ -3763,7 +3763,7 @@ traversetable.exit:                               ; preds = %traverseweakvalue.e
 211:                                              ; preds = %223, %.lr.ph.i
   %212 = phi i16 [ %209, %.lr.ph.i ], [ %224, %223 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %223 ]
-  %213 = getelementptr inbounds nuw [1 x %union.UValue], ptr %210, i64 0, i64 %indvars.iv.i
+  %213 = getelementptr inbounds nuw %union.UValue, ptr %210, i64 %indvars.iv.i
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %215 = load i8, ptr %214, align 8, !tbaa !33
   %216 = and i8 %215, 64
@@ -3868,7 +3868,7 @@ getgclist.exit.i.i:                               ; preds = %235, %234, %233, %2
 249:                                              ; preds = %258, %.lr.ph.i19
   %250 = phi i8 [ %247, %.lr.ph.i19 ], [ %259, %258 ]
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i24, %258 ]
-  %251 = getelementptr inbounds nuw [1 x ptr], ptr %248, i64 0, i64 %indvars.iv.i20
+  %251 = getelementptr inbounds nuw ptr, ptr %248, i64 %indvars.iv.i20
   %252 = load ptr, ptr %251, align 8, !tbaa !110
   %.not17.i21 = icmp eq ptr %252, null
   br i1 %.not17.i21, label %258, label %253
@@ -3904,7 +3904,7 @@ traverseLclosure.exit.loopexit:                   ; preds = %258
 265:                                              ; preds = %277, %.lr.ph.i27
   %266 = phi i8 [ %21, %.lr.ph.i27 ], [ %278, %277 ]
   %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i27 ], [ %indvars.iv.next.i31, %277 ]
-  %267 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %264, i64 0, i64 %indvars.iv.i28
+  %267 = getelementptr inbounds nuw %struct.TValue, ptr %264, i64 %indvars.iv.i28
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %269 = load i8, ptr %268, align 8, !tbaa !36
   %270 = and i8 %269, 64

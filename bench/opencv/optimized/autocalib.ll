@@ -1191,7 +1191,7 @@ _ZN2cv4Mat_IdEC2ERKNS_3MatE.exit.preheader:       ; preds = %118
   %.1134 = phi i64 [ %.062136, %_ZN2cv4Mat_IdEC2ERKNS_3MatE.exit.preheader ], [ %indvars.iv.next158, %_ZN2cv4Mat_IdEC2ERKNS_3MatE.exit ]
   %131 = mul i64 %126, %indvars.iv153
   %132 = getelementptr inbounds nuw i8, ptr %124, i64 %131
-  %133 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @__const._ZN2cv6detail23calibrateRotatingCameraERKSt6vectorINS_3MatESaIS2_EERS2_.idx_map, i64 0, i64 %indvars.iv153
+  %133 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN2cv6detail23calibrateRotatingCameraERKSt6vectorINS_3MatESaIS2_EERS2_.idx_map, i64 %indvars.iv153
   %sext = shl i64 %.1134, 32
   %134 = ashr exact i64 %sext, 32
   br label %.preheader127
@@ -1219,12 +1219,12 @@ _ZN2cv4Mat_IdEC2ERKNS_3MatE.exit:                 ; preds = %142
 
 .preheader126:                                    ; preds = %.preheader127, %149
   %indvars.iv149 = phi i64 [ 0, %.preheader127 ], [ %indvars.iv.next150, %149 ]
-  %140 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @__const._ZN2cv6detail23calibrateRotatingCameraERKSt6vectorINS_3MatESaIS2_EERS2_.idx_map, i64 0, i64 %indvars.iv149
+  %140 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN2cv6detail23calibrateRotatingCameraERKSt6vectorINS_3MatESaIS2_EERS2_.idx_map, i64 %indvars.iv149
   %141 = getelementptr inbounds nuw double, ptr %132, i64 %indvars.iv149
   br label %150
 
 142:                                              ; preds = %149
-  %143 = getelementptr inbounds nuw [3 x i32], ptr %133, i64 0, i64 %indvars.iv155
+  %143 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv155
   %144 = load i32, ptr %143, align 4, !tbaa !17
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds double, ptr %139, i64 %145
@@ -1243,7 +1243,7 @@ _ZN2cv4Mat_IdEC2ERKNS_3MatE.exit:                 ; preds = %142
 
 150:                                              ; preds = %.preheader126, %150
   %indvars.iv145 = phi i64 [ 0, %.preheader126 ], [ %indvars.iv.next146, %150 ]
-  %151 = getelementptr inbounds nuw [3 x i32], ptr %140, i64 0, i64 %indvars.iv145
+  %151 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv145
   %152 = load i32, ptr %151, align 4, !tbaa !17
   %153 = load double, ptr %141, align 8, !tbaa !26
   %154 = getelementptr inbounds nuw double, ptr %137, i64 %indvars.iv145
@@ -1305,7 +1305,7 @@ _ZN2cv4Mat_IdEC2Eii.exit119.preheader:            ; preds = %168
 
 .preheader:                                       ; preds = %_ZN2cv4Mat_IdEC2Eii.exit119.preheader, %_ZN2cv4Mat_IdEC2Eii.exit119
   %indvars.iv171 = phi i64 [ 0, %_ZN2cv4Mat_IdEC2Eii.exit119.preheader ], [ %indvars.iv.next172, %_ZN2cv4Mat_IdEC2Eii.exit119 ]
-  %181 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @__const._ZN2cv6detail23calibrateRotatingCameraERKSt6vectorINS_3MatESaIS2_EERS2_.idx_map, i64 0, i64 %indvars.iv171
+  %181 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN2cv6detail23calibrateRotatingCameraERKSt6vectorINS_3MatESaIS2_EERS2_.idx_map, i64 %indvars.iv171
   %invariant.gep = getelementptr double, ptr %177, i64 %indvars.iv171
   %182 = mul i64 %180, %indvars.iv171
   %183 = getelementptr inbounds nuw i8, ptr %177, i64 %182
@@ -1336,7 +1336,7 @@ _ZN2cv4Mat_IdEC2Eii.exit119:                      ; preds = %192
 
 192:                                              ; preds = %.preheader, %192
   %indvars.iv173 = phi i64 [ %indvars.iv171, %.preheader ], [ %indvars.iv.next174, %192 ]
-  %193 = getelementptr inbounds nuw [3 x i32], ptr %181, i64 0, i64 %indvars.iv173
+  %193 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv173
   %194 = load i32, ptr %193, align 4, !tbaa !17
   %195 = sext i32 %194 to i64
   %196 = mul i64 %173, %195

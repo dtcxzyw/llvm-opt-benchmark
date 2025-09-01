@@ -474,7 +474,7 @@ _ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit:        ; preds = %3
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit ], [ %indvars.iv.next.i.i.i, %19 ]
   %20 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i.i.i
   %21 = load double, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw [4 x double], ptr %18, i64 0, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i.i.i
   store double %21, ptr %22, align 8, !tbaa !11
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -624,7 +624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 
 switch.lookup:                                    ; preds = %33
   %46 = zext nneg i32 %34 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN2cv4gapi5fluid14BorderHandlerTILi0EE21fillCompileTimeBorderERNS1_23BufferStorageWithBorderE, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv4gapi5fluid14BorderHandlerTILi0EE21fillCompileTimeBorderERNS1_23BufferStorageWithBorderE, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = load i32, ptr %47, align 8, !tbaa !39
@@ -1041,7 +1041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i4: ; preds = %_Z
 
 switch.lookup:                                    ; preds = %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit
   %38 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN2cv4gapi5fluid14BorderHandlerTILi1EEC2Eii, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv4gapi5fluid14BorderHandlerTILi1EEC2Eii, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %20, align 8
   %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1174,7 +1174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i: ; preds = %_
 
 switch.lookup:                                    ; preds = %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit
   %38 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN2cv4gapi5fluid14BorderHandlerTILi4EEC2Eii, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv4gapi5fluid14BorderHandlerTILi4EEC2Eii, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %20, align 8
   %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2468,7 +2468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EE6cctr_hIS7_E4helpEPNSt15aligned_storageILm40ELm8EE4typeEPKSD_, ptr %12, align 8
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EE6cctr_hIS5_E4helpEPNSt15aligned_storageILm40ELm8EE4typeEPKSD_, ptr %46, align 8
-  %47 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %45
+  %47 = getelementptr inbounds nuw ptr, ptr %12, i64 %45
   %48 = load ptr, ptr %47, align 8, !tbaa !70
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2605,7 +2605,7 @@ _ZNSt10unique_ptrIN2cv4gapi5fluid13BufferStorageESt14default_deleteIS3_EED2Ev.ex
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EE6dtor_hIS5_E4helpEPNSt15aligned_storageILm40ELm8EE4typeE, ptr %91, align 8
   %92 = load i64, ptr %15, align 8, !tbaa !133
-  %93 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw ptr, ptr %7, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !70
   invoke void %94(ptr noundef nonnull %49)
           to label %_ZN2cv4util8optionalINS_4gapi5fluid6BorderEED2Ev.exit unwind label %95
@@ -2662,7 +2662,7 @@ _ZN2cv4gapi5fluid13BufferStorage14updateOutCacheERNS1_6Buffer5CacheEii.exit: ; p
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EE6dtor_hIS5_E4helpEPNSt15aligned_storageILm40ELm8EE4typeE, ptr %114, align 8
   %115 = load i64, ptr %15, align 8, !tbaa !133
-  %116 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw ptr, ptr %6, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !70
   invoke void %117(ptr noundef nonnull %49)
           to label %_ZN2cv4util8optionalINS_4gapi5fluid6BorderEED2Ev.exit10 unwind label %118
@@ -3354,7 +3354,7 @@ _ZN2cv4gapi5fluid6Buffer4Priv4initERKNS_8GMatDescEiiNS_5Rect_IiEE.exit: ; preds 
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EE6dtor_hIS5_E4helpEPNSt15aligned_storageILm40ELm8EE4typeE, ptr %47, align 8
   %48 = load i64, ptr %5, align 8, !tbaa !133
-  %49 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %4, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !70
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void %50(ptr noundef nonnull %51)
@@ -3384,7 +3384,7 @@ _ZN2cv4util8optionalINS_4gapi5fluid6BorderEED2Ev.exit: ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EE6dtor_hIS5_E4helpEPNSt15aligned_storageILm40ELm8EE4typeE, ptr %59, align 8
   %60 = load i64, ptr %5, align 8, !tbaa !133
-  %61 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %3, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !70
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void %62(ptr noundef nonnull %63)
@@ -3508,7 +3508,7 @@ _ZN2cv4gapi5fluid6Buffer4Priv4initERKNS_8GMatDescEiiNS_5Rect_IiEE.exit: ; preds 
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EE6cctr_hIS7_E4helpEPNSt15aligned_storageILm40ELm8EE4typeEPKSD_, ptr %10, align 8
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EE6cctr_hIS5_E4helpEPNSt15aligned_storageILm40ELm8EE4typeEPKSD_, ptr %54, align 8
-  %55 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %53
+  %55 = getelementptr inbounds nuw ptr, ptr %10, i64 %53
   %56 = load ptr, ptr %55, align 8, !tbaa !70
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3526,7 +3526,7 @@ _ZN2cv4gapi5fluid6Buffer4Priv4initERKNS_8GMatDescEiiNS_5Rect_IiEE.exit: ; preds 
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EE6dtor_hIS5_E4helpEPNSt15aligned_storageILm40ELm8EE4typeE, ptr %61, align 8
   %62 = load i64, ptr %11, align 8, !tbaa !133
-  %63 = getelementptr inbounds nuw [2 x ptr], ptr %9, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr %9, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !70
   invoke void %64(ptr noundef nonnull %57)
           to label %_ZN2cv4util8optionalINS_4gapi5fluid6BorderEED2Ev.exit unwind label %65
@@ -3555,7 +3555,7 @@ _ZN2cv4util8optionalINS_4gapi5fluid6BorderEED2Ev.exit: ; preds = %60
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EE6dtor_hIS5_E4helpEPNSt15aligned_storageILm40ELm8EE4typeE, ptr %72, align 8
   %73 = load i64, ptr %11, align 8, !tbaa !133
-  %74 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %8, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !70
   invoke void %75(ptr noundef nonnull %57)
           to label %_ZN2cv4util8optionalINS_4gapi5fluid6BorderEED2Ev.exit17 unwind label %76
@@ -4682,7 +4682,7 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_118fillConstBorderRowIhEEvPhiiiNS_
 
 _ZN2cv4gapi3ownL8saturateIhivEET_T0_.exit22.us:   ; preds = %.preheader.us, %_ZN2cv4gapi3ownL8saturateIhivEET_T0_.exit22.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %_ZN2cv4gapi3ownL8saturateIhivEET_T0_.exit22.us ]
-  %14 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %15 = load double, ptr %14, align 8, !tbaa !11
   %16 = tail call noundef double @llvm.round.f64(double %15)
   %17 = fptosi double %16 to i32
@@ -4738,7 +4738,7 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_118fillConstBorderRowIsEEvPhiiiNS_
 
 _ZN2cv4gapi3ownL8saturateIsivEET_T0_.exit.us:     ; preds = %.preheader.us, %_ZN2cv4gapi3ownL8saturateIsivEET_T0_.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %_ZN2cv4gapi3ownL8saturateIsivEET_T0_.exit.us ]
-  %14 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %15 = load double, ptr %14, align 8, !tbaa !11
   %16 = tail call noundef double @llvm.round.f64(double %15)
   %17 = fptosi double %16 to i32
@@ -4786,7 +4786,7 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_118fillConstBorderRowItEEvPhiiiNS_
 
 _ZN2cv4gapi3ownL8saturateItivEET_T0_.exit.us:     ; preds = %.preheader.us, %_ZN2cv4gapi3ownL8saturateItivEET_T0_.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %_ZN2cv4gapi3ownL8saturateItivEET_T0_.exit.us ]
-  %14 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %15 = load double, ptr %14, align 8, !tbaa !11
   %16 = tail call noundef double @llvm.round.f64(double %15)
   %17 = fptosi double %16 to i32
@@ -4835,7 +4835,7 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_118fillConstBorderRowIfEEvPhiiiNS_
 
 14:                                               ; preds = %.preheader.us, %14
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %16 = load double, ptr %15, align 8, !tbaa !11
   %17 = fptrunc double %16 to float
   %18 = add nuw nsw i64 %indvars.iv, %13
@@ -5076,7 +5076,7 @@ define linkonce_odr hidden void @_ZN2cv4util7variantIJNS0_8optionalINS_4gapi5flu
   %indvars.iv.i.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i.i, %6 ]
   %7 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i.i.i.i
   %8 = load double, ptr %7, align 8, !tbaa !11
-  %9 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i
+  %9 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i.i.i.i
   store double %8, ptr %9, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4

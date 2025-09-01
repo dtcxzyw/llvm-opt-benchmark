@@ -96,7 +96,7 @@ define ptr @H5EA__iblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %28 = mul nuw nsw i64 %27, 125613361
   %29 = lshr i64 %28, 27
   %30 = and i64 %29, 31
-  %31 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !37
   %33 = shl i32 %32, 1
   %34 = zext i32 %33 to i64

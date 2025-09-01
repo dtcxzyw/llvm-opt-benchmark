@@ -36,16 +36,16 @@ define internal range(i32 0, 2) i32 @test_cha_cha_internal(i32 noundef %0) #0 {
 
 8:                                                ; preds = %1, %19
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %19 ]
-  %9 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1, !tbaa !4
-  %11 = getelementptr inbounds nuw [1024 x i8], ptr @ref, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr @ref, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.1, i32 noundef 175, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i8 noundef zeroext %10, i8 noundef zeroext %12) #5
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %19
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = load i8, ptr %15, align 1, !tbaa !4
   %18 = zext i8 %17 to i32

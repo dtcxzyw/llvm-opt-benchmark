@@ -596,7 +596,7 @@ define dso_local void @pmix_info_register_types() local_unnamed_addr #2 {
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = tail call i32 @pmix_pointer_array_add(ptr noundef nonnull @mca_types, ptr noundef %6) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr @pmix_frameworks, i64 0, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw ptr, ptr @pmix_frameworks, i64 %indvars.iv.next
   %9 = load ptr, ptr %8, align 8, !tbaa !37
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
@@ -663,7 +663,7 @@ define dso_local void @pmix_info_close_components() local_unnamed_addr #2 {
   %4 = phi ptr [ %7, %.lr.ph ], [ %3, %.preheader ]
   %5 = tail call i32 @pmix_mca_base_framework_close(ptr noundef nonnull %4) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr @pmix_frameworks, i64 0, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw ptr, ptr @pmix_frameworks, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   %.not4 = icmp eq ptr %7, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !51
@@ -2374,7 +2374,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %28 = load i32, ptr %27, align 8, !tbaa !95
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr @pmix_var_type_names, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr @pmix_var_type_names, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !29
   %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %31) #23
   %33 = icmp eq i32 %32, 0

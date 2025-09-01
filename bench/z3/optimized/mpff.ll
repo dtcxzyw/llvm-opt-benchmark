@@ -271,7 +271,7 @@ _ZN6vectorIjLb0EjE4backEv.exit.i:                 ; preds = %_ZNK6vectorIjLb0EjE
 
 40:                                               ; preds = %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit39
   %indvars.iv = phi i64 [ 0, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit ], [ %indvars.iv.next, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit39 ]
-  %41 = getelementptr inbounds nuw [4 x %class.svector], ptr %.ptr15, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %class.svector, ptr %.ptr15, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !3
   %43 = icmp eq ptr %42, null
   br i1 %43, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i36, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i22
@@ -1291,7 +1291,7 @@ define hidden void @_ZNK12mpff_manager9to_bufferEjRK4mpff(ptr noundef nonnull re
 .lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw [4 x %class.svector], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %class.svector, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   br label %16
 
@@ -1327,7 +1327,7 @@ define hidden void @_ZNK12mpff_manager13to_buffer_extEjRK4mpff(ptr noundef nonnu
 .lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw [4 x %class.svector], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %class.svector, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   br label %16
 
@@ -1368,7 +1368,7 @@ define hidden void @_ZNK12mpff_manager18to_buffer_shiftingEjRK4mpff(ptr noundef 
 .lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw [4 x %class.svector], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %class.svector, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   br label %16
 

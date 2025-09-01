@@ -578,7 +578,7 @@ define noundef zeroext i1 @pmix_path_nfs(ptr noundef %0, ptr noundef writeonly c
 
 42:                                               ; preds = %42, %35
   %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw [7 x ptr], ptr @__const.pmix_path_nfs.fs_types, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr @__const.pmix_path_nfs.fs_types, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !6
   %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %41) #15
   %46 = icmp eq i32 %45, 0

@@ -53,7 +53,7 @@ define dso_local noundef nonnull ptr @job_res_job_action_string(i32 noundef %0) 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.job_res_rm_job.2, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.job_res_rm_job.2, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -386,7 +386,7 @@ define dso_local range(i32 -1, 1) i32 @job_res_add_job(ptr noundef %0, i32 nound
 
 switch.lookup:                                    ; preds = %14
   %16 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.job_res_rm_job.2, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.job_res_rm_job.2, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %job_res_job_action_string.exit
 
@@ -877,7 +877,7 @@ define dso_local range(i32 -1, 1) i32 @job_res_rm_job(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %35
   %37 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.job_res_rm_job.2, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.job_res_rm_job.2, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %job_res_job_action_string.exit
 
@@ -900,7 +900,7 @@ job_res_job_action_string.exit:                   ; preds = %35, %switch.lookup
 
 switch.lookup283:                                 ; preds = %41
   %43 = zext nneg i32 %4 to i64
-  %switch.gep284 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.job_res_rm_job.2, i64 0, i64 %43
+  %switch.gep284 = getelementptr inbounds nuw ptr, ptr @switch.table.job_res_rm_job.2, i64 %43
   %switch.load285 = load ptr, ptr %switch.gep284, align 8
   br label %job_res_job_action_string.exit170
 

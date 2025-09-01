@@ -694,14 +694,14 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = lshr i64 %indvars.iv, 2
   %6 = and i64 %5, 1073741823
-  %7 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %9 = shl i32 %indvars.iv.tr, 3
   %10 = and i32 %9, 24
   %11 = lshr i32 %8, %10
   %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %12, ptr %13, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -823,14 +823,14 @@ _Z14gmx_md5_appendP11md5_state_sPKhi.exit25:      ; preds = %53, %._crit_edge.i1
 69:                                               ; preds = %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, %69
   %.039 = phi i64 [ 0, %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25 ], [ %78, %69 ]
   %70 = lshr i64 %.039, 2
-  %71 = getelementptr inbounds nuw [4 x i32], ptr %67, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i32, ptr %67, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %.0.tr = trunc nuw nsw i64 %.039 to i32
   %73 = shl nuw nsw i32 %.0.tr, 3
   %74 = and i32 %73, 24
   %75 = lshr i32 %72, %74
   %76 = trunc i32 %75 to i8
-  %77 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %.039
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 %.039
   store i8 %76, ptr %77, align 1, !tbaa !10
   %78 = add nuw nsw i64 %.039, 1
   %exitcond41.not = icmp eq i64 %78, 16

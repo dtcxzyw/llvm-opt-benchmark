@@ -1328,26 +1328,26 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr24emitInstruc
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %39 = trunc nuw i64 %indvars.iv to i32
   store i32 %39, ptr %38, align 4, !tbaa !152
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !158
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %42
   store i32 %39, ptr %43, align 4, !tbaa !152
   br label %52
 
 44:                                               ; preds = %34
   %45 = add i32 %.0142, 1
-  %46 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %47 = trunc nuw i64 %indvars.iv to i32
   store i32 %47, ptr %46, align 4, !tbaa !152
   br label %52
 
 48:                                               ; preds = %28
   %49 = add i32 %.0142, 1
-  %50 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %51 = trunc nuw i64 %indvars.iv to i32
   store i32 %51, ptr %50, align 4, !tbaa !152
   br label %52
@@ -2039,7 +2039,7 @@ _ZNSt10unique_ptrIN4llvm15X86Disassembler11ExactFilterESt14default_deleteIS2_EED
 
 switch.lookup229:                                 ; preds = %30
   %36 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr14emitDecodePathERNS0_18DisassemblerTablesE, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr14emitDecodePathERNS0_18DisassemblerTablesE, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %37
 
@@ -3100,9 +3100,9 @@ define dso_local noundef range(i32 0, 219) i32 @_ZNK4llvm15X86Disassembler17Reco
   br i1 %or.cond204, label %614, label %540
 
 540:                                              ; preds = %539
-  %switch.tableidx340 = add i8 %519, -2
-  %541 = icmp ult i8 %switch.tableidx340, 3
-  br i1 %541, label %switch.lookup339, label %542
+  %switch.tableidx339 = add i8 %519, -2
+  %541 = icmp ult i8 %switch.tableidx339, 3
+  br i1 %541, label %switch.lookup340, label %542
 
 542:                                              ; preds = %540
   %543 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
@@ -3262,18 +3262,18 @@ define dso_local noundef range(i32 0, 219) i32 @_ZNK4llvm15X86Disassembler17Reco
 
 switch.lookup:                                    ; preds = %520
   %612 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv, i64 0, i64 %612
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv, i64 %612
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %614
 
-switch.lookup339:                                 ; preds = %540
-  %613 = zext nneg i8 %switch.tableidx340 to i64
-  %switch.gep341 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.3, i64 0, i64 %613
+switch.lookup340:                                 ; preds = %540
+  %613 = zext nneg i8 %switch.tableidx339 to i64
+  %switch.gep341 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.3, i64 %613
   %switch.load342 = load i32, ptr %switch.gep341, align 4
   br label %614
 
-614:                                              ; preds = %switch.lookup339, %switch.lookup, %594, %504, %491, %474, %457, %433, %420, %407, %394, %373, %360, %347, %334, %313, %300, %287, %274, %252, %239, %226, %213, %191, %178, %165, %152, %609, %581, %530, %500, %487, %470, %453, %429, %416, %403, %390, %369, %356, %343, %330, %309, %296, %283, %270, %248, %235, %222, %209, %187, %174, %161, %148, %611, %608, %606, %604, %598, %592, %591, %590, %577, %573, %567, %561, %539, %537, %536, %535, %533, %531, %528, %493, %476, %480, %459, %463, %442, %446, %422, %409, %396, %383, %362, %349, %336, %323, %302, %289, %276, %263, %241, %228, %215, %202, %180, %167, %154, %141, %593, %73, %91, %100, %82, %30, %48, %57, %39, %122, %134, %133
-  %.0 = phi i32 [ %38, %30 ], [ %47, %39 ], [ %56, %48 ], [ %65, %57 ], [ %81, %73 ], [ %90, %82 ], [ %99, %91 ], [ %108, %100 ], [ %., %122 ], [ %.21, %133 ], [ %.22, %134 ], [ 17, %593 ], [ 162, %141 ], [ %.mux, %148 ], [ 160, %154 ], [ %.mux242, %161 ], [ 161, %167 ], [ %.mux245, %174 ], [ 159, %180 ], [ %.mux248, %187 ], [ 158, %202 ], [ %.mux251, %209 ], [ 156, %215 ], [ %.mux254, %222 ], [ 157, %228 ], [ %.mux257, %235 ], [ 155, %241 ], [ %.mux260, %248 ], [ 170, %263 ], [ %.mux263, %270 ], [ 168, %276 ], [ %.mux266, %283 ], [ 169, %289 ], [ %.mux269, %296 ], [ 167, %302 ], [ %.mux272, %309 ], [ 166, %323 ], [ %.mux275, %330 ], [ 165, %336 ], [ %.mux278, %343 ], [ 164, %349 ], [ %.mux281, %356 ], [ 163, %362 ], [ %.mux284, %369 ], [ 154, %383 ], [ %.mux287, %390 ], [ 152, %396 ], [ %.mux290, %403 ], [ 153, %409 ], [ %.mux293, %416 ], [ 151, %422 ], [ %.mux296, %429 ], [ 50, %442 ], [ 150, %446 ], [ %.mux299, %453 ], [ 47, %459 ], [ 149, %463 ], [ %.mux302, %470 ], [ 45, %476 ], [ 148, %480 ], [ %.mux305, %487 ], [ 147, %493 ], [ %.mux308, %500 ], [ 37, %528 ], [ %.mux311, %530 ], [ 35, %531 ], [ 36, %533 ], [ 31, %535 ], [ 32, %536 ], [ 30, %537 ], [ 34, %539 ], [ 24, %561 ], [ 12, %567 ], [ 18, %573 ], [ 19, %577 ], [ %.mux314.mux.mux, %581 ], [ 22, %590 ], [ 23, %591 ], [ 16, %592 ], [ 7, %598 ], [ 8, %604 ], [ 9, %606 ], [ 10, %608 ], [ %.mux320.mux.mux, %609 ], [ %switch.select238, %611 ], [ %spec.select, %152 ], [ %spec.select243, %165 ], [ %spec.select246, %178 ], [ %spec.select249, %191 ], [ %spec.select252, %213 ], [ %spec.select255, %226 ], [ %spec.select258, %239 ], [ %spec.select261, %252 ], [ %spec.select264, %274 ], [ %spec.select267, %287 ], [ %spec.select270, %300 ], [ %spec.select273, %313 ], [ %spec.select276, %334 ], [ %spec.select279, %347 ], [ %spec.select282, %360 ], [ %spec.select285, %373 ], [ %spec.select288, %394 ], [ %spec.select291, %407 ], [ %spec.select294, %420 ], [ %spec.select297, %433 ], [ %spec.select300, %457 ], [ %spec.select303, %474 ], [ %spec.select306, %491 ], [ %spec.select309, %504 ], [ %spec.select317, %594 ], [ %switch.load, %switch.lookup ], [ %switch.load342, %switch.lookup339 ]
+614:                                              ; preds = %switch.lookup340, %switch.lookup, %594, %504, %491, %474, %457, %433, %420, %407, %394, %373, %360, %347, %334, %313, %300, %287, %274, %252, %239, %226, %213, %191, %178, %165, %152, %609, %581, %530, %500, %487, %470, %453, %429, %416, %403, %390, %369, %356, %343, %330, %309, %296, %283, %270, %248, %235, %222, %209, %187, %174, %161, %148, %611, %608, %606, %604, %598, %592, %591, %590, %577, %573, %567, %561, %539, %537, %536, %535, %533, %531, %528, %493, %476, %480, %459, %463, %442, %446, %422, %409, %396, %383, %362, %349, %336, %323, %302, %289, %276, %263, %241, %228, %215, %202, %180, %167, %154, %141, %593, %73, %91, %100, %82, %30, %48, %57, %39, %122, %134, %133
+  %.0 = phi i32 [ %38, %30 ], [ %47, %39 ], [ %56, %48 ], [ %65, %57 ], [ %81, %73 ], [ %90, %82 ], [ %99, %91 ], [ %108, %100 ], [ %., %122 ], [ %.21, %133 ], [ %.22, %134 ], [ 17, %593 ], [ 162, %141 ], [ %.mux, %148 ], [ 160, %154 ], [ %.mux242, %161 ], [ 161, %167 ], [ %.mux245, %174 ], [ 159, %180 ], [ %.mux248, %187 ], [ 158, %202 ], [ %.mux251, %209 ], [ 156, %215 ], [ %.mux254, %222 ], [ 157, %228 ], [ %.mux257, %235 ], [ 155, %241 ], [ %.mux260, %248 ], [ 170, %263 ], [ %.mux263, %270 ], [ 168, %276 ], [ %.mux266, %283 ], [ 169, %289 ], [ %.mux269, %296 ], [ 167, %302 ], [ %.mux272, %309 ], [ 166, %323 ], [ %.mux275, %330 ], [ 165, %336 ], [ %.mux278, %343 ], [ 164, %349 ], [ %.mux281, %356 ], [ 163, %362 ], [ %.mux284, %369 ], [ 154, %383 ], [ %.mux287, %390 ], [ 152, %396 ], [ %.mux290, %403 ], [ 153, %409 ], [ %.mux293, %416 ], [ 151, %422 ], [ %.mux296, %429 ], [ 50, %442 ], [ 150, %446 ], [ %.mux299, %453 ], [ 47, %459 ], [ 149, %463 ], [ %.mux302, %470 ], [ 45, %476 ], [ 148, %480 ], [ %.mux305, %487 ], [ 147, %493 ], [ %.mux308, %500 ], [ 37, %528 ], [ %.mux311, %530 ], [ 35, %531 ], [ 36, %533 ], [ 31, %535 ], [ 32, %536 ], [ 30, %537 ], [ 34, %539 ], [ 24, %561 ], [ 12, %567 ], [ 18, %573 ], [ 19, %577 ], [ %.mux314.mux.mux, %581 ], [ 22, %590 ], [ 23, %591 ], [ 16, %592 ], [ 7, %598 ], [ 8, %604 ], [ 9, %606 ], [ 10, %608 ], [ %.mux320.mux.mux, %609 ], [ %switch.select238, %611 ], [ %spec.select, %152 ], [ %spec.select243, %165 ], [ %spec.select246, %178 ], [ %spec.select249, %191 ], [ %spec.select252, %213 ], [ %spec.select255, %226 ], [ %spec.select258, %239 ], [ %spec.select261, %252 ], [ %spec.select264, %274 ], [ %spec.select267, %287 ], [ %spec.select270, %300 ], [ %spec.select273, %313 ], [ %spec.select276, %334 ], [ %spec.select279, %347 ], [ %spec.select282, %360 ], [ %spec.select285, %373 ], [ %spec.select288, %394 ], [ %spec.select291, %407 ], [ %spec.select294, %420 ], [ %spec.select297, %433 ], [ %spec.select300, %457 ], [ %spec.select303, %474 ], [ %spec.select306, %491 ], [ %spec.select309, %504 ], [ %spec.select317, %594 ], [ %switch.load, %switch.lookup ], [ %switch.load342, %switch.lookup340 ]
   ret i32 %.0
 }
 
@@ -3380,11 +3380,11 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOpera
   %19 = phi i32 [ %15, %.lr.ph ], [ %29, %18 ]
   %20 = phi i64 [ %13, %.lr.ph ], [ %27, %18 ]
   %21 = phi i32 [ %.promoted, %.lr.ph ], [ %26, %18 ]
-  %22 = getelementptr inbounds nuw [6 x %"struct.llvm::X86Disassembler::OperandSpecifier"], ptr %17, i64 0, i64 %20
+  %22 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %17, i64 %20
   store i8 34, ptr %22, align 2, !tbaa !203
   %23 = trunc i32 %19 to i8
   %24 = add i8 %23, 31
-  %25 = getelementptr inbounds nuw [6 x %"struct.llvm::X86Disassembler::OperandSpecifier"], ptr %17, i64 0, i64 %20, i32 1
+  %25 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %17, i64 %20, i32 1
   store i8 %24, ptr %25, align 1, !tbaa !205
   %26 = add i32 %21, 1
   store i32 %26, ptr %2, align 4, !tbaa !152
@@ -3502,7 +3502,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %75 = load ptr, ptr %74, align 8, !tbaa !143
   %76 = load i32, ptr %2, align 4, !tbaa !152
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw [6 x %"struct.llvm::X86Disassembler::OperandSpecifier"], ptr %75, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %75, i64 %77
   store i8 %73, ptr %78, align 2, !tbaa !203
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -3551,7 +3551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %97 = load ptr, ptr %74, align 8, !tbaa !143
   %98 = load i32, ptr %2, align 4, !tbaa !152
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw [6 x %"struct.llvm::X86Disassembler::OperandSpecifier"], ptr %97, i64 0, i64 %99, i32 1
+  %100 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %97, i64 %99, i32 1
   store i8 %96, ptr %100, align 1, !tbaa !205
   %101 = load ptr, ptr %11, align 8, !tbaa !3
   %102 = icmp eq ptr %101, %79

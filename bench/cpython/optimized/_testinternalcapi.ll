@@ -3752,7 +3752,7 @@ _PyObject_InlineValues.exit:                      ; preds = %13
 
 37:                                               ; preds = %.lr.ph, %PyTuple_SET_ITEM.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %PyTuple_SET_ITEM.exit ]
-  %38 = getelementptr [1 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %38 = getelementptr ptr, ptr %33, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !9
   %40 = icmp eq ptr %39, null
   br i1 %40, label %Py_INCREF.exit, label %41
@@ -3806,7 +3806,7 @@ Py_SIZE.exit.i:                                   ; preds = %51
   unreachable
 
 PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
-  %56 = getelementptr [1 x ptr], ptr %36, i64 0, i64 %indvars.iv
+  %56 = getelementptr ptr, ptr %36, i64 %indvars.iv
   store ptr %.0, ptr %56, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4675,7 +4675,7 @@ define internal noundef ptr @_testinternalcapi_test_long_numbits(ptr readnone ca
   %.0121.i = phi i64 [ 0, %2 ], [ %24, %23 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -7, ptr %3, align 4, !tbaa !25
-  %5 = getelementptr [15 x %struct.triple], ptr @__const._testinternalcapi_test_long_numbits_impl.testcases, i64 0, i64 %.0121.i
+  %5 = getelementptr %struct.triple, ptr @__const._testinternalcapi_test_long_numbits_impl.testcases, i64 %.0121.i
   %6 = load i64, ptr %5, align 8, !tbaa !252
   %7 = call ptr @PyLong_FromLong(i64 noundef %6) #11
   %8 = icmp eq ptr %7, null

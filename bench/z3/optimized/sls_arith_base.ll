@@ -4108,7 +4108,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64IL
   br i1 %.not33, label %.lr.ph, label %.critedge27
 
 .lr.ph:                                           ; preds = %8
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %indvars.iv43
+  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv43
   br label %15
 
 12:                                               ; preds = %15
@@ -4122,7 +4122,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64IL
   %indvars.iv40 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next41, %12 ]
   %16 = load ptr, ptr %11, align 8, !tbaa !199
   %17 = tail call noundef i32 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %16)
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %indvars.iv40
+  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv40
   %19 = load ptr, ptr %18, align 8, !tbaa !199
   %20 = tail call noundef i32 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %19)
   %21 = load ptr, ptr %6, align 8, !tbaa !119
@@ -4562,14 +4562,14 @@ define weak_odr hidden void @_ZN3sls10arith_baseI13checked_int64ILb1EEE15repair_
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %indvars.iv48
+  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv48
   br label %14
 
 14:                                               ; preds = %.lr.ph, %80
   %indvars.iv45 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next46, %80 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !199
   %16 = call noundef i32 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %15)
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %indvars.iv45
+  %17 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv45
   %18 = load ptr, ptr %17, align 8, !tbaa !199
   %19 = call noundef i32 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %18)
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
@@ -13628,7 +13628,7 @@ _Z3divILb1EE13checked_int64IXT_EERKS1_S3_.exit31.backedge: ; preds = %_ZN6vector
   %spec.store.select = select i1 %192, i32 0, i32 %.01691
   %193 = add i32 %spec.store.select, 1
   %194 = zext i32 %spec.store.select to i64
-  %195 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN3sls10arith_baseI13checked_int64ILb1EEE6factorES2_E10increments, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw i32, ptr @_ZZN3sls10arith_baseI13checked_int64ILb1EEE6factorES2_E10increments, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !54
   %197 = sext i32 %196 to i64
   %198 = add i64 %107, %197
@@ -23451,7 +23451,7 @@ _ZN3sls7context4atomEj.exit15:                    ; preds = %78, %_ZNK6vectorIP4
   br i1 %.not33.i, label %.lr.ph.i, label %_ZN3sls10arith_baseI13checked_int64ILb1EEE13eval_distinctEP4expr.exit
 
 .lr.ph.i:                                         ; preds = %94
-  %97 = getelementptr inbounds nuw [0 x ptr], ptr %91, i64 0, i64 %indvars.iv43.i
+  %97 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv43.i
   br label %101
 
 98:                                               ; preds = %101
@@ -23465,7 +23465,7 @@ _ZN3sls7context4atomEj.exit15:                    ; preds = %78, %_ZNK6vectorIP4
   %indvars.iv40.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next41.i, %98 ]
   %102 = load ptr, ptr %97, align 8, !tbaa !199
   %103 = tail call noundef i32 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %102)
-  %104 = getelementptr inbounds nuw [0 x ptr], ptr %91, i64 0, i64 %indvars.iv40.i
+  %104 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv40.i
   %105 = load ptr, ptr %104, align 8, !tbaa !199
   %106 = tail call noundef i32 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %105)
   %107 = load ptr, ptr %92, align 8, !tbaa !119
@@ -29544,7 +29544,7 @@ _ZN3sls10arith_baseI13checked_int64ILb1EEE11is_distinctEP4expr.exit: ; preds = %
   br i1 %.not33.i, label %.lr.ph.i, label %_ZN3sls10arith_baseI13checked_int64ILb1EEE13eval_distinctEP4expr.exit
 
 .lr.ph.i:                                         ; preds = %54
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %indvars.iv43.i
+  %57 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv43.i
   br label %61
 
 58:                                               ; preds = %61
@@ -29558,7 +29558,7 @@ _ZN3sls10arith_baseI13checked_int64ILb1EEE11is_distinctEP4expr.exit: ; preds = %
   %indvars.iv40.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next41.i, %58 ]
   %62 = load ptr, ptr %57, align 8, !tbaa !199
   %63 = tail call noundef i32 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %62)
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %indvars.iv40.i
+  %64 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv40.i
   %65 = load ptr, ptr %64, align 8, !tbaa !199
   %66 = tail call noundef i32 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %65)
   %67 = load ptr, ptr %52, align 8, !tbaa !119
@@ -30322,7 +30322,7 @@ _ZN3sls7context4atomEj.exit69:                    ; preds = %75, %_ZNK6vectorIP4
   br i1 %.not33.i, label %.lr.ph.i, label %_ZN3sls10arith_baseI13checked_int64ILb1EEE13eval_distinctEP4expr.exit.thr_comm
 
 .lr.ph.i:                                         ; preds = %90
-  %93 = getelementptr inbounds nuw [0 x ptr], ptr %88, i64 0, i64 %indvars.iv43.i
+  %93 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv43.i
   br label %97
 
 94:                                               ; preds = %97
@@ -30336,7 +30336,7 @@ _ZN3sls7context4atomEj.exit69:                    ; preds = %75, %_ZNK6vectorIP4
   %indvars.iv40.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next41.i, %94 ]
   %98 = load ptr, ptr %93, align 8, !tbaa !199
   %99 = tail call noundef i32 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %98)
-  %100 = getelementptr inbounds nuw [0 x ptr], ptr %88, i64 0, i64 %indvars.iv40.i
+  %100 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv40.i
   %101 = load ptr, ptr %100, align 8, !tbaa !199
   %102 = tail call noundef i32 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %101)
   %103 = load ptr, ptr %17, align 8, !tbaa !119
@@ -40086,7 +40086,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN3sls10arith_baseI8rationalE13eval_
   br i1 %.not47, label %.lr.ph, label %.critedge32
 
 .lr.ph:                                           ; preds = %20
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv57
+  %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv57
   br label %27
 
 24:                                               ; preds = %_ZN8rationalD2Ev.exit39
@@ -40100,7 +40100,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN3sls10arith_baseI8rationalE13eval_
   %indvars.iv54 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next55, %24 ]
   %28 = load ptr, ptr %23, align 8, !tbaa !199
   %29 = call noundef i32 @_ZN3sls10arith_baseI8rationalE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(792) %0, ptr noundef %28)
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv54
+  %30 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv54
   %31 = load ptr, ptr %30, align 8, !tbaa !199
   %32 = call noundef i32 @_ZN3sls10arith_baseI8rationalE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(792) %0, ptr noundef %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -41135,14 +41135,14 @@ define weak_odr hidden void @_ZN3sls10arith_baseI8rationalE15repair_distinctEP4e
   br i1 %69, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %66
-  %70 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %indvars.iv152
+  %70 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv152
   br label %71
 
 71:                                               ; preds = %.lr.ph, %425
   %indvars.iv149 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next150, %425 ]
   %72 = load ptr, ptr %70, align 8, !tbaa !199
   %73 = call noundef i32 @_ZN3sls10arith_baseI8rationalE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(792) %0, ptr noundef %72)
-  %74 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %indvars.iv149
+  %74 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv149
   %75 = load ptr, ptr %74, align 8, !tbaa !199
   %76 = call noundef i32 @_ZN3sls10arith_baseI8rationalE7mk_termEP4expr(ptr noundef nonnull align 8 dereferenceable(792) %0, ptr noundef %75)
   %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
@@ -67113,7 +67113,7 @@ _ZN8rationalD2Ev.exit88:                          ; preds = %.noexc.i87
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %468 = add i32 %spec.store.select, 1
   %469 = zext i32 %spec.store.select to i64
-  %470 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN3sls10arith_baseI8rationalE6factorES1_E10increments, i64 0, i64 %469
+  %470 = getelementptr inbounds nuw i32, ptr @_ZZN3sls10arith_baseI8rationalE6factorES1_E10increments, i64 %469
   %471 = load i32, ptr %470, align 4, !tbaa !54
   %472 = load i8, ptr %99, align 4
   %473 = and i8 %472, -4

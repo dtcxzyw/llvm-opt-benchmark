@@ -507,7 +507,7 @@ define internal i32 @e100_probe(ptr noundef %0, ptr noundef readonly captures(no
   %202 = load i32, ptr @use_io, align 4
   %203 = icmp ne i32 %202, 0
   %204 = zext i1 %203 to i64
-  %205 = getelementptr [11 x %struct.resource], ptr %42, i64 0, i64 %204
+  %205 = getelementptr %struct.resource, ptr %42, i64 %204
   %206 = load i64, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %208 = load i32, ptr %207, align 4
@@ -1724,7 +1724,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @e100_eeprom_load(ptr nound
   %15 = trunc nuw nsw i64 %13 to i32
   %16 = trunc nuw i64 %13 to i16
   %17 = call fastcc zeroext i16 @e100_eeprom_read(ptr noundef %0, ptr noundef nonnull %2, i16 noundef zeroext %16)
-  %18 = getelementptr [256 x i16], ptr %11, i64 0, i64 %13
+  %18 = getelementptr i16, ptr %11, i64 %13
   store i16 %17, ptr %18, align 2
   %19 = load i16, ptr %8, align 4
   %20 = zext i16 %19 to i32
@@ -1744,37 +1744,35 @@ define internal fastcc noundef range(i32 -11, 1) i32 @e100_eeprom_load(ptr nound
 30:                                               ; preds = %._crit_edge, %28
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %26, %28 ]
   %31 = phi i16 [ -17734, %._crit_edge ], [ %29, %28 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 894
-  %33 = add nsw i64 %.pre-phi, -1
-  %34 = getelementptr [256 x i16], ptr %32, i64 0, i64 %33
-  %35 = load i16, ptr %34, align 2
-  %36 = icmp eq i16 %31, %35
-  br i1 %36, label %47, label %37
+  %32 = getelementptr i16, ptr %8, i64 %.pre-phi
+  %33 = load i16, ptr %32, align 2
+  %34 = icmp eq i16 %31, %33
+  br i1 %34, label %45, label %35
 
-37:                                               ; preds = %30
-  %38 = load i32, ptr %0, align 64
-  %39 = and i32 %38, 2
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %44, label %41
+35:                                               ; preds = %30
+  %36 = load i32, ptr %0, align 64
+  %37 = and i32 %36, 2
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %42, label %39
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
-  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %43, ptr noundef nonnull @.str.54) #20
-  br label %44
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %41, ptr noundef nonnull @.str.54) #20
+  br label %42
 
-44:                                               ; preds = %41, %37
-  %45 = load i32, ptr @eeprom_bad_csum_allow, align 4
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %48, label %47
+42:                                               ; preds = %39, %35
+  %43 = load i32, ptr @eeprom_bad_csum_allow, align 4
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %46, label %45
 
-47:                                               ; preds = %44, %30
-  br label %48
+45:                                               ; preds = %42, %30
+  br label %46
 
-48:                                               ; preds = %47, %44
-  %49 = phi i32 [ 0, %47 ], [ -11, %44 ]
+46:                                               ; preds = %45, %42
+  %47 = phi i32 [ 0, %45 ], [ -11, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %49
+  ret i32 %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3638,19 +3636,19 @@ define internal fastcc i32 @e100_load_ucode_wait(ptr noundef %0) unnamed_addr #7
   %113 = getelementptr i8, ptr %108, i64 538
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %110 to i64
-  %116 = getelementptr [134 x i32], ptr %105, i64 0, i64 %115
+  %116 = getelementptr i32, ptr %105, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, -65536
   %119 = or disjoint i32 %118, 1536
   store i32 %119, ptr %116, align 4
   %120 = zext i8 %112 to i64
-  %121 = getelementptr [134 x i32], ptr %105, i64 0, i64 %120
+  %121 = getelementptr i32, ptr %105, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = and i32 %122, -65536
   %124 = or disjoint i32 %123, 6
   store i32 %124, ptr %121, align 4
   %125 = zext i8 %114 to i64
-  %126 = getelementptr [134 x i32], ptr %105, i64 0, i64 %125
+  %126 = getelementptr i32, ptr %105, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = or i32 %127, 65535
   store i32 %128, ptr %126, align 4
@@ -4485,7 +4483,7 @@ define internal noundef i32 @e100_multi(ptr noundef readonly captures(none) %0, 
   %24 = phi ptr [ %14, %18 ], [ %29, %22 ]
   %25 = add nuw nsw i64 %23, 1
   %26 = mul nuw nsw i64 %23, 6
-  %27 = getelementptr [386 x i8], ptr %19, i64 0, i64 %26
+  %27 = getelementptr i8, ptr %19, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %27, ptr noundef nonnull align 8 dereferenceable(6) %28, i64 6, i1 false)
   %29 = load ptr, ptr %24, align 8
@@ -4957,7 +4955,7 @@ define internal noundef range(i32 -22, 1) i32 @e100_set_eeprom(ptr noundef captu
 45:                                               ; preds = %45, %37
   %46 = phi i16 [ %50, %45 ], [ %38, %37 ]
   %47 = zext i16 %46 to i64
-  %48 = getelementptr [256 x i16], ptr %10, i64 0, i64 %47
+  %48 = getelementptr i16, ptr %10, i64 %47
   %49 = load i16, ptr %48, align 2
   tail call fastcc void @e100_eeprom_write(ptr noundef %5, i16 noundef zeroext %24, i16 noundef zeroext %46, i16 noundef zeroext %49)
   %50 = add i16 %46, 1
@@ -4968,7 +4966,7 @@ define internal noundef range(i32 -22, 1) i32 @e100_set_eeprom(ptr noundef captu
 53:                                               ; preds = %53, %43
   %54 = phi i64 [ 0, %43 ], [ %59, %53 ]
   %55 = phi i16 [ 0, %43 ], [ %58, %53 ]
-  %56 = getelementptr [256 x i16], ptr %10, i64 0, i64 %54
+  %56 = getelementptr i16, ptr %10, i64 %54
   %57 = load i16, ptr %56, align 2
   %58 = add i16 %57, %55
   %59 = add nuw nsw i64 %54, 1
@@ -4982,14 +4980,14 @@ define internal noundef range(i32 -22, 1) i32 @e100_set_eeprom(ptr noundef captu
 63:                                               ; preds = %61, %.loopexit
   %64 = phi i16 [ -17734, %.loopexit ], [ %62, %61 ]
   %65 = sext i32 %41 to i64
-  %66 = getelementptr [256 x i16], ptr %10, i64 0, i64 %65
+  %66 = getelementptr i16, ptr %10, i64 %65
   store i16 %64, ptr %66, align 2
   %67 = load i16, ptr %28, align 4
   %68 = zext i16 %67 to i32
   %69 = add nsw i32 %68, -1
   %70 = trunc i32 %69 to i16
   %71 = sext i32 %69 to i64
-  %72 = getelementptr [256 x i16], ptr %10, i64 0, i64 %71
+  %72 = getelementptr i16, ptr %10, i64 %71
   %73 = load i16, ptr %72, align 2
   tail call fastcc void @e100_eeprom_write(ptr noundef %5, i16 noundef zeroext %24, i16 noundef zeroext %70, i16 noundef zeroext %73)
   br label %74
@@ -5137,7 +5135,7 @@ define internal void @e100_diag_test(ptr noundef %0, ptr noundef captures(none) 
   %23 = trunc nuw nsw i64 %21 to i32
   %24 = trunc nuw i64 %21 to i16
   %25 = call fastcc zeroext i16 @e100_eeprom_read(ptr noundef %6, ptr noundef nonnull %4, i16 noundef zeroext %24)
-  %26 = getelementptr [256 x i16], ptr %19, i64 0, i64 %21
+  %26 = getelementptr i16, ptr %19, i64 %21
   store i16 %25, ptr %26, align 2
   %27 = load i16, ptr %16, align 4
   %28 = zext i16 %27 to i32
@@ -5157,98 +5155,96 @@ define internal void @e100_diag_test(ptr noundef %0, ptr noundef captures(none) 
 38:                                               ; preds = %36, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %34, %36 ]
   %39 = phi i16 [ -17734, %._crit_edge.i ], [ %37, %36 ]
-  %40 = getelementptr i8, ptr %0, i64 3198
-  %41 = add nsw i64 %.pre-phi.i, -1
-  %42 = getelementptr [256 x i16], ptr %40, i64 0, i64 %41
-  %43 = load i16, ptr %42, align 2
-  %44 = icmp eq i16 %39, %43
-  br i1 %44, label %55, label %45
+  %40 = getelementptr i16, ptr %16, i64 %.pre-phi.i
+  %41 = load i16, ptr %40, align 2
+  %42 = icmp eq i16 %39, %41
+  br i1 %42, label %53, label %43
 
-45:                                               ; preds = %38
-  %46 = load i32, ptr %6, align 64
-  %47 = and i32 %46, 2
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %52, label %49
+43:                                               ; preds = %38
+  %44 = load i32, ptr %6, align 64
+  %45 = and i32 %44, 2
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %50, label %47
 
-49:                                               ; preds = %45
-  %50 = getelementptr i8, ptr %0, i64 2312
-  %51 = load ptr, ptr %50, align 8
-  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %51, ptr noundef nonnull @.str.54) #20
-  br label %52
+47:                                               ; preds = %43
+  %48 = getelementptr i8, ptr %0, i64 2312
+  %49 = load ptr, ptr %48, align 8
+  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %49, ptr noundef nonnull @.str.54) #20
+  br label %50
 
-52:                                               ; preds = %49, %45
-  %53 = load i32, ptr @eeprom_bad_csum_allow, align 4
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %e100_eeprom_load.exit, label %55
+50:                                               ; preds = %47, %43
+  %51 = load i32, ptr @eeprom_bad_csum_allow, align 4
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %e100_eeprom_load.exit, label %53
 
-55:                                               ; preds = %52, %38
+53:                                               ; preds = %50, %38
   br label %e100_eeprom_load.exit
 
-e100_eeprom_load.exit:                            ; preds = %52, %55
-  %56 = phi i64 [ 0, %55 ], [ -11, %52 ]
+e100_eeprom_load.exit:                            ; preds = %50, %53
+  %54 = phi i64 [ 0, %53 ], [ -11, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %57 = getelementptr i8, ptr %2, i64 8
-  store i64 %56, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = and i32 %59, 1
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %84, label %62
+  %55 = getelementptr i8, ptr %2, i64 8
+  store i64 %54, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = and i32 %57, 1
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %82, label %60
 
-62:                                               ; preds = %e100_eeprom_load.exit
+60:                                               ; preds = %e100_eeprom_load.exit
   call void @mii_ethtool_gset(ptr noundef %7, ptr noundef nonnull %5) #19
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %64 = load volatile i64, ptr %63, align 8
-  %65 = and i64 %64, 1
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %68, label %67
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %62 = load volatile i64, ptr %61, align 8
+  %63 = and i64 %62, 1
+  %64 = icmp eq i64 %63, 0
+  br i1 %64, label %66, label %65
 
-67:                                               ; preds = %62
+65:                                               ; preds = %60
   call fastcc void @e100_down(ptr noundef %6)
-  br label %68
+  br label %66
 
-68:                                               ; preds = %67, %62
-  %69 = call fastcc i32 @e100_self_test(ptr noundef %6), !range !31
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr i8, ptr %2, i64 16
-  store i64 %70, ptr %71, align 8
-  %72 = call fastcc i32 @e100_loopback_test(ptr noundef %6, i32 noundef 1)
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr i8, ptr %2, i64 24
-  store i64 %73, ptr %74, align 8
-  %75 = call fastcc i32 @e100_loopback_test(ptr noundef %6, i32 noundef 3)
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr i8, ptr %2, i64 32
-  store i64 %76, ptr %77, align 8
-  %78 = call i32 @mii_ethtool_sset(ptr noundef %7, ptr noundef nonnull %5) #19
-  %79 = load volatile i64, ptr %63, align 8
-  %80 = and i64 %79, 1
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %84, label %82
+66:                                               ; preds = %65, %60
+  %67 = call fastcc i32 @e100_self_test(ptr noundef %6), !range !31
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr i8, ptr %2, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = call fastcc i32 @e100_loopback_test(ptr noundef %6, i32 noundef 1)
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr i8, ptr %2, i64 24
+  store i64 %71, ptr %72, align 8
+  %73 = call fastcc i32 @e100_loopback_test(ptr noundef %6, i32 noundef 3)
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr i8, ptr %2, i64 32
+  store i64 %74, ptr %75, align 8
+  %76 = call i32 @mii_ethtool_sset(ptr noundef %7, ptr noundef nonnull %5) #19
+  %77 = load volatile i64, ptr %61, align 8
+  %78 = and i64 %77, 1
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %82, label %80
 
-82:                                               ; preds = %68
-  %83 = call fastcc i32 @e100_up(ptr noundef %6)
+80:                                               ; preds = %66
+  %81 = call fastcc i32 @e100_up(ptr noundef %6)
+  br label %82
+
+82:                                               ; preds = %80, %66, %e100_eeprom_load.exit
+  %83 = load i32, ptr %56, align 4
   br label %84
 
-84:                                               ; preds = %82, %68, %e100_eeprom_load.exit
-  %85 = load i32, ptr %58, align 4
-  br label %86
+84:                                               ; preds = %84, %82
+  %85 = phi i64 [ 0, %82 ], [ %92, %84 ]
+  %86 = phi i32 [ %83, %82 ], [ %91, %84 ]
+  %87 = getelementptr i64, ptr %2, i64 %85
+  %88 = load i64, ptr %87, align 8
+  %89 = icmp eq i64 %88, 0
+  %90 = select i1 %89, i32 0, i32 2
+  %91 = or i32 %90, %86
+  store i32 %91, ptr %56, align 4
+  %92 = add nuw nsw i64 %85, 1
+  %93 = icmp eq i64 %92, 5
+  br i1 %93, label %94, label %84, !llvm.loop !46
 
-86:                                               ; preds = %86, %84
-  %87 = phi i64 [ 0, %84 ], [ %94, %86 ]
-  %88 = phi i32 [ %85, %84 ], [ %93, %86 ]
-  %89 = getelementptr i64, ptr %2, i64 %87
-  %90 = load i64, ptr %89, align 8
-  %91 = icmp eq i64 %90, 0
-  %92 = select i1 %91, i32 0, i32 2
-  %93 = or i32 %92, %88
-  store i32 %93, ptr %58, align 4
-  %94 = add nuw nsw i64 %87, 1
-  %95 = icmp eq i64 %94, 5
-  br i1 %95, label %96, label %86, !llvm.loop !46
-
-96:                                               ; preds = %86
-  %97 = call i64 @msleep_interruptible(i32 noundef 4000) #19
+94:                                               ; preds = %84
+  %95 = call i64 @msleep_interruptible(i32 noundef 4000) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -5538,7 +5534,7 @@ define internal fastcc void @e100_eeprom_write(ptr noundef readonly captures(non
   %23 = load ptr, ptr %18, align 8
   %24 = tail call i32 @ioread8(ptr noundef %23) #19
   tail call void @__const_udelay(i64 noundef 17180) #19
-  %25 = getelementptr [3 x i32], ptr %5, i64 0, i64 %20
+  %25 = getelementptr i32, ptr %5, i64 %20
   %26 = load i32, ptr %25, align 4
   br label %27
 

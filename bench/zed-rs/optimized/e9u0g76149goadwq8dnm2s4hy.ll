@@ -2640,7 +2640,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h0e87b8c1ff
   br i1 %68, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he50cc39157d001e2E.llvm.9059106379889279541.exit.i", label %69
 
 69:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$project..lsp_store..LspBufferSnapshot$GT$17h031e0b9c4a4022ceE.llvm.9059106379889279541.exit.i.i.i"
-  %70 = getelementptr inbounds [0 x { { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, i32, [1 x i32] }], ptr %65, i64 0, i64 %.sroa.0.0.i.i.i
+  %70 = getelementptr inbounds { { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, i32, [1 x i32] }, ptr %65, i64 %.sroa.0.0.i.i.i
   %71 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$text..BufferSnapshot$GT$17h6092d97963bc8e24E.llvm.9059106379889279541"(ptr noalias noundef nonnull align 8 dereferenceable(112) %70)
           to label %"_ZN4core3ptr58drop_in_place$LT$project..lsp_store..LspBufferSnapshot$GT$17h031e0b9c4a4022ceE.llvm.9059106379889279541.exit.i.i.i" unwind label %73, !noalias !753
@@ -2656,7 +2656,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h0e87b8c1ff
   br label %"_ZN4core3ptr58drop_in_place$LT$project..lsp_store..LspBufferSnapshot$GT$17h031e0b9c4a4022ceE.llvm.9059106379889279541.exit7.i.i.i"
 
 75:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$project..lsp_store..LspBufferSnapshot$GT$17h031e0b9c4a4022ceE.llvm.9059106379889279541.exit7.i.i.i"
-  %76 = getelementptr inbounds [0 x { { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, i32, [1 x i32] }], ptr %65, i64 0, i64 %.sroa.0.1.i.i.i
+  %76 = getelementptr inbounds { { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, i32, [1 x i32] }, ptr %65, i64 %.sroa.0.1.i.i.i
   %77 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$text..BufferSnapshot$GT$17h6092d97963bc8e24E.llvm.9059106379889279541"(ptr noalias noundef nonnull align 8 dereferenceable(112) %76)
           to label %"_ZN4core3ptr58drop_in_place$LT$project..lsp_store..LspBufferSnapshot$GT$17h031e0b9c4a4022ceE.llvm.9059106379889279541.exit7.i.i.i" unwind label %78, !noalias !753

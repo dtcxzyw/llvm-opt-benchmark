@@ -1345,7 +1345,7 @@ _ZNK5Parse5Block13local_type_atEi.exit:           ; preds = %238, %240
 
 273:                                              ; preds = %266
   %274 = zext i32 %249 to i64
-  %275 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %274, i32 1
+  %275 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %274, i32 1
   %276 = load i8, ptr %275, align 4
   %277 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
   %278 = icmp eq ptr %.0.i, %277
@@ -2296,7 +2296,7 @@ _ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit: ; preds = %47, %_ZN8ciMe
 
 .split.us:                                        ; preds = %.split.us.preheader, %121
   %indvars.iv96 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next97, %121 ]
-  %107 = getelementptr inbounds nuw [60 x i8], ptr %105, i64 0, i64 %indvars.iv96
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv96
   %108 = load i8, ptr %107, align 1
   %109 = add i8 %108, 1
   %110 = zext i8 %109 to i32
@@ -2317,7 +2317,7 @@ _ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit: ; preds = %47, %_ZN8ciMe
   %.072.us = phi i32 [ %115, %113 ], [ %111, %112 ]
   %117 = load ptr, ptr %24, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 140
-  %119 = getelementptr inbounds nuw [30 x i32], ptr %118, i64 0, i64 %indvars.iv96
+  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv96
   %120 = load i32, ptr %119, align 4
   %..us = tail call i32 @llvm.uadd.sat.i32(i32 %120, i32 %.072.us)
   store i32 %..us, ptr %119, align 4
@@ -2330,7 +2330,7 @@ _ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit: ; preds = %47, %_ZN8ciMe
 
 .split:                                           ; preds = %.split.preheader, %138
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %138 ]
-  %122 = getelementptr inbounds nuw [60 x i8], ptr %101, i64 0, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv
   %123 = load i8, ptr %122, align 1
   %124 = add i8 %123, 1
   %125 = zext i8 %124 to i32
@@ -2351,7 +2351,7 @@ _ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit: ; preds = %47, %_ZN8ciMe
   %.072 = phi i32 [ %130, %128 ], [ %126, %127 ]
   %132 = load ptr, ptr %24, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 140
-  %134 = getelementptr inbounds nuw [30 x i32], ptr %133, i64 0, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv
   %135 = load i32, ptr %134, align 4
   %. = tail call i32 @llvm.uadd.sat.i32(i32 %135, i32 %.072)
   store i32 %., ptr %134, align 4
@@ -3519,10 +3519,10 @@ _ZN8GraphKit7set_i_oEP4Node.exit:                 ; preds = %283, %294
   %335 = phi i32 [ %327, %326 ], [ %.pre84, %329 ], [ 3, %315 ]
   %.1 = phi ptr [ %.0, %326 ], [ %spec.select, %329 ], [ %311, %315 ]
   %336 = zext i32 %335 to i64
-  %337 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %336, i32 1
+  %337 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %336, i32 1
   %338 = load i8, ptr %337, align 4
   %339 = zext i8 %338 to i64
-  %340 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw i32, ptr @type2size, i64 %339
   %341 = load i32, ptr %340, align 4
   %342 = load ptr, ptr %8, align 8
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 1808
@@ -6956,7 +6956,7 @@ _ZL14mask_int_valueP4Node9BasicTypeP8PhaseGVN.exit: ; preds = %.sink.split.i, %2
   %419 = phi i32 [ %259, %257 ], [ 3, %261 ], [ %.pre, %.sink.split.i ]
   %.0 = phi ptr [ %230, %257 ], [ %230, %261 ], [ %418, %.sink.split.i ]
   %420 = zext i32 %419 to i64
-  %421 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %420, i32 1
+  %421 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %420, i32 1
   %422 = load i8, ptr %421, align 4
   tail call void @_ZN8GraphKit9push_nodeE9BasicTypeP4Node(ptr noundef nonnull align 8 dereferenceable(84) %27, i8 noundef zeroext %422, ptr noundef %.0)
   br label %423
@@ -7512,7 +7512,7 @@ _ZN5Parse13set_parse_bciEi.exit:                  ; preds = %37, %49, %55, %57, 
   %98 = zext i8 %97 to i32
   store i32 %98, ptr %76, align 4
   %99 = zext i8 %97 to i64
-  %100 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %99
   %101 = load i32, ptr %100, align 4
   store i32 %101, ptr %77, align 8
   %102 = icmp ult i32 %101, 239
@@ -7525,7 +7525,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %96
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %96
   %104 = zext nneg i32 %101 to i64
-  %105 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %104
   %106 = load i8, ptr %105, align 1
   %107 = and i8 %106, 15
   %108 = zext nneg i8 %107 to i64
@@ -8702,7 +8702,7 @@ declare void @_ZN12AllocateNode25compute_MemBar_redundancyEP8ciMethod(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8GraphKit9push_nodeE9BasicTypeP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @type2size, i64 %4
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %_ZN8GraphKit4pushEP4Node.exit [
     i32 1, label %7

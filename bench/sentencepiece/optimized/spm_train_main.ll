@@ -2466,7 +2466,7 @@ define linkonce_odr void @_ZN13sentencepiece11TrainerSpec9add_inputERKNSt7__cxx1
   %13 = add nsw i32 %8, 1
   store i32 %13, ptr %7, align 8, !tbaa !120
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !123
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -2533,7 +2533,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 8, !tbaa !120
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %51
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
   store ptr %.sink6.i.i.i.i, ptr %52, align 8, !tbaa !123
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -3061,7 +3061,7 @@ define linkonce_odr void @_ZN13sentencepiece11TrainerSpec19add_accept_languageER
   %13 = add nsw i32 %8, 1
   store i32 %13, ptr %7, align 8, !tbaa !120
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !123
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -3128,7 +3128,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 8, !tbaa !120
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %51
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
   store ptr %.sink6.i.i.i.i, ptr %52, align 8, !tbaa !123
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -3163,7 +3163,7 @@ define linkonce_odr void @_ZN13sentencepiece11TrainerSpec19add_control_symbolsER
   %13 = add nsw i32 %8, 1
   store i32 %13, ptr %7, align 8, !tbaa !120
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !123
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -3230,7 +3230,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 8, !tbaa !120
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %51
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
   store ptr %.sink6.i.i.i.i, ptr %52, align 8, !tbaa !123
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -3265,7 +3265,7 @@ define linkonce_odr void @_ZN13sentencepiece11TrainerSpec24add_user_defined_symb
   %13 = add nsw i32 %8, 1
   store i32 %13, ptr %7, align 8, !tbaa !120
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !123
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -3332,7 +3332,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 8, !tbaa !120
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %51
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
   store ptr %.sink6.i.i.i.i, ptr %52, align 8, !tbaa !123
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 

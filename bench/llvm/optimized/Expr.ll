@@ -4280,10 +4280,10 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
 define dso_local { ptr, i64 } @_ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE(i32 noundef %0) local_unnamed_addr #7 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE.135, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE.135, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -5159,7 +5159,7 @@ _ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %399, %403, %411
 
 switch.lookup:                                    ; preds = %422
   %429 = zext nneg i32 %427 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN5clang14PredefinedExpr11ComputeNameB5cxx11ENS_19PredefinedIdentKindEPKNS_4DeclEb, i64 0, i64 %429
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang14PredefinedExpr11ComputeNameB5cxx11ENS_19PredefinedIdentKindEPKNS_4DeclEb, i64 %429
   %switch.load = load ptr, ptr %switch.gep, align 8
   %430 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull %switch.load)
   br label %.thread432
@@ -7304,7 +7304,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %70, %72
   %.062 = phi i32 [ %89, %.thread ], [ %0, %90 ]
   %93 = trunc nuw i32 %.062 to i8
   %94 = zext nneg i32 %.062 to i64
-  %95 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !694
   %97 = and i16 %96, 1004
   %.not = icmp eq i16 %97, 0
@@ -8271,7 +8271,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit92:               ; preds = %_ZN4llvm11raw_ostre
   %140 = lshr i32 %.070143151, %.169159
   %141 = and i32 %140, 15
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw [17 x i8], ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !25
   %145 = load ptr, ptr %47, align 8, !tbaa !224
   %146 = load ptr, ptr %49, align 8, !tbaa !223
@@ -8324,7 +8324,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit98:               ; preds = %162, %164
   %.0.i.i97 = phi ptr [ %163, %162 ], [ %1, %164 ]
   %168 = lshr i32 %.070143150, 20
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw [17 x i8], ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 %169
   %171 = load i8, ptr %170, align 1, !tbaa !25
   %172 = getelementptr inbounds nuw i8, ptr %.0.i.i97, i64 24
   %173 = load ptr, ptr %172, align 8, !tbaa !223
@@ -8347,7 +8347,7 @@ _ZN4llvm11raw_ostreamlsEc.exit101:                ; preds = %174, %176
   %179 = lshr i32 %.070143150, 16
   %180 = and i32 %179, 15
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [17 x i8], ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i8, ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 %181
   %183 = load i8, ptr %182, align 1, !tbaa !25
   %184 = getelementptr inbounds nuw i8, ptr %.0.i100, i64 32
   %185 = load ptr, ptr %184, align 8, !tbaa !224
@@ -8385,7 +8385,7 @@ _ZN4llvm11raw_ostreamlsEc.exit104:                ; preds = %196, %194, %190, %1
   %199 = lshr i32 %.070143150, 12
   %200 = and i32 %199, 15
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw [17 x i8], ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 %201
   %203 = load i8, ptr %202, align 1, !tbaa !25
   %204 = load ptr, ptr %47, align 8, !tbaa !224
   %205 = load ptr, ptr %49, align 8, !tbaa !223
@@ -8407,7 +8407,7 @@ _ZN4llvm11raw_ostreamlsEc.exit110:                ; preds = %206, %208
   %210 = lshr i32 %.070143150, 8
   %211 = and i32 %210, 15
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw [17 x i8], ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw i8, ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 %212
   %214 = load i8, ptr %213, align 1, !tbaa !25
   %215 = getelementptr inbounds nuw i8, ptr %.0.i109, i64 32
   %216 = load ptr, ptr %215, align 8, !tbaa !224
@@ -8431,7 +8431,7 @@ _ZN4llvm11raw_ostreamlsEc.exit113:                ; preds = %219, %221
   %223 = lshr i32 %.070143150, 4
   %224 = and i32 %223, 15
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw [17 x i8], ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw i8, ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 %225
   %227 = load i8, ptr %226, align 1, !tbaa !25
   %228 = getelementptr inbounds nuw i8, ptr %.0.i112, i64 32
   %229 = load ptr, ptr %228, align 8, !tbaa !224
@@ -8454,7 +8454,7 @@ _ZN4llvm11raw_ostreamlsEc.exit116:                ; preds = %232, %234
   %.0.i115 = phi ptr [ %233, %232 ], [ %.0.i112, %234 ]
   %236 = and i32 %.070143150, 15
   %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr inbounds nuw [17 x i8], ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw i8, ptr @_ZZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamEE3Hex, i64 %237
   %239 = load i8, ptr %238, align 1, !tbaa !25
   %240 = getelementptr inbounds nuw i8, ptr %.0.i115, i64 32
   %241 = load ptr, ptr %240, align 8, !tbaa !224
@@ -8527,7 +8527,7 @@ _ZN4llvm11raw_ostreamlsEc.exit116:                ; preds = %232, %234
 
 _ZN4llvm11raw_ostreamlsEPKc.exit122:              ; preds = %248, %261, %259, %251
   %264 = zext nneg i32 %.0.i87 to i64
-  %265 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %264
   %266 = load i16, ptr %265, align 2, !tbaa !694
   %267 = and i16 %266, 1004
   %.not158 = icmp eq i16 %267, 0
@@ -9060,10 +9060,10 @@ declare noundef i32 @_ZNK5clang19StringLiteralParser21getOffsetOfStringByteERKNS
 define dso_local { ptr, i64 } @_ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE(i32 noundef %0) local_unnamed_addr #7 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE.136, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE.136, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -9125,7 +9125,7 @@ define dso_local noundef range(i32 0, 46) i32 @_ZN5clang13UnaryOperator21getOver
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN5clang13UnaryOperator21getOverloadedOperatorENS_17UnaryOperatorKindE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13UnaryOperator21getOverloadedOperatorENS_17UnaryOperatorKindE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -11616,7 +11616,7 @@ declare i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dere
 define dso_local noundef nonnull ptr @_ZN5clang8CastExpr15getCastKindNameENS_8CastKindE(i32 noundef %0) local_unnamed_addr #7 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [67 x ptr], ptr @switch.table._ZN5clang8CastExpr15getCastKindNameENS_8CastKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang8CastExpr15getCastKindNameENS_8CastKindE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -11910,12 +11910,12 @@ define dso_local noundef nonnull ptr @_ZN5clang8CastExpr11path_bufferEv(ptr noun
 switch.lookup:
   %1 = load i16, ptr %0, align 8
   %2 = and i16 %1, 511
-  %switch.tableidx = add nsw i16 %2, -81
-  %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5clang8CastExpr11path_bufferEv, i64 0, i64 %3
+  %3 = zext nneg i16 %2 to i64
+  %4 = getelementptr i64, ptr @switch.table._ZN5clang8CastExpr11path_bufferEv, i64 %3
+  %switch.gep = getelementptr i8, ptr %4, i64 -648
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
-  ret ptr %4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12088,14 +12088,14 @@ switch.lookup:
   %2 = and i16 %1, 511
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !25
-  %switch.tableidx = add nsw i16 %2, -81
-  %5 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %5
+  %5 = zext nneg i16 %2 to i64
+  %6 = getelementptr i64, ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 %5
+  %switch.gep = getelementptr i8, ptr %6, i64 -648
   %switch.load = load i64, ptr %switch.gep, align 8
-  %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
-  ret ptr %8
+  %7 = zext i32 %4 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12229,7 +12229,7 @@ switch.lookup:                                    ; preds = %_ZN5clang8CastExprC
   %narrow = add nuw nsw i32 %39, 65455
   %41 = and i32 %narrow, 65535
   %42 = zext nneg i32 %41 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 %42
   %switch.load = load i64, ptr %switch.gep, align 8
   %43 = zext i32 %40 to i64
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -12445,7 +12445,7 @@ switch.lookup:                                    ; preds = %_ZN5clang16Explicit
   %narrow = add nuw nsw i32 %45, 65455
   %47 = and i32 %narrow, 65535
   %48 = zext nneg i32 %47 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 %48
   %switch.load = load i64, ptr %switch.gep, align 8
   %49 = zext i32 %46 to i64
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -12532,10 +12532,10 @@ _ZN5clang14CStyleCastExprC2ENS_4Stmt10EmptyShellEjb.exit: ; preds = %27, %33
 define dso_local { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE(i32 noundef %0) local_unnamed_addr #7 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [33 x i64], ptr @switch.table._ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [33 x ptr], ptr @switch.table._ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE.137, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE.137, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -12545,9 +12545,9 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 1, 33) i32 @_ZN5clang14BinaryOperator19getOverloadedOpcodeENS_22OverloadedOperatorKindE(i32 noundef %0) local_unnamed_addr #7 align 2 {
 switch.lookup:
-  %switch.tableidx = add nsw i32 %0, -5
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [36 x i32], ptr @switch.table._ZN5clang14BinaryOperator19getOverloadedOpcodeENS_22OverloadedOperatorKindE, i64 0, i64 %1
+  %1 = sext i32 %0 to i64
+  %2 = getelementptr i32, ptr @switch.table._ZN5clang14BinaryOperator19getOverloadedOpcodeENS_22OverloadedOperatorKindE, i64 %1
+  %switch.gep = getelementptr i8, ptr %2, i64 -20
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -12555,7 +12555,7 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_ZN5clang14BinaryOperator21getOverloadedOperatorENS_18BinaryOperatorKindE(i32 noundef %0) local_unnamed_addr #7 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [33 x i32], ptr @_ZZN5clang14BinaryOperator21getOverloadedOperatorENS_18BinaryOperatorKindEE7OverOps, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i32, ptr @_ZZN5clang14BinaryOperator21getOverloadedOperatorENS_18BinaryOperatorKindEE7OverOps, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !811
   ret i32 %4
 }
@@ -13367,10 +13367,10 @@ switch.lookup:
   %trunc = trunc i24 %2 to i3
   %switch.tableidx = xor i3 %trunc, -4
   %3 = zext i3 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK5clang13SourceLocExpr13getBuiltinStrEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang13SourceLocExpr13getBuiltinStrEv, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i3 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK5clang13SourceLocExpr13getBuiltinStrEv.138, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang13SourceLocExpr13getBuiltinStrEv.138, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -24883,7 +24883,7 @@ switch.lookup:                                    ; preds = %2
   %narrow = add nuw nsw i32 %5, 65455
   %8 = and i32 %narrow, 65535
   %9 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = zext i32 %7 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -32117,7 +32117,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %.011 = phi i32 [ 0, %.lr.ph ], [ %35, %30 ]
   %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !146
-  %34 = getelementptr inbounds nuw [7 x ptr], ptr %22, i64 0, i64 %31
+  %34 = getelementptr inbounds nuw ptr, ptr %22, i64 %31
   store ptr %33, ptr %34, align 8, !tbaa !3
   %35 = add i32 %.011, 1
   %36 = zext i32 %35 to i64
@@ -32131,7 +32131,7 @@ declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_10AtomicExprE(ptr n
 define dso_local noundef range(i32 2, 8) i32 @_ZN5clang10AtomicExpr14getNumSubExprsENS0_8AtomicOpE(i32 noundef %0) local_unnamed_addr #7 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [89 x i32], ptr @switch.table._ZN5clang10AtomicExpr14getNumSubExprsENS0_8AtomicOpE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang10AtomicExpr14getNumSubExprsENS0_8AtomicOpE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -35201,7 +35201,7 @@ define linkonce_odr hidden noundef i32 @_ZN5clang13ExtVectorType21getNumericAcce
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [55 x i32], ptr @switch.table._ZN5clang13ExtVectorType21getNumericAccessorIdxEc, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13ExtVectorType21getNumericAccessorIdxEc, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

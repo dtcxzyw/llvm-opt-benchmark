@@ -1660,7 +1660,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !24
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823
@@ -4669,7 +4669,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i: ; preds = %.preheader.i, %_Z
 61:                                               ; preds = %.lr.ph, %72
   %62 = phi ptr [ %.pre.i.i57, %.lr.ph ], [ %73, %72 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
-  %63 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !37
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i32, ptr %65, align 8, !tbaa !175
@@ -4699,7 +4699,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i: ; preds = %.preheader.i, %_Z
   %74 = phi i32 [ %.pre, %._crit_edge59 ], [ %66, %61 ]
   %75 = xor i32 %74, -1
   %76 = add i32 %29, %75
-  %77 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !37
   %79 = zext i32 %76 to i64
   %80 = getelementptr inbounds nuw ptr, ptr %73, i64 %79
@@ -6610,7 +6610,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN14macro_replacer18macro_repl
 
 19:                                               ; preds = %15
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !37
   %23 = and i32 %16, -64
   %24 = add i32 %23, 64
@@ -10215,7 +10215,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN14macro_replacer18macro_repl
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !37
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64

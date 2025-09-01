@@ -317,7 +317,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hce3eaa050af0207bE.exit: ; 
 
 .lr.ph.i.i.i:                                     ; preds = %71, %75
   %.05.i.i.i = phi i64 [ %76, %75 ], [ 0, %71 ]
-  %72 = getelementptr inbounds nuw [0 x i8], ptr %67, i64 0, i64 %.05.i.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 %.05.i.i.i
   %73 = load i8, ptr %72, align 1, !alias.scope !53, !noalias !47, !noundef !5
   %74 = icmp eq i8 %73, 44
   br i1 %74, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %75

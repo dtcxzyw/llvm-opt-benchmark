@@ -37,7 +37,7 @@ define i32 @Ssw_SmlObjHashWord(ptr noundef readonly captures(none) %0, ptr nound
   %15 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = and i64 %indvars.iv, 127
-  %18 = getelementptr inbounds nuw [128 x i32], ptr @Ssw_SmlObjHashWord.s_SPrimes, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @Ssw_SmlObjHashWord.s_SPrimes, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !15
   %20 = mul i32 %19, %16
   %21 = xor i32 %20, %.01011

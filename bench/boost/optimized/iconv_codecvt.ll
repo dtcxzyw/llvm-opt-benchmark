@@ -359,7 +359,7 @@ _ZN5boost6locale10call_iconvEPvDnDnDnDn.exit:     ; preds = %80
 93:                                               ; preds = %84, %86, %76
   %.sink = phi i32 [ %77, %76 ], [ -1, %84 ], [ %90, %86 ]
   %94 = phi ptr [ %66, %76 ], [ %82, %84 ], [ %82, %86 ]
-  %95 = getelementptr inbounds nuw [256 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   store i32 %.sink, ptr %95, align 4, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -743,7 +743,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale19mb2_iconv_converter10t
   %13 = load i8, ptr %10, align 1, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = zext i8 %13 to i64
-  %16 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !24
   switch i32 %17, label %18 [
     i32 -1, label %52
@@ -925,7 +925,7 @@ _ZN5boost6locale19mb2_iconv_converter4openERNS0_12iconv_handleEPKcS5_.exit: ; pr
   %38 = phi i64 [ %43, %.lr.ph ], [ 0, %.preheader ]
   %.024 = phi i32 [ %42, %.lr.ph ], [ 0, %.preheader ]
   %.01723 = phi ptr [ %41, %.lr.ph ], [ %2, %.preheader ]
-  %39 = getelementptr inbounds nuw [3 x i8], ptr %9, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !20
   %41 = getelementptr inbounds nuw i8, ptr %.01723, i64 1
   store i8 %40, ptr %.01723, align 1, !tbaa !20

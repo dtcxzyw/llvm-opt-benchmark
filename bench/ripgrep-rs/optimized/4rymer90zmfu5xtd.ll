@@ -399,7 +399,7 @@ common.resume:                                    ; preds = %.body, %.thread, %1
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %15, align 8, !nonnull !9, !noundef !9
-  %27 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %26, i64 0, i64 %14
+  %27 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %26, i64 %14
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hc25bd9a7772e05eaE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 %27)
           to label %29 unwind label %.thread.loopexit
 
@@ -2772,7 +2772,7 @@ common.resume.i.i:                                ; preds = %240, %219
   br i1 %246, label %247, label %259, !prof !39
 
 247:                                              ; preds = %244
-  %248 = getelementptr inbounds nuw [0 x i64], ptr %238, i64 0, i64 %245
+  %248 = getelementptr inbounds nuw i64, ptr %238, i64 %245
   %249 = load i64, ptr %248, align 8, !noalias !730, !noundef !9
   %250 = load i64, ptr %33, align 8, !alias.scope !734, !noalias !737, !noundef !9
   %251 = load i64, ptr %2, align 8, !alias.scope !734, !noalias !737, !noundef !9
@@ -2934,7 +2934,7 @@ common.resume.i64.i:                              ; preds = %307, %286
   br i1 %328, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h85fa18036c871aafE.exit.i69.i", label %._crit_edge.i62.i
 
 329:                                              ; preds = %311
-  %330 = getelementptr inbounds nuw [0 x i64], ptr %305, i64 0, i64 %312
+  %330 = getelementptr inbounds nuw i64, ptr %305, i64 %312
   %331 = load i64, ptr %330, align 8, !noalias !730, !noundef !9
   %332 = load i64, ptr %33, align 8, !alias.scope !757, !noalias !760, !noundef !9
   %333 = load i64, ptr %2, align 8, !alias.scope !757, !noalias !760, !noundef !9
@@ -3570,7 +3570,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
 
 554:                                              ; preds = %550
   %555 = load ptr, ptr %542, align 8, !noalias !917, !nonnull !9, !noundef !9
-  %556 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %555, i64 0, i64 %541
+  %556 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %555, i64 %541
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h8e47001335b76bcfE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 %556)
           to label %558 unwind label %.thread.loopexit.i.i.i, !noalias !917
 
@@ -3738,7 +3738,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.10559302552934589985.exit
   br i1 %613, label %614, label %626, !prof !39
 
 614:                                              ; preds = %610
-  %615 = getelementptr inbounds nuw [0 x i64], ptr %519, i64 0, i64 %612
+  %615 = getelementptr inbounds nuw i64, ptr %519, i64 %612
   %616 = load i64, ptr %615, align 8, !noalias !854, !noundef !9
   %617 = load i64, ptr %33, align 8, !alias.scope !957, !noalias !854, !noundef !9
   %618 = load i64, ptr %2, align 8, !alias.scope !957, !noalias !854, !noundef !9

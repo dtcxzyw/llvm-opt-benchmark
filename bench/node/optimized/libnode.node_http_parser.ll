@@ -5695,7 +5695,7 @@ for.body5.lr.ph.i:                                ; preds = %for.cond3.preheader
 for.body.i:                                       ; preds = %_ZN4node12_GLOBAL__N_19StringPtr4SaveEv.exit20.i, %for.body.lr.ph.i
   %11 = phi i64 [ %9, %for.body.lr.ph.i ], [ %15, %_ZN4node12_GLOBAL__N_19StringPtr4SaveEv.exit20.i ]
   %i.030.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %_ZN4node12_GLOBAL__N_19StringPtr4SaveEv.exit20.i ]
-  %arrayidx.i = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %fields_.i, i64 0, i64 %i.030.i
+  %arrayidx.i = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %fields_.i, i64 %i.030.i
   %on_heap_.i13.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %12 = load i8, ptr %on_heap_.i13.i, align 8
   %tobool.i14.i = trunc i8 %12 to i1
@@ -5725,7 +5725,7 @@ _ZN4node12_GLOBAL__N_19StringPtr4SaveEv.exit20.i: ; preds = %if.then.i18.i, %lan
 for.body5.i:                                      ; preds = %_ZN4node12_GLOBAL__N_19StringPtr4SaveEv.exit28.i, %for.body5.lr.ph.i
   %16 = phi i64 [ %10, %for.body5.lr.ph.i ], [ %20, %_ZN4node12_GLOBAL__N_19StringPtr4SaveEv.exit28.i ]
   %i2.032.i = phi i64 [ 0, %for.body5.lr.ph.i ], [ %inc8.i, %_ZN4node12_GLOBAL__N_19StringPtr4SaveEv.exit28.i ]
-  %arrayidx6.i = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %values_.i, i64 0, i64 %i2.032.i
+  %arrayidx6.i = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %values_.i, i64 %i2.032.i
   %on_heap_.i21.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 8
   %17 = load i8, ptr %on_heap_.i21.i, align 8
   %tobool.i22.i = trunc i8 %17 to i1
@@ -6810,21 +6810,21 @@ if.then7.i:                                       ; preds = %if.then3.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then7.i, %if.then3.i
-  %sub.i = phi i64 [ 0, %if.then7.i ], [ %4, %if.then3.i ]
-  %fields_.i = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %arrayidx.i = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %fields_.i, i64 0, i64 %sub.i
+  %6 = phi i64 [ 1, %if.then7.i ], [ %inc.i, %if.then3.i ]
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %arrayidx.i = getelementptr %"struct.node::(anonymous namespace)::StringPtr", ptr %7, i64 %6
   %on_heap_.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %6 = load i8, ptr %on_heap_.i.i, align 8
-  %tobool.i.i = trunc i8 %6 to i1
+  %8 = load i8, ptr %on_heap_.i.i, align 8
+  %tobool.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i, label %if.then.i3.i, label %_ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit.i
 
 if.then.i3.i:                                     ; preds = %if.end10.i
-  %7 = load ptr, ptr %arrayidx.i, align 8
-  %isnull.i.i = icmp eq ptr %7, null
+  %9 = load ptr, ptr %arrayidx.i, align 8
+  %isnull.i.i = icmp eq ptr %9, null
   br i1 %isnull.i.i, label %delete.end.i.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i3.i
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #23
   br label %delete.end.i.i
 
 delete.end.i.i:                                   ; preds = %delete.notnull.i.i, %if.then.i3.i
@@ -6839,8 +6839,8 @@ _ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit.i:  ; preds = %delete.end.i.i, %if
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit.i, %if.end.i
-  %8 = phi i64 [ %4, %if.end.i ], [ %.pr.i, %_ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit.i ]
-  %cmp14.i = icmp ugt i64 %8, 31
+  %10 = phi i64 [ %4, %if.end.i ], [ %.pr.i, %_ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit.i ]
+  %cmp14.i = icmp ugt i64 %10, 31
   br i1 %cmp14.i, label %do.body18.i, label %do.body21.i
 
 do.body18.i:                                      ; preds = %do.body.i
@@ -6849,9 +6849,9 @@ do.body18.i:                                      ; preds = %do.body.i
   unreachable
 
 do.body21.i:                                      ; preds = %do.body.i
-  %9 = load i64, ptr %num_values_.i, align 8
-  %add.i = add i64 %9, 1
-  %cmp24.not.i = icmp eq i64 %8, %add.i
+  %11 = load i64, ptr %num_values_.i, align 8
+  %add.i = add i64 %11, 1
+  %cmp24.not.i = icmp eq i64 %10, %add.i
   br i1 %cmp24.not.i, label %do.end32.i, label %do.body29.i
 
 do.body29.i:                                      ; preds = %do.body21.i
@@ -6860,34 +6860,33 @@ do.body29.i:                                      ; preds = %do.body21.i
   unreachable
 
 do.end32.i:                                       ; preds = %do.body21.i
-  %fields_33.i = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %sub35.i = add nsw i64 %8, -1
-  %arrayidx36.i = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %fields_33.i, i64 0, i64 %sub35.i
-  %10 = load ptr, ptr %arrayidx36.i, align 8
-  %cmp.i.i = icmp eq ptr %10, null
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %arrayidx36.i = getelementptr %"struct.node::(anonymous namespace)::StringPtr", ptr %12, i64 %10
+  %13 = load ptr, ptr %arrayidx36.i, align 8
+  %cmp.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i, label %if.end19.sink.split.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.end32.i
   %on_heap_.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx36.i, i64 8
-  %11 = load i8, ptr %on_heap_.i4.i, align 8
-  %tobool.i5.i = trunc i8 %11 to i1
+  %14 = load i8, ptr %on_heap_.i4.i, align 8
+  %tobool.i5.i = trunc i8 %14 to i1
   %size_.i6.i = getelementptr inbounds nuw i8, ptr %arrayidx36.i, i64 16
-  %12 = load i64, ptr %size_.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %12
+  %15 = load i64, ptr %size_.i6.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 %15
   %cmp4.not.i.i = icmp ne ptr %add.ptr.i.i, %args
   %or.cond.not.i.i = select i1 %tobool.i5.i, i1 true, i1 %cmp4.not.i.i
   br i1 %or.cond.not.i.i, label %if.then5.i.i, label %if.then
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.i7.i = add i64 %12, %args1
+  %add.i7.i = add i64 %15, %args1
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i7.i) #21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %10, i64 %12, i1 false)
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %13, i64 %15, i1 false)
+  %add.ptr10.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i, ptr align 1 %args, i64 %args1, i1 false)
   br i1 %tobool.i5.i, label %delete.notnull.i8.i, label %if.else15.i.i
 
 delete.notnull.i8.i:                              ; preds = %if.then5.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %13) #23
   br label %if.end19.sink.split.i.i
 
 if.else15.i.i:                                    ; preds = %if.then5.i.i
@@ -6902,13 +6901,13 @@ if.end19.sink.split.i.i:                          ; preds = %if.else15.i.i, %del
   br label %if.then
 
 if.then:                                          ; preds = %if.else.i.i, %if.end19.sink.split.i.i
-  %13 = phi i64 [ %12, %if.else.i.i ], [ %.pre.i, %if.end19.sink.split.i.i ]
+  %16 = phi i64 [ %15, %if.else.i.i ], [ %.pre.i, %if.end19.sink.split.i.i ]
   %size_20.i.i = getelementptr inbounds nuw i8, ptr %arrayidx36.i, i64 16
-  %add21.i.i = add i64 %13, %args1
+  %add21.i.i = add i64 %16, %args1
   store i64 %add21.i.i, ptr %size_20.i.i, align 8
   %pending_pause_.i = getelementptr inbounds nuw i8, ptr %1, i64 1801
-  %14 = load i8, ptr %pending_pause_.i, align 1
-  %tobool.i = trunc i8 %14 to i1
+  %17 = load i8, ptr %pending_pause_.i, align 1
+  %tobool.i = trunc i8 %17 to i1
   br i1 %tobool.i, label %if.end.i4, label %if.end
 
 if.end.i4:                                        ; preds = %if.then
@@ -6954,7 +6953,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %inc.i = add i64 %4, 1
   store i64 %inc.i, ptr %num_values_.i, align 8
   %values_.i = getelementptr inbounds nuw i8, ptr %1, i64 944
-  %arrayidx.i = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %values_.i, i64 0, i64 %4
+  %arrayidx.i = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %values_.i, i64 %4
   %on_heap_.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %6 = load i8, ptr %on_heap_.i.i, align 8
   %tobool.i.i = trunc i8 %6 to i1
@@ -7003,33 +7002,33 @@ do.body25.i:                                      ; preds = %do.body17.i
   unreachable
 
 do.end28.i:                                       ; preds = %do.body17.i
-  %sub31.i = add nsw i64 %8, -1
-  %arrayidx32.i = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %values_8.i, i64 0, i64 %sub31.i
-  %10 = load ptr, ptr %arrayidx32.i, align 8
-  %cmp.i.i = icmp eq ptr %10, null
+  %10 = getelementptr %"struct.node::(anonymous namespace)::StringPtr", ptr %values_8.i, i64 %8
+  %arrayidx32.i = getelementptr i8, ptr %10, i64 -24
+  %11 = load ptr, ptr %arrayidx32.i, align 8
+  %cmp.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i, label %if.end19.sink.split.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.end28.i
-  %on_heap_.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx32.i, i64 8
-  %11 = load i8, ptr %on_heap_.i4.i, align 8
-  %tobool.i5.i = trunc i8 %11 to i1
-  %size_.i6.i = getelementptr inbounds nuw i8, ptr %arrayidx32.i, i64 16
-  %12 = load i64, ptr %size_.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %12
+  %on_heap_.i4.i = getelementptr i8, ptr %10, i64 -16
+  %12 = load i8, ptr %on_heap_.i4.i, align 8
+  %tobool.i5.i = trunc i8 %12 to i1
+  %size_.i6.i = getelementptr i8, ptr %10, i64 -8
+  %13 = load i64, ptr %size_.i6.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %13
   %cmp4.not.i.i = icmp ne ptr %add.ptr.i.i, %args
   %or.cond.not.i.i = select i1 %tobool.i5.i, i1 true, i1 %cmp4.not.i.i
   br i1 %or.cond.not.i.i, label %if.then5.i.i, label %if.then
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.i7.i = add i64 %12, %args1
+  %add.i7.i = add i64 %13, %args1
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i7.i) #21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %10, i64 %12, i1 false)
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %11, i64 %13, i1 false)
+  %add.ptr10.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i, ptr align 1 %args, i64 %args1, i1 false)
   br i1 %tobool.i5.i, label %delete.notnull.i8.i, label %if.else15.i.i
 
 delete.notnull.i8.i:                              ; preds = %if.then5.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #23
   br label %if.end19.sink.split.i.i
 
 if.else15.i.i:                                    ; preds = %if.then5.i.i
@@ -7039,18 +7038,18 @@ if.else15.i.i:                                    ; preds = %if.then5.i.i
 if.end19.sink.split.i.i:                          ; preds = %if.else15.i.i, %delete.notnull.i8.i, %do.end28.i
   %call.sink.i.i = phi ptr [ %args, %do.end28.i ], [ %call.i.i, %delete.notnull.i8.i ], [ %call.i.i, %if.else15.i.i ]
   store ptr %call.sink.i.i, ptr %arrayidx32.i, align 8
-  %size_20.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %arrayidx32.i, i64 16
+  %size_20.i.phi.trans.insert.i = getelementptr i8, ptr %10, i64 -8
   %.pre.i = load i64, ptr %size_20.i.phi.trans.insert.i, align 8
   br label %if.then
 
 if.then:                                          ; preds = %if.else.i.i, %if.end19.sink.split.i.i
-  %13 = phi i64 [ %12, %if.else.i.i ], [ %.pre.i, %if.end19.sink.split.i.i ]
-  %size_20.i.i = getelementptr inbounds nuw i8, ptr %arrayidx32.i, i64 16
-  %add21.i.i = add i64 %13, %args1
+  %14 = phi i64 [ %13, %if.else.i.i ], [ %.pre.i, %if.end19.sink.split.i.i ]
+  %size_20.i.i = getelementptr i8, ptr %10, i64 -8
+  %add21.i.i = add i64 %14, %args1
   store i64 %add21.i.i, ptr %size_20.i.i, align 8
   %pending_pause_.i = getelementptr inbounds nuw i8, ptr %1, i64 1801
-  %14 = load i8, ptr %pending_pause_.i, align 1
-  %tobool.i = trunc i8 %14 to i1
+  %15 = load i8, ptr %pending_pause_.i, align 1
+  %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %if.end.i4, label %if.end
 
 if.end.i4:                                        ; preds = %if.then
@@ -7149,7 +7148,7 @@ if.end.i:                                         ; preds = %_ZN2v810MaybeLocalI
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
   %i.075.i = phi i64 [ 0, %if.end.i ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw [9 x %"class.v8::Local.0"], ptr %argv.i, i64 0, i64 %i.075.i
+  %arrayidx.i = getelementptr inbounds nuw %"class.v8::Local.0", ptr %argv.i, i64 %i.075.i
   store ptr %16, ptr %arrayidx.i, align 8
   %inc.i = add nuw nsw i64 %i.075.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 9
@@ -7913,7 +7912,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4node12_GLOBAL__N_19StringPtr15ToTrimmedStringEPNS_11EnvironmentE.exit
   %i.015 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4node12_GLOBAL__N_19StringPtr15ToTrimmedStringEPNS_11EnvironmentE.exit ]
-  %arrayidx = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %fields_, i64 0, i64 %i.015
+  %arrayidx = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %fields_, i64 %i.015
   %1 = load ptr, ptr %realm_.i, align 8
   %env_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 176
   %2 = load ptr, ptr %env_.i.i, align 8
@@ -7943,10 +7942,10 @@ if.else.i:                                        ; preds = %for.body
 
 _ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit: ; preds = %if.then.i, %if.then.i.i.i, %if.else.i
   %retval.sroa.0.0.i = phi ptr [ %6, %if.else.i ], [ %call.i.i, %if.then.i ], [ null, %if.then.i.i.i ]
-  %mul = shl i64 %i.015, 1
-  %arrayidx8 = getelementptr inbounds [64 x %"class.v8::Local.0"], ptr %headers_v, i64 0, i64 %mul
+  %arrayidx8.idx = shl i64 %i.015, 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %headers_v, i64 %arrayidx8.idx
   store ptr %retval.sroa.0.0.i, ptr %arrayidx8, align 16
-  %arrayidx11 = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %values_, i64 0, i64 %i.015
+  %arrayidx11 = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %values_, i64 %i.015
   %7 = load ptr, ptr %realm_.i, align 8
   %env_.i.i8 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %8 = load ptr, ptr %env_.i.i8, align 8
@@ -7997,8 +7996,7 @@ if.else.i.i:                                      ; preds = %while.body.i, %_ZNK
 
 _ZN4node12_GLOBAL__N_19StringPtr15ToTrimmedStringEPNS_11EnvironmentE.exit: ; preds = %if.then.i.i, %if.then.i.i.i.i, %if.else.i.i
   %retval.sroa.0.0.i.i = phi ptr [ %16, %if.else.i.i ], [ %call.i.i.i, %if.then.i.i ], [ null, %if.then.i.i.i.i ]
-  %add = or disjoint i64 %mul, 1
-  %arrayidx21 = getelementptr inbounds [64 x %"class.v8::Local.0"], ptr %headers_v, i64 0, i64 %add
+  %arrayidx21 = getelementptr i8, ptr %arrayidx8, i64 8
   store ptr %retval.sroa.0.0.i.i, ptr %arrayidx21, align 8
   %inc = add nuw i64 %i.015, 1
   %17 = load i64, ptr %num_values_, align 8

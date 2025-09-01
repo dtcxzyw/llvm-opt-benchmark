@@ -4691,10 +4691,10 @@ switch.lookup:
   %trunc = trunc nuw i32 %2 to i8
   %switch.tableidx = xor i8 %trunc, -128
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h21f5d97680c6a971E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h21f5d97680c6a971E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h21f5d97680c6a971E.148", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h21f5d97680c6a971E.148", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -7998,9 +7998,9 @@ _ZN4fish3ast20BlockStatementHeader13embedded_node17haa515441dd1f9c06E.exit: ; pr
 define { ptr, i64 } @_ZN4fish3ast18ast_kind_to_string17hc8a2173c96ad3f0bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !497, !noundef !4
-  %switch.gep = getelementptr inbounds nuw [38 x i64], ptr @switch.table._ZN4fish3ast18ast_kind_to_string17hc8a2173c96ad3f0bE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish3ast18ast_kind_to_string17hc8a2173c96ad3f0bE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw [38 x ptr], ptr @switch.table._ZN4fish3ast18ast_kind_to_string17hc8a2173c96ad3f0bE.149, i64 0, i64 %1
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish3ast18ast_kind_to_string17hc8a2173c96ad3f0bE.149, i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
@@ -52864,10 +52864,10 @@ define internal noundef zeroext i1 @"_ZN68_$LT$fish..input_common..ReadlineCmd$u
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4612, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [93 x i64], ptr @"switch.table._ZN68_$LT$fish..input_common..ReadlineCmd$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ced43519f4f7194E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN68_$LT$fish..input_common..ReadlineCmd$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ced43519f4f7194E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [93 x ptr], ptr @"switch.table._ZN68_$LT$fish..input_common..ReadlineCmd$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ced43519f4f7194E.150", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN68_$LT$fish..input_common..ReadlineCmd$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ced43519f4f7194E.150", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

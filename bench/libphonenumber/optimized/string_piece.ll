@@ -502,7 +502,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader:
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 %.01225
   %70 = load i8, ptr %69, align 1, !tbaa !15
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !21, !range !24, !noundef !25
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %._crit_edge, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit
@@ -593,7 +593,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader:
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %.01220
   %30 = load i8, ptr %29, align 1, !tbaa !15
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !21, !range !24, !noundef !25
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, label %._crit_edge
@@ -708,7 +708,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.010
   %35 = load i8, ptr %34, align 1, !tbaa !15
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !21, !range !24, !noundef !25
   %39 = trunc nuw i8 %38 to i1
   %40 = icmp eq i64 %.010, 0
@@ -787,7 +787,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader:
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.speculated
   %31 = load i8, ptr %30, align 1, !tbaa !15
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !21, !range !24, !noundef !25
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.lr.ph, label %._crit_edge
@@ -802,7 +802,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !15
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !21, !range !24, !noundef !25
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !31

@@ -69,7 +69,7 @@ define dso_local noundef range(i32 -512, 1) i32 @__tty_check_change(ptr noundef 
   %31 = load ptr, ptr %30, align 32
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = sext i32 %23 to i64
-  %34 = getelementptr [64 x %struct.k_sigaction], ptr %32, i64 0, i64 %33
+  %34 = getelementptr %struct.k_sigaction, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, inttoptr (i64 1 to ptr)
   br i1 %36, label %37, label %40

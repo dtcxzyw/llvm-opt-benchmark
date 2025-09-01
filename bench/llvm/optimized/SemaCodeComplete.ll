@@ -4755,7 +4755,7 @@ _ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit: ; preds = %19
 
 switch.lookup:                                    ; preds = %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit
   %26 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [47 x ptr], ptr @switch.table._ZL17AddTypedNameChunkRN5clang10ASTContextERKNS_14PrintingPolicyEPKNS_9NamedDeclERNS_21CodeCompletionBuilderE, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL17AddTypedNameChunkRN5clang10ASTContextERKNS_14PrintingPolicyEPKNS_9NamedDeclERNS_21CodeCompletionBuilderE, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit.thread
 
@@ -9516,7 +9516,7 @@ define dso_local noundef range(i32 1, 605) i32 @_ZN5clang20getCursorKindForDeclE
 switch.lookup:                                    ; preds = %53
   %57 = lshr i16 %55, 13
   %58 = zext nneg i16 %57 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang20getCursorKindForDeclEPKNS_4DeclE, i64 0, i64 %58
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang20getCursorKindForDeclEPKNS_4DeclE, i64 %58
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %59
 
@@ -22087,7 +22087,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit.i: ; preds = %232, %228
 
 switch.lookup:                                    ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit.i
   %243 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang18SemaCodeCompletion34CodeCompleteObjCMethodDeclSelectorEPNS_5ScopeEbbNS_9OpaquePtrINS_8QualTypeEEEN4llvm8ArrayRefIPKNS_14IdentifierInfoEEE, i64 0, i64 %243
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18SemaCodeCompletion34CodeCompleteObjCMethodDeclSelectorEPNS_5ScopeEbbNS_9OpaquePtrINS_8QualTypeEEEN4llvm8ArrayRefIPKNS_14IdentifierInfoEEE, i64 %243
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit
 
@@ -35436,7 +35436,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %49, %53
 
 switch.lookup:                                    ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
   %64 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang18SemaCodeCompletion34CodeCompleteObjCMethodDeclSelectorEPNS_5ScopeEbbNS_9OpaquePtrINS_8QualTypeEEEN4llvm8ArrayRefIPKNS_14IdentifierInfoEEE, i64 0, i64 %64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18SemaCodeCompletion34CodeCompleteObjCMethodDeclSelectorEPNS_5ScopeEbbNS_9OpaquePtrINS_8QualTypeEEEN4llvm8ArrayRefIPKNS_14IdentifierInfoEEE, i64 %64
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %65
 
@@ -64954,7 +64954,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit.i: ; preds = %173, %170
 
 switch.lookup:                                    ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit.i
   %184 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang18SemaCodeCompletion34CodeCompleteObjCMethodDeclSelectorEPNS_5ScopeEbbNS_9OpaquePtrINS_8QualTypeEEEN4llvm8ArrayRefIPKNS_14IdentifierInfoEEE, i64 0, i64 %184
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18SemaCodeCompletion34CodeCompleteObjCMethodDeclSelectorEPNS_5ScopeEbbNS_9OpaquePtrINS_8QualTypeEEEN4llvm8ArrayRefIPKNS_14IdentifierInfoEEE, i64 %184
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN12_GLOBAL__N_113ResultBuilder15getBasePriorityEPKN5clang9NamedDeclE.exit
 
@@ -65953,7 +65953,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit.i: ; preds = %232, %228
 
 switch.lookup:                                    ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit.i
   %243 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang18SemaCodeCompletion34CodeCompleteObjCMethodDeclSelectorEPNS_5ScopeEbbNS_9OpaquePtrINS_8QualTypeEEEN4llvm8ArrayRefIPKNS_14IdentifierInfoEEE, i64 0, i64 %243
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18SemaCodeCompletion34CodeCompleteObjCMethodDeclSelectorEPNS_5ScopeEbbNS_9OpaquePtrINS_8QualTypeEEEN4llvm8ArrayRefIPKNS_14IdentifierInfoEEE, i64 %243
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN12_GLOBAL__N_113ResultBuilder15getBasePriorityEPKN5clang9NamedDeclE.exit
 
@@ -66549,7 +66549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 switch.lookup:                                    ; preds = %34
   %49 = lshr i16 %36, 13
   %50 = zext nneg i16 %49 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang18SemaCodeCompletion26CodeCompleteObjCMethodDeclEPNS_5ScopeESt8optionalIbENS_9OpaquePtrINS_8QualTypeEEE, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang18SemaCodeCompletion26CodeCompleteObjCMethodDeclEPNS_5ScopeESt8optionalIbENS_9OpaquePtrINS_8QualTypeEEE, i64 %50
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %51
 
@@ -67236,7 +67236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 switch.lookup:                                    ; preds = %332
   %343 = lshr i16 %334, 13
   %344 = zext nneg i16 %343 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang18SemaCodeCompletion26CodeCompleteObjCMethodDeclEPNS_5ScopeESt8optionalIbENS_9OpaquePtrINS_8QualTypeEEE, i64 0, i64 %344
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang18SemaCodeCompletion26CodeCompleteObjCMethodDeclEPNS_5ScopeESt8optionalIbENS_9OpaquePtrINS_8QualTypeEEE, i64 %344
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL23GetCompletionTypeStringN5clang8QualTypeERNS_10ASTContextERKNS_14PrintingPolicyERNS_23CodeCompletionAllocatorE.exit
 
@@ -68725,7 +68725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %211 = load ptr, ptr %20, align 8, !tbaa !792
   %212 = load i8, ptr %211, align 1, !tbaa !21
   %213 = zext i8 %212 to i64
-  %214 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %213
   %215 = load i16, ptr %214, align 2, !tbaa !2298
   %216 = and i16 %215, 64
   %.not.i = icmp eq i16 %216, 0
@@ -75475,7 +75475,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit.i: ; preds = %335, %331
 
 switch.lookup:                                    ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit.i
   %346 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang18SemaCodeCompletion34CodeCompleteObjCMethodDeclSelectorEPNS_5ScopeEbbNS_9OpaquePtrINS_8QualTypeEEEN4llvm8ArrayRefIPKNS_14IdentifierInfoEEE, i64 0, i64 %346
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18SemaCodeCompletion34CodeCompleteObjCMethodDeclSelectorEPNS_5ScopeEbbNS_9OpaquePtrINS_8QualTypeEEEN4llvm8ArrayRefIPKNS_14IdentifierInfoEEE, i64 %346
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit
 
@@ -82418,7 +82418,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = and i64 %29, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = lshr i64 %3, 59
   %34 = and i64 %33, 1

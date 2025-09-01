@@ -2665,7 +2665,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader.us: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %80 = load ptr, ptr %10, align 8, !tbaa !15
   %81 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv
-  %82 = getelementptr inbounds nuw [0 x ptr], ptr %46, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   br label %84
 
 .split.us:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader.us

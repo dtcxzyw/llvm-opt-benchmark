@@ -70,18 +70,18 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 0, i64 %indvars.iv159
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv159
   %29 = load i8, ptr %28, align 1, !tbaa !36
   %30 = zext i8 %29 to i64
   br label %31
 
 31:                                               ; preds = %25, %27
   %32 = phi i64 [ %30, %27 ], [ %indvars.iv159, %25 ]
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv159
+  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv159
   %34 = load ptr, ptr %33, align 8, !tbaa !37
-  %35 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv159
+  %35 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv159
   %36 = load i32, ptr %35, align 4, !tbaa !38
-  %37 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv159
+  %37 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv159
   %38 = load i32, ptr %37, align 4, !tbaa !38
   %39 = mul nsw i32 %38, %36
   %40 = sitofp i32 %39 to float
@@ -105,7 +105,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .preheader110.lr.ph:                              ; preds = %.preheader112
   %50 = load i32, ptr %35, align 4, !tbaa !38
   %51 = icmp sgt i32 %50, 0
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %indvars.iv159
+  %52 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv159
   %53 = load i32, ptr %52, align 4, !tbaa !38
   %54 = sdiv i32 %53, 2
   %55 = sext i32 %54 to i64
@@ -146,7 +146,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .preheader.lr.ph:                                 ; preds = %.preheader111
   %66 = load i32, ptr %35, align 4, !tbaa !38
   %67 = icmp sgt i32 %66, 0
-  %68 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %indvars.iv159
+  %68 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv159
   %69 = load i32, ptr %68, align 4, !tbaa !38
   %70 = sext i32 %69 to i64
   br i1 %67, label %.preheader.lr.ph.split.us, label %.loopexit.thread
@@ -273,7 +273,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.not106 = icmp eq i32 %.fr133174, 0
   %114 = select i1 %.not106, ptr @.str.5, ptr @.str.4
   %115 = and i64 %32, 4294967295
-  %116 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %23, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !36
   %118 = sext i8 %117 to i32
   %119 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.3, ptr noundef nonnull %114, i32 noundef %118) #8

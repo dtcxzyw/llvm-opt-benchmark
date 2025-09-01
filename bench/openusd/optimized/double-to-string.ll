@@ -234,7 +234,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   %76 = trunc nuw nsw i32 %75 to i8
   %77 = or disjoint i8 %76, 48
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %78 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv.next
+  %78 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next
   store i8 %77, ptr %78, align 1
   %79 = udiv i32 %.12634, 10
   %.not40 = icmp ult i32 %.12634, 10
@@ -283,7 +283,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   %.2.lcssa = phi i32 [ %.0, %.loopexit ], [ %97, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %83, %.loopexit ], [ %96, %._crit_edge.loopexit ]
   %98 = sext i32 %.2.lcssa to i64
-  %99 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %98
+  %99 = getelementptr inbounds i8, ptr %6, i64 %98
   %100 = load i32, ptr %8, align 8
   %101 = load ptr, ptr %4, align 8
   %102 = sext i32 %100 to i64
@@ -1127,7 +1127,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   %79 = icmp sgt i32 %76, %78
   %80 = and i32 %72, 16
   %.not = icmp eq i32 %80, 0
-  br i1 %.not, label %99, label %82
+  br i1 %.not, label %101, label %82
 
 .thread:                                          ; preds = %65
   %81 = and i32 %72, 16
@@ -1155,70 +1155,71 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
 .lr.ph.preheader:                                 ; preds = %.thread50
   %87 = zext nneg i32 %.promoted to i64
   %88 = zext nneg i32 %85 to i64
-  %indvars.iv.next76 = add nsw i64 %87, -1
-  %89 = getelementptr inbounds nuw [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next76
-  %90 = load i8, ptr %89, align 1
-  %91 = icmp eq i8 %90, 48
-  br i1 %91, label %.lr.ph78, label %.critedge
+  %89 = getelementptr i8, ptr %6, i64 %87
+  %90 = getelementptr i8, ptr %89, i64 -1
+  %91 = load i8, ptr %90, align 1
+  %92 = icmp eq i8 %91, 48
+  br i1 %92, label %.lr.ph77, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph78
-  %indvars.iv.next = add nsw i64 %indvars.iv.next77, -1
-  %92 = getelementptr inbounds nuw [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
-  %93 = load i8, ptr %92, align 1
-  %94 = icmp eq i8 %93, 48
-  br i1 %94, label %.lr.ph78, label %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge, !llvm.loop !9
+.lr.ph:                                           ; preds = %.lr.ph77
+  %93 = getelementptr i8, ptr %6, i64 %indvars.iv.next
+  %94 = getelementptr i8, ptr %93, i64 -1
+  %95 = load i8, ptr %94, align 1
+  %96 = icmp eq i8 %95, 48
+  br i1 %96, label %.lr.ph77, label %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge, !llvm.loop !9
 
-.lr.ph78:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv.next77 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next76, %.lr.ph.preheader ]
-  %95 = trunc nuw nsw i64 %indvars.iv.next77 to i32
-  %96 = icmp sgt i64 %indvars.iv.next77, %88
-  br i1 %96, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !9
+.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv76 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %87, %.lr.ph.preheader ]
+  %indvars.iv.next = add nsw i64 %indvars.iv76, -1
+  %97 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %98 = icmp sgt i64 %indvars.iv.next, %88
+  br i1 %98, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !9
 
 .lr.ph..critedge.loopexit.split.loop.exit69_crit_edge: ; preds = %.lr.ph
-  store i32 %95, ptr %7, align 4
-  %97 = trunc nuw nsw i64 %indvars.iv.next77 to i32
+  store i32 %97, ptr %7, align 4
+  %99 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %.lr.ph78
-  store i32 %95, ptr %7, align 4
+.critedge.loopexit:                               ; preds = %.lr.ph77
+  store i32 %97, ptr %7, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge, %.thread50
-  %98 = phi i32 [ %.promoted, %.thread50 ], [ %95, %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %95, %.critedge.loopexit ]
-  %.lcssa = phi i32 [ %.promoted, %.thread50 ], [ %97, %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %85, %.critedge.loopexit ]
+  %100 = phi i32 [ %.promoted, %.thread50 ], [ %97, %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %97, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ %.promoted, %.thread50 ], [ %99, %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %85, %.critedge.loopexit ]
   %.sroa.speculated41 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %2)
   br i1 %84, label %.thread51, label %._crit_edge63
 
-99:                                               ; preds = %73
+101:                                              ; preds = %73
   %.pre65 = load i32, ptr %7, align 4
   br i1 %79, label %.thread51, label %._crit_edge63
 
-.thread51:                                        ; preds = %.thread..thread51_crit_edge, %.critedge, %99
-  %100 = phi i32 [ %.pre65, %99 ], [ %98, %.critedge ], [ %.pre64, %.thread..thread51_crit_edge ]
-  %.04853 = phi i32 [ %2, %99 ], [ %.sroa.speculated41, %.critedge ], [ %2, %.thread..thread51_crit_edge ]
-  %101 = icmp slt i32 %100, %.04853
-  br i1 %101, label %.lr.ph58.preheader, label %._crit_edge
+.thread51:                                        ; preds = %.thread..thread51_crit_edge, %.critedge, %101
+  %102 = phi i32 [ %.pre65, %101 ], [ %100, %.critedge ], [ %.pre64, %.thread..thread51_crit_edge ]
+  %.04853 = phi i32 [ %2, %101 ], [ %.sroa.speculated41, %.critedge ], [ %2, %.thread..thread51_crit_edge ]
+  %103 = icmp slt i32 %102, %.04853
+  br i1 %103, label %.lr.ph58.preheader, label %._crit_edge
 
 .lr.ph58.preheader:                               ; preds = %.thread51
-  %102 = sext i32 %100 to i64
-  %scevgep = getelementptr i8, ptr %6, i64 %102
-  %103 = xor i32 %100, -1
-  %104 = add i32 %.04853, %103
-  %105 = zext i32 %104 to i64
-  %106 = add nuw nsw i64 %105, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %106, i1 false)
+  %104 = sext i32 %102 to i64
+  %scevgep = getelementptr i8, ptr %6, i64 %104
+  %105 = xor i32 %102, -1
+  %106 = add i32 %.04853, %105
+  %107 = zext i32 %106 to i64
+  %108 = add nuw nsw i64 %107, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %108, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph58.preheader, %.thread51
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %.04853, i32 noundef %67, ptr noundef %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-._crit_edge63:                                    ; preds = %99, %.critedge
-  %107 = phi i32 [ %98, %.critedge ], [ %.pre65, %99 ]
-  %.04854 = phi i32 [ %.sroa.speculated41, %.critedge ], [ %2, %99 ]
-  %108 = sub nsw i32 %.04854, %66
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %108, i32 0)
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %107, i32 noundef %66, i32 noundef %.sroa.speculated, ptr noundef %3)
+._crit_edge63:                                    ; preds = %101, %.critedge
+  %109 = phi i32 [ %100, %.critedge ], [ %.pre65, %101 ]
+  %.04854 = phi i32 [ %.sroa.speculated41, %.critedge ], [ %2, %101 ]
+  %110 = sub nsw i32 %.04854, %66
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %110, i32 0)
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %109, i32 noundef %66, i32 noundef %.sroa.speculated, ptr noundef %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %._crit_edge, %._crit_edge63, %42

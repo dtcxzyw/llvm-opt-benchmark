@@ -137,7 +137,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 13:                                               ; preds = %.lr.ph
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr %6, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !15
@@ -176,7 +176,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 25:                                               ; preds = %.lr.ph222.split.us
   %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %7, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %27, align 4, !tbaa !15
@@ -189,7 +189,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 31:                                               ; preds = %20, %37
   %indvars.iv309 = phi i64 [ 1, %20 ], [ %indvars.iv.next310, %37 ]
-  %32 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv309
+  %32 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv309
   %33 = load i32, ptr %32, align 4, !tbaa !15
   %34 = trunc nuw nsw i64 %indvars.iv309 to i32
   %35 = shl nuw nsw i32 1, %34
@@ -197,11 +197,11 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   br i1 %36, label %.critedge, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv309
+  %38 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv309
   %39 = load i32, ptr %38, align 4, !tbaa !15
   %40 = add nsw i32 %39, %33
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
-  %41 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv.next310
+  %41 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next310
   store i32 %40, ptr %41, align 4, !tbaa !15
   %exitcond312.not = icmp eq i64 %indvars.iv.next310, 15
   br i1 %exitcond312.not, label %.preheader208, label %31, !llvm.loop !19
@@ -215,7 +215,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 45:                                               ; preds = %.lr.ph222.split
   %46 = zext nneg i32 %43 to i64
-  %47 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %7, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !15
   %.not171 = icmp slt i32 %48, %3
   br i1 %.not171, label %49, label %.critedge
@@ -275,7 +275,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %.0140233.us = phi i32 [ %72, %74 ], [ 1, %.lr.ph238 ]
   %.0142232.us = phi i32 [ %75, %74 ], [ 1, %.lr.ph238 ]
   %69 = shl nuw i32 %.0140233.us, 1
-  %70 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv331
+  %70 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv331
   %71 = load i32, ptr %70, align 4, !tbaa !15
   %72 = sub nsw i32 %69, %71
   %73 = icmp slt i32 %72, 0
@@ -315,7 +315,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %.0149229 = phi i32 [ %110, %.loopexit ], [ 2, %.lr.ph238 ]
   %79 = shl nuw i32 %.0140233, 1
   %80 = add nsw i32 %79, %.0142232
-  %81 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv326
+  %81 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv326
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sub nsw i32 %79, %82
   %84 = icmp slt i32 %83, 0
@@ -400,7 +400,7 @@ GetNextKey.exit:                                  ; preds = %ReplicateValue.exit
   %.1141272.fr = freeze i32 %.1141272
   %112 = shl i32 %.1141272.fr, 1
   %113 = add i32 %112, %.1143.fr278
-  %114 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv.next337
+  %114 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next337
   %115 = load i32, ptr %114, align 4, !tbaa !15
   %116 = sub nsw i32 %112, %115
   %117 = icmp slt i32 %116, 0

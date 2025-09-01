@@ -4989,8 +4989,8 @@ _ZN5uu_dd11read_helper12perform_swab17hba8c97738742d3dfE.exit.i: ; preds = %350,
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4890feffe3936504E.exit.i.i": ; preds = %360
-  %363 = getelementptr inbounds [0 x i8], ptr %351, i64 0, i64 %.sroa.01.07.i.i
-  %364 = getelementptr inbounds [0 x i8], ptr %351, i64 0, i64 %358
+  %363 = getelementptr inbounds i8, ptr %351, i64 %.sroa.01.07.i.i
+  %364 = getelementptr inbounds i8, ptr %351, i64 %358
   %.0.copyload.i.i.i = load i8, ptr %363, align 1, !alias.scope !617, !noalias !556
   %365 = load i8, ptr %364, align 1, !alias.scope !617, !noalias !556
   store i8 %365, ptr %363, align 1, !alias.scope !617, !noalias !556

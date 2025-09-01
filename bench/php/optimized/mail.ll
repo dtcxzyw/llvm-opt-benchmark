@@ -1458,7 +1458,7 @@ php_mail_build_headers_elems.exit:                ; preds = %545, %496, %445, %3
   %570 = add i64 %569, -2
   store i64 %570, ptr %568, align 8, !tbaa !19
   %571 = getelementptr inbounds nuw i8, ptr %566, i64 24
-  %572 = getelementptr inbounds nuw [1 x i8], ptr %571, i64 0, i64 %570
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 %570
   store i8 0, ptr %572, align 1, !tbaa !12
   %.pre462 = load ptr, ptr %2, align 8, !tbaa !50
   br label %smart_str_0.exit

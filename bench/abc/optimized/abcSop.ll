@@ -3297,7 +3297,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
   %.11531 = phi i32 [ %75, %71 ], [ %.11531.ph, %.preheader49 ]
   %72 = urem i32 %.11531, 10
   %73 = trunc nuw nsw i32 %72 to i8
-  %74 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %73, ptr %74, align 1, !tbaa !3
   %75 = udiv i32 %.11531, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3308,7 +3308,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
 76:                                               ; preds = %.preheader, %Vec_StrPush.exit30
   %indvars.iv37 = phi i64 [ %indvars.iv35, %.preheader ], [ %indvars.iv.next38, %Vec_StrPush.exit30 ]
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
-  %77 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv.next38
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next38
   %78 = load i8, ptr %77, align 1, !tbaa !3
   %79 = add i8 %78, 48
   %80 = load i32, ptr %70, align 4, !tbaa !61
@@ -3967,14 +3967,14 @@ Abc_SopGetVarNum.exit:                            ; preds = %3
   ]
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw [8 x i64], ptr @Abc_SopToTruth.Truth, i64 0, i64 %indvars.iv49
+  %18 = getelementptr inbounds nuw i64, ptr @Abc_SopToTruth.Truth, i64 %indvars.iv49
   %19 = load i64, ptr %18, align 8, !tbaa !23
   %20 = xor i64 %19, -1
   %21 = and i64 %.043.us, %20
   br label %26
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds nuw [8 x i64], ptr @Abc_SopToTruth.Truth, i64 0, i64 %indvars.iv49
+  %23 = getelementptr inbounds nuw i64, ptr @Abc_SopToTruth.Truth, i64 %indvars.iv49
   %24 = load i64, ptr %23, align 8, !tbaa !23
   %25 = and i64 %24, %.043.us
   br label %26
@@ -4091,7 +4091,7 @@ Abc_SopGetVarNum.exit.split.preheader:            ; preds = %Abc_SopGetVarNum.ex
   ]
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw [7 x [2 x i64]], ptr @Abc_SopToTruth7.Truth, i64 0, i64 %indvars.iv59
+  %25 = getelementptr inbounds nuw [2 x i64], ptr @Abc_SopToTruth7.Truth, i64 %indvars.iv59
   %26 = load i64, ptr %25, align 16, !tbaa !23
   %27 = xor i64 %26, -1
   %28 = and i64 %.sroa.0.044.us, %27
@@ -4102,7 +4102,7 @@ Abc_SopGetVarNum.exit.split.preheader:            ; preds = %Abc_SopGetVarNum.ex
   br label %40
 
 33:                                               ; preds = %21
-  %34 = getelementptr inbounds nuw [7 x [2 x i64]], ptr @Abc_SopToTruth7.Truth, i64 0, i64 %indvars.iv59
+  %34 = getelementptr inbounds nuw [2 x i64], ptr @Abc_SopToTruth7.Truth, i64 %indvars.iv59
   %35 = load i64, ptr %34, align 16, !tbaa !23
   %36 = and i64 %35, %.sroa.0.044.us
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8

@@ -93,7 +93,7 @@ define internal i32 @amr_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
 .sink.split:                                      ; preds = %29, %36
   %amrnb_packed_size.sink = phi ptr [ @amrwb_packed_size, %36 ], [ @amrnb_packed_size, %29 ]
   %37 = zext nneg i8 %34 to i64
-  %38 = getelementptr inbounds nuw [16 x i8], ptr %amrnb_packed_size.sink, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %amrnb_packed_size.sink, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !35
   %40 = zext i8 %39 to i32
   br label %41

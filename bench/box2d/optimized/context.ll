@@ -817,7 +817,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 .preheader:                                       ; preds = %62, %89
   %indvars.iv = phi i64 [ %indvars.iv.next, %89 ], [ 0, %62 ]
-  %90 = getelementptr inbounds nuw [4 x ptr], ptr @__const._glfwRefreshContextAttribs.prefixes, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw ptr, ptr @__const._glfwRefreshContextAttribs.prefixes, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8, !tbaa !156
   %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #8
   %93 = tail call i32 @strncmp(ptr noundef nonnull %63, ptr noundef nonnull %91, i64 noundef %92) #8

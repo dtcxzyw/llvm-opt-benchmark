@@ -6762,7 +6762,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit"
   %.07 = phi i64 [ 0, %.lr.ph ], [ %9, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit" ]
-  %8 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 } }], ptr %0, i64 0, i64 %.07
+  %8 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %0, i64 %.07
   %9 = add nuw i64 %.07, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1444
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb90b82ba8fda85baE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -6802,7 +6802,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u
   br label %17
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 } }], ptr %0, i64 0, i64 %.1
+  %22 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %0, i64 %.1
   %23 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #44
           to label %17 unwind label %25
@@ -6960,7 +6960,7 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..in_place_drop..I
 
 13:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit.i.i", %.lr.ph.i.i
   %.07.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %15, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit.i.i" ]
-  %14 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 } }], ptr %3, i64 0, i64 %.07.i.i
+  %14 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %3, i64 %.07.i.i
   %15 = add nuw i64 %.07.i.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1522
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb90b82ba8fda85baE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
@@ -6997,7 +6997,7 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..in_place_drop..I
   br label %23
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 } }], ptr %3, i64 0, i64 %.1.i.i
+  %28 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %3, i64 %.1.i.i
   %29 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #44
           to label %23 unwind label %31, !noalias !1516
@@ -15843,7 +15843,7 @@ define hidden void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u
 
 13:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit.i", %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %15, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit.i" ]
-  %14 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 } }], ptr %3, i64 0, i64 %.07.i
+  %14 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %3, i64 %.07.i
   %15 = add nuw i64 %.07.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3342
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb90b82ba8fda85baE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
@@ -15880,7 +15880,7 @@ define hidden void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u
   br label %23
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 } }], ptr %3, i64 0, i64 %.1.i
+  %28 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %3, i64 %.1.i
   %29 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #44
           to label %23 unwind label %31
@@ -17298,10 +17298,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i8, ptr %0, align 1, !range !264, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN70_$LT$ockam_node..error..RouterReason$u20$as$u20$core..fmt..Display$GT$3fmt17hbd62176d44d91494E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$ockam_node..error..RouterReason$u20$as$u20$core..fmt..Display$GT$3fmt17hbd62176d44d91494E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN70_$LT$ockam_node..error..RouterReason$u20$as$u20$core..fmt..Display$GT$3fmt17hbd62176d44d91494E.17", i64 0, i64 %7
+  %switch.gep2 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$ockam_node..error..RouterReason$u20$as$u20$core..fmt..Display$GT$3fmt17hbd62176d44d91494E.17", i64 %7
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %switch.load, ptr %2, align 8
@@ -17336,10 +17336,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i8, ptr %0, align 1, !range !264, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN68_$LT$ockam_node..error..NodeReason$u20$as$u20$core..fmt..Display$GT$3fmt17h5f7d4a515bb30a09E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN68_$LT$ockam_node..error..NodeReason$u20$as$u20$core..fmt..Display$GT$3fmt17h5f7d4a515bb30a09E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN68_$LT$ockam_node..error..NodeReason$u20$as$u20$core..fmt..Display$GT$3fmt17h5f7d4a515bb30a09E.18", i64 0, i64 %7
+  %switch.gep2 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN68_$LT$ockam_node..error..NodeReason$u20$as$u20$core..fmt..Display$GT$3fmt17h5f7d4a515bb30a09E.18", i64 %7
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %switch.load, ptr %2, align 8
@@ -17374,10 +17374,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i8, ptr %0, align 1, !range !264, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN70_$LT$ockam_node..error..WorkerReason$u20$as$u20$core..fmt..Display$GT$3fmt17h7784459134b73cf7E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$ockam_node..error..WorkerReason$u20$as$u20$core..fmt..Display$GT$3fmt17h7784459134b73cf7E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN70_$LT$ockam_node..error..WorkerReason$u20$as$u20$core..fmt..Display$GT$3fmt17h7784459134b73cf7E.19", i64 0, i64 %7
+  %switch.gep2 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$ockam_node..error..WorkerReason$u20$as$u20$core..fmt..Display$GT$3fmt17h7784459134b73cf7E.19", i64 %7
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %switch.load, ptr %2, align 8
@@ -17471,10 +17471,10 @@ define noundef zeroext i1 @"_ZN68_$LT$ockam_node..error..RouterReason$u20$as$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !264, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN68_$LT$ockam_node..error..RouterReason$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4138102a542ec39E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN68_$LT$ockam_node..error..RouterReason$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4138102a542ec39E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN68_$LT$ockam_node..error..RouterReason$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4138102a542ec39E.20", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN68_$LT$ockam_node..error..RouterReason$u20$as$u20$core..fmt..Debug$GT$3fmt17hd4138102a542ec39E.20", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -17485,10 +17485,10 @@ define noundef zeroext i1 @"_ZN66_$LT$ockam_node..error..NodeReason$u20$as$u20$c
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !264, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN66_$LT$ockam_node..error..NodeReason$u20$as$u20$core..fmt..Debug$GT$3fmt17h23ce84fbcb56788dE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN66_$LT$ockam_node..error..NodeReason$u20$as$u20$core..fmt..Debug$GT$3fmt17h23ce84fbcb56788dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN66_$LT$ockam_node..error..NodeReason$u20$as$u20$core..fmt..Debug$GT$3fmt17h23ce84fbcb56788dE.21", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN66_$LT$ockam_node..error..NodeReason$u20$as$u20$core..fmt..Debug$GT$3fmt17h23ce84fbcb56788dE.21", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -17499,10 +17499,10 @@ define noundef zeroext i1 @"_ZN68_$LT$ockam_node..error..WorkerReason$u20$as$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !264, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN68_$LT$ockam_node..error..WorkerReason$u20$as$u20$core..fmt..Debug$GT$3fmt17h1fefa4fe186dfa22E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN68_$LT$ockam_node..error..WorkerReason$u20$as$u20$core..fmt..Debug$GT$3fmt17h1fefa4fe186dfa22E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN68_$LT$ockam_node..error..WorkerReason$u20$as$u20$core..fmt..Debug$GT$3fmt17h1fefa4fe186dfa22E.22", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN68_$LT$ockam_node..error..WorkerReason$u20$as$u20$core..fmt..Debug$GT$3fmt17h1fefa4fe186dfa22E.22", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

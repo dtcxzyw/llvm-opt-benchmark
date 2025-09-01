@@ -168,7 +168,7 @@ define noundef nonnull ptr @cl_strerror(i32 noundef %0) local_unnamed_addr #1 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [35 x ptr], ptr @switch.table.cl_strerror, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cl_strerror, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -226,7 +226,7 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 
 .lr.ph.i.i:                                       ; preds = %15, %28
   %.0356.i.i = phi i64 [ %29, %28 ], [ 0, %15 ]
-  %18 = getelementptr inbounds nuw [10 x ptr], ptr %3, i64 0, i64 %.0356.i.i
+  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0356.i.i
   %19 = load ptr, ptr %18, align 8, !tbaa !8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.97, ptr noundef %19) #24
   br label %20
@@ -234,7 +234,7 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 20:                                               ; preds = %26, %.lr.ph.i.i
   %.0365.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %27, %26 ]
   %21 = load ptr, ptr %18, align 8, !tbaa !8
-  %22 = getelementptr inbounds nuw [4 x ptr], ptr @load_module.suffixes, i64 0, i64 %.0365.i.i
+  %22 = getelementptr inbounds nuw ptr, ptr @load_module.suffixes, i64 %.0365.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !8
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 512, ptr noundef nonnull @.str.112, ptr noundef %21, ptr noundef nonnull @.str.96, ptr noundef %23) #24
   %25 = call ptr @dlopen(ptr noundef nonnull %2, i32 noundef 2) #24
@@ -264,7 +264,7 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 
 32:                                               ; preds = %38, %31
   %.17.i.i = phi i64 [ 0, %31 ], [ %39, %38 ]
-  %33 = getelementptr inbounds nuw [4 x ptr], ptr @load_module.suffixes, i64 0, i64 %.17.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr @load_module.suffixes, i64 %.17.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !8
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 512, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.96, ptr noundef %34) #24
   %36 = call ptr @dlopen(ptr noundef nonnull %2, i32 noundef 2) #24
@@ -2485,7 +2485,7 @@ define noalias noundef ptr @cli_hashstream(ptr noundef captures(none) %0, ptr no
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %.02032 = phi ptr [ %21, %.preheader.preheader ], [ %26, %.preheader ]
-  %22 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = zext i8 %23 to i32
   %25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.02032, ptr noundef nonnull dereferenceable(1) @.str.74, i32 noundef %24) #24

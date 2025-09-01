@@ -122,7 +122,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @tls13groupselection_test(i32 noundef %0) #0 {
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.4, i32 noundef %0) #6
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [43 x %struct.tls13groupselection_test_st], ptr @tls13groupselection_tests, i64 0, i64 %2
+  %3 = getelementptr inbounds %struct.tls13groupselection_test_st, ptr @tls13groupselection_tests, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(15) @.str.5, i64 noundef 15) #7

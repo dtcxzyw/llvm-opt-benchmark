@@ -2609,7 +2609,7 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
   %.01927.i = phi i64 [ 0, %.preheader25.i ], [ %54, %53 ]
   %.126.i = phi ptr [ %.02031.i, %.preheader25.i ], [ %56, %53 ]
   %54 = add nuw nsw i64 %.01927.i, 1
-  %55 = getelementptr inbounds nuw [128 x ptr], ptr %3, i64 0, i64 %.01927.i
+  %55 = getelementptr inbounds nuw ptr, ptr %3, i64 %.01927.i
   store ptr %.126.i, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %.126.i, i64 %52
   %57 = icmp samesign ult i64 %.01927.i, 127
@@ -2635,7 +2635,7 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
   %66 = phi i64 [ %.promoted29.i, %.preheader.i ], [ %81, %79 ]
   %.028.i = phi i64 [ 0, %.preheader.i ], [ %83, %79 ]
   %67 = phi i64 [ %.promoted.i, %.preheader.i ], [ %82, %79 ]
-  %68 = getelementptr inbounds nuw [128 x i32], ptr %4, i64 0, i64 %.028.i
+  %68 = getelementptr inbounds nuw i32, ptr %4, i64 %.028.i
   %69 = load i32, ptr %68, align 4
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %73
@@ -2766,7 +2766,7 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
   %.01927 = phi i64 [ 0, %.preheader25 ], [ %26, %25 ]
   %.126 = phi ptr [ %.02031, %.preheader25 ], [ %28, %25 ]
   %26 = add nuw nsw i64 %.01927, 1
-  %27 = getelementptr inbounds nuw [128 x ptr], ptr %3, i64 0, i64 %.01927
+  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %.01927
   store ptr %.126, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %.126, i64 %24
   %29 = icmp samesign ult i64 %.01927, 127
@@ -2792,7 +2792,7 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
   %38 = phi i64 [ %.promoted29, %.preheader ], [ %53, %51 ]
   %.028 = phi i64 [ 0, %.preheader ], [ %55, %51 ]
   %39 = phi i64 [ %.promoted, %.preheader ], [ %54, %51 ]
-  %40 = getelementptr inbounds nuw [128 x i32], ptr %4, i64 0, i64 %.028
+  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %.028
   %41 = load i32, ptr %40, align 4
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %45

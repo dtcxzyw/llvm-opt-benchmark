@@ -4633,9 +4633,9 @@ _ZNK4llvm8CallBase9hasFnAttrENS_9Attribute8AttrKindE.exit.thread: ; preds = %.cr
 
 64:                                               ; preds = %64, %61
   %.079.i.i.i.i = phi i64 [ 0, %61 ], [ %69, %64 ]
-  %65 = getelementptr inbounds nuw [9 x i64], ptr %62, i64 0, i64 %.079.i.i.i.i
+  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %.079.i.i.i.i
   %66 = load i64, ptr %65, align 8, !tbaa !53
-  %67 = getelementptr inbounds nuw [9 x i64], ptr %63, i64 0, i64 %.079.i.i.i.i
+  %67 = getelementptr inbounds nuw i64, ptr %63, i64 %.079.i.i.i.i
   %68 = load i64, ptr %67, align 8, !tbaa !53
   %.not.i.i.i.i = icmp eq i64 %66, %68
   %69 = add nuw nsw i64 %.079.i.i.i.i, 1
@@ -4651,7 +4651,7 @@ _ZNK4llvm8CallBase9hasFnAttrENS_9Attribute8AttrKindE.exit.thread: ; preds = %.cr
 
 72:                                               ; preds = %72, %70
   %.04.i.i.i.i.i = phi i64 [ 0, %70 ], [ %76, %72 ]
-  %73 = getelementptr inbounds nuw [9 x i64], ptr %6, i64 0, i64 %.04.i.i.i.i.i
+  %73 = getelementptr inbounds nuw i64, ptr %6, i64 %.04.i.i.i.i.i
   %74 = load i64, ptr %73, align 8
   %75 = xor i64 %74, -1
   store i64 %75, ptr %73, align 8
@@ -4670,9 +4670,9 @@ _ZNKSt6bitsetILm523EEcoEv.exit.i.i:               ; preds = %72
 
 81:                                               ; preds = %81, %_ZNKSt6bitsetILm523EEcoEv.exit.i.i
   %.05.i.i.i.i.i = phi i64 [ 0, %_ZNKSt6bitsetILm523EEcoEv.exit.i.i ], [ %87, %81 ]
-  %82 = getelementptr inbounds nuw [9 x i64], ptr %6, i64 0, i64 %.05.i.i.i.i.i
+  %82 = getelementptr inbounds nuw i64, ptr %6, i64 %.05.i.i.i.i.i
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds nuw [9 x i64], ptr %7, i64 0, i64 %.05.i.i.i.i.i
+  %84 = getelementptr inbounds nuw i64, ptr %7, i64 %.05.i.i.i.i.i
   %85 = load i64, ptr %84, align 8, !tbaa !53, !alias.scope !366
   %86 = and i64 %85, %83
   store i64 %86, ptr %84, align 8, !tbaa !53, !alias.scope !366
@@ -4682,7 +4682,7 @@ _ZNKSt6bitsetILm523EEcoEv.exit.i.i:               ; preds = %72
 
 _ZStanILm523EESt6bitsetIXT_EERKS1_S3_.exit.i.i:   ; preds = %81, %_ZStanILm523EESt6bitsetIXT_EERKS1_S3_.exit.i.i
   %.057.i.i.i.i = phi i64 [ %90, %_ZStanILm523EESt6bitsetIXT_EERKS1_S3_.exit.i.i ], [ 0, %81 ]
-  %88 = getelementptr inbounds nuw [9 x i64], ptr %7, i64 0, i64 %.057.i.i.i.i
+  %88 = getelementptr inbounds nuw i64, ptr %7, i64 %.057.i.i.i.i
   %89 = load i64, ptr %88, align 8, !tbaa !53
   %.not.not.i.i.i.i = icmp ne i64 %89, 0
   %90 = add nuw nsw i64 %.057.i.i.i.i, 1
@@ -19031,7 +19031,7 @@ _ZN12_GLOBAL__N_112CallAnalyzer22disableLoadEliminationEv.exit58: ; preds = %_ZN
   %244 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %245 = zext i32 %243 to i64
   %246 = lshr i64 %245, 6
-  %247 = getelementptr inbounds nuw [9 x i64], ptr %244, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw i64, ptr %244, i64 %246
   %248 = load i64, ptr %247, align 8, !tbaa !53
   %249 = and i64 %245, 63
   %250 = shl nuw i64 1, %249
@@ -19043,7 +19043,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.i: ; preds = %242
   %252 = load ptr, ptr %239, align 8, !tbaa !708
   %253 = lshr i32 %243, 2
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds nuw [131 x i8], ptr %252, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw i8, ptr %252, i64 %254
   %256 = load i8, ptr %255, align 1, !tbaa !143
   %257 = zext i8 %256 to i32
   %258 = shl i32 %243, 1

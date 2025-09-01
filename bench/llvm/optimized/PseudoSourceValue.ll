@@ -123,7 +123,7 @@ define dso_local void @_ZNK4llvm17PseudoSourceValue11printCustomERNS_11raw_ostre
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %2
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw [7 x ptr], ptr @_ZL8PSVNames, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZL8PSVNames, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24

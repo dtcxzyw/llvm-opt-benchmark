@@ -301,7 +301,7 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
 
 144:                                              ; preds = %.lr.ph76
   %145 = sext i32 %138 to i64
-  %146 = getelementptr [0 x %struct.cfg80211_pmsr_request_peer], ptr %116, i64 0, i64 %145
+  %146 = getelementptr %struct.cfg80211_pmsr_request_peer, ptr %116, i64 %145
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

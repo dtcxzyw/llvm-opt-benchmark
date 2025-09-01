@@ -1974,7 +1974,7 @@ _ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit36.thread
   %171 = load ptr, ptr %6, align 8, !tbaa !47
   %172 = load i32, ptr %171, align 8, !tbaa !56
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds [21 x ptr], ptr @"_ZZN4Luau5visitIRZNS_12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiE3$_0JNS_9Unifiable5BoundIS5_EENS8_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 0, i64 %173
+  %174 = getelementptr inbounds ptr, ptr @"_ZZN4Luau5visitIRZNS_12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEiE3$_0JNS_9Unifiable5BoundIS5_EENS8_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit", i64 %173
   %175 = load ptr, ptr %174, align 8, !tbaa !73
   %176 = getelementptr inbounds nuw i8, ptr %171, i64 8
   call void %175(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %176)

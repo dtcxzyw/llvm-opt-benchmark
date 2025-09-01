@@ -6644,7 +6644,7 @@ switch.lookup:                                    ; preds = %46, %24
   %switch.downshift = lshr i32 33620480, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   %31 = zext nneg i32 %28 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN6quiche3tls15set_read_secret17h8eabfadde7930bdcE, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6quiche3tls15set_read_secret17h8eabfadde7930bdcE, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   %32 = invoke noundef align 8 dereferenceable(4080) ptr @"_ZN6quiche6packet97_$LT$impl$u20$core..ops..index..IndexMut$LT$quiche..packet..Epoch$GT$$u20$for$u20$$u5b$T$u5d$$GT$9index_mut17hcd32383ca3dbaee3E"(ptr noalias noundef nonnull align 8 %30, i64 noundef 3, i8 noundef %switch.masked, ptr noalias noundef readonly align 8 dereferenceable(24) %switch.load)
           to label %47 unwind label %19
@@ -6842,7 +6842,7 @@ switch.lookup:                                    ; preds = %44, %22
   %switch.downshift = lshr i32 33620480, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   %29 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN6quiche3tls16set_write_secret17h45da2c1582d50562E, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6quiche3tls16set_write_secret17h45da2c1582d50562E, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
   %30 = invoke noundef align 8 dereferenceable(4080) ptr @"_ZN6quiche6packet97_$LT$impl$u20$core..ops..index..IndexMut$LT$quiche..packet..Epoch$GT$$u20$for$u20$$u5b$T$u5d$$GT$9index_mut17hcd32383ca3dbaee3E"(ptr noalias noundef nonnull align 8 %28, i64 noundef 3, i8 noundef %switch.masked, ptr noalias noundef readonly align 8 dereferenceable(24) %switch.load)
           to label %45 unwind label %17
@@ -8258,10 +8258,10 @@ define internal noundef zeroext i1 @"_ZN58_$LT$quiche..crypto..Level$u20$as$u20$
 switch.lookup:
   %2 = load i32, ptr %0, align 4, !range !449, !noundef !3
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN58_$LT$quiche..crypto..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17hf85ea0d31ff5580cE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN58_$LT$quiche..crypto..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17hf85ea0d31ff5580cE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN58_$LT$quiche..crypto..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17hf85ea0d31ff5580cE.55", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN58_$LT$quiche..crypto..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17hf85ea0d31ff5580cE.55", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

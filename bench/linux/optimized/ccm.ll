@@ -395,7 +395,7 @@ define internal noundef i32 @crypto_cbcmac_digest_update(ptr noundef %0, ptr nou
   %19 = sub i32 %11, %16
   %20 = tail call i32 @llvm.umin.i32(i32 %18, i32 %19)
   %21 = zext i32 %16 to i64
-  %22 = getelementptr [0 x i8], ptr %14, i64 0, i64 %21
+  %22 = getelementptr i8, ptr %14, i64 %21
   tail call void @__crypto_xor(ptr noundef %22, ptr noundef %22, ptr noundef %17, i32 noundef %20) #12
   %23 = load i32, ptr %6, align 4
   %24 = add i32 %23, %20

@@ -1185,7 +1185,7 @@ define dso_local void @__do_softirq() #1 section ".softirqentry.text" align 16 {
   br i1 %74, label %.thread, label %75, !prof !15
 
 75:                                               ; preds = %71
-  %76 = getelementptr [10 x ptr], ptr @softirq_to_name, i64 0, i64 %27
+  %76 = getelementptr ptr, ptr @softirq_to_name, i64 %27
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %20, align 8
   %79 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, i32 noundef %24, ptr noundef %77, ptr noundef %78, i32 noundef %26, i32 noundef %73) #21
@@ -1670,7 +1670,7 @@ define dso_local void @raise_softirq(i32 noundef %0) local_unnamed_addr #1 align
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @open_softirq(i32 noundef %0, ptr noundef %1) local_unnamed_addr #7 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr [10 x %struct.softirq_action], ptr @softirq_vec, i64 0, i64 %3
+  %4 = getelementptr %struct.softirq_action, ptr @softirq_vec, i64 %3
   store ptr %1, ptr %4, align 8
   ret void
 }
@@ -2007,7 +2007,7 @@ define dso_local void @softirq_init() local_unnamed_addr #10 section ".init.text
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @tasklet_vec to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -2547,7 +2547,7 @@ define internal fastcc void @tasklet_action_common(ptr noundef %0, i32 noundef r
 define internal noundef i32 @takeover_tasklets(i32 noundef %0) #1 align 16 {
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !35
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @tasklet_vec to i64)
   %6 = inttoptr i64 %5 to ptr

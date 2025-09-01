@@ -673,7 +673,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; pre
 
 ._crit_edge.i.i.i:                                ; preds = %242
   %.phi.trans.insert1.i.i.i = zext nneg i32 %243 to i64
-  %.phi.trans.insert2.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %82, i64 0, i64 %.phi.trans.insert1.i.i.i
+  %.phi.trans.insert2.i.i.i = getelementptr inbounds nuw i64, ptr %82, i64 %.phi.trans.insert1.i.i.i
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i, align 8, !tbaa !22
   %245 = add nuw nsw i32 %243, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i
@@ -777,12 +777,12 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.ex
   %330 = phi i32 [ %241, %._crit_edge.i.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
   %331 = phi i64 [ %.sroa.6.240, %._crit_edge.i.i ], [ %328, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
   %332 = and i64 %331, 16383
-  %333 = getelementptr inbounds nuw [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %332
+  %333 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %332
   %334 = load float, ptr %333, align 4, !tbaa !32
   %335 = lshr i64 %331, 14
   %336 = fadd float %334, 0.000000e+00
   %337 = fmul float %336, %237
-  %338 = getelementptr inbounds nuw [3 x float], ptr %238, i64 0, i64 %indvars.iv
+  %338 = getelementptr inbounds nuw float, ptr %238, i64 %indvars.iv
   store float %337, ptr %338, align 4, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

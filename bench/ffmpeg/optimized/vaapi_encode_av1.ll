@@ -471,7 +471,7 @@ tile_log2.exit234.i:                              ; preds = %182
 
 .lr.ph.i:                                         ; preds = %.preheader236.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader236.i ]
-  %187 = getelementptr inbounds nuw [64 x i8], ptr %170, i64 0, i64 %indvars.iv.i
+  %187 = getelementptr inbounds nuw i8, ptr %170, i64 %indvars.iv.i
   store i8 %169, ptr %187, align 1, !tbaa !66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %188 = load i32, ptr %83, align 4, !tbaa !71
@@ -491,7 +491,7 @@ tile_log2.exit234.i:                              ; preds = %182
   %194 = xor i32 %193, -1
   %195 = add i32 %104, %194
   %196 = trunc i32 %195 to i8
-  %197 = getelementptr inbounds nuw [64 x i8], ptr %170, i64 0, i64 %.0.lcssa.i
+  %197 = getelementptr inbounds nuw i8, ptr %170, i64 %.0.lcssa.i
   store i8 %196, ptr %197, align 1, !tbaa !66
   %198 = add i32 %183, %176
   %199 = ashr i32 %198, %.0.i233.i
@@ -528,7 +528,7 @@ tile_log2.exit234.i:                              ; preds = %182
   %215 = add i32 %110, %214
   %216 = trunc i32 %215 to i8
   %217 = getelementptr inbounds nuw i8, ptr %82, i64 21348
-  %218 = getelementptr inbounds nuw [64 x i8], ptr %217, i64 0, i64 %.1.lcssa.i
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 %.1.lcssa.i
   store i8 %216, ptr %218, align 1, !tbaa !66
   %219 = getelementptr inbounds nuw i8, ptr %82, i64 21256
   store i8 1, ptr %219, align 8, !tbaa !87
@@ -558,7 +558,7 @@ tile_log2.exit234.i:                              ; preds = %182
   %232 = xor i32 %231, -1
   %233 = add i32 %228, %232
   %234 = trunc i32 %233 to i8
-  %235 = getelementptr inbounds nuw [64 x i8], ptr %170, i64 0, i64 %indvars.iv282.i
+  %235 = getelementptr inbounds nuw i8, ptr %170, i64 %indvars.iv282.i
   store i8 %234, ptr %235, align 1, !tbaa !66
   %236 = and i32 %233, 255
   %237 = add nuw nsw i32 %236, 1
@@ -601,7 +601,7 @@ tile_log2.exit234.i:                              ; preds = %182
   %255 = xor i32 %254, -1
   %256 = add i32 %251, %255
   %257 = trunc i32 %256 to i8
-  %258 = getelementptr inbounds nuw [64 x i8], ptr %247, i64 0, i64 %indvars.iv298.i
+  %258 = getelementptr inbounds nuw i8, ptr %247, i64 %indvars.iv298.i
   store i8 %257, ptr %258, align 1, !tbaa !66
   %exitcond.not.i = icmp eq i64 %indvars.iv.next299.i, %wide.trip.count305.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %248, !llvm.loop !91
@@ -868,7 +868,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_sequence_pa
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %28
   %.1.i = select i1 %.not11.i, i8 %spec.select12.i, i8 %29
   %30 = zext nneg i32 %.110.i to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !66
   %33 = add i8 %.1.i, %32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 2540
@@ -885,7 +885,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_sequence_pa
   %.110.i110 = select i1 %.not11.i109, i32 %spec.select.i107, i32 %38
   %.1.i111 = select i1 %.not11.i109, i8 %spec.select12.i108, i8 %39
   %40 = zext nneg i32 %.110.i110 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !66
   %43 = add i8 %.1.i111, %42
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 2541
@@ -1227,9 +1227,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 5350
   store i8 %49, ptr %50, align 2, !tbaa !183
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %52 = add nsw i32 %43, -1
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [2 x ptr], ptr %51, i64 0, i64 %53
+  %52 = sext i32 %43 to i64
+  %53 = getelementptr ptr, ptr %51, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load ptr, ptr %54, align 8, !tbaa !188
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !169
@@ -1252,7 +1252,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   %indvars.iv353 = phi i64 [ 0, %45 ], [ %indvars.iv.next354, %67 ]
   %68 = load i32, ptr %58, align 8, !tbaa !184
   %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds nuw [7 x i8], ptr %66, i64 0, i64 %indvars.iv353
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %indvars.iv353
   store i8 %69, ptr %70, align 1, !tbaa !66
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next354, 7
@@ -1270,7 +1270,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   %79 = trunc i64 %78 to i8
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 5027
   %81 = sext i32 %72 to i64
-  %82 = getelementptr inbounds [8 x i8], ptr %80, i64 0, i64 %81
+  %82 = getelementptr inbounds i8, ptr %80, i64 %81
   store i8 %79, ptr %82, align 1, !tbaa !66
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %84 = load i32, ptr %83, align 4
@@ -1282,9 +1282,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   br i1 %88, label %89, label %.loopexit
 
 89:                                               ; preds = %71
-  %90 = add nsw i32 %87, -2
-  %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [2 x ptr], ptr %51, i64 0, i64 %91
+  %90 = zext nneg i32 %87 to i64
+  %91 = getelementptr ptr, ptr %51, i64 %90
+  %92 = getelementptr i8, ptr %91, i64 -16
   %93 = load ptr, ptr %92, align 8, !tbaa !188
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !169
@@ -1300,7 +1300,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   %104 = trunc i64 %103 to i8
   %105 = load i32, ptr %96, align 8, !tbaa !184
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds [8 x i8], ptr %80, i64 0, i64 %106
+  %107 = getelementptr inbounds i8, ptr %80, i64 %106
   store i8 %104, ptr %107, align 1, !tbaa !66
   %108 = load i32, ptr %83, align 4
   %109 = and i32 %108, -57
@@ -1353,9 +1353,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   store i32 %136, ptr %133, align 4
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %138 = load i32, ptr %112, align 8, !tbaa !111
-  %139 = add nsw i32 %138, -1
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds [2 x ptr], ptr %137, i64 0, i64 %140
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr ptr, ptr %137, i64 %139
+  %141 = getelementptr i8, ptr %140, i64 -8
   %142 = load ptr, ptr %141, align 8, !tbaa !188
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !169
@@ -1372,7 +1372,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   %153 = trunc i64 %152 to i8
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 5027
   %155 = sext i32 %147 to i64
-  %156 = getelementptr inbounds [8 x i8], ptr %154, i64 0, i64 %155
+  %156 = getelementptr inbounds i8, ptr %154, i64 %155
   store i8 %153, ptr %156, align 1, !tbaa !66
   %157 = getelementptr inbounds nuw i8, ptr %4, i64 5038
   br label %158
@@ -1381,7 +1381,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   %indvars.iv = phi i64 [ 0, %118 ], [ %indvars.iv.next, %158 ]
   %159 = load i32, ptr %146, align 8, !tbaa !184
   %160 = trunc i32 %159 to i8
-  %161 = getelementptr inbounds nuw [7 x i8], ptr %157, i64 0, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv
   store i8 %160, ptr %161, align 1, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1390,9 +1390,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
 162:                                              ; preds = %158
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %164 = load i32, ptr %115, align 4, !tbaa !111
-  %165 = add nsw i32 %164, -1
-  %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds [2 x ptr], ptr %163, i64 0, i64 %166
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr ptr, ptr %163, i64 %165
+  %167 = getelementptr i8, ptr %166, i64 -8
   %168 = load ptr, ptr %167, align 8, !tbaa !188
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !169
@@ -1404,7 +1404,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   %176 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %177 = load i32, ptr %176, align 8, !tbaa !184
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds [8 x i8], ptr %154, i64 0, i64 %178
+  %179 = getelementptr inbounds i8, ptr %154, i64 %178
   store i8 %175, ptr %179, align 1, !tbaa !66
   br label %180
 
@@ -1412,7 +1412,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
   %indvars.iv349 = phi i64 [ 4, %162 ], [ %indvars.iv.next350, %180 ]
   %181 = load i32, ptr %176, align 8, !tbaa !184
   %182 = trunc i32 %181 to i8
-  %183 = getelementptr inbounds nuw [7 x i8], ptr %157, i64 0, i64 %indvars.iv349
+  %183 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv349
   store i8 %182, ptr %183, align 1, !tbaa !66
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next350, 7
@@ -1530,12 +1530,12 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
 
 248:                                              ; preds = %.lr.ph, %248
   %indvars.iv357 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next358, %248 ]
-  %249 = getelementptr inbounds nuw [64 x i8], ptr %241, i64 0, i64 %indvars.iv357
+  %249 = getelementptr inbounds nuw i8, ptr %241, i64 %indvars.iv357
   %250 = load i8, ptr %249, align 1, !tbaa !66
   %251 = zext i8 %250 to i16
-  %252 = getelementptr inbounds nuw [63 x i16], ptr %242, i64 0, i64 %indvars.iv357
+  %252 = getelementptr inbounds nuw i16, ptr %242, i64 %indvars.iv357
   store i16 %251, ptr %252, align 2, !tbaa !208
-  %253 = getelementptr inbounds nuw [64 x i8], ptr %243, i64 0, i64 %indvars.iv357
+  %253 = getelementptr inbounds nuw i8, ptr %243, i64 %indvars.iv357
   store i8 %250, ptr %253, align 1, !tbaa !66
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %254 = load i16, ptr %214, align 2, !tbaa !201
@@ -1545,12 +1545,12 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
 
 257:                                              ; preds = %.lr.ph338, %257
   %indvars.iv360 = phi i64 [ 0, %.lr.ph338 ], [ %indvars.iv.next361, %257 ]
-  %258 = getelementptr inbounds nuw [64 x i8], ptr %245, i64 0, i64 %indvars.iv360
+  %258 = getelementptr inbounds nuw i8, ptr %245, i64 %indvars.iv360
   %259 = load i8, ptr %258, align 1, !tbaa !66
   %260 = zext i8 %259 to i16
-  %261 = getelementptr inbounds nuw [63 x i16], ptr %246, i64 0, i64 %indvars.iv360
+  %261 = getelementptr inbounds nuw i16, ptr %246, i64 %indvars.iv360
   store i16 %260, ptr %261, align 2, !tbaa !208
-  %262 = getelementptr inbounds nuw [64 x i8], ptr %247, i64 0, i64 %indvars.iv360
+  %262 = getelementptr inbounds nuw i8, ptr %247, i64 %indvars.iv360
   store i8 %259, ptr %262, align 1, !tbaa !66
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %263 = load i16, ptr %218, align 4, !tbaa !202
@@ -1686,9 +1686,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
 
 344:                                              ; preds = %277, %344
   %indvars.iv363 = phi i64 [ 0, %277 ], [ %indvars.iv.next364, %344 ]
-  %345 = getelementptr inbounds nuw [7 x i8], ptr %339, i64 0, i64 %indvars.iv363
+  %345 = getelementptr inbounds nuw i8, ptr %339, i64 %indvars.iv363
   %346 = load i8, ptr %345, align 1, !tbaa !66
-  %347 = getelementptr inbounds nuw [7 x i8], ptr %340, i64 0, i64 %indvars.iv363
+  %347 = getelementptr inbounds nuw i8, ptr %340, i64 %indvars.iv363
   store i8 %346, ptr %347, align 1, !tbaa !66
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next364, 7
@@ -1697,13 +1697,13 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
 .preheader:                                       ; preds = %.preheader331, %._crit_edge343
   %348 = phi i1 [ true, %.preheader331 ], [ false, %._crit_edge343 ]
   %indvars.iv373 = phi i64 [ 0, %.preheader331 ], [ 1, %._crit_edge343 ]
-  %349 = getelementptr inbounds nuw [2 x i32], ptr %342, i64 0, i64 %indvars.iv373
+  %349 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv373
   %350 = load i32, ptr %349, align 4, !tbaa !111
   %351 = icmp sgt i32 %350, 0
   br i1 %351, label %.lr.ph342, label %._crit_edge343
 
 .lr.ph342:                                        ; preds = %.preheader
-  %352 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %343, i64 0, i64 %indvars.iv373
+  %352 = getelementptr inbounds nuw [2 x ptr], ptr %343, i64 %indvars.iv373
   br label %353
 
 ._crit_edge343:                                   ; preds = %365, %.preheader
@@ -1711,14 +1711,14 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_picture_par
 
 353:                                              ; preds = %.lr.ph342, %365
   %indvars.iv370 = phi i64 [ 0, %.lr.ph342 ], [ %indvars.iv.next371, %365 ]
-  %354 = getelementptr inbounds nuw [2 x ptr], ptr %352, i64 0, i64 %indvars.iv370
+  %354 = getelementptr inbounds nuw ptr, ptr %352, i64 %indvars.iv370
   %355 = load ptr, ptr %354, align 8, !tbaa !188
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %357 = load ptr, ptr %356, align 8, !tbaa !169
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
   %359 = load i32, ptr %358, align 8, !tbaa !184
   %360 = sext i32 %359 to i64
-  %361 = getelementptr inbounds [8 x i32], ptr %341, i64 0, i64 %360
+  %361 = getelementptr inbounds i32, ptr %341, i64 %360
   %362 = load i32, ptr %361, align 4, !tbaa !111
   %363 = icmp eq i32 %362, -1
   br i1 %363, label %365, label %364
@@ -1875,7 +1875,7 @@ vaapi_encode_av1_add_obu.exit:                    ; preds = %372
   %455 = add nsw i32 %454, 1
   store i32 %455, ptr %438, align 8, !tbaa !246
   %456 = sext i32 %454 to i64
-  %457 = getelementptr inbounds [4 x %struct.AV1RawOBU], ptr %453, i64 0, i64 %456
+  %457 = getelementptr inbounds %struct.AV1RawOBU, ptr %453, i64 %456
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %459 = getelementptr inbounds nuw i8, ptr %457, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2856) %457, i8 0, i64 2856, i1 false)
@@ -1887,7 +1887,7 @@ vaapi_encode_av1_add_obu.exit:                    ; preds = %372
 
 462:                                              ; preds = %452, %462
   %indvars.iv376 = phi i64 [ 0, %452 ], [ %indvars.iv.next377, %462 ]
-  %463 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %446, i64 0, i64 %indvars.iv376
+  %463 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %446, i64 %indvars.iv376
   %464 = load i32, ptr %463, align 4, !tbaa !256
   %465 = sext i32 %464 to i64
   %466 = getelementptr inbounds nuw i8, ptr %463, i64 4
@@ -1895,7 +1895,7 @@ vaapi_encode_av1_add_obu.exit:                    ; preds = %372
   %468 = sext i32 %467 to i64
   %469 = tail call i64 @av_rescale(i64 noundef %465, i64 noundef 65536, i64 noundef %468) #16
   %470 = trunc i64 %469 to i16
-  %471 = getelementptr inbounds nuw [3 x i16], ptr %459, i64 0, i64 %indvars.iv376
+  %471 = getelementptr inbounds nuw i16, ptr %459, i64 %indvars.iv376
   store i16 %470, ptr %471, align 2, !tbaa !208
   %472 = getelementptr inbounds nuw i8, ptr %463, i64 8
   %473 = load i32, ptr %472, align 4, !tbaa !256
@@ -1905,7 +1905,7 @@ vaapi_encode_av1_add_obu.exit:                    ; preds = %372
   %477 = sext i32 %476 to i64
   %478 = tail call i64 @av_rescale(i64 noundef %474, i64 noundef 65536, i64 noundef %477) #16
   %479 = trunc i64 %478 to i16
-  %480 = getelementptr inbounds nuw [3 x i16], ptr %461, i64 0, i64 %indvars.iv376
+  %480 = getelementptr inbounds nuw i16, ptr %461, i64 %indvars.iv376
   store i16 %479, ptr %480, align 2, !tbaa !208
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
   %exitcond379.not = icmp eq i64 %indvars.iv.next377, 3
@@ -1968,7 +1968,7 @@ vaapi_encode_av1_add_obu.exit:                    ; preds = %372
   %526 = add nsw i32 %525, 1
   store i32 %526, ptr %438, align 8, !tbaa !246
   %527 = sext i32 %525 to i64
-  %528 = getelementptr inbounds [4 x %struct.AV1RawOBU], ptr %524, i64 0, i64 %527
+  %528 = getelementptr inbounds %struct.AV1RawOBU, ptr %524, i64 %527
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 16
   %530 = getelementptr inbounds nuw i8, ptr %528, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2856) %528, i8 0, i64 2856, i1 false)
@@ -2078,9 +2078,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_write_picture_he
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %24 = load i32, ptr %23, align 8, !tbaa !111
-  %25 = add nsw i32 %24, -1
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [2 x ptr], ptr %22, i64 0, i64 %26
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr ptr, ptr %22, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 -8
   %28 = load ptr, ptr %27, align 8, !tbaa !188
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !169
@@ -2190,7 +2190,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_write_extra_head
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 7688
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds [4 x %struct.AV1RawOBU], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds %struct.AV1RawOBU, ptr %14, i64 %15
   %17 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %10, i32 noundef -1, i32 noundef 5, ptr noundef nonnull %16, ptr noundef null) #14
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %vaapi_encode_av1_add_obu.exit.thread, label %vaapi_encode_av1_add_obu.exit

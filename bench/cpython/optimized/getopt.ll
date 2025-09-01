@@ -129,7 +129,7 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
   %48 = add i32 %47, 1
   store i32 %48, ptr %2, align 4, !tbaa !4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr [5 x %struct._PyOS_LongOption], ptr @longopts, i64 0, i64 %49
+  %50 = getelementptr %struct._PyOS_LongOption, ptr @longopts, i64 %49
   %51 = load ptr, ptr %50, align 16, !tbaa !17
   %.not44 = icmp eq ptr %51, null
   br i1 %.not44, label %52, label %45, !llvm.loop !15
