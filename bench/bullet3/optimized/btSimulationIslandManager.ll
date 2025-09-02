@@ -1043,9 +1043,9 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9quickSortI33btPersistentManif
   %smax = call i32 @llvm.smax.i32(i32 %9, i32 %69)
   br label %70
 
-70:                                               ; preds = %64, %_ZNK17btCollisionObject8isActiveEv.exit
-  %indvars.iv = phi i64 [ %66, %64 ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
-  %.05198 = phi i1 [ true, %64 ], [ %113, %_ZNK17btCollisionObject8isActiveEv.exit ]
+70:                                               ; preds = %64, %104
+  %indvars.iv = phi i64 [ %66, %64 ], [ %indvars.iv.next, %104 ]
+  %.05198 = phi i1 [ true, %64 ], [ %spec.select, %104 ]
   %71 = load ptr, ptr %55, align 8, !tbaa !70
   %72 = getelementptr inbounds %struct.btElement, ptr %71, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4, !tbaa !55
@@ -1143,17 +1143,13 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i: ; preds 
   store i32 %109, ptr %57, align 4, !tbaa !23
   %110 = getelementptr inbounds nuw i8, ptr %81, i64 240
   %111 = load i32, ptr %110, align 8, !tbaa !72
-  switch i32 %111, label %112 [
-    i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit
-    i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit
-    i32 5, label %_ZNK17btCollisionObject8isActiveEv.exit
-  ]
-
-112:                                              ; preds = %104
-  br label %_ZNK17btCollisionObject8isActiveEv.exit
-
-_ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %104, %104, %104, %112
-  %113 = phi i1 [ false, %112 ], [ %.05198, %104 ], [ %.05198, %104 ], [ %.05198, %104 ]
+  %112 = icmp ugt i32 %111, 6
+  %switch.cast.i = trunc i32 %111 to i7
+  %switch.downshift.i = lshr i7 27, %switch.cast.i
+  %switch.masked.i = trunc i7 %switch.downshift.i to i1
+  %113 = select i1 %112, i1 true, i1 %switch.masked.i
+  %not. = xor i1 %113, true
+  %spec.select = select i1 %not., i1 %.05198, i1 false
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %114 = icmp slt i64 %indvars.iv.next, %62
   br i1 %114, label %70, label %.critedge, !llvm.loop !88
@@ -1167,9 +1163,9 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %104, %104, %104, %1
   %117 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK17btCollisionObject8isActiveEv.exit, %.critedge.split.loop.exit119
-  %.051.lcssa = phi i1 [ %.05198, %.critedge.split.loop.exit119 ], [ %113, %_ZNK17btCollisionObject8isActiveEv.exit ]
-  %.0.lcssa = phi i32 [ %117, %.critedge.split.loop.exit119 ], [ %smax, %_ZNK17btCollisionObject8isActiveEv.exit ]
+.critedge:                                        ; preds = %104, %.critedge.split.loop.exit119
+  %.051.lcssa = phi i1 [ %.05198, %.critedge.split.loop.exit119 ], [ %spec.select, %104 ]
+  %.0.lcssa = phi i32 [ %117, %.critedge.split.loop.exit119 ], [ %smax, %104 ]
   %118 = icmp slt i32 %.059100, %38
   br i1 %118, label %119, label %155
 

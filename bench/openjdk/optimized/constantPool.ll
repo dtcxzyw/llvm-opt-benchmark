@@ -4408,7 +4408,7 @@ declare void @_ZN10Exceptions12_throw_causeEP10JavaThreadPKciP6Symbol6Handle(ptr
 declare noundef signext i8 @_ZNK11constantTag11error_valueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i8 18, 17) i8 @_ZN12ConstantPool15constant_tag_atEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden i8 @_ZN12ConstantPool15constant_tag_atEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.constantTag, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -4418,7 +4418,7 @@ define hidden range(i8 18, 17) i8 @_ZN12ConstantPool15constant_tag_atEi(ptr noun
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   %10 = icmp eq i8 %9, 17
-  br i1 %10, label %11, label %_ZN11constantTag8type2tagE9BasicType.exit
+  br i1 %10, label %11, label %38
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4469,19 +4469,17 @@ _ZN12ConstantPool26basic_type_for_constant_atEi.exit: ; preds = %16, %32
   %spec.select.i = select i1 %switch.selectcmp.i.i, i8 10, i8 %.0.i
   %35 = icmp eq i8 %spec.select.i, 13
   %36 = add i8 %spec.select.i, -6
-  %switch.tableidx = select i1 %35, i8 6, i8 %36
-  %37 = icmp ult i8 %switch.tableidx, 7
-  br i1 %37, label %switch.lookup, label %_ZN11constantTag8type2tagE9BasicType.exit
+  %switch.tableidx.i = select i1 %35, i8 6, i8 %36
+  %37 = icmp ult i8 %switch.tableidx.i, 7
+  %switch.cast.i = zext i8 %switch.tableidx.i to i56
+  %switch.shiftamt.i = shl nuw nsw i56 %switch.cast.i, 3
+  %switch.downshift.i = lshr i56 2257310256727556, %switch.shiftamt.i
+  %switch.masked.i = trunc i56 %switch.downshift.i to i8
+  %.04.i = select i1 %37, i8 %switch.masked.i, i8 0
+  br label %38
 
-switch.lookup:                                    ; preds = %_ZN12ConstantPool26basic_type_for_constant_atEi.exit
-  %38 = shl nuw nsw i8 %switch.tableidx, 3
-  %switch.shiftamt = zext nneg i8 %38 to i56
-  %switch.downshift = lshr i56 2257310256727556, %switch.shiftamt
-  %switch.masked = trunc i56 %switch.downshift to i8
-  br label %_ZN11constantTag8type2tagE9BasicType.exit
-
-_ZN11constantTag8type2tagE9BasicType.exit:        ; preds = %_ZN12ConstantPool26basic_type_for_constant_atEi.exit, %switch.lookup, %2
-  %.sroa.04.0 = phi i8 [ %9, %2 ], [ %switch.masked, %switch.lookup ], [ 0, %_ZN12ConstantPool26basic_type_for_constant_atEi.exit ]
+38:                                               ; preds = %2, %_ZN12ConstantPool26basic_type_for_constant_atEi.exit
+  %.sroa.04.0 = phi i8 [ %.04.i, %_ZN12ConstantPool26basic_type_for_constant_atEi.exit ], [ %9, %2 ]
   ret i8 %.sroa.04.0
 }
 

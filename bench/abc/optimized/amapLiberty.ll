@@ -3917,10 +3917,10 @@ define internal fastcc i64 @Amap_LibertyUpdateHead(ptr noundef captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %11
 
-11:                                               ; preds = %.lr.ph, %Amap_LibertyCharIsSpace.exit
-  %.028 = phi ptr [ %9, %.lr.ph ], [ %23, %Amap_LibertyCharIsSpace.exit ]
-  %.02227 = phi ptr [ null, %.lr.ph ], [ %22, %Amap_LibertyCharIsSpace.exit ]
-  %.02326 = phi ptr [ null, %.lr.ph ], [ %.sink, %Amap_LibertyCharIsSpace.exit ]
+11:                                               ; preds = %.lr.ph, %Amap_LibertyCharIsSpace.exit.thread
+  %.028 = phi ptr [ %9, %.lr.ph ], [ %25, %Amap_LibertyCharIsSpace.exit.thread ]
+  %.02227 = phi ptr [ null, %.lr.ph ], [ %24, %Amap_LibertyCharIsSpace.exit.thread ]
+  %.02326 = phi ptr [ null, %.lr.ph ], [ %.12435, %Amap_LibertyCharIsSpace.exit.thread ]
   %12 = load i8, ptr %.028, align 1, !tbaa !16
   %13 = icmp eq i8 %12, 10
   br i1 %13, label %14, label %17
@@ -3934,42 +3934,53 @@ define internal fastcc i64 @Amap_LibertyUpdateHead(ptr noundef captures(none) %0
 
 17:                                               ; preds = %14, %11
   %18 = phi i8 [ %.pr, %14 ], [ %12, %11 ]
-  switch i8 %18, label %19 [
-    i8 32, label %Amap_LibertyCharIsSpace.exit
-    i8 13, label %Amap_LibertyCharIsSpace.exit
-    i8 10, label %Amap_LibertyCharIsSpace.exit
-    i8 9, label %Amap_LibertyCharIsSpace.exit
-    i8 92, label %Amap_LibertyCharIsSpace.exit
-  ]
+  %.fr = freeze i8 %18
+  %switch.tableidx = add i8 %.fr, -9
+  %19 = icmp ult i8 %switch.tableidx, 24
+  br i1 %19, label %switch.hole_check, label %Amap_LibertyCharIsSpace.exit
 
-19:                                               ; preds = %17
+switch.hole_check:                                ; preds = %17
+  %switch.maskindex = zext nneg i8 %switch.tableidx to i32
+  %switch.shifted = lshr i32 8388627, %switch.maskindex
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  br i1 %switch.lobit, label %Amap_LibertyCharIsSpace.exit.thread, label %Amap_LibertyCharIsSpace.exit.thread36
+
+Amap_LibertyCharIsSpace.exit.thread36:            ; preds = %switch.hole_check
   %20 = icmp eq ptr %.02326, null
-  %21 = select i1 %20, ptr %.028, ptr %.02326
-  br label %Amap_LibertyCharIsSpace.exit
+  %.12437 = select i1 %20, ptr %.028, ptr %.02326
+  br label %Amap_LibertyCharIsSpace.exit.thread
 
-Amap_LibertyCharIsSpace.exit:                     ; preds = %17, %17, %17, %17, %17, %19
-  %.sink = phi ptr [ %21, %19 ], [ %.02326, %17 ], [ %.02326, %17 ], [ %.02326, %17 ], [ %.02326, %17 ], [ %.02326, %17 ]
-  %22 = phi ptr [ %.028, %19 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.028, i64 1
-  %24 = icmp ult ptr %23, %7
-  br i1 %24, label %11, label %._crit_edge, !llvm.loop !63
+Amap_LibertyCharIsSpace.exit:                     ; preds = %17
+  %21 = icmp ne i8 %.fr, 92
+  %22 = icmp eq ptr %.02326, null
+  %23 = select i1 %21, i1 %22, i1 false
+  %.124 = select i1 %23, ptr %.028, ptr %.02326
+  %spec.select = select i1 %21, ptr %.028, ptr %.02227
+  br label %Amap_LibertyCharIsSpace.exit.thread
 
-._crit_edge:                                      ; preds = %Amap_LibertyCharIsSpace.exit, %2
-  %.023.lcssa = phi ptr [ null, %2 ], [ %.sink, %Amap_LibertyCharIsSpace.exit ]
-  %.022.lcssa = phi ptr [ null, %2 ], [ %22, %Amap_LibertyCharIsSpace.exit ]
+Amap_LibertyCharIsSpace.exit.thread:              ; preds = %Amap_LibertyCharIsSpace.exit, %switch.hole_check, %Amap_LibertyCharIsSpace.exit.thread36
+  %.12435 = phi ptr [ %.12437, %Amap_LibertyCharIsSpace.exit.thread36 ], [ %.02326, %switch.hole_check ], [ %.124, %Amap_LibertyCharIsSpace.exit ]
+  %24 = phi ptr [ %.028, %Amap_LibertyCharIsSpace.exit.thread36 ], [ %.02227, %switch.hole_check ], [ %spec.select, %Amap_LibertyCharIsSpace.exit ]
+  %25 = getelementptr inbounds nuw i8, ptr %.028, i64 1
+  %26 = icmp ult ptr %25, %7
+  br i1 %26, label %11, label %._crit_edge, !llvm.loop !63
+
+._crit_edge:                                      ; preds = %Amap_LibertyCharIsSpace.exit.thread, %2
+  %.023.lcssa = phi ptr [ null, %2 ], [ %.12435, %Amap_LibertyCharIsSpace.exit.thread ]
+  %.022.lcssa = phi ptr [ null, %2 ], [ %24, %Amap_LibertyCharIsSpace.exit.thread ]
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
-  %25 = icmp eq ptr %.023.lcssa, null
-  %26 = icmp eq ptr %.022.lcssa, null
-  %or.cond = select i1 %25, i1 true, i1 %26
-  %27 = ptrtoint ptr %.023.lcssa to i64
-  %28 = ptrtoint ptr %4 to i64
-  %29 = sub i64 %27, %28
-  %30 = ptrtoint ptr %.022.lcssa to i64
-  %reass.sub = sub i64 %30, %28
-  %31 = add i64 %reass.sub, 1
-  %32 = and i64 %31, 4294967295
-  %.sroa.020.0.in = select i1 %or.cond, i64 %1, i64 %29
-  %.sroa.321.0 = select i1 %or.cond, i64 %.sroa.3.0.extract.shift, i64 %32
+  %27 = icmp eq ptr %.023.lcssa, null
+  %28 = icmp eq ptr %.022.lcssa, null
+  %or.cond = select i1 %27, i1 true, i1 %28
+  %29 = ptrtoint ptr %.023.lcssa to i64
+  %30 = ptrtoint ptr %4 to i64
+  %31 = sub i64 %29, %30
+  %32 = ptrtoint ptr %.022.lcssa to i64
+  %reass.sub = sub i64 %32, %30
+  %33 = add i64 %reass.sub, 1
+  %34 = and i64 %33, 4294967295
+  %.sroa.020.0.in = select i1 %or.cond, i64 %1, i64 %31
+  %.sroa.321.0 = select i1 %or.cond, i64 %.sroa.3.0.extract.shift, i64 %34
   %.sroa.321.0.insert.shift = shl nuw i64 %.sroa.321.0, 32
   %.sroa.020.0.insert.ext = and i64 %.sroa.020.0.in, 4294967295
   %.sroa.020.0.insert.insert = or disjoint i64 %.sroa.321.0.insert.shift, %.sroa.020.0.insert.ext

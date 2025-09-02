@@ -71060,32 +71060,33 @@ _ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEED2Ev.exit: ; preds = %_ZNS
   br i1 %nullAware, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEED2Ev.exit
-  switch i32 %joinType, label %if.then9 [
-    i32 8, label %if.end
-    i32 5, label %if.end
-    i32 7, label %if.end
-  ]
+  %52 = icmp ult i32 %joinType, 9
+  %switch.cast.i = trunc i32 %joinType to i9
+  %switch.downshift.i = lshr i9 -96, %switch.cast.i
+  %switch.masked.i = trunc i9 %switch.downshift.i to i1
+  %53 = select i1 %52, i1 %switch.masked.i, i1 false
+  br i1 %53, label %if.end, label %if.then9
 
 if.then9:                                         ; preds = %if.then
   tail call void @llvm.trap()
   unreachable
 
 lpad:                                             ; preds = %entry
-  %52 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4) #32
   call void @_ZNSt10shared_ptrIKN8facebook5velox4core8PlanNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3) #32
   call void @_ZNSt10shared_ptrIKN8facebook5velox4core8PlanNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2) #32
   call void @_ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #32
-  resume { ptr, i32 } %52
+  resume { ptr, i32 } %54
 
-if.end:                                           ; preds = %if.then, %if.then, %if.then
+if.end:                                           ; preds = %if.then
   %leftKeys_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %53 = load ptr, ptr %_M_finish.i, align 8
-  %54 = load ptr, ptr %leftKeys_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %53 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %54 to i64
+  %55 = load ptr, ptr %_M_finish.i, align 8
+  %56 = load ptr, ptr %leftKeys_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %55 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %56 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp eq i64 %sub.ptr.sub.i, 16
   br i1 %cmp.not, label %if.end13, label %if.then12
@@ -71096,11 +71097,11 @@ if.then12:                                        ; preds = %if.end
 
 if.end13:                                         ; preds = %if.end
   %filter_ = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %55 = load ptr, ptr %filter_, align 8
-  %cmp.i = icmp ne ptr %55, null
+  %57 = load ptr, ptr %filter_, align 8
+  %cmp.i = icmp ne ptr %57, null
   %joinType_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %56 = load i32, ptr %joinType_.i, align 8
-  %cmp.i104 = icmp eq i32 %56, 7
+  %58 = load i32, ptr %joinType_.i, align 8
+  %cmp.i104 = icmp eq i32 %58, 7
   %or.cond = select i1 %cmp.i, i1 %cmp.i104, i1 false
   br i1 %or.cond, label %if.then20, label %if.end23
 

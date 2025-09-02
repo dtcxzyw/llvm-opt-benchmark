@@ -938,12 +938,12 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %call3 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #16
   %call4 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #16
-  %cmp.i.not6 = icmp eq ptr %call3, %call4
-  br i1 %cmp.i.not6, label %return, label %for.body
+  %cmp.i.not7 = icmp eq ptr %call3, %call4
+  br i1 %cmp.i.not7, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %__begin2.sroa.0.07 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %call3, %if.end ]
-  %3 = load i8, ptr %__begin2.sroa.0.07, align 1
+  %__begin2.sroa.0.08 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %call3, %if.end ]
+  %3 = load i8, ptr %__begin2.sroa.0.08, align 1
   %4 = add i8 %3, -97
   %5 = icmp ult i8 %4, 26
   %conv.i = sext i8 %3 to i32
@@ -953,20 +953,23 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %or.cond, label %for.inc, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %for.body
-  switch i8 %3, label %return [
-    i8 95, label %for.inc
-    i8 45, label %for.inc
-    i8 42, label %for.inc
-    i8 47, label %for.inc
-  ]
+  %switch.tableidx.i = add i8 %3, -42
+  %6 = icmp ult i8 %switch.tableidx.i, 54
+  br i1 %6, label %_ZN8proxygen17StructuredHeaders21isValidIdentifierCharEc.exit, label %return
 
-for.inc:                                          ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %for.body
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.07, i64 1
+_ZN8proxygen17StructuredHeaders21isValidIdentifierCharEc.exit: ; preds = %switch.early.test.i
+  %switch.cast.i = zext nneg i8 %switch.tableidx.i to i54
+  %switch.downshift.i = lshr i54 -9007199254740951, %switch.cast.i
+  %switch.masked.i = trunc i54 %switch.downshift.i to i1
+  br i1 %switch.masked.i, label %for.inc, label %return
+
+for.inc:                                          ; preds = %for.body, %_ZN8proxygen17StructuredHeaders21isValidIdentifierCharEc.exit
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.08, i64 1
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %call4
   br i1 %cmp.i.not, label %return, label %for.body
 
-return:                                           ; preds = %for.inc, %switch.early.test.i, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.end ], [ true, %for.inc ], [ false, %switch.early.test.i ]
+return:                                           ; preds = %_ZN8proxygen17StructuredHeaders21isValidIdentifierCharEc.exit, %for.inc, %switch.early.test.i, %if.end, %entry, %lor.lhs.false
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.end ], [ false, %_ZN8proxygen17StructuredHeaders21isValidIdentifierCharEc.exit ], [ true, %for.inc ], [ false, %switch.early.test.i ]
   ret i1 %retval.0
 }
 

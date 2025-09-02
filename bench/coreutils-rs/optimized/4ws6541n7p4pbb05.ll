@@ -102,23 +102,21 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h917e0856d5781b20E(i8 noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-"_ZN10fundu_core6config6Config3new28_$u7b$$u7b$closure$u7d$$u7d$17h88c7d6ad87d946ceE.exit":
-  %1 = icmp ult i8 %0, 33
-  %switch.cast = zext nneg i8 %0 to i33
-  %switch.downshift = lshr i33 -4294953472, %switch.cast
-  %switch.masked = trunc i33 %switch.downshift to i1
-  %.0.i = select i1 %1, i1 %switch.masked, i1 false
+  %2 = icmp ult i8 %0, 33
+  %switch.cast.i = zext nneg i8 %0 to i33
+  %switch.downshift.i = lshr i33 -4294953472, %switch.cast.i
+  %switch.masked.i = trunc i33 %switch.downshift.i to i1
+  %.0.i = select i1 %2, i1 %switch.masked.i, i1 false
   ret i1 %.0.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17hc54516f9dec84065E(i8 noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-"_ZN10fundu_core6config6Config3new28_$u7b$$u7b$closure$u7d$$u7d$17h4d2dd2e9e8c59c7cE.exit":
-  %1 = icmp ult i8 %0, 33
-  %switch.cast = zext nneg i8 %0 to i33
-  %switch.downshift = lshr i33 -4294953472, %switch.cast
-  %switch.masked = trunc i33 %switch.downshift to i1
-  %.0.i = select i1 %1, i1 %switch.masked, i1 false
+  %2 = icmp ult i8 %0, 33
+  %switch.cast.i = zext nneg i8 %0 to i33
+  %switch.downshift.i = lshr i33 -4294953472, %switch.cast.i
+  %switch.masked.i = trunc i33 %switch.downshift.i to i1
+  %.0.i = select i1 %2, i1 %switch.masked.i, i1 false
   ret i1 %.0.i
 }
 

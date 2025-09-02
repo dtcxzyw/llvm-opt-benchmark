@@ -6505,31 +6505,30 @@ define internal noundef zeroext i1 @update_someip_parameter_string_list(ptr noun
 9:                                                ; preds = %6, %2
   %10 = load i32, ptr %0, align 8
   %11 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.398, i32 noundef %10)
-  br label %.sink.split
+  br label %switch.lookup.sink.split
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
-  %15 = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 29)
-  %16 = icmp ult i32 %15, 5
-  %switch.maskindex = trunc i32 %15 to i8
-  %switch.shifted = lshr i8 23, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %16, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %17
+  %15 = icmp ult i32 %14, 33
+  %switch.maskindex = zext nneg i32 %14 to i64
+  %switch.shifted = lshr i64 4295033089, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %15, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %16
 
-17:                                               ; preds = %12
-  %18 = load i32, ptr %0, align 8
-  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.418, i32 noundef %14, i32 noundef %18, ptr noundef nonnull %4)
-  br label %.sink.split
+16:                                               ; preds = %12
+  %17 = load i32, ptr %0, align 8
+  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.418, i32 noundef %14, i32 noundef %17, ptr noundef nonnull %4)
+  br label %switch.lookup.sink.split
 
-.sink.split:                                      ; preds = %9, %17
-  %.sink = phi ptr [ %19, %17 ], [ %11, %9 ]
+switch.lookup.sink.split:                         ; preds = %9, %16
+  %.sink = phi ptr [ %18, %16 ], [ %11, %9 ]
   store ptr %.sink, ptr %1, align 8
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %12, %.sink.split
-  %.0 = phi i1 [ false, %.sink.split ], [ true, %12 ]
+switch.lookup:                                    ; preds = %switch.lookup.sink.split, %12
+  %.0 = phi i1 [ true, %12 ], [ false, %switch.lookup.sink.split ]
   ret i1 %.0
 }
 

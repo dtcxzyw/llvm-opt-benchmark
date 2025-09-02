@@ -112,7 +112,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace20has_trailing_con
   %11 = tail call { ptr, i64 } @"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hb51faaef8ef91745E"(i64 %9, i64 %10, ptr align 1 %1, i64 %2)
   %12 = extractvalue { ptr, i64 } %11, 0
   %.not7 = icmp eq ptr %12, null
-  br i1 %.not7, label %22, label %13
+  br i1 %.not7, label %17, label %13
 
 13:                                               ; preds = %7
   %14 = extractvalue { ptr, i64 } %11, 1
@@ -120,42 +120,35 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace20has_trailing_con
   store ptr %12, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %15, ptr %16, align 8
-  %17 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17ha3232740f773dae9E(ptr nonnull align 8 %4)
-  %18 = extractvalue { i32, i32 } %17, 0
-  %19 = extractvalue { i32, i32 } %17, 1
-  %20 = trunc i32 %18 to i1
-  %21 = icmp ne i32 %19, 35
-  %or.cond.not11 = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond.not11, label %.lr.ph, label %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit.thread
+  br label %18
 
-22:                                               ; preds = %7
+17:                                               ; preds = %7
   tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr align 1 %1, i64 %2, i64 %9, i64 %10, ptr nonnull align 8 @anon.066724e871e5ef01057d14ea269918aa.10) #4
   unreachable
 
-_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit.thread: ; preds = %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit, %.lr.ph, %13
-  %or.cond.not.lcssa = phi i1 [ false, %13 ], [ true, %.lr.ph ], [ false, %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit ]
-  ret i1 %or.cond.not.lcssa
+18:                                               ; preds = %25, %13
+  %19 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17ha3232740f773dae9E(ptr nonnull align 8 %4)
+  %20 = extractvalue { i32, i32 } %19, 0
+  %21 = extractvalue { i32, i32 } %19, 1
+  %22 = trunc i32 %20 to i1
+  %23 = icmp ne i32 %21, 35
+  %or.cond.not = select i1 %22, i1 %23, i1 false
+  br i1 %or.cond.not, label %25, label %24
 
-.lr.ph:                                           ; preds = %13, %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit
-  %23 = phi i32 [ %26, %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit ], [ %19, %13 ]
-  switch i32 %23, label %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit.thread [
-    i32 32, label %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit
-    i32 9, label %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit
-    i32 12, label %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit
-  ]
+24:                                               ; preds = %25, %18
+  ret i1 %or.cond.not
 
-_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit: ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %24 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17ha3232740f773dae9E(ptr nonnull align 8 %4)
-  %25 = extractvalue { i32, i32 } %24, 0
-  %26 = extractvalue { i32, i32 } %24, 1
-  %27 = trunc i32 %25 to i1
-  %28 = icmp ne i32 %26, 35
-  %or.cond.not = select i1 %27, i1 %28, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit.thread
+25:                                               ; preds = %18
+  %26 = icmp ult i32 %21, 33
+  %switch.cast.i = zext nneg i32 %21 to i33
+  %switch.downshift.i = lshr i33 -4294962688, %switch.cast.i
+  %switch.masked.i = trunc i33 %switch.downshift.i to i1
+  %.sroa.0.0.i = select i1 %26, i1 %switch.masked.i, i1 false
+  br i1 %.sroa.0.0.i, label %18, label %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE(i32 %0) unnamed_addr #1 {
+define zeroext i1 @_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE(i32 %0) unnamed_addr #1 {
   %2 = icmp ult i32 %0, 33
   %switch.cast = zext nneg i32 %0 to i33
   %switch.downshift = lshr i33 -4294962688, %switch.cast

@@ -1524,14 +1524,18 @@ switch.lookup:                                    ; preds = %12
   %switch.masked = trunc i24 %switch.downshift to i8
   %switch.cast59 = trunc nuw i32 %13 to i24
   %switch.shiftamt60 = shl nuw nsw i24 %switch.cast59, 3
-  %switch.downshift61 = lshr i24 1, %switch.shiftamt60
-  %switch.masked62 = trunc nuw nsw i24 %switch.downshift61 to i8
+  %switch.downshift61 = lshr i24 65537, %switch.shiftamt60
+  %switch.masked62 = trunc i24 %switch.downshift61 to i8
+  %switch.cast63 = trunc nuw i32 %13 to i24
+  %switch.shiftamt64 = shl nuw nsw i24 %switch.cast63, 3
+  %switch.downshift65 = lshr i24 1, %switch.shiftamt64
+  %switch.masked66 = trunc nuw nsw i24 %switch.downshift65 to i8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 442
   store i8 %switch.masked, ptr %15, align 2, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 443
-  store i8 %switch.masked, ptr %16, align 1, !tbaa !38
+  store i8 %switch.masked62, ptr %16, align 1, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 444
-  store i8 %switch.masked62, ptr %17, align 4, !tbaa !38
+  store i8 %switch.masked66, ptr %17, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 1

@@ -764,52 +764,54 @@ define dso_local noundef zeroext i1 @_ZN21btCollisionDispatcher13needsResponseEP
 define dso_local noundef zeroext i1 @_ZN21btCollisionDispatcher14needsCollisionEPK17btCollisionObjectS2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %5 = load i32, ptr %4, align 8, !tbaa !100
-  switch i32 %5, label %_ZNK17btCollisionObject8isActiveEv.exit.thread [
-    i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit
-    i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit
-    i32 5, label %_ZNK17btCollisionObject8isActiveEv.exit
-  ]
+  %6 = icmp ugt i32 %5, 6
+  %switch.cast.i = trunc i32 %5 to i7
+  %switch.downshift.i = lshr i7 27, %switch.cast.i
+  %switch.masked.i = trunc i7 %switch.downshift.i to i1
+  %7 = select i1 %6, i1 true, i1 %switch.masked.i
+  br i1 %7, label %13, label %8
 
-_ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %3, %3, %3
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %7 = load i32, ptr %6, align 8, !tbaa !100
-  switch i32 %7, label %_ZNK17btCollisionObject8isActiveEv.exit.thread [
-    i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit6
-    i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit6
-    i32 5, label %_ZNK17btCollisionObject8isActiveEv.exit6
-  ]
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 240
+  %10 = load i32, ptr %9, align 8, !tbaa !100
+  %11 = icmp ugt i32 %10, 6
+  %switch.cast.i6 = trunc i32 %10 to i7
+  %switch.downshift.i7 = lshr i7 27, %switch.cast.i6
+  %switch.masked.i8 = trunc i7 %switch.downshift.i7 to i1
+  %12 = select i1 %11, i1 true, i1 %switch.masked.i8
+  br i1 %12, label %13, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit11.thread
 
-_ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %_ZNK17btCollisionObject8isActiveEv.exit, %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %9 = load i32, ptr %8, align 8, !tbaa !101
-  %.not.i = icmp eq i32 %9, 0
+13:                                               ; preds = %8, %3
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %15 = load i32, ptr %14, align 8, !tbaa !101
+  %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit
 
-_ZNK17btCollisionObject16checkCollideWithEPKS_.exit: ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.thread
-  %10 = load ptr, ptr %1, align 8, !tbaa !4
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(372) %1, ptr noundef %2)
-  br i1 %13, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread, label %20
-
-_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread: ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.thread, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  %15 = load i32, ptr %14, align 8, !tbaa !101
-  %.not.i7 = icmp eq i32 %15, 0
-  br i1 %.not.i7, label %_ZNK17btCollisionObject8isActiveEv.exit6, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit9
-
-_ZNK17btCollisionObject16checkCollideWithEPKS_.exit9: ; preds = %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread
-  %16 = load ptr, ptr %2, align 8, !tbaa !4
+_ZNK17btCollisionObject16checkCollideWithEPKS_.exit: ; preds = %13
+  %16 = load ptr, ptr %1, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(372) %2, ptr noundef nonnull %1)
-  br i1 %19, label %_ZNK17btCollisionObject8isActiveEv.exit6, label %20
+  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(372) %1, ptr noundef %2)
+  br i1 %19, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread, label %26
 
-20:                                               ; preds = %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit9, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit
-  br label %_ZNK17btCollisionObject8isActiveEv.exit6
+_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread: ; preds = %13, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 312
+  %21 = load i32, ptr %20, align 8, !tbaa !101
+  %.not.i9 = icmp eq i32 %21, 0
+  br i1 %.not.i9, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit11.thread, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit11
 
-_ZNK17btCollisionObject8isActiveEv.exit6:         ; preds = %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread, %_ZNK17btCollisionObject8isActiveEv.exit, %_ZNK17btCollisionObject8isActiveEv.exit, %_ZNK17btCollisionObject8isActiveEv.exit, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit9, %20
-  %.0 = phi i1 [ true, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit9 ], [ false, %20 ], [ false, %_ZNK17btCollisionObject8isActiveEv.exit ], [ false, %_ZNK17btCollisionObject8isActiveEv.exit ], [ false, %_ZNK17btCollisionObject8isActiveEv.exit ], [ true, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread ]
+_ZNK17btCollisionObject16checkCollideWithEPKS_.exit11: ; preds = %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread
+  %22 = load ptr, ptr %2, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(372) %2, ptr noundef nonnull %1)
+  br i1 %25, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit11.thread, label %26
+
+26:                                               ; preds = %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit11, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit
+  br label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit11.thread
+
+_ZNK17btCollisionObject16checkCollideWithEPKS_.exit11.thread: ; preds = %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread, %8, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit11, %26
+  %.0 = phi i1 [ true, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit11 ], [ false, %26 ], [ false, %8 ], [ true, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread ]
   ret i1 %.0
 }
 

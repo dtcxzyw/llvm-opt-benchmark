@@ -2707,15 +2707,14 @@ define i32 @ufmt_getType_77(ptr noundef readonly captures(none) %0, ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define signext range(i8 0, 2) i8 @ufmt_isNumeric_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
-_ZNK6icu_7711Formattable9isNumericEv.exit:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2 = load i32, ptr %1, align 8, !tbaa !16
-  %3 = icmp ult i32 %2, 6
-  %switch.cast = zext i32 %2 to i48
-  %switch.shiftamt = shl nuw nsw i48 %switch.cast, 3
-  %switch.downshift = lshr i48 1099511693568, %switch.shiftamt
-  %switch.masked = trunc i48 %switch.downshift to i8
-  %.0.i = select i1 %3, i8 %switch.masked, i8 0
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = load i32, ptr %2, align 8, !tbaa !16
+  %4 = icmp ult i32 %3, 6
+  %switch.cast.i = zext i32 %3 to i48
+  %switch.shiftamt.i = shl nuw nsw i48 %switch.cast.i, 3
+  %switch.downshift.i = lshr i48 1099511693568, %switch.shiftamt.i
+  %switch.masked.i = trunc i48 %switch.downshift.i to i8
+  %.0.i = select i1 %4, i8 %switch.masked.i, i8 0
   ret i8 %.0.i
 }
 

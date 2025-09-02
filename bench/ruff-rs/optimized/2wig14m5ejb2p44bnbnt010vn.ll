@@ -3984,7 +3984,7 @@ define hidden void @"_ZN176_$LT$ruff_graph..settings.._..$LT$impl$u20$serde..de.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN233_$LT$ruff_linter..rules..flake8_pytest_style..types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..flake8_pytest_style..types..ParametrizeNameType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h07c343ab482c22c4E"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
+define hidden void @"_ZN233_$LT$ruff_linter..rules..flake8_pytest_style..types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..flake8_pytest_style..types..ParametrizeNameType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h07c343ab482c22c4E"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [96 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN87_$LT$serde..de..value..StringDeserializer$LT$E$GT$$u20$as$u20$serde..de..EnumAccess$GT$12variant_seed17h7816687074797249E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1)
@@ -3992,16 +3992,16 @@ define hidden void @"_ZN233_$LT$ruff_linter..rules..flake8_pytest_style..types..
   %.not = icmp eq i64 %4, 2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
-  br i1 %.not, label %7, label %9
+  br i1 %.not, label %switch.lookup, label %8
 
-7:                                                ; preds = %2
+switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %6, ptr %8, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %6, ptr %7, align 8
   store i64 2, ptr %0, align 8
-  br label %10
+  br label %9
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 9
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.69.0..sroa_idx, i64 87, i1 false)
@@ -4009,9 +4009,9 @@ define hidden void @"_ZN233_$LT$ruff_linter..rules..flake8_pytest_style..types..
   store i64 %4, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %6, ptr %.sroa.211.0..sroa_idx, align 8
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %7
+9:                                                ; preds = %8, %switch.lookup
   ret void
 }
 
@@ -19172,16 +19172,12 @@ define hidden noundef range(i8 0, 9) i8 @_ZN14ruff_workspace9pyproject29get_mini
   store ptr %26, ptr %8, align 8, !alias.scope !2891, !noalias !2894
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %28 = load i8, ptr %27, align 8, !range !2895, !alias.scope !2896, !noalias !2899, !noundef !3
-  switch i8 %28, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4196a53dc9a815fbE.exit.i.i.i.i.i" [
-    i8 0, label %29
-    i8 1, label %29
-    i8 2, label %29
-    i8 5, label %29
-    i8 8, label %29
-    i8 9, label %29
-  ]
+  %switch.cast.i.i.i.i.i.i.i = zext nneg i8 %28 to i10
+  %switch.downshift.i.i.i.i.i.i.i = lshr i10 -217, %switch.cast.i.i.i.i.i.i.i
+  %switch.masked.i.i.i.i.i.i.i = trunc i10 %switch.downshift.i.i.i.i.i.i.i to i1
+  br i1 %switch.masked.i.i.i.i.i.i.i, label %29, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4196a53dc9a815fbE.exit.i.i.i.i.i"
 
-29:                                               ; preds = %25, %25, %25, %25, %25, %25
+29:                                               ; preds = %25
   %30 = call noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6dec7ee13a5d9cfcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23), !noalias !2882
   br label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4196a53dc9a815fbE.exit.i.i.i.i.i"
 
@@ -19211,16 +19207,12 @@ define hidden noundef range(i8 0, 9) i8 @_ZN14ruff_workspace9pyproject29get_mini
   call void @llvm.experimental.noalias.scope.decl(metadata !2901)
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i8, ptr %42, align 8, !range !2895, !alias.scope !2901, !noalias !2904, !noundef !3
-  switch i8 %43, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd52cd433158339feE.exit.i.i.i.i" [
-    i8 0, label %44
-    i8 1, label %44
-    i8 2, label %44
-    i8 5, label %44
-    i8 8, label %44
-    i8 9, label %44
-  ]
+  %switch.cast.i.i.i.i.i.i = zext nneg i8 %43 to i10
+  %switch.downshift.i.i.i.i.i.i = lshr i10 -217, %switch.cast.i.i.i.i.i.i
+  %switch.masked.i.i.i.i.i.i = trunc i10 %switch.downshift.i.i.i.i.i.i to i1
+  br i1 %switch.masked.i.i.i.i.i.i, label %44, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd52cd433158339feE.exit.i.i.i.i"
 
-44:                                               ; preds = %40, %40, %40, %40, %40, %40
+44:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2906
   store ptr %.sroa.0.0.i17.i.i.i.i, ptr %6, align 8, !noalias !2907
   %45 = invoke noundef ptr @_ZN14ruff_workspace9pyproject29get_minimum_supported_version11major_minor17h0338358f891e1b1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %41)
@@ -19276,12 +19268,12 @@ _ZN4core3cmp6min_by17hbd6166dc6879b7f6E.exit.i.i.i.i.i.i.i: ; preds = %46
   unreachable
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc534afe0f5a55030E.exit.i.i.i.i.i": ; preds = %_ZN4core3cmp6min_by17hbd6166dc6879b7f6E.exit.i.i.i.i.i.i.i, %"_ZN14ruff_workspace9pyproject29get_minimum_supported_version28_$u7b$$u7b$closure$u7d$$u7d$17h203242ec9654dd4aE.exit.i.i.i.i.i.i"
-  %.sroa.0.0.i4.i.i.i.i.i = phi ptr [ %spec.select9.i.i.i.i.i.i.i.i, %_ZN4core3cmp6min_by17hbd6166dc6879b7f6E.exit.i.i.i.i.i.i.i ], [ %.sroa.0.0.i17.i.i.i.i, %"_ZN14ruff_workspace9pyproject29get_minimum_supported_version28_$u7b$$u7b$closure$u7d$$u7d$17h203242ec9654dd4aE.exit.i.i.i.i.i.i" ]
+  %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %spec.select9.i.i.i.i.i.i.i.i, %_ZN4core3cmp6min_by17hbd6166dc6879b7f6E.exit.i.i.i.i.i.i.i ], [ %.sroa.0.0.i17.i.i.i.i, %"_ZN14ruff_workspace9pyproject29get_minimum_supported_version28_$u7b$$u7b$closure$u7d$$u7d$17h203242ec9654dd4aE.exit.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2906
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd52cd433158339feE.exit.i.i.i.i"
 
 "_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd52cd433158339feE.exit.i.i.i.i": ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc534afe0f5a55030E.exit.i.i.i.i.i", %40
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %.sroa.0.0.i4.i.i.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc534afe0f5a55030E.exit.i.i.i.i.i" ], [ %.sroa.0.0.i17.i.i.i.i, %40 ]
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc534afe0f5a55030E.exit.i.i.i.i.i" ], [ %.sroa.0.0.i17.i.i.i.i, %40 ]
   %58 = add nuw i64 %.sroa.07.0.i.i.i.i, 1
   %59 = icmp eq i64 %58, %39
   br i1 %59, label %_ZN4core4iter6traits8iterator8Iterator6reduce17hcbd71bd515afc49cE.exit.thread18, label %40

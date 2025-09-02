@@ -15,95 +15,96 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 0, 2) i32 @is_urlschemechar(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 0
-  br i1 %3, label %4, label %switch.edge
+  br i1 %3, label %4, label %.thread
 
 4:                                                ; preds = %2
   %5 = and i32 %1, 255
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !4
-  %9 = and i8 %8, 6
-  %10 = icmp ne i8 %9, 0
-  br label %switch.edge
-
-switch.edge:                                      ; preds = %4, %2
-  %11 = phi i1 [ false, %2 ], [ %10, %4 ]
-  %12 = icmp ult i32 %1, 47
+  %.fr = freeze i8 %8
+  %9 = and i8 %.fr, 6
+  %.not14 = icmp ne i8 %9, 0
+  %10 = icmp samesign ult i32 %1, 47
   %switch.cast = zext nneg i32 %1 to i47
   %switch.downshift = lshr i47 -26388279066624, %switch.cast
   %switch.masked = trunc i47 %switch.downshift to i1
-  %13 = select i1 %12, i1 %switch.masked, i1 false
+  %11 = select i1 %10, i1 %switch.masked, i1 false
   %.not = icmp eq i32 %0, 0
-  %14 = and i1 %.not, %13
-  %narrow = or i1 %11, %14
-  %15 = zext i1 %narrow to i32
-  ret i32 %15
+  %12 = and i1 %.not, %11
+  %narrow = select i1 %.not14, i1 true, i1 %12
+  %spec.select = zext i1 %narrow to i32
+  br label %.thread
+
+.thread:                                          ; preds = %2, %4
+  %13 = phi i32 [ %spec.select, %4 ], [ 0, %2 ]
+  ret i32 %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @is_url(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.critedge, label %2
+  br i1 %.not, label %is_urlschemechar.exit.thread, label %2
 
 2:                                                ; preds = %1
   %3 = load i8, ptr %0, align 1, !tbaa !4
   %4 = icmp sgt i8 %3, 0
-  br i1 %4, label %is_urlschemechar.exit, label %.critedge
+  br i1 %4, label %is_urlschemechar.exit, label %is_urlschemechar.exit.thread
 
 is_urlschemechar.exit:                            ; preds = %2
   %5 = zext nneg i8 %3 to i64
   %6 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
-  %8 = and i8 %7, 6
-  %.not16 = icmp eq i8 %8, 0
-  br i1 %.not16, label %.critedge, label %.preheader
+  %.fr.i = freeze i8 %7
+  %8 = and i8 %.fr.i, 6
+  %.not14.i.not = icmp eq i8 %8, 0
+  br i1 %.not14.i.not, label %is_urlschemechar.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %is_urlschemechar.exit, %is_urlschemechar.exit15
-  %.pn = phi ptr [ %.0, %is_urlschemechar.exit15 ], [ %0, %is_urlschemechar.exit ]
+.preheader:                                       ; preds = %is_urlschemechar.exit, %is_urlschemechar.exit21
+  %.pn = phi ptr [ %.0, %is_urlschemechar.exit21 ], [ %0, %is_urlschemechar.exit ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %9 = load i8, ptr %.0, align 1, !tbaa !4
-  %10 = sext i8 %9 to i64
+  %10 = sext i8 %9 to i32
   switch i8 %9, label %11 [
-    i8 58, label %21
-    i8 0, label %.critedge
+    i8 58, label %20
+    i8 0, label %is_urlschemechar.exit.thread
   ]
 
 11:                                               ; preds = %.preheader
   %12 = icmp sgt i8 %9, 0
-  br i1 %12, label %13, label %is_urlschemechar.exit15
+  br i1 %12, label %is_urlschemechar.exit21, label %is_urlschemechar.exit.thread
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %10
+is_urlschemechar.exit21:                          ; preds = %11
+  %13 = zext nneg i32 %10 to i64
+  %14 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !4
-  %16 = and i8 %15, 6
-  %17 = icmp ne i8 %16, 0
-  br label %is_urlschemechar.exit15
+  %.fr.i15 = freeze i8 %15
+  %16 = and i8 %.fr.i15, 6
+  %.not14.i16.not = icmp eq i8 %16, 0
+  %17 = icmp samesign ugt i8 %9, 46
+  %switch.cast.i17 = zext nneg i32 %10 to i47
+  %18 = shl nuw i47 1, %switch.cast.i17
+  %19 = and i47 %18, -26388279066624
+  %.not142425 = icmp eq i47 %19, 0
+  %.not1424 = select i1 %17, i1 true, i1 %.not142425
+  %.not14 = select i1 %.not14.i16.not, i1 %.not1424, i1 false
+  br i1 %.not14, label %is_urlschemechar.exit.thread, label %.preheader, !llvm.loop !7
 
-is_urlschemechar.exit15:                          ; preds = %13, %11
-  %18 = phi i1 [ false, %11 ], [ %17, %13 ]
-  %19 = icmp ult i8 %9, 47
-  %switch.cast = zext nneg i8 %9 to i47
-  %switch.downshift = lshr i47 -26388279066624, %switch.cast
-  %switch.masked = trunc i47 %switch.downshift to i1
-  %20 = select i1 %19, i1 %switch.masked, i1 false
-  %narrow.i = or i1 %18, %20
-  br i1 %narrow.i, label %.preheader, label %.critedge, !llvm.loop !7
+20:                                               ; preds = %.preheader
+  %21 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
+  %22 = load i8, ptr %21, align 1, !tbaa !4
+  %23 = icmp eq i8 %22, 47
+  br i1 %23, label %24, label %is_urlschemechar.exit.thread
 
-21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
-  %23 = load i8, ptr %22, align 1, !tbaa !4
-  %24 = icmp eq i8 %23, 47
-  br i1 %24, label %25, label %.critedge
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
+  %26 = load i8, ptr %25, align 1, !tbaa !4
+  %27 = icmp eq i8 %26, 47
+  %28 = zext i1 %27 to i32
+  br label %is_urlschemechar.exit.thread
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !4
-  %28 = icmp eq i8 %27, 47
-  %29 = zext i1 %28 to i32
-  br label %.critedge
-
-.critedge:                                        ; preds = %.preheader, %is_urlschemechar.exit15, %2, %21, %25, %1, %is_urlschemechar.exit
-  %.08 = phi i32 [ 0, %is_urlschemechar.exit ], [ 0, %1 ], [ 0, %21 ], [ %29, %25 ], [ 0, %2 ], [ 0, %is_urlschemechar.exit15 ], [ 0, %.preheader ]
+is_urlschemechar.exit.thread:                     ; preds = %.preheader, %11, %is_urlschemechar.exit21, %2, %20, %24, %1, %is_urlschemechar.exit
+  %.08 = phi i32 [ 0, %is_urlschemechar.exit ], [ 0, %1 ], [ 0, %20 ], [ %28, %24 ], [ 0, %2 ], [ 0, %is_urlschemechar.exit21 ], [ 0, %11 ], [ 0, %.preheader ]
   ret i32 %.08
 }
 

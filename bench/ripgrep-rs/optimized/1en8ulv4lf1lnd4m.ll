@@ -939,13 +939,9 @@ switch.lookup:                                    ; preds = %2
   %switch.shiftamt = zext nneg i8 %14 to i48
   %switch.downshift = lshr i48 65536, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
-  %15 = shl nuw nsw i8 %13, 3
-  %switch.shiftamt7 = zext nneg i8 %15 to i48
-  %switch.downshift8 = lshr i48 4294967296, %switch.shiftamt7
+  %switch.downshift8 = lshr i48 4294967296, %switch.shiftamt
   %switch.masked9 = trunc i48 %switch.downshift8 to i8
-  %16 = shl nuw nsw i8 %13, 3
-  %switch.shiftamt11 = zext nneg i8 %16 to i48
-  %switch.downshift12 = lshr i48 1, %switch.shiftamt11
+  %switch.downshift12 = lshr i48 1, %switch.shiftamt
   %switch.masked13 = trunc nuw nsw i48 %switch.downshift12 to i8
   br label %_ZN12grep_printer5color9SpecValue10merge_into17h1295fde2aeb3836aE.exit
 

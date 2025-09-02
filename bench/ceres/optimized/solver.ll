@@ -13061,22 +13061,17 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit.i: ; preds = %_ZN5Eigen8i
 417:                                              ; preds = %410
   %418 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %419 = load i32, ptr %418, align 4, !tbaa !220
-  switch i32 %419, label %_ZNK5ceres6Solver7Summary16IsSolutionUsableEv.exit.i [
-    i32 0, label %420
-    i32 1, label %420
-    i32 3, label %420
-  ]
-
-420:                                              ; preds = %417, %417, %417
-  %421 = load ptr, ptr %397, align 8, !tbaa !389
-  br label %_ZNK5ceres6Solver7Summary16IsSolutionUsableEv.exit.i
-
-_ZNK5ceres6Solver7Summary16IsSolutionUsableEv.exit.i: ; preds = %420, %417
-  %422 = phi ptr [ %421, %420 ], [ %.0.i.i.i.i42.i, %417 ]
-  %423 = invoke noundef zeroext i1 @_ZN5ceres8internal7Program28StateVectorToParameterBlocksEPKd(ptr noundef nonnull align 8 dereferenceable(56) %373, ptr noundef %422)
+  %420 = icmp ult i32 %419, 4
+  %switch.cast.i.i.i = trunc i32 %419 to i4
+  %switch.downshift.i.i.i = lshr i4 -5, %switch.cast.i.i.i
+  %switch.masked.i.i.i = trunc i4 %switch.downshift.i.i.i to i1
+  %421 = select i1 %420, i1 %switch.masked.i.i.i, i1 false
+  %422 = load ptr, ptr %397, align 8
+  %spec.select = select i1 %421, ptr %422, ptr %.0.i.i.i.i42.i
+  %423 = invoke noundef zeroext i1 @_ZN5ceres8internal7Program28StateVectorToParameterBlocksEPKd(ptr noundef nonnull align 8 dereferenceable(56) %373, ptr noundef %spec.select)
           to label %424 unwind label %432
 
-424:                                              ; preds = %_ZNK5ceres6Solver7Summary16IsSolutionUsableEv.exit.i
+424:                                              ; preds = %417
   invoke void @_ZN5ceres8internal7Program34CopyParameterBlockStateToUserStateEv(ptr noundef nonnull align 8 dereferenceable(56) %373)
           to label %425 unwind label %432
 
@@ -13102,7 +13097,7 @@ _ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit.i
           cleanup
   br label %_ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit35.i
 
-432:                                              ; preds = %424, %_ZNK5ceres6Solver7Summary16IsSolutionUsableEv.exit.i, %410
+432:                                              ; preds = %424, %417, %410
   %433 = landingpad { ptr, i32 }
           cleanup
   %434 = load ptr, ptr %17, align 8, !tbaa !391
@@ -18073,15 +18068,14 @@ declare noundef ptr @_ZN5ceres22LineSearchTypeToStringENS_14LineSearchTypeE(i32 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK5ceres6Solver7Summary16IsSolutionUsableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %0) local_unnamed_addr #16 align 2 {
-_ZN5ceres8internal16IsSolutionUsableINS_6Solver7SummaryEEEbRKT_.exit:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %2 = load i32, ptr %1, align 4, !tbaa !220
-  %3 = icmp ult i32 %2, 4
-  %switch.cast = trunc i32 %2 to i4
-  %switch.downshift = lshr i4 -5, %switch.cast
-  %switch.masked = trunc i4 %switch.downshift to i1
-  %4 = select i1 %3, i1 %switch.masked, i1 false
-  ret i1 %4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3 = load i32, ptr %2, align 4, !tbaa !220
+  %4 = icmp ult i32 %3, 4
+  %switch.cast.i = trunc i32 %3 to i4
+  %switch.downshift.i = lshr i4 -5, %switch.cast.i
+  %switch.masked.i = trunc i4 %switch.downshift.i to i1
+  %5 = select i1 %4, i1 %switch.masked.i, i1 false
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable

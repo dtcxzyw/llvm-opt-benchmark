@@ -17384,10 +17384,13 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Elab_Term_Do_hasBreakContinueReturn___l
 
 lean_obj_tag.exit:                                ; preds = %4, %7
   %.0.i = phi i32 [ %6, %4 ], [ %9, %7 ]
-  %.off = add i32 %.0.i, -5
-  %switch = icmp ult i32 %.off, 3
-  %. = zext i1 %switch to i8
-  ret i8 %.
+  %10 = icmp ult i32 %.0.i, 8
+  %switch.cast = zext i32 %.0.i to i64
+  %switch.shiftamt = shl nuw nsw i64 %switch.cast, 3
+  %switch.downshift = lshr i64 72340168526266368, %switch.shiftamt
+  %switch.masked = trunc i64 %switch.downshift to i8
+  %.0 = select i1 %10, i8 %switch.masked, i8 0
+  ret i8 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17402,40 +17405,52 @@ define nonnull ptr @l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1___box
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 1
   %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %6, label %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread
+  br i1 %.not.i.i, label %7, label %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread
 
 l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread: ; preds = %1
-  %4 = lshr i64 %2, 1
-  %5 = trunc i64 %4 to i32
+  %4 = and i64 %2, 8589934576
+  %5 = icmp eq i64 %4, 0
+  %6 = shl i64 %2, 2
+  %switch.shiftamt.i5 = and i64 %6, 34359738360
+  %switch.downshift.i6 = lshr i64 72340168526266368, %switch.shiftamt.i5
+  %switch.masked.i7 = trunc i64 %switch.downshift.i6 to i8
+  %.0.i8 = select i1 %5, i8 %switch.masked.i7, i8 0
   br label %lean_dec.exit
 
-6:                                                ; preds = %1
-  %7 = getelementptr i8, ptr %0, i64 4
-  %.val.i.i = load i32, ptr %7, align 4
-  %8 = lshr i32 %.val.i.i, 24
-  %9 = load i32, ptr %0, align 4, !tbaa !8
-  %10 = icmp sgt i32 %9, 1
-  br i1 %10, label %11, label %13, !prof !13
+7:                                                ; preds = %1
+  %8 = getelementptr i8, ptr %0, i64 4
+  %.val.i.i = load i32, ptr %8, align 4
+  %9 = icmp ult i32 %.val.i.i, 134217728
+  %10 = lshr i32 %.val.i.i, 21
+  %11 = and i32 %10, 2040
+  %switch.shiftamt.i = zext nneg i32 %11 to i64
+  %switch.downshift.i = lshr i64 72340168526266368, %switch.shiftamt.i
+  %switch.masked.i = trunc i64 %switch.downshift.i to i8
+  %.0.i = select i1 %9, i8 %switch.masked.i, i8 0
+  %12 = load i32, ptr %0, align 4, !tbaa !8
+  %13 = icmp sgt i32 %12, 1
+  br i1 %13, label %14, label %16, !prof !13
 
-11:                                               ; preds = %6
-  %12 = add nsw i32 %9, -1
-  store i32 %12, ptr %0, align 4, !tbaa !8
+14:                                               ; preds = %7
+  %15 = add nsw i32 %12, -1
+  store i32 %15, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-13:                                               ; preds = %6
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %lean_dec.exit, label %14
+16:                                               ; preds = %7
+  %.not.i = icmp eq i32 %12, 0
+  br i1 %.not.i, label %lean_dec.exit, label %17
 
-14:                                               ; preds = %13
+17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #8
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %14, %13, %11, %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread
-  %..i7.in.in.in = phi i32 [ %5, %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread ], [ %8, %11 ], [ %8, %13 ], [ %8, %14 ]
-  %..i7.in.in = add i32 %..i7.in.in.in, -5
-  %..i7.in = icmp ult i32 %..i7.in.in, 3
-  %15 = select i1 %..i7.in, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %15
+lean_dec.exit:                                    ; preds = %17, %16, %14, %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread
+  %.0.i9 = phi i8 [ %.0.i8, %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread ], [ %.0.i, %14 ], [ %.0.i, %16 ], [ %.0.i, %17 ]
+  %18 = zext nneg i8 %.0.i9 to i64
+  %19 = shl nuw nsw i64 %18, 1
+  %20 = or disjoint i64 %19, 1
+  %21 = inttoptr i64 %20 to ptr
+  ret ptr %21
 }
 
 ; Function Attrs: nounwind uwtable

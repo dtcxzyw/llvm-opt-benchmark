@@ -222,29 +222,27 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
 define hidden void @_ZN17NativeMovConstReg6verifyEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 72
-  br i1 %3, label %switch.edge, label %4
+  br i1 %3, label %.thread, label %4
 
 4:                                                ; preds = %1
   %5 = icmp eq i8 %2, 73
   %6 = icmp eq i8 %2, -43
-  br i1 %6, label %7, label %switch.edge
+  br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
-  switch i8 %9, label %10 [
-    i8 8, label %switch.edge
-    i8 9, label %switch.edge
-    i8 24, label %switch.edge
-  ]
+  %10 = icmp ult i8 %9, 25
+  %switch.cast = zext nneg i8 %9 to i25
+  %switch.downshift = lshr i25 -16776448, %switch.cast
+  %switch.masked = trunc i25 %switch.downshift to i1
+  %.ph = select i1 %10, i1 %switch.masked, i1 false
+  br label %.thread
 
-10:                                               ; preds = %7
-  br label %switch.edge
-
-switch.edge:                                      ; preds = %4, %1, %10, %7, %7, %7
-  %.sink = phi i64 [ 2, %7 ], [ 2, %7 ], [ 2, %7 ], [ 2, %10 ], [ 1, %1 ], [ 1, %4 ]
-  %11 = phi i1 [ true, %7 ], [ true, %7 ], [ true, %7 ], [ false, %10 ], [ false, %1 ], [ false, %4 ]
-  %12 = phi i1 [ false, %7 ], [ false, %7 ], [ false, %7 ], [ false, %10 ], [ true, %1 ], [ %5, %4 ]
+.thread:                                          ; preds = %4, %1, %7
+  %.sink = phi i64 [ 2, %7 ], [ 1, %1 ], [ 1, %4 ]
+  %11 = phi i1 [ %.ph, %7 ], [ false, %1 ], [ false, %4 ]
+  %12 = phi i1 [ false, %7 ], [ true, %1 ], [ %5, %4 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %14 = load i8, ptr %13, align 1
   %or.cond = and i1 %11, %12
@@ -253,14 +251,14 @@ switch.edge:                                      ; preds = %4, %1, %10, %7, %7,
   %or.cond4 = or i1 %or.cond, %.not
   br i1 %or.cond4, label %18, label %16
 
-16:                                               ; preds = %switch.edge
+16:                                               ; preds = %.thread
   tail call void @_ZN17NativeMovConstReg5printEv(ptr noundef nonnull align 1 dereferenceable(1) %0)
   %17 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %17, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 171, ptr noundef nonnull @.str.13) #8
   unreachable
 
-18:                                               ; preds = %switch.edge
+18:                                               ; preds = %.thread
   ret void
 }
 

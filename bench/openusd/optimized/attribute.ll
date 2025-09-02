@@ -5409,8 +5409,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void %24(ptr noundef nonnull align 8 dereferenceable(12) %17) #17
   br label %common.resume
 
-common.resume:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i5.i, %21, %74
-  %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %6, %21 ], [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i5.i ], [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i ]
+common.resume:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i5.i, %21, %76
+  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %6, %21 ], [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i5.i ], [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %1
@@ -5430,12 +5430,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %1
 
 32:                                               ; preds = %28, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__31Usd_ThrowExpiredPrimAccessErrorEPKNS_12Usd_PrimDataE(ptr noundef %27)
-          to label %33 unwind label %74
+          to label %33 unwind label %76
 
 33:                                               ; preds = %28, %32
   %34 = load ptr, ptr %27, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage15_GetResolveInfoERKNS_12UsdAttributeEPNS_14UsdResolveInfoEPKNS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(1282) %34, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %2, ptr noundef null)
-          to label %35 unwind label %74
+          to label %35 unwind label %76
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -5509,12 +5509,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i4, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2.i, %70
-  %.off.i = add i32 %37, -2
-  %switch.i = icmp ult i32 %.off.i, 3
-  ret i1 %switch.i
+  %74 = icmp ult i32 %37, 5
+  %switch.cast.i = trunc i32 %37 to i5
+  %switch.downshift.i = lshr i5 -4, %switch.cast.i
+  %switch.masked.i = trunc i5 %switch.downshift.i to i1
+  %75 = select i1 %74, i1 %switch.masked.i, i1 false
+  ret i1 %75
 
-74:                                               ; preds = %32, %33
-  %75 = landingpad { ptr, i32 }
+76:                                               ; preds = %32, %33
+  %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(77) %2) #17
   br label %common.resume

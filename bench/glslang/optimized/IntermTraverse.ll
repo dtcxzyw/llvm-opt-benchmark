@@ -1915,24 +1915,26 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang12TIntermTyped8isStructEv(pt
 define linkonce_odr noundef zeroext i1 @_ZNK7glslang12TIntermTyped16isFloatingDomainEv(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
-  %4 = and i32 %3, 255
-  %.off.i = add nsw i32 %4, -1
-  %switch.i = icmp ult i32 %.off.i, 3
-  ret i1 %switch.i
+  %4 = and i32 %3, 252
+  %5 = icmp eq i32 %4, 0
+  %switch.cast.i = trunc i32 %3 to i4
+  %switch.downshift.i = lshr i4 -2, %switch.cast.i
+  %switch.masked.i = trunc i4 %switch.downshift.i to i1
+  %6 = select i1 %5, i1 %switch.masked.i, i1 false
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7glslang12TIntermTyped15isIntegerDomainEv(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #1 comdat align 2 {
-_ZNK7glslang5TType15isIntegerDomainEv.exit:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2 = load i32, ptr %1, align 8
-  %trunc.i = trunc i32 %2 to i8
-  %3 = icmp ult i8 %trunc.i, 14
-  %4 = trunc i32 %2 to i14
-  %switch.cast = and i14 %4, 255
-  %switch.downshift = lshr i14 -4112, %switch.cast
-  %switch.masked = trunc i14 %switch.downshift to i1
-  %.0.i = select i1 %3, i1 %switch.masked, i1 false
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = load i32, ptr %2, align 8
+  %trunc.i = trunc i32 %3 to i8
+  %4 = icmp ult i8 %trunc.i, 14
+  %5 = trunc i32 %3 to i14
+  %switch.cast.i = and i14 %5, 255
+  %switch.downshift.i = lshr i14 -4112, %switch.cast.i
+  %switch.masked.i = trunc i14 %switch.downshift.i to i1
+  %.0.i = select i1 %4, i1 %switch.masked.i, i1 false
   ret i1 %.0.i
 }
 

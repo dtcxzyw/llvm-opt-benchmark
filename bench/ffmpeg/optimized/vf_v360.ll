@@ -5531,45 +5531,36 @@ get_direction.exit:                               ; preds = %10
   br i1 %exitcond, label %.critedge44.preheader, label %10, !llvm.loop !187
 
 23:                                               ; preds = %.critedge44.preheader, %.critedge44
-  %indvars.iv63 = phi i64 [ 0, %.critedge44.preheader ], [ %indvars.iv.next64, %.critedge44 ]
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv63
+  %indvars.iv60 = phi i64 [ 0, %.critedge44.preheader ], [ %indvars.iv.next61, %.critedge44 ]
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv60
   %25 = load i8, ptr %24, align 1, !tbaa !17
-  switch i8 %25, label %get_rotation.exit [
-    i8 0, label %26
-    i8 48, label %.critedge44
-    i8 49, label %27
-    i8 50, label %28
-    i8 51, label %29
-  ]
+  %26 = icmp eq i8 %25, 0
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %23
+27:                                               ; preds = %23
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.14) #16
   br label %.critedge
 
-27:                                               ; preds = %23
-  br label %.critedge44
-
 28:                                               ; preds = %23
-  br label %.critedge44
+  %switch.tableidx.i = add i8 %25, -48
+  %29 = icmp ugt i8 %switch.tableidx.i, 3
+  br i1 %29, label %30, label %.critedge44
 
-29:                                               ; preds = %23
-  br label %.critedge44
-
-get_rotation.exit:                                ; preds = %23
-  %30 = sext i8 %25 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %30) #16
+30:                                               ; preds = %28
+  %31 = sext i8 %25 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %31) #16
   br label %.critedge
 
-.critedge44:                                      ; preds = %23, %27, %28, %29
-  %.0.i47.ph = phi i32 [ 3, %29 ], [ 2, %28 ], [ 1, %27 ], [ 0, %23 ]
-  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv63
-  store i32 %.0.i47.ph, ptr %31, align 4, !tbaa !90
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond66 = icmp eq i64 %indvars.iv.next64, 6
-  br i1 %exitcond66, label %.critedge, label %23, !llvm.loop !188
+.critedge44:                                      ; preds = %28
+  %switch.idx.cast.i = zext nneg i8 %switch.tableidx.i to i32
+  %32 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv60
+  store i32 %switch.idx.cast.i, ptr %32, align 4, !tbaa !90
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond63 = icmp eq i64 %indvars.iv.next61, 6
+  br i1 %exitcond63, label %.critedge, label %23, !llvm.loop !188
 
-.critedge:                                        ; preds = %.critedge44, %get_rotation.exit, %26, %get_direction.exit, %13
-  %.3 = phi i32 [ -22, %13 ], [ -22, %get_direction.exit ], [ -22, %26 ], [ -22, %get_rotation.exit ], [ 0, %.critedge44 ]
+.critedge:                                        ; preds = %.critedge44, %30, %27, %get_direction.exit, %13
+  %.3 = phi i32 [ -22, %13 ], [ -22, %get_direction.exit ], [ -22, %27 ], [ -22, %30 ], [ 0, %.critedge44 ]
   ret i32 %.3
 }
 
@@ -8681,45 +8672,36 @@ get_direction.exit:                               ; preds = %10
   br i1 %exitcond, label %.critedge44.preheader, label %10, !llvm.loop !237
 
 22:                                               ; preds = %.critedge44.preheader, %.critedge44
-  %indvars.iv63 = phi i64 [ 0, %.critedge44.preheader ], [ %indvars.iv.next64, %.critedge44 ]
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv63
+  %indvars.iv60 = phi i64 [ 0, %.critedge44.preheader ], [ %indvars.iv.next61, %.critedge44 ]
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv60
   %24 = load i8, ptr %23, align 1, !tbaa !17
-  switch i8 %24, label %get_rotation.exit [
-    i8 0, label %25
-    i8 48, label %.critedge44
-    i8 49, label %26
-    i8 50, label %27
-    i8 51, label %28
-  ]
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %22
+26:                                               ; preds = %22
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.18) #16
   br label %.critedge
 
-26:                                               ; preds = %22
-  br label %.critedge44
-
 27:                                               ; preds = %22
-  br label %.critedge44
+  %switch.tableidx.i = add i8 %24, -48
+  %28 = icmp ugt i8 %switch.tableidx.i, 3
+  br i1 %28, label %29, label %.critedge44
 
-28:                                               ; preds = %22
-  br label %.critedge44
-
-get_rotation.exit:                                ; preds = %22
-  %29 = sext i8 %24 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %29) #16
+29:                                               ; preds = %27
+  %30 = sext i8 %24 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %30) #16
   br label %.critedge
 
-.critedge44:                                      ; preds = %22, %26, %27, %28
-  %.0.i47.ph = phi i32 [ 3, %28 ], [ 2, %27 ], [ 1, %26 ], [ 0, %22 ]
-  %30 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv63
-  store i32 %.0.i47.ph, ptr %30, align 4, !tbaa !90
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond66 = icmp eq i64 %indvars.iv.next64, 6
-  br i1 %exitcond66, label %.critedge, label %22, !llvm.loop !238
+.critedge44:                                      ; preds = %27
+  %switch.idx.cast.i = zext nneg i8 %switch.tableidx.i to i32
+  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv60
+  store i32 %switch.idx.cast.i, ptr %31, align 4, !tbaa !90
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond63 = icmp eq i64 %indvars.iv.next61, 6
+  br i1 %exitcond63, label %.critedge, label %22, !llvm.loop !238
 
-.critedge:                                        ; preds = %.critedge44, %get_rotation.exit, %25, %get_direction.exit, %13
-  %.3 = phi i32 [ -22, %13 ], [ -22, %get_direction.exit ], [ -22, %25 ], [ -22, %get_rotation.exit ], [ 0, %.critedge44 ]
+.critedge:                                        ; preds = %.critedge44, %29, %26, %get_direction.exit, %13
+  %.3 = phi i32 [ -22, %13 ], [ -22, %get_direction.exit ], [ -22, %26 ], [ -22, %29 ], [ 0, %.critedge44 ]
   ret i32 %.3
 }
 

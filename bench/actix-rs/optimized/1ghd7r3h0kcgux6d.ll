@@ -11306,8 +11306,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode23Injec
   %26 = or i32 %25, %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load i32, ptr %27, align 8, !range !1072, !alias.scope !1069, !noundef !12
-  %switch.i = icmp samesign ugt i32 %28, 1
-  br i1 %switch.i, label %.thread28.i, label %29
+  %switch.cast.i = trunc nuw nsw i32 %28 to i3
+  %switch.downshift.i = lshr exact i3 -4, %switch.cast.i
+  %switch.masked.i = trunc i3 %switch.downshift.i to i1
+  br i1 %switch.masked.i, label %.thread28.i, label %29
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 304

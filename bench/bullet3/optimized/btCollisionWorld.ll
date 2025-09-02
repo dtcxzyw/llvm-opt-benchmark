@@ -924,51 +924,52 @@ define dso_local void @_ZN16btCollisionWorld11updateAabbsEv(ptr noundef nonnull 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %8
 
-._crit_edge:                                      ; preds = %_ZNK17btCollisionObject8isActiveEv.exit, %1
+._crit_edge:                                      ; preds = %23, %1
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-8:                                                ; preds = %.lr.ph, %_ZNK17btCollisionObject8isActiveEv.exit
-  %9 = phi i32 [ %4, %.lr.ph ], [ %20, %_ZNK17btCollisionObject8isActiveEv.exit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
+8:                                                ; preds = %.lr.ph, %23
+  %9 = phi i32 [ %4, %.lr.ph ], [ %24, %23 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = load i8, ptr %7, align 8, !tbaa !40, !range !54, !noundef !65
   %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %_ZNK17btCollisionObject8isActiveEv.exit.thread, label %15
+  br i1 %14, label %20, label %15
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 240
   %17 = load i32, ptr %16, align 8, !tbaa !69
-  switch i32 %17, label %_ZNK17btCollisionObject8isActiveEv.exit.thread [
-    i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit
-    i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit
-    i32 5, label %_ZNK17btCollisionObject8isActiveEv.exit
-  ]
+  %18 = icmp ugt i32 %17, 6
+  %switch.cast.i = trunc i32 %17 to i7
+  %switch.downshift.i = lshr i7 27, %switch.cast.i
+  %switch.masked.i = trunc i7 %switch.downshift.i to i1
+  %19 = select i1 %18, i1 true, i1 %switch.masked.i
+  br i1 %19, label %20, label %23
 
-_ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %15, %8
+20:                                               ; preds = %15, %8
   invoke void @_ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %12)
-          to label %_ZNK17btCollisionObject8isActiveEv.exit.thread._ZNK17btCollisionObject8isActiveEv.exit_crit_edge unwind label %18
+          to label %._crit_edge9 unwind label %21
 
-_ZNK17btCollisionObject8isActiveEv.exit.thread._ZNK17btCollisionObject8isActiveEv.exit_crit_edge: ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.thread
+._crit_edge9:                                     ; preds = %20
   %.pre = load i32, ptr %3, align 4, !tbaa !16
-  br label %_ZNK17btCollisionObject8isActiveEv.exit
+  br label %23
 
-18:                                               ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.thread
-  %19 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %22
 
-_ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.thread._ZNK17btCollisionObject8isActiveEv.exit_crit_edge, %15, %15, %15
-  %20 = phi i32 [ %.pre, %_ZNK17btCollisionObject8isActiveEv.exit.thread._ZNK17btCollisionObject8isActiveEv.exit_crit_edge ], [ %9, %15 ], [ %9, %15 ], [ %9, %15 ]
+23:                                               ; preds = %._crit_edge9, %15
+  %24 = phi i32 [ %.pre, %._crit_edge9 ], [ %9, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %8, label %._crit_edge, !llvm.loop !70
+  %25 = sext i32 %24 to i64
+  %26 = icmp slt i64 %indvars.iv.next, %25
+  br i1 %26, label %8, label %._crit_edge, !llvm.loop !70
 }
 
 declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #7

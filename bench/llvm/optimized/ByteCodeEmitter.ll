@@ -2451,8 +2451,9 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11fallthro
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter7emitAddENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  ret i1 %4
+switch.lookup:
+  %3 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

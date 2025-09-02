@@ -1029,7 +1029,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %26 = load i32, ptr %2, align 4, !tbaa !77
   %27 = lshr i32 %26, 24
   %28 = icmp eq i32 %27, %25
-  br i1 %28, label %78, label %29
+  br i1 %28, label %79, label %29
 
 29:                                               ; preds = %14
   %30 = add i8 %21, -32
@@ -1105,11 +1105,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %62 = add i8 %57, %.sink7
   store i8 %62, ptr %6, align 1, !tbaa !110
   %63 = icmp eq i8 %62, 0
-  br i1 %63, label %64, label %78
+  br i1 %63, label %64, label %79
 
 64:                                               ; preds = %52, %61, %55, %32
   %65 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 3, ptr noundef null)
-  br label %100
+  br label %101
 
 66:                                               ; preds = %4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1129,56 +1129,61 @@ switch.lookup:                                    ; preds = %52
   %switch.shiftamt = zext nneg i8 %77 to i64
   %switch.downshift = lshr i64 3458764514609081901, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
+  %78 = shl nuw nsw i8 %switch.tableidx, 3
+  %switch.shiftamt9 = zext nneg i8 %78 to i64
+  %switch.downshift10 = lshr i64 3458764514609081901, %switch.shiftamt9
+  %switch.masked11 = trunc i64 %switch.downshift10 to i8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %46, %34, %37, %40, %43, %66
   %.sink = phi i8 [ %76, %66 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ 50, %46 ], [ %switch.masked, %switch.lookup ]
+  %.ph = phi i8 [ %76, %66 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ 50, %46 ], [ %switch.masked11, %switch.lookup ]
   store i8 %.sink, ptr %6, align 1, !tbaa !110
-  br label %78
+  br label %79
 
-78:                                               ; preds = %.sink.split, %61, %14
-  %79 = phi i8 [ %21, %14 ], [ %62, %61 ], [ %.sink, %.sink.split ]
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %81 = load i8, ptr %80, align 8, !tbaa !111
-  %82 = call noundef i32 @_ZN6asmjit9_abi_1_109ArchUtils20typeIdToRegSignatureENS0_4ArchENS0_6TypeIdEPS3_PNS0_16OperandSignatureE(i8 noundef zeroext %81, i8 noundef zeroext %79, ptr noundef nonnull %6, ptr noundef nonnull %5) #15
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %86, label %84, !prof !54
+79:                                               ; preds = %.sink.split, %61, %14
+  %80 = phi i8 [ %21, %14 ], [ %62, %61 ], [ %.ph, %.sink.split ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %82 = load i8, ptr %81, align 8, !tbaa !111
+  %83 = call noundef i32 @_ZN6asmjit9_abi_1_109ArchUtils20typeIdToRegSignatureENS0_4ArchENS0_6TypeIdEPS3_PNS0_16OperandSignatureE(i8 noundef zeroext %82, i8 noundef zeroext %80, ptr noundef nonnull %6, ptr noundef nonnull %5) #15
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %87, label %85, !prof !54
 
-84:                                               ; preds = %78
-  %85 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %82, ptr noundef null)
-  br label %100
+85:                                               ; preds = %79
+  %86 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %83, ptr noundef null)
+  br label %101
 
-86:                                               ; preds = %78
+87:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %87 = load i8, ptr %6, align 1, !tbaa !110
-  %88 = load i32, ptr %5, align 4, !tbaa !98
-  %89 = call noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPNS0_7VirtRegENS0_6TypeIdENS0_16OperandSignatureEPKc(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %7, i8 noundef zeroext %87, i32 %88, ptr noundef %3)
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %99
+  %88 = load i8, ptr %6, align 1, !tbaa !110
+  %89 = load i32, ptr %5, align 4, !tbaa !98
+  %90 = call noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPNS0_7VirtRegENS0_6TypeIdENS0_16OperandSignatureEPKc(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %7, i8 noundef zeroext %88, i32 %89, ptr noundef %3)
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %100
 
-91:                                               ; preds = %86
-  %92 = load ptr, ptr %7, align 8, !tbaa !42, !nonnull !72, !noundef !72
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %94 = load i32, ptr %93, align 4, !tbaa !102
-  %95 = load i32, ptr %5, align 4, !tbaa !98
-  store i32 %95, ptr %1, align 4, !tbaa !98
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %94, ptr %96, align 4, !tbaa !112
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %97, align 4, !tbaa !98
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 12
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %7, align 8, !tbaa !42, !nonnull !72, !noundef !72
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = load i32, ptr %94, align 4, !tbaa !102
+  %96 = load i32, ptr %5, align 4, !tbaa !98
+  store i32 %96, ptr %1, align 4, !tbaa !98
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %95, ptr %97, align 4, !tbaa !112
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %98, align 4, !tbaa !98
-  br label %99
-
-99:                                               ; preds = %91, %86
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 0, ptr %99, align 4, !tbaa !98
   br label %100
 
-100:                                              ; preds = %99, %84, %64
-  %101 = phi i32 [ %65, %64 ], [ %85, %84 ], [ %89, %99 ]
+100:                                              ; preds = %92, %87
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %101
+
+101:                                              ; preds = %100, %85, %64
+  %102 = phi i32 [ %65, %64 ], [ %86, %85 ], [ %90, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %101
+  ret i32 %102
 }
 
 ; Function Attrs: mustprogress uwtable

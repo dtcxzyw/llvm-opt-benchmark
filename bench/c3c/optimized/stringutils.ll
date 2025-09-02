@@ -401,59 +401,24 @@ scan_past_underscore.exit:                        ; preds = %2
   %7 = icmp ult i8 %6, 26
   br i1 %7, label %.preheader, label %scan_past_underscore.exit.thread
 
-.preheader:                                       ; preds = %scan_past_underscore.exit, %.preheader.backedge
-  %.pn = phi ptr [ %.0, %.preheader.backedge ], [ %.0.i, %scan_past_underscore.exit ]
+.preheader:                                       ; preds = %scan_past_underscore.exit, %9
+  %.pn = phi ptr [ %.0, %9 ], [ %.0.i, %scan_past_underscore.exit ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %8 = load i8, ptr %.0, align 1
-  switch i8 %8, label %scan_past_underscore.exit.thread [
-    i8 0, label %scan_past_underscore.exit.thread.loopexit
-    i8 65, label %.preheader.backedge
-    i8 66, label %.preheader.backedge
-    i8 67, label %.preheader.backedge
-    i8 68, label %.preheader.backedge
-    i8 69, label %.preheader.backedge
-    i8 70, label %.preheader.backedge
-    i8 71, label %.preheader.backedge
-    i8 72, label %.preheader.backedge
-    i8 73, label %.preheader.backedge
-    i8 74, label %.preheader.backedge
-    i8 75, label %.preheader.backedge
-    i8 76, label %.preheader.backedge
-    i8 77, label %.preheader.backedge
-    i8 78, label %.preheader.backedge
-    i8 79, label %.preheader.backedge
-    i8 80, label %.preheader.backedge
-    i8 81, label %.preheader.backedge
-    i8 82, label %.preheader.backedge
-    i8 83, label %.preheader.backedge
-    i8 84, label %.preheader.backedge
-    i8 85, label %.preheader.backedge
-    i8 86, label %.preheader.backedge
-    i8 87, label %.preheader.backedge
-    i8 88, label %.preheader.backedge
-    i8 89, label %.preheader.backedge
-    i8 90, label %.preheader.backedge
-    i8 48, label %.preheader.backedge
-    i8 49, label %.preheader.backedge
-    i8 50, label %.preheader.backedge
-    i8 51, label %.preheader.backedge
-    i8 52, label %.preheader.backedge
-    i8 53, label %.preheader.backedge
-    i8 54, label %.preheader.backedge
-    i8 55, label %.preheader.backedge
-    i8 56, label %.preheader.backedge
-    i8 57, label %.preheader.backedge
-    i8 95, label %.preheader.backedge
-  ]
+  %.not8 = icmp eq i8 %8, 0
+  br i1 %.not8, label %scan_past_underscore.exit.thread, label %9
 
-.preheader.backedge:                              ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
-  br label %.preheader, !llvm.loop !16
+9:                                                ; preds = %.preheader
+  %switch.tableidx.i = add i8 %8, -48
+  %10 = icmp ult i8 %switch.tableidx.i, 48
+  %switch.cast.i = zext nneg i8 %switch.tableidx.i to i48
+  %switch.downshift.i = lshr i48 -131941395463169, %switch.cast.i
+  %switch.masked.i = trunc i48 %switch.downshift.i to i1
+  %.0.i9 = select i1 %10, i1 %switch.masked.i, i1 false
+  br i1 %.0.i9, label %.preheader, label %scan_past_underscore.exit.thread, !llvm.loop !16
 
-scan_past_underscore.exit.thread.loopexit:        ; preds = %.preheader
-  br label %scan_past_underscore.exit.thread
-
-scan_past_underscore.exit.thread:                 ; preds = %2, %.preheader, %scan_past_underscore.exit.thread.loopexit, %scan_past_underscore.exit
-  %.06 = phi i1 [ false, %scan_past_underscore.exit ], [ true, %scan_past_underscore.exit.thread.loopexit ], [ false, %.preheader ], [ false, %2 ]
+scan_past_underscore.exit.thread:                 ; preds = %2, %.preheader, %9, %scan_past_underscore.exit
+  %.06 = phi i1 [ false, %scan_past_underscore.exit ], [ %.not8, %9 ], [ %.not8, %.preheader ], [ false, %2 ]
   ret i1 %.06
 }
 

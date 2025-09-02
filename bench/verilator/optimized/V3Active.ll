@@ -7336,52 +7336,55 @@ define linkonce_odr dso_local void @_ZN23ActiveLatchCheckVisitor5visitEP9AstVarR
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %.sroa.0.0.copyload.i.i = load i8, ptr %8, align 8, !tbaa !230
-  %.off.i.i = add i8 %.sroa.0.0.copyload.i.i, -4
-  %switch.i.i = icmp ult i8 %.off.i.i, 11
-  br i1 %switch.i.i, label %9, label %_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit
+  %9 = icmp ult i8 %.sroa.0.0.copyload.i.i, 15
+  %switch.cast.i.i = zext nneg i8 %.sroa.0.0.copyload.i.i to i15
+  %switch.downshift.i.i = lshr i15 -16, %switch.cast.i.i
+  %switch.masked.i.i = trunc i15 %switch.downshift.i.i to i1
+  %10 = select i1 %9, i1 %switch.masked.i.i, i1 false
+  br i1 %10, label %11, label %_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 260
-  %11 = load i64, ptr %10, align 4
-  %12 = and i64 %11, 40960
-  %or.cond.not = icmp eq i64 %12, 0
-  br i1 %or.cond.not, label %13, label %_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 260
+  %13 = load i64, ptr %12, align 4
+  %14 = and i64 %13, 40960
+  %or.cond.not = icmp eq i64 %14, 0
+  br i1 %or.cond.not, label %15, label %_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %16 = load i32, ptr %15, align 8, !tbaa !145
-  %17 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !38
-  %18 = icmp ne i32 %16, %17
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %20 = load i64, ptr %19, align 8
-  %21 = inttoptr i64 %20 to ptr
-  %.not7.i = icmp eq i64 %20, 0
-  %.not.i = select i1 %18, i1 true, i1 %.not7.i
-  br i1 %.not.i, label %22, label %24
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %18 = load i32, ptr %17, align 8, !tbaa !145
+  %19 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !38
+  %20 = icmp ne i32 %18, %19
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %22 = load i64, ptr %21, align 8
+  %23 = inttoptr i64 %22 to ptr
+  %.not7.i = icmp eq i64 %22, 0
+  %.not.i = select i1 %20, i1 true, i1 %.not7.i
+  br i1 %.not.i, label %24, label %26
 
-22:                                               ; preds = %13
-  %23 = tail call noundef ptr @_ZN16LatchDetectGraph15addOutputVertexEP9AstVarRef(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull %1)
-  br label %24
+24:                                               ; preds = %15
+  %25 = tail call noundef ptr @_ZN16LatchDetectGraph15addOutputVertexEP9AstVarRef(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull %1)
+  br label %26
 
-24:                                               ; preds = %22, %13
-  %.0.i = phi ptr [ %23, %22 ], [ %21, %13 ]
-  %25 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !174
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %25, align 8, !tbaa !15
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef %27, ptr noundef %.0.i, i32 noundef 1, i1 noundef zeroext false)
-          to label %_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit unwind label %29
+26:                                               ; preds = %24, %15
+  %.0.i = phi ptr [ %25, %24 ], [ %23, %15 ]
+  %27 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = load ptr, ptr %28, align 8, !tbaa !174
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %27, align 8, !tbaa !15
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %29, ptr noundef %.0.i, i32 noundef 1, i1 noundef zeroext false)
+          to label %_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit unwind label %31
 
-29:                                               ; preds = %24
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %26
+  %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef 72) #25
-  resume { ptr, i32 } %30
+  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 72) #25
+  resume { ptr, i32 } %32
 
-_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit: ; preds = %9, %7, %2, %24
+_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit: ; preds = %11, %7, %2, %26
   ret void
 }
 

@@ -17021,12 +17021,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 30:                                               ; preds = %2
   %31 = landingpad { ptr, i32 }
           cleanup
-  br label %113
+  br label %115
 
 32:                                               ; preds = %64, %15, %._crit_edge, %8
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %112
+  br label %114
 
 34:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %35 = landingpad { ptr, i32 }
@@ -17056,7 +17056,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53, %34
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53 ], [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %112
+  br label %114
 
 45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %13
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -17096,7 +17096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
 60:                                               ; preds = %.lr.ph, %59
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %112
+  br label %114
 
 _ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit46: ; preds = %55, %59, %54
   %.sroa.072.0 = load ptr, ptr %48, align 8, !tbaa !31
@@ -17177,7 +17177,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i62, %79
   %.pn30 = phi { ptr, i32 } [ %80, %79 ], [ %82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i62 ], [ %82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %112
+  br label %114
 
 90:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60, %62
   %.sroa.066.084 = load ptr, ptr %46, align 8, !tbaa !31
@@ -17197,7 +17197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
   %94 = load ptr, ptr %.sroa.066.086, align 8, !tbaa !18
   %95 = load ptr, ptr %94, align 8
   %96 = invoke noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.066.086, i64 noundef ptrtoint (ptr @_ZZN13GateVarVertex11rttiClassIdEvE15aStaticVariable to i64))
-          to label %97 unwind label %110
+          to label %97 unwind label %112
 
 97:                                               ; preds = %.lr.ph88
   br i1 %96, label %98, label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit
@@ -17215,31 +17215,34 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
   %106 = load ptr, ptr %105, align 8, !tbaa !48
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 249
   %108 = load i8, ptr %107, align 1, !tbaa !199
-  %.off.i.i = add i8 %108, -2
-  %switch.i.i = icmp ult i8 %.off.i.i, 3
-  br i1 %switch.i.i, label %109, label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit
+  %109 = icmp ult i8 %108, 5
+  %switch.cast.i.i = trunc i8 %108 to i5
+  %switch.downshift.i.i = lshr i5 -4, %switch.cast.i.i
+  %switch.masked.i.i = trunc i5 %switch.downshift.i.i to i1
+  %110 = select i1 %109, i1 %switch.masked.i.i, i1 false
+  br i1 %110, label %111, label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit
 
-109:                                              ; preds = %102
+111:                                              ; preds = %102
   invoke void @_ZN10GateDedupe5visitEP13GateVarVertex(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %.sroa.066.086)
-          to label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit unwind label %110
+          to label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit unwind label %112
 
-110:                                              ; preds = %.lr.ph88, %109
-  %111 = landingpad { ptr, i32 }
+112:                                              ; preds = %.lr.ph88, %111
+  %113 = landingpad { ptr, i32 }
           cleanup
-  br label %112
+  br label %114
 
-_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit: ; preds = %98, %102, %109, %97
+_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit: ; preds = %98, %102, %111, %97
   %.sroa.066.0 = load ptr, ptr %91, align 8, !tbaa !31
   %.not78 = icmp eq ptr %.sroa.066.0, null
   br i1 %.not78, label %._crit_edge89, label %.lr.ph88
 
-112:                                              ; preds = %110, %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %32
-  %.pn40.pn.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %33, %32 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %61, %60 ], [ %111, %110 ]
+114:                                              ; preds = %112, %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %32
+  %.pn40.pn.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %33, %32 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %61, %60 ], [ %113, %112 ]
   call void @_ZN14GateDedupeHashD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %7) #28
-  br label %113
+  br label %115
 
-113:                                              ; preds = %112, %30
-  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn, %112 ], [ %31, %30 ]
+115:                                              ; preds = %114, %30
+  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn, %114 ], [ %31, %30 ]
   call void @_ZN12VNUser2InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #28
   resume { ptr, i32 } %.pn40.pn.pn.pn
 }
@@ -18315,9 +18318,12 @@ _ZN13GateOkVisitorD2Ev.exit190:                   ; preds = %404, %401, %91
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK6AstVar10isWritableEv(ptr noundef nonnull align 8 dereferenceable(280) %0) #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 249
   %3 = load i8, ptr %2, align 1, !tbaa !199
-  %.off.i = add i8 %3, -2
-  %switch.i = icmp ult i8 %.off.i, 3
-  ret i1 %switch.i
+  %4 = icmp ult i8 %3, 5
+  %switch.cast.i = trunc i8 %3 to i5
+  %switch.downshift.i = lshr i5 -4, %switch.cast.i
+  %switch.masked.i = trunc i5 %switch.downshift.i to i1
+  %5 = select i1 %4, i1 %switch.masked.i, i1 false
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20747,11 +20753,13 @@ _ZZN10GateDedupe5visitEP13GateVarVertexENKUlP13AstNodeVarRefE_clES3_.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK10VDirection10isWritableEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
-switch.edge:
-  %1 = load i8, ptr %0, align 1, !tbaa !199
-  %.off = add i8 %1, -2
-  %switch = icmp ult i8 %.off, 3
-  ret i1 %switch
+  %2 = load i8, ptr %0, align 1, !tbaa !199
+  %3 = icmp ult i8 %2, 5
+  %switch.cast = trunc i8 %2 to i5
+  %switch.downshift = lshr i5 -4, %switch.cast
+  %switch.masked = trunc i5 %switch.downshift to i1
+  %4 = select i1 %3, i1 %switch.masked, i1 false
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -17024,23 +17024,26 @@ define void @_ZN7rocksdb22BlockBasedTableFactory11ParseOptionERKNS_13ConfigOptio
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 172
   %15 = load i32, ptr %14, align 4, !tbaa !415
-  %.off.i = add i32 %15, -1
-  %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %16, label %_ZN7rocksdb6StatusD2Ev.exit
+  %16 = icmp ult i32 %15, 4
+  %switch.cast.i = trunc i32 %15 to i4
+  %switch.downshift.i = lshr i4 -2, %switch.cast.i
+  %switch.masked.i = trunc i4 %switch.downshift.i to i1
+  %17 = select i1 %16, i1 %switch.masked.i, i1 false
+  br i1 %17, label %18, label %_ZN7rocksdb6StatusD2Ev.exit
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %0, i8 0, i64 6, i1 false)
-  %18 = load ptr, ptr %17, align 8, !tbaa !371
-  store ptr null, ptr %17, align 8, !tbaa !371
-  %.not.i.i.i.i.i = icmp eq ptr %18, null
+  %20 = load ptr, ptr %19, align 8, !tbaa !371
+  store ptr null, ptr %19, align 8, !tbaa !371
+  %.not.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZN7rocksdb6StatusaSEOS0_.exit
 
-_ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %16
-  tail call void @_ZdaPv(ptr noundef nonnull %18) #27
+_ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %18
+  tail call void @_ZdaPv(ptr noundef nonnull %20) #27
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
-_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %16, %_ZN7rocksdb6StatusaSEOS0_.exit, %7, %13
+_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %18, %_ZN7rocksdb6StatusaSEOS0_.exit, %7, %13
   ret void
 }
 

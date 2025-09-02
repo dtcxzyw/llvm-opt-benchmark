@@ -301,15 +301,22 @@ declare void @_ZN13cmSystemTools5ErrorERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_Z28cmFileSetVisibilityIsForSelf19cmFileSetVisibility(i32 noundef %0) local_unnamed_addr #5 {
-  %switch = icmp ult i32 %0, 2
-  ret i1 %switch
+  %2 = icmp ult i32 %0, 3
+  %switch.cast = trunc i32 %0 to i3
+  %switch.downshift = lshr i3 3, %switch.cast
+  %switch.masked = trunc i3 %switch.downshift to i1
+  %.0 = select i1 %2, i1 %switch.masked, i1 false
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_Z33cmFileSetVisibilityIsForInterface19cmFileSetVisibility(i32 noundef %0) local_unnamed_addr #5 {
-  %.off = add i32 %0, -1
-  %switch = icmp ult i32 %.off, 2
-  ret i1 %switch
+  %2 = icmp ult i32 %0, 3
+  %switch.cast = trunc i32 %0 to i3
+  %switch.downshift = lshr i3 -2, %switch.cast
+  %switch.masked = trunc i3 %switch.downshift to i1
+  %.0 = select i1 %2, i1 %switch.masked, i1 false
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable

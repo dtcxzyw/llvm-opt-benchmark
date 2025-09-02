@@ -49,33 +49,26 @@ $_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicy
 define void @_Z23gmx_pme_send_parametersPK9t_commrecRK19interaction_const_tbbN3gmx8ArrayRefIKfEES8_S8_S8_S8_S8_ii(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr %4, ptr %5, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %6, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %7, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %.val = load i32, ptr %14, align 4, !tbaa !4
-  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.exit [
-    i32 3, label %15
-    i32 14, label %15
-    i32 13, label %15
-    i32 15, label %15
-    i32 5, label %15
-  ]
-
-15:                                               ; preds = %13, %13, %13, %13, %13
-  br label %_ZL8usingPmeRK22CoulombInteractionType.exit
-
-_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %13, %15
-  %16 = phi i32 [ 1, %15 ], [ 0, %13 ]
+  %15 = icmp ult i32 %.val, 16
+  %switch.cast.i = trunc i32 %.val to i16
+  %switch.downshift.i = lshr i16 -8152, %switch.cast.i
+  %16 = and i16 %switch.downshift.i, 1
+  %17 = zext nneg i16 %16 to i32
+  %spec.select = select i1 %15, i32 %17, i32 0
   %.val12 = load i32, ptr %1, align 8, !tbaa !8
-  %17 = icmp eq i32 %.val12, 5
-  %18 = or disjoint i32 %16, 20
-  %.1 = select i1 %17, i32 %18, i32 %16
+  %18 = icmp eq i32 %.val12, 5
+  %19 = or disjoint i32 %spec.select, 20
+  %.1 = select i1 %18, i32 %19, i32 %spec.select
   %or.cond = or i1 %2, %3
-  %19 = shl nuw nsw i32 %.1, 1
-  %20 = select i1 %or.cond, i32 %19, i32 0
-  %.2 = or disjoint i32 %20, %.1
-  %21 = load ptr, ptr %6, align 8, !tbaa !10
-  %22 = load ptr, ptr %7, align 8, !tbaa !10
-  %23 = load ptr, ptr %8, align 8, !tbaa !10
-  %24 = load ptr, ptr %9, align 8, !tbaa !10
-  %25 = load ptr, ptr %10, align 8, !tbaa !10
-  tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer(ptr noundef null, ptr noundef %0, i32 noundef %.2, ptr %4, ptr %21, ptr %22, ptr %23, ptr %24, ptr %25, ptr noundef null, ptr null, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %11, i32 noundef %12, i64 noundef -1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
+  %20 = shl nuw nsw i32 %.1, 1
+  %21 = select i1 %or.cond, i32 %20, i32 0
+  %.2 = or i32 %21, %.1
+  %22 = load ptr, ptr %6, align 8, !tbaa !10
+  %23 = load ptr, ptr %7, align 8, !tbaa !10
+  %24 = load ptr, ptr %8, align 8, !tbaa !10
+  %25 = load ptr, ptr %9, align 8, !tbaa !10
+  %26 = load ptr, ptr %10, align 8, !tbaa !10
+  tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer(ptr noundef null, ptr noundef %0, i32 noundef %.2, ptr %4, ptr %22, ptr %23, ptr %24, ptr %25, ptr %26, ptr noundef null, ptr null, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %11, i32 noundef %12, i64 noundef -1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   ret void
 }
 

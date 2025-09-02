@@ -2885,7 +2885,7 @@ lor.lhs.false22.i.i:                              ; preds = %if.end17.i.i
 
 if.end28.i.i:                                     ; preds = %lor.lhs.false22.i.i, %if.then9.i.i
   %storemerge28.i.i = select i1 %cmp1.i.i, double 0xFFF8000000000000, double 0x7FF8000000000000
-  br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
+  br label %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit
 
 if.else35.i.i:                                    ; preds = %land.lhs.true.i.i.i
   switch i64 %sub.ptr.sub.i.i, label %if.end.i.i.i.i [
@@ -2935,38 +2935,44 @@ for.inc.i51.i.i:                                  ; preds = %land.lhs.true.i47.i
 
 if.then48.i.i:                                    ; preds = %for.inc.i51.i.i, %for.inc.i38.i.i
   %storemerge.i.i = select i1 %cmp1.i.i, double 0xFFF0000000000000, double 0x7FF0000000000000
-  br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
+  br label %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread: ; preds = %if.then48.i.i, %if.end28.i.i
+_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit: ; preds = %if.end28.i.i, %if.then48.i.i
   %storemerge.sink.i.i = phi double [ %storemerge.i.i, %if.then48.i.i ], [ %storemerge28.i.i, %if.end28.i.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %i_interpreter.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %out.i.i)
-  br label %if.end
+  store double %storemerge.sink.i.i, ptr %result, align 8
+  br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i47.i.i, %land.lhs.true.i34.i.i, %entry, %if.end.i.i, %if.then11.i.i, %lor.lhs.false22.i.i, %if.end17.i.i, %if.else35.i.i
   %call2.i.i.i.i = call noundef zeroext i1 @_ZN5boost6detail27lexical_ostream_limited_srcIcSt11char_traitsIcEE20shr_using_base_classIdEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %out.i.i, ptr noundef nonnull align 8 dereferenceable(8) %result)
-  br i1 %call2.i.i.i.i, label %land.lhs.true.i.i.i.i, label %if.then
+  br i1 %call2.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
+
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3: ; preds = %if.end.i.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %i_interpreter.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %out.i.i)
+  br label %if.then
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end.i.i.i.i
   %13 = load ptr, ptr %finish.i6.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 -1
   %14 = load i8, ptr %add.ptr.i.i.i.i, align 1
-  switch i8 %14, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5 [
-    i8 101, label %if.then
-    i8 69, label %if.then
-    i8 45, label %if.then
-    i8 43, label %if.then
-  ]
+  %switch.tableidx.i.i.i.i = add i8 %14, -43
+  %15 = icmp ult i8 %switch.tableidx.i.i.i.i, 59
+  br i1 %15, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5: ; preds = %land.lhs.true.i.i.i.i
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread: ; preds = %_ZN5boost6detail13parse_inf_nanIcdEEbPKT_S4_RT0_.exit, %land.lhs.true.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %i_interpreter.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %out.i.i)
-  %.pre = load double, ptr %result, align 8
   br label %if.end
 
-if.then:                                          ; preds = %if.end.i.i.i.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i.i.i
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit: ; preds = %land.lhs.true.i.i.i.i
+  %switch.maskindex.i.i.i.i = zext nneg i8 %switch.tableidx.i.i.i.i to i64
+  %switch.shifted.i.i.i.i = lshr i64 288230376218820613, %switch.maskindex.i.i.i.i
+  %switch.lobit.i.i.i.i = trunc i64 %switch.shifted.i.i.i.i to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %i_interpreter.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %out.i.i)
+  br i1 %switch.lobit.i.i.i.i, label %if.then, label %if.end
+
+if.then:                                          ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5boost16bad_lexical_castE, i64 16), ptr %ref.tmp.i, align 8
   %source.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
@@ -2980,14 +2986,14 @@ invoke.cont.i:                                    ; preds = %if.then
   unreachable
 
 lpad.i:                                           ; preds = %if.then
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i) #29
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 
-if.end:                                           ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
-  %16 = phi double [ %.pre, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5 ], [ %storemerge.sink.i.i, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread ]
-  ret double %16
+if.end:                                           ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit
+  %17 = load double, ptr %result, align 8
+  ret double %17
 }
 
 declare noundef zeroext i1 @_ZN8proxygen17StructuredHeaders17isValidStringCharEc(i8 noundef signext) local_unnamed_addr #3

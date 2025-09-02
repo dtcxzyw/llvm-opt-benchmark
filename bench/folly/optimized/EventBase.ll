@@ -10254,7 +10254,9 @@ _ZN5folly6detail9futexWaitISt6atomicIjEEENS0_11FutexResultEPKT_jj.exit.i.i.i.i.i
   br i1 %32, label %.thread.i.i.i.i.i.i, label %17
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_9EventBase8loopBodyEiNS2_11LoopOptionsEE3$_0Lb1EED2Ev.exit": ; preds = %5, %.thread.i.i.i.i.i.i
-  %switch.i = icmp eq i32 %4, 0
+  %switch.cast.i = trunc nuw nsw i32 %4 to i3
+  %switch.downshift.i = lshr i3 1, %switch.cast.i
+  %switch.masked.i = trunc nuw i3 %switch.downshift.i to i1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store atomic i64 0, ptr %33 release, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -10263,7 +10265,7 @@ _ZN5folly6detail9futexWaitISt6atomicIjEEENS0_11FutexResultEPKT_jj.exit.i.i.i.i.i
   %37 = trunc nuw i8 %36 to i1
   %38 = select i1 %37, i32 -2, i32 -1
   store atomic i32 %38, ptr %34 release, align 16
-  ret i1 %switch.i
+  ret i1 %switch.masked.i
 
 39:                                               ; preds = %3
   %40 = landingpad { ptr, i32 }
@@ -12685,8 +12687,13 @@ declare void @_ZNSt11logic_errorC1EOS_(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5folly9EventBase9isSuccessENS0_10LoopStatusE(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(632) %0, i32 noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %switch = icmp eq i32 %1, 0
-  ret i1 %switch
+switch.lookup:
+  %2 = icmp ult i32 %1, 3
+  tail call void @llvm.assume(i1 %2)
+  %switch.cast = trunc nuw nsw i32 %1 to i3
+  %switch.downshift = lshr i3 1, %switch.cast
+  %switch.masked = trunc nuw i3 %switch.downshift to i1
+  ret i1 %switch.masked
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14023,8 +14030,10 @@ define void @_ZN5folly9EventBase13loopPollSetupEv(ptr noundef nonnull align 16 c
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5folly9EventBase8loopPollEv(ptr noundef nonnull align 16 dereferenceable(632) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i32 @_ZN5folly9EventBase8loopMainEiNS0_11LoopOptionsE(ptr noundef nonnull align 16 dereferenceable(632) %0, i32 noundef 3, i16 0)
-  %switch.i = icmp eq i32 %2, 0
-  ret i1 %switch.i
+  %switch.cast.i = trunc nuw nsw i32 %2 to i3
+  %switch.downshift.i = lshr i3 1, %switch.cast.i
+  %switch.masked.i = trunc nuw i3 %switch.downshift.i to i1
+  ret i1 %switch.masked.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

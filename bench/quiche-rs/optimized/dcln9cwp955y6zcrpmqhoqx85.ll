@@ -881,24 +881,22 @@ define hidden void @_ZN6quiche8recovery10congestion4bbr28per_loss30bbr2_update_c
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %12 = load i8, ptr %11, align 8, !range !24, !noundef !3
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %43
+  br i1 %13, label %14, label %42
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1067
   %.val.i = load i8, ptr %15, align 1, !range !45, !alias.scope !70, !noundef !3
-  switch i8 %.val.i, label %_ZN6quiche8recovery10congestion4bbr28per_loss18bbr2_is_probing_bw17hea53f8af7bc12645E.exit.i [
-    i8 0, label %_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit
-    i8 4, label %_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit
-    i8 5, label %_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit
-  ]
-
-_ZN6quiche8recovery10congestion4bbr28per_loss18bbr2_is_probing_bw17hea53f8af7bc12645E.exit.i: ; preds = %14
+  %switch.cast.i.i = trunc nuw nsw i8 %.val.i to i7
+  %switch.downshift.i.i = lshr i7 49, %switch.cast.i.i
+  %switch.masked.i.i = trunc i7 %switch.downshift.i.i to i1
+  %.not.i = xor i1 %switch.masked.i.i, true
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1065
   %17 = load i8, ptr %16, align 1, !range !24, !alias.scope !70
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %_ZN6quiche8recovery10congestion4bbr28per_loss22bbr2_init_lower_bounds17h9493084747056798E.exit.i, label %_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit
+  %or.cond.i = select i1 %.not.i, i1 %18, i1 false
+  br i1 %or.cond.i, label %_ZN6quiche8recovery10congestion4bbr28per_loss22bbr2_init_lower_bounds17h9493084747056798E.exit.i, label %_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit
 
-_ZN6quiche8recovery10congestion4bbr28per_loss22bbr2_init_lower_bounds17h9493084747056798E.exit.i: ; preds = %_ZN6quiche8recovery10congestion4bbr28per_loss18bbr2_is_probing_bw17hea53f8af7bc12645E.exit.i
+_ZN6quiche8recovery10congestion4bbr28per_loss22bbr2_init_lower_bounds17h9493084747056798E.exit.i: ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %20 = load i64, ptr %19, align 8, !alias.scope !73, !noundef !3
   %21 = icmp eq i64 %20, -1
@@ -927,14 +925,13 @@ _ZN6quiche8recovery10congestion4bbr28per_loss22bbr2_init_lower_bounds17h94930847
   store i64 %.sroa.0.0.sroa.speculated.i1.i.i, ptr %25, align 8, !alias.scope !76
   br label %_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit
 
-_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit: ; preds = %14, %14, %14, %_ZN6quiche8recovery10congestion4bbr28per_loss18bbr2_is_probing_bw17hea53f8af7bc12645E.exit.i, %_ZN6quiche8recovery10congestion4bbr28per_loss22bbr2_init_lower_bounds17h9493084747056798E.exit.i
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1065
-  store i8 0, ptr %41, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  store i64 0, ptr %42, align 8
-  br label %43
+_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit: ; preds = %14, %_ZN6quiche8recovery10congestion4bbr28per_loss22bbr2_init_lower_bounds17h9493084747056798E.exit.i
+  store i8 0, ptr %16, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  store i64 0, ptr %41, align 8
+  br label %42
 
-43:                                               ; preds = %10, %_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit
+42:                                               ; preds = %10, %_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit
   ret void
 }
 

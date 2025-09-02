@@ -2664,19 +2664,20 @@ define internal noundef zeroext i1 @dissect_rdmnet_over_tcp_heur(ptr noundef %0,
   %.not16.i = icmp sgt i8 %10, -1
   %..i = select i1 %.not16.i, i32 18, i32 19
   %11 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %..i)
-  switch i32 %11, label %is_rdmnet_over_tcp.exit.thread [
-    i32 11, label %is_rdmnet_over_tcp.exit
-    i32 9, label %is_rdmnet_over_tcp.exit
-    i32 5, label %is_rdmnet_over_tcp.exit
-  ]
+  %12 = icmp ult i32 %11, 12
+  %switch.cast.i = trunc nuw nsw i32 %11 to i12
+  %switch.downshift.i = lshr i12 -1504, %switch.cast.i
+  %switch.masked.i = trunc i12 %switch.downshift.i to i1
+  %or.cond = select i1 %12, i1 %switch.masked.i, i1 false
+  br i1 %or.cond, label %13, label %is_rdmnet_over_tcp.exit.thread
 
-is_rdmnet_over_tcp.exit:                          ; preds = %9, %9, %9
+13:                                               ; preds = %9
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 16, ptr noundef nonnull @get_rdmnet_tcp_message_length, ptr noundef nonnull @dissect_one_rdmnet_over_tcp_message, ptr noundef %3)
-  %12 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %14 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %is_rdmnet_over_tcp.exit.thread
 
-is_rdmnet_over_tcp.exit.thread:                   ; preds = %9, %7, %4, %is_rdmnet_over_tcp.exit
-  %.0.i7 = phi i1 [ true, %is_rdmnet_over_tcp.exit ], [ false, %4 ], [ false, %7 ], [ false, %9 ]
+is_rdmnet_over_tcp.exit.thread:                   ; preds = %9, %7, %4, %13
+  %.0.i7 = phi i1 [ true, %13 ], [ false, %4 ], [ false, %7 ], [ false, %9 ]
   ret i1 %.0.i7
 }
 
@@ -8251,19 +8252,20 @@ define internal i32 @dissect_one_rdmnet_over_tcp_message(ptr noundef %0, ptr nou
   %.not16.i = icmp sgt i8 %10, -1
   %..i = select i1 %.not16.i, i32 18, i32 19
   %11 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %..i)
-  switch i32 %11, label %is_rdmnet_over_tcp.exit.thread [
-    i32 11, label %is_rdmnet_over_tcp.exit
-    i32 9, label %is_rdmnet_over_tcp.exit
-    i32 5, label %is_rdmnet_over_tcp.exit
-  ]
+  %12 = icmp ult i32 %11, 12
+  %switch.cast.i = trunc nuw nsw i32 %11 to i12
+  %switch.downshift.i = lshr i12 -1504, %switch.cast.i
+  %switch.masked.i = trunc i12 %switch.downshift.i to i1
+  %or.cond = select i1 %12, i1 %switch.masked.i, i1 false
+  br i1 %or.cond, label %13, label %is_rdmnet_over_tcp.exit.thread
 
-is_rdmnet_over_tcp.exit:                          ; preds = %9, %9, %9
+13:                                               ; preds = %9
   tail call fastcc void @dissect_rdmnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
-  %12 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %14 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %is_rdmnet_over_tcp.exit.thread
 
-is_rdmnet_over_tcp.exit.thread:                   ; preds = %9, %7, %4, %is_rdmnet_over_tcp.exit
-  %.0 = phi i32 [ %12, %is_rdmnet_over_tcp.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ]
+is_rdmnet_over_tcp.exit.thread:                   ; preds = %9, %7, %4, %13
+  %.0 = phi i32 [ %14, %13 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ]
   ret i32 %.0
 }
 

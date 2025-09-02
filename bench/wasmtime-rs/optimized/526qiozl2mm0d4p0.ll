@@ -11476,10 +11476,13 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i8 1, 3) i8 @_ZN16wasmtime_environ9component4info13FixedEncoding5width17hc795ad6859aa152aE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #9 {
-  %2 = load i8, ptr %0, align 1, !range !1634, !noundef !49
-  %switch = icmp eq i8 %2, 1
-  %. = select i1 %switch, i8 2, i8 1
-  ret i8 %.
+switch.lookup:
+  %1 = load i8, ptr %0, align 1, !range !1634, !noundef !49
+  %2 = shl nuw nsw i8 %1, 3
+  %switch.shiftamt = zext nneg i8 %2 to i24
+  %switch.downshift = lshr i24 66049, %switch.shiftamt
+  %switch.masked = trunc i24 %switch.downshift to i8
+  ret i8 %switch.masked
 }
 
 ; Function Attrs: nonlazybind uwtable

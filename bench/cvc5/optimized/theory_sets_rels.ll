@@ -59780,14 +59780,13 @@ declare void @_ZN4cvc58internal6theory4sets16InferenceManager15assertInferenceEN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internal6theory4sets14TheorySetsRels14isRelationKindENS0_4kind6Kind_tE(i32 noundef %0) local_unnamed_addr #8 align 2 {
-switch.edge:
   %switch.tableidx = add i32 %0, -279
-  %1 = icmp ult i32 %switch.tableidx, 8
+  %2 = icmp ult i32 %switch.tableidx, 8
   %switch.cast = trunc i32 %switch.tableidx to i8
   %switch.downshift = lshr i8 -65, %switch.cast
   %switch.masked = trunc i8 %switch.downshift to i1
-  %2 = select i1 %1, i1 %switch.masked, i1 false
-  ret i1 %2
+  %3 = select i1 %2, i1 %switch.masked, i1 false
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable

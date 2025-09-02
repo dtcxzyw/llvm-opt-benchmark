@@ -145,7 +145,7 @@ define hidden noundef zeroext i1 @_ZN17BarrierSetNMethod22supports_entry_barrier
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZNK6Method26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(88) %4) #8
-  br i1 %5, label %switch.edge, label %6
+  br i1 %5, label %17, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8
@@ -153,24 +153,29 @@ define hidden noundef zeroext i1 @_ZN17BarrierSetNMethod22supports_entry_barrier
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, -2
   %switch = icmp eq i16 %10, 198
-  br i1 %switch, label %switch.edge, label %_ZNK7nmethod16is_native_methodEv.exit
+  br i1 %switch, label %17, label %_ZNK7nmethod16is_native_methodEv.exit
 
 _ZNK7nmethod16is_native_methodEv.exit:            ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %11, align 8
   %12 = and i32 %.sroa.0.0.copyload.i.i.i, 256
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %switch.edge
+  br i1 %.not, label %13, label %17
 
 13:                                               ; preds = %_ZNK7nmethod16is_native_methodEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 209
   %15 = load i8, ptr %14, align 1
-  %.off9 = add i8 %15, -1
-  %switch10 = icmp ult i8 %.off9, 3
-  br label %switch.edge
+  %16 = icmp ult i8 %15, 4
+  br i1 %16, label %switch.lookup, label %17
 
-switch.edge:                                      ; preds = %13, %6, %_ZNK7nmethod16is_native_methodEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK7nmethod16is_native_methodEv.exit ], [ false, %6 ], [ %switch10, %13 ]
+switch.lookup:                                    ; preds = %13
+  %switch.cast = trunc nuw nsw i8 %15 to i4
+  %switch.downshift = lshr i4 -2, %switch.cast
+  %switch.masked = trunc i4 %switch.downshift to i1
+  br label %17
+
+17:                                               ; preds = %13, %switch.lookup, %6, %_ZNK7nmethod16is_native_methodEv.exit, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK7nmethod16is_native_methodEv.exit ], [ false, %6 ], [ %switch.masked, %switch.lookup ], [ false, %13 ]
   ret i1 %.0
 }
 

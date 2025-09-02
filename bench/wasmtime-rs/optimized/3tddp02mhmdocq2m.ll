@@ -282,11 +282,13 @@ define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term22has_external_extractor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term24has_external_constructor17he6b18c5eb33b3648E(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
-switch.edge:
+define zeroext i1 @_ZN14cranelift_isle4sema4Term24has_external_constructor17he6b18c5eb33b3648E(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
+switch.lookup:
   %1 = load i64, ptr %0, align 16, !range !6, !noundef !4
-  %switch = icmp eq i64 %1, 1
-  ret i1 %switch
+  %switch.cast = trunc nuw nsw i64 %1 to i4
+  %switch.downshift = lshr i4 2, %switch.cast
+  %switch.masked = trunc i4 %switch.downshift to i1
+  ret i1 %switch.masked
 }
 
 ; Function Attrs: nonlazybind uwtable

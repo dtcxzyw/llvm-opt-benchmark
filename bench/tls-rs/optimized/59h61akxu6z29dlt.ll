@@ -7899,7 +7899,7 @@ switch.lookup:                                    ; preds = %1
 define hidden noundef zeroext i1 @_ZN6rustls5enums15SignatureScheme18supported_in_tls1317hb5c986ddd0a532a5E(ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %0) unnamed_addr #15 {
 switch.lookup:
   %1 = load i16, ptr %0, align 2, !range !120, !noundef !4
-  %switch.cast = trunc nuw i16 %1 to i14
+  %switch.cast = trunc nuw nsw i16 %1 to i14
   %switch.downshift = lshr i14 4008, %switch.cast
   %switch.masked = trunc i14 %switch.downshift to i1
   ret i1 %switch.masked
@@ -18989,7 +18989,7 @@ define void @"_ZN73_$LT$rustls..enums..ContentType$u20$as$u20$rustls..msgs..code
 
 12:                                               ; preds = %8
   %13 = icmp ugt i64 %9, %4
-  br i1 %13, label %15, label %"_ZN76_$LT$rustls..enums..ContentType$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17ha82a4b6e0fb3e657E.exit"
+  br i1 %13, label %15, label %16
 
 14:                                               ; preds = %8
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -1, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.75.llvm.12014582817787848890) #36, !noalias !4218
@@ -18999,17 +18999,17 @@ define void @"_ZN73_$LT$rustls..enums..ContentType$u20$as$u20$rustls..msgs..code
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %9, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.75.llvm.12014582817787848890) #36, !noalias !4218
   unreachable
 
-"_ZN76_$LT$rustls..enums..ContentType$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17ha82a4b6e0fb3e657E.exit": ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %10, i64 %6
-  %17 = load i8, ptr %16, align 1, !noalias !4221, !noundef !4
-  %switch.tableidx = add i8 %17, -20
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %switch.tableidx, i8 5)
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %18, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %17, ptr %19, align 2
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %10, i64 %6
+  %18 = load i8, ptr %17, align 1, !noalias !4221, !noundef !4
+  %switch.tableidx.i = add i8 %18, -20
+  %switch.tableidx..i = tail call i8 @llvm.umin.i8(i8 %switch.tableidx.i, i8 5)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %switch.tableidx..i, ptr %19, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %18, ptr %20, align 2
   store i8 20, ptr %0, align 8
-  br label %20
+  br label %21
 
 "_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit": ; preds = %2
   store i8 11, ptr %0, align 8
@@ -19017,20 +19017,19 @@ define void @"_ZN73_$LT$rustls..enums..ContentType$u20$as$u20$rustls..msgs..code
   store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.261.llvm.3875224068774112026, ptr %.sroa.41.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 11, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %20
+  br label %21
 
-20:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit", %"_ZN76_$LT$rustls..enums..ContentType$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17ha82a4b6e0fb3e657E.exit"
+21:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit", %16
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i8, i8 } @"_ZN76_$LT$rustls..enums..ContentType$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17ha82a4b6e0fb3e657E"(i8 noundef %0) unnamed_addr #4 {
-switch.lookup:
   %switch.tableidx = add i8 %0, -20
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %switch.tableidx, i8 5)
-  %1 = insertvalue { i8, i8 } poison, i8 %spec.select, 0
-  %2 = insertvalue { i8, i8 } %1, i8 %0, 1
-  ret { i8, i8 } %2
+  %switch.tableidx. = tail call i8 @llvm.umin.i8(i8 %switch.tableidx, i8 5)
+  %2 = insertvalue { i8, i8 } poison, i8 %switch.tableidx., 0
+  %3 = insertvalue { i8, i8 } %2, i8 %0, 1
+  ret { i8, i8 } %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -1712,39 +1712,36 @@ define hidden range(i32 -1, 1) i32 @dom_node_text_content_read(ptr noundef %0, p
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %dom_skip_text_content.exit, label %php_dom_follow_spec_doc_ref.exit.i
+  br i1 %.not.i.i, label %dom_skip_text_content.exit.thread, label %php_dom_follow_spec_doc_ref.exit.i
 
 php_dom_follow_spec_doc_ref.exit.i:               ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %11 = load i16, ptr %10, align 4
   %12 = and i16 %11, 255
   %13 = icmp eq i16 %12, 2
-  br i1 %13, label %14, label %dom_skip_text_content.exit
+  br i1 %13, label %14, label %dom_skip_text_content.exit.thread
 
 14:                                               ; preds = %php_dom_follow_spec_doc_ref.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !26
-  switch i32 %16, label %17 [
-    i32 11, label %dom_skip_text_content.exit
-    i32 8, label %dom_skip_text_content.exit
-    i32 7, label %dom_skip_text_content.exit
-    i32 4, label %dom_skip_text_content.exit
-    i32 3, label %dom_skip_text_content.exit
-    i32 2, label %dom_skip_text_content.exit
-    i32 1, label %dom_skip_text_content.exit
-  ]
+  %17 = icmp ugt i32 %16, 11
+  %switch.cast.i = trunc nuw nsw i32 %16 to i12
+  %switch.downshift.i = lshr i12 1633, %switch.cast.i
+  %switch.masked.i = trunc i12 %switch.downshift.i to i1
+  %or.cond = select i1 %17, i1 true, i1 %switch.masked.i
+  br i1 %or.cond, label %dom_skip_text_content.exit.thread9, label %dom_skip_text_content.exit.thread
 
-17:                                               ; preds = %14
+dom_skip_text_content.exit.thread9:               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %18, align 8, !tbaa !9
   br label %19
 
-dom_skip_text_content.exit:                       ; preds = %14, %14, %14, %14, %14, %14, %14, %php_dom_follow_spec_doc_ref.exit.i, %6
+dom_skip_text_content.exit.thread:                ; preds = %14, %php_dom_follow_spec_doc_ref.exit.i, %6
   tail call void @php_dom_get_content_into_zval(ptr noundef nonnull %3, ptr noundef %1, i1 noundef zeroext false) #11
   br label %19
 
-19:                                               ; preds = %17, %dom_skip_text_content.exit, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %dom_skip_text_content.exit ], [ 0, %17 ]
+19:                                               ; preds = %dom_skip_text_content.exit.thread9, %dom_skip_text_content.exit.thread, %5
+  %.0 = phi i32 [ -1, %5 ], [ 0, %dom_skip_text_content.exit.thread ], [ 0, %dom_skip_text_content.exit.thread9 ]
   ret i32 %.0
 }
 

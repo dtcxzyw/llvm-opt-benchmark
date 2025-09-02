@@ -9419,16 +9419,10 @@ _ZNK7AstNode6isWideEv.exit:                       ; preds = %tailrecurse
 _ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit: ; preds = %tailrecurse, %_ZNK7AstNode6isWideEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %11, align 8, !tbaa !162
-  switch i16 %.sroa.0.0.copyload.i.i.i, label %_ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit [
+  switch i16 %.sroa.0.0.copyload.i.i.i, label %_ZN7AstNode9privateIsI5AstEqPKS_EEbS3_.exit [
     i16 97, label %12
     i16 320, label %16
     i16 199, label %31
-    i16 206, label %.thread137
-    i16 212, label %.thread137
-    i16 179, label %.thread137
-    i16 183, label %.thread137
-    i16 168, label %.thread137
-    i16 172, label %.thread137
   ]
 
 12:                                               ; preds = %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit
@@ -9524,65 +9518,76 @@ _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.thread: ; preds =
 .thread143:                                       ; preds = %31, %34, %57
   br label %.thread137
 
-_ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit: ; preds = %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit
-  %62 = add i16 %.sroa.0.0.copyload.i.i.i, -237
-  %spec.select.i.i = icmp ult i16 %62, -82
+_ZN7AstNode9privateIsI5AstEqPKS_EEbS3_.exit:      ; preds = %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit
+  %switch.tableidx = add i16 %.sroa.0.0.copyload.i.i.i, -168
+  %62 = icmp ult i16 %switch.tableidx, 45
+  br i1 %62, label %switch.hole_check, label %_ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit
+
+_ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit: ; preds = %switch.hole_check, %_ZN7AstNode9privateIsI5AstEqPKS_EEbS3_.exit
+  %63 = add i16 %.sroa.0.0.copyload.i.i.i, -237
+  %spec.select.i.i = icmp ult i16 %63, -82
   br i1 %spec.select.i.i, label %_ZN7AstNode11privateCastI11AstNodeCondPKS_EEPKT_S3_.exit, label %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit
 
 _ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit:     ; preds = %_ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit
   %trunc = trunc nuw i16 %.sroa.0.0.copyload.i.i.i to i8
   switch i8 %trunc, label %.thread137 [
-    i8 -37, label %63
-    i8 -33, label %68
-    i8 -32, label %68
+    i8 -37, label %64
+    i8 -33, label %69
+    i8 -32, label %69
   ]
 
-63:                                               ; preds = %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit
-  %64 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !133
-  %66 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %65)
-  br i1 %66, label %.thread137, label %tailrecurse.backedge
+64:                                               ; preds = %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit
+  %65 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %66 = load ptr, ptr %65, align 8, !tbaa !133
+  %67 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %66)
+  br i1 %67, label %.thread137, label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %63, %73, %68
-  %.sink = phi i64 [ 32, %68 ], [ 40, %73 ], [ 32, %63 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
-  %.tr.be = load ptr, ptr %67, align 8, !tbaa !77
+tailrecurse.backedge:                             ; preds = %64, %74, %69
+  %.sink = phi i64 [ 32, %69 ], [ 40, %74 ], [ 32, %64 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
+  %.tr.be = load ptr, ptr %68, align 8, !tbaa !77
   br label %tailrecurse
 
-68:                                               ; preds = %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit
-  %69 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !133
-  %71 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %70)
-  br i1 %71, label %tailrecurse.backedge, label %.thread137
+69:                                               ; preds = %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit
+  %70 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %71 = load ptr, ptr %70, align 8, !tbaa !133
+  %72 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %71)
+  br i1 %72, label %tailrecurse.backedge, label %.thread137
 
 _ZN7AstNode11privateCastI11AstNodeCondPKS_EEPKT_S3_.exit: ; preds = %_ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit
-  %72 = and i16 %.sroa.0.0.copyload.i.i.i, -2
-  %spec.select.i.i129.not = icmp eq i16 %72, 260
-  br i1 %spec.select.i.i129.not, label %73, label %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit
+  %73 = and i16 %.sroa.0.0.copyload.i.i.i, -2
+  %spec.select.i.i129.not = icmp eq i16 %73, 260
+  br i1 %spec.select.i.i129.not, label %74, label %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit
 
-73:                                               ; preds = %_ZN7AstNode11privateCastI11AstNodeCondPKS_EEPKT_S3_.exit
-  %74 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %75 = load ptr, ptr %74, align 8, !tbaa !144
-  %76 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %75)
-  br i1 %76, label %tailrecurse.backedge, label %.thread137
+74:                                               ; preds = %_ZN7AstNode11privateCastI11AstNodeCondPKS_EEPKT_S3_.exit
+  %75 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %76 = load ptr, ptr %75, align 8, !tbaa !144
+  %77 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %76)
+  br i1 %77, label %tailrecurse.backedge, label %.thread137
 
 _ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit: ; preds = %_ZN7AstNode11privateCastI11AstNodeCondPKS_EEPKT_S3_.exit
-  %77 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 268
-  br i1 %77, label %78, label %82
+  %78 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 268
+  br i1 %78, label %79, label %83
 
-78:                                               ; preds = %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit
-  %79 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %80 = load ptr, ptr %79, align 8, !tbaa !133
-  %81 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %80)
-  br label %82
+79:                                               ; preds = %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit
+  %80 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %81 = load ptr, ptr %80, align 8, !tbaa !133
+  %82 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116MergeCondVisitor15yieldsOneOrZeroEPK7AstNode(ptr noundef %81)
+  br label %83
 
-82:                                               ; preds = %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit, %78
-  %.9 = phi i1 [ %81, %78 ], [ undef, %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit ]
-  %spec.select86 = and i1 %77, %.9
+83:                                               ; preds = %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit, %79
+  %.9 = phi i1 [ %82, %79 ], [ undef, %_ZN7AstNode11privateCastI8AstCCastPKS_EEPKT_S3_.exit ]
+  %spec.select86 = and i1 %78, %.9
   br label %.thread137
 
-.thread137:                                       ; preds = %73, %63, %68, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit, %57, %.thread143, %16, %27, %_ZNK7AstNode8widthMinEv.exit, %12, %82
-  %.1 = phi i1 [ %15, %12 ], [ %spec.select86, %82 ], [ %30, %27 ], [ false, %_ZNK7AstNode8widthMinEv.exit ], [ false, %16 ], [ true, %57 ], [ false, %.thread143 ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode11privateCastI8AstConstPKS_EEPKT_S3_.exit ], [ false, %73 ], [ true, %63 ], [ false, %68 ], [ false, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit ]
+switch.hole_check:                                ; preds = %_ZN7AstNode9privateIsI5AstEqPKS_EEbS3_.exit
+  %switch.maskindex = zext nneg i16 %switch.tableidx to i64
+  %switch.shifted = lshr i64 17867063986193, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %.thread137, label %_ZN7AstNode11privateCastI11AstNodeBiopPKS_EEPKT_S3_.exit
+
+.thread137:                                       ; preds = %switch.hole_check, %74, %64, %69, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit, %57, %.thread143, %16, %27, %_ZNK7AstNode8widthMinEv.exit, %12, %83
+  %.1 = phi i1 [ %15, %12 ], [ %spec.select86, %83 ], [ %30, %27 ], [ false, %_ZNK7AstNode8widthMinEv.exit ], [ false, %16 ], [ true, %57 ], [ false, %.thread143 ], [ false, %74 ], [ true, %64 ], [ false, %69 ], [ false, %_ZN7AstNode9privateIsI6AstAndPKS_EEbS3_.exit ], [ true, %switch.hole_check ]
   ret i1 %.1
 }
 

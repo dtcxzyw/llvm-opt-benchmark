@@ -200,7 +200,6 @@ $_ZTSN6icu_777UMemoryE = comdat any
 @_ZTVN6icu_776number4impl17ParsedPatternInfoE = external unnamed_addr constant { [14 x ptr] }, align 8
 @_ZTVN6icu_776number4impl24MixedUnitLongNameHandlerE = external unnamed_addr constant { [6 x ptr], [5 x ptr] }, align 8
 @_ZTVN6icu_776number4impl15LongNameHandlerE = external unnamed_addr constant { [6 x ptr], [5 x ptr] }, align 8
-@switch.table._ZN6icu_776number4impl19NumberFormatterImpl22macrosToMicroGeneratorERKNS1_10MacroPropsEbR10UErrorCode = private unnamed_addr constant [6 x i32] [i32 2, i32 2, i32 1, i32 2, i32 1, i32 2], align 4
 
 @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ev
 @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ei10UErrorCode
@@ -1973,24 +1972,17 @@ _ZN6icu_776number4impl5utils14unitIsBaseUnitERKNS_11MeasureUnitE.exit: ; preds =
   %87 = icmp ne i32 %86, 1
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %89 = load i32, ptr %88, align 4, !tbaa !165
-  %switch.tableidx = add i32 %89, -3
-  %90 = icmp ult i32 %switch.tableidx, 6
-  br i1 %90, label %switch.lookup, label %switch.edge
-
-switch.lookup:                                    ; preds = %_ZN6icu_776number4impl5utils14unitIsBaseUnitERKNS_11MeasureUnitE.exit
-  %91 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_776number4impl19NumberFormatterImpl22macrosToMicroGeneratorERKNS1_10MacroPropsEbR10UErrorCode, i64 %91
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %switch.edge
-
-switch.edge:                                      ; preds = %_ZN6icu_776number4impl5utils14unitIsBaseUnitERKNS_11MeasureUnitE.exit, %switch.lookup
-  %. = phi i32 [ %switch.load, %switch.lookup ], [ 1, %_ZN6icu_776number4impl5utils14unitIsBaseUnitERKNS_11MeasureUnitE.exit ]
+  %90 = icmp ult i32 %89, 9
+  %switch.cast = trunc i32 %89 to i9
+  %switch.downshift = lshr i9 -168, %switch.cast
+  %switch.masked = trunc i9 %switch.downshift to i1
+  %91 = select i1 %90, i1 %switch.masked, i1 false
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @.str, ptr %7, align 8, !tbaa !166
   invoke void @_ZN6icu_7712CurrencyUnitC1ENS_14ConstChar16PtrER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %92 unwind label %99
 
-92:                                               ; preds = %switch.edge
+92:                                               ; preds = %_ZN6icu_776number4impl5utils14unitIsBaseUnitERKNS_11MeasureUnitE.exit
   %93 = load ptr, ptr %7, align 8, !tbaa !166
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %93) #16, !srcloc !168
   br i1 %72, label %94, label %107
@@ -2015,7 +2007,7 @@ switch.edge:                                      ; preds = %_ZN6icu_776number4i
   store i32 %spec.store.select411, ptr %9, align 4
   br label %.thread413
 
-99:                                               ; preds = %switch.edge
+99:                                               ; preds = %_ZN6icu_776number4impl5utils14unitIsBaseUnitERKNS_11MeasureUnitE.exit
   %100 = landingpad { ptr, i32 }
           cleanup
   %101 = load ptr, ptr %7, align 8, !tbaa !166
@@ -2238,6 +2230,7 @@ _ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit395: ; preds = %176
   %192 = load i32, ptr %9, align 4
   %193 = icmp ne i32 %192, 2
   %or.cond12.not = select i1 %72, i1 %193, i1 false
+  %. = select i1 %91, i32 2, i32 1
   %spec.select393 = select i1 %or.cond12.not, i32 %., i32 0
   br label %194
 

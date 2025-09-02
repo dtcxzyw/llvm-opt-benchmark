@@ -830,26 +830,23 @@ declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @do_ssl_shutdown(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @SSL_shutdown(ptr noundef %0) #9
-  %3 = icmp slt i32 %2, 0
-  br i1 %3, label %.lr.ph, label %.critedge
+  br label %2
 
-.lr.ph:                                           ; preds = %1, %6
-  %4 = phi i32 [ %7, %6 ], [ %2, %1 ]
-  %5 = tail call i32 @SSL_get_error(ptr noundef %0, i32 noundef %4) #9
-  switch i32 %5, label %.critedge [
-    i32 2, label %6
-    i32 3, label %6
-    i32 9, label %6
-    i32 10, label %6
-  ]
+2:                                                ; preds = %5, %1
+  %3 = tail call i32 @SSL_shutdown(ptr noundef %0) #9
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %.critedge
 
-6:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %7 = tail call i32 @SSL_shutdown(ptr noundef %0) #9
-  %8 = icmp slt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !27
+5:                                                ; preds = %2
+  %6 = tail call i32 @SSL_get_error(ptr noundef %0, i32 noundef %3) #9
+  %7 = icmp ult i32 %6, 11
+  %switch.cast = trunc nuw nsw i32 %6 to i11
+  %switch.downshift = lshr i11 -500, %switch.cast
+  %switch.masked = trunc i11 %switch.downshift to i1
+  %or.cond = select i1 %7, i1 %switch.masked, i1 false
+  br i1 %or.cond, label %2, label %.critedge, !llvm.loop !27
 
-.critedge:                                        ; preds = %6, %.lr.ph, %1
+.critedge:                                        ; preds = %2, %5
   ret void
 }
 

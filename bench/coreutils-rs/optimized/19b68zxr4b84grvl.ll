@@ -416,16 +416,15 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter6trai
   store ptr %13, ptr %0, align 8, !alias.scope !57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %14 = load i8, ptr %10, align 1, !alias.scope !61, !noundef !42
-  switch i8 %14, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h7a4283921e9d1d86E.exit" [
-    i8 9, label %.split10
-    i8 10, label %.split10
-    i8 12, label %.split10
-    i8 13, label %.split10
-    i8 32, label %.split10
-  ]
+  %15 = icmp ugt i8 %14, 32
+  %switch.cast.i.i.i = zext nneg i8 %14 to i33
+  %switch.downshift.i.i.i = lshr i33 4294953471, %switch.cast.i.i.i
+  %switch.masked.i.i.i = trunc i33 %switch.downshift.i.i.i to i1
+  %16 = select i1 %15, i1 true, i1 %switch.masked.i.i.i
+  br i1 %16, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h7a4283921e9d1d86E.exit", label %.split10
 
-.split10:                                         ; preds = %12, %12, %12, %12, %12, %.split10.us
-  %.us-phi = phi ptr [ %.promoted, %.split10.us ], [ %10, %12 ], [ %10, %12 ], [ %10, %12 ], [ %10, %12 ], [ %10, %12 ]
+.split10:                                         ; preds = %12, %.split10.us
+  %.us-phi = phi ptr [ %.promoted, %.split10.us ], [ %10, %12 ]
   store i8 1, ptr %1, align 1, !noalias !61
   br label %.loopexit
 
@@ -841,16 +840,15 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN72_$LT$$RF$mut
   store ptr %14, ptr %4, align 8, !alias.scope !122, !noalias !125
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %15 = load i8, ptr %11, align 1, !alias.scope !128, !noalias !131, !noundef !42
-  switch i8 %15, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h7a4283921e9d1d86E.exit.i.i" [
-    i8 9, label %.split10.i.i
-    i8 10, label %.split10.i.i
-    i8 12, label %.split10.i.i
-    i8 13, label %.split10.i.i
-    i8 32, label %.split10.i.i
-  ]
+  %16 = icmp ugt i8 %15, 32
+  %switch.cast.i.i.i.i.i = zext nneg i8 %15 to i33
+  %switch.downshift.i.i.i.i.i = lshr i33 4294953471, %switch.cast.i.i.i.i.i
+  %switch.masked.i.i.i.i.i = trunc i33 %switch.downshift.i.i.i.i.i to i1
+  %17 = select i1 %16, i1 true, i1 %switch.masked.i.i.i.i.i
+  br i1 %17, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h7a4283921e9d1d86E.exit.i.i", label %.split10.i.i
 
-.split10.i.i:                                     ; preds = %13, %13, %13, %13, %13, %.split10.us.i.i
-  %.us-phi.i.i = phi ptr [ %.promoted.i.i, %.split10.us.i.i ], [ %11, %13 ], [ %11, %13 ], [ %11, %13 ], [ %11, %13 ], [ %11, %13 ]
+.split10.i.i:                                     ; preds = %13, %.split10.us.i.i
+  %.us-phi.i.i = phi ptr [ %.promoted.i.i, %.split10.us.i.i ], [ %11, %13 ]
   store i8 1, ptr %1, align 1, !alias.scope !126, !noalias !132
   br label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h5a4ee2bb0d941629E.llvm.2282624722526689056.exit"
 
@@ -911,16 +909,15 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN79_$LT$$RF$mut
   store ptr %14, ptr %4, align 8, !alias.scope !143, !noalias !141
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   %15 = load i8, ptr %11, align 1, !alias.scope !146, !noalias !149, !noundef !42
-  switch i8 %15, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h7a4283921e9d1d86E.exit.i" [
-    i8 9, label %.split10.i
-    i8 10, label %.split10.i
-    i8 12, label %.split10.i
-    i8 13, label %.split10.i
-    i8 32, label %.split10.i
-  ]
+  %16 = icmp ugt i8 %15, 32
+  %switch.cast.i.i.i.i = zext nneg i8 %15 to i33
+  %switch.downshift.i.i.i.i = lshr i33 4294953471, %switch.cast.i.i.i.i
+  %switch.masked.i.i.i.i = trunc i33 %switch.downshift.i.i.i.i to i1
+  %17 = select i1 %16, i1 true, i1 %switch.masked.i.i.i.i
+  br i1 %17, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h7a4283921e9d1d86E.exit.i", label %.split10.i
 
-.split10.i:                                       ; preds = %13, %13, %13, %13, %13, %.split10.us.i
-  %.us-phi.i = phi ptr [ %.promoted.i, %.split10.us.i ], [ %11, %13 ], [ %11, %13 ], [ %11, %13 ], [ %11, %13 ], [ %11, %13 ]
+.split10.i:                                       ; preds = %13, %.split10.us.i
+  %.us-phi.i = phi ptr [ %.promoted.i, %.split10.us.i ], [ %11, %13 ]
   store i8 1, ptr %1, align 1, !alias.scope !141, !noalias !150
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2f48a6622d5bf4a0E.llvm.2282624722526689056.exit
 

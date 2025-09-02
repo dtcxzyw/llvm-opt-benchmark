@@ -47,15 +47,17 @@ define dso_local zeroext i1 @is_integer(ptr noundef readonly captures(none) %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @is_flonum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-switch.edge:
-  %1 = load i32, ptr %0, align 8, !tbaa !7
-  %.off = add i32 %1, -6
-  %switch = icmp ult i32 %.off, 3
-  ret i1 %switch
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  %3 = icmp ult i32 %2, 9
+  %switch.cast = trunc i32 %2 to i9
+  %switch.downshift = lshr i9 -64, %switch.cast
+  %switch.masked = trunc i9 %switch.downshift to i1
+  %4 = select i1 %3, i1 %switch.masked, i1 false
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @is_numeric(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @is_numeric(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !tbaa !7
   %switch.tableidx = add i32 %2, -1
   %3 = icmp ult i32 %switch.tableidx, 9
@@ -66,13 +68,16 @@ define dso_local noundef zeroext i1 @is_numeric(ptr noundef readonly captures(no
   br i1 %or.cond, label %switch.lookup, label %4
 
 4:                                                ; preds = %1
-  %.off.i = add i32 %2, -6
-  %switch.i = icmp ult i32 %.off.i, 3
+  %5 = icmp ult i32 %2, 9
+  %switch.cast.i = trunc i32 %2 to i9
+  %switch.downshift.i = lshr i9 -64, %switch.cast.i
+  %switch.masked.i = trunc i9 %switch.downshift.i to i1
+  %6 = select i1 %5, i1 %switch.masked.i, i1 false
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %1, %4
-  %5 = phi i1 [ %switch.i, %4 ], [ true, %1 ]
-  ret i1 %5
+  %7 = phi i1 [ %6, %4 ], [ true, %1 ]
+  ret i1 %7
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable

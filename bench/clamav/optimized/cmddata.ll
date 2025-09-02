@@ -1263,7 +1263,7 @@ _ZN5ArrayIwE5AllocEm.exit.us:                     ; preds = %20, %13, %.lr.ph.sp
   %.sroa.0.1.us = phi ptr [ %.sroa.0.3.us, %23 ], [ %.sroa.0.3.us, %_ZN5ArrayIwE5AllocEm.exit.us ], [ %.sroa.0.029.us, %20 ]
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %71
 
 ._crit_edge:                                      ; preds = %43, %24, %4
   %.sroa.0.0.lcssa = phi ptr [ null, %4 ], [ %.sroa.0.3.us, %24 ], [ %.sroa.0.3, %43 ]
@@ -1309,7 +1309,7 @@ _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %.lr.ph.split, %38, 
   %.sroa.0.1 = phi ptr [ %.sroa.0.3, %41 ], [ %.sroa.0.3, %_ZN5ArrayIwE5AllocEm.exit ], [ %.sroa.0.029, %38 ]
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %71
 
 43:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1329,76 +1329,74 @@ _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %.lr.ph.split, %38, 
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 99928
   invoke void @_ZN10StringList9AddStringEPKw(ptr noundef nonnull align 8 dereferenceable(184) %52, ptr noundef nonnull @.str)
-          to label %.noexc16 unwind label %65
+          to label %.noexc16 unwind label %68
 
 .noexc16:                                         ; preds = %51, %44
   %53 = load i32, ptr %5, align 4, !tbaa !11
   %54 = invoke noundef i32 @_Z8toupperwi(i32 noundef %53)
-          to label %.noexc17 unwind label %65
+          to label %.noexc17 unwind label %68
 
 .noexc17:                                         ; preds = %.noexc16
+  %switch.tableidx.i = add i32 %54, -69
+  %55 = icmp ult i32 %switch.tableidx.i, 20
+  %switch.cast.i = trunc i32 %switch.tableidx.i to i20
+  %switch.downshift.i = lshr i20 -522239, %switch.cast.i
+  %switch.masked.i = trunc i20 %switch.downshift.i to i1
+  %56 = select i1 %55, i1 %switch.masked.i, i1 false
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 58617
+  %58 = load i8, ptr %57, align 1, !tbaa !88, !range !40, !noundef !41
+  %59 = trunc nuw i8 %58 to i1
+  %or.cond3.i = and i1 %56, %59
+  br i1 %or.cond3.i, label %60, label %61
+
+60:                                               ; preds = %.noexc17
+  store i8 0, ptr %57, align 1, !tbaa !88
+  br label %61
+
+61:                                               ; preds = %60, %.noexc17
   switch i32 %54, label %_ZN11CommandData9ParseDoneEv.exit [
-    i32 88, label %switch.edge.i
-    i32 69, label %switch.edge.i
-    i32 80, label %switch.edge.i
-    i32 86, label %59
-    i32 76, label %59
+    i32 86, label %62
+    i32 76, label %62
   ]
 
-switch.edge.i:                                    ; preds = %.noexc17, %.noexc17, %.noexc17
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 58617
-  %56 = load i8, ptr %55, align 1, !tbaa !88, !range !40, !noundef !41
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %switch.edge.thread.i
+62:                                               ; preds = %61, %61
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 83480
+  %64 = load i32, ptr %63, align 8, !tbaa !11
+  %65 = icmp eq i32 %64, 66
+  br i1 %65, label %66, label %_ZN11CommandData9ParseDoneEv.exit
 
-58:                                               ; preds = %switch.edge.i
-  store i8 0, ptr %55, align 1, !tbaa !88
-  br label %switch.edge.thread.i
-
-switch.edge.thread.i:                             ; preds = %58, %switch.edge.i
-  switch i32 %54, label %_ZN11CommandData9ParseDoneEv.exit [
-    i32 86, label %59
-    i32 76, label %59
-  ]
-
-59:                                               ; preds = %switch.edge.thread.i, %switch.edge.thread.i, %.noexc17, %.noexc17
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 83480
-  %61 = load i32, ptr %60, align 8, !tbaa !11
-  %62 = icmp eq i32 %61, 66
-  br i1 %62, label %63, label %_ZN11CommandData9ParseDoneEv.exit
-
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 83472
-  store i8 1, ptr %64, align 8, !tbaa !84
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 83472
+  store i8 1, ptr %67, align 8, !tbaa !84
   br label %_ZN11CommandData9ParseDoneEv.exit
 
-65:                                               ; preds = %.noexc16, %51
-  %66 = landingpad { ptr, i32 }
+68:                                               ; preds = %.noexc16, %51
+  %69 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %71
 
-_ZN11CommandData9ParseDoneEv.exit:                ; preds = %63, %59, %switch.edge.thread.i, %.noexc17, %._crit_edge
+_ZN11CommandData9ParseDoneEv.exit:                ; preds = %66, %62, %61, %._crit_edge
   %.not.i = icmp eq ptr %.sroa.0.0.lcssa, null
-  br i1 %.not.i, label %_ZN5ArrayIwED2Ev.exit, label %67
+  br i1 %.not.i, label %_ZN5ArrayIwED2Ev.exit, label %70
 
-67:                                               ; preds = %_ZN11CommandData9ParseDoneEv.exit
+70:                                               ; preds = %_ZN11CommandData9ParseDoneEv.exit
   tail call void @free(ptr noundef nonnull %.sroa.0.0.lcssa) #18
   br label %_ZN5ArrayIwED2Ev.exit
 
-_ZN5ArrayIwED2Ev.exit:                            ; preds = %_ZN11CommandData9ParseDoneEv.exit, %67
+_ZN5ArrayIwED2Ev.exit:                            ; preds = %_ZN11CommandData9ParseDoneEv.exit, %70
   ret void
 
-68:                                               ; preds = %.split, %.split.us, %65
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0.lcssa, %65 ], [ %.sroa.0.1, %.split ], [ %.sroa.0.1.us, %.split.us ]
-  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %42, %.split ], [ %25, %.split.us ]
+71:                                               ; preds = %.split, %.split.us, %68
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0.lcssa, %68 ], [ %.sroa.0.1, %.split ], [ %.sroa.0.1.us, %.split.us ]
+  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %42, %.split ], [ %25, %.split.us ]
   %.not.i18 = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i18, label %_ZN5ArrayIwED2Ev.exit19, label %69
+  br i1 %.not.i18, label %_ZN5ArrayIwED2Ev.exit19, label %72
 
-69:                                               ; preds = %68
+72:                                               ; preds = %71
   tail call void @free(ptr noundef nonnull %.sroa.0.2) #18
   br label %_ZN5ArrayIwED2Ev.exit19
 
-_ZN5ArrayIwED2Ev.exit19:                          ; preds = %68, %69
+_ZN5ArrayIwED2Ev.exit19:                          ; preds = %71, %72
   resume { ptr, i32 } %.pn
 }
 
@@ -1717,42 +1715,40 @@ define void @_ZN11CommandData9ParseDoneEv(ptr noundef nonnull align 8 dereferenc
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 83476
   %12 = load i32, ptr %11, align 4, !tbaa !11
   %13 = tail call noundef i32 @_Z8toupperwi(i32 noundef %12)
-  switch i32 %13, label %24 [
-    i32 88, label %switch.edge
-    i32 69, label %switch.edge
-    i32 80, label %switch.edge
-    i32 86, label %18
-    i32 76, label %18
+  %switch.tableidx = add i32 %13, -69
+  %14 = icmp ult i32 %switch.tableidx, 20
+  %switch.cast = trunc i32 %switch.tableidx to i20
+  %switch.downshift = lshr i20 -522239, %switch.cast
+  %switch.masked = trunc i20 %switch.downshift to i1
+  %15 = select i1 %14, i1 %switch.masked, i1 false
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 58617
+  %17 = load i8, ptr %16, align 1, !tbaa !88, !range !40, !noundef !41
+  %18 = trunc nuw i8 %17 to i1
+  %or.cond3 = and i1 %15, %18
+  br i1 %or.cond3, label %19, label %20
+
+19:                                               ; preds = %10
+  store i8 0, ptr %16, align 1, !tbaa !88
+  br label %20
+
+20:                                               ; preds = %19, %10
+  switch i32 %13, label %27 [
+    i32 86, label %21
+    i32 76, label %21
   ]
 
-switch.edge:                                      ; preds = %10, %10, %10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 58617
-  %15 = load i8, ptr %14, align 1, !tbaa !88, !range !40, !noundef !41
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %switch.edge.thread
+21:                                               ; preds = %20, %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 83480
+  %23 = load i32, ptr %22, align 8, !tbaa !11
+  %24 = icmp eq i32 %23, 66
+  br i1 %24, label %25, label %27
 
-17:                                               ; preds = %switch.edge
-  store i8 0, ptr %14, align 1, !tbaa !88
-  br label %switch.edge.thread
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 83472
+  store i8 1, ptr %26, align 8, !tbaa !84
+  br label %27
 
-switch.edge.thread:                               ; preds = %17, %switch.edge
-  switch i32 %13, label %24 [
-    i32 86, label %18
-    i32 76, label %18
-  ]
-
-18:                                               ; preds = %10, %10, %switch.edge.thread, %switch.edge.thread
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 83480
-  %20 = load i32, ptr %19, align 8, !tbaa !11
-  %21 = icmp eq i32 %20, 66
-  br i1 %21, label %22, label %24
-
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 83472
-  store i8 1, ptr %23, align 8, !tbaa !84
-  br label %24
-
-24:                                               ; preds = %10, %switch.edge.thread, %22, %18
+27:                                               ; preds = %20, %25, %21
   ret void
 }
 

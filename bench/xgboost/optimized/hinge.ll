@@ -6023,54 +6023,57 @@ define linkonce_odr void @_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3ob
 
 12:                                               ; preds = %2
   tail call void @_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E10LaunchCUDAILPv0EJS7_EEEvSB_DpPT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
-  br label %26
+  br label %28
 
 13:                                               ; preds = %2
-  %.off.i = add i16 %10, -2
-  %switch.i = icmp ult i16 %.off.i, 3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br i1 %switch.i, label %16, label %21
+  %14 = icmp ult i16 %10, 5
+  %switch.cast.i = trunc i16 %10 to i5
+  %switch.downshift.i = lshr i5 -4, %switch.cast.i
+  %switch.masked.i = trunc i5 %switch.downshift.i to i1
+  %15 = select i1 %14, i1 %switch.masked.i, i1 false
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br i1 %15, label %18, label %23
 
-16:                                               ; preds = %13
+18:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8, !tbaa !241
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %14, align 8, !tbaa !44
-  %17 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %18 = load i32, ptr %15, align 8, !tbaa !98
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %16, align 8, !tbaa !44
+  %19 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %20 = load i32, ptr %17, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %6, ptr %8, align 8, !tbaa !51
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %7, ptr %19, align 8, !tbaa !243
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %0, ptr %20, align 8, !tbaa !245
-  call void @_ZN7xgboost6common11ParallelForImZNKS0_9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS8_EEEvSC_DpPT_EUlmE_EEvT_iNS0_5SchedEOT0_(i64 noundef %.sroa.0.0.copyload.i.i.i, i32 noundef %18, i32 2, i64 0, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %7, ptr %21, align 8, !tbaa !243
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %0, ptr %22, align 8, !tbaa !245
+  call void @_ZN7xgboost6common11ParallelForImZNKS0_9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS8_EEEvSC_DpPT_EUlmE_EEvT_iNS0_5SchedEOT0_(i64 noundef %.sroa.0.0.copyload.i.i.i, i32 noundef %20, i32 2, i64 0, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %26
+  br label %28
 
-21:                                               ; preds = %13
+23:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !241
-  %.sroa.0.0.copyload.i.i = load i64, ptr %14, align 8, !tbaa !44
-  %22 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %23 = load i32, ptr %15, align 8, !tbaa !98
+  %.sroa.0.0.copyload.i.i = load i64, ptr %16, align 8, !tbaa !44
+  %24 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %25 = load i32, ptr %17, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !51
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %4, ptr %24, align 8, !tbaa !243
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %0, ptr %25, align 8, !tbaa !245
-  call void @_ZN7xgboost6common11ParallelForImZNKS0_9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS8_EEEvSC_DpPT_EUlmE_EEvT_iNS0_5SchedEOT0_(i64 noundef %.sroa.0.0.copyload.i.i, i32 noundef %23, i32 2, i64 0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %4, ptr %26, align 8, !tbaa !243
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %0, ptr %27, align 8, !tbaa !245
+  call void @_ZN7xgboost6common11ParallelForImZNKS0_9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS8_EEEvSC_DpPT_EUlmE_EEvT_iNS0_5SchedEOT0_(i64 noundef %.sroa.0.0.copyload.i.i, i32 noundef %25, i32 2, i64 0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %26
+  br label %28
 
-26:                                               ; preds = %16, %21, %12
+28:                                               ; preds = %18, %23, %12
   ret void
 }
 

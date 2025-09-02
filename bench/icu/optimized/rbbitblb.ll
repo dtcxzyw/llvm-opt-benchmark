@@ -427,7 +427,7 @@ declare void @_ZN6icu_778RBBINode11flattenSetsER10UErrorCodei(ptr noundef nonnul
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_7716RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #6 align 2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %33, label %4
+  br i1 %3, label %36, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %1, align 8, !tbaa !52
@@ -446,9 +446,9 @@ define void @_ZN6icu_7716RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr nound
   %11 = load ptr, ptr %10, align 8, !tbaa !48
   tail call void @_ZN6icu_7716RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %11)
   %12 = load i32, ptr %1, align 8, !tbaa !52
-  switch i32 %12, label %31 [
+  switch i32 %12, label %33 [
     i32 9, label %13
-    i32 8, label %22
+    i32 8, label %23
     i32 10, label %.sink.split
     i32 12, label %.sink.split
   ]
@@ -465,39 +465,41 @@ define void @_ZN6icu_7716RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %20 = load i8, ptr %19, align 8, !tbaa !53
   %21 = icmp ne i8 %20, 0
+  %22 = zext i1 %21 to i8
   br label %.sink.split
 
-22:                                               ; preds = %7
-  %23 = load ptr, ptr %8, align 8, !tbaa !43
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
-  %25 = load i8, ptr %24, align 8, !tbaa !53
-  %.not = icmp eq i8 %25, 0
-  br i1 %.not, label %.sink.split, label %26
+23:                                               ; preds = %7
+  %24 = load ptr, ptr %8, align 8, !tbaa !43
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
+  %26 = load i8, ptr %25, align 8, !tbaa !53
+  %.not = icmp eq i8 %26, 0
+  br i1 %.not, label %.sink.split, label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %10, align 8, !tbaa !48
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
-  %29 = load i8, ptr %28, align 8, !tbaa !53
-  %30 = icmp ne i8 %29, 0
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %10, align 8, !tbaa !48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
+  %30 = load i8, ptr %29, align 8, !tbaa !53
+  %31 = icmp ne i8 %30, 0
+  %32 = zext i1 %31 to i8
   br label %.sink.split
 
-31:                                               ; preds = %7
+33:                                               ; preds = %7
   br label %.sink.split
 
 switch.lookup:                                    ; preds = %4
-  %switch.cast = trunc nuw i32 %5 to i7
-  %switch.downshift = lshr i7 48, %switch.cast
-  %switch.masked = trunc i7 %switch.downshift to i1
+  %34 = shl nuw nsw i32 %5, 3
+  %switch.shiftamt = zext nneg i32 %34 to i56
+  %switch.downshift = lshr i56 1103806595072, %switch.shiftamt
+  %switch.masked = trunc i56 %switch.downshift to i8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %switch.lookup, %7, %7, %22, %26, %13, %17, %31
-  %.sink.shrunk = phi i1 [ false, %31 ], [ true, %13 ], [ %21, %17 ], [ false, %22 ], [ %30, %26 ], [ true, %7 ], [ true, %7 ], [ %switch.masked, %switch.lookup ]
-  %.sink = zext i1 %.sink.shrunk to i8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i8 %.sink, ptr %32, align 8, !tbaa !53
-  br label %33
+.sink.split:                                      ; preds = %7, %7, %23, %27, %13, %17, %switch.lookup, %33
+  %.sink = phi i8 [ 0, %33 ], [ %switch.masked, %switch.lookup ], [ 1, %13 ], [ %22, %17 ], [ 0, %23 ], [ %32, %27 ], [ 1, %7 ], [ 1, %7 ]
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i8 %.sink, ptr %35, align 8, !tbaa !53
+  br label %36
 
-33:                                               ; preds = %.sink.split, %2
+36:                                               ; preds = %.sink.split, %2
   ret void
 }
 

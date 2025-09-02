@@ -50,7 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [16 x i8] c"frame MD5 muxer\00", align 1
 @framemd5_class = internal constant { ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @.str.34, ptr @av_default_item_name, ptr @framemd5_options, i32 3932772, i32 0, i32 0, i32 0, ptr null, ptr null, ptr null, ptr null, i32 0, [4 x i8] zeroinitializer }, align 8
 @framemd5_options = internal constant <{ { ptr, ptr, i32, i32, { ptr }, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } }> <{ { ptr, ptr, i32, i32, { ptr }, double, double, i32, [4 x i8], ptr } { ptr @.str, ptr @.str.12, i32 16, i32 6, { ptr } { ptr @.str.2 }, double 0.000000e+00, double 0.000000e+00, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.23, ptr @.str.24, i32 28, i32 2, %union.anon { i64 2 }, double 1.000000e+00, double 2.000000e+00, i32 1, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } zeroinitializer }>, align 16
-@switch.table.hash_write_trailer = private unnamed_addr constant [5 x i32] [i32 118, i32 97, i32 100, i32 115, i32 116], align 4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @hash_write_packet(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -106,15 +105,15 @@ define internal noundef i32 @hash_write_trailer(ptr noundef readonly captures(no
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %15
 
-._crit_edge:                                      ; preds = %38, %7
+._crit_edge:                                      ; preds = %39, %7
   ret i32 0
 
-15:                                               ; preds = %.lr.ph, %38
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
+15:                                               ; preds = %.lr.ph, %39
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %16 = load i32, ptr %5, align 8, !tbaa !27
   %.not17 = icmp eq i32 %16, 0
-  br i1 %.not17, label %32, label %17
+  br i1 %.not17, label %33, label %17
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %12, align 8, !tbaa !38
@@ -124,46 +123,42 @@ define internal noundef i32 @hash_write_trailer(ptr noundef readonly captures(no
   %22 = load ptr, ptr %21, align 8, !tbaa !41
   %23 = load i32, ptr %22, align 8, !tbaa !44
   %24 = icmp ult i32 %23, 5
-  br i1 %24, label %switch.lookup, label %get_media_type_char.exit
+  %switch.cast.i = zext i32 %23 to i40
+  %switch.shiftamt.i = shl nuw nsw i40 %switch.cast.i, 3
+  %switch.downshift.i = lshr i40 500152164726, %switch.shiftamt.i
+  %switch.masked.i = trunc i40 %switch.downshift.i to i32
+  %25 = and i32 %switch.masked.i, 119
+  %26 = select i1 %24, i32 %25, i32 63
+  %27 = load ptr, ptr %13, align 8, !tbaa !24
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %29 = load ptr, ptr %28, align 8, !tbaa !33
+  %30 = call ptr @av_hash_get_name(ptr noundef %29) #6
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 56, ptr noundef nonnull @.str.15, i32 noundef %31, i32 noundef %26, ptr noundef %30) #6
+  br label %39
 
-switch.lookup:                                    ; preds = %17
-  %25 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hash_write_trailer, i64 %25
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %get_media_type_char.exit
+33:                                               ; preds = %15
+  %34 = load ptr, ptr %13, align 8, !tbaa !24
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %36 = load ptr, ptr %35, align 8, !tbaa !33
+  %37 = call ptr @av_hash_get_name(ptr noundef %36) #6
+  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 56, ptr noundef nonnull @.str.16, ptr noundef %37) #6
+  br label %39
 
-get_media_type_char.exit:                         ; preds = %17, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 63, %17 ]
-  %26 = load ptr, ptr %13, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
-  %28 = load ptr, ptr %27, align 8, !tbaa !33
-  %29 = call ptr @av_hash_get_name(ptr noundef %28) #6
-  %30 = trunc nuw nsw i64 %indvars.iv to i32
-  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 56, ptr noundef nonnull @.str.15, i32 noundef %30, i32 noundef %.0.i, ptr noundef %29) #6
-  br label %38
-
-32:                                               ; preds = %15
-  %33 = load ptr, ptr %13, align 8, !tbaa !24
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8, !tbaa !33
-  %36 = call ptr @av_hash_get_name(ptr noundef %35) #6
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 56, ptr noundef nonnull @.str.16, ptr noundef %36) #6
-  br label %38
-
-38:                                               ; preds = %32, %get_media_type_char.exit
-  %39 = load ptr, ptr %13, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8, !tbaa !33
-  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 %42
-  %44 = trunc i64 %42 to i32
-  %45 = sub i32 256, %44
-  call void @av_hash_final_hex(ptr noundef %41, ptr noundef nonnull %43, i32 noundef %45) #6
-  %46 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %2, i64 noundef 256, ptr noundef nonnull @.str.17) #6
-  %47 = load ptr, ptr %14, align 8, !tbaa !47
-  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
-  %49 = trunc i64 %48 to i32
-  call void @avio_write(ptr noundef %47, ptr noundef nonnull %2, i32 noundef %49) #6
+39:                                               ; preds = %33, %17
+  %40 = load ptr, ptr %13, align 8, !tbaa !24
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8, !tbaa !33
+  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 %43
+  %45 = trunc i64 %43 to i32
+  %46 = sub i32 256, %45
+  call void @av_hash_final_hex(ptr noundef %42, ptr noundef nonnull %44, i32 noundef %46) #6
+  %47 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %2, i64 noundef 256, ptr noundef nonnull @.str.17) #6
+  %48 = load ptr, ptr %14, align 8, !tbaa !47
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
+  %50 = trunc i64 %49 to i32
+  call void @avio_write(ptr noundef %48, ptr noundef nonnull %2, i32 noundef %50) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

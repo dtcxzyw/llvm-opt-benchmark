@@ -848,98 +848,20 @@ define internal fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h0cf78d91d2710
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef range(i8 0, 6) i8 @"_ZN86_$LT$enum_iterator..All$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h61000b7621f63b45E"(ptr noalias noundef align 1 captures(none) dereferenceable(1) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 1, !range !72, !noundef !9
-  store i8 5, ptr %0, align 1
-  switch i8 %2, label %default.unreachable [
-    i8 5, label %7
-    i8 0, label %"_ZN17meilisearch_types5tasks1_86_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Status$GT$4next17h463426785008c0eaE.exit"
-    i8 1, label %3
-    i8 2, label %4
-    i8 3, label %5
-    i8 4, label %6
-  ]
-
-default.unreachable:                              ; preds = %1
-  unreachable
-
-3:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_86_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Status$GT$4next17h463426785008c0eaE.exit"
-
-4:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_86_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Status$GT$4next17h463426785008c0eaE.exit"
-
-5:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_86_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Status$GT$4next17h463426785008c0eaE.exit"
-
-6:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_86_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Status$GT$4next17h463426785008c0eaE.exit"
-
-"_ZN17meilisearch_types5tasks1_86_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Status$GT$4next17h463426785008c0eaE.exit": ; preds = %1, %3, %4, %5, %6
-  %.sroa.0.0.i = phi i8 [ 2, %3 ], [ 3, %4 ], [ 4, %5 ], [ 5, %6 ], [ 1, %1 ]
-  store i8 %.sroa.0.0.i, ptr %0, align 1
-  br label %7
-
-7:                                                ; preds = %1, %"_ZN17meilisearch_types5tasks1_86_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Status$GT$4next17h463426785008c0eaE.exit"
+  %3 = icmp eq i8 %2, 5
+  %switch.offset.i = add nuw nsw i8 %2, 1
+  %spec.select = select i1 %3, i8 5, i8 %switch.offset.i
+  store i8 %spec.select, ptr %0, align 1
   ret i8 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef range(i8 0, 12) i8 @"_ZN86_$LT$enum_iterator..All$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc27b8fb33e78a021E"(ptr noalias noundef align 1 captures(none) dereferenceable(1) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 1, !range !73, !noundef !9
-  store i8 11, ptr %0, align 1
-  switch i8 %2, label %default.unreachable [
-    i8 11, label %13
-    i8 0, label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-    i8 1, label %3
-    i8 2, label %4
-    i8 3, label %5
-    i8 4, label %6
-    i8 5, label %7
-    i8 6, label %8
-    i8 7, label %9
-    i8 8, label %10
-    i8 9, label %11
-    i8 10, label %12
-  ]
-
-default.unreachable:                              ; preds = %1
-  unreachable
-
-3:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-
-4:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-
-5:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-
-6:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-
-7:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-
-8:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-
-9:                                                ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-
-10:                                               ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-
-11:                                               ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-
-12:                                               ; preds = %1
-  br label %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
-
-"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit": ; preds = %1, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12
-  %.sroa.0.0.i = phi i8 [ 2, %3 ], [ 3, %4 ], [ 4, %5 ], [ 5, %6 ], [ 6, %7 ], [ 7, %8 ], [ 8, %9 ], [ 9, %10 ], [ 10, %11 ], [ 11, %12 ], [ 1, %1 ]
-  store i8 %.sroa.0.0.i, ptr %0, align 1
-  br label %13
-
-13:                                               ; preds = %1, %"_ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$4next17h21a0e4854d153faaE.exit"
+  %3 = icmp eq i8 %2, 11
+  %switch.offset.i = add nuw nsw i8 %2, 1
+  %spec.select = select i1 %3, i8 11, i8 %switch.offset.i
+  store i8 %spec.select, ptr %0, align 1
   ret i8 %2
 }
 

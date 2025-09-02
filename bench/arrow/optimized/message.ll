@@ -1436,7 +1436,7 @@ _ZNK5arrow3ipc7Message11MessageImpl8metadataEv.exit: ; preds = %2, %11, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 6) i32 @_ZNK5arrow3ipc7Message4typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 257) i32 @_ZNK5arrow3ipc7Message4typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !72
@@ -1458,15 +1458,17 @@ _ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i: ; preds = %_ZNK22ar
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !22
-  %switch.tableidx = add i8 %15, -1
-  %16 = icmp ult i8 %switch.tableidx, 5
-  %switch.offset = zext nneg i8 %15 to i32
-  %spec.select = select i1 %16, i32 %switch.offset, i32 0
+  %.fr.i = freeze i8 %15
+  %16 = add i8 %.fr.i, -1
+  %17 = icmp ult i8 %16, 5
+  %switch.idx.cast.i = zext nneg i8 %16 to i32
+  %switch.offset.i = add nuw nsw i32 %switch.idx.cast.i, 1
+  %spec.select.i = select i1 %17, i32 %switch.offset.i, i32 0
   br label %_ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit
 
-_ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit:  ; preds = %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i, %1, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i
-  %.0.i = phi i32 [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ 0, %1 ], [ %spec.select, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i ]
-  ret i32 %.0.i
+_ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit:  ; preds = %1, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i
+  %18 = phi i32 [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ 0, %1 ], [ %spec.select.i, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i ]
+  ret i32 %18
 }
 
 ; Function Attrs: mustprogress uwtable

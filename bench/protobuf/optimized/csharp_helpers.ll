@@ -2092,8 +2092,9 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %if.end, %if.then.i, %lor.lhs.false.i.i.i, %if.then.i.i.i, %if.then5.i.i.i
   %type_.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 2
   %6 = load i8, ptr %type_.i, align 2
-  %switch.tableidx = add i8 %6, -1
-  %7 = icmp ult i8 %switch.tableidx, 18
+  %conv.i = zext i8 %6 to i32
+  %switch.tableidx = add nsw i32 %conv.i, -1
+  %7 = icmp ult i32 %switch.tableidx, 18
   br i1 %7, label %switch.lookup, label %sw.default
 
 sw.default:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
@@ -2112,7 +2113,7 @@ lpad:                                             ; preds = %sw.default
   unreachable
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  %switch.cast = zext nneg i8 %switch.tableidx to i18
+  %switch.cast = trunc nuw nsw i32 %switch.tableidx to i18
   %switch.downshift = lshr i18 3840, %switch.cast
   %switch.masked = trunc i18 %switch.downshift to i1
   br label %return
