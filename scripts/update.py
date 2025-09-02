@@ -360,7 +360,7 @@ def update_baseline():
     for _ in range(5):
         try:
             out = subprocess.check_output(['git', 'push'], stderr=subprocess.STDOUT, timeout=1800).decode()
-            if "Your branch is up to date with" in out:
+            if "Everything up-to-date" in out:
                 return True
             time.sleep(10.0)
         except Exception:
