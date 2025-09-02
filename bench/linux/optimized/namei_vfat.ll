@@ -2208,7 +2208,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   store i8 %539, ptr %550, align 1
   %551 = getelementptr inbounds nuw i8, ptr %546, i64 26
   store i16 0, ptr %551, align 2
-  %552 = mul nuw nsw i64 %545, 13
+  %552 = mul nsw i64 %545, 13
   %553 = add nuw nsw i64 %552, 4294967283
   %554 = and i64 %553, 4294967295
   %555 = getelementptr inbounds nuw i8, ptr %546, i64 1

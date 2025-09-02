@@ -45387,7 +45387,7 @@ _ZN5image6codecs3hdr7decoder14decode_old_rle17haab74003453099beE.exit.thread.i.i
   %585 = phi i64 [ %587, %595 ], [ 0, %574 ]
   %586 = getelementptr inbounds nuw i8, ptr %584, i64 12
   %587 = add nuw nsw i64 %585, 1
-  %588 = mul nuw i64 %585, 12
+  %588 = mul i64 %585, 12
   %589 = icmp ugt i64 %588, %3
   br i1 %589, label %594, label %590
 
