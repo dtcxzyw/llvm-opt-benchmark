@@ -973,8 +973,8 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_time(ptr noundef readnone captur
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %.lr.ph.i.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.lr.ph.i.preheader ]
+9:                                                ; preds = %.lr.ph, %.lr.ph.i
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.lr.ph.i ]
   %10 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !55
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
@@ -995,9 +995,9 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_time(ptr noundef readnone captur
 19:                                               ; preds = %18, %13, %9
   %20 = tail call ptr @pmix_bfrop_buffer_extend(ptr noundef %1, i64 noundef 8) #8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %pmix20_bfrop_pack_int64.exit, label %.lr.ph.i.preheader
+  br i1 %21, label %pmix20_bfrop_pack_int64.exit, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %19
+.lr.ph.i:                                         ; preds = %19
   %.sroa.0.0.insert.insert.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %11)
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %20, align 1
   %22 = load ptr, ptr %7, align 8, !tbaa !23
@@ -1010,8 +1010,8 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_time(ptr noundef readnone captur
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %pmix20_bfrop_pack_int64.exit, label %9, !llvm.loop !58
 
-pmix20_bfrop_pack_int64.exit:                     ; preds = %.lr.ph.i.preheader, %19, %5
-  %.0 = phi i32 [ 0, %5 ], [ -29, %19 ], [ 0, %.lr.ph.i.preheader ]
+pmix20_bfrop_pack_int64.exit:                     ; preds = %.lr.ph.i, %19, %5
+  %.0 = phi i32 [ 0, %5 ], [ -29, %19 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 

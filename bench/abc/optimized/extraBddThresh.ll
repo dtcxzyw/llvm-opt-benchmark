@@ -3608,12 +3608,12 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshHeuristic(ptr noundef %0, i
   %5 = alloca [16 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %1, 2
-  br i1 %6, label %75, label %7
+  br i1 %6, label %74, label %7
 
 7:                                                ; preds = %3
   %8 = tail call fastcc i32 @Abc_TtIsUnate(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %75, label %9
+  br i1 %.not, label %74, label %9
 
 9:                                                ; preds = %7
   tail call fastcc void @Abc_TtMakePosUnate(ptr noundef %0, i32 noundef %1)
@@ -3692,117 +3692,115 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.lr.ph.i69
 
-.lr.ph.preheader:                                 ; preds = %50
+.lr.ph.preheader:                                 ; preds = %49
   %35 = add nsw i32 %.024.sink.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 16 %4, i64 %11, i1 false), !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = tail call ptr (...) @Abc_FrameReadManDd() #19
   %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 range(i32 2, -2147483648) %1, i32 16)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 0, ptr %38, align 4, !tbaa !108
-  store i32 %spec.store.select.i, ptr %37, align 8, !tbaa !111
-  %39 = zext nneg i32 %spec.store.select.i to i64
-  %40 = tail call noalias ptr @malloc(i64 noundef %39) #18
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %40, ptr %41, align 8, !tbaa !112
+  store i32 16, ptr %37, align 8, !tbaa !111
+  %39 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %39, ptr %40, align 8, !tbaa !112
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   br label %.lr.ph
 
-.lr.ph.i69:                                       ; preds = %50, %Extra_ThreshComputeChow.exit
-  %indvars.iv.i70 = phi i64 [ 0, %Extra_ThreshComputeChow.exit ], [ %indvars.iv.next.i72, %50 ]
-  %.024.i = phi i32 [ 0, %Extra_ThreshComputeChow.exit ], [ %.024.sink.i, %50 ]
-  %42 = icmp eq i64 %indvars.iv.i70, 0
-  br i1 %42, label %50, label %43
+.lr.ph.i69:                                       ; preds = %49, %Extra_ThreshComputeChow.exit
+  %indvars.iv.i70 = phi i64 [ 0, %Extra_ThreshComputeChow.exit ], [ %indvars.iv.next.i72, %49 ]
+  %.024.i = phi i32 [ 0, %Extra_ThreshComputeChow.exit ], [ %.024.sink.i, %49 ]
+  %41 = icmp eq i64 %indvars.iv.i70, 0
+  br i1 %41, label %49, label %42
 
-43:                                               ; preds = %.lr.ph.i69
-  %44 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i70
-  %45 = load i32, ptr %44, align 4, !tbaa !3
-  %46 = getelementptr i8, ptr %44, i64 -4
-  %47 = load i32, ptr %46, align 4, !tbaa !3
-  %48 = icmp ne i32 %45, %47
-  %49 = zext i1 %48 to i32
-  %spec.select.i71 = add nsw i32 %.024.i, %49
-  br label %50
+42:                                               ; preds = %.lr.ph.i69
+  %43 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i70
+  %44 = load i32, ptr %43, align 4, !tbaa !3
+  %45 = getelementptr i8, ptr %43, i64 -4
+  %46 = load i32, ptr %45, align 4, !tbaa !3
+  %47 = icmp ne i32 %44, %46
+  %48 = zext i1 %47 to i32
+  %spec.select.i71 = add nsw i32 %.024.i, %48
+  br label %49
 
-50:                                               ; preds = %43, %.lr.ph.i69
-  %.024.sink.i = phi i32 [ %.024.i, %.lr.ph.i69 ], [ %spec.select.i71, %43 ]
-  %51 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i70
-  store i32 %.024.sink.i, ptr %51, align 4, !tbaa !3
+49:                                               ; preds = %42, %.lr.ph.i69
+  %.024.sink.i = phi i32 [ %.024.i, %.lr.ph.i69 ], [ %spec.select.i71, %42 ]
+  %50 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i70
+  store i32 %.024.sink.i, ptr %50, align 4, !tbaa !3
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %10
   br i1 %exitcond.not.i73, label %.lr.ph.preheader, label %.lr.ph.i69, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06481 = phi i32 [ %53, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %52 = tail call ptr @Cudd_bddIthVar(ptr noundef %36, i32 noundef %.06481) #19
-  %53 = add nuw nsw i32 %.06481, 1
-  %exitcond.not = icmp eq i32 %53, %smax
+  %.06481 = phi i32 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %51 = tail call ptr @Cudd_bddIthVar(ptr noundef %36, i32 noundef %.06481) #19
+  %52 = add nuw nsw i32 %.06481, 1
+  %exitcond.not = icmp eq i32 %52, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %54 = tail call ptr @Kit_TruthToBdd(ptr noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 0) #19
-  tail call void @Cudd_Ref(ptr noundef %54) #19
-  %55 = tail call ptr @Abc_ConvertBddToSop(ptr noundef null, ptr noundef %36, ptr noundef %54, ptr noundef %54, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %37, i32 noundef 1) #19
-  %56 = icmp samesign ult i32 %1, 6
-  %57 = add nsw i32 %1, -5
-  %58 = shl nuw i32 1, %57
-  %59 = select i1 %56, i32 1, i32 %58
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph.preheader.i75, label %Abc_TtNot.exit
+  %53 = tail call ptr @Kit_TruthToBdd(ptr noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 0) #19
+  tail call void @Cudd_Ref(ptr noundef %53) #19
+  %54 = tail call ptr @Abc_ConvertBddToSop(ptr noundef null, ptr noundef %36, ptr noundef %53, ptr noundef %53, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %37, i32 noundef 1) #19
+  %55 = icmp samesign ult i32 %1, 6
+  %56 = add nsw i32 %1, -5
+  %57 = shl nuw i32 1, %56
+  %58 = select i1 %55, i32 1, i32 %57
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.lr.ph.preheader.i75, label %Abc_TtNot.exit
 
 .lr.ph.preheader.i75:                             ; preds = %._crit_edge
-  %wide.trip.count.i76 = zext nneg i32 %59 to i64
+  %wide.trip.count.i76 = zext nneg i32 %58 to i64
   br label %.lr.ph.i77
 
 .lr.ph.i77:                                       ; preds = %.lr.ph.i77, %.lr.ph.preheader.i75
   %indvars.iv.i78 = phi i64 [ 0, %.lr.ph.preheader.i75 ], [ %indvars.iv.next.i79, %.lr.ph.i77 ]
-  %61 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i78
-  %62 = load i64, ptr %61, align 8, !tbaa !9
-  %63 = xor i64 %62, -1
-  store i64 %63, ptr %61, align 8, !tbaa !9
+  %60 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i78
+  %61 = load i64, ptr %60, align 8, !tbaa !9
+  %62 = xor i64 %61, -1
+  store i64 %62, ptr %60, align 8, !tbaa !9
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %wide.trip.count.i76
   br i1 %exitcond.not.i80, label %Abc_TtNot.exit, label %.lr.ph.i77, !llvm.loop !114
 
 Abc_TtNot.exit:                                   ; preds = %.lr.ph.i77, %._crit_edge
-  %64 = tail call ptr @Kit_TruthToBdd(ptr noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 0) #19
-  tail call void @Cudd_Ref(ptr noundef %64) #19
-  %65 = tail call ptr @Abc_ConvertBddToSop(ptr noundef null, ptr noundef %36, ptr noundef %64, ptr noundef %64, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %37, i32 noundef 1) #19
-  tail call void @Cudd_RecursiveDeref(ptr noundef %36, ptr noundef %54) #19
-  tail call void @Cudd_RecursiveDeref(ptr noundef %36, ptr noundef %64) #19
-  %66 = call i32 @Extra_ThreshAssignWeights(ptr poison, ptr noundef %55, ptr noundef %65, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %35, i32 noundef 1)
-  %67 = icmp sgt i32 %1, 5
-  %68 = icmp eq i32 %66, 0
-  %or.cond382 = and i1 %67, %68
+  %63 = tail call ptr @Kit_TruthToBdd(ptr noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 0) #19
+  tail call void @Cudd_Ref(ptr noundef %63) #19
+  %64 = tail call ptr @Abc_ConvertBddToSop(ptr noundef null, ptr noundef %36, ptr noundef %63, ptr noundef %63, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %37, i32 noundef 1) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef %36, ptr noundef %53) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef %36, ptr noundef %63) #19
+  %65 = call i32 @Extra_ThreshAssignWeights(ptr poison, ptr noundef %54, ptr noundef %64, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %35, i32 noundef 1)
+  %66 = icmp sgt i32 %1, 5
+  %67 = icmp eq i32 %65, 0
+  %or.cond382 = and i1 %66, %67
   br i1 %or.cond382, label %.lr.ph84.split, label %.critedge
 
 .lr.ph84.split:                                   ; preds = %Abc_TtNot.exit, %.lr.ph84.split
-  %.183 = phi i32 [ %70, %.lr.ph84.split ], [ 2, %Abc_TtNot.exit ]
-  %69 = call i32 @Extra_ThreshAssignWeights(ptr poison, ptr noundef %55, ptr noundef %65, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %35, i32 noundef %.183)
-  %70 = add nuw nsw i32 %.183, 1
-  %71 = icmp samesign ult i32 %.183, 3
-  %72 = icmp eq i32 %69, 0
-  %or.cond = select i1 %71, i1 %72, i1 false
+  %.183 = phi i32 [ %69, %.lr.ph84.split ], [ 2, %Abc_TtNot.exit ]
+  %68 = call i32 @Extra_ThreshAssignWeights(ptr poison, ptr noundef %54, ptr noundef %64, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %35, i32 noundef %.183)
+  %69 = add nuw nsw i32 %.183, 1
+  %70 = icmp samesign ult i32 %.183, 3
+  %71 = icmp eq i32 %68, 0
+  %or.cond = select i1 %70, i1 %71, i1 false
   br i1 %or.cond, label %.lr.ph84.split, label %.critedge, !llvm.loop !115
 
 .critedge:                                        ; preds = %.lr.ph84.split, %Abc_TtNot.exit
-  %.065.lcssa = phi i32 [ %66, %Abc_TtNot.exit ], [ %69, %.lr.ph84.split ]
-  tail call void @free(ptr noundef %55) #19
-  tail call void @free(ptr noundef %65) #19
-  %73 = load ptr, ptr %41, align 8, !tbaa !112
-  %.not.i = icmp eq ptr %73, null
-  br i1 %.not.i, label %Vec_StrFree.exit, label %74
+  %.065.lcssa = phi i32 [ %65, %Abc_TtNot.exit ], [ %68, %.lr.ph84.split ]
+  tail call void @free(ptr noundef %54) #19
+  tail call void @free(ptr noundef %64) #19
+  %72 = load ptr, ptr %40, align 8, !tbaa !112
+  %.not.i = icmp eq ptr %72, null
+  br i1 %.not.i, label %Vec_StrFree.exit, label %73
 
-74:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %73) #19
+73:                                               ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %72) #19
   br label %Vec_StrFree.exit
 
-Vec_StrFree.exit:                                 ; preds = %.critedge, %74
+Vec_StrFree.exit:                                 ; preds = %.critedge, %73
   tail call void @free(ptr noundef nonnull %37) #19
-  br label %75
+  br label %74
 
-75:                                               ; preds = %7, %3, %Vec_StrFree.exit
+74:                                               ; preds = %7, %3, %Vec_StrFree.exit
   %.0 = phi i32 [ %.065.lcssa, %Vec_StrFree.exit ], [ 1, %3 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -3996,9 +3994,6 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #15

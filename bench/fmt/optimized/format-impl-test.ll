@@ -39269,22 +39269,21 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail13format_dragonENS1_8basic_fp
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %spec.select = call i64 @llvm.umax.i64(i64 %42, i64 48)
-  %48 = invoke noundef ptr @_ZN3fmt3v116detail9allocatorIjE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %47, i64 noundef %spec.select)
+  %48 = invoke noundef ptr @_ZN3fmt3v116detail9allocatorIjE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %47, i64 noundef 48)
           to label %.noexc122 unwind label %79
 
 .noexc122:                                        ; preds = %46
   %49 = load i64, ptr %12, align 8, !tbaa !56
-  %50 = icmp ule i64 %49, %spec.select
+  %50 = icmp ult i64 %49, 49
   call void @llvm.assume(i1 %50)
-  %51 = shl i64 %49, 2
+  %51 = shl nuw nsw i64 %49, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %48, ptr nonnull align 8 %13, i64 %51, i1 false)
   store ptr %48, ptr %6, align 8, !tbaa !23
-  store i64 %spec.select, ptr %10, align 8, !tbaa !24
+  store i64 48, ptr %10, align 8, !tbaa !24
   br label %52
 
 52:                                               ; preds = %.noexc122, %45
-  %53 = phi i64 [ 32, %45 ], [ %spec.select, %.noexc122 ]
+  %53 = phi i64 [ 32, %45 ], [ 48, %.noexc122 ]
   %54 = call noundef i64 @llvm.umin.i64(i64 %42, i64 %53)
   store i64 %54, ptr %12, align 8, !tbaa !56
   store i32 0, ptr %14, align 8, !tbaa !25
@@ -39601,22 +39600,21 @@ _ZN3fmt3v116detail6bigintlSEi.exit:               ; preds = %_ZN3fmt3v116detail6
 
 166:                                              ; preds = %165
   %167 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %spec.select747 = call i64 @llvm.umax.i64(i64 %162, i64 48)
-  %168 = invoke noundef ptr @_ZN3fmt3v116detail9allocatorIjE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %167, i64 noundef %spec.select747)
+  %168 = invoke noundef ptr @_ZN3fmt3v116detail9allocatorIjE8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %167, i64 noundef 48)
           to label %.noexc163 unwind label %79
 
 .noexc163:                                        ; preds = %166
   %169 = load i64, ptr %12, align 8, !tbaa !56
-  %170 = icmp ule i64 %169, %spec.select747
+  %170 = icmp ult i64 %169, 49
   call void @llvm.assume(i1 %170)
-  %171 = shl i64 %169, 2
+  %171 = shl nuw nsw i64 %169, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %168, ptr nonnull align 8 %13, i64 %171, i1 false)
   store ptr %168, ptr %6, align 8, !tbaa !23
-  store i64 %spec.select747, ptr %10, align 8, !tbaa !24
+  store i64 48, ptr %10, align 8, !tbaa !24
   br label %172
 
 172:                                              ; preds = %.noexc163, %165
-  %173 = phi i64 [ 32, %165 ], [ %spec.select747, %.noexc163 ]
+  %173 = phi i64 [ 32, %165 ], [ 48, %.noexc163 ]
   %174 = call noundef i64 @llvm.umin.i64(i64 %162, i64 %173)
   store i64 %174, ptr %12, align 8, !tbaa !56
   store i32 0, ptr %14, align 8, !tbaa !25

@@ -8366,305 +8366,302 @@ TextToPascal.exit:                                ; preds = %12, %24, %2
   %57 = call ptr @CompressData(ptr noundef %56, i32 noundef %55, ptr noundef nonnull %6) #44
   %58 = getelementptr inbounds nuw i8, ptr %27, i64 1603
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToUpper.buffer, i8 0, i64 1024, i1 false)
-  br label %.preheader.i
+  %59 = load i8, ptr %3, align 16
+  %.not16.i217 = icmp eq i8 %59, 0
+  br i1 %.not16.i217, label %TextToUpper.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %49, %61
-  %indvars.iv.i191 = phi i64 [ %indvars.iv.next.i195, %61 ], [ 0, %49 ]
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i191
-  %60 = load i8, ptr %59, align 1
-  %.not16.i = icmp eq i8 %60, 0
-  br i1 %.not16.i, label %TextToUpper.exit, label %61
-
-61:                                               ; preds = %.preheader.i
-  %62 = add i8 %60, -97
-  %or.cond.i192 = icmp ult i8 %62, 26
+.preheader.i:                                     ; preds = %49, %.preheader.i
+  %60 = phi i8 [ %64, %.preheader.i ], [ %59, %49 ]
+  %indvars.iv.i191218 = phi i64 [ %indvars.iv.next.i195, %.preheader.i ], [ 0, %49 ]
+  %61 = add i8 %60, -97
+  %or.cond.i192 = icmp ult i8 %61, 26
   %narrow.i193 = add nsw i8 %60, -32
   %spec.select.i194 = select i1 %or.cond.i192, i8 %narrow.i193, i8 %60
-  %63 = getelementptr inbounds nuw i8, ptr @TextToUpper.buffer, i64 %indvars.iv.i191
-  store i8 %spec.select.i194, ptr %63, align 1
-  %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i191, 1
-  %exitcond.not.i196 = icmp eq i64 %indvars.iv.next.i195, 1023
-  br i1 %exitcond.not.i196, label %TextToUpper.exit, label %.preheader.i
+  %62 = getelementptr inbounds nuw i8, ptr @TextToUpper.buffer, i64 %indvars.iv.i191218
+  store i8 %spec.select.i194, ptr %62, align 1
+  %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i191218, 1
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i195
+  %64 = load i8, ptr %63, align 1
+  %.not16.i = icmp eq i8 %64, 0
+  br i1 %.not16.i, label %TextToUpper.exit, label %.preheader.i
 
-TextToUpper.exit:                                 ; preds = %.preheader.i, %61
-  %64 = load i32, ptr %6, align 4
-  %65 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull @TextToUpper.buffer, i32 noundef %64) #44
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr i8, ptr %27, i64 %66
-  %68 = getelementptr i8, ptr %67, i64 1603
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %68, ptr noundef nonnull align 1 dereferenceable(48) @.str.24, i64 47, i1 false)
-  %69 = getelementptr i8, ptr %67, i64 1650
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %69, ptr noundef nonnull align 1 dereferenceable(54) @.str.25, i64 54, i1 false)
-  %70 = add nsw i32 %65, 1703
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %27, i64 %71
+TextToUpper.exit:                                 ; preds = %.preheader.i, %49
+  %65 = load i32, ptr %6, align 4
+  %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull @TextToUpper.buffer, i32 noundef %65) #44
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr i8, ptr %27, i64 %67
+  %69 = getelementptr i8, ptr %68, i64 1603
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %69, ptr noundef nonnull align 1 dereferenceable(48) @.str.24, i64 47, i1 false)
+  %70 = getelementptr i8, ptr %68, i64 1650
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %70, ptr noundef nonnull align 1 dereferenceable(54) @.str.25, i64 54, i1 false)
+  %71 = add nsw i32 %66, 1703
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i8, ptr %27, i64 %72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToUpper.buffer, i8 0, i64 1024, i1 false)
-  br label %.preheader.i198
+  %74 = load i8, ptr %3, align 16
+  %.not16.i200219 = icmp eq i8 %74, 0
+  br i1 %.not16.i200219, label %TextToUpper.exit206, label %.preheader.i198
 
-.preheader.i198:                                  ; preds = %TextToUpper.exit, %75
-  %indvars.iv.i199 = phi i64 [ %indvars.iv.next.i204, %75 ], [ 0, %TextToUpper.exit ]
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i199
-  %74 = load i8, ptr %73, align 1
-  %.not16.i200 = icmp eq i8 %74, 0
-  br i1 %.not16.i200, label %TextToUpper.exit206, label %75
-
-75:                                               ; preds = %.preheader.i198
-  %76 = add i8 %74, -97
+.preheader.i198:                                  ; preds = %TextToUpper.exit, %.preheader.i198
+  %75 = phi i8 [ %79, %.preheader.i198 ], [ %74, %TextToUpper.exit ]
+  %indvars.iv.i199220 = phi i64 [ %indvars.iv.next.i204, %.preheader.i198 ], [ 0, %TextToUpper.exit ]
+  %76 = add i8 %75, -97
   %or.cond.i201 = icmp ult i8 %76, 26
-  %narrow.i202 = add nsw i8 %74, -32
-  %spec.select.i203 = select i1 %or.cond.i201, i8 %narrow.i202, i8 %74
-  %77 = getelementptr inbounds nuw i8, ptr @TextToUpper.buffer, i64 %indvars.iv.i199
+  %narrow.i202 = add nsw i8 %75, -32
+  %spec.select.i203 = select i1 %or.cond.i201, i8 %narrow.i202, i8 %75
+  %77 = getelementptr inbounds nuw i8, ptr @TextToUpper.buffer, i64 %indvars.iv.i199220
   store i8 %spec.select.i203, ptr %77, align 1
-  %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i199, 1
-  %exitcond.not.i205 = icmp eq i64 %indvars.iv.next.i204, 1023
-  br i1 %exitcond.not.i205, label %TextToUpper.exit206, label %.preheader.i198
+  %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i199220, 1
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i204
+  %79 = load i8, ptr %78, align 1
+  %.not16.i200 = icmp eq i8 %79, 0
+  br i1 %.not16.i200, label %TextToUpper.exit206, label %.preheader.i198
 
-TextToUpper.exit206:                              ; preds = %.preheader.i198, %75
-  %78 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %3, ptr noundef nonnull @TextToUpper.buffer) #44
-  %79 = add nsw i32 %78, %70
-  %80 = load i32, ptr %6, align 4
-  %81 = icmp sgt i32 %80, 1
-  br i1 %81, label %.lr.ph, label %TextToUpper.exit206.._crit_edge_crit_edge
+TextToUpper.exit206:                              ; preds = %.preheader.i198, %TextToUpper.exit
+  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %3, ptr noundef nonnull @TextToUpper.buffer) #44
+  %81 = add nsw i32 %80, %71
+  %82 = load i32, ptr %6, align 4
+  %83 = icmp sgt i32 %82, 1
+  br i1 %83, label %.lr.ph224, label %TextToUpper.exit206.._crit_edge_crit_edge
 
 TextToUpper.exit206.._crit_edge_crit_edge:        ; preds = %TextToUpper.exit206
-  %82 = add nsw i32 %80, -1
-  %.pre245 = sext i32 %82 to i64
+  %84 = add nsw i32 %82, -1
+  %.pre255 = sext i32 %84 to i64
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %TextToUpper.exit206.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre245, %TextToUpper.exit206.._crit_edge_crit_edge ], [ %115, %.lr.ph ]
-  %.0188.lcssa = phi i32 [ %79, %TextToUpper.exit206.._crit_edge_crit_edge ], [ %112, %.lr.ph ]
-  %83 = sext i32 %.0188.lcssa to i64
-  %84 = getelementptr inbounds i8, ptr %27, i64 %83
-  %85 = getelementptr inbounds i8, ptr %57, i64 %.pre-phi
-  %86 = load i8, ptr %85, align 1
-  %87 = zext i8 %86 to i32
-  %88 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %87) #44
-  %89 = add nsw i32 %88, %.0188.lcssa
+._crit_edge:                                      ; preds = %.lr.ph224, %TextToUpper.exit206.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre255, %TextToUpper.exit206.._crit_edge_crit_edge ], [ %117, %.lr.ph224 ]
+  %.0188.lcssa = phi i32 [ %81, %TextToUpper.exit206.._crit_edge_crit_edge ], [ %114, %.lr.ph224 ]
+  %85 = sext i32 %.0188.lcssa to i64
+  %86 = getelementptr inbounds i8, ptr %27, i64 %85
+  %87 = getelementptr inbounds i8, ptr %57, i64 %.pre-phi
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %89) #44
+  %91 = add nsw i32 %90, %.0188.lcssa
   call void @free(ptr noundef %57) #44
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i8, ptr %27, i64 %90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %91, ptr noundef nonnull align 1 dereferenceable(36) @.str.30, i64 36, i1 false)
-  %92 = add nsw i32 %89, 35
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %27, i64 %93
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %96 = load i32, ptr %95, align 4
-  %97 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %94, ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef nonnull %3, i32 noundef %96) #44
-  %98 = add nsw i32 %97, %92
-  %99 = icmp sgt i32 %96, 0
-  br i1 %99, label %.lr.ph223, label %._crit_edge224
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr %27, i64 %92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %93, ptr noundef nonnull align 1 dereferenceable(36) @.str.30, i64 36, i1 false)
+  %94 = add nsw i32 %91, 35
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds i8, ptr %27, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %98 = load i32, ptr %97, align 4
+  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef nonnull %3, i32 noundef %98) #44
+  %100 = add nsw i32 %99, %94
+  %101 = icmp sgt i32 %98, 0
+  br i1 %101, label %.lr.ph229, label %._crit_edge230
 
-.lr.ph223:                                        ; preds = %._crit_edge
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %101 = load ptr, ptr %100, align 8
-  %wide.trip.count = zext nneg i32 %96 to i64
-  br label %128
+.lr.ph229:                                        ; preds = %._crit_edge
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %103 = load ptr, ptr %102, align 8
+  %wide.trip.count = zext nneg i32 %98 to i64
+  br label %130
 
-.lr.ph:                                           ; preds = %TextToUpper.exit206, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %TextToUpper.exit206 ]
-  %.0188217 = phi i32 [ %112, %.lr.ph ], [ %79, %TextToUpper.exit206 ]
-  %102 = sext i32 %.0188217 to i64
-  %103 = getelementptr inbounds i8, ptr %27, i64 %102
-  %104 = trunc nuw nsw i64 %indvars.iv to i32
-  %105 = urem i32 %104, 20
-  %106 = icmp eq i32 %105, 0
-  %107 = select i1 %106, ptr @.str.27, ptr @.str.28
-  %108 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv
-  %109 = load i8, ptr %108, align 1
-  %110 = zext i8 %109 to i32
-  %111 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(1) %107, i32 noundef %110) #44
-  %112 = add nsw i32 %111, %.0188217
+.lr.ph224:                                        ; preds = %TextToUpper.exit206, %.lr.ph224
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph224 ], [ 0, %TextToUpper.exit206 ]
+  %.0188222 = phi i32 [ %114, %.lr.ph224 ], [ %81, %TextToUpper.exit206 ]
+  %104 = sext i32 %.0188222 to i64
+  %105 = getelementptr inbounds i8, ptr %27, i64 %104
+  %106 = trunc nuw nsw i64 %indvars.iv to i32
+  %107 = urem i32 %106, 20
+  %108 = icmp eq i32 %107, 0
+  %109 = select i1 %108, ptr @.str.27, ptr @.str.28
+  %110 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv
+  %111 = load i8, ptr %110, align 1
+  %112 = zext i8 %111 to i32
+  %113 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull dereferenceable(1) %109, i32 noundef %112) #44
+  %114 = add nsw i32 %113, %.0188222
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %113 = load i32, ptr %6, align 4
-  %114 = add nsw i32 %113, -1
-  %115 = sext i32 %114 to i64
-  %116 = icmp slt i64 %indvars.iv.next, %115
-  br i1 %116, label %.lr.ph, label %._crit_edge
+  %115 = load i32, ptr %6, align 4
+  %116 = add nsw i32 %115, -1
+  %117 = sext i32 %116 to i64
+  %118 = icmp slt i64 %indvars.iv.next, %117
+  br i1 %118, label %.lr.ph224, label %._crit_edge
 
-._crit_edge224:                                   ; preds = %128, %._crit_edge
-  %.1.lcssa = phi i32 [ %98, %._crit_edge ], [ %144, %128 ]
-  %117 = sext i32 %.1.lcssa to i64
-  %118 = getelementptr i8, ptr %27, i64 %117
-  store i32 168442749, ptr %118, align 1
-  %119 = getelementptr i8, ptr %118, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %119, ptr noundef nonnull align 1 dereferenceable(26) @.str.34, i64 25, i1 false)
-  %120 = getelementptr i8, ptr %118, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %120, ptr noundef nonnull align 1 dereferenceable(40) @.str.35, i64 40, i1 false)
-  %121 = add nsw i32 %.1.lcssa, 68
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr %27, i64 %122
-  %124 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %123, ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef nonnull %3, i32 noundef %96) #44
-  %125 = add nsw i32 %124, %121
-  br i1 %99, label %.lr.ph229, label %._crit_edge230
+._crit_edge230:                                   ; preds = %130, %._crit_edge
+  %.1.lcssa = phi i32 [ %100, %._crit_edge ], [ %146, %130 ]
+  %119 = sext i32 %.1.lcssa to i64
+  %120 = getelementptr i8, ptr %27, i64 %119
+  store i32 168442749, ptr %120, align 1
+  %121 = getelementptr i8, ptr %120, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %121, ptr noundef nonnull align 1 dereferenceable(26) @.str.34, i64 25, i1 false)
+  %122 = getelementptr i8, ptr %120, i64 29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %122, ptr noundef nonnull align 1 dereferenceable(40) @.str.35, i64 40, i1 false)
+  %123 = add nsw i32 %.1.lcssa, 68
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i8, ptr %27, i64 %124
+  %126 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %125, ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef nonnull %3, i32 noundef %98) #44
+  %127 = add nsw i32 %126, %123
+  br i1 %101, label %.lr.ph235, label %._crit_edge236
 
-.lr.ph229:                                        ; preds = %._crit_edge224
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %127 = load ptr, ptr %126, align 8
-  %wide.trip.count243 = zext nneg i32 %96 to i64
-  br label %217
+.lr.ph235:                                        ; preds = %._crit_edge230
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %129 = load ptr, ptr %128, align 8
+  %wide.trip.count253 = zext nneg i32 %98 to i64
+  br label %220
 
-128:                                              ; preds = %.lr.ph223, %128
-  %indvars.iv237 = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next238, %128 ]
-  %.1220 = phi i32 [ %98, %.lr.ph223 ], [ %144, %128 ]
-  %129 = sext i32 %.1220 to i64
-  %130 = getelementptr inbounds i8, ptr %27, i64 %129
-  %131 = getelementptr inbounds nuw %struct.Rectangle, ptr %101, i64 %indvars.iv237
-  %132 = load float, ptr %131, align 4
-  %133 = fpext float %132 to double
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 4
-  %135 = load float, ptr %134, align 4
-  %136 = fpext float %135 to double
-  %137 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %138 = load float, ptr %137, align 4
-  %139 = fpext float %138 to double
-  %140 = getelementptr inbounds nuw i8, ptr %131, i64 12
-  %141 = load float, ptr %140, align 4
-  %142 = fpext float %141 to double
-  %143 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(1) @.str.32, double noundef %133, double noundef %136, double noundef %139, double noundef %142) #44
-  %144 = add nsw i32 %143, %.1220
-  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge224, label %128
+130:                                              ; preds = %.lr.ph229, %130
+  %indvars.iv247 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next248, %130 ]
+  %.1226 = phi i32 [ %100, %.lr.ph229 ], [ %146, %130 ]
+  %131 = sext i32 %.1226 to i64
+  %132 = getelementptr inbounds i8, ptr %27, i64 %131
+  %133 = getelementptr inbounds nuw %struct.Rectangle, ptr %103, i64 %indvars.iv247
+  %134 = load float, ptr %133, align 4
+  %135 = fpext float %134 to double
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  %137 = load float, ptr %136, align 4
+  %138 = fpext float %137 to double
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %140 = load float, ptr %139, align 4
+  %141 = fpext float %140 to double
+  %142 = getelementptr inbounds nuw i8, ptr %133, i64 12
+  %143 = load float, ptr %142, align 4
+  %144 = fpext float %143 to double
+  %145 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) @.str.32, double noundef %135, double noundef %138, double noundef %141, double noundef %144) #44
+  %146 = add nsw i32 %145, %.1226
+  %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next248, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge230, label %130
 
-._crit_edge230:                                   ; preds = %217, %._crit_edge224
-  %.2.lcssa = phi i32 [ %125, %._crit_edge224 ], [ %229, %217 ]
-  %145 = sext i32 %.2.lcssa to i64
-  %146 = getelementptr inbounds i8, ptr %27, i64 %145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %146, ptr noundef nonnull align 1 dereferenceable(5) @.str.33, i64 5, i1 false)
-  %147 = add nsw i32 %.2.lcssa, 4
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i8, ptr %27, i64 %148
-  %150 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %149, ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef nonnull %3) #44
-  %151 = add nsw i32 %150, %147
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i8, ptr %27, i64 %152
-  %154 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %3) #44
-  %155 = add nsw i32 %151, %154
-  %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds i8, ptr %27, i64 %156
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %157, ptr noundef nonnull align 1 dereferenceable(25) @.str.40, i64 25, i1 false)
-  %158 = add nsw i32 %155, 24
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds i8, ptr %27, i64 %159
-  %161 = load i32, ptr %0, align 8
-  %162 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %161) #44
-  %163 = add nsw i32 %162, %158
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds i8, ptr %27, i64 %164
-  %166 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %165, ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %96) #44
-  %167 = add nsw i32 %163, %166
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds i8, ptr %27, i64 %168
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %171 = load i32, ptr %170, align 8
-  %172 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %169, ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef %171) #44
-  %173 = add nsw i32 %172, %167
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr i8, ptr %27, i64 %174
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %175, ptr noundef nonnull align 1 dereferenceable(28) @.str.44, i64 27, i1 false)
-  %176 = getelementptr i8, ptr %175, i64 27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %176, ptr noundef nonnull align 1 dereferenceable(90) @.str.45, i64 90, i1 false)
-  %177 = add nsw i32 %173, 116
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i8, ptr %27, i64 %178
-  %180 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef nonnull %3) #44
-  %181 = add nsw i32 %180, %177
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds i8, ptr %27, i64 %182
+._crit_edge236:                                   ; preds = %220, %._crit_edge230
+  %.2.lcssa = phi i32 [ %127, %._crit_edge230 ], [ %232, %220 ]
+  %147 = sext i32 %.2.lcssa to i64
+  %148 = getelementptr inbounds i8, ptr %27, i64 %147
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %148, ptr noundef nonnull align 1 dereferenceable(5) @.str.33, i64 5, i1 false)
+  %149 = add nsw i32 %.2.lcssa, 4
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds i8, ptr %27, i64 %150
+  %152 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %151, ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef nonnull %3) #44
+  %153 = add nsw i32 %152, %149
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds i8, ptr %27, i64 %154
+  %156 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %3) #44
+  %157 = add nsw i32 %153, %156
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds i8, ptr %27, i64 %158
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %159, ptr noundef nonnull align 1 dereferenceable(25) @.str.40, i64 25, i1 false)
+  %160 = add nsw i32 %157, 24
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds i8, ptr %27, i64 %161
+  %163 = load i32, ptr %0, align 8
+  %164 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %162, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %163) #44
+  %165 = add nsw i32 %164, %160
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds i8, ptr %27, i64 %166
+  %168 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %98) #44
+  %169 = add nsw i32 %165, %168
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds i8, ptr %27, i64 %170
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %173 = load i32, ptr %172, align 8
+  %174 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %171, ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef %173) #44
+  %175 = add nsw i32 %174, %169
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr i8, ptr %27, i64 %176
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %177, ptr noundef nonnull align 1 dereferenceable(28) @.str.44, i64 27, i1 false)
+  %178 = getelementptr i8, ptr %177, i64 27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %178, ptr noundef nonnull align 1 dereferenceable(90) @.str.45, i64 90, i1 false)
+  %179 = add nsw i32 %175, 116
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr inbounds i8, ptr %27, i64 %180
+  %182 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %181, ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef nonnull %3) #44
+  %183 = add nsw i32 %182, %179
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr inbounds i8, ptr %27, i64 %184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToUpper.buffer, i8 0, i64 1024, i1 false)
-  br label %.preheader.i208
+  %186 = load i8, ptr %3, align 16
+  %.not16.i210238 = icmp eq i8 %186, 0
+  br i1 %.not16.i210238, label %TextToUpper.exit216, label %.preheader.i208
 
-.preheader.i208:                                  ; preds = %._crit_edge230, %186
-  %indvars.iv.i209 = phi i64 [ %indvars.iv.next.i214, %186 ], [ 0, %._crit_edge230 ]
-  %184 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i209
-  %185 = load i8, ptr %184, align 1
-  %.not16.i210 = icmp eq i8 %185, 0
-  br i1 %.not16.i210, label %TextToUpper.exit216, label %186
+.preheader.i208:                                  ; preds = %._crit_edge236, %.preheader.i208
+  %187 = phi i8 [ %191, %.preheader.i208 ], [ %186, %._crit_edge236 ]
+  %indvars.iv.i209239 = phi i64 [ %indvars.iv.next.i214, %.preheader.i208 ], [ 0, %._crit_edge236 ]
+  %188 = add i8 %187, -97
+  %or.cond.i211 = icmp ult i8 %188, 26
+  %narrow.i212 = add nsw i8 %187, -32
+  %spec.select.i213 = select i1 %or.cond.i211, i8 %narrow.i212, i8 %187
+  %189 = getelementptr inbounds nuw i8, ptr @TextToUpper.buffer, i64 %indvars.iv.i209239
+  store i8 %spec.select.i213, ptr %189, align 1
+  %indvars.iv.next.i214 = add nuw nsw i64 %indvars.iv.i209239, 1
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i214
+  %191 = load i8, ptr %190, align 1
+  %.not16.i210 = icmp eq i8 %191, 0
+  br i1 %.not16.i210, label %TextToUpper.exit216, label %.preheader.i208
 
-186:                                              ; preds = %.preheader.i208
-  %187 = add i8 %185, -97
-  %or.cond.i211 = icmp ult i8 %187, 26
-  %narrow.i212 = add nsw i8 %185, -32
-  %spec.select.i213 = select i1 %or.cond.i211, i8 %narrow.i212, i8 %185
-  %188 = getelementptr inbounds nuw i8, ptr @TextToUpper.buffer, i64 %indvars.iv.i209
-  store i8 %spec.select.i213, ptr %188, align 1
-  %indvars.iv.next.i214 = add nuw nsw i64 %indvars.iv.i209, 1
-  %exitcond.not.i215 = icmp eq i64 %indvars.iv.next.i214, 1023
-  br i1 %exitcond.not.i215, label %TextToUpper.exit216, label %.preheader.i208
-
-TextToUpper.exit216:                              ; preds = %.preheader.i208, %186
-  %189 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %183, ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef nonnull %3, ptr noundef nonnull @TextToUpper.buffer, ptr noundef nonnull %3) #44
-  %190 = add nsw i32 %189, %181
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds i8, ptr %27, i64 %191
-  %193 = load i32, ptr %51, align 8
-  %194 = load i32, ptr %53, align 4
-  %195 = load i32, ptr %46, align 4
-  %196 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %192, ptr noundef nonnull dereferenceable(1) @.str.48, i32 noundef %193, i32 noundef %194, i32 noundef %195) #44
-  %197 = add nsw i32 %196, %190
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr i8, ptr %27, i64 %198
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %199, ptr noundef nonnull align 1 dereferenceable(32) @.str.49, i64 31, i1 false)
-  %200 = getelementptr i8, ptr %199, i64 31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(66) %200, ptr noundef nonnull align 1 dereferenceable(66) @.str.50, i64 65, i1 false)
-  %201 = getelementptr i8, ptr %199, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(77) %201, ptr noundef nonnull align 1 dereferenceable(77) @.str.51, i64 76, i1 false)
-  %202 = getelementptr i8, ptr %199, i64 172
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(49) %202, ptr noundef nonnull align 1 dereferenceable(49) @.str.52, i64 48, i1 false)
-  %203 = getelementptr i8, ptr %199, i64 220
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(53) %203, ptr noundef nonnull align 1 dereferenceable(53) @.str.53, i64 53, i1 false)
-  %204 = add nsw i32 %197, 272
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds i8, ptr %27, i64 %205
-  %207 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %206, ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %3) #44
-  %208 = add nsw i32 %207, %204
-  %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds i8, ptr %27, i64 %209
-  %211 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %210, ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef nonnull %3) #44
-  %212 = add nsw i32 %208, %211
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds i8, ptr %27, i64 %213
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %214, ptr noundef nonnull align 1 dereferenceable(18) @.str.56, i64 17, i1 false)
-  %215 = getelementptr i8, ptr %214, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %215, ptr noundef nonnull align 1 dereferenceable(3) @.str.57, i64 3, i1 false)
+TextToUpper.exit216:                              ; preds = %.preheader.i208, %._crit_edge236
+  %192 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %185, ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef nonnull %3, ptr noundef nonnull @TextToUpper.buffer, ptr noundef nonnull %3) #44
+  %193 = add nsw i32 %192, %183
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds i8, ptr %27, i64 %194
+  %196 = load i32, ptr %51, align 8
+  %197 = load i32, ptr %53, align 4
+  %198 = load i32, ptr %46, align 4
+  %199 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %195, ptr noundef nonnull dereferenceable(1) @.str.48, i32 noundef %196, i32 noundef %197, i32 noundef %198) #44
+  %200 = add nsw i32 %199, %193
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr i8, ptr %27, i64 %201
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %202, ptr noundef nonnull align 1 dereferenceable(32) @.str.49, i64 31, i1 false)
+  %203 = getelementptr i8, ptr %202, i64 31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(66) %203, ptr noundef nonnull align 1 dereferenceable(66) @.str.50, i64 65, i1 false)
+  %204 = getelementptr i8, ptr %202, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(77) %204, ptr noundef nonnull align 1 dereferenceable(77) @.str.51, i64 76, i1 false)
+  %205 = getelementptr i8, ptr %202, i64 172
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(49) %205, ptr noundef nonnull align 1 dereferenceable(49) @.str.52, i64 48, i1 false)
+  %206 = getelementptr i8, ptr %202, i64 220
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(53) %206, ptr noundef nonnull align 1 dereferenceable(53) @.str.53, i64 53, i1 false)
+  %207 = add nsw i32 %200, 272
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds i8, ptr %27, i64 %208
+  %210 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %209, ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %3) #44
+  %211 = add nsw i32 %210, %207
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr inbounds i8, ptr %27, i64 %212
+  %214 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef nonnull %3) #44
+  %215 = add nsw i32 %211, %214
+  %216 = sext i32 %215 to i64
+  %217 = getelementptr inbounds i8, ptr %27, i64 %216
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %217, ptr noundef nonnull align 1 dereferenceable(18) @.str.56, i64 17, i1 false)
+  %218 = getelementptr i8, ptr %217, i64 17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %218, ptr noundef nonnull align 1 dereferenceable(3) @.str.57, i64 3, i1 false)
   call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %4) #44
-  %216 = call zeroext i1 @SaveFileText(ptr noundef %1, ptr noundef nonnull %27) #44
-  call void @free(ptr noundef %27) #44
-  br i1 %216, label %230, label %231
+  %219 = call zeroext i1 @SaveFileText(ptr noundef %1, ptr noundef nonnull %27) #44
+  call void @free(ptr noundef nonnull %27) #44
+  br i1 %219, label %233, label %234
 
-217:                                              ; preds = %.lr.ph229, %217
-  %indvars.iv240 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next241, %217 ]
-  %.2226 = phi i32 [ %125, %.lr.ph229 ], [ %229, %217 ]
-  %218 = sext i32 %.2226 to i64
-  %219 = getelementptr inbounds i8, ptr %27, i64 %218
-  %220 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %127, i64 %indvars.iv240
-  %221 = load i32, ptr %220, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  %223 = load i32, ptr %222, align 4
-  %224 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %225 = load i32, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %220, i64 12
-  %227 = load i32, ptr %226, align 4
-  %228 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %219, ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %221, i32 noundef %223, i32 noundef %225, i32 noundef %227) #44
-  %229 = add nsw i32 %228, %.2226
-  %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
-  %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
-  br i1 %exitcond244.not, label %._crit_edge230, label %217
+220:                                              ; preds = %.lr.ph235, %220
+  %indvars.iv250 = phi i64 [ 0, %.lr.ph235 ], [ %indvars.iv.next251, %220 ]
+  %.2232 = phi i32 [ %127, %.lr.ph235 ], [ %232, %220 ]
+  %221 = sext i32 %.2232 to i64
+  %222 = getelementptr inbounds i8, ptr %27, i64 %221
+  %223 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %129, i64 %indvars.iv250
+  %224 = load i32, ptr %223, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %223, i64 4
+  %226 = load i32, ptr %225, align 4
+  %227 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %228 = load i32, ptr %227, align 8
+  %229 = getelementptr inbounds nuw i8, ptr %223, i64 12
+  %230 = load i32, ptr %229, align 4
+  %231 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %222, ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %224, i32 noundef %226, i32 noundef %228, i32 noundef %230) #44
+  %232 = add nsw i32 %231, %.2232
+  %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
+  %exitcond254.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count253
+  br i1 %exitcond254.not, label %._crit_edge236, label %220
 
-230:                                              ; preds = %TextToUpper.exit216
+233:                                              ; preds = %TextToUpper.exit216
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.58, ptr noundef %1) #44
-  br label %232
+  br label %235
 
-231:                                              ; preds = %TextToUpper.exit216
+234:                                              ; preds = %TextToUpper.exit216
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.59, ptr noundef %1) #44
-  br label %232
+  br label %235
 
-232:                                              ; preds = %231, %230
+235:                                              ; preds = %234, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %216
+  ret i1 %219
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable

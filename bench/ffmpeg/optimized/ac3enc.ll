@@ -5581,158 +5581,148 @@ validate_mix_level.exit162:                       ; preds = %validate_float_opti
 
 validate_float_option.exit.i167:                  ; preds = %157
   %166 = trunc nuw nsw i64 %indvars.iv.i.i163 to i32
-  %167 = icmp eq i64 %indvars.iv.i.i163, 8
-  br i1 %167, label %.thread217, label %validate_mix_level.exit172
+  br label %validate_mix_level.exit172
 
-.thread217:                                       ; preds = %165, %validate_float_option.exit.i167
-  %168 = fcmp nsz ult float %155, 0.000000e+00
-  br i1 %168, label %validate_mix_level.exit172, label %169
+.thread217:                                       ; preds = %165
+  %167 = fcmp nsz ult float %155, 0.000000e+00
+  br i1 %167, label %validate_mix_level.exit172, label %168
 
-169:                                              ; preds = %.thread217
+168:                                              ; preds = %.thread217
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 24, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.74, double noundef 0x3FE306FE00000000) #14
   br label %validate_mix_level.exit172
 
-validate_mix_level.exit172:                       ; preds = %validate_float_option.exit.i167, %.thread217, %169
-  %.0.i170 = phi i32 [ 5, %169 ], [ 5, %.thread217 ], [ %166, %validate_float_option.exit.i167 ]
-  %170 = zext nneg i32 %.0.i170 to i64
-  %171 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %170
-  %172 = load float, ptr %171, align 4, !tbaa !199
-  store float %172, ptr %153, align 4, !tbaa !199
+validate_mix_level.exit172:                       ; preds = %validate_float_option.exit.i167, %.thread217, %168
+  %.0.i170 = phi i32 [ 5, %168 ], [ 5, %.thread217 ], [ %166, %validate_float_option.exit.i167 ]
+  %169 = zext nneg i32 %.0.i170 to i64
+  %170 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %169
+  %171 = load float, ptr %170, align 4, !tbaa !199
+  store float %171, ptr %153, align 4, !tbaa !199
   store i32 %.0.i170, ptr %154, align 4, !tbaa !41
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 5056
-  %175 = load float, ptr %173, align 4, !tbaa !199
-  %176 = fpext nsz float %175 to double
-  br label %177
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 5056
+  %174 = load float, ptr %172, align 4, !tbaa !199
+  %175 = fpext nsz float %174 to double
+  br label %176
 
-177:                                              ; preds = %185, %validate_mix_level.exit172
-  %indvars.iv.i.i173 = phi i64 [ 0, %validate_mix_level.exit172 ], [ %indvars.iv.next.i.i175, %185 ]
-  %178 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %indvars.iv.i.i173
-  %179 = load float, ptr %178, align 4, !tbaa !199
-  %180 = fpext nsz float %179 to double
-  %181 = fadd nsz double %180, 1.000000e-02
-  %182 = fcmp nsz ogt double %181, %176
-  %183 = fadd nsz double %180, -1.000000e-02
-  %184 = fcmp nsz olt double %183, %176
-  %or.cond.i.i174 = and i1 %182, %184
-  br i1 %or.cond.i.i174, label %validate_float_option.exit.i177, label %185
+176:                                              ; preds = %184, %validate_mix_level.exit172
+  %indvars.iv.i.i173 = phi i64 [ 0, %validate_mix_level.exit172 ], [ %indvars.iv.next.i.i175, %184 ]
+  %177 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %indvars.iv.i.i173
+  %178 = load float, ptr %177, align 4, !tbaa !199
+  %179 = fpext nsz float %178 to double
+  %180 = fadd nsz double %179, 1.000000e-02
+  %181 = fcmp nsz ogt double %180, %175
+  %182 = fadd nsz double %179, -1.000000e-02
+  %183 = fcmp nsz olt double %182, %175
+  %or.cond.i.i174 = and i1 %181, %183
+  br i1 %or.cond.i.i174, label %validate_float_option.exit.i177, label %184
 
-185:                                              ; preds = %177
+184:                                              ; preds = %176
   %indvars.iv.next.i.i175 = add nuw nsw i64 %indvars.iv.i.i173, 1
   %exitcond.not.i.i176 = icmp eq i64 %indvars.iv.next.i.i175, 8
-  br i1 %exitcond.not.i.i176, label %.thread221, label %177, !llvm.loop !200
+  br i1 %exitcond.not.i.i176, label %.thread221, label %176, !llvm.loop !200
 
-validate_float_option.exit.i177:                  ; preds = %177
-  %186 = trunc nuw nsw i64 %indvars.iv.i.i173 to i32
-  %187 = icmp eq i64 %indvars.iv.i.i173, 8
-  br i1 %187, label %.thread221, label %190
+validate_float_option.exit.i177:                  ; preds = %176
+  %185 = trunc nuw nsw i64 %indvars.iv.i.i173 to i32
+  br label %188
 
-.thread221:                                       ; preds = %185, %validate_float_option.exit.i177
-  %188 = fcmp nsz ult float %175, 0.000000e+00
-  br i1 %188, label %190, label %189
+.thread221:                                       ; preds = %184
+  %186 = fcmp nsz ult float %174, 0.000000e+00
+  br i1 %186, label %188, label %187
 
-189:                                              ; preds = %.thread221
+187:                                              ; preds = %.thread221
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 24, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.75, double noundef 0x3FE306FE00000000) #14
-  br label %190
+  br label %188
 
-190:                                              ; preds = %validate_float_option.exit.i177, %189, %.thread221
-  %.0.i180 = phi i32 [ 5, %189 ], [ 5, %.thread221 ], [ %186, %validate_float_option.exit.i177 ]
-  %191 = zext nneg i32 %.0.i180 to i64
-  %192 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %191
-  %193 = load float, ptr %192, align 4, !tbaa !199
-  store float %193, ptr %173, align 4, !tbaa !199
-  store i32 %.0.i180, ptr %174, align 4, !tbaa !41
+188:                                              ; preds = %validate_float_option.exit.i177, %187, %.thread221
+  %.0.i180 = phi i32 [ 5, %187 ], [ 5, %.thread221 ], [ %185, %validate_float_option.exit.i177 ]
+  %189 = zext nneg i32 %.0.i180 to i64
+  %190 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %189
+  %191 = load float, ptr %190, align 4, !tbaa !199
+  store float %191, ptr %172, align 4, !tbaa !199
+  store i32 %.0.i180, ptr %173, align 4, !tbaa !41
   %.pr = load i32, ptr %41, align 4, !tbaa !60
   %.not141 = icmp eq i32 %.pr, 0
-  br i1 %.not141, label %195, label %.thread222
+  br i1 %.not141, label %193, label %.thread222
 
-.thread222:                                       ; preds = %150, %190
-  %194 = load i32, ptr %29, align 4, !tbaa !107
-  %.not142 = icmp eq i32 %194, 0
-  br i1 %.not142, label %234, label %195
+.thread222:                                       ; preds = %150, %188
+  %192 = load i32, ptr %29, align 4, !tbaa !107
+  %.not142 = icmp eq i32 %192, 0
+  br i1 %.not142, label %234, label %193
 
-195:                                              ; preds = %.thread222, %190
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 5052
-  %198 = load float, ptr %196, align 4, !tbaa !199
-  %199 = fpext nsz float %198 to double
-  br label %200
+193:                                              ; preds = %.thread222, %188
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 5052
+  %196 = load float, ptr %194, align 4, !tbaa !199
+  %197 = fpext nsz float %196 to double
+  br label %198
 
-200:                                              ; preds = %208, %195
-  %indvars.iv.i.i183 = phi i64 [ 0, %195 ], [ %indvars.iv.next.i.i185, %208 ]
-  %201 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %indvars.iv.i.i183
-  %202 = load float, ptr %201, align 4, !tbaa !199
-  %203 = fpext nsz float %202 to double
-  %204 = fadd nsz double %203, 1.000000e-02
-  %205 = fcmp nsz ogt double %204, %199
-  %206 = fadd nsz double %203, -1.000000e-02
-  %207 = fcmp nsz olt double %206, %199
-  %or.cond.i.i184 = and i1 %205, %207
-  br i1 %or.cond.i.i184, label %validate_float_option.exit.i187, label %208
+198:                                              ; preds = %206, %193
+  %indvars.iv.i.i183 = phi i64 [ 0, %193 ], [ %indvars.iv.next.i.i185, %206 ]
+  %199 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %indvars.iv.i.i183
+  %200 = load float, ptr %199, align 4, !tbaa !199
+  %201 = fpext nsz float %200 to double
+  %202 = fadd nsz double %201, 1.000000e-02
+  %203 = fcmp nsz ogt double %202, %197
+  %204 = fadd nsz double %201, -1.000000e-02
+  %205 = fcmp nsz olt double %204, %197
+  %or.cond.i.i184 = and i1 %203, %205
+  br i1 %or.cond.i.i184, label %validate_float_option.exit.i187, label %206
 
-208:                                              ; preds = %200
+206:                                              ; preds = %198
   %indvars.iv.next.i.i185 = add nuw nsw i64 %indvars.iv.i.i183, 1
   %exitcond.not.i.i186 = icmp eq i64 %indvars.iv.next.i.i185, 8
-  br i1 %exitcond.not.i.i186, label %.thread227, label %200, !llvm.loop !200
+  br i1 %exitcond.not.i.i186, label %.thread227, label %198, !llvm.loop !200
 
-validate_float_option.exit.i187:                  ; preds = %200
-  %209 = trunc nuw nsw i64 %indvars.iv.i.i183 to i32
-  switch i64 %indvars.iv.i.i183, label %validate_mix_level.exit192 [
-    i64 8, label %.thread227
-    i64 2, label %.thread227
-    i64 1, label %.thread227
-    i64 0, label %.thread227
-  ]
+validate_float_option.exit.i187:                  ; preds = %198
+  %207 = trunc nuw nsw i64 %indvars.iv.i.i183 to i32
+  %208 = icmp samesign ult i64 %indvars.iv.i.i183, 3
+  br i1 %208, label %.thread227, label %validate_mix_level.exit192
 
-.thread227:                                       ; preds = %208, %validate_float_option.exit.i187, %validate_float_option.exit.i187, %validate_float_option.exit.i187, %validate_float_option.exit.i187
-  %210 = fcmp nsz ult float %198, 0.000000e+00
-  br i1 %210, label %validate_mix_level.exit192, label %211
+.thread227:                                       ; preds = %206, %validate_float_option.exit.i187
+  %209 = fcmp nsz ult float %196, 0.000000e+00
+  br i1 %209, label %validate_mix_level.exit192, label %210
 
-211:                                              ; preds = %.thread227
+210:                                              ; preds = %.thread227
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 24, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.76, double noundef 5.000000e-01) #14
   br label %validate_mix_level.exit192
 
-validate_mix_level.exit192:                       ; preds = %validate_float_option.exit.i187, %.thread227, %211
-  %.0.i190 = phi i32 [ 6, %211 ], [ 6, %.thread227 ], [ %209, %validate_float_option.exit.i187 ]
-  %212 = zext nneg i32 %.0.i190 to i64
-  %213 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %212
-  %214 = load float, ptr %213, align 4, !tbaa !199
-  store float %214, ptr %196, align 4, !tbaa !199
-  store i32 %.0.i190, ptr %197, align 4, !tbaa !41
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 5060
-  %217 = load float, ptr %215, align 4, !tbaa !199
-  %218 = fpext nsz float %217 to double
-  br label %219
+validate_mix_level.exit192:                       ; preds = %validate_float_option.exit.i187, %.thread227, %210
+  %.0.i190 = phi i32 [ 6, %210 ], [ 6, %.thread227 ], [ %207, %validate_float_option.exit.i187 ]
+  %211 = zext nneg i32 %.0.i190 to i64
+  %212 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %211
+  %213 = load float, ptr %212, align 4, !tbaa !199
+  store float %213, ptr %194, align 4, !tbaa !199
+  store i32 %.0.i190, ptr %195, align 4, !tbaa !41
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 5060
+  %216 = load float, ptr %214, align 4, !tbaa !199
+  %217 = fpext nsz float %216 to double
+  br label %218
 
-219:                                              ; preds = %227, %validate_mix_level.exit192
-  %indvars.iv.i.i193 = phi i64 [ 0, %validate_mix_level.exit192 ], [ %indvars.iv.next.i.i195, %227 ]
-  %220 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %indvars.iv.i.i193
-  %221 = load float, ptr %220, align 4, !tbaa !199
-  %222 = fpext nsz float %221 to double
-  %223 = fadd nsz double %222, 1.000000e-02
-  %224 = fcmp nsz ogt double %223, %218
-  %225 = fadd nsz double %222, -1.000000e-02
-  %226 = fcmp nsz olt double %225, %218
-  %or.cond.i.i194 = and i1 %224, %226
-  br i1 %or.cond.i.i194, label %validate_float_option.exit.i197, label %227
+218:                                              ; preds = %226, %validate_mix_level.exit192
+  %indvars.iv.i.i193 = phi i64 [ 0, %validate_mix_level.exit192 ], [ %indvars.iv.next.i.i195, %226 ]
+  %219 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %indvars.iv.i.i193
+  %220 = load float, ptr %219, align 4, !tbaa !199
+  %221 = fpext nsz float %220 to double
+  %222 = fadd nsz double %221, 1.000000e-02
+  %223 = fcmp nsz ogt double %222, %217
+  %224 = fadd nsz double %221, -1.000000e-02
+  %225 = fcmp nsz olt double %224, %217
+  %or.cond.i.i194 = and i1 %223, %225
+  br i1 %or.cond.i.i194, label %validate_float_option.exit.i197, label %226
 
-227:                                              ; preds = %219
+226:                                              ; preds = %218
   %indvars.iv.next.i.i195 = add nuw nsw i64 %indvars.iv.i.i193, 1
   %exitcond.not.i.i196 = icmp eq i64 %indvars.iv.next.i.i195, 8
-  br i1 %exitcond.not.i.i196, label %.thread231, label %219, !llvm.loop !200
+  br i1 %exitcond.not.i.i196, label %.thread231, label %218, !llvm.loop !200
 
-validate_float_option.exit.i197:                  ; preds = %219
-  %228 = trunc nuw nsw i64 %indvars.iv.i.i193 to i32
-  switch i64 %indvars.iv.i.i193, label %validate_mix_level.exit202 [
-    i64 8, label %.thread231
-    i64 2, label %.thread231
-    i64 1, label %.thread231
-    i64 0, label %.thread231
-  ]
+validate_float_option.exit.i197:                  ; preds = %218
+  %227 = trunc nuw nsw i64 %indvars.iv.i.i193 to i32
+  %228 = icmp samesign ult i64 %indvars.iv.i.i193, 3
+  br i1 %228, label %.thread231, label %validate_mix_level.exit202
 
-.thread231:                                       ; preds = %227, %validate_float_option.exit.i197, %validate_float_option.exit.i197, %validate_float_option.exit.i197, %validate_float_option.exit.i197
-  %229 = fcmp nsz ult float %217, 0.000000e+00
+.thread231:                                       ; preds = %226, %validate_float_option.exit.i197
+  %229 = fcmp nsz ult float %216, 0.000000e+00
   br i1 %229, label %validate_mix_level.exit202, label %230
 
 230:                                              ; preds = %.thread231
@@ -5740,12 +5730,12 @@ validate_float_option.exit.i197:                  ; preds = %219
   br label %validate_mix_level.exit202
 
 validate_mix_level.exit202:                       ; preds = %validate_float_option.exit.i197, %.thread231, %230
-  %.0.i200 = phi i32 [ 6, %230 ], [ 6, %.thread231 ], [ %228, %validate_float_option.exit.i197 ]
+  %.0.i200 = phi i32 [ 6, %230 ], [ 6, %.thread231 ], [ %227, %validate_float_option.exit.i197 ]
   %231 = zext nneg i32 %.0.i200 to i64
   %232 = getelementptr inbounds nuw float, ptr @extmixlev_options, i64 %231
   %233 = load float, ptr %232, align 4, !tbaa !199
-  store float %233, ptr %215, align 4, !tbaa !199
-  store i32 %.0.i200, ptr %216, align 4, !tbaa !41
+  store float %233, ptr %214, align 4, !tbaa !199
+  store i32 %.0.i200, ptr %215, align 4, !tbaa !41
   br label %234
 
 234:                                              ; preds = %.thread222, %validate_mix_level.exit202, %141

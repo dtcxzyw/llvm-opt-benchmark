@@ -292,8 +292,8 @@ define internal i32 @xpm_decode_frame(ptr noundef initializes((136, 140)) %0, pt
   %62 = trunc nsw i64 %indvars.iv.i to i32
   br label %.critedge6.i
 
-.critedge6.i:                                     ; preds = %.lr.ph77.split.i, %41, %.critedge6.loopexit85.i, %.critedge2.i
-  %.3.i = phi i32 [ %54, %.critedge2.i ], [ %62, %.critedge6.loopexit85.i ], [ %.04874.i, %41 ], [ %.04874.i, %.lr.ph77.split.i ]
+.critedge6.i:                                     ; preds = %41, %.lr.ph77.split.i, %.critedge6.loopexit85.i, %.critedge2.i
+  %.3.i = phi i32 [ %54, %.critedge2.i ], [ %62, %.critedge6.loopexit85.i ], [ %.04874.i, %.lr.ph77.split.i ], [ %.04874.i, %41 ]
   %63 = add nsw i32 %.3.i, 1
   br label %.lr.ph77.split.i
 
@@ -479,8 +479,8 @@ mod_strcspn.exit:                                 ; preds = %.lr.ph77.split.i, %
   %140 = trunc nsw i64 %indvars.iv.i130 to i32
   br label %.critedge6.i132
 
-.critedge6.i132:                                  ; preds = %.lr.ph77.split.i128, %119, %.critedge6.loopexit85.i131, %.critedge2.i139
-  %.3.i133 = phi i32 [ %132, %.critedge2.i139 ], [ %140, %.critedge6.loopexit85.i131 ], [ %.04874.i129, %119 ], [ %.04874.i129, %.lr.ph77.split.i128 ]
+.critedge6.i132:                                  ; preds = %119, %.lr.ph77.split.i128, %.critedge6.loopexit85.i131, %.critedge2.i139
+  %.3.i133 = phi i32 [ %132, %.critedge2.i139 ], [ %140, %.critedge6.loopexit85.i131 ], [ %.04874.i129, %.lr.ph77.split.i128 ], [ %.04874.i129, %119 ]
   %141 = add nsw i32 %.3.i133, 1
   br label %.lr.ph77.split.i128
 
@@ -488,8 +488,8 @@ mod_strcspn.exit146.loopexit:                     ; preds = %.lr.ph77.split.i128
   %142 = sext i32 %.04874.i129 to i64
   br label %mod_strcspn.exit146
 
-mod_strcspn.exit146:                              ; preds = %mod_strcspn.exit146.loopexit, %.lr.ph196
-  %.04868.i145 = phi i64 [ 0, %.lr.ph196 ], [ %142, %mod_strcspn.exit146.loopexit ]
+mod_strcspn.exit146:                              ; preds = %.lr.ph196, %mod_strcspn.exit146.loopexit
+  %.04868.i145 = phi i64 [ %142, %mod_strcspn.exit146.loopexit ], [ 0, %.lr.ph196 ]
   %143 = getelementptr i8, ptr %.1100194, i64 %.04868.i145
   %144 = getelementptr i8, ptr %143, i64 1
   %145 = ptrtoint ptr %144 to i64

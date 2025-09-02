@@ -438,8 +438,8 @@ define hidden void @_ZN3ue226findLeftOffsetStopAlphabetERKNS_8NGHolderENS_8som_t
   call void @_ZdlPv(ptr noundef nonnull %13) #14
   br label %common.resume
 
-common.resume:                                    ; preds = %11, %14, %135
-  %common.resume.op = phi { ptr, i32 } [ %.pn50.pn.pn.pn.pn, %135 ], [ %12, %14 ], [ %12, %11 ]
+common.resume:                                    ; preds = %11, %14, %133
+  %common.resume.op = phi { ptr, i32 } [ %.pn50.pn.pn.pn.pn, %133 ], [ %12, %14 ], [ %12, %11 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3ue212_GLOBAL__N_110InitDepthsC2ERKNS_8NGHolderE.exit: ; preds = %3
@@ -481,7 +481,7 @@ _ZN3ue212_GLOBAL__N_110InitDepthsC2ERKNS_8NGHolderE.exit: ; preds = %3
 27:                                               ; preds = %_ZN3ue212_GLOBAL__N_110InitDepthsC2ERKNS_8NGHolderE.exit
   %28 = landingpad { ptr, i32 }
           cleanup
-  br label %135
+  br label %133
 
 29:                                               ; preds = %.lr.ph102, %.loopexit
   %.sroa.077.0101 = phi ptr [ %.sroa.077.099, %.lr.ph102 ], [ %.sroa.077.0, %.loopexit ]
@@ -682,111 +682,105 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %94
 
 .lr.ph105:                                        ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
   %102 = trunc nuw i32 %93 to i8
-  %103 = getelementptr inbounds nuw i8, ptr %26, i64 %101
-  %104 = load i8, ptr %103, align 1
-  %105 = or i8 %104, %102
-  store i8 %105, ptr %103, align 1
-  %.not.i.i59159 = icmp samesign ult i64 %.0710.i.i, 4
-  br i1 %.not.i.i59159, label %.lr.ph161, label %._crit_edge106
+  br label %103
 
-._crit_edge106:                                   ; preds = %97, %_ZNK3ue29CharReach9find_nextEm.exit, %115, %.lr.ph105, %_ZNK3ue29CharReach10find_firstEv.exit
+._crit_edge106:                                   ; preds = %97, %116, %_ZNK3ue29CharReach10find_firstEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, 8
   br i1 %exitcond121.not, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %87, !llvm.loop !11
 
-.lr.ph161:                                        ; preds = %.lr.ph105, %_ZNK3ue29CharReach9find_nextEm.exit
-  %.0104160 = phi i64 [ %123, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %101, %.lr.ph105 ]
-  %106 = lshr i64 %.0104160, 6
-  %107 = and i64 %.0104160, 63
-  %.not20.i.i = icmp eq i64 %107, 63
-  br i1 %.not20.i.i, label %.preheader, label %108
+103:                                              ; preds = %_ZNK3ue29CharReach9find_nextEm.exit, %.lr.ph105
+  %.0104 = phi i64 [ %101, %.lr.ph105 ], [ %124, %_ZNK3ue29CharReach9find_nextEm.exit ]
+  %104 = getelementptr inbounds nuw i8, ptr %26, i64 %.0104
+  %105 = load i8, ptr %104, align 1
+  %106 = or i8 %105, %102
+  store i8 %106, ptr %104, align 1
+  %107 = lshr i64 %.0104, 6
+  %108 = and i64 %.0104, 63
+  %.not20.i.i = icmp eq i64 %108, 63
+  br i1 %.not20.i.i, label %.preheader, label %109
 
-.preheader:                                       ; preds = %108, %.lr.ph161
-  br label %115
+.preheader:                                       ; preds = %109, %103
+  br label %116
 
-108:                                              ; preds = %.lr.ph161
-  %109 = getelementptr inbounds nuw i64, ptr %7, i64 %106
-  %110 = load i64, ptr %109, align 8
-  %111 = shl nsw i64 -2, %107
-  %112 = and i64 %110, %111
-  %.not21.i.i = icmp eq i64 %112, 0
-  br i1 %.not21.i.i, label %.preheader, label %113
+109:                                              ; preds = %103
+  %110 = getelementptr inbounds nuw i64, ptr %7, i64 %107
+  %111 = load i64, ptr %110, align 8
+  %112 = shl nsw i64 -2, %108
+  %113 = and i64 %111, %112
+  %.not21.i.i = icmp eq i64 %113, 0
+  br i1 %.not21.i.i, label %.preheader, label %114
 
-113:                                              ; preds = %108
-  %114 = and i64 %.0104160, 192
+114:                                              ; preds = %109
+  %115 = and i64 %.0104, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
-115:                                              ; preds = %.preheader, %117
-  %.0.in.i.i = phi i64 [ %.0.i.i, %117 ], [ %106, %.preheader ]
-  %116 = icmp samesign ult i64 %.0.in.i.i, 3
-  br i1 %116, label %117, label %._crit_edge106
+116:                                              ; preds = %.preheader, %118
+  %.0.in.i.i = phi i64 [ %.0.i.i, %118 ], [ %107, %.preheader ]
+  %117 = icmp samesign ult i64 %.0.in.i.i, 3
+  br i1 %117, label %118, label %._crit_edge106
 
-117:                                              ; preds = %115
+118:                                              ; preds = %116
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %118 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i
-  %119 = load i64, ptr %118, align 8
-  %.not22.i.i = icmp eq i64 %119, 0
-  br i1 %.not22.i.i, label %115, label %120, !llvm.loop !12
+  %119 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i
+  %120 = load i64, ptr %119, align 8
+  %.not22.i.i = icmp eq i64 %120, 0
+  br i1 %.not22.i.i, label %116, label %121, !llvm.loop !12
 
-120:                                              ; preds = %117
-  %121 = shl nuw nsw i64 %.0.i.i, 6
+121:                                              ; preds = %118
+  %122 = shl nuw nsw i64 %.0.i.i, 6
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
-_ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %113, %120
-  %.sink152 = phi i64 [ %112, %113 ], [ %119, %120 ]
-  %.sink151 = phi i64 [ %114, %113 ], [ %121, %120 ]
-  %122 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink152, i1 true)
-  %123 = or disjoint i64 %122, %.sink151
-  %124 = getelementptr inbounds nuw i8, ptr %26, i64 %123
-  %125 = load i8, ptr %124, align 1
-  %126 = or i8 %125, %102
-  store i8 %126, ptr %124, align 1
-  %.not.i.i59 = icmp samesign ult i64 %.sink151, 256
-  br i1 %.not.i.i59, label %.lr.ph161, label %._crit_edge106
+_ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %114, %121
+  %.sink151 = phi i64 [ %113, %114 ], [ %120, %121 ]
+  %.sink150 = phi i64 [ %115, %114 ], [ %122, %121 ]
+  %123 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink151, i1 true)
+  %124 = or disjoint i64 %123, %.sink150
+  br label %103
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %._crit_edge106
   call void @_ZdlPv(ptr noundef nonnull %20) #14
-  %127 = load ptr, ptr %16, align 8
-  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_20BoundedRepeatSummaryEESt10_Select1stISC_ESt4lessIS8_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %127)
-          to label %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit unwind label %128
+  %125 = load ptr, ptr %16, align 8
+  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_20BoundedRepeatSummaryEESt10_Select1stISC_ESt4lessIS8_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %125)
+          to label %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit unwind label %126
 
-128:                                              ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
-  %129 = landingpad { ptr, i32 }
+126:                                              ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
+  %127 = landingpad { ptr, i32 }
           catch ptr null
-  %130 = extractvalue { ptr, i32 } %129, 0
-  call void @__clang_call_terminate(ptr %130) #16
+  %128 = extractvalue { ptr, i32 } %127, 0
+  call void @__clang_call_terminate(ptr %128) #16
   unreachable
 
 _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %131 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i62 = icmp eq ptr %131, null
-  br i1 %.not.i.i.i.i62, label %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i63, label %132
+  %129 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i62 = icmp eq ptr %129, null
+  br i1 %.not.i.i.i.i62, label %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i63, label %130
 
-132:                                              ; preds = %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %131) #14
+130:                                              ; preds = %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %129) #14
   br label %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i63
 
-_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i63: ; preds = %132, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit
-  %133 = load ptr, ptr %4, align 8
-  %.not.i.i.i1.i = icmp eq ptr %133, null
-  br i1 %.not.i.i.i1.i, label %_ZN3ue212_GLOBAL__N_110InitDepthsD2Ev.exit, label %134
+_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i63: ; preds = %130, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit
+  %131 = load ptr, ptr %4, align 8
+  %.not.i.i.i1.i = icmp eq ptr %131, null
+  br i1 %.not.i.i.i1.i, label %_ZN3ue212_GLOBAL__N_110InitDepthsD2Ev.exit, label %132
 
-134:                                              ; preds = %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i63
-  call void @_ZdlPv(ptr noundef nonnull %133) #14
+132:                                              ; preds = %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i63
+  call void @_ZdlPv(ptr noundef nonnull %131) #14
   br label %_ZN3ue212_GLOBAL__N_110InitDepthsD2Ev.exit
 
-_ZN3ue212_GLOBAL__N_110InitDepthsD2Ev.exit:       ; preds = %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i63, %134
+_ZN3ue212_GLOBAL__N_110InitDepthsD2Ev.exit:       ; preds = %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i63, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit65: ; preds = %38, %67, %85
   %.pn50.pn.pn.pn = phi { ptr, i32 } [ %86, %85 ], [ %39, %38 ], [ %68, %67 ]
   call void @_ZdlPv(ptr noundef nonnull %20) #14
-  br label %135
+  br label %133
 
-135:                                              ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit65, %27
+133:                                              ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit65, %27
   %.pn50.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn.pn, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit65 ], [ %28, %27 ]
   call void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -846,27 +840,23 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   %22 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %18, i1 true)
   %23 = or disjoint i64 %22, %21
   %.not22 = icmp eq i64 %23, 256
-  br i1 %.not22, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 %23
+.lr.ph:                                           ; preds = %_ZNK3ue29CharReach10find_firstEv.exit, %_ZNK3ue29CharReach9find_nextEm.exit
+  %.023 = phi i64 [ %44, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %23, %_ZNK3ue29CharReach10find_firstEv.exit ]
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 %.023
   %25 = load i8, ptr %24, align 1
   %26 = or i8 %25, %11
   store i8 %26, ptr %24, align 1
-  %.not.i.i1447 = icmp samesign ult i64 %.0710.i.i, 4
-  br i1 %.not.i.i1447, label %.lr.ph49, label %._crit_edge
-
-.lr.ph49:                                         ; preds = %.lr.ph.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
-  %.02348 = phi i64 [ %44, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %23, %.lr.ph.preheader ]
-  %27 = lshr i64 %.02348, 6
-  %28 = and i64 %.02348, 63
+  %27 = lshr i64 %.023, 6
+  %28 = and i64 %.023, 63
   %.not20.i.i = icmp eq i64 %28, 63
   br i1 %.not20.i.i, label %.preheader, label %29
 
-.preheader:                                       ; preds = %29, %.lr.ph49
+.preheader:                                       ; preds = %29, %.lr.ph
   br label %36
 
-29:                                               ; preds = %.lr.ph49
+29:                                               ; preds = %.lr.ph
   %30 = getelementptr inbounds nuw i64, ptr %4, i64 %27
   %31 = load i64, ptr %30, align 8
   %32 = shl nsw i64 -2, %28
@@ -875,7 +865,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   br i1 %.not21.i.i, label %.preheader, label %34
 
 34:                                               ; preds = %29
-  %35 = and i64 %.02348, 192
+  %35 = and i64 %.023, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 36:                                               ; preds = %.preheader, %38
@@ -895,18 +885,13 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %34, %41
-  %.sink41 = phi i64 [ %33, %34 ], [ %40, %41 ]
-  %.sink40 = phi i64 [ %35, %34 ], [ %42, %41 ]
-  %43 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink41, i1 true)
-  %44 = or disjoint i64 %43, %.sink40
-  %45 = getelementptr inbounds nuw i8, ptr %12, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = or i8 %46, %11
-  store i8 %47, ptr %45, align 1
-  %.not.i.i14 = icmp samesign ult i64 %.sink40, 256
-  br i1 %.not.i.i14, label %.lr.ph49, label %._crit_edge
+  %.sink40 = phi i64 [ %33, %34 ], [ %40, %41 ]
+  %.sink39 = phi i64 [ %35, %34 ], [ %42, %41 ]
+  %43 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink40, i1 true)
+  %44 = or disjoint i64 %43, %.sink39
+  br label %.lr.ph
 
-._crit_edge:                                      ; preds = %19, %_ZNK3ue29CharReach9find_nextEm.exit, %36, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit
+._crit_edge:                                      ; preds = %19, %36, %_ZNK3ue29CharReach10find_firstEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

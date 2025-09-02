@@ -297,56 +297,52 @@ define dso_local range(i32 -1, 1) i32 @cgroup_p_initialize(i32 noundef %0) local
   br i1 %.not, label %5, label %_cgroup_init.exit.thread
 
 5:                                                ; preds = %1
-  %6 = icmp ugt i32 %0, 4
-  br i1 %6, label %_cgroup_init.exit.thread, label %7
+  %6 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %2
+  %7 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %2
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 @xcgroup_ns_create(ptr noundef nonnull %6, ptr noundef nonnull @.str.82, ptr noundef %8) #11
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %13, label %10
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %2
-  %9 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %2
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @xcgroup_ns_create(ptr noundef nonnull %8, ptr noundef nonnull @.str.82, ptr noundef %10) #11
-  %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %15, label %12
-
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %9, align 8
-  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef %13) #11
+10:                                               ; preds = %5
+  %11 = load ptr, ptr %7, align 8
+  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef %11) #11
   br label %_cgroup_init.exit.thread
 
-15:                                               ; preds = %7
-  %16 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %2
-  %17 = tail call i32 @common_cgroup_create(ptr noundef nonnull %8, ptr noundef nonnull %16, ptr noundef nonnull @.str.82, i32 noundef 0, i32 noundef 0) #11
-  %.not14.i = icmp eq i32 %17, 0
-  br i1 %.not14.i, label %21, label %18
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %2
+  %15 = tail call i32 @common_cgroup_create(ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull @.str.82, i32 noundef 0, i32 noundef 0) #11
+  %.not14.i = icmp eq i32 %15, 0
+  br i1 %.not14.i, label %19, label %16
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %9, align 8
-  %20 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %19) #11
-  tail call void @common_cgroup_ns_destroy(ptr noundef nonnull %8) #11
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %7, align 8
+  %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %17) #11
+  tail call void @common_cgroup_ns_destroy(ptr noundef nonnull %6) #11
   br label %_cgroup_init.exit.thread
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %23 = tail call i32 @xcgroup_create_slurm_cg(ptr noundef nonnull %8, ptr noundef nonnull %22) #11
-  %.not15.i = icmp eq i32 %23, 0
-  br i1 %.not15.i, label %_cgroup_init.exit, label %24
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %21 = tail call i32 @xcgroup_create_slurm_cg(ptr noundef nonnull %6, ptr noundef nonnull %20) #11
+  %.not15.i = icmp eq i32 %21, 0
+  br i1 %.not15.i, label %_cgroup_init.exit, label %22
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %9, align 8
-  %26 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.85, ptr noundef %25) #11
-  tail call void @common_cgroup_ns_destroy(ptr noundef nonnull %8) #11
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %7, align 8
+  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.85, ptr noundef %23) #11
+  tail call void @common_cgroup_ns_destroy(ptr noundef nonnull %6) #11
   br label %_cgroup_init.exit.thread
 
-_cgroup_init.exit:                                ; preds = %21
+_cgroup_init.exit:                                ; preds = %19
   %switch = icmp eq i32 %0, 2
-  br i1 %switch, label %27, label %_cgroup_init.exit.thread
+  br i1 %switch, label %25, label %_cgroup_init.exit.thread
 
-27:                                               ; preds = %_cgroup_init.exit
-  %28 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %16, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #11
+25:                                               ; preds = %_cgroup_init.exit
+  %26 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %14, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #11
   br label %_cgroup_init.exit.thread
 
-_cgroup_init.exit.thread:                         ; preds = %_cgroup_init.exit, %5, %24, %18, %12, %27, %1
-  %.09 = phi i32 [ 0, %1 ], [ 0, %27 ], [ 0, %_cgroup_init.exit ], [ -1, %12 ], [ -1, %18 ], [ -1, %24 ], [ -1, %5 ]
+_cgroup_init.exit.thread:                         ; preds = %_cgroup_init.exit, %22, %16, %10, %25, %1
+  %.09 = phi i32 [ 0, %1 ], [ 0, %25 ], [ 0, %_cgroup_init.exit ], [ -1, %10 ], [ -1, %16 ], [ -1, %22 ]
   ret i32 %.09
 }
 
@@ -787,7 +783,7 @@ define internal fastcc i32 @_step_destroy_internal(i32 noundef %0, i1 noundef ze
 
 6:                                                ; preds = %2
   %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.88) #11
-  br label %59
+  br label %56
 
 8:                                                ; preds = %2
   %9 = add i16 %5, -1
@@ -795,12 +791,12 @@ define internal fastcc i32 @_step_destroy_internal(i32 noundef %0, i1 noundef ze
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %11 = and i64 %10, 36028797018963968
   %.not17 = icmp eq i64 %11, 0
-  br i1 %.not17, label %59, label %12
+  br i1 %.not17, label %56, label %12
 
 12:                                               ; preds = %8
   %13 = tail call i32 @get_log_level() #11
   %14 = icmp sgt i32 %13, 3
-  br i1 %14, label %15, label %59
+  br i1 %14, label %15, label %56
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %3
@@ -808,7 +804,7 @@ define internal fastcc i32 @_step_destroy_internal(i32 noundef %0, i1 noundef ze
   %18 = load i16, ptr %4, align 2
   %19 = zext i16 %18 to i32
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.89, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._step_destroy_internal, ptr noundef %17, i32 noundef %19) #11
-  br label %59
+  br label %56
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw ptr, ptr @g_task_list, i64 %3
@@ -816,86 +812,78 @@ define internal fastcc i32 @_step_destroy_internal(i32 noundef %0, i1 noundef ze
   %23 = tail call i32 @list_for_each(ptr noundef %22, ptr noundef nonnull @_rmdir_task, ptr noundef null) #11
   %24 = load ptr, ptr %21, align 8
   %25 = tail call i32 @list_flush(ptr noundef %24) #11
-  %switch = icmp ult i32 %0, 5
-  br i1 %switch, label %28, label %26
+  %26 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %3
+  %27 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %3
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  br i1 %1, label %36, label %33
 
-26:                                               ; preds = %20
-  %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %0) #11
-  br label %59
+33:                                               ; preds = %20
+  %34 = tail call i32 @common_cgroup_lock(ptr noundef nonnull %26) #11
+  %.not.i = icmp eq i32 %34, 0
+  br i1 %.not.i, label %36, label %_remove_cg_subsystem.exit.thread
 
-28:                                               ; preds = %20
-  %29 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %3
-  %30 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %3
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 120
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 160
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  br i1 %1, label %39, label %36
+_remove_cg_subsystem.exit.thread:                 ; preds = %33
+  %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.91, ptr noundef %28) #11
+  br label %56
 
-36:                                               ; preds = %28
-  %37 = tail call i32 @common_cgroup_lock(ptr noundef nonnull %29) #11
-  %.not.i = icmp eq i32 %37, 0
-  br i1 %.not.i, label %39, label %_remove_cg_subsystem.exit.thread
+36:                                               ; preds = %33, %20
+  %37 = tail call i32 @getpid() #11
+  %38 = tail call i32 @common_cgroup_move_process(ptr noundef nonnull %26, i32 noundef %37) #11
+  %.not26.i = icmp eq i32 %38, 0
+  %39 = tail call i32 @getpid() #11
+  br i1 %.not26.i, label %42, label %40
 
-_remove_cg_subsystem.exit.thread:                 ; preds = %36
-  %38 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.91, ptr noundef %31) #11
-  br label %59
+40:                                               ; preds = %36
+  %41 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, i32 noundef %39) #11
+  br label %50
 
-39:                                               ; preds = %36, %28
-  %40 = tail call i32 @getpid() #11
-  %41 = tail call i32 @common_cgroup_move_process(ptr noundef nonnull %29, i32 noundef %40) #11
-  %.not26.i = icmp eq i32 %41, 0
-  %42 = tail call i32 @getpid() #11
-  br i1 %.not26.i, label %45, label %43
+42:                                               ; preds = %36
+  %43 = tail call zeroext i1 @common_cgroup_wait_pid_moved(ptr noundef nonnull %30, i32 noundef %39, ptr noundef %28) #11
+  %44 = tail call i32 @common_cgroup_delete(ptr noundef nonnull %30) #11
+  %.not27.i = icmp eq i32 %44, 0
+  br i1 %.not27.i, label %45, label %50
 
-43:                                               ; preds = %39
-  %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, i32 noundef %42) #11
-  br label %53
+45:                                               ; preds = %42
+  %46 = tail call i32 @common_cgroup_delete(ptr noundef nonnull %29) #11
+  %.not28.i = icmp eq i32 %46, 0
+  br i1 %.not28.i, label %47, label %50
 
-45:                                               ; preds = %39
-  %46 = tail call zeroext i1 @common_cgroup_wait_pid_moved(ptr noundef nonnull %33, i32 noundef %42, ptr noundef %31) #11
-  %47 = tail call i32 @common_cgroup_delete(ptr noundef nonnull %33) #11
-  %.not27.i = icmp eq i32 %47, 0
-  br i1 %.not27.i, label %48, label %53
+47:                                               ; preds = %45
+  %48 = tail call i32 @common_cgroup_delete(ptr noundef nonnull %31) #11
+  %.not29.i = icmp eq i32 %48, 0
+  br i1 %.not29.i, label %49, label %50
 
-48:                                               ; preds = %45
-  %49 = tail call i32 @common_cgroup_delete(ptr noundef nonnull %32) #11
-  %.not28.i = icmp eq i32 %49, 0
-  br i1 %.not28.i, label %50, label %53
-
-50:                                               ; preds = %48
-  %51 = tail call i32 @common_cgroup_delete(ptr noundef nonnull %34) #11
-  %.not29.i = icmp eq i32 %51, 0
-  br i1 %.not29.i, label %52, label %53
-
-52:                                               ; preds = %50
-  tail call void @common_cgroup_destroy(ptr noundef nonnull %34) #11
+49:                                               ; preds = %47
+  tail call void @common_cgroup_destroy(ptr noundef nonnull %31) #11
+  tail call void @common_cgroup_destroy(ptr noundef nonnull %29) #11
+  tail call void @common_cgroup_destroy(ptr noundef nonnull %30) #11
   tail call void @common_cgroup_destroy(ptr noundef nonnull %32) #11
-  tail call void @common_cgroup_destroy(ptr noundef nonnull %33) #11
-  tail call void @common_cgroup_destroy(ptr noundef nonnull %35) #11
-  br label %53
+  br label %50
 
-53:                                               ; preds = %52, %50, %48, %45, %43
-  %.0.i = phi i32 [ %41, %43 ], [ %47, %45 ], [ 0, %52 ], [ 0, %48 ], [ 0, %50 ]
-  br i1 %1, label %_remove_cg_subsystem.exit, label %54
+50:                                               ; preds = %49, %47, %45, %42, %40
+  %.0.i = phi i32 [ %38, %40 ], [ %44, %42 ], [ 0, %49 ], [ 0, %45 ], [ 0, %47 ]
+  br i1 %1, label %_remove_cg_subsystem.exit, label %51
 
-54:                                               ; preds = %53
-  %55 = tail call i32 @common_cgroup_unlock(ptr noundef nonnull %29) #11
+51:                                               ; preds = %50
+  %52 = tail call i32 @common_cgroup_unlock(ptr noundef nonnull %26) #11
   br label %_remove_cg_subsystem.exit
 
-_remove_cg_subsystem.exit:                        ; preds = %53, %54
-  %56 = icmp eq i32 %.0.i, 0
-  br i1 %56, label %57, label %59
+_remove_cg_subsystem.exit:                        ; preds = %50, %51
+  %53 = icmp eq i32 %.0.i, 0
+  br i1 %53, label %54, label %56
 
-57:                                               ; preds = %_remove_cg_subsystem.exit
+54:                                               ; preds = %_remove_cg_subsystem.exit
   store i16 0, ptr %4, align 2
-  %58 = getelementptr inbounds nuw [4096 x i8], ptr @g_step_cgpath, i64 %3
-  store i8 0, ptr %58, align 16
-  br label %59
+  %55 = getelementptr inbounds nuw [4096 x i8], ptr @g_step_cgpath, i64 %3
+  store i8 0, ptr %55, align 16
+  br label %56
 
-59:                                               ; preds = %_remove_cg_subsystem.exit.thread, %_remove_cg_subsystem.exit, %57, %8, %15, %12, %26, %6
-  %.0 = phi i32 [ 0, %6 ], [ -1, %26 ], [ 0, %12 ], [ 0, %15 ], [ 0, %8 ], [ 0, %57 ], [ %.0.i, %_remove_cg_subsystem.exit ], [ -1, %_remove_cg_subsystem.exit.thread ]
+56:                                               ; preds = %_remove_cg_subsystem.exit.thread, %_remove_cg_subsystem.exit, %54, %8, %15, %12, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %12 ], [ 0, %15 ], [ 0, %8 ], [ 0, %54 ], [ %.0.i, %_remove_cg_subsystem.exit ], [ -1, %_remove_cg_subsystem.exit.thread ]
   ret i32 %.0
 }
 

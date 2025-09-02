@@ -815,7 +815,7 @@ define dso_local noundef i32 @_ZN5clang6driver5types26lookupTypeForTypeSpecifier
   %4 = load i32, ptr %.02946.i.i.i.ptr.i.i, align 16, !tbaa !15
   %5 = zext i32 %4 to i64
   %6 = icmp eq i64 %indvars.iv.next, %5
-  br i1 %6, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit, label %7
+  br i1 %6, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread, label %7
 
 7:                                                ; preds = %3
   %.ptr8.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.ptr.i.i, i64 4
@@ -842,20 +842,16 @@ define dso_local noundef i32 @_ZN5clang6driver5types26lookupTypeForTypeSpecifier
   %.02946.i.i.i.add6.i.i = add nuw nsw i64 %.02946.i.i.i.idx.i.i, 16
   %20 = add nsw i64 %.047.i.i.i.i.i, -1
   %21 = icmp samesign ugt i64 %.047.i.i.i.i.i, 1
-  br i1 %21, label %3, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15, !llvm.loop !16
+  br i1 %21, label %3, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15.loopexit, !llvm.loop !16
 
-_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit: ; preds = %3
-  %.not.i = icmp eq i64 %.02946.i.i.i.idx.i.i, 80
-  br i1 %.not.i, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread
-
-_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15: ; preds = %19, %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit
+_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15.loopexit: ; preds = %19
   %22 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %23) #8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.loopexit.loopexit, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread
 
-_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread: ; preds = %15, %11, %7, %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit, %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15
+_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread: ; preds = %15, %11, %7, %3, %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15.loopexit
   %exitcond.not = icmp eq i64 %indvars.iv.next, 67
   br i1 %exitcond.not, label %sub_0, label %2, !llvm.loop !18
 
@@ -867,8 +863,8 @@ sub_0:                                            ; preds = %_ZN5clang6driver5ty
 sub_1:                                            ; preds = %sub_0
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %28 = load i8, ptr %27, align 1
-  %.not28 = icmp eq i8 %28, 117
-  br i1 %.not28, label %sub_2, label %.loopexit
+  %.not26 = icmp eq i8 %28, 117
+  br i1 %.not26, label %sub_2, label %.loopexit
 
 sub_2:                                            ; preds = %sub_1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -877,7 +873,7 @@ sub_2:                                            ; preds = %sub_1
   %32 = select i1 %31, i32 8, i32 0
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15
+.loopexit.loopexit:                               ; preds = %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15.loopexit
   %33 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 

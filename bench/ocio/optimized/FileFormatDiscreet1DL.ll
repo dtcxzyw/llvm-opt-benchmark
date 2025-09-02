@@ -3512,6 +3512,12 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit: ; pred
   %22 = icmp eq ptr %20, null
   br i1 %22, label %.lr.ph18.i41, label %18
 
+._crit_edge19.loopexit.i53:                       ; preds = %33
+  %.pre25.i54 = load ptr, ptr %7, align 8, !tbaa !31
+  tail call void @free(ptr noundef %.pre25.i54) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 24) #32
+  br label %37
+
 .lr.ph18.i41:                                     ; preds = %19, %33
   %23 = phi i32 [ %34, %33 ], [ %1, %19 ]
   %indvars.iv22.i42 = phi i64 [ %indvars.iv.next23.i52, %33 ], [ 0, %19 ]
@@ -3553,20 +3559,14 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit: ; pred
   %indvars.iv.next23.i52 = add nuw nsw i64 %indvars.iv22.i42, 1
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next23.i52, %35
-  br i1 %36, label %.lr.ph18.i41, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit57, !llvm.loop !73
-
-_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit57: ; preds = %33
-  %.pre25.i54 = load ptr, ptr %7, align 8, !tbaa !31
-  tail call void @free(ptr noundef %.pre25.i54) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 24) #32
-  br label %37
+  br i1 %36, label %.lr.ph18.i41, label %._crit_edge19.loopexit.i53, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %18, %.preheader65
   store ptr %6, ptr %0, align 8, !tbaa !25
   br label %37
 
-37:                                               ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit57, %._crit_edge, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit ], [ false, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit57 ], [ true, %._crit_edge ]
+37:                                               ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit, %._crit_edge19.loopexit.i53, %._crit_edge, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit ], [ false, %._crit_edge19.loopexit.i53 ], [ true, %._crit_edge ]
   ret i1 %.0
 }
 

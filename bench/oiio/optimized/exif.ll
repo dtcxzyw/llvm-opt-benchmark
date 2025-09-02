@@ -2351,15 +2351,15 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit: ; preds = %.lr.ph
   %52 = zext i32 %47 to i64
   %53 = mul i64 %.0.i.i, %52
   %54 = icmp ugt i64 %53, 4
-  br i1 %54, label %.lr.ph.i94.preheader, label %_ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit98
+  br i1 %54, label %.lr.ph.i94, label %_ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit98
 
-.lr.ph.i94.preheader:                             ; preds = %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
+.lr.ph.i94:                                       ; preds = %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
   %55 = call noundef i32 @llvm.bswap.i32(i32 %39)
   store i32 %55, ptr %38, align 4, !tbaa !73
   br label %_ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit98
 
-_ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit98: ; preds = %_ZN11OpenImageIO6v3_1_03pvt14gps_tagmap_refEv.exit, %.lr.ph.i94.preheader, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
-  %56 = phi i16 [ %41, %.lr.ph.i94.preheader ], [ %41, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit ], [ %40, %_ZN11OpenImageIO6v3_1_03pvt14gps_tagmap_refEv.exit ]
+_ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit98: ; preds = %_ZN11OpenImageIO6v3_1_03pvt14gps_tagmap_refEv.exit, %.lr.ph.i94, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
+  %56 = phi i16 [ %41, %.lr.ph.i94 ], [ %41, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit ], [ %40, %_ZN11OpenImageIO6v3_1_03pvt14gps_tagmap_refEv.exit ]
   %57 = zext i16 %56 to i32
   switch i16 %56, label %126 [
     i16 -30683, label %_ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit103
