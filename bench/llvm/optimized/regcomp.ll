@@ -566,7 +566,7 @@ stripsnug.exit:                                   ; preds = %181
   br i1 %186, label %190, label %stripsnug.exit.pluscount.exit_crit_edge
 
 stripsnug.exit.pluscount.exit_crit_edge:          ; preds = %seterr.exit13.i, %seterr.exit.i102, %stripsnug.exit
-  %.pre134 = load i32, ptr %45, align 8, !tbaa !24
+  %.pre132 = load i32, ptr %45, align 8, !tbaa !24
   br label %pluscount.exit
 
 190:                                              ; preds = %stripsnug.exit
@@ -608,7 +608,7 @@ stripsnug.exit.pluscount.exit_crit_edge:          ; preds = %seterr.exit13.i, %s
   %203 = getelementptr inbounds nuw i64, ptr %.248.i, i64 %202
   %204 = load i64, ptr %203, align 8, !tbaa !34
   %205 = trunc i64 %204 to i32
-  %trunc.i = and i32 %205, -134217728
+  %205 = and i32 %205, -134217728
   switch i32 %trunc.i, label %206 [
     i32 -1879048192, label %.loopexit.i104
     i32 1610612736, label %.loopexit.i104
@@ -655,9 +655,9 @@ stripsnug.exit.pluscount.exit_crit_edge:          ; preds = %seterr.exit13.i, %s
   %222 = call noalias ptr @malloc(i64 noundef %221) #14
   store ptr %222, ptr %48, align 8, !tbaa !27
   %223 = icmp eq ptr %222, null
-  br i1 %223, label %225, label %.preheader1.i
+  br i1 %223, label %225, label %.preheader3.i
 
-.preheader1.i:                                    ; preds = %219
+.preheader3.i:                                    ; preds = %219
   %224 = icmp sgt i32 %217, 0
   br i1 %224, label %.preheader.i105, label %._crit_edge.i
 
@@ -665,14 +665,14 @@ stripsnug.exit.pluscount.exit_crit_edge:          ; preds = %seterr.exit13.i, %s
   store i32 0, ptr %49, align 8, !tbaa !28
   br label %findmust.exit.preheader
 
-.preheader.i105:                                  ; preds = %.preheader1.i, %230
-  %.09.i = phi i64 [ %233, %230 ], [ %220, %.preheader1.i ]
-  %.0368.i = phi ptr [ %232, %230 ], [ %222, %.preheader1.i ]
-  %.47.i = phi ptr [ %227, %230 ], [ %.245.i, %.preheader1.i ]
+.preheader.i105:                                  ; preds = %.preheader3.i, %230
+  %.010.i = phi i64 [ %233, %230 ], [ %220, %.preheader1.i ]
+  %.0369.i = phi ptr [ %232, %230 ], [ %222, %.preheader1.i ]
+  %.48.i = phi ptr [ %227, %230 ], [ %.245.i, %.preheader1.i ]
   br label %226
 
 226:                                              ; preds = %226, %.preheader.i105
-  %.5.i = phi ptr [ %227, %226 ], [ %.47.i, %.preheader.i105 ]
+  %.5.i = phi ptr [ %227, %226 ], [ %.48.i, %.preheader.i105 ]
   %227 = getelementptr inbounds nuw i8, ptr %.5.i, i64 8
   %228 = load i64, ptr %.5.i, align 8, !tbaa !34
   %229 = and i64 %228, 4160749568
@@ -681,13 +681,13 @@ stripsnug.exit.pluscount.exit_crit_edge:          ; preds = %seterr.exit13.i, %s
 
 230:                                              ; preds = %226
   %231 = trunc i64 %228 to i8
-  %232 = getelementptr inbounds nuw i8, ptr %.0368.i, i64 1
-  store i8 %231, ptr %.0368.i, align 1, !tbaa !36
-  %233 = add nsw i64 %.09.i, -1
-  %234 = icmp sgt i64 %.09.i, 1
+  %232 = getelementptr inbounds nuw i8, ptr %.0369.i, i64 1
+  store i8 %231, ptr %.0369.i, align 1, !tbaa !36
+  %233 = add nsw i64 %.010.i, -1
+  %234 = icmp sgt i64 %.010.i, 1
   br i1 %234, label %.preheader.i105, label %._crit_edge.i, !llvm.loop !50
 
-._crit_edge.i:                                    ; preds = %230, %.preheader1.i
+._crit_edge.i:                                    ; preds = %230, %.preheader3.i
   %.036.lcssa.i = phi ptr [ %222, %.preheader1.i ], [ %232, %230 ]
   store i8 0, ptr %.036.lcssa.i, align 1, !tbaa !36
   br label %findmust.exit.preheader
@@ -725,18 +725,18 @@ findmust.exit:                                    ; preds = %findmust.exit.prehe
 
 242:                                              ; preds = %241
   %.not18.i = icmp eq i64 %.114.i, 0
-  %.pre135 = load i32, ptr %45, align 8, !tbaa !24
+  %.pre133 = load i32, ptr %45, align 8, !tbaa !24
   br i1 %.not18.i, label %pluscount.exit, label %243
 
 243:                                              ; preds = %242
-  %244 = or i32 %.pre135, 4
+  %244 = or i32 %.pre133, 4
   store i32 %244, ptr %45, align 8, !tbaa !24
   br label %pluscount.exit
 
 pluscount.exit:                                   ; preds = %stripsnug.exit.pluscount.exit_crit_edge, %242, %243
-  %.not.i103162 = phi i1 [ true, %243 ], [ true, %242 ], [ false, %stripsnug.exit.pluscount.exit_crit_edge ]
-  %.val90160 = phi i32 [ %.val90.pre, %243 ], [ %.val90.pre, %242 ], [ 1, %stripsnug.exit.pluscount.exit_crit_edge ]
-  %245 = phi i32 [ %244, %243 ], [ %.pre135, %242 ], [ %.pre134, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %.not.i103161 = phi i1 [ true, %243 ], [ true, %242 ], [ false, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %.val90159 = phi i32 [ %.val90.pre, %243 ], [ %.val90.pre, %242 ], [ 1, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %245 = phi i32 [ %244, %243 ], [ %.pre133, %242 ], [ %.pre132, %stripsnug.exit.pluscount.exit_crit_edge ]
   %.015.i = phi i64 [ %.2.i109, %243 ], [ %.2.i109, %242 ], [ 0, %stripsnug.exit.pluscount.exit_crit_edge ]
   %246 = getelementptr inbounds nuw i8, ptr %22, i64 128
   store i64 %.015.i, ptr %246, align 8, !tbaa !52
@@ -752,7 +752,7 @@ pluscount.exit:                                   ; preds = %stripsnug.exit.plus
   br i1 %.not88, label %253, label %251
 
 251:                                              ; preds = %pluscount.exit
-  br i1 %.not.i103162, label %252, label %.thread
+  br i1 %.not.i103161, label %252, label %.thread
 
 252:                                              ; preds = %251
   store i32 15, ptr %38, align 8, !tbaa !19
@@ -764,16 +764,16 @@ pluscount.exit:                                   ; preds = %stripsnug.exit.plus
   br label %254
 
 253:                                              ; preds = %pluscount.exit
-  %.not89 = icmp eq i32 %.val90160, 0
+  %.not89 = icmp eq i32 %.val90159, 0
   br i1 %.not89, label %255, label %254
 
 254:                                              ; preds = %.thread, %253
   call void @llvm_regfree(ptr noundef nonnull %0) #16
-  %.pre136 = load i32, ptr %38, align 8, !tbaa !19
+  %.pre134 = load i32, ptr %38, align 8, !tbaa !19
   br label %255
 
 255:                                              ; preds = %253, %254, %21, %11, %3, %33
-  %.081 = phi i32 [ 12, %33 ], [ 16, %3 ], [ 16, %11 ], [ 12, %21 ], [ %.pre136, %254 ], [ 0, %253 ]
+  %.081 = phi i32 [ 12, %33 ], [ 16, %3 ], [ 16, %11 ], [ 12, %21 ], [ %.pre134, %254 ], [ 0, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.081
 }

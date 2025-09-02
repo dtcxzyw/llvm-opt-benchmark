@@ -1834,12 +1834,12 @@ define linkonce_odr void @_ZN5QListI29FilterNameParameterValuesPairE6appendERKS0
   %3 = load ptr, ptr %0, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %5 = icmp ugt i32 %4, 1
-  br i1 %5, label %6, label %28
+  br i1 %5, label %6, label %29
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN5QListI29FilterNameParameterValuesPairE18detach_helper_growEii(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2147483647, i32 noundef 1)
   %8 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
-          to label %.noexc unwind label %18
+          to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1852,18 +1852,18 @@ define linkonce_odr void @_ZN5QListI29FilterNameParameterValuesPairE6appendERKS0
     i32 0, label %_ZN7QStringC2ERKS_.exit.i.i.i
   ]
 
-13:                                               ; preds = %.noexc
-  %14 = atomicrmw add ptr %11, i32 1 seq_cst, align 4
+14:                                               ; preds = %.noexc
+  %15 = atomicrmw add ptr %11, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %13, %.noexc, %.noexc
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
+_ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %14, %.noexc, %.noexc
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit unwind label %.body.i
 
 .body.i:                                          ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
   tail call void @_ZdlPv(ptr noundef nonnull %8) #13
@@ -1872,30 +1872,30 @@ _ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %13, %.noexc, %.noex
 _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %8, align 8
   store ptr %8, ptr %7, align 8
-  br label %50
+  br label %52
 
-18:                                               ; preds = %6
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %6
+  %20 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %.body.i, %18
-  %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %17, %.body.i ]
-  %20 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #11
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %24 = load i32, ptr %23, align 4
-  %25 = add nsw i32 %24, -1
-  store i32 %25, ptr %23, align 4
+.body:                                            ; preds = %.body.i, %19
+  %eh.lpad-body = phi { ptr, i32 } [ %20, %18 ], [ %18, %.body.i ]
+  %21 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #11
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  %25 = load i32, ptr %24, align 4
+  %26 = add nsw i32 %25, -1
+  store i32 %26, ptr %24, align 4
   invoke void @__cxa_rethrow() #15
-          to label %55 unwind label %26
+          to label %55 unwind label %27
 
-26:                                               ; preds = %.body
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %.body
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %51 unwind label %52
+          to label %51 unwind label %54
 
 28:                                               ; preds = %2
   %29 = tail call noundef ptr @_ZN9QListData6appendEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
@@ -1913,66 +1913,66 @@ _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
     i32 0, label %_ZN7QStringC2ERKS_.exit.i.i.i10
   ]
 
-35:                                               ; preds = %.noexc12
+29:                                               ; preds = %.noexc12
   %36 = atomicrmw add ptr %33, i32 1 seq_cst, align 4
-  br label %_ZN7QStringC2ERKS_.exit.i.i.i10
+  br label %.noexc14
 
-_ZN7QStringC2ERKS_.exit.i.i.i10:                  ; preds = %35, %.noexc12, %.noexc12
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+.noexc13:                                         ; preds = %29, %.noexc12, %.noexc12
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38)
           to label %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit15 unwind label %.body.i11
 
-.body.i11:                                        ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i10
+.body.i11:; preds = %.noexc13
   %39 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %30) #13
-  br label %.body13
+  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #13
+  br label %.body14
 
-_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit15: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i10
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %30, align 8
-  store ptr %30, ptr %29, align 8
-  br label %50
+_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit16: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %31, align 8
+  store ptr %31, ptr %30, align 8
+  br label %52
 
-40:                                               ; preds = %28
-  %41 = landingpad { ptr, i32 }
+42:                                               ; preds = %29
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body13
+  br label %.body14
 
-.body13:                                          ; preds = %.body.i11, %40
-  %eh.lpad-body14 = phi { ptr, i32 } [ %41, %40 ], [ %39, %.body.i11 ]
-  %42 = extractvalue { ptr, i32 } %eh.lpad-body14, 0
-  %43 = tail call ptr @__cxa_begin_catch(ptr %42) #11
-  %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %46 = load i32, ptr %45, align 4
-  %47 = add nsw i32 %46, -1
-  store i32 %47, ptr %45, align 4
+.body14:                                          ; preds = %.body.i11, %42
+  %eh.lpad-body15 = phi { ptr, i32 } [ %43, %40 ], [ %40, %.body.i11 ]
+  %44 = extractvalue { ptr, i32 } %eh.lpad-body15, 0
+  %45 = tail call ptr @__cxa_begin_catch(ptr %44) #11
+  %46 = load ptr, ptr %0, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  %48 = load i32, ptr %47, align 4
+  %49 = add nsw i32 %48, -1
+  store i32 %49, ptr %47, align 4
   invoke void @__cxa_rethrow() #15
-          to label %55 unwind label %48
+          to label %55 unwind label %50
 
-48:                                               ; preds = %.body13
-  %49 = landingpad { ptr, i32 }
+50:                                               ; preds = %.body14
+  %51 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %51 unwind label %52
+          to label %51 unwind label %54
 
-50:                                               ; preds = %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit15, %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
+52:                                               ; preds = %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit16, %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
   ret void
 
-51:                                               ; preds = %48, %26
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %49, %48 ]
+53:                                               ; preds = %50, %27
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %51, %48 ]
   resume { ptr, i32 } %.pn
 
-52:                                               ; preds = %48, %26
-  %53 = landingpad { ptr, i32 }
+54:                                               ; preds = %50, %27
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #12
+  %56 = extractvalue { ptr, i32 } %55, 0
+  tail call void @__clang_call_terminate(ptr %56) #12
   unreachable
 
-55:                                               ; preds = %.body13, %.body
+57:                                               ; preds = %.body14, %.body
   unreachable
 }
 
@@ -2021,11 +2021,11 @@ define linkonce_odr void @_ZNK29FilterNameParameterValuesPair10filterNameEv(ptr 
     i32 0, label %_ZN7QStringC2ERKS_.exit
   ]
 
-6:                                                ; preds = %2
-  %7 = atomicrmw add ptr %4, i32 1 seq_cst, align 4
+7:                                                ; preds = %2
+  %8 = atomicrmw add ptr %4, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %2, %6
+_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %2, %7
   ret void
 }
 
@@ -2272,11 +2272,11 @@ define linkonce_odr void @_ZN5QListI29FilterNameParameterValuesPairE9node_copyEP
   %.not21 = icmp eq ptr %1, %2
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %18
-  %.01223 = phi ptr [ %19, %18 ], [ %1, %4 ]
-  %.01322 = phi ptr [ %20, %18 ], [ %3, %4 ]
+.lr.ph:                                           ; preds = %4, %19
+  %.01223 = phi ptr [ %20, %18 ], [ %1, %4 ]
+  %.01322 = phi ptr [ %21, %18 ], [ %3, %4 ]
   %5 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
-          to label %6 unwind label %21
+          to label %6 unwind label %22
 
 6:                                                ; preds = %.lr.ph
   %7 = load ptr, ptr %.01322, align 8
@@ -2290,86 +2290,86 @@ define linkonce_odr void @_ZN5QListI29FilterNameParameterValuesPairE9node_copyEP
     i32 0, label %_ZN7QStringC2ERKS_.exit.i.i
   ]
 
-12:                                               ; preds = %6
-  %13 = atomicrmw add ptr %10, i32 1 seq_cst, align 4
+13:                                               ; preds = %6
+  %14 = atomicrmw add ptr %10, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %12, %6, %6
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
+_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %13, %6, %6
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %18 unwind label %.body
 
 .body:                                            ; preds = %_ZN7QStringC2ERKS_.exit.i.i
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #11
   tail call void @_ZdlPv(ptr noundef nonnull %5) #13
-  br label %23
+  br label %24
 
-18:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i.i
+19:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %5, align 8
   store ptr %5, ptr %.01223, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %.01223, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %.01322, i64 8
-  %.not = icmp eq ptr %19, %2
+  %20 = getelementptr inbounds nuw i8, ptr %.01223, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.01322, i64 8
+  %.not = icmp eq ptr %20, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-21:                                               ; preds = %.lr.ph
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %.lr.ph
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  br label %23
+  br label %24
 
-23:                                               ; preds = %.body, %21
-  %.pn = phi { ptr, i32 } [ %16, %.body ], [ %22, %21 ]
+24:                                               ; preds = %.body, %22
+  %.pn = phi { ptr, i32 } [ %17, %.body ], [ %23, %22 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
-  %24 = tail call ptr @__cxa_begin_catch(ptr %.0) #11
+  %25 = tail call ptr @__cxa_begin_catch(ptr %.0) #11
   %.not1524 = icmp eq ptr %.01223, %1
   br i1 %.not1524, label %._crit_edge27, label %.lr.ph26
 
-.lr.ph26:                                         ; preds = %23, %32
-  %.pn28 = phi ptr [ %25, %32 ], [ %.01223, %23 ]
-  %25 = getelementptr inbounds i8, ptr %.pn28, i64 -8
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %32, label %28
+.lr.ph26:                                         ; preds = %24, %33
+  %.pn28 = phi ptr [ %26, %32 ], [ %.01223, %24 ]
+  %26 = getelementptr inbounds i8, ptr %.pn28, i64 -8
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %33, label %29
 
-28:                                               ; preds = %.lr.ph26
-  %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(40) %26) #11
-  br label %32
+29:                                               ; preds = %.lr.ph26
+  %30 = load ptr, ptr %27, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(40) %27) #11
+  br label %33
 
-32:                                               ; preds = %28, %.lr.ph26
-  %.not15 = icmp eq ptr %25, %1
+33:                                               ; preds = %29, %.lr.ph26
+  %.not15 = icmp eq ptr %26, %1
   br i1 %.not15, label %._crit_edge27, label %.lr.ph26, !llvm.loop !16
 
-._crit_edge27:                                    ; preds = %32, %23
+._crit_edge27:                                    ; preds = %33, %24
   invoke void @__cxa_rethrow() #15
-          to label %39 unwind label %33
+          to label %39 unwind label %34
 
-33:                                               ; preds = %._crit_edge27
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %._crit_edge27
+  %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %35 unwind label %36
+          to label %35 unwind label %37
 
-._crit_edge:                                      ; preds = %18, %4
+._crit_edge:                                      ; preds = %19, %4
   ret void
 
-35:                                               ; preds = %33
-  resume { ptr, i32 } %34
+36:                                               ; preds = %34
+  resume { ptr, i32 } %35
 
-36:                                               ; preds = %33
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %34
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #12
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #12
   unreachable
 
-39:                                               ; preds = %._crit_edge27
+40:                                               ; preds = %._crit_edge27
   unreachable
 }
 

@@ -19267,8 +19267,8 @@ define hidden noundef zeroext i1 @_ZN13IdealLoopTree20do_remove_empty_loopEP14Ph
 26:                                               ; preds = %25, %20
   %27 = phi i32 [ %.pre, %25 ], [ %22, %20 ]
   %28 = and i32 %27, 2
-  %switch.not = icmp eq i32 %28, 0
-  br i1 %switch.not, label %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, label %.thread93
+  %or.cond = icmp eq i32 %28, 0
+  br i1 %or.cond, label %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, label %.thread93
 
 _ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i: ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56

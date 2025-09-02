@@ -9584,7 +9584,7 @@ define internal fastcc void @_ZN3hir7symbols15SymbolCollector19collect_from_modu
 .lr.ph.i.i.i.unreachabledefault:                  ; preds = %.lr.ph.i.i.i
   unreachable
 
-default.unreachable993:                           ; preds = %1975, %1799, %1623, %1371, %1195, %1019, %827, %1340, %1164, %.lr.ph.i.i.i747, %.lr.ph.i17.i.i757, %988, %1944, %1768, %1592, %796, %.lr.ph.i17.i.i, %564, %516
+default.unreachable994:                           ; preds = %1975, %1799, %1623, %1371, %1195, %1019, %827, %1340, %1164, %.lr.ph.i.i.i747, %.lr.ph.i17.i.i757, %988, %1944, %1768, %1592, %796, %.lr.ph.i17.i.i, %564, %516
   unreachable
 
 365:                                              ; preds = %.lr.ph.i.i.i
@@ -9975,9 +9975,9 @@ _ZN3hir7symbols15SymbolCollector17collect_from_impl17haccaa0857009b08eE.exit: ; 
   %or.cond = select i1 %513, i1 %515, i1 false
   %.old = load i32, ptr %485, align 4
   %.old885 = icmp eq i32 %.old, %177
-  %or.cond1011 = select i1 %or.cond, i1 %.old885, i1 false
+  %or.cond1012 = select i1 %or.cond, i1 %.old885, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %151)
-  br i1 %or.cond1011, label %516, label %"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.exit.thread.us.us"
+  br i1 %or.cond1012, label %516, label %"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.exit.thread.us.us"
 
 516:                                              ; preds = %511
   %517 = load i32, ptr %152, align 4, !range !330, !noundef !23

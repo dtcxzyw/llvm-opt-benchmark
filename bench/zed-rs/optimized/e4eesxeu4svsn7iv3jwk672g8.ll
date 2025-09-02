@@ -7321,7 +7321,7 @@ default.unreachable5:                             ; preds = %1
   %switch = icmp ult i8 %.sroa.01.0.off, 2
   br i1 %switch, label %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hed5169600f0a064cE.llvm.3533412349758872646.exit", label %25
 
-25:                                               ; preds = %24
+27:                                               ; preds = %24
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.70.llvm.3533412349758872646, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.72.llvm.3533412349758872646) #44
   unreachable
 

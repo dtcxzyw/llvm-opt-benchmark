@@ -416,11 +416,11 @@ define void @_ZN11RasterModelC2EjRK7QString(ptr noundef nonnull align 8 derefere
     i32 0, label %_ZN7QStringC2ERKS_.exit
   ]
 
-9:                                                ; preds = %3
-  %10 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
+10:                                               ; preds = %3
+  %11 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %3, %9
+_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %3, %10
   ret void
 }
 

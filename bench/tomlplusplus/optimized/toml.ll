@@ -47038,14 +47038,14 @@ define internal noundef ptr @_ZN12_GLOBAL__N_111utf8_readerISt17basic_string_vie
   %12 = load i64, ptr %11, align 8, !tbaa !448
   %.fr.i = freeze i64 %12
   %13 = load i64, ptr %10, align 8, !tbaa !489
-  %.fr51.i = freeze i64 %13
-  %.not2 = icmp ult i64 %.fr.i, %.fr51.i
+  %.fr63.i = freeze i64 %13
+  %.not2 = icmp ult i64 %.fr.i, %.fr63.i
   br i1 %.not2, label %14, label %.critedge, !prof !171
 
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = add i64 %.fr.i, 32
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %.fr51.i)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %.fr63.i)
   %16 = sub i64 %.sroa.speculated.i.i, %.fr.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 16, !tbaa !488
@@ -47075,7 +47075,7 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i: ; preds = %
   %26 = icmp slt <16 x i8> %25, zeroinitializer
   %27 = bitcast <16 x i1> %26 to i16
   %.not32.i.i = icmp eq i16 %27, 0
-  br i1 %.not32.i.i, label %32, label %.lr.ph56.i
+  br i1 %.not32.i.i, label %32, label %.lr.ph55.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.12734.i.i = phi ptr [ %30, %.lr.ph.i.i ], [ %2, %.lr.ph.preheader.i.i ]
@@ -47100,7 +47100,7 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i: ; preds = %
   %.32936.i.i = phi ptr [ %35, %34 ], [ %.228.i.i, %32 ]
   %37 = load i8, ptr %.32936.i.i, align 1, !tbaa !15
   %38 = icmp sgt i8 %37, -1
-  br i1 %38, label %34, label %.lr.ph56.i
+  br i1 %38, label %34, label %.lr.ph55.i
 
 .lr.ph.preheader.i:                               ; preds = %34, %32
   store i32 0, ptr %20, align 8, !tbaa !450
@@ -47111,9 +47111,9 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i: ; preds = %
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.02354.i = phi i64 [ %46, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %40 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.02354.i
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %.02354.i
+  %.02353.i = phi i64 [ %46, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %40 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.02353.i
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %.02353.i
   %42 = load i8, ptr %41, align 1, !tbaa !15
   %43 = sext i8 %42 to i32
   store i32 %43, ptr %40, align 8, !tbaa !363
@@ -47121,22 +47121,22 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i: ; preds = %
   store i8 %42, ptr %44, align 4, !tbaa !15
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 1, ptr %45, align 8, !tbaa !365
-  %46 = add nuw i64 %.02354.i, 1
+  %46 = add nuw i64 %.02353.i, 1
   %exitcond.not.i = icmp eq i64 %46, %umax.i
   br i1 %exitcond.not.i, label %.lr.ph.i41.i, label %.lr.ph.i, !llvm.loop !681
 
-.lr.ph56.i:                                       ; preds = %.lr.ph38.i.i, %._crit_edge.i.i, %14
+.lr.ph55.i:                                       ; preds = %.lr.ph38.i.i, %._crit_edge.i.i, %14
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.promoted57.i = load i32, ptr %47, align 4
-  %umax73.i = call i64 @llvm.umax.i64(i64 %16, i64 1)
+  %.promoted56.i = load i32, ptr %47, align 4
+  %umax71.i = call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %51
 
 50:                                               ; preds = %108
   store i32 %71, ptr %47, align 4, !tbaa !452
   store i32 %77, ptr %20, align 8, !tbaa !450
-  %.not.i = icmp ult i64 %15, %.fr51.i
+  %.not.i = icmp ult i64 %15, %.fr63.i
   %or.cond.i = or i1 %.not.i, %90
   br i1 %or.cond.i, label %..lr.ph.i41.i_crit_edge, label %110
 
@@ -47144,11 +47144,11 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i: ; preds = %
   %.pre = load i64, ptr %6, align 8, !tbaa !680
   br label %.lr.ph.i41.i
 
-51:                                               ; preds = %108, %.lr.ph56.i
-  %52 = phi i32 [ %.promoted57.i, %.lr.ph56.i ], [ %71, %108 ]
-  %.02255.i = phi i64 [ 0, %.lr.ph56.i ], [ %109, %108 ]
+51:                                               ; preds = %108, %.lr.ph55.i
+  %52 = phi i32 [ %.promoted56.i, %.lr.ph56.i ], [ %71, %108 ]
+  %.02254.i = phi i64 [ 0, %.lr.ph56.i ], [ %109, %108 ]
   %53 = phi i32 [ %21, %.lr.ph56.i ], [ %77, %108 ]
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 %.02255.i
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 %.02254.i
   %55 = load i8, ptr %54, align 1, !tbaa !15
   %56 = icmp ne i32 %53, 12
   call void @llvm.assume(i1 %56)
@@ -47246,9 +47246,9 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %66, %61
   unreachable
 
 108:                                              ; preds = %98, %91
-  %109 = add nuw i64 %.02255.i, 1
-  %exitcond74.not.i = icmp eq i64 %109, %umax73.i
-  br i1 %exitcond74.not.i, label %50, label %51, !llvm.loop !682
+  %109 = add nuw i64 %.02254.i, 1
+  %exitcond72.not.i = icmp eq i64 %109, %umax71.i
+  br i1 %exitcond72.not.i, label %50, label %51, !llvm.loop !682
 
 110:                                              ; preds = %50
   call fastcc void @_ZZN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11char_traitsIcEEE15read_next_blockEvENKUlvE_clEv(ptr nonnull align 32 dereferenceable(896) %0) #51

@@ -97,7 +97,7 @@ define dso_local i32 @Curl_pgrsUpdate(ptr noundef initializes((2616, 2624), (266
   %27 = load i64, ptr %26, align 8, !tbaa !85
   %28 = tail call i32 %17(ptr noundef %19, i64 noundef %21, i64 noundef %23, i64 noundef %25, i64 noundef %27) #8
   tail call void @Curl_set_in_callback(ptr noundef nonnull %0, i1 noundef zeroext false) #8
-  %.not38.not.i = icmp eq i32 %28, 268435457
+  %.not38.i = icmp eq i32 %28, 268435457
   switch i32 %28, label %29 [
     i32 268435457, label %30
     i32 0, label %30
@@ -108,8 +108,8 @@ define dso_local i32 @Curl_pgrsUpdate(ptr noundef initializes((2616, 2624), (266
   br label %30
 
 30:                                               ; preds = %29, %16, %16
-  %brmerge45.not.i = and i1 %9, %.not38.not.i
-  %.mux46.i = select i1 %.not38.not.i, i32 0, i32 %28
+  %brmerge45.not.i = and i1 %9, %.not38.i
+  %.mux46.i = select i1 %.not38.i, i32 0, i32 %28
   br i1 %brmerge45.not.i, label %54, label %pgrsupdate.exit
 
 31:                                               ; preds = %13
@@ -137,7 +137,7 @@ define dso_local i32 @Curl_pgrsUpdate(ptr noundef initializes((2616, 2624), (266
   %49 = sitofp i64 %48 to double
   %50 = tail call i32 %35(ptr noundef %37, double noundef %40, double noundef %43, double noundef %46, double noundef %49) #8
   tail call void @Curl_set_in_callback(ptr noundef nonnull %0, i1 noundef zeroext false) #8
-  %.not36.not.i = icmp eq i32 %50, 268435457
+  %.not36.i = icmp eq i32 %50, 268435457
   switch i32 %50, label %51 [
     i32 268435457, label %52
     i32 0, label %52
@@ -148,8 +148,8 @@ define dso_local i32 @Curl_pgrsUpdate(ptr noundef initializes((2616, 2624), (266
   br label %52
 
 52:                                               ; preds = %51, %34, %34
-  %brmerge.not.i = and i1 %9, %.not36.not.i
-  %.mux.i = select i1 %.not36.not.i, i32 0, i32 %50
+  %brmerge.not.i = and i1 %9, %.not36.i
+  %.mux.i = select i1 %.not36.i, i32 0, i32 %50
   br i1 %brmerge.not.i, label %54, label %pgrsupdate.exit
 
 53:                                               ; preds = %31

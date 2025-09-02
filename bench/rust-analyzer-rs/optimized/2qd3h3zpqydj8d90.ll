@@ -9599,9 +9599,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54"
 
 common.resume.sink.split:                         ; preds = %94, %193
-  %.sink292 = phi ptr [ %178, %193 ], [ %79, %94 ]
+  %.sink291 = phi ptr [ %178, %193 ], [ %79, %94 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %194, %193 ], [ %95, %94 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.sink292, i64 noundef 40, i64 noundef 8) #22, !noalias !7
+  call void @__rust_dealloc(ptr noundef nonnull %.sink291, i64 noundef 40, i64 noundef 8) #22, !noalias !7
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %179, %80
@@ -9963,9 +9963,9 @@ _ZN5serde2de9MapAccess10next_value17h7e101aeec5b60f44E.exit.i: ; preds = %154
   br label %.thread102.thread
 
 .thread133:                                       ; preds = %182, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54", %.thread102
-  %.sroa.9.1242 = phi i8 [ %.sroa.4.0, %.thread102 ], [ %.sroa.4.0, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54" ], [ %.sroa.478.0, %182 ]
+  %.sroa.9.1241 = phi i8 [ %.sroa.4.0, %.thread102 ], [ %.sroa.4.0, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54" ], [ %.sroa.478.0, %182 ]
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %196 = and i8 %.sroa.9.1242, 1
+  %196 = and i8 %.sroa.9.1241, 1
   store i8 %196, ptr %195, align 1
   br label %199
 
