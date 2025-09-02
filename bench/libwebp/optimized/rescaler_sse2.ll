@@ -216,45 +216,45 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noalias noundef %0, ptr n
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = insertelement <4 x i32> poison, i32 %9, i64 0
   %11 = shufflevector <4 x i32> %10, <4 x i32> poison, <4 x i32> zeroinitializer
-  %12 = bitcast <4 x i32> %11 to <2 x i64>
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %14 = load ptr, ptr %13, align 8, !tbaa !7
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %16 = load i32, ptr %15, align 4, !tbaa !12
-  %17 = shl nsw i32 %16, 2
-  %18 = sext i32 %17 to i64
-  %.idx = shl nsw i64 %18, 2
-  %19 = getelementptr inbounds i8, ptr %14, i64 %.idx
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !13
-  %.not = icmp eq i32 %21, 4
-  br i1 %.not, label %22, label %29
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = load ptr, ptr %12, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %15 = load i32, ptr %14, align 4, !tbaa !12
+  %16 = shl nsw i32 %15, 2
+  %17 = sext i32 %16 to i64
+  %.idx = shl nsw i64 %17, 2
+  %18 = getelementptr inbounds i8, ptr %13, i64 %.idx
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load i32, ptr %19, align 8, !tbaa !13
+  %.not = icmp eq i32 %20, 4
+  br i1 %.not, label %21, label %29
 
-22:                                               ; preds = %2
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %24 = load i32, ptr %23, align 4, !tbaa !14
-  %25 = shl i32 %4, 7
-  %26 = icmp sgt i32 %24, %25
-  br i1 %26, label %29, label %.preheader
+21:                                               ; preds = %2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %23 = load i32, ptr %22, align 4, !tbaa !14
+  %24 = shl i32 %4, 7
+  %25 = icmp sgt i32 %23, %24
+  br i1 %25, label %29, label %.preheader
 
-.preheader:                                       ; preds = %22
-  %27 = icmp sgt i32 %16, 0
-  br i1 %27, label %.lr.ph73, label %.loopexit
+.preheader:                                       ; preds = %21
+  %26 = icmp sgt i32 %15, 0
+  br i1 %26, label %.lr.ph73, label %.loopexit
 
 .lr.ph73:                                         ; preds = %.preheader
-  %28 = and <2 x i64> %12, splat (i64 4294967295)
+  %27 = bitcast <4 x i32> %11 to <2 x i64>
+  %28 = and <2 x i64> %27, splat (i64 4294967295)
   br label %30
 
-29:                                               ; preds = %22, %2
+29:                                               ; preds = %21, %2
   tail call void @WebPRescalerImportRowShrink_C(ptr noundef nonnull %0, ptr noundef %1) #6
   br label %.loopexit
 
 30:                                               ; preds = %.lr.ph73, %._crit_edge
   %.072 = phi ptr [ %1, %.lr.ph73 ], [ %.1.lcssa, %._crit_edge ]
   %.05871 = phi i32 [ 0, %.lr.ph73 ], [ %.159.lcssa, %._crit_edge ]
-  %31 = phi <8 x i16> [ zeroinitializer, %.lr.ph73 ], [ %66, %._crit_edge ]
-  %.06270 = phi ptr [ %14, %.lr.ph73 ], [ %67, %._crit_edge ]
-  %32 = add nsw i32 %24, %.05871
+  %31 = phi <8 x i16> [ zeroinitializer, %.lr.ph73 ], [ %67, %._crit_edge ]
+  %.06270 = phi ptr [ %13, %.lr.ph73 ], [ %68, %._crit_edge ]
+  %32 = add nsw i32 %23, %.05871
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %._crit_edge
 
@@ -293,19 +293,20 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noalias noundef %0, ptr n
   %55 = bitcast <8 x i16> %49 to <4 x i32>
   %56 = sub <4 x i32> %54, %55
   %57 = lshr <2 x i64> %50, splat (i64 32)
-  %58 = and <2 x i64> %50, splat (i64 4294967295)
-  %59 = mul nuw <2 x i64> %58, %28
-  %60 = mul nuw <2 x i64> %57, %28
-  %61 = add nuw <2 x i64> %59, splat (i64 2147483648)
+  %58 = bitcast <8 x i16> %49 to <2 x i64>
+  %59 = and <2 x i64> %58, splat (i64 4294967295)
+  %60 = mul nuw <2 x i64> %59, %28
+  %61 = mul nuw <2 x i64> %57, %28
   %62 = add nuw <2 x i64> %60, splat (i64 2147483648)
-  %63 = bitcast <2 x i64> %61 to <4 x i32>
+  %63 = add nuw <2 x i64> %61, splat (i64 2147483648)
   %64 = bitcast <2 x i64> %62 to <4 x i32>
-  %65 = shufflevector <4 x i32> %63, <4 x i32> %64, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %66 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %65, <4 x i32> zeroinitializer)
+  %65 = bitcast <2 x i64> %63 to <4 x i32>
+  %66 = shufflevector <4 x i32> %64, <4 x i32> %65, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
+  %67 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %66, <4 x i32> zeroinitializer)
   store <4 x i32> %56, ptr %.06270, align 1, !tbaa !16
-  %67 = getelementptr inbounds nuw i8, ptr %.06270, i64 16
-  %68 = icmp ult ptr %67, %19
-  br i1 %68, label %30, label %.loopexit, !llvm.loop !21
+  %68 = getelementptr inbounds nuw i8, ptr %.06270, i64 16
+  %69 = icmp ult ptr %68, %18
+  br i1 %69, label %30, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %29
   ret void

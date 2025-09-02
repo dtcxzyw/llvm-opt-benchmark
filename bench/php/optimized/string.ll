@@ -21292,7 +21292,7 @@ zend_parse_arg_str_ex.exit..critedge_crit_edge:   ; preds = %zend_parse_arg_str_
   %.03863 = phi ptr [ null, %.thread56 ], [ %7, %zend_parse_arg_str_ex.exit ]
   %.03962 = phi i32 [ 0, %.thread56 ], [ 4, %zend_parse_arg_str_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.03764, i32 noundef %.065, ptr noundef null, i32 noundef %.03962, ptr noundef %.03863) #28
-  br label %87
+  br label %79
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit..critedge_crit_edge, %.thread66
   %14 = phi ptr [ %.pre, %zend_parse_arg_str_ex.exit..critedge_crit_edge ], [ %11, %.thread66 ]
@@ -21325,116 +21325,112 @@ zend_string_alloc.exit.i:                         ; preds = %.critedge
   br i1 %31, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %zend_string_alloc.exit.i, %.preheader.i
-  %.181.i = phi ptr [ %63, %.preheader.i ], [ %29, %zend_string_alloc.exit.i ]
-  %.177.i = phi ptr [ %62, %.preheader.i ], [ %26, %zend_string_alloc.exit.i ]
+  %.181.i = phi ptr [ %55, %.preheader.i ], [ %29, %zend_string_alloc.exit.i ]
+  %.177.i = phi ptr [ %54, %.preheader.i ], [ %26, %zend_string_alloc.exit.i ]
   %32 = load <16 x i8>, ptr %.177.i, align 1, !tbaa !10
   %33 = add <16 x i8> %32, splat (i8 -97)
   %34 = icmp ult <16 x i8> %33, splat (i8 13)
-  %35 = sext <16 x i1> %34 to <16 x i8>
-  %36 = bitcast <16 x i8> %35 to <2 x i64>
-  %37 = bitcast <16 x i1> %34 to i16
-  %.not.i = icmp eq i16 %37, 0
-  %38 = and <2 x i64> %36, splat (i64 940422246894996749)
-  %.0.i45 = select i1 %.not.i, <2 x i64> zeroinitializer, <2 x i64> %38
-  %39 = add <16 x i8> %32, splat (i8 -110)
-  %40 = icmp ult <16 x i8> %39, splat (i8 13)
-  %41 = sext <16 x i1> %40 to <16 x i8>
-  %42 = bitcast <16 x i8> %41 to <2 x i64>
-  %43 = bitcast <16 x i1> %40 to i16
-  %.not87.i = icmp eq i16 %43, 0
-  %44 = and <2 x i64> %42, splat (i64 -868082074056920077)
-  %45 = select i1 %.not87.i, <2 x i64> zeroinitializer, <2 x i64> %44
-  %.1.i = or <2 x i64> %.0.i45, %45
-  %46 = add <16 x i8> %32, splat (i8 -65)
-  %47 = icmp ult <16 x i8> %46, splat (i8 13)
-  %48 = sext <16 x i1> %47 to <16 x i8>
-  %49 = bitcast <16 x i8> %48 to <2 x i64>
-  %50 = bitcast <16 x i1> %47 to i16
-  %.not88.i = icmp eq i16 %50, 0
-  %51 = and <2 x i64> %49, splat (i64 940422246894996749)
-  %52 = select i1 %.not88.i, <2 x i64> zeroinitializer, <2 x i64> %51
-  %.2.i = or <2 x i64> %.1.i, %52
-  %53 = add <16 x i8> %32, splat (i8 -78)
-  %54 = icmp ult <16 x i8> %53, splat (i8 13)
-  %55 = sext <16 x i1> %54 to <16 x i8>
-  %56 = bitcast <16 x i8> %55 to <2 x i64>
-  %57 = bitcast <16 x i1> %54 to i16
-  %.not89.i = icmp eq i16 %57, 0
-  %58 = and <2 x i64> %56, splat (i64 -868082074056920077)
-  %59 = select i1 %.not89.i, <2 x i64> zeroinitializer, <2 x i64> %58
-  %.3.i = or <2 x i64> %.2.i, %59
-  %60 = bitcast <2 x i64> %.3.i to <16 x i8>
-  %61 = add <16 x i8> %32, %60
-  store <16 x i8> %61, ptr %.181.i, align 1, !tbaa !10
-  %62 = getelementptr inbounds nuw i8, ptr %.177.i, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %.181.i, i64 16
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %30, %64
-  %66 = icmp sgt i64 %65, 15
-  br i1 %66, label %.preheader.i, label %.loopexit.i
+  %35 = bitcast <16 x i1> %34 to i16
+  %.not.i = icmp eq i16 %35, 0
+  %.inner = select <16 x i1> %34, <16 x i8> splat (i8 13), <16 x i8> zeroinitializer
+  %36 = bitcast <16 x i8> %.inner to <2 x i64>
+  %.0.i45 = select i1 %.not.i, <2 x i64> zeroinitializer, <2 x i64> %36
+  %37 = add <16 x i8> %32, splat (i8 -110)
+  %38 = icmp ult <16 x i8> %37, splat (i8 13)
+  %39 = bitcast <16 x i1> %38 to i16
+  %.not87.i = icmp eq i16 %39, 0
+  %.inner74 = select <16 x i1> %38, <16 x i8> splat (i8 -13), <16 x i8> zeroinitializer
+  %40 = bitcast <16 x i8> %.inner74 to <2 x i64>
+  %41 = select i1 %.not87.i, <2 x i64> zeroinitializer, <2 x i64> %40
+  %.1.i = or <2 x i64> %.0.i45, %41
+  %42 = add <16 x i8> %32, splat (i8 -65)
+  %43 = icmp ult <16 x i8> %42, splat (i8 13)
+  %44 = bitcast <16 x i1> %43 to i16
+  %.not88.i = icmp eq i16 %44, 0
+  %.inner75 = select <16 x i1> %43, <16 x i8> splat (i8 13), <16 x i8> zeroinitializer
+  %45 = bitcast <16 x i8> %.inner75 to <2 x i64>
+  %46 = select i1 %.not88.i, <2 x i64> zeroinitializer, <2 x i64> %45
+  %.2.i = or <2 x i64> %.1.i, %46
+  %47 = add <16 x i8> %32, splat (i8 -78)
+  %48 = icmp ult <16 x i8> %47, splat (i8 13)
+  %49 = bitcast <16 x i1> %48 to i16
+  %.not89.i = icmp eq i16 %49, 0
+  %.inner76 = select <16 x i1> %48, <16 x i8> splat (i8 -13), <16 x i8> zeroinitializer
+  %50 = bitcast <16 x i8> %.inner76 to <2 x i64>
+  %51 = select i1 %.not89.i, <2 x i64> zeroinitializer, <2 x i64> %50
+  %.3.i = or <2 x i64> %.2.i, %51
+  %52 = bitcast <2 x i64> %.3.i to <16 x i8>
+  %53 = add <16 x i8> %32, %52
+  store <16 x i8> %53, ptr %.181.i, align 1, !tbaa !10
+  %54 = getelementptr inbounds nuw i8, ptr %.177.i, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.181.i, i64 16
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %30, %56
+  %58 = icmp sgt i64 %57, 15
+  br i1 %58, label %.preheader.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %zend_string_alloc.exit.i
-  %.080.i = phi ptr [ %29, %zend_string_alloc.exit.i ], [ %63, %.preheader.i ]
-  %.076.i = phi ptr [ %26, %zend_string_alloc.exit.i ], [ %62, %.preheader.i ]
-  %67 = icmp ult ptr %.076.i, %28
-  br i1 %67, label %.lr.ph.i, label %._crit_edge.i
+  %.080.i = phi ptr [ %29, %zend_string_alloc.exit.i ], [ %55, %.preheader.i ]
+  %.076.i = phi ptr [ %26, %zend_string_alloc.exit.i ], [ %54, %.preheader.i ]
+  %59 = icmp ult ptr %.076.i, %28
+  br i1 %59, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.loopexit.i, %80
-  %.27896.i = phi ptr [ %.379.i, %80 ], [ %.076.i, %.loopexit.i ]
-  %.28295.i = phi ptr [ %.383.i, %80 ], [ %.080.i, %.loopexit.i ]
-  %68 = load i8, ptr %.27896.i, align 1, !tbaa !10
-  %.fr.i = freeze i8 %68
-  %69 = add i8 %.fr.i, -97
-  %or.cond.i = icmp ult i8 %69, 26
-  br i1 %or.cond.i, label %70, label %74
+.lr.ph.i:                                         ; preds = %.loopexit.i, %72
+  %.27896.i = phi ptr [ %.379.i, %72 ], [ %.076.i, %.loopexit.i ]
+  %.28295.i = phi ptr [ %.383.i, %72 ], [ %.080.i, %.loopexit.i ]
+  %60 = load i8, ptr %.27896.i, align 1, !tbaa !10
+  %.fr.i = freeze i8 %60
+  %61 = add i8 %.fr.i, -97
+  %or.cond.i = icmp ult i8 %61, 26
+  br i1 %or.cond.i, label %62, label %66
 
-70:                                               ; preds = %.lr.ph.i
-  %71 = add nsw i8 %.fr.i, -84
+62:                                               ; preds = %.lr.ph.i
+  %63 = add nsw i8 %.fr.i, -84
   %.urem.i = add nsw i8 %.fr.i, -110
-  %.cmp.i = icmp samesign ult i8 %71, 26
-  %72 = select i1 %.cmp.i, i8 %71, i8 %.urem.i
-  %73 = add nuw nsw i8 %72, 97
-  br label %80
+  %.cmp.i = icmp samesign ult i8 %63, 26
+  %64 = select i1 %.cmp.i, i8 %63, i8 %.urem.i
+  %65 = add nuw nsw i8 %64, 97
+  br label %72
 
-74:                                               ; preds = %.lr.ph.i
-  %75 = add i8 %.fr.i, -65
-  %or.cond90.i = icmp ult i8 %75, 26
-  br i1 %or.cond90.i, label %76, label %80
+66:                                               ; preds = %.lr.ph.i
+  %67 = add i8 %.fr.i, -65
+  %or.cond90.i = icmp ult i8 %67, 26
+  br i1 %or.cond90.i, label %68, label %72
 
-76:                                               ; preds = %74
-  %77 = add nsw i8 %.fr.i, -52
+68:                                               ; preds = %66
+  %69 = add nsw i8 %.fr.i, -52
   %.urem92.i = add nsw i8 %.fr.i, -78
-  %.cmp93.i = icmp samesign ult i8 %77, 26
-  %78 = select i1 %.cmp93.i, i8 %77, i8 %.urem92.i
-  %79 = add nuw nsw i8 %78, 65
-  br label %80
+  %.cmp93.i = icmp samesign ult i8 %69, 26
+  %70 = select i1 %.cmp93.i, i8 %69, i8 %.urem92.i
+  %71 = add nuw nsw i8 %70, 65
+  br label %72
 
-80:                                               ; preds = %76, %74, %70
-  %.sink.i = phi i8 [ %79, %76 ], [ %73, %70 ], [ %.fr.i, %74 ]
+72:                                               ; preds = %68, %66, %62
+  %.sink.i = phi i8 [ %71, %68 ], [ %65, %62 ], [ %.fr.i, %66 ]
   store i8 %.sink.i, ptr %.28295.i, align 1, !tbaa !10
   %.379.i = getelementptr inbounds nuw i8, ptr %.27896.i, i64 1
   %.383.i = getelementptr inbounds nuw i8, ptr %.28295.i, i64 1
-  %81 = icmp ult ptr %.379.i, %28
-  br i1 %81, label %.lr.ph.i, label %._crit_edge.i
+  %73 = icmp ult ptr %.379.i, %28
+  br i1 %73, label %.lr.ph.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %80, %.loopexit.i
-  %.282.lcssa.i = phi ptr [ %.080.i, %.loopexit.i ], [ %.383.i, %80 ]
+._crit_edge.i:                                    ; preds = %72, %.loopexit.i
+  %.282.lcssa.i = phi ptr [ %.080.i, %.loopexit.i ], [ %.383.i, %72 ]
   store i8 0, ptr %.282.lcssa.i, align 1, !tbaa !10
   br label %php_str_rot13.exit
 
 php_str_rot13.exit:                               ; preds = %18, %._crit_edge.i
   %.075.i = phi ptr [ %19, %18 ], [ %22, %._crit_edge.i ]
   store ptr %.075.i, ptr %1, align 8, !tbaa !10
-  %82 = getelementptr inbounds nuw i8, ptr %.075.i, i64 4
-  %83 = load i32, ptr %82, align 4, !tbaa !10
-  %84 = and i32 %83, 64
-  %.not42 = icmp eq i32 %84, 0
-  %85 = select i1 %.not42, i32 262, i32 6
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %85, ptr %86, align 8, !tbaa !10
-  br label %87
+  %74 = getelementptr inbounds nuw i8, ptr %.075.i, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !10
+  %76 = and i32 %75, 64
+  %.not42 = icmp eq i32 %76, 0
+  %77 = select i1 %.not42, i32 262, i32 6
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %77, ptr %78, align 8, !tbaa !10
+  br label %79
 
-87:                                               ; preds = %13, %php_str_rot13.exit
+79:                                               ; preds = %13, %php_str_rot13.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

@@ -337,10 +337,8 @@ define hidden void @"_ZN84_$LT$core..core_arch..x86..__m128i$u20$as$u20$str_indi
   %.sroa.0.0.vec.insert.i = insertelement <16 x i8> poison, i8 %2, i64 0
   %.sroa.0.15.vec.insert.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %5 = icmp eq <16 x i8> %4, %.sroa.0.15.vec.insert.i
-  %6 = sext <16 x i1> %5 to <16 x i8>
-  %7 = bitcast <16 x i8> %6 to <2 x i64>
-  %8 = and <2 x i64> %7, splat (i64 72340172838076673)
-  store <2 x i64> %8, ptr %0, align 16, !alias.scope !16, !noalias !19
+  %6 = zext <16 x i1> %5 to <16 x i8>
+  store <16 x i8> %6, ptr %0, align 16, !alias.scope !16, !noalias !19
   ret void
 }
 

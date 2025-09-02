@@ -1374,9 +1374,9 @@ define internal void @ConvertBGRAToRGB_SSE2(ptr noalias noundef %0, i32 noundef 
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.063 = phi ptr [ %168, %.lr.ph ], [ %2, %3 ]
-  %.02362 = phi ptr [ %167, %.lr.ph ], [ %0, %3 ]
-  %.02461 = phi i32 [ %169, %.lr.ph ], [ %1, %3 ]
+  %.063 = phi ptr [ %198, %.lr.ph ], [ %2, %3 ]
+  %.02362 = phi ptr [ %197, %.lr.ph ], [ %0, %3 ]
+  %.02461 = phi i32 [ %199, %.lr.ph ], [ %1, %3 ]
   %5 = load <16 x i8>, ptr %.02362, align 1, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %.02362, i64 16
   %7 = load <16 x i8>, ptr %6, align 1, !tbaa !9
@@ -1416,153 +1416,183 @@ define internal void @ConvertBGRAToRGB_SSE2(ptr noalias noundef %0, i32 noundef 
   %41 = shufflevector <2 x i64> %32, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
   %42 = bitcast <2 x i64> %28 to <8 x i16>
   %43 = bitcast <2 x i64> %39 to <8 x i16>
-  %44 = and <8 x i16> %42, splat (i16 255)
-  %45 = and <8 x i16> %43, splat (i16 255)
-  %46 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %44, <8 x i16> %45)
-  %47 = bitcast <2 x i64> %29 to <8 x i16>
-  %48 = bitcast <2 x i64> %40 to <8 x i16>
-  %49 = and <8 x i16> %47, splat (i16 255)
-  %50 = and <8 x i16> %48, splat (i16 255)
-  %51 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %49, <8 x i16> %50)
-  %52 = bitcast <2 x i64> %30 to <8 x i16>
-  %53 = bitcast <2 x i64> %41 to <8 x i16>
-  %54 = and <8 x i16> %52, splat (i16 255)
-  %55 = and <8 x i16> %53, splat (i16 255)
-  %56 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %54, <8 x i16> %55)
-  %57 = lshr <8 x i16> %42, splat (i16 8)
-  %58 = lshr <8 x i16> %43, splat (i16 8)
-  %59 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %57, <8 x i16> %58)
-  %60 = lshr <8 x i16> %47, splat (i16 8)
-  %61 = lshr <8 x i16> %48, splat (i16 8)
-  %62 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %60, <8 x i16> %61)
-  %63 = lshr <8 x i16> %52, splat (i16 8)
-  %64 = lshr <8 x i16> %53, splat (i16 8)
+  %44 = bitcast <2 x i64> %28 to <8 x i16>
+  %45 = and <8 x i16> %44, splat (i16 255)
+  %46 = bitcast <2 x i64> %39 to <8 x i16>
+  %47 = and <8 x i16> %46, splat (i16 255)
+  %48 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %45, <8 x i16> %47)
+  %49 = bitcast <2 x i64> %29 to <8 x i16>
+  %50 = bitcast <2 x i64> %40 to <8 x i16>
+  %51 = bitcast <2 x i64> %29 to <8 x i16>
+  %52 = and <8 x i16> %51, splat (i16 255)
+  %53 = bitcast <2 x i64> %40 to <8 x i16>
+  %54 = and <8 x i16> %53, splat (i16 255)
+  %55 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %52, <8 x i16> %54)
+  %56 = bitcast <2 x i64> %30 to <8 x i16>
+  %57 = bitcast <2 x i64> %41 to <8 x i16>
+  %58 = bitcast <2 x i64> %30 to <8 x i16>
+  %59 = and <8 x i16> %58, splat (i16 255)
+  %60 = bitcast <2 x i64> %41 to <8 x i16>
+  %61 = and <8 x i16> %60, splat (i16 255)
+  %62 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %59, <8 x i16> %61)
+  %63 = lshr <8 x i16> %42, splat (i16 8)
+  %64 = lshr <8 x i16> %43, splat (i16 8)
   %65 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %63, <8 x i16> %64)
-  %66 = bitcast <16 x i8> %46 to <8 x i16>
-  %67 = and <8 x i16> %66, splat (i16 255)
-  %68 = bitcast <16 x i8> %51 to <8 x i16>
-  %69 = and <8 x i16> %68, splat (i16 255)
-  %70 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %67, <8 x i16> %69)
-  %71 = bitcast <16 x i8> %56 to <8 x i16>
-  %72 = and <8 x i16> %71, splat (i16 255)
-  %73 = bitcast <16 x i8> %59 to <8 x i16>
+  %66 = lshr <8 x i16> %49, splat (i16 8)
+  %67 = lshr <8 x i16> %50, splat (i16 8)
+  %68 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %66, <8 x i16> %67)
+  %69 = lshr <8 x i16> %56, splat (i16 8)
+  %70 = lshr <8 x i16> %57, splat (i16 8)
+  %71 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %69, <8 x i16> %70)
+  %72 = bitcast <16 x i8> %48 to <8 x i16>
+  %73 = bitcast <16 x i8> %48 to <8 x i16>
   %74 = and <8 x i16> %73, splat (i16 255)
-  %75 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %72, <8 x i16> %74)
-  %76 = bitcast <16 x i8> %62 to <8 x i16>
+  %75 = bitcast <16 x i8> %55 to <8 x i16>
+  %76 = bitcast <16 x i8> %55 to <8 x i16>
   %77 = and <8 x i16> %76, splat (i16 255)
-  %78 = bitcast <16 x i8> %65 to <8 x i16>
-  %79 = and <8 x i16> %78, splat (i16 255)
-  %80 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %77, <8 x i16> %79)
-  %81 = lshr <8 x i16> %66, splat (i16 8)
-  %82 = lshr <8 x i16> %68, splat (i16 8)
-  %83 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %81, <8 x i16> %82)
-  %84 = lshr <8 x i16> %71, splat (i16 8)
-  %85 = lshr <8 x i16> %73, splat (i16 8)
-  %86 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %84, <8 x i16> %85)
-  %87 = lshr <8 x i16> %76, splat (i16 8)
-  %88 = lshr <8 x i16> %78, splat (i16 8)
-  %89 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %87, <8 x i16> %88)
-  %90 = bitcast <16 x i8> %70 to <8 x i16>
-  %91 = bitcast <16 x i8> %75 to <8 x i16>
-  %92 = and <8 x i16> %90, splat (i16 255)
-  %93 = and <8 x i16> %91, splat (i16 255)
-  %94 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %92, <8 x i16> %93)
-  %95 = bitcast <16 x i8> %80 to <8 x i16>
-  %96 = bitcast <16 x i8> %83 to <8 x i16>
-  %97 = and <8 x i16> %95, splat (i16 255)
-  %98 = and <8 x i16> %96, splat (i16 255)
-  %99 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %97, <8 x i16> %98)
-  %100 = bitcast <16 x i8> %86 to <8 x i16>
-  %101 = and <8 x i16> %100, splat (i16 255)
-  %102 = bitcast <16 x i8> %89 to <8 x i16>
-  %103 = and <8 x i16> %102, splat (i16 255)
-  %104 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %101, <8 x i16> %103)
-  %105 = lshr <8 x i16> %90, splat (i16 8)
-  %106 = lshr <8 x i16> %91, splat (i16 8)
-  %107 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %105, <8 x i16> %106)
-  %108 = lshr <8 x i16> %95, splat (i16 8)
-  %109 = lshr <8 x i16> %96, splat (i16 8)
-  %110 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %108, <8 x i16> %109)
-  %111 = lshr <8 x i16> %100, splat (i16 8)
-  %112 = lshr <8 x i16> %102, splat (i16 8)
-  %113 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %111, <8 x i16> %112)
-  %114 = bitcast <16 x i8> %94 to <8 x i16>
-  %115 = and <8 x i16> %114, splat (i16 255)
-  %116 = bitcast <16 x i8> %99 to <8 x i16>
-  %117 = and <8 x i16> %116, splat (i16 255)
-  %118 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %115, <8 x i16> %117)
-  %119 = bitcast <16 x i8> %104 to <8 x i16>
-  %120 = and <8 x i16> %119, splat (i16 255)
-  %121 = bitcast <16 x i8> %107 to <8 x i16>
-  %122 = and <8 x i16> %121, splat (i16 255)
-  %123 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %120, <8 x i16> %122)
-  %124 = bitcast <16 x i8> %110 to <8 x i16>
-  %125 = and <8 x i16> %124, splat (i16 255)
-  %126 = bitcast <16 x i8> %113 to <8 x i16>
-  %127 = and <8 x i16> %126, splat (i16 255)
-  %128 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %125, <8 x i16> %127)
-  %129 = lshr <8 x i16> %114, splat (i16 8)
-  %130 = lshr <8 x i16> %116, splat (i16 8)
+  %78 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %74, <8 x i16> %77)
+  %79 = bitcast <16 x i8> %62 to <8 x i16>
+  %80 = bitcast <16 x i8> %62 to <8 x i16>
+  %81 = and <8 x i16> %80, splat (i16 255)
+  %82 = bitcast <16 x i8> %65 to <8 x i16>
+  %83 = bitcast <16 x i8> %65 to <8 x i16>
+  %84 = and <8 x i16> %83, splat (i16 255)
+  %85 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %81, <8 x i16> %84)
+  %86 = bitcast <16 x i8> %68 to <8 x i16>
+  %87 = bitcast <16 x i8> %68 to <8 x i16>
+  %88 = and <8 x i16> %87, splat (i16 255)
+  %89 = bitcast <16 x i8> %71 to <8 x i16>
+  %90 = bitcast <16 x i8> %71 to <8 x i16>
+  %91 = and <8 x i16> %90, splat (i16 255)
+  %92 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %88, <8 x i16> %91)
+  %93 = lshr <8 x i16> %72, splat (i16 8)
+  %94 = lshr <8 x i16> %75, splat (i16 8)
+  %95 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %93, <8 x i16> %94)
+  %96 = lshr <8 x i16> %79, splat (i16 8)
+  %97 = lshr <8 x i16> %82, splat (i16 8)
+  %98 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %96, <8 x i16> %97)
+  %99 = lshr <8 x i16> %86, splat (i16 8)
+  %100 = lshr <8 x i16> %89, splat (i16 8)
+  %101 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %99, <8 x i16> %100)
+  %102 = bitcast <16 x i8> %78 to <8 x i16>
+  %103 = bitcast <16 x i8> %85 to <8 x i16>
+  %104 = bitcast <16 x i8> %78 to <8 x i16>
+  %105 = and <8 x i16> %104, splat (i16 255)
+  %106 = bitcast <16 x i8> %85 to <8 x i16>
+  %107 = and <8 x i16> %106, splat (i16 255)
+  %108 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %105, <8 x i16> %107)
+  %109 = bitcast <16 x i8> %92 to <8 x i16>
+  %110 = bitcast <16 x i8> %95 to <8 x i16>
+  %111 = bitcast <16 x i8> %92 to <8 x i16>
+  %112 = and <8 x i16> %111, splat (i16 255)
+  %113 = bitcast <16 x i8> %95 to <8 x i16>
+  %114 = and <8 x i16> %113, splat (i16 255)
+  %115 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %112, <8 x i16> %114)
+  %116 = bitcast <16 x i8> %98 to <8 x i16>
+  %117 = bitcast <16 x i8> %98 to <8 x i16>
+  %118 = and <8 x i16> %117, splat (i16 255)
+  %119 = bitcast <16 x i8> %101 to <8 x i16>
+  %120 = bitcast <16 x i8> %101 to <8 x i16>
+  %121 = and <8 x i16> %120, splat (i16 255)
+  %122 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %118, <8 x i16> %121)
+  %123 = lshr <8 x i16> %102, splat (i16 8)
+  %124 = lshr <8 x i16> %103, splat (i16 8)
+  %125 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %123, <8 x i16> %124)
+  %126 = lshr <8 x i16> %109, splat (i16 8)
+  %127 = lshr <8 x i16> %110, splat (i16 8)
+  %128 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %126, <8 x i16> %127)
+  %129 = lshr <8 x i16> %116, splat (i16 8)
+  %130 = lshr <8 x i16> %119, splat (i16 8)
   %131 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %129, <8 x i16> %130)
-  %132 = lshr <8 x i16> %119, splat (i16 8)
-  %133 = lshr <8 x i16> %121, splat (i16 8)
-  %134 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %132, <8 x i16> %133)
-  %135 = lshr <8 x i16> %124, splat (i16 8)
-  %136 = lshr <8 x i16> %126, splat (i16 8)
-  %137 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %135, <8 x i16> %136)
-  %138 = bitcast <16 x i8> %118 to <8 x i16>
-  %139 = and <8 x i16> %138, splat (i16 255)
-  %140 = bitcast <16 x i8> %123 to <8 x i16>
+  %132 = bitcast <16 x i8> %108 to <8 x i16>
+  %133 = bitcast <16 x i8> %108 to <8 x i16>
+  %134 = and <8 x i16> %133, splat (i16 255)
+  %135 = bitcast <16 x i8> %115 to <8 x i16>
+  %136 = bitcast <16 x i8> %115 to <8 x i16>
+  %137 = and <8 x i16> %136, splat (i16 255)
+  %138 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %134, <8 x i16> %137)
+  %139 = bitcast <16 x i8> %122 to <8 x i16>
+  %140 = bitcast <16 x i8> %122 to <8 x i16>
   %141 = and <8 x i16> %140, splat (i16 255)
-  %142 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %139, <8 x i16> %141)
-  %143 = bitcast <16 x i8> %128 to <8 x i16>
+  %142 = bitcast <16 x i8> %125 to <8 x i16>
+  %143 = bitcast <16 x i8> %125 to <8 x i16>
   %144 = and <8 x i16> %143, splat (i16 255)
-  %145 = bitcast <16 x i8> %131 to <8 x i16>
-  %146 = and <8 x i16> %145, splat (i16 255)
-  %147 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %144, <8 x i16> %146)
-  %148 = bitcast <16 x i8> %134 to <8 x i16>
-  %149 = and <8 x i16> %148, splat (i16 255)
-  %150 = bitcast <16 x i8> %137 to <8 x i16>
+  %145 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %141, <8 x i16> %144)
+  %146 = bitcast <16 x i8> %128 to <8 x i16>
+  %147 = bitcast <16 x i8> %128 to <8 x i16>
+  %148 = and <8 x i16> %147, splat (i16 255)
+  %149 = bitcast <16 x i8> %131 to <8 x i16>
+  %150 = bitcast <16 x i8> %131 to <8 x i16>
   %151 = and <8 x i16> %150, splat (i16 255)
-  %152 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %149, <8 x i16> %151)
-  %153 = lshr <8 x i16> %138, splat (i16 8)
-  %154 = lshr <8 x i16> %140, splat (i16 8)
+  %152 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %148, <8 x i16> %151)
+  %153 = lshr <8 x i16> %132, splat (i16 8)
+  %154 = lshr <8 x i16> %135, splat (i16 8)
   %155 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %153, <8 x i16> %154)
-  %156 = lshr <8 x i16> %143, splat (i16 8)
-  %157 = lshr <8 x i16> %145, splat (i16 8)
+  %156 = lshr <8 x i16> %139, splat (i16 8)
+  %157 = lshr <8 x i16> %142, splat (i16 8)
   %158 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %156, <8 x i16> %157)
-  %159 = lshr <8 x i16> %148, splat (i16 8)
-  %160 = lshr <8 x i16> %150, splat (i16 8)
+  %159 = lshr <8 x i16> %146, splat (i16 8)
+  %160 = lshr <8 x i16> %149, splat (i16 8)
   %161 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %159, <8 x i16> %160)
-  store <16 x i8> %142, ptr %.063, align 1, !tbaa !9
-  %162 = getelementptr inbounds nuw i8, ptr %.063, i64 16
-  store <16 x i8> %147, ptr %162, align 1, !tbaa !9
-  %163 = getelementptr inbounds nuw i8, ptr %.063, i64 32
-  store <16 x i8> %152, ptr %163, align 1, !tbaa !9
-  %164 = getelementptr inbounds nuw i8, ptr %.063, i64 48
-  store <16 x i8> %155, ptr %164, align 1, !tbaa !9
-  %165 = getelementptr inbounds nuw i8, ptr %.063, i64 64
-  store <16 x i8> %158, ptr %165, align 1, !tbaa !9
-  %166 = getelementptr inbounds nuw i8, ptr %.063, i64 80
-  store <16 x i8> %161, ptr %166, align 1, !tbaa !9
-  %167 = getelementptr inbounds nuw i8, ptr %.02362, i64 128
-  %168 = getelementptr inbounds nuw i8, ptr %.063, i64 96
-  %169 = add nsw i32 %.02461, -32
-  %170 = icmp samesign ugt i32 %.02461, 63
-  br i1 %170, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  %162 = bitcast <16 x i8> %138 to <8 x i16>
+  %163 = bitcast <16 x i8> %138 to <8 x i16>
+  %164 = and <8 x i16> %163, splat (i16 255)
+  %165 = bitcast <16 x i8> %145 to <8 x i16>
+  %166 = bitcast <16 x i8> %145 to <8 x i16>
+  %167 = and <8 x i16> %166, splat (i16 255)
+  %168 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %164, <8 x i16> %167)
+  %169 = bitcast <16 x i8> %152 to <8 x i16>
+  %170 = bitcast <16 x i8> %152 to <8 x i16>
+  %171 = and <8 x i16> %170, splat (i16 255)
+  %172 = bitcast <16 x i8> %155 to <8 x i16>
+  %173 = bitcast <16 x i8> %155 to <8 x i16>
+  %174 = and <8 x i16> %173, splat (i16 255)
+  %175 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %171, <8 x i16> %174)
+  %176 = bitcast <16 x i8> %158 to <8 x i16>
+  %177 = bitcast <16 x i8> %158 to <8 x i16>
+  %178 = and <8 x i16> %177, splat (i16 255)
+  %179 = bitcast <16 x i8> %161 to <8 x i16>
+  %180 = bitcast <16 x i8> %161 to <8 x i16>
+  %181 = and <8 x i16> %180, splat (i16 255)
+  %182 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %178, <8 x i16> %181)
+  %183 = lshr <8 x i16> %162, splat (i16 8)
+  %184 = lshr <8 x i16> %165, splat (i16 8)
+  %185 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %183, <8 x i16> %184)
+  %186 = lshr <8 x i16> %169, splat (i16 8)
+  %187 = lshr <8 x i16> %172, splat (i16 8)
+  %188 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %186, <8 x i16> %187)
+  %189 = lshr <8 x i16> %176, splat (i16 8)
+  %190 = lshr <8 x i16> %179, splat (i16 8)
+  %191 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %189, <8 x i16> %190)
+  store <16 x i8> %168, ptr %.063, align 1, !tbaa !9
+  %192 = getelementptr inbounds nuw i8, ptr %.063, i64 16
+  store <16 x i8> %175, ptr %192, align 1, !tbaa !9
+  %193 = getelementptr inbounds nuw i8, ptr %.063, i64 32
+  store <16 x i8> %182, ptr %193, align 1, !tbaa !9
+  %194 = getelementptr inbounds nuw i8, ptr %.063, i64 48
+  store <16 x i8> %185, ptr %194, align 1, !tbaa !9
+  %195 = getelementptr inbounds nuw i8, ptr %.063, i64 64
+  store <16 x i8> %188, ptr %195, align 1, !tbaa !9
+  %196 = getelementptr inbounds nuw i8, ptr %.063, i64 80
+  store <16 x i8> %191, ptr %196, align 1, !tbaa !9
+  %197 = getelementptr inbounds nuw i8, ptr %.02362, i64 128
+  %198 = getelementptr inbounds nuw i8, ptr %.063, i64 96
+  %199 = add nsw i32 %.02461, -32
+  %200 = icmp samesign ugt i32 %.02461, 63
+  br i1 %200, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.024.lcssa = phi i32 [ %1, %3 ], [ %169, %.lr.ph ]
-  %.023.lcssa = phi ptr [ %0, %3 ], [ %167, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %2, %3 ], [ %168, %.lr.ph ]
-  %171 = icmp sgt i32 %.024.lcssa, 0
-  br i1 %171, label %172, label %173
+  %.024.lcssa = phi i32 [ %1, %3 ], [ %199, %.lr.ph ]
+  %.023.lcssa = phi ptr [ %0, %3 ], [ %197, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %2, %3 ], [ %198, %.lr.ph ]
+  %201 = icmp sgt i32 %.024.lcssa, 0
+  br i1 %201, label %202, label %203
 
-172:                                              ; preds = %._crit_edge
+202:                                              ; preds = %._crit_edge
   tail call void @VP8LConvertBGRAToRGB_C(ptr noundef %.023.lcssa, i32 noundef %.024.lcssa, ptr noundef %.0.lcssa) #7
-  br label %173
+  br label %203
 
-173:                                              ; preds = %172, %._crit_edge
+203:                                              ; preds = %202, %._crit_edge
   ret void
 }
 
@@ -1635,10 +1665,10 @@ define internal void @ConvertBGRAToRGBA4444_SSE2(ptr noalias noundef %0, i32 nou
   %14 = shufflevector <2 x i64> %12, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
   %15 = bitcast <2 x i64> %13 to <8 x i16>
   %16 = lshr <8 x i16> %15, splat (i16 4)
-  %17 = bitcast <8 x i16> %16 to <2 x i64>
-  %18 = and <2 x i64> %14, splat (i64 -1085102592571150096)
-  %19 = and <2 x i64> %17, splat (i64 1085102592571150095)
-  %20 = or disjoint <2 x i64> %19, %18
+  %17 = and <2 x i64> %14, splat (i64 -1085102592571150096)
+  %18 = bitcast <8 x i16> %16 to <2 x i64>
+  %19 = and <2 x i64> %18, splat (i64 1085102592571150095)
+  %20 = or disjoint <2 x i64> %19, %17
   %21 = bitcast <2 x i64> %20 to <16 x i8>
   %22 = shufflevector <16 x i8> %21, <16 x i8> poison, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %23 = getelementptr inbounds nuw i8, ptr %.03839, i64 16
@@ -1668,9 +1698,9 @@ define internal void @ConvertBGRAToRGB565_SSE2(ptr noalias noundef %0, i32 nound
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.047 = phi i32 [ %34, %.lr.ph ], [ %1, %3 ]
+  %.047 = phi i32 [ %30, %.lr.ph ], [ %1, %3 ]
   %.04346 = phi ptr [ %7, %.lr.ph ], [ %0, %3 ]
-  %.04445 = phi ptr [ %33, %.lr.ph ], [ %2, %3 ]
+  %.04445 = phi ptr [ %29, %.lr.ph ], [ %2, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %.04346, i64 16
   %6 = load <16 x i8>, ptr %.04346, align 1, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %.04346, i64 32
@@ -1687,36 +1717,34 @@ define internal void @ConvertBGRAToRGB565_SSE2(ptr noalias noundef %0, i32 nound
   %18 = bitcast <8 x i16> %17 to <2 x i64>
   %19 = and <2 x i64> %18, <i64 506381209866536711, i64 poison>
   %20 = shl <8 x i16> %16, splat (i16 3)
-  %21 = bitcast <8 x i16> %20 to <2 x i64>
-  %22 = and <2 x i64> %21, <i64 -2242545357980376864, i64 poison>
-  %23 = bitcast <2 x i64> %15 to <16 x i8>
-  %24 = shufflevector <16 x i8> %23, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %25 = or disjoint <2 x i64> %19, %15
-  %26 = bitcast <16 x i8> %24 to <8 x i16>
-  %27 = lshr exact <8 x i16> %26, splat (i16 3)
-  %28 = bitcast <8 x i16> %27 to <2 x i64>
-  %29 = or <2 x i64> %22, %28
-  %30 = bitcast <2 x i64> %25 to <16 x i8>
-  %31 = bitcast <2 x i64> %29 to <16 x i8>
-  %32 = shufflevector <16 x i8> %30, <16 x i8> %31, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %33 = getelementptr inbounds nuw i8, ptr %.04445, i64 16
-  store <16 x i8> %32, ptr %.04445, align 1, !tbaa !9
-  %34 = add nsw i32 %.047, -8
-  %35 = icmp samesign ugt i32 %.047, 15
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  %.inner56 = and <8 x i16> %20, <i16 -7968, i16 -7968, i16 -7968, i16 -7968, i16 poison, i16 poison, i16 poison, i16 poison>
+  %21 = bitcast <2 x i64> %15 to <16 x i8>
+  %22 = shufflevector <16 x i8> %21, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %23 = or disjoint <2 x i64> %19, %15
+  %24 = bitcast <16 x i8> %22 to <8 x i16>
+  %25 = lshr exact <8 x i16> %24, splat (i16 3)
+  %.inner57 = or disjoint <8 x i16> %.inner56, %25
+  %26 = bitcast <2 x i64> %23 to <16 x i8>
+  %27 = bitcast <8 x i16> %.inner57 to <16 x i8>
+  %28 = shufflevector <16 x i8> %26, <16 x i8> %27, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %29 = getelementptr inbounds nuw i8, ptr %.04445, i64 16
+  store <16 x i8> %28, ptr %.04445, align 1, !tbaa !9
+  %30 = add nsw i32 %.047, -8
+  %31 = icmp samesign ugt i32 %.047, 15
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.044.lcssa = phi ptr [ %2, %3 ], [ %33, %.lr.ph ]
+  %.044.lcssa = phi ptr [ %2, %3 ], [ %29, %.lr.ph ]
   %.043.lcssa = phi ptr [ %0, %3 ], [ %7, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %1, %3 ], [ %34, %.lr.ph ]
-  %36 = icmp sgt i32 %.0.lcssa, 0
-  br i1 %36, label %37, label %38
+  %.0.lcssa = phi i32 [ %1, %3 ], [ %30, %.lr.ph ]
+  %32 = icmp sgt i32 %.0.lcssa, 0
+  br i1 %32, label %33, label %34
 
-37:                                               ; preds = %._crit_edge
+33:                                               ; preds = %._crit_edge
   tail call void @VP8LConvertBGRAToRGB565_C(ptr noundef %.043.lcssa, i32 noundef %.0.lcssa, ptr noundef %.044.lcssa) #7
-  br label %38
+  br label %34
 
-38:                                               ; preds = %37, %._crit_edge
+34:                                               ; preds = %33, %._crit_edge
   ret void
 }
 

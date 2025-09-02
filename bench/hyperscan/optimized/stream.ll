@@ -6143,8 +6143,8 @@ define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr nounde
   %49 = ptrtoint ptr %30 to i64
   %50 = sub i64 %48, %49
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0, ptr align 1 %30, i64 %50, i1 false)
-  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.186244279 = load <16 x i8>, ptr %.sroa.0, align 16
-  %51 = icmp eq <16 x i8> %35, %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.186244279
+  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.186244286 = load <16 x i8>, ptr %.sroa.0, align 16
+  %51 = icmp eq <16 x i8> %35, %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.186244286
   %52 = bitcast <16 x i1> %51 to i16
   %53 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %52)
   %54 = zext nneg i16 %53 to i32
@@ -6219,8 +6219,8 @@ roseCountingMiracleScan.exit.thread:              ; preds = %46, %45, %20
   %85 = ptrtoint ptr %66 to i64
   %86 = sub i64 %84, %85
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0145, ptr nonnull align 1 %66, i64 %86, i1 false)
-  %.sroa.0145.0..sroa.0145.0..sroa.0145.0..sroa.0145.0.187245280 = load <16 x i8>, ptr %.sroa.0145, align 16
-  %87 = icmp eq <16 x i8> %71, %.sroa.0145.0..sroa.0145.0..sroa.0145.0..sroa.0145.0.187245280
+  %.sroa.0145.0..sroa.0145.0..sroa.0145.0..sroa.0145.0.187245287 = load <16 x i8>, ptr %.sroa.0145, align 16
+  %87 = icmp eq <16 x i8> %71, %.sroa.0145.0..sroa.0145.0..sroa.0145.0..sroa.0145.0.187245287
   %88 = bitcast <16 x i1> %87 to i16
   %89 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %88)
   %90 = zext nneg i16 %89 to i32

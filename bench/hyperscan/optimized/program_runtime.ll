@@ -10361,11 +10361,11 @@ mmbit_get_flat_block.exit.i1946:                  ; preds = %5724, %5727, %5730,
   store i32 0, ptr %5775, align 8
   br label %5776
 
-5776:                                             ; preds = %.backedge8674, %5768
-  %5777 = phi i64 [ %5767, %5768 ], [ %.be, %.backedge8674 ]
-  %.047.i1989 = phi ptr [ %5659, %5768 ], [ %.047.i1989.be, %.backedge8674 ]
-  %.044.i = phi i32 [ 0, %5768 ], [ %.044.i.be, %.backedge8674 ]
-  %.039.i = phi i32 [ 0, %5768 ], [ %.039.i.be, %.backedge8674 ]
+5776:                                             ; preds = %.backedge8680, %5768
+  %5777 = phi i64 [ %5767, %5768 ], [ %.be, %.backedge8680 ]
+  %.047.i1989 = phi ptr [ %5659, %5768 ], [ %.047.i1989.be, %.backedge8680 ]
+  %.044.i = phi i32 [ 0, %5768 ], [ %.044.i.be, %.backedge8680 ]
+  %.039.i = phi i32 [ 0, %5768 ], [ %.039.i.be, %.backedge8680 ]
   %.not.i1991 = icmp eq i64 %5777, 0
   br i1 %.not.i1991, label %5808, label %mmbit_mask_index.exit.i
 
@@ -10406,9 +10406,9 @@ mmbit_mask_index.exit.i:                          ; preds = %5776
   store i64 %5805, ptr %5806, align 16
   %5807 = getelementptr inbounds nuw i8, ptr %5806, i64 8
   store i32 %5791, ptr %5807, align 8
-  br label %.backedge8674
+  br label %.backedge8680
 
-.backedge8674:                                    ; preds = %5787, %5810
+.backedge8680:                                    ; preds = %5787, %5810
   %.be = phi i64 [ %5805, %5787 ], [ %5817, %5810 ]
   %.047.i1989.be = phi ptr [ %5793, %5787 ], [ %5821, %5810 ]
   %.044.i.be = phi i32 [ %5788, %5787 ], [ %5811, %5810 ]
@@ -10432,7 +10432,7 @@ mmbit_mask_index.exit.i:                          ; preds = %5776
   %5819 = load i32, ptr %5818, align 8
   %5820 = zext i32 %5819 to i64
   %5821 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %5659, i64 %5820
-  br label %.backedge8674
+  br label %.backedge8680
 
 mmbit_sparse_iter_begin.exit:                     ; preds = %mmbit_mask_index.exit.i
   %5822 = getelementptr inbounds nuw i8, ptr %.047.i1989, i64 8
@@ -10660,10 +10660,10 @@ mmbit_get_flat_block.exit.i2060:                  ; preds = %5911, %5914, %5917,
   %5954 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %5845, i64 %5953
   br label %5955
 
-5955:                                             ; preds = %.backedge8689, %5936
-  %.047.i.i2077 = phi ptr [ %5954, %5936 ], [ %.047.i.i2077.be, %.backedge8689 ]
-  %.044.i.i2078 = phi i32 [ %5944, %5936 ], [ %.044.i.i2078.be, %.backedge8689 ]
-  %.039.i.i2079 = phi i32 [ %5945, %5936 ], [ %.039.i.i2079.be, %.backedge8689 ]
+5955:                                             ; preds = %.backedge8695, %5936
+  %.047.i.i2077 = phi ptr [ %5954, %5936 ], [ %.047.i.i2077.be, %.backedge8695 ]
+  %.044.i.i2078 = phi i32 [ %5944, %5936 ], [ %.044.i.i2078.be, %.backedge8695 ]
+  %.039.i.i2079 = phi i32 [ %5945, %5936 ], [ %.039.i.i2079.be, %.backedge8695 ]
   %5956 = zext i32 %.044.i.i2078 to i64
   %5957 = getelementptr inbounds nuw %struct.mmbit_sparse_state, ptr %17, i64 %5956
   %5958 = load i64, ptr %5957, align 16
@@ -10707,9 +10707,9 @@ mmbit_mask_index.exit.i.i2082:                    ; preds = %5955
   store i64 %5986, ptr %5987, align 16
   %5988 = getelementptr inbounds nuw i8, ptr %5987, i64 8
   store i32 %5972, ptr %5988, align 8
-  br label %.backedge8689
+  br label %.backedge8695
 
-.backedge8689:                                    ; preds = %5968, %5991
+.backedge8695:                                    ; preds = %5968, %5991
   %.047.i.i2077.be = phi ptr [ %6002, %5991 ], [ %5974, %5968 ]
   %.044.i.i2078.be = phi i32 [ %5992, %5991 ], [ %5969, %5968 ]
   %.039.i.i2079.be = phi i32 [ %5993, %5991 ], [ %5962, %5968 ]
@@ -10732,7 +10732,7 @@ mmbit_mask_index.exit.i.i2082:                    ; preds = %5955
   %6000 = load i32, ptr %5999, align 8
   %6001 = zext i32 %6000 to i64
   %6002 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %5845, i64 %6001
-  br label %.backedge8689
+  br label %.backedge8695
 
 mmbit_sparse_iter_next.exit:                      ; preds = %mmbit_mask_index.exit.i.i2082
   %6003 = getelementptr inbounds nuw i8, ptr %.047.i.i2077, i64 8
@@ -10956,11 +10956,11 @@ mmbit_get_flat_block.exit.i1928:                  ; preds = %6081, %6084, %6087,
   store i32 0, ptr %6123, align 8
   br label %6124
 
-6124:                                             ; preds = %.backedge8703, %6116
-  %6125 = phi i64 [ %6115, %6116 ], [ %.be8704, %.backedge8703 ]
-  %.047.i1999 = phi ptr [ %6024, %6116 ], [ %.047.i1999.be, %.backedge8703 ]
-  %.044.i2000 = phi i32 [ 0, %6116 ], [ %.044.i2000.be, %.backedge8703 ]
-  %.039.i2001 = phi i32 [ 0, %6116 ], [ %.039.i2001.be, %.backedge8703 ]
+6124:                                             ; preds = %.backedge8709, %6116
+  %6125 = phi i64 [ %6115, %6116 ], [ %.be8710, %.backedge8709 ]
+  %.047.i1999 = phi ptr [ %6024, %6116 ], [ %.047.i1999.be, %.backedge8709 ]
+  %.044.i2000 = phi i32 [ 0, %6116 ], [ %.044.i2000.be, %.backedge8709 ]
+  %.039.i2001 = phi i32 [ 0, %6116 ], [ %.039.i2001.be, %.backedge8709 ]
   %.not.i2003 = icmp eq i64 %6125, 0
   br i1 %.not.i2003, label %6156, label %mmbit_mask_index.exit.i2004
 
@@ -11001,10 +11001,10 @@ mmbit_mask_index.exit.i2004:                      ; preds = %6124
   store i64 %6153, ptr %6154, align 16
   %6155 = getelementptr inbounds nuw i8, ptr %6154, i64 8
   store i32 %6139, ptr %6155, align 8
-  br label %.backedge8703
+  br label %.backedge8709
 
-.backedge8703:                                    ; preds = %6130, %6158
-  %.be8704 = phi i64 [ %6153, %6130 ], [ %6165, %6158 ]
+.backedge8709:                                    ; preds = %6130, %6158
+  %.be8710 = phi i64 [ %6153, %6130 ], [ %6165, %6158 ]
   %.047.i1999.be = phi ptr [ %6141, %6130 ], [ %6169, %6158 ]
   %.044.i2000.be = phi i32 [ %6131, %6130 ], [ %6159, %6158 ]
   %.039.i2001.be = phi i32 [ %6129, %6130 ], [ %6160, %6158 ]
@@ -11027,7 +11027,7 @@ mmbit_mask_index.exit.i2004:                      ; preds = %6124
   %6167 = load i32, ptr %6166, align 8
   %6168 = zext i32 %6167 to i64
   %6169 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %6024, i64 %6168
-  br label %.backedge8703
+  br label %.backedge8709
 
 mmbit_sparse_iter_begin.exit1018:                 ; preds = %mmbit_mask_index.exit.i2004
   %6170 = icmp eq i32 %6129, -1
@@ -11269,11 +11269,11 @@ mmbit_get_flat_block.exit.i1915:                  ; preds = %6260, %6263, %6266,
   store i32 0, ptr %6305, align 8
   br label %6306
 
-6306:                                             ; preds = %.backedge8731, %6298
-  %6307 = phi i64 [ %6297, %6298 ], [ %.be8732, %.backedge8731 ]
-  %.047.i2018 = phi ptr [ %6206, %6298 ], [ %.047.i2018.be, %.backedge8731 ]
-  %.044.i2019 = phi i32 [ 0, %6298 ], [ %.044.i2019.be, %.backedge8731 ]
-  %.039.i2020 = phi i32 [ 0, %6298 ], [ %.039.i2020.be, %.backedge8731 ]
+6306:                                             ; preds = %.backedge8737, %6298
+  %6307 = phi i64 [ %6297, %6298 ], [ %.be8738, %.backedge8737 ]
+  %.047.i2018 = phi ptr [ %6206, %6298 ], [ %.047.i2018.be, %.backedge8737 ]
+  %.044.i2019 = phi i32 [ 0, %6298 ], [ %.044.i2019.be, %.backedge8737 ]
+  %.039.i2020 = phi i32 [ 0, %6298 ], [ %.039.i2020.be, %.backedge8737 ]
   %.not.i2022 = icmp eq i64 %6307, 0
   br i1 %.not.i2022, label %6338, label %mmbit_mask_index.exit.i2023
 
@@ -11314,10 +11314,10 @@ mmbit_mask_index.exit.i2023:                      ; preds = %6306
   store i64 %6335, ptr %6336, align 16
   %6337 = getelementptr inbounds nuw i8, ptr %6336, i64 8
   store i32 %6321, ptr %6337, align 8
-  br label %.backedge8731
+  br label %.backedge8737
 
-.backedge8731:                                    ; preds = %6312, %6340
-  %.be8732 = phi i64 [ %6335, %6312 ], [ %6347, %6340 ]
+.backedge8737:                                    ; preds = %6312, %6340
+  %.be8738 = phi i64 [ %6335, %6312 ], [ %6347, %6340 ]
   %.047.i2018.be = phi ptr [ %6323, %6312 ], [ %6351, %6340 ]
   %.044.i2019.be = phi i32 [ %6313, %6312 ], [ %6341, %6340 ]
   %.039.i2020.be = phi i32 [ %6311, %6312 ], [ %6342, %6340 ]
@@ -11340,7 +11340,7 @@ mmbit_mask_index.exit.i2023:                      ; preds = %6306
   %6349 = load i32, ptr %6348, align 8
   %6350 = zext i32 %6349 to i64
   %6351 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %6206, i64 %6350
-  br label %.backedge8731
+  br label %.backedge8737
 
 mmbit_sparse_iter_begin.exit.i:                   ; preds = %mmbit_mask_index.exit.i2023
   %.not51.i5069 = icmp eq i32 %6311, -1
@@ -11681,10 +11681,10 @@ mmbit_get_flat_block.exit.i2044:                  ; preds = %6522, %6525, %6528,
   %6559 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %6206, i64 %6558
   br label %6560
 
-6560:                                             ; preds = %.backedge8712, %6547
-  %.047.i.i = phi ptr [ %6559, %6547 ], [ %.047.i.i.be, %.backedge8712 ]
-  %.044.i.i = phi i32 [ %6549, %6547 ], [ %.044.i.i.be, %.backedge8712 ]
-  %.039.i.i = phi i32 [ %6550, %6547 ], [ %.039.i.i.be, %.backedge8712 ]
+6560:                                             ; preds = %.backedge8718, %6547
+  %.047.i.i = phi ptr [ %6559, %6547 ], [ %.047.i.i.be, %.backedge8718 ]
+  %.044.i.i = phi i32 [ %6549, %6547 ], [ %.044.i.i.be, %.backedge8718 ]
+  %.039.i.i = phi i32 [ %6550, %6547 ], [ %.039.i.i.be, %.backedge8718 ]
   %6561 = zext i32 %.044.i.i to i64
   %6562 = getelementptr inbounds nuw %struct.mmbit_sparse_state, ptr %14, i64 %6561
   %6563 = load i64, ptr %6562, align 16
@@ -11728,9 +11728,9 @@ mmbit_mask_index.exit.i.i:                        ; preds = %6560
   store i64 %6591, ptr %6592, align 16
   %6593 = getelementptr inbounds nuw i8, ptr %6592, i64 8
   store i32 %6577, ptr %6593, align 8
-  br label %.backedge8712
+  br label %.backedge8718
 
-.backedge8712:                                    ; preds = %6568, %6596
+.backedge8718:                                    ; preds = %6568, %6596
   %.047.i.i.be = phi ptr [ %6607, %6596 ], [ %6579, %6568 ]
   %.044.i.i.be = phi i32 [ %6597, %6596 ], [ %6569, %6568 ]
   %.039.i.i.be = phi i32 [ %6598, %6596 ], [ %6567, %6568 ]
@@ -11753,7 +11753,7 @@ mmbit_mask_index.exit.i.i:                        ; preds = %6560
   %6605 = load i32, ptr %6604, align 8
   %6606 = zext i32 %6605 to i64
   %6607 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %6206, i64 %6606
-  br label %.backedge8712
+  br label %.backedge8718
 
 mmbit_sparse_iter_next.exit.i:                    ; preds = %mmbit_mask_index.exit.i.i, %6486, %6496
   %.0.i55.i = phi i32 [ %6499, %6496 ], [ %6488, %6486 ], [ %6567, %mmbit_mask_index.exit.i.i ]
@@ -12794,11 +12794,11 @@ mmbit_get_flat_block.exit.i2391:                  ; preds = %7101, %7093
   store i32 0, ptr %7162, align 8
   br label %7163
 
-7163:                                             ; preds = %.backedge8752, %7155
-  %7164 = phi i64 [ %7154, %7155 ], [ %.be8753, %.backedge8752 ]
-  %.067.i2395 = phi i32 [ 0, %7155 ], [ %.067.i2395.be, %.backedge8752 ]
-  %.065.i2396 = phi i32 [ 0, %7155 ], [ %.065.i2396.be, %.backedge8752 ]
-  %.0.i2397 = phi ptr [ %6996, %7155 ], [ %.0.i2397.be, %.backedge8752 ]
+7163:                                             ; preds = %.backedge8758, %7155
+  %7164 = phi i64 [ %7154, %7155 ], [ %.be8759, %.backedge8758 ]
+  %.067.i2395 = phi i32 [ 0, %7155 ], [ %.067.i2395.be, %.backedge8758 ]
+  %.065.i2396 = phi i32 [ 0, %7155 ], [ %.065.i2396.be, %.backedge8758 ]
+  %.0.i2397 = phi ptr [ %6996, %7155 ], [ %.0.i2397.be, %.backedge8758 ]
   %7165 = zext i32 %.067.i2395 to i64
   %.not71.i2398 = icmp eq i64 %7164, 0
   br i1 %.not71.i2398, label %7210, label %7166
@@ -12856,7 +12856,7 @@ mmbit_mask_index.exit.i2399:                      ; preds = %7166
   store i64 %7207, ptr %7208, align 16
   %7209 = getelementptr inbounds nuw i8, ptr %7208, i64 8
   store i32 %7193, ptr %7209, align 8
-  br label %.backedge8752
+  br label %.backedge8758
 
 7210:                                             ; preds = %7168, %7163
   %7211 = icmp eq i32 %.067.i2395, 0
@@ -12906,10 +12906,10 @@ mmbit_mask_index.exit.i2399:                      ; preds = %7166
   %7245 = load i32, ptr %7244, align 8
   %7246 = zext i32 %7245 to i64
   %7247 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %6996, i64 %7246
-  br label %.backedge8752
+  br label %.backedge8758
 
-.backedge8752:                                    ; preds = %._crit_edge6282, %mmbit_mask_index.exit.i2399
-  %.be8753 = phi i64 [ %7243, %._crit_edge6282 ], [ %7207, %mmbit_mask_index.exit.i2399 ]
+.backedge8758:                                    ; preds = %._crit_edge6282, %mmbit_mask_index.exit.i2399
+  %.be8759 = phi i64 [ %7243, %._crit_edge6282 ], [ %7207, %mmbit_mask_index.exit.i2399 ]
   %.067.i2395.be = phi i32 [ %7223, %._crit_edge6282 ], [ %7185, %mmbit_mask_index.exit.i2399 ]
   %.065.i2396.be = phi i32 [ %7222, %._crit_edge6282 ], [ %7184, %mmbit_mask_index.exit.i2399 ]
   %.0.i2397.be = phi ptr [ %7247, %._crit_edge6282 ], [ %7195, %mmbit_mask_index.exit.i2399 ]
@@ -31976,8 +31976,8 @@ define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr nounde
   %49 = ptrtoint ptr %30 to i64
   %50 = sub i64 %48, %49
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0, ptr align 1 %30, i64 %50, i1 false)
-  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.186244279 = load <16 x i8>, ptr %.sroa.0, align 16
-  %51 = icmp eq <16 x i8> %35, %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.186244279
+  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.186244286 = load <16 x i8>, ptr %.sroa.0, align 16
+  %51 = icmp eq <16 x i8> %35, %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.186244286
   %52 = bitcast <16 x i1> %51 to i16
   %53 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %52)
   %54 = zext nneg i16 %53 to i32
@@ -32052,8 +32052,8 @@ roseCountingMiracleScan.exit.thread:              ; preds = %46, %45, %20
   %85 = ptrtoint ptr %66 to i64
   %86 = sub i64 %84, %85
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0145, ptr nonnull align 1 %66, i64 %86, i1 false)
-  %.sroa.0145.0..sroa.0145.0..sroa.0145.0..sroa.0145.0.187245280 = load <16 x i8>, ptr %.sroa.0145, align 16
-  %87 = icmp eq <16 x i8> %71, %.sroa.0145.0..sroa.0145.0..sroa.0145.0..sroa.0145.0.187245280
+  %.sroa.0145.0..sroa.0145.0..sroa.0145.0..sroa.0145.0.187245287 = load <16 x i8>, ptr %.sroa.0145, align 16
+  %87 = icmp eq <16 x i8> %71, %.sroa.0145.0..sroa.0145.0..sroa.0145.0..sroa.0145.0.187245287
   %88 = bitcast <16 x i1> %87 to i16
   %89 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %88)
   %90 = zext nneg i16 %89 to i32

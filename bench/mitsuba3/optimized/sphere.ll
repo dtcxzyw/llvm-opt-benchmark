@@ -5189,59 +5189,58 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %331 = fadd contract <8 x double> %148, %.sroa.02254.0
   %332 = fadd contract <8 x double> %149, %.sroa.42257.0
   %333 = shufflevector <8 x double> %331, <8 x double> %332, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %334 = fcmp contract ult <16 x double> %333, zeroinitializer
+  %334 = fcmp contract oge <16 x double> %333, zeroinitializer
   %335 = shufflevector <8 x double> %329, <8 x double> %330, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %336 = shufflevector <8 x double> %326, <8 x double> %324, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %337 = fcmp contract ugt <16 x double> %335, %336
-  %338 = or <16 x i1> %334, %337
-  %339 = fcmp contract olt <8 x double> %329, zeroinitializer
-  %340 = fcmp contract olt <8 x double> %330, zeroinitializer
-  %341 = fcmp contract ogt <8 x double> %331, %326
-  %342 = fcmp contract ogt <8 x double> %332, %324
-  %343 = and <8 x i1> %341, %339
-  %.sroa.22533.0.insert.shift255525562557 = and <8 x i1> %342, %340
-  %344 = shufflevector <8 x i1> %343, <8 x i1> %.sroa.22533.0.insert.shift255525562557, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %345 = bitcast <16 x i1> %322 to <2 x i8>
-  %bc2559 = xor <2 x i8> %345, splat (i8 -1)
-  %346 = extractelement <2 x i8> %bc2559, i64 0
-  %347 = extractelement <2 x i8> %bc2559, i64 1
-  %348 = bitcast i8 %346 to <8 x i1>
-  %349 = and <8 x i1> %327, %348
-  %350 = bitcast i8 %347 to <8 x i1>
-  %351 = and <8 x i1> %328, %350
-  %352 = bitcast <16 x i1> %338 to <2 x i8>
-  %bc2561 = xor <2 x i8> %352, splat (i8 -1)
-  %353 = extractelement <2 x i8> %bc2561, i64 0
-  %354 = extractelement <2 x i8> %bc2561, i64 1
-  %355 = bitcast i8 %353 to <8 x i1>
-  %356 = and <8 x i1> %349, %355
-  %357 = bitcast i8 %354 to <8 x i1>
-  %358 = and <8 x i1> %351, %357
-  %359 = bitcast <16 x i1> %344 to <2 x i8>
-  %bc2563 = xor <2 x i8> %359, splat (i8 -1)
-  %360 = extractelement <2 x i8> %bc2563, i64 0
-  %361 = extractelement <2 x i8> %bc2563, i64 1
-  %362 = bitcast i8 %360 to <8 x i1>
+  %337 = fcmp contract ole <16 x double> %335, %336
+  %.not2628 = and <16 x i1> %334, %337
+  %338 = fcmp contract olt <8 x double> %329, zeroinitializer
+  %339 = fcmp contract olt <8 x double> %330, zeroinitializer
+  %340 = fcmp contract ogt <8 x double> %331, %326
+  %341 = fcmp contract ogt <8 x double> %332, %324
+  %342 = and <8 x i1> %340, %338
+  %.sroa.22533.0.insert.shift255525562557 = and <8 x i1> %341, %339
+  %343 = shufflevector <8 x i1> %342, <8 x i1> %.sroa.22533.0.insert.shift255525562557, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %344 = bitcast <16 x i1> %322 to <2 x i8>
+  %bc2559 = xor <2 x i8> %344, splat (i8 -1)
+  %345 = extractelement <2 x i8> %bc2559, i64 0
+  %346 = extractelement <2 x i8> %bc2559, i64 1
+  %347 = bitcast i8 %345 to <8 x i1>
+  %348 = and <8 x i1> %327, %347
+  %349 = bitcast i8 %346 to <8 x i1>
+  %350 = and <8 x i1> %328, %349
+  %bc2561 = bitcast <16 x i1> %.not2628 to <2 x i8>
+  %351 = extractelement <2 x i8> %bc2561, i64 0
+  %352 = extractelement <2 x i8> %bc2561, i64 1
+  %353 = bitcast i8 %351 to <8 x i1>
+  %354 = and <8 x i1> %348, %353
+  %355 = bitcast i8 %352 to <8 x i1>
+  %356 = and <8 x i1> %350, %355
+  %357 = bitcast <16 x i1> %343 to <2 x i8>
+  %bc2563 = xor <2 x i8> %357, splat (i8 -1)
+  %358 = extractelement <2 x i8> %bc2563, i64 0
+  %359 = extractelement <2 x i8> %bc2563, i64 1
+  %360 = bitcast i8 %358 to <8 x i1>
+  %361 = and <8 x i1> %354, %360
+  %362 = bitcast i8 %359 to <8 x i1>
   %363 = and <8 x i1> %356, %362
-  %364 = bitcast i8 %361 to <8 x i1>
-  %365 = and <8 x i1> %358, %364
-  %366 = shufflevector <8 x i1> %363, <8 x i1> %365, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %367 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %331, <8 x float> zeroinitializer, i8 -1, i32 4)
-  %368 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %332, <8 x float> zeroinitializer, i8 -1, i32 4)
-  %369 = shufflevector <8 x float> %367, <8 x float> %368, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %370 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %329, <8 x float> zeroinitializer, i8 -1, i32 4)
-  %371 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %330, <8 x float> zeroinitializer, i8 -1, i32 4)
-  %372 = shufflevector <8 x float> %370, <8 x float> %371, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %373 = shufflevector <8 x i1> %339, <8 x i1> %340, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %374 = select contract <16 x i1> %373, <16 x float> %369, <16 x float> %372
-  %375 = select contract <16 x i1> %366, <16 x float> %374, <16 x float> splat (float 0x7FF0000000000000)
-  %376 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(128) %376, i8 0, i64 128, i1 false)
-  store <16 x float> %375, ptr %0, align 64
-  %377 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store <16 x i32> splat (i32 -1), ptr %377, align 64
-  %378 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store <16 x i32> zeroinitializer, ptr %378, align 64
+  %364 = shufflevector <8 x i1> %361, <8 x i1> %363, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %365 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %331, <8 x float> zeroinitializer, i8 -1, i32 4)
+  %366 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %332, <8 x float> zeroinitializer, i8 -1, i32 4)
+  %367 = shufflevector <8 x float> %365, <8 x float> %366, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %368 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %329, <8 x float> zeroinitializer, i8 -1, i32 4)
+  %369 = tail call contract noundef <8 x float> @llvm.x86.avx512.mask.cvtpd2ps.512(<8 x double> %330, <8 x float> zeroinitializer, i8 -1, i32 4)
+  %370 = shufflevector <8 x float> %368, <8 x float> %369, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %371 = shufflevector <8 x i1> %338, <8 x i1> %339, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %372 = select contract <16 x i1> %371, <16 x float> %367, <16 x float> %370
+  %373 = select contract <16 x i1> %364, <16 x float> %372, <16 x float> splat (float 0x7FF0000000000000)
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(128) %374, i8 0, i64 128, i1 false)
+  store <16 x float> %373, ptr %0, align 64
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store <16 x i32> splat (i32 -1), ptr %375, align 64
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store <16 x i32> zeroinitializer, ptr %376, align 64
   ret void
 }
 
@@ -5488,36 +5487,34 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %157 = or <8 x i1> %152, %124
   %158 = or <8 x i1> %.sroa.21628.0.insert.shift170917101711, %125
   %159 = shufflevector <8 x double> %.sroa.01500.0, <8 x double> %.sroa.41503.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %160 = fcmp contract ult <16 x double> %159, zeroinitializer
+  %160 = fcmp contract oge <16 x double> %159, zeroinitializer
   %161 = shufflevector <8 x double> %.sroa.01506.0, <8 x double> %.sroa.5.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %162 = shufflevector <8 x double> %156, <8 x double> %154, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %163 = fcmp contract ugt <16 x double> %161, %162
-  %164 = or <16 x i1> %160, %163
-  %165 = shufflevector <8 x double> %.sroa.01500.0, <8 x double> %.sroa.41503.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %166 = shufflevector <8 x double> %156, <8 x double> %154, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %167 = fcmp contract ogt <16 x double> %165, %166
-  %168 = shufflevector <8 x double> %.sroa.01506.0, <8 x double> %.sroa.5.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %169 = fcmp contract olt <16 x double> %168, zeroinitializer
-  %170 = and <16 x i1> %167, %169
-  %171 = bitcast <16 x i1> %164 to <2 x i8>
-  %bc1723 = xor <2 x i8> %171, splat (i8 -1)
-  %172 = extractelement <2 x i8> %bc1723, i64 0
-  %173 = extractelement <2 x i8> %bc1723, i64 1
-  %174 = bitcast i8 %172 to <8 x i1>
-  %175 = and <8 x i1> %157, %174
-  %176 = bitcast i8 %173 to <8 x i1>
-  %177 = and <8 x i1> %158, %176
-  %178 = bitcast <16 x i1> %170 to <2 x i8>
-  %bc1725 = xor <2 x i8> %178, splat (i8 -1)
-  %179 = extractelement <2 x i8> %bc1725, i64 0
-  %180 = extractelement <2 x i8> %bc1725, i64 1
-  %181 = bitcast i8 %179 to <8 x i1>
-  %182 = and <8 x i1> %175, %181
-  %183 = bitcast i8 %180 to <8 x i1>
-  %184 = and <8 x i1> %177, %183
-  %185 = shufflevector <8 x i1> %182, <8 x i1> %184, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %186 = bitcast <16 x i1> %185 to i16
-  ret i16 %186
+  %163 = fcmp contract ole <16 x double> %161, %162
+  %.not1752 = and <16 x i1> %160, %163
+  %164 = shufflevector <8 x double> %.sroa.01500.0, <8 x double> %.sroa.41503.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %165 = shufflevector <8 x double> %156, <8 x double> %154, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %166 = fcmp contract ule <16 x double> %164, %165
+  %167 = shufflevector <8 x double> %.sroa.01506.0, <8 x double> %.sroa.5.0, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %168 = fcmp contract uge <16 x double> %167, zeroinitializer
+  %.not1755 = or <16 x i1> %166, %168
+  %bc1723 = bitcast <16 x i1> %.not1752 to <2 x i8>
+  %169 = extractelement <2 x i8> %bc1723, i64 0
+  %170 = extractelement <2 x i8> %bc1723, i64 1
+  %171 = bitcast i8 %169 to <8 x i1>
+  %172 = and <8 x i1> %157, %171
+  %173 = bitcast i8 %170 to <8 x i1>
+  %174 = and <8 x i1> %158, %173
+  %bc1725 = bitcast <16 x i1> %.not1755 to <2 x i8>
+  %175 = extractelement <2 x i8> %bc1725, i64 0
+  %176 = extractelement <2 x i8> %bc1725, i64 1
+  %177 = bitcast i8 %175 to <8 x i1>
+  %178 = and <8 x i1> %172, %177
+  %179 = bitcast i8 %176 to <8 x i1>
+  %180 = and <8 x i1> %174, %179
+  %181 = shufflevector <8 x i1> %178, <8 x i1> %180, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %182 = bitcast <16 x i1> %181 to i16
+  ret i16 %182
 }
 
 ; Function Attrs: mustprogress uwtable

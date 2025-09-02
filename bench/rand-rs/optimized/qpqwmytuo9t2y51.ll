@@ -12114,7 +12114,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   %.09.in.in.i.in = phi i64 [ %7, %6 ], [ %4, %3 ]
   %8 = and i64 %.09.in.in.i.in, 16384
   %.09.in.i.not = icmp eq i64 %8, 0
-  br i1 %.09.in.i.not, label %9, label %38
+  br i1 %.09.in.i.not, label %9, label %34
 
 9:                                                ; preds = %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3005)
@@ -12154,7 +12154,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   %27 = trunc i64 %2 to i32
   switch i32 %13, label %28 [
     i32 0, label %29
-    i32 2, label %33
+    i32 2, label %30
   ]
 
 28:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i.i"
@@ -12162,30 +12162,27 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   unreachable
 
 29:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i.i"
-  %.0.i = bitcast <4 x i32> %.0.in.i to <2 x i64>
-  %30 = and <2 x i64> %.0.i, <i64 -4294967296, i64 -1>
+  %.inner = and <4 x i32> %.0.in.i, <i32 0, i32 -1, i32 -1, i32 -1>
   %.12.vec.insert.i4.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %27, i64 0
-  %31 = bitcast <4 x i32> %.12.vec.insert.i4.i to <2 x i64>
-  %32 = or <2 x i64> %30, %31
+  %.inner1 = or <4 x i32> %.inner, %.12.vec.insert.i4.i
   br label %_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8308d1b5eE.llvm.17720110283109806325.exit
 
-33:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i.i"
-  %34 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 0>, i32 %27, i64 2
-  %35 = insertelement <4 x i32> %.0.in.i, i32 0, i64 2
-  %36 = or <4 x i32> %34, %35
-  %37 = bitcast <4 x i32> %36 to <2 x i64>
+30:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i.i"
+  %31 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 0>, i32 %27, i64 2
+  %32 = insertelement <4 x i32> %.0.in.i, i32 0, i64 2
+  %33 = or <4 x i32> %31, %32
   br label %_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8308d1b5eE.llvm.17720110283109806325.exit
 
-_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8308d1b5eE.llvm.17720110283109806325.exit: ; preds = %29, %33
-  %.0112.i = phi <2 x i64> [ %32, %29 ], [ %37, %33 ]
-  store <2 x i64> %.0112.i, ptr %10, align 16, !alias.scope !3005
-  br label %39
+_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8308d1b5eE.llvm.17720110283109806325.exit: ; preds = %29, %30
+  %.0112.i.in = phi <4 x i32> [ %.inner1, %29 ], [ %33, %30 ]
+  store <4 x i32> %.0112.i.in, ptr %10, align 16, !alias.scope !3005
+  br label %35
 
-38:                                               ; preds = %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit
+34:                                               ; preds = %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit
   tail call void @_ZN11rand_chacha4guts16set_stream_param8impl_avx17hd10e28f946cda0acE.llvm.17720110283109806325(ptr noalias noundef nonnull align 16 dereferenceable(48) %0, i32 noundef %1, i64 noundef %2)
-  br label %39
+  br label %35
 
-39:                                               ; preds = %38, %_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8308d1b5eE.llvm.17720110283109806325.exit
+35:                                               ; preds = %34, %_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8308d1b5eE.llvm.17720110283109806325.exit
   ret void
 }
 
@@ -12300,7 +12297,7 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482f
   %21 = trunc i64 %2 to i32
   switch i32 %7, label %22 [
     i32 0, label %23
-    i32 2, label %27
+    i32 2, label %24
   ]
 
 22:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1"
@@ -12308,23 +12305,20 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482f
   unreachable
 
 23:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1"
-  %.0 = bitcast <4 x i32> %.0.in to <2 x i64>
-  %24 = and <2 x i64> %.0, <i64 -4294967296, i64 -1>
+  %.inner = and <4 x i32> %.0.in, <i32 0, i32 -1, i32 -1, i32 -1>
   %.12.vec.insert.i5 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %21, i64 0
-  %25 = bitcast <4 x i32> %.12.vec.insert.i5 to <2 x i64>
-  %26 = or <2 x i64> %24, %25
+  %.inner114 = or <4 x i32> %.inner, %.12.vec.insert.i5
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit"
 
-27:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1"
-  %28 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 0>, i32 %21, i64 2
-  %29 = insertelement <4 x i32> %.0.in, i32 0, i64 2
-  %30 = or <4 x i32> %28, %29
-  %31 = bitcast <4 x i32> %30 to <2 x i64>
+24:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1"
+  %25 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 0>, i32 %21, i64 2
+  %26 = insertelement <4 x i32> %.0.in, i32 0, i64 2
+  %27 = or <4 x i32> %25, %26
   br label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit"
 
-"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit": ; preds = %23, %27
-  %.0113 = phi <2 x i64> [ %26, %23 ], [ %31, %27 ]
-  store <2 x i64> %.0113, ptr %4, align 16
+"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit": ; preds = %23, %24
+  %.0113.in = phi <4 x i32> [ %.inner114, %23 ], [ %27, %24 ]
+  store <4 x i32> %.0113.in, ptr %4, align 16
   ret void
 }
 
@@ -12409,7 +12403,7 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8
   %21 = trunc i64 %2 to i32
   switch i32 %7, label %22 [
     i32 0, label %23
-    i32 2, label %27
+    i32 2, label %24
   ]
 
 22:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i"
@@ -12417,23 +12411,20 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8
   unreachable
 
 23:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i"
-  %.0 = bitcast <4 x i32> %.0.in to <2 x i64>
-  %24 = and <2 x i64> %.0, <i64 -4294967296, i64 -1>
+  %.inner = and <4 x i32> %.0.in, <i32 0, i32 -1, i32 -1, i32 -1>
   %.12.vec.insert.i4 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %21, i64 0
-  %25 = bitcast <4 x i32> %.12.vec.insert.i4 to <2 x i64>
-  %26 = or <2 x i64> %24, %25
+  %.inner113 = or <4 x i32> %.inner, %.12.vec.insert.i4
   br label %_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482fdc5259E.llvm.17720110283109806325.exit
 
-27:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i"
-  %28 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 0>, i32 %21, i64 2
-  %29 = insertelement <4 x i32> %.0.in, i32 0, i64 2
-  %30 = or <4 x i32> %28, %29
-  %31 = bitcast <4 x i32> %30 to <2 x i64>
+24:                                               ; preds = %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17hddbf33554d702aa3E.llvm.17720110283109806325.exit1.i"
+  %25 = insertelement <4 x i32> <i32 0, i32 0, i32 poison, i32 0>, i32 %21, i64 2
+  %26 = insertelement <4 x i32> %.0.in, i32 0, i64 2
+  %27 = or <4 x i32> %25, %26
   br label %_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482fdc5259E.llvm.17720110283109806325.exit
 
-_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482fdc5259E.llvm.17720110283109806325.exit: ; preds = %23, %27
-  %.0112 = phi <2 x i64> [ %26, %23 ], [ %31, %27 ]
-  store <2 x i64> %.0112, ptr %4, align 16
+_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482fdc5259E.llvm.17720110283109806325.exit: ; preds = %23, %24
+  %.0112.in = phi <4 x i32> [ %.inner113, %23 ], [ %27, %24 ]
+  store <4 x i32> %.0112.in, ptr %4, align 16
   ret void
 }
 

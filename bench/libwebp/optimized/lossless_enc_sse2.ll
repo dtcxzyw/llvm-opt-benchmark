@@ -134,42 +134,43 @@ define internal void @TransformColor_SSE2(ptr noalias noundef %0, ptr noalias no
   %32 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv38
   %33 = load <2 x i64>, ptr %32, align 1, !tbaa !7
   %34 = bitcast <2 x i64> %33 to <8 x i16>
-  %35 = and <8 x i16> %34, <i16 -256, i16 poison, i16 -256, i16 poison, i16 -256, i16 poison, i16 -256, i16 poison>
-  %36 = shufflevector <8 x i16> %35, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 4, i32 6, i32 6>
-  %37 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %36, <8 x i16> %28)
-  %38 = shl <8 x i16> %34, splat (i16 8)
-  %39 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %38, <8 x i16> %29)
-  %40 = bitcast <8 x i16> %39 to <4 x i32>
-  %41 = lshr exact <4 x i32> %40, splat (i32 16)
-  %42 = bitcast <4 x i32> %41 to <16 x i8>
-  %43 = bitcast <8 x i16> %37 to <16 x i8>
-  %44 = add <16 x i8> %42, %43
-  %45 = bitcast <2 x i64> %33 to <16 x i8>
-  %46 = and <16 x i8> %44, <i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0>
-  %47 = sub <16 x i8> %45, %46
-  store <16 x i8> %47, ptr %32, align 1, !tbaa !7
+  %35 = bitcast <2 x i64> %33 to <8 x i16>
+  %36 = and <8 x i16> %35, <i16 -256, i16 poison, i16 -256, i16 poison, i16 -256, i16 poison, i16 -256, i16 poison>
+  %37 = shufflevector <8 x i16> %36, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 4, i32 6, i32 6>
+  %38 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %37, <8 x i16> %28)
+  %39 = shl <8 x i16> %34, splat (i16 8)
+  %40 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %39, <8 x i16> %29)
+  %41 = bitcast <8 x i16> %40 to <4 x i32>
+  %42 = lshr exact <4 x i32> %41, splat (i32 16)
+  %43 = bitcast <4 x i32> %42 to <16 x i8>
+  %44 = bitcast <8 x i16> %38 to <16 x i8>
+  %45 = add <16 x i8> %43, %44
+  %46 = bitcast <2 x i64> %33 to <16 x i8>
+  %47 = and <16 x i8> %45, <i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0>
+  %48 = sub <16 x i8> %46, %47
+  store <16 x i8> %48, ptr %32, align 1, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %30
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 4
   br i1 %.not, label %._crit_edge.loopexit, label %31, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %31
-  %48 = trunc nuw nsw i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %48, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %49, %._crit_edge.loopexit ]
   %.not35 = icmp eq i32 %.0.lcssa, %2
-  br i1 %.not35, label %53, label %49
+  br i1 %.not35, label %54, label %50
 
-49:                                               ; preds = %._crit_edge
-  %50 = zext nneg i32 %.0.lcssa to i64
-  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %50
-  %52 = sub nsw i32 %2, %.0.lcssa
-  tail call void @VP8LTransformColor_C(ptr noundef nonnull %0, ptr noundef %51, i32 noundef %52) #8
-  br label %53
+50:                                               ; preds = %._crit_edge
+  %51 = zext nneg i32 %.0.lcssa to i64
+  %52 = getelementptr inbounds nuw i32, ptr %1, i64 %51
+  %53 = sub nsw i32 %2, %.0.lcssa
+  tail call void @VP8LTransformColor_C(ptr noundef nonnull %0, ptr noundef %52, i32 noundef %53) #8
+  br label %54
 
-53:                                               ; preds = %49, %._crit_edge
+54:                                               ; preds = %50, %._crit_edge
   ret void
 }
 
@@ -210,9 +211,9 @@ define internal void @CollectColorBlueTransforms_SSE2(ptr noalias noundef %0, i3
   %26 = getelementptr inbounds i32, ptr %0, i64 %25
   br label %27
 
-27:                                               ; preds = %.lr.ph, %68
-  %indvars.iv83 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next84, %68 ]
-  %indvars.iv81 = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next82, %68 ]
+27:                                               ; preds = %.lr.ph, %70
+  %indvars.iv83 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next84, %70 ]
+  %indvars.iv81 = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next82, %70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv83
   %29 = load <2 x i64>, ptr %28, align 1, !tbaa !7
@@ -224,72 +225,74 @@ define internal void @CollectColorBlueTransforms_SSE2(ptr noalias noundef %0, i3
   %35 = shl <8 x i16> %34, splat (i16 8)
   %36 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %33, <8 x i16> %21)
   %37 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %35, <8 x i16> %21)
-  %38 = and <8 x i16> %32, <i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0>
-  %39 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %38, <8 x i16> %22)
-  %40 = and <8 x i16> %34, <i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0>
-  %41 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %40, <8 x i16> %22)
-  %42 = bitcast <2 x i64> %29 to <16 x i8>
-  %43 = bitcast <8 x i16> %39 to <16 x i8>
-  %44 = bitcast <2 x i64> %31 to <16 x i8>
-  %45 = bitcast <8 x i16> %41 to <16 x i8>
-  %46 = bitcast <8 x i16> %36 to <4 x i32>
-  %47 = lshr exact <4 x i32> %46, splat (i32 16)
-  %48 = bitcast <8 x i16> %37 to <4 x i32>
+  %38 = bitcast <2 x i64> %29 to <8 x i16>
+  %39 = and <8 x i16> %38, <i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0>
+  %40 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %39, <8 x i16> %22)
+  %41 = bitcast <2 x i64> %31 to <8 x i16>
+  %42 = and <8 x i16> %41, <i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0>
+  %43 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %42, <8 x i16> %22)
+  %44 = bitcast <2 x i64> %29 to <16 x i8>
+  %45 = bitcast <8 x i16> %40 to <16 x i8>
+  %46 = bitcast <2 x i64> %31 to <16 x i8>
+  %47 = bitcast <8 x i16> %43 to <16 x i8>
+  %48 = bitcast <8 x i16> %36 to <4 x i32>
   %49 = lshr exact <4 x i32> %48, splat (i32 16)
-  %50 = bitcast <4 x i32> %47 to <16 x i8>
-  %51 = add <16 x i8> %50, %43
-  %52 = sub <16 x i8> %42, %51
-  %53 = bitcast <4 x i32> %49 to <16 x i8>
-  %54 = add <16 x i8> %53, %45
-  %55 = sub <16 x i8> %44, %54
-  %56 = bitcast <16 x i8> %52 to <4 x i32>
-  %57 = and <4 x i32> %56, splat (i32 255)
-  %58 = bitcast <16 x i8> %55 to <4 x i32>
+  %50 = bitcast <8 x i16> %37 to <4 x i32>
+  %51 = lshr exact <4 x i32> %50, splat (i32 16)
+  %52 = bitcast <4 x i32> %49 to <16 x i8>
+  %53 = add <16 x i8> %52, %45
+  %54 = sub <16 x i8> %44, %53
+  %55 = bitcast <4 x i32> %51 to <16 x i8>
+  %56 = add <16 x i8> %55, %47
+  %57 = sub <16 x i8> %46, %56
+  %58 = bitcast <16 x i8> %54 to <4 x i32>
   %59 = and <4 x i32> %58, splat (i32 255)
-  %60 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %57, <4 x i32> %59)
-  store <8 x i16> %60, ptr %8, align 16, !tbaa !7
-  br label %61
+  %60 = bitcast <16 x i8> %57 to <4 x i32>
+  %61 = and <4 x i32> %60, splat (i32 255)
+  %62 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %59, <4 x i32> %61)
+  store <8 x i16> %62, ptr %8, align 16, !tbaa !7
+  br label %63
 
-61:                                               ; preds = %27, %61
-  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %61 ]
-  %62 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
-  %63 = load i16, ptr %62, align 2, !tbaa !15
-  %64 = zext i16 %63 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %6, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !17
-  %67 = add i32 %66, 1
-  store i32 %67, ptr %65, align 4, !tbaa !17
+63:                                               ; preds = %27, %63
+  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %63 ]
+  %64 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
+  %65 = load i16, ptr %64, align 2, !tbaa !15
+  %66 = zext i16 %65 to i64
+  %67 = getelementptr inbounds nuw i32, ptr %6, i64 %66
+  %68 = load i32, ptr %67, align 4, !tbaa !17
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %67, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %68, label %61, !llvm.loop !19
+  br i1 %exitcond.not, label %70, label %63, !llvm.loop !19
 
-68:                                               ; preds = %61
+70:                                               ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 8
   %.not66 = icmp samesign ugt i64 %indvars.iv.next82, %23
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 8
   br i1 %.not66, label %._crit_edge, label %27, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %68
+._crit_edge:                                      ; preds = %70
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count
   br i1 %exitcond91.not, label %._crit_edge78, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge78:                                    ; preds = %._crit_edge, %.lr.ph77, %7
-  %69 = and i32 %2, 7
-  %.not = icmp eq i32 %69, 0
-  br i1 %.not, label %76, label %70
+  %71 = and i32 %2, 7
+  %.not = icmp eq i32 %71, 0
+  br i1 %.not, label %78, label %72
 
-70:                                               ; preds = %._crit_edge78
-  %71 = sext i32 %2 to i64
-  %72 = getelementptr inbounds i32, ptr %0, i64 %71
-  %73 = zext nneg i32 %69 to i64
-  %74 = sub nsw i64 0, %73
-  %75 = getelementptr inbounds i32, ptr %72, i64 %74
-  tail call void @VP8LCollectColorBlueTransforms_C(ptr noundef nonnull %75, i32 noundef %1, i32 noundef %69, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #8
-  br label %76
+72:                                               ; preds = %._crit_edge78
+  %73 = sext i32 %2 to i64
+  %74 = getelementptr inbounds i32, ptr %0, i64 %73
+  %75 = zext nneg i32 %71 to i64
+  %76 = sub nsw i64 0, %75
+  %77 = getelementptr inbounds i32, ptr %74, i64 %76
+  tail call void @VP8LCollectColorBlueTransforms_C(ptr noundef nonnull %77, i32 noundef %1, i32 noundef %71, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #8
+  br label %78
 
-76:                                               ; preds = %70, %._crit_edge78
+78:                                               ; preds = %72, %._crit_edge78
   ret void
 }
 
@@ -958,19 +961,19 @@ define internal void @BundleColorMap_SSE2(ptr noalias noundef %0, i32 noundef %1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv133 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next134, %.lr.ph ]
   %indvars.iv = phi i64 [ 16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.3103 = phi ptr [ %3, %.lr.ph.preheader ], [ %41, %.lr.ph ]
+  %.3103 = phi ptr [ %3, %.lr.ph.preheader ], [ %40, %.lr.ph ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv133
   %32 = load <8 x i16>, ptr %31, align 1, !tbaa !7
   %33 = mul <8 x i16> %32, splat (i16 260)
-  %34 = bitcast <8 x i16> %33 to <2 x i64>
-  %35 = and <2 x i64> %34, splat (i64 1080880403494997760)
-  %36 = bitcast <2 x i64> %35 to <4 x i32>
-  %37 = lshr <4 x i32> %36, splat (i32 12)
-  %38 = bitcast <4 x i32> %37 to <2 x i64>
-  %39 = or <2 x i64> %35, splat (i64 -72057589759737856)
-  %40 = or disjoint <2 x i64> %39, %38
-  store <2 x i64> %40, ptr %.3103, align 1, !tbaa !7
-  %41 = getelementptr inbounds nuw i8, ptr %.3103, i64 16
+  %.inner = and <8 x i16> %33, splat (i16 3840)
+  %34 = bitcast <8 x i16> %.inner to <4 x i32>
+  %35 = lshr <4 x i32> %34, splat (i32 12)
+  %36 = bitcast <4 x i32> %35 to <2 x i64>
+  %37 = bitcast <8 x i16> %.inner to <2 x i64>
+  %38 = or <2 x i64> %37, splat (i64 -72057589759737856)
+  %39 = or disjoint <2 x i64> %38, %36
+  store <2 x i64> %39, ptr %.3103, align 1, !tbaa !7
+  %40 = getelementptr inbounds nuw i8, ptr %.3103, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 16
@@ -979,58 +982,58 @@ define internal void @BundleColorMap_SSE2(ptr noalias noundef %0, i32 noundef %1
 .lr.ph120:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
   %indvars.iv154 = phi i64 [ 0, %.lr.ph120.preheader ], [ %indvars.iv.next155, %.lr.ph120 ]
   %indvars.iv152 = phi i64 [ 16, %.lr.ph120.preheader ], [ %indvars.iv.next153, %.lr.ph120 ]
-  %.4119 = phi ptr [ %3, %.lr.ph120.preheader ], [ %55, %.lr.ph120 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv154
-  %43 = load <2 x i64>, ptr %42, align 1, !tbaa !7
-  %44 = shl <2 x i64> %43, splat (i64 7)
-  %45 = bitcast <2 x i64> %44 to <16 x i8>
-  %46 = icmp slt <16 x i8> %45, zeroinitializer
-  %47 = bitcast <16 x i1> %46 to i16
-  %48 = zext i16 %47 to i32
-  %49 = shl nuw nsw i32 %48, 8
-  %50 = and i32 %49, 65280
-  %51 = or disjoint i32 %50, -16777216
-  store i32 %51, ptr %.4119, align 4, !tbaa !17
-  %52 = and i32 %48, 65280
-  %53 = or disjoint i32 %52, -16777216
-  %54 = getelementptr inbounds nuw i8, ptr %.4119, i64 4
-  store i32 %53, ptr %54, align 4, !tbaa !17
-  %55 = getelementptr inbounds nuw i8, ptr %.4119, i64 8
+  %.4119 = phi ptr [ %3, %.lr.ph120.preheader ], [ %54, %.lr.ph120 ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv154
+  %42 = load <2 x i64>, ptr %41, align 1, !tbaa !7
+  %43 = shl <2 x i64> %42, splat (i64 7)
+  %44 = bitcast <2 x i64> %43 to <16 x i8>
+  %45 = icmp slt <16 x i8> %44, zeroinitializer
+  %46 = bitcast <16 x i1> %45 to i16
+  %47 = zext i16 %46 to i32
+  %48 = shl nuw nsw i32 %47, 8
+  %49 = and i32 %48, 65280
+  %50 = or disjoint i32 %49, -16777216
+  store i32 %50, ptr %.4119, align 4, !tbaa !17
+  %51 = and i32 %47, 65280
+  %52 = or disjoint i32 %51, -16777216
+  %53 = getelementptr inbounds nuw i8, ptr %.4119, i64 4
+  store i32 %52, ptr %53, align 4, !tbaa !17
+  %54 = getelementptr inbounds nuw i8, ptr %.4119, i64 8
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 16
   %.not93 = icmp samesign ugt i64 %indvars.iv.next153, %8
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 16
   br i1 %.not93, label %.loopexit.loopexit, label %.lr.ph120, !llvm.loop !36
 
 .loopexit.loopexit:                               ; preds = %.lr.ph120
-  %56 = trunc nuw nsw i64 %indvars.iv152 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv152 to i32
   br label %.loopexit
 
 .loopexit.loopexit123:                            ; preds = %.lr.ph114
-  %57 = trunc nuw nsw i64 %indvars.iv145 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv145 to i32
   br label %.loopexit
 
 .loopexit.loopexit124:                            ; preds = %.lr.ph108
-  %58 = trunc nuw nsw i64 %indvars.iv138 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv138 to i32
   br label %.loopexit
 
 .loopexit.loopexit125:                            ; preds = %.lr.ph
-  %59 = trunc nuw nsw i64 %indvars.iv to i32
+  %58 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit125, %.loopexit.loopexit124, %.loopexit.loopexit123, %.loopexit.loopexit, %.preheader99, %.preheader97, %.preheader95, %.preheader
-  %.182 = phi i32 [ 0, %.preheader ], [ 0, %.preheader95 ], [ 0, %.preheader97 ], [ 0, %.preheader99 ], [ %56, %.loopexit.loopexit ], [ %57, %.loopexit.loopexit123 ], [ %58, %.loopexit.loopexit124 ], [ %59, %.loopexit.loopexit125 ]
-  %.1 = phi ptr [ %3, %.preheader ], [ %3, %.preheader95 ], [ %3, %.preheader97 ], [ %3, %.preheader99 ], [ %55, %.loopexit.loopexit ], [ %22, %.loopexit.loopexit123 ], [ %30, %.loopexit.loopexit124 ], [ %41, %.loopexit.loopexit125 ]
+  %.182 = phi i32 [ 0, %.preheader ], [ 0, %.preheader95 ], [ 0, %.preheader97 ], [ 0, %.preheader99 ], [ %55, %.loopexit.loopexit ], [ %56, %.loopexit.loopexit123 ], [ %57, %.loopexit.loopexit124 ], [ %58, %.loopexit.loopexit125 ]
+  %.1 = phi ptr [ %3, %.preheader ], [ %3, %.preheader95 ], [ %3, %.preheader97 ], [ %3, %.preheader99 ], [ %54, %.loopexit.loopexit ], [ %22, %.loopexit.loopexit123 ], [ %30, %.loopexit.loopexit124 ], [ %40, %.loopexit.loopexit125 ]
   %.not94 = icmp eq i32 %.182, %1
-  br i1 %.not94, label %64, label %60
+  br i1 %.not94, label %63, label %59
 
-60:                                               ; preds = %.loopexit
-  %61 = zext nneg i32 %.182 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %61
-  %63 = sub nsw i32 %1, %.182
-  tail call void @VP8LBundleColorMap_C(ptr noundef %62, i32 noundef %63, i32 noundef %2, ptr noundef %.1) #8
-  br label %64
+59:                                               ; preds = %.loopexit
+  %60 = zext nneg i32 %.182 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
+  %62 = sub nsw i32 %1, %.182
+  tail call void @VP8LBundleColorMap_C(ptr noundef %61, i32 noundef %62, i32 noundef %2, ptr noundef %.1) #8
+  br label %63
 
-64:                                               ; preds = %60, %.loopexit
+63:                                               ; preds = %59, %.loopexit
   ret void
 }
 

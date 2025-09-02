@@ -4808,157 +4808,159 @@ define void @stbir__decode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr
   %11 = load <8 x i16>, ptr %.040, align 1, !tbaa !4
   %12 = shufflevector <8 x i16> %11, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %13 = bitcast <8 x i16> %12 to <4 x i32>
-  %14 = and <4 x i32> %13, splat (i32 32767)
-  %15 = icmp samesign ugt <4 x i32> %14, splat (i32 31743)
-  %16 = icmp samesign ugt <4 x i32> %14, splat (i32 1023)
-  %17 = shl nuw nsw <4 x i32> %14, splat (i32 13)
-  %18 = add nuw nsw <4 x i32> %17, splat (i32 939524096)
-  %19 = add nuw nsw <4 x i32> %17, splat (i32 947912704)
-  %20 = select <4 x i1> %15, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
-  %21 = add nuw nsw <4 x i32> %18, %20
-  %22 = bitcast <4 x i32> %19 to <4 x float>
-  %23 = fadd <4 x float> %22, splat (float 0xBF10000000000000)
-  %24 = bitcast <4 x float> %23 to <4 x i32>
-  %25 = select <4 x i1> %16, <4 x i32> %21, <4 x i32> %24
-  %26 = shl nuw <4 x i32> %13, splat (i32 16)
-  %27 = and <4 x i32> %26, splat (i32 -2147483648)
-  %28 = or <4 x i32> %25, %27
-  store <4 x i32> %28, ptr %.0, align 1, !tbaa !4
-  %29 = shufflevector <8 x i16> %11, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %30 = bitcast <8 x i16> %29 to <4 x i32>
-  %31 = and <4 x i32> %30, splat (i32 32767)
-  %32 = icmp samesign ugt <4 x i32> %31, splat (i32 31743)
-  %33 = icmp samesign ugt <4 x i32> %31, splat (i32 1023)
-  %34 = shl nuw nsw <4 x i32> %31, splat (i32 13)
-  %35 = add nuw nsw <4 x i32> %34, splat (i32 939524096)
-  %36 = add nuw nsw <4 x i32> %34, splat (i32 947912704)
-  %37 = select <4 x i1> %32, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
-  %38 = add nuw nsw <4 x i32> %35, %37
-  %39 = bitcast <4 x i32> %36 to <4 x float>
-  %40 = fadd <4 x float> %39, splat (float 0xBF10000000000000)
-  %41 = bitcast <4 x float> %40 to <4 x i32>
-  %42 = select <4 x i1> %33, <4 x i32> %38, <4 x i32> %41
-  %43 = shl nuw <4 x i32> %30, splat (i32 16)
-  %44 = and <4 x i32> %43, splat (i32 -2147483648)
-  %45 = or <4 x i32> %42, %44
-  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store <4 x i32> %45, ptr %46, align 1, !tbaa !4
-  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %48 = getelementptr inbounds nuw i8, ptr %.040, i64 16
-  %.not46 = icmp ugt ptr %47, %10
-  br i1 %.not46, label %49, label %.backedge.backedge
+  %14 = bitcast <8 x i16> %12 to <4 x i32>
+  %15 = and <4 x i32> %14, splat (i32 32767)
+  %16 = icmp samesign ugt <4 x i32> %15, splat (i32 31743)
+  %17 = icmp samesign ugt <4 x i32> %15, splat (i32 1023)
+  %18 = shl nuw nsw <4 x i32> %15, splat (i32 13)
+  %19 = add nuw nsw <4 x i32> %18, splat (i32 939524096)
+  %20 = add nuw nsw <4 x i32> %18, splat (i32 947912704)
+  %21 = select <4 x i1> %16, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
+  %22 = add nuw nsw <4 x i32> %19, %21
+  %23 = bitcast <4 x i32> %20 to <4 x float>
+  %24 = fadd <4 x float> %23, splat (float 0xBF10000000000000)
+  %25 = bitcast <4 x float> %24 to <4 x i32>
+  %26 = select <4 x i1> %17, <4 x i32> %22, <4 x i32> %25
+  %27 = shl nuw <4 x i32> %13, splat (i32 16)
+  %28 = and <4 x i32> %27, splat (i32 -2147483648)
+  %29 = or <4 x i32> %26, %28
+  store <4 x i32> %29, ptr %.0, align 1, !tbaa !4
+  %30 = shufflevector <8 x i16> %11, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %31 = bitcast <8 x i16> %30 to <4 x i32>
+  %32 = bitcast <8 x i16> %30 to <4 x i32>
+  %33 = and <4 x i32> %32, splat (i32 32767)
+  %34 = icmp samesign ugt <4 x i32> %33, splat (i32 31743)
+  %35 = icmp samesign ugt <4 x i32> %33, splat (i32 1023)
+  %36 = shl nuw nsw <4 x i32> %33, splat (i32 13)
+  %37 = add nuw nsw <4 x i32> %36, splat (i32 939524096)
+  %38 = add nuw nsw <4 x i32> %36, splat (i32 947912704)
+  %39 = select <4 x i1> %34, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
+  %40 = add nuw nsw <4 x i32> %37, %39
+  %41 = bitcast <4 x i32> %38 to <4 x float>
+  %42 = fadd <4 x float> %41, splat (float 0xBF10000000000000)
+  %43 = bitcast <4 x float> %42 to <4 x i32>
+  %44 = select <4 x i1> %35, <4 x i32> %40, <4 x i32> %43
+  %45 = shl nuw <4 x i32> %31, splat (i32 16)
+  %46 = and <4 x i32> %45, splat (i32 -2147483648)
+  %47 = or <4 x i32> %44, %46
+  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  store <4 x i32> %47, ptr %48, align 1, !tbaa !4
+  %49 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %.040, i64 16
+  %.not46 = icmp ugt ptr %49, %10
+  br i1 %.not46, label %51, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %49
-  %.040.be = phi ptr [ %48, %.backedge ], [ %9, %49 ]
-  %.0.be = phi ptr [ %47, %.backedge ], [ %10, %49 ]
+.backedge.backedge:                               ; preds = %.backedge, %51
+  %.040.be = phi ptr [ %50, %.backedge ], [ %9, %51 ]
+  %.0.be = phi ptr [ %49, %.backedge ], [ %10, %51 ]
   br label %.backedge, !llvm.loop !194
 
-49:                                               ; preds = %.backedge
-  %50 = icmp eq ptr %47, %5
-  br i1 %50, label %.loopexit, label %.backedge.backedge
+51:                                               ; preds = %.backedge
+  %52 = icmp eq ptr %49, %5
+  br i1 %52, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader56
-  %.141.lcssa = phi ptr [ %2, %.preheader56 ], [ %102, %.lr.ph ]
+  %.141.lcssa = phi ptr [ %2, %.preheader56 ], [ %104, %.lr.ph ]
   %.pn.lcssa = phi ptr [ %0, %.preheader56 ], [ %.161, %.lr.ph ]
-  %51 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %51, label %.lr.ph65, label %.loopexit
+  %53 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %53, label %.lr.ph65, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.161 = phi ptr [ %.1, %.lr.ph ], [ %.157, %.lr.ph.preheader ]
   %.pn60 = phi ptr [ %.161, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.14159 = phi ptr [ %102, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.14159 = phi ptr [ %104, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.161) #24, !srcloc !195
-  %52 = load i16, ptr %.14159, align 2
-  %53 = zext i16 %52 to i32
-  %54 = shl nuw nsw i32 %53, 13
-  %55 = and i32 %54, 268427264
-  %56 = bitcast i32 %55 to float
-  %57 = fmul float %56, 0x46F0000000000000
-  %58 = bitcast float %57 to i32
-  %59 = fcmp ult float %57, 6.553600e+04
-  %60 = or i32 %58, 2139095040
-  %.sroa.0.0.i = select i1 %59, i32 %58, i32 %60
-  %.signext.i = sext i16 %52 to i32
-  %61 = and i32 %.signext.i, -2147483648
-  %62 = or i32 %.sroa.0.0.i, %61
-  store i32 %62, ptr %.pn60, align 4, !tbaa !50
-  %63 = getelementptr inbounds nuw i8, ptr %.14159, i64 2
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i32
-  %66 = shl nuw nsw i32 %65, 13
-  %67 = and i32 %66, 268427264
-  %68 = bitcast i32 %67 to float
-  %69 = fmul float %68, 0x46F0000000000000
-  %70 = bitcast float %69 to i32
-  %71 = fcmp ult float %69, 6.553600e+04
-  %72 = or i32 %70, 2139095040
-  %.sroa.0.0.i47 = select i1 %71, i32 %70, i32 %72
-  %.signext.i48 = sext i16 %64 to i32
-  %73 = and i32 %.signext.i48, -2147483648
-  %74 = or i32 %.sroa.0.0.i47, %73
-  %75 = getelementptr inbounds nuw i8, ptr %.pn60, i64 4
-  store i32 %74, ptr %75, align 4, !tbaa !50
-  %76 = getelementptr inbounds nuw i8, ptr %.14159, i64 4
-  %77 = load i16, ptr %76, align 2
-  %78 = zext i16 %77 to i32
-  %79 = shl nuw nsw i32 %78, 13
-  %80 = and i32 %79, 268427264
-  %81 = bitcast i32 %80 to float
-  %82 = fmul float %81, 0x46F0000000000000
-  %83 = bitcast float %82 to i32
-  %84 = fcmp ult float %82, 6.553600e+04
-  %85 = or i32 %83, 2139095040
-  %.sroa.0.0.i49 = select i1 %84, i32 %83, i32 %85
-  %.signext.i50 = sext i16 %77 to i32
-  %86 = and i32 %.signext.i50, -2147483648
-  %87 = or i32 %.sroa.0.0.i49, %86
-  %88 = getelementptr inbounds nuw i8, ptr %.pn60, i64 8
-  store i32 %87, ptr %88, align 4, !tbaa !50
-  %89 = getelementptr inbounds nuw i8, ptr %.14159, i64 6
-  %90 = load i16, ptr %89, align 2
-  %91 = zext i16 %90 to i32
-  %92 = shl nuw nsw i32 %91, 13
-  %93 = and i32 %92, 268427264
-  %94 = bitcast i32 %93 to float
-  %95 = fmul float %94, 0x46F0000000000000
-  %96 = bitcast float %95 to i32
-  %97 = fcmp ult float %95, 6.553600e+04
-  %98 = or i32 %96, 2139095040
-  %.sroa.0.0.i51 = select i1 %97, i32 %96, i32 %98
-  %.signext.i52 = sext i16 %90 to i32
-  %99 = and i32 %.signext.i52, -2147483648
-  %100 = or i32 %.sroa.0.0.i51, %99
-  %101 = getelementptr inbounds nuw i8, ptr %.pn60, i64 12
-  store i32 %100, ptr %101, align 4, !tbaa !50
-  %102 = getelementptr inbounds nuw i8, ptr %.14159, i64 8
+  %54 = load i16, ptr %.14159, align 2
+  %55 = zext i16 %54 to i32
+  %56 = shl nuw nsw i32 %55, 13
+  %57 = and i32 %56, 268427264
+  %58 = bitcast i32 %57 to float
+  %59 = fmul float %58, 0x46F0000000000000
+  %60 = bitcast float %59 to i32
+  %61 = fcmp ult float %59, 6.553600e+04
+  %62 = or i32 %60, 2139095040
+  %.sroa.0.0.i = select i1 %61, i32 %60, i32 %62
+  %.signext.i = sext i16 %54 to i32
+  %63 = and i32 %.signext.i, -2147483648
+  %64 = or i32 %.sroa.0.0.i, %63
+  store i32 %64, ptr %.pn60, align 4, !tbaa !50
+  %65 = getelementptr inbounds nuw i8, ptr %.14159, i64 2
+  %66 = load i16, ptr %65, align 2
+  %67 = zext i16 %66 to i32
+  %68 = shl nuw nsw i32 %67, 13
+  %69 = and i32 %68, 268427264
+  %70 = bitcast i32 %69 to float
+  %71 = fmul float %70, 0x46F0000000000000
+  %72 = bitcast float %71 to i32
+  %73 = fcmp ult float %71, 6.553600e+04
+  %74 = or i32 %72, 2139095040
+  %.sroa.0.0.i47 = select i1 %73, i32 %72, i32 %74
+  %.signext.i48 = sext i16 %66 to i32
+  %75 = and i32 %.signext.i48, -2147483648
+  %76 = or i32 %.sroa.0.0.i47, %75
+  %77 = getelementptr inbounds nuw i8, ptr %.pn60, i64 4
+  store i32 %76, ptr %77, align 4, !tbaa !50
+  %78 = getelementptr inbounds nuw i8, ptr %.14159, i64 4
+  %79 = load i16, ptr %78, align 2
+  %80 = zext i16 %79 to i32
+  %81 = shl nuw nsw i32 %80, 13
+  %82 = and i32 %81, 268427264
+  %83 = bitcast i32 %82 to float
+  %84 = fmul float %83, 0x46F0000000000000
+  %85 = bitcast float %84 to i32
+  %86 = fcmp ult float %84, 6.553600e+04
+  %87 = or i32 %85, 2139095040
+  %.sroa.0.0.i49 = select i1 %86, i32 %85, i32 %87
+  %.signext.i50 = sext i16 %79 to i32
+  %88 = and i32 %.signext.i50, -2147483648
+  %89 = or i32 %.sroa.0.0.i49, %88
+  %90 = getelementptr inbounds nuw i8, ptr %.pn60, i64 8
+  store i32 %89, ptr %90, align 4, !tbaa !50
+  %91 = getelementptr inbounds nuw i8, ptr %.14159, i64 6
+  %92 = load i16, ptr %91, align 2
+  %93 = zext i16 %92 to i32
+  %94 = shl nuw nsw i32 %93, 13
+  %95 = and i32 %94, 268427264
+  %96 = bitcast i32 %95 to float
+  %97 = fmul float %96, 0x46F0000000000000
+  %98 = bitcast float %97 to i32
+  %99 = fcmp ult float %97, 6.553600e+04
+  %100 = or i32 %98, 2139095040
+  %.sroa.0.0.i51 = select i1 %99, i32 %98, i32 %100
+  %.signext.i52 = sext i16 %92 to i32
+  %101 = and i32 %.signext.i52, -2147483648
+  %102 = or i32 %.sroa.0.0.i51, %101
+  %103 = getelementptr inbounds nuw i8, ptr %.pn60, i64 12
+  store i32 %102, ptr %103, align 4, !tbaa !50
+  %104 = getelementptr inbounds nuw i8, ptr %.14159, i64 8
   %.1 = getelementptr inbounds nuw i8, ptr %.161, i64 16
   %.not = icmp ugt ptr %.1, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !196
 
 .lr.ph65:                                         ; preds = %.preheader, %.lr.ph65
-  %.264 = phi ptr [ %114, %.lr.ph65 ], [ %.pn.lcssa, %.preheader ]
-  %.24263 = phi ptr [ %115, %.lr.ph65 ], [ %.141.lcssa, %.preheader ]
+  %.264 = phi ptr [ %116, %.lr.ph65 ], [ %.pn.lcssa, %.preheader ]
+  %.24263 = phi ptr [ %117, %.lr.ph65 ], [ %.141.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.264) #24, !srcloc !197
-  %103 = load i16, ptr %.24263, align 2
-  %104 = zext i16 %103 to i32
-  %105 = shl nuw nsw i32 %104, 13
-  %106 = and i32 %105, 268427264
-  %107 = bitcast i32 %106 to float
-  %108 = fmul float %107, 0x46F0000000000000
-  %109 = bitcast float %108 to i32
-  %110 = fcmp ult float %108, 6.553600e+04
-  %111 = or i32 %109, 2139095040
-  %.sroa.0.0.i53 = select i1 %110, i32 %109, i32 %111
-  %.signext.i54 = sext i16 %103 to i32
-  %112 = and i32 %.signext.i54, -2147483648
-  %113 = or i32 %.sroa.0.0.i53, %112
-  store i32 %113, ptr %.264, align 4, !tbaa !50
-  %114 = getelementptr inbounds nuw i8, ptr %.264, i64 4
-  %115 = getelementptr inbounds nuw i8, ptr %.24263, i64 2
-  %116 = icmp ult ptr %114, %5
-  br i1 %116, label %.lr.ph65, label %.loopexit, !llvm.loop !198
+  %105 = load i16, ptr %.24263, align 2
+  %106 = zext i16 %105 to i32
+  %107 = shl nuw nsw i32 %106, 13
+  %108 = and i32 %107, 268427264
+  %109 = bitcast i32 %108 to float
+  %110 = fmul float %109, 0x46F0000000000000
+  %111 = bitcast float %110 to i32
+  %112 = fcmp ult float %110, 6.553600e+04
+  %113 = or i32 %111, 2139095040
+  %.sroa.0.0.i53 = select i1 %112, i32 %111, i32 %113
+  %.signext.i54 = sext i16 %105 to i32
+  %114 = and i32 %.signext.i54, -2147483648
+  %115 = or i32 %.sroa.0.0.i53, %114
+  store i32 %115, ptr %.264, align 4, !tbaa !50
+  %116 = getelementptr inbounds nuw i8, ptr %.264, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %.24263, i64 2
+  %118 = icmp ult ptr %116, %5
+  br i1 %118, label %.lr.ph65, label %.loopexit, !llvm.loop !198
 
-.loopexit:                                        ; preds = %.lr.ph65, %49, %.preheader
+.loopexit:                                        ; preds = %.lr.ph65, %51, %.preheader
   ret void
 }
 
@@ -4992,291 +4994,275 @@ define void @stbir__encode_half_float_linear(ptr noundef %0, i32 noundef %1, ptr
   %12 = and <4 x i32> %11, splat (i32 2147483647)
   %13 = bitcast <4 x i32> %12 to <4 x float>
   %14 = fcmp uno <4 x float> %13, zeroinitializer
-  %15 = sext <4 x i1> %14 to <4 x i32>
-  %16 = icmp samesign ugt <4 x i32> %12, splat (i32 1199570943)
-  %17 = bitcast <4 x i32> %15 to <2 x i64>
-  %18 = and <2 x i64> %17, splat (i64 2199023256064)
-  %19 = or disjoint <2 x i64> %18, splat (i64 136339441875968)
-  %20 = icmp samesign ugt <4 x i32> %12, splat (i32 947912703)
-  %21 = fadd <4 x float> %13, splat (float 5.000000e-01)
-  %22 = bitcast <4 x float> %21 to <4 x i32>
-  %23 = add <4 x i32> %22, splat (i32 -1056964608)
-  %24 = lshr <4 x i32> %11, splat (i32 13)
-  %.neg.i = and <4 x i32> %24, splat (i32 1)
-  %25 = add nsw <4 x i32> %12, splat (i32 -939520001)
-  %26 = add nsw <4 x i32> %25, %.neg.i
-  %27 = lshr <4 x i32> %26, splat (i32 13)
-  %28 = select <4 x i1> %20, <4 x i32> %27, <4 x i32> %23
-  %29 = select <4 x i1> %16, <4 x i32> zeroinitializer, <4 x i32> %28
-  %30 = bitcast <4 x i32> %29 to <2 x i64>
-  %31 = sext <4 x i1> %16 to <4 x i32>
-  %32 = bitcast <4 x i32> %31 to <2 x i64>
-  %33 = and <2 x i64> %19, %32
-  %34 = ashr <4 x i32> %11, splat (i32 16)
-  %35 = bitcast <4 x i32> %34 to <2 x i64>
-  %36 = and <2 x i64> %35, splat (i64 -140733193420800)
-  %37 = or <2 x i64> %36, %30
-  %38 = or <2 x i64> %37, %33
-  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %40 = load <4 x i32>, ptr %39, align 1, !tbaa !4
-  %41 = and <4 x i32> %40, splat (i32 2147483647)
-  %42 = bitcast <4 x i32> %41 to <4 x float>
-  %43 = fcmp uno <4 x float> %42, zeroinitializer
-  %44 = sext <4 x i1> %43 to <4 x i32>
-  %45 = icmp samesign ugt <4 x i32> %41, splat (i32 1199570943)
-  %46 = bitcast <4 x i32> %44 to <2 x i64>
-  %47 = and <2 x i64> %46, splat (i64 2199023256064)
-  %48 = or disjoint <2 x i64> %47, splat (i64 136339441875968)
-  %49 = icmp samesign ugt <4 x i32> %41, splat (i32 947912703)
-  %50 = fadd <4 x float> %42, splat (float 5.000000e-01)
-  %51 = bitcast <4 x float> %50 to <4 x i32>
-  %52 = add <4 x i32> %51, splat (i32 -1056964608)
-  %53 = lshr <4 x i32> %40, splat (i32 13)
-  %.neg69.i = and <4 x i32> %53, splat (i32 1)
-  %54 = add nsw <4 x i32> %41, splat (i32 -939520001)
-  %55 = add nsw <4 x i32> %54, %.neg69.i
-  %56 = lshr <4 x i32> %55, splat (i32 13)
-  %57 = select <4 x i1> %49, <4 x i32> %56, <4 x i32> %52
-  %58 = select <4 x i1> %45, <4 x i32> zeroinitializer, <4 x i32> %57
-  %59 = bitcast <4 x i32> %58 to <2 x i64>
-  %60 = sext <4 x i1> %45 to <4 x i32>
-  %61 = bitcast <4 x i32> %60 to <2 x i64>
-  %62 = and <2 x i64> %48, %61
-  %63 = ashr <4 x i32> %40, splat (i32 16)
-  %64 = bitcast <4 x i32> %63 to <2 x i64>
-  %65 = and <2 x i64> %64, splat (i64 -140733193420800)
-  %66 = or <2 x i64> %65, %59
-  %67 = or <2 x i64> %66, %62
-  %68 = bitcast <2 x i64> %38 to <4 x i32>
-  %69 = bitcast <2 x i64> %67 to <4 x i32>
-  %70 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %68, <4 x i32> %69)
-  store <8 x i16> %70, ptr %.043, align 1, !tbaa !4
-  %71 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %72 = getelementptr inbounds nuw i8, ptr %.043, i64 16
-  %.not49 = icmp ugt ptr %72, %10
-  br i1 %.not49, label %73, label %.backedge.backedge
+  %15 = icmp samesign ugt <4 x i32> %12, splat (i32 1199570943)
+  %.inner87 = select <4 x i1> %14, <4 x i32> splat (i32 32256), <4 x i32> splat (i32 31744)
+  %16 = icmp samesign ugt <4 x i32> %12, splat (i32 947912703)
+  %17 = fadd <4 x float> %13, splat (float 5.000000e-01)
+  %18 = bitcast <4 x float> %17 to <4 x i32>
+  %19 = add <4 x i32> %18, splat (i32 -1056964608)
+  %20 = lshr <4 x i32> %11, splat (i32 13)
+  %.neg.i = and <4 x i32> %20, splat (i32 1)
+  %21 = add nsw <4 x i32> %12, splat (i32 -939520001)
+  %22 = add nsw <4 x i32> %21, %.neg.i
+  %23 = lshr <4 x i32> %22, splat (i32 13)
+  %24 = select <4 x i1> %16, <4 x i32> %23, <4 x i32> %19
+  %25 = select <4 x i1> %15, <4 x i32> zeroinitializer, <4 x i32> %24
+  %.inner88 = select <4 x i1> %15, <4 x i32> %.inner87, <4 x i32> zeroinitializer
+  %26 = ashr <4 x i32> %11, splat (i32 16)
+  %.inner89 = and <4 x i32> %26, splat (i32 -32768)
+  %.inner90 = or <4 x i32> %.inner89, %25
+  %.inner91 = or <4 x i32> %.inner90, %.inner88
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %28 = load <4 x i32>, ptr %27, align 1, !tbaa !4
+  %29 = and <4 x i32> %28, splat (i32 2147483647)
+  %30 = bitcast <4 x i32> %29 to <4 x float>
+  %31 = fcmp uno <4 x float> %30, zeroinitializer
+  %32 = icmp samesign ugt <4 x i32> %29, splat (i32 1199570943)
+  %.inner93 = select <4 x i1> %31, <4 x i32> splat (i32 32256), <4 x i32> splat (i32 31744)
+  %33 = icmp samesign ugt <4 x i32> %29, splat (i32 947912703)
+  %34 = fadd <4 x float> %30, splat (float 5.000000e-01)
+  %35 = bitcast <4 x float> %34 to <4 x i32>
+  %36 = add <4 x i32> %35, splat (i32 -1056964608)
+  %37 = lshr <4 x i32> %28, splat (i32 13)
+  %.neg69.i = and <4 x i32> %37, splat (i32 1)
+  %38 = add nsw <4 x i32> %29, splat (i32 -939520001)
+  %39 = add nsw <4 x i32> %38, %.neg69.i
+  %40 = lshr <4 x i32> %39, splat (i32 13)
+  %41 = select <4 x i1> %33, <4 x i32> %40, <4 x i32> %36
+  %42 = select <4 x i1> %32, <4 x i32> zeroinitializer, <4 x i32> %41
+  %.inner94 = select <4 x i1> %32, <4 x i32> %.inner93, <4 x i32> zeroinitializer
+  %43 = ashr <4 x i32> %28, splat (i32 16)
+  %.inner95 = and <4 x i32> %43, splat (i32 -32768)
+  %.inner96 = or <4 x i32> %.inner95, %42
+  %.inner97 = or <4 x i32> %.inner96, %.inner94
+  %44 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %.inner91, <4 x i32> %.inner97)
+  store <8 x i16> %44, ptr %.043, align 1, !tbaa !4
+  %45 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.043, i64 16
+  %.not49 = icmp ugt ptr %46, %10
+  br i1 %.not49, label %47, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %73
-  %.043.be = phi ptr [ %72, %.backedge ], [ %10, %73 ]
-  %.0.be = phi ptr [ %71, %.backedge ], [ %9, %73 ]
+.backedge.backedge:                               ; preds = %.backedge, %47
+  %.043.be = phi ptr [ %46, %.backedge ], [ %10, %47 ]
+  %.0.be = phi ptr [ %45, %.backedge ], [ %9, %47 ]
   br label %.backedge, !llvm.loop !200
 
-73:                                               ; preds = %.backedge
-  %74 = icmp eq ptr %72, %5
-  br i1 %74, label %.loopexit, label %.backedge.backedge
+47:                                               ; preds = %.backedge
+  %48 = icmp eq ptr %46, %5
+  br i1 %48, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %stbir__float_to_half.exit55, %.preheader59
   %.pn.lcssa = phi ptr [ %0, %.preheader59 ], [ %.14464, %stbir__float_to_half.exit55 ]
-  %.1.lcssa = phi ptr [ %2, %.preheader59 ], [ %174, %stbir__float_to_half.exit55 ]
-  %75 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %75, label %.lr.ph68, label %.loopexit
+  %.1.lcssa = phi ptr [ %2, %.preheader59 ], [ %148, %stbir__float_to_half.exit55 ]
+  %49 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %49, label %.lr.ph68, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__float_to_half.exit55
   %.14464 = phi ptr [ %.144, %stbir__float_to_half.exit55 ], [ %.14460, %.lr.ph.preheader ]
-  %.163 = phi ptr [ %174, %stbir__float_to_half.exit55 ], [ %2, %.lr.ph.preheader ]
+  %.163 = phi ptr [ %148, %stbir__float_to_half.exit55 ], [ %2, %.lr.ph.preheader ]
   %.pn62 = phi ptr [ %.14464, %stbir__float_to_half.exit55 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.14464) #24, !srcloc !201
-  %76 = load float, ptr %.163, align 4, !tbaa !50
-  %77 = tail call float @llvm.fabs.f32(float %76)
-  %78 = bitcast float %77 to i32
-  %79 = icmp samesign ugt i32 %78, 1199570943
-  br i1 %79, label %80, label %83
+  %50 = load float, ptr %.163, align 4, !tbaa !50
+  %51 = tail call float @llvm.fabs.f32(float %50)
+  %52 = bitcast float %51 to i32
+  %53 = icmp samesign ugt i32 %52, 1199570943
+  br i1 %53, label %54, label %57
 
-80:                                               ; preds = %.lr.ph
-  %81 = icmp samesign ugt i32 %78, 2139095040
-  %82 = select i1 %81, i32 32256, i32 31744
+54:                                               ; preds = %.lr.ph
+  %55 = icmp samesign ugt i32 %52, 2139095040
+  %56 = select i1 %55, i32 32256, i32 31744
   br label %stbir__float_to_half.exit
 
-83:                                               ; preds = %.lr.ph
-  %84 = icmp samesign ult i32 %78, 947912704
-  br i1 %84, label %85, label %88
+57:                                               ; preds = %.lr.ph
+  %58 = icmp samesign ult i32 %52, 947912704
+  br i1 %58, label %59, label %62
 
-85:                                               ; preds = %83
-  %86 = fadd float %77, 5.000000e-01
-  %87 = bitcast float %86 to i32
+59:                                               ; preds = %57
+  %60 = fadd float %51, 5.000000e-01
+  %61 = bitcast float %60 to i32
   br label %stbir__float_to_half.exit
 
-88:                                               ; preds = %83
-  %89 = lshr i32 %78, 13
-  %90 = and i32 %89, 1
-  %91 = add nuw nsw i32 %78, 134221823
-  %92 = add nuw nsw i32 %91, %90
-  %93 = lshr i32 %92, 13
+62:                                               ; preds = %57
+  %63 = lshr i32 %52, 13
+  %64 = and i32 %63, 1
+  %65 = add nuw nsw i32 %52, 134221823
+  %66 = add nuw nsw i32 %65, %64
+  %67 = lshr i32 %66, 13
   br label %stbir__float_to_half.exit
 
-stbir__float_to_half.exit:                        ; preds = %80, %85, %88
-  %.sroa.016.0.i = phi i32 [ %82, %80 ], [ %87, %85 ], [ %93, %88 ]
-  %94 = bitcast float %76 to i32
-  %95 = lshr i32 %94, 16
-  %96 = and i32 %95, 32768
-  %97 = or i32 %.sroa.016.0.i, %96
-  %98 = trunc i32 %97 to i16
-  store i16 %98, ptr %.pn62, align 2, !tbaa !4
-  %99 = getelementptr inbounds nuw i8, ptr %.pn62, i64 2
-  %100 = getelementptr inbounds nuw i8, ptr %.163, i64 4
-  %101 = load float, ptr %100, align 4, !tbaa !50
-  %102 = tail call float @llvm.fabs.f32(float %101)
-  %103 = bitcast float %102 to i32
-  %104 = icmp samesign ugt i32 %103, 1199570943
-  br i1 %104, label %105, label %108
+stbir__float_to_half.exit:                        ; preds = %54, %59, %62
+  %.sroa.016.0.i = phi i32 [ %56, %54 ], [ %61, %59 ], [ %67, %62 ]
+  %68 = bitcast float %50 to i32
+  %69 = lshr i32 %68, 16
+  %70 = and i32 %69, 32768
+  %71 = or i32 %.sroa.016.0.i, %70
+  %72 = trunc i32 %71 to i16
+  store i16 %72, ptr %.pn62, align 2, !tbaa !4
+  %73 = getelementptr inbounds nuw i8, ptr %.pn62, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %.163, i64 4
+  %75 = load float, ptr %74, align 4, !tbaa !50
+  %76 = tail call float @llvm.fabs.f32(float %75)
+  %77 = bitcast float %76 to i32
+  %78 = icmp samesign ugt i32 %77, 1199570943
+  br i1 %78, label %79, label %82
 
-105:                                              ; preds = %stbir__float_to_half.exit
-  %106 = icmp samesign ugt i32 %103, 2139095040
-  %107 = select i1 %106, i32 32256, i32 31744
+79:                                               ; preds = %stbir__float_to_half.exit
+  %80 = icmp samesign ugt i32 %77, 2139095040
+  %81 = select i1 %80, i32 32256, i32 31744
   br label %stbir__float_to_half.exit51
 
-108:                                              ; preds = %stbir__float_to_half.exit
-  %109 = icmp samesign ult i32 %103, 947912704
-  br i1 %109, label %110, label %113
+82:                                               ; preds = %stbir__float_to_half.exit
+  %83 = icmp samesign ult i32 %77, 947912704
+  br i1 %83, label %84, label %87
 
-110:                                              ; preds = %108
-  %111 = fadd float %102, 5.000000e-01
-  %112 = bitcast float %111 to i32
+84:                                               ; preds = %82
+  %85 = fadd float %76, 5.000000e-01
+  %86 = bitcast float %85 to i32
   br label %stbir__float_to_half.exit51
 
-113:                                              ; preds = %108
-  %114 = lshr i32 %103, 13
-  %115 = and i32 %114, 1
-  %116 = add nuw nsw i32 %103, 134221823
-  %117 = add nuw nsw i32 %116, %115
-  %118 = lshr i32 %117, 13
+87:                                               ; preds = %82
+  %88 = lshr i32 %77, 13
+  %89 = and i32 %88, 1
+  %90 = add nuw nsw i32 %77, 134221823
+  %91 = add nuw nsw i32 %90, %89
+  %92 = lshr i32 %91, 13
   br label %stbir__float_to_half.exit51
 
-stbir__float_to_half.exit51:                      ; preds = %105, %110, %113
-  %.sroa.016.0.i50 = phi i32 [ %107, %105 ], [ %112, %110 ], [ %118, %113 ]
-  %119 = bitcast float %101 to i32
-  %120 = lshr i32 %119, 16
-  %121 = and i32 %120, 32768
-  %122 = or i32 %.sroa.016.0.i50, %121
-  %123 = trunc i32 %122 to i16
-  store i16 %123, ptr %99, align 2, !tbaa !4
-  %124 = getelementptr inbounds nuw i8, ptr %.pn62, i64 4
-  %125 = getelementptr inbounds nuw i8, ptr %.163, i64 8
-  %126 = load float, ptr %125, align 4, !tbaa !50
-  %127 = tail call float @llvm.fabs.f32(float %126)
-  %128 = bitcast float %127 to i32
-  %129 = icmp samesign ugt i32 %128, 1199570943
-  br i1 %129, label %130, label %133
+stbir__float_to_half.exit51:                      ; preds = %79, %84, %87
+  %.sroa.016.0.i50 = phi i32 [ %81, %79 ], [ %86, %84 ], [ %92, %87 ]
+  %93 = bitcast float %75 to i32
+  %94 = lshr i32 %93, 16
+  %95 = and i32 %94, 32768
+  %96 = or i32 %.sroa.016.0.i50, %95
+  %97 = trunc i32 %96 to i16
+  store i16 %97, ptr %73, align 2, !tbaa !4
+  %98 = getelementptr inbounds nuw i8, ptr %.pn62, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %.163, i64 8
+  %100 = load float, ptr %99, align 4, !tbaa !50
+  %101 = tail call float @llvm.fabs.f32(float %100)
+  %102 = bitcast float %101 to i32
+  %103 = icmp samesign ugt i32 %102, 1199570943
+  br i1 %103, label %104, label %107
 
-130:                                              ; preds = %stbir__float_to_half.exit51
-  %131 = icmp samesign ugt i32 %128, 2139095040
-  %132 = select i1 %131, i32 32256, i32 31744
+104:                                              ; preds = %stbir__float_to_half.exit51
+  %105 = icmp samesign ugt i32 %102, 2139095040
+  %106 = select i1 %105, i32 32256, i32 31744
   br label %stbir__float_to_half.exit53
 
-133:                                              ; preds = %stbir__float_to_half.exit51
-  %134 = icmp samesign ult i32 %128, 947912704
-  br i1 %134, label %135, label %138
+107:                                              ; preds = %stbir__float_to_half.exit51
+  %108 = icmp samesign ult i32 %102, 947912704
+  br i1 %108, label %109, label %112
 
-135:                                              ; preds = %133
-  %136 = fadd float %127, 5.000000e-01
-  %137 = bitcast float %136 to i32
+109:                                              ; preds = %107
+  %110 = fadd float %101, 5.000000e-01
+  %111 = bitcast float %110 to i32
   br label %stbir__float_to_half.exit53
 
-138:                                              ; preds = %133
-  %139 = lshr i32 %128, 13
-  %140 = and i32 %139, 1
-  %141 = add nuw nsw i32 %128, 134221823
-  %142 = add nuw nsw i32 %141, %140
-  %143 = lshr i32 %142, 13
+112:                                              ; preds = %107
+  %113 = lshr i32 %102, 13
+  %114 = and i32 %113, 1
+  %115 = add nuw nsw i32 %102, 134221823
+  %116 = add nuw nsw i32 %115, %114
+  %117 = lshr i32 %116, 13
   br label %stbir__float_to_half.exit53
 
-stbir__float_to_half.exit53:                      ; preds = %130, %135, %138
-  %.sroa.016.0.i52 = phi i32 [ %132, %130 ], [ %137, %135 ], [ %143, %138 ]
-  %144 = bitcast float %126 to i32
-  %145 = lshr i32 %144, 16
-  %146 = and i32 %145, 32768
-  %147 = or i32 %.sroa.016.0.i52, %146
-  %148 = trunc i32 %147 to i16
-  store i16 %148, ptr %124, align 2, !tbaa !4
-  %149 = getelementptr inbounds nuw i8, ptr %.pn62, i64 6
-  %150 = getelementptr inbounds nuw i8, ptr %.163, i64 12
-  %151 = load float, ptr %150, align 4, !tbaa !50
-  %152 = tail call float @llvm.fabs.f32(float %151)
-  %153 = bitcast float %152 to i32
-  %154 = icmp samesign ugt i32 %153, 1199570943
-  br i1 %154, label %155, label %158
+stbir__float_to_half.exit53:                      ; preds = %104, %109, %112
+  %.sroa.016.0.i52 = phi i32 [ %106, %104 ], [ %111, %109 ], [ %117, %112 ]
+  %118 = bitcast float %100 to i32
+  %119 = lshr i32 %118, 16
+  %120 = and i32 %119, 32768
+  %121 = or i32 %.sroa.016.0.i52, %120
+  %122 = trunc i32 %121 to i16
+  store i16 %122, ptr %98, align 2, !tbaa !4
+  %123 = getelementptr inbounds nuw i8, ptr %.pn62, i64 6
+  %124 = getelementptr inbounds nuw i8, ptr %.163, i64 12
+  %125 = load float, ptr %124, align 4, !tbaa !50
+  %126 = tail call float @llvm.fabs.f32(float %125)
+  %127 = bitcast float %126 to i32
+  %128 = icmp samesign ugt i32 %127, 1199570943
+  br i1 %128, label %129, label %132
 
-155:                                              ; preds = %stbir__float_to_half.exit53
-  %156 = icmp samesign ugt i32 %153, 2139095040
-  %157 = select i1 %156, i32 32256, i32 31744
+129:                                              ; preds = %stbir__float_to_half.exit53
+  %130 = icmp samesign ugt i32 %127, 2139095040
+  %131 = select i1 %130, i32 32256, i32 31744
   br label %stbir__float_to_half.exit55
 
-158:                                              ; preds = %stbir__float_to_half.exit53
-  %159 = icmp samesign ult i32 %153, 947912704
-  br i1 %159, label %160, label %163
+132:                                              ; preds = %stbir__float_to_half.exit53
+  %133 = icmp samesign ult i32 %127, 947912704
+  br i1 %133, label %134, label %137
 
-160:                                              ; preds = %158
-  %161 = fadd float %152, 5.000000e-01
-  %162 = bitcast float %161 to i32
+134:                                              ; preds = %132
+  %135 = fadd float %126, 5.000000e-01
+  %136 = bitcast float %135 to i32
   br label %stbir__float_to_half.exit55
 
-163:                                              ; preds = %158
-  %164 = lshr i32 %153, 13
-  %165 = and i32 %164, 1
-  %166 = add nuw nsw i32 %153, 134221823
-  %167 = add nuw nsw i32 %166, %165
-  %168 = lshr i32 %167, 13
+137:                                              ; preds = %132
+  %138 = lshr i32 %127, 13
+  %139 = and i32 %138, 1
+  %140 = add nuw nsw i32 %127, 134221823
+  %141 = add nuw nsw i32 %140, %139
+  %142 = lshr i32 %141, 13
   br label %stbir__float_to_half.exit55
 
-stbir__float_to_half.exit55:                      ; preds = %155, %160, %163
-  %.sroa.016.0.i54 = phi i32 [ %157, %155 ], [ %162, %160 ], [ %168, %163 ]
-  %169 = bitcast float %151 to i32
-  %170 = lshr i32 %169, 16
-  %171 = and i32 %170, 32768
-  %172 = or i32 %.sroa.016.0.i54, %171
-  %173 = trunc i32 %172 to i16
-  store i16 %173, ptr %149, align 2, !tbaa !4
-  %174 = getelementptr inbounds nuw i8, ptr %.163, i64 16
+stbir__float_to_half.exit55:                      ; preds = %129, %134, %137
+  %.sroa.016.0.i54 = phi i32 [ %131, %129 ], [ %136, %134 ], [ %142, %137 ]
+  %143 = bitcast float %125 to i32
+  %144 = lshr i32 %143, 16
+  %145 = and i32 %144, 32768
+  %146 = or i32 %.sroa.016.0.i54, %145
+  %147 = trunc i32 %146 to i16
+  store i16 %147, ptr %123, align 2, !tbaa !4
+  %148 = getelementptr inbounds nuw i8, ptr %.163, i64 16
   %.144 = getelementptr inbounds nuw i8, ptr %.14464, i64 8
   %.not = icmp ugt ptr %.144, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !202
 
 .lr.ph68:                                         ; preds = %.preheader, %stbir__float_to_half.exit57
-  %.267 = phi ptr [ %199, %stbir__float_to_half.exit57 ], [ %.1.lcssa, %.preheader ]
-  %.24566 = phi ptr [ %198, %stbir__float_to_half.exit57 ], [ %.pn.lcssa, %.preheader ]
+  %.267 = phi ptr [ %173, %stbir__float_to_half.exit57 ], [ %.1.lcssa, %.preheader ]
+  %.24566 = phi ptr [ %172, %stbir__float_to_half.exit57 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.24566) #24, !srcloc !203
-  %175 = load float, ptr %.267, align 4, !tbaa !50
-  %176 = tail call float @llvm.fabs.f32(float %175)
-  %177 = bitcast float %176 to i32
-  %178 = icmp samesign ugt i32 %177, 1199570943
-  br i1 %178, label %179, label %182
+  %149 = load float, ptr %.267, align 4, !tbaa !50
+  %150 = tail call float @llvm.fabs.f32(float %149)
+  %151 = bitcast float %150 to i32
+  %152 = icmp samesign ugt i32 %151, 1199570943
+  br i1 %152, label %153, label %156
 
-179:                                              ; preds = %.lr.ph68
-  %180 = icmp samesign ugt i32 %177, 2139095040
-  %181 = select i1 %180, i32 32256, i32 31744
+153:                                              ; preds = %.lr.ph68
+  %154 = icmp samesign ugt i32 %151, 2139095040
+  %155 = select i1 %154, i32 32256, i32 31744
   br label %stbir__float_to_half.exit57
 
-182:                                              ; preds = %.lr.ph68
-  %183 = icmp samesign ult i32 %177, 947912704
-  br i1 %183, label %184, label %187
+156:                                              ; preds = %.lr.ph68
+  %157 = icmp samesign ult i32 %151, 947912704
+  br i1 %157, label %158, label %161
 
-184:                                              ; preds = %182
-  %185 = fadd float %176, 5.000000e-01
-  %186 = bitcast float %185 to i32
+158:                                              ; preds = %156
+  %159 = fadd float %150, 5.000000e-01
+  %160 = bitcast float %159 to i32
   br label %stbir__float_to_half.exit57
 
-187:                                              ; preds = %182
-  %188 = lshr i32 %177, 13
-  %189 = and i32 %188, 1
-  %190 = add nuw nsw i32 %177, 134221823
-  %191 = add nuw nsw i32 %190, %189
-  %192 = lshr i32 %191, 13
+161:                                              ; preds = %156
+  %162 = lshr i32 %151, 13
+  %163 = and i32 %162, 1
+  %164 = add nuw nsw i32 %151, 134221823
+  %165 = add nuw nsw i32 %164, %163
+  %166 = lshr i32 %165, 13
   br label %stbir__float_to_half.exit57
 
-stbir__float_to_half.exit57:                      ; preds = %179, %184, %187
-  %.sroa.016.0.i56 = phi i32 [ %181, %179 ], [ %186, %184 ], [ %192, %187 ]
-  %193 = bitcast float %175 to i32
-  %194 = lshr i32 %193, 16
-  %195 = and i32 %194, 32768
-  %196 = or i32 %.sroa.016.0.i56, %195
-  %197 = trunc i32 %196 to i16
-  store i16 %197, ptr %.24566, align 2, !tbaa !4
-  %198 = getelementptr inbounds nuw i8, ptr %.24566, i64 2
-  %199 = getelementptr inbounds nuw i8, ptr %.267, i64 4
-  %200 = icmp ult ptr %198, %5
-  br i1 %200, label %.lr.ph68, label %.loopexit, !llvm.loop !204
+stbir__float_to_half.exit57:                      ; preds = %153, %158, %161
+  %.sroa.016.0.i56 = phi i32 [ %155, %153 ], [ %160, %158 ], [ %166, %161 ]
+  %167 = bitcast float %149 to i32
+  %168 = lshr i32 %167, 16
+  %169 = and i32 %168, 32768
+  %170 = or i32 %.sroa.016.0.i56, %169
+  %171 = trunc i32 %170 to i16
+  store i16 %171, ptr %.24566, align 2, !tbaa !4
+  %172 = getelementptr inbounds nuw i8, ptr %.24566, i64 2
+  %173 = getelementptr inbounds nuw i8, ptr %.267, i64 4
+  %174 = icmp ult ptr %172, %5
+  br i1 %174, label %.lr.ph68, label %.loopexit, !llvm.loop !204
 
-.loopexit:                                        ; preds = %stbir__float_to_half.exit57, %73, %.preheader
+.loopexit:                                        ; preds = %stbir__float_to_half.exit57, %47, %.preheader
   ret void
 }
 
@@ -6910,132 +6896,134 @@ define void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 noundef %1
   %11 = load <8 x i16>, ptr %.041, align 1, !tbaa !4
   %12 = shufflevector <8 x i16> %11, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %13 = bitcast <8 x i16> %12 to <4 x i32>
-  %14 = and <4 x i32> %13, splat (i32 32767)
-  %15 = icmp samesign ugt <4 x i32> %14, splat (i32 31743)
-  %16 = icmp samesign ugt <4 x i32> %14, splat (i32 1023)
-  %17 = shl nuw nsw <4 x i32> %14, splat (i32 13)
-  %18 = add nuw nsw <4 x i32> %17, splat (i32 939524096)
-  %19 = add nuw nsw <4 x i32> %17, splat (i32 947912704)
-  %20 = select <4 x i1> %15, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
-  %21 = add nuw nsw <4 x i32> %18, %20
-  %22 = bitcast <4 x i32> %19 to <4 x float>
-  %23 = fadd <4 x float> %22, splat (float 0xBF10000000000000)
-  %24 = bitcast <4 x float> %23 to <4 x i32>
-  %25 = select <4 x i1> %16, <4 x i32> %21, <4 x i32> %24
-  %26 = shl nuw <4 x i32> %13, splat (i32 16)
-  %27 = and <4 x i32> %26, splat (i32 -2147483648)
-  %28 = or <4 x i32> %25, %27
-  %29 = shufflevector <8 x i16> %11, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %30 = bitcast <8 x i16> %29 to <4 x i32>
-  %31 = and <4 x i32> %30, splat (i32 32767)
-  %32 = icmp samesign ugt <4 x i32> %31, splat (i32 31743)
-  %33 = icmp samesign ugt <4 x i32> %31, splat (i32 1023)
-  %34 = shl nuw nsw <4 x i32> %31, splat (i32 13)
-  %35 = add nuw nsw <4 x i32> %34, splat (i32 939524096)
-  %36 = add nuw nsw <4 x i32> %34, splat (i32 947912704)
-  %37 = select <4 x i1> %32, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
-  %38 = add nuw nsw <4 x i32> %35, %37
-  %39 = bitcast <4 x i32> %36 to <4 x float>
-  %40 = fadd <4 x float> %39, splat (float 0xBF10000000000000)
-  %41 = bitcast <4 x float> %40 to <4 x i32>
-  %42 = select <4 x i1> %33, <4 x i32> %38, <4 x i32> %41
-  %43 = shl nuw <4 x i32> %30, splat (i32 16)
-  %44 = and <4 x i32> %43, splat (i32 -2147483648)
-  %45 = or <4 x i32> %42, %44
-  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %47 = bitcast <4 x i32> %28 to <4 x float>
-  %48 = shufflevector <4 x float> %47, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  %49 = bitcast <4 x i32> %45 to <4 x float>
+  %14 = bitcast <8 x i16> %12 to <4 x i32>
+  %15 = and <4 x i32> %14, splat (i32 32767)
+  %16 = icmp samesign ugt <4 x i32> %15, splat (i32 31743)
+  %17 = icmp samesign ugt <4 x i32> %15, splat (i32 1023)
+  %18 = shl nuw nsw <4 x i32> %15, splat (i32 13)
+  %19 = add nuw nsw <4 x i32> %18, splat (i32 939524096)
+  %20 = add nuw nsw <4 x i32> %18, splat (i32 947912704)
+  %21 = select <4 x i1> %16, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
+  %22 = add nuw nsw <4 x i32> %19, %21
+  %23 = bitcast <4 x i32> %20 to <4 x float>
+  %24 = fadd <4 x float> %23, splat (float 0xBF10000000000000)
+  %25 = bitcast <4 x float> %24 to <4 x i32>
+  %26 = select <4 x i1> %17, <4 x i32> %22, <4 x i32> %25
+  %27 = shl nuw <4 x i32> %13, splat (i32 16)
+  %28 = and <4 x i32> %27, splat (i32 -2147483648)
+  %29 = or <4 x i32> %26, %28
+  %30 = shufflevector <8 x i16> %11, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %31 = bitcast <8 x i16> %30 to <4 x i32>
+  %32 = bitcast <8 x i16> %30 to <4 x i32>
+  %33 = and <4 x i32> %32, splat (i32 32767)
+  %34 = icmp samesign ugt <4 x i32> %33, splat (i32 31743)
+  %35 = icmp samesign ugt <4 x i32> %33, splat (i32 1023)
+  %36 = shl nuw nsw <4 x i32> %33, splat (i32 13)
+  %37 = add nuw nsw <4 x i32> %36, splat (i32 939524096)
+  %38 = add nuw nsw <4 x i32> %36, splat (i32 947912704)
+  %39 = select <4 x i1> %34, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
+  %40 = add nuw nsw <4 x i32> %37, %39
+  %41 = bitcast <4 x i32> %38 to <4 x float>
+  %42 = fadd <4 x float> %41, splat (float 0xBF10000000000000)
+  %43 = bitcast <4 x float> %42 to <4 x i32>
+  %44 = select <4 x i1> %35, <4 x i32> %40, <4 x i32> %43
+  %45 = shl nuw <4 x i32> %31, splat (i32 16)
+  %46 = and <4 x i32> %45, splat (i32 -2147483648)
+  %47 = or <4 x i32> %44, %46
+  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %49 = bitcast <4 x i32> %29 to <4 x float>
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
-  store <4 x float> %48, ptr %.0, align 1, !tbaa !4
-  store <4 x float> %50, ptr %46, align 1, !tbaa !4
-  %51 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %52 = getelementptr inbounds nuw i8, ptr %.041, i64 16
-  %.not45 = icmp ugt ptr %51, %10
-  br i1 %.not45, label %53, label %.backedge.backedge
+  %51 = bitcast <4 x i32> %47 to <4 x float>
+  %52 = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
+  store <4 x float> %50, ptr %.0, align 1, !tbaa !4
+  store <4 x float> %52, ptr %48, align 1, !tbaa !4
+  %53 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.041, i64 16
+  %.not45 = icmp ugt ptr %53, %10
+  br i1 %.not45, label %55, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %53
-  %.041.be = phi ptr [ %52, %.backedge ], [ %9, %53 ]
-  %.0.be = phi ptr [ %51, %.backedge ], [ %10, %53 ]
+.backedge.backedge:                               ; preds = %.backedge, %55
+  %.041.be = phi ptr [ %54, %.backedge ], [ %9, %55 ]
+  %.0.be = phi ptr [ %53, %.backedge ], [ %10, %55 ]
   br label %.backedge, !llvm.loop !238
 
-53:                                               ; preds = %.backedge
-  %54 = icmp eq ptr %51, %5
-  br i1 %54, label %.loopexit, label %.backedge.backedge
+55:                                               ; preds = %.backedge
+  %56 = icmp eq ptr %53, %5
+  br i1 %56, label %.loopexit, label %.backedge.backedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.157 = phi ptr [ %.1, %.lr.ph ], [ %.153, %.lr.ph.preheader ]
   %.pn56 = phi ptr [ %.157, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.14255 = phi ptr [ %105, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.14255 = phi ptr [ %107, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.157) #24, !srcloc !239
-  %55 = getelementptr inbounds nuw i8, ptr %.14255, i64 4
-  %56 = load i16, ptr %55, align 2
-  %57 = zext i16 %56 to i32
-  %58 = shl nuw nsw i32 %57, 13
-  %59 = and i32 %58, 268427264
-  %60 = bitcast i32 %59 to float
-  %61 = fmul float %60, 0x46F0000000000000
-  %62 = bitcast float %61 to i32
-  %63 = fcmp ult float %61, 6.553600e+04
-  %64 = or i32 %62, 2139095040
-  %.sroa.0.0.i = select i1 %63, i32 %62, i32 %64
-  %.signext.i = sext i16 %56 to i32
-  %65 = and i32 %.signext.i, -2147483648
-  %66 = or i32 %.sroa.0.0.i, %65
-  store i32 %66, ptr %.pn56, align 4, !tbaa !50
-  %67 = getelementptr inbounds nuw i8, ptr %.14255, i64 2
-  %68 = load i16, ptr %67, align 2
-  %69 = zext i16 %68 to i32
-  %70 = shl nuw nsw i32 %69, 13
-  %71 = and i32 %70, 268427264
-  %72 = bitcast i32 %71 to float
-  %73 = fmul float %72, 0x46F0000000000000
-  %74 = bitcast float %73 to i32
-  %75 = fcmp ult float %73, 6.553600e+04
-  %76 = or i32 %74, 2139095040
-  %.sroa.0.0.i46 = select i1 %75, i32 %74, i32 %76
-  %.signext.i47 = sext i16 %68 to i32
-  %77 = and i32 %.signext.i47, -2147483648
-  %78 = or i32 %.sroa.0.0.i46, %77
-  %79 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
-  store i32 %78, ptr %79, align 4, !tbaa !50
-  %80 = load i16, ptr %.14255, align 2
-  %81 = zext i16 %80 to i32
-  %82 = shl nuw nsw i32 %81, 13
-  %83 = and i32 %82, 268427264
-  %84 = bitcast i32 %83 to float
-  %85 = fmul float %84, 0x46F0000000000000
-  %86 = bitcast float %85 to i32
-  %87 = fcmp ult float %85, 6.553600e+04
-  %88 = or i32 %86, 2139095040
-  %.sroa.0.0.i48 = select i1 %87, i32 %86, i32 %88
-  %.signext.i49 = sext i16 %80 to i32
-  %89 = and i32 %.signext.i49, -2147483648
-  %90 = or i32 %.sroa.0.0.i48, %89
-  %91 = getelementptr inbounds nuw i8, ptr %.pn56, i64 8
-  store i32 %90, ptr %91, align 4, !tbaa !50
-  %92 = getelementptr inbounds nuw i8, ptr %.14255, i64 6
-  %93 = load i16, ptr %92, align 2
-  %94 = zext i16 %93 to i32
-  %95 = shl nuw nsw i32 %94, 13
-  %96 = and i32 %95, 268427264
-  %97 = bitcast i32 %96 to float
-  %98 = fmul float %97, 0x46F0000000000000
-  %99 = bitcast float %98 to i32
-  %100 = fcmp ult float %98, 6.553600e+04
-  %101 = or i32 %99, 2139095040
-  %.sroa.0.0.i50 = select i1 %100, i32 %99, i32 %101
-  %.signext.i51 = sext i16 %93 to i32
-  %102 = and i32 %.signext.i51, -2147483648
-  %103 = or i32 %.sroa.0.0.i50, %102
-  %104 = getelementptr inbounds nuw i8, ptr %.pn56, i64 12
-  store i32 %103, ptr %104, align 4, !tbaa !50
-  %105 = getelementptr inbounds nuw i8, ptr %.14255, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.14255, i64 4
+  %58 = load i16, ptr %57, align 2
+  %59 = zext i16 %58 to i32
+  %60 = shl nuw nsw i32 %59, 13
+  %61 = and i32 %60, 268427264
+  %62 = bitcast i32 %61 to float
+  %63 = fmul float %62, 0x46F0000000000000
+  %64 = bitcast float %63 to i32
+  %65 = fcmp ult float %63, 6.553600e+04
+  %66 = or i32 %64, 2139095040
+  %.sroa.0.0.i = select i1 %65, i32 %64, i32 %66
+  %.signext.i = sext i16 %58 to i32
+  %67 = and i32 %.signext.i, -2147483648
+  %68 = or i32 %.sroa.0.0.i, %67
+  store i32 %68, ptr %.pn56, align 4, !tbaa !50
+  %69 = getelementptr inbounds nuw i8, ptr %.14255, i64 2
+  %70 = load i16, ptr %69, align 2
+  %71 = zext i16 %70 to i32
+  %72 = shl nuw nsw i32 %71, 13
+  %73 = and i32 %72, 268427264
+  %74 = bitcast i32 %73 to float
+  %75 = fmul float %74, 0x46F0000000000000
+  %76 = bitcast float %75 to i32
+  %77 = fcmp ult float %75, 6.553600e+04
+  %78 = or i32 %76, 2139095040
+  %.sroa.0.0.i46 = select i1 %77, i32 %76, i32 %78
+  %.signext.i47 = sext i16 %70 to i32
+  %79 = and i32 %.signext.i47, -2147483648
+  %80 = or i32 %.sroa.0.0.i46, %79
+  %81 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
+  store i32 %80, ptr %81, align 4, !tbaa !50
+  %82 = load i16, ptr %.14255, align 2
+  %83 = zext i16 %82 to i32
+  %84 = shl nuw nsw i32 %83, 13
+  %85 = and i32 %84, 268427264
+  %86 = bitcast i32 %85 to float
+  %87 = fmul float %86, 0x46F0000000000000
+  %88 = bitcast float %87 to i32
+  %89 = fcmp ult float %87, 6.553600e+04
+  %90 = or i32 %88, 2139095040
+  %.sroa.0.0.i48 = select i1 %89, i32 %88, i32 %90
+  %.signext.i49 = sext i16 %82 to i32
+  %91 = and i32 %.signext.i49, -2147483648
+  %92 = or i32 %.sroa.0.0.i48, %91
+  %93 = getelementptr inbounds nuw i8, ptr %.pn56, i64 8
+  store i32 %92, ptr %93, align 4, !tbaa !50
+  %94 = getelementptr inbounds nuw i8, ptr %.14255, i64 6
+  %95 = load i16, ptr %94, align 2
+  %96 = zext i16 %95 to i32
+  %97 = shl nuw nsw i32 %96, 13
+  %98 = and i32 %97, 268427264
+  %99 = bitcast i32 %98 to float
+  %100 = fmul float %99, 0x46F0000000000000
+  %101 = bitcast float %100 to i32
+  %102 = fcmp ult float %100, 6.553600e+04
+  %103 = or i32 %101, 2139095040
+  %.sroa.0.0.i50 = select i1 %102, i32 %101, i32 %103
+  %.signext.i51 = sext i16 %95 to i32
+  %104 = and i32 %.signext.i51, -2147483648
+  %105 = or i32 %.sroa.0.0.i50, %104
+  %106 = getelementptr inbounds nuw i8, ptr %.pn56, i64 12
+  store i32 %105, ptr %106, align 4, !tbaa !50
+  %107 = getelementptr inbounds nuw i8, ptr %.14255, i64 8
   %.1 = getelementptr inbounds nuw i8, ptr %.157, i64 16
   %.not = icmp ugt ptr %.1, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !240
 
-.loopexit:                                        ; preds = %.lr.ph, %53, %.preheader
+.loopexit:                                        ; preds = %.lr.ph, %55, %.preheader
   ret void
 }
 
@@ -7073,238 +7061,222 @@ define void @stbir__encode_half_float_linear_BGRA(ptr noundef %0, i32 noundef %1
   %16 = and <4 x i32> %14, splat (i32 2147483647)
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
-  %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp samesign ugt <4 x i32> %16, splat (i32 1199570943)
-  %21 = bitcast <4 x i32> %19 to <2 x i64>
-  %22 = and <2 x i64> %21, splat (i64 2199023256064)
-  %23 = or disjoint <2 x i64> %22, splat (i64 136339441875968)
-  %24 = icmp samesign ugt <4 x i32> %16, splat (i32 947912703)
-  %25 = fadd <4 x float> %17, splat (float 5.000000e-01)
-  %26 = bitcast <4 x float> %25 to <4 x i32>
-  %27 = add <4 x i32> %26, splat (i32 -1056964608)
-  %28 = lshr <4 x i32> %14, splat (i32 13)
-  %.neg.i = and <4 x i32> %28, splat (i32 1)
-  %29 = add nsw <4 x i32> %16, splat (i32 -939520001)
-  %30 = add nsw <4 x i32> %29, %.neg.i
-  %31 = lshr <4 x i32> %30, splat (i32 13)
-  %32 = select <4 x i1> %24, <4 x i32> %31, <4 x i32> %27
-  %33 = select <4 x i1> %20, <4 x i32> zeroinitializer, <4 x i32> %32
-  %34 = bitcast <4 x i32> %33 to <2 x i64>
-  %35 = sext <4 x i1> %20 to <4 x i32>
-  %36 = bitcast <4 x i32> %35 to <2 x i64>
-  %37 = and <2 x i64> %23, %36
-  %38 = ashr <4 x i32> %14, splat (i32 16)
-  %39 = bitcast <4 x i32> %38 to <2 x i64>
-  %40 = and <2 x i64> %39, splat (i64 -140733193420800)
-  %41 = or <2 x i64> %40, %34
-  %42 = or <2 x i64> %41, %37
-  %43 = and <4 x i32> %15, splat (i32 2147483647)
-  %44 = bitcast <4 x i32> %43 to <4 x float>
-  %45 = fcmp uno <4 x float> %44, zeroinitializer
-  %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp samesign ugt <4 x i32> %43, splat (i32 1199570943)
-  %48 = bitcast <4 x i32> %46 to <2 x i64>
-  %49 = and <2 x i64> %48, splat (i64 2199023256064)
-  %50 = or disjoint <2 x i64> %49, splat (i64 136339441875968)
-  %51 = icmp samesign ugt <4 x i32> %43, splat (i32 947912703)
-  %52 = fadd <4 x float> %44, splat (float 5.000000e-01)
-  %53 = bitcast <4 x float> %52 to <4 x i32>
-  %54 = add <4 x i32> %53, splat (i32 -1056964608)
-  %55 = lshr <4 x i32> %15, splat (i32 13)
-  %.neg69.i = and <4 x i32> %55, splat (i32 1)
-  %56 = add nsw <4 x i32> %43, splat (i32 -939520001)
-  %57 = add nsw <4 x i32> %56, %.neg69.i
-  %58 = lshr <4 x i32> %57, splat (i32 13)
-  %59 = select <4 x i1> %51, <4 x i32> %58, <4 x i32> %54
-  %60 = select <4 x i1> %47, <4 x i32> zeroinitializer, <4 x i32> %59
-  %61 = bitcast <4 x i32> %60 to <2 x i64>
-  %62 = sext <4 x i1> %47 to <4 x i32>
-  %63 = bitcast <4 x i32> %62 to <2 x i64>
-  %64 = and <2 x i64> %50, %63
-  %65 = ashr <4 x i32> %15, splat (i32 16)
-  %66 = bitcast <4 x i32> %65 to <2 x i64>
-  %67 = and <2 x i64> %66, splat (i64 -140733193420800)
-  %68 = or <2 x i64> %67, %61
-  %69 = or <2 x i64> %68, %64
-  %70 = bitcast <2 x i64> %42 to <4 x i32>
-  %71 = bitcast <2 x i64> %69 to <4 x i32>
-  %72 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %70, <4 x i32> %71)
-  store <8 x i16> %72, ptr %.036, align 1, !tbaa !4
-  %73 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %74 = getelementptr inbounds nuw i8, ptr %.036, i64 16
-  %.not40 = icmp ugt ptr %74, %10
-  br i1 %.not40, label %75, label %.backedge.backedge
+  %19 = icmp samesign ugt <4 x i32> %16, splat (i32 1199570943)
+  %.inner73 = select <4 x i1> %18, <4 x i32> splat (i32 32256), <4 x i32> splat (i32 31744)
+  %20 = icmp samesign ugt <4 x i32> %16, splat (i32 947912703)
+  %21 = fadd <4 x float> %17, splat (float 5.000000e-01)
+  %22 = bitcast <4 x float> %21 to <4 x i32>
+  %23 = add <4 x i32> %22, splat (i32 -1056964608)
+  %24 = lshr <4 x i32> %14, splat (i32 13)
+  %.neg.i = and <4 x i32> %24, splat (i32 1)
+  %25 = add nsw <4 x i32> %16, splat (i32 -939520001)
+  %26 = add nsw <4 x i32> %25, %.neg.i
+  %27 = lshr <4 x i32> %26, splat (i32 13)
+  %28 = select <4 x i1> %20, <4 x i32> %27, <4 x i32> %23
+  %29 = select <4 x i1> %19, <4 x i32> zeroinitializer, <4 x i32> %28
+  %.inner74 = select <4 x i1> %19, <4 x i32> %.inner73, <4 x i32> zeroinitializer
+  %30 = ashr <4 x i32> %14, splat (i32 16)
+  %.inner75 = and <4 x i32> %30, splat (i32 -32768)
+  %.inner76 = or <4 x i32> %.inner75, %29
+  %.inner77 = or <4 x i32> %.inner76, %.inner74
+  %31 = and <4 x i32> %15, splat (i32 2147483647)
+  %32 = bitcast <4 x i32> %31 to <4 x float>
+  %33 = fcmp uno <4 x float> %32, zeroinitializer
+  %34 = icmp samesign ugt <4 x i32> %31, splat (i32 1199570943)
+  %.inner79 = select <4 x i1> %33, <4 x i32> splat (i32 32256), <4 x i32> splat (i32 31744)
+  %35 = icmp samesign ugt <4 x i32> %31, splat (i32 947912703)
+  %36 = fadd <4 x float> %32, splat (float 5.000000e-01)
+  %37 = bitcast <4 x float> %36 to <4 x i32>
+  %38 = add <4 x i32> %37, splat (i32 -1056964608)
+  %39 = lshr <4 x i32> %15, splat (i32 13)
+  %.neg69.i = and <4 x i32> %39, splat (i32 1)
+  %40 = add nsw <4 x i32> %31, splat (i32 -939520001)
+  %41 = add nsw <4 x i32> %40, %.neg69.i
+  %42 = lshr <4 x i32> %41, splat (i32 13)
+  %43 = select <4 x i1> %35, <4 x i32> %42, <4 x i32> %38
+  %44 = select <4 x i1> %34, <4 x i32> zeroinitializer, <4 x i32> %43
+  %.inner80 = select <4 x i1> %34, <4 x i32> %.inner79, <4 x i32> zeroinitializer
+  %45 = ashr <4 x i32> %15, splat (i32 16)
+  %.inner81 = and <4 x i32> %45, splat (i32 -32768)
+  %.inner82 = or <4 x i32> %.inner81, %44
+  %.inner83 = or <4 x i32> %.inner82, %.inner80
+  %46 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %.inner77, <4 x i32> %.inner83)
+  store <8 x i16> %46, ptr %.036, align 1, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.036, i64 16
+  %.not40 = icmp ugt ptr %48, %10
+  br i1 %.not40, label %49, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %75
-  %.036.be = phi ptr [ %74, %.backedge ], [ %10, %75 ]
-  %.0.be = phi ptr [ %73, %.backedge ], [ %9, %75 ]
+.backedge.backedge:                               ; preds = %.backedge, %49
+  %.036.be = phi ptr [ %48, %.backedge ], [ %10, %49 ]
+  %.0.be = phi ptr [ %47, %.backedge ], [ %9, %49 ]
   br label %.backedge, !llvm.loop !242
 
-75:                                               ; preds = %.backedge
-  %76 = icmp eq ptr %74, %5
-  br i1 %76, label %.loopexit, label %.backedge.backedge
+49:                                               ; preds = %.backedge
+  %50 = icmp eq ptr %48, %5
+  br i1 %50, label %.loopexit, label %.backedge.backedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__float_to_half.exit46
   %.13758 = phi ptr [ %.137, %stbir__float_to_half.exit46 ], [ %.13754, %.lr.ph.preheader ]
-  %.157 = phi ptr [ %175, %stbir__float_to_half.exit46 ], [ %2, %.lr.ph.preheader ]
+  %.157 = phi ptr [ %149, %stbir__float_to_half.exit46 ], [ %2, %.lr.ph.preheader ]
   %.pn56 = phi ptr [ %.13758, %stbir__float_to_half.exit46 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.13758) #24, !srcloc !243
-  %77 = getelementptr inbounds nuw i8, ptr %.157, i64 8
-  %78 = load float, ptr %77, align 4, !tbaa !50
-  %79 = tail call float @llvm.fabs.f32(float %78)
-  %80 = bitcast float %79 to i32
-  %81 = icmp samesign ugt i32 %80, 1199570943
-  br i1 %81, label %82, label %85
+  %51 = getelementptr inbounds nuw i8, ptr %.157, i64 8
+  %52 = load float, ptr %51, align 4, !tbaa !50
+  %53 = tail call float @llvm.fabs.f32(float %52)
+  %54 = bitcast float %53 to i32
+  %55 = icmp samesign ugt i32 %54, 1199570943
+  br i1 %55, label %56, label %59
 
-82:                                               ; preds = %.lr.ph
-  %83 = icmp samesign ugt i32 %80, 2139095040
-  %84 = select i1 %83, i32 32256, i32 31744
+56:                                               ; preds = %.lr.ph
+  %57 = icmp samesign ugt i32 %54, 2139095040
+  %58 = select i1 %57, i32 32256, i32 31744
   br label %stbir__float_to_half.exit
 
-85:                                               ; preds = %.lr.ph
-  %86 = icmp samesign ult i32 %80, 947912704
-  br i1 %86, label %87, label %90
+59:                                               ; preds = %.lr.ph
+  %60 = icmp samesign ult i32 %54, 947912704
+  br i1 %60, label %61, label %64
 
-87:                                               ; preds = %85
-  %88 = fadd float %79, 5.000000e-01
-  %89 = bitcast float %88 to i32
+61:                                               ; preds = %59
+  %62 = fadd float %53, 5.000000e-01
+  %63 = bitcast float %62 to i32
   br label %stbir__float_to_half.exit
 
-90:                                               ; preds = %85
-  %91 = lshr i32 %80, 13
-  %92 = and i32 %91, 1
-  %93 = add nuw nsw i32 %80, 134221823
-  %94 = add nuw nsw i32 %93, %92
-  %95 = lshr i32 %94, 13
+64:                                               ; preds = %59
+  %65 = lshr i32 %54, 13
+  %66 = and i32 %65, 1
+  %67 = add nuw nsw i32 %54, 134221823
+  %68 = add nuw nsw i32 %67, %66
+  %69 = lshr i32 %68, 13
   br label %stbir__float_to_half.exit
 
-stbir__float_to_half.exit:                        ; preds = %82, %87, %90
-  %.sroa.016.0.i = phi i32 [ %84, %82 ], [ %89, %87 ], [ %95, %90 ]
-  %96 = bitcast float %78 to i32
-  %97 = lshr i32 %96, 16
-  %98 = and i32 %97, 32768
-  %99 = or i32 %.sroa.016.0.i, %98
-  %100 = trunc i32 %99 to i16
-  store i16 %100, ptr %.pn56, align 2, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %.pn56, i64 2
-  %102 = getelementptr inbounds nuw i8, ptr %.157, i64 4
-  %103 = load float, ptr %102, align 4, !tbaa !50
-  %104 = tail call float @llvm.fabs.f32(float %103)
-  %105 = bitcast float %104 to i32
-  %106 = icmp samesign ugt i32 %105, 1199570943
-  br i1 %106, label %107, label %110
+stbir__float_to_half.exit:                        ; preds = %56, %61, %64
+  %.sroa.016.0.i = phi i32 [ %58, %56 ], [ %63, %61 ], [ %69, %64 ]
+  %70 = bitcast float %52 to i32
+  %71 = lshr i32 %70, 16
+  %72 = and i32 %71, 32768
+  %73 = or i32 %.sroa.016.0.i, %72
+  %74 = trunc i32 %73 to i16
+  store i16 %74, ptr %.pn56, align 2, !tbaa !4
+  %75 = getelementptr inbounds nuw i8, ptr %.pn56, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %.157, i64 4
+  %77 = load float, ptr %76, align 4, !tbaa !50
+  %78 = tail call float @llvm.fabs.f32(float %77)
+  %79 = bitcast float %78 to i32
+  %80 = icmp samesign ugt i32 %79, 1199570943
+  br i1 %80, label %81, label %84
 
-107:                                              ; preds = %stbir__float_to_half.exit
-  %108 = icmp samesign ugt i32 %105, 2139095040
-  %109 = select i1 %108, i32 32256, i32 31744
+81:                                               ; preds = %stbir__float_to_half.exit
+  %82 = icmp samesign ugt i32 %79, 2139095040
+  %83 = select i1 %82, i32 32256, i32 31744
   br label %stbir__float_to_half.exit42
 
-110:                                              ; preds = %stbir__float_to_half.exit
-  %111 = icmp samesign ult i32 %105, 947912704
-  br i1 %111, label %112, label %115
+84:                                               ; preds = %stbir__float_to_half.exit
+  %85 = icmp samesign ult i32 %79, 947912704
+  br i1 %85, label %86, label %89
 
-112:                                              ; preds = %110
-  %113 = fadd float %104, 5.000000e-01
-  %114 = bitcast float %113 to i32
+86:                                               ; preds = %84
+  %87 = fadd float %78, 5.000000e-01
+  %88 = bitcast float %87 to i32
   br label %stbir__float_to_half.exit42
 
-115:                                              ; preds = %110
-  %116 = lshr i32 %105, 13
-  %117 = and i32 %116, 1
-  %118 = add nuw nsw i32 %105, 134221823
-  %119 = add nuw nsw i32 %118, %117
-  %120 = lshr i32 %119, 13
+89:                                               ; preds = %84
+  %90 = lshr i32 %79, 13
+  %91 = and i32 %90, 1
+  %92 = add nuw nsw i32 %79, 134221823
+  %93 = add nuw nsw i32 %92, %91
+  %94 = lshr i32 %93, 13
   br label %stbir__float_to_half.exit42
 
-stbir__float_to_half.exit42:                      ; preds = %107, %112, %115
-  %.sroa.016.0.i41 = phi i32 [ %109, %107 ], [ %114, %112 ], [ %120, %115 ]
-  %121 = bitcast float %103 to i32
-  %122 = lshr i32 %121, 16
-  %123 = and i32 %122, 32768
-  %124 = or i32 %.sroa.016.0.i41, %123
-  %125 = trunc i32 %124 to i16
-  store i16 %125, ptr %101, align 2, !tbaa !4
-  %126 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
-  %127 = load float, ptr %.157, align 4, !tbaa !50
-  %128 = tail call float @llvm.fabs.f32(float %127)
-  %129 = bitcast float %128 to i32
-  %130 = icmp samesign ugt i32 %129, 1199570943
-  br i1 %130, label %131, label %134
+stbir__float_to_half.exit42:                      ; preds = %81, %86, %89
+  %.sroa.016.0.i41 = phi i32 [ %83, %81 ], [ %88, %86 ], [ %94, %89 ]
+  %95 = bitcast float %77 to i32
+  %96 = lshr i32 %95, 16
+  %97 = and i32 %96, 32768
+  %98 = or i32 %.sroa.016.0.i41, %97
+  %99 = trunc i32 %98 to i16
+  store i16 %99, ptr %75, align 2, !tbaa !4
+  %100 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
+  %101 = load float, ptr %.157, align 4, !tbaa !50
+  %102 = tail call float @llvm.fabs.f32(float %101)
+  %103 = bitcast float %102 to i32
+  %104 = icmp samesign ugt i32 %103, 1199570943
+  br i1 %104, label %105, label %108
 
-131:                                              ; preds = %stbir__float_to_half.exit42
-  %132 = icmp samesign ugt i32 %129, 2139095040
-  %133 = select i1 %132, i32 32256, i32 31744
+105:                                              ; preds = %stbir__float_to_half.exit42
+  %106 = icmp samesign ugt i32 %103, 2139095040
+  %107 = select i1 %106, i32 32256, i32 31744
   br label %stbir__float_to_half.exit44
 
-134:                                              ; preds = %stbir__float_to_half.exit42
-  %135 = icmp samesign ult i32 %129, 947912704
-  br i1 %135, label %136, label %139
+108:                                              ; preds = %stbir__float_to_half.exit42
+  %109 = icmp samesign ult i32 %103, 947912704
+  br i1 %109, label %110, label %113
 
-136:                                              ; preds = %134
-  %137 = fadd float %128, 5.000000e-01
-  %138 = bitcast float %137 to i32
+110:                                              ; preds = %108
+  %111 = fadd float %102, 5.000000e-01
+  %112 = bitcast float %111 to i32
   br label %stbir__float_to_half.exit44
 
-139:                                              ; preds = %134
-  %140 = lshr i32 %129, 13
-  %141 = and i32 %140, 1
-  %142 = add nuw nsw i32 %129, 134221823
-  %143 = add nuw nsw i32 %142, %141
-  %144 = lshr i32 %143, 13
+113:                                              ; preds = %108
+  %114 = lshr i32 %103, 13
+  %115 = and i32 %114, 1
+  %116 = add nuw nsw i32 %103, 134221823
+  %117 = add nuw nsw i32 %116, %115
+  %118 = lshr i32 %117, 13
   br label %stbir__float_to_half.exit44
 
-stbir__float_to_half.exit44:                      ; preds = %131, %136, %139
-  %.sroa.016.0.i43 = phi i32 [ %133, %131 ], [ %138, %136 ], [ %144, %139 ]
-  %145 = bitcast float %127 to i32
-  %146 = lshr i32 %145, 16
-  %147 = and i32 %146, 32768
-  %148 = or i32 %.sroa.016.0.i43, %147
-  %149 = trunc i32 %148 to i16
-  store i16 %149, ptr %126, align 2, !tbaa !4
-  %150 = getelementptr inbounds nuw i8, ptr %.pn56, i64 6
-  %151 = getelementptr inbounds nuw i8, ptr %.157, i64 12
-  %152 = load float, ptr %151, align 4, !tbaa !50
-  %153 = tail call float @llvm.fabs.f32(float %152)
-  %154 = bitcast float %153 to i32
-  %155 = icmp samesign ugt i32 %154, 1199570943
-  br i1 %155, label %156, label %159
+stbir__float_to_half.exit44:                      ; preds = %105, %110, %113
+  %.sroa.016.0.i43 = phi i32 [ %107, %105 ], [ %112, %110 ], [ %118, %113 ]
+  %119 = bitcast float %101 to i32
+  %120 = lshr i32 %119, 16
+  %121 = and i32 %120, 32768
+  %122 = or i32 %.sroa.016.0.i43, %121
+  %123 = trunc i32 %122 to i16
+  store i16 %123, ptr %100, align 2, !tbaa !4
+  %124 = getelementptr inbounds nuw i8, ptr %.pn56, i64 6
+  %125 = getelementptr inbounds nuw i8, ptr %.157, i64 12
+  %126 = load float, ptr %125, align 4, !tbaa !50
+  %127 = tail call float @llvm.fabs.f32(float %126)
+  %128 = bitcast float %127 to i32
+  %129 = icmp samesign ugt i32 %128, 1199570943
+  br i1 %129, label %130, label %133
 
-156:                                              ; preds = %stbir__float_to_half.exit44
-  %157 = icmp samesign ugt i32 %154, 2139095040
-  %158 = select i1 %157, i32 32256, i32 31744
+130:                                              ; preds = %stbir__float_to_half.exit44
+  %131 = icmp samesign ugt i32 %128, 2139095040
+  %132 = select i1 %131, i32 32256, i32 31744
   br label %stbir__float_to_half.exit46
 
-159:                                              ; preds = %stbir__float_to_half.exit44
-  %160 = icmp samesign ult i32 %154, 947912704
-  br i1 %160, label %161, label %164
+133:                                              ; preds = %stbir__float_to_half.exit44
+  %134 = icmp samesign ult i32 %128, 947912704
+  br i1 %134, label %135, label %138
 
-161:                                              ; preds = %159
-  %162 = fadd float %153, 5.000000e-01
-  %163 = bitcast float %162 to i32
+135:                                              ; preds = %133
+  %136 = fadd float %127, 5.000000e-01
+  %137 = bitcast float %136 to i32
   br label %stbir__float_to_half.exit46
 
-164:                                              ; preds = %159
-  %165 = lshr i32 %154, 13
-  %166 = and i32 %165, 1
-  %167 = add nuw nsw i32 %154, 134221823
-  %168 = add nuw nsw i32 %167, %166
-  %169 = lshr i32 %168, 13
+138:                                              ; preds = %133
+  %139 = lshr i32 %128, 13
+  %140 = and i32 %139, 1
+  %141 = add nuw nsw i32 %128, 134221823
+  %142 = add nuw nsw i32 %141, %140
+  %143 = lshr i32 %142, 13
   br label %stbir__float_to_half.exit46
 
-stbir__float_to_half.exit46:                      ; preds = %156, %161, %164
-  %.sroa.016.0.i45 = phi i32 [ %158, %156 ], [ %163, %161 ], [ %169, %164 ]
-  %170 = bitcast float %152 to i32
-  %171 = lshr i32 %170, 16
-  %172 = and i32 %171, 32768
-  %173 = or i32 %.sroa.016.0.i45, %172
-  %174 = trunc i32 %173 to i16
-  store i16 %174, ptr %150, align 2, !tbaa !4
-  %175 = getelementptr inbounds nuw i8, ptr %.157, i64 16
+stbir__float_to_half.exit46:                      ; preds = %130, %135, %138
+  %.sroa.016.0.i45 = phi i32 [ %132, %130 ], [ %137, %135 ], [ %143, %138 ]
+  %144 = bitcast float %126 to i32
+  %145 = lshr i32 %144, 16
+  %146 = and i32 %145, 32768
+  %147 = or i32 %.sroa.016.0.i45, %146
+  %148 = trunc i32 %147 to i16
+  store i16 %148, ptr %124, align 2, !tbaa !4
+  %149 = getelementptr inbounds nuw i8, ptr %.157, i64 16
   %.137 = getelementptr inbounds nuw i8, ptr %.13758, i64 8
   %.not = icmp ugt ptr %.137, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !244
 
-.loopexit:                                        ; preds = %stbir__float_to_half.exit46, %75, %.preheader
+.loopexit:                                        ; preds = %stbir__float_to_half.exit46, %49, %.preheader
   ret void
 }
 
@@ -8852,132 +8824,134 @@ define void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 noundef %1
   %11 = load <8 x i16>, ptr %.041, align 1, !tbaa !4
   %12 = shufflevector <8 x i16> %11, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %13 = bitcast <8 x i16> %12 to <4 x i32>
-  %14 = and <4 x i32> %13, splat (i32 32767)
-  %15 = icmp samesign ugt <4 x i32> %14, splat (i32 31743)
-  %16 = icmp samesign ugt <4 x i32> %14, splat (i32 1023)
-  %17 = shl nuw nsw <4 x i32> %14, splat (i32 13)
-  %18 = add nuw nsw <4 x i32> %17, splat (i32 939524096)
-  %19 = add nuw nsw <4 x i32> %17, splat (i32 947912704)
-  %20 = select <4 x i1> %15, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
-  %21 = add nuw nsw <4 x i32> %18, %20
-  %22 = bitcast <4 x i32> %19 to <4 x float>
-  %23 = fadd <4 x float> %22, splat (float 0xBF10000000000000)
-  %24 = bitcast <4 x float> %23 to <4 x i32>
-  %25 = select <4 x i1> %16, <4 x i32> %21, <4 x i32> %24
-  %26 = shl nuw <4 x i32> %13, splat (i32 16)
-  %27 = and <4 x i32> %26, splat (i32 -2147483648)
-  %28 = or <4 x i32> %25, %27
-  %29 = shufflevector <8 x i16> %11, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %30 = bitcast <8 x i16> %29 to <4 x i32>
-  %31 = and <4 x i32> %30, splat (i32 32767)
-  %32 = icmp samesign ugt <4 x i32> %31, splat (i32 31743)
-  %33 = icmp samesign ugt <4 x i32> %31, splat (i32 1023)
-  %34 = shl nuw nsw <4 x i32> %31, splat (i32 13)
-  %35 = add nuw nsw <4 x i32> %34, splat (i32 939524096)
-  %36 = add nuw nsw <4 x i32> %34, splat (i32 947912704)
-  %37 = select <4 x i1> %32, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
-  %38 = add nuw nsw <4 x i32> %35, %37
-  %39 = bitcast <4 x i32> %36 to <4 x float>
-  %40 = fadd <4 x float> %39, splat (float 0xBF10000000000000)
-  %41 = bitcast <4 x float> %40 to <4 x i32>
-  %42 = select <4 x i1> %33, <4 x i32> %38, <4 x i32> %41
-  %43 = shl nuw <4 x i32> %30, splat (i32 16)
-  %44 = and <4 x i32> %43, splat (i32 -2147483648)
-  %45 = or <4 x i32> %42, %44
-  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %47 = bitcast <4 x i32> %28 to <4 x float>
-  %48 = shufflevector <4 x float> %47, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  %49 = bitcast <4 x i32> %45 to <4 x float>
+  %14 = bitcast <8 x i16> %12 to <4 x i32>
+  %15 = and <4 x i32> %14, splat (i32 32767)
+  %16 = icmp samesign ugt <4 x i32> %15, splat (i32 31743)
+  %17 = icmp samesign ugt <4 x i32> %15, splat (i32 1023)
+  %18 = shl nuw nsw <4 x i32> %15, splat (i32 13)
+  %19 = add nuw nsw <4 x i32> %18, splat (i32 939524096)
+  %20 = add nuw nsw <4 x i32> %18, splat (i32 947912704)
+  %21 = select <4 x i1> %16, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
+  %22 = add nuw nsw <4 x i32> %19, %21
+  %23 = bitcast <4 x i32> %20 to <4 x float>
+  %24 = fadd <4 x float> %23, splat (float 0xBF10000000000000)
+  %25 = bitcast <4 x float> %24 to <4 x i32>
+  %26 = select <4 x i1> %17, <4 x i32> %22, <4 x i32> %25
+  %27 = shl nuw <4 x i32> %13, splat (i32 16)
+  %28 = and <4 x i32> %27, splat (i32 -2147483648)
+  %29 = or <4 x i32> %26, %28
+  %30 = shufflevector <8 x i16> %11, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %31 = bitcast <8 x i16> %30 to <4 x i32>
+  %32 = bitcast <8 x i16> %30 to <4 x i32>
+  %33 = and <4 x i32> %32, splat (i32 32767)
+  %34 = icmp samesign ugt <4 x i32> %33, splat (i32 31743)
+  %35 = icmp samesign ugt <4 x i32> %33, splat (i32 1023)
+  %36 = shl nuw nsw <4 x i32> %33, splat (i32 13)
+  %37 = add nuw nsw <4 x i32> %36, splat (i32 939524096)
+  %38 = add nuw nsw <4 x i32> %36, splat (i32 947912704)
+  %39 = select <4 x i1> %34, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
+  %40 = add nuw nsw <4 x i32> %37, %39
+  %41 = bitcast <4 x i32> %38 to <4 x float>
+  %42 = fadd <4 x float> %41, splat (float 0xBF10000000000000)
+  %43 = bitcast <4 x float> %42 to <4 x i32>
+  %44 = select <4 x i1> %35, <4 x i32> %40, <4 x i32> %43
+  %45 = shl nuw <4 x i32> %31, splat (i32 16)
+  %46 = and <4 x i32> %45, splat (i32 -2147483648)
+  %47 = or <4 x i32> %44, %46
+  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %49 = bitcast <4 x i32> %29 to <4 x float>
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
-  store <4 x float> %48, ptr %.0, align 1, !tbaa !4
-  store <4 x float> %50, ptr %46, align 1, !tbaa !4
-  %51 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %52 = getelementptr inbounds nuw i8, ptr %.041, i64 16
-  %.not45 = icmp ugt ptr %51, %10
-  br i1 %.not45, label %53, label %.backedge.backedge
+  %51 = bitcast <4 x i32> %47 to <4 x float>
+  %52 = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  store <4 x float> %50, ptr %.0, align 1, !tbaa !4
+  store <4 x float> %52, ptr %48, align 1, !tbaa !4
+  %53 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.041, i64 16
+  %.not45 = icmp ugt ptr %53, %10
+  br i1 %.not45, label %55, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %53
-  %.041.be = phi ptr [ %52, %.backedge ], [ %9, %53 ]
-  %.0.be = phi ptr [ %51, %.backedge ], [ %10, %53 ]
+.backedge.backedge:                               ; preds = %.backedge, %55
+  %.041.be = phi ptr [ %54, %.backedge ], [ %9, %55 ]
+  %.0.be = phi ptr [ %53, %.backedge ], [ %10, %55 ]
   br label %.backedge, !llvm.loop !285
 
-53:                                               ; preds = %.backedge
-  %54 = icmp eq ptr %51, %5
-  br i1 %54, label %.loopexit, label %.backedge.backedge
+55:                                               ; preds = %.backedge
+  %56 = icmp eq ptr %53, %5
+  br i1 %56, label %.loopexit, label %.backedge.backedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.157 = phi ptr [ %.1, %.lr.ph ], [ %.153, %.lr.ph.preheader ]
   %.pn56 = phi ptr [ %.157, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.14255 = phi ptr [ %105, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.14255 = phi ptr [ %107, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.157) #24, !srcloc !286
-  %55 = getelementptr inbounds nuw i8, ptr %.14255, i64 2
-  %56 = load i16, ptr %55, align 2
-  %57 = zext i16 %56 to i32
-  %58 = shl nuw nsw i32 %57, 13
-  %59 = and i32 %58, 268427264
-  %60 = bitcast i32 %59 to float
-  %61 = fmul float %60, 0x46F0000000000000
-  %62 = bitcast float %61 to i32
-  %63 = fcmp ult float %61, 6.553600e+04
-  %64 = or i32 %62, 2139095040
-  %.sroa.0.0.i = select i1 %63, i32 %62, i32 %64
-  %.signext.i = sext i16 %56 to i32
-  %65 = and i32 %.signext.i, -2147483648
-  %66 = or i32 %.sroa.0.0.i, %65
-  store i32 %66, ptr %.pn56, align 4, !tbaa !50
-  %67 = getelementptr inbounds nuw i8, ptr %.14255, i64 4
-  %68 = load i16, ptr %67, align 2
-  %69 = zext i16 %68 to i32
-  %70 = shl nuw nsw i32 %69, 13
-  %71 = and i32 %70, 268427264
-  %72 = bitcast i32 %71 to float
-  %73 = fmul float %72, 0x46F0000000000000
-  %74 = bitcast float %73 to i32
-  %75 = fcmp ult float %73, 6.553600e+04
-  %76 = or i32 %74, 2139095040
-  %.sroa.0.0.i46 = select i1 %75, i32 %74, i32 %76
-  %.signext.i47 = sext i16 %68 to i32
-  %77 = and i32 %.signext.i47, -2147483648
-  %78 = or i32 %.sroa.0.0.i46, %77
-  %79 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
-  store i32 %78, ptr %79, align 4, !tbaa !50
-  %80 = getelementptr inbounds nuw i8, ptr %.14255, i64 6
-  %81 = load i16, ptr %80, align 2
-  %82 = zext i16 %81 to i32
-  %83 = shl nuw nsw i32 %82, 13
-  %84 = and i32 %83, 268427264
-  %85 = bitcast i32 %84 to float
-  %86 = fmul float %85, 0x46F0000000000000
-  %87 = bitcast float %86 to i32
-  %88 = fcmp ult float %86, 6.553600e+04
-  %89 = or i32 %87, 2139095040
-  %.sroa.0.0.i48 = select i1 %88, i32 %87, i32 %89
-  %.signext.i49 = sext i16 %81 to i32
-  %90 = and i32 %.signext.i49, -2147483648
-  %91 = or i32 %.sroa.0.0.i48, %90
-  %92 = getelementptr inbounds nuw i8, ptr %.pn56, i64 8
-  store i32 %91, ptr %92, align 4, !tbaa !50
-  %93 = load i16, ptr %.14255, align 2
-  %94 = zext i16 %93 to i32
-  %95 = shl nuw nsw i32 %94, 13
-  %96 = and i32 %95, 268427264
-  %97 = bitcast i32 %96 to float
-  %98 = fmul float %97, 0x46F0000000000000
-  %99 = bitcast float %98 to i32
-  %100 = fcmp ult float %98, 6.553600e+04
-  %101 = or i32 %99, 2139095040
-  %.sroa.0.0.i50 = select i1 %100, i32 %99, i32 %101
-  %.signext.i51 = sext i16 %93 to i32
-  %102 = and i32 %.signext.i51, -2147483648
-  %103 = or i32 %.sroa.0.0.i50, %102
-  %104 = getelementptr inbounds nuw i8, ptr %.pn56, i64 12
-  store i32 %103, ptr %104, align 4, !tbaa !50
-  %105 = getelementptr inbounds nuw i8, ptr %.14255, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.14255, i64 2
+  %58 = load i16, ptr %57, align 2
+  %59 = zext i16 %58 to i32
+  %60 = shl nuw nsw i32 %59, 13
+  %61 = and i32 %60, 268427264
+  %62 = bitcast i32 %61 to float
+  %63 = fmul float %62, 0x46F0000000000000
+  %64 = bitcast float %63 to i32
+  %65 = fcmp ult float %63, 6.553600e+04
+  %66 = or i32 %64, 2139095040
+  %.sroa.0.0.i = select i1 %65, i32 %64, i32 %66
+  %.signext.i = sext i16 %58 to i32
+  %67 = and i32 %.signext.i, -2147483648
+  %68 = or i32 %.sroa.0.0.i, %67
+  store i32 %68, ptr %.pn56, align 4, !tbaa !50
+  %69 = getelementptr inbounds nuw i8, ptr %.14255, i64 4
+  %70 = load i16, ptr %69, align 2
+  %71 = zext i16 %70 to i32
+  %72 = shl nuw nsw i32 %71, 13
+  %73 = and i32 %72, 268427264
+  %74 = bitcast i32 %73 to float
+  %75 = fmul float %74, 0x46F0000000000000
+  %76 = bitcast float %75 to i32
+  %77 = fcmp ult float %75, 6.553600e+04
+  %78 = or i32 %76, 2139095040
+  %.sroa.0.0.i46 = select i1 %77, i32 %76, i32 %78
+  %.signext.i47 = sext i16 %70 to i32
+  %79 = and i32 %.signext.i47, -2147483648
+  %80 = or i32 %.sroa.0.0.i46, %79
+  %81 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
+  store i32 %80, ptr %81, align 4, !tbaa !50
+  %82 = getelementptr inbounds nuw i8, ptr %.14255, i64 6
+  %83 = load i16, ptr %82, align 2
+  %84 = zext i16 %83 to i32
+  %85 = shl nuw nsw i32 %84, 13
+  %86 = and i32 %85, 268427264
+  %87 = bitcast i32 %86 to float
+  %88 = fmul float %87, 0x46F0000000000000
+  %89 = bitcast float %88 to i32
+  %90 = fcmp ult float %88, 6.553600e+04
+  %91 = or i32 %89, 2139095040
+  %.sroa.0.0.i48 = select i1 %90, i32 %89, i32 %91
+  %.signext.i49 = sext i16 %83 to i32
+  %92 = and i32 %.signext.i49, -2147483648
+  %93 = or i32 %.sroa.0.0.i48, %92
+  %94 = getelementptr inbounds nuw i8, ptr %.pn56, i64 8
+  store i32 %93, ptr %94, align 4, !tbaa !50
+  %95 = load i16, ptr %.14255, align 2
+  %96 = zext i16 %95 to i32
+  %97 = shl nuw nsw i32 %96, 13
+  %98 = and i32 %97, 268427264
+  %99 = bitcast i32 %98 to float
+  %100 = fmul float %99, 0x46F0000000000000
+  %101 = bitcast float %100 to i32
+  %102 = fcmp ult float %100, 6.553600e+04
+  %103 = or i32 %101, 2139095040
+  %.sroa.0.0.i50 = select i1 %102, i32 %101, i32 %103
+  %.signext.i51 = sext i16 %95 to i32
+  %104 = and i32 %.signext.i51, -2147483648
+  %105 = or i32 %.sroa.0.0.i50, %104
+  %106 = getelementptr inbounds nuw i8, ptr %.pn56, i64 12
+  store i32 %105, ptr %106, align 4, !tbaa !50
+  %107 = getelementptr inbounds nuw i8, ptr %.14255, i64 8
   %.1 = getelementptr inbounds nuw i8, ptr %.157, i64 16
   %.not = icmp ugt ptr %.1, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !287
 
-.loopexit:                                        ; preds = %.lr.ph, %53, %.preheader
+.loopexit:                                        ; preds = %.lr.ph, %55, %.preheader
   ret void
 }
 
@@ -9015,238 +8989,222 @@ define void @stbir__encode_half_float_linear_ARGB(ptr noundef %0, i32 noundef %1
   %16 = and <4 x i32> %14, splat (i32 2147483647)
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
-  %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp samesign ugt <4 x i32> %16, splat (i32 1199570943)
-  %21 = bitcast <4 x i32> %19 to <2 x i64>
-  %22 = and <2 x i64> %21, splat (i64 2199023256064)
-  %23 = or disjoint <2 x i64> %22, splat (i64 136339441875968)
-  %24 = icmp samesign ugt <4 x i32> %16, splat (i32 947912703)
-  %25 = fadd <4 x float> %17, splat (float 5.000000e-01)
-  %26 = bitcast <4 x float> %25 to <4 x i32>
-  %27 = add <4 x i32> %26, splat (i32 -1056964608)
-  %28 = lshr <4 x i32> %14, splat (i32 13)
-  %.neg.i = and <4 x i32> %28, splat (i32 1)
-  %29 = add nsw <4 x i32> %16, splat (i32 -939520001)
-  %30 = add nsw <4 x i32> %29, %.neg.i
-  %31 = lshr <4 x i32> %30, splat (i32 13)
-  %32 = select <4 x i1> %24, <4 x i32> %31, <4 x i32> %27
-  %33 = select <4 x i1> %20, <4 x i32> zeroinitializer, <4 x i32> %32
-  %34 = bitcast <4 x i32> %33 to <2 x i64>
-  %35 = sext <4 x i1> %20 to <4 x i32>
-  %36 = bitcast <4 x i32> %35 to <2 x i64>
-  %37 = and <2 x i64> %23, %36
-  %38 = ashr <4 x i32> %14, splat (i32 16)
-  %39 = bitcast <4 x i32> %38 to <2 x i64>
-  %40 = and <2 x i64> %39, splat (i64 -140733193420800)
-  %41 = or <2 x i64> %40, %34
-  %42 = or <2 x i64> %41, %37
-  %43 = and <4 x i32> %15, splat (i32 2147483647)
-  %44 = bitcast <4 x i32> %43 to <4 x float>
-  %45 = fcmp uno <4 x float> %44, zeroinitializer
-  %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp samesign ugt <4 x i32> %43, splat (i32 1199570943)
-  %48 = bitcast <4 x i32> %46 to <2 x i64>
-  %49 = and <2 x i64> %48, splat (i64 2199023256064)
-  %50 = or disjoint <2 x i64> %49, splat (i64 136339441875968)
-  %51 = icmp samesign ugt <4 x i32> %43, splat (i32 947912703)
-  %52 = fadd <4 x float> %44, splat (float 5.000000e-01)
-  %53 = bitcast <4 x float> %52 to <4 x i32>
-  %54 = add <4 x i32> %53, splat (i32 -1056964608)
-  %55 = lshr <4 x i32> %15, splat (i32 13)
-  %.neg69.i = and <4 x i32> %55, splat (i32 1)
-  %56 = add nsw <4 x i32> %43, splat (i32 -939520001)
-  %57 = add nsw <4 x i32> %56, %.neg69.i
-  %58 = lshr <4 x i32> %57, splat (i32 13)
-  %59 = select <4 x i1> %51, <4 x i32> %58, <4 x i32> %54
-  %60 = select <4 x i1> %47, <4 x i32> zeroinitializer, <4 x i32> %59
-  %61 = bitcast <4 x i32> %60 to <2 x i64>
-  %62 = sext <4 x i1> %47 to <4 x i32>
-  %63 = bitcast <4 x i32> %62 to <2 x i64>
-  %64 = and <2 x i64> %50, %63
-  %65 = ashr <4 x i32> %15, splat (i32 16)
-  %66 = bitcast <4 x i32> %65 to <2 x i64>
-  %67 = and <2 x i64> %66, splat (i64 -140733193420800)
-  %68 = or <2 x i64> %67, %61
-  %69 = or <2 x i64> %68, %64
-  %70 = bitcast <2 x i64> %42 to <4 x i32>
-  %71 = bitcast <2 x i64> %69 to <4 x i32>
-  %72 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %70, <4 x i32> %71)
-  store <8 x i16> %72, ptr %.036, align 1, !tbaa !4
-  %73 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %74 = getelementptr inbounds nuw i8, ptr %.036, i64 16
-  %.not40 = icmp ugt ptr %74, %10
-  br i1 %.not40, label %75, label %.backedge.backedge
+  %19 = icmp samesign ugt <4 x i32> %16, splat (i32 1199570943)
+  %.inner73 = select <4 x i1> %18, <4 x i32> splat (i32 32256), <4 x i32> splat (i32 31744)
+  %20 = icmp samesign ugt <4 x i32> %16, splat (i32 947912703)
+  %21 = fadd <4 x float> %17, splat (float 5.000000e-01)
+  %22 = bitcast <4 x float> %21 to <4 x i32>
+  %23 = add <4 x i32> %22, splat (i32 -1056964608)
+  %24 = lshr <4 x i32> %14, splat (i32 13)
+  %.neg.i = and <4 x i32> %24, splat (i32 1)
+  %25 = add nsw <4 x i32> %16, splat (i32 -939520001)
+  %26 = add nsw <4 x i32> %25, %.neg.i
+  %27 = lshr <4 x i32> %26, splat (i32 13)
+  %28 = select <4 x i1> %20, <4 x i32> %27, <4 x i32> %23
+  %29 = select <4 x i1> %19, <4 x i32> zeroinitializer, <4 x i32> %28
+  %.inner74 = select <4 x i1> %19, <4 x i32> %.inner73, <4 x i32> zeroinitializer
+  %30 = ashr <4 x i32> %14, splat (i32 16)
+  %.inner75 = and <4 x i32> %30, splat (i32 -32768)
+  %.inner76 = or <4 x i32> %.inner75, %29
+  %.inner77 = or <4 x i32> %.inner76, %.inner74
+  %31 = and <4 x i32> %15, splat (i32 2147483647)
+  %32 = bitcast <4 x i32> %31 to <4 x float>
+  %33 = fcmp uno <4 x float> %32, zeroinitializer
+  %34 = icmp samesign ugt <4 x i32> %31, splat (i32 1199570943)
+  %.inner79 = select <4 x i1> %33, <4 x i32> splat (i32 32256), <4 x i32> splat (i32 31744)
+  %35 = icmp samesign ugt <4 x i32> %31, splat (i32 947912703)
+  %36 = fadd <4 x float> %32, splat (float 5.000000e-01)
+  %37 = bitcast <4 x float> %36 to <4 x i32>
+  %38 = add <4 x i32> %37, splat (i32 -1056964608)
+  %39 = lshr <4 x i32> %15, splat (i32 13)
+  %.neg69.i = and <4 x i32> %39, splat (i32 1)
+  %40 = add nsw <4 x i32> %31, splat (i32 -939520001)
+  %41 = add nsw <4 x i32> %40, %.neg69.i
+  %42 = lshr <4 x i32> %41, splat (i32 13)
+  %43 = select <4 x i1> %35, <4 x i32> %42, <4 x i32> %38
+  %44 = select <4 x i1> %34, <4 x i32> zeroinitializer, <4 x i32> %43
+  %.inner80 = select <4 x i1> %34, <4 x i32> %.inner79, <4 x i32> zeroinitializer
+  %45 = ashr <4 x i32> %15, splat (i32 16)
+  %.inner81 = and <4 x i32> %45, splat (i32 -32768)
+  %.inner82 = or <4 x i32> %.inner81, %44
+  %.inner83 = or <4 x i32> %.inner82, %.inner80
+  %46 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %.inner77, <4 x i32> %.inner83)
+  store <8 x i16> %46, ptr %.036, align 1, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.036, i64 16
+  %.not40 = icmp ugt ptr %48, %10
+  br i1 %.not40, label %49, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %75
-  %.036.be = phi ptr [ %74, %.backedge ], [ %10, %75 ]
-  %.0.be = phi ptr [ %73, %.backedge ], [ %9, %75 ]
+.backedge.backedge:                               ; preds = %.backedge, %49
+  %.036.be = phi ptr [ %48, %.backedge ], [ %10, %49 ]
+  %.0.be = phi ptr [ %47, %.backedge ], [ %9, %49 ]
   br label %.backedge, !llvm.loop !289
 
-75:                                               ; preds = %.backedge
-  %76 = icmp eq ptr %74, %5
-  br i1 %76, label %.loopexit, label %.backedge.backedge
+49:                                               ; preds = %.backedge
+  %50 = icmp eq ptr %48, %5
+  br i1 %50, label %.loopexit, label %.backedge.backedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__float_to_half.exit46
   %.13758 = phi ptr [ %.137, %stbir__float_to_half.exit46 ], [ %.13754, %.lr.ph.preheader ]
-  %.157 = phi ptr [ %175, %stbir__float_to_half.exit46 ], [ %2, %.lr.ph.preheader ]
+  %.157 = phi ptr [ %149, %stbir__float_to_half.exit46 ], [ %2, %.lr.ph.preheader ]
   %.pn56 = phi ptr [ %.13758, %stbir__float_to_half.exit46 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.13758) #24, !srcloc !290
-  %77 = getelementptr inbounds nuw i8, ptr %.157, i64 12
-  %78 = load float, ptr %77, align 4, !tbaa !50
-  %79 = tail call float @llvm.fabs.f32(float %78)
-  %80 = bitcast float %79 to i32
-  %81 = icmp samesign ugt i32 %80, 1199570943
-  br i1 %81, label %82, label %85
+  %51 = getelementptr inbounds nuw i8, ptr %.157, i64 12
+  %52 = load float, ptr %51, align 4, !tbaa !50
+  %53 = tail call float @llvm.fabs.f32(float %52)
+  %54 = bitcast float %53 to i32
+  %55 = icmp samesign ugt i32 %54, 1199570943
+  br i1 %55, label %56, label %59
 
-82:                                               ; preds = %.lr.ph
-  %83 = icmp samesign ugt i32 %80, 2139095040
-  %84 = select i1 %83, i32 32256, i32 31744
+56:                                               ; preds = %.lr.ph
+  %57 = icmp samesign ugt i32 %54, 2139095040
+  %58 = select i1 %57, i32 32256, i32 31744
   br label %stbir__float_to_half.exit
 
-85:                                               ; preds = %.lr.ph
-  %86 = icmp samesign ult i32 %80, 947912704
-  br i1 %86, label %87, label %90
+59:                                               ; preds = %.lr.ph
+  %60 = icmp samesign ult i32 %54, 947912704
+  br i1 %60, label %61, label %64
 
-87:                                               ; preds = %85
-  %88 = fadd float %79, 5.000000e-01
-  %89 = bitcast float %88 to i32
+61:                                               ; preds = %59
+  %62 = fadd float %53, 5.000000e-01
+  %63 = bitcast float %62 to i32
   br label %stbir__float_to_half.exit
 
-90:                                               ; preds = %85
-  %91 = lshr i32 %80, 13
-  %92 = and i32 %91, 1
-  %93 = add nuw nsw i32 %80, 134221823
-  %94 = add nuw nsw i32 %93, %92
-  %95 = lshr i32 %94, 13
+64:                                               ; preds = %59
+  %65 = lshr i32 %54, 13
+  %66 = and i32 %65, 1
+  %67 = add nuw nsw i32 %54, 134221823
+  %68 = add nuw nsw i32 %67, %66
+  %69 = lshr i32 %68, 13
   br label %stbir__float_to_half.exit
 
-stbir__float_to_half.exit:                        ; preds = %82, %87, %90
-  %.sroa.016.0.i = phi i32 [ %84, %82 ], [ %89, %87 ], [ %95, %90 ]
-  %96 = bitcast float %78 to i32
-  %97 = lshr i32 %96, 16
-  %98 = and i32 %97, 32768
-  %99 = or i32 %.sroa.016.0.i, %98
-  %100 = trunc i32 %99 to i16
-  store i16 %100, ptr %.pn56, align 2, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %.pn56, i64 2
-  %102 = load float, ptr %.157, align 4, !tbaa !50
-  %103 = tail call float @llvm.fabs.f32(float %102)
-  %104 = bitcast float %103 to i32
-  %105 = icmp samesign ugt i32 %104, 1199570943
-  br i1 %105, label %106, label %109
+stbir__float_to_half.exit:                        ; preds = %56, %61, %64
+  %.sroa.016.0.i = phi i32 [ %58, %56 ], [ %63, %61 ], [ %69, %64 ]
+  %70 = bitcast float %52 to i32
+  %71 = lshr i32 %70, 16
+  %72 = and i32 %71, 32768
+  %73 = or i32 %.sroa.016.0.i, %72
+  %74 = trunc i32 %73 to i16
+  store i16 %74, ptr %.pn56, align 2, !tbaa !4
+  %75 = getelementptr inbounds nuw i8, ptr %.pn56, i64 2
+  %76 = load float, ptr %.157, align 4, !tbaa !50
+  %77 = tail call float @llvm.fabs.f32(float %76)
+  %78 = bitcast float %77 to i32
+  %79 = icmp samesign ugt i32 %78, 1199570943
+  br i1 %79, label %80, label %83
 
-106:                                              ; preds = %stbir__float_to_half.exit
-  %107 = icmp samesign ugt i32 %104, 2139095040
-  %108 = select i1 %107, i32 32256, i32 31744
+80:                                               ; preds = %stbir__float_to_half.exit
+  %81 = icmp samesign ugt i32 %78, 2139095040
+  %82 = select i1 %81, i32 32256, i32 31744
   br label %stbir__float_to_half.exit42
 
-109:                                              ; preds = %stbir__float_to_half.exit
-  %110 = icmp samesign ult i32 %104, 947912704
-  br i1 %110, label %111, label %114
+83:                                               ; preds = %stbir__float_to_half.exit
+  %84 = icmp samesign ult i32 %78, 947912704
+  br i1 %84, label %85, label %88
 
-111:                                              ; preds = %109
-  %112 = fadd float %103, 5.000000e-01
-  %113 = bitcast float %112 to i32
+85:                                               ; preds = %83
+  %86 = fadd float %77, 5.000000e-01
+  %87 = bitcast float %86 to i32
   br label %stbir__float_to_half.exit42
 
-114:                                              ; preds = %109
-  %115 = lshr i32 %104, 13
-  %116 = and i32 %115, 1
-  %117 = add nuw nsw i32 %104, 134221823
-  %118 = add nuw nsw i32 %117, %116
-  %119 = lshr i32 %118, 13
+88:                                               ; preds = %83
+  %89 = lshr i32 %78, 13
+  %90 = and i32 %89, 1
+  %91 = add nuw nsw i32 %78, 134221823
+  %92 = add nuw nsw i32 %91, %90
+  %93 = lshr i32 %92, 13
   br label %stbir__float_to_half.exit42
 
-stbir__float_to_half.exit42:                      ; preds = %106, %111, %114
-  %.sroa.016.0.i41 = phi i32 [ %108, %106 ], [ %113, %111 ], [ %119, %114 ]
-  %120 = bitcast float %102 to i32
-  %121 = lshr i32 %120, 16
-  %122 = and i32 %121, 32768
-  %123 = or i32 %.sroa.016.0.i41, %122
-  %124 = trunc i32 %123 to i16
-  store i16 %124, ptr %101, align 2, !tbaa !4
-  %125 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
-  %126 = getelementptr inbounds nuw i8, ptr %.157, i64 4
-  %127 = load float, ptr %126, align 4, !tbaa !50
-  %128 = tail call float @llvm.fabs.f32(float %127)
-  %129 = bitcast float %128 to i32
-  %130 = icmp samesign ugt i32 %129, 1199570943
-  br i1 %130, label %131, label %134
+stbir__float_to_half.exit42:                      ; preds = %80, %85, %88
+  %.sroa.016.0.i41 = phi i32 [ %82, %80 ], [ %87, %85 ], [ %93, %88 ]
+  %94 = bitcast float %76 to i32
+  %95 = lshr i32 %94, 16
+  %96 = and i32 %95, 32768
+  %97 = or i32 %.sroa.016.0.i41, %96
+  %98 = trunc i32 %97 to i16
+  store i16 %98, ptr %75, align 2, !tbaa !4
+  %99 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.157, i64 4
+  %101 = load float, ptr %100, align 4, !tbaa !50
+  %102 = tail call float @llvm.fabs.f32(float %101)
+  %103 = bitcast float %102 to i32
+  %104 = icmp samesign ugt i32 %103, 1199570943
+  br i1 %104, label %105, label %108
 
-131:                                              ; preds = %stbir__float_to_half.exit42
-  %132 = icmp samesign ugt i32 %129, 2139095040
-  %133 = select i1 %132, i32 32256, i32 31744
+105:                                              ; preds = %stbir__float_to_half.exit42
+  %106 = icmp samesign ugt i32 %103, 2139095040
+  %107 = select i1 %106, i32 32256, i32 31744
   br label %stbir__float_to_half.exit44
 
-134:                                              ; preds = %stbir__float_to_half.exit42
-  %135 = icmp samesign ult i32 %129, 947912704
-  br i1 %135, label %136, label %139
+108:                                              ; preds = %stbir__float_to_half.exit42
+  %109 = icmp samesign ult i32 %103, 947912704
+  br i1 %109, label %110, label %113
 
-136:                                              ; preds = %134
-  %137 = fadd float %128, 5.000000e-01
-  %138 = bitcast float %137 to i32
+110:                                              ; preds = %108
+  %111 = fadd float %102, 5.000000e-01
+  %112 = bitcast float %111 to i32
   br label %stbir__float_to_half.exit44
 
-139:                                              ; preds = %134
-  %140 = lshr i32 %129, 13
-  %141 = and i32 %140, 1
-  %142 = add nuw nsw i32 %129, 134221823
-  %143 = add nuw nsw i32 %142, %141
-  %144 = lshr i32 %143, 13
+113:                                              ; preds = %108
+  %114 = lshr i32 %103, 13
+  %115 = and i32 %114, 1
+  %116 = add nuw nsw i32 %103, 134221823
+  %117 = add nuw nsw i32 %116, %115
+  %118 = lshr i32 %117, 13
   br label %stbir__float_to_half.exit44
 
-stbir__float_to_half.exit44:                      ; preds = %131, %136, %139
-  %.sroa.016.0.i43 = phi i32 [ %133, %131 ], [ %138, %136 ], [ %144, %139 ]
-  %145 = bitcast float %127 to i32
-  %146 = lshr i32 %145, 16
-  %147 = and i32 %146, 32768
-  %148 = or i32 %.sroa.016.0.i43, %147
-  %149 = trunc i32 %148 to i16
-  store i16 %149, ptr %125, align 2, !tbaa !4
-  %150 = getelementptr inbounds nuw i8, ptr %.pn56, i64 6
-  %151 = getelementptr inbounds nuw i8, ptr %.157, i64 8
-  %152 = load float, ptr %151, align 4, !tbaa !50
-  %153 = tail call float @llvm.fabs.f32(float %152)
-  %154 = bitcast float %153 to i32
-  %155 = icmp samesign ugt i32 %154, 1199570943
-  br i1 %155, label %156, label %159
+stbir__float_to_half.exit44:                      ; preds = %105, %110, %113
+  %.sroa.016.0.i43 = phi i32 [ %107, %105 ], [ %112, %110 ], [ %118, %113 ]
+  %119 = bitcast float %101 to i32
+  %120 = lshr i32 %119, 16
+  %121 = and i32 %120, 32768
+  %122 = or i32 %.sroa.016.0.i43, %121
+  %123 = trunc i32 %122 to i16
+  store i16 %123, ptr %99, align 2, !tbaa !4
+  %124 = getelementptr inbounds nuw i8, ptr %.pn56, i64 6
+  %125 = getelementptr inbounds nuw i8, ptr %.157, i64 8
+  %126 = load float, ptr %125, align 4, !tbaa !50
+  %127 = tail call float @llvm.fabs.f32(float %126)
+  %128 = bitcast float %127 to i32
+  %129 = icmp samesign ugt i32 %128, 1199570943
+  br i1 %129, label %130, label %133
 
-156:                                              ; preds = %stbir__float_to_half.exit44
-  %157 = icmp samesign ugt i32 %154, 2139095040
-  %158 = select i1 %157, i32 32256, i32 31744
+130:                                              ; preds = %stbir__float_to_half.exit44
+  %131 = icmp samesign ugt i32 %128, 2139095040
+  %132 = select i1 %131, i32 32256, i32 31744
   br label %stbir__float_to_half.exit46
 
-159:                                              ; preds = %stbir__float_to_half.exit44
-  %160 = icmp samesign ult i32 %154, 947912704
-  br i1 %160, label %161, label %164
+133:                                              ; preds = %stbir__float_to_half.exit44
+  %134 = icmp samesign ult i32 %128, 947912704
+  br i1 %134, label %135, label %138
 
-161:                                              ; preds = %159
-  %162 = fadd float %153, 5.000000e-01
-  %163 = bitcast float %162 to i32
+135:                                              ; preds = %133
+  %136 = fadd float %127, 5.000000e-01
+  %137 = bitcast float %136 to i32
   br label %stbir__float_to_half.exit46
 
-164:                                              ; preds = %159
-  %165 = lshr i32 %154, 13
-  %166 = and i32 %165, 1
-  %167 = add nuw nsw i32 %154, 134221823
-  %168 = add nuw nsw i32 %167, %166
-  %169 = lshr i32 %168, 13
+138:                                              ; preds = %133
+  %139 = lshr i32 %128, 13
+  %140 = and i32 %139, 1
+  %141 = add nuw nsw i32 %128, 134221823
+  %142 = add nuw nsw i32 %141, %140
+  %143 = lshr i32 %142, 13
   br label %stbir__float_to_half.exit46
 
-stbir__float_to_half.exit46:                      ; preds = %156, %161, %164
-  %.sroa.016.0.i45 = phi i32 [ %158, %156 ], [ %163, %161 ], [ %169, %164 ]
-  %170 = bitcast float %152 to i32
-  %171 = lshr i32 %170, 16
-  %172 = and i32 %171, 32768
-  %173 = or i32 %.sroa.016.0.i45, %172
-  %174 = trunc i32 %173 to i16
-  store i16 %174, ptr %150, align 2, !tbaa !4
-  %175 = getelementptr inbounds nuw i8, ptr %.157, i64 16
+stbir__float_to_half.exit46:                      ; preds = %130, %135, %138
+  %.sroa.016.0.i45 = phi i32 [ %132, %130 ], [ %137, %135 ], [ %143, %138 ]
+  %144 = bitcast float %126 to i32
+  %145 = lshr i32 %144, 16
+  %146 = and i32 %145, 32768
+  %147 = or i32 %.sroa.016.0.i45, %146
+  %148 = trunc i32 %147 to i16
+  store i16 %148, ptr %124, align 2, !tbaa !4
+  %149 = getelementptr inbounds nuw i8, ptr %.157, i64 16
   %.137 = getelementptr inbounds nuw i8, ptr %.13758, i64 8
   %.not = icmp ugt ptr %.137, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !291
 
-.loopexit:                                        ; preds = %stbir__float_to_half.exit46, %75, %.preheader
+.loopexit:                                        ; preds = %stbir__float_to_half.exit46, %49, %.preheader
   ret void
 }
 
@@ -10794,132 +10752,134 @@ define void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 noundef %1
   %11 = load <8 x i16>, ptr %.041, align 1, !tbaa !4
   %12 = shufflevector <8 x i16> %11, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %13 = bitcast <8 x i16> %12 to <4 x i32>
-  %14 = and <4 x i32> %13, splat (i32 32767)
-  %15 = icmp samesign ugt <4 x i32> %14, splat (i32 31743)
-  %16 = icmp samesign ugt <4 x i32> %14, splat (i32 1023)
-  %17 = shl nuw nsw <4 x i32> %14, splat (i32 13)
-  %18 = add nuw nsw <4 x i32> %17, splat (i32 939524096)
-  %19 = add nuw nsw <4 x i32> %17, splat (i32 947912704)
-  %20 = select <4 x i1> %15, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
-  %21 = add nuw nsw <4 x i32> %18, %20
-  %22 = bitcast <4 x i32> %19 to <4 x float>
-  %23 = fadd <4 x float> %22, splat (float 0xBF10000000000000)
-  %24 = bitcast <4 x float> %23 to <4 x i32>
-  %25 = select <4 x i1> %16, <4 x i32> %21, <4 x i32> %24
-  %26 = shl nuw <4 x i32> %13, splat (i32 16)
-  %27 = and <4 x i32> %26, splat (i32 -2147483648)
-  %28 = or <4 x i32> %25, %27
-  %29 = shufflevector <8 x i16> %11, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %30 = bitcast <8 x i16> %29 to <4 x i32>
-  %31 = and <4 x i32> %30, splat (i32 32767)
-  %32 = icmp samesign ugt <4 x i32> %31, splat (i32 31743)
-  %33 = icmp samesign ugt <4 x i32> %31, splat (i32 1023)
-  %34 = shl nuw nsw <4 x i32> %31, splat (i32 13)
-  %35 = add nuw nsw <4 x i32> %34, splat (i32 939524096)
-  %36 = add nuw nsw <4 x i32> %34, splat (i32 947912704)
-  %37 = select <4 x i1> %32, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
-  %38 = add nuw nsw <4 x i32> %35, %37
-  %39 = bitcast <4 x i32> %36 to <4 x float>
-  %40 = fadd <4 x float> %39, splat (float 0xBF10000000000000)
-  %41 = bitcast <4 x float> %40 to <4 x i32>
-  %42 = select <4 x i1> %33, <4 x i32> %38, <4 x i32> %41
-  %43 = shl nuw <4 x i32> %30, splat (i32 16)
-  %44 = and <4 x i32> %43, splat (i32 -2147483648)
-  %45 = or <4 x i32> %42, %44
-  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %47 = bitcast <4 x i32> %28 to <4 x float>
-  %48 = shufflevector <4 x float> %47, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %49 = bitcast <4 x i32> %45 to <4 x float>
+  %14 = bitcast <8 x i16> %12 to <4 x i32>
+  %15 = and <4 x i32> %14, splat (i32 32767)
+  %16 = icmp samesign ugt <4 x i32> %15, splat (i32 31743)
+  %17 = icmp samesign ugt <4 x i32> %15, splat (i32 1023)
+  %18 = shl nuw nsw <4 x i32> %15, splat (i32 13)
+  %19 = add nuw nsw <4 x i32> %18, splat (i32 939524096)
+  %20 = add nuw nsw <4 x i32> %18, splat (i32 947912704)
+  %21 = select <4 x i1> %16, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
+  %22 = add nuw nsw <4 x i32> %19, %21
+  %23 = bitcast <4 x i32> %20 to <4 x float>
+  %24 = fadd <4 x float> %23, splat (float 0xBF10000000000000)
+  %25 = bitcast <4 x float> %24 to <4 x i32>
+  %26 = select <4 x i1> %17, <4 x i32> %22, <4 x i32> %25
+  %27 = shl nuw <4 x i32> %13, splat (i32 16)
+  %28 = and <4 x i32> %27, splat (i32 -2147483648)
+  %29 = or <4 x i32> %26, %28
+  %30 = shufflevector <8 x i16> %11, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %31 = bitcast <8 x i16> %30 to <4 x i32>
+  %32 = bitcast <8 x i16> %30 to <4 x i32>
+  %33 = and <4 x i32> %32, splat (i32 32767)
+  %34 = icmp samesign ugt <4 x i32> %33, splat (i32 31743)
+  %35 = icmp samesign ugt <4 x i32> %33, splat (i32 1023)
+  %36 = shl nuw nsw <4 x i32> %33, splat (i32 13)
+  %37 = add nuw nsw <4 x i32> %36, splat (i32 939524096)
+  %38 = add nuw nsw <4 x i32> %36, splat (i32 947912704)
+  %39 = select <4 x i1> %34, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
+  %40 = add nuw nsw <4 x i32> %37, %39
+  %41 = bitcast <4 x i32> %38 to <4 x float>
+  %42 = fadd <4 x float> %41, splat (float 0xBF10000000000000)
+  %43 = bitcast <4 x float> %42 to <4 x i32>
+  %44 = select <4 x i1> %35, <4 x i32> %40, <4 x i32> %43
+  %45 = shl nuw <4 x i32> %31, splat (i32 16)
+  %46 = and <4 x i32> %45, splat (i32 -2147483648)
+  %47 = or <4 x i32> %44, %46
+  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %49 = bitcast <4 x i32> %29 to <4 x float>
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %48, ptr %.0, align 1, !tbaa !4
-  store <4 x float> %50, ptr %46, align 1, !tbaa !4
-  %51 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %52 = getelementptr inbounds nuw i8, ptr %.041, i64 16
-  %.not45 = icmp ugt ptr %51, %10
-  br i1 %.not45, label %53, label %.backedge.backedge
+  %51 = bitcast <4 x i32> %47 to <4 x float>
+  %52 = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x float> %50, ptr %.0, align 1, !tbaa !4
+  store <4 x float> %52, ptr %48, align 1, !tbaa !4
+  %53 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.041, i64 16
+  %.not45 = icmp ugt ptr %53, %10
+  br i1 %.not45, label %55, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %53
-  %.041.be = phi ptr [ %52, %.backedge ], [ %9, %53 ]
-  %.0.be = phi ptr [ %51, %.backedge ], [ %10, %53 ]
+.backedge.backedge:                               ; preds = %.backedge, %55
+  %.041.be = phi ptr [ %54, %.backedge ], [ %9, %55 ]
+  %.0.be = phi ptr [ %53, %.backedge ], [ %10, %55 ]
   br label %.backedge, !llvm.loop !332
 
-53:                                               ; preds = %.backedge
-  %54 = icmp eq ptr %51, %5
-  br i1 %54, label %.loopexit, label %.backedge.backedge
+55:                                               ; preds = %.backedge
+  %56 = icmp eq ptr %53, %5
+  br i1 %56, label %.loopexit, label %.backedge.backedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.157 = phi ptr [ %.1, %.lr.ph ], [ %.153, %.lr.ph.preheader ]
   %.pn56 = phi ptr [ %.157, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.14255 = phi ptr [ %105, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.14255 = phi ptr [ %107, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.157) #24, !srcloc !333
-  %55 = getelementptr inbounds nuw i8, ptr %.14255, i64 6
-  %56 = load i16, ptr %55, align 2
-  %57 = zext i16 %56 to i32
-  %58 = shl nuw nsw i32 %57, 13
-  %59 = and i32 %58, 268427264
-  %60 = bitcast i32 %59 to float
-  %61 = fmul float %60, 0x46F0000000000000
-  %62 = bitcast float %61 to i32
-  %63 = fcmp ult float %61, 6.553600e+04
-  %64 = or i32 %62, 2139095040
-  %.sroa.0.0.i = select i1 %63, i32 %62, i32 %64
-  %.signext.i = sext i16 %56 to i32
-  %65 = and i32 %.signext.i, -2147483648
-  %66 = or i32 %.sroa.0.0.i, %65
-  store i32 %66, ptr %.pn56, align 4, !tbaa !50
-  %67 = getelementptr inbounds nuw i8, ptr %.14255, i64 4
-  %68 = load i16, ptr %67, align 2
-  %69 = zext i16 %68 to i32
-  %70 = shl nuw nsw i32 %69, 13
-  %71 = and i32 %70, 268427264
-  %72 = bitcast i32 %71 to float
-  %73 = fmul float %72, 0x46F0000000000000
-  %74 = bitcast float %73 to i32
-  %75 = fcmp ult float %73, 6.553600e+04
-  %76 = or i32 %74, 2139095040
-  %.sroa.0.0.i46 = select i1 %75, i32 %74, i32 %76
-  %.signext.i47 = sext i16 %68 to i32
-  %77 = and i32 %.signext.i47, -2147483648
-  %78 = or i32 %.sroa.0.0.i46, %77
-  %79 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
-  store i32 %78, ptr %79, align 4, !tbaa !50
-  %80 = getelementptr inbounds nuw i8, ptr %.14255, i64 2
-  %81 = load i16, ptr %80, align 2
-  %82 = zext i16 %81 to i32
-  %83 = shl nuw nsw i32 %82, 13
-  %84 = and i32 %83, 268427264
-  %85 = bitcast i32 %84 to float
-  %86 = fmul float %85, 0x46F0000000000000
-  %87 = bitcast float %86 to i32
-  %88 = fcmp ult float %86, 6.553600e+04
-  %89 = or i32 %87, 2139095040
-  %.sroa.0.0.i48 = select i1 %88, i32 %87, i32 %89
-  %.signext.i49 = sext i16 %81 to i32
-  %90 = and i32 %.signext.i49, -2147483648
-  %91 = or i32 %.sroa.0.0.i48, %90
-  %92 = getelementptr inbounds nuw i8, ptr %.pn56, i64 8
-  store i32 %91, ptr %92, align 4, !tbaa !50
-  %93 = load i16, ptr %.14255, align 2
-  %94 = zext i16 %93 to i32
-  %95 = shl nuw nsw i32 %94, 13
-  %96 = and i32 %95, 268427264
-  %97 = bitcast i32 %96 to float
-  %98 = fmul float %97, 0x46F0000000000000
-  %99 = bitcast float %98 to i32
-  %100 = fcmp ult float %98, 6.553600e+04
-  %101 = or i32 %99, 2139095040
-  %.sroa.0.0.i50 = select i1 %100, i32 %99, i32 %101
-  %.signext.i51 = sext i16 %93 to i32
-  %102 = and i32 %.signext.i51, -2147483648
-  %103 = or i32 %.sroa.0.0.i50, %102
-  %104 = getelementptr inbounds nuw i8, ptr %.pn56, i64 12
-  store i32 %103, ptr %104, align 4, !tbaa !50
-  %105 = getelementptr inbounds nuw i8, ptr %.14255, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.14255, i64 6
+  %58 = load i16, ptr %57, align 2
+  %59 = zext i16 %58 to i32
+  %60 = shl nuw nsw i32 %59, 13
+  %61 = and i32 %60, 268427264
+  %62 = bitcast i32 %61 to float
+  %63 = fmul float %62, 0x46F0000000000000
+  %64 = bitcast float %63 to i32
+  %65 = fcmp ult float %63, 6.553600e+04
+  %66 = or i32 %64, 2139095040
+  %.sroa.0.0.i = select i1 %65, i32 %64, i32 %66
+  %.signext.i = sext i16 %58 to i32
+  %67 = and i32 %.signext.i, -2147483648
+  %68 = or i32 %.sroa.0.0.i, %67
+  store i32 %68, ptr %.pn56, align 4, !tbaa !50
+  %69 = getelementptr inbounds nuw i8, ptr %.14255, i64 4
+  %70 = load i16, ptr %69, align 2
+  %71 = zext i16 %70 to i32
+  %72 = shl nuw nsw i32 %71, 13
+  %73 = and i32 %72, 268427264
+  %74 = bitcast i32 %73 to float
+  %75 = fmul float %74, 0x46F0000000000000
+  %76 = bitcast float %75 to i32
+  %77 = fcmp ult float %75, 6.553600e+04
+  %78 = or i32 %76, 2139095040
+  %.sroa.0.0.i46 = select i1 %77, i32 %76, i32 %78
+  %.signext.i47 = sext i16 %70 to i32
+  %79 = and i32 %.signext.i47, -2147483648
+  %80 = or i32 %.sroa.0.0.i46, %79
+  %81 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
+  store i32 %80, ptr %81, align 4, !tbaa !50
+  %82 = getelementptr inbounds nuw i8, ptr %.14255, i64 2
+  %83 = load i16, ptr %82, align 2
+  %84 = zext i16 %83 to i32
+  %85 = shl nuw nsw i32 %84, 13
+  %86 = and i32 %85, 268427264
+  %87 = bitcast i32 %86 to float
+  %88 = fmul float %87, 0x46F0000000000000
+  %89 = bitcast float %88 to i32
+  %90 = fcmp ult float %88, 6.553600e+04
+  %91 = or i32 %89, 2139095040
+  %.sroa.0.0.i48 = select i1 %90, i32 %89, i32 %91
+  %.signext.i49 = sext i16 %83 to i32
+  %92 = and i32 %.signext.i49, -2147483648
+  %93 = or i32 %.sroa.0.0.i48, %92
+  %94 = getelementptr inbounds nuw i8, ptr %.pn56, i64 8
+  store i32 %93, ptr %94, align 4, !tbaa !50
+  %95 = load i16, ptr %.14255, align 2
+  %96 = zext i16 %95 to i32
+  %97 = shl nuw nsw i32 %96, 13
+  %98 = and i32 %97, 268427264
+  %99 = bitcast i32 %98 to float
+  %100 = fmul float %99, 0x46F0000000000000
+  %101 = bitcast float %100 to i32
+  %102 = fcmp ult float %100, 6.553600e+04
+  %103 = or i32 %101, 2139095040
+  %.sroa.0.0.i50 = select i1 %102, i32 %101, i32 %103
+  %.signext.i51 = sext i16 %95 to i32
+  %104 = and i32 %.signext.i51, -2147483648
+  %105 = or i32 %.sroa.0.0.i50, %104
+  %106 = getelementptr inbounds nuw i8, ptr %.pn56, i64 12
+  store i32 %105, ptr %106, align 4, !tbaa !50
+  %107 = getelementptr inbounds nuw i8, ptr %.14255, i64 8
   %.1 = getelementptr inbounds nuw i8, ptr %.157, i64 16
   %.not = icmp ugt ptr %.1, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !334
 
-.loopexit:                                        ; preds = %.lr.ph, %53, %.preheader
+.loopexit:                                        ; preds = %.lr.ph, %55, %.preheader
   ret void
 }
 
@@ -10957,238 +10917,222 @@ define void @stbir__encode_half_float_linear_ABGR(ptr noundef %0, i32 noundef %1
   %16 = and <4 x i32> %14, splat (i32 2147483647)
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
-  %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp samesign ugt <4 x i32> %16, splat (i32 1199570943)
-  %21 = bitcast <4 x i32> %19 to <2 x i64>
-  %22 = and <2 x i64> %21, splat (i64 2199023256064)
-  %23 = or disjoint <2 x i64> %22, splat (i64 136339441875968)
-  %24 = icmp samesign ugt <4 x i32> %16, splat (i32 947912703)
-  %25 = fadd <4 x float> %17, splat (float 5.000000e-01)
-  %26 = bitcast <4 x float> %25 to <4 x i32>
-  %27 = add <4 x i32> %26, splat (i32 -1056964608)
-  %28 = lshr <4 x i32> %14, splat (i32 13)
-  %.neg.i = and <4 x i32> %28, splat (i32 1)
-  %29 = add nsw <4 x i32> %16, splat (i32 -939520001)
-  %30 = add nsw <4 x i32> %29, %.neg.i
-  %31 = lshr <4 x i32> %30, splat (i32 13)
-  %32 = select <4 x i1> %24, <4 x i32> %31, <4 x i32> %27
-  %33 = select <4 x i1> %20, <4 x i32> zeroinitializer, <4 x i32> %32
-  %34 = bitcast <4 x i32> %33 to <2 x i64>
-  %35 = sext <4 x i1> %20 to <4 x i32>
-  %36 = bitcast <4 x i32> %35 to <2 x i64>
-  %37 = and <2 x i64> %23, %36
-  %38 = ashr <4 x i32> %14, splat (i32 16)
-  %39 = bitcast <4 x i32> %38 to <2 x i64>
-  %40 = and <2 x i64> %39, splat (i64 -140733193420800)
-  %41 = or <2 x i64> %40, %34
-  %42 = or <2 x i64> %41, %37
-  %43 = and <4 x i32> %15, splat (i32 2147483647)
-  %44 = bitcast <4 x i32> %43 to <4 x float>
-  %45 = fcmp uno <4 x float> %44, zeroinitializer
-  %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp samesign ugt <4 x i32> %43, splat (i32 1199570943)
-  %48 = bitcast <4 x i32> %46 to <2 x i64>
-  %49 = and <2 x i64> %48, splat (i64 2199023256064)
-  %50 = or disjoint <2 x i64> %49, splat (i64 136339441875968)
-  %51 = icmp samesign ugt <4 x i32> %43, splat (i32 947912703)
-  %52 = fadd <4 x float> %44, splat (float 5.000000e-01)
-  %53 = bitcast <4 x float> %52 to <4 x i32>
-  %54 = add <4 x i32> %53, splat (i32 -1056964608)
-  %55 = lshr <4 x i32> %15, splat (i32 13)
-  %.neg69.i = and <4 x i32> %55, splat (i32 1)
-  %56 = add nsw <4 x i32> %43, splat (i32 -939520001)
-  %57 = add nsw <4 x i32> %56, %.neg69.i
-  %58 = lshr <4 x i32> %57, splat (i32 13)
-  %59 = select <4 x i1> %51, <4 x i32> %58, <4 x i32> %54
-  %60 = select <4 x i1> %47, <4 x i32> zeroinitializer, <4 x i32> %59
-  %61 = bitcast <4 x i32> %60 to <2 x i64>
-  %62 = sext <4 x i1> %47 to <4 x i32>
-  %63 = bitcast <4 x i32> %62 to <2 x i64>
-  %64 = and <2 x i64> %50, %63
-  %65 = ashr <4 x i32> %15, splat (i32 16)
-  %66 = bitcast <4 x i32> %65 to <2 x i64>
-  %67 = and <2 x i64> %66, splat (i64 -140733193420800)
-  %68 = or <2 x i64> %67, %61
-  %69 = or <2 x i64> %68, %64
-  %70 = bitcast <2 x i64> %42 to <4 x i32>
-  %71 = bitcast <2 x i64> %69 to <4 x i32>
-  %72 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %70, <4 x i32> %71)
-  store <8 x i16> %72, ptr %.036, align 1, !tbaa !4
-  %73 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %74 = getelementptr inbounds nuw i8, ptr %.036, i64 16
-  %.not40 = icmp ugt ptr %74, %10
-  br i1 %.not40, label %75, label %.backedge.backedge
+  %19 = icmp samesign ugt <4 x i32> %16, splat (i32 1199570943)
+  %.inner73 = select <4 x i1> %18, <4 x i32> splat (i32 32256), <4 x i32> splat (i32 31744)
+  %20 = icmp samesign ugt <4 x i32> %16, splat (i32 947912703)
+  %21 = fadd <4 x float> %17, splat (float 5.000000e-01)
+  %22 = bitcast <4 x float> %21 to <4 x i32>
+  %23 = add <4 x i32> %22, splat (i32 -1056964608)
+  %24 = lshr <4 x i32> %14, splat (i32 13)
+  %.neg.i = and <4 x i32> %24, splat (i32 1)
+  %25 = add nsw <4 x i32> %16, splat (i32 -939520001)
+  %26 = add nsw <4 x i32> %25, %.neg.i
+  %27 = lshr <4 x i32> %26, splat (i32 13)
+  %28 = select <4 x i1> %20, <4 x i32> %27, <4 x i32> %23
+  %29 = select <4 x i1> %19, <4 x i32> zeroinitializer, <4 x i32> %28
+  %.inner74 = select <4 x i1> %19, <4 x i32> %.inner73, <4 x i32> zeroinitializer
+  %30 = ashr <4 x i32> %14, splat (i32 16)
+  %.inner75 = and <4 x i32> %30, splat (i32 -32768)
+  %.inner76 = or <4 x i32> %.inner75, %29
+  %.inner77 = or <4 x i32> %.inner76, %.inner74
+  %31 = and <4 x i32> %15, splat (i32 2147483647)
+  %32 = bitcast <4 x i32> %31 to <4 x float>
+  %33 = fcmp uno <4 x float> %32, zeroinitializer
+  %34 = icmp samesign ugt <4 x i32> %31, splat (i32 1199570943)
+  %.inner79 = select <4 x i1> %33, <4 x i32> splat (i32 32256), <4 x i32> splat (i32 31744)
+  %35 = icmp samesign ugt <4 x i32> %31, splat (i32 947912703)
+  %36 = fadd <4 x float> %32, splat (float 5.000000e-01)
+  %37 = bitcast <4 x float> %36 to <4 x i32>
+  %38 = add <4 x i32> %37, splat (i32 -1056964608)
+  %39 = lshr <4 x i32> %15, splat (i32 13)
+  %.neg69.i = and <4 x i32> %39, splat (i32 1)
+  %40 = add nsw <4 x i32> %31, splat (i32 -939520001)
+  %41 = add nsw <4 x i32> %40, %.neg69.i
+  %42 = lshr <4 x i32> %41, splat (i32 13)
+  %43 = select <4 x i1> %35, <4 x i32> %42, <4 x i32> %38
+  %44 = select <4 x i1> %34, <4 x i32> zeroinitializer, <4 x i32> %43
+  %.inner80 = select <4 x i1> %34, <4 x i32> %.inner79, <4 x i32> zeroinitializer
+  %45 = ashr <4 x i32> %15, splat (i32 16)
+  %.inner81 = and <4 x i32> %45, splat (i32 -32768)
+  %.inner82 = or <4 x i32> %.inner81, %44
+  %.inner83 = or <4 x i32> %.inner82, %.inner80
+  %46 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %.inner77, <4 x i32> %.inner83)
+  store <8 x i16> %46, ptr %.036, align 1, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.036, i64 16
+  %.not40 = icmp ugt ptr %48, %10
+  br i1 %.not40, label %49, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %75
-  %.036.be = phi ptr [ %74, %.backedge ], [ %10, %75 ]
-  %.0.be = phi ptr [ %73, %.backedge ], [ %9, %75 ]
+.backedge.backedge:                               ; preds = %.backedge, %49
+  %.036.be = phi ptr [ %48, %.backedge ], [ %10, %49 ]
+  %.0.be = phi ptr [ %47, %.backedge ], [ %9, %49 ]
   br label %.backedge, !llvm.loop !336
 
-75:                                               ; preds = %.backedge
-  %76 = icmp eq ptr %74, %5
-  br i1 %76, label %.loopexit, label %.backedge.backedge
+49:                                               ; preds = %.backedge
+  %50 = icmp eq ptr %48, %5
+  br i1 %50, label %.loopexit, label %.backedge.backedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__float_to_half.exit46
   %.13758 = phi ptr [ %.137, %stbir__float_to_half.exit46 ], [ %.13754, %.lr.ph.preheader ]
-  %.157 = phi ptr [ %175, %stbir__float_to_half.exit46 ], [ %2, %.lr.ph.preheader ]
+  %.157 = phi ptr [ %149, %stbir__float_to_half.exit46 ], [ %2, %.lr.ph.preheader ]
   %.pn56 = phi ptr [ %.13758, %stbir__float_to_half.exit46 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.13758) #24, !srcloc !337
-  %77 = getelementptr inbounds nuw i8, ptr %.157, i64 12
-  %78 = load float, ptr %77, align 4, !tbaa !50
-  %79 = tail call float @llvm.fabs.f32(float %78)
-  %80 = bitcast float %79 to i32
-  %81 = icmp samesign ugt i32 %80, 1199570943
-  br i1 %81, label %82, label %85
+  %51 = getelementptr inbounds nuw i8, ptr %.157, i64 12
+  %52 = load float, ptr %51, align 4, !tbaa !50
+  %53 = tail call float @llvm.fabs.f32(float %52)
+  %54 = bitcast float %53 to i32
+  %55 = icmp samesign ugt i32 %54, 1199570943
+  br i1 %55, label %56, label %59
 
-82:                                               ; preds = %.lr.ph
-  %83 = icmp samesign ugt i32 %80, 2139095040
-  %84 = select i1 %83, i32 32256, i32 31744
+56:                                               ; preds = %.lr.ph
+  %57 = icmp samesign ugt i32 %54, 2139095040
+  %58 = select i1 %57, i32 32256, i32 31744
   br label %stbir__float_to_half.exit
 
-85:                                               ; preds = %.lr.ph
-  %86 = icmp samesign ult i32 %80, 947912704
-  br i1 %86, label %87, label %90
+59:                                               ; preds = %.lr.ph
+  %60 = icmp samesign ult i32 %54, 947912704
+  br i1 %60, label %61, label %64
 
-87:                                               ; preds = %85
-  %88 = fadd float %79, 5.000000e-01
-  %89 = bitcast float %88 to i32
+61:                                               ; preds = %59
+  %62 = fadd float %53, 5.000000e-01
+  %63 = bitcast float %62 to i32
   br label %stbir__float_to_half.exit
 
-90:                                               ; preds = %85
-  %91 = lshr i32 %80, 13
-  %92 = and i32 %91, 1
-  %93 = add nuw nsw i32 %80, 134221823
-  %94 = add nuw nsw i32 %93, %92
-  %95 = lshr i32 %94, 13
+64:                                               ; preds = %59
+  %65 = lshr i32 %54, 13
+  %66 = and i32 %65, 1
+  %67 = add nuw nsw i32 %54, 134221823
+  %68 = add nuw nsw i32 %67, %66
+  %69 = lshr i32 %68, 13
   br label %stbir__float_to_half.exit
 
-stbir__float_to_half.exit:                        ; preds = %82, %87, %90
-  %.sroa.016.0.i = phi i32 [ %84, %82 ], [ %89, %87 ], [ %95, %90 ]
-  %96 = bitcast float %78 to i32
-  %97 = lshr i32 %96, 16
-  %98 = and i32 %97, 32768
-  %99 = or i32 %.sroa.016.0.i, %98
-  %100 = trunc i32 %99 to i16
-  store i16 %100, ptr %.pn56, align 2, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %.pn56, i64 2
-  %102 = getelementptr inbounds nuw i8, ptr %.157, i64 8
-  %103 = load float, ptr %102, align 4, !tbaa !50
-  %104 = tail call float @llvm.fabs.f32(float %103)
-  %105 = bitcast float %104 to i32
-  %106 = icmp samesign ugt i32 %105, 1199570943
-  br i1 %106, label %107, label %110
+stbir__float_to_half.exit:                        ; preds = %56, %61, %64
+  %.sroa.016.0.i = phi i32 [ %58, %56 ], [ %63, %61 ], [ %69, %64 ]
+  %70 = bitcast float %52 to i32
+  %71 = lshr i32 %70, 16
+  %72 = and i32 %71, 32768
+  %73 = or i32 %.sroa.016.0.i, %72
+  %74 = trunc i32 %73 to i16
+  store i16 %74, ptr %.pn56, align 2, !tbaa !4
+  %75 = getelementptr inbounds nuw i8, ptr %.pn56, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %.157, i64 8
+  %77 = load float, ptr %76, align 4, !tbaa !50
+  %78 = tail call float @llvm.fabs.f32(float %77)
+  %79 = bitcast float %78 to i32
+  %80 = icmp samesign ugt i32 %79, 1199570943
+  br i1 %80, label %81, label %84
 
-107:                                              ; preds = %stbir__float_to_half.exit
-  %108 = icmp samesign ugt i32 %105, 2139095040
-  %109 = select i1 %108, i32 32256, i32 31744
+81:                                               ; preds = %stbir__float_to_half.exit
+  %82 = icmp samesign ugt i32 %79, 2139095040
+  %83 = select i1 %82, i32 32256, i32 31744
   br label %stbir__float_to_half.exit42
 
-110:                                              ; preds = %stbir__float_to_half.exit
-  %111 = icmp samesign ult i32 %105, 947912704
-  br i1 %111, label %112, label %115
+84:                                               ; preds = %stbir__float_to_half.exit
+  %85 = icmp samesign ult i32 %79, 947912704
+  br i1 %85, label %86, label %89
 
-112:                                              ; preds = %110
-  %113 = fadd float %104, 5.000000e-01
-  %114 = bitcast float %113 to i32
+86:                                               ; preds = %84
+  %87 = fadd float %78, 5.000000e-01
+  %88 = bitcast float %87 to i32
   br label %stbir__float_to_half.exit42
 
-115:                                              ; preds = %110
-  %116 = lshr i32 %105, 13
-  %117 = and i32 %116, 1
-  %118 = add nuw nsw i32 %105, 134221823
-  %119 = add nuw nsw i32 %118, %117
-  %120 = lshr i32 %119, 13
+89:                                               ; preds = %84
+  %90 = lshr i32 %79, 13
+  %91 = and i32 %90, 1
+  %92 = add nuw nsw i32 %79, 134221823
+  %93 = add nuw nsw i32 %92, %91
+  %94 = lshr i32 %93, 13
   br label %stbir__float_to_half.exit42
 
-stbir__float_to_half.exit42:                      ; preds = %107, %112, %115
-  %.sroa.016.0.i41 = phi i32 [ %109, %107 ], [ %114, %112 ], [ %120, %115 ]
-  %121 = bitcast float %103 to i32
-  %122 = lshr i32 %121, 16
-  %123 = and i32 %122, 32768
-  %124 = or i32 %.sroa.016.0.i41, %123
-  %125 = trunc i32 %124 to i16
-  store i16 %125, ptr %101, align 2, !tbaa !4
-  %126 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
-  %127 = getelementptr inbounds nuw i8, ptr %.157, i64 4
-  %128 = load float, ptr %127, align 4, !tbaa !50
-  %129 = tail call float @llvm.fabs.f32(float %128)
-  %130 = bitcast float %129 to i32
-  %131 = icmp samesign ugt i32 %130, 1199570943
-  br i1 %131, label %132, label %135
+stbir__float_to_half.exit42:                      ; preds = %81, %86, %89
+  %.sroa.016.0.i41 = phi i32 [ %83, %81 ], [ %88, %86 ], [ %94, %89 ]
+  %95 = bitcast float %77 to i32
+  %96 = lshr i32 %95, 16
+  %97 = and i32 %96, 32768
+  %98 = or i32 %.sroa.016.0.i41, %97
+  %99 = trunc i32 %98 to i16
+  store i16 %99, ptr %75, align 2, !tbaa !4
+  %100 = getelementptr inbounds nuw i8, ptr %.pn56, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %.157, i64 4
+  %102 = load float, ptr %101, align 4, !tbaa !50
+  %103 = tail call float @llvm.fabs.f32(float %102)
+  %104 = bitcast float %103 to i32
+  %105 = icmp samesign ugt i32 %104, 1199570943
+  br i1 %105, label %106, label %109
 
-132:                                              ; preds = %stbir__float_to_half.exit42
-  %133 = icmp samesign ugt i32 %130, 2139095040
-  %134 = select i1 %133, i32 32256, i32 31744
+106:                                              ; preds = %stbir__float_to_half.exit42
+  %107 = icmp samesign ugt i32 %104, 2139095040
+  %108 = select i1 %107, i32 32256, i32 31744
   br label %stbir__float_to_half.exit44
 
-135:                                              ; preds = %stbir__float_to_half.exit42
-  %136 = icmp samesign ult i32 %130, 947912704
-  br i1 %136, label %137, label %140
+109:                                              ; preds = %stbir__float_to_half.exit42
+  %110 = icmp samesign ult i32 %104, 947912704
+  br i1 %110, label %111, label %114
 
-137:                                              ; preds = %135
-  %138 = fadd float %129, 5.000000e-01
-  %139 = bitcast float %138 to i32
+111:                                              ; preds = %109
+  %112 = fadd float %103, 5.000000e-01
+  %113 = bitcast float %112 to i32
   br label %stbir__float_to_half.exit44
 
-140:                                              ; preds = %135
-  %141 = lshr i32 %130, 13
-  %142 = and i32 %141, 1
-  %143 = add nuw nsw i32 %130, 134221823
-  %144 = add nuw nsw i32 %143, %142
-  %145 = lshr i32 %144, 13
+114:                                              ; preds = %109
+  %115 = lshr i32 %104, 13
+  %116 = and i32 %115, 1
+  %117 = add nuw nsw i32 %104, 134221823
+  %118 = add nuw nsw i32 %117, %116
+  %119 = lshr i32 %118, 13
   br label %stbir__float_to_half.exit44
 
-stbir__float_to_half.exit44:                      ; preds = %132, %137, %140
-  %.sroa.016.0.i43 = phi i32 [ %134, %132 ], [ %139, %137 ], [ %145, %140 ]
-  %146 = bitcast float %128 to i32
-  %147 = lshr i32 %146, 16
-  %148 = and i32 %147, 32768
-  %149 = or i32 %.sroa.016.0.i43, %148
-  %150 = trunc i32 %149 to i16
-  store i16 %150, ptr %126, align 2, !tbaa !4
-  %151 = getelementptr inbounds nuw i8, ptr %.pn56, i64 6
-  %152 = load float, ptr %.157, align 4, !tbaa !50
-  %153 = tail call float @llvm.fabs.f32(float %152)
-  %154 = bitcast float %153 to i32
-  %155 = icmp samesign ugt i32 %154, 1199570943
-  br i1 %155, label %156, label %159
+stbir__float_to_half.exit44:                      ; preds = %106, %111, %114
+  %.sroa.016.0.i43 = phi i32 [ %108, %106 ], [ %113, %111 ], [ %119, %114 ]
+  %120 = bitcast float %102 to i32
+  %121 = lshr i32 %120, 16
+  %122 = and i32 %121, 32768
+  %123 = or i32 %.sroa.016.0.i43, %122
+  %124 = trunc i32 %123 to i16
+  store i16 %124, ptr %100, align 2, !tbaa !4
+  %125 = getelementptr inbounds nuw i8, ptr %.pn56, i64 6
+  %126 = load float, ptr %.157, align 4, !tbaa !50
+  %127 = tail call float @llvm.fabs.f32(float %126)
+  %128 = bitcast float %127 to i32
+  %129 = icmp samesign ugt i32 %128, 1199570943
+  br i1 %129, label %130, label %133
 
-156:                                              ; preds = %stbir__float_to_half.exit44
-  %157 = icmp samesign ugt i32 %154, 2139095040
-  %158 = select i1 %157, i32 32256, i32 31744
+130:                                              ; preds = %stbir__float_to_half.exit44
+  %131 = icmp samesign ugt i32 %128, 2139095040
+  %132 = select i1 %131, i32 32256, i32 31744
   br label %stbir__float_to_half.exit46
 
-159:                                              ; preds = %stbir__float_to_half.exit44
-  %160 = icmp samesign ult i32 %154, 947912704
-  br i1 %160, label %161, label %164
+133:                                              ; preds = %stbir__float_to_half.exit44
+  %134 = icmp samesign ult i32 %128, 947912704
+  br i1 %134, label %135, label %138
 
-161:                                              ; preds = %159
-  %162 = fadd float %153, 5.000000e-01
-  %163 = bitcast float %162 to i32
+135:                                              ; preds = %133
+  %136 = fadd float %127, 5.000000e-01
+  %137 = bitcast float %136 to i32
   br label %stbir__float_to_half.exit46
 
-164:                                              ; preds = %159
-  %165 = lshr i32 %154, 13
-  %166 = and i32 %165, 1
-  %167 = add nuw nsw i32 %154, 134221823
-  %168 = add nuw nsw i32 %167, %166
-  %169 = lshr i32 %168, 13
+138:                                              ; preds = %133
+  %139 = lshr i32 %128, 13
+  %140 = and i32 %139, 1
+  %141 = add nuw nsw i32 %128, 134221823
+  %142 = add nuw nsw i32 %141, %140
+  %143 = lshr i32 %142, 13
   br label %stbir__float_to_half.exit46
 
-stbir__float_to_half.exit46:                      ; preds = %156, %161, %164
-  %.sroa.016.0.i45 = phi i32 [ %158, %156 ], [ %163, %161 ], [ %169, %164 ]
-  %170 = bitcast float %152 to i32
-  %171 = lshr i32 %170, 16
-  %172 = and i32 %171, 32768
-  %173 = or i32 %.sroa.016.0.i45, %172
-  %174 = trunc i32 %173 to i16
-  store i16 %174, ptr %151, align 2, !tbaa !4
-  %175 = getelementptr inbounds nuw i8, ptr %.157, i64 16
+stbir__float_to_half.exit46:                      ; preds = %130, %135, %138
+  %.sroa.016.0.i45 = phi i32 [ %132, %130 ], [ %137, %135 ], [ %143, %138 ]
+  %144 = bitcast float %126 to i32
+  %145 = lshr i32 %144, 16
+  %146 = and i32 %145, 32768
+  %147 = or i32 %.sroa.016.0.i45, %146
+  %148 = trunc i32 %147 to i16
+  store i16 %148, ptr %125, align 2, !tbaa !4
+  %149 = getelementptr inbounds nuw i8, ptr %.157, i64 16
   %.137 = getelementptr inbounds nuw i8, ptr %.13758, i64 8
   %.not = icmp ugt ptr %.137, %5
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !338
 
-.loopexit:                                        ; preds = %stbir__float_to_half.exit46, %75, %.preheader
+.loopexit:                                        ; preds = %stbir__float_to_half.exit46, %49, %.preheader
   ret void
 }
 
@@ -13008,177 +12952,179 @@ define void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, 
   %11 = load <8 x i16>, ptr %.050, align 1, !tbaa !4
   %12 = shufflevector <8 x i16> %11, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %13 = bitcast <8 x i16> %12 to <4 x i32>
-  %14 = and <4 x i32> %13, splat (i32 32767)
-  %15 = icmp samesign ugt <4 x i32> %14, splat (i32 31743)
-  %16 = icmp samesign ugt <4 x i32> %14, splat (i32 1023)
-  %17 = shl nuw nsw <4 x i32> %14, splat (i32 13)
-  %18 = add nuw nsw <4 x i32> %17, splat (i32 939524096)
-  %19 = add nuw nsw <4 x i32> %17, splat (i32 947912704)
-  %20 = select <4 x i1> %15, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
-  %21 = add nuw nsw <4 x i32> %18, %20
-  %22 = bitcast <4 x i32> %19 to <4 x float>
-  %23 = fadd <4 x float> %22, splat (float 0xBF10000000000000)
-  %24 = bitcast <4 x float> %23 to <4 x i32>
-  %25 = select <4 x i1> %16, <4 x i32> %21, <4 x i32> %24
-  %26 = shl nuw <4 x i32> %13, splat (i32 16)
-  %27 = and <4 x i32> %26, splat (i32 -2147483648)
-  %28 = or <4 x i32> %25, %27
-  %29 = shufflevector <8 x i16> %11, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %30 = bitcast <8 x i16> %29 to <4 x i32>
-  %31 = and <4 x i32> %30, splat (i32 32767)
-  %32 = icmp samesign ugt <4 x i32> %31, splat (i32 31743)
-  %33 = icmp samesign ugt <4 x i32> %31, splat (i32 1023)
-  %34 = shl nuw nsw <4 x i32> %31, splat (i32 13)
-  %35 = add nuw nsw <4 x i32> %34, splat (i32 939524096)
-  %36 = add nuw nsw <4 x i32> %34, splat (i32 947912704)
-  %37 = select <4 x i1> %32, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
-  %38 = add nuw nsw <4 x i32> %35, %37
-  %39 = bitcast <4 x i32> %36 to <4 x float>
-  %40 = fadd <4 x float> %39, splat (float 0xBF10000000000000)
-  %41 = bitcast <4 x float> %40 to <4 x i32>
-  %42 = select <4 x i1> %33, <4 x i32> %38, <4 x i32> %41
-  %43 = shl nuw <4 x i32> %30, splat (i32 16)
-  %44 = and <4 x i32> %43, splat (i32 -2147483648)
-  %45 = or <4 x i32> %42, %44
-  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %47 = bitcast <4 x i32> %28 to <4 x float>
-  %48 = shufflevector <4 x float> %47, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %49 = bitcast <4 x i32> %45 to <4 x float>
+  %14 = bitcast <8 x i16> %12 to <4 x i32>
+  %15 = and <4 x i32> %14, splat (i32 32767)
+  %16 = icmp samesign ugt <4 x i32> %15, splat (i32 31743)
+  %17 = icmp samesign ugt <4 x i32> %15, splat (i32 1023)
+  %18 = shl nuw nsw <4 x i32> %15, splat (i32 13)
+  %19 = add nuw nsw <4 x i32> %18, splat (i32 939524096)
+  %20 = add nuw nsw <4 x i32> %18, splat (i32 947912704)
+  %21 = select <4 x i1> %16, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
+  %22 = add nuw nsw <4 x i32> %19, %21
+  %23 = bitcast <4 x i32> %20 to <4 x float>
+  %24 = fadd <4 x float> %23, splat (float 0xBF10000000000000)
+  %25 = bitcast <4 x float> %24 to <4 x i32>
+  %26 = select <4 x i1> %17, <4 x i32> %22, <4 x i32> %25
+  %27 = shl nuw <4 x i32> %13, splat (i32 16)
+  %28 = and <4 x i32> %27, splat (i32 -2147483648)
+  %29 = or <4 x i32> %26, %28
+  %30 = shufflevector <8 x i16> %11, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %31 = bitcast <8 x i16> %30 to <4 x i32>
+  %32 = bitcast <8 x i16> %30 to <4 x i32>
+  %33 = and <4 x i32> %32, splat (i32 32767)
+  %34 = icmp samesign ugt <4 x i32> %33, splat (i32 31743)
+  %35 = icmp samesign ugt <4 x i32> %33, splat (i32 1023)
+  %36 = shl nuw nsw <4 x i32> %33, splat (i32 13)
+  %37 = add nuw nsw <4 x i32> %36, splat (i32 939524096)
+  %38 = add nuw nsw <4 x i32> %36, splat (i32 947912704)
+  %39 = select <4 x i1> %34, <4 x i32> splat (i32 939524096), <4 x i32> zeroinitializer
+  %40 = add nuw nsw <4 x i32> %37, %39
+  %41 = bitcast <4 x i32> %38 to <4 x float>
+  %42 = fadd <4 x float> %41, splat (float 0xBF10000000000000)
+  %43 = bitcast <4 x float> %42 to <4 x i32>
+  %44 = select <4 x i1> %35, <4 x i32> %40, <4 x i32> %43
+  %45 = shl nuw <4 x i32> %31, splat (i32 16)
+  %46 = and <4 x i32> %45, splat (i32 -2147483648)
+  %47 = or <4 x i32> %44, %46
+  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %49 = bitcast <4 x i32> %29 to <4 x float>
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  store <4 x float> %48, ptr %.0, align 1, !tbaa !4
-  store <4 x float> %50, ptr %46, align 1, !tbaa !4
-  %51 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %52 = getelementptr inbounds nuw i8, ptr %.050, i64 16
-  %.not56 = icmp ugt ptr %51, %10
-  br i1 %.not56, label %53, label %.backedge.backedge
+  %51 = bitcast <4 x i32> %47 to <4 x float>
+  %52 = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x float> %50, ptr %.0, align 1, !tbaa !4
+  store <4 x float> %52, ptr %48, align 1, !tbaa !4
+  %53 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.050, i64 16
+  %.not56 = icmp ugt ptr %53, %10
+  br i1 %.not56, label %55, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %53
-  %.050.be = phi ptr [ %52, %.backedge ], [ %9, %53 ]
-  %.0.be = phi ptr [ %51, %.backedge ], [ %10, %53 ]
+.backedge.backedge:                               ; preds = %.backedge, %55
+  %.050.be = phi ptr [ %54, %.backedge ], [ %9, %55 ]
+  %.0.be = phi ptr [ %53, %.backedge ], [ %10, %55 ]
   br label %.backedge, !llvm.loop !399
 
-53:                                               ; preds = %.backedge
-  %54 = icmp eq ptr %51, %5
-  br i1 %54, label %.loopexit, label %.backedge.backedge
+55:                                               ; preds = %.backedge
+  %56 = icmp eq ptr %53, %5
+  br i1 %56, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader68
-  %.151.lcssa = phi ptr [ %2, %.preheader68 ], [ %106, %.lr.ph ]
+  %.151.lcssa = phi ptr [ %2, %.preheader68 ], [ %108, %.lr.ph ]
   %.pn.lcssa = phi ptr [ %0, %.preheader68 ], [ %.173, %.lr.ph ]
-  %55 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %55, label %.lr.ph77, label %.loopexit
+  %57 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %57, label %.lr.ph77, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.173 = phi ptr [ %.1, %.lr.ph ], [ %.169, %.lr.ph.preheader ]
   %.pn72 = phi ptr [ %.173, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.15171 = phi ptr [ %106, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.15171 = phi ptr [ %108, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.173) #24, !srcloc !400
-  %56 = getelementptr inbounds nuw i8, ptr %.15171, i64 2
-  %57 = load i16, ptr %56, align 2
-  %58 = zext i16 %57 to i32
-  %59 = shl nuw nsw i32 %58, 13
-  %60 = and i32 %59, 268427264
-  %61 = bitcast i32 %60 to float
-  %62 = fmul float %61, 0x46F0000000000000
-  %63 = bitcast float %62 to i32
-  %64 = fcmp ult float %62, 6.553600e+04
-  %65 = or i32 %63, 2139095040
-  %.sroa.0.0.i = select i1 %64, i32 %63, i32 %65
-  %.signext.i = sext i16 %57 to i32
-  %66 = and i32 %.signext.i, -2147483648
-  %67 = or i32 %.sroa.0.0.i, %66
-  store i32 %67, ptr %.pn72, align 4, !tbaa !50
-  %68 = load i16, ptr %.15171, align 2
-  %69 = zext i16 %68 to i32
-  %70 = shl nuw nsw i32 %69, 13
-  %71 = and i32 %70, 268427264
-  %72 = bitcast i32 %71 to float
-  %73 = fmul float %72, 0x46F0000000000000
-  %74 = bitcast float %73 to i32
-  %75 = fcmp ult float %73, 6.553600e+04
-  %76 = or i32 %74, 2139095040
-  %.sroa.0.0.i57 = select i1 %75, i32 %74, i32 %76
-  %.signext.i58 = sext i16 %68 to i32
-  %77 = and i32 %.signext.i58, -2147483648
-  %78 = or i32 %.sroa.0.0.i57, %77
-  %79 = getelementptr inbounds nuw i8, ptr %.pn72, i64 4
-  store i32 %78, ptr %79, align 4, !tbaa !50
-  %80 = getelementptr inbounds nuw i8, ptr %.15171, i64 6
-  %81 = load i16, ptr %80, align 2
-  %82 = zext i16 %81 to i32
-  %83 = shl nuw nsw i32 %82, 13
-  %84 = and i32 %83, 268427264
-  %85 = bitcast i32 %84 to float
-  %86 = fmul float %85, 0x46F0000000000000
-  %87 = bitcast float %86 to i32
-  %88 = fcmp ult float %86, 6.553600e+04
-  %89 = or i32 %87, 2139095040
-  %.sroa.0.0.i59 = select i1 %88, i32 %87, i32 %89
-  %.signext.i60 = sext i16 %81 to i32
-  %90 = and i32 %.signext.i60, -2147483648
-  %91 = or i32 %.sroa.0.0.i59, %90
-  %92 = getelementptr inbounds nuw i8, ptr %.pn72, i64 8
-  store i32 %91, ptr %92, align 4, !tbaa !50
-  %93 = getelementptr inbounds nuw i8, ptr %.15171, i64 4
-  %94 = load i16, ptr %93, align 2
-  %95 = zext i16 %94 to i32
-  %96 = shl nuw nsw i32 %95, 13
-  %97 = and i32 %96, 268427264
-  %98 = bitcast i32 %97 to float
-  %99 = fmul float %98, 0x46F0000000000000
-  %100 = bitcast float %99 to i32
-  %101 = fcmp ult float %99, 6.553600e+04
-  %102 = or i32 %100, 2139095040
-  %.sroa.0.0.i61 = select i1 %101, i32 %100, i32 %102
-  %.signext.i62 = sext i16 %94 to i32
-  %103 = and i32 %.signext.i62, -2147483648
-  %104 = or i32 %.sroa.0.0.i61, %103
-  %105 = getelementptr inbounds nuw i8, ptr %.pn72, i64 12
-  store i32 %104, ptr %105, align 4, !tbaa !50
-  %106 = getelementptr inbounds nuw i8, ptr %.15171, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.15171, i64 2
+  %59 = load i16, ptr %58, align 2
+  %60 = zext i16 %59 to i32
+  %61 = shl nuw nsw i32 %60, 13
+  %62 = and i32 %61, 268427264
+  %63 = bitcast i32 %62 to float
+  %64 = fmul float %63, 0x46F0000000000000
+  %65 = bitcast float %64 to i32
+  %66 = fcmp ult float %64, 6.553600e+04
+  %67 = or i32 %65, 2139095040
+  %.sroa.0.0.i = select i1 %66, i32 %65, i32 %67
+  %.signext.i = sext i16 %59 to i32
+  %68 = and i32 %.signext.i, -2147483648
+  %69 = or i32 %.sroa.0.0.i, %68
+  store i32 %69, ptr %.pn72, align 4, !tbaa !50
+  %70 = load i16, ptr %.15171, align 2
+  %71 = zext i16 %70 to i32
+  %72 = shl nuw nsw i32 %71, 13
+  %73 = and i32 %72, 268427264
+  %74 = bitcast i32 %73 to float
+  %75 = fmul float %74, 0x46F0000000000000
+  %76 = bitcast float %75 to i32
+  %77 = fcmp ult float %75, 6.553600e+04
+  %78 = or i32 %76, 2139095040
+  %.sroa.0.0.i57 = select i1 %77, i32 %76, i32 %78
+  %.signext.i58 = sext i16 %70 to i32
+  %79 = and i32 %.signext.i58, -2147483648
+  %80 = or i32 %.sroa.0.0.i57, %79
+  %81 = getelementptr inbounds nuw i8, ptr %.pn72, i64 4
+  store i32 %80, ptr %81, align 4, !tbaa !50
+  %82 = getelementptr inbounds nuw i8, ptr %.15171, i64 6
+  %83 = load i16, ptr %82, align 2
+  %84 = zext i16 %83 to i32
+  %85 = shl nuw nsw i32 %84, 13
+  %86 = and i32 %85, 268427264
+  %87 = bitcast i32 %86 to float
+  %88 = fmul float %87, 0x46F0000000000000
+  %89 = bitcast float %88 to i32
+  %90 = fcmp ult float %88, 6.553600e+04
+  %91 = or i32 %89, 2139095040
+  %.sroa.0.0.i59 = select i1 %90, i32 %89, i32 %91
+  %.signext.i60 = sext i16 %83 to i32
+  %92 = and i32 %.signext.i60, -2147483648
+  %93 = or i32 %.sroa.0.0.i59, %92
+  %94 = getelementptr inbounds nuw i8, ptr %.pn72, i64 8
+  store i32 %93, ptr %94, align 4, !tbaa !50
+  %95 = getelementptr inbounds nuw i8, ptr %.15171, i64 4
+  %96 = load i16, ptr %95, align 2
+  %97 = zext i16 %96 to i32
+  %98 = shl nuw nsw i32 %97, 13
+  %99 = and i32 %98, 268427264
+  %100 = bitcast i32 %99 to float
+  %101 = fmul float %100, 0x46F0000000000000
+  %102 = bitcast float %101 to i32
+  %103 = fcmp ult float %101, 6.553600e+04
+  %104 = or i32 %102, 2139095040
+  %.sroa.0.0.i61 = select i1 %103, i32 %102, i32 %104
+  %.signext.i62 = sext i16 %96 to i32
+  %105 = and i32 %.signext.i62, -2147483648
+  %106 = or i32 %.sroa.0.0.i61, %105
+  %107 = getelementptr inbounds nuw i8, ptr %.pn72, i64 12
+  store i32 %106, ptr %107, align 4, !tbaa !50
+  %108 = getelementptr inbounds nuw i8, ptr %.15171, i64 8
   %.1 = getelementptr inbounds nuw i8, ptr %.173, i64 16
   %.not = icmp ugt ptr %.1, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !401
 
 .lr.ph77:                                         ; preds = %.preheader, %.lr.ph77
-  %.276 = phi ptr [ %131, %.lr.ph77 ], [ %.pn.lcssa, %.preheader ]
-  %.25275 = phi ptr [ %132, %.lr.ph77 ], [ %.151.lcssa, %.preheader ]
+  %.276 = phi ptr [ %133, %.lr.ph77 ], [ %.pn.lcssa, %.preheader ]
+  %.25275 = phi ptr [ %134, %.lr.ph77 ], [ %.151.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.276) #24, !srcloc !402
-  %107 = getelementptr inbounds nuw i8, ptr %.25275, i64 2
-  %108 = load i16, ptr %107, align 2
-  %109 = zext i16 %108 to i32
-  %110 = shl nuw nsw i32 %109, 13
-  %111 = and i32 %110, 268427264
-  %112 = bitcast i32 %111 to float
-  %113 = fmul float %112, 0x46F0000000000000
-  %114 = bitcast float %113 to i32
-  %115 = fcmp ult float %113, 6.553600e+04
-  %116 = or i32 %114, 2139095040
-  %.sroa.0.0.i63 = select i1 %115, i32 %114, i32 %116
-  %.signext.i64 = sext i16 %108 to i32
-  %117 = and i32 %.signext.i64, -2147483648
-  %118 = or i32 %.sroa.0.0.i63, %117
-  store i32 %118, ptr %.276, align 4, !tbaa !50
-  %119 = load i16, ptr %.25275, align 2
-  %120 = zext i16 %119 to i32
-  %121 = shl nuw nsw i32 %120, 13
-  %122 = and i32 %121, 268427264
-  %123 = bitcast i32 %122 to float
-  %124 = fmul float %123, 0x46F0000000000000
-  %125 = bitcast float %124 to i32
-  %126 = fcmp ult float %124, 6.553600e+04
-  %127 = or i32 %125, 2139095040
-  %.sroa.0.0.i65 = select i1 %126, i32 %125, i32 %127
-  %.signext.i66 = sext i16 %119 to i32
-  %128 = and i32 %.signext.i66, -2147483648
-  %129 = or i32 %.sroa.0.0.i65, %128
-  %130 = getelementptr inbounds nuw i8, ptr %.276, i64 4
-  store i32 %129, ptr %130, align 4, !tbaa !50
-  %131 = getelementptr inbounds nuw i8, ptr %.276, i64 8
-  %132 = getelementptr inbounds nuw i8, ptr %.25275, i64 4
-  %133 = icmp ult ptr %131, %5
-  br i1 %133, label %.lr.ph77, label %.loopexit, !llvm.loop !403
+  %109 = getelementptr inbounds nuw i8, ptr %.25275, i64 2
+  %110 = load i16, ptr %109, align 2
+  %111 = zext i16 %110 to i32
+  %112 = shl nuw nsw i32 %111, 13
+  %113 = and i32 %112, 268427264
+  %114 = bitcast i32 %113 to float
+  %115 = fmul float %114, 0x46F0000000000000
+  %116 = bitcast float %115 to i32
+  %117 = fcmp ult float %115, 6.553600e+04
+  %118 = or i32 %116, 2139095040
+  %.sroa.0.0.i63 = select i1 %117, i32 %116, i32 %118
+  %.signext.i64 = sext i16 %110 to i32
+  %119 = and i32 %.signext.i64, -2147483648
+  %120 = or i32 %.sroa.0.0.i63, %119
+  store i32 %120, ptr %.276, align 4, !tbaa !50
+  %121 = load i16, ptr %.25275, align 2
+  %122 = zext i16 %121 to i32
+  %123 = shl nuw nsw i32 %122, 13
+  %124 = and i32 %123, 268427264
+  %125 = bitcast i32 %124 to float
+  %126 = fmul float %125, 0x46F0000000000000
+  %127 = bitcast float %126 to i32
+  %128 = fcmp ult float %126, 6.553600e+04
+  %129 = or i32 %127, 2139095040
+  %.sroa.0.0.i65 = select i1 %128, i32 %127, i32 %129
+  %.signext.i66 = sext i16 %121 to i32
+  %130 = and i32 %.signext.i66, -2147483648
+  %131 = or i32 %.sroa.0.0.i65, %130
+  %132 = getelementptr inbounds nuw i8, ptr %.276, i64 4
+  store i32 %131, ptr %132, align 4, !tbaa !50
+  %133 = getelementptr inbounds nuw i8, ptr %.276, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.25275, i64 4
+  %135 = icmp ult ptr %133, %5
+  br i1 %135, label %.lr.ph77, label %.loopexit, !llvm.loop !403
 
-.loopexit:                                        ; preds = %.lr.ph77, %53, %.preheader
+.loopexit:                                        ; preds = %.lr.ph77, %55, %.preheader
   ret void
 }
 
@@ -13216,327 +13162,311 @@ define void @stbir__encode_half_float_linear_AR(ptr noundef %0, i32 noundef %1, 
   %16 = and <4 x i32> %14, splat (i32 2147483647)
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = fcmp uno <4 x float> %17, zeroinitializer
-  %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = icmp samesign ugt <4 x i32> %16, splat (i32 1199570943)
-  %21 = bitcast <4 x i32> %19 to <2 x i64>
-  %22 = and <2 x i64> %21, splat (i64 2199023256064)
-  %23 = or disjoint <2 x i64> %22, splat (i64 136339441875968)
-  %24 = icmp samesign ugt <4 x i32> %16, splat (i32 947912703)
-  %25 = fadd <4 x float> %17, splat (float 5.000000e-01)
-  %26 = bitcast <4 x float> %25 to <4 x i32>
-  %27 = add <4 x i32> %26, splat (i32 -1056964608)
-  %28 = lshr <4 x i32> %14, splat (i32 13)
-  %.neg.i = and <4 x i32> %28, splat (i32 1)
-  %29 = add nsw <4 x i32> %16, splat (i32 -939520001)
-  %30 = add nsw <4 x i32> %29, %.neg.i
-  %31 = lshr <4 x i32> %30, splat (i32 13)
-  %32 = select <4 x i1> %24, <4 x i32> %31, <4 x i32> %27
-  %33 = select <4 x i1> %20, <4 x i32> zeroinitializer, <4 x i32> %32
-  %34 = bitcast <4 x i32> %33 to <2 x i64>
-  %35 = sext <4 x i1> %20 to <4 x i32>
-  %36 = bitcast <4 x i32> %35 to <2 x i64>
-  %37 = and <2 x i64> %23, %36
-  %38 = ashr <4 x i32> %14, splat (i32 16)
-  %39 = bitcast <4 x i32> %38 to <2 x i64>
-  %40 = and <2 x i64> %39, splat (i64 -140733193420800)
-  %41 = or <2 x i64> %40, %34
-  %42 = or <2 x i64> %41, %37
-  %43 = and <4 x i32> %15, splat (i32 2147483647)
-  %44 = bitcast <4 x i32> %43 to <4 x float>
-  %45 = fcmp uno <4 x float> %44, zeroinitializer
-  %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = icmp samesign ugt <4 x i32> %43, splat (i32 1199570943)
-  %48 = bitcast <4 x i32> %46 to <2 x i64>
-  %49 = and <2 x i64> %48, splat (i64 2199023256064)
-  %50 = or disjoint <2 x i64> %49, splat (i64 136339441875968)
-  %51 = icmp samesign ugt <4 x i32> %43, splat (i32 947912703)
-  %52 = fadd <4 x float> %44, splat (float 5.000000e-01)
-  %53 = bitcast <4 x float> %52 to <4 x i32>
-  %54 = add <4 x i32> %53, splat (i32 -1056964608)
-  %55 = lshr <4 x i32> %15, splat (i32 13)
-  %.neg69.i = and <4 x i32> %55, splat (i32 1)
-  %56 = add nsw <4 x i32> %43, splat (i32 -939520001)
-  %57 = add nsw <4 x i32> %56, %.neg69.i
-  %58 = lshr <4 x i32> %57, splat (i32 13)
-  %59 = select <4 x i1> %51, <4 x i32> %58, <4 x i32> %54
-  %60 = select <4 x i1> %47, <4 x i32> zeroinitializer, <4 x i32> %59
-  %61 = bitcast <4 x i32> %60 to <2 x i64>
-  %62 = sext <4 x i1> %47 to <4 x i32>
-  %63 = bitcast <4 x i32> %62 to <2 x i64>
-  %64 = and <2 x i64> %50, %63
-  %65 = ashr <4 x i32> %15, splat (i32 16)
-  %66 = bitcast <4 x i32> %65 to <2 x i64>
-  %67 = and <2 x i64> %66, splat (i64 -140733193420800)
-  %68 = or <2 x i64> %67, %61
-  %69 = or <2 x i64> %68, %64
-  %70 = bitcast <2 x i64> %42 to <4 x i32>
-  %71 = bitcast <2 x i64> %69 to <4 x i32>
-  %72 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %70, <4 x i32> %71)
-  store <8 x i16> %72, ptr %.047, align 1, !tbaa !4
-  %73 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %74 = getelementptr inbounds nuw i8, ptr %.047, i64 16
-  %.not53 = icmp ugt ptr %74, %10
-  br i1 %.not53, label %75, label %.backedge.backedge
+  %19 = icmp samesign ugt <4 x i32> %16, splat (i32 1199570943)
+  %.inner101 = select <4 x i1> %18, <4 x i32> splat (i32 32256), <4 x i32> splat (i32 31744)
+  %20 = icmp samesign ugt <4 x i32> %16, splat (i32 947912703)
+  %21 = fadd <4 x float> %17, splat (float 5.000000e-01)
+  %22 = bitcast <4 x float> %21 to <4 x i32>
+  %23 = add <4 x i32> %22, splat (i32 -1056964608)
+  %24 = lshr <4 x i32> %14, splat (i32 13)
+  %.neg.i = and <4 x i32> %24, splat (i32 1)
+  %25 = add nsw <4 x i32> %16, splat (i32 -939520001)
+  %26 = add nsw <4 x i32> %25, %.neg.i
+  %27 = lshr <4 x i32> %26, splat (i32 13)
+  %28 = select <4 x i1> %20, <4 x i32> %27, <4 x i32> %23
+  %29 = select <4 x i1> %19, <4 x i32> zeroinitializer, <4 x i32> %28
+  %.inner102 = select <4 x i1> %19, <4 x i32> %.inner101, <4 x i32> zeroinitializer
+  %30 = ashr <4 x i32> %14, splat (i32 16)
+  %.inner103 = and <4 x i32> %30, splat (i32 -32768)
+  %.inner104 = or <4 x i32> %.inner103, %29
+  %.inner105 = or <4 x i32> %.inner104, %.inner102
+  %31 = and <4 x i32> %15, splat (i32 2147483647)
+  %32 = bitcast <4 x i32> %31 to <4 x float>
+  %33 = fcmp uno <4 x float> %32, zeroinitializer
+  %34 = icmp samesign ugt <4 x i32> %31, splat (i32 1199570943)
+  %.inner107 = select <4 x i1> %33, <4 x i32> splat (i32 32256), <4 x i32> splat (i32 31744)
+  %35 = icmp samesign ugt <4 x i32> %31, splat (i32 947912703)
+  %36 = fadd <4 x float> %32, splat (float 5.000000e-01)
+  %37 = bitcast <4 x float> %36 to <4 x i32>
+  %38 = add <4 x i32> %37, splat (i32 -1056964608)
+  %39 = lshr <4 x i32> %15, splat (i32 13)
+  %.neg69.i = and <4 x i32> %39, splat (i32 1)
+  %40 = add nsw <4 x i32> %31, splat (i32 -939520001)
+  %41 = add nsw <4 x i32> %40, %.neg69.i
+  %42 = lshr <4 x i32> %41, splat (i32 13)
+  %43 = select <4 x i1> %35, <4 x i32> %42, <4 x i32> %38
+  %44 = select <4 x i1> %34, <4 x i32> zeroinitializer, <4 x i32> %43
+  %.inner108 = select <4 x i1> %34, <4 x i32> %.inner107, <4 x i32> zeroinitializer
+  %45 = ashr <4 x i32> %15, splat (i32 16)
+  %.inner109 = and <4 x i32> %45, splat (i32 -32768)
+  %.inner110 = or <4 x i32> %.inner109, %44
+  %.inner111 = or <4 x i32> %.inner110, %.inner108
+  %46 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %.inner105, <4 x i32> %.inner111)
+  store <8 x i16> %46, ptr %.047, align 1, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.047, i64 16
+  %.not53 = icmp ugt ptr %48, %10
+  br i1 %.not53, label %49, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %75
-  %.047.be = phi ptr [ %74, %.backedge ], [ %10, %75 ]
-  %.0.be = phi ptr [ %73, %.backedge ], [ %9, %75 ]
+.backedge.backedge:                               ; preds = %.backedge, %49
+  %.047.be = phi ptr [ %48, %.backedge ], [ %10, %49 ]
+  %.0.be = phi ptr [ %47, %.backedge ], [ %9, %49 ]
   br label %.backedge, !llvm.loop !405
 
-75:                                               ; preds = %.backedge
-  %76 = icmp eq ptr %74, %5
-  br i1 %76, label %.loopexit, label %.backedge.backedge
+49:                                               ; preds = %.backedge
+  %50 = icmp eq ptr %48, %5
+  br i1 %50, label %.loopexit, label %.backedge.backedge
 
 .preheader:                                       ; preds = %stbir__float_to_half.exit59, %.preheader71
   %.pn.lcssa = phi ptr [ %0, %.preheader71 ], [ %.14876, %stbir__float_to_half.exit59 ]
-  %.1.lcssa = phi ptr [ %2, %.preheader71 ], [ %176, %stbir__float_to_half.exit59 ]
-  %77 = icmp ult ptr %.pn.lcssa, %5
-  br i1 %77, label %.lr.ph80, label %.loopexit
+  %.1.lcssa = phi ptr [ %2, %.preheader71 ], [ %150, %stbir__float_to_half.exit59 ]
+  %51 = icmp ult ptr %.pn.lcssa, %5
+  br i1 %51, label %.lr.ph80, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__float_to_half.exit59
   %.14876 = phi ptr [ %.148, %stbir__float_to_half.exit59 ], [ %.14872, %.lr.ph.preheader ]
-  %.175 = phi ptr [ %176, %stbir__float_to_half.exit59 ], [ %2, %.lr.ph.preheader ]
+  %.175 = phi ptr [ %150, %stbir__float_to_half.exit59 ], [ %2, %.lr.ph.preheader ]
   %.pn74 = phi ptr [ %.14876, %stbir__float_to_half.exit59 ], [ %0, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.14876) #24, !srcloc !406
-  %78 = getelementptr inbounds nuw i8, ptr %.175, i64 4
-  %79 = load float, ptr %78, align 4, !tbaa !50
-  %80 = tail call float @llvm.fabs.f32(float %79)
-  %81 = bitcast float %80 to i32
-  %82 = icmp samesign ugt i32 %81, 1199570943
-  br i1 %82, label %83, label %86
+  %52 = getelementptr inbounds nuw i8, ptr %.175, i64 4
+  %53 = load float, ptr %52, align 4, !tbaa !50
+  %54 = tail call float @llvm.fabs.f32(float %53)
+  %55 = bitcast float %54 to i32
+  %56 = icmp samesign ugt i32 %55, 1199570943
+  br i1 %56, label %57, label %60
 
-83:                                               ; preds = %.lr.ph
-  %84 = icmp samesign ugt i32 %81, 2139095040
-  %85 = select i1 %84, i32 32256, i32 31744
+57:                                               ; preds = %.lr.ph
+  %58 = icmp samesign ugt i32 %55, 2139095040
+  %59 = select i1 %58, i32 32256, i32 31744
   br label %stbir__float_to_half.exit
 
-86:                                               ; preds = %.lr.ph
-  %87 = icmp samesign ult i32 %81, 947912704
-  br i1 %87, label %88, label %91
+60:                                               ; preds = %.lr.ph
+  %61 = icmp samesign ult i32 %55, 947912704
+  br i1 %61, label %62, label %65
 
-88:                                               ; preds = %86
-  %89 = fadd float %80, 5.000000e-01
-  %90 = bitcast float %89 to i32
+62:                                               ; preds = %60
+  %63 = fadd float %54, 5.000000e-01
+  %64 = bitcast float %63 to i32
   br label %stbir__float_to_half.exit
 
-91:                                               ; preds = %86
-  %92 = lshr i32 %81, 13
-  %93 = and i32 %92, 1
-  %94 = add nuw nsw i32 %81, 134221823
-  %95 = add nuw nsw i32 %94, %93
-  %96 = lshr i32 %95, 13
+65:                                               ; preds = %60
+  %66 = lshr i32 %55, 13
+  %67 = and i32 %66, 1
+  %68 = add nuw nsw i32 %55, 134221823
+  %69 = add nuw nsw i32 %68, %67
+  %70 = lshr i32 %69, 13
   br label %stbir__float_to_half.exit
 
-stbir__float_to_half.exit:                        ; preds = %83, %88, %91
-  %.sroa.016.0.i = phi i32 [ %85, %83 ], [ %90, %88 ], [ %96, %91 ]
-  %97 = bitcast float %79 to i32
-  %98 = lshr i32 %97, 16
-  %99 = and i32 %98, 32768
-  %100 = or i32 %.sroa.016.0.i, %99
-  %101 = trunc i32 %100 to i16
-  store i16 %101, ptr %.pn74, align 2, !tbaa !4
-  %102 = getelementptr inbounds nuw i8, ptr %.pn74, i64 2
-  %103 = load float, ptr %.175, align 4, !tbaa !50
-  %104 = tail call float @llvm.fabs.f32(float %103)
-  %105 = bitcast float %104 to i32
-  %106 = icmp samesign ugt i32 %105, 1199570943
-  br i1 %106, label %107, label %110
+stbir__float_to_half.exit:                        ; preds = %57, %62, %65
+  %.sroa.016.0.i = phi i32 [ %59, %57 ], [ %64, %62 ], [ %70, %65 ]
+  %71 = bitcast float %53 to i32
+  %72 = lshr i32 %71, 16
+  %73 = and i32 %72, 32768
+  %74 = or i32 %.sroa.016.0.i, %73
+  %75 = trunc i32 %74 to i16
+  store i16 %75, ptr %.pn74, align 2, !tbaa !4
+  %76 = getelementptr inbounds nuw i8, ptr %.pn74, i64 2
+  %77 = load float, ptr %.175, align 4, !tbaa !50
+  %78 = tail call float @llvm.fabs.f32(float %77)
+  %79 = bitcast float %78 to i32
+  %80 = icmp samesign ugt i32 %79, 1199570943
+  br i1 %80, label %81, label %84
 
-107:                                              ; preds = %stbir__float_to_half.exit
-  %108 = icmp samesign ugt i32 %105, 2139095040
-  %109 = select i1 %108, i32 32256, i32 31744
+81:                                               ; preds = %stbir__float_to_half.exit
+  %82 = icmp samesign ugt i32 %79, 2139095040
+  %83 = select i1 %82, i32 32256, i32 31744
   br label %stbir__float_to_half.exit55
 
-110:                                              ; preds = %stbir__float_to_half.exit
-  %111 = icmp samesign ult i32 %105, 947912704
-  br i1 %111, label %112, label %115
+84:                                               ; preds = %stbir__float_to_half.exit
+  %85 = icmp samesign ult i32 %79, 947912704
+  br i1 %85, label %86, label %89
 
-112:                                              ; preds = %110
-  %113 = fadd float %104, 5.000000e-01
-  %114 = bitcast float %113 to i32
+86:                                               ; preds = %84
+  %87 = fadd float %78, 5.000000e-01
+  %88 = bitcast float %87 to i32
   br label %stbir__float_to_half.exit55
 
-115:                                              ; preds = %110
-  %116 = lshr i32 %105, 13
-  %117 = and i32 %116, 1
-  %118 = add nuw nsw i32 %105, 134221823
-  %119 = add nuw nsw i32 %118, %117
-  %120 = lshr i32 %119, 13
+89:                                               ; preds = %84
+  %90 = lshr i32 %79, 13
+  %91 = and i32 %90, 1
+  %92 = add nuw nsw i32 %79, 134221823
+  %93 = add nuw nsw i32 %92, %91
+  %94 = lshr i32 %93, 13
   br label %stbir__float_to_half.exit55
 
-stbir__float_to_half.exit55:                      ; preds = %107, %112, %115
-  %.sroa.016.0.i54 = phi i32 [ %109, %107 ], [ %114, %112 ], [ %120, %115 ]
-  %121 = bitcast float %103 to i32
-  %122 = lshr i32 %121, 16
-  %123 = and i32 %122, 32768
-  %124 = or i32 %.sroa.016.0.i54, %123
-  %125 = trunc i32 %124 to i16
-  store i16 %125, ptr %102, align 2, !tbaa !4
-  %126 = getelementptr inbounds nuw i8, ptr %.pn74, i64 4
-  %127 = getelementptr inbounds nuw i8, ptr %.175, i64 12
-  %128 = load float, ptr %127, align 4, !tbaa !50
-  %129 = tail call float @llvm.fabs.f32(float %128)
-  %130 = bitcast float %129 to i32
-  %131 = icmp samesign ugt i32 %130, 1199570943
-  br i1 %131, label %132, label %135
+stbir__float_to_half.exit55:                      ; preds = %81, %86, %89
+  %.sroa.016.0.i54 = phi i32 [ %83, %81 ], [ %88, %86 ], [ %94, %89 ]
+  %95 = bitcast float %77 to i32
+  %96 = lshr i32 %95, 16
+  %97 = and i32 %96, 32768
+  %98 = or i32 %.sroa.016.0.i54, %97
+  %99 = trunc i32 %98 to i16
+  store i16 %99, ptr %76, align 2, !tbaa !4
+  %100 = getelementptr inbounds nuw i8, ptr %.pn74, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %.175, i64 12
+  %102 = load float, ptr %101, align 4, !tbaa !50
+  %103 = tail call float @llvm.fabs.f32(float %102)
+  %104 = bitcast float %103 to i32
+  %105 = icmp samesign ugt i32 %104, 1199570943
+  br i1 %105, label %106, label %109
 
-132:                                              ; preds = %stbir__float_to_half.exit55
-  %133 = icmp samesign ugt i32 %130, 2139095040
-  %134 = select i1 %133, i32 32256, i32 31744
+106:                                              ; preds = %stbir__float_to_half.exit55
+  %107 = icmp samesign ugt i32 %104, 2139095040
+  %108 = select i1 %107, i32 32256, i32 31744
   br label %stbir__float_to_half.exit57
 
-135:                                              ; preds = %stbir__float_to_half.exit55
-  %136 = icmp samesign ult i32 %130, 947912704
-  br i1 %136, label %137, label %140
+109:                                              ; preds = %stbir__float_to_half.exit55
+  %110 = icmp samesign ult i32 %104, 947912704
+  br i1 %110, label %111, label %114
 
-137:                                              ; preds = %135
-  %138 = fadd float %129, 5.000000e-01
-  %139 = bitcast float %138 to i32
+111:                                              ; preds = %109
+  %112 = fadd float %103, 5.000000e-01
+  %113 = bitcast float %112 to i32
   br label %stbir__float_to_half.exit57
 
-140:                                              ; preds = %135
-  %141 = lshr i32 %130, 13
-  %142 = and i32 %141, 1
-  %143 = add nuw nsw i32 %130, 134221823
-  %144 = add nuw nsw i32 %143, %142
-  %145 = lshr i32 %144, 13
+114:                                              ; preds = %109
+  %115 = lshr i32 %104, 13
+  %116 = and i32 %115, 1
+  %117 = add nuw nsw i32 %104, 134221823
+  %118 = add nuw nsw i32 %117, %116
+  %119 = lshr i32 %118, 13
   br label %stbir__float_to_half.exit57
 
-stbir__float_to_half.exit57:                      ; preds = %132, %137, %140
-  %.sroa.016.0.i56 = phi i32 [ %134, %132 ], [ %139, %137 ], [ %145, %140 ]
-  %146 = bitcast float %128 to i32
-  %147 = lshr i32 %146, 16
-  %148 = and i32 %147, 32768
-  %149 = or i32 %.sroa.016.0.i56, %148
-  %150 = trunc i32 %149 to i16
-  store i16 %150, ptr %126, align 2, !tbaa !4
-  %151 = getelementptr inbounds nuw i8, ptr %.pn74, i64 6
-  %152 = getelementptr inbounds nuw i8, ptr %.175, i64 8
-  %153 = load float, ptr %152, align 4, !tbaa !50
-  %154 = tail call float @llvm.fabs.f32(float %153)
-  %155 = bitcast float %154 to i32
-  %156 = icmp samesign ugt i32 %155, 1199570943
-  br i1 %156, label %157, label %160
+stbir__float_to_half.exit57:                      ; preds = %106, %111, %114
+  %.sroa.016.0.i56 = phi i32 [ %108, %106 ], [ %113, %111 ], [ %119, %114 ]
+  %120 = bitcast float %102 to i32
+  %121 = lshr i32 %120, 16
+  %122 = and i32 %121, 32768
+  %123 = or i32 %.sroa.016.0.i56, %122
+  %124 = trunc i32 %123 to i16
+  store i16 %124, ptr %100, align 2, !tbaa !4
+  %125 = getelementptr inbounds nuw i8, ptr %.pn74, i64 6
+  %126 = getelementptr inbounds nuw i8, ptr %.175, i64 8
+  %127 = load float, ptr %126, align 4, !tbaa !50
+  %128 = tail call float @llvm.fabs.f32(float %127)
+  %129 = bitcast float %128 to i32
+  %130 = icmp samesign ugt i32 %129, 1199570943
+  br i1 %130, label %131, label %134
 
-157:                                              ; preds = %stbir__float_to_half.exit57
-  %158 = icmp samesign ugt i32 %155, 2139095040
-  %159 = select i1 %158, i32 32256, i32 31744
+131:                                              ; preds = %stbir__float_to_half.exit57
+  %132 = icmp samesign ugt i32 %129, 2139095040
+  %133 = select i1 %132, i32 32256, i32 31744
   br label %stbir__float_to_half.exit59
 
-160:                                              ; preds = %stbir__float_to_half.exit57
-  %161 = icmp samesign ult i32 %155, 947912704
-  br i1 %161, label %162, label %165
+134:                                              ; preds = %stbir__float_to_half.exit57
+  %135 = icmp samesign ult i32 %129, 947912704
+  br i1 %135, label %136, label %139
 
-162:                                              ; preds = %160
-  %163 = fadd float %154, 5.000000e-01
-  %164 = bitcast float %163 to i32
+136:                                              ; preds = %134
+  %137 = fadd float %128, 5.000000e-01
+  %138 = bitcast float %137 to i32
   br label %stbir__float_to_half.exit59
 
-165:                                              ; preds = %160
-  %166 = lshr i32 %155, 13
-  %167 = and i32 %166, 1
-  %168 = add nuw nsw i32 %155, 134221823
-  %169 = add nuw nsw i32 %168, %167
-  %170 = lshr i32 %169, 13
+139:                                              ; preds = %134
+  %140 = lshr i32 %129, 13
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %129, 134221823
+  %143 = add nuw nsw i32 %142, %141
+  %144 = lshr i32 %143, 13
   br label %stbir__float_to_half.exit59
 
-stbir__float_to_half.exit59:                      ; preds = %157, %162, %165
-  %.sroa.016.0.i58 = phi i32 [ %159, %157 ], [ %164, %162 ], [ %170, %165 ]
-  %171 = bitcast float %153 to i32
-  %172 = lshr i32 %171, 16
-  %173 = and i32 %172, 32768
-  %174 = or i32 %.sroa.016.0.i58, %173
-  %175 = trunc i32 %174 to i16
-  store i16 %175, ptr %151, align 2, !tbaa !4
-  %176 = getelementptr inbounds nuw i8, ptr %.175, i64 16
+stbir__float_to_half.exit59:                      ; preds = %131, %136, %139
+  %.sroa.016.0.i58 = phi i32 [ %133, %131 ], [ %138, %136 ], [ %144, %139 ]
+  %145 = bitcast float %127 to i32
+  %146 = lshr i32 %145, 16
+  %147 = and i32 %146, 32768
+  %148 = or i32 %.sroa.016.0.i58, %147
+  %149 = trunc i32 %148 to i16
+  store i16 %149, ptr %125, align 2, !tbaa !4
+  %150 = getelementptr inbounds nuw i8, ptr %.175, i64 16
   %.148 = getelementptr inbounds nuw i8, ptr %.14876, i64 8
   %.not = icmp ugt ptr %.148, %5
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !407
 
 .lr.ph80:                                         ; preds = %.preheader, %stbir__float_to_half.exit63
-  %.279 = phi ptr [ %226, %stbir__float_to_half.exit63 ], [ %.1.lcssa, %.preheader ]
-  %.24978 = phi ptr [ %225, %stbir__float_to_half.exit63 ], [ %.pn.lcssa, %.preheader ]
+  %.279 = phi ptr [ %200, %stbir__float_to_half.exit63 ], [ %.1.lcssa, %.preheader ]
+  %.24978 = phi ptr [ %199, %stbir__float_to_half.exit63 ], [ %.pn.lcssa, %.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.24978) #24, !srcloc !408
-  %177 = getelementptr inbounds nuw i8, ptr %.279, i64 4
-  %178 = load float, ptr %177, align 4, !tbaa !50
-  %179 = tail call float @llvm.fabs.f32(float %178)
-  %180 = bitcast float %179 to i32
-  %181 = icmp samesign ugt i32 %180, 1199570943
-  br i1 %181, label %182, label %185
+  %151 = getelementptr inbounds nuw i8, ptr %.279, i64 4
+  %152 = load float, ptr %151, align 4, !tbaa !50
+  %153 = tail call float @llvm.fabs.f32(float %152)
+  %154 = bitcast float %153 to i32
+  %155 = icmp samesign ugt i32 %154, 1199570943
+  br i1 %155, label %156, label %159
 
-182:                                              ; preds = %.lr.ph80
-  %183 = icmp samesign ugt i32 %180, 2139095040
-  %184 = select i1 %183, i32 32256, i32 31744
+156:                                              ; preds = %.lr.ph80
+  %157 = icmp samesign ugt i32 %154, 2139095040
+  %158 = select i1 %157, i32 32256, i32 31744
   br label %stbir__float_to_half.exit61
 
-185:                                              ; preds = %.lr.ph80
-  %186 = icmp samesign ult i32 %180, 947912704
-  br i1 %186, label %187, label %190
+159:                                              ; preds = %.lr.ph80
+  %160 = icmp samesign ult i32 %154, 947912704
+  br i1 %160, label %161, label %164
 
-187:                                              ; preds = %185
-  %188 = fadd float %179, 5.000000e-01
-  %189 = bitcast float %188 to i32
+161:                                              ; preds = %159
+  %162 = fadd float %153, 5.000000e-01
+  %163 = bitcast float %162 to i32
   br label %stbir__float_to_half.exit61
 
-190:                                              ; preds = %185
-  %191 = lshr i32 %180, 13
-  %192 = and i32 %191, 1
-  %193 = add nuw nsw i32 %180, 134221823
-  %194 = add nuw nsw i32 %193, %192
-  %195 = lshr i32 %194, 13
+164:                                              ; preds = %159
+  %165 = lshr i32 %154, 13
+  %166 = and i32 %165, 1
+  %167 = add nuw nsw i32 %154, 134221823
+  %168 = add nuw nsw i32 %167, %166
+  %169 = lshr i32 %168, 13
   br label %stbir__float_to_half.exit61
 
-stbir__float_to_half.exit61:                      ; preds = %182, %187, %190
-  %.sroa.016.0.i60 = phi i32 [ %184, %182 ], [ %189, %187 ], [ %195, %190 ]
-  %196 = bitcast float %178 to i32
-  %197 = lshr i32 %196, 16
-  %198 = and i32 %197, 32768
-  %199 = or i32 %.sroa.016.0.i60, %198
-  %200 = trunc i32 %199 to i16
-  store i16 %200, ptr %.24978, align 2, !tbaa !4
-  %201 = getelementptr inbounds nuw i8, ptr %.24978, i64 2
-  %202 = load float, ptr %.279, align 4, !tbaa !50
-  %203 = tail call float @llvm.fabs.f32(float %202)
-  %204 = bitcast float %203 to i32
-  %205 = icmp samesign ugt i32 %204, 1199570943
-  br i1 %205, label %206, label %209
+stbir__float_to_half.exit61:                      ; preds = %156, %161, %164
+  %.sroa.016.0.i60 = phi i32 [ %158, %156 ], [ %163, %161 ], [ %169, %164 ]
+  %170 = bitcast float %152 to i32
+  %171 = lshr i32 %170, 16
+  %172 = and i32 %171, 32768
+  %173 = or i32 %.sroa.016.0.i60, %172
+  %174 = trunc i32 %173 to i16
+  store i16 %174, ptr %.24978, align 2, !tbaa !4
+  %175 = getelementptr inbounds nuw i8, ptr %.24978, i64 2
+  %176 = load float, ptr %.279, align 4, !tbaa !50
+  %177 = tail call float @llvm.fabs.f32(float %176)
+  %178 = bitcast float %177 to i32
+  %179 = icmp samesign ugt i32 %178, 1199570943
+  br i1 %179, label %180, label %183
 
-206:                                              ; preds = %stbir__float_to_half.exit61
-  %207 = icmp samesign ugt i32 %204, 2139095040
-  %208 = select i1 %207, i32 32256, i32 31744
+180:                                              ; preds = %stbir__float_to_half.exit61
+  %181 = icmp samesign ugt i32 %178, 2139095040
+  %182 = select i1 %181, i32 32256, i32 31744
   br label %stbir__float_to_half.exit63
 
-209:                                              ; preds = %stbir__float_to_half.exit61
-  %210 = icmp samesign ult i32 %204, 947912704
-  br i1 %210, label %211, label %214
+183:                                              ; preds = %stbir__float_to_half.exit61
+  %184 = icmp samesign ult i32 %178, 947912704
+  br i1 %184, label %185, label %188
 
-211:                                              ; preds = %209
-  %212 = fadd float %203, 5.000000e-01
-  %213 = bitcast float %212 to i32
+185:                                              ; preds = %183
+  %186 = fadd float %177, 5.000000e-01
+  %187 = bitcast float %186 to i32
   br label %stbir__float_to_half.exit63
 
-214:                                              ; preds = %209
-  %215 = lshr i32 %204, 13
-  %216 = and i32 %215, 1
-  %217 = add nuw nsw i32 %204, 134221823
-  %218 = add nuw nsw i32 %217, %216
-  %219 = lshr i32 %218, 13
+188:                                              ; preds = %183
+  %189 = lshr i32 %178, 13
+  %190 = and i32 %189, 1
+  %191 = add nuw nsw i32 %178, 134221823
+  %192 = add nuw nsw i32 %191, %190
+  %193 = lshr i32 %192, 13
   br label %stbir__float_to_half.exit63
 
-stbir__float_to_half.exit63:                      ; preds = %206, %211, %214
-  %.sroa.016.0.i62 = phi i32 [ %208, %206 ], [ %213, %211 ], [ %219, %214 ]
-  %220 = bitcast float %202 to i32
-  %221 = lshr i32 %220, 16
-  %222 = and i32 %221, 32768
-  %223 = or i32 %.sroa.016.0.i62, %222
-  %224 = trunc i32 %223 to i16
-  store i16 %224, ptr %201, align 2, !tbaa !4
-  %225 = getelementptr inbounds nuw i8, ptr %.24978, i64 4
-  %226 = getelementptr inbounds nuw i8, ptr %.279, i64 8
-  %227 = icmp ult ptr %225, %5
-  br i1 %227, label %.lr.ph80, label %.loopexit, !llvm.loop !409
+stbir__float_to_half.exit63:                      ; preds = %180, %185, %188
+  %.sroa.016.0.i62 = phi i32 [ %182, %180 ], [ %187, %185 ], [ %193, %188 ]
+  %194 = bitcast float %176 to i32
+  %195 = lshr i32 %194, 16
+  %196 = and i32 %195, 32768
+  %197 = or i32 %.sroa.016.0.i62, %196
+  %198 = trunc i32 %197 to i16
+  store i16 %198, ptr %175, align 2, !tbaa !4
+  %199 = getelementptr inbounds nuw i8, ptr %.24978, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %.279, i64 8
+  %201 = icmp ult ptr %199, %5
+  br i1 %201, label %.lr.ph80, label %.loopexit, !llvm.loop !409
 
-.loopexit:                                        ; preds = %stbir__float_to_half.exit63, %75, %.preheader
+.loopexit:                                        ; preds = %stbir__float_to_half.exit63, %49, %.preheader
   ret void
 }
 
