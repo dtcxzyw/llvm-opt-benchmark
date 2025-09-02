@@ -894,7 +894,7 @@ _ZN4QMapI7QStringP7QActionE6detachEv.exit:        ; preds = %3, %7
   %18 = load ptr, ptr %2, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.121, i64 32
   store ptr %18, ptr %19, align 8
-  br label %30
+  br label %29
 
 .thread:                                          ; preds = %_ZN4QMapI7QStringP7QActionE6detachEv.exit, %14, %13
   %.018.lcssa35 = phi i1 [ %.119.le, %14 ], [ %.119.le, %13 ], [ true, %_ZN4QMapI7QStringP7QActionE6detachEv.exit ]
@@ -905,21 +905,22 @@ _ZN4QMapI7QStringP7QActionE6detachEv.exit:        ; preds = %3, %7
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %22, align 8
   %24 = load atomic i32, ptr %23 monotonic, align 4
-  %25 = add i32 %24, -1
-  %or.cond.not.i.i.i = icmp ult i32 %25, -2
-  br i1 %or.cond.not.i.i.i, label %26, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
+  switch i32 %24, label %25 [
+    i32 -1, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
+    i32 0, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
+  ]
 
-26:                                               ; preds = %.thread
-  %27 = atomicrmw add ptr %23, i32 1 seq_cst, align 4
+25:                                               ; preds = %.thread
+  %26 = atomicrmw add ptr %23, i32 1 seq_cst, align 4
   br label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
 
-_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %.thread, %26
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %29 = load ptr, ptr %2, align 8
-  store ptr %29, ptr %28, align 8
-  br label %30
+_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %.thread, %.thread, %25
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %28 = load ptr, ptr %2, align 8
+  store ptr %28, ptr %27, align 8
+  br label %29
 
-30:                                               ; preds = %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit, %17
+29:                                               ; preds = %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit, %17
   %.sroa.0.0 = phi ptr [ %21, %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit ], [ %.121, %17 ]
   ret ptr %.sroa.0.0
 }
@@ -997,68 +998,69 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeI7QStringP7QActionE4copyEP8QMapDat
   %7 = load ptr, ptr %3, align 8
   store ptr %7, ptr %6, align 8
   %8 = load atomic i32, ptr %7 monotonic, align 4
-  %9 = add i32 %8, -1
-  %or.cond.not.i.i.i = icmp ult i32 %9, -2
-  br i1 %or.cond.not.i.i.i, label %10, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
+  switch i32 %8, label %9 [
+    i32 -1, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
+    i32 0, label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
+  ]
 
-10:                                               ; preds = %2
-  %11 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
+9:                                                ; preds = %2
+  %10 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
   br label %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
 
-_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %2, %10
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = load i64, ptr %0, align 8
-  %15 = and i64 %14, 1
-  %16 = load i64, ptr %5, align 8
-  %17 = and i64 %16, -2
-  %storemerge.i = or disjoint i64 %17, %15
+_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %2, %2, %9
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %12 = load ptr, ptr %4, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = load i64, ptr %0, align 8
+  %14 = and i64 %13, 1
+  %15 = load i64, ptr %5, align 8
+  %16 = and i64 %15, -2
+  %storemerge.i = or disjoint i64 %16, %14
   store i64 %storemerge.i, ptr %5, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %27, label %20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %26, label %19
 
-20:                                               ; preds = %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
-  %21 = tail call noundef ptr @_ZNK8QMapNodeI7QStringP7QActionE4copyEP8QMapDataIS0_S2_E(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull %1)
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %21, ptr %22, align 8
-  %23 = load i64, ptr %21, align 8
-  %24 = and i64 %23, 3
-  %25 = ptrtoint ptr %5 to i64
-  %26 = or i64 %24, %25
-  store i64 %26, ptr %21, align 8
-  br label %29
+19:                                               ; preds = %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
+  %20 = tail call noundef ptr @_ZNK8QMapNodeI7QStringP7QActionE4copyEP8QMapDataIS0_S2_E(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull %1)
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %20, ptr %21, align 8
+  %22 = load i64, ptr %20, align 8
+  %23 = and i64 %22, 3
+  %24 = ptrtoint ptr %5 to i64
+  %25 = or i64 %23, %24
+  store i64 %25, ptr %20, align 8
+  br label %28
 
-27:                                               ; preds = %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %28, align 8
-  br label %29
+26:                                               ; preds = %_ZN8QMapDataI7QStringP7QActionE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %27, align 8
+  br label %28
 
-29:                                               ; preds = %27, %20
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %.not14 = icmp eq ptr %31, null
-  br i1 %.not14, label %common.ret, label %32
+28:                                               ; preds = %26, %19
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %.not14 = icmp eq ptr %30, null
+  br i1 %.not14, label %common.ret, label %31
 
-common.ret16:                                     ; preds = %32, %common.ret
+common.ret16:                                     ; preds = %31, %common.ret
   ret ptr %5
 
-32:                                               ; preds = %29
-  %33 = tail call noundef ptr @_ZNK8QMapNodeI7QStringP7QActionE4copyEP8QMapDataIS0_S2_E(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull %1)
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %33, ptr %34, align 8
-  %35 = load i64, ptr %33, align 8
-  %36 = and i64 %35, 3
-  %37 = ptrtoint ptr %5 to i64
-  %38 = or i64 %36, %37
-  store i64 %38, ptr %33, align 8
+31:                                               ; preds = %28
+  %32 = tail call noundef ptr @_ZNK8QMapNodeI7QStringP7QActionE4copyEP8QMapDataIS0_S2_E(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull %1)
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %32, ptr %33, align 8
+  %34 = load i64, ptr %32, align 8
+  %35 = and i64 %34, 3
+  %36 = ptrtoint ptr %5 to i64
+  %37 = or i64 %35, %36
+  store i64 %37, ptr %32, align 8
   br label %common.ret16
 
-common.ret:                                       ; preds = %29
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %39, align 8
+common.ret:                                       ; preds = %28
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr null, ptr %38, align 8
   br label %common.ret16
 }
 

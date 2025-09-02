@@ -30541,8 +30541,9 @@ _ZN14ide_completion6render18compute_type_match17h6063a0708be85009E.exit: ; preds
           to label %.noexc.i unwind label %188, !noalias !6783
 
 .noexc.i:                                         ; preds = %167
-  %or.cond.not.i.i = icmp samesign ult i8 %182, 3
-  br i1 %or.cond.not.i.i, label %183, label %190
+  %.off.i.i = add nsw i8 %182, -3
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %190, label %183
 
 183:                                              ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !6784
@@ -31930,8 +31931,9 @@ define hidden void @_ZN14ide_completion6render18render_tuple_field17hf2a97039ef6
           to label %.noexc.i15 unwind label %93, !noalias !7041
 
 .noexc.i15:                                       ; preds = %70
-  %or.cond.not.i.i = icmp samesign ult i8 %87, 3
-  br i1 %or.cond.not.i.i, label %88, label %95
+  %.off.i.i = add nsw i8 %87, -3
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %95, label %88
 
 88:                                               ; preds = %.noexc.i15
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !7042
@@ -35537,8 +35539,9 @@ define internal fastcc void @"_ZN14ide_completion6render22render_resolution_path
           to label %.noexc.i unwind label %40, !noalias !7755
 
 .noexc.i:                                         ; preds = %18
-  %or.cond.not.i.i = icmp samesign ult i8 %34, 3
-  br i1 %or.cond.not.i.i, label %35, label %42
+  %.off.i.i = add nsw i8 %34, -3
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %42, label %35
 
 35:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7756

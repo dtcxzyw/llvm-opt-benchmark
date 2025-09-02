@@ -823,8 +823,9 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %2
-  %or.cond.not.i = icmp samesign ult i8 %13, 3
-  br i1 %or.cond.not.i, label %14, label %21
+  %.off.i = add nsw i8 %13, -3
+  %switch.i = icmp ult i8 %.off.i, 2
+  br i1 %switch.i, label %21, label %14
 
 14:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !273
@@ -9454,8 +9455,9 @@ define internal fastcc void @_ZN3hir7symbols15SymbolCollector19collect_from_modu
           to label %.noexc.i.i unwind label %.loopexit828, !noalias !3092
 
 .noexc.i.i:                                       ; preds = %.noexc51
-  %or.cond.not.i.i.i = icmp samesign ult i8 %334, 3
-  br i1 %or.cond.not.i.i.i, label %335, label %341
+  %.off.i.i.i = add nsw i8 %334, -3
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, 2
+  br i1 %switch.i.i.i, label %341, label %335
 
 335:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %143), !noalias !3093
@@ -9582,7 +9584,7 @@ define internal fastcc void @_ZN3hir7symbols15SymbolCollector19collect_from_modu
 .lr.ph.i.i.i.unreachabledefault:                  ; preds = %.lr.ph.i.i.i
   unreachable
 
-default.unreachable994:                           ; preds = %1975, %1799, %1623, %1371, %1195, %1019, %827, %1340, %1164, %.lr.ph.i.i.i747, %.lr.ph.i17.i.i757, %988, %1944, %1768, %1592, %796, %.lr.ph.i17.i.i, %564, %516
+default.unreachable993:                           ; preds = %1975, %1799, %1623, %1371, %1195, %1019, %827, %1340, %1164, %.lr.ph.i.i.i747, %.lr.ph.i17.i.i757, %988, %1944, %1768, %1592, %796, %.lr.ph.i17.i.i, %564, %516
   unreachable
 
 365:                                              ; preds = %.lr.ph.i.i.i
@@ -9619,7 +9621,7 @@ _ZN3hir7symbols15SymbolCollector15push_assoc_item17h6d206058199f5d04E.exit.i.i.i
   %376 = load i32, ptr %.sroa.0.03.i18.i.i, align 4, !range !330, !noalias !3108, !noundef !23
   %377 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i18.i.i, i64 4
   %378 = load i32, ptr %377, align 4, !noalias !3108, !noundef !23
-  switch i32 %376, label %default.unreachable994 [
+  switch i32 %376, label %default.unreachable993 [
     i32 0, label %379
     i32 1, label %380
     i32 2, label %381
@@ -9973,13 +9975,13 @@ _ZN3hir7symbols15SymbolCollector17collect_from_impl17haccaa0857009b08eE.exit: ; 
   %or.cond = select i1 %513, i1 %515, i1 false
   %.old = load i32, ptr %485, align 4
   %.old885 = icmp eq i32 %.old, %177
-  %or.cond1012 = select i1 %or.cond, i1 %.old885, i1 false
+  %or.cond1011 = select i1 %or.cond, i1 %.old885, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %151)
-  br i1 %or.cond1012, label %516, label %"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.exit.thread.us.us"
+  br i1 %or.cond1011, label %516, label %"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.exit.thread.us.us"
 
 516:                                              ; preds = %511
   %517 = load i32, ptr %152, align 4, !range !330, !noundef !23
-  switch i32 %517, label %default.unreachable994 [
+  switch i32 %517, label %default.unreachable993 [
     i32 0, label %522
     i32 1, label %520
     i32 2, label %518
@@ -10109,7 +10111,7 @@ _ZN3hir7symbols15SymbolCollector17collect_from_impl17haccaa0857009b08eE.exit: ; 
 564:                                              ; preds = %559
   call void @llvm.lifetime.end.p0(ptr nonnull %151)
   %565 = load i32, ptr %152, align 4, !range !330, !noundef !23
-  switch i32 %565, label %default.unreachable994 [
+  switch i32 %565, label %default.unreachable993 [
     i32 0, label %568
     i32 1, label %570
     i32 2, label %572
@@ -10789,7 +10791,7 @@ _ZN3hir7symbols15SymbolCollector17collect_from_impl17haccaa0857009b08eE.exit: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !3401)
   %797 = add nsw i8 %791, -24
   %narrow.i.i = call i8 @llvm.umin.i8(i8 %797, i8 2)
-  switch i8 %narrow.i.i, label %default.unreachable994 [
+  switch i8 %narrow.i.i, label %default.unreachable993 [
     i8 0, label %798
     i8 1, label %802
     i8 2, label %805
@@ -10911,7 +10913,7 @@ _ZN3hir7symbols15SymbolCollector17collect_from_impl17haccaa0857009b08eE.exit: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !3416)
   %828 = add nsw i8 %825, -24
   %narrow.i72.i = call i8 @llvm.umin.i8(i8 %828, i8 2)
-  switch i8 %narrow.i72.i, label %default.unreachable994 [
+  switch i8 %narrow.i72.i, label %default.unreachable993 [
     i8 0, label %829
     i8 1, label %833
     i8 2, label %836
@@ -11443,7 +11445,7 @@ _ZN6syntax3ast6traits7HasName4name17h3aee4d35af9e43f9E.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !3578)
   %989 = add nsw i8 %983, -24
   %narrow.i.i123 = call i8 @llvm.umin.i8(i8 %989, i8 2)
-  switch i8 %narrow.i.i123, label %default.unreachable994 [
+  switch i8 %narrow.i.i123, label %default.unreachable993 [
     i8 0, label %990
     i8 1, label %994
     i8 2, label %997
@@ -11567,7 +11569,7 @@ _ZN6syntax3ast6traits7HasName4name17h3aee4d35af9e43f9E.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !3591)
   %1020 = add nsw i8 %1017, -24
   %narrow.i71.i = call i8 @llvm.umin.i8(i8 %1020, i8 2)
-  switch i8 %narrow.i71.i, label %default.unreachable994 [
+  switch i8 %narrow.i71.i, label %default.unreachable993 [
     i8 0, label %1021
     i8 1, label %1025
     i8 2, label %1028
@@ -12041,7 +12043,7 @@ _ZN6syntax3ast6traits7HasName4name17h22f4738518a939aaE.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !3738)
   %1165 = add nsw i8 %1159, -24
   %narrow.i.i202 = call i8 @llvm.umin.i8(i8 %1165, i8 2)
-  switch i8 %narrow.i.i202, label %default.unreachable994 [
+  switch i8 %narrow.i.i202, label %default.unreachable993 [
     i8 0, label %1166
     i8 1, label %1170
     i8 2, label %1173
@@ -12165,7 +12167,7 @@ _ZN6syntax3ast6traits7HasName4name17h22f4738518a939aaE.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !3751)
   %1196 = add nsw i8 %1193, -24
   %narrow.i71.i221 = call i8 @llvm.umin.i8(i8 %1196, i8 2)
-  switch i8 %narrow.i71.i221, label %default.unreachable994 [
+  switch i8 %narrow.i71.i221, label %default.unreachable993 [
     i8 0, label %1197
     i8 1, label %1201
     i8 2, label %1204
@@ -12639,7 +12641,7 @@ _ZN6syntax3ast6traits7HasName4name17h70e12fcd9103a82cE.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !3898)
   %1341 = add nsw i8 %1335, -24
   %narrow.i.i309 = call i8 @llvm.umin.i8(i8 %1341, i8 2)
-  switch i8 %narrow.i.i309, label %default.unreachable994 [
+  switch i8 %narrow.i.i309, label %default.unreachable993 [
     i8 0, label %1342
     i8 1, label %1346
     i8 2, label %1349
@@ -12763,7 +12765,7 @@ _ZN6syntax3ast6traits7HasName4name17h70e12fcd9103a82cE.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !3911)
   %1372 = add nsw i8 %1369, -24
   %narrow.i71.i328 = call i8 @llvm.umin.i8(i8 %1372, i8 2)
-  switch i8 %narrow.i71.i328, label %default.unreachable994 [
+  switch i8 %narrow.i71.i328, label %default.unreachable993 [
     i8 0, label %1373
     i8 1, label %1377
     i8 2, label %1380
@@ -13470,7 +13472,7 @@ _ZN6syntax3ast6traits7HasName4name17h9f8da9516b39fac1E.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !4107)
   %1593 = add nsw i8 %1587, -24
   %narrow.i.i429 = call i8 @llvm.umin.i8(i8 %1593, i8 2)
-  switch i8 %narrow.i.i429, label %default.unreachable994 [
+  switch i8 %narrow.i.i429, label %default.unreachable993 [
     i8 0, label %1594
     i8 1, label %1598
     i8 2, label %1601
@@ -13594,7 +13596,7 @@ _ZN6syntax3ast6traits7HasName4name17h9f8da9516b39fac1E.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !4120)
   %1624 = add nsw i8 %1621, -24
   %narrow.i71.i448 = call i8 @llvm.umin.i8(i8 %1624, i8 2)
-  switch i8 %narrow.i71.i448, label %default.unreachable994 [
+  switch i8 %narrow.i71.i448, label %default.unreachable993 [
     i8 0, label %1625
     i8 1, label %1629
     i8 2, label %1632
@@ -14077,7 +14079,7 @@ _ZN6syntax3ast6traits7HasName4name17h3c0de07a91cebb19E.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !4267)
   %1769 = add nsw i8 %1763, -24
   %narrow.i.i536 = call i8 @llvm.umin.i8(i8 %1769, i8 2)
-  switch i8 %narrow.i.i536, label %default.unreachable994 [
+  switch i8 %narrow.i.i536, label %default.unreachable993 [
     i8 0, label %1770
     i8 1, label %1774
     i8 2, label %1777
@@ -14201,7 +14203,7 @@ _ZN6syntax3ast6traits7HasName4name17h3c0de07a91cebb19E.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !4280)
   %1800 = add nsw i8 %1797, -24
   %narrow.i71.i555 = call i8 @llvm.umin.i8(i8 %1800, i8 2)
-  switch i8 %narrow.i71.i555, label %default.unreachable994 [
+  switch i8 %narrow.i71.i555, label %default.unreachable993 [
     i8 0, label %1801
     i8 1, label %1805
     i8 2, label %1808
@@ -14684,7 +14686,7 @@ _ZN6syntax3ast6traits7HasName4name17hfd8a89091f075709E.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !4427)
   %1945 = add nsw i8 %1939, -24
   %narrow.i.i643 = call i8 @llvm.umin.i8(i8 %1945, i8 2)
-  switch i8 %narrow.i.i643, label %default.unreachable994 [
+  switch i8 %narrow.i.i643, label %default.unreachable993 [
     i8 0, label %1946
     i8 1, label %1950
     i8 2, label %1953
@@ -14808,7 +14810,7 @@ _ZN6syntax3ast6traits7HasName4name17hfd8a89091f075709E.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !4440)
   %1976 = add nsw i8 %1973, -24
   %narrow.i71.i662 = call i8 @llvm.umin.i8(i8 %1976, i8 2)
-  switch i8 %narrow.i71.i662, label %default.unreachable994 [
+  switch i8 %narrow.i71.i662, label %default.unreachable993 [
     i8 0, label %1977
     i8 1, label %1981
     i8 2, label %1984
@@ -15266,7 +15268,7 @@ _ZN3hir7symbols15SymbolCollector17collect_from_body17h6afbaa23d98ba46cE.exit: ; 
   %2121 = load i32, ptr %2120, align 8, !range !330, !noalias !4570, !noundef !23
   %2122 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i.i.i748, i64 28
   %2123 = load i32, ptr %2122, align 4, !noalias !4570, !noundef !23
-  switch i32 %2121, label %default.unreachable994 [
+  switch i32 %2121, label %default.unreachable993 [
     i32 0, label %2124
     i32 1, label %2125
     i32 2, label %2126
@@ -15307,7 +15309,7 @@ _ZN3hir7symbols15SymbolCollector15push_assoc_item17h6d206058199f5d04E.exit.i.i.i
   %2136 = load i32, ptr %2135, align 8, !range !330, !noalias !4570, !noundef !23
   %2137 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i18.i.i758, i64 28
   %2138 = load i32, ptr %2137, align 4, !noalias !4570, !noundef !23
-  switch i32 %2136, label %default.unreachable994 [
+  switch i32 %2136, label %default.unreachable993 [
     i32 0, label %2139
     i32 1, label %2140
     i32 2, label %2141

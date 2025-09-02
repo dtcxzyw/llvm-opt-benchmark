@@ -24046,8 +24046,8 @@ arraydestroy.done3:                               ; preds = %_ZNSt10shared_ptrIK
   store ptr %23, ptr %_M_refcount.i.i13, align 8
   store ptr null, ptr %outputType, align 8
   %24 = load i32, ptr %joinType_, align 8
-  %or.cond = icmp ugt i32 %24, 3
-  br i1 %or.cond, label %if.then, label %if.end
+  %switch = icmp ult i32 %24, 4
+  br i1 %switch, label %if.end, label %if.then
 
 if.then:                                          ; preds = %arraydestroy.done3
   call void @llvm.trap()

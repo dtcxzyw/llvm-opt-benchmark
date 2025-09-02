@@ -34327,8 +34327,8 @@ define hidden void @_ZN3vim3Vim11switch_mode17h8534c9c1cc70cf9fE(ptr noalias nou
   store i32 1114112, ptr %42, align 4
   %43 = icmp ne i8 %1, 0
   %.not = icmp eq i8 %1, %12
-  %or.cond9 = and i1 %43, %.not
-  br i1 %or.cond9, label %45, label %44
+  %or.cond8 = and i1 %43, %.not
+  br i1 %or.cond8, label %45, label %44
 
 44:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$$u5b$vim..state..Operator$u5d$$GT$17h2a6dfc40ff93e555E.llvm.16422900337870965792.exit"
   store i32 0, ptr %15, align 8
@@ -34337,122 +34337,122 @@ define hidden void @_ZN3vim3Vim11switch_mode17h8534c9c1cc70cf9fE(ptr noalias nou
   br label %45
 
 45:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$$u5b$vim..state..Operator$u5d$$GT$17h2a6dfc40ff93e555E.llvm.16422900337870965792.exit", %44
-  %46 = add nsw i8 %1, -3
-  %or.cond = icmp ult i8 %46, -2
-  br i1 %or.cond, label %59, label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit
+  %.off = add nsw i8 %1, -1
+  %switch = icmp ult i8 %.off, 2
+  br i1 %switch, label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, label %58
 
-_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %77, %65, %59, %45
-  %47 = tail call noundef zeroext i1 @_ZN3vim3Vim13update_editor17he64d0102e4bb047bE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %49 = load ptr, ptr %48, align 8, !alias.scope !6721, !noalias !6724, !nonnull !5, !align !37, !noundef !5
-  %50 = load i32, ptr %49, align 8, !range !1844, !noundef !5
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %52 = load i32, ptr %51, align 4, !noundef !5
-  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %50, i32 noundef %52)
-  %53 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
-  %54 = tail call noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17h7e2057c12699c096E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.230)
+_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %76, %64, %58, %45
+  %46 = tail call noundef zeroext i1 @_ZN3vim3Vim13update_editor17he64d0102e4bb047bE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %48 = load ptr, ptr %47, align 8, !alias.scope !6721, !noalias !6724, !nonnull !5, !align !37, !noundef !5
+  %49 = load i32, ptr %48, align 8, !range !1844, !noundef !5
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %51 = load i32, ptr %50, align 4, !noundef !5
+  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %49, i32 noundef %51)
+  %52 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  %53 = tail call noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17h7e2057c12699c096E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.230)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %55 = call noundef align 8 dereferenceable(40) ptr @_ZN8settings14settings_store13SettingsStore3get17h566519e24209505aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %54, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
+  %54 = call noundef align 8 dereferenceable(40) ptr @_ZN8settings14settings_store13SettingsStore3get17h566519e24209505aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 33
-  %57 = load i8, ptr %56, align 1, !range !36, !noundef !5
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %87, label %90
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 33
+  %56 = load i8, ptr %55, align 1, !range !36, !noundef !5
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %86, label %89
 
-59:                                               ; preds = %45
+58:                                               ; preds = %45
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6726)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6729)
-  %60 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !noalias !6726
-  %61 = tail call noundef align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.231), !noalias !6726
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 249
-  %63 = load i8, ptr %62, align 1, !range !36, !noalias !6726, !noundef !5
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, label %65
+  %59 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !noalias !6726
+  %60 = tail call noundef align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.231), !noalias !6726
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 249
+  %62 = load i8, ptr %61, align 1, !range !36, !noalias !6726, !noundef !5
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, label %64
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = load i64, ptr %66, align 8, !range !226, !alias.scope !6726, !noalias !6729, !noundef !5
-  %trunc.i = trunc nuw i64 %67 to i1
-  %68 = load i64, ptr %0, align 8, !range !226, !alias.scope !6726, !noalias !6729
-  %trunc8.i = trunc nuw i64 %68 to i1
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %66 = load i64, ptr %65, align 8, !range !226, !alias.scope !6726, !noalias !6729, !noundef !5
+  %trunc.i = trunc nuw i64 %66 to i1
+  %67 = load i64, ptr %0, align 8, !range !226, !alias.scope !6726, !noalias !6729
+  %trunc8.i = trunc nuw i64 %67 to i1
   %or.cond.i = select i1 %trunc.i, i1 true, i1 %trunc8.i
-  br i1 %or.cond.i, label %69, label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit
+  br i1 %or.cond.i, label %68, label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %71 = load i64, ptr %70, align 8, !alias.scope !6726, !noalias !6729
-  store i64 0, ptr %66, align 8, !alias.scope !6726, !noalias !6729
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %73 = load i64, ptr %72, align 8, !alias.scope !6726, !noalias !6729
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %70 = load i64, ptr %69, align 8, !alias.scope !6726, !noalias !6729
+  store i64 0, ptr %65, align 8, !alias.scope !6726, !noalias !6729
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %72 = load i64, ptr %71, align 8, !alias.scope !6726, !noalias !6729
   store i64 0, ptr %0, align 8, !alias.scope !6726, !noalias !6729
-  %74 = getelementptr inbounds nuw i8, ptr %61, i64 248
-  %75 = load i8, ptr %74, align 8, !range !36, !noalias !6726, !noundef !5
-  %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %84, label %77
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 248
+  %74 = load i8, ptr %73, align 8, !range !36, !noalias !6726, !noundef !5
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %83, label %76
 
-77:                                               ; preds = %84, %69
-  %78 = tail call noundef zeroext i1 @_ZN3vim3Vim13update_editor17he64d0102e4bb047bE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %80 = load ptr, ptr %79, align 8, !alias.scope !6731, !noalias !6734, !nonnull !5, !align !37, !noundef !5
-  %81 = load i32, ptr %80, align 8, !range !1844, !noundef !5
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %83 = load i32, ptr %82, align 4, !noundef !5
-  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %81, i32 noundef %83)
+76:                                               ; preds = %83, %68
+  %77 = tail call noundef zeroext i1 @_ZN3vim3Vim13update_editor17he64d0102e4bb047bE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %79 = load ptr, ptr %78, align 8, !alias.scope !6731, !noalias !6734, !nonnull !5, !align !37, !noundef !5
+  %80 = load i32, ptr %79, align 8, !range !1844, !noundef !5
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  %82 = load i32, ptr %81, align 4, !noundef !5
+  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %80, i32 noundef %82)
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit
 
-84:                                               ; preds = %69
-  %spec.select.i = select i1 %trunc8.i, i64 %73, i64 1
-  %..i = select i1 %trunc.i, i64 %71, i64 1
-  %85 = mul i64 %spec.select.i, %..i
-  store i64 1, ptr %61, align 8, !noalias !6726
-  %86 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i64 %85, ptr %86, align 8, !noalias !6726
-  br label %77
+83:                                               ; preds = %68
+  %spec.select.i = select i1 %trunc8.i, i64 %72, i64 1
+  %..i = select i1 %trunc.i, i64 %70, i64 1
+  %84 = mul i64 %spec.select.i, %..i
+  store i64 1, ptr %60, align 8, !noalias !6726
+  %85 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i64 %84, ptr %85, align 8, !noalias !6726
+  br label %76
 
-87:                                               ; preds = %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit
-  %88 = load i8, ptr %11, align 8, !range !2963, !noundef !5
-  %89 = load i8, ptr %13, align 1, !range !2963, !noundef !5
-  %.not8 = icmp eq i8 %88, %89
-  br i1 %.not8, label %90, label %91
+86:                                               ; preds = %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit
+  %87 = load i8, ptr %11, align 8, !range !2963, !noundef !5
+  %88 = load i8, ptr %13, align 1, !range !2963, !noundef !5
+  %.not7 = icmp eq i8 %87, %88
+  br i1 %.not7, label %89, label %90
 
-90:                                               ; preds = %91, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, %94, %87
-  br i1 %2, label %103, label %96
+89:                                               ; preds = %90, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, %93, %86
+  br i1 %2, label %102, label %95
 
-91:                                               ; preds = %87
+90:                                               ; preds = %86
+  %91 = icmp eq i8 %87, 1
   %92 = icmp eq i8 %88, 1
-  %93 = icmp eq i8 %89, 1
-  %or.cond5 = or i1 %92, %93
-  br i1 %or.cond5, label %94, label %90
+  %or.cond = or i1 %91, %92
+  br i1 %or.cond, label %93, label %89
 
-94:                                               ; preds = %91
-  %95 = tail call noundef zeroext i1 @_ZN3vim3Vim13update_editor17hb99f833c73f99e4eE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
-  br label %90
+93:                                               ; preds = %90
+  %94 = tail call noundef zeroext i1 @_ZN3vim3Vim13update_editor17hb99f833c73f99e4eE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
+  br label %89
 
-96:                                               ; preds = %90
+95:                                               ; preds = %89
   %switch.i = icmp ult i8 %1, 3
-  %switch.i10 = icmp samesign ugt i8 %12, 2
-  %or.cond19 = select i1 %switch.i, i1 %switch.i10, i1 false
-  br i1 %or.cond19, label %97, label %98
+  %switch.i9 = icmp samesign ugt i8 %12, 2
+  %or.cond18 = select i1 %switch.i, i1 %switch.i9, i1 false
+  br i1 %or.cond18, label %96, label %97
 
-97:                                               ; preds = %96
+96:                                               ; preds = %95
   tail call void @"_ZN3vim6normal4mark26_$LT$impl$u20$vim..Vim$GT$19create_visual_marks17h21f435a0d27ef4c1E"(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, i8 noundef %12, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
-  br label %98
+  br label %97
 
-98:                                               ; preds = %96, %97
+97:                                               ; preds = %95, %96
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %9, ptr %6, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %10, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %7, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %8, ptr %101, align 8
-  %102 = call noundef zeroext i1 @_ZN3vim3Vim13update_editor17ha7ef7f78da692af0E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6)
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %10, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %7, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %8, ptr %100, align 8
+  %101 = call noundef zeroext i1 @_ZN3vim3Vim13update_editor17ha7ef7f78da692af0E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %103
+  br label %102
 
-103:                                              ; preds = %90, %98
+102:                                              ; preds = %89, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void

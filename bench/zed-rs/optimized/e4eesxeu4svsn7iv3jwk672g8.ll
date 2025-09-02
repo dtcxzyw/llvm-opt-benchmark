@@ -7317,18 +7317,17 @@ default.unreachable5:                             ; preds = %1
 
 24:                                               ; preds = %22, %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h3ae772312c80f34eE.exit", %6
   %.sroa.01.0 = phi i8 [ %7, %6 ], [ %.sroa.0.0.i, %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h3ae772312c80f34eE.exit" ], [ %23, %22 ]
-  %25 = icmp ne i8 %.sroa.01.0, 2
-  %.not = xor i1 %25, true
-  %26 = trunc nuw i8 %.sroa.01.0 to i1
-  %or.cond = select i1 %.not, i1 true, i1 %26
-  br i1 %or.cond, label %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hed5169600f0a064cE.llvm.3533412349758872646.exit", label %27
+  %.sroa.01.0.off = add nsw i8 %.sroa.01.0, -1
+  %switch = icmp ult i8 %.sroa.01.0.off, 2
+  br i1 %switch, label %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hed5169600f0a064cE.llvm.3533412349758872646.exit", label %25
 
-27:                                               ; preds = %24
+25:                                               ; preds = %24
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.70.llvm.3533412349758872646, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.72.llvm.3533412349758872646) #44
   unreachable
 
 "_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hed5169600f0a064cE.llvm.3533412349758872646.exit": ; preds = %24
-  ret i1 %25
+  %26 = icmp ne i8 %.sroa.01.0, 2
+  ret i1 %26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
