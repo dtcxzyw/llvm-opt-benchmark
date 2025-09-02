@@ -1011,9 +1011,9 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %_ZN6google
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN9struct_pb8compiler13calculate_tagEPKN6google8protobuf15FieldDescriptorEb(ptr noundef %f, i1 noundef zeroext %ignore_repeated) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %__callable.i.i.i.i23 = alloca %class.anon, align 8
-  %ref.tmp.i.i24 = alloca ptr, align 8
-  %ref.tmp3.i.i25 = alloca ptr, align 8
+  %__callable.i.i.i.i22 = alloca %class.anon, align 8
+  %ref.tmp.i.i23 = alloca ptr, align 8
+  %ref.tmp3.i.i24 = alloca ptr, align 8
   %__callable.i.i.i.i5 = alloca %class.anon, align 8
   %ref.tmp.i.i6 = alloca ptr, align 8
   %ref.tmp3.i.i7 = alloca ptr, align 8
@@ -1034,7 +1034,7 @@ if.else:                                          ; preds = %entry
   %type_once_.i.i = getelementptr inbounds nuw i8, ptr %f, i64 48
   %2 = load ptr, ptr %type_once_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i, label %_ZN9struct_pb8compiler9is_varintEPKN6google8protobuf15FieldDescriptorE.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %ref.tmp.i.i, align 8
@@ -1061,11 +1061,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i.i.i
 invoke.cont1.i.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
-common.resume:                                    ; preds = %lpad.i.i.i.i30, %lpad.i.i.i.i12, %lpad.i.i.i.i
-  %.sink44 = phi ptr [ %18, %lpad.i.i.i.i30 ], [ %11, %lpad.i.i.i.i12 ], [ %4, %lpad.i.i.i.i ]
+common.resume:                                    ; preds = %lpad.i.i.i.i29, %lpad.i.i.i.i12, %lpad.i.i.i.i
+  %.sink45 = phi ptr [ %18, %lpad.i.i.i.i30 ], [ %11, %lpad.i.i.i.i12 ], [ %4, %lpad.i.i.i.i ]
   %.sink = phi ptr [ %19, %lpad.i.i.i.i30 ], [ %12, %lpad.i.i.i.i12 ], [ %5, %lpad.i.i.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %20, %lpad.i.i.i.i30 ], [ %13, %lpad.i.i.i.i12 ], [ %6, %lpad.i.i.i.i ]
-  store ptr null, ptr %.sink44, align 8
+  %common.resume.op = phi { ptr, i32 } [ %19, %lpad.i.i.i.i30 ], [ %13, %lpad.i.i.i.i12 ], [ %6, %lpad.i.i.i.i ]
+  store ptr null, ptr %.sink45, align 8
   store ptr null, ptr %.sink, align 8
   resume { ptr, i32 } %common.resume.op
 
@@ -1078,9 +1078,9 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %__callable.i.i.i.i)
-  br label %_ZN9struct_pb8compiler9is_varintEPKN6google8protobuf15FieldDescriptorE.exit
+  br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
 
-_ZN9struct_pb8compiler9is_varintEPKN6google8protobuf15FieldDescriptorE.exit: ; preds = %if.else, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
+_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i: ; preds = %if.else, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
   %type_.i.i = getelementptr inbounds nuw i8, ptr %f, i64 56
   %7 = load i32, ptr %type_.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
@@ -1097,7 +1097,7 @@ if.else4:                                         ; preds = %_ZN9struct_pb8compi
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i.i7)
   %9 = load ptr, ptr %type_once_.i.i, align 8
   %tobool.not.i.i9 = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i9, label %_ZN9struct_pb8compiler6is_i64EPKN6google8protobuf15FieldDescriptorE.exit, label %if.then.i.i10
+  br i1 %tobool.not.i.i9, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.else4
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %ref.tmp.i.i6, align 8
@@ -1134,9 +1134,9 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   store ptr null, ptr %12, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %__callable.i.i.i.i5)
   %.pre = load i32, ptr %type_.i.i, align 8
-  br label %_ZN9struct_pb8compiler6is_i64EPKN6google8protobuf15FieldDescriptorE.exit
+  br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18
 
-_ZN9struct_pb8compiler6is_i64EPKN6google8protobuf15FieldDescriptorE.exit: ; preds = %if.else4, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i17
+_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18: ; preds = %if.else4, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i17
   %14 = phi i32 [ %7, %if.else4 ], [ %.pre, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i6)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i7)
@@ -1147,18 +1147,18 @@ _ZN9struct_pb8compiler6is_i64EPKN6google8protobuf15FieldDescriptorE.exit: ; pred
   %retval.0.i22 = select i1 %15, i1 %switch.masked.i21, i1 false
   br i1 %retval.0.i22, label %if.end13, label %if.else7
 
-if.else7:                                         ; preds = %_ZN9struct_pb8compiler6is_i64EPKN6google8protobuf15FieldDescriptorE.exit
+if.else7:; preds = %_ZN9struct_pb8compiler6is_i64EPKN6google8protobuf15FieldDescriptorE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i24)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i.i25)
   %16 = load ptr, ptr %type_once_.i.i, align 8
   %tobool.not.i.i27 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i27, label %_ZN9struct_pb8compiler6is_i32EPKN6google8protobuf15FieldDescriptorE.exit, label %if.then.i.i28
 
-if.then.i.i28:                                    ; preds = %if.else7
+if.then.i.i28:; preds = %if.else7
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %ref.tmp.i.i24, align 8
   store ptr %f, ptr %ref.tmp3.i.i25, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %__callable.i.i.i.i23)
-  store ptr %ref.tmp.i.i24, ptr %__callable.i.i.i.i23, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %__callable.i.i.i.i22)
+  store ptr %ref.tmp.i.i24, ptr %__callable.i.i.i.i22, align 8
   %17 = getelementptr inbounds nuw i8, ptr %__callable.i.i.i.i23, i64 8
   store ptr %ref.tmp3.i.i25, ptr %17, align 8
   %18 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
@@ -1168,30 +1168,30 @@ if.then.i.i28:                                    ; preds = %if.else7
   %call1.i2.i.i.i.i29 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull @__once_proxy)
           to label %invoke.cont.i.i.i.i31 unwind label %lpad.i.i.i.i30
 
-invoke.cont.i.i.i.i31:                            ; preds = %if.then.i.i28
+invoke.cont.i.i.i.i31:; preds = %if.then.i.i28
   %tobool.not.i.i.i.i32 = icmp eq i32 %call1.i2.i.i.i.i29, 0
   br i1 %tobool.not.i.i.i.i32, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i35, label %if.then.i.i.i.i33
 
-if.then.i.i.i.i33:                                ; preds = %invoke.cont.i.i.i.i31
+if.then.i.i.i.i33:; preds = %invoke.cont.i.i.i.i31
   invoke void @_ZSt20__throw_system_errori(i32 noundef %call1.i2.i.i.i.i29) #22
           to label %invoke.cont1.i.i.i.i34 unwind label %lpad.i.i.i.i30
 
 invoke.cont1.i.i.i.i34:                           ; preds = %if.then.i.i.i.i33
   unreachable
 
-lpad.i.i.i.i30:                                   ; preds = %if.then.i.i.i.i33, %if.then.i.i28
-  %20 = landingpad { ptr, i32 }
+lpad.i.i.i.i29:                                   ; preds = %if.then.i.i.i.i33, %if.then.i.i28
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i35: ; preds = %invoke.cont.i.i.i.i31
+_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i34: ; preds = %invoke.cont.i.i.i.i31
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %__callable.i.i.i.i23)
   %.pre41 = load i32, ptr %type_.i.i, align 8
   br label %_ZN9struct_pb8compiler6is_i32EPKN6google8protobuf15FieldDescriptorE.exit
 
-_ZN9struct_pb8compiler6is_i32EPKN6google8protobuf15FieldDescriptorE.exit: ; preds = %if.else7, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i35
+_ZN9struct_pb8compiler6is_i32EPKN6google8protobuf15FieldDescriptorE.exit:; preds = %if.else7, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i34
   %21 = phi i32 [ %14, %if.else7 ], [ %.pre41, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i24)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i25)
@@ -1203,7 +1203,7 @@ _ZN9struct_pb8compiler6is_i32EPKN6google8protobuf15FieldDescriptorE.exit: ; pred
   %. = select i1 %retval.0.i40, i32 5, i32 2
   br label %if.end13
 
-if.end13:                                         ; preds = %_ZN9struct_pb8compiler6is_i32EPKN6google8protobuf15FieldDescriptorE.exit, %_ZN9struct_pb8compiler6is_i64EPKN6google8protobuf15FieldDescriptorE.exit, %_ZN9struct_pb8compiler9is_varintEPKN6google8protobuf15FieldDescriptorE.exit, %entry
+if.end13:                                         ; preds = %_ZN9struct_pb8compiler6is_i32EPKN6google8protobuf15FieldDescriptorE.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i18, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i, %entry
   %wire_type.0 = phi i32 [ 2, %entry ], [ 0, %_ZN9struct_pb8compiler9is_varintEPKN6google8protobuf15FieldDescriptorE.exit ], [ 1, %_ZN9struct_pb8compiler6is_i64EPKN6google8protobuf15FieldDescriptorE.exit ], [ %., %_ZN9struct_pb8compiler6is_i32EPKN6google8protobuf15FieldDescriptorE.exit ]
   %shl = shl i32 %0, 3
   %or = or disjoint i32 %wire_type.0, %shl

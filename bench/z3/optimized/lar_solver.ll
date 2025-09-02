@@ -26124,10 +26124,10 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %26, %30
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 168
   br label %46
 
-44:                                               ; preds = %.noexc25, %63, %.noexc, %51
+44:                                               ; preds = %.noexc21, %61, %.noexc, %50
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %79
+  br label %77
 
 46:                                               ; preds = %.lr.ph, %_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit.thread ]
@@ -26137,21 +26137,21 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %26, %30
   %50 = icmp ult i32 %49, 5
   br i1 %50, label %_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit, label %51
 
-51:                                               ; preds = %46
+50:                                               ; preds = %46
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 173, ptr noundef nonnull @.str.11)
           to label %.noexc unwind label %44
 
-.noexc:                                           ; preds = %51
+.noexc:                                           ; preds = %50
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
           to label %_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit.thread unwind label %44
 
-_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit: ; preds = %46
+51:                                               ; preds = %46
   %switch.cast.i = trunc nuw nsw i32 %49 to i5
   %switch.downshift.i = lshr i5 -6, %switch.cast.i
   %switch.masked.i = trunc i5 %switch.downshift.i to i1
   br i1 %switch.masked.i, label %52, label %_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit.thread
 
-52:                                               ; preds = %_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit
+52:; preds = %_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit
   %53 = load ptr, ptr %41, align 8, !tbaa !275
   %54 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %42, align 8, !tbaa !275
@@ -26162,24 +26162,24 @@ _ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit: ; preds = %46
 57:                                               ; preds = %52
   %58 = landingpad { ptr, i32 }
           cleanup
-  br label %79
+  br label %77
 
-_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit.thread: ; preds = %.noexc, %52, %_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit
-  %59 = load ptr, ptr %40, align 8, !tbaa !398
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
-  %61 = load i32, ptr %60, align 4, !tbaa !442
-  %62 = icmp ult i32 %61, 5
+_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit.thread: ; preds = %.noexc, %52, %51
+  %58 = load ptr, ptr %40, align 8, !tbaa !398
+  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %60 = load i32, ptr %59, align 4, !tbaa !442
+  %62 = icmp ult i32 %60, 5
   br i1 %62, label %_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit, label %63
 
-63:                                               ; preds = %_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit.thread
+61:                                               ; preds = %_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit.thread
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 188, ptr noundef nonnull @.str.11)
           to label %.noexc25 unwind label %44
 
-.noexc25:                                         ; preds = %63
+.noexc21:                                         ; preds = %61
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
           to label %_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit.thread unwind label %44
 
-_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit: ; preds = %_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit.thread
+_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit:; preds = %_ZNK2lp15lar_core_solver18lower_bound_is_setEj.exit.thread
   %switch.cast.i22 = trunc nuw nsw i32 %61 to i5
   %switch.downshift.i23 = lshr i5 -4, %switch.cast.i22
   %switch.masked.i24 = trunc i5 %switch.downshift.i23 to i1
@@ -26193,25 +26193,25 @@ _ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit: ; preds = %_ZNK2lp15lar_cor
   invoke void @_ZNK2lp15lar_core_solver12update_deltaER8rationalRKNS_12numeric_pairIS1_EES6_(ptr noundef nonnull align 8 dereferenceable(752) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(64) %66, ptr noundef nonnull align 8 dereferenceable(64) %68)
           to label %_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit.thread unwind label %69
 
-69:                                               ; preds = %64
-  %70 = landingpad { ptr, i32 }
+67:                                               ; preds = %64
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %79
+  br label %77
 
-_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit.thread: ; preds = %.noexc25, %64, %_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit
+_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit.thread: ; preds = %.noexc21, %64, %_ZNK2lp15lar_core_solver18upper_bound_is_setEj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %71 = load ptr, ptr %32, align 8, !tbaa !374
-  %72 = load ptr, ptr %31, align 8, !tbaa !375
-  %73 = ptrtoint ptr %71 to i64
-  %74 = ptrtoint ptr %72 to i64
-  %75 = sub i64 %73, %74
-  %76 = sdiv exact i64 %75, 24
-  %77 = and i64 %76, 4294967295
-  %78 = icmp samesign ult i64 %indvars.iv.next, %77
-  br i1 %78, label %46, label %._crit_edge, !llvm.loop !599
+  %69 = load ptr, ptr %32, align 8, !tbaa !374
+  %70 = load ptr, ptr %31, align 8, !tbaa !375
+  %71 = ptrtoint ptr %69 to i64
+  %72 = ptrtoint ptr %70 to i64
+  %73 = sub i64 %71, %72
+  %74 = sdiv exact i64 %73, 24
+  %75 = and i64 %74, 4294967295
+  %76 = icmp samesign ult i64 %indvars.iv.next, %75
+  br i1 %76, label %46, label %._crit_edge, !llvm.loop !599
 
-79:                                               ; preds = %69, %57, %44
-  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %45, %44 ], [ %58, %57 ]
+77:                                               ; preds = %67, %57, %44
+  %.pn = phi { ptr, i32 } [ %68, %69 ], [ %45, %44 ], [ %58, %57 ]
   tail call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
   resume { ptr, i32 } %.pn
 

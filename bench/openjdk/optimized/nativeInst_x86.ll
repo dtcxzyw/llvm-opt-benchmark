@@ -239,10 +239,10 @@ define hidden void @_ZN17NativeMovConstReg6verifyEv(ptr noundef nonnull align 1 
   %.ph = select i1 %10, i1 %switch.masked, i1 false
   br label %.thread
 
-.thread:                                          ; preds = %4, %1, %7
+.thread:; preds = %4, %1, %7
   %.sink = phi i64 [ 2, %7 ], [ 1, %1 ], [ 1, %4 ]
   %11 = phi i1 [ %.ph, %7 ], [ false, %1 ], [ false, %4 ]
-  %12 = phi i1 [ false, %7 ], [ true, %1 ], [ %5, %4 ]
+  %.sink = phi i1 [ false, %7 ], [ true, %1 ], [ %5, %4 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %14 = load i8, ptr %13, align 1
   %or.cond = and i1 %11, %12

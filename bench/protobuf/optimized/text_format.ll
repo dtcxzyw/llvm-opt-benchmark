@@ -19331,8 +19331,8 @@ for.body.i.preheader.i:                           ; preds = %for.body.i.preheade
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc22.i.i, %for.body.i.preheader.i
-  %i.034.i.i = phi i64 [ %inc23.i.i, %for.inc22.i.i ], [ 0, %for.body.i.preheader.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %src.sroa.10.033.i, i64 %i.034.i.i
+  %i.031.i.i = phi i64 [ %inc23.i.i, %for.inc22.i.i ], [ 0, %for.body.i.preheader.i ]
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %src.sroa.10.033.i, i64 %i.031.i.i
   %3 = load i8, ptr %add.ptr.i.i.i, align 1
   %cmp.i.i.i = icmp ult i8 %3, 32
   br i1 %cmp.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_120SkipPassthroughBytesESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, label %if.end.i.i.i
@@ -19353,34 +19353,34 @@ if.end.i.i:                                       ; preds = %if.end.i.i.i
   br i1 %cmp.i16.i.i, label %for.cond5.preheader.i.i, label %for.inc22.i.i
 
 for.cond5.preheader.i.i:                          ; preds = %if.end.i.i
-  %5 = add nuw i64 %i.034.i.i, 1
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %src.sroa.0.034.i, i64 %5)
-  %6 = add i64 %umax.i.i, -1
+  %4 = add nuw i64 %i.031.i.i, 1
+  %umax.i.i = call i64 @llvm.umax.i64(i64 %src.sroa.0.034.i, i64 %4)
+  %5 = add i64 %umax.i.i, -1
   br label %for.cond5.i.i
 
 for.cond5.i.i:                                    ; preds = %for.body8.i.i, %for.cond5.preheader.i.i
-  %end.0.in.i.i = phi i64 [ %end.0.i.i, %for.body8.i.i ], [ %i.034.i.i, %for.cond5.preheader.i.i ]
-  %exitcond.not.i = icmp eq i64 %end.0.in.i.i, %6
+  %end.0.in.i.i = phi i64 [ %end.0.i.i, %for.body8.i.i ], [ %i.031.i.i, %for.cond5.preheader.i.i ]
+  %exitcond.not.i = icmp eq i64 %end.0.in.i.i, %5
   br i1 %exitcond.not.i, label %for.end.i.i, label %for.body8.i.i
 
 for.body8.i.i:                                    ; preds = %for.cond5.i.i
   %end.0.i.i = add nuw i64 %end.0.in.i.i, 1
   %add.ptr.i18.i.i = getelementptr inbounds i8, ptr %src.sroa.10.033.i, i64 %end.0.i.i
-  %7 = load i8, ptr %add.ptr.i18.i.i, align 1
-  %cmp.i19.i.i = icmp slt i8 %7, 0
+  %6 = load i8, ptr %add.ptr.i18.i.i, align 1
+  %cmp.i19.i.i = icmp slt i8 %6, 0
   br i1 %cmp.i19.i.i, label %for.cond5.i.i, label %for.end.i.i, !llvm.loop !174
 
 for.end.i.i:                                      ; preds = %for.body8.i.i, %for.cond5.i.i
   %end.0.lcssa.i.i = phi i64 [ %end.0.i.i, %for.body8.i.i ], [ %umax.i.i, %for.cond5.i.i ]
-  %sub.i.i = sub i64 %end.0.lcssa.i.i, %i.034.i.i
-  %sub.i.i.i = sub nuw i64 %src.sroa.0.034.i, %i.034.i.i
+  %sub.i.i = sub i64 %end.0.lcssa.i.i, %i.031.i.i
+  %sub.i.i.i = sub nuw i64 %src.sroa.0.034.i, %i.031.i.i
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.i.i)
   %call14.i.i = call noundef i64 @_ZN10utf8_range21SpanStructurallyValidESt17basic_string_viewIcSt11char_traitsIcEE(i64 %.sroa.speculated.i.i.i, ptr nonnull %add.ptr.i.i.i)
   %cmp15.not.i.i = icmp eq i64 %call14.i.i, %sub.i.i
   br i1 %cmp15.not.i.i, label %if.end18.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %for.end.i.i
-  %add17.i.i = add i64 %call14.i.i, %i.034.i.i
+  %add17.i.i = add i64 %call14.i.i, %i.031.i.i
   br label %_ZN6google8protobuf12_GLOBAL__N_120SkipPassthroughBytesESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 if.end18.i.i:                                     ; preds = %for.end.i.i
@@ -19388,13 +19388,13 @@ if.end18.i.i:                                     ; preds = %for.end.i.i
   br label %for.inc22.i.i
 
 for.inc22.i.i:                                    ; preds = %if.end18.i.i, %if.end.i.i, %_ZN6google8protobuf12_GLOBAL__N_121DefinitelyNeedsEscapeEh.exit.i.i
-  %i.1.i.i = phi i64 [ %add20.i.i, %if.end18.i.i ], [ %i.034.i.i, %if.end.i.i ], [ %i.034.i.i, %_ZN6google8protobuf12_GLOBAL__N_121DefinitelyNeedsEscapeEh.exit.i.i ]
+  %i.1.i.i = phi i64 [ %add20.i.i, %if.end18.i.i ], [ %i.031.i.i, %if.end.i.i ], [ %i.034.i.i, %_ZN6google8protobuf12_GLOBAL__N_121DefinitelyNeedsEscapeEh.exit.i.i ]
   %inc23.i.i = add nuw i64 %i.1.i.i, 1
   %cmp.i4.i = icmp ult i64 %inc23.i.i, %src.sroa.0.034.i
   br i1 %cmp.i4.i, label %for.body.i.i, label %if.then.i, !llvm.loop !175
 
 _ZN6google8protobuf12_GLOBAL__N_120SkipPassthroughBytesESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN6google8protobuf12_GLOBAL__N_121DefinitelyNeedsEscapeEh.exit.i.i, %for.body.i.i, %if.then16.i.i
-  %retval.0.i.i = phi i64 [ %add17.i.i, %if.then16.i.i ], [ %i.034.i.i, %for.body.i.i ], [ %i.034.i.i, %_ZN6google8protobuf12_GLOBAL__N_121DefinitelyNeedsEscapeEh.exit.i.i ]
+  %retval.0.i.i = phi i64 [ %add17.i.i, %if.then16.i.i ], [ %i.031.i.i, %for.body.i.i ], [ %i.031.i.i, %_ZN6google8protobuf12_GLOBAL__N_121DefinitelyNeedsEscapeEh.exit.i.i ]
   %cmp.not.i = icmp eq i64 %retval.0.i.i, 0
   br i1 %cmp.not.i, label %if.end6.i, label %if.then.i
 
@@ -19403,7 +19403,7 @@ if.then.i:                                        ; preds = %for.inc22.i.i, %_ZN
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %src.sroa.0.034.i, i64 %retval.0.i.i7)
   %vtable.i.i = load ptr, ptr %generator, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 40
-  %8 = load ptr, ptr %vfn.i.i, align 8
+  %7 = load ptr, ptr %vfn.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %generator, ptr noundef %src.sroa.10.033.i, i64 noundef %.sroa.speculated.i.i)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %src.sroa.10.033.i, i64 %retval.0.i.i7
   %sub.i8.i = sub i64 %src.sroa.0.034.i, %retval.0.i.i7
@@ -19415,12 +19415,12 @@ if.end6.i:                                        ; preds = %if.then.i, %_ZN6goo
   %src.sroa.0.1.i = phi i64 [ %src.sroa.0.034.i, %_ZN6google8protobuf12_GLOBAL__N_120SkipPassthroughBytesESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ], [ %sub.i8.i, %if.then.i ]
   call void @_ZN4absl12lts_202308027CEscapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i64 1, ptr %src.sroa.10.1.i)
   %call10.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #36
-  %9 = extractvalue { i64, ptr } %call10.i, 0
-  %10 = extractvalue { i64, ptr } %call10.i, 1
+  %8 = extractvalue { i64, ptr } %call10.i, 0
+  %9 = extractvalue { i64, ptr } %call10.i, 1
   %vtable.i17.i = load ptr, ptr %generator, align 8
   %vfn.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i17.i, i64 40
-  %11 = load ptr, ptr %vfn.i18.i, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %generator, ptr noundef %10, i64 noundef %9)
+  %10 = load ptr, ptr %vfn.i18.i, align 8
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %generator, ptr noundef %9, i64 noundef %8)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end6.i
@@ -19431,16 +19431,16 @@ invoke.cont.i:                                    ; preds = %if.end6.i
   br i1 %cmp.i.i, label %_ZN6google8protobuf12_GLOBAL__N_119HardenedPrintStringESt17basic_string_viewIcSt11char_traitsIcEEPNS0_10TextFormat17BaseTextGeneratorE.exit, label %for.body.i.preheader.i, !llvm.loop !176
 
 lpad.i:                                           ; preds = %if.end6.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #36
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 
 _ZN6google8protobuf12_GLOBAL__N_119HardenedPrintStringESt17basic_string_viewIcSt11char_traitsIcEEPNS0_10TextFormat17BaseTextGeneratorE.exit: ; preds = %if.then.i, %invoke.cont.i, %entry
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %vtable.i3 = load ptr, ptr %generator, align 8
   %vfn.i4 = getelementptr inbounds nuw i8, ptr %vtable.i3, i64 40
-  %13 = load ptr, ptr %vfn.i4, align 8
+  %12 = load ptr, ptr %vfn.i4, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %generator, ptr noundef nonnull @.str.6, i64 noundef 1)
   ret void
 }

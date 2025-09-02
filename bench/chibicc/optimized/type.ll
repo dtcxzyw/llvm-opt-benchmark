@@ -76,8 +76,8 @@ define dso_local zeroext i1 @is_numeric(ptr noundef readonly captures(none) %0) 
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %1, %4
-  %7 = phi i1 [ %6, %4 ], [ true, %1 ]
-  ret i1 %7
+  %5 = phi i1 [ %6, %4 ], [ true, %1 ]
+  ret i1 %5
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable

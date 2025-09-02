@@ -168,7 +168,7 @@ _ZNK7nmethod16is_native_methodEv.exit:            ; preds = %6
   %16 = icmp ult i8 %15, 4
   br i1 %16, label %switch.lookup, label %17
 
-switch.lookup:                                    ; preds = %13
+switch.edge:                                      ; preds = %13
   %switch.cast = trunc nuw nsw i8 %15 to i4
   %switch.downshift = lshr i4 -2, %switch.cast
   %switch.masked = trunc i4 %switch.downshift to i1

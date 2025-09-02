@@ -3422,7 +3422,7 @@ switch.lookup:
     i16 2, label %20
   ]
 
-default.unreachable134:                           ; preds = %switch.lookup
+default.unreachable151:                           ; preds = %switch.lookup
   unreachable
 
 8:                                                ; preds = %switch.lookup
@@ -3457,9 +3457,9 @@ default.unreachable134:                           ; preds = %switch.lookup
           to label %94 unwind label %92
 
 20:                                               ; preds = %8, %14, %switch.lookup
-  %.052120 = phi i16 [ %11, %8 ], [ %17, %14 ], [ 0, %switch.lookup ]
-  %.049110118 = phi ptr [ %9, %8 ], [ %15, %14 ], [ %3, %switch.lookup ]
-  %.051 = phi i16 [ %13, %8 ], [ %19, %14 ], [ 0, %switch.lookup ]
+  %.052135 = phi i16 [ %11, %8 ], [ %17, %14 ], [ 0, %switch.lookup ]
+  %.055110118133 = phi ptr [ %9, %8 ], [ %15, %14 ], [ %3, %switch.lookup ]
+  %.049120131 = phi i16 [ %13, %8 ], [ %19, %14 ], [ 0, %switch.lookup ]
   %21 = getelementptr inbounds nuw i8, ptr %.049110118, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !7
   %23 = trunc i64 %22 to i16
@@ -3490,7 +3490,7 @@ default.unreachable134:                           ; preds = %switch.lookup
   %37 = load i64, ptr %26, align 8, !alias.scope !537, !noalias !535, !noundef !7
   %38 = add i64 %37, 2
   store i64 %38, ptr %26, align 8, !alias.scope !537, !noalias !535
-  %39 = tail call i16 @llvm.bswap.i16(i16 %.052120)
+  %39 = tail call i16 @llvm.bswap.i16(i16 %.052135)
   %40 = load i64, ptr %25, align 8, !alias.scope !538, !noalias !545, !noundef !7
   %41 = sub i64 %40, %38
   %42 = icmp ult i64 %41, 2
@@ -3573,9 +3573,9 @@ default.unreachable134:                           ; preds = %switch.lookup
 
 .lr.ph:                                           ; preds = %65, %85
   %77 = phi i64 [ %90, %85 ], [ %70, %65 ]
-  %.sroa.0.0129 = phi ptr [ %78, %85 ], [ %72, %65 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.0129, i64 2
-  %79 = load i16, ptr %.sroa.0.0129, align 2, !noundef !7
+  %.sroa.0.0146 = phi ptr [ %78, %85 ], [ %72, %65 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.0146, i64 2
+  %79 = load i16, ptr %.sroa.0.0146, align 2, !noundef !7
   %80 = tail call i16 @llvm.bswap.i16(i16 %79)
   %81 = load i64, ptr %25, align 8, !alias.scope !580, !noalias !587, !noundef !7
   %82 = sub i64 %81, %77

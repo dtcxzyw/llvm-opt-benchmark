@@ -832,12 +832,12 @@ declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_a
 define void @do_ssl_shutdown(ptr noundef %0) local_unnamed_addr #0 {
   br label %2
 
-2:                                                ; preds = %5, %1
+2:     ; preds = %5, %1
   %3 = tail call i32 @SSL_shutdown(ptr noundef %0) #9
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %.critedge
 
-5:                                                ; preds = %2
+5: ; preds = %2
   %6 = tail call i32 @SSL_get_error(ptr noundef %0, i32 noundef %3) #9
   %7 = icmp ult i32 %6, 11
   %switch.cast = trunc nuw nsw i32 %6 to i11
@@ -846,7 +846,7 @@ define void @do_ssl_shutdown(ptr noundef %0) local_unnamed_addr #0 {
   %or.cond = select i1 %7, i1 %switch.masked, i1 false
   br i1 %or.cond, label %2, label %.critedge, !llvm.loop !27
 
-.critedge:                                        ; preds = %2, %5
+.critedge:; preds = %2, %5
   ret void
 }
 

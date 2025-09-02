@@ -503,12 +503,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 ; Function Attrs: nofree nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @default_usererrf(ptr noundef readonly captures(none) %0) unnamed_addr #16 {
   %2 = load i8, ptr %0, align 1, !tbaa !9
-  %.not23 = icmp eq i8 %2, 0
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  %.not24 = icmp eq i8 %2, 0
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %16
   %3 = phi i8 [ %18, %16 ], [ %2, %1 ]
-  %.01524 = phi ptr [ %17, %16 ], [ %0, %1 ]
+  %.01525 = phi ptr [ %17, %16 ], [ %0, %1 ]
   %4 = sext i8 %3 to i32
   %or.cond.i = icmp ult i8 %3, 32
   %5 = icmp eq i8 %3, 127
@@ -529,13 +529,13 @@ define internal range(i32 -2147483648, 1) i32 @default_usererrf(ptr noundef read
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %16, label %._crit_edge
 
-12:                                               ; preds = %6, %.lr.ph
+12:; preds = %6, %.lr.ph
   %13 = load ptr, ptr @stderr, align 8, !tbaa !10
   %14 = tail call i32 @putc(i32 noundef %4, ptr noundef %13)
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %._crit_edge
 
-16:                                               ; preds = %12, %8
+16:; preds = %12, %8
   %17 = getelementptr inbounds nuw i8, ptr %.01524, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !9
   %.not = icmp eq i8 %18, 0

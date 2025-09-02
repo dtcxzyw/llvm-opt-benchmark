@@ -881,7 +881,7 @@ define hidden void @_ZN6quiche8recovery10congestion4bbr28per_loss30bbr2_update_c
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %12 = load i8, ptr %11, align 8, !range !24, !noundef !3
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %42
+  br i1 %13, label %14, label %43
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1067
@@ -931,7 +931,7 @@ _ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_cong
   store i64 0, ptr %41, align 8
   br label %42
 
-42:                                               ; preds = %10, %_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit
+43:                                               ; preds = %10, %_ZN6quiche8recovery10congestion4bbr28per_loss39bbr2_adapt_lower_bounds_from_congestion17h7c20ac138b250830E.exit
   ret void
 }
 

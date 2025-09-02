@@ -4469,16 +4469,16 @@ _ZN12ConstantPool26basic_type_for_constant_atEi.exit: ; preds = %16, %32
   %spec.select.i = select i1 %switch.selectcmp.i.i, i8 10, i8 %.0.i
   %35 = icmp eq i8 %spec.select.i, 13
   %36 = add i8 %spec.select.i, -6
-  %switch.tableidx.i = select i1 %35, i8 6, i8 %36
-  %37 = icmp ult i8 %switch.tableidx.i, 7
-  %switch.cast.i = zext i8 %switch.tableidx.i to i56
+  %switch.tableidx = select i1 %35, i8 6, i8 %36
+  %37 = icmp ult i8 %switch.tableidx, 7
+  %switch.cast.i = zext i8 %switch.tableidx to i56
   %switch.shiftamt.i = shl nuw nsw i56 %switch.cast.i, 3
   %switch.downshift.i = lshr i56 2257310256727556, %switch.shiftamt.i
   %switch.masked.i = trunc i56 %switch.downshift.i to i8
   %.04.i = select i1 %37, i8 %switch.masked.i, i8 0
   br label %38
 
-38:                                               ; preds = %2, %_ZN12ConstantPool26basic_type_for_constant_atEi.exit
+38:; preds = %2, %_ZN12ConstantPool26basic_type_for_constant_atEi.exit
   %.sroa.04.0 = phi i8 [ %.04.i, %_ZN12ConstantPool26basic_type_for_constant_atEi.exit ], [ %9, %2 ]
   ret i8 %.sroa.04.0
 }

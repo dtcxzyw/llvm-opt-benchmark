@@ -137,7 +137,7 @@ define internal noundef i32 @hash_write_trailer(ptr noundef readonly captures(no
   %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 56, ptr noundef nonnull @.str.15, i32 noundef %31, i32 noundef %26, ptr noundef %30) #6
   br label %39
 
-33:                                               ; preds = %15
+33:; preds = %15
   %34 = load ptr, ptr %13, align 8, !tbaa !24
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !33
@@ -145,7 +145,7 @@ define internal noundef i32 @hash_write_trailer(ptr noundef readonly captures(no
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 56, ptr noundef nonnull @.str.16, ptr noundef %37) #6
   br label %39
 
-39:                                               ; preds = %33, %17
+39:; preds = %33, %17
   %40 = load ptr, ptr %13, align 8, !tbaa !24
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !33
@@ -153,7 +153,7 @@ define internal noundef i32 @hash_write_trailer(ptr noundef readonly captures(no
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 %43
   %45 = trunc i64 %43 to i32
   %46 = sub i32 256, %45
-  call void @av_hash_final_hex(ptr noundef %42, ptr noundef nonnull %44, i32 noundef %46) #6
+  call void @av_hash_final_hex(ptr noundef %42, ptr noundef nonnull %44, i32 noundef %46) #7
   %47 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %2, i64 noundef 256, ptr noundef nonnull @.str.17) #6
   %48 = load ptr, ptr %14, align 8, !tbaa !47
   %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7

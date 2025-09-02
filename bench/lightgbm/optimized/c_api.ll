@@ -45458,42 +45458,42 @@ define linkonce_odr void @_ZNK8LightGBM7Booster15CreatePredictorEiiiiRKNS_6Confi
   %switch.downshift17 = lshr exact i32 16777216, %switch.shiftamt
   %switch.downshift20 = lshr i32 65536, %switch.shiftamt
   %28 = trunc i32 %switch.downshift to i1
-  %29 = trunc i32 %switch.downshift20 to i1
-  %30 = trunc i32 %switch.downshift17 to i1
+  %switch.masked20 = trunc i32 %switch.downshift20 to i1
+  %switch.cast21 = trunc i32 %switch.downshift17 to i1
   %.015 = select i1 %27, i1 %28, i1 false
-  %.014 = select i1 %27, i1 %30, i1 false
-  %.0 = select i1 %27, i1 %29, i1 false
+  %.014 = select i1 %27, i1 %switch.cast21, i1 false
+  %.015 = select i1 %27, i1 %switch.masked20, i1 false
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !811
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 1148
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 1148
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 1152
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 1160
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 1160
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1149)
   store ptr null, ptr %0, align 8, !tbaa !1141, !alias.scope !1149
-  %36 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #43, !noalias !1149
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i32 1, ptr %37, align 8, !tbaa !1146, !noalias !1149
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  store i32 1, ptr %38, align 4, !tbaa !1148, !noalias !1149
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8LightGBM9PredictorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %36, align 8, !tbaa !14, !noalias !1149
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %40 = load i8, ptr %33, align 4, !tbaa !936, !range !259, !noalias !1149, !noundef !260
-  %41 = trunc nuw i8 %40 to i1
-  %42 = load i32, ptr %34, align 8, !tbaa !52, !noalias !1149
-  %43 = load double, ptr %35, align 8, !tbaa !305, !noalias !1149
-  invoke void @_ZN8LightGBM9PredictorC2EPNS_8BoostingEiibbbbid(ptr noundef nonnull align 8 dereferenceable(144) %39, ptr noundef %32, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %.015, i1 noundef zeroext %.0, i1 noundef zeroext %.014, i1 noundef zeroext %41, i32 noundef %42, double noundef %43)
+  %33 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #43, !noalias !1149
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store i32 1, ptr %34, align 8, !tbaa !1146, !noalias !1149
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  store i32 1, ptr %35, align 4, !tbaa !1148, !noalias !1149
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8LightGBM9PredictorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %33, align 8, !tbaa !14, !noalias !1149
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %37 = load i8, ptr %33, align 4, !tbaa !936, !range !259, !noalias !1149, !noundef !260
+  %38 = trunc nuw i8 %37 to i1
+  %39 = load i32, ptr %34, align 8, !tbaa !52, !noalias !1149
+  %40 = load double, ptr %35, align 8, !tbaa !305, !noalias !1149
+  invoke void @_ZN8LightGBM9PredictorC2EPNS_8BoostingEiibbbbid(ptr noundef nonnull align 8 dereferenceable(144) %36, ptr noundef %32, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %.015, i1 noundef zeroext %.0, i1 noundef zeroext %.014, i1 noundef zeroext %38, i32 noundef %39, double noundef %40)
           to label %_ZSt11make_sharedIN8LightGBM9PredictorEJPNS0_8BoostingERiS4_RbS5_S5_RKbRKiRKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8LightGBM9PredictorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit18.i.i.i.i, !noalias !1149
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8LightGBM9PredictorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit18.i.i.i.i: ; preds = %26
-  %44 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %36) #39, !noalias !1149
-  resume { ptr, i32 } %44
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #39, !noalias !1149
+  resume { ptr, i32 } %41
 
 _ZSt11make_sharedIN8LightGBM9PredictorEJPNS0_8BoostingERiS4_RbS5_S5_RKbRKiRKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_.exit: ; preds = %26
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %36, ptr %45, align 8, !tbaa !1145, !alias.scope !1149
-  store ptr %39, ptr %0, align 8, !tbaa !840, !alias.scope !1149
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %33, ptr %42, align 8, !tbaa !1145, !alias.scope !1149
+  store ptr %36, ptr %0, align 8, !tbaa !840, !alias.scope !1149
   ret void
 }
 

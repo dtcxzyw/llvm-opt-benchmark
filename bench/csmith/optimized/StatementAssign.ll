@@ -651,7 +651,7 @@ _ZNK12CVQualifiers11is_volatileEv.exit:           ; preds = %96
           cleanup
   br label %228
 
-144:                                              ; preds = %.invoke, %212, %208, %197, %192, %._crit_edge, %171, %170, %158, %149, %146, %138, %134
+144:                                              ; preds = %.invoke, %212, %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit, %197, %192, %._crit_edge, %171, %170, %158, %149, %146, %138, %134
   %145 = landingpad { ptr, i32 }
           cleanup
   br label %228
@@ -760,7 +760,7 @@ _ZNK12CVQualifiers11is_volatileEv.exit:           ; preds = %96
   %203 = load i32, ptr %202, align 8
   %204 = icmp eq i32 %203, 10
   %205 = select i1 %201, i1 %204, i1 false
-  br i1 %205, label %206, label %208
+  br i1 %205, label %206, label %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
 
 206:                                              ; preds = %199, %185
   %207 = icmp ult i32 %12, 6
@@ -771,12 +771,12 @@ _ZNK12CVQualifiers11is_volatileEv.exit:           ; preds = %96
   %spec.select = select i1 %.0.i, i32 %12, i32 0
   br label %208
 
-208:                                              ; preds = %206, %199
+_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit: ; preds = %206, %199
   %.079 = phi i32 [ %12, %199 ], [ %spec.select, %206 ]
   %209 = invoke noundef zeroext i1 @_ZN17CompatibleChecker16compatible_checkEPK10ExpressionS2_(ptr noundef nonnull %.077, ptr noundef nonnull %156)
           to label %210 unwind label %144
 
-210:                                              ; preds = %208
+210:                                              ; preds = %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
   br i1 %209, label %211, label %212
 
 211:                                              ; preds = %210

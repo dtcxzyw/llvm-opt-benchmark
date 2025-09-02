@@ -3992,16 +3992,16 @@ define hidden void @"_ZN233_$LT$ruff_linter..rules..flake8_pytest_style..types..
   %.not = icmp eq i64 %4, 2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
-  br i1 %.not, label %switch.lookup, label %8
+  br i1 %.not, label %7, label %9
 
-switch.lookup:                                    ; preds = %2
+7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %6, ptr %8, align 8
   store i64 2, ptr %0, align 8
-  br label %9
+  br label %10
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 9
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.69.0..sroa_idx, i64 87, i1 false)
@@ -4009,9 +4009,9 @@ switch.lookup:                                    ; preds = %2
   store i64 %4, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %6, ptr %.sroa.211.0..sroa_idx, align 8
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %switch.lookup
+10:                                               ; preds = %9, %7
   ret void
 }
 
@@ -19268,12 +19268,12 @@ _ZN4core3cmp6min_by17hbd6166dc6879b7f6E.exit.i.i.i.i.i.i.i: ; preds = %46
   unreachable
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc534afe0f5a55030E.exit.i.i.i.i.i": ; preds = %_ZN4core3cmp6min_by17hbd6166dc6879b7f6E.exit.i.i.i.i.i.i.i, %"_ZN14ruff_workspace9pyproject29get_minimum_supported_version28_$u7b$$u7b$closure$u7d$$u7d$17h203242ec9654dd4aE.exit.i.i.i.i.i.i"
-  %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %spec.select9.i.i.i.i.i.i.i.i, %_ZN4core3cmp6min_by17hbd6166dc6879b7f6E.exit.i.i.i.i.i.i.i ], [ %.sroa.0.0.i17.i.i.i.i, %"_ZN14ruff_workspace9pyproject29get_minimum_supported_version28_$u7b$$u7b$closure$u7d$$u7d$17h203242ec9654dd4aE.exit.i.i.i.i.i.i" ]
+  %.sroa.0.0.i4.i.i.i.i.i = phi ptr [ %spec.select9.i.i.i.i.i.i.i.i, %_ZN4core3cmp6min_by17hbd6166dc6879b7f6E.exit.i.i.i.i.i.i.i ], [ %.sroa.0.0.i17.i.i.i.i, %"_ZN14ruff_workspace9pyproject29get_minimum_supported_version28_$u7b$$u7b$closure$u7d$$u7d$17h203242ec9654dd4aE.exit.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2906
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd52cd433158339feE.exit.i.i.i.i"
 
 "_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd52cd433158339feE.exit.i.i.i.i": ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc534afe0f5a55030E.exit.i.i.i.i.i", %40
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc534afe0f5a55030E.exit.i.i.i.i.i" ], [ %.sroa.0.0.i17.i.i.i.i, %40 ]
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %.sroa.0.0.i4.i.i.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc534afe0f5a55030E.exit.i.i.i.i.i" ], [ %.sroa.0.0.i17.i.i.i.i, %40 ]
   %58 = add nuw i64 %.sroa.07.0.i.i.i.i, 1
   %59 = icmp eq i64 %58, %39
   br i1 %59, label %_ZN4core4iter6traits8iterator8Iterator6reduce17hcbd71bd515afc49cE.exit.thread18, label %40

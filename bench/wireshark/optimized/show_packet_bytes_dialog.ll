@@ -6441,17 +6441,17 @@ define noundef zeroext i1 @_ZN21ShowPacketBytesDialog18enableShowSelectedEv(ptr 
 3:                                                ; preds = %1, %1
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 68), align 4
   %5 = icmp ult i32 %4, 9
-  br i1 %5, label %switch.lookup, label %6
+  br i1 %5, label %switch.lookup, label %switch.edge
 
 switch.lookup:                                    ; preds = %3
   %switch.cast = trunc nuw nsw i32 %4 to i9
   %switch.downshift = lshr i9 -245, %switch.cast
   %switch.masked = trunc i9 %switch.downshift to i1
-  br label %6
+  br label %switch.edge
 
-6:                                                ; preds = %3, %switch.lookup, %1
-  %7 = phi i1 [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %3 ]
-  ret i1 %7
+switch.edge:                                      ; preds = %3, %switch.lookup, %1
+  %6 = phi i1 [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %3 ]
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
@@ -6633,16 +6633,16 @@ _ZNK8QVariant5valueI17bytes_decode_typeEET_v.exit: ; preds = %.noexc5, %_ZNK8QVa
 56:                                               ; preds = %_ZNK8QVariant5valueI17bytes_decode_typeEET_v.exit, %_ZNK8QVariant5valueI17bytes_decode_typeEET_v.exit
   %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 68), align 4
   %58 = icmp ult i32 %57, 9
-  br i1 %58, label %switch.lookup.i, label %_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit
+  br i1 %58, label %switch.lookup, label %_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit
 
-switch.lookup.i:                                  ; preds = %56
+switch.lookup:                                    ; preds = %56
   %switch.cast.i = trunc nuw nsw i32 %57 to i9
   %switch.downshift.i = lshr i9 -245, %switch.cast.i
   %switch.masked.i = trunc i9 %switch.downshift.i to i8
   %59 = and i8 %switch.masked.i, 1
   br label %_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit
 
-_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit: ; preds = %_ZNK8QVariant5valueI17bytes_decode_typeEET_v.exit, %56, %switch.lookup.i
+_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit: ; preds = %_ZNK8QVariant5valueI17bytes_decode_typeEET_v.exit, %56, %switch.lookup
   %60 = phi i8 [ 0, %_ZNK8QVariant5valueI17bytes_decode_typeEET_v.exit ], [ %59, %switch.lookup.i ], [ 0, %56 ]
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i8 %60, ptr %61, align 8
@@ -6801,16 +6801,16 @@ _ZNK8QVariant5valueI15bytes_show_typeEET_v.exit:  ; preds = %.noexc5, %_ZNK8QVar
 56:                                               ; preds = %_ZNK8QVariant5valueI15bytes_show_typeEET_v.exit, %_ZNK8QVariant5valueI15bytes_show_typeEET_v.exit
   %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 68), align 4
   %58 = icmp ult i32 %57, 9
-  br i1 %58, label %switch.lookup.i, label %_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit
+  br i1 %58, label %switch.lookup, label %_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit
 
-switch.lookup.i:                                  ; preds = %56
+switch.lookup:                                    ; preds = %56
   %switch.cast.i = trunc nuw nsw i32 %57 to i9
   %switch.downshift.i = lshr i9 -245, %switch.cast.i
   %switch.masked.i = trunc i9 %switch.downshift.i to i8
   %59 = and i8 %switch.masked.i, 1
   br label %_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit
 
-_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit: ; preds = %_ZNK8QVariant5valueI15bytes_show_typeEET_v.exit, %56, %switch.lookup.i
+_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit: ; preds = %_ZNK8QVariant5valueI15bytes_show_typeEET_v.exit, %56, %switch.lookup
   %60 = phi i8 [ 0, %_ZNK8QVariant5valueI15bytes_show_typeEET_v.exit ], [ %59, %switch.lookup.i ], [ 0, %56 ]
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i8 %60, ptr %61, align 8

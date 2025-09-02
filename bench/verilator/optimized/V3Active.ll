@@ -7343,7 +7343,7 @@ define linkonce_odr dso_local void @_ZN23ActiveLatchCheckVisitor5visitEP9AstVarR
   %10 = select i1 %9, i1 %switch.masked.i.i, i1 false
   br i1 %10, label %11, label %_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit
 
-11:                                               ; preds = %7
+29:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 260
   %13 = load i64, ptr %12, align 4
   %14 = and i64 %13, 40960
@@ -7384,7 +7384,7 @@ define linkonce_odr dso_local void @_ZN23ActiveLatchCheckVisitor5visitEP9AstVarR
   tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 72) #25
   resume { ptr, i32 } %32
 
-_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit: ; preds = %11, %7, %2, %26
+_ZN16LatchDetectGraph13addAssignmentEP9AstVarRef.exit: ; preds = %29, %7, %2, %26
   ret void
 }
 

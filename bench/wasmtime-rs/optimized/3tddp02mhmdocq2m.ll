@@ -283,7 +283,7 @@ define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term22has_external_extractor
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define zeroext i1 @_ZN14cranelift_isle4sema4Term24has_external_constructor17he6b18c5eb33b3648E(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
-switch.lookup:
+switch.edge:
   %1 = load i64, ptr %0, align 16, !range !6, !noundef !4
   %switch.cast = trunc nuw nsw i64 %1 to i4
   %switch.downshift = lshr i4 2, %switch.cast

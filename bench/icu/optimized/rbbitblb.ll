@@ -427,7 +427,7 @@ declare void @_ZN6icu_778RBBINode11flattenSetsER10UErrorCodei(ptr noundef nonnul
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_7716RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #6 align 2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %36, label %4
+  br i1 %3, label %33, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %1, align 8, !tbaa !52
@@ -448,7 +448,7 @@ define void @_ZN6icu_7716RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr nound
   %12 = load i32, ptr %1, align 8, !tbaa !52
   switch i32 %12, label %33 [
     i32 9, label %13
-    i32 8, label %23
+    i32 8, label %22
     i32 10, label %.sink.split
     i32 12, label %.sink.split
   ]
@@ -468,22 +468,22 @@ define void @_ZN6icu_7716RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr nound
   %22 = zext i1 %21 to i8
   br label %.sink.split
 
-23:                                               ; preds = %7
-  %24 = load ptr, ptr %8, align 8, !tbaa !43
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
-  %26 = load i8, ptr %25, align 8, !tbaa !53
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %.sink.split, label %27
+22:                                               ; preds = %7
+  %23 = load ptr, ptr %8, align 8, !tbaa !43
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
+  %25 = load i8, ptr %24, align 8, !tbaa !53
+  %.not = icmp eq i8 %25, 0
+  br i1 %.not, label %.sink.split, label %26
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %10, align 8, !tbaa !48
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  %30 = load i8, ptr %29, align 8, !tbaa !53
-  %31 = icmp ne i8 %30, 0
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %10, align 8, !tbaa !48
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
+  %29 = load i8, ptr %28, align 8, !tbaa !53
+  %30 = icmp ne i8 %29, 0
   %32 = zext i1 %31 to i8
   br label %.sink.split
 
-33:                                               ; preds = %7
+31:                                               ; preds = %7
   br label %.sink.split
 
 switch.lookup:                                    ; preds = %4
@@ -493,13 +493,13 @@ switch.lookup:                                    ; preds = %4
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %7, %7, %23, %27, %13, %17, %switch.lookup, %33
-  %.sink = phi i8 [ 0, %33 ], [ %switch.masked, %switch.lookup ], [ 1, %13 ], [ %22, %17 ], [ 0, %23 ], [ %32, %27 ], [ 1, %7 ], [ 1, %7 ]
+.sink.split:                                      ; preds = %7, %7, %22, %26, %13, %17, %switch.lookup, %31
+  %.sink.shrunk = phi i8 [ 0, %33 ], [ %switch.masked, %switch.lookup ], [ 1, %13 ], [ %22, %17 ], [ 0, %23 ], [ %32, %27 ], [ 1, %7 ], [ 1, %7 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i8 %.sink, ptr %35, align 8, !tbaa !53
-  br label %36
+  br label %33
 
-36:                                               ; preds = %.sink.split, %2
+33:                                               ; preds = %.sink.split, %2
   ret void
 }
 

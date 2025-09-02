@@ -1653,33 +1653,33 @@ define hidden { i16, i16 } @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !522, !nonnull !4, !noundef !4
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !522
-  br label %5
+  br label %"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf922bcf43ce581b2E.exit.i"
 
-5:                                                ; preds = %8, %2
-  %6 = phi ptr [ %9, %8 ], [ %.promoted.i, %2 ]
-  %7 = icmp eq ptr %6, %4
-  br i1 %7, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha4c28dd445f89e3bE.llvm.403688954652204928.exit, label %8
+"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf922bcf43ce581b2E.exit.i": ; preds = %7, %2
+  %5 = phi ptr [ %8, %8 ], [ %.promoted.i, %2 ]
+  %6 = icmp eq ptr %5, %4
+  br i1 %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha4c28dd445f89e3bE.llvm.403688954652204928.exit, label %7
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store ptr %9, ptr %0, align 8, !alias.scope !522
-  %.val.i = load i16, ptr %6, align 2, !range !133, !noalias !519, !noundef !4
+7:                                                ; preds = %"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf922bcf43ce581b2E.exit.i"
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store ptr %8, ptr %0, align 8, !alias.scope !522
+  %.val.i = load i16, ptr %5, align 2, !range !133, !noalias !519, !noundef !4
   %switch.cast.i.i.i.i.i.i = trunc nuw nsw i16 %.val.i to i14
   %switch.downshift.i.i.i.i.i.i = lshr i14 4008, %switch.cast.i.i.i.i.i.i
   %switch.masked.i.i.i.i.i.i = trunc i14 %switch.downshift.i.i.i.i.i.i to i1
   br i1 %switch.masked.i.i.i.i.i.i, label %.split.loop.exit16.i, label %5
 
-.split.loop.exit16.i:                             ; preds = %8
+.split.loop.exit16.i:; preds = %8
   %10 = getelementptr i8, ptr %6, i64 2
   %.val13.le.i = load i16, ptr %10, align 2, !noalias !519
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha4c28dd445f89e3bE.llvm.403688954652204928.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17ha4c28dd445f89e3bE.llvm.403688954652204928.exit: ; preds = %5, %.split.loop.exit16.i
+_ZN4core4iter6traits8iterator8Iterator8try_fold17ha4c28dd445f89e3bE.llvm.403688954652204928.exit: ; preds = %"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf922bcf43ce581b2E.exit.i", %.split.loop.exit16.i
   %.sroa.3.0.i = phi i16 [ %.val13.le.i, %.split.loop.exit16.i ], [ undef, %5 ]
   %.sroa.0.0.i = phi i16 [ %.val.i, %.split.loop.exit16.i ], [ 14, %5 ]
-  %11 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i, 0
-  %12 = insertvalue { i16, i16 } %11, i16 %.sroa.3.0.i, 1
-  ret { i16, i16 } %12
+  %10 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i, 0
+  %11 = insertvalue { i16, i16 } %10, i16 %.sroa.3.0.i, 1
+  ret { i16, i16 } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -3598,33 +3598,33 @@ define hidden { i16, i16 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1188, !nonnull !4, !noundef !4
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !1188
-  br label %5
+  br label %"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf922bcf43ce581b2E.exit"
 
-5:                                                ; preds = %8, %2
-  %6 = phi ptr [ %9, %8 ], [ %.promoted, %2 ]
-  %7 = icmp eq ptr %6, %4
-  br i1 %7, label %.split.loop.exit, label %8
+"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf922bcf43ce581b2E.exit": ; preds = %7, %2
+  %5 = phi ptr [ %8, %8 ], [ %.promoted, %2 ]
+  %6 = icmp eq ptr %5, %4
+  br i1 %6, label %.split.loop.exit, label %7
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store ptr %9, ptr %0, align 8, !alias.scope !1188
-  %.val = load i16, ptr %6, align 2, !range !133, !noundef !4
+7:                                                ; preds = %"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf922bcf43ce581b2E.exit"
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store ptr %8, ptr %0, align 8, !alias.scope !1188
+  %.val = load i16, ptr %5, align 2, !range !133, !noundef !4
   %switch.cast.i.i.i.i.i = trunc nuw nsw i16 %.val to i14
   %switch.downshift.i.i.i.i.i = lshr i14 4008, %switch.cast.i.i.i.i.i
   %switch.masked.i.i.i.i.i = trunc i14 %switch.downshift.i.i.i.i.i to i1
   br i1 %switch.masked.i.i.i.i.i, label %.split.loop.exit16, label %5
 
-.split.loop.exit16:                               ; preds = %8
+.split.loop.exit16:; preds = %8
   %10 = getelementptr i8, ptr %6, i64 2
   %.val13.le = load i16, ptr %10, align 2
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %5, %.split.loop.exit16
+.split.loop.exit:                                 ; preds = %"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf922bcf43ce581b2E.exit", %.split.loop.exit16
   %.sroa.3.0 = phi i16 [ %.val13.le, %.split.loop.exit16 ], [ undef, %5 ]
   %.sroa.0.0 = phi i16 [ %.val, %.split.loop.exit16 ], [ 14, %5 ]
-  %11 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %12 = insertvalue { i16, i16 } %11, i16 %.sroa.3.0, 1
-  ret { i16, i16 } %12
+  %10 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
+  %11 = insertvalue { i16, i16 } %10, i16 %.sroa.3.0, 1
+  ret { i16, i16 } %11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

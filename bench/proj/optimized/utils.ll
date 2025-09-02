@@ -156,13 +156,13 @@ define hidden noundef zeroext i1 @_Z32validate_form_string_for_numbersPKc(ptr no
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %switch.tableidx = add i8 %15, -69
   %16 = icmp ult i8 %switch.tableidx, 35
-  br i1 %16, label %switch.hole_check, label %17
+  br i1 %16, label %switch.edge, label %switch.lookup
 
-17:                                               ; preds = %switch.hole_check, %._crit_edge
+switch.lookup:                                    ; preds = %switch.edge, %._crit_edge
   %18 = icmp eq i8 %15, 71
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %._crit_edge
+switch.edge:                                      ; preds = %._crit_edge
   %switch.maskindex = zext nneg i8 %switch.tableidx to i64
   %switch.shifted = lshr i64 30064771075, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1

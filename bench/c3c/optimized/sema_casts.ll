@@ -2480,7 +2480,7 @@ report_cast_error.exit:                           ; preds = %23, %26, %29
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_ptr_to_interface(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  br i1 %1, label %.loopexit35, label %4
+  br i1 %1, label %.loopexit, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2509,62 +2509,62 @@ define internal noundef zeroext i1 @rule_ptr_to_interface(ptr noundef readonly c
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  %25 = load ptr, ptr %24, align 8
-  %.not = icmp eq ptr %25, null
+  %17 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %23, i64 80
+  %22 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %22, null
   br i1 %.not, label %.loopexit, label %26
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %25, i64 -8
-  %28 = load i32, ptr %27, align 4
-  %.not37 = icmp eq i32 %28, 0
-  br i1 %.not37, label %.loopexit, label %.lr.ph.preheader
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds i8, ptr %25, i64 -8
+  %27 = load i32, ptr %26, align 4
+  %.not36 = icmp eq i32 %27, 0
+  br i1 %.not36, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %26
-  %wide.trip.count = zext i32 %28 to i64
+.lr.ph.preheader:                                 ; preds = %25
+  %wide.trip.count = zext i32 %27 to i64
   br label %.lr.ph
 
-29:                                               ; preds = %34
+28:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !7
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %0, align 8
-  %33 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %32, ptr noundef %31, i32 noundef 2) #10
-  br i1 %33, label %34, label %.loopexit35
+  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %0, align 8
+  %32 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %31, ptr noundef %30, i32 noundef 2) #10
+  br i1 %32, label %33, label %.loopexit
 
-34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, %21
-  br i1 %37, label %.loopexit35, label %29
+33:                                               ; preds = %.lr.ph
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, %21
+  br i1 %36, label %.loopexit, label %28
 
-.loopexit:                                        ; preds = %29, %17, %26, %15
-  br i1 %2, label %.loopexit35, label %38
+.critedge:                                        ; preds = %28, %17, %25, %15
+  br i1 %2, label %.loopexit, label %37
 
-38:                                               ; preds = %.loopexit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %40, align 8
-  %43 = tail call ptr @type_quoted_error_string(ptr noundef %42) #10
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call ptr @type_quoted_error_string(ptr noundef %45) #10
-  %47 = load i64, ptr %41, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %47, ptr noundef nonnull @.str.24, ptr noundef %43, ptr noundef %46) #10
-  br label %.loopexit35
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load ptr, ptr %39, align 8
+  %42 = tail call ptr @type_quoted_error_string(ptr noundef %41) #10
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call ptr @type_quoted_error_string(ptr noundef %44) #10
+  %46 = load i64, ptr %40, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %46, ptr noundef nonnull @.str.24, ptr noundef %42, ptr noundef %45) #10
+  br label %.loopexit
 
-.loopexit35:                                      ; preds = %34, %.lr.ph, %.loopexit, %3, %38
-  %.032 = phi i1 [ false, %38 ], [ true, %3 ], [ false, %.loopexit ], [ %33, %.lr.ph ], [ %33, %34 ]
+.loopexit:                                        ; preds = %33, %.lr.ph, %.critedge, %3, %37
+  %.032 = phi i1 [ false, %38 ], [ true, %3 ], [ false, %.loopexit ], [ %32, %.lr.ph ], [ %32, %34 ]
   ret i1 %.032
 }
 

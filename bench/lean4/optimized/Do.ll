@@ -17405,7 +17405,7 @@ define nonnull ptr @l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1___box
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 1
   %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %7, label %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread
+  br i1 %.not.i.i, label %6, label %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread
 
 l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread: ; preds = %1
   %4 = and i64 %2, 8589934576
@@ -17417,9 +17417,9 @@ l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread: ; preds = %1
   %.0.i8 = select i1 %5, i8 %switch.masked.i7, i8 0
   br label %lean_dec.exit
 
-7:                                                ; preds = %1
-  %8 = getelementptr i8, ptr %0, i64 4
-  %.val.i.i = load i32, ptr %8, align 4
+6:                                                ; preds = %1
+  %7 = getelementptr i8, ptr %0, i64 4
+  %.val.i.i = load i32, ptr %7, align 4
   %9 = icmp ult i32 %.val.i.i, 134217728
   %10 = lshr i32 %.val.i.i, 21
   %11 = and i32 %10, 2040
@@ -17431,22 +17431,22 @@ l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread: ; preds = %1
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %14, label %16, !prof !13
 
-14:                                               ; preds = %7
-  %15 = add nsw i32 %12, -1
-  store i32 %15, ptr %0, align 4, !tbaa !8
+11:                                               ; preds = %6
+  %12 = add nsw i32 %12, -1
+  store i32 %12, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-16:                                               ; preds = %7
+13:                                               ; preds = %6
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %lean_dec.exit, label %17
+  br i1 %.not.i, label %lean_dec.exit, label %14
 
-17:                                               ; preds = %16
+14:                                               ; preds = %13
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #8
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %17, %16, %14, %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread
-  %.0.i9 = phi i8 [ %.0.i8, %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread ], [ %.0.i, %14 ], [ %.0.i, %16 ], [ %.0.i, %17 ]
-  %18 = zext nneg i8 %.0.i9 to i64
+lean_dec.exit:                                    ; preds = %14, %13, %11, %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread
+  %..i7.in.in.in = phi i8 [ %.0.i8, %l_Lean_Elab_Term_Do_hasBreakContinueReturn___lambda__1.exit.thread ], [ %.0.i, %14 ], [ %.0.i, %16 ], [ %.0.i, %17 ]
+  %18 = zext nneg i8 %..i7.in.in.in to i64
   %19 = shl nuw nsw i64 %18, 1
   %20 = or disjoint i64 %19, 1
   %21 = inttoptr i64 %20 to ptr

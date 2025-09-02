@@ -324,10 +324,10 @@ define internal zeroext i1 @HIDAPI_DriverPS3_UpdateDevice(ptr noundef %0) #0 {
   %58 = and i8 %56, 15
   %59 = icmp samesign ult i8 %58, 8
   %60 = shl nuw nsw i8 %58, 3
-  %switch.shiftamt.i = zext nneg i8 %60 to i64
-  %switch.downshift.i = lshr i64 650783357575234305, %switch.shiftamt.i
-  %switch.masked.i = trunc i64 %switch.downshift.i to i8
-  %.0.i = select i1 %59, i8 %switch.masked.i, i8 0
+  %switch.shiftamt = zext nneg i8 %60 to i64
+  %switch.downshift = lshr i64 650783357575234305, %switch.shiftamt
+  %switch.masked = trunc i64 %switch.downshift to i8
+  %.0.i = select i1 %59, i8 %switch.masked, i8 0
   call void @SDL_SendJoystickHat(i64 noundef %54, ptr noundef nonnull %15, i8 noundef zeroext 0, i8 noundef zeroext %.0.i) #10
   %61 = load i8, ptr %26, align 4
   %62 = and i8 %61, 16
@@ -1134,9 +1134,9 @@ define internal zeroext i1 @HIDAPI_DriverPS3ThirdParty_UpdateDevice(ptr noundef 
   %100 = and i8 %98, 15
   %101 = icmp samesign ult i8 %100, 8
   %102 = shl nuw nsw i8 %100, 3
-  %switch.shiftamt.i = zext nneg i8 %102 to i64
-  %switch.downshift.i = lshr i64 650783357575234305, %switch.shiftamt.i
-  %switch.masked.i = trunc i64 %switch.downshift.i to i8
+  %switch.shiftamt = zext nneg i8 %102 to i64
+  %switch.downshift = lshr i64 650783357575234305, %switch.shiftamt
+  %switch.masked = trunc i64 %switch.downshift to i8
   %.0100.i = select i1 %101, i8 %switch.masked.i, i8 0
   br label %.sink.split.i
 
@@ -1282,11 +1282,11 @@ HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.exit: ; preds = %145, %103
   %187 = load i8, ptr %19, align 1
   %188 = lshr i8 %187, 1
   %189 = and i8 %188, 120
-  %switch.shiftamt.i20 = zext nneg i8 %189 to i64
-  %switch.downshift.i21 = lshr i64 650783357575234305, %switch.shiftamt.i20
-  %switch.masked.i22 = trunc i64 %switch.downshift.i21 to i8
-  %.inv.i = icmp slt i8 %187, 0
-  %.078.i = select i1 %.inv.i, i8 0, i8 %switch.masked.i22
+  %switch.shiftamt48 = zext nneg i8 %189 to i64
+  %switch.downshift49 = lshr i64 650783357575234305, %switch.shiftamt48
+  %switch.masked50 = trunc i64 %switch.downshift49 to i8
+  %.inv = icmp slt i8 %187, 0
+  %.078.i = select i1 %.inv, i8 0, i8 %switch.masked50
   call void @SDL_SendJoystickHat(i64 noundef %151, ptr noundef nonnull %12, i8 noundef zeroext 0, i8 noundef zeroext %.078.i) #10
   br label %190
 
@@ -1323,18 +1323,18 @@ HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.exit: ; preds = %145, %103
   call void @SDL_SendJoystickAxis(i64 noundef %151, ptr noundef nonnull %12, i8 noundef zeroext 3, i16 noundef signext %214) #10
   %215 = load i8, ptr %26, align 1, !range !3, !noundef !4
   %216 = trunc nuw i8 %215 to i1
-  br i1 %216, label %.preheader.i23, label %HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.exit
+  br i1 %216, label %.preheader.i20, label %HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.exit
 
-.preheader.i23:                                   ; preds = %190, %229
-  %indvars.iv.i24 = phi i64 [ %indvars.iv.next.i26, %229 ], [ 0, %190 ]
-  %.086.i = phi i8 [ %.1.i25, %229 ], [ 6, %190 ]
-  %217 = trunc i64 %indvars.iv.i24 to i8
+.preheader.i20:                                   ; preds = %190, %229
+  %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i23, %229 ], [ 0, %190 ]
+  %.086.i = phi i8 [ %.1.i22, %229 ], [ 6, %190 ]
+  %217 = trunc i64 %indvars.iv.i21 to i8
   %218 = add i8 %217, -4
   %.not84.i = icmp ult i8 %218, 5
   br i1 %.not84.i, label %229, label %219
 
-219:                                              ; preds = %.preheader.i23
-  %220 = getelementptr inbounds nuw i32, ptr @HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.button_axis_offsets, i64 %indvars.iv.i24
+219:                                              ; preds = %.preheader.i20
+  %220 = getelementptr inbounds nuw i32, ptr @HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.button_axis_offsets, i64 %indvars.iv.i21
   %221 = load i32, ptr %220, align 4
   %222 = sext i32 %221 to i64
   %223 = getelementptr inbounds i8, ptr %2, i64 %222
@@ -1346,11 +1346,11 @@ HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.exit: ; preds = %145, %103
   %228 = add i8 %.086.i, 1
   br label %229
 
-229:                                              ; preds = %219, %.preheader.i23
-  %.1.i25 = phi i8 [ %228, %219 ], [ %.086.i, %.preheader.i23 ]
-  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i24, 1
-  %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 15
-  br i1 %exitcond.not.i27, label %HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.exit, label %.preheader.i23, !llvm.loop !10
+229:                                              ; preds = %219, %.preheader.i20
+  %.1.i22 = phi i8 [ %228, %219 ], [ %.086.i, %.preheader.i23 ]
+  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
+  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 15
+  br i1 %exitcond.not.i24, label %HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.exit, label %.preheader.i20, !llvm.loop !10
 
 HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.exit: ; preds = %229, %190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %17, ptr noundef nonnull readonly align 16 dereferenceable(18) %2, i64 18, i1 false)

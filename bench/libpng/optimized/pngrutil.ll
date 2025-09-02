@@ -3091,36 +3091,36 @@ switch.lookup:                                    ; preds = %png_get_uint_31.exi
   %.sink = phi i8 [ %switch.masked, %switch.lookup ], [ 1, %png_get_uint_31.exit41 ]
   %69 = phi i8 [ %switch.masked47, %switch.lookup ], [ 1, %png_get_uint_31.exit41 ]
   store i8 %.sink, ptr %64, align 1, !tbaa !141
-  %70 = mul i8 %69, %48
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 626
-  store i8 %70, ptr %71, align 2, !tbaa !81
-  %72 = icmp ugt i8 %70, 7
-  %73 = zext nneg i32 %26 to i64
-  br i1 %72, label %74, label %78
+  %66 = mul i8 %69, %48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 626
+  store i8 %66, ptr %67, align 2, !tbaa !81
+  %68 = icmp ugt i8 %66, 7
+  %69 = zext nneg i32 %26 to i64
+  br i1 %68, label %70, label %74
+
+70:                                               ; preds = %68
+  %71 = lshr i8 %66, 3
+  %72 = zext nneg i8 %71 to i64
+  %73 = mul nuw nsw i64 %72, %69
+  br label %79
 
 74:                                               ; preds = %68
-  %75 = lshr i8 %70, 3
-  %76 = zext nneg i8 %75 to i64
-  %77 = mul nuw nsw i64 %76, %73
-  br label %83
+  %75 = zext nneg i8 %66 to i64
+  %76 = mul nuw nsw i64 %75, %69
+  %77 = add nuw nsw i64 %76, 7
+  %78 = lshr i64 %77, 3
+  br label %79
 
-78:                                               ; preds = %68
-  %79 = zext nneg i8 %70 to i64
-  %80 = mul nuw nsw i64 %79, %73
-  %81 = add nuw nsw i64 %80, 7
-  %82 = lshr i64 %81, 3
-  br label %83
-
-83:                                               ; preds = %78, %74
-  %84 = phi i64 [ %77, %74 ], [ %82, %78 ]
-  %85 = zext i8 %56 to i32
-  %86 = zext i8 %54 to i32
-  %87 = zext i8 %52 to i32
-  %88 = zext i8 %50 to i32
-  %89 = zext i8 %48 to i32
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i64 %84, ptr %90, align 8, !tbaa !116
-  call void @png_set_IHDR(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %26, i32 noundef %46, i32 noundef %89, i32 noundef %88, i32 noundef %85, i32 noundef %87, i32 noundef %86) #12
+79:                                               ; preds = %74, %70
+  %80 = phi i64 [ %73, %74 ], [ %78, %78 ]
+  %81 = zext i8 %56 to i32
+  %82 = zext i8 %54 to i32
+  %83 = zext i8 %52 to i32
+  %84 = zext i8 %50 to i32
+  %85 = zext i8 %48 to i32
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i64 %80, ptr %86, align 8, !tbaa !116
+  call void @png_set_IHDR(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %26, i32 noundef %46, i32 noundef %85, i32 noundef %84, i32 noundef %81, i32 noundef %83, i32 noundef %82) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 3
 }

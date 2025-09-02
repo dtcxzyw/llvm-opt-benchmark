@@ -4103,14 +4103,14 @@ define internal fastcc i32 @http_target(ptr noundef readonly captures(none) %0, 
   %45 = load ptr, ptr %5, align 8, !tbaa !195
   %46 = call i32 @curl_strequal(ptr noundef nonnull @.str.101, ptr noundef %45) #11
   %.not89 = icmp eq i32 %46, 0
-  br i1 %.not89, label %.critedge, label %47
+  br i1 %.not89, label %67, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %49 = load i64, ptr %48, align 2
   %50 = and i64 %49, 549755813888
   %.not90 = icmp eq i64 %50, 0
-  br i1 %.not90, label %.critedge, label %51
+  br i1 %.not90, label %67, label %51
 
 51:                                               ; preds = %47
   %52 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) @.str.102) #12
@@ -4121,13 +4121,13 @@ define internal fastcc i32 @http_target(ptr noundef readonly captures(none) %0, 
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 6
   %55 = load i8, ptr %54, align 1, !tbaa !98
   %.not92 = icmp eq i8 %55, 0
-  br i1 %.not92, label %.critedge, label %56
+  br i1 %.not92, label %67, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 7
   %58 = load i8, ptr %57, align 1, !tbaa !98
   %59 = icmp eq i8 %58, 0
-  br i1 %59, label %60, label %.critedge
+  br i1 %59, label %60, label %67
 
 60:                                               ; preds = %56
   %61 = call signext i8 @Curl_raw_toupper(i8 noundef signext %55) #11
@@ -4139,9 +4139,9 @@ switch.lookup:                                    ; preds = %60
   %switch.cast = zext nneg i8 %switch.tableidx to i9
   %switch.downshift = lshr i9 246, %switch.cast
   %switch.masked = trunc i9 %switch.downshift to i1
-  br i1 %switch.masked, label %.critedge100, label %.critedge
+  br i1 %switch.masked, label %.critedge100, label %67
 
-.critedge100:                                     ; preds = %51, %60, %switch.lookup
+.critedge100:; preds = %51, %60, %switch.lookup
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 5036
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 16384
@@ -4160,7 +4160,7 @@ switch.lookup:                                    ; preds = %60
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 
-.critedge:                                        ; preds = %switch.lookup, %.critedge100, %53, %56, %47, %44
+67:                                               ; preds = %switch.lookup, %.critedge100, %53, %56, %47, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 
@@ -4170,15 +4170,15 @@ switch.lookup:                                    ; preds = %60
   br i1 %.not96, label %70, label %73
 
 70:                                               ; preds = %68
-  %.not97106 = icmp eq ptr %9, null
-  %.not97 = select i1 %.not, i1 true, i1 %.not97106
+  %.not97104 = icmp eq ptr %9, null
+  %.not97 = select i1 %.not, i1 true, i1 %.not97104
   br i1 %.not97, label %73, label %71
 
 71:                                               ; preds = %70
   %72 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %2, ptr noundef nonnull @.str.104, ptr noundef nonnull %9) #11
   br label %73
 
-73:                                               ; preds = %.critedge, %.thread, %71, %70, %68
+73:                                               ; preds = %67, %.thread, %71, %70, %68
   %.3 = phi i32 [ %69, %68 ], [ %72, %71 ], [ 0, %70 ], [ 0, %.critedge ], [ %.057.ph, %.thread ]
   ret i32 %.3
 }

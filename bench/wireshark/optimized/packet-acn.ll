@@ -2673,7 +2673,7 @@ define internal noundef zeroext i1 @dissect_rdmnet_over_tcp_heur(ptr noundef %0,
 
 13:                                               ; preds = %9
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 16, ptr noundef nonnull @get_rdmnet_tcp_message_length, ptr noundef nonnull @dissect_one_rdmnet_over_tcp_message, ptr noundef %3)
-  %14 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %12 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %is_rdmnet_over_tcp.exit.thread
 
 is_rdmnet_over_tcp.exit.thread:                   ; preds = %9, %7, %4, %13
@@ -8261,11 +8261,11 @@ define internal i32 @dissect_one_rdmnet_over_tcp_message(ptr noundef %0, ptr nou
 
 13:                                               ; preds = %9
   tail call fastcc void @dissect_rdmnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
-  %14 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %12 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %is_rdmnet_over_tcp.exit.thread
 
 is_rdmnet_over_tcp.exit.thread:                   ; preds = %9, %7, %4, %13
-  %.0 = phi i32 [ %14, %13 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ]
+  %.0 = phi i32 [ %12, %13 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ]
   ret i32 %.0
 }
 

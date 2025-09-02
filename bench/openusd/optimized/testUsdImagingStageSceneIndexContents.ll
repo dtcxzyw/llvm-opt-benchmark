@@ -975,15 +975,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #17
   %351 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #17
   %352 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #17
-  %.not26.i = icmp eq ptr %351, %352
-  br i1 %.not26.i, label %_ZL19_CleanOutputForDiffNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
+  %.not25.i = icmp eq ptr %351, %352
+  br i1 %.not25.i, label %_ZL19_CleanOutputForDiffNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %350, %375
-  %.029.i = phi i64 [ %.1.i, %375 ], [ 0, %350 ]
-  %.01628.i = phi i32 [ %.4.i, %375 ], [ 0, %350 ]
-  %.sroa.022.027.i = phi ptr [ %376, %375 ], [ %351, %350 ]
-  %353 = load i8, ptr %.sroa.022.027.i, align 1
-  switch i32 %.01628.i, label %default.unreachable [
+  %.028.i = phi i64 [ %.1.i, %375 ], [ 0, %350 ]
+  %.01627.i = phi i32 [ %.4.i, %375 ], [ 0, %350 ]
+  %.sroa.022.026.i = phi ptr [ %376, %375 ], [ %351, %350 ]
+  %353 = load i8, ptr %.sroa.022.026.i, align 1
+  switch i32 %.01627.i, label %default.unreachable [
     i32 0, label %354
     i32 1, label %358
     i32 2, label %361
@@ -998,7 +998,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   %355 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef signext %353)
           to label %375 unwind label %356
 
-356:                                              ; preds = %372, %_ZL14_IsAddressCharc.exit.thread25.i, %_ZL14_IsAddressCharc.exit.thread.i, %361, %358, %354
+356:                                              ; preds = %372, %_ZL14_IsAddressCharc.exit.i, %366, %361, %358, %354
   %357 = landingpad { ptr, i32 }
           cleanup
   br label %.body78
@@ -1018,34 +1018,34 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 364:                                              ; preds = %.lr.ph.i
   %365 = add i8 %353, -48
   %or.cond.i.i = icmp ult i8 %365, 10
-  br i1 %or.cond.i.i, label %_ZL14_IsAddressCharc.exit.thread.i, label %switch.early.test.i.i
+  br i1 %or.cond.i.i, label %366, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %364
   %switch.tableidx.i.i = add i8 %353, -65
   %366 = icmp ult i8 %switch.tableidx.i.i, 56
-  br i1 %366, label %_ZL14_IsAddressCharc.exit.i, label %_ZL14_IsAddressCharc.exit.thread25.i
+  br i1 %366, label %_ZL14_IsAddressCharc.exit.i, label %_ZL14_IsAddressCharc.exit.i
 
-_ZL14_IsAddressCharc.exit.i:                      ; preds = %switch.early.test.i.i
+_ZL14_IsAddressCharc.exit.i:; preds = %switch.early.test.i.i
   %switch.cast.i.i = zext nneg i8 %switch.tableidx.i.i to i56
   %switch.downshift.i.i = lshr i56 -36028526436024257, %switch.cast.i.i
   %switch.masked.i.i = trunc i56 %switch.downshift.i.i to i1
-  br i1 %switch.masked.i.i, label %_ZL14_IsAddressCharc.exit.thread.i, label %_ZL14_IsAddressCharc.exit.thread25.i
+  br i1 %switch.masked.i.i, label %366, label %_ZL14_IsAddressCharc.exit.i
 
-_ZL14_IsAddressCharc.exit.thread.i:               ; preds = %_ZL14_IsAddressCharc.exit.i, %364
+366:                                              ; preds = %_ZL14_IsAddressCharc.exit.i, %364
   %367 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef signext 88)
           to label %368 unwind label %356
 
-368:                                              ; preds = %_ZL14_IsAddressCharc.exit.thread.i
-  %369 = add i64 %.029.i, 1
+368:                                              ; preds = %366
+  %369 = add i64 %.028.i, 1
   br label %375
 
-_ZL14_IsAddressCharc.exit.thread25.i:             ; preds = %_ZL14_IsAddressCharc.exit.i, %switch.early.test.i.i
-  %370 = sub i64 16, %.029.i
+_ZL14_IsAddressCharc.exit.i:                      ; preds = %_ZL14_IsAddressCharc.exit.i, %switch.early.test.i.i
+  %370 = sub i64 16, %.028.i
   %371 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef %370, i8 noundef signext 88)
           to label %372 unwind label %356
 
-372:                                              ; preds = %_ZL14_IsAddressCharc.exit.thread25.i
-  %373 = load i8, ptr %.sroa.022.027.i, align 1
+372:                                              ; preds = %_ZL14_IsAddressCharc.exit.i
+  %373 = load i8, ptr %.sroa.022.026.i, align 1
   %374 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef signext %373)
           to label %375 unwind label %356
 
@@ -1054,8 +1054,8 @@ default.unreachable:                              ; preds = %.lr.ph.i
 
 375:                                              ; preds = %372, %368, %361, %358, %354
   %.4.i = phi i32 [ %switch.select21.i, %354 ], [ %..i, %358 ], [ %.19.i, %361 ], [ 3, %368 ], [ 0, %372 ]
-  %.1.i = phi i64 [ %.029.i, %354 ], [ %.029.i, %358 ], [ %.029.i, %361 ], [ %369, %368 ], [ 0, %372 ]
-  %376 = getelementptr inbounds nuw i8, ptr %.sroa.022.027.i, i64 1
+  %.1.i = phi i64 [ %.028.i, %354 ], [ %.028.i, %358 ], [ %.028.i, %361 ], [ %369, %368 ], [ 0, %372 ]
+  %376 = getelementptr inbounds nuw i8, ptr %.sroa.022.026.i, i64 1
   %.not.i77 = icmp eq ptr %376, %352
   br i1 %.not.i77, label %_ZL19_CleanOutputForDiffNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
 

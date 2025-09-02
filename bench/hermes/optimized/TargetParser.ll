@@ -8749,12 +8749,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %3 = icmp ult i32 %1, 29
-  br i1 %3, label %_ZNK4llvh6Triple10isOSDarwinEv.exit, label %lor.rhs
+  br i1 %3, label %switch.lookup, label %lor.rhs
 
-_ZNK4llvh6Triple10isOSDarwinEv.exit:              ; preds = %lor.lhs.false.i
-  %switch.cast.i = trunc nuw nsw i32 %1 to i29
-  %switch.downshift.i = lshr i29 -134217600, %switch.cast.i
-  %switch.masked.i = trunc i29 %switch.downshift.i to i1
+switch.lookup:                                    ; preds = %lor.lhs.false.i
+  %switch.cast = trunc nuw nsw i32 %1 to i29
+  %switch.downshift = lshr i29 -134217600, %switch.cast
+  %switch.masked = trunc i29 %switch.downshift to i1
   %cmp.i4 = icmp eq i32 %1, 6
   %or.cond = or i1 %cmp.i4, %switch.masked.i
   br i1 %or.cond, label %lor.end, label %lor.rhs
@@ -8763,7 +8763,7 @@ lor.rhs:                                          ; preds = %_ZNK4llvh6Triple10i
   %cmp.i6 = icmp eq i32 %1, 15
   br label %lor.end
 
-lor.end:                                          ; preds = %lor.lhs.false, %lor.rhs, %_ZNK4llvh6Triple10isOSDarwinEv.exit, %entry
+lor.end:                                          ; preds = %lor.lhs.false, %lor.rhs, %switch.lookup, %entry
   %4 = phi i1 [ true, %_ZNK4llvh6Triple10isOSDarwinEv.exit ], [ true, %entry ], [ %cmp.i6, %lor.rhs ], [ true, %lor.lhs.false ]
   ret i1 %4
 }

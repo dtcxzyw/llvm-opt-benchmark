@@ -120,30 +120,30 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace20has_trailing_con
   store ptr %12, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %15, ptr %16, align 8
-  br label %18
+  br label %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit.thread
 
-17:                                               ; preds = %7
+17:; preds = %7
   tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr align 1 %1, i64 %2, i64 %9, i64 %10, ptr nonnull align 8 @anon.066724e871e5ef01057d14ea269918aa.10) #4
   unreachable
 
-18:                                               ; preds = %25, %13
+_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit.thread: ; preds = %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit, %13
   %19 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17ha3232740f773dae9E(ptr nonnull align 8 %4)
   %20 = extractvalue { i32, i32 } %19, 0
   %21 = extractvalue { i32, i32 } %19, 1
   %22 = trunc i32 %20 to i1
   %23 = icmp ne i32 %21, 35
   %or.cond.not = select i1 %22, i1 %23, i1 false
-  br i1 %or.cond.not, label %25, label %24
+  br i1 %or.cond.not, label %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit, label %24
 
-24:                                               ; preds = %25, %18
+24: ; preds = %25, %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit.thread
   ret i1 %or.cond.not
 
-25:                                               ; preds = %18
+25:; preds = %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit.thread
   %26 = icmp ult i32 %21, 33
   %switch.cast.i = zext nneg i32 %21 to i33
   %switch.downshift.i = lshr i33 -4294962688, %switch.cast.i
-  %switch.masked.i = trunc i33 %switch.downshift.i to i1
-  %.sroa.0.0.i = select i1 %26, i1 %switch.masked.i, i1 false
+  %27 = trunc i33 %switch.downshift.i to i1
+  %.sroa.0.0.i = select i1 %26, i1 %27, i1 false
   br i1 %.sroa.0.0.i, label %18, label %24
 }
 

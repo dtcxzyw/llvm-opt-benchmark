@@ -474,16 +474,16 @@ define noundef float @_ZNK8facebook4yoga4Node8baselineEff(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZN8facebook4yoga4Node19dimensionWithMarginENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(584) %0, i8 noundef zeroext %1, float noundef %2) local_unnamed_addr #3 align 2 {
   %4 = icmp ult i8 %1, 4
-  br i1 %4, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit, label %5
+  br i1 %4, label %switch.lookup, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.7) #27
   unreachable
 
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit: ; preds = %3
+switch.lookup:                                    ; preds = %3
   %6 = shl nuw nsw i8 %1, 3
-  %switch.shiftamt.i = zext nneg i8 %6 to i32
-  %switch.downshift.i = lshr i32 257, %switch.shiftamt.i
+  %switch.shiftamt = zext nneg i8 %6 to i32
+  %switch.downshift.i = lshr i32 257, %switch.shiftamt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %8 = and i32 %switch.downshift.i, 1
   %9 = zext nneg i32 %8 to i64
@@ -573,16 +573,16 @@ _ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9Direct
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN8facebook4yoga4Node24isLayoutDimensionDefinedENS0_13FlexDirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(584) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = icmp ult i8 %1, 4
-  br i1 %3, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit, label %4
+  br i1 %3, label %switch.lookup, label %4
 
 4:                                                ; preds = %2
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.7) #27
   unreachable
 
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit: ; preds = %2
+switch.lookup:                                    ; preds = %2
   %5 = shl nuw nsw i8 %1, 3
-  %switch.shiftamt.i = zext nneg i8 %5 to i32
-  %switch.downshift.i = lshr i32 257, %switch.shiftamt.i
+  %switch.shiftamt = zext nneg i8 %5 to i32
+  %switch.downshift.i = lshr i32 257, %switch.shiftamt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %7 = and i32 %switch.downshift.i, 1
   %8 = zext nneg i32 %7 to i64
@@ -1940,21 +1940,21 @@ _ZN8facebook4yoga15StyleSizeLength7resolveEf.exit: ; preds = %5, %11, %12
 
 19:                                               ; preds = %_ZN8facebook4yoga15StyleSizeLength7resolveEf.exit
   %20 = icmp ult i8 %2, 4
-  br i1 %20, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit, label %21
+  br i1 %20, label %switch.lookup, label %21
 
 21:                                               ; preds = %19
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.7) #27
   unreachable
 
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit: ; preds = %19
+switch.lookup:                                    ; preds = %19
   %22 = shl nuw nsw i8 %2, 3
-  %switch.shiftamt.i = zext nneg i8 %22 to i32
-  %23 = shl nuw nsw i32 1, %switch.shiftamt.i
+  %switch.shiftamt = zext nneg i8 %22 to i32
+  %23 = shl nuw nsw i32 1, %switch.shiftamt
   %24 = and i32 %23, 257
   %25 = icmp eq i32 %24, 0
   %26 = select i1 %25, i8 2, i8 0
   %27 = tail call noundef float @_ZNK8facebook4yoga5Style23computeFlexStartPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %15, i8 noundef zeroext %26, i8 noundef zeroext %1, float noundef %4)
-  %28 = tail call noundef float @_ZNK8facebook4yoga5Style22computeFlexStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %15, i8 noundef zeroext %26, i8 noundef zeroext %1)
+  %26 = tail call noundef float @_ZNK8facebook4yoga5Style22computeFlexStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %15, i8 noundef zeroext %26, i8 noundef zeroext %1)
   %29 = fadd float %27, %28
   %30 = tail call noundef float @_ZNK8facebook4yoga5Style21computeFlexEndPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %15, i8 noundef zeroext %26, i8 noundef zeroext %1, float noundef %4)
   %31 = tail call noundef float @_ZNK8facebook4yoga5Style20computeFlexEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %15, i8 noundef zeroext %26, i8 noundef zeroext %1)

@@ -29,11 +29,11 @@ define dso_local range(i32 0, 2) i32 @is_urlschemechar(i32 noundef %0, i32 nound
   %switch.cast = zext nneg i32 %1 to i47
   %switch.downshift = lshr i47 -26388279066624, %switch.cast
   %switch.masked = trunc i47 %switch.downshift to i1
-  %11 = select i1 %10, i1 %switch.masked, i1 false
+  %13 = select i1 %10, i1 %switch.masked, i1 false
   %.not = icmp eq i32 %0, 0
-  %12 = and i1 %.not, %11
-  %narrow = select i1 %.not14, i1 true, i1 %12
-  %spec.select = zext i1 %narrow to i32
+  %14 = and i1 %.not, %13
+  %narrow = select i1 %.not14, i1 true, i1 %14
+  %15 = zext i1 %narrow to i32
   br label %.thread
 
 .thread:                                          ; preds = %2, %4
@@ -72,9 +72,9 @@ is_urlschemechar.exit:                            ; preds = %2
 
 11:                                               ; preds = %.preheader
   %12 = icmp sgt i8 %9, 0
-  br i1 %12, label %is_urlschemechar.exit21, label %is_urlschemechar.exit.thread
+  br i1 %12, label %13, label %is_urlschemechar.exit.thread
 
-is_urlschemechar.exit21:                          ; preds = %11
+13:                                               ; preds = %11
   %13 = zext nneg i32 %10 to i64
   %14 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !4
@@ -90,20 +90,20 @@ is_urlschemechar.exit21:                          ; preds = %11
   %.not14 = select i1 %.not14.i16.not, i1 %.not1424, i1 false
   br i1 %.not14, label %is_urlschemechar.exit.thread, label %.preheader, !llvm.loop !7
 
-20:                                               ; preds = %.preheader
+20: ; preds = %.preheader
   %21 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   %22 = load i8, ptr %21, align 1, !tbaa !4
   %23 = icmp eq i8 %22, 47
   br i1 %23, label %24, label %is_urlschemechar.exit.thread
 
-24:                                               ; preds = %20
+24:; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = icmp eq i8 %26, 47
   %28 = zext i1 %27 to i32
   br label %is_urlschemechar.exit.thread
 
-is_urlschemechar.exit.thread:                     ; preds = %.preheader, %11, %is_urlschemechar.exit21, %2, %20, %24, %1, %is_urlschemechar.exit
+is_urlschemechar.exit.thread:; preds = %.preheader, %11, %is_urlschemechar.exit21, %2, %20, %24, %1, %is_urlschemechar.exit
   %.08 = phi i32 [ 0, %is_urlschemechar.exit ], [ 0, %1 ], [ 0, %20 ], [ %28, %24 ], [ 0, %2 ], [ 0, %is_urlschemechar.exit21 ], [ 0, %11 ], [ 0, %.preheader ]
   ret i32 %.08
 }

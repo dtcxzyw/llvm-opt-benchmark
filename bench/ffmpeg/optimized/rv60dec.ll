@@ -3096,8 +3096,8 @@ predict_mv.exit.i:                                ; preds = %583, %488
   %589 = add i16 %588, %.sroa.8.1.i.i
   %590 = icmp sgt i32 %.sroa.13.1.i, 0
   %591 = icmp sgt i32 %.sroa.0110.1.i, 0
-  %or.cond209.i = select i1 %590, i1 %591, i1 false
-  br i1 %or.cond209.i, label %.preheader133.lr.ph.split.us.i, label %._crit_edge137.i
+  %or.cond212.i = select i1 %590, i1 %591, i1 false
+  br i1 %or.cond212.i, label %.preheader133.lr.ph.split.us.i, label %._crit_edge137.i
 
 .preheader133.lr.ph.split.us.i:                   ; preds = %predict_mv.exit.i
   %592 = load ptr, ptr %373, align 8, !tbaa !105

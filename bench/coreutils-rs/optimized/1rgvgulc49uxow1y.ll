@@ -1992,7 +1992,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit97.i: ; preds = %102
   %270 = icmp eq i64 %266, %269
   br i1 %270, label %271, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7d1469afa1ad6b1cE.exit.i"
 
-271:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd592c58851bdcca6E.exit.i"
+269:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd592c58851bdcca6E.exit.i"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h09e3e0b2cd485930E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %266)
           to label %.noexc.i unwind label %264, !noalias !220
 
@@ -2001,9 +2001,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit97.i: ; preds = %102
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7d1469afa1ad6b1cE.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7d1469afa1ad6b1cE.exit.i": ; preds = %.noexc.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd592c58851bdcca6E.exit.i"
-  %272 = phi i64 [ %.pre.i.i96, %.noexc.i ], [ %266, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd592c58851bdcca6E.exit.i" ]
-  %273 = load ptr, ptr %262, align 8, !alias.scope !226, !noalias !220, !nonnull !5, !noundef !5
-  %274 = getelementptr inbounds i8, ptr %273, i64 %272
+  %273 = phi i64 [ %.pre.i.i96, %.noexc.i ], [ %266, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd592c58851bdcca6E.exit.i" ]
+  %274 = load ptr, ptr %262, align 8, !alias.scope !226, !noalias !220, !nonnull !5, !noundef !5
+  %275 = getelementptr inbounds i8, ptr %274, i64 %273
   %275 = and i8 %switch.masked.i.i, 1
   store i8 %275, ptr %274, align 1, !noalias !220
   %276 = load i64, ptr %263, align 8, !alias.scope !226, !noalias !220, !noundef !5

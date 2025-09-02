@@ -301,7 +301,7 @@ declare void @_ZN13cmSystemTools5ErrorERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_Z28cmFileSetVisibilityIsForSelf19cmFileSetVisibility(i32 noundef %0) local_unnamed_addr #5 {
-  %2 = icmp ult i32 %0, 3
+  %switch = icmp ult i32 %0, 3
   %switch.cast = trunc i32 %0 to i3
   %switch.downshift = lshr i3 3, %switch.cast
   %switch.masked = trunc i3 %switch.downshift to i1

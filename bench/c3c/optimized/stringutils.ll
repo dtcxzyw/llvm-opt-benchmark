@@ -408,7 +408,7 @@ scan_past_underscore.exit:                        ; preds = %2
   %.not8 = icmp eq i8 %8, 0
   br i1 %.not8, label %scan_past_underscore.exit.thread, label %9
 
-9:                                                ; preds = %.preheader
+scan_past_underscore.exit.thread.loopexit:        ; preds = %.preheader
   %switch.tableidx.i = add i8 %8, -48
   %10 = icmp ult i8 %switch.tableidx.i, 48
   %switch.cast.i = zext nneg i8 %switch.tableidx.i to i48
@@ -417,7 +417,7 @@ scan_past_underscore.exit:                        ; preds = %2
   %.0.i9 = select i1 %10, i1 %switch.masked.i, i1 false
   br i1 %.0.i9, label %.preheader, label %scan_past_underscore.exit.thread, !llvm.loop !16
 
-scan_past_underscore.exit.thread:                 ; preds = %2, %.preheader, %9, %scan_past_underscore.exit
+scan_past_underscore.exit.thread:                 ; preds = %2, %.preheader, %scan_past_underscore.exit.thread.loopexit, %scan_past_underscore.exit
   %.06 = phi i1 [ false, %scan_past_underscore.exit ], [ %.not8, %9 ], [ %.not8, %.preheader ], [ false, %2 ]
   ret i1 %.06
 }

@@ -429,7 +429,7 @@ if.then:                                          ; preds = %if.end.i
     i8 6, label %sw.bb7.i
   ]
 
-sw.default.i:                                     ; preds = %if.then
+sw.bb2.i:                                         ; preds = %if.then
   unreachable
 
 sw.bb2.i:                                         ; preds = %if.then
@@ -442,36 +442,36 @@ cond.true.i.i:                                    ; preds = %sw.bb2.i
   br label %return
 
 sw.bb3.i:                                         ; preds = %if.then
-  %4 = load ptr, ptr %this, align 8
-  %call.i18.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  %3 = load ptr, ptr %this, align 8
+  %call.i18.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   br label %return
 
 sw.bb5.i:                                         ; preds = %if.then
-  %5 = load ptr, ptr %this, align 8
-  %retval.sroa.0.0.copyload.i = load ptr, ptr %5, align 8
-  %retval.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %4 = load ptr, ptr %this, align 8
+  %retval.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
+  %retval.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %retval.sroa.7.0.copyload.i = load i64, ptr %retval.sroa.7.0..sroa_idx.i, align 8
   br label %return
 
 sw.bb7.i:                                         ; preds = %if.then
-  %6 = load ptr, ptr %this, align 8
-  %7 = load ptr, ptr %6, align 8
-  %Size.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i32, ptr %Size.i.i, align 8
-  %conv.i.i = zext i32 %8 to i64
+  %5 = load ptr, ptr %this, align 8
+  %6 = load ptr, ptr %5, align 8
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i32, ptr %Size.i.i, align 8
+  %conv.i.i = zext i32 %7 to i64
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %entry
   tail call void @_ZNK4llvh5Twine8toVectorERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(16) %Out) #22
-  %9 = load ptr, ptr %Out, align 8
+  %8 = load ptr, ptr %Out, align 8
   %Size.i = getelementptr inbounds nuw i8, ptr %Out, i64 8
-  %10 = load i32, ptr %Size.i, align 8
-  %conv.i = zext i32 %10 to i64
+  %9 = load i32, ptr %Size.i, align 8
+  %conv.i = zext i32 %9 to i64
   br label %return
 
 return:                                           ; preds = %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %cond.true.i.i, %sw.bb2.i, %if.then, %if.end
-  %retval.sroa.0.0.i.pn = phi ptr [ %9, %if.end ], [ %call.i18.i, %sw.bb3.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ %7, %sw.bb7.i ], [ null, %if.then ], [ null, %sw.bb2.i ], [ %3, %cond.true.i.i ]
+  %retval.sroa.0.0.i.pn = phi ptr [ %8, %if.end ], [ %call.i18.i, %sw.bb3.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ %6, %sw.bb7.i ], [ null, %if.then ], [ null, %sw.bb2.i ], [ %3, %cond.true.i.i ]
   %retval.sroa.7.0.i.pn = phi i64 [ %conv.i, %if.end ], [ %call2.i.i, %sw.bb3.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ %conv.i.i, %sw.bb7.i ], [ 0, %if.then ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.i.pn, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %retval.sroa.7.0.i.pn, 1

@@ -2539,7 +2539,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %9
   %.04063 = phi i32 [ 1, %.thread ], [ 9, %15 ]
   %.04162 = phi i32 [ 0, %.thread ], [ 4, %15 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04063, i32 noundef %.065, ptr noundef null, i32 noundef %.04162, ptr noundef %.03864) #14
-  br label %37
+  br label %34
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit, %9
   %.in = phi ptr [ %10, %9 ], [ %3, %zend_parse_arg_str_ex.exit ]
@@ -2556,7 +2556,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %9
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !51
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
-  br label %37
+  br label %34
 
 .critedge.thread:                                 ; preds = %7, %.critedge
   %.15075 = phi ptr [ %18, %.critedge ], [ @.str.127, %7 ]
@@ -2571,24 +2571,24 @@ zend_parse_arg_str_ex.exit:                       ; preds = %9
 
 27:                                               ; preds = %.critedge.thread
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.129) #14
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !51
-  %29 = icmp ne ptr %28, null
-  call void @llvm.assume(i1 %29)
-  br label %37
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !51
+  %26 = icmp ne ptr %25, null
+  call void @llvm.assume(i1 %26)
+  br label %34
 
-30:                                               ; preds = %.critedge.thread
-  %31 = call ptr @php_get_uname(i8 noundef signext %24)
-  store ptr %31, ptr %1, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !24
-  %34 = and i32 %33, 64
-  %.not44 = icmp eq i32 %34, 0
-  %35 = select i1 %.not44, i32 262, i32 6
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %35, ptr %36, align 8, !tbaa !24
-  br label %37
+27:                                               ; preds = %.critedge.thread
+  %28 = call ptr @php_get_uname(i8 noundef signext %24)
+  store ptr %28, ptr %1, align 8, !tbaa !24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %30 = load i32, ptr %29, align 4, !tbaa !24
+  %31 = and i32 %30, 64
+  %.not44 = icmp eq i32 %31, 0
+  %32 = select i1 %.not44, i32 262, i32 6
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %32, ptr %33, align 8, !tbaa !24
+  br label %34
 
-37:                                               ; preds = %16, %27, %30, %21
+34:                                               ; preds = %16, %27, %27, %21
   ret void
 }
 

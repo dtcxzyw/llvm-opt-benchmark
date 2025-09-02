@@ -609,8 +609,8 @@ define noundef range(i32 -1, 16393) i32 @_ZN4LIEF2PE15RelocationEntry14type_from
   %4 = zext nneg i16 %3 to i32
   switch i16 %3, label %13 [
     i16 5, label %5
-    i16 7, label %10
-    i16 8, label %12
+    i16 7, label %7
+    i16 8, label %9
   ]
 
 5:                                                ; preds = %2
@@ -622,7 +622,7 @@ define noundef range(i32 -1, 16393) i32 @_ZN4LIEF2PE15RelocationEntry14type_from
     i32 361, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
   ]
 
-_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit: ; preds = %5
+6:                                                ; preds = %5
   %6 = add i32 %0, -453
   %7 = icmp ult i32 %6, -5
   %switch.idx.cast.i = trunc i32 %0 to i1
@@ -639,36 +639,36 @@ _ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit: ; preds = %5
 9:                                                ; preds = %8, %8, %8
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-10:                                               ; preds = %2
+7:                                                ; preds = %2
   switch i32 %0, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split [
     i32 450, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
-    i32 20530, label %11
-    i32 20580, label %11
-    i32 20776, label %11
+    i32 20530, label %8
+    i32 20580, label %8
+    i32 20776, label %8
   ]
 
-11:                                               ; preds = %10, %10, %10
+8:                                                ; preds = %7, %7, %7
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-12:                                               ; preds = %2
+9:                                                ; preds = %2
   switch i32 %0, label %13 [
     i32 20530, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
     i32 20580, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
     i32 20776, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
-    i32 25188, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split25
-    i32 25138, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split25
+    i32 25188, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split28
+    i32 25138, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split28
   ]
 
-13:                                               ; preds = %12, %2
+10:                                               ; preds = %9, %2
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split: ; preds = %10
+_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split27: ; preds = %7
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split25: ; preds = %12, %12
+_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split28: ; preds = %9, %9
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit: ; preds = %12, %12, %12, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split25, %10, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split, %5, %5, %5, %5, %5, %11, %9, %8, %_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit, %13
+_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit: ; preds = %9, %9, %9, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split28, %7, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split27, %5, %5, %5, %5, %5, %8, %9, %8, %6, %10
   %.0 = phi i32 [ %4, %13 ], [ 517, %_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit ], [ 2055, %10 ], [ 1029, %9 ], [ -1, %8 ], [ 4103, %11 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 8200, %12 ], [ 8200, %12 ], [ 8200, %12 ], [ -1, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split ], [ 16392, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split25 ]
   ret i32 %.0
 }

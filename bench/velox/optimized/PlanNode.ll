@@ -71072,21 +71072,21 @@ if.then9:                                         ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %entry
-  %54 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4) #32
   call void @_ZNSt10shared_ptrIKN8facebook5velox4core8PlanNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3) #32
   call void @_ZNSt10shared_ptrIKN8facebook5velox4core8PlanNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2) #32
   call void @_ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #32
-  resume { ptr, i32 } %54
+  resume { ptr, i32 } %52
 
 if.end:                                           ; preds = %if.then
   %leftKeys_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %55 = load ptr, ptr %_M_finish.i, align 8
-  %56 = load ptr, ptr %leftKeys_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %55 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %56 to i64
+  %53 = load ptr, ptr %_M_finish.i, align 8
+  %54 = load ptr, ptr %leftKeys_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %53 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %54 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp eq i64 %sub.ptr.sub.i, 16
   br i1 %cmp.not, label %if.end13, label %if.then12
@@ -71097,11 +71097,11 @@ if.then12:                                        ; preds = %if.end
 
 if.end13:                                         ; preds = %if.end
   %filter_ = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %57 = load ptr, ptr %filter_, align 8
-  %cmp.i = icmp ne ptr %57, null
+  %55 = load ptr, ptr %filter_, align 8
+  %cmp.i = icmp ne ptr %55, null
   %joinType_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %58 = load i32, ptr %joinType_.i, align 8
-  %cmp.i104 = icmp eq i32 %58, 7
+  %56 = load i32, ptr %joinType_.i, align 8
+  %cmp.i104 = icmp eq i32 %56, 7
   %or.cond = select i1 %cmp.i, i1 %cmp.i104, i1 false
   br i1 %or.cond, label %if.then20, label %if.end23
 

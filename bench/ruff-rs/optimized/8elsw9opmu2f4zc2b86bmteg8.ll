@@ -1630,7 +1630,7 @@ _ZN7ruff_db6system4path10SystemPath11starts_with17h8680b8c0550a6300E.exit.i: ; p
   %199 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbf602143f17375b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #27
-          to label %.thread102.i unwind label %206, !noalias !145
+          to label %.thread102.i unwind label %208, !noalias !145
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1644,7 +1644,7 @@ _ZN7ruff_db6system4path10SystemPath11starts_with17h8680b8c0550a6300E.exit.i: ; p
   %205 = invoke noundef i8 @"_ZN7ruff_db5files1_38_$LT$impl$u20$ruff_db..files..File$GT$6status17hf61462c01b4bbdaeE"(i32 noundef %203, ptr noundef nonnull align 1 %110, ptr noalias noundef readonly align 8 dereferenceable(176) @anon.86ecaac84f2be1d55de06e91e6d68cca.100)
           to label %switch.lookup.i unwind label %198, !noalias !187
 
-switch.lookup.i:                                  ; preds = %204
+206:                                              ; preds = %204
   %switch.cast121.i = trunc nuw nsw i8 %205 to i3
   %switch.downshift123.i = lshr i3 -2, %switch.cast121.i
   %switch.masked124.i = trunc i3 %switch.downshift123.i to i1
@@ -1652,13 +1652,13 @@ switch.lookup.i:                                  ; preds = %204
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !146
   br i1 %switch.masked124.i, label %.noexc.i, label %209, !prof !73
 
-206:                                              ; preds = %198
-  %207 = landingpad { ptr, i32 }
+208:                                              ; preds = %198
+  %209 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #25, !noalias !145
   unreachable
 
-.noexc.i:                                         ; preds = %switch.lookup.i
+.critedge.i:                                      ; preds = %206
   %208 = shl nuw nsw i8 %205, 3
   %switch.shiftamt.i = zext nneg i8 %208 to i24
   %switch.downshift.i = lshr i24 65536, %switch.shiftamt.i
