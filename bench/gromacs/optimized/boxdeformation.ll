@@ -782,7 +782,7 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
   %indvars.iv.next107 = add nsw i64 %indvars.iv106, -1
   %41 = getelementptr float, ptr %35, i64 %indvars.iv.next107
   %42 = getelementptr float, ptr %36, i64 %indvars.iv.next107
-  %.idx.i.i55 = mul nuw nsw i64 %indvars.iv.next107, 12
+  %.idx.i.i55 = mul nsw i64 %indvars.iv.next107, 12
   %43 = getelementptr i8, ptr %4, i64 %.idx.i.i55
   %44 = getelementptr float, ptr %43, i64 %indvars.iv.next107
   %45 = load float, ptr %41, align 4, !tbaa !125
