@@ -15266,30 +15266,30 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_122AArch64MCInstrAnalysis14
   %15 = load i16, ptr %14, align 8, !tbaa !169
   %16 = zext i16 %15 to i64
   %17 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %14, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %20 = load i16, ptr %19, align 4, !tbaa !173
-  %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %18, i64 %21
-  br label %25
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %19 = load i16, ptr %18, align 4, !tbaa !173
+  %20 = zext i16 %19 to i64
+  %21 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %17, i64 %20
+  br label %24
 
-23:                                               ; preds = %25
-  %24 = add nuw i32 %.02327, 1
-  %.not.not = icmp eq i32 %24, %8
-  br i1 %.not.not, label %.critedge, label %25, !llvm.loop !174
+22:                                               ; preds = %24
+  %23 = add nuw i32 %.02327, 1
+  %.not.not = icmp eq i32 %23, %8
+  br i1 %.not.not, label %.critedge, label %24, !llvm.loop !174
 
-25:                                               ; preds = %.lr.ph, %23
-  %.02327 = phi i32 [ 0, %.lr.ph ], [ %24, %23 ]
-  %26 = zext i32 %.02327 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %22, i64 %26, i32 2
+24:                                               ; preds = %.lr.ph, %22
+  %.02327 = phi i32 [ 0, %.lr.ph ], [ %23, %22 ]
+  %25 = zext i32 %.02327 to i64
+  %26 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %21, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 35
   %28 = load i8, ptr %27, align 1, !tbaa !175
   %29 = icmp eq i8 %28, 4
-  br i1 %29, label %30, label %23
+  br i1 %29, label %30, label %22
 
-30:                                               ; preds = %25
+30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !17
-  %33 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %32, i64 %26, i32 1
+  %33 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %32, i64 %25, i32 1
   %34 = load i64, ptr %33, align 8, !tbaa !18
   switch i32 %6, label %41 [
     i32 1555, label %35
@@ -15316,8 +15316,8 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_122AArch64MCInstrAnalysis14
   store i64 %.sink, ptr %4, align 8, !tbaa !80
   br label %.critedge
 
-.critedge:                                        ; preds = %23, %.critedge.sink.split, %5
-  %.not25 = phi i1 [ false, %5 ], [ true, %.critedge.sink.split ], [ false, %23 ]
+.critedge:                                        ; preds = %22, %.critedge.sink.split, %5
+  %.not25 = phi i1 [ false, %5 ], [ true, %.critedge.sink.split ], [ false, %22 ]
   ret i1 %.not25
 }
 

@@ -791,14 +791,14 @@ formTextDatum.exit:                               ; preds = %120, %116
   %226 = add nsw i32 %225, -4
   %227 = zext i32 %226 to i64
   %228 = icmp ugt i64 %227, %198
-  br i1 %228, label %250, label %274
+  br i1 %228, label %249, label %272
 
 .thread207:                                       ; preds = %221
   %229 = lshr i32 %219, 1
   %230 = zext nneg i32 %229 to i64
   %231 = add nsw i64 %230, -1
   %232 = icmp ugt i64 %231, %198
-  br i1 %232, label %244, label %274
+  br i1 %232, label %244, label %272
 
 .thread:                                          ; preds = %217
   %233 = getelementptr inbounds nuw i8, ptr %204, i64 1
@@ -809,89 +809,87 @@ formTextDatum.exit:                               ; preds = %120, %116
   %237 = select i1 %236, i64 16, i64 0
   %238 = select i1 %or.cond167, i64 8, i64 %237
   %239 = icmp ugt i64 %238, %198
-  br i1 %239, label %.thread174, label %274
+  br i1 %239, label %.thread174, label %272
 
 .thread174:                                       ; preds = %.thread
   %240 = getelementptr inbounds nuw i8, ptr %233, i64 %198
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 1
   %242 = select i1 %236, i32 16, i32 0
   %243 = select i1 %or.cond167, i32 8, i32 %242
-  br label %257
+  br label %255
 
 244:                                              ; preds = %.thread207
-  %245 = getelementptr inbounds nuw i8, ptr %204, i64 1
-  %246 = getelementptr inbounds i8, ptr %245, i64 %198
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 1
-  %248 = lshr i32 %219, 1
-  %249 = add nsw i32 %248, -1
-  br label %257
+  %245 = getelementptr i8, ptr %204, i64 %198
+  %246 = getelementptr i8, ptr %245, i64 2
+  %247 = lshr i32 %219, 1
+  %248 = add nsw i32 %247, -1
+  br label %255
 
-250:                                              ; preds = %223
-  %251 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %252 = getelementptr inbounds i8, ptr %251, i64 %198
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 1
-  %254 = load i32, ptr %204, align 4
-  %255 = lshr i32 %254, 2
-  %256 = add nsw i32 %255, -4
-  br label %257
+249:                                              ; preds = %223
+  %250 = getelementptr i8, ptr %204, i64 %198
+  %251 = getelementptr i8, ptr %250, i64 5
+  %252 = load i32, ptr %204, align 4
+  %253 = lshr i32 %252, 2
+  %254 = add nsw i32 %253, -4
+  br label %255
 
-257:                                              ; preds = %244, %250, %.thread174
-  %258 = phi ptr [ %241, %.thread174 ], [ %247, %244 ], [ %253, %250 ]
-  %259 = phi i32 [ %243, %.thread174 ], [ %249, %244 ], [ %256, %250 ]
-  %260 = add i32 %259, %199
-  %261 = add i32 %260, 4
-  %262 = sext i32 %261 to i64
-  %263 = tail call ptr @palloc(i64 noundef %262) #9
-  %264 = sext i32 %260 to i64
-  %265 = add nsw i64 %264, 1
-  %266 = icmp ult i64 %265, 128
-  br i1 %266, label %267, label %271
+255:                                              ; preds = %244, %249, %.thread174
+  %256 = phi ptr [ %241, %.thread174 ], [ %246, %244 ], [ %251, %249 ]
+  %257 = phi i32 [ %243, %.thread174 ], [ %248, %244 ], [ %254, %249 ]
+  %258 = add i32 %257, %199
+  %259 = add i32 %258, 4
+  %260 = sext i32 %259 to i64
+  %261 = tail call ptr @palloc(i64 noundef %260) #9
+  %262 = sext i32 %258 to i64
+  %263 = add nsw i64 %262, 1
+  %264 = icmp ult i64 %263, 128
+  br i1 %264, label %265, label %269
 
-267:                                              ; preds = %257
-  %268 = trunc nuw nsw i64 %265 to i8
-  %269 = shl nuw i8 %268, 1
-  %270 = or disjoint i8 %269, 1
-  store i8 %270, ptr %263, align 1
-  %.not.i172 = icmp eq i32 %260, 0
+265:                                              ; preds = %255
+  %266 = trunc nuw nsw i64 %263 to i8
+  %267 = shl nuw i8 %266, 1
+  %268 = or disjoint i8 %267, 1
+  store i8 %268, ptr %261, align 1
+  %.not.i172 = icmp eq i32 %258, 0
   br i1 %.not.i172, label %formTextDatum.exit173, label %.sink.split.i170
 
-271:                                              ; preds = %257
-  %272 = shl i32 %261, 2
-  store i32 %272, ptr %263, align 4
+269:                                              ; preds = %255
+  %270 = shl i32 %259, 2
+  store i32 %270, ptr %261, align 4
   br label %.sink.split.i170
 
-.sink.split.i170:                                 ; preds = %271, %267
-  %.sink13.i171 = phi i64 [ 4, %271 ], [ 1, %267 ]
-  %273 = getelementptr inbounds nuw i8, ptr %263, i64 %.sink13.i171
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %273, ptr nonnull readonly align 1 %258, i64 %264, i1 false)
+.sink.split.i170:                                 ; preds = %269, %265
+  %.sink13.i171 = phi i64 [ 4, %269 ], [ 1, %265 ]
+  %271 = getelementptr inbounds nuw i8, ptr %261, i64 %.sink13.i171
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %271, ptr nonnull readonly align 1 %256, i64 %262, i1 false)
   br label %formTextDatum.exit173
 
-274:                                              ; preds = %.thread207, %.thread, %223
-  %275 = tail call ptr @palloc(i64 noundef 4) #9
-  store i8 3, ptr %275, align 1
+272:                                              ; preds = %.thread207, %.thread, %223
+  %273 = tail call ptr @palloc(i64 noundef 4) #9
+  store i8 3, ptr %273, align 1
   br label %formTextDatum.exit173
 
-formTextDatum.exit173:                            ; preds = %.sink.split.i170, %267, %274
-  %.0.in = phi ptr [ %275, %274 ], [ %263, %267 ], [ %263, %.sink.split.i170 ]
+formTextDatum.exit173:                            ; preds = %.sink.split.i170, %265, %272
+  %.0.in = phi ptr [ %273, %272 ], [ %261, %265 ], [ %261, %.sink.split.i170 ]
   %.0 = ptrtoint ptr %.0.in to i64
-  %276 = load ptr, ptr %195, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %278 = load i32, ptr %277, align 8
-  %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds i64, ptr %276, i64 %279
-  store i64 %.0, ptr %280, align 8
-  %281 = load i32, ptr %180, align 8
-  %282 = add i32 %281, -1
-  %283 = load ptr, ptr %190, align 8
-  %284 = load i32, ptr %277, align 8
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds i32, ptr %283, i64 %285
-  store i32 %282, ptr %286, align 4
+  %274 = load ptr, ptr %195, align 8
+  %275 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  %276 = load i32, ptr %275, align 8
+  %277 = sext i32 %276 to i64
+  %278 = getelementptr inbounds i64, ptr %274, i64 %277
+  store i64 %.0, ptr %278, align 8
+  %279 = load i32, ptr %180, align 8
+  %280 = add i32 %279, -1
+  %281 = load ptr, ptr %190, align 8
+  %282 = load i32, ptr %275, align 8
+  %283 = sext i32 %282 to i64
+  %284 = getelementptr inbounds i32, ptr %281, i64 %283
+  store i32 %280, ptr %284, align 4
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %287 = load i32, ptr %4, align 8
-  %288 = sext i32 %287 to i64
-  %289 = icmp slt i64 %indvars.iv.next194, %288
-  br i1 %289, label %200, label %._crit_edge187, !llvm.loop !11
+  %285 = load i32, ptr %4, align 8
+  %286 = sext i32 %285 to i64
+  %287 = icmp slt i64 %indvars.iv.next194, %286
+  br i1 %287, label %200, label %._crit_edge187, !llvm.loop !11
 
 ._crit_edge187:                                   ; preds = %formTextDatum.exit173, %._crit_edge182
   ret i64 0

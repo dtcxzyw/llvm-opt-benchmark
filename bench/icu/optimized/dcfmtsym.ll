@@ -1013,25 +1013,25 @@ _ZN6icu_7712_GLOBAL__N_117DecFmtSymDataSink7seenAllEv.exit: ; preds = %152
   %158 = icmp slt i32 %157, 1
   br i1 %158, label %161, label %233
 
-159:                                              ; preds = %171, %165, %155
+159:                                              ; preds = %171, %164, %155
   %160 = landingpad { ptr, i32 }
           cleanup
   br label %250
 
 161:                                              ; preds = %156, %_ZN6icu_7712_GLOBAL__N_117DecFmtSymDataSink7seenAllEv.exit
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %163 = getelementptr inbounds nuw i8, ptr %12, i64 26
-  %164 = load i8, ptr %163, align 2, !tbaa !17
-  %.not.i = icmp eq i8 %164, 0
-  br i1 %.not.i, label %165, label %.noexc140
+  %162 = getelementptr inbounds nuw i8, ptr %12, i64 26
+  %163 = load i8, ptr %162, align 2, !tbaa !17
+  %.not.i = icmp eq i8 %163, 0
+  br i1 %.not.i, label %164, label %.noexc140
 
-165:                                              ; preds = %161
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %166 = load ptr, ptr %111, align 8, !tbaa !34
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 648
-  %168 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %167, ptr noundef nonnull align 8 dereferenceable(64) %162)
+  %168 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %167, ptr noundef nonnull align 8 dereferenceable(64) %165)
           to label %.noexc140 unwind label %159
 
-.noexc140:                                        ; preds = %165, %161
+.noexc140:                                        ; preds = %164, %161
   %169 = getelementptr inbounds nuw i8, ptr %12, i64 33
   %170 = load i8, ptr %169, align 1, !tbaa !17
   %.not3.i = icmp eq i8 %170, 0
@@ -1053,8 +1053,8 @@ _ZN6icu_7712_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPK
   %.084172 = phi i32 [ -1, %_ZN6icu_7712_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit ], [ %.286158, %.thread ]
   %indvars177 = trunc i64 %indvars.iv175 to i32
   %178 = icmp eq i64 %indvars.iv175, 0
-  %179 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %162, i64 %indvars.iv175
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 1088
+  %179 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %0, i64 %indvars.iv175
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 1096
   %.0.i = select i1 %178, ptr %176, ptr %180
   %181 = invoke noundef i32 @_ZNK6icu_7713UnicodeString11countChar32Eii(ptr noundef nonnull align 8 dereferenceable(64) %.0.i, i32 noundef 0, i32 noundef 2147483647)
           to label %182 unwind label %183

@@ -5361,7 +5361,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 10
   %58 = load i8, ptr %57, align 2, !tbaa !19
   %.not.i10 = icmp eq i8 %58, 0
-  br i1 %.not.i10, label %70, label %59
+  br i1 %.not.i10, label %69, label %59
 
 59:                                               ; preds = %55
   %60 = icmp sgt i32 %2, 0
@@ -5375,57 +5375,56 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br i1 %.not20.i, label %aux_upvalue.exit.thread, label %65
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %67 = zext nneg i32 %2 to i64
-  %68 = getelementptr %struct.lua_TValue, ptr %66, i64 %67
-  %69 = getelementptr i8, ptr %68, i64 -16
+  %66 = zext nneg i32 %2 to i64
+  %67 = getelementptr %struct.lua_TValue, ptr %56, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 24
   br label %aux_upvalue.exit
 
-70:                                               ; preds = %55
-  %71 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !19
-  %73 = icmp sgt i32 %2, 0
-  br i1 %73, label %74, label %aux_upvalue.exit.thread
+69:                                               ; preds = %55
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %71 = load ptr, ptr %70, align 8, !tbaa !19
+  %72 = icmp sgt i32 %2, 0
+  br i1 %72, label %73, label %aux_upvalue.exit.thread
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  %76 = load i32, ptr %75, align 8, !tbaa !66
-  %.not19.i = icmp sgt i32 %2, %76
-  br i1 %.not19.i, label %aux_upvalue.exit.thread, label %77
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 72
+  %75 = load i32, ptr %74, align 8, !tbaa !66
+  %.not19.i = icmp sgt i32 %2, %75
+  br i1 %.not19.i, label %aux_upvalue.exit.thread, label %76
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %79 = add nsw i32 %2, -1
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %80
-  %82 = load ptr, ptr %81, align 8, !tbaa !19
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !72
-  %85 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  %86 = load ptr, ptr %85, align 8, !tbaa !73
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %80
-  %88 = load ptr, ptr %87, align 8, !tbaa !74
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %78 = add nsw i32 %2, -1
+  %79 = zext nneg i32 %78 to i64
+  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %79
+  %81 = load ptr, ptr %80, align 8, !tbaa !19
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !72
+  %84 = getelementptr inbounds nuw i8, ptr %71, i64 56
+  %85 = load ptr, ptr %84, align 8, !tbaa !73
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %79
+  %87 = load ptr, ptr %86, align 8, !tbaa !74
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   br label %aux_upvalue.exit
 
-aux_upvalue.exit:                                 ; preds = %77, %65
-  %.0 = phi ptr [ %84, %77 ], [ %69, %65 ]
-  %.0.i = phi ptr [ %89, %77 ], [ @.str.4, %65 ]
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !4
-  %92 = load i64, ptr %.0, align 8, !tbaa !19
-  store i64 %92, ptr %91, align 8, !tbaa !19
-  %93 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %94 = load i32, ptr %93, align 8, !tbaa !20
-  %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i32 %94, ptr %95, align 8, !tbaa !20
-  %96 = load ptr, ptr %90, align 8, !tbaa !4
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr %97, ptr %90, align 8, !tbaa !4
+aux_upvalue.exit:                                 ; preds = %76, %65
+  %.0 = phi ptr [ %83, %76 ], [ %68, %65 ]
+  %.0.i = phi ptr [ %88, %76 ], [ @.str.4, %65 ]
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %90 = load ptr, ptr %89, align 8, !tbaa !4
+  %91 = load i64, ptr %.0, align 8, !tbaa !19
+  store i64 %91, ptr %90, align 8, !tbaa !19
+  %92 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %93 = load i32, ptr %92, align 8, !tbaa !20
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  store i32 %93, ptr %94, align 8, !tbaa !20
+  %95 = load ptr, ptr %89, align 8, !tbaa !4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  store ptr %96, ptr %89, align 8, !tbaa !4
   br label %aux_upvalue.exit.thread
 
-aux_upvalue.exit.thread:                          ; preds = %70, %74, %59, %61, %index2adr.exit, %aux_upvalue.exit
-  %.0.i14 = phi ptr [ %.0.i, %aux_upvalue.exit ], [ null, %index2adr.exit ], [ null, %61 ], [ null, %59 ], [ null, %74 ], [ null, %70 ]
+aux_upvalue.exit.thread:                          ; preds = %69, %73, %59, %61, %index2adr.exit, %aux_upvalue.exit
+  %.0.i14 = phi ptr [ %.0.i, %aux_upvalue.exit ], [ null, %index2adr.exit ], [ null, %61 ], [ null, %59 ], [ null, %73 ], [ null, %69 ]
   ret ptr %.0.i14
 }
 
@@ -5518,7 +5517,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 10
   %58 = load i8, ptr %57, align 2, !tbaa !19
   %.not.i19 = icmp eq i8 %58, 0
-  br i1 %.not.i19, label %70, label %59
+  br i1 %.not.i19, label %69, label %59
 
 59:                                               ; preds = %55
   %60 = icmp sgt i32 %2, 0
@@ -5532,80 +5531,79 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br i1 %.not20.i, label %aux_upvalue.exit.thread, label %65
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %67 = zext nneg i32 %2 to i64
-  %68 = getelementptr %struct.lua_TValue, ptr %66, i64 %67
-  %69 = getelementptr i8, ptr %68, i64 -16
+  %66 = zext nneg i32 %2 to i64
+  %67 = getelementptr %struct.lua_TValue, ptr %56, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 24
   br label %aux_upvalue.exit
 
-70:                                               ; preds = %55
-  %71 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !19
-  %73 = icmp sgt i32 %2, 0
-  br i1 %73, label %74, label %aux_upvalue.exit.thread
+69:                                               ; preds = %55
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %71 = load ptr, ptr %70, align 8, !tbaa !19
+  %72 = icmp sgt i32 %2, 0
+  br i1 %72, label %73, label %aux_upvalue.exit.thread
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  %76 = load i32, ptr %75, align 8, !tbaa !66
-  %.not19.i = icmp sgt i32 %2, %76
-  br i1 %.not19.i, label %aux_upvalue.exit.thread, label %77
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 72
+  %75 = load i32, ptr %74, align 8, !tbaa !66
+  %.not19.i = icmp sgt i32 %2, %75
+  br i1 %.not19.i, label %aux_upvalue.exit.thread, label %76
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %79 = add nsw i32 %2, -1
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %80
-  %82 = load ptr, ptr %81, align 8, !tbaa !19
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !72
-  %85 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  %86 = load ptr, ptr %85, align 8, !tbaa !73
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %80
-  %88 = load ptr, ptr %87, align 8, !tbaa !74
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %78 = add nsw i32 %2, -1
+  %79 = zext nneg i32 %78 to i64
+  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %79
+  %81 = load ptr, ptr %80, align 8, !tbaa !19
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !72
+  %84 = getelementptr inbounds nuw i8, ptr %71, i64 56
+  %85 = load ptr, ptr %84, align 8, !tbaa !73
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %79
+  %87 = load ptr, ptr %86, align 8, !tbaa !74
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   br label %aux_upvalue.exit
 
-aux_upvalue.exit:                                 ; preds = %77, %65
-  %.0 = phi ptr [ %84, %77 ], [ %69, %65 ]
-  %.0.i = phi ptr [ %89, %77 ], [ @.str.4, %65 ]
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !4
-  %92 = getelementptr inbounds i8, ptr %91, i64 -16
-  store ptr %92, ptr %90, align 8, !tbaa !4
-  %93 = load i64, ptr %92, align 8, !tbaa !19
-  store i64 %93, ptr %.0, align 8, !tbaa !19
-  %94 = getelementptr inbounds i8, ptr %91, i64 -8
-  %95 = load i32, ptr %94, align 8, !tbaa !20
-  %96 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i32 %95, ptr %96, align 8, !tbaa !20
-  %97 = load ptr, ptr %90, align 8, !tbaa !4
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !20
-  %100 = icmp sgt i32 %99, 3
-  br i1 %100, label %101, label %aux_upvalue.exit.thread
+aux_upvalue.exit:                                 ; preds = %76, %65
+  %.0 = phi ptr [ %83, %76 ], [ %68, %65 ]
+  %.0.i = phi ptr [ %88, %76 ], [ @.str.4, %65 ]
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %90 = load ptr, ptr %89, align 8, !tbaa !4
+  %91 = getelementptr inbounds i8, ptr %90, i64 -16
+  store ptr %91, ptr %89, align 8, !tbaa !4
+  %92 = load i64, ptr %91, align 8, !tbaa !19
+  store i64 %92, ptr %.0, align 8, !tbaa !19
+  %93 = getelementptr inbounds i8, ptr %90, i64 -8
+  %94 = load i32, ptr %93, align 8, !tbaa !20
+  %95 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store i32 %94, ptr %95, align 8, !tbaa !20
+  %96 = load ptr, ptr %89, align 8, !tbaa !4
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load i32, ptr %97, align 8, !tbaa !20
+  %99 = icmp sgt i32 %98, 3
+  br i1 %99, label %100, label %aux_upvalue.exit.thread
 
-101:                                              ; preds = %aux_upvalue.exit
-  %102 = load ptr, ptr %97, align 8, !tbaa !19
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 9
-  %104 = load i8, ptr %103, align 1, !tbaa !19
-  %105 = and i8 %104, 3
-  %.not17 = icmp eq i8 %105, 0
-  br i1 %.not17, label %aux_upvalue.exit.thread, label %106
+100:                                              ; preds = %aux_upvalue.exit
+  %101 = load ptr, ptr %96, align 8, !tbaa !19
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 9
+  %103 = load i8, ptr %102, align 1, !tbaa !19
+  %104 = and i8 %103, 3
+  %.not17 = icmp eq i8 %104, 0
+  br i1 %.not17, label %aux_upvalue.exit.thread, label %105
 
-106:                                              ; preds = %101
-  %107 = load ptr, ptr %.1.i, align 8, !tbaa !19
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 9
-  %109 = load i8, ptr %108, align 1, !tbaa !19
-  %110 = and i8 %109, 4
-  %.not18 = icmp eq i8 %110, 0
-  br i1 %.not18, label %aux_upvalue.exit.thread, label %111
+105:                                              ; preds = %100
+  %106 = load ptr, ptr %.1.i, align 8, !tbaa !19
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 9
+  %108 = load i8, ptr %107, align 1, !tbaa !19
+  %109 = and i8 %108, 4
+  %.not18 = icmp eq i8 %109, 0
+  br i1 %.not18, label %aux_upvalue.exit.thread, label %110
 
-111:                                              ; preds = %106
-  tail call void @luaC_barrierf(ptr noundef nonnull %0, ptr noundef nonnull %107, ptr noundef nonnull %102) #14
+110:                                              ; preds = %105
+  tail call void @luaC_barrierf(ptr noundef nonnull %0, ptr noundef nonnull %106, ptr noundef nonnull %101) #14
   br label %aux_upvalue.exit.thread
 
-aux_upvalue.exit.thread:                          ; preds = %70, %74, %59, %61, %index2adr.exit, %aux_upvalue.exit, %101, %106, %111
-  %.0.i23 = phi ptr [ %.0.i, %aux_upvalue.exit ], [ %.0.i, %101 ], [ %.0.i, %106 ], [ %.0.i, %111 ], [ null, %index2adr.exit ], [ null, %61 ], [ null, %59 ], [ null, %74 ], [ null, %70 ]
+aux_upvalue.exit.thread:                          ; preds = %69, %73, %59, %61, %index2adr.exit, %aux_upvalue.exit, %100, %105, %110
+  %.0.i23 = phi ptr [ %.0.i, %aux_upvalue.exit ], [ %.0.i, %100 ], [ %.0.i, %105 ], [ %.0.i, %110 ], [ null, %index2adr.exit ], [ null, %61 ], [ null, %59 ], [ null, %73 ], [ null, %69 ]
   ret ptr %.0.i23
 }
 

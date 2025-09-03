@@ -5,6 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
+%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 
@@ -128,24 +129,23 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %14, %10
   %17 = phi ptr [ %16, %14 ], [ null, %10 ]
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %19 = getelementptr i8, ptr %0, i64 4
-  %20 = getelementptr i8, ptr %0, i64 16
+  %18 = getelementptr i8, ptr %0, i64 4
+  %19 = getelementptr i8, ptr %0, i64 16
   %wide.trip.count = zext nneg i32 %8 to i64
-  br label %21
+  br label %20
 
-21:                                               ; preds = %.lr.ph, %37
+20:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.03138 = phi ptr [ %17, %.lr.ph ], [ %.1, %37 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
+  %21 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 33
   %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %37, label %.preheader
 
-.preheader:                                       ; preds = %21
-  %.val = load i32, ptr %19, align 4
-  %.val35 = load ptr, ptr %20, align 8
+.preheader:                                       ; preds = %20
+  %.val = load i32, ptr %18, align 4
+  %.val35 = load ptr, ptr %19, align 8
   %25 = sext i32 %.val to i64
   %26 = getelementptr inbounds %union.ListCell, ptr %.val35, i64 %25
   br label %27
@@ -168,11 +168,11 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   store i16 %35, ptr %36, align 2
   br label %37
 
-37:                                               ; preds = %.thread, %21
-  %.1 = phi ptr [ %.03138, %21 ], [ %..i, %.thread ]
+37:                                               ; preds = %.thread, %20
+  %.1 = phi ptr [ %.03138, %20 ], [ %..i, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !6
 
 .loopexit:                                        ; preds = %37, %7
   %.032 = phi ptr [ null, %7 ], [ %13, %37 ]

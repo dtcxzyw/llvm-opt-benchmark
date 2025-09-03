@@ -1699,97 +1699,92 @@ jv_copy.exit:                                     ; preds = %jv_copy.exit202, %4
   %57 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i225, 0
   br i1 %57, label %.lr.ph.i, label %jvp_object_length.exit
 
-.lr.ph.i:                                         ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %59
-
-59:                                               ; preds = %59, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
-  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i227, %59 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i
-  %61 = load i64, ptr %60, align 8
-  %62 = and i64 %61, 15
-  %.not.i226 = icmp ne i64 %62, 1
-  %63 = zext i1 %.not.i226 to i32
-  %spec.select.i227 = add nuw nsw i32 %.09.i, %63
+.lr.ph.i:                                         ; preds = %56, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %56 ]
+  %.09.i = phi i32 [ %spec.select.i227, %.lr.ph.i ], [ 0, %56 ]
+  %58 = getelementptr inbounds nuw %struct.object_slot, ptr %3, i64 %indvars.iv.i, i32 2, i32 4
+  %59 = load i64, ptr %58, align 8
+  %60 = and i64 %59, 15
+  %.not.i226 = icmp ne i64 %60, 1
+  %61 = zext i1 %.not.i226 to i32
+  %spec.select.i227 = add nuw nsw i32 %.09.i, %61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.sroa.1.0.extract.shift.i.i224
-  br i1 %exitcond.not.i, label %jvp_object_length.exit, label %59, !llvm.loop !45
+  br i1 %exitcond.not.i, label %jvp_object_length.exit, label %.lr.ph.i, !llvm.loop !45
 
-jvp_object_length.exit:                           ; preds = %59, %56
-  %.0.lcssa.i = phi i32 [ 0, %56 ], [ %spec.select.i227, %59 ]
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
+jvp_object_length.exit:                           ; preds = %.lr.ph.i, %56
+  %.0.lcssa.i = phi i32 [ 0, %56 ], [ %spec.select.i227, %.lr.ph.i ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.1.0.extract.shift.i222 = lshr i64 %0, 32
   %.sroa.1.0.extract.trunc.i223 = trunc nuw i64 %.sroa.1.0.extract.shift.i222 to i32
   %.not32.i232 = icmp slt i32 %.sroa.1.0.extract.trunc.i223, 1
   br i1 %.not32.i232, label %jvp_object_equal.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %jvp_object_length.exit, %95
-  %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %jvp_object_length.exit ]
-  %.022.i234 = phi i32 [ %.224.i, %95 ], [ 0, %jvp_object_length.exit ]
-  %65 = getelementptr inbounds nuw %struct.object_slot, ptr %64, i64 %indvars.iv
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load i64, ptr %66, align 8
-  %68 = and i64 %67, 15
-  %69 = icmp eq i64 %68, 1
-  br i1 %69, label %95, label %70
+.lr.ph:                                           ; preds = %jvp_object_length.exit, %93
+  %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %jvp_object_length.exit ]
+  %.022.i234 = phi i32 [ %.224.i, %93 ], [ 0, %jvp_object_length.exit ]
+  %63 = getelementptr inbounds nuw %struct.object_slot, ptr %62, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load i64, ptr %64, align 8
+  %66 = and i64 %65, 15
+  %67 = icmp eq i64 %66, 1
+  br i1 %67, label %93, label %68
 
-70:                                               ; preds = %.lr.ph
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %72 = load ptr, ptr %71, align 8
-  %73 = tail call fastcc ptr @jvp_object_find_bucket(i64 %2, ptr %3, ptr %72)
-  %74 = tail call fastcc ptr @jvp_object_find_slot(ptr %3, ptr %72, ptr noundef nonnull %73)
-  %75 = icmp eq ptr %74, null
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  br i1 %75, label %jvp_object_equal.exit, label %77
+68:                                               ; preds = %.lr.ph
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call fastcc ptr @jvp_object_find_bucket(i64 %2, ptr %3, ptr %70)
+  %72 = tail call fastcc ptr @jvp_object_find_slot(ptr %3, ptr %70, ptr noundef nonnull %71)
+  %73 = icmp eq ptr %72, null
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br i1 %73, label %jvp_object_equal.exit, label %75
 
-77:                                               ; preds = %70
-  %78 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %81 = load ptr, ptr %80, align 8
-  %82 = and i64 %79, 128
-  %.not.i215 = icmp eq i64 %82, 0
-  br i1 %.not.i215, label %jv_copy.exit218, label %83
+75:                                               ; preds = %68
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %77 = load i64, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %79 = load ptr, ptr %78, align 8
+  %80 = and i64 %77, 128
+  %.not.i215 = icmp eq i64 %80, 0
+  br i1 %.not.i215, label %jv_copy.exit218, label %81
 
-83:                                               ; preds = %77
-  %84 = load i32, ptr %81, align 4, !tbaa !9
-  %85 = add nsw i32 %84, 1
-  store i32 %85, ptr %81, align 4, !tbaa !9
+81:                                               ; preds = %75
+  %82 = load i32, ptr %79, align 4, !tbaa !9
+  %83 = add nsw i32 %82, 1
+  store i32 %83, ptr %79, align 4, !tbaa !9
   br label %jv_copy.exit218
 
-jv_copy.exit218:                                  ; preds = %77, %83
-  %86 = load i64, ptr %76, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %88 = load ptr, ptr %87, align 8
-  %89 = and i64 %86, 128
-  %.not.i211 = icmp eq i64 %89, 0
-  br i1 %.not.i211, label %jv_copy.exit214, label %90
+jv_copy.exit218:                                  ; preds = %75, %81
+  %84 = load i64, ptr %74, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %86 = load ptr, ptr %85, align 8
+  %87 = and i64 %84, 128
+  %.not.i211 = icmp eq i64 %87, 0
+  br i1 %.not.i211, label %jv_copy.exit214, label %88
 
-90:                                               ; preds = %jv_copy.exit218
-  %91 = load i32, ptr %88, align 4, !tbaa !9
-  %92 = add nsw i32 %91, 1
-  store i32 %92, ptr %88, align 4, !tbaa !9
+88:                                               ; preds = %jv_copy.exit218
+  %89 = load i32, ptr %86, align 4, !tbaa !9
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %86, align 4, !tbaa !9
   br label %jv_copy.exit214
 
-jv_copy.exit214:                                  ; preds = %jv_copy.exit218, %90
-  %93 = tail call i32 @jv_equal(i64 %79, ptr %81, i64 %86, ptr %88)
-  %.not31.i = icmp eq i32 %93, 0
-  %94 = add nsw i32 %.022.i234, 1
-  br i1 %.not31.i, label %jvp_object_equal.exit, label %95
+jv_copy.exit214:                                  ; preds = %jv_copy.exit218, %88
+  %91 = tail call i32 @jv_equal(i64 %77, ptr %79, i64 %84, ptr %86)
+  %.not31.i = icmp eq i32 %91, 0
+  %92 = add nsw i32 %.022.i234, 1
+  br i1 %.not31.i, label %jvp_object_equal.exit, label %93
 
-95:                                               ; preds = %.lr.ph, %jv_copy.exit214
-  %.224.i = phi i32 [ %.022.i234, %.lr.ph ], [ %94, %jv_copy.exit214 ]
+93:                                               ; preds = %.lr.ph, %jv_copy.exit214
+  %.224.i = phi i32 [ %.022.i234, %.lr.ph ], [ %92, %jv_copy.exit214 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.1.0.extract.shift.i222
   br i1 %exitcond.not, label %jvp_object_equal.exit, label %.lr.ph, !llvm.loop !46
 
-jvp_object_equal.exit:                            ; preds = %95, %70, %jv_copy.exit214, %jvp_object_length.exit
-  %.022.i.lcssa = phi i32 [ 0, %jvp_object_length.exit ], [ %.022.i234, %jv_copy.exit214 ], [ %.022.i234, %70 ], [ %.224.i, %95 ]
-  %.not32.i.lcssa = phi i1 [ true, %jvp_object_length.exit ], [ false, %jv_copy.exit214 ], [ false, %70 ], [ true, %95 ]
-  %96 = icmp eq i32 %.022.i.lcssa, %.0.lcssa.i
-  %narrow = select i1 %.not32.i.lcssa, i1 %96, i1 false
+jvp_object_equal.exit:                            ; preds = %93, %68, %jv_copy.exit214, %jvp_object_length.exit
+  %.022.i.lcssa = phi i32 [ 0, %jvp_object_length.exit ], [ %.022.i234, %jv_copy.exit214 ], [ %.022.i234, %68 ], [ %.224.i, %93 ]
+  %.not32.i.lcssa = phi i1 [ true, %jvp_object_length.exit ], [ false, %jv_copy.exit214 ], [ false, %68 ], [ true, %93 ]
+  %94 = icmp eq i32 %.022.i.lcssa, %.0.lcssa.i
+  %narrow = select i1 %.not32.i.lcssa, i1 %94, i1 false
   br label %jvp_array_equal.exit
 
 jvp_array_equal.exit:                             ; preds = %jv_copy.exit, %21, %51, %46, %20, %16, %10, %4, %jvp_object_equal.exit, %17
@@ -3637,154 +3632,144 @@ define dso_local i32 @jv_object_length(i64 %0, ptr %1) local_unnamed_addr #2 {
   %3 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
   br i1 %3, label %.lr.ph.i, label %jvp_object_length.exit
 
-.lr.ph.i:                                         ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %5
-
-5:                                                ; preds = %5, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %5 ]
-  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %5 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
-  %7 = load i64, ptr %6, align 8
-  %8 = and i64 %7, 15
-  %.not.i = icmp ne i64 %8, 1
-  %9 = zext i1 %.not.i to i32
-  %spec.select.i = add nuw nsw i32 %.09.i, %9
+.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %2 ]
+  %.09.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %2 ]
+  %4 = getelementptr inbounds nuw %struct.object_slot, ptr %1, i64 %indvars.iv.i, i32 2, i32 4
+  %5 = load i64, ptr %4, align 8
+  %6 = and i64 %5, 15
+  %.not.i = icmp ne i64 %6, 1
+  %7 = zext i1 %.not.i to i32
+  %spec.select.i = add nuw nsw i32 %.09.i, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.sroa.1.0.extract.shift.i.i
-  br i1 %exitcond.not.i, label %jvp_object_length.exit, label %5, !llvm.loop !45
+  br i1 %exitcond.not.i, label %jvp_object_length.exit, label %.lr.ph.i, !llvm.loop !45
 
-jvp_object_length.exit:                           ; preds = %5, %2
-  %.0.lcssa.i = phi i32 [ 0, %2 ], [ %spec.select.i, %5 ]
+jvp_object_length.exit:                           ; preds = %.lr.ph.i, %2
+  %.0.lcssa.i = phi i32 [ 0, %2 ], [ %spec.select.i, %.lr.ph.i ]
   tail call void @jv_free(i64 %0, ptr %1)
   ret i32 %.0.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, ptr } @jv_object_merge(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #2 {
-  %5 = getelementptr i8, ptr %3, i64 16
-  %6 = ashr i64 %2, 32
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
-  %7 = add nsw i64 %smax.i, -1
-  br label %8
+  %5 = ashr i64 %2, 32
+  %smax.i = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
+  %6 = add nsw i64 %smax.i, -1
+  br label %7
 
-8:                                                ; preds = %9, %4
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ -1, %4 ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %7
-  br i1 %exitcond.not.i, label %.loopexit, label %9
+7:                                                ; preds = %8, %4
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %8 ], [ -1, %4 ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %6
+  br i1 %exitcond.not.i, label %.loopexit, label %8
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.next.i.i, 40
-  %10 = getelementptr i8, ptr %5, i64 %.idx.i.i
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 15
-  %13 = icmp eq i64 %12, 1
-  br i1 %13, label %8, label %jv_object_iter.exit, !llvm.loop !64
+  %9 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i.i, i32 2, i32 4
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %10, 15
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %7, label %jv_object_iter.exit, !llvm.loop !64
 
-jv_object_iter.exit:                              ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+jv_object_iter.exit:                              ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.not4143 = icmp eq i64 %indvars.iv.next.i.i, -2
   br i1 %.not4143, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %8, %jv_object_iter_next.exit, %34, %jv_object_iter.exit
-  %.sroa.024.1.lcssa = phi i64 [ %0, %jv_object_iter.exit ], [ %32, %34 ], [ %32, %jv_object_iter_next.exit ], [ %0, %8 ]
-  %.sroa.425.1.lcssa = phi ptr [ %1, %jv_object_iter.exit ], [ %33, %34 ], [ %33, %jv_object_iter_next.exit ], [ %1, %8 ]
+.loopexit:                                        ; preds = %7, %jv_object_iter_next.exit, %33, %jv_object_iter.exit
+  %.sroa.024.1.lcssa = phi i64 [ %0, %jv_object_iter.exit ], [ %31, %33 ], [ %31, %jv_object_iter_next.exit ], [ %0, %7 ]
+  %.sroa.425.1.lcssa = phi ptr [ %1, %jv_object_iter.exit ], [ %32, %33 ], [ %32, %jv_object_iter_next.exit ], [ %1, %7 ]
   tail call void @jv_free(i64 %2, ptr %3)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.024.1.lcssa, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.425.1.lcssa, 1
   ret { i64, ptr } %.fca.1.insert
 
 .lr.ph:                                           ; preds = %jv_object_iter.exit, %jv_object_iter_next.exit
-  %.sroa.425.146 = phi ptr [ %33, %jv_object_iter_next.exit ], [ %1, %jv_object_iter.exit ]
-  %.sroa.024.145 = phi i64 [ %32, %jv_object_iter_next.exit ], [ %0, %jv_object_iter.exit ]
+  %.sroa.425.146 = phi ptr [ %32, %jv_object_iter_next.exit ], [ %1, %jv_object_iter.exit ]
+  %.sroa.024.145 = phi i64 [ %31, %jv_object_iter_next.exit ], [ %0, %jv_object_iter.exit ]
   %.144 = phi i64 [ %indvars.iv.next.i, %jv_object_iter_next.exit ], [ %indvars.iv.next.i.i, %jv_object_iter.exit ]
   %sext = shl i64 %.144, 32
-  %15 = ashr exact i64 %sext, 32
-  %16 = getelementptr inbounds %struct.object_slot, ptr %14, i64 %15
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %17, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %14 = ashr exact i64 %sext, 32
+  %15 = getelementptr inbounds %struct.object_slot, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %16, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !8
-  %18 = and i64 %.sroa.0.0.copyload.i, 128
-  %.not.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i, label %jv_object_iter_key.exit, label %19
+  %17 = and i64 %.sroa.0.0.copyload.i, 128
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %jv_object_iter_key.exit, label %18
 
-19:                                               ; preds = %.lr.ph
-  %20 = load i32, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
-  %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
+18:                                               ; preds = %.lr.ph
+  %19 = load i32, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
   br label %jv_object_iter_key.exit
 
-jv_object_iter_key.exit:                          ; preds = %.lr.ph, %19
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = and i64 %23, 128
-  %.not.i.i30 = icmp eq i64 %26, 0
-  br i1 %.not.i.i30, label %30, label %27
+jv_object_iter_key.exit:                          ; preds = %.lr.ph, %18
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %25 = and i64 %22, 128
+  %.not.i.i30 = icmp eq i64 %25, 0
+  br i1 %.not.i.i30, label %29, label %26
 
-27:                                               ; preds = %jv_object_iter_key.exit
-  %28 = load i32, ptr %25, align 4, !tbaa !9
-  %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %25, align 4, !tbaa !9
-  br label %30
+26:                                               ; preds = %jv_object_iter_key.exit
+  %27 = load i32, ptr %24, align 4, !tbaa !9
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %24, align 4, !tbaa !9
+  br label %29
 
-30:                                               ; preds = %27, %jv_object_iter_key.exit
-  %31 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.024.145, ptr %.sroa.425.146, i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0.copyload.i, i64 %23, ptr %25)
-  %32 = extractvalue { i64, ptr } %31, 0
-  %33 = extractvalue { i64, ptr } %31, 1
-  br label %34
+29:                                               ; preds = %26, %jv_object_iter_key.exit
+  %30 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.024.145, ptr %.sroa.425.146, i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0.copyload.i, i64 %22, ptr %24)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  br label %33
 
-34:                                               ; preds = %35, %30
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ %15, %30 ]
+33:                                               ; preds = %34, %29
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ %14, %29 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %.not.i = icmp slt i64 %indvars.iv.next.i, %6
-  br i1 %.not.i, label %35, label %.loopexit
+  %.not.i = icmp slt i64 %indvars.iv.next.i, %5
+  br i1 %.not.i, label %34, label %.loopexit
 
-35:                                               ; preds = %34
-  %.idx.i = mul nsw i64 %indvars.iv.next.i, 40
-  %36 = getelementptr i8, ptr %5, i64 %.idx.i
-  %37 = load i64, ptr %36, align 8
-  %38 = and i64 %37, 15
-  %39 = icmp eq i64 %38, 1
-  br i1 %39, label %34, label %jv_object_iter_next.exit, !llvm.loop !64
+34:                                               ; preds = %33
+  %35 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i, i32 2, i32 4
+  %36 = load i64, ptr %35, align 8
+  %37 = and i64 %36, 15
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %33, label %jv_object_iter_next.exit, !llvm.loop !64
 
-jv_object_iter_next.exit:                         ; preds = %35
+jv_object_iter_next.exit:                         ; preds = %34
   %.not41 = icmp eq i64 %indvars.iv.next.i, -2
   br i1 %.not41, label %.loopexit, label %.lr.ph, !llvm.loop !65
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @jv_object_iter(i64 %0, ptr readonly captures(none) %1) local_unnamed_addr #13 {
-  %3 = getelementptr i8, ptr %1, i64 16
-  %4 = ashr i64 %0, 32
-  %smax = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
-  %5 = add nsw i64 %smax, -1
-  br label %6
+  %3 = ashr i64 %0, 32
+  %smax = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
+  %4 = add nsw i64 %smax, -1
+  br label %5
 
-6:                                                ; preds = %7, %2
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ -1, %2 ]
-  %exitcond.not = icmp eq i64 %indvars.iv.i, %5
-  br i1 %exitcond.not, label %jv_object_iter_next.exit, label %7
+5:                                                ; preds = %6, %2
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %6 ], [ -1, %2 ]
+  %exitcond.not = icmp eq i64 %indvars.iv.i, %4
+  br i1 %exitcond.not, label %jv_object_iter_next.exit, label %6
 
-7:                                                ; preds = %6
+6:                                                ; preds = %5
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %.idx.i = mul nuw nsw i64 %indvars.iv.next.i, 40
-  %8 = getelementptr i8, ptr %3, i64 %.idx.i
-  %9 = load i64, ptr %8, align 8
-  %10 = and i64 %9, 15
-  %11 = icmp eq i64 %10, 1
-  br i1 %11, label %6, label %.split.loop.exit.i, !llvm.loop !64
+  %7 = getelementptr %struct.object_slot, ptr %1, i64 %indvars.iv.next.i, i32 2, i32 4
+  %8 = load i64, ptr %7, align 8
+  %9 = and i64 %8, 15
+  %10 = icmp eq i64 %9, 1
+  br i1 %10, label %5, label %.split.loop.exit.i, !llvm.loop !64
 
-.split.loop.exit.i:                               ; preds = %7
-  %12 = trunc nsw i64 %indvars.iv.next.i to i32
+.split.loop.exit.i:                               ; preds = %6
+  %11 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %jv_object_iter_next.exit
 
-jv_object_iter_next.exit:                         ; preds = %6, %.split.loop.exit.i
-  %.0.i = phi i32 [ %12, %.split.loop.exit.i ], [ -2, %6 ]
+jv_object_iter_next.exit:                         ; preds = %5, %.split.loop.exit.i
+  %.0.i = phi i32 [ %11, %.split.loop.exit.i ], [ -2, %5 ]
   ret i32 %.0.i
 }
 
@@ -3847,64 +3832,60 @@ jv_copy.exit:                                     ; preds = %3, %12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 -2147483647, 2147483647) i32 @jv_object_iter_next(i64 %0, ptr readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #13 {
-  %4 = getelementptr i8, ptr %1, i64 16
-  %5 = sext i32 %2 to i64
-  %6 = ashr i64 %0, 32
-  br label %7
+  %4 = sext i32 %2 to i64
+  %5 = ashr i64 %0, 32
+  br label %6
 
-7:                                                ; preds = %8, %3
-  %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ %5, %3 ]
+6:                                                ; preds = %7, %3
+  %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ %4, %3 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %.not = icmp slt i64 %indvars.iv.next, %6
-  br i1 %.not, label %8, label %.split.loop.exit10
+  %.not = icmp slt i64 %indvars.iv.next, %5
+  br i1 %.not, label %7, label %.split.loop.exit10
 
-8:                                                ; preds = %7
-  %.idx = mul nsw i64 %indvars.iv.next, 40
-  %9 = getelementptr i8, ptr %4, i64 %.idx
-  %10 = load i64, ptr %9, align 8
-  %11 = and i64 %10, 15
-  %12 = icmp eq i64 %11, 1
-  br i1 %12, label %7, label %.split.loop.exit, !llvm.loop !64
+7:                                                ; preds = %6
+  %8 = getelementptr %struct.object_slot, ptr %1, i64 %indvars.iv.next, i32 2, i32 4
+  %9 = load i64, ptr %8, align 8
+  %10 = and i64 %9, 15
+  %11 = icmp eq i64 %10, 1
+  br i1 %11, label %6, label %.split.loop.exit, !llvm.loop !64
 
-.split.loop.exit:                                 ; preds = %8
-  %13 = trunc nsw i64 %indvars.iv.next to i32
+.split.loop.exit:                                 ; preds = %7
+  %12 = trunc nsw i64 %indvars.iv.next to i32
   br label %.split.loop.exit10
 
-.split.loop.exit10:                               ; preds = %7, %.split.loop.exit
-  %.0 = phi i32 [ %13, %.split.loop.exit ], [ -2, %7 ]
+.split.loop.exit10:                               ; preds = %6, %.split.loop.exit
+  %.0 = phi i32 [ %12, %.split.loop.exit ], [ -2, %6 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, ptr } @jv_object_merge_recursive(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #2 {
-  %5 = getelementptr i8, ptr %3, i64 16
-  %6 = ashr i64 %2, 32
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
-  %7 = add nsw i64 %smax.i, -1
-  br label %8
+  %5 = ashr i64 %2, 32
+  %smax.i = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
+  %6 = add nsw i64 %smax.i, -1
+  br label %7
 
-8:                                                ; preds = %9, %4
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ -1, %4 ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %7
-  br i1 %exitcond.not.i, label %.loopexit, label %9
+7:                                                ; preds = %8, %4
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %8 ], [ -1, %4 ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %6
+  br i1 %exitcond.not.i, label %.loopexit, label %8
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.next.i.i, 40
-  %10 = getelementptr i8, ptr %5, i64 %.idx.i.i
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 15
-  %13 = icmp eq i64 %12, 1
-  br i1 %13, label %8, label %jv_object_iter.exit, !llvm.loop !64
+  %9 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i.i, i32 2, i32 4
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %10, 15
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %7, label %jv_object_iter.exit, !llvm.loop !64
 
-jv_object_iter.exit:                              ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+jv_object_iter.exit:                              ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.not99113 = icmp eq i64 %indvars.iv.next.i.i, -2
   br i1 %.not99113, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %8, %jv_object_iter_next.exit, %140, %jv_object_iter.exit
-  %.sroa.044.1.lcssa = phi i64 [ %0, %jv_object_iter.exit ], [ %.sroa.044.2, %140 ], [ %.sroa.044.2, %jv_object_iter_next.exit ], [ %0, %8 ]
-  %.sroa.747.1.lcssa = phi ptr [ %1, %jv_object_iter.exit ], [ %.sroa.747.2, %140 ], [ %.sroa.747.2, %jv_object_iter_next.exit ], [ %1, %8 ]
+.loopexit:                                        ; preds = %7, %jv_object_iter_next.exit, %139, %jv_object_iter.exit
+  %.sroa.044.1.lcssa = phi i64 [ %0, %jv_object_iter.exit ], [ %.sroa.044.2, %139 ], [ %.sroa.044.2, %jv_object_iter_next.exit ], [ %0, %7 ]
+  %.sroa.747.1.lcssa = phi ptr [ %1, %jv_object_iter.exit ], [ %.sroa.747.2, %139 ], [ %.sroa.747.2, %jv_object_iter_next.exit ], [ %1, %7 ]
   tail call void @jv_free(i64 %2, ptr %3)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.044.1.lcssa, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.747.1.lcssa, 1
@@ -3915,269 +3896,268 @@ jv_object_iter.exit:                              ; preds = %9
   %.sroa.044.1115 = phi i64 [ %.sroa.044.2, %jv_object_iter_next.exit ], [ %0, %jv_object_iter.exit ]
   %.1114 = phi i64 [ %indvars.iv.next.i, %jv_object_iter_next.exit ], [ %indvars.iv.next.i.i, %jv_object_iter.exit ]
   %sext = shl i64 %.1114, 32
-  %15 = ashr exact i64 %sext, 32
-  %16 = getelementptr inbounds %struct.object_slot, ptr %14, i64 %15
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %17, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %14 = ashr exact i64 %sext, 32
+  %15 = getelementptr inbounds %struct.object_slot, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %16, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !8
-  %18 = and i64 %.sroa.0.0.copyload.i, 128
-  %.not.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i, label %jv_object_iter_key.exit, label %19
+  %17 = and i64 %.sroa.0.0.copyload.i, 128
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %jv_object_iter_key.exit, label %18
 
-19:                                               ; preds = %.lr.ph
-  %20 = load i32, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
-  %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
+18:                                               ; preds = %.lr.ph
+  %19 = load i32, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
   br label %jv_object_iter_key.exit
 
-jv_object_iter_key.exit:                          ; preds = %.lr.ph, %19
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = and i64 %23, 128
-  %.not.i.i60 = icmp eq i64 %26, 0
-  br i1 %.not.i.i60, label %30, label %27
+jv_object_iter_key.exit:                          ; preds = %.lr.ph, %18
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %25 = and i64 %22, 128
+  %.not.i.i60 = icmp eq i64 %25, 0
+  br i1 %.not.i.i60, label %29, label %26
 
-27:                                               ; preds = %jv_object_iter_key.exit
-  %28 = load i32, ptr %25, align 4, !tbaa !9
-  %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %25, align 4, !tbaa !9
-  br label %30
+26:                                               ; preds = %jv_object_iter_key.exit
+  %27 = load i32, ptr %24, align 4, !tbaa !9
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %24, align 4, !tbaa !9
+  br label %29
 
-30:                                               ; preds = %27, %jv_object_iter_key.exit
-  %31 = and i64 %.sroa.044.1115, 128
-  %.not.i = icmp eq i64 %31, 0
-  br i1 %.not.i, label %jv_copy.exit, label %32
+29:                                               ; preds = %26, %jv_object_iter_key.exit
+  %30 = and i64 %.sroa.044.1115, 128
+  %.not.i = icmp eq i64 %30, 0
+  br i1 %.not.i, label %jv_copy.exit, label %31
 
-32:                                               ; preds = %30
-  %33 = load i32, ptr %.sroa.747.1116, align 4, !tbaa !9
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %.sroa.747.1116, align 4, !tbaa !9
+31:                                               ; preds = %29
+  %32 = load i32, ptr %.sroa.747.1116, align 4, !tbaa !9
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %.sroa.747.1116, align 4, !tbaa !9
   br label %jv_copy.exit
 
-jv_copy.exit:                                     ; preds = %30, %32
-  br i1 %.not.i.i, label %jv_copy.exit66, label %35
+jv_copy.exit:                                     ; preds = %29, %31
+  br i1 %.not.i.i, label %jv_copy.exit66, label %34
 
-35:                                               ; preds = %jv_copy.exit
-  %36 = load i32, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
+34:                                               ; preds = %jv_copy.exit
+  %35 = load i32, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
   br label %jv_copy.exit66
 
-jv_copy.exit66:                                   ; preds = %jv_copy.exit, %35
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 8
-  %39 = load i32, ptr %38, align 4, !tbaa !4
-  %40 = and i32 %39, 1
-  %.not.i.i75 = icmp eq i32 %40, 0
-  br i1 %.not.i.i75, label %44, label %41
+jv_copy.exit66:                                   ; preds = %jv_copy.exit, %34
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 8
+  %38 = load i32, ptr %37, align 4, !tbaa !4
+  %39 = and i32 %38, 1
+  %.not.i.i75 = icmp eq i32 %39, 0
+  br i1 %.not.i.i75, label %43, label %40
 
-41:                                               ; preds = %jv_copy.exit66
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !4
+40:                                               ; preds = %jv_copy.exit66
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 4
+  %42 = load i32, ptr %41, align 4, !tbaa !4
   br label %jvp_string_hash.exit.i
 
-44:                                               ; preds = %jv_copy.exit66
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
-  %46 = lshr exact i32 %39, 1
-  %47 = and i32 %46, 2147483644
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %48
-  %.not5152.i.i78 = icmp ult i32 %39, 8
+43:                                               ; preds = %jv_copy.exit66
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
+  %45 = lshr exact i32 %38, 1
+  %46 = and i32 %45, 2147483644
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %47
+  %.not5152.i.i78 = icmp ult i32 %38, 8
   br i1 %.not5152.i.i78, label %._crit_edge.i.i84, label %.lr.ph.preheader.i.i79
 
-.lr.ph.preheader.i.i79:                           ; preds = %44
-  %50 = lshr i32 %39, 3
-  %51 = sub nsw i32 0, %50
-  %52 = sext i32 %51 to i64
+.lr.ph.preheader.i.i79:                           ; preds = %43
+  %49 = lshr i32 %38, 3
+  %50 = sub nsw i32 0, %49
+  %51 = sext i32 %50 to i64
   br label %.lr.ph.i.i80
 
-._crit_edge.i.i84:                                ; preds = %.lr.ph.i.i80, %44
-  %.049.lcssa.i.i85 = phi i32 [ 1126864963, %44 ], [ %62, %.lr.ph.i.i80 ]
-  %53 = and i32 %46, 3
-  switch i32 %53, label %default.unreachable [
-    i32 3, label %64
-    i32 2, label %69
-    i32 1, label %75
-    i32 0, label %83
+._crit_edge.i.i84:                                ; preds = %.lr.ph.i.i80, %43
+  %.049.lcssa.i.i85 = phi i32 [ 1126864963, %43 ], [ %61, %.lr.ph.i.i80 ]
+  %52 = and i32 %45, 3
+  switch i32 %52, label %default.unreachable [
+    i32 3, label %63
+    i32 2, label %68
+    i32 1, label %74
+    i32 0, label %82
   ]
 
 .lr.ph.i.i80:                                     ; preds = %.lr.ph.i.i80, %.lr.ph.preheader.i.i79
-  %indvars.iv.i.i81 = phi i64 [ %52, %.lr.ph.preheader.i.i79 ], [ %indvars.iv.next.i.i83, %.lr.ph.i.i80 ]
-  %.04953.i.i82 = phi i32 [ 1126864963, %.lr.ph.preheader.i.i79 ], [ %62, %.lr.ph.i.i80 ]
-  %54 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.i.i81
-  %55 = load i32, ptr %54, align 4, !tbaa !4
-  %56 = mul i32 %55, -862048943
-  %57 = tail call i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 15)
-  %58 = mul i32 %57, 461845907
-  %59 = xor i32 %58, %.04953.i.i82
-  %60 = tail call i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 13)
-  %61 = mul i32 %60, 5
-  %62 = add i32 %61, -430675100
+  %indvars.iv.i.i81 = phi i64 [ %51, %.lr.ph.preheader.i.i79 ], [ %indvars.iv.next.i.i83, %.lr.ph.i.i80 ]
+  %.04953.i.i82 = phi i32 [ 1126864963, %.lr.ph.preheader.i.i79 ], [ %61, %.lr.ph.i.i80 ]
+  %53 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv.i.i81
+  %54 = load i32, ptr %53, align 4, !tbaa !4
+  %55 = mul i32 %54, -862048943
+  %56 = tail call i32 @llvm.fshl.i32(i32 %55, i32 %55, i32 15)
+  %57 = mul i32 %56, 461845907
+  %58 = xor i32 %57, %.04953.i.i82
+  %59 = tail call i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 13)
+  %60 = mul i32 %59, 5
+  %61 = add i32 %60, -430675100
   %indvars.iv.next.i.i83 = add nsw i64 %indvars.iv.i.i81, 1
-  %63 = icmp eq i64 %indvars.iv.next.i.i83, 0
-  br i1 %63, label %._crit_edge.i.i84, label %.lr.ph.i.i80, !llvm.loop !55
+  %62 = icmp eq i64 %indvars.iv.next.i.i83, 0
+  br i1 %62, label %._crit_edge.i.i84, label %.lr.ph.i.i80, !llvm.loop !55
 
-64:                                               ; preds = %._crit_edge.i.i84
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 2
-  %66 = load i8, ptr %65, align 1, !tbaa !8
-  %67 = zext i8 %66 to i32
-  %68 = shl nuw nsw i32 %67, 16
-  br label %69
+63:                                               ; preds = %._crit_edge.i.i84
+  %64 = getelementptr inbounds nuw i8, ptr %48, i64 2
+  %65 = load i8, ptr %64, align 1, !tbaa !8
+  %66 = zext i8 %65 to i32
+  %67 = shl nuw nsw i32 %66, 16
+  br label %68
 
-69:                                               ; preds = %64, %._crit_edge.i.i84
-  %.0.i.i88 = phi i32 [ %68, %64 ], [ 0, %._crit_edge.i.i84 ]
-  %70 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %71 = load i8, ptr %70, align 1, !tbaa !8
-  %72 = zext i8 %71 to i32
-  %73 = shl nuw nsw i32 %72, 8
-  %74 = or disjoint i32 %73, %.0.i.i88
-  br label %75
+68:                                               ; preds = %63, %._crit_edge.i.i84
+  %.0.i.i88 = phi i32 [ %67, %63 ], [ 0, %._crit_edge.i.i84 ]
+  %69 = getelementptr inbounds nuw i8, ptr %48, i64 1
+  %70 = load i8, ptr %69, align 1, !tbaa !8
+  %71 = zext i8 %70 to i32
+  %72 = shl nuw nsw i32 %71, 8
+  %73 = or disjoint i32 %72, %.0.i.i88
+  br label %74
 
-75:                                               ; preds = %69, %._crit_edge.i.i84
-  %.1.i.i87 = phi i32 [ %74, %69 ], [ 0, %._crit_edge.i.i84 ]
-  %76 = load i8, ptr %49, align 1, !tbaa !8
-  %77 = zext i8 %76 to i32
-  %78 = xor i32 %.1.i.i87, %77
-  %79 = mul i32 %78, -862048943
-  %80 = tail call i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 15)
-  %81 = mul i32 %80, 461845907
-  %82 = xor i32 %81, %.049.lcssa.i.i85
-  br label %83
+74:                                               ; preds = %68, %._crit_edge.i.i84
+  %.1.i.i87 = phi i32 [ %73, %68 ], [ 0, %._crit_edge.i.i84 ]
+  %75 = load i8, ptr %48, align 1, !tbaa !8
+  %76 = zext i8 %75 to i32
+  %77 = xor i32 %.1.i.i87, %76
+  %78 = mul i32 %77, -862048943
+  %79 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 15)
+  %80 = mul i32 %79, 461845907
+  %81 = xor i32 %80, %.049.lcssa.i.i85
+  br label %82
 
 default.unreachable:                              ; preds = %._crit_edge.i.i84
   unreachable
 
-83:                                               ; preds = %75, %._crit_edge.i.i84
-  %.150.i.i86 = phi i32 [ %82, %75 ], [ %.049.lcssa.i.i85, %._crit_edge.i.i84 ]
-  %84 = xor i32 %.150.i.i86, %46
-  %85 = lshr i32 %84, 16
-  %86 = xor i32 %85, %84
-  %87 = mul i32 %86, -2048144789
-  %88 = lshr i32 %87, 13
-  %89 = xor i32 %88, %87
-  %90 = mul i32 %89, -1028477387
-  %91 = lshr i32 %90, 16
-  %92 = xor i32 %91, %90
-  %93 = or disjoint i32 %39, 1
-  store i32 %93, ptr %38, align 4, !tbaa !4
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 4
-  store i32 %92, ptr %94, align 4, !tbaa !4
+82:                                               ; preds = %74, %._crit_edge.i.i84
+  %.150.i.i86 = phi i32 [ %81, %74 ], [ %.049.lcssa.i.i85, %._crit_edge.i.i84 ]
+  %83 = xor i32 %.150.i.i86, %45
+  %84 = lshr i32 %83, 16
+  %85 = xor i32 %84, %83
+  %86 = mul i32 %85, -2048144789
+  %87 = lshr i32 %86, 13
+  %88 = xor i32 %87, %86
+  %89 = mul i32 %88, -1028477387
+  %90 = lshr i32 %89, 16
+  %91 = xor i32 %90, %89
+  %92 = or disjoint i32 %38, 1
+  store i32 %92, ptr %37, align 4, !tbaa !4
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 4
+  store i32 %91, ptr %93, align 4, !tbaa !4
   br label %jvp_string_hash.exit.i
 
-jvp_string_hash.exit.i:                           ; preds = %41, %83
-  %95 = phi i32 [ %39, %41 ], [ %93, %83 ]
-  %96 = phi i32 [ %43, %41 ], [ %92, %83 ]
+jvp_string_hash.exit.i:                           ; preds = %40, %82
+  %94 = phi i32 [ %38, %40 ], [ %92, %82 ]
+  %95 = phi i32 [ %42, %40 ], [ %91, %82 ]
   %sh.diff.i.i = lshr i64 %.sroa.044.1115, 31
   %tr.sh.diff.i.i = trunc i64 %sh.diff.i.i to i32
-  %97 = and i32 %tr.sh.diff.i.i, -2
-  %98 = add nsw i32 %97, -1
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.747.1116, i64 8
-  %100 = ashr i64 %.sroa.044.1115, 32
-  %101 = getelementptr inbounds %struct.object_slot, ptr %99, i64 %100
-  %102 = and i32 %96, %98
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %101, i64 %103
-  %105 = load i32, ptr %104, align 4, !tbaa !4
-  %106 = icmp eq i32 %105, -1
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
-  br i1 %106, label %jv_object_get.exit, label %.lr.ph.preheader.i
+  %96 = and i32 %tr.sh.diff.i.i, -2
+  %97 = add nsw i32 %96, -1
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.747.1116, i64 8
+  %99 = ashr i64 %.sroa.044.1115, 32
+  %100 = getelementptr inbounds %struct.object_slot, ptr %98, i64 %99
+  %101 = and i32 %95, %97
+  %102 = zext i32 %101 to i64
+  %103 = getelementptr inbounds nuw i32, ptr %100, i64 %102
+  %104 = load i32, ptr %103, align 4, !tbaa !4
+  %105 = icmp eq i32 %104, -1
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
+  br i1 %105, label %jv_object_get.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %jvp_string_hash.exit.i
-  %108 = lshr i32 %95, 1
-  %109 = zext nneg i32 %108 to i64
+  %107 = lshr i32 %94, 1
+  %108 = zext nneg i32 %107 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %jvp_string_equal.exit.thread.i, %.lr.ph.preheader.i
-  %.pn.in.i = phi i32 [ %.014.val.i, %jvp_string_equal.exit.thread.i ], [ %105, %.lr.ph.preheader.i ]
+  %.pn.in.i = phi i32 [ %.014.val.i, %jvp_string_equal.exit.thread.i ], [ %104, %.lr.ph.preheader.i ]
   %.pn.i = sext i32 %.pn.in.i to i64
-  %.01425.i = getelementptr inbounds %struct.object_slot, ptr %99, i64 %.pn.i
-  %110 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 4
-  %111 = load i32, ptr %110, align 4, !tbaa !61
-  %112 = icmp eq i32 %111, %96
-  br i1 %112, label %113, label %jvp_string_equal.exit.thread.i
+  %.01425.i = getelementptr inbounds %struct.object_slot, ptr %98, i64 %.pn.i
+  %109 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 4
+  %110 = load i32, ptr %109, align 4, !tbaa !61
+  %111 = icmp eq i32 %110, %95
+  br i1 %111, label %112, label %jvp_string_equal.exit.thread.i
 
-113:                                              ; preds = %.lr.ph.i
-  %114 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 16
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr i8, ptr %115, i64 8
-  %.val7.i.i = load i32, ptr %116, align 4, !tbaa !4
-  %117 = lshr i32 %.val7.i.i, 1
-  %.not.i18.i = icmp eq i32 %108, %117
+112:                                              ; preds = %.lr.ph.i
+  %113 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 16
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr i8, ptr %114, i64 8
+  %.val7.i.i = load i32, ptr %115, align 4, !tbaa !4
+  %116 = lshr i32 %.val7.i.i, 1
+  %.not.i18.i = icmp eq i32 %107, %116
   br i1 %.not.i18.i, label %jvp_string_equal.exit.i, label %jvp_string_equal.exit.thread.i
 
-jvp_string_equal.exit.i:                          ; preds = %113
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %107, ptr nonnull readonly %118, i64 %109)
+jvp_string_equal.exit.i:                          ; preds = %112
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %106, ptr nonnull readonly %117, i64 %108)
   %.not24.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not24.i, label %jvp_object_find_slot.exit, label %jvp_string_equal.exit.thread.i
 
-jvp_string_equal.exit.thread.i:                   ; preds = %jvp_string_equal.exit.i, %113, %.lr.ph.i
+jvp_string_equal.exit.thread.i:                   ; preds = %jvp_string_equal.exit.i, %112, %.lr.ph.i
   %.014.val.i = load i32, ptr %.01425.i, align 8, !tbaa !58
-  %119 = icmp eq i32 %.014.val.i, -1
-  br i1 %119, label %jv_object_get.exit, label %.lr.ph.i
+  %118 = icmp eq i32 %.014.val.i, -1
+  br i1 %118, label %jv_object_get.exit, label %.lr.ph.i
 
 jvp_object_find_slot.exit:                        ; preds = %jvp_string_equal.exit.i
-  %120 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 24
-  %121 = load i64, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 32
-  %123 = load ptr, ptr %122, align 8
-  %124 = and i64 %121, 128
-  %.not.i.i67 = icmp eq i64 %124, 0
-  br i1 %.not.i.i67, label %jv_object_get.exit, label %125
+  %119 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 24
+  %120 = load i64, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 32
+  %122 = load ptr, ptr %121, align 8
+  %123 = and i64 %120, 128
+  %.not.i.i67 = icmp eq i64 %123, 0
+  br i1 %.not.i.i67, label %jv_object_get.exit, label %124
 
-125:                                              ; preds = %jvp_object_find_slot.exit
-  %126 = load i32, ptr %123, align 4, !tbaa !9
-  %127 = add nsw i32 %126, 1
-  store i32 %127, ptr %123, align 4, !tbaa !9
+124:                                              ; preds = %jvp_object_find_slot.exit
+  %125 = load i32, ptr %122, align 4, !tbaa !9
+  %126 = add nsw i32 %125, 1
+  store i32 %126, ptr %122, align 4, !tbaa !9
   br label %jv_object_get.exit
 
-jv_object_get.exit:                               ; preds = %jvp_string_equal.exit.thread.i, %jvp_string_hash.exit.i, %jvp_object_find_slot.exit, %125
-  %.sroa.011.0.i = phi i64 [ %121, %jvp_object_find_slot.exit ], [ %121, %125 ], [ 0, %jvp_string_hash.exit.i ], [ 0, %jvp_string_equal.exit.thread.i ]
-  %.sroa.312.0.i = phi ptr [ %123, %jvp_object_find_slot.exit ], [ %123, %125 ], [ null, %jvp_string_hash.exit.i ], [ null, %jvp_string_equal.exit.thread.i ]
+jv_object_get.exit:                               ; preds = %jvp_string_equal.exit.thread.i, %jvp_string_hash.exit.i, %jvp_object_find_slot.exit, %124
+  %.sroa.011.0.i = phi i64 [ %120, %jvp_object_find_slot.exit ], [ %120, %124 ], [ 0, %jvp_string_hash.exit.i ], [ 0, %jvp_string_equal.exit.thread.i ]
+  %.sroa.312.0.i = phi ptr [ %122, %jvp_object_find_slot.exit ], [ %122, %124 ], [ null, %jvp_string_hash.exit.i ], [ null, %jvp_string_equal.exit.thread.i ]
   tail call void @jv_free(i64 %.sroa.044.1115, ptr nonnull %.sroa.747.1116)
   tail call void @jv_free(i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0.copyload.i)
-  %128 = and i64 %.sroa.011.0.i, 15
-  %129 = icmp eq i64 %128, 7
-  %130 = and i64 %23, 15
-  %131 = icmp eq i64 %130, 7
-  %or.cond59 = and i1 %131, %129
-  br i1 %or.cond59, label %132, label %137
+  %127 = and i64 %.sroa.011.0.i, 15
+  %128 = icmp eq i64 %127, 7
+  %129 = and i64 %22, 15
+  %130 = icmp eq i64 %129, 7
+  %or.cond59 = and i1 %130, %128
+  br i1 %or.cond59, label %131, label %136
 
-132:                                              ; preds = %jv_object_get.exit
-  %133 = tail call { i64, ptr } @jv_object_merge_recursive(i64 %.sroa.011.0.i, ptr %.sroa.312.0.i, i64 %23, ptr %25)
-  %134 = extractvalue { i64, ptr } %133, 0
-  %135 = extractvalue { i64, ptr } %133, 1
-  %136 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.044.1115, ptr nonnull %.sroa.747.1116, i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0.copyload.i, i64 %134, ptr %135)
-  br label %139
+131:                                              ; preds = %jv_object_get.exit
+  %132 = tail call { i64, ptr } @jv_object_merge_recursive(i64 %.sroa.011.0.i, ptr %.sroa.312.0.i, i64 %22, ptr %24)
+  %133 = extractvalue { i64, ptr } %132, 0
+  %134 = extractvalue { i64, ptr } %132, 1
+  %135 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.044.1115, ptr nonnull %.sroa.747.1116, i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0.copyload.i, i64 %133, ptr %134)
+  br label %138
 
-137:                                              ; preds = %jv_object_get.exit
+136:                                              ; preds = %jv_object_get.exit
   tail call void @jv_free(i64 %.sroa.011.0.i, ptr %.sroa.312.0.i)
-  %138 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.044.1115, ptr nonnull %.sroa.747.1116, i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0.copyload.i, i64 %23, ptr %25)
-  br label %139
+  %137 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.044.1115, ptr nonnull %.sroa.747.1116, i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0.copyload.i, i64 %22, ptr %24)
+  br label %138
 
-139:                                              ; preds = %137, %132
-  %.pn = phi { i64, ptr } [ %136, %132 ], [ %138, %137 ]
+138:                                              ; preds = %136, %131
+  %.pn = phi { i64, ptr } [ %135, %131 ], [ %137, %136 ]
   %.sroa.747.2 = extractvalue { i64, ptr } %.pn, 1
   %.sroa.044.2 = extractvalue { i64, ptr } %.pn, 0
-  br label %140
+  br label %139
 
-140:                                              ; preds = %141, %139
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %141 ], [ %15, %139 ]
+139:                                              ; preds = %140, %138
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %140 ], [ %14, %138 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %.not.i70 = icmp slt i64 %indvars.iv.next.i, %6
-  br i1 %.not.i70, label %141, label %.loopexit
+  %.not.i70 = icmp slt i64 %indvars.iv.next.i, %5
+  br i1 %.not.i70, label %140, label %.loopexit
 
-141:                                              ; preds = %140
-  %.idx.i = mul nsw i64 %indvars.iv.next.i, 40
-  %142 = getelementptr i8, ptr %5, i64 %.idx.i
-  %143 = load i64, ptr %142, align 8
-  %144 = and i64 %143, 15
-  %145 = icmp eq i64 %144, 1
-  br i1 %145, label %140, label %jv_object_iter_next.exit, !llvm.loop !64
+140:                                              ; preds = %139
+  %141 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i, i32 2, i32 4
+  %142 = load i64, ptr %141, align 8
+  %143 = and i64 %142, 15
+  %144 = icmp eq i64 %143, 1
+  br i1 %144, label %139, label %jv_object_iter_next.exit, !llvm.loop !64
 
-jv_object_iter_next.exit:                         ; preds = %141
+jv_object_iter_next.exit:                         ; preds = %140
   %.not99 = icmp eq i64 %indvars.iv.next.i, -2
   br i1 %.not99, label %.loopexit, label %.lr.ph, !llvm.loop !66
 }
@@ -4224,305 +4204,302 @@ define dso_local range(i32 0, 2) i32 @jv_contains(i64 %0, ptr %1, i64 %2, ptr %3
   br i1 %.not, label %7, label %jvp_object_contains.exit
 
 7:                                                ; preds = %4
-  switch i32 %5, label %232 [
+  switch i32 %5, label %231 [
     i32 7, label %8
-    i32 6, label %137
-    i32 5, label %211
+    i32 6, label %136
+    i32 5, label %210
   ]
 
 8:                                                ; preds = %7
-  %9 = getelementptr i8, ptr %3, i64 16
-  %10 = ashr i64 %2, 32
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %10, i64 0)
-  %11 = add nsw i64 %smax.i, -1
-  br label %12
+  %9 = ashr i64 %2, 32
+  %smax.i = tail call i64 @llvm.smax.i64(i64 %9, i64 0)
+  %10 = add nsw i64 %smax.i, -1
+  br label %11
 
-12:                                               ; preds = %13, %8
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ -1, %8 ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %11
-  br i1 %exitcond.not.i, label %jv_object_iter.exit, label %13
+11:                                               ; preds = %12, %8
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %12 ], [ -1, %8 ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %10
+  br i1 %exitcond.not.i, label %jv_object_iter.exit, label %12
 
-13:                                               ; preds = %12
+12:                                               ; preds = %11
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.next.i.i, 40
-  %14 = getelementptr i8, ptr %9, i64 %.idx.i.i
-  %15 = load i64, ptr %14, align 8
-  %16 = and i64 %15, 15
-  %17 = icmp eq i64 %16, 1
-  br i1 %17, label %12, label %.split.loop.exit.i.i, !llvm.loop !64
+  %13 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i.i, i32 2, i32 4
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, 15
+  %16 = icmp eq i64 %15, 1
+  br i1 %16, label %11, label %.split.loop.exit.i.i, !llvm.loop !64
 
-.split.loop.exit.i.i:                             ; preds = %13
-  %18 = trunc nsw i64 %indvars.iv.next.i.i to i32
+.split.loop.exit.i.i:                             ; preds = %12
+  %17 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %jv_object_iter.exit
 
-jv_object_iter.exit:                              ; preds = %12, %.split.loop.exit.i.i
-  %.0.i.i = phi i32 [ %18, %.split.loop.exit.i.i ], [ -2, %12 ]
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %20 = and i64 %.fr, 128
-  %.not.i119 = icmp eq i64 %20, 0
+jv_object_iter.exit:                              ; preds = %11, %.split.loop.exit.i.i
+  %.0.i.i = phi i32 [ %17, %.split.loop.exit.i.i ], [ -2, %11 ]
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = and i64 %.fr, 128
+  %.not.i119 = icmp eq i64 %19, 0
   %sh.diff.i.i = lshr i64 %.fr, 31
   %tr.sh.diff.i.i = trunc i64 %sh.diff.i.i to i32
-  %21 = and i32 %tr.sh.diff.i.i, -2
-  %22 = add nsw i32 %21, -1
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = ashr i64 %.fr, 32
-  %25 = getelementptr inbounds %struct.object_slot, ptr %23, i64 %24
+  %20 = and i32 %tr.sh.diff.i.i, -2
+  %21 = add nsw i32 %20, -1
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = ashr i64 %.fr, 32
+  %24 = getelementptr inbounds %struct.object_slot, ptr %22, i64 %23
   %.not203253 = icmp eq i32 %.0.i.i, -2
   br i1 %.not203253, label %jvp_object_contains.exit, label %.lr.ph255
 
 .lr.ph255:                                        ; preds = %jv_object_iter.exit, %jv_object_iter_next.exit
-  %.129.i254 = phi i32 [ %136, %jv_object_iter_next.exit ], [ %.0.i.i, %jv_object_iter.exit ]
-  %26 = sext i32 %.129.i254 to i64
-  %27 = getelementptr inbounds %struct.object_slot, ptr %19, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %28, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.129.i254 = phi i32 [ %135, %jv_object_iter_next.exit ], [ %.0.i.i, %jv_object_iter.exit ]
+  %25 = sext i32 %.129.i254 to i64
+  %26 = getelementptr inbounds %struct.object_slot, ptr %18, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %27, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 16
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !8
-  %29 = and i64 %.sroa.0.0.copyload.i, 128
-  %.not.i.i124 = icmp eq i64 %29, 0
-  br i1 %.not.i.i124, label %jv_object_iter_key.exit, label %30
+  %28 = and i64 %.sroa.0.0.copyload.i, 128
+  %.not.i.i124 = icmp eq i64 %28, 0
+  br i1 %.not.i.i124, label %jv_object_iter_key.exit, label %29
 
-30:                                               ; preds = %.lr.ph255
-  %31 = load i32, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
-  %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
+29:                                               ; preds = %.lr.ph255
+  %30 = load i32, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !9
   br label %jv_object_iter_key.exit
 
-jv_object_iter_key.exit:                          ; preds = %.lr.ph255, %30
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %36 = load ptr, ptr %35, align 8
-  %37 = and i64 %34, 128
-  %.not.i.i123 = icmp eq i64 %37, 0
-  br i1 %.not.i.i123, label %41, label %38
+jv_object_iter_key.exit:                          ; preds = %.lr.ph255, %29
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %35 = load ptr, ptr %34, align 8
+  %36 = and i64 %33, 128
+  %.not.i.i123 = icmp eq i64 %36, 0
+  br i1 %.not.i.i123, label %40, label %37
 
-38:                                               ; preds = %jv_object_iter_key.exit
-  %39 = load i32, ptr %36, align 4, !tbaa !9
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %36, align 4, !tbaa !9
-  br label %41
+37:                                               ; preds = %jv_object_iter_key.exit
+  %38 = load i32, ptr %35, align 4, !tbaa !9
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %35, align 4, !tbaa !9
+  br label %40
 
-41:                                               ; preds = %jv_object_iter_key.exit, %38
-  br i1 %.not.i119, label %jv_copy.exit122, label %42
+40:                                               ; preds = %jv_object_iter_key.exit, %37
+  br i1 %.not.i119, label %jv_copy.exit122, label %41
 
-42:                                               ; preds = %41
-  %43 = load i32, ptr %1, align 4, !tbaa !9
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %1, align 4, !tbaa !9
+41:                                               ; preds = %40
+  %42 = load i32, ptr %1, align 4, !tbaa !9
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %1, align 4, !tbaa !9
   br label %jv_copy.exit122
 
-jv_copy.exit122:                                  ; preds = %41, %42
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 8
-  %46 = load i32, ptr %45, align 4, !tbaa !4
-  %47 = and i32 %46, 1
-  %.not.i.i165 = icmp eq i32 %47, 0
-  br i1 %.not.i.i165, label %51, label %48
+jv_copy.exit122:                                  ; preds = %40, %41
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 8
+  %45 = load i32, ptr %44, align 4, !tbaa !4
+  %46 = and i32 %45, 1
+  %.not.i.i165 = icmp eq i32 %46, 0
+  br i1 %.not.i.i165, label %50, label %47
 
-48:                                               ; preds = %jv_copy.exit122
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !4
+47:                                               ; preds = %jv_copy.exit122
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 4
+  %49 = load i32, ptr %48, align 4, !tbaa !4
   br label %jvp_string_hash.exit.i
 
-51:                                               ; preds = %jv_copy.exit122
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
-  %53 = lshr exact i32 %46, 1
-  %54 = and i32 %53, 2147483644
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %55
-  %.not5152.i.i168 = icmp ult i32 %46, 8
+50:                                               ; preds = %jv_copy.exit122
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
+  %52 = lshr exact i32 %45, 1
+  %53 = and i32 %52, 2147483644
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 %54
+  %.not5152.i.i168 = icmp ult i32 %45, 8
   br i1 %.not5152.i.i168, label %._crit_edge.i.i174, label %.lr.ph.preheader.i.i169
 
-.lr.ph.preheader.i.i169:                          ; preds = %51
-  %57 = lshr i32 %46, 3
-  %58 = sub nsw i32 0, %57
-  %59 = sext i32 %58 to i64
+.lr.ph.preheader.i.i169:                          ; preds = %50
+  %56 = lshr i32 %45, 3
+  %57 = sub nsw i32 0, %56
+  %58 = sext i32 %57 to i64
   br label %.lr.ph.i.i170
 
-._crit_edge.i.i174:                               ; preds = %.lr.ph.i.i170, %51
-  %.049.lcssa.i.i175 = phi i32 [ 1126864963, %51 ], [ %69, %.lr.ph.i.i170 ]
-  %60 = and i32 %53, 3
-  switch i32 %60, label %default.unreachable [
-    i32 3, label %71
-    i32 2, label %76
-    i32 1, label %82
-    i32 0, label %90
+._crit_edge.i.i174:                               ; preds = %.lr.ph.i.i170, %50
+  %.049.lcssa.i.i175 = phi i32 [ 1126864963, %50 ], [ %68, %.lr.ph.i.i170 ]
+  %59 = and i32 %52, 3
+  switch i32 %59, label %default.unreachable [
+    i32 3, label %70
+    i32 2, label %75
+    i32 1, label %81
+    i32 0, label %89
   ]
 
 .lr.ph.i.i170:                                    ; preds = %.lr.ph.i.i170, %.lr.ph.preheader.i.i169
-  %indvars.iv.i.i171 = phi i64 [ %59, %.lr.ph.preheader.i.i169 ], [ %indvars.iv.next.i.i173, %.lr.ph.i.i170 ]
-  %.04953.i.i172 = phi i32 [ 1126864963, %.lr.ph.preheader.i.i169 ], [ %69, %.lr.ph.i.i170 ]
-  %61 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.i.i171
-  %62 = load i32, ptr %61, align 4, !tbaa !4
-  %63 = mul i32 %62, -862048943
-  %64 = tail call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 15)
-  %65 = mul i32 %64, 461845907
-  %66 = xor i32 %65, %.04953.i.i172
-  %67 = tail call i32 @llvm.fshl.i32(i32 %66, i32 %66, i32 13)
-  %68 = mul i32 %67, 5
-  %69 = add i32 %68, -430675100
+  %indvars.iv.i.i171 = phi i64 [ %58, %.lr.ph.preheader.i.i169 ], [ %indvars.iv.next.i.i173, %.lr.ph.i.i170 ]
+  %.04953.i.i172 = phi i32 [ 1126864963, %.lr.ph.preheader.i.i169 ], [ %68, %.lr.ph.i.i170 ]
+  %60 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv.i.i171
+  %61 = load i32, ptr %60, align 4, !tbaa !4
+  %62 = mul i32 %61, -862048943
+  %63 = tail call i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 15)
+  %64 = mul i32 %63, 461845907
+  %65 = xor i32 %64, %.04953.i.i172
+  %66 = tail call i32 @llvm.fshl.i32(i32 %65, i32 %65, i32 13)
+  %67 = mul i32 %66, 5
+  %68 = add i32 %67, -430675100
   %indvars.iv.next.i.i173 = add nsw i64 %indvars.iv.i.i171, 1
-  %70 = icmp eq i64 %indvars.iv.next.i.i173, 0
-  br i1 %70, label %._crit_edge.i.i174, label %.lr.ph.i.i170, !llvm.loop !55
+  %69 = icmp eq i64 %indvars.iv.next.i.i173, 0
+  br i1 %69, label %._crit_edge.i.i174, label %.lr.ph.i.i170, !llvm.loop !55
 
-71:                                               ; preds = %._crit_edge.i.i174
-  %72 = getelementptr inbounds nuw i8, ptr %56, i64 2
-  %73 = load i8, ptr %72, align 1, !tbaa !8
-  %74 = zext i8 %73 to i32
-  %75 = shl nuw nsw i32 %74, 16
-  br label %76
+70:                                               ; preds = %._crit_edge.i.i174
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 2
+  %72 = load i8, ptr %71, align 1, !tbaa !8
+  %73 = zext i8 %72 to i32
+  %74 = shl nuw nsw i32 %73, 16
+  br label %75
 
-76:                                               ; preds = %71, %._crit_edge.i.i174
-  %.0.i.i178 = phi i32 [ %75, %71 ], [ 0, %._crit_edge.i.i174 ]
-  %77 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  %78 = load i8, ptr %77, align 1, !tbaa !8
-  %79 = zext i8 %78 to i32
-  %80 = shl nuw nsw i32 %79, 8
-  %81 = or disjoint i32 %80, %.0.i.i178
-  br label %82
+75:                                               ; preds = %70, %._crit_edge.i.i174
+  %.0.i.i178 = phi i32 [ %74, %70 ], [ 0, %._crit_edge.i.i174 ]
+  %76 = getelementptr inbounds nuw i8, ptr %55, i64 1
+  %77 = load i8, ptr %76, align 1, !tbaa !8
+  %78 = zext i8 %77 to i32
+  %79 = shl nuw nsw i32 %78, 8
+  %80 = or disjoint i32 %79, %.0.i.i178
+  br label %81
 
-82:                                               ; preds = %76, %._crit_edge.i.i174
-  %.1.i.i177 = phi i32 [ %81, %76 ], [ 0, %._crit_edge.i.i174 ]
-  %83 = load i8, ptr %56, align 1, !tbaa !8
-  %84 = zext i8 %83 to i32
-  %85 = xor i32 %.1.i.i177, %84
-  %86 = mul i32 %85, -862048943
-  %87 = tail call i32 @llvm.fshl.i32(i32 %86, i32 %86, i32 15)
-  %88 = mul i32 %87, 461845907
-  %89 = xor i32 %88, %.049.lcssa.i.i175
-  br label %90
+81:                                               ; preds = %75, %._crit_edge.i.i174
+  %.1.i.i177 = phi i32 [ %80, %75 ], [ 0, %._crit_edge.i.i174 ]
+  %82 = load i8, ptr %55, align 1, !tbaa !8
+  %83 = zext i8 %82 to i32
+  %84 = xor i32 %.1.i.i177, %83
+  %85 = mul i32 %84, -862048943
+  %86 = tail call i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 15)
+  %87 = mul i32 %86, 461845907
+  %88 = xor i32 %87, %.049.lcssa.i.i175
+  br label %89
 
 default.unreachable:                              ; preds = %._crit_edge.i.i174
   unreachable
 
-90:                                               ; preds = %82, %._crit_edge.i.i174
-  %.150.i.i176 = phi i32 [ %89, %82 ], [ %.049.lcssa.i.i175, %._crit_edge.i.i174 ]
-  %91 = xor i32 %.150.i.i176, %53
-  %92 = lshr i32 %91, 16
-  %93 = xor i32 %92, %91
-  %94 = mul i32 %93, -2048144789
-  %95 = lshr i32 %94, 13
-  %96 = xor i32 %95, %94
-  %97 = mul i32 %96, -1028477387
-  %98 = lshr i32 %97, 16
-  %99 = xor i32 %98, %97
-  %100 = or disjoint i32 %46, 1
-  store i32 %100, ptr %45, align 4, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 4
-  store i32 %99, ptr %101, align 4, !tbaa !4
+89:                                               ; preds = %81, %._crit_edge.i.i174
+  %.150.i.i176 = phi i32 [ %88, %81 ], [ %.049.lcssa.i.i175, %._crit_edge.i.i174 ]
+  %90 = xor i32 %.150.i.i176, %52
+  %91 = lshr i32 %90, 16
+  %92 = xor i32 %91, %90
+  %93 = mul i32 %92, -2048144789
+  %94 = lshr i32 %93, 13
+  %95 = xor i32 %94, %93
+  %96 = mul i32 %95, -1028477387
+  %97 = lshr i32 %96, 16
+  %98 = xor i32 %97, %96
+  %99 = or disjoint i32 %45, 1
+  store i32 %99, ptr %44, align 4, !tbaa !4
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 4
+  store i32 %98, ptr %100, align 4, !tbaa !4
   br label %jvp_string_hash.exit.i
 
-jvp_string_hash.exit.i:                           ; preds = %48, %90
-  %102 = phi i32 [ %46, %48 ], [ %100, %90 ]
-  %103 = phi i32 [ %50, %48 ], [ %99, %90 ]
-  %104 = and i32 %103, %22
-  %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %25, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !4
-  %108 = icmp eq i32 %107, -1
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
-  br i1 %108, label %jv_object_get.exit, label %.lr.ph.preheader.i
+jvp_string_hash.exit.i:                           ; preds = %47, %89
+  %101 = phi i32 [ %45, %47 ], [ %99, %89 ]
+  %102 = phi i32 [ %49, %47 ], [ %98, %89 ]
+  %103 = and i32 %102, %21
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw i32, ptr %24, i64 %104
+  %106 = load i32, ptr %105, align 4, !tbaa !4
+  %107 = icmp eq i32 %106, -1
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
+  br i1 %107, label %jv_object_get.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %jvp_string_hash.exit.i
-  %110 = lshr i32 %102, 1
-  %111 = zext nneg i32 %110 to i64
+  %109 = lshr i32 %101, 1
+  %110 = zext nneg i32 %109 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %jvp_string_equal.exit.thread.i, %.lr.ph.preheader.i
-  %.pn.in.i = phi i32 [ %.014.val.i, %jvp_string_equal.exit.thread.i ], [ %107, %.lr.ph.preheader.i ]
+  %.pn.in.i = phi i32 [ %.014.val.i, %jvp_string_equal.exit.thread.i ], [ %106, %.lr.ph.preheader.i ]
   %.pn.i = sext i32 %.pn.in.i to i64
-  %.01425.i = getelementptr inbounds %struct.object_slot, ptr %23, i64 %.pn.i
-  %112 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 4
-  %113 = load i32, ptr %112, align 4, !tbaa !61
-  %114 = icmp eq i32 %113, %103
-  br i1 %114, label %115, label %jvp_string_equal.exit.thread.i
+  %.01425.i = getelementptr inbounds %struct.object_slot, ptr %22, i64 %.pn.i
+  %111 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 4
+  %112 = load i32, ptr %111, align 4, !tbaa !61
+  %113 = icmp eq i32 %112, %102
+  br i1 %113, label %114, label %jvp_string_equal.exit.thread.i
 
-115:                                              ; preds = %.lr.ph.i
-  %116 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 16
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr i8, ptr %117, i64 8
-  %.val7.i.i = load i32, ptr %118, align 4, !tbaa !4
-  %119 = lshr i32 %.val7.i.i, 1
-  %.not.i18.i = icmp eq i32 %110, %119
+114:                                              ; preds = %.lr.ph.i
+  %115 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 16
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr i8, ptr %116, i64 8
+  %.val7.i.i = load i32, ptr %117, align 4, !tbaa !4
+  %118 = lshr i32 %.val7.i.i, 1
+  %.not.i18.i = icmp eq i32 %109, %118
   br i1 %.not.i18.i, label %jvp_string_equal.exit.i, label %jvp_string_equal.exit.thread.i
 
-jvp_string_equal.exit.i:                          ; preds = %115
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %109, ptr nonnull readonly %120, i64 %111)
+jvp_string_equal.exit.i:                          ; preds = %114
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %108, ptr nonnull readonly %119, i64 %110)
   %.not24.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not24.i, label %jvp_object_find_slot.exit, label %jvp_string_equal.exit.thread.i
 
-jvp_string_equal.exit.thread.i:                   ; preds = %jvp_string_equal.exit.i, %115, %.lr.ph.i
+jvp_string_equal.exit.thread.i:                   ; preds = %jvp_string_equal.exit.i, %114, %.lr.ph.i
   %.014.val.i = load i32, ptr %.01425.i, align 8, !tbaa !58
-  %121 = icmp eq i32 %.014.val.i, -1
-  br i1 %121, label %jv_object_get.exit, label %.lr.ph.i
+  %120 = icmp eq i32 %.014.val.i, -1
+  br i1 %120, label %jv_object_get.exit, label %.lr.ph.i
 
 jvp_object_find_slot.exit:                        ; preds = %jvp_string_equal.exit.i
-  %122 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 24
-  %123 = load i64, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 32
-  %125 = load ptr, ptr %124, align 8
-  %126 = and i64 %123, 128
-  %.not.i.i = icmp eq i64 %126, 0
-  br i1 %.not.i.i, label %jv_object_get.exit, label %127
+  %121 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 24
+  %122 = load i64, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 32
+  %124 = load ptr, ptr %123, align 8
+  %125 = and i64 %122, 128
+  %.not.i.i = icmp eq i64 %125, 0
+  br i1 %.not.i.i, label %jv_object_get.exit, label %126
 
-127:                                              ; preds = %jvp_object_find_slot.exit
-  %128 = load i32, ptr %125, align 4, !tbaa !9
-  %129 = add nsw i32 %128, 1
-  store i32 %129, ptr %125, align 4, !tbaa !9
+126:                                              ; preds = %jvp_object_find_slot.exit
+  %127 = load i32, ptr %124, align 4, !tbaa !9
+  %128 = add nsw i32 %127, 1
+  store i32 %128, ptr %124, align 4, !tbaa !9
   br label %jv_object_get.exit
 
-jv_object_get.exit:                               ; preds = %jvp_string_equal.exit.thread.i, %jvp_string_hash.exit.i, %jvp_object_find_slot.exit, %127
-  %.sroa.011.0.i = phi i64 [ %123, %jvp_object_find_slot.exit ], [ %123, %127 ], [ 0, %jvp_string_hash.exit.i ], [ 0, %jvp_string_equal.exit.thread.i ]
-  %.sroa.312.0.i = phi ptr [ %125, %jvp_object_find_slot.exit ], [ %125, %127 ], [ null, %jvp_string_hash.exit.i ], [ null, %jvp_string_equal.exit.thread.i ]
+jv_object_get.exit:                               ; preds = %jvp_string_equal.exit.thread.i, %jvp_string_hash.exit.i, %jvp_object_find_slot.exit, %126
+  %.sroa.011.0.i = phi i64 [ %122, %jvp_object_find_slot.exit ], [ %122, %126 ], [ 0, %jvp_string_hash.exit.i ], [ 0, %jvp_string_equal.exit.thread.i ]
+  %.sroa.312.0.i = phi ptr [ %124, %jvp_object_find_slot.exit ], [ %124, %126 ], [ null, %jvp_string_hash.exit.i ], [ null, %jvp_string_equal.exit.thread.i ]
   tail call void @jv_free(i64 %.fr, ptr nonnull %1)
   tail call void @jv_free(i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0.copyload.i)
-  %130 = tail call i32 @jv_contains(i64 %.sroa.011.0.i, ptr %.sroa.312.0.i, i64 %34, ptr %36)
-  %.not34.not.i = icmp eq i32 %130, 0
+  %129 = tail call i32 @jv_contains(i64 %.sroa.011.0.i, ptr %.sroa.312.0.i, i64 %33, ptr %35)
+  %.not34.not.i = icmp eq i32 %129, 0
   br i1 %.not34.not.i, label %jvp_object_contains.exit, label %.preheader
 
-.preheader:                                       ; preds = %jv_object_get.exit, %131
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %131 ], [ %26, %jv_object_get.exit ]
+.preheader:                                       ; preds = %jv_object_get.exit, %130
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %130 ], [ %25, %jv_object_get.exit ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %.not.i115 = icmp slt i64 %indvars.iv.next.i, %10
-  br i1 %.not.i115, label %131, label %jvp_object_contains.exit
+  %.not.i115 = icmp slt i64 %indvars.iv.next.i, %9
+  br i1 %.not.i115, label %130, label %jvp_object_contains.exit
 
-131:                                              ; preds = %.preheader
-  %.idx.i = mul nsw i64 %indvars.iv.next.i, 40
-  %132 = getelementptr i8, ptr %9, i64 %.idx.i
-  %133 = load i64, ptr %132, align 8
-  %134 = and i64 %133, 15
-  %135 = icmp eq i64 %134, 1
-  br i1 %135, label %.preheader, label %jv_object_iter_next.exit, !llvm.loop !64
+130:                                              ; preds = %.preheader
+  %131 = getelementptr %struct.object_slot, ptr %3, i64 %indvars.iv.next.i, i32 2, i32 4
+  %132 = load i64, ptr %131, align 8
+  %133 = and i64 %132, 15
+  %134 = icmp eq i64 %133, 1
+  br i1 %134, label %.preheader, label %jv_object_iter_next.exit, !llvm.loop !64
 
-jv_object_iter_next.exit:                         ; preds = %131
-  %136 = trunc nsw i64 %indvars.iv.next.i to i32
+jv_object_iter_next.exit:                         ; preds = %130
+  %135 = trunc nsw i64 %indvars.iv.next.i to i32
   %.not203 = icmp eq i64 %indvars.iv.next.i, -2
   br i1 %.not203, label %jvp_object_contains.exit, label %.lr.ph255, !llvm.loop !67
 
-137:                                              ; preds = %7
-  %138 = and i64 %2, 128
-  %.not.i157 = icmp eq i64 %138, 0
-  br i1 %.not.i157, label %jv_copy.exit160, label %139
+136:                                              ; preds = %7
+  %137 = and i64 %2, 128
+  %.not.i157 = icmp eq i64 %137, 0
+  br i1 %.not.i157, label %jv_copy.exit160, label %138
 
-139:                                              ; preds = %137
-  %140 = load i32, ptr %3, align 4, !tbaa !9
-  %141 = add nsw i32 %140, 1
-  store i32 %141, ptr %3, align 4, !tbaa !9
+138:                                              ; preds = %136
+  %139 = load i32, ptr %3, align 4, !tbaa !9
+  %140 = add nsw i32 %139, 1
+  store i32 %140, ptr %3, align 4, !tbaa !9
   br label %jv_copy.exit160
 
-jv_copy.exit160:                                  ; preds = %137, %139
+jv_copy.exit160:                                  ; preds = %136, %138
   %.sroa.1.0.extract.shift.i.i155 = lshr i64 %2, 32
   %.sroa.1.0.extract.trunc.i.i156 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i155 to i32
   tail call void @jv_free(i64 %2, ptr %3)
-  %142 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %143 = lshr i32 %.sroa.0.0.extract.trunc.i96, 16
-  %144 = and i64 %.fr, 128
-  %.not.i138 = icmp eq i64 %144, 0
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %142 = lshr i32 %.sroa.0.0.extract.trunc.i96, 16
+  %143 = and i64 %.fr, 128
+  %.not.i138 = icmp eq i64 %143, 0
   %.sroa.1.0.extract.shift.i.i = lshr i64 %.fr, 32
   %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %146 = lshr i32 %.sroa.0.0.extract.trunc.i, 16
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %145 = lshr i32 %.sroa.0.0.extract.trunc.i, 16
   %.not46.i227.us = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i156, 0
   br i1 %.not.i138, label %.preheader205.us, label %.preheader205
 
@@ -4530,80 +4507,80 @@ jv_copy.exit160:                                  ; preds = %137, %139
   br i1 %.not46.i227.us, label %.lr.ph229.us.preheader, label %jvp_object_contains.exit
 
 .lr.ph229.us.preheader:                           ; preds = %.preheader205.us
-  %147 = zext nneg i32 %146 to i64
-  %148 = zext nneg i32 %143 to i64
-  %invariant.gep330 = getelementptr inbounds nuw %struct.jv, ptr %142, i64 %148
+  %146 = zext nneg i32 %145 to i64
+  %147 = zext nneg i32 %142 to i64
+  %invariant.gep330 = getelementptr inbounds nuw %struct.jv, ptr %141, i64 %147
   %.not50.i214.us.us238.us = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
-  %invariant.gep326 = getelementptr inbounds nuw %struct.jv, ptr %145, i64 %147
+  %invariant.gep326 = getelementptr inbounds nuw %struct.jv, ptr %144, i64 %146
   %.not50.i214.us.us.us.us = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
-  %invariant.gep328 = getelementptr inbounds nuw %struct.jv, ptr %145, i64 %147
+  %invariant.gep328 = getelementptr inbounds nuw %struct.jv, ptr %144, i64 %146
   br label %.lr.ph229.us
 
 .lr.ph229.us:                                     ; preds = %.lr.ph229.us.preheader, %.loopexit
   %indvars.iv287 = phi i64 [ 0, %.lr.ph229.us.preheader ], [ %indvars.iv.next288, %.loopexit ]
-  br i1 %.not.i157, label %jv_copy.exit154.us.us, label %149
+  br i1 %.not.i157, label %jv_copy.exit154.us.us, label %148
 
-149:                                              ; preds = %.lr.ph229.us
-  %150 = load i32, ptr %3, align 4, !tbaa !9
-  %151 = add nsw i32 %150, 1
-  store i32 %151, ptr %3, align 4, !tbaa !9
+148:                                              ; preds = %.lr.ph229.us
+  %149 = load i32, ptr %3, align 4, !tbaa !9
+  %150 = add nsw i32 %149, 1
+  store i32 %150, ptr %3, align 4, !tbaa !9
   br label %jv_copy.exit154.us.us
 
-jv_copy.exit154.us.us:                            ; preds = %.lr.ph229.us, %149
+jv_copy.exit154.us.us:                            ; preds = %.lr.ph229.us, %148
   %gep331 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep330, i64 %indvars.iv287
-  %152 = load i64, ptr %gep331, align 8
-  %.sroa.07.0.i146.us.us.fr = freeze i64 %152
-  %153 = getelementptr inbounds nuw i8, ptr %gep331, i64 8
-  %154 = load ptr, ptr %153, align 8
-  %155 = and i64 %.sroa.07.0.i146.us.us.fr, 128
-  %.not.i.i145.us.us = icmp eq i64 %155, 0
-  br i1 %.not.i.i145.us.us, label %jv_copy.exit141.us.us, label %156
+  %151 = load i64, ptr %gep331, align 8
+  %.sroa.07.0.i146.us.us.fr = freeze i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr %gep331, i64 8
+  %153 = load ptr, ptr %152, align 8
+  %154 = and i64 %.sroa.07.0.i146.us.us.fr, 128
+  %.not.i.i145.us.us = icmp eq i64 %154, 0
+  br i1 %.not.i.i145.us.us, label %jv_copy.exit141.us.us, label %155
 
-156:                                              ; preds = %jv_copy.exit154.us.us
-  %157 = load i32, ptr %154, align 4, !tbaa !9
-  %158 = add nsw i32 %157, 1
-  store i32 %158, ptr %154, align 4, !tbaa !9
+155:                                              ; preds = %jv_copy.exit154.us.us
+  %156 = load i32, ptr %153, align 4, !tbaa !9
+  %157 = add nsw i32 %156, 1
+  store i32 %157, ptr %153, align 4, !tbaa !9
   br label %jv_copy.exit141.us.us
 
-jv_copy.exit141.us.us:                            ; preds = %156, %jv_copy.exit154.us.us
+jv_copy.exit141.us.us:                            ; preds = %155, %jv_copy.exit154.us.us
   tail call void @jv_free(i64 %2, ptr nonnull %3)
   tail call void @jv_free(i64 %.fr, ptr %1)
-  %159 = and i64 %.sroa.07.0.i146.us.us.fr, 128
-  %.not.i127.us.us = icmp eq i64 %159, 0
+  %158 = and i64 %.sroa.07.0.i146.us.us.fr, 128
+  %.not.i127.us.us = icmp eq i64 %158, 0
   br i1 %.not.i127.us.us, label %.preheader204.us.us.us.us, label %jv_copy.exit141.split.us.split.us244.us
 
 .loopexit:                                        ; preds = %jv_copy.exit130.us.us.us.us, %jv_copy.exit130.us.us.us.us.us.us
-  tail call void @jv_free(i64 %.sroa.07.0.i146.us.us.fr, ptr %154)
+  tail call void @jv_free(i64 %.sroa.07.0.i146.us.us.fr, ptr %153)
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond291.not = icmp eq i64 %indvars.iv.next288, %.sroa.1.0.extract.shift.i.i155
   br i1 %exitcond291.not, label %jvp_object_contains.exit, label %.lr.ph229.us, !llvm.loop !68
 
-jv_copy.exit137.us.us.us.us.preheader:            ; preds = %jv_copy.exit141.split.us.split.us244.us, %170
-  %indvars.iv277 = phi i64 [ %indvars.iv.next278, %170 ], [ 0, %jv_copy.exit141.split.us.split.us244.us ]
+jv_copy.exit137.us.us.us.us.preheader:            ; preds = %jv_copy.exit141.split.us.split.us244.us, %169
+  %indvars.iv277 = phi i64 [ %indvars.iv.next278, %169 ], [ 0, %jv_copy.exit141.split.us.split.us244.us ]
   %gep327 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep326, i64 %indvars.iv277
-  %160 = load i64, ptr %gep327, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %gep327, i64 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = and i64 %160, 128
-  %.not.i.i131.us.us.us.us = icmp eq i64 %163, 0
-  br i1 %.not.i.i131.us.us.us.us, label %jv_copy.exit130.us.us.us.us, label %164
+  %159 = load i64, ptr %gep327, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %gep327, i64 8
+  %161 = load ptr, ptr %160, align 8
+  %162 = and i64 %159, 128
+  %.not.i.i131.us.us.us.us = icmp eq i64 %162, 0
+  br i1 %.not.i.i131.us.us.us.us, label %jv_copy.exit130.us.us.us.us, label %163
 
-164:                                              ; preds = %jv_copy.exit137.us.us.us.us.preheader
-  %165 = load i32, ptr %162, align 4, !tbaa !9
-  %166 = add nsw i32 %165, 1
-  store i32 %166, ptr %162, align 4, !tbaa !9
+163:                                              ; preds = %jv_copy.exit137.us.us.us.us.preheader
+  %164 = load i32, ptr %161, align 4, !tbaa !9
+  %165 = add nsw i32 %164, 1
+  store i32 %165, ptr %161, align 4, !tbaa !9
   br label %jv_copy.exit130.us.us.us.us
 
-jv_copy.exit130.us.us.us.us:                      ; preds = %164, %jv_copy.exit137.us.us.us.us.preheader
+jv_copy.exit130.us.us.us.us:                      ; preds = %163, %jv_copy.exit137.us.us.us.us.preheader
   tail call void @jv_free(i64 %.fr, ptr nonnull %1)
-  %167 = load i32, ptr %154, align 4, !tbaa !9
-  %168 = add nsw i32 %167, 1
-  store i32 %168, ptr %154, align 4, !tbaa !9
-  %169 = tail call i32 @jv_contains(i64 %160, ptr %162, i64 %.sroa.07.0.i146.us.us.fr, ptr nonnull %154)
-  %.not51.i.us.us.us.us = icmp eq i32 %169, 0
-  br i1 %.not51.i.us.us.us.us, label %170, label %.loopexit
+  %166 = load i32, ptr %153, align 4, !tbaa !9
+  %167 = add nsw i32 %166, 1
+  store i32 %167, ptr %153, align 4, !tbaa !9
+  %168 = tail call i32 @jv_contains(i64 %159, ptr %161, i64 %.sroa.07.0.i146.us.us.fr, ptr nonnull %153)
+  %.not51.i.us.us.us.us = icmp eq i32 %168, 0
+  br i1 %.not51.i.us.us.us.us, label %169, label %.loopexit
 
-170:                                              ; preds = %jv_copy.exit130.us.us.us.us
+169:                                              ; preds = %jv_copy.exit130.us.us.us.us
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next278, %.sroa.1.0.extract.shift.i.i
   br i1 %exitcond281.not, label %.split.us.us.us.thread, label %jv_copy.exit137.us.us.us.us.preheader, !llvm.loop !69
@@ -4611,36 +4588,36 @@ jv_copy.exit130.us.us.us.us:                      ; preds = %164, %jv_copy.exit1
 jv_copy.exit141.split.us.split.us244.us:          ; preds = %jv_copy.exit141.us.us
   br i1 %.not50.i214.us.us238.us, label %jv_copy.exit137.us.us.us.us.preheader, label %.split.us.us.us.thread
 
-.split.us.us.us.thread:                           ; preds = %jv_copy.exit141.split.us.split.us244.us, %.preheader204.us.us.us.us, %170, %179
-  tail call void @jv_free(i64 %.sroa.07.0.i146.us.us.fr, ptr %154)
+.split.us.us.us.thread:                           ; preds = %jv_copy.exit141.split.us.split.us244.us, %.preheader204.us.us.us.us, %169, %178
+  tail call void @jv_free(i64 %.sroa.07.0.i146.us.us.fr, ptr %153)
   br label %jvp_object_contains.exit
 
 .preheader204.us.us.us.us:                        ; preds = %jv_copy.exit141.us.us
   br i1 %.not50.i214.us.us.us.us, label %jv_copy.exit137.us.us.us.us.us.us.preheader, label %.split.us.us.us.thread
 
-jv_copy.exit137.us.us.us.us.us.us.preheader:      ; preds = %.preheader204.us.us.us.us, %179
-  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %179 ], [ 0, %.preheader204.us.us.us.us ]
+jv_copy.exit137.us.us.us.us.us.us.preheader:      ; preds = %.preheader204.us.us.us.us, %178
+  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %178 ], [ 0, %.preheader204.us.us.us.us ]
   %gep329 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep328, i64 %indvars.iv282
-  %171 = load i64, ptr %gep329, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %gep329, i64 8
-  %173 = load ptr, ptr %172, align 8
-  %174 = and i64 %171, 128
-  %.not.i.i131.us.us.us.us.us.us = icmp eq i64 %174, 0
-  br i1 %.not.i.i131.us.us.us.us.us.us, label %jv_copy.exit130.us.us.us.us.us.us, label %175
+  %170 = load i64, ptr %gep329, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %gep329, i64 8
+  %172 = load ptr, ptr %171, align 8
+  %173 = and i64 %170, 128
+  %.not.i.i131.us.us.us.us.us.us = icmp eq i64 %173, 0
+  br i1 %.not.i.i131.us.us.us.us.us.us, label %jv_copy.exit130.us.us.us.us.us.us, label %174
 
-175:                                              ; preds = %jv_copy.exit137.us.us.us.us.us.us.preheader
-  %176 = load i32, ptr %173, align 4, !tbaa !9
-  %177 = add nsw i32 %176, 1
-  store i32 %177, ptr %173, align 4, !tbaa !9
+174:                                              ; preds = %jv_copy.exit137.us.us.us.us.us.us.preheader
+  %175 = load i32, ptr %172, align 4, !tbaa !9
+  %176 = add nsw i32 %175, 1
+  store i32 %176, ptr %172, align 4, !tbaa !9
   br label %jv_copy.exit130.us.us.us.us.us.us
 
-jv_copy.exit130.us.us.us.us.us.us:                ; preds = %175, %jv_copy.exit137.us.us.us.us.us.us.preheader
+jv_copy.exit130.us.us.us.us.us.us:                ; preds = %174, %jv_copy.exit137.us.us.us.us.us.us.preheader
   tail call void @jv_free(i64 %.fr, ptr nonnull %1)
-  %178 = tail call i32 @jv_contains(i64 %171, ptr %173, i64 %.sroa.07.0.i146.us.us.fr, ptr %154)
-  %.not51.i.us.us.us.us.us.us = icmp eq i32 %178, 0
-  br i1 %.not51.i.us.us.us.us.us.us, label %179, label %.loopexit
+  %177 = tail call i32 @jv_contains(i64 %170, ptr %172, i64 %.sroa.07.0.i146.us.us.fr, ptr %153)
+  %.not51.i.us.us.us.us.us.us = icmp eq i32 %177, 0
+  br i1 %.not51.i.us.us.us.us.us.us, label %178, label %.loopexit
 
-179:                                              ; preds = %jv_copy.exit130.us.us.us.us.us.us
+178:                                              ; preds = %jv_copy.exit130.us.us.us.us.us.us
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next283, %.sroa.1.0.extract.shift.i.i
   br i1 %exitcond286.not, label %.split.us.us.us.thread, label %jv_copy.exit137.us.us.us.us.us.us.preheader, !llvm.loop !69
@@ -4649,169 +4626,169 @@ jv_copy.exit130.us.us.us.us.us.us:                ; preds = %175, %jv_copy.exit1
   br i1 %.not46.i227.us, label %.lr.ph229.preheader, label %jvp_object_contains.exit
 
 .lr.ph229.preheader:                              ; preds = %.preheader205
-  %180 = zext nneg i32 %146 to i64
-  %181 = zext nneg i32 %143 to i64
-  %invariant.gep324 = getelementptr inbounds nuw %struct.jv, ptr %142, i64 %181
+  %179 = zext nneg i32 %145 to i64
+  %180 = zext nneg i32 %142 to i64
+  %invariant.gep324 = getelementptr inbounds nuw %struct.jv, ptr %141, i64 %180
   %.not50.i214 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
-  %invariant.gep = getelementptr inbounds nuw %struct.jv, ptr %145, i64 %180
+  %invariant.gep = getelementptr inbounds nuw %struct.jv, ptr %144, i64 %179
   br label %.lr.ph229
 
-.lr.ph229:                                        ; preds = %.lr.ph229.preheader, %210
-  %indvars.iv272 = phi i64 [ 0, %.lr.ph229.preheader ], [ %indvars.iv.next273, %210 ]
-  br i1 %.not.i157, label %jv_copy.exit154, label %182
+.lr.ph229:                                        ; preds = %.lr.ph229.preheader, %209
+  %indvars.iv272 = phi i64 [ 0, %.lr.ph229.preheader ], [ %indvars.iv.next273, %209 ]
+  br i1 %.not.i157, label %jv_copy.exit154, label %181
 
-182:                                              ; preds = %.lr.ph229
-  %183 = load i32, ptr %3, align 4, !tbaa !9
-  %184 = add nsw i32 %183, 1
-  store i32 %184, ptr %3, align 4, !tbaa !9
+181:                                              ; preds = %.lr.ph229
+  %182 = load i32, ptr %3, align 4, !tbaa !9
+  %183 = add nsw i32 %182, 1
+  store i32 %183, ptr %3, align 4, !tbaa !9
   br label %jv_copy.exit154
 
-jv_copy.exit154:                                  ; preds = %182, %.lr.ph229
+jv_copy.exit154:                                  ; preds = %181, %.lr.ph229
   %gep325 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep324, i64 %indvars.iv272
-  %185 = load i64, ptr %gep325, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %gep325, i64 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = and i64 %185, 128
-  %.not.i.i145 = icmp eq i64 %188, 0
-  br i1 %.not.i.i145, label %jv_copy.exit141, label %189
+  %184 = load i64, ptr %gep325, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %gep325, i64 8
+  %186 = load ptr, ptr %185, align 8
+  %187 = and i64 %184, 128
+  %.not.i.i145 = icmp eq i64 %187, 0
+  br i1 %.not.i.i145, label %jv_copy.exit141, label %188
 
-189:                                              ; preds = %jv_copy.exit154
-  %190 = load i32, ptr %187, align 4, !tbaa !9
-  %191 = add nsw i32 %190, 1
-  store i32 %191, ptr %187, align 4, !tbaa !9
+188:                                              ; preds = %jv_copy.exit154
+  %189 = load i32, ptr %186, align 4, !tbaa !9
+  %190 = add nsw i32 %189, 1
+  store i32 %190, ptr %186, align 4, !tbaa !9
   br label %jv_copy.exit141
 
-jv_copy.exit141:                                  ; preds = %189, %jv_copy.exit154
+jv_copy.exit141:                                  ; preds = %188, %jv_copy.exit154
   tail call void @jv_free(i64 %2, ptr nonnull %3)
-  %192 = load i32, ptr %1, align 4, !tbaa !9
-  %193 = add nsw i32 %192, 1
-  store i32 %193, ptr %1, align 4, !tbaa !9
+  %191 = load i32, ptr %1, align 4, !tbaa !9
+  %192 = add nsw i32 %191, 1
+  store i32 %192, ptr %1, align 4, !tbaa !9
   tail call void @jv_free(i64 %.fr, ptr nonnull %1)
-  %194 = and i64 %185, 128
-  %.not.i127 = icmp eq i64 %194, 0
+  %193 = and i64 %184, 128
+  %.not.i127 = icmp eq i64 %193, 0
   br i1 %.not50.i214, label %jv_copy.exit137.preheader, label %.split.thread
 
-jv_copy.exit137.preheader:                        ; preds = %jv_copy.exit141, %209
-  %indvars.iv = phi i64 [ %indvars.iv.next, %209 ], [ 0, %jv_copy.exit141 ]
-  %195 = load i32, ptr %1, align 4, !tbaa !9
-  %196 = add nsw i32 %195, 1
-  store i32 %196, ptr %1, align 4, !tbaa !9
+jv_copy.exit137.preheader:                        ; preds = %jv_copy.exit141, %208
+  %indvars.iv = phi i64 [ %indvars.iv.next, %208 ], [ 0, %jv_copy.exit141 ]
+  %194 = load i32, ptr %1, align 4, !tbaa !9
+  %195 = add nsw i32 %194, 1
+  store i32 %195, ptr %1, align 4, !tbaa !9
   %gep = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep, i64 %indvars.iv
-  %197 = load i64, ptr %gep, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %gep, i64 8
-  %199 = load ptr, ptr %198, align 8
-  %200 = and i64 %197, 128
-  %.not.i.i131 = icmp eq i64 %200, 0
-  br i1 %.not.i.i131, label %204, label %201
+  %196 = load i64, ptr %gep, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %gep, i64 8
+  %198 = load ptr, ptr %197, align 8
+  %199 = and i64 %196, 128
+  %.not.i.i131 = icmp eq i64 %199, 0
+  br i1 %.not.i.i131, label %203, label %200
 
-201:                                              ; preds = %jv_copy.exit137.preheader
-  %202 = load i32, ptr %199, align 4, !tbaa !9
-  %203 = add nsw i32 %202, 1
-  store i32 %203, ptr %199, align 4, !tbaa !9
-  br label %204
+200:                                              ; preds = %jv_copy.exit137.preheader
+  %201 = load i32, ptr %198, align 4, !tbaa !9
+  %202 = add nsw i32 %201, 1
+  store i32 %202, ptr %198, align 4, !tbaa !9
+  br label %203
 
-204:                                              ; preds = %201, %jv_copy.exit137.preheader
+203:                                              ; preds = %200, %jv_copy.exit137.preheader
   tail call void @jv_free(i64 %.fr, ptr nonnull %1)
-  br i1 %.not.i127, label %jv_copy.exit130, label %205
+  br i1 %.not.i127, label %jv_copy.exit130, label %204
 
-205:                                              ; preds = %204
-  %206 = load i32, ptr %187, align 4, !tbaa !9
-  %207 = add nsw i32 %206, 1
-  store i32 %207, ptr %187, align 4, !tbaa !9
+204:                                              ; preds = %203
+  %205 = load i32, ptr %186, align 4, !tbaa !9
+  %206 = add nsw i32 %205, 1
+  store i32 %206, ptr %186, align 4, !tbaa !9
   br label %jv_copy.exit130
 
-jv_copy.exit130:                                  ; preds = %204, %205
-  %208 = tail call i32 @jv_contains(i64 %197, ptr %199, i64 %185, ptr %187)
-  %.not51.i = icmp eq i32 %208, 0
-  br i1 %.not51.i, label %209, label %210
+jv_copy.exit130:                                  ; preds = %203, %204
+  %207 = tail call i32 @jv_contains(i64 %196, ptr %198, i64 %184, ptr %186)
+  %.not51.i = icmp eq i32 %207, 0
+  br i1 %.not51.i, label %208, label %209
 
-209:                                              ; preds = %jv_copy.exit130
+208:                                              ; preds = %jv_copy.exit130
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.1.0.extract.shift.i.i
   br i1 %exitcond.not, label %.split.thread, label %jv_copy.exit137.preheader, !llvm.loop !69
 
-.split.thread:                                    ; preds = %jv_copy.exit141, %209
-  tail call void @jv_free(i64 %185, ptr %187)
+.split.thread:                                    ; preds = %jv_copy.exit141, %208
+  tail call void @jv_free(i64 %184, ptr %186)
   br label %jvp_object_contains.exit
 
-210:                                              ; preds = %jv_copy.exit130
-  tail call void @jv_free(i64 %185, ptr %187)
+209:                                              ; preds = %jv_copy.exit130
+  tail call void @jv_free(i64 %184, ptr %186)
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next273, %.sroa.1.0.extract.shift.i.i155
   br i1 %exitcond276.not, label %jvp_object_contains.exit, label %.lr.ph229, !llvm.loop !68
 
-211:                                              ; preds = %7
-  %212 = and i64 %2, 128
-  %.not.i101 = icmp eq i64 %212, 0
-  br i1 %.not.i101, label %jv_copy.exit, label %213
+210:                                              ; preds = %7
+  %211 = and i64 %2, 128
+  %.not.i101 = icmp eq i64 %211, 0
+  br i1 %.not.i101, label %jv_copy.exit, label %212
 
-213:                                              ; preds = %211
-  %214 = load i32, ptr %3, align 4, !tbaa !9
-  %215 = add nsw i32 %214, 1
-  store i32 %215, ptr %3, align 4, !tbaa !9
+212:                                              ; preds = %210
+  %213 = load i32, ptr %3, align 4, !tbaa !9
+  %214 = add nsw i32 %213, 1
+  store i32 %214, ptr %3, align 4, !tbaa !9
   br label %jv_copy.exit
 
-jv_copy.exit:                                     ; preds = %211, %213
-  %216 = getelementptr i8, ptr %3, i64 8
-  %.val.i = load i32, ptr %216, align 4, !tbaa !4
-  %217 = lshr i32 %.val.i, 1
+jv_copy.exit:                                     ; preds = %210, %212
+  %215 = getelementptr i8, ptr %3, i64 8
+  %.val.i = load i32, ptr %215, align 4, !tbaa !4
+  %216 = lshr i32 %.val.i, 1
   tail call void @jv_free(i64 %2, ptr %3)
   %.not95 = icmp ult i32 %.val.i, 2
-  br i1 %.not95, label %jvp_object_contains.exit, label %218
+  br i1 %.not95, label %jvp_object_contains.exit, label %217
 
-218:                                              ; preds = %jv_copy.exit
-  %219 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %220 = and i64 %.fr, 128
-  %.not.i102 = icmp eq i64 %220, 0
-  br i1 %.not.i102, label %jv_copy.exit105, label %221
+217:                                              ; preds = %jv_copy.exit
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %219 = and i64 %.fr, 128
+  %.not.i102 = icmp eq i64 %219, 0
+  br i1 %.not.i102, label %jv_copy.exit105, label %220
 
-221:                                              ; preds = %218
-  %222 = load i32, ptr %1, align 4, !tbaa !9
-  %223 = add nsw i32 %222, 1
-  store i32 %223, ptr %1, align 4, !tbaa !9
+220:                                              ; preds = %217
+  %221 = load i32, ptr %1, align 4, !tbaa !9
+  %222 = add nsw i32 %221, 1
+  store i32 %222, ptr %1, align 4, !tbaa !9
   br label %jv_copy.exit105
 
-jv_copy.exit105:                                  ; preds = %218, %221
-  %224 = getelementptr i8, ptr %1, i64 8
-  %.val.i106 = load i32, ptr %224, align 4, !tbaa !4
-  %225 = lshr i32 %.val.i106, 1
+jv_copy.exit105:                                  ; preds = %217, %220
+  %223 = getelementptr i8, ptr %1, i64 8
+  %.val.i106 = load i32, ptr %223, align 4, !tbaa !4
+  %224 = lshr i32 %.val.i106, 1
   tail call void @jv_free(i64 %.fr, ptr %1)
-  %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %228 = zext nneg i32 %217 to i64
-  %229 = tail call ptr @_jq_memmem(ptr noundef nonnull %219, i64 noundef %226, ptr noundef nonnull %227, i64 noundef %228) #23
-  %230 = icmp ne ptr %229, null
-  %231 = zext i1 %230 to i32
+  %225 = zext nneg i32 %224 to i64
+  %226 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %227 = zext nneg i32 %216 to i64
+  %228 = tail call ptr @_jq_memmem(ptr noundef nonnull %218, i64 noundef %225, ptr noundef nonnull %226, i64 noundef %227) #23
+  %229 = icmp ne ptr %228, null
+  %230 = zext i1 %229 to i32
   br label %jvp_object_contains.exit
 
-232:                                              ; preds = %7
-  %233 = and i64 %.fr, 128
-  %.not.i107 = icmp eq i64 %233, 0
-  br i1 %.not.i107, label %jv_copy.exit110, label %234
+231:                                              ; preds = %7
+  %232 = and i64 %.fr, 128
+  %.not.i107 = icmp eq i64 %232, 0
+  br i1 %.not.i107, label %jv_copy.exit110, label %233
 
-234:                                              ; preds = %232
-  %235 = load i32, ptr %1, align 4, !tbaa !9
-  %236 = add nsw i32 %235, 1
-  store i32 %236, ptr %1, align 4, !tbaa !9
+233:                                              ; preds = %231
+  %234 = load i32, ptr %1, align 4, !tbaa !9
+  %235 = add nsw i32 %234, 1
+  store i32 %235, ptr %1, align 4, !tbaa !9
   br label %jv_copy.exit110
 
-jv_copy.exit110:                                  ; preds = %232, %234
-  %237 = and i64 %2, 128
-  %.not.i111 = icmp eq i64 %237, 0
-  br i1 %.not.i111, label %jv_copy.exit114, label %238
+jv_copy.exit110:                                  ; preds = %231, %233
+  %236 = and i64 %2, 128
+  %.not.i111 = icmp eq i64 %236, 0
+  br i1 %.not.i111, label %jv_copy.exit114, label %237
 
-238:                                              ; preds = %jv_copy.exit110
-  %239 = load i32, ptr %3, align 4, !tbaa !9
-  %240 = add nsw i32 %239, 1
-  store i32 %240, ptr %3, align 4, !tbaa !9
+237:                                              ; preds = %jv_copy.exit110
+  %238 = load i32, ptr %3, align 4, !tbaa !9
+  %239 = add nsw i32 %238, 1
+  store i32 %239, ptr %3, align 4, !tbaa !9
   br label %jv_copy.exit114
 
-jv_copy.exit114:                                  ; preds = %jv_copy.exit110, %238
-  %241 = tail call i32 @jv_equal(i64 %.fr, ptr %1, i64 %2, ptr %3)
+jv_copy.exit114:                                  ; preds = %jv_copy.exit110, %237
+  %240 = tail call i32 @jv_equal(i64 %.fr, ptr %1, i64 %2, ptr %3)
   br label %jvp_object_contains.exit
 
-jvp_object_contains.exit:                         ; preds = %210, %.loopexit, %jv_object_iter_next.exit, %jv_object_get.exit, %.preheader, %.split.thread, %.split.us.us.us.thread, %.preheader205, %jv_object_iter.exit, %.preheader205.us, %jv_copy.exit105, %jv_copy.exit, %4, %jv_copy.exit114
-  %.0 = phi i32 [ %241, %jv_copy.exit114 ], [ 0, %4 ], [ %231, %jv_copy.exit105 ], [ 1, %jv_copy.exit ], [ 1, %.preheader205.us ], [ 1, %jv_object_iter.exit ], [ 1, %.preheader205 ], [ 0, %.split.us.us.us.thread ], [ 0, %.split.thread ], [ 1, %.preheader ], [ 1, %jv_object_iter_next.exit ], [ 0, %jv_object_get.exit ], [ 1, %.loopexit ], [ 1, %210 ]
+jvp_object_contains.exit:                         ; preds = %209, %.loopexit, %jv_object_iter_next.exit, %jv_object_get.exit, %.preheader, %.split.thread, %.split.us.us.us.thread, %.preheader205, %jv_object_iter.exit, %.preheader205.us, %jv_copy.exit105, %jv_copy.exit, %4, %jv_copy.exit114
+  %.0 = phi i32 [ %240, %jv_copy.exit114 ], [ 0, %4 ], [ %230, %jv_copy.exit105 ], [ 1, %jv_copy.exit ], [ 1, %.preheader205.us ], [ 1, %jv_object_iter.exit ], [ 1, %.preheader205 ], [ 0, %.split.us.us.us.thread ], [ 0, %.split.thread ], [ 1, %.preheader ], [ 1, %jv_object_iter_next.exit ], [ 0, %jv_object_get.exit ], [ 1, %.loopexit ], [ 1, %209 ]
   tail call void @jv_free(i64 %.fr, ptr %1)
   tail call void @jv_free(i64 %2, ptr %3)
   ret i32 %.0

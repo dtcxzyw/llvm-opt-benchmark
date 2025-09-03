@@ -5730,30 +5730,29 @@ define dso_local ptr @BuildTupleFromCStrings(ptr noundef readonly captures(none)
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %14
+  br label %13
 
-14:                                               ; preds = %.lr.ph, %38
+13:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
+  %14 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 33
   %16 = load i8, ptr %15, align 1, !range !5, !noundef !6
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %35, label %18
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %11, align 8
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %10, align 8
   %20 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %12, align 8
+  %23 = load ptr, ptr %11, align 8
   %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
-  %26 = load ptr, ptr %13, align 8
+  %26 = load ptr, ptr %12, align 8
   %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = tail call i64 @InputFunctionCall(ptr noundef %20, ptr noundef %22, i32 noundef %25, i32 noundef %28) #14
@@ -5772,7 +5771,7 @@ define dso_local ptr @BuildTupleFromCStrings(ptr noundef readonly captures(none)
   store i8 1, ptr %32, align 1
   br label %38
 
-35:                                               ; preds = %14
+35:                                               ; preds = %13
   %36 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
@@ -5782,7 +5781,7 @@ define dso_local ptr @BuildTupleFromCStrings(ptr noundef readonly captures(none)
 38:                                               ; preds = %35, %34, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %38, %2
   %39 = tail call ptr @heap_form_tuple(ptr noundef nonnull %3, ptr noundef %7, ptr noundef %8) #14

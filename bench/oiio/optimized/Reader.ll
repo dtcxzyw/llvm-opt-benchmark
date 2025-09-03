@@ -5,6 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.dpx::Block" = type { i32, i32, i32, i32 }
+%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -339,170 +340,166 @@ declare noundef i32 @_ZNK3dpx6Header6HeightEv(ptr noundef nonnull align 4 derefe
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3dpx6Reader9ReadBlockEiPhRNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(2144) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(16) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %or.cond = icmp ugt i32 %1, 7
-  br i1 %or.cond, label %.thread69, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
+  br i1 %or.cond, label %.thread65, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 788
-  %narrow.i = mul nuw nsw i32 %1, 72
-  %7 = zext nneg i32 %narrow.i to i64
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %10 = load i8, ptr %9, align 8, !tbaa !29
-  %11 = icmp eq i8 %10, -1
-  br i1 %11, label %.thread69, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
+  %6 = zext nneg i32 %1 to i64
+  %7 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 800
+  %9 = load i8, ptr %8, align 8, !tbaa !29
+  %10 = icmp eq i8 %9, -1
+  br i1 %10, label %.thread65, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
 
 _ZNK3dpx13GenericHeader13ImageEncodingEi.exit:    ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
-  %12 = tail call noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %5, i32 noundef %1)
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 23
-  %14 = load i8, ptr %13, align 1, !tbaa !31
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 26
-  %16 = load i16, ptr %15, align 2, !tbaa !32
-  %17 = icmp eq i16 %16, 1
-  %18 = tail call noundef i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1664) %5, i32 noundef %1)
-  br i1 %17, label %.thread, label %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
+  %11 = tail call noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %5, i32 noundef %1)
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 803
+  %13 = load i8, ptr %12, align 1, !tbaa !31
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 806
+  %15 = load i16, ptr %14, align 2, !tbaa !32
+  %16 = icmp eq i16 %15, 1
+  %17 = tail call noundef i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1664) %5, i32 noundef %1)
+  br i1 %16, label %.thread, label %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
 
 _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %20 = load i32, ptr %19, align 4, !tbaa !33
-  %21 = add i32 %20, 1
-  %22 = icmp ult i32 %21, 2
-  br i1 %22, label %23, label %84
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 812
+  %19 = load i32, ptr %18, align 4, !tbaa !33
+  %20 = add i32 %19, 1
+  %21 = icmp ult i32 %20, 2
+  br i1 %21, label %22, label %83
 
-23:                                               ; preds = %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
-  %24 = icmp eq i8 %14, 8
-  %25 = icmp eq i32 %18, 0
-  %or.cond3 = and i1 %24, %25
-  br i1 %or.cond3, label %37, label %26
+22:                                               ; preds = %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
+  %23 = icmp eq i8 %13, 8
+  %24 = icmp eq i32 %17, 0
+  %or.cond3 = and i1 %23, %24
+  br i1 %or.cond3, label %36, label %25
 
-26:                                               ; preds = %23
-  %27 = icmp eq i8 %14, 16
-  %28 = icmp eq i32 %18, 1
-  %or.cond5 = and i1 %27, %28
-  br i1 %or.cond5, label %37, label %29
+25:                                               ; preds = %22
+  %26 = icmp eq i8 %13, 16
+  %27 = icmp eq i32 %17, 1
+  %or.cond5 = and i1 %26, %27
+  br i1 %or.cond5, label %36, label %28
 
-29:                                               ; preds = %26
-  %30 = icmp eq i8 %14, 32
-  %31 = icmp eq i32 %18, 3
-  %or.cond7 = and i1 %30, %31
-  br i1 %or.cond7, label %37, label %32
+28:                                               ; preds = %25
+  %29 = icmp eq i8 %13, 32
+  %30 = icmp eq i32 %17, 3
+  %or.cond7 = and i1 %29, %30
+  br i1 %or.cond7, label %36, label %31
 
-32:                                               ; preds = %29
-  %33 = icmp eq i8 %14, 64
-  %34 = icmp eq i32 %18, 4
-  %or.cond9 = and i1 %33, %34
-  %35 = load i32, ptr %3, align 4
-  %36 = icmp eq i32 %35, 0
-  %or.cond57 = select i1 %or.cond9, i1 %36, i1 false
-  br i1 %or.cond57, label %38, label %84
+31:                                               ; preds = %28
+  %32 = icmp eq i8 %13, 64
+  %33 = icmp eq i32 %17, 4
+  %or.cond9 = and i1 %32, %33
+  %34 = load i32, ptr %3, align 4
+  %35 = icmp eq i32 %34, 0
+  %or.cond57 = select i1 %or.cond9, i1 %35, i1 false
+  br i1 %or.cond57, label %37, label %83
 
-37:                                               ; preds = %29, %26, %23
+36:                                               ; preds = %28, %25, %22
   %.old = load i32, ptr %3, align 4, !tbaa !24
   %.old56 = icmp eq i32 %.old, 0
-  br i1 %.old56, label %38, label %84
+  br i1 %.old56, label %37, label %83
 
-38:                                               ; preds = %32, %37
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %40 = load i32, ptr %39, align 4, !tbaa !27
-  %41 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %5)
-  %42 = add i32 %41, -1
-  %43 = icmp eq i32 %40, %42
-  br i1 %43, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, label %84
+37:                                               ; preds = %31, %36
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %39 = load i32, ptr %38, align 4, !tbaa !27
+  %40 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %5)
+  %41 = add i32 %40, -1
+  %42 = icmp eq i32 %39, %41
+  br i1 %42, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, label %83
 
-_ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %38
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %45 = load ptr, ptr %44, align 8, !tbaa !23
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %47 = load i32, ptr %46, align 8, !tbaa !34
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !26
-  %50 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %5)
-  %51 = lshr i8 %14, 3
-  %52 = zext nneg i8 %51 to i32
-  %53 = mul i32 %12, %52
+_ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2064
+  %44 = load ptr, ptr %43, align 8, !tbaa !23
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 808
+  %46 = load i32, ptr %45, align 8, !tbaa !34
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %48 = load i32, ptr %47, align 4, !tbaa !26
+  %49 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %5)
+  %50 = lshr i8 %13, 3
+  %51 = zext nneg i8 %50 to i32
+  %52 = mul i32 %11, %51
+  %53 = mul i32 %52, %48
   %54 = mul i32 %53, %49
-  %55 = mul i32 %54, %50
-  %56 = add i32 %55, %47
-  %57 = zext i32 %56 to i64
-  %58 = load ptr, ptr %45, align 8, !tbaa !3
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %45, i64 noundef %57, i32 noundef 0)
-  br i1 %61, label %62, label %.thread69
+  %55 = add i32 %54, %46
+  %56 = zext i32 %55 to i64
+  %57 = load ptr, ptr %44, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef %56, i32 noundef 0)
+  br i1 %60, label %61, label %.thread65
 
-62:                                               ; preds = %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
-  %63 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %5)
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !28
-  %66 = load i32, ptr %48, align 4, !tbaa !26
-  %67 = add i32 %65, 1
-  %68 = sub i32 %67, %66
-  %69 = mul i32 %63, %12
-  %70 = mul i32 %69, %68
-  %71 = zext i32 %70 to i64
-  %72 = zext nneg i8 %14 to i64
-  %73 = mul nuw nsw i64 %71, %72
-  %74 = lshr i64 %73, 3
-  %75 = load ptr, ptr %44, align 8, !tbaa !23
-  %76 = load ptr, ptr %75, align 8, !tbaa !3
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call noundef i64 %78(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef %2, i64 noundef %74)
-  %.not = icmp eq i64 %79, %74
-  br i1 %.not, label %80, label %.thread69
+61:                                               ; preds = %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
+  %62 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %5)
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %64 = load i32, ptr %63, align 4, !tbaa !28
+  %65 = load i32, ptr %47, align 4, !tbaa !26
+  %66 = add i32 %64, 1
+  %67 = sub i32 %66, %65
+  %68 = mul i32 %62, %11
+  %69 = mul i32 %68, %67
+  %70 = zext i32 %69 to i64
+  %71 = zext nneg i8 %13 to i64
+  %72 = mul nuw nsw i64 %70, %71
+  %73 = lshr i64 %72, 3
+  %74 = load ptr, ptr %43, align 8, !tbaa !23
+  %75 = load ptr, ptr %74, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call noundef i64 %77(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef %2, i64 noundef %73)
+  %.not = icmp eq i64 %78, %73
+  br i1 %.not, label %79, label %.thread65
 
-80:                                               ; preds = %62
-  %81 = load i32, ptr %5, align 8, !tbaa !35
-  %82 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %5, i32 noundef %81)
-  br i1 %82, label %83, label %.thread69
+79:                                               ; preds = %61
+  %80 = load i32, ptr %5, align 8, !tbaa !35
+  %81 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %5, i32 noundef %80)
+  br i1 %81, label %82, label %.thread65
 
-83:                                               ; preds = %80
-  tail call void @_ZN3dpx21EndianSwapImageBufferENS_8DataSizeEPvi(i32 noundef %18, ptr noundef %2, i32 noundef %70)
-  br label %.thread69
+82:                                               ; preds = %79
+  tail call void @_ZN3dpx21EndianSwapImageBufferENS_8DataSizeEPvi(i32 noundef %17, ptr noundef %2, i32 noundef %69)
+  br label %.thread65
 
-84:                                               ; preds = %38, %37, %32, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 2072
-  %86 = zext nneg i32 %1 to i64
-  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %86
-  %88 = load ptr, ptr %87, align 8, !tbaa !19
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %95, label %100
+83:                                               ; preds = %37, %36, %31, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 2072
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %6
+  %86 = load ptr, ptr %85, align 8, !tbaa !19
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %92, label %97
 
 .thread:                                          ; preds = %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 2072
-  %91 = zext nneg i32 %1 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
-  %93 = load ptr, ptr %92, align 8, !tbaa !19
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %.thread69, label %100
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2072
+  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %6
+  %90 = load ptr, ptr %89, align 8, !tbaa !19
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %.thread65, label %97
 
-95:                                               ; preds = %84
-  %96 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
-  invoke void @_ZN3dpx5CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %96)
-          to label %97 unwind label %98
+92:                                               ; preds = %83
+  %93 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
+  invoke void @_ZN3dpx5CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %93)
+          to label %94 unwind label %95
 
-97:                                               ; preds = %95
-  store ptr %96, ptr %87, align 8, !tbaa !19
-  br label %100
+94:                                               ; preds = %92
+  store ptr %93, ptr %85, align 8, !tbaa !19
+  br label %97
 
-98:                                               ; preds = %95
-  %99 = landingpad { ptr, i32 }
+95:                                               ; preds = %92
+  %96 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef 16) #16
-  resume { ptr, i32 } %99
+  tail call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef 16) #16
+  resume { ptr, i32 } %96
 
-100:                                              ; preds = %.thread, %97, %84
-  %101 = phi ptr [ %93, %.thread ], [ %96, %97 ], [ %88, %84 ]
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 2136
-  %103 = load ptr, ptr %102, align 8, !tbaa !6
-  %104 = load ptr, ptr %101, align 8, !tbaa !3
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 4 dereferenceable(2049) %5, ptr noundef %103, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef %2, i32 noundef %18)
-  br label %.thread69
+97:                                               ; preds = %.thread, %94, %83
+  %98 = phi ptr [ %90, %.thread ], [ %93, %94 ], [ %86, %83 ]
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 2136
+  %100 = load ptr, ptr %99, align 8, !tbaa !6
+  %101 = load ptr, ptr %98, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 4 dereferenceable(2049) %5, ptr noundef %100, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef %2, i32 noundef %17)
+  br label %.thread65
 
-.thread69:                                        ; preds = %.thread, %100, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %80, %83, %62, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ %107, %100 ], [ false, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %80 ], [ true, %83 ], [ false, %62 ], [ false, %.thread ]
+.thread65:                                        ; preds = %.thread, %97, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %79, %82, %61, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ %104, %97 ], [ false, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %79 ], [ true, %82 ], [ false, %61 ], [ false, %.thread ]
   ret i1 %.0
 }
 

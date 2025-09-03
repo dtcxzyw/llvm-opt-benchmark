@@ -1006,112 +1006,110 @@ define dso_local ptr @transformAssignedExpr(ptr noundef %0, ptr noundef %1, i32 
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 4
   %25 = getelementptr i8, ptr %21, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 24
-  %27 = zext nneg i32 %4 to i64
-  %28 = getelementptr %struct.FormData_pg_attribute, ptr %26, i64 %27
-  %29 = getelementptr i8, ptr %28, i64 -24
+  %26 = zext nneg i32 %4 to i64
+  %27 = getelementptr %struct.FormData_pg_attribute, ptr %25, i64 %26
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr i8, ptr %27, i64 20
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr i8, ptr %28, i64 -4
-  %32 = load i32, ptr %31, align 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %54, label %33
+  br i1 %.not, label %52, label %31
 
-33:                                               ; preds = %18
-  %34 = load i32, ptr %1, align 4
-  %35 = icmp eq i32 %34, 57
-  br i1 %35, label %36, label %54
+31:                                               ; preds = %18
+  %32 = load i32, ptr %1, align 4
+  %33 = icmp eq i32 %32, 57
+  br i1 %33, label %34, label %52
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %19, ptr %37, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %30, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %32, ptr %39, align 4
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %19, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %28, ptr %36, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %30, ptr %37, align 4
   %.not72 = icmp eq ptr %5, null
-  br i1 %.not72, label %.thread, label %41
+  br i1 %.not72, label %.thread, label %39
 
-.thread:                                          ; preds = %36
-  %40 = tail call i32 @exprType(ptr noundef nonnull %1) #8
-  br label %73
+.thread:                                          ; preds = %34
+  %38 = tail call i32 @exprType(ptr noundef nonnull %1) #8
+  br label %71
 
-41:                                               ; preds = %36
-  %42 = getelementptr i8, ptr %5, i64 16
-  %.val = load ptr, ptr %42, align 8
-  %43 = load ptr, ptr %.val, align 8
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 78
-  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %46)
-  %47 = tail call i32 @errcode(i32 noundef 1088) #8
-  br i1 %45, label %48, label %51
+39:                                               ; preds = %34
+  %40 = getelementptr i8, ptr %5, i64 16
+  %.val = load ptr, ptr %40, align 8
+  %41 = load ptr, ptr %.val, align 8
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i32 %42, 78
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %44)
+  %45 = tail call i32 @errcode(i32 noundef 1088) #8
+  br i1 %43, label %46, label %49
 
-48:                                               ; preds = %41
-  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #8
-  %50 = tail call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %6) #8
+46:                                               ; preds = %39
+  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #8
+  %48 = tail call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %6) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 512, ptr noundef nonnull @__func__.transformAssignedExpr) #8
   unreachable
 
-51:                                               ; preds = %41
-  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
-  %53 = tail call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %6) #8
+49:                                               ; preds = %39
+  %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  %51 = tail call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %6) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 517, ptr noundef nonnull @__func__.transformAssignedExpr) #8
   unreachable
 
-54:                                               ; preds = %33, %18
-  %55 = tail call i32 @exprType(ptr noundef %1) #8
+52:                                               ; preds = %31, %18
+  %53 = tail call i32 @exprType(ptr noundef %1) #8
   %.not73 = icmp eq ptr %5, null
-  br i1 %.not73, label %73, label %56
+  br i1 %.not73, label %71, label %54
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %58 = load i8, ptr %57, align 8, !range !4, !noundef !5
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %62
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %56 = load i8, ptr %55, align 8, !range !4, !noundef !5
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %58, label %60
 
-60:                                               ; preds = %56
-  %61 = tail call ptr @makeNullConst(i32 noundef %19, i32 noundef %30, i32 noundef %32) #8
-  br label %70
+58:                                               ; preds = %54
+  %59 = tail call ptr @makeNullConst(i32 noundef %19, i32 noundef %28, i32 noundef %30) #8
+  br label %68
 
-62:                                               ; preds = %56
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load i32, ptr %65, align 8
-  %67 = trunc i32 %4 to i16
-  %68 = tail call ptr @makeVar(i32 noundef %66, i16 noundef signext %67, i32 noundef %19, i32 noundef %30, i32 noundef %32, i32 noundef 0) #8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  store i32 %6, ptr %69, align 8
-  br label %70
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %64 = load i32, ptr %63, align 8
+  %65 = trunc i32 %4 to i16
+  %66 = tail call ptr @makeVar(i32 noundef %64, i16 noundef signext %65, i32 noundef %19, i32 noundef %28, i32 noundef %30, i32 noundef 0) #8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  store i32 %6, ptr %67, align 8
+  br label %68
 
-70:                                               ; preds = %62, %60
-  %.067 = phi ptr [ %61, %60 ], [ %68, %62 ]
-  %71 = getelementptr i8, ptr %5, i64 16
-  %.val74 = load ptr, ptr %71, align 8
-  %72 = tail call ptr @transformAssignmentIndirection(ptr noundef nonnull %0, ptr noundef %.067, ptr noundef %3, i1 noundef zeroext false, i32 noundef %19, i32 noundef %30, i32 noundef %32, ptr noundef nonnull %5, ptr noundef %.val74, ptr noundef %1, i32 noundef 1, i32 noundef %6)
-  br label %86
+68:                                               ; preds = %60, %58
+  %.067 = phi ptr [ %59, %58 ], [ %66, %60 ]
+  %69 = getelementptr i8, ptr %5, i64 16
+  %.val74 = load ptr, ptr %69, align 8
+  %70 = tail call ptr @transformAssignmentIndirection(ptr noundef nonnull %0, ptr noundef %.067, ptr noundef %3, i1 noundef zeroext false, i32 noundef %19, i32 noundef %28, i32 noundef %30, ptr noundef nonnull %5, ptr noundef %.val74, ptr noundef %1, i32 noundef 1, i32 noundef %6)
+  br label %84
 
-73:                                               ; preds = %.thread, %54
-  %74 = phi i32 [ %40, %.thread ], [ %55, %54 ]
-  %75 = tail call ptr @coerce_to_target_type(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %74, i32 noundef %19, i32 noundef %30, i32 noundef 1, i32 noundef 2, i32 noundef -1) #8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %86
+71:                                               ; preds = %.thread, %52
+  %72 = phi i32 [ %38, %.thread ], [ %53, %52 ]
+  %73 = tail call ptr @coerce_to_target_type(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %72, i32 noundef %19, i32 noundef %28, i32 noundef 1, i32 noundef 2, i32 noundef -1) #8
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %75, label %84
 
-77:                                               ; preds = %73
-  %78 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %78)
-  %79 = tail call i32 @errcode(i32 noundef 67141764) #8
-  %80 = tail call ptr @format_type_be(i32 noundef %19) #8
-  %81 = tail call ptr @format_type_be(i32 noundef %74) #8
-  %82 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef %80, ptr noundef %81) #8
-  %83 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #8
-  %84 = tail call i32 @exprLocation(ptr noundef %1) #8
-  %85 = tail call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %84) #8
+75:                                               ; preds = %71
+  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %76)
+  %77 = tail call i32 @errcode(i32 noundef 67141764) #8
+  %78 = tail call ptr @format_type_be(i32 noundef %19) #8
+  %79 = tail call ptr @format_type_be(i32 noundef %72) #8
+  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef %78, ptr noundef %79) #8
+  %81 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #8
+  %82 = tail call i32 @exprLocation(ptr noundef %1) #8
+  %83 = tail call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %82) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 596, ptr noundef nonnull @__func__.transformAssignedExpr) #8
   unreachable
 
-86:                                               ; preds = %73, %70
-  %.0 = phi ptr [ %72, %70 ], [ %75, %73 ]
+84:                                               ; preds = %71, %68
+  %.0 = phi ptr [ %70, %68 ], [ %73, %71 ]
   store i32 %11, ptr %10, align 8
   ret ptr %.0
 }

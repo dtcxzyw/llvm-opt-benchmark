@@ -1823,206 +1823,207 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN20InnerCla
   %47 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
-  %50 = getelementptr i8, ptr %47, i64 2
-  %51 = load i16, ptr %50, align 2
-  %52 = zext i16 %51 to i32
-  %53 = icmp ne i16 %48, 0
-  %54 = icmp ne i16 %51, 0
-  %55 = and i1 %53, %54
-  %or.cond3 = and i1 %2, %55
-  br i1 %or.cond3, label %56, label %108
+  %50 = getelementptr i16, ptr %10, i64 %indvars.iv
+  %51 = getelementptr i8, ptr %50, i64 6
+  %52 = load i16, ptr %51, align 2
+  %53 = zext i16 %52 to i32
+  %54 = icmp ne i16 %48, 0
+  %55 = icmp ne i16 %52, 0
+  %56 = and i1 %54, %55
+  %or.cond3 = and i1 %2, %56
+  br i1 %or.cond3, label %57, label %109
 
-56:                                               ; preds = %46
-  %57 = call noundef zeroext i1 @_ZN12ConstantPool21klass_name_at_matchesEPK13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(68) %17, ptr noundef nonnull %0, i32 noundef %52) #13
-  br i1 %57, label %58, label %.thread
+57:                                               ; preds = %46
+  %58 = call noundef zeroext i1 @_ZN12ConstantPool21klass_name_at_matchesEPK13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(68) %17, ptr noundef nonnull %0, i32 noundef %53) #13
+  br i1 %58, label %59, label %.thread
 
-58:                                               ; preds = %56
-  %59 = call noundef zeroext i1 @_ZN12ConstantPool21klass_name_at_matchesEPK13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(68) %17, ptr noundef %1, i32 noundef %49) #13
-  br i1 %59, label %60, label %.thread
+59:                                               ; preds = %57
+  %60 = call noundef zeroext i1 @_ZN12ConstantPool21klass_name_at_matchesEPK13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(68) %17, ptr noundef %1, i32 noundef %49) #13
+  br i1 %60, label %61, label %.thread
 
-60:                                               ; preds = %58
+61:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %17, ptr %7, align 8
   store ptr %3, ptr %44, align 8
-  %61 = load ptr, ptr %42, align 8
-  %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp eq i32 %62, %64
-  br i1 %65, label %66, label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
+  %62 = load ptr, ptr %42, align 8
+  %63 = load i32, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp eq i32 %63, %65
+  br i1 %66, label %67, label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
 
-66:                                               ; preds = %60
-  %67 = add nsw i32 %62, 1
-  %68 = icmp sgt i32 %62, -1
-  %69 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %67)
-  %70 = icmp samesign ult i32 %69, 2
-  %or.cond.i.i.i.i.i.i.i = select i1 %68, i1 %70, i1 false
-  %71 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
-  %72 = sub nuw nsw i32 32, %71
-  %73 = shl nuw i32 1, %72
-  %.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i32 %67, i32 %73
-  call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %.0.i.i.i.i.i.i.i)
-  %.pre.i.i.i.i = load i32, ptr %61, align 8
+67:                                               ; preds = %61
+  %68 = add nsw i32 %63, 1
+  %69 = icmp sgt i32 %63, -1
+  %70 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %68)
+  %71 = icmp samesign ult i32 %70, 2
+  %or.cond.i.i.i.i.i.i.i = select i1 %69, i1 %71, i1 false
+  %72 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %68, i1 true)
+  %73 = sub nuw nsw i32 32, %72
+  %74 = shl nuw i32 1, %73
+  %.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i32 %68, i32 %74
+  call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %62, i32 noundef %.0.i.i.i.i.i.i.i)
+  %.pre.i.i.i.i = load i32, ptr %62, align 8
   br label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
 
-_ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %60, %66
-  %74 = phi i32 [ %.pre.i.i.i.i, %66 ], [ %62, %60 ]
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %61, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = sext i32 %74 to i64
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
-  store ptr %17, ptr %79, align 8
-  %80 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %52, ptr noundef nonnull %3) #13
+_ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %61, %67
+  %75 = phi i32 [ %.pre.i.i.i.i, %67 ], [ %63, %61 ]
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %62, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = sext i32 %75 to i64
+  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
+  store ptr %17, ptr %80, align 8
+  %81 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %53, ptr noundef nonnull %3) #13
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %81 = load ptr, ptr %43, align 8
-  %.not62 = icmp eq ptr %81, null
-  br i1 %.not62, label %82, label %_ZN12ResourceMarkD2Ev.exit
+  %82 = load ptr, ptr %43, align 8
+  %.not62 = icmp eq ptr %82, null
+  br i1 %.not62, label %83, label %_ZN12ResourceMarkD2Ev.exit
 
-82:                                               ; preds = %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
-  %83 = icmp eq ptr %80, %0
-  br i1 %83, label %84, label %.thread
+83:                                               ; preds = %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
+  %84 = icmp eq ptr %81, %0
+  br i1 %84, label %85, label %.thread
 
-84:                                               ; preds = %82
+85:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %17, ptr %6, align 8
   store ptr %3, ptr %45, align 8
-  %85 = load ptr, ptr %42, align 8
-  %86 = load i32, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %88 = load i32, ptr %87, align 4
-  %89 = icmp eq i32 %86, %88
-  br i1 %89, label %90, label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit46
+  %86 = load ptr, ptr %42, align 8
+  %87 = load i32, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp eq i32 %87, %89
+  br i1 %90, label %91, label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit46
 
-90:                                               ; preds = %84
-  %91 = add nsw i32 %86, 1
-  %92 = icmp sgt i32 %86, -1
-  %93 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %91)
-  %94 = icmp samesign ult i32 %93, 2
-  %or.cond.i.i.i.i.i.i.i43 = select i1 %92, i1 %94, i1 false
-  %95 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %91, i1 true)
-  %96 = sub nuw nsw i32 32, %95
-  %97 = shl nuw i32 1, %96
-  %.0.i.i.i.i.i.i.i44 = select i1 %or.cond.i.i.i.i.i.i.i43, i32 %91, i32 %97
-  call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %85, i32 noundef %.0.i.i.i.i.i.i.i44)
-  %.pre.i.i.i.i45 = load i32, ptr %85, align 8
+91:                                               ; preds = %85
+  %92 = add nsw i32 %87, 1
+  %93 = icmp sgt i32 %87, -1
+  %94 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %92)
+  %95 = icmp samesign ult i32 %94, 2
+  %or.cond.i.i.i.i.i.i.i43 = select i1 %93, i1 %95, i1 false
+  %96 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %92, i1 true)
+  %97 = sub nuw nsw i32 32, %96
+  %98 = shl nuw i32 1, %97
+  %.0.i.i.i.i.i.i.i44 = select i1 %or.cond.i.i.i.i.i.i.i43, i32 %92, i32 %98
+  call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %86, i32 noundef %.0.i.i.i.i.i.i.i44)
+  %.pre.i.i.i.i45 = load i32, ptr %86, align 8
   br label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit46
 
-_ZN12ConstantPool8klass_atEiP10JavaThread.exit46: ; preds = %84, %90
-  %98 = phi i32 [ %.pre.i.i.i.i45, %90 ], [ %86, %84 ]
-  %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %85, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %101 = load ptr, ptr %100, align 8
-  %102 = sext i32 %98 to i64
-  %103 = getelementptr inbounds ptr, ptr %101, i64 %102
-  store ptr %17, ptr %103, align 8
-  %104 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %49, ptr noundef nonnull %3) #13
+_ZN12ConstantPool8klass_atEiP10JavaThread.exit46: ; preds = %85, %91
+  %99 = phi i32 [ %.pre.i.i.i.i45, %91 ], [ %87, %85 ]
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %86, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = sext i32 %99 to i64
+  %104 = getelementptr inbounds ptr, ptr %102, i64 %103
+  store ptr %17, ptr %104, align 8
+  %105 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %49, ptr noundef nonnull %3) #13
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %105 = load ptr, ptr %43, align 8
-  %106 = icmp ne ptr %105, null
-  %107 = icmp eq ptr %104, %1
-  %or.cond = or i1 %107, %106
+  %106 = load ptr, ptr %43, align 8
+  %107 = icmp ne ptr %106, null
+  %108 = icmp eq ptr %105, %1
+  %or.cond = or i1 %108, %107
   br i1 %or.cond, label %_ZN12ResourceMarkD2Ev.exit, label %.thread
 
-108:                                              ; preds = %46
-  %109 = icmp eq i16 %51, 0
-  %110 = and i1 %109, %.not
-  %or.cond7 = and i1 %53, %110
-  br i1 %or.cond7, label %111, label %.thread
+109:                                              ; preds = %46
+  %110 = icmp eq i16 %52, 0
+  %111 = and i1 %110, %.not
+  %or.cond7 = and i1 %54, %111
+  br i1 %or.cond7, label %112, label %.thread
 
-111:                                              ; preds = %108
-  %112 = call noundef zeroext i1 @_ZN12ConstantPool21klass_name_at_matchesEPK13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(68) %17, ptr noundef %1, i32 noundef %49) #13
-  br i1 %112, label %113, label %.thread
+112:                                              ; preds = %109
+  %113 = call noundef zeroext i1 @_ZN12ConstantPool21klass_name_at_matchesEPK13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(68) %17, ptr noundef %1, i32 noundef %49) #13
+  br i1 %113, label %114, label %.thread
 
-113:                                              ; preds = %111
+114:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %17, ptr %5, align 8
   store ptr %3, ptr %41, align 8
-  %114 = load ptr, ptr %42, align 8
-  %115 = load i32, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  %117 = load i32, ptr %116, align 4
-  %118 = icmp eq i32 %115, %117
-  br i1 %118, label %119, label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit50
+  %115 = load ptr, ptr %42, align 8
+  %116 = load i32, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 4
+  %118 = load i32, ptr %117, align 4
+  %119 = icmp eq i32 %116, %118
+  br i1 %119, label %120, label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit50
 
-119:                                              ; preds = %113
-  %120 = add nsw i32 %115, 1
-  %121 = icmp sgt i32 %115, -1
-  %122 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %120)
-  %123 = icmp samesign ult i32 %122, 2
-  %or.cond.i.i.i.i.i.i.i47 = select i1 %121, i1 %123, i1 false
-  %124 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %120, i1 true)
-  %125 = sub nuw nsw i32 32, %124
-  %126 = shl nuw i32 1, %125
-  %.0.i.i.i.i.i.i.i48 = select i1 %or.cond.i.i.i.i.i.i.i47, i32 %120, i32 %126
-  call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef %.0.i.i.i.i.i.i.i48)
-  %.pre.i.i.i.i49 = load i32, ptr %114, align 8
+120:                                              ; preds = %114
+  %121 = add nsw i32 %116, 1
+  %122 = icmp sgt i32 %116, -1
+  %123 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %121)
+  %124 = icmp samesign ult i32 %123, 2
+  %or.cond.i.i.i.i.i.i.i47 = select i1 %122, i1 %124, i1 false
+  %125 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %121, i1 true)
+  %126 = sub nuw nsw i32 32, %125
+  %127 = shl nuw i32 1, %126
+  %.0.i.i.i.i.i.i.i48 = select i1 %or.cond.i.i.i.i.i.i.i47, i32 %121, i32 %127
+  call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %115, i32 noundef %.0.i.i.i.i.i.i.i48)
+  %.pre.i.i.i.i49 = load i32, ptr %115, align 8
   br label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit50
 
-_ZN12ConstantPool8klass_atEiP10JavaThread.exit50: ; preds = %113, %119
-  %127 = phi i32 [ %.pre.i.i.i.i49, %119 ], [ %115, %113 ]
-  %128 = add nsw i32 %127, 1
-  store i32 %128, ptr %114, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = sext i32 %127 to i64
-  %132 = getelementptr inbounds ptr, ptr %130, i64 %131
-  store ptr %17, ptr %132, align 8
-  %133 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %49, ptr noundef nonnull %3) #13
+_ZN12ConstantPool8klass_atEiP10JavaThread.exit50: ; preds = %114, %120
+  %128 = phi i32 [ %.pre.i.i.i.i49, %120 ], [ %116, %114 ]
+  %129 = add nsw i32 %128, 1
+  store i32 %129, ptr %115, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %131 = load ptr, ptr %130, align 8
+  %132 = sext i32 %128 to i64
+  %133 = getelementptr inbounds ptr, ptr %131, i64 %132
+  store ptr %17, ptr %133, align 8
+  %134 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %49, ptr noundef nonnull %3) #13
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %134 = load ptr, ptr %43, align 8
-  %135 = icmp ne ptr %134, null
-  %136 = icmp eq ptr %133, %1
-  %or.cond41 = or i1 %136, %135
+  %135 = load ptr, ptr %43, align 8
+  %136 = icmp ne ptr %135, null
+  %137 = icmp eq ptr %134, %1
+  %or.cond41 = or i1 %137, %136
   br i1 %or.cond41, label %_ZN12ResourceMarkD2Ev.exit, label %.thread
 
-.thread:                                          ; preds = %82, %58, %56, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit46, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit50, %108, %111
+.thread:                                          ; preds = %83, %59, %57, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit46, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit50, %109, %112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %137 = trunc nuw i64 %indvars.iv.next to i32
-  %.not61 = icmp sgt i32 %.sroa.3.0, %137
+  %138 = trunc nuw i64 %indvars.iv.next to i32
+  %.not61 = icmp sgt i32 %.sroa.3.0, %138
   br i1 %.not61, label %46, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.thread, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
-  %138 = getelementptr inbounds nuw i8, ptr %3, i64 800
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %139, i64 40
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %147 = load i64, ptr %146, align 8
-  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1320), align 8
-  %149 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %0) #13
-  %150 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %1) #13
-  call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 713, ptr noundef %148, ptr noundef nonnull @.str.14, ptr noundef %149, ptr noundef %150) #13
-  %151 = load ptr, ptr %141, align 8
-  %.not.i.i.i.i = icmp eq ptr %151, null
-  br i1 %.not.i.i.i.i, label %153, label %152
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 800
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 32
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %140, i64 40
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %148 = load i64, ptr %147, align 8
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1320), align 8
+  %150 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %0) #13
+  %151 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %1) #13
+  call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 713, ptr noundef %149, ptr noundef nonnull @.str.14, ptr noundef %150, ptr noundef %151) #13
+  %152 = load ptr, ptr %142, align 8
+  %.not.i.i.i.i = icmp eq ptr %152, null
+  br i1 %.not.i.i.i.i, label %154, label %153
 
-152:                                              ; preds = %._crit_edge
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %139, i64 noundef %147) #13
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %141) #13
-  br label %153
+153:                                              ; preds = %._crit_edge
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %140, i64 noundef %148) #13
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %142) #13
+  br label %154
 
-153:                                              ; preds = %152, %._crit_edge
-  %154 = load ptr, ptr %142, align 8
-  %.not8.i.i.i.i = icmp eq ptr %154, %143
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %155
+154:                                              ; preds = %153, %._crit_edge
+  %155 = load ptr, ptr %143, align 8
+  %.not8.i.i.i.i = icmp eq ptr %155, %144
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %156
 
-155:                                              ; preds = %153
-  store ptr %141, ptr %140, align 8
-  store ptr %143, ptr %142, align 8
-  store ptr %145, ptr %144, align 8
+156:                                              ; preds = %154
+  store ptr %142, ptr %141, align 8
+  store ptr %144, ptr %143, align 8
+  store ptr %146, ptr %145, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ConstantPool8klass_atEiP10JavaThread.exit50, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit46, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %155, %153
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ConstantPool8klass_atEiP10JavaThread.exit50, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit46, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %156, %154
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   ret void
 }

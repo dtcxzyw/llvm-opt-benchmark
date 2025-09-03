@@ -72,6 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.absRankType = type { i8, i8 }
 %struct.relRanksType = type { [15 x [4 x %struct.absRankType]] }
 %struct.highCardType = type { i32, i32 }
+%struct.moveType = type { i32, i32, i32, i32 }
 
 $_ZNSt7__cxx119to_stringEj = comdat any
 
@@ -1127,31 +1128,29 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull reado
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z14ResetBestMovesP10ThreadData(ptr noundef captures(none) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3328
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4128
-  br label %4
+  br label %2
 
-4:                                                ; preds = %1, %4
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = shl nuw nsw i64 %indvars.iv, 4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %5
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %5
-  store i32 0, ptr %7, align 4
+2:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %3 = getelementptr inbounds nuw %struct.moveType, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 3328
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4128
+  store i32 0, ptr %5, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 50
-  br i1 %exitcond.not, label %8, label %4, !llvm.loop !37
+  br i1 %exitcond.not, label %6, label %2, !llvm.loop !37
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 987984
-  %10 = load ptr, ptr %9, align 8
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 987984
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %15 = fadd double %14, 9.600000e+02
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4928
-  store double %15, ptr %16, align 8
+  %12 = tail call noundef double %11(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %13 = fadd double %12, 9.600000e+02
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4928
+  store double %13, ptr %14, align 8
   ret void
 }
 

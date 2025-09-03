@@ -1028,7 +1028,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ff_cavs_load_intra_pred_luma(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
-  switch i32 %3, label %132 [
+  switch i32 %3, label %131 [
     i32 0, label %5
     i32 1, label %30
     i32 2, label %90
@@ -1064,14 +1064,14 @@ define void @ff_cavs_load_intra_pred_luma(ptr noundef %0, ptr noundef captures(n
   %25 = load i32, ptr %24, align 4, !tbaa !43
   %26 = and i32 %25, 3
   %or.cond.not = icmp eq i32 %26, 3
-  br i1 %or.cond.not, label %27, label %132
+  br i1 %or.cond.not, label %27, label %131
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %29 = load i8, ptr %28, align 8, !tbaa !25
   store i8 %29, ptr %1, align 1, !tbaa !24
   store i8 %29, ptr %6, align 8, !tbaa !24
-  br label %132
+  br label %131
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1342
@@ -1149,7 +1149,7 @@ define void @ff_cavs_load_intra_pred_luma(ptr noundef %0, ptr noundef captures(n
   %80 = load i32, ptr %58, align 4, !tbaa !43
   %81 = and i32 %80, 2
   %.not78 = icmp eq i32 %81, 0
-  br i1 %.not78, label %132, label %82
+  br i1 %.not78, label %131, label %82
 
 82:                                               ; preds = %77
   %83 = load ptr, ptr %49, align 8, !tbaa !4
@@ -1161,7 +1161,7 @@ define void @ff_cavs_load_intra_pred_luma(ptr noundef %0, ptr noundef captures(n
   %89 = load i8, ptr %88, align 1, !tbaa !24
   store i8 %89, ptr %1, align 1, !tbaa !24
   store i8 %89, ptr %31, align 2, !tbaa !24
-  br label %132
+  br label %131
 
 90:                                               ; preds = %4
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 1304
@@ -1184,52 +1184,51 @@ define void @ff_cavs_load_intra_pred_luma(ptr noundef %0, ptr noundef captures(n
   %104 = load i32, ptr %103, align 4, !tbaa !43
   %105 = and i32 %104, 1
   %.not = icmp eq i32 %105, 0
-  br i1 %.not, label %132, label %106
+  br i1 %.not, label %131, label %106
 
 106:                                              ; preds = %90
   %107 = load i8, ptr %91, align 8, !tbaa !24
   store i8 %107, ptr %1, align 1, !tbaa !24
-  br label %132
+  br label %131
 
 108:                                              ; preds = %4
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 1342
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1350
-  store ptr %110, ptr %2, align 8, !tbaa !53
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %112 = load ptr, ptr %111, align 8, !tbaa !30
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 7
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 1160
-  %115 = load i64, ptr %114, align 8, !tbaa !31
-  br label %116
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 1350
+  store ptr %109, ptr %2, align 8, !tbaa !53
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %111 = load ptr, ptr %110, align 8, !tbaa !30
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 7
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %114 = load i64, ptr %113, align 8, !tbaa !31
+  br label %115
 
-116:                                              ; preds = %108, %116
-  %indvars.iv = phi i64 [ 0, %108 ], [ %indvars.iv.next, %116 ]
-  %117 = or disjoint i64 %indvars.iv, 8
-  %118 = mul nsw i64 %115, %117
-  %119 = getelementptr inbounds i8, ptr %113, i64 %118
-  %120 = load i8, ptr %119, align 1, !tbaa !24
-  %121 = getelementptr inbounds nuw i8, ptr %109, i64 %indvars.iv
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 9
-  store i8 %120, ptr %122, align 1, !tbaa !24
+115:                                              ; preds = %108, %115
+  %indvars.iv = phi i64 [ 0, %108 ], [ %indvars.iv.next, %115 ]
+  %116 = or disjoint i64 %indvars.iv, 8
+  %117 = mul nsw i64 %114, %116
+  %118 = getelementptr inbounds i8, ptr %112, i64 %117
+  %119 = load i8, ptr %118, align 1, !tbaa !24
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1351
+  store i8 %119, ptr %121, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %123, label %116, !llvm.loop !55
+  br i1 %exitcond.not, label %122, label %115, !llvm.loop !55
 
-123:                                              ; preds = %116
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1359
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 1358
-  %126 = load i8, ptr %125, align 2, !tbaa !24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %124, i8 %126, i64 9, i1 false)
-  %127 = mul nsw i64 %115, 7
-  %128 = getelementptr inbounds i8, ptr %113, i64 %127
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1, ptr noundef nonnull align 1 dereferenceable(9) %128, i64 9, i1 false)
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %131 = load i8, ptr %130, align 1, !tbaa !24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %129, i8 %131, i64 9, i1 false)
-  br label %132
+122:                                              ; preds = %115
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1359
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1358
+  %125 = load i8, ptr %124, align 2, !tbaa !24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %123, i8 %125, i64 9, i1 false)
+  %126 = mul nsw i64 %114, 7
+  %127 = getelementptr inbounds i8, ptr %112, i64 %126
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1, ptr noundef nonnull align 1 dereferenceable(9) %127, i64 9, i1 false)
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %130 = load i8, ptr %129, align 1, !tbaa !24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %128, i8 %130, i64 9, i1 false)
+  br label %131
 
-132:                                              ; preds = %90, %106, %77, %82, %5, %27, %123, %4
+131:                                              ; preds = %90, %106, %77, %82, %5, %27, %122, %4
   ret void
 }
 

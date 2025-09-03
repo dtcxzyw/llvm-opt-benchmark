@@ -35076,8 +35076,8 @@ define internal fastcc void @deflate_find_min_cost_path(ptr noundef captures(add
   %70 = getelementptr inbounds nuw i8, ptr @deflate_length_slot, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %53, i64 %72
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1028
+  %73 = getelementptr inbounds nuw i32, ptr %0, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1060
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 4

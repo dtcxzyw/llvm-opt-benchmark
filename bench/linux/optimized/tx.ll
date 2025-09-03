@@ -7876,10 +7876,10 @@ define dso_local ptr @ieee80211_next_txq(ptr noundef %0, i8 noundef zeroext %1) 
   br label %22
 
 22:                                               ; preds = %.thread11, %18
-  %23 = phi ptr [ %15, %18 ], [ %112, %.thread11 ]
-  %24 = phi ptr [ %13, %18 ], [ %110, %.thread11 ]
+  %23 = phi ptr [ %15, %18 ], [ %111, %.thread11 ]
+  %24 = phi ptr [ %13, %18 ], [ %109, %.thread11 ]
   %25 = phi ptr [ null, %18 ], [ %33, %.thread11 ]
-  %26 = phi i8 [ 0, %18 ], [ %102, %.thread11 ]
+  %26 = phi i8 [ 0, %18 ], [ %101, %.thread11 ]
   %27 = icmp eq ptr %23, %25
   br i1 %27, label %28, label %30
 
@@ -7894,7 +7894,7 @@ define dso_local ptr @ieee80211_next_txq(ptr noundef %0, i8 noundef zeroext %1) 
   %34 = getelementptr i8, ptr %24, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %115, label %37
+  br i1 %36, label %114, label %37
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %19, align 8
@@ -7958,7 +7958,7 @@ define dso_local ptr @ieee80211_next_txq(ptr noundef %0, i8 noundef zeroext %1) 
   %80 = load volatile i32, ptr %79, align 4
   %81 = sub i32 %78, %80
   %82 = icmp slt i32 %81, 0
-  br i1 %82, label %._crit_edge, label %115
+  br i1 %82, label %._crit_edge, label %114
 
 ._crit_edge:                                      ; preds = %71
   %.pre15 = mul nuw nsw i64 %75, 40
@@ -7979,67 +7979,66 @@ define dso_local ptr @ieee80211_next_txq(ptr noundef %0, i8 noundef zeroext %1) 
   %.idx9.pre-phi = phi i64 [ %.pre15, %._crit_edge ], [ %.idx, %.thread10 ]
   %92 = phi i8 [ 1, %._crit_edge ], [ %31, %.thread10 ]
   %93 = phi ptr [ %72, %._crit_edge ], [ %53, %.thread10 ]
-  %94 = getelementptr i8, ptr %35, i64 -2152
-  %95 = getelementptr i8, ptr %35, i64 -1992
-  %96 = load i16, ptr %95, align 8
-  %97 = zext i16 %96 to i32
-  %98 = getelementptr i8, ptr %94, i64 %.idx9.pre-phi
-  %99 = getelementptr i8, ptr %98, i64 24
-  %100 = load i32, ptr %99, align 8
-  %101 = add i32 %100, %97
-  store i32 %101, ptr %99, align 8
+  %94 = getelementptr i8, ptr %35, i64 -1992
+  %95 = load i16, ptr %94, align 8
+  %96 = zext i16 %95 to i32
+  %97 = getelementptr i8, ptr %35, i64 %.idx9.pre-phi
+  %98 = getelementptr i8, ptr %97, i64 -2128
+  %99 = load i32, ptr %98, align 8
+  %100 = add i32 %99, %96
+  store i32 %100, ptr %98, align 8
   %.pre = load i8, ptr %93, align 1
   %.pre14 = zext i8 %.pre to i64
   br label %.thread11
 
 .thread11:                                        ; preds = %.thread10, %91
   %.pre-phi = phi i64 [ %55, %.thread10 ], [ %.pre14, %91 ]
-  %102 = phi i8 [ %31, %.thread10 ], [ %92, %91 ]
-  %103 = getelementptr %struct.list_head, ptr %11, i64 %.pre-phi
-  %104 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %24, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store ptr %105, ptr %107, align 8
-  store volatile ptr %106, ptr %105, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %109 = load ptr, ptr %108, align 8
-  store ptr %24, ptr %108, align 8
-  store ptr %103, ptr %24, align 8
-  store ptr %109, ptr %104, align 8
-  store volatile ptr %24, ptr %109, align 8
-  %110 = load volatile ptr, ptr %12, align 8
-  %111 = icmp eq ptr %110, %12
-  %112 = getelementptr i8, ptr %110, i64 -184
-  %113 = icmp eq ptr %112, null
-  %114 = or i1 %111, %113
-  br i1 %114, label %.loopexit, label %22
+  %101 = phi i8 [ %31, %.thread10 ], [ %92, %91 ]
+  %102 = getelementptr %struct.list_head, ptr %11, i64 %.pre-phi
+  %103 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %104 = load ptr, ptr %103, align 8
+  %105 = load ptr, ptr %24, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  store ptr %104, ptr %106, align 8
+  store volatile ptr %105, ptr %104, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %108 = load ptr, ptr %107, align 8
+  store ptr %24, ptr %107, align 8
+  store ptr %102, ptr %24, align 8
+  store ptr %108, ptr %103, align 8
+  store volatile ptr %24, ptr %108, align 8
+  %109 = load volatile ptr, ptr %12, align 8
+  %110 = icmp eq ptr %109, %12
+  %111 = getelementptr i8, ptr %109, i64 -184
+  %112 = icmp eq ptr %111, null
+  %113 = or i1 %110, %112
+  br i1 %113, label %.loopexit, label %22
 
-115:                                              ; preds = %71, %30
-  %116 = getelementptr i8, ptr %24, i64 -4
-  %117 = load i16, ptr %116, align 4
-  %118 = load i16, ptr %7, align 2
-  %119 = icmp eq i16 %117, %118
-  br i1 %119, label %.loopexit, label %120
+114:                                              ; preds = %71, %30
+  %115 = getelementptr i8, ptr %24, i64 -4
+  %116 = load i16, ptr %115, align 4
+  %117 = load i16, ptr %7, align 2
+  %118 = icmp eq i16 %116, %117
+  br i1 %118, label %.loopexit, label %119
 
-120:                                              ; preds = %115
-  %121 = getelementptr i8, ptr %24, i64 48
-  %122 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %24, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  store ptr %123, ptr %125, align 8
-  store volatile ptr %124, ptr %123, align 8
+119:                                              ; preds = %114
+  %120 = getelementptr i8, ptr %24, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = load ptr, ptr %24, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  store ptr %122, ptr %124, align 8
+  store volatile ptr %123, ptr %122, align 8
   store volatile ptr %24, ptr %24, align 8
-  store volatile ptr %24, ptr %122, align 8
-  %126 = load i16, ptr %7, align 2
-  store i16 %126, ptr %116, align 4
+  store volatile ptr %24, ptr %121, align 8
+  %125 = load i16, ptr %7, align 2
+  store i16 %125, ptr %115, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread11, %28, %120, %115, %10, %2
-  %127 = phi ptr [ null, %115 ], [ %121, %120 ], [ null, %2 ], [ null, %10 ], [ null, %28 ], [ null, %.thread11 ]
+.loopexit:                                        ; preds = %.thread11, %28, %119, %114, %10, %2
+  %126 = phi ptr [ null, %114 ], [ %120, %119 ], [ null, %2 ], [ null, %10 ], [ null, %28 ], [ null, %.thread11 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef %5) #20
-  ret ptr %127
+  ret ptr %126
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

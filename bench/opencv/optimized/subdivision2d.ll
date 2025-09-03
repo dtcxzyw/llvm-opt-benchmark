@@ -3269,17 +3269,17 @@ _ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63: ; preds = %153, %20
   %235 = ashr i32 %164, 2
   %236 = sext i32 %235 to i64
   %237 = load ptr, ptr %6, align 8, !tbaa !3
-  %238 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %237, i64 %236, i32 1
+  %238 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %237, i64 %236
   %239 = and i32 %165, 2
   %240 = zext nneg i32 %239 to i64
   %241 = getelementptr inbounds nuw i32, ptr %238, i64 %240
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 20
   store i32 %234, ptr %242, align 4, !tbaa !9
-  %243 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %237, i64 %159, i32 1
+  %243 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %237, i64 %159
   %244 = and i32 %156, 2
   %245 = zext nneg i32 %244 to i64
   %246 = getelementptr inbounds nuw i32, ptr %243, i64 %245
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 4
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 20
   store i32 %234, ptr %247, align 4, !tbaa !9
   store i32 %234, ptr %151, align 4, !tbaa !9
   br label %248

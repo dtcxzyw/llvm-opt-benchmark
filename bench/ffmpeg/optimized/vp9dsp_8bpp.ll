@@ -2110,27 +2110,25 @@ define internal void @vert_left_8x8_c(ptr noundef writeonly captures(none) %0, i
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv48
   %52 = sub nuw nsw i64 7, %indvars.iv48
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %51, i64 %52, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %54 = sub nsw i64 0, %indvars.iv48
-  %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 -1
-  %57 = load i8, ptr %33, align 1, !tbaa !8
+  %53 = sub nsw i64 0, %indvars.iv48
+  %54 = getelementptr i8, ptr %50, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 7
+  %56 = load i8, ptr %33, align 1, !tbaa !8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, i8 %57, i64 %indvars.iv.next49, i1 false)
-  %58 = or disjoint i64 %48, 1
-  %59 = mul nsw i64 %1, %58
-  %60 = getelementptr inbounds i8, ptr %0, i64 %59
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr nonnull align 1 %61, i64 %52, i1 false)
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 %54
-  %64 = getelementptr inbounds i8, ptr %63, i64 -1
-  %65 = load i8, ptr %33, align 1, !tbaa !8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 %65, i64 %indvars.iv.next49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, i8 %56, i64 %indvars.iv.next49, i1 false)
+  %57 = or disjoint i64 %48, 1
+  %58 = mul nsw i64 %1, %57
+  %59 = getelementptr inbounds i8, ptr %0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv48
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr nonnull align 1 %60, i64 %52, i1 false)
+  %61 = getelementptr i8, ptr %59, i64 %53
+  %62 = getelementptr i8, ptr %61, i64 7
+  %63 = load i8, ptr %33, align 1, !tbaa !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, i8 %63, i64 %indvars.iv.next49, i1 false)
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 4
-  br i1 %exitcond51.not, label %66, label %47, !llvm.loop !24
+  br i1 %exitcond51.not, label %64, label %47, !llvm.loop !24
 
-66:                                               ; preds = %47
+64:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -3194,27 +3192,25 @@ define internal void @vert_left_16x16_c(ptr noundef writeonly captures(none) %0,
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv48
   %52 = sub nuw nsw i64 15, %indvars.iv48
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %51, i64 %52, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %54 = sub nsw i64 0, %indvars.iv48
-  %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 -1
-  %57 = load i8, ptr %33, align 1, !tbaa !8
+  %53 = sub nsw i64 0, %indvars.iv48
+  %54 = getelementptr i8, ptr %50, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 15
+  %56 = load i8, ptr %33, align 1, !tbaa !8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, i8 %57, i64 %indvars.iv.next49, i1 false)
-  %58 = or disjoint i64 %48, 1
-  %59 = mul nsw i64 %1, %58
-  %60 = getelementptr inbounds i8, ptr %0, i64 %59
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr nonnull align 1 %61, i64 %52, i1 false)
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %63 = getelementptr inbounds i8, ptr %62, i64 %54
-  %64 = getelementptr inbounds i8, ptr %63, i64 -1
-  %65 = load i8, ptr %33, align 1, !tbaa !8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 %65, i64 %indvars.iv.next49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, i8 %56, i64 %indvars.iv.next49, i1 false)
+  %57 = or disjoint i64 %48, 1
+  %58 = mul nsw i64 %1, %57
+  %59 = getelementptr inbounds i8, ptr %0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv48
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr nonnull align 1 %60, i64 %52, i1 false)
+  %61 = getelementptr i8, ptr %59, i64 %53
+  %62 = getelementptr i8, ptr %61, i64 15
+  %63 = load i8, ptr %33, align 1, !tbaa !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, i8 %63, i64 %indvars.iv.next49, i1 false)
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 8
-  br i1 %exitcond51.not, label %66, label %47, !llvm.loop !47
+  br i1 %exitcond51.not, label %64, label %47, !llvm.loop !47
 
-66:                                               ; preds = %47
+64:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -4583,27 +4579,25 @@ define internal void @vert_left_32x32_c(ptr noundef writeonly captures(none) %0,
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv48
   %52 = sub nuw nsw i64 31, %indvars.iv48
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %51, i64 %52, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %54 = sub nsw i64 0, %indvars.iv48
-  %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 -1
-  %57 = load i8, ptr %33, align 1, !tbaa !8
+  %53 = sub nsw i64 0, %indvars.iv48
+  %54 = getelementptr i8, ptr %50, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 31
+  %56 = load i8, ptr %33, align 1, !tbaa !8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, i8 %57, i64 %indvars.iv.next49, i1 false)
-  %58 = or disjoint i64 %48, 1
-  %59 = mul nsw i64 %1, %58
-  %60 = getelementptr inbounds i8, ptr %0, i64 %59
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr nonnull align 1 %61, i64 %52, i1 false)
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %63 = getelementptr inbounds i8, ptr %62, i64 %54
-  %64 = getelementptr inbounds i8, ptr %63, i64 -1
-  %65 = load i8, ptr %33, align 1, !tbaa !8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 %65, i64 %indvars.iv.next49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, i8 %56, i64 %indvars.iv.next49, i1 false)
+  %57 = or disjoint i64 %48, 1
+  %58 = mul nsw i64 %1, %57
+  %59 = getelementptr inbounds i8, ptr %0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv48
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr nonnull align 1 %60, i64 %52, i1 false)
+  %61 = getelementptr i8, ptr %59, i64 %53
+  %62 = getelementptr i8, ptr %61, i64 31
+  %63 = load i8, ptr %33, align 1, !tbaa !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, i8 %63, i64 %indvars.iv.next49, i1 false)
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 16
-  br i1 %exitcond51.not, label %66, label %47, !llvm.loop !70
+  br i1 %exitcond51.not, label %64, label %47, !llvm.loop !70
 
-66:                                               ; preds = %47
+64:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

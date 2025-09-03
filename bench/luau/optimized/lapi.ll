@@ -5121,7 +5121,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 3
   %34 = load i8, ptr %33, align 1, !tbaa !59
   %.not.i13 = icmp eq i8 %34, 0
-  br i1 %.not.i13, label %46, label %35
+  br i1 %.not.i13, label %45, label %35
 
 35:                                               ; preds = %31
   %36 = icmp sgt i32 %2, 0
@@ -5135,69 +5135,68 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   br i1 %.not28.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %43 = zext nneg i32 %2 to i64
-  %44 = getelementptr %struct.lua_TValue, ptr %42, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 -16
+  %42 = zext nneg i32 %2 to i64
+  %43 = getelementptr %struct.lua_TValue, ptr %32, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 32
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
-46:                                               ; preds = %31
-  %47 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !21
-  %49 = icmp sgt i32 %2, 0
-  br i1 %49, label %50, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
+45:                                               ; preds = %31
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !21
+  %48 = icmp sgt i32 %2, 0
+  br i1 %48, label %49, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 3
-  %52 = load i8, ptr %51, align 1, !tbaa !102
-  %53 = zext i8 %52 to i32
-  %.not26.i = icmp samesign ugt i32 %2, %53
-  br i1 %.not26.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %54
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 3
+  %51 = load i8, ptr %50, align 1, !tbaa !102
+  %52 = zext i8 %51 to i32
+  %.not26.i = icmp samesign ugt i32 %2, %52
+  br i1 %.not26.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %53
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %56 = add nsw i32 %2, -1
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw %struct.lua_TValue, ptr %55, i64 %57
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
-  %60 = load i32, ptr %59, align 4, !tbaa !47
-  %61 = icmp eq i32 %60, 12
-  br i1 %61, label %62, label %66
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %55 = add nsw i32 %2, -1
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds nuw %struct.lua_TValue, ptr %54, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  %59 = load i32, ptr %58, align 4, !tbaa !47
+  %60 = icmp eq i32 %59, 12
+  br i1 %60, label %61, label %65
 
-62:                                               ; preds = %54
-  %63 = load ptr, ptr %58, align 8, !tbaa !21
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !106
-  br label %66
+61:                                               ; preds = %53
+  %62 = load ptr, ptr %57, align 8, !tbaa !21
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !106
+  br label %65
 
-66:                                               ; preds = %62, %54
-  %67 = phi ptr [ %65, %62 ], [ %58, %54 ]
-  %68 = getelementptr inbounds nuw i8, ptr %48, i64 148
-  %69 = load i32, ptr %68, align 4, !tbaa !107
-  %.not27.i = icmp sgt i32 %2, %69
-  br i1 %.not27.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, label %70
+65:                                               ; preds = %61, %53
+  %66 = phi ptr [ %64, %61 ], [ %57, %53 ]
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 148
+  %68 = load i32, ptr %67, align 4, !tbaa !107
+  %.not27.i = icmp sgt i32 %2, %68
+  br i1 %.not27.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %48, i64 80
-  %72 = load ptr, ptr %71, align 8, !tbaa !108
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %57
-  %74 = load ptr, ptr %73, align 8, !tbaa !109
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %47, i64 80
+  %71 = load ptr, ptr %70, align 8, !tbaa !108
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %56
+  %73 = load ptr, ptr %72, align 8, !tbaa !109
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
-_ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %70, %66, %41
-  %.0 = phi ptr [ %67, %66 ], [ %67, %70 ], [ %45, %41 ]
-  %.0.i = phi ptr [ @.str.3, %66 ], [ %75, %70 ], [ @.str.3, %41 ]
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %.0, i64 16, i1 false), !tbaa.struct !20
-  %78 = load ptr, ptr %76, align 8, !tbaa !19
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  store ptr %79, ptr %76, align 8, !tbaa !19
+_ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %69, %65, %41
+  %.0 = phi ptr [ %66, %65 ], [ %66, %69 ], [ %44, %41 ]
+  %.0.i = phi ptr [ @.str.3, %65 ], [ %74, %69 ], [ @.str.3, %41 ]
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %.0, i64 16, i1 false), !tbaa.struct !20
+  %77 = load ptr, ptr %75, align 8, !tbaa !19
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  store ptr %78, ptr %75, align 8, !tbaa !19
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
 
-_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread:   ; preds = %46, %50, %35, %37, %_ZL10index2addrP9lua_Statei.exit, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
-  %.0.i17 = phi ptr [ %.0.i, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit ], [ null, %_ZL10index2addrP9lua_Statei.exit ], [ null, %37 ], [ null, %35 ], [ null, %50 ], [ null, %46 ]
+_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread:   ; preds = %45, %49, %35, %37, %_ZL10index2addrP9lua_Statei.exit, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
+  %.0.i17 = phi ptr [ %.0.i, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit ], [ null, %_ZL10index2addrP9lua_Statei.exit ], [ null, %37 ], [ null, %35 ], [ null, %49 ], [ null, %45 ]
   ret ptr %.0.i17
 }
 
@@ -5245,7 +5244,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3
   %28 = load i8, ptr %27, align 1, !tbaa !59
   %.not.i17 = icmp eq i8 %28, 0
-  br i1 %.not.i17, label %40, label %29
+  br i1 %.not.i17, label %39, label %29
 
 29:                                               ; preds = %25
   %30 = icmp sgt i32 %2, 0
@@ -5259,92 +5258,91 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %5, %15, %20
   br i1 %.not28.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %37 = zext nneg i32 %2 to i64
-  %38 = getelementptr %struct.lua_TValue, ptr %36, i64 %37
-  %39 = getelementptr i8, ptr %38, i64 -16
+  %36 = zext nneg i32 %2 to i64
+  %37 = getelementptr %struct.lua_TValue, ptr %26, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 32
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
-40:                                               ; preds = %25
-  %41 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !21
-  %43 = icmp sgt i32 %2, 0
-  br i1 %43, label %44, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
+39:                                               ; preds = %25
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %41 = load ptr, ptr %40, align 8, !tbaa !21
+  %42 = icmp sgt i32 %2, 0
+  br i1 %42, label %43, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 3
-  %46 = load i8, ptr %45, align 1, !tbaa !102
-  %47 = zext i8 %46 to i32
-  %.not26.i = icmp samesign ugt i32 %2, %47
-  br i1 %.not26.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %48
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 3
+  %45 = load i8, ptr %44, align 1, !tbaa !102
+  %46 = zext i8 %45 to i32
+  %.not26.i = icmp samesign ugt i32 %2, %46
+  br i1 %.not26.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %47
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %50 = add nsw i32 %2, -1
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct.lua_TValue, ptr %49, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  %54 = load i32, ptr %53, align 4, !tbaa !47
-  %55 = icmp eq i32 %54, 12
-  br i1 %55, label %56, label %60
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %49 = add nsw i32 %2, -1
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds nuw %struct.lua_TValue, ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  %53 = load i32, ptr %52, align 4, !tbaa !47
+  %54 = icmp eq i32 %53, 12
+  br i1 %54, label %55, label %59
 
-56:                                               ; preds = %48
-  %57 = load ptr, ptr %52, align 8, !tbaa !21
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !106
-  br label %60
+55:                                               ; preds = %47
+  %56 = load ptr, ptr %51, align 8, !tbaa !21
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !106
+  br label %59
 
-60:                                               ; preds = %56, %48
-  %61 = phi ptr [ %59, %56 ], [ %52, %48 ]
-  %62 = getelementptr inbounds nuw i8, ptr %42, i64 148
-  %63 = load i32, ptr %62, align 4, !tbaa !107
-  %.not27.i = icmp sgt i32 %2, %63
-  br i1 %.not27.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, label %64
+59:                                               ; preds = %55, %47
+  %60 = phi ptr [ %58, %55 ], [ %51, %47 ]
+  %61 = getelementptr inbounds nuw i8, ptr %41, i64 148
+  %62 = load i32, ptr %61, align 4, !tbaa !107
+  %.not27.i = icmp sgt i32 %2, %62
+  br i1 %.not27.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, label %63
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %42, i64 80
-  %66 = load ptr, ptr %65, align 8, !tbaa !108
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %51
-  %68 = load ptr, ptr %67, align 8, !tbaa !109
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %41, i64 80
+  %65 = load ptr, ptr %64, align 8, !tbaa !108
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %50
+  %67 = load ptr, ptr %66, align 8, !tbaa !109
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
 
-_ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %64, %60, %35
-  %.0 = phi ptr [ %61, %60 ], [ %61, %64 ], [ %39, %35 ]
-  %.0.i = phi ptr [ @.str.3, %60 ], [ %69, %64 ], [ @.str.3, %35 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !19
-  %72 = getelementptr inbounds i8, ptr %71, i64 -16
-  store ptr %72, ptr %70, align 8, !tbaa !19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !20
-  %73 = load ptr, ptr %70, align 8, !tbaa !19
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
-  %75 = load i32, ptr %74, align 4, !tbaa !47
-  %76 = icmp sgt i32 %75, 4
-  br i1 %76, label %77, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
+_ZL11aux_upvalueP10lua_TValueiPS0_.exit:          ; preds = %63, %59, %35
+  %.0 = phi ptr [ %60, %59 ], [ %60, %63 ], [ %38, %35 ]
+  %.0.i = phi ptr [ @.str.3, %59 ], [ %68, %63 ], [ @.str.3, %35 ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !19
+  %71 = getelementptr inbounds i8, ptr %70, i64 -16
+  store ptr %71, ptr %69, align 8, !tbaa !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !tbaa.struct !20
+  %72 = load ptr, ptr %69, align 8, !tbaa !19
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
+  %74 = load i32, ptr %73, align 4, !tbaa !47
+  %75 = icmp sgt i32 %74, 4
+  br i1 %75, label %76, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
 
-77:                                               ; preds = %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
-  %78 = load ptr, ptr %.1.i, align 8, !tbaa !21
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
-  %80 = load i8, ptr %79, align 1, !tbaa !21
-  %81 = and i8 %80, 4
-  %.not15 = icmp eq i8 %81, 0
-  br i1 %.not15, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %82
+76:                                               ; preds = %_ZL11aux_upvalueP10lua_TValueiPS0_.exit
+  %77 = load ptr, ptr %.1.i, align 8, !tbaa !21
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  %79 = load i8, ptr %78, align 1, !tbaa !21
+  %80 = and i8 %79, 4
+  %.not15 = icmp eq i8 %80, 0
+  br i1 %.not15, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %81
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr %73, align 8, !tbaa !21
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
-  %85 = load i8, ptr %84, align 1, !tbaa !21
-  %86 = and i8 %85, 3
-  %.not16 = icmp eq i8 %86, 0
-  br i1 %.not16, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %87
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %72, align 8, !tbaa !21
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
+  %84 = load i8, ptr %83, align 1, !tbaa !21
+  %85 = and i8 %84, 3
+  %.not16 = icmp eq i8 %85, 0
+  br i1 %.not16, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %86
 
-87:                                               ; preds = %82
-  tail call void @_Z13luaC_barrierfP9lua_StateP8GCObjectS2_(ptr noundef nonnull %0, ptr noundef nonnull %78, ptr noundef nonnull %83)
+86:                                               ; preds = %81
+  tail call void @_Z13luaC_barrierfP9lua_StateP8GCObjectS2_(ptr noundef nonnull %0, ptr noundef nonnull %77, ptr noundef nonnull %82)
   br label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread
 
-_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread:   ; preds = %40, %44, %29, %31, %_ZL10index2addrP9lua_Statei.exit, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, %77, %82, %87
-  %.0.i21 = phi ptr [ %.0.i, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit ], [ %.0.i, %77 ], [ %.0.i, %82 ], [ %.0.i, %87 ], [ null, %_ZL10index2addrP9lua_Statei.exit ], [ null, %31 ], [ null, %29 ], [ null, %44 ], [ null, %40 ]
+_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread:   ; preds = %39, %43, %29, %31, %_ZL10index2addrP9lua_Statei.exit, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit, %76, %81, %86
+  %.0.i21 = phi ptr [ %.0.i, %_ZL11aux_upvalueP10lua_TValueiPS0_.exit ], [ %.0.i, %76 ], [ %.0.i, %81 ], [ %.0.i, %86 ], [ null, %_ZL10index2addrP9lua_Statei.exit ], [ null, %31 ], [ null, %29 ], [ null, %43 ], [ null, %39 ]
   ret ptr %.0.i21
 }
 

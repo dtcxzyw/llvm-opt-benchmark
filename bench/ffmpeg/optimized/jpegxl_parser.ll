@@ -5233,8 +5233,8 @@ jxl_u8.exit194.i:                                 ; preds = %get_bitsz.exit.i192
   br i1 %.not156.i, label %1097, label %1093
 
 1093:                                             ; preds = %1090
-  %1094 = getelementptr i32, ptr %1083, i64 %indvars.iv246.i
-  %1095 = getelementptr i8, ptr %1094, i64 -4
+  %1094 = getelementptr i32, ptr %728, i64 %indvars.iv246.i
+  %1095 = getelementptr i8, ptr %1094, i64 48
   %1096 = load i32, ptr %1095, align 4, !tbaa !9
   br label %1097
 

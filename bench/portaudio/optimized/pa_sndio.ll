@@ -341,269 +341,268 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
   br label %77
 
 77:                                               ; preds = %74, %71
-  %brmerge = or i1 %.not, %.not110
+  %brmerge = or i1 %.not110, %.not
   br i1 %brmerge, label %78, label %sndioSetFmt.exit.thread
 
 78:                                               ; preds = %77
   %.mux = select i1 %.not, ptr %3, ptr %2
-  %79 = load i32, ptr %.mux, align 8, !tbaa !48
-  %80 = sext i32 %79 to i64
-  %.idx = mul nsw i64 %80, 72
-  %81 = getelementptr i8, ptr %0, i64 272
-  %82 = getelementptr i8, ptr %81, i64 %.idx
-  %.0 = load ptr, ptr %82, align 8, !tbaa !13
-  %83 = call ptr @sio_open(ptr noundef %.0, i32 noundef %.1, i32 noundef 0) #16
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %sndioSetFmt.exit.thread, label %85
+  %.pn115.in = load i32, ptr %.mux, align 8, !tbaa !48
+  %.pn115 = sext i32 %.pn115.in to i64
+  %.pn = getelementptr %struct.PaDeviceInfo, ptr %0, i64 %.pn115
+  %.0.in = getelementptr i8, ptr %.pn, i64 272
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !13
+  %79 = call ptr @sio_open(ptr noundef %.0, i32 noundef %.1, i32 noundef 0) #16
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %sndioSetFmt.exit.thread, label %81
 
-85:                                               ; preds = %78
-  %86 = call i32 @sio_setpar(ptr noundef nonnull %83, ptr noundef nonnull %10) #16
-  %.not116 = icmp eq i32 %86, 0
-  br i1 %.not116, label %87, label %88
+81:                                               ; preds = %78
+  %82 = call i32 @sio_setpar(ptr noundef nonnull %79, ptr noundef nonnull %10) #16
+  %.not116 = icmp eq i32 %82, 0
+  br i1 %.not116, label %83, label %84
 
-87:                                               ; preds = %85
-  call void @sio_close(ptr noundef nonnull %83) #16
+83:                                               ; preds = %81
+  call void @sio_close(ptr noundef nonnull %79) #16
   br label %sndioSetFmt.exit.thread
 
-88:                                               ; preds = %85
-  %89 = call i32 @sio_getpar(ptr noundef nonnull %83, ptr noundef nonnull %10) #16
-  %.not117 = icmp eq i32 %89, 0
-  br i1 %.not117, label %90, label %91
+84:                                               ; preds = %81
+  %85 = call i32 @sio_getpar(ptr noundef nonnull %79, ptr noundef nonnull %10) #16
+  %.not117 = icmp eq i32 %85, 0
+  br i1 %.not117, label %86, label %87
 
-90:                                               ; preds = %88
-  call void @sio_close(ptr noundef nonnull %83) #16
+86:                                               ; preds = %84
+  call void @sio_close(ptr noundef nonnull %79) #16
   br label %sndioSetFmt.exit.thread
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %93 = load i32, ptr %92, align 4, !tbaa !55
-  %94 = shl i32 %93, 3
-  %95 = load i32, ptr %10, align 4, !tbaa !54
-  %.not.i = icmp ne i32 %94, %95
-  %96 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %97 = load i32, ptr %96, align 4
-  %.not15.i = icmp eq i32 %97, 0
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %89 = load i32, ptr %88, align 4, !tbaa !55
+  %90 = shl i32 %89, 3
+  %91 = load i32, ptr %10, align 4, !tbaa !54
+  %.not.i = icmp ne i32 %90, %91
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %93 = load i32, ptr %92, align 4
+  %.not15.i = icmp eq i32 %93, 0
   %or.cond138 = select i1 %.not.i, i1 %.not15.i, i1 false
-  br i1 %or.cond138, label %121, label %98
+  br i1 %or.cond138, label %117, label %94
 
-98:                                               ; preds = %91
-  %99 = icmp ult i32 %93, 2
-  %100 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %101 = load i32, ptr %100, align 4
-  %.not16.i = icmp eq i32 %101, 1
-  %or.cond140 = select i1 %99, i1 true, i1 %.not16.i
-  br i1 %or.cond140, label %102, label %121
+94:                                               ; preds = %87
+  %95 = icmp ult i32 %89, 2
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %97 = load i32, ptr %96, align 4
+  %.not16.i = icmp eq i32 %97, 1
+  %or.cond140 = select i1 %95, i1 true, i1 %.not16.i
+  br i1 %or.cond140, label %98, label %117
 
-102:                                              ; preds = %98
-  %103 = add i32 %95, -8
-  %104 = call i32 @llvm.fshl.i32(i32 %103, i32 %103, i32 29)
-  switch i32 %104, label %121 [
-    i32 3, label %105
-    i32 2, label %108
-    i32 1, label %114
-    i32 0, label %117
+98:                                               ; preds = %94
+  %99 = add i32 %91, -8
+  %100 = call i32 @llvm.fshl.i32(i32 %99, i32 %99, i32 29)
+  switch i32 %100, label %117 [
+    i32 3, label %101
+    i32 2, label %104
+    i32 1, label %110
+    i32 0, label %113
   ]
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %107 = load i32, ptr %106, align 4, !tbaa !52
-  %.not20.i = icmp eq i32 %107, 0
-  br i1 %.not20.i, label %121, label %sndioGetFmt.exit
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %103 = load i32, ptr %102, align 4, !tbaa !52
+  %.not20.i = icmp eq i32 %103, 0
+  br i1 %.not20.i, label %117, label %sndioGetFmt.exit
 
-108:                                              ; preds = %102
-  %109 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %110 = load i32, ptr %109, align 4, !tbaa !52
-  %.not19.i = icmp eq i32 %110, 0
-  br i1 %.not19.i, label %121, label %111
+104:                                              ; preds = %98
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %106 = load i32, ptr %105, align 4, !tbaa !52
+  %.not19.i = icmp eq i32 %106, 0
+  br i1 %.not19.i, label %117, label %107
 
-111:                                              ; preds = %108
-  %112 = icmp eq i32 %93, 3
-  %113 = select i1 %112, i64 4, i64 2
+107:                                              ; preds = %104
+  %108 = icmp eq i32 %89, 3
+  %109 = select i1 %108, i64 4, i64 2
   br label %sndioGetFmt.exit
 
-114:                                              ; preds = %102
-  %115 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %116 = load i32, ptr %115, align 4, !tbaa !52
-  %.not18.i = icmp eq i32 %116, 0
-  br i1 %.not18.i, label %121, label %sndioGetFmt.exit
+110:                                              ; preds = %98
+  %111 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %112 = load i32, ptr %111, align 4, !tbaa !52
+  %.not18.i = icmp eq i32 %112, 0
+  br i1 %.not18.i, label %117, label %sndioGetFmt.exit
 
-117:                                              ; preds = %102
-  %118 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %119 = load i32, ptr %118, align 4, !tbaa !52
-  %.not17.i = icmp eq i32 %119, 0
-  %120 = select i1 %.not17.i, i64 32, i64 16
+113:                                              ; preds = %98
+  %114 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %115 = load i32, ptr %114, align 4, !tbaa !52
+  %.not17.i = icmp eq i32 %115, 0
+  %116 = select i1 %.not17.i, i64 32, i64 16
   br label %sndioGetFmt.exit
 
-121:                                              ; preds = %98, %91, %105, %108, %114, %102
-  call void @sio_close(ptr noundef nonnull %83) #16
+117:                                              ; preds = %94, %87, %101, %104, %110, %98
+  call void @sio_close(ptr noundef nonnull %79) #16
   br label %sndioSetFmt.exit.thread
 
-sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %105
-  %.sink.i = phi i64 [ %113, %111 ], [ %120, %117 ], [ 2, %105 ], [ 8, %114 ]
-  %122 = and i32 %.1, 2
-  %.not119 = icmp eq i32 %122, 0
-  br i1 %.not119, label %129, label %123
+sndioGetFmt.exit:                                 ; preds = %113, %110, %107, %101
+  %.sink.i = phi i64 [ %109, %107 ], [ %116, %113 ], [ 2, %101 ], [ 8, %110 ]
+  %118 = and i32 %.1, 2
+  %.not119 = icmp eq i32 %118, 0
+  br i1 %.not119, label %125, label %119
 
-123:                                              ; preds = %sndioGetFmt.exit
-  %124 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %125 = load i32, ptr %124, align 4, !tbaa !58
-  %126 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %127 = load i32, ptr %126, align 4, !tbaa !46
-  %.not120 = icmp eq i32 %125, %127
-  br i1 %.not120, label %129, label %128
+119:                                              ; preds = %sndioGetFmt.exit
+  %120 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %121 = load i32, ptr %120, align 4, !tbaa !58
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %123 = load i32, ptr %122, align 4, !tbaa !46
+  %.not120 = icmp eq i32 %121, %123
+  br i1 %.not120, label %125, label %124
 
-128:                                              ; preds = %123
-  call void @sio_close(ptr noundef nonnull %83) #16
+124:                                              ; preds = %119
+  call void @sio_close(ptr noundef nonnull %79) #16
   br label %sndioSetFmt.exit.thread
 
-129:                                              ; preds = %123, %sndioGetFmt.exit
-  %130 = and i32 %.1, 1
-  %.not121 = icmp eq i32 %130, 0
-  br i1 %.not121, label %137, label %131
+125:                                              ; preds = %119, %sndioGetFmt.exit
+  %126 = and i32 %.1, 1
+  %.not121 = icmp eq i32 %126, 0
+  br i1 %.not121, label %133, label %127
 
-131:                                              ; preds = %129
-  %132 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %133 = load i32, ptr %132, align 4, !tbaa !57
-  %134 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %135 = load i32, ptr %134, align 4, !tbaa !46
-  %.not122 = icmp eq i32 %133, %135
-  br i1 %.not122, label %137, label %136
+127:                                              ; preds = %125
+  %128 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %129 = load i32, ptr %128, align 4, !tbaa !57
+  %130 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %131 = load i32, ptr %130, align 4, !tbaa !46
+  %.not122 = icmp eq i32 %129, %131
+  br i1 %.not122, label %133, label %132
 
-136:                                              ; preds = %131
-  call void @sio_close(ptr noundef nonnull %83) #16
+132:                                              ; preds = %127
+  call void @sio_close(ptr noundef nonnull %79) #16
   br label %sndioSetFmt.exit.thread
 
-137:                                              ; preds = %131, %129
-  %138 = load i32, ptr %73, align 4, !tbaa !59
-  %139 = uitofp i32 %138 to double
-  %140 = fmul double %4, 0x3FEFD70A3D70A3D7
-  %141 = fcmp ogt double %140, %139
-  %142 = fmul double %4, 1.005000e+00
-  %143 = fcmp olt double %142, %139
-  %or.cond = or i1 %141, %143
-  br i1 %or.cond, label %144, label %145
+133:                                              ; preds = %127, %125
+  %134 = load i32, ptr %73, align 4, !tbaa !59
+  %135 = uitofp i32 %134 to double
+  %136 = fmul double %4, 0x3FEFD70A3D70A3D7
+  %137 = fcmp ogt double %136, %135
+  %138 = fmul double %4, 1.005000e+00
+  %139 = fcmp olt double %138, %135
+  %or.cond = or i1 %137, %139
+  br i1 %or.cond, label %140, label %141
 
-144:                                              ; preds = %137
-  call void @sio_close(ptr noundef nonnull %83) #16
+140:                                              ; preds = %133
+  call void @sio_close(ptr noundef nonnull %79) #16
   br label %sndioSetFmt.exit.thread
 
-145:                                              ; preds = %137
-  %146 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 520) #16
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %149
+141:                                              ; preds = %133
+  %142 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 520) #16
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %144, label %145
 
-148:                                              ; preds = %145
-  call void @sio_close(ptr noundef nonnull %83) #16
+144:                                              ; preds = %141
+  call void @sio_close(ptr noundef nonnull %79) #16
   br label %sndioSetFmt.exit.thread
 
-149:                                              ; preds = %145
+145:                                              ; preds = %141
   %.not123 = icmp eq ptr %7, null
   %.v = select i1 %.not123, i64 168, i64 72
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
-  call void @PaUtil_InitializeStreamRepresentation(ptr noundef nonnull %146, ptr noundef nonnull %150, ptr noundef %7, ptr noundef %8) #16
-  %151 = getelementptr inbounds nuw i8, ptr %146, i64 80
-  %152 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %153 = load i32, ptr %152, align 4, !tbaa !60
-  %154 = zext i32 %153 to i64
-  %155 = call i32 @PaUtil_InitializeBufferProcessor(ptr noundef nonnull %151, i32 noundef %.095, i64 noundef %.093, i64 noundef %.sink.i, i32 noundef %.094, i64 noundef %.092, i64 noundef %.sink.i, double noundef %4, i64 noundef %6, i64 noundef %5, i64 noundef %154, i32 noundef 0, ptr noundef %7, ptr noundef %8) #16
-  %.not124 = icmp eq i32 %155, 0
-  br i1 %.not124, label %157, label %156
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
+  call void @PaUtil_InitializeStreamRepresentation(ptr noundef nonnull %142, ptr noundef nonnull %146, ptr noundef %7, ptr noundef %8) #16
+  %147 = getelementptr inbounds nuw i8, ptr %142, i64 80
+  %148 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %149 = load i32, ptr %148, align 4, !tbaa !60
+  %150 = zext i32 %149 to i64
+  %151 = call i32 @PaUtil_InitializeBufferProcessor(ptr noundef nonnull %147, i32 noundef %.095, i64 noundef %.093, i64 noundef %.sink.i, i32 noundef %.094, i64 noundef %.092, i64 noundef %.sink.i, double noundef %4, i64 noundef %6, i64 noundef %5, i64 noundef %150, i32 noundef 0, ptr noundef %7, ptr noundef %8) #16
+  %.not124 = icmp eq i32 %151, 0
+  br i1 %.not124, label %153, label %152
 
-156:                                              ; preds = %149
-  call void @PaUtil_FreeMemory(ptr noundef nonnull %146) #16
-  call void @sio_close(ptr noundef nonnull %83) #16
+152:                                              ; preds = %145
+  call void @PaUtil_FreeMemory(ptr noundef nonnull %142) #16
+  call void @sio_close(ptr noundef nonnull %79) #16
   br label %sndioSetFmt.exit.thread
 
-157:                                              ; preds = %149
-  br i1 %.not119, label %170, label %158
+153:                                              ; preds = %145
+  br i1 %.not119, label %166, label %154
 
-158:                                              ; preds = %157
-  %159 = load i32, ptr %152, align 4, !tbaa !60
-  %160 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %161 = load i32, ptr %160, align 4, !tbaa !58
-  %162 = mul i32 %161, %159
-  %163 = load i32, ptr %92, align 4, !tbaa !55
-  %164 = mul i32 %162, %163
-  %165 = zext i32 %164 to i64
-  %166 = call noalias ptr @malloc(i64 noundef %165) #17
-  %167 = getelementptr inbounds nuw i8, ptr %146, i64 480
-  store ptr %166, ptr %167, align 8, !tbaa !61
-  %168 = icmp eq ptr %166, null
-  br i1 %168, label %169, label %170
+154:                                              ; preds = %153
+  %155 = load i32, ptr %148, align 4, !tbaa !60
+  %156 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %157 = load i32, ptr %156, align 4, !tbaa !58
+  %158 = mul i32 %157, %155
+  %159 = load i32, ptr %88, align 4, !tbaa !55
+  %160 = mul i32 %158, %159
+  %161 = zext i32 %160 to i64
+  %162 = call noalias ptr @malloc(i64 noundef %161) #17
+  %163 = getelementptr inbounds nuw i8, ptr %142, i64 480
+  store ptr %162, ptr %163, align 8, !tbaa !61
+  %164 = icmp eq ptr %162, null
+  br i1 %164, label %165, label %166
 
-169:                                              ; preds = %158
-  call void @PaUtil_FreeMemory(ptr noundef nonnull %146) #16
-  call void @sio_close(ptr noundef nonnull %83) #16
+165:                                              ; preds = %154
+  call void @PaUtil_FreeMemory(ptr noundef nonnull %142) #16
+  call void @sio_close(ptr noundef nonnull %79) #16
   br label %sndioSetFmt.exit.thread
 
-170:                                              ; preds = %158, %157
-  br i1 %.not121, label %.critedge, label %171
+166:                                              ; preds = %154, %153
+  br i1 %.not121, label %.critedge, label %167
 
-171:                                              ; preds = %170
-  %172 = load i32, ptr %152, align 4, !tbaa !60
-  %173 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %174 = load i32, ptr %173, align 4, !tbaa !57
-  %175 = mul i32 %174, %172
-  %176 = load i32, ptr %92, align 4, !tbaa !55
-  %177 = mul i32 %175, %176
-  %178 = zext i32 %177 to i64
-  %179 = call noalias ptr @malloc(i64 noundef %178) #17
-  %180 = getelementptr inbounds nuw i8, ptr %146, i64 488
-  store ptr %179, ptr %180, align 8, !tbaa !71
-  %181 = icmp eq ptr %179, null
-  br i1 %181, label %182, label %185
+167:                                              ; preds = %166
+  %168 = load i32, ptr %148, align 4, !tbaa !60
+  %169 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %170 = load i32, ptr %169, align 4, !tbaa !57
+  %171 = mul i32 %170, %168
+  %172 = load i32, ptr %88, align 4, !tbaa !55
+  %173 = mul i32 %171, %172
+  %174 = zext i32 %173 to i64
+  %175 = call noalias ptr @malloc(i64 noundef %174) #17
+  %176 = getelementptr inbounds nuw i8, ptr %142, i64 488
+  store ptr %175, ptr %176, align 8, !tbaa !71
+  %177 = icmp eq ptr %175, null
+  br i1 %177, label %178, label %181
 
-182:                                              ; preds = %171
-  %183 = getelementptr inbounds nuw i8, ptr %146, i64 480
-  %184 = load ptr, ptr %183, align 8, !tbaa !61
-  call void @free(ptr noundef %184) #16
-  call void @PaUtil_FreeMemory(ptr noundef nonnull %146) #16
-  call void @sio_close(ptr noundef nonnull %83) #16
+178:                                              ; preds = %167
+  %179 = getelementptr inbounds nuw i8, ptr %142, i64 480
+  %180 = load ptr, ptr %179, align 8, !tbaa !61
+  call void @free(ptr noundef %180) #16
+  call void @PaUtil_FreeMemory(ptr noundef nonnull %142) #16
+  call void @sio_close(ptr noundef nonnull %79) #16
   br label %sndioSetFmt.exit.thread
 
-185:                                              ; preds = %171
-  %186 = getelementptr inbounds nuw i8, ptr %146, i64 56
-  store double 0.000000e+00, ptr %186, align 8, !tbaa !72
-  %187 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %188 = load i32, ptr %187, align 4, !tbaa !73
-  %189 = zext i32 %188 to i64
-  %190 = call i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef nonnull %151) #16
-  %191 = add i64 %190, %189
-  %192 = uitofp i64 %191 to double
-  %193 = load i32, ptr %73, align 4, !tbaa !59
-  %194 = uitofp i32 %193 to double
-  %195 = fdiv double %192, %194
-  br label %197
+181:                                              ; preds = %167
+  %182 = getelementptr inbounds nuw i8, ptr %142, i64 56
+  store double 0.000000e+00, ptr %182, align 8, !tbaa !72
+  %183 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %184 = load i32, ptr %183, align 4, !tbaa !73
+  %185 = zext i32 %184 to i64
+  %186 = call i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef nonnull %147) #16
+  %187 = add i64 %186, %185
+  %188 = uitofp i64 %187 to double
+  %189 = load i32, ptr %73, align 4, !tbaa !59
+  %190 = uitofp i32 %189 to double
+  %191 = fdiv double %188, %190
+  br label %193
 
-.critedge:                                        ; preds = %170
-  %196 = getelementptr inbounds nuw i8, ptr %146, i64 56
-  store double 0.000000e+00, ptr %196, align 8, !tbaa !72
+.critedge:                                        ; preds = %166
+  %192 = getelementptr inbounds nuw i8, ptr %142, i64 56
+  store double 0.000000e+00, ptr %192, align 8, !tbaa !72
   %.pre = load i32, ptr %73, align 4, !tbaa !59
   %.pre141 = uitofp i32 %.pre to double
-  br label %197
+  br label %193
 
-197:                                              ; preds = %.critedge, %185
-  %.pre-phi = phi double [ %.pre141, %.critedge ], [ %194, %185 ]
-  %198 = phi double [ 0.000000e+00, %.critedge ], [ %195, %185 ]
-  %199 = getelementptr inbounds nuw i8, ptr %146, i64 64
-  store double %198, ptr %199, align 8, !tbaa !74
-  %200 = getelementptr inbounds nuw i8, ptr %146, i64 72
-  store double %.pre-phi, ptr %200, align 8, !tbaa !75
-  %201 = getelementptr inbounds nuw i8, ptr %146, i64 464
-  store i32 0, ptr %201, align 8, !tbaa !76
-  %202 = getelementptr inbounds nuw i8, ptr %146, i64 460
-  store i32 1, ptr %202, align 4, !tbaa !77
-  %203 = getelementptr inbounds nuw i8, ptr %146, i64 456
-  store i32 %.1, ptr %203, align 8, !tbaa !78
-  %204 = getelementptr inbounds nuw i8, ptr %146, i64 384
-  store ptr %83, ptr %204, align 8, !tbaa !79
-  %205 = getelementptr inbounds nuw i8, ptr %146, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %205, ptr noundef nonnull align 4 dereferenceable(64) %10, i64 64, i1 false), !tbaa.struct !80
-  store ptr %146, ptr %1, align 8, !tbaa !82
+193:                                              ; preds = %.critedge, %181
+  %.pre-phi = phi double [ %.pre141, %.critedge ], [ %190, %181 ]
+  %194 = phi double [ 0.000000e+00, %.critedge ], [ %191, %181 ]
+  %195 = getelementptr inbounds nuw i8, ptr %142, i64 64
+  store double %194, ptr %195, align 8, !tbaa !74
+  %196 = getelementptr inbounds nuw i8, ptr %142, i64 72
+  store double %.pre-phi, ptr %196, align 8, !tbaa !75
+  %197 = getelementptr inbounds nuw i8, ptr %142, i64 464
+  store i32 0, ptr %197, align 8, !tbaa !76
+  %198 = getelementptr inbounds nuw i8, ptr %142, i64 460
+  store i32 1, ptr %198, align 4, !tbaa !77
+  %199 = getelementptr inbounds nuw i8, ptr %142, i64 456
+  store i32 %.1, ptr %199, align 8, !tbaa !78
+  %200 = getelementptr inbounds nuw i8, ptr %142, i64 384
+  store ptr %79, ptr %200, align 8, !tbaa !79
+  %201 = getelementptr inbounds nuw i8, ptr %142, i64 392
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %201, ptr noundef nonnull align 4 dereferenceable(64) %10, i64 64, i1 false), !tbaa.struct !80
+  store ptr %142, ptr %1, align 8, !tbaa !82
   br label %sndioSetFmt.exit.thread
 
-sndioSetFmt.exit.thread:                          ; preds = %77, %52, %22, %78, %49, %45, %19, %15, %197, %182, %169, %156, %148, %144, %136, %128, %121, %90, %87
-  %.097 = phi i32 [ -9998, %128 ], [ -9998, %136 ], [ -9997, %144 ], [ -9992, %148 ], [ %155, %156 ], [ -9992, %169 ], [ -9992, %182 ], [ 0, %197 ], [ -9994, %121 ], [ -9999, %90 ], [ -9999, %87 ], [ -9996, %15 ], [ -9984, %19 ], [ -9996, %45 ], [ -9984, %49 ], [ -9999, %78 ], [ -9994, %22 ], [ -9994, %52 ], [ -9999, %77 ]
+sndioSetFmt.exit.thread:                          ; preds = %52, %22, %77, %78, %49, %45, %19, %15, %193, %178, %165, %152, %144, %140, %132, %124, %117, %86, %83
+  %.097 = phi i32 [ -9998, %124 ], [ -9998, %132 ], [ -9997, %140 ], [ -9992, %144 ], [ %151, %152 ], [ -9992, %165 ], [ -9992, %178 ], [ 0, %193 ], [ -9994, %117 ], [ -9999, %86 ], [ -9999, %83 ], [ -9996, %15 ], [ -9984, %19 ], [ -9996, %45 ], [ -9984, %49 ], [ -9999, %78 ], [ -9999, %77 ], [ -9994, %22 ], [ -9994, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.097
 }

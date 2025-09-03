@@ -15,6 +15,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [41 x i8] c"SQL function cannot accept shell type %s\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"functioncmds.c\00", align 1
@@ -4327,7 +4329,7 @@ define dso_local ptr @CallStmtResultDesc(ptr noundef readonly captures(none) %0)
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = phi i32 [ %14, %.lr.ph ], [ %30, %17 ]
+  %18 = phi i32 [ %14, %.lr.ph ], [ %29, %17 ]
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 4
   %21 = getelementptr i8, ptr %13, i64 %20
@@ -4338,15 +4340,13 @@ define dso_local ptr @CallStmtResultDesc(ptr noundef readonly captures(none) %0)
   %25 = load ptr, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = trunc i64 %indvars.iv.next to i16
-  %.idx = mul nuw nsw i64 %indvars.iv, 100
-  %27 = getelementptr i8, ptr %21, i64 28
-  %28 = getelementptr i8, ptr %27, i64 %.idx
-  %29 = tail call i32 @exprType(ptr noundef %25) #8
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %13, i16 noundef signext %26, ptr noundef nonnull %28, i32 noundef %29, i32 noundef -1, i32 noundef 0) #8
-  %30 = load i32, ptr %13, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %17, label %.loopexit, !llvm.loop !11
+  %27 = getelementptr %struct.FormData_pg_attribute, ptr %21, i64 %indvars.iv, i32 1, i32 0, i64 24
+  %28 = tail call i32 @exprType(ptr noundef %25) #8
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %13, i16 noundef signext %26, ptr noundef nonnull %27, i32 noundef %28, i32 noundef -1, i32 noundef 0) #8
+  %29 = load i32, ptr %13, align 8
+  %30 = sext i32 %29 to i64
+  %31 = icmp slt i64 %indvars.iv.next, %30
+  br i1 %31, label %17, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %17, %.preheader, %12
   ret ptr %13

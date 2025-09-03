@@ -3047,8 +3047,8 @@ H5MF__close_pagefs.exit:                          ; preds = %.thread.i, %137
   %indvars.iv.i10 = phi i64 [ 1, %.preheader73.i ], [ %indvars.iv.next.i11, %169 ]
   %170 = getelementptr inbounds nuw i64, ptr %168, i64 %indvars.iv.i10
   %171 = load i64, ptr %170, align 8, !tbaa !41
-  %172 = getelementptr i64, ptr %167, i64 %indvars.iv.i10
-  %173 = getelementptr i8, ptr %172, i64 -8
+  %172 = getelementptr i64, ptr %3, i64 %indvars.iv.i10
+  %173 = getelementptr i8, ptr %172, i64 40
   store i64 %171, ptr %173, align 8, !tbaa !41
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next.i11, 7

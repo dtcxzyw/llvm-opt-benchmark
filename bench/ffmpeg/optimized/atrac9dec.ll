@@ -80,7 +80,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
 
 9:                                                ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #9
-  br label %126
+  br label %125
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -90,7 +90,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
 
 13:                                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #9
-  br label %126
+  br label %125
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -101,7 +101,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
 
 19:                                               ; preds = %14
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %17) #9
-  br label %126
+  br label %125
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -112,7 +112,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
 
 24:                                               ; preds = %20
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #9
-  br label %126
+  br label %125
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 5
@@ -134,7 +134,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
 
 39:                                               ; preds = %25
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6) #9
-  br label %126
+  br label %125
 
 40:                                               ; preds = %25
   %41 = zext nneg i32 %37 to i64
@@ -154,7 +154,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
 
 49:                                               ; preds = %40
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7) #9
-  br label %126
+  br label %125
 
 50:                                               ; preds = %40
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 6
@@ -172,7 +172,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
 
 60:                                               ; preds = %50
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8) #9
-  br label %126
+  br label %125
 
 61:                                               ; preds = %50
   %62 = lshr i32 %58, 3
@@ -193,7 +193,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
   %74 = shl nuw i32 1, %70
   %75 = call i32 @av_tx_init(ptr noundef nonnull %72, ptr noundef nonnull %73, i32 noundef 1, i32 noundef 1, i32 noundef %74, ptr noundef nonnull %2, i64 noundef 0) #9
   %76 = icmp slt i32 %75, 0
-  br i1 %76, label %126, label %77
+  br i1 %76, label %125, label %77
 
 77:                                               ; preds = %61
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -203,86 +203,85 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %81, ptr %82, align 8, !tbaa !50
   %.not86 = icmp eq ptr %81, null
-  br i1 %.not86, label %126, label %.preheader103
+  br i1 %.not86, label %125, label %.preheader103
 
 .preheader103:                                    ; preds = %77
   %83 = load i32, ptr %71, align 4, !tbaa !47
   %.not107 = icmp eq i32 %83, 31
-  br i1 %.not107, label %.preheader102, label %.lr.ph
+  br i1 %.not107, label %.preheader.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader103
   %84 = shl nuw nsw i32 1, %83
   %85 = uitofp nneg i32 %84 to float
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 47424
   %wide.trip.count = zext nneg i32 %84 to i64
-  br label %88
+  br label %87
 
-.preheader102:                                    ; preds = %88, %.preheader103
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 45120
-  br label %.preheader
-
-88:                                               ; preds = %.lr.ph, %88
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %89 = trunc nuw nsw i64 %indvars.iv to i32
-  %90 = uitofp nneg i32 %89 to float
-  %91 = fadd nsz float %90, 5.000000e-01
-  %92 = fdiv nsz float %91, %85
-  %93 = trunc i64 %indvars.iv to i32
-  %94 = sub i32 %84, %93
-  %95 = sitofp i32 %94 to float
-  %96 = fadd nsz float %95, -5.000000e-01
-  %97 = fdiv nsz float %96, %85
-  %98 = fpext nsz float %92 to double
-  %99 = call nsz double @llvm.fmuladd.f64(double %98, double 0x400921FB54442D18, double 0xBFF921FB54442D18)
-  %100 = fptrunc nsz double %99 to float
-  %101 = call nsz float @llvm.sin.f32(float %100)
-  %102 = call nsz float @llvm.fmuladd.f32(float %101, float 5.000000e-01, float 5.000000e-01)
-  %103 = fpext nsz float %97 to double
-  %104 = call nsz double @llvm.fmuladd.f64(double %103, double 0x400921FB54442D18, double 0xBFF921FB54442D18)
-  %105 = fptrunc nsz double %104 to float
-  %106 = call nsz float @llvm.sin.f32(float %105)
-  %107 = call nsz float @llvm.fmuladd.f32(float %106, float 5.000000e-01, float 5.000000e-01)
-  %108 = fmul nsz float %107, %107
-  %109 = call nsz float @llvm.fmuladd.f32(float %102, float %102, float %108)
-  %110 = fdiv nsz float %102, %109
-  %111 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv
-  store float %110, ptr %111, align 4, !tbaa !48
+87:                                               ; preds = %.lr.ph, %87
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
+  %88 = trunc nuw nsw i64 %indvars.iv to i32
+  %89 = uitofp nneg i32 %88 to float
+  %90 = fadd nsz float %89, 5.000000e-01
+  %91 = fdiv nsz float %90, %85
+  %92 = trunc i64 %indvars.iv to i32
+  %93 = sub i32 %84, %92
+  %94 = sitofp i32 %93 to float
+  %95 = fadd nsz float %94, -5.000000e-01
+  %96 = fdiv nsz float %95, %85
+  %97 = fpext nsz float %91 to double
+  %98 = call nsz double @llvm.fmuladd.f64(double %97, double 0x400921FB54442D18, double 0xBFF921FB54442D18)
+  %99 = fptrunc nsz double %98 to float
+  %100 = call nsz float @llvm.sin.f32(float %99)
+  %101 = call nsz float @llvm.fmuladd.f32(float %100, float 5.000000e-01, float 5.000000e-01)
+  %102 = fpext nsz float %96 to double
+  %103 = call nsz double @llvm.fmuladd.f64(double %102, double 0x400921FB54442D18, double 0xBFF921FB54442D18)
+  %104 = fptrunc nsz double %103 to float
+  %105 = call nsz float @llvm.sin.f32(float %104)
+  %106 = call nsz float @llvm.fmuladd.f32(float %105, float 5.000000e-01, float 5.000000e-01)
+  %107 = fmul nsz float %106, %106
+  %108 = call nsz float @llvm.fmuladd.f32(float %101, float %101, float %107)
+  %109 = fdiv nsz float %101, %108
+  %110 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv
+  store float %109, ptr %110, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader102, label %88, !llvm.loop !51
+  br i1 %exitcond.not, label %.preheader.preheader, label %87, !llvm.loop !51
 
-.preheader:                                       ; preds = %.preheader102, %117
-  %indvars.iv114 = phi i64 [ 1, %.preheader102 ], [ %indvars.iv.next115, %117 ]
-  %112 = getelementptr [48 x i8], ptr %87, i64 %indvars.iv114
-  %113 = getelementptr i8, ptr %112, i64 -48
-  %114 = trunc nuw nsw i64 %indvars.iv114 to i32
-  br label %118
+.preheader.preheader:                             ; preds = %87, %.preheader103
+  br label %.preheader
 
-115:                                              ; preds = %117
-  %116 = call i32 @pthread_once(ptr noundef nonnull @atrac9_decode_init.static_table_init, ptr noundef nonnull @atrac9_init_static) #9
-  br label %126
+.preheader:                                       ; preds = %.preheader.preheader, %116
+  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %116 ], [ 1, %.preheader.preheader ]
+  %111 = getelementptr [48 x i8], ptr %4, i64 %indvars.iv114
+  %112 = getelementptr i8, ptr %111, i64 45072
+  %113 = trunc nuw nsw i64 %indvars.iv114 to i32
+  br label %117
 
-117:                                              ; preds = %118
+114:                                              ; preds = %116
+  %115 = call i32 @pthread_once(ptr noundef nonnull @atrac9_decode_init.static_table_init, ptr noundef nonnull @atrac9_init_static) #9
+  br label %125
+
+116:                                              ; preds = %117
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next115, 49
-  br i1 %exitcond117.not, label %115, label %.preheader, !llvm.loop !53
+  br i1 %exitcond117.not, label %114, label %.preheader, !llvm.loop !53
 
-118:                                              ; preds = %.preheader, %118
-  %indvars.iv109 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next110, %118 ]
-  %119 = trunc i64 %indvars.iv109 to i32
-  %120 = mul i32 %119, 48
-  %121 = udiv i32 %120, %114
-  %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw i8, ptr @at9_tab_b_dist, i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !37
-  %125 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv109
-  store i8 %124, ptr %125, align 1, !tbaa !37
+117:                                              ; preds = %.preheader, %117
+  %indvars.iv109 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next110, %117 ]
+  %118 = trunc i64 %indvars.iv109 to i32
+  %119 = mul i32 %118, 48
+  %120 = udiv i32 %119, %113
+  %121 = zext nneg i32 %120 to i64
+  %122 = getelementptr inbounds nuw i8, ptr @at9_tab_b_dist, i64 %121
+  %123 = load i8, ptr %122, align 1, !tbaa !37
+  %124 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv109
+  store i8 %123, ptr %124, align 1, !tbaa !37
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %indvars.iv114
-  br i1 %exitcond113.not, label %117, label %118, !llvm.loop !54
+  br i1 %exitcond113.not, label %116, label %117, !llvm.loop !54
 
-126:                                              ; preds = %77, %61, %115, %60, %49, %39, %24, %19, %13, %9
-  %.075 = phi i32 [ -1094995529, %9 ], [ -1094995529, %13 ], [ -1094995529, %19 ], [ -1094995529, %24 ], [ -1094995529, %39 ], [ -1094995529, %49 ], [ -1094995529, %60 ], [ 0, %115 ], [ %75, %61 ], [ -12, %77 ]
+125:                                              ; preds = %77, %61, %114, %60, %49, %39, %24, %19, %13, %9
+  %.075 = phi i32 [ -1094995529, %9 ], [ -1094995529, %13 ], [ -1094995529, %19 ], [ -1094995529, %24 ], [ -1094995529, %39 ], [ -1094995529, %49 ], [ -1094995529, %60 ], [ 0, %114 ], [ %75, %61 ], [ -12, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.075
 }
@@ -3062,39 +3061,35 @@ define internal void @atrac9_decode_flush(ptr noundef readonly captures(none) %0
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br label %10
-
-._crit_edge:                                      ; preds = %17, %1
+._crit_edge:                                      ; preds = %15, %1
   ret void
 
-10:                                               ; preds = %.lr.ph, %17
-  %indvars.iv17 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next18, %17 ]
-  %11 = phi ptr [ %5, %.lr.ph ], [ %18, %17 ]
-  %12 = getelementptr inbounds nuw %struct.ATRAC9BlockData, ptr %9, i64 %indvars.iv17
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv17
-  %15 = load i32, ptr %14, align 4, !tbaa !39
-  %16 = icmp eq i32 %15, 1
-  br label %23
+.lr.ph:                                           ; preds = %1, %15
+  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %15 ], [ 0, %1 ]
+  %9 = phi ptr [ %16, %15 ], [ %5, %1 ]
+  %10 = getelementptr inbounds nuw %struct.ATRAC9BlockData, ptr %3, i64 %indvars.iv17
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv17
+  %13 = load i32, ptr %12, align 4, !tbaa !39
+  %14 = icmp eq i32 %13, 1
+  br label %21
 
-17:                                               ; preds = %23
+15:                                               ; preds = %21
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %18 = load ptr, ptr %4, align 8, !tbaa !41
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 84
-  %20 = load i32, ptr %19, align 4, !tbaa !63
-  %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next18, %21
-  br i1 %22, label %10, label %._crit_edge, !llvm.loop !154
+  %16 = load ptr, ptr %4, align 8, !tbaa !41
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 84
+  %18 = load i32, ptr %17, align 4, !tbaa !63
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next18, %19
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !154
 
-23:                                               ; preds = %10, %23
-  %24 = phi i1 [ true, %10 ], [ false, %23 ]
-  %indvars.iv = phi i64 [ 0, %10 ], [ 1, %23 ]
-  %25 = getelementptr inbounds nuw %struct.ATRAC9ChannelData, ptr %12, i64 %indvars.iv, i32 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %25, i8 0, i64 512, i1 false)
-  %.not.not = and i1 %24, %16
-  br i1 %.not.not, label %23, label %17, !llvm.loop !155
+21:                                               ; preds = %.lr.ph, %21
+  %22 = phi i1 [ true, %.lr.ph ], [ false, %21 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %21 ]
+  %23 = getelementptr inbounds nuw %struct.ATRAC9ChannelData, ptr %10, i64 %indvars.iv, i32 12, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %23, i8 0, i64 512, i1 false)
+  %.not.not = and i1 %22, %14
+  br i1 %.not.not, label %21, label %15, !llvm.loop !155
 }
 
 declare void @av_lfg_init(ptr noundef, i32 noundef) local_unnamed_addr #3

@@ -1652,44 +1652,40 @@ _ZN12ResourceMarkD2Ev.exit65:                     ; preds = %218, %216, %174
   %228 = icmp sgt i32 %.pre, 0
   br i1 %228, label %.lr.ph.i, label %_ZN11vframeArray25deallocate_monitor_chunksEv.exit
 
-.lr.ph.i:                                         ; preds = %._crit_edge85
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 5136
-  br label %230
+.lr.ph.i:                                         ; preds = %._crit_edge85, %_ZN18vframeArrayElement13free_monitorsEv.exit.i
+  %229 = phi i32 [ %234, %_ZN18vframeArrayElement13free_monitorsEv.exit.i ], [ %.pre, %._crit_edge85 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN18vframeArrayElement13free_monitorsEv.exit.i ], [ 0, %._crit_edge85 ]
+  %230 = getelementptr inbounds nuw %class.vframeArrayElement, ptr %0, i64 %indvars.iv.i
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 5136
+  %232 = load ptr, ptr %231, align 8
+  %.not.i.i66 = icmp eq ptr %232, null
+  br i1 %.not.i.i66, label %_ZN18vframeArrayElement13free_monitorsEv.exit.i, label %233
 
-230:                                              ; preds = %_ZN18vframeArrayElement13free_monitorsEv.exit.i, %.lr.ph.i
-  %231 = phi i32 [ %.pre, %.lr.ph.i ], [ %235, %_ZN18vframeArrayElement13free_monitorsEv.exit.i ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN18vframeArrayElement13free_monitorsEv.exit.i ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 96
-  %232 = getelementptr inbounds nuw i8, ptr %229, i64 %.idx.i
-  %233 = load ptr, ptr %232, align 8
-  %.not.i.i66 = icmp eq ptr %233, null
-  br i1 %.not.i.i66, label %_ZN18vframeArrayElement13free_monitorsEv.exit.i, label %234
-
-234:                                              ; preds = %230
-  store ptr null, ptr %232, align 8
-  call void @_ZN12MonitorChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %233) #13
-  call void @_Z8FreeHeapPv(ptr noundef nonnull %233) #13
+233:                                              ; preds = %.lr.ph.i
+  store ptr null, ptr %231, align 8
+  call void @_ZN12MonitorChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %232) #13
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %232) #13
   %.pre.i = load i32, ptr %25, align 4
   br label %_ZN18vframeArrayElement13free_monitorsEv.exit.i
 
-_ZN18vframeArrayElement13free_monitorsEv.exit.i:  ; preds = %234, %230
-  %235 = phi i32 [ %231, %230 ], [ %.pre.i, %234 ]
+_ZN18vframeArrayElement13free_monitorsEv.exit.i:  ; preds = %233, %.lr.ph.i
+  %234 = phi i32 [ %229, %.lr.ph.i ], [ %.pre.i, %233 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %236 = sext i32 %235 to i64
-  %237 = icmp slt i64 %indvars.iv.next.i, %236
-  br i1 %237, label %230, label %_ZN11vframeArray25deallocate_monitor_chunksEv.exit, !llvm.loop !23
+  %235 = sext i32 %234 to i64
+  %236 = icmp slt i64 %indvars.iv.next.i, %235
+  br i1 %236, label %.lr.ph.i, label %_ZN11vframeArray25deallocate_monitor_chunksEv.exit, !llvm.loop !23
 
 _ZN11vframeArray25deallocate_monitor_chunksEv.exit: ; preds = %_ZN18vframeArrayElement13free_monitorsEv.exit.i, %_ZN12ResourceMarkD2Ev.exit, %._crit_edge85
-  %238 = load i8, ptr @TraceDeoptimization, align 1
-  %239 = trunc i8 %238 to i1
-  br i1 %239, label %240, label %242
+  %237 = load i8, ptr @TraceDeoptimization, align 1
+  %238 = trunc i8 %237 to i1
+  br i1 %238, label %239, label %241
 
-240:                                              ; preds = %_ZN11vframeArray25deallocate_monitor_chunksEv.exit
-  %241 = load ptr, ptr @tty, align 8
-  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %241) #13
-  br label %242
+239:                                              ; preds = %_ZN11vframeArray25deallocate_monitor_chunksEv.exit
+  %240 = load ptr, ptr @tty, align 8
+  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %240) #13
+  br label %241
 
-242:                                              ; preds = %240, %_ZN11vframeArray25deallocate_monitor_chunksEv.exit
+241:                                              ; preds = %239, %_ZN11vframeArray25deallocate_monitor_chunksEv.exit
   ret void
 }
 
@@ -1784,32 +1780,28 @@ define hidden void @_ZN11vframeArray25deallocate_monitor_chunksEv(ptr noundef no
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5136
-  br label %6
+.lr.ph:                                           ; preds = %1, %_ZN18vframeArrayElement13free_monitorsEv.exit
+  %5 = phi i32 [ %10, %_ZN18vframeArrayElement13free_monitorsEv.exit ], [ %3, %1 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN18vframeArrayElement13free_monitorsEv.exit ], [ 0, %1 ]
+  %6 = getelementptr inbounds nuw %class.vframeArrayElement, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 5136
+  %8 = load ptr, ptr %7, align 8
+  %.not.i = icmp eq ptr %8, null
+  br i1 %.not.i, label %_ZN18vframeArrayElement13free_monitorsEv.exit, label %9
 
-6:                                                ; preds = %.lr.ph, %_ZN18vframeArrayElement13free_monitorsEv.exit
-  %7 = phi i32 [ %3, %.lr.ph ], [ %11, %_ZN18vframeArrayElement13free_monitorsEv.exit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN18vframeArrayElement13free_monitorsEv.exit ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 96
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %9 = load ptr, ptr %8, align 8
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN18vframeArrayElement13free_monitorsEv.exit, label %10
-
-10:                                               ; preds = %6
-  store ptr null, ptr %8, align 8
-  tail call void @_ZN12MonitorChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #13
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %9) #13
+9:                                                ; preds = %.lr.ph
+  store ptr null, ptr %7, align 8
+  tail call void @_ZN12MonitorChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %8) #13
   %.pre = load i32, ptr %2, align 4
   br label %_ZN18vframeArrayElement13free_monitorsEv.exit
 
-_ZN18vframeArrayElement13free_monitorsEv.exit:    ; preds = %6, %10
-  %11 = phi i32 [ %7, %6 ], [ %.pre, %10 ]
+_ZN18vframeArrayElement13free_monitorsEv.exit:    ; preds = %.lr.ph, %9
+  %10 = phi i32 [ %5, %.lr.ph ], [ %.pre, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = sext i32 %11 to i64
-  %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %6, label %._crit_edge, !llvm.loop !23
+  %11 = sext i32 %10 to i64
+  %12 = icmp slt i64 %indvars.iv.next, %11
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN18vframeArrayElement13free_monitorsEv.exit, %1
   ret void

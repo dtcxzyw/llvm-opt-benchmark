@@ -109597,9 +109597,8 @@ define hidden void @"_ZN4gpui12subscription42SubscriberSet$LT$EmitterKey$C$Callb
 
 187:                                              ; preds = %.noexc89
   %.sroa.21.0.copyload.i88 = load i64, ptr %.sroa.21.0..sroa_idx.i87, align 8, !noalias !21364
-  %.sroa.6138.8..sroa_idx.idx = mul nsw i64 %.sroa.21.0.copyload.i88, 24
-  %188 = getelementptr i8, ptr %173, i64 24
-  %.sroa.6138.8..sroa_idx = getelementptr i8, ptr %188, i64 %.sroa.6138.8..sroa_idx.idx
+  %188 = getelementptr { [3 x i64] }, ptr %173, i64 %.sroa.21.0.copyload.i88
+  %.sroa.6138.8..sroa_idx = getelementptr i8, ptr %188, i64 24
   %.sroa.6138.8.copyload = load i64, ptr %.sroa.6138.8..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !21364
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -152932,9 +152931,8 @@ define void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualConte
 
 225:                                              ; preds = %.noexc94.i
   %.sroa.21.0.copyload.i93.i = load i64, ptr %.sroa.21.0..sroa_idx.i92.i, align 8, !noalias !30659
-  %.sroa.622.8..sroa_idx.idx.i = mul nsw i64 %.sroa.21.0.copyload.i93.i, 24
-  %226 = getelementptr i8, ptr %211, i64 24
-  %.sroa.622.8..sroa_idx.i = getelementptr i8, ptr %226, i64 %.sroa.622.8..sroa_idx.idx.i
+  %226 = getelementptr { [3 x i64] }, ptr %211, i64 %.sroa.21.0.copyload.i93.i
+  %.sroa.622.8..sroa_idx.i = getelementptr i8, ptr %226, i64 24
   %.sroa.622.8.copyload.i = load i64, ptr %.sroa.622.8..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !30659
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !30521

@@ -4078,8 +4078,8 @@ l3_unscale.exit.i.i:                              ; preds = %1756, %get_bitsz.ex
   %1795 = shl i32 %1794, 24
   %1796 = and i32 %1795, -2147483648
   %1797 = xor i32 %1796, %1782
-  %1798 = getelementptr inbounds float, ptr %1589, i64 %indvars.iv.i385.i
-  %1799 = getelementptr inbounds nuw i8, ptr %1798, i64 4
+  %1798 = getelementptr float, ptr %1297, i64 %indvars.iv.i385.i
+  %1799 = getelementptr i8, ptr %1798, i64 132
   store i32 %1797, ptr %1799, align 4, !tbaa !46
   br label %1928
 
@@ -4148,8 +4148,8 @@ l3_unscale.exit205.i.i:                           ; preds = %1827, %get_bitsz.ex
   %1847 = sub nsw i32 0, %.0.i204.i.i
   %spec.select185.i.i = select i1 %.not184.i.i, i32 %.0.i204.i.i, i32 %1847
   %1848 = sitofp i32 %spec.select185.i.i to float
-  %1849 = getelementptr float, ptr %1589, i64 %indvars.iv.i385.i
-  %1850 = getelementptr i8, ptr %1849, i64 4
+  %1849 = getelementptr float, ptr %1297, i64 %indvars.iv.i385.i
+  %1850 = getelementptr i8, ptr %1849, i64 132
   store float %1848, ptr %1850, align 4, !tbaa !89
   br label %1928
 
@@ -5494,62 +5494,61 @@ define internal fastcc range(i32 -1094995529, 1) i32 @handle_crc(ptr noundef rea
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !102
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %41, label %6
+  br i1 %.not, label %40, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32936
   %8 = load i32, ptr %7, align 8, !tbaa !41
   %9 = and i32 %8, 1
   %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %41, label %10
+  br i1 %.not25, label %40, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %12 = load ptr, ptr %11, align 16, !tbaa !199
-  %13 = getelementptr inbounds i8, ptr %12, i64 -4
-  %14 = ashr i32 %1, 3
-  %15 = and i32 %1, 7
-  %16 = tail call ptr @av_crc_get_table(i32 noundef 1) #14
+  %13 = ashr i32 %1, 3
+  %14 = and i32 %1, 7
+  %15 = tail call ptr @av_crc_get_table(i32 noundef 1) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %17 = getelementptr inbounds i8, ptr %12, i64 -2
-  %18 = tail call i32 @av_crc(ptr noundef %16, i32 noundef 65535, ptr noundef nonnull %17, i64 noundef 2) #18
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %20 = sext i32 %14 to i64
-  %21 = tail call i32 @av_crc(ptr noundef %16, i32 noundef %18, ptr noundef nonnull %19, i64 noundef %20) #18
-  %22 = getelementptr i8, ptr %13, i64 %20
-  %23 = getelementptr i8, ptr %22, i64 6
-  %24 = load i8, ptr %23, align 1, !tbaa !46
-  %25 = zext i8 %24 to i32
-  %26 = lshr exact i32 65280, %15
-  %27 = and i32 %26, %25
-  %28 = shl nuw i32 %27, 24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 33016
-  %30 = load i32, ptr %29, align 8, !tbaa !103
-  %31 = shl i32 %30, 16
-  %32 = lshr exact i32 %31, %15
-  %33 = add i32 %28, %32
-  %34 = tail call i32 @llvm.bswap.i32(i32 %33)
-  store i32 %34, ptr %3, align 4, !tbaa !46
-  %35 = call i32 @av_crc(ptr noundef %16, i32 noundef %21, ptr noundef nonnull %3, i64 noundef 3) #18
-  %.not26 = icmp eq i32 %35, 0
-  br i1 %.not26, label %.sink.split, label %36
+  %16 = getelementptr inbounds i8, ptr %12, i64 -2
+  %17 = tail call i32 @av_crc(ptr noundef %15, i32 noundef 65535, ptr noundef nonnull %16, i64 noundef 2) #18
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %19 = sext i32 %13 to i64
+  %20 = tail call i32 @av_crc(ptr noundef %15, i32 noundef %17, ptr noundef nonnull %18, i64 noundef %19) #18
+  %21 = getelementptr i8, ptr %12, i64 %19
+  %22 = getelementptr i8, ptr %21, i64 2
+  %23 = load i8, ptr %22, align 1, !tbaa !46
+  %24 = zext i8 %23 to i32
+  %25 = lshr exact i32 65280, %14
+  %26 = and i32 %25, %24
+  %27 = shl nuw i32 %26, 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 33016
+  %29 = load i32, ptr %28, align 8, !tbaa !103
+  %30 = shl i32 %29, 16
+  %31 = lshr exact i32 %30, %14
+  %32 = add i32 %27, %31
+  %33 = tail call i32 @llvm.bswap.i32(i32 %32)
+  store i32 %33, ptr %3, align 4, !tbaa !46
+  %34 = call i32 @av_crc(ptr noundef %15, i32 noundef %20, ptr noundef nonnull %3, i64 noundef 3) #18
+  %.not26 = icmp eq i32 %34, 0
+  br i1 %.not26, label %.sink.split, label %35
 
-36:                                               ; preds = %10
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32944
-  %38 = load ptr, ptr %37, align 16, !tbaa !27
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %38, i32 noundef 16, ptr noundef nonnull @.str.25, i32 noundef %35) #14
-  %39 = load i32, ptr %7, align 8, !tbaa !41
-  %40 = and i32 %39, 8
-  %.not27 = icmp eq i32 %40, 0
+35:                                               ; preds = %10
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32944
+  %37 = load ptr, ptr %36, align 16, !tbaa !27
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %37, i32 noundef 16, ptr noundef nonnull @.str.25, i32 noundef %34) #14
+  %38 = load i32, ptr %7, align 8, !tbaa !41
+  %39 = and i32 %38, 8
+  %.not27 = icmp eq i32 %39, 0
   %spec.select = select i1 %.not27, i32 0, i32 -1094995529
   br label %.sink.split
 
-.sink.split:                                      ; preds = %36, %10
-  %.1.ph = phi i32 [ 0, %10 ], [ %spec.select, %36 ]
+.sink.split:                                      ; preds = %35, %10
+  %.1.ph = phi i32 [ 0, %10 ], [ %spec.select, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %41
+  br label %40
 
-41:                                               ; preds = %.sink.split, %2, %6
+40:                                               ; preds = %.sink.split, %2, %6
   %.1 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %.1.ph, %.sink.split ]
   ret i32 %.1
 }

@@ -7068,7 +7068,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr340 = phi ptr [ %.tr340.ph, %tailrecurse.outer ], [ %.tr340.be, %tailrecurse.backedge ]
   %4 = load i16, ptr %.tr340, align 8
   %5 = and i16 %4, 511
-  switch i16 %5, label %348 [
+  switch i16 %5, label %347 [
     i16 63, label %6
     i16 99, label %.thread317.loopexit705
     i16 85, label %9
@@ -7887,65 +7887,64 @@ _ZNK5clang6IfStmt7getElseEv.exit.thread:          ; preds = %274, %_ZNK5clang6If
   br i1 %.not.i284, label %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread, label %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit
 
 _ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit: ; preds = %315
-  %319 = getelementptr inbounds nuw i8, ptr %.tr340, i64 16
-  %320 = getelementptr inbounds nuw i8, ptr %.tr340, i64 12
-  %321 = load i16, ptr %320, align 4
-  %322 = zext i16 %321 to i64
-  %323 = getelementptr inbounds nuw ptr, ptr %319, i64 %322
-  %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
-  %325 = load ptr, ptr %324, align 8, !tbaa !1227
-  %.not = icmp eq ptr %325, null
-  br i1 %.not, label %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread, label %326
+  %319 = getelementptr inbounds nuw i8, ptr %.tr340, i64 12
+  %320 = load i16, ptr %319, align 4
+  %321 = zext i16 %320 to i64
+  %322 = getelementptr inbounds nuw ptr, ptr %.tr340, i64 %321
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 24
+  %324 = load ptr, ptr %323, align 8, !tbaa !1227
+  %.not = icmp eq ptr %324, null
+  br i1 %.not, label %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread, label %325
 
-326:                                              ; preds = %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit
-  %327 = tail call noundef i32 @_ZN5clang4Sema8canThrowEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %325)
-  %328 = tail call noundef i32 @llvm.smax.i32(i32 %327, i32 0)
+325:                                              ; preds = %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit
+  %326 = tail call noundef i32 @_ZN5clang4Sema8canThrowEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %324)
+  %327 = tail call noundef i32 @llvm.smax.i32(i32 %326, i32 0)
   br label %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread
 
-_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread: ; preds = %315, %326, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit
-  %.0196 = phi i32 [ %328, %326 ], [ 0, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit ], [ 0, %315 ]
-  %329 = getelementptr inbounds nuw i8, ptr %.tr340, i64 12
-  %330 = load i16, ptr %329, align 4
-  %.not233444 = icmp eq i16 %330, 0
+_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread: ; preds = %315, %325, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit
+  %.0196 = phi i32 [ %327, %325 ], [ 0, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit ], [ 0, %315 ]
+  %328 = getelementptr inbounds nuw i8, ptr %.tr340, i64 12
+  %329 = load i16, ptr %328, align 4
+  %.not233444 = icmp eq i16 %329, 0
   br i1 %.not233444, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread
-  %331 = zext i16 %330 to i32
-  %332 = getelementptr inbounds nuw i8, ptr %.tr340, i64 16
-  br label %335
+  %330 = zext i16 %329 to i32
+  %331 = getelementptr inbounds nuw i8, ptr %.tr340, i64 16
+  br label %334
 
-333:                                              ; preds = %335
-  %334 = add nsw i32 %.0185446, -1
-  %.not233 = icmp eq i32 %334, 0
-  br i1 %.not233, label %._crit_edge, label %335, !llvm.loop !1263
+332:                                              ; preds = %334
+  %333 = add nsw i32 %.0185446, -1
+  %.not233 = icmp eq i32 %333, 0
+  br i1 %.not233, label %._crit_edge, label %334, !llvm.loop !1263
 
-335:                                              ; preds = %.lr.ph, %333
-  %.0185446 = phi i32 [ %331, %.lr.ph ], [ %334, %333 ]
-  %.1197445 = phi i32 [ %.0196, %.lr.ph ], [ %340, %333 ]
-  %336 = zext nneg i32 %.0185446 to i64
-  %337 = getelementptr inbounds nuw ptr, ptr %332, i64 %336
-  %338 = load ptr, ptr %337, align 8, !tbaa !1227
-  %339 = tail call noundef i32 @_ZN5clang4Sema8canThrowEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %338)
-  %340 = tail call noundef i32 @llvm.smax.i32(i32 %.1197445, i32 %339)
-  %341 = getelementptr inbounds nuw i8, ptr %338, i64 8
-  %342 = load ptr, ptr %341, align 8, !tbaa !1264
-  %343 = icmp eq ptr %342, null
-  br i1 %343, label %common.ret, label %333
+334:                                              ; preds = %.lr.ph, %332
+  %.0185446 = phi i32 [ %330, %.lr.ph ], [ %333, %332 ]
+  %.1197445 = phi i32 [ %.0196, %.lr.ph ], [ %339, %332 ]
+  %335 = zext nneg i32 %.0185446 to i64
+  %336 = getelementptr inbounds nuw ptr, ptr %331, i64 %335
+  %337 = load ptr, ptr %336, align 8, !tbaa !1227
+  %338 = tail call noundef i32 @_ZN5clang4Sema8canThrowEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %337)
+  %339 = tail call noundef i32 @llvm.smax.i32(i32 %.1197445, i32 %338)
+  %340 = getelementptr inbounds nuw i8, ptr %337, i64 8
+  %341 = load ptr, ptr %340, align 8, !tbaa !1264
+  %342 = icmp eq ptr %341, null
+  br i1 %342, label %common.ret, label %332
 
-common.ret:                                       ; preds = %271, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %335, %.critedge.thread, %231, %218, %.lr.ph460, %124, %.lr.ph468, %23, %60, %129, %139, %151, %187, %20, %17, %9, %38, %.thread, %57, %52, %44, %77, %.thread308, %109, %115, %131, %292, %294, %313, %103, %106, %143, %64, %118, %_ZNK5clang8DeclStmt5declsEv.exit, %.thread317.loopexit603, %.thread317.loopexit705, %._crit_edge
-  %.0.sink = phi i32 [ %347, %._crit_edge ], [ %24, %23 ], [ %63, %60 ], [ %130, %129 ], [ %140, %139 ], [ %156, %151 ], [ %188, %187 ], [ 2, %9 ], [ %22, %20 ], [ 2, %17 ], [ %43, %.thread ], [ 2, %38 ], [ 2, %44 ], [ %59, %57 ], [ 2, %52 ], [ %83, %.thread308 ], [ 2, %77 ], [ %117, %115 ], [ 2, %109 ], [ 2, %131 ], [ %293, %292 ], [ %300, %294 ], [ %314, %313 ], [ %108, %106 ], [ 2, %103 ], [ 2, %143 ], [ 0, %64 ], [ 0, %118 ], [ 0, %_ZNK5clang8DeclStmt5declsEv.exit ], [ 0, %.thread317.loopexit603 ], [ %.0.ph706, %.thread317.loopexit705 ], [ %72, %.lr.ph468 ], [ %128, %124 ], [ 2, %.lr.ph460 ], [ 2, %218 ], [ 2, %231 ], [ %.2213, %.critedge.thread ], [ %340, %335 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ %265, %271 ]
+common.ret:                                       ; preds = %271, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %334, %.critedge.thread, %231, %218, %.lr.ph460, %124, %.lr.ph468, %23, %60, %129, %139, %151, %187, %20, %17, %9, %38, %.thread, %57, %52, %44, %77, %.thread308, %109, %115, %131, %292, %294, %313, %103, %106, %143, %64, %118, %_ZNK5clang8DeclStmt5declsEv.exit, %.thread317.loopexit603, %.thread317.loopexit705, %._crit_edge
+  %.0.sink = phi i32 [ %346, %._crit_edge ], [ %24, %23 ], [ %63, %60 ], [ %130, %129 ], [ %140, %139 ], [ %156, %151 ], [ %188, %187 ], [ 2, %9 ], [ %22, %20 ], [ 2, %17 ], [ %43, %.thread ], [ 2, %38 ], [ 2, %44 ], [ %59, %57 ], [ 2, %52 ], [ %83, %.thread308 ], [ 2, %77 ], [ %117, %115 ], [ 2, %109 ], [ 2, %131 ], [ %293, %292 ], [ %300, %294 ], [ %314, %313 ], [ %108, %106 ], [ 2, %103 ], [ 2, %143 ], [ 0, %64 ], [ 0, %118 ], [ 0, %_ZNK5clang8DeclStmt5declsEv.exit ], [ 0, %.thread317.loopexit603 ], [ %.0.ph706, %.thread317.loopexit705 ], [ %72, %.lr.ph468 ], [ %128, %124 ], [ 2, %.lr.ph460 ], [ 2, %218 ], [ 2, %231 ], [ %.2213, %.critedge.thread ], [ %339, %334 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ %265, %271 ]
   %accumulator.ret.tr341 = tail call noundef i32 @llvm.smax.i32(i32 %.0.sink, i32 %accumulator.tr.ph)
   ret i32 %accumulator.ret.tr341
 
-._crit_edge:                                      ; preds = %333, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread
-  %.1197.lcssa = phi i32 [ %.0196, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread ], [ %340, %333 ]
-  %344 = getelementptr inbounds nuw i8, ptr %.tr340, i64 16
-  %345 = load ptr, ptr %344, align 8, !tbaa !1227
-  %346 = tail call noundef i32 @_ZN5clang4Sema8canThrowEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %345)
-  %347 = tail call noundef i32 @llvm.smax.i32(i32 %.1197.lcssa, i32 %346)
+._crit_edge:                                      ; preds = %332, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread
+  %.1197.lcssa = phi i32 [ %.0196, %_ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread ], [ %339, %332 ]
+  %343 = getelementptr inbounds nuw i8, ptr %.tr340, i64 16
+  %344 = load ptr, ptr %343, align 8, !tbaa !1227
+  %345 = tail call noundef i32 @_ZN5clang4Sema8canThrowEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %344)
+  %346 = tail call noundef i32 @llvm.smax.i32(i32 %.1197.lcssa, i32 %345)
   br label %common.ret
 
-348:                                              ; preds = %tailrecurse
+347:                                              ; preds = %tailrecurse
   unreachable
 
 .thread317.loopexit603:                           ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse

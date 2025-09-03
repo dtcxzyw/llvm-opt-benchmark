@@ -55008,16 +55008,15 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h534e62
   unreachable
 
 178:                                              ; preds = %176
-  %179 = load i64, ptr %34, align 8, !alias.scope !11319, !noalias !11280, !noundef !4
-  %.idx.i.i.i.i.i = mul nuw nsw i64 %171, 152
-  %180 = getelementptr inbounds nuw i8, ptr %166, i64 376
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i.i.i.i.i
+  %179 = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }, ptr %166, i64 %171
+  %180 = load i64, ptr %34, align 8, !alias.scope !11319, !noalias !11280, !noundef !4
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 376
   %182 = load i8, ptr %181, align 8, !range !108, !noalias !11280, !noundef !4
   %183 = trunc nuw i8 %182 to i1
   br i1 %183, label %186, label %.noexc27.i
 
 .noexc27.i:                                       ; preds = %186, %178
-  %.sroa.015.0.i.i.i.i.i = phi i64 [ %190, %186 ], [ %179, %178 ]
+  %.sroa.015.0.i.i.i.i.i = phi i64 [ %190, %186 ], [ %180, %178 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !11288
   %184 = invoke noundef i64 @_ZN4rope6Cursor7summary17haf48eae8a9d4159fE(ptr noalias noundef nonnull align 8 dereferenceable(432) %35, i64 noundef %.sroa.015.0.i.i.i.i.i)
           to label %.noexc29 unwind label %.loopexit
@@ -55036,7 +55035,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h534e62
 186:                                              ; preds = %178
   %187 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %188 = load i64, ptr %187, align 8, !noalias !11280, !noundef !4
-  %189 = add i64 %179, %71
+  %189 = add i64 %180, %71
   %190 = sub i64 %189, %188
   br label %.noexc27.i
 

@@ -8291,14 +8291,14 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnary
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 1, !tbaa !216, !range !226, !noundef !227
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %41
+  br i1 %4, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = tail call noundef i32 @_ZNK5clang8CallExpr16getBuiltinCalleeEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #16
-  switch i32 %6, label %41 [
+  switch i32 %6, label %40 [
     i32 535, label %7
     i32 536, label %7
-    i32 1407, label %30
+    i32 1407, label %29
   ]
 
 7:                                                ; preds = %5, %5
@@ -8314,41 +8314,40 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallE
   %17 = load ptr, ptr %16, align 8, !tbaa !166
   %18 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %17)
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %19, label %41
+  br i1 %.not, label %19, label %40
 
 19:                                               ; preds = %7
   %20 = load i32, ptr %1, align 8
   %21 = lshr i32 %20, 24
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = lshr i32 %20, 19
-  %26 = and i32 %25, 1
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %24 = lshr i32 %20, 19
+  %25 = and i32 %24, 1
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   br label %.sink.split
 
-30:                                               ; preds = %5
-  %31 = load i32, ptr %1, align 8
-  %32 = lshr i32 %31, 24
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = lshr i32 %31, 19
-  %37 = and i32 %36, 1
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
+29:                                               ; preds = %5
+  %30 = load i32, ptr %1, align 8
+  %31 = lshr i32 %30, 24
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = lshr i32 %30, 19
+  %36 = and i32 %35, 1
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
   br label %.sink.split
 
-.sink.split:                                      ; preds = %30, %19
-  %.sink.in = phi ptr [ %29, %19 ], [ %39, %30 ]
+.sink.split:                                      ; preds = %29, %19
+  %.sink.in = phi ptr [ %28, %19 ], [ %38, %29 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !166
-  %40 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sink)
-  br label %41
+  %39 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sink)
+  br label %40
 
-41:                                               ; preds = %.sink.split, %5, %7, %2
-  %.0 = phi ptr [ null, %2 ], [ %18, %7 ], [ null, %5 ], [ %40, %.sink.split ]
+40:                                               ; preds = %.sink.split, %5, %7, %2
+  %.0 = phi ptr [ null, %2 ], [ %18, %7 ], [ null, %5 ], [ %39, %.sink.split ]
   ret ptr %.0
 }
 

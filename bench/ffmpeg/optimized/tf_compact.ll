@@ -160,7 +160,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
 tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit, %19, %.thread.i.i
   %.0.i79 = phi ptr [ null, %tf_get_section.exit ], [ null, %.thread.i.i ], [ %23, %19 ]
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %120, label %24
+  br i1 %.not, label %119, label %24
 
 24:                                               ; preds = %tf_get_parent_section.exit
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -265,7 +265,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %88 = getelementptr i8, ptr %87, i64 -4
   %89 = load i32, ptr %88, align 4, !tbaa !24
   store i32 %89, ptr %87, align 4, !tbaa !24
-  br label %120
+  br label %119
 
 ._crit_edge:                                      ; preds = %41
   %90 = and i32 %44, 3
@@ -278,50 +278,49 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   br i1 %.not71, label %.critedge, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %95 = sext i32 %92 to i64
-  %96 = getelementptr i32, ptr %94, i64 %95
-  %97 = getelementptr i8, ptr %96, i64 -4
-  %98 = load i32, ptr %97, align 4, !tbaa !24
-  %.not72 = icmp eq i32 %98, 0
-  br i1 %.not72, label %.critedge, label %99
+  %94 = sext i32 %92 to i64
+  %95 = getelementptr i32, ptr %0, i64 %94
+  %96 = getelementptr i8, ptr %95, i64 52
+  %97 = load i32, ptr %96, align 4, !tbaa !24
+  %.not72 = icmp eq i32 %97, 0
+  br i1 %.not72, label %.critedge, label %98
 
-99:                                               ; preds = %93
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %101 = load i8, ptr %100, align 8, !tbaa !19
-  %102 = sext i8 %101 to i32
-  %103 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %103, align 8, !tbaa !35
-  %104 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %105 = load ptr, ptr %104, align 8, !tbaa !36
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
-  %107 = load ptr, ptr %106, align 8, !tbaa !39
-  tail call void %107(ptr noundef %.val, i32 noundef range(i32 -128, 128) %102) #9
+98:                                               ; preds = %93
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %100 = load i8, ptr %99, align 8, !tbaa !19
+  %101 = sext i8 %100 to i32
+  %102 = getelementptr i8, ptr %0, i64 16
+  %.val = load ptr, ptr %102, align 8, !tbaa !35
+  %103 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !36
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 40
+  %106 = load ptr, ptr %105, align 8, !tbaa !39
+  tail call void %106(ptr noundef %.val, i32 noundef range(i32 -128, 128) %101) #9
   br label %.critedge
 
-.critedge:                                        ; preds = %24, %99, %93, %91, %._crit_edge
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %109 = load i32, ptr %108, align 8, !tbaa !41
-  %.not73 = icmp eq i32 %109, 0
-  br i1 %.not73, label %120, label %110
+.critedge:                                        ; preds = %24, %98, %93, %91, %._crit_edge
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %108 = load i32, ptr %107, align 8, !tbaa !41
+  %.not73 = icmp eq i32 %108, 0
+  br i1 %.not73, label %119, label %109
 
-110:                                              ; preds = %.critedge
-  %111 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %112 = load i32, ptr %111, align 8, !tbaa !25
-  %113 = and i32 %112, 3
-  %.not74 = icmp eq i32 %113, 0
-  br i1 %.not74, label %114, label %120
+109:                                              ; preds = %.critedge
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %111 = load i32, ptr %110, align 8, !tbaa !25
+  %112 = and i32 %111, 3
+  %.not74 = icmp eq i32 %112, 0
+  br i1 %.not74, label %113, label %119
 
-114:                                              ; preds = %110
-  %115 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !29
-  %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %118 = load i8, ptr %117, align 8, !tbaa !19
-  %119 = sext i8 %118 to i32
-  tail call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef %116, i32 noundef %119)
-  br label %120
+113:                                              ; preds = %109
+  %114 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %115 = load ptr, ptr %114, align 8, !tbaa !29
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %117 = load i8, ptr %116, align 8, !tbaa !19
+  %118 = sext i8 %117 to i32
+  tail call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef %115, i32 noundef %118)
+  br label %119
 
-120:                                              ; preds = %.loopexit, %114, %110, %.critedge, %tf_get_parent_section.exit
+119:                                              ; preds = %.loopexit, %113, %109, %.critedge, %tf_get_parent_section.exit
   ret void
 }
 

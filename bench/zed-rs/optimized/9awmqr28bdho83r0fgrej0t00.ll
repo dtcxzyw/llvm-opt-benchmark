@@ -27743,13 +27743,13 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h8af0edd9d0a3a6b9E.exit: ; p
 
 53:                                               ; preds = %.backedge
   %54 = zext i32 %51 to i64
-  %55 = getelementptr inbounds nuw { { i64, { i64, [1 x i64] } }, ptr, i64 }, ptr %15, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 -80
+  %55 = getelementptr inbounds nuw { { i64, { i64, [1 x i64] } }, ptr, i64 }, ptr %0, i64 %54
+  %56 = getelementptr inbounds i8, ptr %55, i64 -40
   %57 = load i64, ptr %56, align 8, !alias.scope !4265, !noalias !4270, !noundef !4
-  %58 = getelementptr inbounds i8, ptr %55, i64 -72
+  %58 = getelementptr inbounds i8, ptr %55, i64 -32
   %59 = load i64, ptr %58, align 8, !range !384, !alias.scope !4272, !noalias !4270, !noundef !4
   %trunc.i.i = trunc nuw i64 %59 to i1
-  %60 = getelementptr inbounds i8, ptr %55, i64 -64
+  %60 = getelementptr inbounds i8, ptr %55, i64 -24
   %61 = load i64, ptr %60, align 8, !alias.scope !4272, !noalias !4270
   %.sroa.3.0.i.i = select i1 %trunc.i.i, i64 %61, i64 undef
   store i64 %57, ptr %0, align 8
@@ -28073,8 +28073,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
 
 45:                                               ; preds = %.backedge
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }, ptr %18, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 -48
+  %47 = getelementptr inbounds nuw { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }, ptr %0, i64 %46
+  %48 = getelementptr inbounds i8, ptr %47, i64 -24
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   br label %50
 

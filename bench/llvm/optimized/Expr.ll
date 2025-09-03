@@ -3898,35 +3898,37 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit: ; preds = %1
   br i1 %.not, label %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang11DeclRefExpr12getRAngleLocEv.exit
 
 _ZNK5clang11DeclRefExpr12getRAngleLocEv.exit:     ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !83
-  br label %23
+  %13 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %0, i64 %7
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %10
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %16 = load i32, ptr %15, align 4, !tbaa !83
+  br label %25
 
 _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.thread: ; preds = %1, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !74, !noalias !180
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %.sroa.0.0.copyload.i.i = load i64, ptr %17, align 8, !tbaa !167, !noalias !180
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.0.0.copyload.i3.i = load i32, ptr %18, align 4, !tbaa !83, !noalias !180
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8, !tbaa !25, !noalias !180
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !74, !noalias !180
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %.sroa.0.0.copyload.i.i = load i64, ptr %19, align 8, !tbaa !167, !noalias !180
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.sroa.0.0.copyload.i3.i = load i32, ptr %20, align 4, !tbaa !83, !noalias !180
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !25, !noalias !180
   store i64 %.sroa.0.0.copyload.i.i, ptr %2, align 8, !tbaa !167, !alias.scope !180
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %.sroa.0.0.copyload.i3.i, ptr %20, align 8, !tbaa !83, !alias.scope !180
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %.sroa.0.0.copyload.i, ptr %21, align 8, !tbaa !25, !alias.scope !180
-  %22 = call i32 @_ZNK5clang19DeclarationNameInfo16getEndLocPrivateEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #32
-  %.not.i2 = icmp eq i32 %22, 0
-  %.sroa.0.0.copyload.i.i3 = load i32, ptr %20, align 8
-  %.sroa.0.0.i4 = select i1 %.not.i2, i32 %.sroa.0.0.copyload.i.i3, i32 %22
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %.sroa.0.0.copyload.i3.i, ptr %22, align 8, !tbaa !83, !alias.scope !180
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %.sroa.0.0.copyload.i, ptr %23, align 8, !tbaa !25, !alias.scope !180
+  %24 = call i32 @_ZNK5clang19DeclarationNameInfo16getEndLocPrivateEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #32
+  %.not.i2 = icmp eq i32 %24, 0
+  %.sroa.0.0.copyload.i.i3 = load i32, ptr %22, align 8
+  %.sroa.0.0.i4 = select i1 %.not.i2, i32 %.sroa.0.0.copyload.i.i3, i32 %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %23
+  br label %25
 
-23:                                               ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.thread, %_ZNK5clang11DeclRefExpr12getRAngleLocEv.exit
-  %.sroa.0.0 = phi i32 [ %14, %_ZNK5clang11DeclRefExpr12getRAngleLocEv.exit ], [ %.sroa.0.0.i4, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.thread ]
+25:                                               ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.thread, %_ZNK5clang11DeclRefExpr12getRAngleLocEv.exit
+  %.sroa.0.0 = phi i32 [ %16, %_ZNK5clang11DeclRefExpr12getRAngleLocEv.exit ], [ %.sroa.0.0.i4, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.thread ]
   ret i32 %.sroa.0.0
 }
 
@@ -11543,22 +11545,24 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit: ; preds = %1
   br i1 %.not, label %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang10MemberExpr12getRAngleLocEv.exit
 
 _ZNK5clang10MemberExpr12getRAngleLocEv.exit:      ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit
-  %21 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %16, i64 %18, i32 0, i32 0, i32 0, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !83
-  br label %28
+  %21 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %0, i64 %15
+  %22 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %21, i64 %18
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 52
+  %24 = load i32, ptr %23, align 4, !tbaa !83
+  br label %30
 
 _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.thread: ; preds = %1, %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit
-  %23 = icmp eq i32 %.sroa.0.0.i, 0
-  br i1 %23, label %24, label %28
+  %25 = icmp eq i32 %.sroa.0.0.i, 0
+  br i1 %25, label %26, label %30
 
-24:                                               ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.thread
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !60
-  %27 = call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #31
-  br label %28
+26:                                               ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.thread
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !60
+  %29 = call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #31
+  br label %30
 
-28:                                               ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.thread, %24, %_ZNK5clang10MemberExpr12getRAngleLocEv.exit
-  %.sroa.0.0 = phi i32 [ %22, %_ZNK5clang10MemberExpr12getRAngleLocEv.exit ], [ %27, %24 ], [ %.sroa.0.0.i, %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.thread ]
+30:                                               ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.thread, %26, %_ZNK5clang10MemberExpr12getRAngleLocEv.exit
+  %.sroa.0.0 = phi i32 [ %24, %_ZNK5clang10MemberExpr12getRAngleLocEv.exit ], [ %29, %26 ], [ %.sroa.0.0.i, %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.thread ]
   ret i32 %.sroa.0.0
 }
 

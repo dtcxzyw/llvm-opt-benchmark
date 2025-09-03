@@ -6982,7 +6982,6 @@ _ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit.i:  ; preds = %delete.end.i.i, %if
 
 do.body.i:                                        ; preds = %_ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit.i, %if.end.i
   %8 = phi i64 [ %4, %if.end.i ], [ %.pr.i, %_ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit.i ]
-  %values_8.i = getelementptr inbounds nuw i8, ptr %1, i64 944
   %cmp10.i = icmp ugt i64 %8, 31
   br i1 %cmp10.i, label %do.body14.i, label %do.body17.i
 
@@ -7002,17 +7001,17 @@ do.body25.i:                                      ; preds = %do.body17.i
   unreachable
 
 do.end28.i:                                       ; preds = %do.body17.i
-  %10 = getelementptr %"struct.node::(anonymous namespace)::StringPtr", ptr %values_8.i, i64 %8
-  %arrayidx32.i = getelementptr i8, ptr %10, i64 -24
+  %10 = getelementptr %"struct.node::(anonymous namespace)::StringPtr", ptr %1, i64 %8
+  %arrayidx32.i = getelementptr i8, ptr %10, i64 920
   %11 = load ptr, ptr %arrayidx32.i, align 8
   %cmp.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i, label %if.end19.sink.split.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.end28.i
-  %on_heap_.i4.i = getelementptr i8, ptr %10, i64 -16
+  %on_heap_.i4.i = getelementptr i8, ptr %10, i64 928
   %12 = load i8, ptr %on_heap_.i4.i, align 8
   %tobool.i5.i = trunc i8 %12 to i1
-  %size_.i6.i = getelementptr i8, ptr %10, i64 -8
+  %size_.i6.i = getelementptr i8, ptr %10, i64 936
   %13 = load i64, ptr %size_.i6.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %13
   %cmp4.not.i.i = icmp ne ptr %add.ptr.i.i, %args
@@ -7038,13 +7037,13 @@ if.else15.i.i:                                    ; preds = %if.then5.i.i
 if.end19.sink.split.i.i:                          ; preds = %if.else15.i.i, %delete.notnull.i8.i, %do.end28.i
   %call.sink.i.i = phi ptr [ %args, %do.end28.i ], [ %call.i.i, %delete.notnull.i8.i ], [ %call.i.i, %if.else15.i.i ]
   store ptr %call.sink.i.i, ptr %arrayidx32.i, align 8
-  %size_20.i.phi.trans.insert.i = getelementptr i8, ptr %10, i64 -8
+  %size_20.i.phi.trans.insert.i = getelementptr i8, ptr %10, i64 936
   %.pre.i = load i64, ptr %size_20.i.phi.trans.insert.i, align 8
   br label %if.then
 
 if.then:                                          ; preds = %if.else.i.i, %if.end19.sink.split.i.i
   %14 = phi i64 [ %13, %if.else.i.i ], [ %.pre.i, %if.end19.sink.split.i.i ]
-  %size_20.i.i = getelementptr i8, ptr %10, i64 -8
+  %size_20.i.i = getelementptr i8, ptr %10, i64 936
   %add21.i.i = add i64 %14, %args1
   store i64 %add21.i.i, ptr %size_20.i.i, align 8
   %pending_pause_.i = getelementptr inbounds nuw i8, ptr %1, i64 1801

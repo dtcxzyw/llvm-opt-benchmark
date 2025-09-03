@@ -1005,7 +1005,7 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl11writeNumberERKN
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %113
+  br label %112
 
 22:                                               ; preds = %5
   %23 = load ptr, ptr %1, align 8, !tbaa !93
@@ -1033,7 +1033,7 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl11writeNumberERKN
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %113
+  br label %112
 
 35:                                               ; preds = %22
   %36 = tail call noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl18writeIntegerDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -1086,7 +1086,7 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl11writeNumberERKN
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %113
+  br label %112
 
 65:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1107,7 +1107,7 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl11writeNumberERKN
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %113
+  br label %112
 
 73:                                               ; preds = %35, %46, %69, %61
   %.1 = phi i32 [ %62, %61 ], [ %70, %69 ], [ %50, %46 ], [ %36, %35 ]
@@ -1123,8 +1123,8 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl11writeNumberERKN
   br label %79
 
 79:                                               ; preds = %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i, %.lr.ph.i
-  %.015.i = phi i32 [ 0, %.lr.ph.i ], [ %99, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i ]
-  %.01314.i = phi i32 [ 0, %.lr.ph.i ], [ %100, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i ]
+  %.015.i = phi i32 [ 0, %.lr.ph.i ], [ %98, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i ]
+  %.01314.i = phi i32 [ 0, %.lr.ph.i ], [ %99, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i ]
   %80 = xor i32 %.01314.i, -1
   %81 = call noundef signext i8 @_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %80)
   %82 = add nsw i32 %74, %.015.i
@@ -1144,49 +1144,48 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl11writeNumberERKN
   %91 = add nsw i32 %86, -10
   %92 = icmp ult i32 %91, -9
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 264
-  %94 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %95 = zext nneg i32 %86 to i64
-  %96 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %94, i64 %95
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1088
-  %.0.i.i.i = select i1 %92, ptr %93, ptr %97
-  %98 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i8 33, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %94 = zext nneg i32 %86 to i64
+  %95 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %83, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1096
+  %.0.i.i.i = select i1 %92, ptr %93, ptr %96
+  %97 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i8 33, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i
 
 _ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i: ; preds = %90, %87
-  %.0.i.i = phi i32 [ %89, %87 ], [ %98, %90 ]
-  %99 = add nsw i32 %.0.i.i, %.015.i
-  %100 = add nuw nsw i32 %.01314.i, 1
-  %exitcond.not.i = icmp eq i32 %100, %smax.i
+  %.0.i.i = phi i32 [ %89, %87 ], [ %97, %90 ]
+  %98 = add nsw i32 %.0.i.i, %.015.i
+  %99 = add nuw nsw i32 %.01314.i, 1
+  %exitcond.not.i = icmp eq i32 %99, %smax.i
   br i1 %exitcond.not.i, label %_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit, label %79, !llvm.loop !131
 
 _ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit: ; preds = %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i, %73
-  %.0.lcssa.i = phi i32 [ 0, %73 ], [ %99, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i ]
-  %101 = add nsw i32 %.0.lcssa.i, %.1
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
+  %.0.lcssa.i = phi i32 [ 0, %73 ], [ %98, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i ]
+  %100 = add nsw i32 %.0.lcssa.i, %.1
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
 
-103:                                              ; preds = %_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %105 = load ptr, ptr %104, align 8, !tbaa !121
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1928
-  %107 = load i32, ptr %106, align 8, !tbaa !126
-  %.not.i = icmp eq i32 %107, -1
-  br i1 %.not.i, label %110, label %108
+102:                                              ; preds = %_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %104 = load ptr, ptr %103, align 8, !tbaa !121
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1928
+  %106 = load i32, ptr %105, align 8, !tbaa !126
+  %.not.i = icmp eq i32 %106, -1
+  br i1 %.not.i, label %109, label %107
 
-108:                                              ; preds = %103
-  %109 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %3, i32 noundef %107, i8 32, ptr noundef nonnull align 4 dereferenceable(4) %4)
+107:                                              ; preds = %102
+  %108 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %3, i32 noundef %106, i8 32, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
 
-110:                                              ; preds = %103
-  %111 = getelementptr inbounds nuw i8, ptr %105, i64 264
-  %112 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %111, i8 32, ptr noundef nonnull align 4 dereferenceable(4) %4)
+109:                                              ; preds = %102
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 264
+  %111 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %110, i8 32, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
 
-_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit: ; preds = %110, %108, %32, %_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit, %19
-  %.059 = phi i32 [ %18, %19 ], [ %31, %32 ], [ %101, %_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit ], [ %109, %108 ], [ %112, %110 ]
+_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit: ; preds = %109, %107, %32, %_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit, %19
+  %.059 = phi i32 [ %18, %19 ], [ %31, %32 ], [ %100, %_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit ], [ %108, %107 ], [ %111, %109 ]
   ret i32 %.059
 
-113:                                              ; preds = %71, %63, %33, %20
+112:                                              ; preds = %71, %63, %33, %20
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %34, %33 ], [ %64, %63 ], [ %72, %71 ]
   resume { ptr, i32 } %.pn
 }
@@ -3836,12 +3835,12 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl18writeIntegerDig
   br label %11
 
 ._crit_edge:                                      ; preds = %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %41, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %40, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
   ret i32 %.0.lcssa
 
 11:                                               ; preds = %.lr.ph, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
-  %.029 = phi i32 [ 0, %.lr.ph ], [ %41, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
-  %.02428 = phi i32 [ 0, %.lr.ph ], [ %42, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
+  %.029 = phi i32 [ 0, %.lr.ph ], [ %40, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
+  %.02428 = phi i32 [ 0, %.lr.ph ], [ %41, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
   %12 = call noundef zeroext i1 @_ZNK6icu_776number4impl7Grouper15groupAtPositionEiRKNS1_15DecimalQuantityE(ptr noundef nonnull align 4 dereferenceable(12) %8, i32 noundef %.02428, ptr noundef nonnull align 8 dereferenceable(66) %1)
   br i1 %12, label %13, label %23
 
@@ -3888,18 +3887,17 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl18writeIntegerDig
   %33 = add nsw i32 %28, -10
   %34 = icmp ult i32 %33, -9
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 264
-  %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %37 = zext nneg i32 %28 to i64
-  %38 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %36, i64 %37
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1088
-  %.0.i.i = select i1 %34, ptr %35, ptr %39
-  %40 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 32, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %36 = zext nneg i32 %28 to i64
+  %37 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %25, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1096
+  %.0.i.i = select i1 %34, ptr %35, ptr %38
+  %39 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 32, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
 
 _ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit: ; preds = %29, %32
-  %.0.i = phi i32 [ %31, %29 ], [ %40, %32 ]
-  %41 = add nsw i32 %.0.i, %.1
-  %42 = add nuw i32 %.02428, 1
+  %.0.i = phi i32 [ %31, %29 ], [ %39, %32 ]
+  %40 = add nsw i32 %.0.i, %.1
+  %41 = add nuw i32 %.02428, 1
   %exitcond.not = icmp eq i32 %.02428, %7
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !223
 }
@@ -3919,12 +3917,12 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDi
   br label %10
 
 ._crit_edge:                                      ; preds = %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %30, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %29, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
   ret i32 %.0.lcssa
 
 10:                                               ; preds = %.lr.ph, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
-  %.015 = phi i32 [ 0, %.lr.ph ], [ %30, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
-  %.01314 = phi i32 [ 0, %.lr.ph ], [ %31, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
+  %.015 = phi i32 [ 0, %.lr.ph ], [ %29, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
+  %.01314 = phi i32 [ 0, %.lr.ph ], [ %30, %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit ]
   %11 = xor i32 %.01314, -1
   %12 = tail call noundef signext i8 @_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %11)
   %13 = add nsw i32 %.015, %3
@@ -3944,19 +3942,18 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDi
   %22 = add nsw i32 %17, -10
   %23 = icmp ult i32 %22, -9
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 264
-  %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %26 = zext nneg i32 %17 to i64
-  %27 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %25, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1088
-  %.0.i.i = select i1 %23, ptr %24, ptr %28
-  %29 = tail call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 33, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %25 = zext nneg i32 %17 to i64
+  %26 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %14, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1096
+  %.0.i.i = select i1 %23, ptr %24, ptr %27
+  %28 = tail call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 33, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
 
 _ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit: ; preds = %18, %21
-  %.0.i = phi i32 [ %20, %18 ], [ %29, %21 ]
-  %30 = add nsw i32 %.0.i, %.015
-  %31 = add nuw nsw i32 %.01314, 1
-  %exitcond.not = icmp eq i32 %31, %smax
+  %.0.i = phi i32 [ %20, %18 ], [ %28, %21 ]
+  %29 = add nsw i32 %.0.i, %.015
+  %30 = add nuw nsw i32 %.01314, 1
+  %exitcond.not = icmp eq i32 %30, %smax
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !131
 }
 

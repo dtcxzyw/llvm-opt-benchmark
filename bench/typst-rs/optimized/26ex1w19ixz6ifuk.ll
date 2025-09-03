@@ -81393,7 +81393,7 @@ define hidden void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bounds$
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bounds$GT$6dyn_eq17hb59f84cabe0100d3E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = tail call noundef zeroext i1 @_ZN5typst11foundations7content7Content2is17h177f6ac66726af38E.llvm.2456044669961016091(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-  br i1 %3, label %4, label %22
+  br i1 %3, label %4, label %21
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8, !nonnull !47, !noundef !47
@@ -81406,17 +81406,16 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$T$u20$as$u20$typst..foundations..co
   %12 = and i64 %11, -16
   %13 = getelementptr i8, ptr %5, i64 %12
   %14 = and i64 %11, -80
-  %15 = getelementptr i8, ptr %13, i64 96
-  %16 = getelementptr i8, ptr %15, i64 %14
-  %17 = add i64 %9, -1
-  %18 = and i64 %17, -16
-  %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr i8, ptr %19, i64 16
-  %21 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20)
-  br label %22
+  %15 = getelementptr i8, ptr %13, i64 %14
+  %16 = add i64 %9, -1
+  %17 = and i64 %16, -16
+  %18 = getelementptr i8, ptr %15, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 112
+  %20 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
+  br label %21
 
-22:                                               ; preds = %2, %4
-  %.0 = phi i1 [ %21, %4 ], [ false, %2 ]
+21:                                               ; preds = %2, %4
+  %.0 = phi i1 [ %20, %4 ], [ false, %2 ]
   ret i1 %.0
 }
 

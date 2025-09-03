@@ -6,6 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
 %struct.nameData = type { [64 x i8] }
 %struct.ToastAttrInfo = type { ptr, i32, i8, i8 }
+%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((40, 41)) %0) local_unnamed_addr #0 {
@@ -674,51 +675,50 @@ define dso_local void @toast_delete_external(ptr noundef %0, ptr noundef readonl
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 28
+.lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext nneg i32 %7 to i64
-  br label %10
+  br label %.lr.ph
 
-10:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
-  %12 = load i16, ptr %11, align 4
-  %13 = icmp eq i16 %12, -1
-  br i1 %13, label %14, label %29
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
+  %9 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  %11 = load i16, ptr %10, align 4
+  %12 = icmp eq i16 %11, -1
+  br i1 %12, label %13, label %28
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %18 = load i8, ptr %17, align 1, !range !4, !noundef !5
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %29, label %20
+13:                                               ; preds = %.lr.ph
+  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %17 = load i8, ptr %16, align 1, !range !4, !noundef !5
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %28, label %19
 
-20:                                               ; preds = %14
-  %21 = inttoptr i64 %16 to ptr
-  %22 = load i8, ptr %21, align 1
-  %23 = icmp eq i8 %22, 1
-  br i1 %23, label %24, label %29
+19:                                               ; preds = %13
+  %20 = inttoptr i64 %15 to ptr
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 1
+  br i1 %22, label %23, label %28
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %26 = load i8, ptr %25, align 1
-  %27 = icmp eq i8 %26, 18
-  br i1 %27, label %28, label %29
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 18
+  br i1 %26, label %27, label %28
 
-28:                                               ; preds = %24
-  tail call void @toast_delete_datum(ptr noundef %0, i64 noundef %16, i1 noundef zeroext %3) #5
-  br label %29
+27:                                               ; preds = %23
+  tail call void @toast_delete_datum(ptr noundef %0, i64 noundef %15, i1 noundef zeroext %3) #5
+  br label %28
 
-29:                                               ; preds = %14, %20, %24, %28, %10
+28:                                               ; preds = %13, %19, %23, %27, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %29, %4
+._crit_edge:                                      ; preds = %28, %4
   ret void
 }
 

@@ -696,176 +696,176 @@ entry:
   store ptr %call.i, ptr %arrayidx.i, align 8
   %1 = load ptr, ptr %strTab_.i, align 8
   %call.i90 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.1, i64 3)
-  %arrayidx.i92 = getelementptr inbounds nuw i8, ptr %this, i64 728
-  store ptr %call.i90, ptr %arrayidx.i92, align 8
+  %arrayidx.i91 = getelementptr inbounds nuw i8, ptr %this, i64 728
+  store ptr %call.i90, ptr %arrayidx.i91, align 8
   %2 = load ptr, ptr %strTab_.i, align 8
-  %call.i94 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nonnull @.str.2, i64 2)
-  %arrayidx.i96 = getelementptr inbounds nuw i8, ptr %this, i64 736
-  store ptr %call.i94, ptr %arrayidx.i96, align 8
+  %call.i93 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nonnull @.str.2, i64 2)
+  %arrayidx.i94 = getelementptr inbounds nuw i8, ptr %this, i64 736
+  store ptr %call.i93, ptr %arrayidx.i94, align 8
   %3 = load ptr, ptr %strTab_.i, align 8
-  %call.i98 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @.str.3, i64 2)
-  %arrayidx.i100 = getelementptr inbounds nuw i8, ptr %this, i64 744
-  store ptr %call.i98, ptr %arrayidx.i100, align 8
+  %call.i96 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @.str.3, i64 2)
+  %arrayidx.i97 = getelementptr inbounds nuw i8, ptr %this, i64 744
+  store ptr %call.i96, ptr %arrayidx.i97, align 8
   %4 = load ptr, ptr %strTab_.i, align 8
-  %call.i102 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull @.str.4, i64 3)
-  %arrayidx.i104 = getelementptr inbounds nuw i8, ptr %this, i64 752
-  store ptr %call.i102, ptr %arrayidx.i104, align 8
+  %call.i99 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull @.str.4, i64 3)
+  %arrayidx.i100 = getelementptr inbounds nuw i8, ptr %this, i64 752
+  store ptr %call.i99, ptr %arrayidx.i100, align 8
   %5 = load ptr, ptr %strTab_.i, align 8
-  %call.i106 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nonnull @.str.5, i64 5)
-  %arrayidx.i108 = getelementptr inbounds nuw i8, ptr %this, i64 760
-  store ptr %call.i106, ptr %arrayidx.i108, align 8
+  %call.i102 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nonnull @.str.5, i64 5)
+  %arrayidx.i103 = getelementptr inbounds nuw i8, ptr %this, i64 760
+  store ptr %call.i102, ptr %arrayidx.i103, align 8
   %6 = load ptr, ptr %strTab_.i, align 8
-  %call.i110 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nonnull @.str.6, i64 8)
-  %arrayidx.i112 = getelementptr inbounds nuw i8, ptr %this, i64 768
-  store ptr %call.i110, ptr %arrayidx.i112, align 8
+  %call.i105 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nonnull @.str.6, i64 8)
+  %arrayidx.i106 = getelementptr inbounds nuw i8, ptr %this, i64 768
+  store ptr %call.i105, ptr %arrayidx.i106, align 8
   %7 = load ptr, ptr %strTab_.i, align 8
-  %call.i114 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.7, i64 6)
-  %arrayidx.i116 = getelementptr inbounds nuw i8, ptr %this, i64 776
-  store ptr %call.i114, ptr %arrayidx.i116, align 8
+  %call.i108 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.7, i64 6)
+  %arrayidx.i109 = getelementptr inbounds nuw i8, ptr %this, i64 776
+  store ptr %call.i108, ptr %arrayidx.i109, align 8
   %8 = load ptr, ptr %strTab_.i, align 8
-  %call.i118 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr nonnull @.str.8, i64 6)
-  %arrayidx.i120 = getelementptr inbounds nuw i8, ptr %this, i64 784
-  store ptr %call.i118, ptr %arrayidx.i120, align 8
+  %call.i111 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr nonnull @.str.8, i64 6)
+  %arrayidx.i112 = getelementptr inbounds nuw i8, ptr %this, i64 784
+  store ptr %call.i111, ptr %arrayidx.i112, align 8
   %9 = load ptr, ptr %strTab_.i, align 8
-  %call.i122 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr nonnull @.str.9, i64 4)
-  %arrayidx.i124 = getelementptr inbounds nuw i8, ptr %this, i64 792
-  store ptr %call.i122, ptr %arrayidx.i124, align 8
+  %call.i114 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr nonnull @.str.9, i64 4)
+  %arrayidx.i115 = getelementptr inbounds nuw i8, ptr %this, i64 792
+  store ptr %call.i114, ptr %arrayidx.i115, align 8
   %10 = load ptr, ptr %strTab_.i, align 8
-  %call.i126 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull @.str.10, i64 4)
-  %arrayidx.i128 = getelementptr inbounds nuw i8, ptr %this, i64 800
-  store ptr %call.i126, ptr %arrayidx.i128, align 8
+  %call.i117 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull @.str.10, i64 4)
+  %arrayidx.i118 = getelementptr inbounds nuw i8, ptr %this, i64 800
+  store ptr %call.i117, ptr %arrayidx.i118, align 8
   %11 = load ptr, ptr %strTab_.i, align 8
-  %call.i130 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr nonnull @.str.11, i64 5)
-  %arrayidx.i132 = getelementptr inbounds nuw i8, ptr %this, i64 808
-  store ptr %call.i130, ptr %arrayidx.i132, align 8
+  %call.i120 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr nonnull @.str.11, i64 5)
+  %arrayidx.i121 = getelementptr inbounds nuw i8, ptr %this, i64 808
+  store ptr %call.i120, ptr %arrayidx.i121, align 8
   %12 = load ptr, ptr %strTab_.i, align 8
-  %call.i134 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr nonnull @.str.12, i64 4)
-  %arrayidx.i136 = getelementptr inbounds nuw i8, ptr %this, i64 816
-  store ptr %call.i134, ptr %arrayidx.i136, align 8
+  %call.i123 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr nonnull @.str.12, i64 4)
+  %arrayidx.i124 = getelementptr inbounds nuw i8, ptr %this, i64 816
+  store ptr %call.i123, ptr %arrayidx.i124, align 8
   %13 = load ptr, ptr %strTab_.i, align 8
-  %call.i138 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr nonnull @.str.13, i64 4)
-  %arrayidx.i140 = getelementptr inbounds nuw i8, ptr %this, i64 824
-  store ptr %call.i138, ptr %arrayidx.i140, align 8
+  %call.i126 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr nonnull @.str.13, i64 4)
+  %arrayidx.i127 = getelementptr inbounds nuw i8, ptr %this, i64 824
+  store ptr %call.i126, ptr %arrayidx.i127, align 8
   %14 = load ptr, ptr %strTab_.i, align 8
-  %call.i142 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr nonnull @.str.14, i64 5)
-  %arrayidx.i144 = getelementptr inbounds nuw i8, ptr %this, i64 832
-  store ptr %call.i142, ptr %arrayidx.i144, align 8
+  %call.i129 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr nonnull @.str.14, i64 5)
+  %arrayidx.i130 = getelementptr inbounds nuw i8, ptr %this, i64 832
+  store ptr %call.i129, ptr %arrayidx.i130, align 8
   %15 = load ptr, ptr %strTab_.i, align 8
-  %call.i146 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr nonnull @.str.15, i64 5)
-  %arrayidx.i148 = getelementptr inbounds nuw i8, ptr %this, i64 840
-  store ptr %call.i146, ptr %arrayidx.i148, align 8
+  %call.i132 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr nonnull @.str.15, i64 5)
+  %arrayidx.i133 = getelementptr inbounds nuw i8, ptr %this, i64 840
+  store ptr %call.i132, ptr %arrayidx.i133, align 8
   %16 = load ptr, ptr %strTab_.i, align 8
-  %call.i150 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr nonnull @.str.16, i64 8)
-  %arrayidx.i152 = getelementptr inbounds nuw i8, ptr %this, i64 848
-  store ptr %call.i150, ptr %arrayidx.i152, align 8
+  %call.i135 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr nonnull @.str.16, i64 8)
+  %arrayidx.i136 = getelementptr inbounds nuw i8, ptr %this, i64 848
+  store ptr %call.i135, ptr %arrayidx.i136, align 8
   %17 = load ptr, ptr %strTab_.i, align 8
-  %call.i154 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr nonnull @.str.17, i64 7)
-  %arrayidx.i156 = getelementptr inbounds nuw i8, ptr %this, i64 856
-  store ptr %call.i154, ptr %arrayidx.i156, align 8
+  %call.i138 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr nonnull @.str.17, i64 7)
+  %arrayidx.i139 = getelementptr inbounds nuw i8, ptr %this, i64 856
+  store ptr %call.i138, ptr %arrayidx.i139, align 8
   %18 = load ptr, ptr %strTab_.i, align 8
-  %call.i158 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr nonnull @.str.18, i64 6)
-  %arrayidx.i160 = getelementptr inbounds nuw i8, ptr %this, i64 864
-  store ptr %call.i158, ptr %arrayidx.i160, align 8
+  %call.i141 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr nonnull @.str.18, i64 6)
+  %arrayidx.i142 = getelementptr inbounds nuw i8, ptr %this, i64 864
+  store ptr %call.i141, ptr %arrayidx.i142, align 8
   %19 = load ptr, ptr %strTab_.i, align 8
-  %call.i162 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr nonnull @.str.19, i64 2)
-  %arrayidx.i164 = getelementptr inbounds nuw i8, ptr %this, i64 872
-  store ptr %call.i162, ptr %arrayidx.i164, align 8
+  %call.i144 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr nonnull @.str.19, i64 2)
+  %arrayidx.i145 = getelementptr inbounds nuw i8, ptr %this, i64 872
+  store ptr %call.i144, ptr %arrayidx.i145, align 8
   %20 = load ptr, ptr %strTab_.i, align 8
-  %call.i166 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr nonnull @.str.20, i64 4)
-  %arrayidx.i168 = getelementptr inbounds nuw i8, ptr %this, i64 880
-  store ptr %call.i166, ptr %arrayidx.i168, align 8
+  %call.i147 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr nonnull @.str.20, i64 4)
+  %arrayidx.i148 = getelementptr inbounds nuw i8, ptr %this, i64 880
+  store ptr %call.i147, ptr %arrayidx.i148, align 8
   %21 = load ptr, ptr %strTab_.i, align 8
-  %call.i170 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr nonnull @.str.21, i64 7)
-  %arrayidx.i172 = getelementptr inbounds nuw i8, ptr %this, i64 888
-  store ptr %call.i170, ptr %arrayidx.i172, align 8
+  %call.i150 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr nonnull @.str.21, i64 7)
+  %arrayidx.i151 = getelementptr inbounds nuw i8, ptr %this, i64 888
+  store ptr %call.i150, ptr %arrayidx.i151, align 8
   %22 = load ptr, ptr %strTab_.i, align 8
-  %call.i174 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr nonnull @.str.22, i64 10)
-  %arrayidx.i176 = getelementptr inbounds nuw i8, ptr %this, i64 896
-  store ptr %call.i174, ptr %arrayidx.i176, align 8
+  %call.i153 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr nonnull @.str.22, i64 10)
+  %arrayidx.i154 = getelementptr inbounds nuw i8, ptr %this, i64 896
+  store ptr %call.i153, ptr %arrayidx.i154, align 8
   %23 = load ptr, ptr %strTab_.i, align 8
-  %call.i178 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr nonnull @.str.23, i64 3)
-  %arrayidx.i180 = getelementptr inbounds nuw i8, ptr %this, i64 904
-  store ptr %call.i178, ptr %arrayidx.i180, align 8
+  %call.i156 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr nonnull @.str.23, i64 3)
+  %arrayidx.i157 = getelementptr inbounds nuw i8, ptr %this, i64 904
+  store ptr %call.i156, ptr %arrayidx.i157, align 8
   %24 = load ptr, ptr %strTab_.i, align 8
-  %call.i182 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr nonnull @.str.24, i64 5)
-  %arrayidx.i184 = getelementptr inbounds nuw i8, ptr %this, i64 912
-  store ptr %call.i182, ptr %arrayidx.i184, align 8
+  %call.i159 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr nonnull @.str.24, i64 5)
+  %arrayidx.i160 = getelementptr inbounds nuw i8, ptr %this, i64 912
+  store ptr %call.i159, ptr %arrayidx.i160, align 8
   %25 = load ptr, ptr %strTab_.i, align 8
-  %call.i186 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull @.str.25, i64 3)
-  %arrayidx.i188 = getelementptr inbounds nuw i8, ptr %this, i64 920
-  store ptr %call.i186, ptr %arrayidx.i188, align 8
+  %call.i162 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull @.str.25, i64 3)
+  %arrayidx.i163 = getelementptr inbounds nuw i8, ptr %this, i64 920
+  store ptr %call.i162, ptr %arrayidx.i163, align 8
   %26 = load ptr, ptr %strTab_.i, align 8
-  %call.i190 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr nonnull @.str.26, i64 6)
-  %arrayidx.i192 = getelementptr inbounds nuw i8, ptr %this, i64 928
-  store ptr %call.i190, ptr %arrayidx.i192, align 8
+  %call.i165 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr nonnull @.str.26, i64 6)
+  %arrayidx.i166 = getelementptr inbounds nuw i8, ptr %this, i64 928
+  store ptr %call.i165, ptr %arrayidx.i166, align 8
   %27 = load ptr, ptr %strTab_.i, align 8
-  %call.i194 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr nonnull @.str.27, i64 4)
-  %arrayidx.i196 = getelementptr inbounds nuw i8, ptr %this, i64 936
-  store ptr %call.i194, ptr %arrayidx.i196, align 8
+  %call.i168 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr nonnull @.str.27, i64 4)
+  %arrayidx.i169 = getelementptr inbounds nuw i8, ptr %this, i64 936
+  store ptr %call.i168, ptr %arrayidx.i169, align 8
   %28 = load ptr, ptr %strTab_.i, align 8
-  %call.i198 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr nonnull @.str.28, i64 5)
-  %arrayidx.i200 = getelementptr inbounds nuw i8, ptr %this, i64 944
-  store ptr %call.i198, ptr %arrayidx.i200, align 8
+  %call.i171 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr nonnull @.str.28, i64 5)
+  %arrayidx.i172 = getelementptr inbounds nuw i8, ptr %this, i64 944
+  store ptr %call.i171, ptr %arrayidx.i172, align 8
   %29 = load ptr, ptr %strTab_.i, align 8
-  %call.i202 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr nonnull @.str.29, i64 4)
-  %arrayidx.i204 = getelementptr inbounds nuw i8, ptr %this, i64 952
-  store ptr %call.i202, ptr %arrayidx.i204, align 8
+  %call.i174 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr nonnull @.str.29, i64 4)
+  %arrayidx.i175 = getelementptr inbounds nuw i8, ptr %this, i64 952
+  store ptr %call.i174, ptr %arrayidx.i175, align 8
   %30 = load ptr, ptr %strTab_.i, align 8
-  %call.i206 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr nonnull @.str.30, i64 6)
-  %arrayidx.i208 = getelementptr inbounds nuw i8, ptr %this, i64 960
-  store ptr %call.i206, ptr %arrayidx.i208, align 8
+  %call.i177 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr nonnull @.str.30, i64 6)
+  %arrayidx.i178 = getelementptr inbounds nuw i8, ptr %this, i64 960
+  store ptr %call.i177, ptr %arrayidx.i178, align 8
   %31 = load ptr, ptr %strTab_.i, align 8
-  %call.i210 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr nonnull @.str.31, i64 6)
-  %arrayidx.i212 = getelementptr inbounds nuw i8, ptr %this, i64 968
-  store ptr %call.i210, ptr %arrayidx.i212, align 8
+  %call.i180 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr nonnull @.str.31, i64 6)
+  %arrayidx.i181 = getelementptr inbounds nuw i8, ptr %this, i64 968
+  store ptr %call.i180, ptr %arrayidx.i181, align 8
   %32 = load ptr, ptr %strTab_.i, align 8
-  %call.i214 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr nonnull @.str.32, i64 5)
-  %arrayidx.i216 = getelementptr inbounds nuw i8, ptr %this, i64 976
-  store ptr %call.i214, ptr %arrayidx.i216, align 8
+  %call.i183 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr nonnull @.str.32, i64 5)
+  %arrayidx.i184 = getelementptr inbounds nuw i8, ptr %this, i64 976
+  store ptr %call.i183, ptr %arrayidx.i184, align 8
   %33 = load ptr, ptr %strTab_.i, align 8
-  %call.i218 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr nonnull @.str.33, i64 6)
-  %arrayidx.i220 = getelementptr inbounds nuw i8, ptr %this, i64 984
-  store ptr %call.i218, ptr %arrayidx.i220, align 8
+  %call.i186 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr nonnull @.str.33, i64 6)
+  %arrayidx.i187 = getelementptr inbounds nuw i8, ptr %this, i64 984
+  store ptr %call.i186, ptr %arrayidx.i187, align 8
   %34 = load ptr, ptr %strTab_.i, align 8
-  %call.i222 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr nonnull @.str.34, i64 7)
-  %arrayidx.i224 = getelementptr inbounds nuw i8, ptr %this, i64 992
-  store ptr %call.i222, ptr %arrayidx.i224, align 8
+  %call.i189 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr nonnull @.str.34, i64 7)
+  %arrayidx.i190 = getelementptr inbounds nuw i8, ptr %this, i64 992
+  store ptr %call.i189, ptr %arrayidx.i190, align 8
   %35 = load ptr, ptr %strTab_.i, align 8
-  %call.i226 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr nonnull @.str.35, i64 5)
-  %arrayidx.i228 = getelementptr inbounds nuw i8, ptr %this, i64 1000
-  store ptr %call.i226, ptr %arrayidx.i228, align 8
+  %call.i192 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr nonnull @.str.35, i64 5)
+  %arrayidx.i193 = getelementptr inbounds nuw i8, ptr %this, i64 1000
+  store ptr %call.i192, ptr %arrayidx.i193, align 8
   %36 = load ptr, ptr %strTab_.i, align 8
-  %call.i230 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr nonnull @.str.36, i64 4)
-  %arrayidx.i232 = getelementptr inbounds nuw i8, ptr %this, i64 1008
-  store ptr %call.i230, ptr %arrayidx.i232, align 8
+  %call.i195 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr nonnull @.str.36, i64 4)
+  %arrayidx.i196 = getelementptr inbounds nuw i8, ptr %this, i64 1008
+  store ptr %call.i195, ptr %arrayidx.i196, align 8
   %37 = load ptr, ptr %strTab_.i, align 8
-  %call.i234 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr nonnull @.str.37, i64 10)
-  %arrayidx.i236 = getelementptr inbounds nuw i8, ptr %this, i64 1016
-  store ptr %call.i234, ptr %arrayidx.i236, align 8
+  %call.i198 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr nonnull @.str.37, i64 10)
+  %arrayidx.i199 = getelementptr inbounds nuw i8, ptr %this, i64 1016
+  store ptr %call.i198, ptr %arrayidx.i199, align 8
   %38 = load ptr, ptr %strTab_.i, align 8
-  %call.i238 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr nonnull @.str.38, i64 9)
-  %arrayidx.i240 = getelementptr inbounds nuw i8, ptr %this, i64 1024
-  store ptr %call.i238, ptr %arrayidx.i240, align 8
+  %call.i201 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr nonnull @.str.38, i64 9)
+  %arrayidx.i202 = getelementptr inbounds nuw i8, ptr %this, i64 1024
+  store ptr %call.i201, ptr %arrayidx.i202, align 8
   %39 = load ptr, ptr %strTab_.i, align 8
-  %call.i242 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr nonnull @.str.39, i64 7)
-  %arrayidx.i244 = getelementptr inbounds nuw i8, ptr %this, i64 1032
-  store ptr %call.i242, ptr %arrayidx.i244, align 8
+  %call.i204 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr nonnull @.str.39, i64 7)
+  %arrayidx.i205 = getelementptr inbounds nuw i8, ptr %this, i64 1032
+  store ptr %call.i204, ptr %arrayidx.i205, align 8
   %40 = load ptr, ptr %strTab_.i, align 8
-  %call.i246 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr nonnull @.str.40, i64 7)
-  %arrayidx.i248 = getelementptr inbounds nuw i8, ptr %this, i64 1040
-  store ptr %call.i246, ptr %arrayidx.i248, align 8
+  %call.i207 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr nonnull @.str.40, i64 7)
+  %arrayidx.i208 = getelementptr inbounds nuw i8, ptr %this, i64 1040
+  store ptr %call.i207, ptr %arrayidx.i208, align 8
   %41 = load ptr, ptr %strTab_.i, align 8
-  %call.i250 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr nonnull @.str.41, i64 9)
-  %arrayidx.i252 = getelementptr inbounds nuw i8, ptr %this, i64 1048
-  store ptr %call.i250, ptr %arrayidx.i252, align 8
+  %call.i210 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr nonnull @.str.41, i64 9)
+  %arrayidx.i211 = getelementptr inbounds nuw i8, ptr %this, i64 1048
+  store ptr %call.i210, ptr %arrayidx.i211, align 8
   %42 = load ptr, ptr %strTab_.i, align 8
-  %call.i254 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr nonnull @.str.42, i64 6)
-  %arrayidx.i256 = getelementptr inbounds nuw i8, ptr %this, i64 1056
-  store ptr %call.i254, ptr %arrayidx.i256, align 8
+  %call.i213 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr nonnull @.str.42, i64 6)
+  %arrayidx.i214 = getelementptr inbounds nuw i8, ptr %this, i64 1056
+  store ptr %call.i213, ptr %arrayidx.i214, align 8
   %43 = load ptr, ptr %strTab_.i, align 8
-  %call.i258 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr nonnull @.str.43, i64 5)
-  %arrayidx.i260 = getelementptr inbounds nuw i8, ptr %this, i64 1064
-  store ptr %call.i258, ptr %arrayidx.i260, align 8
+  %call.i216 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr nonnull @.str.43, i64 5)
+  %arrayidx.i217 = getelementptr inbounds nuw i8, ptr %this, i64 1064
+  store ptr %call.i216, ptr %arrayidx.i217, align 8
   ret void
 }
 
@@ -3098,18 +3098,17 @@ if.then7:                                         ; preds = %if.else
   %6 = load i32, ptr %Size.i.i.i, align 8
   %call7.i = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %5, i32 noundef %6)
   %cmp.not.i = icmp eq i32 %call7.i, 1
+  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then7
   %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %7 = zext nneg i32 %call7.i to i64
-  %8 = getelementptr ptr, ptr %resWordIdent_.i.i, i64 %7
-  %arrayidx.i.i = getelementptr i8, ptr %8, i64 -24
+  %8 = getelementptr ptr, ptr %this, i64 %7
+  %arrayidx.i.i = getelementptr i8, ptr %8, i64 688
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   store i32 %call7.i, ptr %token_.i, align 8
-  %ident_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %9, ptr %ident_.i.i, align 8
+  store ptr %9, ptr %ident_.i11.i, align 8
   %10 = load ptr, ptr %this, align 8
   %range_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
@@ -3127,7 +3126,6 @@ if.else.i:                                        ; preds = %if.then7
   %strTab_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %12 = load ptr, ptr %strTab_.i.i, align 8
   %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr %5, i64 %conv.i.i.i)
-  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %call.i.i, ptr %ident_.i11.i, align 8
   br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
 
@@ -4404,11 +4402,12 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEjRN4llvh15SmallVectorImplIcEE.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6parser7JSLexer28scanIdentifierPartsInContextENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef %grammarContext) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %ref.tmp17.i23 = alloca %"class.llvh::Twine", align 8
+  %ref.tmp17.i21 = alloca %"class.llvh::Twine", align 8
   %ref.tmp17.i2 = alloca %"class.llvh::Twine", align 8
   %ref.tmp17.i = alloca %"class.llvh::Twine", align 8
-  %tmpStorage_.i24 = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %Size.i.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 176
+  %tmpStorage_.i22 = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %Size.i.i.i23 = getelementptr inbounds nuw i8, ptr %this, i64 176
+  %ident_.i11.i26 = getelementptr inbounds nuw i8, ptr %this, i64 88
   switch i32 %grammarContext, label %if.else4 [
     i32 2, label %if.then
     i32 3, label %if.then3
@@ -4417,22 +4416,20 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
   tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
-  %0 = load ptr, ptr %tmpStorage_.i24, align 8
-  %1 = load i32, ptr %Size.i.i.i25, align 8
+  %0 = load ptr, ptr %tmpStorage_.i22, align 8
+  %1 = load i32, ptr %Size.i.i.i23, align 8
   %call7.i = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %0, i32 noundef %1)
   %cmp.not.i = icmp eq i32 %call7.i, 1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %2 = zext nneg i32 %call7.i to i64
-  %3 = getelementptr ptr, ptr %resWordIdent_.i.i, i64 %2
-  %arrayidx.i.i = getelementptr i8, ptr %3, i64 -24
+  %3 = getelementptr ptr, ptr %this, i64 %2
+  %arrayidx.i.i = getelementptr i8, ptr %3, i64 688
   %4 = load ptr, ptr %arrayidx.i.i, align 8
   store i32 %call7.i, ptr %token_.i, align 8
-  %ident_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %4, ptr %ident_.i.i, align 8
+  store ptr %4, ptr %ident_.i11.i26, align 8
   %5 = load ptr, ptr %this, align 8
   %range_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
@@ -4453,8 +4450,7 @@ if.else.i:                                        ; preds = %if.then
   %7 = load ptr, ptr %strTab_.i.i, align 8
   %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %0, i64 %conv.i.i.i)
   store i32 1, ptr %token_18.i, align 8
-  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i.i, ptr %ident_.i11.i, align 8
+  store ptr %call.i.i, ptr %ident_.i11.i26, align 8
   br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
 
 _ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit: ; preds = %if.then.i, %if.else.i
@@ -4464,95 +4460,89 @@ _ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
 if.then3:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i2)
   tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
-  %8 = load ptr, ptr %tmpStorage_.i24, align 8
-  %9 = load i32, ptr %Size.i.i.i25, align 8
+  %8 = load ptr, ptr %tmpStorage_.i22, align 8
+  %9 = load i32, ptr %Size.i.i.i23, align 8
   %call7.i5 = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %8, i32 noundef %9)
   %cmp.not.i6 = icmp eq i32 %call7.i5, 1
-  br i1 %cmp.not.i6, label %if.else.i17, label %if.then.i7
+  br i1 %cmp.not.i6, label %if.else.i16, label %if.then.i8
 
-if.then.i7:                                       ; preds = %if.then3
-  %token_.i8 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 712
+if.then.i8:                                       ; preds = %if.then3
+  %token_.i9 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %10 = zext nneg i32 %call7.i5 to i64
-  %11 = getelementptr ptr, ptr %resWordIdent_.i.i9, i64 %10
-  %arrayidx.i.i10 = getelementptr i8, ptr %11, i64 -24
+  %11 = getelementptr ptr, ptr %this, i64 %10
+  %arrayidx.i.i10 = getelementptr i8, ptr %11, i64 688
   %12 = load ptr, ptr %arrayidx.i.i10, align 8
-  store i32 %call7.i5, ptr %token_.i8, align 8
-  %ident_.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %12, ptr %ident_.i.i11, align 8
+  store i32 %call7.i5, ptr %token_.i9, align 8
+  store ptr %12, ptr %ident_.i11.i26, align 8
   %13 = load ptr, ptr %this, align 8
-  %range_.i.i12 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %retval.sroa.0.0.copyload.i.i13 = load ptr, ptr %range_.i.i12, align 8
-  %curCharPtr_.i14 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %14 = load ptr, ptr %curCharPtr_.i14, align 8
-  %LHSKind.i.i15 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i2, i64 16
-  %RHSKind.i.i16 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i2, i64 17
-  store i8 1, ptr %RHSKind.i.i16, align 1
+  %range_.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i12 = load ptr, ptr %range_.i.i11, align 8
+  %curCharPtr_.i13 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %14 = load ptr, ptr %curCharPtr_.i13, align 8
+  %LHSKind.i.i14 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i2, i64 16
+  %RHSKind.i.i15 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i2, i64 17
+  store i8 1, ptr %RHSKind.i.i15, align 1
   store ptr @.str.413, ptr %ref.tmp17.i2, align 8
-  store i8 3, ptr %LHSKind.i.i15, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i13, ptr %retval.sroa.0.0.copyload.i.i13, ptr %14, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i2, i32 noundef 4, i32 noundef 1) #20
+  store i8 3, ptr %LHSKind.i.i14, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i12, ptr %retval.sroa.0.0.copyload.i.i12, ptr %14, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i2, i32 noundef 4, i32 noundef 1) #20
   br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit
 
-if.else.i17:                                      ; preds = %if.then3
-  %conv.i.i.i18 = zext i32 %9 to i64
-  %token_18.i19 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %strTab_.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %15 = load ptr, ptr %strTab_.i.i20, align 8
-  %call.i.i21 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %8, i64 %conv.i.i.i18)
-  store i32 1, ptr %token_18.i19, align 8
-  %ident_.i11.i22 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i.i21, ptr %ident_.i11.i22, align 8
+if.else.i16:                                      ; preds = %if.then3
+  %conv.i.i.i17 = zext i32 %9 to i64
+  %token_18.i18 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %15 = load ptr, ptr %strTab_.i.i19, align 8
+  %call.i.i20 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %8, i64 %conv.i.i.i17)
+  store i32 1, ptr %token_18.i18, align 8
+  store ptr %call.i.i20, ptr %ident_.i11.i26, align 8
   br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit
 
-_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit: ; preds = %if.then.i7, %if.else.i17
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit: ; preds = %if.then.i8, %if.else.i16
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i2)
   br label %if.end5
 
 if.else4:                                         ; preds = %entry
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i21)
   tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
-  %16 = load ptr, ptr %tmpStorage_.i24, align 8
-  %17 = load i32, ptr %Size.i.i.i25, align 8
-  %call7.i26 = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %16, i32 noundef %17)
-  %cmp.not.i27 = icmp eq i32 %call7.i26, 1
-  br i1 %cmp.not.i27, label %if.else.i38, label %if.then.i28
+  %16 = load ptr, ptr %tmpStorage_.i22, align 8
+  %17 = load i32, ptr %Size.i.i.i23, align 8
+  %call7.i24 = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %16, i32 noundef %17)
+  %cmp.not.i25 = icmp eq i32 %call7.i24, 1
+  br i1 %cmp.not.i25, label %if.else.i35, label %if.then.i27
 
-if.then.i28:                                      ; preds = %if.else4
-  %token_.i29 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 712
-  %18 = zext nneg i32 %call7.i26 to i64
-  %19 = getelementptr ptr, ptr %resWordIdent_.i.i30, i64 %18
-  %arrayidx.i.i31 = getelementptr i8, ptr %19, i64 -24
-  %20 = load ptr, ptr %arrayidx.i.i31, align 8
-  store i32 %call7.i26, ptr %token_.i29, align 8
-  %ident_.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %20, ptr %ident_.i.i32, align 8
+if.then.i27:                                      ; preds = %if.else4
+  %token_.i28 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %18 = zext nneg i32 %call7.i24 to i64
+  %19 = getelementptr ptr, ptr %this, i64 %18
+  %arrayidx.i.i29 = getelementptr i8, ptr %19, i64 688
+  %20 = load ptr, ptr %arrayidx.i.i29, align 8
+  store i32 %call7.i24, ptr %token_.i28, align 8
+  store ptr %20, ptr %ident_.i11.i26, align 8
   %21 = load ptr, ptr %this, align 8
-  %range_.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %retval.sroa.0.0.copyload.i.i34 = load ptr, ptr %range_.i.i33, align 8
-  %curCharPtr_.i35 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %22 = load ptr, ptr %curCharPtr_.i35, align 8
-  %LHSKind.i.i36 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i23, i64 16
-  %RHSKind.i.i37 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i23, i64 17
-  store i8 1, ptr %RHSKind.i.i37, align 1
-  store ptr @.str.413, ptr %ref.tmp17.i23, align 8
-  store i8 3, ptr %LHSKind.i.i36, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %21, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i34, ptr %retval.sroa.0.0.copyload.i.i34, ptr %22, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i23, i32 noundef 4, i32 noundef 1) #20
+  %range_.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i31 = load ptr, ptr %range_.i.i30, align 8
+  %curCharPtr_.i32 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %22 = load ptr, ptr %curCharPtr_.i32, align 8
+  %LHSKind.i.i33 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i21, i64 16
+  %RHSKind.i.i34 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i21, i64 17
+  store i8 1, ptr %RHSKind.i.i34, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i21, align 8
+  store i8 3, ptr %LHSKind.i.i33, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %21, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i31, ptr %retval.sroa.0.0.copyload.i.i31, ptr %22, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i21, i32 noundef 4, i32 noundef 1) #20
   br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
 
-if.else.i38:                                      ; preds = %if.else4
-  %conv.i.i.i39 = zext i32 %17 to i64
-  %token_18.i40 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %strTab_.i.i41 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %23 = load ptr, ptr %strTab_.i.i41, align 8
-  %call.i.i42 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr %16, i64 %conv.i.i.i39)
-  store i32 1, ptr %token_18.i40, align 8
-  %ident_.i11.i43 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i.i42, ptr %ident_.i11.i43, align 8
+if.else.i35:                                      ; preds = %if.else4
+  %conv.i.i.i36 = zext i32 %17 to i64
+  %token_18.i37 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %23 = load ptr, ptr %strTab_.i.i38, align 8
+  %call.i.i39 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr %16, i64 %conv.i.i.i36)
+  store i32 1, ptr %token_18.i37, align 8
+  store ptr %call.i.i39, ptr %ident_.i11.i26, align 8
   br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
 
-_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit: ; preds = %if.then.i28, %if.else.i38
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i23)
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit: ; preds = %if.then.i27, %if.else.i35
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i21)
   br label %if.end5
 
 if.end5:                                          ; preds = %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
@@ -8595,18 +8585,17 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit: ; preds = %if.then, %if.
   %9 = load i32, ptr %Size.i.i.i, align 8
   %call7.i = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %8, i32 noundef %9)
   %cmp.not.i = icmp eq i32 %call7.i, 1
+  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
   %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %10 = zext nneg i32 %call7.i to i64
-  %11 = getelementptr ptr, ptr %resWordIdent_.i.i, i64 %10
-  %arrayidx.i.i = getelementptr i8, ptr %11, i64 -24
+  %11 = getelementptr ptr, ptr %this, i64 %10
+  %arrayidx.i.i = getelementptr i8, ptr %11, i64 688
   %12 = load ptr, ptr %arrayidx.i.i, align 8
   store i32 %call7.i, ptr %token_.i, align 8
-  %ident_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %12, ptr %ident_.i.i, align 8
+  store ptr %12, ptr %ident_.i11.i, align 8
   %13 = load ptr, ptr %this, align 8
   %range_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
@@ -8626,7 +8615,6 @@ if.else.i:                                        ; preds = %_ZN6hermes6parser7J
   %15 = load ptr, ptr %strTab_.i.i, align 8
   %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %8, i64 %conv.i.i.i)
   store i32 1, ptr %token_18.i, align 8
-  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %call.i.i, ptr %ident_.i11.i, align 8
   br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
 
@@ -8769,42 +8757,40 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %32 = load i32, ptr %Size.i.i.i28, align 8
   %call7.i62 = call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %31, i32 noundef %32)
   %cmp.not.i63 = icmp eq i32 %call7.i62, 1
-  br i1 %cmp.not.i63, label %if.else.i74, label %if.then.i64
+  %ident_.i11.i64 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  br i1 %cmp.not.i63, label %if.else.i73, label %if.then.i65
 
-if.then.i64:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
-  %token_.i65 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i.i66 = getelementptr inbounds nuw i8, ptr %this, i64 712
+if.then.i65:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %token_.i66 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %33 = zext nneg i32 %call7.i62 to i64
-  %34 = getelementptr ptr, ptr %resWordIdent_.i.i66, i64 %33
-  %arrayidx.i.i67 = getelementptr i8, ptr %34, i64 -24
+  %34 = getelementptr ptr, ptr %this, i64 %33
+  %arrayidx.i.i67 = getelementptr i8, ptr %34, i64 688
   %35 = load ptr, ptr %arrayidx.i.i67, align 8
-  store i32 %call7.i62, ptr %token_.i65, align 8
-  %ident_.i.i68 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %35, ptr %ident_.i.i68, align 8
+  store i32 %call7.i62, ptr %token_.i66, align 8
+  store ptr %35, ptr %ident_.i11.i64, align 8
   %36 = load ptr, ptr %this, align 8
-  %range_.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %retval.sroa.0.0.copyload.i.i70 = load ptr, ptr %range_.i.i69, align 8
+  %range_.i.i68 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i69 = load ptr, ptr %range_.i.i68, align 8
   %37 = load ptr, ptr %curCharPtr_25, align 8
-  %LHSKind.i.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i59, i64 16
-  %RHSKind.i.i73 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i59, i64 17
-  store i8 1, ptr %RHSKind.i.i73, align 1
+  %LHSKind.i.i71 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i59, i64 16
+  %RHSKind.i.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i59, i64 17
+  store i8 1, ptr %RHSKind.i.i72, align 1
   store ptr @.str.413, ptr %ref.tmp17.i59, align 8
-  store i8 3, ptr %LHSKind.i.i72, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i70, ptr %retval.sroa.0.0.copyload.i.i70, ptr %37, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i59, i32 noundef 4, i32 noundef 1) #20
-  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit80
+  store i8 3, ptr %LHSKind.i.i71, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i69, ptr %retval.sroa.0.0.copyload.i.i69, ptr %37, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i59, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit78
 
-if.else.i74:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
-  %conv.i.i.i75 = zext i32 %32 to i64
-  %token_18.i76 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %strTab_.i.i77 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %38 = load ptr, ptr %strTab_.i.i77, align 8
-  %call.i.i78 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr %31, i64 %conv.i.i.i75)
-  store i32 1, ptr %token_18.i76, align 8
-  %ident_.i11.i79 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i.i78, ptr %ident_.i11.i79, align 8
-  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit80
+if.else.i73:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %conv.i.i.i74 = zext i32 %32 to i64
+  %token_18.i75 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i76 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %38 = load ptr, ptr %strTab_.i.i76, align 8
+  %call.i.i77 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr %31, i64 %conv.i.i.i74)
+  store i32 1, ptr %token_18.i75, align 8
+  store ptr %call.i.i77, ptr %ident_.i11.i64, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit78
 
-_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit80: ; preds = %if.then.i64, %if.else.i74
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit78: ; preds = %if.then.i65, %if.else.i73
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i59)
   br label %if.end37
 
@@ -8821,10 +8807,9 @@ if.end27:                                         ; preds = %if.else, %_ZN6herme
   br i1 %cmp31.not, label %if.else34, label %if.then32
 
 if.then32:                                        ; preds = %if.end27
-  %resWordIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %39 = zext nneg i32 %call30 to i64
-  %40 = getelementptr ptr, ptr %resWordIdent_.i, i64 %39
-  %arrayidx.i = getelementptr i8, ptr %40, i64 -24
+  %40 = getelementptr ptr, ptr %this, i64 %39
+  %arrayidx.i = getelementptr i8, ptr %40, i64 688
   %41 = load ptr, ptr %arrayidx.i, align 8
   store i32 %call30, ptr %token_35, align 8
   %ident_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -8834,13 +8819,13 @@ if.then32:                                        ; preds = %if.end27
 if.else34:                                        ; preds = %if.end27
   %strTab_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %42 = load ptr, ptr %strTab_.i, align 8
-  %call.i81 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr %start, i64 %sub.ptr.sub)
+  %call.i79 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr %start, i64 %sub.ptr.sub)
   store i32 1, ptr %token_35, align 8
-  %ident_.i82 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i81, ptr %ident_.i82, align 8
+  %ident_.i80 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i79, ptr %ident_.i80, align 8
   br label %if.end37
 
-if.end37:                                         ; preds = %if.else34, %if.then32, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit80, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
+if.end37:                                         ; preds = %if.else34, %if.then32, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit78, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
   ret void
 }
 
@@ -15278,18 +15263,17 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit: ; preds = %if.then, %if.
   %9 = load i32, ptr %Size.i.i.i, align 8
   %call7.i = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %8, i32 noundef %9)
   %cmp.not.i = icmp eq i32 %call7.i, 1
+  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
   %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %10 = zext nneg i32 %call7.i to i64
-  %11 = getelementptr ptr, ptr %resWordIdent_.i.i, i64 %10
-  %arrayidx.i.i = getelementptr i8, ptr %11, i64 -24
+  %11 = getelementptr ptr, ptr %this, i64 %10
+  %arrayidx.i.i = getelementptr i8, ptr %11, i64 688
   %12 = load ptr, ptr %arrayidx.i.i, align 8
   store i32 %call7.i, ptr %token_.i, align 8
-  %ident_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %12, ptr %ident_.i.i, align 8
+  store ptr %12, ptr %ident_.i11.i, align 8
   %13 = load ptr, ptr %this, align 8
   %range_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
@@ -15309,7 +15293,6 @@ if.else.i:                                        ; preds = %_ZN6hermes6parser7J
   %15 = load ptr, ptr %strTab_.i.i, align 8
   %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %8, i64 %conv.i.i.i)
   store i32 1, ptr %token_18.i, align 8
-  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %call.i.i, ptr %ident_.i11.i, align 8
   br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
 
@@ -15452,42 +15435,40 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %32 = load i32, ptr %Size.i.i.i29, align 8
   %call7.i63 = call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %31, i32 noundef %32)
   %cmp.not.i64 = icmp eq i32 %call7.i63, 1
-  br i1 %cmp.not.i64, label %if.else.i75, label %if.then.i65
+  %ident_.i11.i65 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  br i1 %cmp.not.i64, label %if.else.i74, label %if.then.i66
 
-if.then.i65:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
-  %token_.i66 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i.i67 = getelementptr inbounds nuw i8, ptr %this, i64 712
+if.then.i66:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %token_.i67 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %33 = zext nneg i32 %call7.i63 to i64
-  %34 = getelementptr ptr, ptr %resWordIdent_.i.i67, i64 %33
-  %arrayidx.i.i68 = getelementptr i8, ptr %34, i64 -24
+  %34 = getelementptr ptr, ptr %this, i64 %33
+  %arrayidx.i.i68 = getelementptr i8, ptr %34, i64 688
   %35 = load ptr, ptr %arrayidx.i.i68, align 8
-  store i32 %call7.i63, ptr %token_.i66, align 8
-  %ident_.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %35, ptr %ident_.i.i69, align 8
+  store i32 %call7.i63, ptr %token_.i67, align 8
+  store ptr %35, ptr %ident_.i11.i65, align 8
   %36 = load ptr, ptr %this, align 8
-  %range_.i.i70 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %retval.sroa.0.0.copyload.i.i71 = load ptr, ptr %range_.i.i70, align 8
+  %range_.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i70 = load ptr, ptr %range_.i.i69, align 8
   %37 = load ptr, ptr %curCharPtr_28, align 8
-  %LHSKind.i.i73 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i60, i64 16
-  %RHSKind.i.i74 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i60, i64 17
-  store i8 1, ptr %RHSKind.i.i74, align 1
+  %LHSKind.i.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i60, i64 16
+  %RHSKind.i.i73 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i60, i64 17
+  store i8 1, ptr %RHSKind.i.i73, align 1
   store ptr @.str.413, ptr %ref.tmp17.i60, align 8
-  store i8 3, ptr %LHSKind.i.i73, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i71, ptr %retval.sroa.0.0.copyload.i.i71, ptr %37, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i60, i32 noundef 4, i32 noundef 1) #20
-  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit81
+  store i8 3, ptr %LHSKind.i.i72, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i70, ptr %retval.sroa.0.0.copyload.i.i70, ptr %37, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i60, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit79
 
-if.else.i75:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
-  %conv.i.i.i76 = zext i32 %32 to i64
-  %token_18.i77 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %strTab_.i.i78 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %38 = load ptr, ptr %strTab_.i.i78, align 8
-  %call.i.i79 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr %31, i64 %conv.i.i.i76)
-  store i32 1, ptr %token_18.i77, align 8
-  %ident_.i11.i80 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i.i79, ptr %ident_.i11.i80, align 8
-  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit81
+if.else.i74:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %conv.i.i.i75 = zext i32 %32 to i64
+  %token_18.i76 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i77 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %38 = load ptr, ptr %strTab_.i.i77, align 8
+  %call.i.i78 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr %31, i64 %conv.i.i.i75)
+  store i32 1, ptr %token_18.i76, align 8
+  store ptr %call.i.i78, ptr %ident_.i11.i65, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit79
 
-_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit81: ; preds = %if.then.i65, %if.else.i75
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit79: ; preds = %if.then.i66, %if.else.i74
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i60)
   br label %if.end40
 
@@ -15504,10 +15485,9 @@ if.end30:                                         ; preds = %if.else, %_ZN6herme
   br i1 %cmp34.not, label %if.else37, label %if.then35
 
 if.then35:                                        ; preds = %if.end30
-  %resWordIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %39 = zext nneg i32 %call33 to i64
-  %40 = getelementptr ptr, ptr %resWordIdent_.i, i64 %39
-  %arrayidx.i = getelementptr i8, ptr %40, i64 -24
+  %40 = getelementptr ptr, ptr %this, i64 %39
+  %arrayidx.i = getelementptr i8, ptr %40, i64 688
   %41 = load ptr, ptr %arrayidx.i, align 8
   store i32 %call33, ptr %token_38, align 8
   %ident_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -15517,13 +15497,13 @@ if.then35:                                        ; preds = %if.end30
 if.else37:                                        ; preds = %if.end30
   %strTab_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %42 = load ptr, ptr %strTab_.i, align 8
-  %call.i82 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr %start, i64 %sub.ptr.sub)
+  %call.i80 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr %start, i64 %sub.ptr.sub)
   store i32 1, ptr %token_38, align 8
-  %ident_.i83 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i82, ptr %ident_.i83, align 8
+  %ident_.i81 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i80, ptr %ident_.i81, align 8
   br label %if.end40
 
-if.end40:                                         ; preds = %if.else37, %if.then35, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit81, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
+if.end40:                                         ; preds = %if.else37, %if.then35, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit79, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
   ret void
 }
 
@@ -15601,18 +15581,17 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit: ; preds = %if.then.i.i.i
   %9 = load i32, ptr %Size.i.i.i, align 8
   %call7.i = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %8, i32 noundef %9)
   %cmp.not.i = icmp eq i32 %call7.i, 1
+  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
   %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %10 = zext nneg i32 %call7.i to i64
-  %11 = getelementptr ptr, ptr %resWordIdent_.i.i, i64 %10
-  %arrayidx.i.i = getelementptr i8, ptr %11, i64 -24
+  %11 = getelementptr ptr, ptr %this, i64 %10
+  %arrayidx.i.i = getelementptr i8, ptr %11, i64 688
   %12 = load ptr, ptr %arrayidx.i.i, align 8
   store i32 %call7.i, ptr %token_.i, align 8
-  %ident_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %12, ptr %ident_.i.i, align 8
+  store ptr %12, ptr %ident_.i11.i, align 8
   %13 = load ptr, ptr %this, align 8
   %range_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
@@ -15632,7 +15611,6 @@ if.else.i:                                        ; preds = %_ZN6hermes6parser7J
   %15 = load ptr, ptr %strTab_.i.i, align 8
   %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %8, i64 %conv.i.i.i)
   store i32 1, ptr %token_18.i, align 8
-  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %call.i.i, ptr %ident_.i11.i, align 8
   br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit
 
@@ -15775,42 +15753,40 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %32 = load i32, ptr %Size.i.i.i29, align 8
   %call7.i69 = call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %31, i32 noundef %32)
   %cmp.not.i70 = icmp eq i32 %call7.i69, 1
-  br i1 %cmp.not.i70, label %if.else.i81, label %if.then.i71
+  %ident_.i11.i71 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  br i1 %cmp.not.i70, label %if.else.i80, label %if.then.i72
 
-if.then.i71:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
-  %token_.i72 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i.i73 = getelementptr inbounds nuw i8, ptr %this, i64 712
+if.then.i72:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %token_.i73 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %33 = zext nneg i32 %call7.i69 to i64
-  %34 = getelementptr ptr, ptr %resWordIdent_.i.i73, i64 %33
-  %arrayidx.i.i74 = getelementptr i8, ptr %34, i64 -24
+  %34 = getelementptr ptr, ptr %this, i64 %33
+  %arrayidx.i.i74 = getelementptr i8, ptr %34, i64 688
   %35 = load ptr, ptr %arrayidx.i.i74, align 8
-  store i32 %call7.i69, ptr %token_.i72, align 8
-  %ident_.i.i75 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %35, ptr %ident_.i.i75, align 8
+  store i32 %call7.i69, ptr %token_.i73, align 8
+  store ptr %35, ptr %ident_.i11.i71, align 8
   %36 = load ptr, ptr %this, align 8
-  %range_.i.i76 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %retval.sroa.0.0.copyload.i.i77 = load ptr, ptr %range_.i.i76, align 8
+  %range_.i.i75 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i76 = load ptr, ptr %range_.i.i75, align 8
   %37 = load ptr, ptr %curCharPtr_27, align 8
-  %LHSKind.i.i79 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i66, i64 16
-  %RHSKind.i.i80 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i66, i64 17
-  store i8 1, ptr %RHSKind.i.i80, align 1
+  %LHSKind.i.i78 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i66, i64 16
+  %RHSKind.i.i79 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i66, i64 17
+  store i8 1, ptr %RHSKind.i.i79, align 1
   store ptr @.str.413, ptr %ref.tmp17.i66, align 8
-  store i8 3, ptr %LHSKind.i.i79, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i77, ptr %retval.sroa.0.0.copyload.i.i77, ptr %37, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i66, i32 noundef 4, i32 noundef 1) #20
-  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit87
+  store i8 3, ptr %LHSKind.i.i78, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i76, ptr %retval.sroa.0.0.copyload.i.i76, ptr %37, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i66, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit85
 
-if.else.i81:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
-  %conv.i.i.i82 = zext i32 %32 to i64
-  %token_18.i83 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %strTab_.i.i84 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %38 = load ptr, ptr %strTab_.i.i84, align 8
-  %call.i.i85 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr %31, i64 %conv.i.i.i82)
-  store i32 1, ptr %token_18.i83, align 8
-  %ident_.i11.i86 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i.i85, ptr %ident_.i11.i86, align 8
-  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit87
+if.else.i80:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %conv.i.i.i81 = zext i32 %32 to i64
+  %token_18.i82 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i83 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %38 = load ptr, ptr %strTab_.i.i83, align 8
+  %call.i.i84 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr %31, i64 %conv.i.i.i81)
+  store i32 1, ptr %token_18.i82, align 8
+  store ptr %call.i.i84, ptr %ident_.i11.i71, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit85
 
-_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit87: ; preds = %if.then.i71, %if.else.i81
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit85: ; preds = %if.then.i72, %if.else.i80
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i66)
   br label %if.end39
 
@@ -15827,10 +15803,9 @@ if.end29:                                         ; preds = %if.else, %_ZN6herme
   br i1 %cmp33.not, label %if.else36, label %if.then34
 
 if.then34:                                        ; preds = %if.end29
-  %resWordIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %39 = zext nneg i32 %call32 to i64
-  %40 = getelementptr ptr, ptr %resWordIdent_.i, i64 %39
-  %arrayidx.i = getelementptr i8, ptr %40, i64 -24
+  %40 = getelementptr ptr, ptr %this, i64 %39
+  %arrayidx.i = getelementptr i8, ptr %40, i64 688
   %41 = load ptr, ptr %arrayidx.i, align 8
   store i32 %call32, ptr %token_37, align 8
   %ident_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -15840,13 +15815,13 @@ if.then34:                                        ; preds = %if.end29
 if.else36:                                        ; preds = %if.end29
   %strTab_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %42 = load ptr, ptr %strTab_.i, align 8
-  %call.i88 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr %start, i64 %sub.ptr.sub)
+  %call.i86 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr %start, i64 %sub.ptr.sub)
   store i32 1, ptr %token_37, align 8
-  %ident_.i89 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i88, ptr %ident_.i89, align 8
+  %ident_.i87 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i86, ptr %ident_.i87, align 8
   br label %if.end39
 
-if.end39:                                         ; preds = %if.else36, %if.then34, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit87, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit
+if.end39:                                         ; preds = %if.else36, %if.then34, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit85, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit
   ret void
 }
 

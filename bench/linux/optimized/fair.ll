@@ -444,42 +444,41 @@ define dso_local void @post_init_entity_util_avg(ptr noundef captures(none) %0) 
 define dso_local i64 @update_curr_common(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2336
   %3 = load ptr, ptr %2, align 32
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2432
-  %6 = load i64, ptr %5, align 64
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  %8 = load i64, ptr %7, align 16
-  %9 = sub i64 %6, %8
-  %10 = icmp slt i64 %9, 1
-  br i1 %10, label %25, label %11, !prof !7
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2432
+  %5 = load i64, ptr %4, align 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %7 = load i64, ptr %6, align 16
+  %8 = sub i64 %5, %7
+  %9 = icmp slt i64 %8, 1
+  br i1 %9, label %24, label %10, !prof !7
 
-11:                                               ; preds = %1
-  store i64 %6, ptr %7, align 16
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  %13 = load i64, ptr %12, align 8
-  %14 = add i64 %13, %9
-  store i64 %14, ptr %12, align 8
+10:                                               ; preds = %1
+  store i64 %5, ptr %6, align 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  %12 = load i64, ptr %11, align 8
+  %13 = add i64 %12, %8
+  store i64 %13, ptr %11, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_schedstats, i32 2) #27
-          to label %24 [label %15], !srcloc !8
+          to label %23 [label %14], !srcloc !8
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  %17 = load ptr, ptr %16, align 32
-  %18 = icmp eq ptr %17, null
-  %19 = select i1 %18, i64 576, i64 256
-  %20 = getelementptr i8, ptr %4, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %22 = load i64, ptr %21, align 32
-  %23 = tail call i64 @llvm.smax.i64(i64 %9, i64 %22)
-  store i64 %23, ptr %21, align 32
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 288
+  %16 = load ptr, ptr %15, align 32
+  %17 = icmp eq ptr %16, null
+  %18 = select i1 %17, i64 576, i64 256
+  %19 = getelementptr i8, ptr %3, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 224
+  %21 = load i64, ptr %20, align 32
+  %22 = tail call i64 @llvm.smax.i64(i64 %8, i64 %21)
+  store i64 %22, ptr %20, align 32
+  br label %23
+
+23:                                               ; preds = %14, %10
+  tail call fastcc void @update_curr_task(ptr noundef %3, i64 noundef %8)
   br label %24
 
-24:                                               ; preds = %15, %11
-  tail call fastcc void @update_curr_task(ptr noundef %3, i64 noundef %9)
-  br label %25
-
-25:                                               ; preds = %1, %24
-  ret i64 %9
+24:                                               ; preds = %1, %23
+  ret i64 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid

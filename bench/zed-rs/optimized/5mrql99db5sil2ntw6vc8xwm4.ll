@@ -8084,9 +8084,9 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   br i1 %13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %38
 
 15:                                               ; preds = %.thread, %9
@@ -8183,8 +8183,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   ret void
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }, ptr %14, i64 %40
-  %44 = getelementptr inbounds i8, ptr %43, i64 -48
+  %43 = getelementptr inbounds nuw { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }, ptr %0, i64 %40
+  %44 = getelementptr inbounds i8, ptr %43, i64 -24
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
   br label %46
 

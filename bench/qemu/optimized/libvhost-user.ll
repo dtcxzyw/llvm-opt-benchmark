@@ -2785,9 +2785,8 @@ vring_set_avail_event.exit:                       ; preds = %83, %79, %76
   %102 = add i64 %101, 1
   store i64 %102, ptr %100, align 8
   %103 = zext i16 %74 to i64
-  %.idx.i = shl nuw nsw i64 %103, 4
-  %104 = getelementptr i8, ptr %98, i64 24
-  %105 = getelementptr i8, ptr %104, i64 %.idx.i
+  %104 = getelementptr %struct.VuDescStateSplit, ptr %98, i64 %103
+  %105 = getelementptr i8, ptr %104, i64 24
   store i64 %101, ptr %105, align 8
   %106 = load ptr, ptr %97, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
@@ -4464,9 +4463,8 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
   %121 = getelementptr inbounds nuw %struct.VuVirtqInflightDesc, ptr %118, i64 %120
   store i16 %117, ptr %121, align 8
   %122 = load ptr, ptr %57, align 8
-  %.idx.i = shl nuw nsw i64 %indvars.iv9.i, 4
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx.i
+  %123 = getelementptr inbounds nuw %struct.VuDescStateSplit, ptr %122, i64 %indvars.iv9.i
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load i64, ptr %124, align 8
   %126 = load ptr, ptr %70, align 8
   %127 = load i16, ptr %69, align 8

@@ -832,7 +832,7 @@ define noundef range(i32 -128, 128) i32 @_ZNK6icu_776number4impl11CompactData13g
 define noundef ptr @_ZNK6icu_776number4impl11CompactData10getPatternEiPKNS_11PluralRulesERKNS1_15DecimalQuantityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1375) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(66) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::UnicodeString", align 8
   %6 = icmp slt i32 %1, 0
-  br i1 %6, label %47, label %7
+  br i1 %6, label %46, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1373
@@ -856,68 +856,67 @@ define noundef ptr @_ZNK6icu_776number4impl11CompactData10getPatternEiPKNS_11Plu
   br label %18
 
 18:                                               ; preds = %15, %17
-  %.sink33 = phi i64 [ 56, %17 ], [ 48, %15 ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = shl nsw i32 %spec.select, 3
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr ptr, ptr %19, i64 %21
-  %23 = getelementptr i8, ptr %22, i64 %.sink33
-  %.024 = load ptr, ptr %23, align 8, !tbaa !32
+  %.sink33 = phi i64 [ 64, %17 ], [ 56, %15 ]
+  %19 = shl nsw i32 %spec.select, 3
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr ptr, ptr %0, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 %.sink33
+  %.024 = load ptr, ptr %22, align 8, !tbaa !32
   %.not = icmp eq ptr %.024, null
-  br i1 %.not, label %.thread, label %47
+  br i1 %.not, label %.thread, label %46
 
 .thread:                                          ; preds = %15, %18, %7
-  %24 = icmp eq ptr %2, null
-  br i1 %24, label %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit, label %25
+  %23 = icmp eq ptr %2, null
+  br i1 %23, label %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit, label %24
 
-25:                                               ; preds = %.thread
+24:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNK6icu_7711PluralRules6selectERKNS_13IFixedDecimalE(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %26 = invoke noundef i32 @_ZN6icu_7714StandardPlural25indexOrNegativeFromStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %5)
-          to label %27 unwind label %30
+  %25 = invoke noundef i32 @_ZN6icu_7714StandardPlural25indexOrNegativeFromStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %5)
+          to label %26 unwind label %29
 
-27:                                               ; preds = %25
-  %28 = icmp sgt i32 %26, -1
-  %29 = select i1 %28, i32 %26, i32 5
+26:                                               ; preds = %24
+  %27 = icmp sgt i32 %25, -1
+  %28 = select i1 %27, i32 %25, i32 5
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit
 
-30:                                               ; preds = %25
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %24
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %31
+  resume { ptr, i32 } %30
 
-_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit: ; preds = %.thread, %27
-  %.0.i = phi i32 [ %29, %27 ], [ 5, %.thread ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = shl nsw i32 %spec.select, 3
-  %34 = add nsw i32 %.0.i, %33
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !32
-  %38 = icmp eq ptr %37, null
-  %39 = icmp ne i32 %.0.i, 5
-  %or.cond = and i1 %39, %38
-  br i1 %or.cond, label %40, label %45
+_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit: ; preds = %.thread, %26
+  %.0.i = phi i32 [ %28, %26 ], [ 5, %.thread ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = shl nsw i32 %spec.select, 3
+  %33 = add nsw i32 %.0.i, %32
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds ptr, ptr %31, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !32
+  %37 = icmp eq ptr %36, null
+  %38 = icmp ne i32 %.0.i, 5
+  %or.cond = and i1 %38, %37
+  br i1 %or.cond, label %39, label %44
 
-40:                                               ; preds = %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit
-  %41 = sext i32 %33 to i64
-  %42 = getelementptr ptr, ptr %32, i64 %41
-  %43 = getelementptr i8, ptr %42, i64 40
-  %44 = load ptr, ptr %43, align 8, !tbaa !32
-  br label %45
+39:                                               ; preds = %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit
+  %40 = sext i32 %32 to i64
+  %41 = getelementptr ptr, ptr %31, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 40
+  %43 = load ptr, ptr %42, align 8, !tbaa !32
+  br label %44
 
-45:                                               ; preds = %40, %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit
-  %.125 = phi ptr [ %44, %40 ], [ %37, %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit ]
-  %46 = icmp eq ptr %.125, @.str.7
-  %spec.store.select = select i1 %46, ptr null, ptr %.125
-  br label %47
+44:                                               ; preds = %39, %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit
+  %.125 = phi ptr [ %43, %39 ], [ %36, %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit ]
+  %45 = icmp eq ptr %.125, @.str.7
+  %spec.store.select = select i1 %45, ptr null, ptr %.125
+  br label %46
 
-47:                                               ; preds = %45, %18, %4
-  %.0 = phi ptr [ null, %4 ], [ %spec.store.select, %45 ], [ %.024, %18 ]
+46:                                               ; preds = %44, %18, %4
+  %.0 = phi ptr [ null, %4 ], [ %spec.store.select, %44 ], [ %.024, %18 ]
   ret ptr %.0
 }
 

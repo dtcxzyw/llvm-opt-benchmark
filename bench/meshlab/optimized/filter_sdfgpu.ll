@@ -7431,8 +7431,8 @@ define void @_ZN12SdfGpuPlugin8TraceRayEPK7QActioniRKN3vcg6Point3IfEEP9MeshModel
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 652
   %.sroa.22.0..0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 660
@@ -7467,20 +7467,20 @@ define void @_ZN12SdfGpuPlugin8TraceRayEPK7QActioniRKN3vcg6Point3IfEEP9MeshModel
 
 25:                                               ; preds = %24
   %26 = zext nneg i32 %.054 to i64
-  %27 = getelementptr ptr, ptr %8, i64 %26
-  %28 = getelementptr i8, ptr %27, i64 -8
+  %27 = getelementptr ptr, ptr %0, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 128
   %29 = load ptr, ptr %28, align 8
   tail call void @_ZN12SdfGpuPlugin21useDepthPeelingShaderEP17FramebufferObject(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %29)
   br label %32
 
 30:                                               ; preds = %24
-  %31 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %8, align 8
   tail call void @_ZN12SdfGpuPlugin21useDepthPeelingShaderEP17FramebufferObject(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %25, %30, %22
   %33 = zext nneg i32 %.054 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %8, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %9, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @__glewBindFramebufferEXT, align 8
   %37 = load i32, ptr %35, align 4
@@ -7563,10 +7563,10 @@ _ZN12SdfGpuPlugin9preRenderEj.exit.thread:        ; preds = %32
   %73 = add nsw i32 %.054, -1
   %74 = select i1 %72, i32 2, i32 %73
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %8, i64 %75
+  %76 = getelementptr inbounds ptr, ptr %9, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = zext nneg i32 %71 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %8, i64 %78
+  %79 = getelementptr inbounds nuw ptr, ptr %9, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %34, align 8
   %82 = load float, ptr %10, align 4
@@ -7588,7 +7588,7 @@ _ZN12SdfGpuPlugin9preRenderEj.exit.thread:        ; preds = %32
 94:                                               ; preds = %66
   %95 = add nsw i32 %.054, -1
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %8, i64 %96
+  %97 = getelementptr inbounds nuw ptr, ptr %9, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %34, align 8
   %100 = load float, ptr %10, align 4
@@ -7627,11 +7627,11 @@ _ZN12SdfGpuPlugin9preRenderEj.exit.thread:        ; preds = %32
   %125 = add nsw i32 %.054, -1
   %126 = select i1 %124, i32 2, i32 %125
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds ptr, ptr %8, i64 %127
+  %128 = getelementptr inbounds ptr, ptr %9, i64 %127
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %34, align 8
   %131 = zext nneg i32 %123 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr %8, i64 %131
+  %132 = getelementptr inbounds nuw ptr, ptr %9, i64 %131
   %133 = load ptr, ptr %132, align 8
   tail call void @_ZN12SdfGpuPlugin14calculateSdfHWEP17FramebufferObjectS1_S1_RKN3vcg6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %129, ptr noundef %130, ptr noundef %133, ptr noundef nonnull align 4 dereferenceable(12) %3)
   br label %140
@@ -7639,7 +7639,7 @@ _ZN12SdfGpuPlugin9preRenderEj.exit.thread:        ; preds = %32
 134:                                              ; preds = %118
   %135 = add nsw i32 %.054, -1
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %8, i64 %136
+  %137 = getelementptr inbounds nuw ptr, ptr %9, i64 %136
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %34, align 8
   tail call void @_ZN12SdfGpuPlugin14calculateSdfHWEP17FramebufferObjectS1_S1_RKN3vcg6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %138, ptr noundef %139, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(12) %3)

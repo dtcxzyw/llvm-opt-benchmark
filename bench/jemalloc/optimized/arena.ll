@@ -1177,9 +1177,8 @@ sz_size2index.exit.thread15:                      ; preds = %10, %sz_size2index.
   %.0.i17 = phi i32 [ %24, %sz_size2index.exit ], [ 232, %10 ]
   %51 = add nsw i32 %.0.i17, -36
   %52 = zext i32 %51 to i64
-  %.idx = mul nuw nsw i64 %52, 48
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 1000
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
+  %53 = getelementptr inbounds nuw %struct.arena_stats_large_s, ptr %1, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1000
   %55 = atomicrmw add ptr %54, i64 1 monotonic, align 8
   br label %56
 

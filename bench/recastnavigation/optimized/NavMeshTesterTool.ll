@@ -1800,8 +1800,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleToggleEv(ptr noundef nonnul
   %52 = load ptr, ptr %32, align 8
   %53 = load i32, ptr %42, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr i32, ptr %44, i64 %54
-  %56 = getelementptr i8, ptr %55, i64 -4
+  %55 = getelementptr i32, ptr %0, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 32204
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 33272
   %59 = tail call noundef i32 @_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(104) %52, i32 noundef %57, ptr noundef nonnull %35, ptr noundef nonnull %58, ptr noundef null)

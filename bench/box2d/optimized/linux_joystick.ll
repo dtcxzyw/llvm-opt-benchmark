@@ -209,7 +209,7 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
   %20 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef 526336) #13
   store i32 %20, ptr %2, align 4, !tbaa !99
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %171, label %22
+  br i1 %21, label %169, label %22
 
 22:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -244,7 +244,7 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
   %37 = call ptr @strerror(i32 noundef %36) #13
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.6, ptr noundef %37) #13
   %38 = call i32 @close(i32 noundef %20) #13
-  br label %170
+  br label %168
 
 39:                                               ; preds = %31
   %40 = load i8, ptr %3, align 4, !tbaa !100
@@ -254,7 +254,7 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
 
 42:                                               ; preds = %39
   %43 = call i32 @close(i32 noundef %20) #13
-  br label %170
+  br label %168
 
 44:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -298,7 +298,10 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
   %71 = and i32 %60, 255
   %72 = lshr i32 %60, 8
   %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %69, i32 noundef %70, i32 noundef %71, i32 noundef %72) #13
-  br label %112
+  br label %.preheader83
+
+.preheader83:                                     ; preds = %74, %59
+  br label %114
 
 74:                                               ; preds = %49
   %75 = load i16, ptr %6, align 2, !tbaa !104
@@ -338,137 +341,133 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
   %109 = load i8, ptr %108, align 2, !tbaa !100
   %110 = sext i8 %109 to i32
   %111 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %77, i32 noundef %78, i32 noundef %80, i32 noundef %83, i32 noundef %86, i32 noundef %89, i32 noundef %92, i32 noundef %95, i32 noundef %98, i32 noundef %101, i32 noundef %104, i32 noundef %107, i32 noundef %110) #13
-  br label %112
+  br label %.preheader83
 
-112:                                              ; preds = %74, %59
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 4100
-  br label %116
+.preheader:                                       ; preds = %128
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 6148
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 6404
+  br label %131
 
-.preheader:                                       ; preds = %130
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 6148
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 6404
-  br label %133
+114:                                              ; preds = %.preheader83, %128
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %128 ], [ 256, %.preheader83 ]
+  %.05269 = phi i32 [ %.153, %128 ], [ 0, %.preheader83 ]
+  %115 = trunc nuw nsw i64 %indvars.iv75 to i32
+  %116 = lshr i64 %indvars.iv75, 3
+  %117 = and i64 %116, 536870911
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 %117
+  %119 = load i8, ptr %118, align 1, !tbaa !100
+  %120 = zext i8 %119 to i32
+  %121 = and i32 %115, 7
+  %122 = shl nuw nsw i32 1, %121
+  %123 = and i32 %122, %120
+  %.not64 = icmp eq i32 %123, 0
+  br i1 %.not64, label %128, label %124
 
-116:                                              ; preds = %112, %130
-  %indvars.iv75 = phi i64 [ 256, %112 ], [ %indvars.iv.next76, %130 ]
-  %.05269 = phi i32 [ 0, %112 ], [ %.153, %130 ]
-  %117 = trunc nuw nsw i64 %indvars.iv75 to i32
-  %118 = lshr i64 %indvars.iv75, 3
-  %119 = and i64 %118, 536870911
-  %120 = getelementptr inbounds nuw i8, ptr %4, i64 %119
-  %121 = load i8, ptr %120, align 1, !tbaa !100
-  %122 = zext i8 %121 to i32
-  %123 = and i32 %117, 7
-  %124 = shl nuw nsw i32 1, %123
-  %125 = and i32 %124, %122
-  %.not64 = icmp eq i32 %125, 0
-  br i1 %.not64, label %130, label %126
+124:                                              ; preds = %114
+  %125 = getelementptr i32, ptr %2, i64 %indvars.iv75
+  %126 = getelementptr i8, ptr %125, i64 3076
+  store i32 %.05269, ptr %126, align 4, !tbaa !93
+  %127 = add nsw i32 %.05269, 1
+  br label %128
 
-126:                                              ; preds = %116
-  %127 = getelementptr i32, ptr %113, i64 %indvars.iv75
-  %128 = getelementptr i8, ptr %127, i64 -1024
-  store i32 %.05269, ptr %128, align 4, !tbaa !93
-  %129 = add nsw i32 %.05269, 1
-  br label %130
-
-130:                                              ; preds = %116, %126
-  %.153 = phi i32 [ %129, %126 ], [ %.05269, %116 ]
+128:                                              ; preds = %114, %124
+  %.153 = phi i32 [ %127, %124 ], [ %.05269, %114 ]
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 768
-  br i1 %exitcond78.not, label %.preheader, label %116
+  br i1 %exitcond78.not, label %.preheader, label %114
 
-131:                                              ; preds = %159
-  %132 = call ptr @_glfwAllocJoystick(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.155, i32 noundef %.153, i32 noundef %.151) #13
-  %.not62 = icmp eq ptr %132, null
-  br i1 %.not62, label %162, label %165
+129:                                              ; preds = %157
+  %130 = call ptr @_glfwAllocJoystick(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.155, i32 noundef %.153, i32 noundef %.151) #13
+  %.not62 = icmp eq ptr %130, null
+  br i1 %.not62, label %160, label %163
 
-133:                                              ; preds = %.preheader, %159
-  %.04773 = phi i32 [ 0, %.preheader ], [ %160, %159 ]
-  %.05072 = phi i32 [ 0, %.preheader ], [ %.151, %159 ]
-  %.05471 = phi i32 [ 0, %.preheader ], [ %.155, %159 ]
-  %134 = sext i32 %.04773 to i64
-  %135 = getelementptr inbounds i32, ptr %114, i64 %134
-  store i32 -1, ptr %135, align 4, !tbaa !93
-  %136 = sdiv i32 %.04773, 8
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i8, ptr %5, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !100
-  %140 = zext i8 %139 to i32
-  %141 = and i32 %.04773, 7
-  %142 = shl nuw nsw i32 1, %141
-  %143 = and i32 %142, %140
-  %.not63 = icmp eq i32 %143, 0
-  br i1 %.not63, label %159, label %144
+131:                                              ; preds = %.preheader, %157
+  %.04773 = phi i32 [ 0, %.preheader ], [ %158, %157 ]
+  %.05072 = phi i32 [ 0, %.preheader ], [ %.151, %157 ]
+  %.05471 = phi i32 [ 0, %.preheader ], [ %.155, %157 ]
+  %132 = sext i32 %.04773 to i64
+  %133 = getelementptr inbounds i32, ptr %112, i64 %132
+  store i32 -1, ptr %133, align 4, !tbaa !93
+  %134 = sdiv i32 %.04773, 8
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds i8, ptr %5, i64 %135
+  %137 = load i8, ptr %136, align 1, !tbaa !100
+  %138 = zext i8 %137 to i32
+  %139 = and i32 %.04773, 7
+  %140 = shl nuw nsw i32 1, %139
+  %141 = and i32 %140, %138
+  %.not63 = icmp eq i32 %141, 0
+  br i1 %.not63, label %157, label %142
 
-144:                                              ; preds = %133
-  %145 = and i32 %.04773, -8
-  %or.cond9 = icmp eq i32 %145, 16
-  br i1 %or.cond9, label %146, label %149
+142:                                              ; preds = %131
+  %143 = and i32 %.04773, -8
+  %or.cond9 = icmp eq i32 %143, 16
+  br i1 %or.cond9, label %144, label %147
 
-146:                                              ; preds = %144
-  store i32 %.05072, ptr %135, align 4, !tbaa !93
-  %147 = add nsw i32 %.05072, 1
-  %148 = add nuw nsw i32 %.04773, 1
-  br label %159
+144:                                              ; preds = %142
+  store i32 %.05072, ptr %133, align 4, !tbaa !93
+  %145 = add nsw i32 %.05072, 1
+  %146 = add nuw nsw i32 %.04773, 1
+  br label %157
 
-149:                                              ; preds = %144
-  %150 = load i32, ptr %2, align 4, !tbaa !99
-  %151 = add nsw i32 %.04773, 64
-  %152 = or i32 %151, -2145893120
-  %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds %struct.input_absinfo, ptr %115, i64 %134
-  %155 = call i32 (i32, i64, ...) @ioctl(i32 noundef %150, i64 noundef %153, ptr noundef nonnull %154) #13
-  %156 = icmp slt i32 %155, 0
-  br i1 %156, label %159, label %157
+147:                                              ; preds = %142
+  %148 = load i32, ptr %2, align 4, !tbaa !99
+  %149 = add nsw i32 %.04773, 64
+  %150 = or i32 %149, -2145893120
+  %151 = zext i32 %150 to i64
+  %152 = getelementptr inbounds %struct.input_absinfo, ptr %113, i64 %132
+  %153 = call i32 (i32, i64, ...) @ioctl(i32 noundef %148, i64 noundef %151, ptr noundef nonnull %152) #13
+  %154 = icmp slt i32 %153, 0
+  br i1 %154, label %157, label %155
 
-157:                                              ; preds = %149
-  store i32 %.05471, ptr %135, align 4, !tbaa !93
-  %158 = add nsw i32 %.05471, 1
-  br label %159
+155:                                              ; preds = %147
+  store i32 %.05471, ptr %133, align 4, !tbaa !93
+  %156 = add nsw i32 %.05471, 1
+  br label %157
 
-159:                                              ; preds = %146, %157, %149, %133
-  %.155 = phi i32 [ %.05471, %146 ], [ %.05471, %149 ], [ %158, %157 ], [ %.05471, %133 ]
-  %.151 = phi i32 [ %147, %146 ], [ %.05072, %149 ], [ %.05072, %157 ], [ %.05072, %133 ]
-  %.148 = phi i32 [ %148, %146 ], [ %.04773, %149 ], [ %.04773, %157 ], [ %.04773, %133 ]
-  %160 = add nsw i32 %.148, 1
-  %161 = icmp slt i32 %.148, 63
-  br i1 %161, label %133, label %131
+157:                                              ; preds = %144, %155, %147, %131
+  %.155 = phi i32 [ %.05471, %144 ], [ %.05471, %147 ], [ %156, %155 ], [ %.05471, %131 ]
+  %.151 = phi i32 [ %145, %144 ], [ %.05072, %147 ], [ %.05072, %155 ], [ %.05072, %131 ]
+  %.148 = phi i32 [ %146, %144 ], [ %.04773, %147 ], [ %.04773, %155 ], [ %.04773, %131 ]
+  %158 = add nsw i32 %.148, 1
+  %159 = icmp slt i32 %.148, 63
+  br i1 %159, label %131, label %129
 
-162:                                              ; preds = %131
-  %163 = load i32, ptr %2, align 4, !tbaa !99
-  %164 = call i32 @close(i32 noundef %163) #13
-  br label %169
+160:                                              ; preds = %129
+  %161 = load i32, ptr %2, align 4, !tbaa !99
+  %162 = call i32 @close(i32 noundef %161) #13
+  br label %167
 
-165:                                              ; preds = %131
-  %166 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %167 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4095) #13
-  %168 = getelementptr inbounds nuw i8, ptr %132, i64 240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7972) %168, ptr noundef nonnull align 4 dereferenceable(7972) %2, i64 7972, i1 false)
-  call fastcc void @pollAbsState(ptr noundef nonnull %132)
-  call void @_glfwInputJoystick(ptr noundef nonnull %132, i32 noundef 262145) #13
-  br label %169
+163:                                              ; preds = %129
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %165 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4095) #13
+  %166 = getelementptr inbounds nuw i8, ptr %130, i64 240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7972) %166, ptr noundef nonnull align 4 dereferenceable(7972) %2, i64 7972, i1 false)
+  call fastcc void @pollAbsState(ptr noundef nonnull %130)
+  call void @_glfwInputJoystick(ptr noundef nonnull %130, i32 noundef 262145) #13
+  br label %167
 
-169:                                              ; preds = %165, %162
-  %.4 = phi i32 [ 1, %165 ], [ 0, %162 ]
+167:                                              ; preds = %163, %160
+  %.4 = phi i32 [ 1, %163 ], [ 0, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %170
+  br label %168
 
-170:                                              ; preds = %169, %42, %34
-  %.3 = phi i32 [ 0, %34 ], [ %.4, %169 ], [ 0, %42 ]
+168:                                              ; preds = %167, %42, %34
+  %.3 = phi i32 [ 0, %34 ], [ %.4, %167 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %171
+  br label %169
 
-171:                                              ; preds = %18, %170
-  %.2 = phi i32 [ %.3, %170 ], [ 0, %18 ]
+169:                                              ; preds = %18, %168
+  %.2 = phi i32 [ %.3, %168 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %13, %171
-  %.1 = phi i32 [ %.2, %171 ], [ 0, %13 ]
+.loopexit:                                        ; preds = %13, %169
+  %.1 = phi i32 [ %.2, %169 ], [ 0, %13 ]
   ret i32 %.1
 }
 
@@ -666,156 +665,155 @@ define hidden i32 @_glfwPollJoystickLinux(ptr noundef %0, i32 noundef %1) local_
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 6388
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 6644
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8180
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4340
-  br label %21
+  br label %20
 
 ._crit_edge:                                      ; preds = %handleAbsEvent.exit, %2
-  %16 = load i32, ptr %4, align 4, !tbaa !93
-  %17 = icmp eq i32 %16, 19
-  br i1 %17, label %18, label %89
+  %15 = load i32, ptr %4, align 4, !tbaa !93
+  %16 = icmp eq i32 %15, 19
+  br i1 %16, label %17, label %88
 
-18:                                               ; preds = %._crit_edge
+17:                                               ; preds = %._crit_edge
   tail call void @_glfwInputJoystick(ptr noundef nonnull %0, i32 noundef 262146) #13
-  %19 = load i32, ptr %5, align 8, !tbaa !94
-  %20 = tail call i32 @close(i32 noundef %19) #13
+  %18 = load i32, ptr %5, align 8, !tbaa !94
+  %19 = tail call i32 @close(i32 noundef %18) #13
   tail call void @_glfwFreeJoystick(ptr noundef nonnull %0) #13
-  br label %89
+  br label %88
 
-21:                                               ; preds = %.lr.ph, %handleAbsEvent.exit
-  %22 = load i16, ptr %9, align 8, !tbaa !107
-  %23 = icmp eq i16 %22, 0
-  br i1 %23, label %24, label %27
+20:                                               ; preds = %.lr.ph, %handleAbsEvent.exit
+  %21 = load i16, ptr %9, align 8, !tbaa !107
+  %22 = icmp eq i16 %21, 0
+  br i1 %22, label %23, label %26
 
-24:                                               ; preds = %21
-  %25 = load i16, ptr %10, align 2, !tbaa !110
-  switch i16 %25, label %27 [
+23:                                               ; preds = %20
+  %24 = load i16, ptr %10, align 2, !tbaa !110
+  switch i16 %24, label %26 [
     i16 3, label %.thread
-    i16 0, label %26
+    i16 0, label %25
   ]
 
-.thread:                                          ; preds = %24
+.thread:                                          ; preds = %23
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143660), align 4, !tbaa !111
   br label %handleAbsEvent.exit
 
-26:                                               ; preds = %24
+25:                                               ; preds = %23
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143660), align 4, !tbaa !111
   tail call fastcc void @pollAbsState(ptr noundef nonnull %0)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %24, %26, %21
+26:                                               ; preds = %23, %25, %20
   %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143660), align 4, !tbaa !111
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %28, label %handleAbsEvent.exit
+  br i1 %.not, label %27, label %handleAbsEvent.exit
 
-28:                                               ; preds = %27
-  switch i16 %22, label %handleAbsEvent.exit [
-    i16 1, label %29
-    i16 3, label %37
+27:                                               ; preds = %26
+  switch i16 %21, label %handleAbsEvent.exit [
+    i16 1, label %28
+    i16 3, label %36
   ]
 
-29:                                               ; preds = %28
-  %30 = load i16, ptr %10, align 2, !tbaa !110
-  %31 = load i32, ptr %11, align 4, !tbaa !112
-  %32 = zext i16 %30 to i64
-  %33 = getelementptr i32, ptr %15, i64 %32
-  %34 = getelementptr i8, ptr %33, i64 -1024
-  %35 = load i32, ptr %34, align 4, !tbaa !93
-  %.not.i = icmp ne i32 %31, 0
-  %36 = zext i1 %.not.i to i8
-  tail call void @_glfwInputJoystickButton(ptr noundef nonnull %0, i32 noundef %35, i8 noundef signext %36) #13
+28:                                               ; preds = %27
+  %29 = load i16, ptr %10, align 2, !tbaa !110
+  %30 = load i32, ptr %11, align 4, !tbaa !112
+  %31 = zext i16 %29 to i64
+  %32 = getelementptr i32, ptr %0, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 3316
+  %34 = load i32, ptr %33, align 4, !tbaa !93
+  %.not.i = icmp ne i32 %30, 0
+  %35 = zext i1 %.not.i to i8
+  tail call void @_glfwInputJoystickButton(ptr noundef nonnull %0, i32 noundef %34, i8 noundef signext %35) #13
   br label %handleAbsEvent.exit
 
-37:                                               ; preds = %28
-  %38 = load i16, ptr %10, align 2, !tbaa !110
-  %39 = zext i16 %38 to i32
-  %40 = load i32, ptr %11, align 4, !tbaa !112
-  %41 = zext i16 %38 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %12, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !93
-  %44 = and i32 %39, 65528
-  %or.cond.i = icmp eq i32 %44, 16
-  br i1 %or.cond.i, label %45, label %70
+36:                                               ; preds = %27
+  %37 = load i16, ptr %10, align 2, !tbaa !110
+  %38 = zext i16 %37 to i32
+  %39 = load i32, ptr %11, align 4, !tbaa !112
+  %40 = zext i16 %37 to i64
+  %41 = getelementptr inbounds nuw i32, ptr %12, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !93
+  %43 = and i32 %38, 65528
+  %or.cond.i = icmp eq i32 %43, 16
+  br i1 %or.cond.i, label %44, label %69
 
-45:                                               ; preds = %37
-  %46 = add nsw i32 %39, -16
-  %47 = lshr i32 %46, 1
-  %48 = and i32 %39, 1
-  %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr inbounds nuw [2 x i32], ptr %14, i64 %49
-  %51 = icmp eq i32 %40, 0
-  br i1 %51, label %52, label %55
+44:                                               ; preds = %36
+  %45 = add nsw i32 %38, -16
+  %46 = lshr i32 %45, 1
+  %47 = and i32 %38, 1
+  %48 = zext nneg i32 %46 to i64
+  %49 = getelementptr inbounds nuw [2 x i32], ptr %14, i64 %48
+  %50 = icmp eq i32 %39, 0
+  br i1 %50, label %51, label %54
 
-52:                                               ; preds = %45
-  %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %50, i64 %53
-  store i32 0, ptr %54, align 4, !tbaa !93
-  br label %61
+51:                                               ; preds = %44
+  %52 = zext nneg i32 %47 to i64
+  %53 = getelementptr inbounds nuw i32, ptr %49, i64 %52
+  store i32 0, ptr %53, align 4, !tbaa !93
+  br label %60
 
-55:                                               ; preds = %45
-  %56 = icmp slt i32 %40, 0
-  %57 = zext nneg i32 %48 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %50, i64 %57
-  br i1 %56, label %59, label %60
+54:                                               ; preds = %44
+  %55 = icmp slt i32 %39, 0
+  %56 = zext nneg i32 %47 to i64
+  %57 = getelementptr inbounds nuw i32, ptr %49, i64 %56
+  br i1 %55, label %58, label %59
 
-59:                                               ; preds = %55
-  store i32 1, ptr %58, align 4, !tbaa !93
-  br label %61
+58:                                               ; preds = %54
+  store i32 1, ptr %57, align 4, !tbaa !93
+  br label %60
 
-60:                                               ; preds = %55
-  store i32 2, ptr %58, align 4, !tbaa !93
-  br label %61
+59:                                               ; preds = %54
+  store i32 2, ptr %57, align 4, !tbaa !93
+  br label %60
 
-61:                                               ; preds = %60, %59, %52
-  %62 = load i32, ptr %50, align 4, !tbaa !93
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [3 x i8], ptr @handleAbsEvent.stateMap, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %66 = load i32, ptr %65, align 4, !tbaa !93
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %64, i64 %67
-  %69 = load i8, ptr %68, align 1, !tbaa !100
-  tail call void @_glfwInputJoystickHat(ptr noundef nonnull %0, i32 noundef %43, i8 noundef signext %69) #13
+60:                                               ; preds = %59, %58, %51
+  %61 = load i32, ptr %49, align 4, !tbaa !93
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds [3 x i8], ptr @handleAbsEvent.stateMap, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %65 = load i32, ptr %64, align 4, !tbaa !93
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i8, ptr %63, i64 %66
+  %68 = load i8, ptr %67, align 1, !tbaa !100
+  tail call void @_glfwInputJoystickHat(ptr noundef nonnull %0, i32 noundef %42, i8 noundef signext %68) #13
   br label %handleAbsEvent.exit
 
-70:                                               ; preds = %37
-  %71 = getelementptr inbounds nuw %struct.input_absinfo, ptr %13, i64 %41
-  %72 = sitofp i32 %40 to float
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %74 = load i32, ptr %73, align 4, !tbaa !113
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !115
-  %.not.i8 = icmp eq i32 %74, %76
-  br i1 %.not.i8, label %85, label %77
+69:                                               ; preds = %36
+  %70 = getelementptr inbounds nuw %struct.input_absinfo, ptr %13, i64 %40
+  %71 = sitofp i32 %39 to float
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %73 = load i32, ptr %72, align 4, !tbaa !113
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !115
+  %.not.i8 = icmp eq i32 %73, %75
+  br i1 %.not.i8, label %84, label %76
 
-77:                                               ; preds = %70
-  %78 = sub nsw i32 %74, %76
-  %79 = sitofp i32 %76 to float
-  %80 = fsub float %72, %79
-  %81 = sitofp i32 %78 to float
-  %82 = fdiv float %80, %81
-  %83 = fmul float %82, 2.000000e+00
-  %84 = fadd float %83, -1.000000e+00
-  br label %85
+76:                                               ; preds = %69
+  %77 = sub nsw i32 %73, %75
+  %78 = sitofp i32 %75 to float
+  %79 = fsub float %71, %78
+  %80 = sitofp i32 %77 to float
+  %81 = fdiv float %79, %80
+  %82 = fmul float %81, 2.000000e+00
+  %83 = fadd float %82, -1.000000e+00
+  br label %84
 
-85:                                               ; preds = %77, %70
-  %.0.i = phi float [ %84, %77 ], [ %72, %70 ]
-  tail call void @_glfwInputJoystickAxis(ptr noundef nonnull %0, i32 noundef %43, float noundef %.0.i) #13
+84:                                               ; preds = %76, %69
+  %.0.i = phi float [ %83, %76 ], [ %71, %69 ]
+  tail call void @_glfwInputJoystickAxis(ptr noundef nonnull %0, i32 noundef %42, float noundef %.0.i) #13
   br label %handleAbsEvent.exit
 
-handleAbsEvent.exit:                              ; preds = %85, %61, %.thread, %29, %28, %27
+handleAbsEvent.exit:                              ; preds = %84, %60, %.thread, %28, %27, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %4, align 4, !tbaa !93
-  %86 = load i32, ptr %5, align 8, !tbaa !94
-  %87 = call i64 @read(i32 noundef %86, ptr noundef nonnull %3, i64 noundef 24) #13
-  %88 = icmp slt i64 %87, 0
-  br i1 %88, label %._crit_edge, label %21
+  %85 = load i32, ptr %5, align 8, !tbaa !94
+  %86 = call i64 @read(i32 noundef %85, ptr noundef nonnull %3, i64 noundef 24) #13
+  %87 = icmp slt i64 %86, 0
+  br i1 %87, label %._crit_edge, label %20
 
-89:                                               ; preds = %18, %._crit_edge
+88:                                               ; preds = %17, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %91 = load i32, ptr %90, align 4, !tbaa !98
-  ret i32 %91
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %90 = load i32, ptr %89, align 4, !tbaa !98
+  ret i32 %90
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

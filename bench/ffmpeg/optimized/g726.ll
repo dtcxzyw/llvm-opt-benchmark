@@ -82,7 +82,7 @@ define internal range(i32 -22, 1) i32 @g726_encode_init(ptr noundef %0) #0 {
 
 17:                                               ; preds = %16
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.12) #13
-  br label %66
+  br label %63
 
 18:                                               ; preds = %1
   %19 = icmp slt i32 %15, 1
@@ -90,7 +90,7 @@ define internal range(i32 -22, 1) i32 @g726_encode_init(ptr noundef %0) #0 {
 
 20:                                               ; preds = %18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %15) #13
-  br label %66
+  br label %63
 
 .thread:                                          ; preds = %16, %18
   %21 = phi i32 [ %15, %18 ], [ 8000, %16 ]
@@ -101,7 +101,7 @@ define internal range(i32 -22, 1) i32 @g726_encode_init(ptr noundef %0) #0 {
 
 24:                                               ; preds = %.thread
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.14) #13
-  br label %66
+  br label %63
 
 25:                                               ; preds = %.thread
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -112,7 +112,7 @@ define internal range(i32 -22, 1) i32 @g726_encode_init(ptr noundef %0) #0 {
 ._crit_edge31:                                    ; preds = %25
   %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %4, i64 140
   %.pre33 = load i32, ptr %.phi.trans.insert32, align 4, !tbaa !40
-  br label %.preheader.i.critedge
+  br label %.preheader.i.preheader.critedge
 
 28:                                               ; preds = %25
   %29 = lshr i32 %21, 1
@@ -121,9 +121,9 @@ define internal range(i32 -22, 1) i32 @g726_encode_init(ptr noundef %0) #0 {
   %32 = zext nneg i32 %21 to i64
   %33 = sdiv i64 %31, %32
   %34 = trunc i64 %33 to i32
-  br label %.preheader.i.critedge
+  br label %.preheader.i.preheader.critedge
 
-.preheader.i.critedge:                            ; preds = %._crit_edge31, %28
+.preheader.i.preheader.critedge:                  ; preds = %._crit_edge31, %28
   %35 = phi i32 [ %.pre33, %._crit_edge31 ], [ %34, %28 ]
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 140
   %37 = tail call i32 @llvm.smax.i32(i32 %35, i32 2)
@@ -139,50 +139,48 @@ define internal range(i32 -22, 1) i32 @g726_encode_init(ptr noundef %0) #0 {
   %44 = getelementptr %struct.G726Tables, ptr @G726Tables_pool, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 16 dereferenceable(32) %45, i64 32, i1 false), !tbaa.struct !42
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 42
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store i8 32, ptr %46, align 2, !tbaa !46
-  store i32 1, ptr %47, align 4, !tbaa !48
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 42
+  store i8 32, ptr %47, align 2, !tbaa !46
+  store i32 1, ptr %46, align 4, !tbaa !48
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 45
   store i8 32, ptr %48, align 1, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store i32 1, ptr %49, align 4, !tbaa !48
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 46
-  br label %51
+  br label %.preheader.i
 
-51:                                               ; preds = %51, %.preheader.i.critedge
-  %indvars.iv18.i = phi i64 [ 0, %.preheader.i.critedge ], [ %indvars.iv.next19.i, %51 ]
-  %52 = mul nuw nsw i64 %indvars.iv18.i, 3
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
-  store i8 32, ptr %54, align 1, !tbaa !46
-  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, 6
-  br i1 %exitcond.not.i, label %g726_reset.exit, label %51, !llvm.loop !49
+.preheader.i:                                     ; preds = %.preheader.i.preheader.critedge, %.preheader.i
+  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.preheader.i ], [ 0, %.preheader.i.preheader.critedge ]
+  %50 = getelementptr inbounds nuw %struct.Float11, ptr %4, i64 %indvars.iv17.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  store i8 32, ptr %51, align 1, !tbaa !46
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next18.i, 6
+  br i1 %exitcond.not.i, label %g726_reset.exit, label %.preheader.i, !llvm.loop !49
 
-g726_reset.exit:                                  ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 108
-  store i32 544, ptr %55, align 4, !tbaa !51
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store i32 34816, ptr %56, align 8, !tbaa !52
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i32 544, ptr %57, align 8, !tbaa !53
+g726_reset.exit:                                  ; preds = %.preheader.i
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 108
+  store i32 544, ptr %52, align 4, !tbaa !51
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  store i32 34816, ptr %53, align 8, !tbaa !52
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  store i32 544, ptr %54, align 8, !tbaa !53
   store i32 4096, ptr %2, align 4, !tbaa !48
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 2736, ptr %58, align 4, !tbaa !48
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 2048, ptr %59, align 4, !tbaa !48
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 1640, ptr %60, align 4, !tbaa !48
-  %61 = zext nneg i32 %38 to i64
-  %62 = getelementptr i32, ptr %2, i64 %61
-  %63 = getelementptr i8, ptr %62, i64 -8
-  %64 = load i32, ptr %63, align 4, !tbaa !48
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i32 %64, ptr %65, align 8, !tbaa !54
-  br label %66
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 2736, ptr %55, align 4, !tbaa !48
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 2048, ptr %56, align 4, !tbaa !48
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 1640, ptr %57, align 4, !tbaa !48
+  %58 = zext nneg i32 %38 to i64
+  %59 = getelementptr i32, ptr %2, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 -8
+  %61 = load i32, ptr %60, align 4, !tbaa !48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store i32 %61, ptr %62, align 8, !tbaa !54
+  br label %63
 
-66:                                               ; preds = %g726_reset.exit, %24, %20, %17
+63:                                               ; preds = %g726_reset.exit, %24, %20, %17
   %.0 = phi i32 [ -22, %17 ], [ -22, %20 ], [ -22, %24 ], [ 0, %g726_reset.exit ]
   ret i32 %.0
 }
@@ -459,7 +457,7 @@ define internal range(i32 -1163346256, 1) i32 @g726_decode_init(ptr noundef %0) 
 
 7:                                                ; preds = %1
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
-  br label %38
+  br label %35
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -484,51 +482,49 @@ define internal range(i32 -1163346256, 1) i32 @g726_decode_init(ptr noundef %0) 
   store i32 %17, ptr %18, align 4, !tbaa !40
   %19 = add i32 %17, -6
   %or.cond = icmp ult i32 %19, -4
-  br i1 %or.cond, label %20, label %.preheader.i.critedge
+  br i1 %or.cond, label %20, label %.preheader.i.preheader.critedge
 
 20:                                               ; preds = %8
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.20, i32 noundef %17) #13
-  br label %38
+  br label %35
 
-.preheader.i.critedge:                            ; preds = %8
+.preheader.i.preheader.critedge:                  ; preds = %8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = zext nneg i32 %17 to i64
   %23 = getelementptr %struct.G726Tables, ptr @G726Tables_pool, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 16 dereferenceable(32) %24, i64 32, i1 false), !tbaa.struct !42
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 42
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i8 32, ptr %25, align 1, !tbaa !46
-  store i32 1, ptr %26, align 4, !tbaa !48
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 42
+  store i8 32, ptr %26, align 1, !tbaa !46
+  store i32 1, ptr %25, align 4, !tbaa !48
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 45
   store i8 32, ptr %27, align 1, !tbaa !46
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 100
   store i32 1, ptr %28, align 4, !tbaa !48
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 46
-  br label %30
+  br label %.preheader.i
 
-30:                                               ; preds = %30, %.preheader.i.critedge
-  %indvars.iv18.i = phi i64 [ 0, %.preheader.i.critedge ], [ %indvars.iv.next19.i, %30 ]
-  %31 = mul nuw nsw i64 %indvars.iv18.i, 3
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2
-  store i8 32, ptr %33, align 1, !tbaa !46
-  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, 6
-  br i1 %exitcond.not.i, label %g726_reset.exit, label %30, !llvm.loop !49
+.preheader.i:                                     ; preds = %.preheader.i.preheader.critedge, %.preheader.i
+  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.preheader.i ], [ 0, %.preheader.i.preheader.critedge ]
+  %29 = getelementptr inbounds nuw %struct.Float11, ptr %3, i64 %indvars.iv17.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  store i8 32, ptr %30, align 1, !tbaa !46
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next18.i, 6
+  br i1 %exitcond.not.i, label %g726_reset.exit, label %.preheader.i, !llvm.loop !49
 
-g726_reset.exit:                                  ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 108
-  store i32 544, ptr %34, align 4, !tbaa !51
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i32 34816, ptr %35, align 8, !tbaa !52
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store i32 544, ptr %36, align 8, !tbaa !53
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 1, ptr %37, align 4, !tbaa !73
-  br label %38
+g726_reset.exit:                                  ; preds = %.preheader.i
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 108
+  store i32 544, ptr %31, align 4, !tbaa !51
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  store i32 34816, ptr %32, align 8, !tbaa !52
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  store i32 544, ptr %33, align 8, !tbaa !53
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  store i32 1, ptr %34, align 4, !tbaa !73
+  br label %35
 
-38:                                               ; preds = %g726_reset.exit, %20, %7
+35:                                               ; preds = %g726_reset.exit, %20, %7
   %.0 = phi i32 [ -1163346256, %7 ], [ -22, %20 ], [ 0, %g726_reset.exit ]
   ret i32 %.0
 }
@@ -625,7 +621,7 @@ define internal i32 @g726_decode_frame(ptr noundef %0, ptr noundef initializes((
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @g726_decode_flush(ptr noundef readonly captures(none) %0) #2 {
-.preheader.i.critedge:
+.preheader.i.preheader.critedge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load ptr, ptr %1, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -635,34 +631,32 @@ define internal void @g726_decode_flush(ptr noundef readonly captures(none) %0) 
   %7 = getelementptr %struct.G726Tables, ptr @G726Tables_pool, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !42
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 42
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i8 32, ptr %9, align 2, !tbaa !46
-  store i32 1, ptr %10, align 4, !tbaa !48
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 42
+  store i8 32, ptr %10, align 2, !tbaa !46
+  store i32 1, ptr %9, align 4, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 45
   store i8 32, ptr %11, align 1, !tbaa !46
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 100
   store i32 1, ptr %12, align 4, !tbaa !48
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 46
-  br label %14
+  br label %.preheader.i
 
-14:                                               ; preds = %14, %.preheader.i.critedge
-  %indvars.iv18.i = phi i64 [ 0, %.preheader.i.critedge ], [ %indvars.iv.next19.i, %14 ]
-  %15 = mul nuw nsw i64 %indvars.iv18.i, 3
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  store i8 32, ptr %17, align 1, !tbaa !46
-  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, 6
-  br i1 %exitcond.not.i, label %g726_reset.exit, label %14, !llvm.loop !49
+.preheader.i:                                     ; preds = %.preheader.i.preheader.critedge, %.preheader.i
+  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.preheader.i ], [ 0, %.preheader.i.preheader.critedge ]
+  %13 = getelementptr inbounds nuw %struct.Float11, ptr %2, i64 %indvars.iv17.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  store i8 32, ptr %14, align 1, !tbaa !46
+  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next18.i, 6
+  br i1 %exitcond.not.i, label %g726_reset.exit, label %.preheader.i, !llvm.loop !49
 
-g726_reset.exit:                                  ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 108
-  store i32 544, ptr %18, align 4, !tbaa !51
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i32 34816, ptr %19, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  store i32 544, ptr %20, align 8, !tbaa !53
+g726_reset.exit:                                  ; preds = %.preheader.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 108
+  store i32 544, ptr %15, align 4, !tbaa !51
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store i32 34816, ptr %16, align 8, !tbaa !52
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  store i32 544, ptr %17, align 8, !tbaa !53
   ret void
 }
 

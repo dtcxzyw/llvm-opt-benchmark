@@ -3880,10 +3880,9 @@ define hidden void @"_ZN4core3ptr148drop_in_place$LT$alloc..collections..btree..
 8:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he5ce77545be1d66cE.exit.i.i.i", %.lr.ph.i.i.i
   %9 = phi ptr [ %7, %.lr.ph.i.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he5ce77545be1d66cE.exit.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !noalias !761
+  %10 = getelementptr inbounds nuw { [17 x i64] }, ptr %9, i64 %.sroa.23.0.copyload.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !766)
-  %.idx.i.i.i.i = mul nuw nsw i64 %.sroa.23.0.copyload.i.i.i, 136
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %.val.i.i.i.i.i = load ptr, ptr %11, align 8, !alias.scope !766, !noalias !753, !align !34, !noundef !10
   %12 = icmp eq ptr %.val.i.i.i.i.i, null
   br i1 %12, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he5ce77545be1d66cE.exit.i.i.i", label %13
@@ -7635,10 +7634,9 @@ define internal fastcc void @"_ZN4core3ptr246drop_in_place$LT$$LT$alloc..collect
 3:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he5ce77545be1d66cE.exit.i", %.lr.ph.i
   %4 = phi ptr [ %2, %.lr.ph.i ], [ %11, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he5ce77545be1d66cE.exit.i" ]
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8
+  %5 = getelementptr inbounds nuw { [17 x i64] }, ptr %4, i64 %.sroa.21.0.copyload.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1242)
-  %.idx.i.i = mul nuw nsw i64 %.sroa.21.0.copyload.i, 136
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %.val.i.i.i = load ptr, ptr %6, align 8, !alias.scope !1242, !align !34, !noundef !10
   %7 = icmp eq ptr %.val.i.i.i, null
   br i1 %7, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he5ce77545be1d66cE.exit.i", label %8

@@ -1162,7 +1162,7 @@ define dso_local void @ip_options_undo(ptr noundef captures(none) %0) local_unna
   %18 = load i8, ptr %17, align 4
   %19 = and i8 %18, 8
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %34, label %21
+  br i1 %20, label %33, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1170,72 +1170,71 @@ define dso_local void @ip_options_undo(ptr noundef captures(none) %0) local_unna
   %24 = load i8, ptr %23, align 2
   %25 = zext i8 %24 to i64
   %26 = getelementptr i8, ptr %22, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -20
-  %28 = getelementptr i8, ptr %26, i64 -18
-  %29 = load i8, ptr %28, align 1
-  %30 = add i8 %29, -4
-  store i8 %30, ptr %28, align 1
-  %31 = zext i8 %30 to i64
-  %32 = getelementptr i8, ptr %27, i64 %31
-  %33 = getelementptr i8, ptr %32, i64 -1
-  store i32 0, ptr %33, align 1
-  br label %34
+  %27 = getelementptr i8, ptr %26, i64 -18
+  %28 = load i8, ptr %27, align 1
+  %29 = add i8 %28, -4
+  store i8 %29, ptr %27, align 1
+  %30 = zext i8 %29 to i64
+  %31 = getelementptr i8, ptr %26, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -21
+  store i32 0, ptr %32, align 1
+  br label %33
 
-34:                                               ; preds = %21, %16
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %71, label %38
+33:                                               ; preds = %21, %16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %70, label %37
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = zext i8 %36 to i64
-  %41 = getelementptr i8, ptr %39, i64 %40
-  %42 = getelementptr i8, ptr %41, i64 -20
-  %43 = load i8, ptr %17, align 4
-  %44 = and i8 %43, 16
-  %45 = icmp eq i8 %44, 0
-  br i1 %45, label %60, label %46
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = zext i8 %35 to i64
+  %40 = getelementptr i8, ptr %38, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 -20
+  %42 = load i8, ptr %17, align 4
+  %43 = and i8 %42, 16
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %59, label %45
 
-46:                                               ; preds = %38
-  %47 = getelementptr i8, ptr %41, i64 -18
-  %48 = load i8, ptr %47, align 1
-  %49 = add i8 %48, -4
-  store i8 %49, ptr %47, align 1
-  %50 = zext i8 %49 to i64
-  %51 = getelementptr i8, ptr %42, i64 %50
-  %52 = getelementptr i8, ptr %51, i64 -1
-  store i32 0, ptr %52, align 1
-  %53 = getelementptr i8, ptr %41, i64 -17
-  %54 = load i8, ptr %53, align 1
-  %55 = and i8 %54, 15
-  %56 = icmp eq i8 %55, 3
-  br i1 %56, label %57, label %60
+45:                                               ; preds = %37
+  %46 = getelementptr i8, ptr %40, i64 -18
+  %47 = load i8, ptr %46, align 1
+  %48 = add i8 %47, -4
+  store i8 %48, ptr %46, align 1
+  %49 = zext i8 %48 to i64
+  %50 = getelementptr i8, ptr %41, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 -1
+  store i32 0, ptr %51, align 1
+  %52 = getelementptr i8, ptr %40, i64 -17
+  %53 = load i8, ptr %52, align 1
+  %54 = and i8 %53, 15
+  %55 = icmp eq i8 %54, 3
+  br i1 %55, label %56, label %59
 
-57:                                               ; preds = %46
-  %58 = load i8, ptr %47, align 1
-  %59 = add i8 %58, -4
-  store i8 %59, ptr %47, align 1
-  br label %60
+56:                                               ; preds = %45
+  %57 = load i8, ptr %46, align 1
+  %58 = add i8 %57, -4
+  store i8 %58, ptr %46, align 1
+  br label %59
 
-60:                                               ; preds = %57, %46, %38
-  %61 = load i8, ptr %17, align 4
-  %62 = and i8 %61, 32
-  %63 = icmp eq i8 %62, 0
-  br i1 %63, label %71, label %64
+59:                                               ; preds = %56, %45, %37
+  %60 = load i8, ptr %17, align 4
+  %61 = and i8 %60, 32
+  %62 = icmp eq i8 %61, 0
+  br i1 %62, label %70, label %63
 
-64:                                               ; preds = %60
-  %65 = getelementptr i8, ptr %41, i64 -18
-  %66 = load i8, ptr %65, align 1
-  %67 = add i8 %66, -4
-  store i8 %67, ptr %65, align 1
-  %68 = zext i8 %67 to i64
-  %69 = getelementptr i8, ptr %42, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 -1
-  store i32 0, ptr %70, align 1
-  br label %71
+63:                                               ; preds = %59
+  %64 = getelementptr i8, ptr %40, i64 -18
+  %65 = load i8, ptr %64, align 1
+  %66 = add i8 %65, -4
+  store i8 %66, ptr %64, align 1
+  %67 = zext i8 %66 to i64
+  %68 = getelementptr i8, ptr %41, i64 %67
+  %69 = getelementptr i8, ptr %68, i64 -1
+  store i32 0, ptr %69, align 1
+  br label %70
 
-71:                                               ; preds = %64, %60, %34
+70:                                               ; preds = %63, %59, %33
   ret void
 }
 

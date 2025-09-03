@@ -3,6 +3,8 @@ source_filename = "bench/abc/original/mapperCreate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%struct.Map_MatchStruct_t_ = type { ptr, i32, i32, ptr, %struct.Map_TimeStruct_t_, float }
+%struct.Map_TimeStruct_t_ = type { float, float, float }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.timespec = type { i64, i64 }
 
@@ -472,9 +474,8 @@ define range(i32 0, 2) i32 @Map_NodeComparePhase(ptr noundef readonly captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Map_CutReadSuperBest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
-  %.idx = mul nsw i64 %3, 40
-  %4 = getelementptr i8, ptr %0, i64 96
-  %5 = getelementptr i8, ptr %4, i64 %.idx
+  %4 = getelementptr %struct.Map_MatchStruct_t_, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   ret ptr %6
 }
@@ -510,9 +511,8 @@ define nonnull ptr @Map_CutReadLeaves(ptr noundef readnone captures(ret: address
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Map_CutReadPhaseBest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
-  %.idx = mul nsw i64 %3, 40
-  %4 = getelementptr i8, ptr %0, i64 92
-  %5 = getelementptr i8, ptr %4, i64 %.idx
+  %4 = getelementptr %struct.Map_MatchStruct_t_, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 92
   %6 = load i32, ptr %5, align 4, !tbaa !73
   ret i32 %6
 }

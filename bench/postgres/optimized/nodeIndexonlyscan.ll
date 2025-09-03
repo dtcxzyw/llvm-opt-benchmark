@@ -5,6 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [52 x i8] c"unexpected ExecIndexOnlyMarkPos call in EPQ recheck\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"nodeIndexonlyscan.c\00", align 1
@@ -281,7 +283,7 @@ define dso_local noundef ptr @ExecInitIndexOnlyScan(ptr noundef %0, ptr noundef 
   store ptr %28, ptr %29, align 8
   %30 = and i32 %2, 1
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %31, label %118
+  br i1 %.not, label %31, label %116
 
 31:                                               ; preds = %3
   %32 = load i32, ptr %8, align 8
@@ -349,93 +351,89 @@ define dso_local noundef ptr @ExecInitIndexOnlyScan(ptr noundef %0, ptr noundef 
   %73 = sext i32 %72 to i64
   %74 = shl nsw i64 %73, 4
   %75 = getelementptr i8, ptr %71, i64 %74
-  %76 = getelementptr i8, ptr %75, i64 92
-  %77 = getelementptr inbounds nuw i8, ptr %43, i64 368
+  %76 = getelementptr inbounds nuw i8, ptr %43, i64 368
   %wide.trip.count = zext nneg i32 %68 to i64
-  br label %79
+  br label %78
 
-._crit_edge:                                      ; preds = %89
-  %78 = icmp sgt i32 %.193, 0
-  br i1 %78, label %.lr.ph102, label %.loopexit
+._crit_edge:                                      ; preds = %88
+  %77 = icmp sgt i32 %.193, 0
+  br i1 %77, label %.lr.ph101, label %.loopexit
 
-79:                                               ; preds = %.lr.ph, %89
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
-  %.09297 = phi i32 [ 0, %.lr.ph ], [ %.193, %89 ]
-  %.idx96 = mul nuw nsw i64 %indvars.iv, 100
-  %80 = getelementptr i8, ptr %76, i64 %.idx96
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %81, 2275
-  br i1 %82, label %83, label %89
+78:                                               ; preds = %.lr.ph, %88
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
+  %.09296 = phi i32 [ 0, %.lr.ph ], [ %.193, %88 ]
+  %79 = getelementptr %struct.FormData_pg_attribute, ptr %75, i64 %indvars.iv, i32 17
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i32 %80, 2275
+  br i1 %81, label %82, label %88
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr %77, align 8
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
-  %86 = load i32, ptr %85, align 4
-  %87 = icmp eq i32 %86, 19
-  %88 = zext i1 %87 to i32
-  %spec.select = add i32 %.09297, %88
-  br label %89
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %76, align 8
+  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv
+  %85 = load i32, ptr %84, align 4
+  %86 = icmp eq i32 %85, 19
+  %87 = zext i1 %86 to i32
+  %spec.select = add i32 %.09296, %87
+  br label %88
 
-89:                                               ; preds = %83, %79
-  %.193 = phi i32 [ %.09297, %79 ], [ %spec.select, %83 ]
+88:                                               ; preds = %82, %78
+  %.193 = phi i32 [ %.09296, %78 ], [ %spec.select, %82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !6
 
-.lr.ph102:                                        ; preds = %._crit_edge
-  %90 = shl nuw i32 %.193, 1
-  %91 = zext i32 %90 to i64
-  %92 = tail call ptr @palloc(i64 noundef %91) #6
-  store ptr %92, ptr %63, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %94 = getelementptr inbounds nuw i8, ptr %43, i64 368
-  %wide.trip.count107 = zext nneg i32 %68 to i64
-  br label %95
+.lr.ph101:                                        ; preds = %._crit_edge
+  %89 = shl nuw i32 %.193, 1
+  %90 = zext i32 %89 to i64
+  %91 = tail call ptr @palloc(i64 noundef %90) #6
+  store ptr %91, ptr %63, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %43, i64 368
+  %wide.trip.count106 = zext nneg i32 %68 to i64
+  br label %94
 
-95:                                               ; preds = %.lr.ph102, %116
-  %indvars.iv104 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next105, %116 ]
-  %.08999 = phi i32 [ 0, %.lr.ph102 ], [ %.1, %116 ]
-  %96 = load ptr, ptr %93, align 8
-  %97 = load i32, ptr %96, align 8
-  %98 = sext i32 %97 to i64
-  %99 = shl nsw i64 %98, 4
-  %100 = getelementptr i8, ptr %96, i64 %99
-  %.idx = mul nuw nsw i64 %indvars.iv104, 100
-  %101 = getelementptr i8, ptr %100, i64 92
-  %102 = getelementptr i8, ptr %101, i64 %.idx
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %103, 2275
-  br i1 %104, label %105, label %116
+94:                                               ; preds = %.lr.ph101, %114
+  %indvars.iv103 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next104, %114 ]
+  %.08998 = phi i32 [ 0, %.lr.ph101 ], [ %.1, %114 ]
+  %95 = load ptr, ptr %92, align 8
+  %96 = load i32, ptr %95, align 8
+  %97 = sext i32 %96 to i64
+  %98 = shl nsw i64 %97, 4
+  %99 = getelementptr i8, ptr %95, i64 %98
+  %100 = getelementptr %struct.FormData_pg_attribute, ptr %99, i64 %indvars.iv103, i32 17
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp eq i32 %101, 2275
+  br i1 %102, label %103, label %114
 
-105:                                              ; preds = %95
-  %106 = load ptr, ptr %94, align 8
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv104
-  %108 = load i32, ptr %107, align 4
-  %109 = icmp eq i32 %108, 19
-  br i1 %109, label %110, label %116
+103:                                              ; preds = %94
+  %104 = load ptr, ptr %93, align 8
+  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv103
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp eq i32 %106, 19
+  br i1 %107, label %108, label %114
 
-110:                                              ; preds = %105
-  %111 = trunc i64 %indvars.iv104 to i16
-  %112 = load ptr, ptr %63, align 8
-  %113 = add i32 %.08999, 1
-  %114 = sext i32 %.08999 to i64
-  %115 = getelementptr inbounds i16, ptr %112, i64 %114
-  store i16 %111, ptr %115, align 2
+108:                                              ; preds = %103
+  %109 = trunc i64 %indvars.iv103 to i16
+  %110 = load ptr, ptr %63, align 8
+  %111 = add i32 %.08998, 1
+  %112 = sext i32 %.08998 to i64
+  %113 = getelementptr inbounds i16, ptr %110, i64 %112
+  store i16 %109, ptr %113, align 2
+  br label %114
+
+114:                                              ; preds = %94, %103, %108
+  %.1 = phi i32 [ %111, %108 ], [ %.08998, %103 ], [ %.08998, %94 ]
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
+  br i1 %exitcond107.not, label %.loopexit, label %94, !llvm.loop !8
+
+.loopexit:                                        ; preds = %114, %61, %._crit_edge
+  %.092.lcssa109 = phi i32 [ %.193, %._crit_edge ], [ 0, %61 ], [ %.193, %114 ]
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 336
+  store i32 %.092.lcssa109, ptr %115, align 8
   br label %116
 
-116:                                              ; preds = %95, %105, %110
-  %.1 = phi i32 [ %113, %110 ], [ %.08999, %105 ], [ %.08999, %95 ]
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.loopexit, label %95, !llvm.loop !8
-
-.loopexit:                                        ; preds = %116, %61, %._crit_edge
-  %.092.lcssa110 = phi i32 [ %.193, %._crit_edge ], [ 0, %61 ], [ %.193, %116 ]
-  %117 = getelementptr inbounds nuw i8, ptr %4, i64 336
-  store i32 %.092.lcssa110, ptr %117, align 8
-  br label %118
-
-118:                                              ; preds = %3, %.loopexit
+116:                                              ; preds = %3, %.loopexit
   ret ptr %4
 }
 

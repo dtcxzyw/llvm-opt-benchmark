@@ -8235,9 +8235,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6X86_MC18X86MCInstrAnalysis14evalu
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %21 = load i16, ptr %20, align 4, !tbaa !131
   %22 = zext i16 %21 to i64
-  %.idx = mul nuw nsw i64 %22, 6
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 35
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
+  %23 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %19, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 35
   %25 = load i8, ptr %24, align 1, !tbaa !132
   %.not = icmp eq i8 %25, 4
   br i1 %.not, label %26, label %.critedge
@@ -8280,7 +8279,7 @@ define dso_local { i64, i8 } @_ZNK4llvm6X86_MC18X86MCInstrAnalysis28evaluateMemo
   switch i8 %19, label %22 [
     i8 0, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
     i8 1, label %23
-    i8 2, label %42
+    i8 2, label %41
   ]
 
 22:                                               ; preds = %17
@@ -8294,124 +8293,122 @@ define dso_local { i64, i8 } @_ZNK4llvm6X86_MC18X86MCInstrAnalysis28evaluateMemo
   %26 = load i16, ptr %12, align 8, !tbaa !102
   %27 = zext i16 %26 to i64
   %28 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %12, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %31 = load i16, ptr %30, align 4, !tbaa !131
-  %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %29, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 10
-  %35 = load i16, ptr %34, align 2, !tbaa !135
-  %36 = and i16 %35, 241
-  %or.cond.i = icmp eq i16 %36, 1
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %30 = load i16, ptr %29, align 4, !tbaa !131
+  %31 = zext i16 %30 to i64
+  %32 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %28, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 42
+  %34 = load i16, ptr %33, align 2, !tbaa !135
+  %35 = and i16 %34, 241
+  %or.cond.i = icmp eq i16 %35, 1
   br i1 %or.cond.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i: ; preds = %25
-  %37 = icmp eq i16 %21, 8
-  br i1 %37, label %38, label %.thread.i
+  %36 = icmp eq i16 %21, 8
+  br i1 %36, label %37, label %.thread.i
 
-38:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i
-  %39 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %40 = load i16, ptr %39, align 2, !tbaa !135
-  %41 = and i16 %40, 241
-  %or.cond42.i = icmp eq i16 %41, 1
+37:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 72
+  %39 = load i16, ptr %38, align 2, !tbaa !135
+  %40 = and i16 %39, 241
+  %or.cond42.i = icmp eq i16 %40, 1
   br i1 %or.cond42.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %38, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %23
+.thread.i:                                        ; preds = %37, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %23
   br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
 
-42:                                               ; preds = %17
-  %43 = icmp ugt i16 %21, 3
-  br i1 %43, label %44, label %.thread36.i
+41:                                               ; preds = %17
+  %42 = icmp ugt i16 %21, 3
+  br i1 %42, label %43, label %.thread36.i
 
-44:                                               ; preds = %42
-  %45 = load i16, ptr %12, align 8, !tbaa !102
-  %46 = zext i16 %45 to i64
-  %47 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %12, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %49 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %50 = load i16, ptr %49, align 4, !tbaa !131
-  %51 = zext i16 %50 to i64
-  %52 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %48, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %54 = load i16, ptr %53, align 2, !tbaa !135
-  %55 = and i16 %54, 241
-  %or.cond44.i = icmp eq i16 %55, 1
-  br i1 %or.cond44.i, label %56, label %.thread36.i
+43:                                               ; preds = %41
+  %44 = load i16, ptr %12, align 8, !tbaa !102
+  %45 = zext i16 %44 to i64
+  %46 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %12, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %48 = load i16, ptr %47, align 4, !tbaa !131
+  %49 = zext i16 %48 to i64
+  %50 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %46, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %52 = load i16, ptr %51, align 2, !tbaa !135
+  %53 = and i16 %52, 241
+  %or.cond44.i = icmp eq i16 %53, 1
+  br i1 %or.cond44.i, label %54, label %.thread36.i
 
-56:                                               ; preds = %44
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 22
-  %58 = load i16, ptr %57, align 2, !tbaa !135
-  %59 = and i16 %58, 241
-  %or.cond46.i = icmp eq i16 %59, 17
+54:                                               ; preds = %43
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 54
+  %56 = load i16, ptr %55, align 2, !tbaa !135
+  %57 = and i16 %56, 241
+  %or.cond46.i = icmp eq i16 %57, 17
   br i1 %or.cond46.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i
 
-_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i: ; preds = %56
-  %60 = icmp eq i16 %21, 9
-  br i1 %60, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, label %.thread36.i
+_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i: ; preds = %54
+  %58 = icmp eq i16 %21, 9
+  br i1 %58, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, label %.thread36.i
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i: ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i
-  %61 = getelementptr inbounds nuw i8, ptr %52, i64 52
-  %62 = load i16, ptr %61, align 2, !tbaa !135
-  %63 = and i16 %62, 241
-  %or.cond52.i = icmp eq i16 %63, 17
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 84
+  %60 = load i16, ptr %59, align 2, !tbaa !135
+  %61 = and i16 %60, 241
+  %or.cond52.i = icmp eq i16 %61, 17
   br i1 %or.cond52.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread36.i
 
-.thread36.i:                                      ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i, %44, %42
+.thread36.i:                                      ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i, %43, %41
   br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
 
-_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %17, %25, %38, %.thread.i, %56, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %.thread36.i
-  %.0.i = phi i32 [ 0, %.thread.i ], [ 0, %.thread36.i ], [ 0, %17 ], [ 1, %25 ], [ 1, %38 ], [ 2, %56 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i ]
-  %64 = add i32 %.0.i, %15
-  %65 = add nsw i32 %64, 4
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %67 = zext i32 %65 to i64
-  %68 = load ptr, ptr %66, align 8, !tbaa !17
-  %69 = zext i32 %64 to i64
-  %70 = add nsw i32 %64, 1
+_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %17, %25, %37, %.thread.i, %54, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %.thread36.i
+  %.0.i = phi i32 [ 0, %.thread.i ], [ 0, %.thread36.i ], [ 0, %17 ], [ 1, %25 ], [ 1, %37 ], [ 2, %54 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i ]
+  %62 = add i32 %.0.i, %15
+  %63 = add nsw i32 %62, 4
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %65 = zext i32 %63 to i64
+  %66 = load ptr, ptr %64, align 8, !tbaa !17
+  %67 = zext i32 %62 to i64
+  %68 = add nsw i32 %62, 1
+  %69 = zext i32 %68 to i64
+  %70 = add nsw i32 %62, 3
   %71 = zext i32 %70 to i64
-  %72 = add nsw i32 %64, 3
-  %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %68, i64 %73
-  %75 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %68, i64 %67, i32 1
-  %76 = load i32, ptr %75, align 8, !tbaa !21
-  %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %77, label %.critedge
+  %72 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %66, i64 %71
+  %73 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %66, i64 %65, i32 1
+  %74 = load i32, ptr %73, align 8, !tbaa !21
+  %.not = icmp eq i32 %74, 0
+  br i1 %.not, label %75, label %.critedge
 
-77:                                               ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
-  %78 = add nsw i32 %64, 2
-  %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %68, i64 %79, i32 1
-  %81 = load i32, ptr %80, align 8, !tbaa !21
-  %.not23 = icmp eq i32 %81, 0
-  br i1 %.not23, label %82, label %.critedge
+75:                                               ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
+  %76 = add nsw i32 %62, 2
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %66, i64 %77, i32 1
+  %79 = load i32, ptr %78, align 8, !tbaa !21
+  %.not23 = icmp eq i32 %79, 0
+  br i1 %.not23, label %80, label %.critedge
 
-82:                                               ; preds = %77
-  %83 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %68, i64 %71, i32 1
-  %84 = load i64, ptr %83, align 8, !tbaa !21
-  %.not24 = icmp eq i64 %84, 1
-  br i1 %.not24, label %85, label %.critedge
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %66, i64 %69, i32 1
+  %82 = load i64, ptr %81, align 8, !tbaa !21
+  %.not24 = icmp eq i64 %82, 1
+  br i1 %.not24, label %83, label %.critedge
 
-85:                                               ; preds = %82
-  %86 = load i8, ptr %74, align 8, !tbaa !18
-  %87 = icmp eq i8 %86, 2
-  br i1 %87, label %88, label %.critedge
+83:                                               ; preds = %80
+  %84 = load i8, ptr %72, align 8, !tbaa !18
+  %85 = icmp eq i8 %84, 2
+  br i1 %85, label %86, label %.critedge
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %68, i64 %69, i32 1
-  %90 = load i32, ptr %89, align 8, !tbaa !21
-  %91 = icmp eq i32 %90, 58
-  br i1 %91, label %92, label %.critedge
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %66, i64 %67, i32 1
+  %88 = load i32, ptr %87, align 8, !tbaa !21
+  %89 = icmp eq i32 %88, 58
+  br i1 %89, label %90, label %.critedge
 
-92:                                               ; preds = %88
-  %93 = add i64 %4, %3
-  %94 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %95 = load i64, ptr %94, align 8, !tbaa !21
-  %96 = add i64 %93, %95
+90:                                               ; preds = %86
+  %91 = add i64 %4, %3
+  %92 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %93 = load i64, ptr %92, align 8, !tbaa !21
+  %94 = add i64 %91, %93
   br label %.critedge
 
-.critedge:                                        ; preds = %88, %85, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, %77, %82, %5, %92
-  %.sroa.027.0 = phi i64 [ %96, %92 ], [ undef, %5 ], [ undef, %82 ], [ undef, %77 ], [ undef, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit ], [ undef, %85 ], [ undef, %88 ]
-  %.sroa.2.0 = phi i8 [ 1, %92 ], [ 0, %5 ], [ 0, %82 ], [ 0, %77 ], [ 0, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit ], [ 0, %85 ], [ 0, %88 ]
+.critedge:                                        ; preds = %86, %83, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, %75, %80, %5, %90
+  %.sroa.027.0 = phi i64 [ %94, %90 ], [ undef, %5 ], [ undef, %80 ], [ undef, %75 ], [ undef, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit ], [ undef, %83 ], [ undef, %86 ]
+  %.sroa.2.0 = phi i8 [ 1, %90 ], [ 0, %5 ], [ 0, %80 ], [ 0, %75 ], [ 0, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit ], [ 0, %83 ], [ 0, %86 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -8618,7 +8615,7 @@ define dso_local { i64, i8 } @_ZNK4llvm6X86_MC18X86MCInstrAnalysis32getMemoryOpe
   switch i8 %16, label %19 [
     i8 0, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
     i8 1, label %20
-    i8 2, label %39
+    i8 2, label %38
   ]
 
 19:                                               ; preds = %14
@@ -8632,119 +8629,117 @@ define dso_local { i64, i8 } @_ZNK4llvm6X86_MC18X86MCInstrAnalysis32getMemoryOpe
   %23 = load i16, ptr %9, align 8, !tbaa !102
   %24 = zext i16 %23 to i64
   %25 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %9, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = getelementptr inbounds i8, ptr %8, i64 -67796
-  %28 = load i16, ptr %27, align 4, !tbaa !131
-  %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 10
-  %32 = load i16, ptr %31, align 2, !tbaa !135
-  %33 = and i16 %32, 241
-  %or.cond.i = icmp eq i16 %33, 1
+  %26 = getelementptr inbounds i8, ptr %8, i64 -67796
+  %27 = load i16, ptr %26, align 4, !tbaa !131
+  %28 = zext i16 %27 to i64
+  %29 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %25, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 42
+  %31 = load i16, ptr %30, align 2, !tbaa !135
+  %32 = and i16 %31, 241
+  %or.cond.i = icmp eq i16 %32, 1
   br i1 %or.cond.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i: ; preds = %22
-  %34 = icmp eq i16 %18, 8
-  br i1 %34, label %35, label %.thread.i
+  %33 = icmp eq i16 %18, 8
+  br i1 %33, label %34, label %.thread.i
 
-35:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %37 = load i16, ptr %36, align 2, !tbaa !135
-  %38 = and i16 %37, 241
-  %or.cond42.i = icmp eq i16 %38, 1
+34:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 72
+  %36 = load i16, ptr %35, align 2, !tbaa !135
+  %37 = and i16 %36, 241
+  %or.cond42.i = icmp eq i16 %37, 1
   br i1 %or.cond42.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %35, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %20
+.thread.i:                                        ; preds = %34, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %20
   br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
 
-39:                                               ; preds = %14
-  %40 = icmp ugt i16 %18, 3
-  br i1 %40, label %41, label %.thread36.i
+38:                                               ; preds = %14
+  %39 = icmp ugt i16 %18, 3
+  br i1 %39, label %40, label %.thread36.i
 
-41:                                               ; preds = %39
-  %42 = load i16, ptr %9, align 8, !tbaa !102
-  %43 = zext i16 %42 to i64
-  %44 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %9, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %46 = getelementptr inbounds i8, ptr %8, i64 -67796
-  %47 = load i16, ptr %46, align 4, !tbaa !131
-  %48 = zext i16 %47 to i64
-  %49 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %45, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i16, ptr %50, align 2, !tbaa !135
-  %52 = and i16 %51, 241
-  %or.cond44.i = icmp eq i16 %52, 1
-  br i1 %or.cond44.i, label %53, label %.thread36.i
+40:                                               ; preds = %38
+  %41 = load i16, ptr %9, align 8, !tbaa !102
+  %42 = zext i16 %41 to i64
+  %43 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %9, i64 %42
+  %44 = getelementptr inbounds i8, ptr %8, i64 -67796
+  %45 = load i16, ptr %44, align 4, !tbaa !131
+  %46 = zext i16 %45 to i64
+  %47 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %43, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %49 = load i16, ptr %48, align 2, !tbaa !135
+  %50 = and i16 %49, 241
+  %or.cond44.i = icmp eq i16 %50, 1
+  br i1 %or.cond44.i, label %51, label %.thread36.i
 
-53:                                               ; preds = %41
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 22
-  %55 = load i16, ptr %54, align 2, !tbaa !135
-  %56 = and i16 %55, 241
-  %or.cond46.i = icmp eq i16 %56, 17
+51:                                               ; preds = %40
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 54
+  %53 = load i16, ptr %52, align 2, !tbaa !135
+  %54 = and i16 %53, 241
+  %or.cond46.i = icmp eq i16 %54, 17
   br i1 %or.cond46.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i
 
-_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i: ; preds = %53
-  %57 = icmp eq i16 %18, 9
-  br i1 %57, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, label %.thread36.i
+_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i: ; preds = %51
+  %55 = icmp eq i16 %18, 9
+  br i1 %55, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, label %.thread36.i
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i: ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i
-  %58 = getelementptr inbounds nuw i8, ptr %49, i64 52
-  %59 = load i16, ptr %58, align 2, !tbaa !135
-  %60 = and i16 %59, 241
-  %or.cond52.i = icmp eq i16 %60, 17
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 84
+  %57 = load i16, ptr %56, align 2, !tbaa !135
+  %58 = and i16 %57, 241
+  %or.cond52.i = icmp eq i16 %58, 17
   br i1 %or.cond52.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread36.i
 
-.thread36.i:                                      ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i, %41, %39
+.thread36.i:                                      ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i, %40, %38
   br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
 
-_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %14, %22, %35, %.thread.i, %53, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %.thread36.i
-  %.0.i = phi i32 [ 0, %.thread.i ], [ 0, %.thread36.i ], [ 0, %14 ], [ 1, %22 ], [ 1, %35 ], [ 2, %53 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i ]
-  %61 = add i32 %.0.i, %12
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !17
-  %64 = zext i32 %61 to i64
-  %65 = add nsw i32 %61, 2
+_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %14, %22, %34, %.thread.i, %51, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %.thread36.i
+  %.0.i = phi i32 [ 0, %.thread.i ], [ 0, %.thread36.i ], [ 0, %14 ], [ 1, %22 ], [ 1, %34 ], [ 2, %51 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i ]
+  %59 = add i32 %.0.i, %12
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %61 = load ptr, ptr %60, align 8, !tbaa !17
+  %62 = zext i32 %59 to i64
+  %63 = add nsw i32 %59, 2
+  %64 = zext i32 %63 to i64
+  %65 = add nsw i32 %59, 1
   %66 = zext i32 %65 to i64
-  %67 = add nsw i32 %61, 1
+  %67 = add nsw i32 %59, 3
   %68 = zext i32 %67 to i64
-  %69 = add nsw i32 %61, 3
-  %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %63, i64 %70
-  %72 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %63, i64 %64, i32 1
-  %73 = load i32, ptr %72, align 8, !tbaa !21
-  %.not29 = icmp eq i32 %73, 58
-  br i1 %.not29, label %74, label %.critedge
+  %69 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %61, i64 %68
+  %70 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %61, i64 %62, i32 1
+  %71 = load i32, ptr %70, align 8, !tbaa !21
+  %.not29 = icmp eq i32 %71, 58
+  br i1 %.not29, label %72, label %.critedge
 
-74:                                               ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
-  %75 = add nsw i32 %61, 4
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %63, i64 %76, i32 1
-  %78 = load i32, ptr %77, align 8, !tbaa !21
-  %.not22 = icmp eq i32 %78, 0
-  br i1 %.not22, label %79, label %.critedge
+72:                                               ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
+  %73 = add nsw i32 %59, 4
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %61, i64 %74, i32 1
+  %76 = load i32, ptr %75, align 8, !tbaa !21
+  %.not22 = icmp eq i32 %76, 0
+  br i1 %.not22, label %77, label %.critedge
 
-79:                                               ; preds = %74
-  %80 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %63, i64 %66, i32 1
-  %81 = load i32, ptr %80, align 8, !tbaa !21
-  %.not23 = icmp eq i32 %81, 0
-  br i1 %.not23, label %82, label %.critedge
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %61, i64 %64, i32 1
+  %79 = load i32, ptr %78, align 8, !tbaa !21
+  %.not23 = icmp eq i32 %79, 0
+  br i1 %.not23, label %80, label %.critedge
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %63, i64 %68, i32 1
-  %84 = load i64, ptr %83, align 8, !tbaa !21
-  %.not24 = icmp eq i64 %84, 1
-  br i1 %.not24, label %85, label %.critedge
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %61, i64 %66, i32 1
+  %82 = load i64, ptr %81, align 8, !tbaa !21
+  %.not24 = icmp eq i64 %82, 1
+  br i1 %.not24, label %83, label %.critedge
 
-85:                                               ; preds = %82
-  %86 = load i8, ptr %71, align 8, !tbaa !18
-  %87 = icmp eq i8 %86, 2
-  %88 = add i64 %2, -4
-  %spec.select28 = zext i1 %87 to i8
+83:                                               ; preds = %80
+  %84 = load i8, ptr %69, align 8, !tbaa !18
+  %85 = icmp eq i8 %84, 2
+  %86 = add i64 %2, -4
+  %spec.select28 = zext i1 %85 to i8
   br label %.critedge
 
-.critedge:                                        ; preds = %85, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, %74, %79, %82, %5, %3
-  %.sroa.027.0 = phi i64 [ undef, %3 ], [ undef, %5 ], [ undef, %82 ], [ undef, %79 ], [ undef, %74 ], [ undef, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit ], [ %88, %85 ]
-  %.sroa.2.0 = phi i8 [ 0, %3 ], [ 0, %5 ], [ 0, %82 ], [ 0, %79 ], [ 0, %74 ], [ 0, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit ], [ %spec.select28, %85 ]
+.critedge:                                        ; preds = %83, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, %72, %77, %80, %5, %3
+  %.sroa.027.0 = phi i64 [ undef, %3 ], [ undef, %5 ], [ undef, %80 ], [ undef, %77 ], [ undef, %72 ], [ undef, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit ], [ %86, %83 ]
+  %.sroa.2.0 = phi i8 [ 0, %3 ], [ 0, %5 ], [ 0, %80 ], [ 0, %77 ], [ 0, %72 ], [ 0, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit ], [ %spec.select28, %83 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert

@@ -3270,9 +3270,8 @@ define i32 @tls_write_records(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
   br i1 %.not, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %.idx = mul nuw nsw i64 %5, 48
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %9 = getelementptr inbounds nuw %struct.tls_buffer_st, ptr %0, i64 %5
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load i64, ptr %10, align 8, !tbaa !45
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.critedge, label %13, !prof !76
@@ -3664,33 +3663,32 @@ define void @tls_set_max_frag_len(ptr noundef writeonly captures(none) initializ
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls_increment_sequence_ctr(ptr noundef captures(none) %0) #0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  br label %3
+  br label %2
 
-3:                                                ; preds = %1, %9
-  %.010 = phi i32 [ 8, %1 ], [ %10, %9 ]
-  %4 = zext nneg i32 %.010 to i64
-  %5 = getelementptr i8, ptr %2, i64 %4
-  %6 = getelementptr i8, ptr %5, i64 -1
-  %7 = load i8, ptr %6, align 1, !tbaa !59
-  %8 = add i8 %7, 1
-  store i8 %8, ptr %6, align 1, !tbaa !59
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %.thread
+2:                                                ; preds = %1, %8
+  %.010 = phi i32 [ 8, %1 ], [ %9, %8 ]
+  %3 = zext nneg i32 %.010 to i64
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 4095
+  %6 = load i8, ptr %5, align 1, !tbaa !59
+  %7 = add i8 %6, 1
+  store i8 %7, ptr %5, align 1, !tbaa !59
+  %.not = icmp eq i8 %7, 0
+  br i1 %.not, label %8, label %.thread
 
-9:                                                ; preds = %3
-  %10 = add nsw i32 %.010, -1
-  %11 = icmp samesign ugt i32 %.010, 1
-  br i1 %11, label %3, label %12, !llvm.loop !149
+8:                                                ; preds = %2
+  %9 = add nsw i32 %.010, -1
+  %10 = icmp samesign ugt i32 %.010, 1
+  br i1 %10, label %2, label %11, !llvm.loop !149
 
-12:                                               ; preds = %9
+11:                                               ; preds = %8
   tail call void @ERR_new() #13
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2089, ptr noundef nonnull @__func__.tls_increment_sequence_ctr) #13
   tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 327, ptr noundef null)
   br label %.thread
 
-.thread:                                          ; preds = %3, %12
-  %.08 = phi i32 [ 0, %12 ], [ 1, %3 ]
+.thread:                                          ; preds = %2, %11
+  %.08 = phi i32 [ 0, %11 ], [ 1, %2 ]
   ret i32 %.08
 }
 

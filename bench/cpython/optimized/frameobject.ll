@@ -1116,7 +1116,7 @@ define dso_local ptr @PyFrame_New(ptr noundef readnone captures(none) %0, ptr no
   %5 = alloca %struct.PyFrameConstructor, align 8
   %6 = tail call ptr @_PyDict_LoadBuiltinsFromGlobals(ptr noundef %2) #11
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %123, label %8
+  br i1 %7, label %122, label %8
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1277,63 +1277,62 @@ init_frame.exit:                                  ; preds = %.lr.ph.i.i, %_Py_Ne
   %88 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %45, ptr %88, align 8, !tbaa !33
   store i8 2, ptr %81, align 2, !tbaa !47
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %91 = load i32, ptr %90, align 8, !tbaa !84
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr %union._Py_CODEUNIT, ptr %89, i64 %92
-  %94 = getelementptr i8, ptr %93, i64 2
-  store ptr %94, ptr %79, align 8, !tbaa !85
-  %95 = load i32, ptr %16, align 8, !tbaa !9
-  %.not.i = icmp sgt i32 %95, -1
-  br i1 %.not.i, label %96, label %Py_DECREF.exit
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %90 = load i32, ptr %89, align 8, !tbaa !84
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr %union._Py_CODEUNIT, ptr %1, i64 %91
+  %93 = getelementptr i8, ptr %92, i64 210
+  store ptr %93, ptr %79, align 8, !tbaa !85
+  %94 = load i32, ptr %16, align 8, !tbaa !9
+  %.not.i = icmp sgt i32 %94, -1
+  br i1 %.not.i, label %95, label %Py_DECREF.exit
 
-96:                                               ; preds = %init_frame.exit
-  %97 = add nsw i32 %95, -1
-  store i32 %97, ptr %16, align 8, !tbaa !9
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %Py_DECREF.exit
+95:                                               ; preds = %init_frame.exit
+  %96 = add nsw i32 %94, -1
+  store i32 %96, ptr %16, align 8, !tbaa !9
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %Py_DECREF.exit
 
-99:                                               ; preds = %96
+98:                                               ; preds = %95
   call void @_Py_Dealloc(ptr noundef nonnull %16) #11
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %init_frame.exit, %96, %99
-  %100 = getelementptr i8, ptr %30, i64 -16
-  %101 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %102 = load ptr, ptr %101, align 8, !tbaa !86
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %104 = load ptr, ptr %103, align 8, !tbaa !87
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 7424
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 7432
-  %107 = load i64, ptr %106, align 8, !tbaa !36
-  %108 = inttoptr i64 %107 to ptr
-  %109 = ptrtoint ptr %100 to i64
-  %110 = load i64, ptr %108, align 8, !tbaa !34
-  %111 = and i64 %110, 3
-  %112 = or i64 %111, %109
-  store i64 %112, ptr %108, align 8, !tbaa !34
-  %113 = getelementptr i8, ptr %30, i64 -8
-  %114 = load i64, ptr %113, align 8, !tbaa !36
-  %115 = and i64 %114, 3
-  %116 = or i64 %115, %107
-  store i64 %116, ptr %113, align 8, !tbaa !36
-  %117 = getelementptr inbounds nuw i8, ptr %104, i64 7632
-  %118 = load i32, ptr %117, align 8, !tbaa !88
-  %119 = xor i32 %118, 1
-  %120 = sext i32 %119 to i64
-  %121 = ptrtoint ptr %105 to i64
-  %122 = or i64 %120, %121
-  store i64 %122, ptr %100, align 8, !tbaa !34
-  store i64 %109, ptr %106, align 8, !tbaa !36
+Py_DECREF.exit:                                   ; preds = %init_frame.exit, %95, %98
+  %99 = getelementptr i8, ptr %30, i64 -16
+  %100 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %101 = load ptr, ptr %100, align 8, !tbaa !86
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !87
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 7424
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 7432
+  %106 = load i64, ptr %105, align 8, !tbaa !36
+  %107 = inttoptr i64 %106 to ptr
+  %108 = ptrtoint ptr %99 to i64
+  %109 = load i64, ptr %107, align 8, !tbaa !34
+  %110 = and i64 %109, 3
+  %111 = or i64 %110, %108
+  store i64 %111, ptr %107, align 8, !tbaa !34
+  %112 = getelementptr i8, ptr %30, i64 -8
+  %113 = load i64, ptr %112, align 8, !tbaa !36
+  %114 = and i64 %113, 3
+  %115 = or i64 %114, %106
+  store i64 %115, ptr %112, align 8, !tbaa !36
+  %116 = getelementptr inbounds nuw i8, ptr %103, i64 7632
+  %117 = load i32, ptr %116, align 8, !tbaa !88
+  %118 = xor i32 %117, 1
+  %119 = sext i32 %118 to i64
+  %120 = ptrtoint ptr %104 to i64
+  %121 = or i64 %119, %120
+  store i64 %121, ptr %99, align 8, !tbaa !34
+  store i64 %108, ptr %105, align 8, !tbaa !36
   br label %Py_DECREF.exit30
 
 Py_DECREF.exit30:                                 ; preds = %37, %34, %32, %Py_DECREF.exit, %Py_DECREF.exit32
   %.1 = phi ptr [ null, %Py_DECREF.exit32 ], [ %30, %Py_DECREF.exit ], [ null, %32 ], [ null, %34 ], [ null, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %123
+  br label %122
 
-123:                                              ; preds = %4, %Py_DECREF.exit30
+122:                                              ; preds = %4, %Py_DECREF.exit30
   %.0 = phi ptr [ %.1, %Py_DECREF.exit30 ], [ null, %4 ]
   ret ptr %.0
 }

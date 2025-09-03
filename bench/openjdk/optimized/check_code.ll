@@ -4086,8 +4086,8 @@ pop_and_free.exit.i.us:                           ; preds = %196, %195, %192, %1
   br i1 %or.cond17.i.us, label %225, label %217
 
 217:                                              ; preds = %215
-  %218 = getelementptr i32, ptr %31, i64 %208
-  %219 = getelementptr i8, ptr %218, i64 -196
+  %218 = getelementptr i32, ptr %0, i64 %208
+  %219 = getelementptr i8, ptr %218, i64 372
   store i32 %210, ptr %219, align 4
   %220 = icmp ugt ptr %206, %.0297.i.us
   br i1 %220, label %221, label %295

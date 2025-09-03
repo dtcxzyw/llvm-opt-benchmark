@@ -274,248 +274,247 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 
 133:                                              ; preds = %.thread, %117
   %134 = phi i1 [ %116, %.thread ], [ %119, %117 ]
-  switch i32 %2, label %220 [
+  switch i32 %2, label %219 [
     i32 40994, label %.preheader121
     i32 40995, label %.preheader122
     i32 40996, label %.preheader123
-    i32 40997, label %208
+    i32 40997, label %207
   ]
 
 .preheader123:                                    ; preds = %133
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 4600
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 187428
-  br label %187
+  br label %186
 
 .preheader122:                                    ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 4600
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 187364
-  br label %163
+  br label %162
 
 .preheader121:                                    ; preds = %133
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 4600
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 188404
-  br label %141
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 188404
+  br label %140
 
-141:                                              ; preds = %.preheader121, %141
-  %indvars.iv161 = phi i64 [ 0, %.preheader121 ], [ %indvars.iv.next162, %141 ]
-  %142 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %143 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv161
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  %145 = load i32, ptr %144, align 4, !tbaa !79
-  %146 = sub i32 %142, %145
-  %147 = trunc nuw nsw i64 %indvars.iv161 to i32
-  %148 = lshr i32 %147, 1
-  %149 = xor i32 %148, %147
-  %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw i32, ptr %140, i64 %150
-  store i32 %146, ptr %151, align 4, !tbaa !79
+140:                                              ; preds = %.preheader121, %140
+  %indvars.iv161 = phi i64 [ 0, %.preheader121 ], [ %indvars.iv.next162, %140 ]
+  %141 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %142 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv161
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4616
+  %144 = load i32, ptr %143, align 4, !tbaa !79
+  %145 = sub i32 %141, %144
+  %146 = trunc nuw nsw i64 %indvars.iv161 to i32
+  %147 = lshr i32 %146, 1
+  %148 = xor i32 %147, %146
+  %149 = zext nneg i32 %148 to i64
+  %150 = getelementptr inbounds nuw i32, ptr %139, i64 %149
+  store i32 %145, ptr %150, align 4, !tbaa !79
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 4
-  br i1 %exitcond164.not, label %152, label %141, !llvm.loop !89
+  br i1 %exitcond164.not, label %151, label %140, !llvm.loop !89
 
-152:                                              ; preds = %141
-  %153 = load i32, ptr %140, align 4, !tbaa !79
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 188408
-  %155 = load i32, ptr %154, align 8, !tbaa !79
-  %156 = ashr i32 %155, 1
-  %157 = icmp slt i32 %153, %156
-  br i1 %157, label %158, label %.loopexit
+151:                                              ; preds = %140
+  %152 = load i32, ptr %139, align 4, !tbaa !79
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 188408
+  %154 = load i32, ptr %153, align 8, !tbaa !79
+  %155 = ashr i32 %154, 1
+  %156 = icmp slt i32 %152, %155
+  br i1 %156, label %157, label %.loopexit
 
-158:                                              ; preds = %152
-  %159 = ashr i32 %155, 4
-  store i32 %159, ptr %154, align 8, !tbaa !79
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 188416
-  %161 = load i32, ptr %160, align 8, !tbaa !79
-  %162 = ashr i32 %161, 4
-  store i32 %162, ptr %160, align 8, !tbaa !79
+157:                                              ; preds = %151
+  %158 = ashr i32 %154, 4
+  store i32 %158, ptr %153, align 8, !tbaa !79
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 188416
+  %160 = load i32, ptr %159, align 8, !tbaa !79
+  %161 = ashr i32 %160, 4
+  store i32 %161, ptr %159, align 8, !tbaa !79
   br label %.loopexit
 
-163:                                              ; preds = %.preheader122, %163
-  %indvars.iv157 = phi i64 [ 0, %.preheader122 ], [ %indvars.iv.next158, %163 ]
-  %164 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %165 = getelementptr inbounds nuw i16, ptr @__const._ZN6LibRaw22parseSamsungMakernotesEijjjj.ki, i64 %indvars.iv157
-  %166 = load i16, ptr %165, align 2, !tbaa !90
-  %167 = zext i16 %166 to i64
-  %168 = getelementptr inbounds nuw i32, ptr %137, i64 %167
-  %169 = load i32, ptr %168, align 4, !tbaa !79
-  %170 = sub i32 %164, %169
-  %171 = trunc nuw nsw i64 %indvars.iv157 to i32
-  %172 = lshr i32 %171, 1
-  %173 = xor i32 %172, %171
-  %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw i32, ptr %138, i64 %174
-  store i32 %170, ptr %175, align 4, !tbaa !79
+162:                                              ; preds = %.preheader122, %162
+  %indvars.iv157 = phi i64 [ 0, %.preheader122 ], [ %indvars.iv.next158, %162 ]
+  %163 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %164 = getelementptr inbounds nuw i16, ptr @__const._ZN6LibRaw22parseSamsungMakernotesEijjjj.ki, i64 %indvars.iv157
+  %165 = load i16, ptr %164, align 2, !tbaa !90
+  %166 = zext i16 %165 to i64
+  %167 = getelementptr inbounds nuw i32, ptr %137, i64 %166
+  %168 = load i32, ptr %167, align 4, !tbaa !79
+  %169 = sub i32 %163, %168
+  %170 = trunc nuw nsw i64 %indvars.iv157 to i32
+  %171 = lshr i32 %170, 1
+  %172 = xor i32 %171, %170
+  %173 = zext nneg i32 %172 to i64
+  %174 = getelementptr inbounds nuw i32, ptr %138, i64 %173
+  store i32 %169, ptr %174, align 4, !tbaa !79
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, 4
-  br i1 %exitcond160.not, label %176, label %163, !llvm.loop !91
+  br i1 %exitcond160.not, label %175, label %162, !llvm.loop !91
 
-176:                                              ; preds = %163
-  %177 = load i32, ptr %138, align 4, !tbaa !79
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 187368
-  %179 = load i32, ptr %178, align 8, !tbaa !79
-  %180 = ashr i32 %179, 1
-  %181 = icmp slt i32 %177, %180
-  br i1 %181, label %182, label %.loopexit
+175:                                              ; preds = %162
+  %176 = load i32, ptr %138, align 4, !tbaa !79
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 187368
+  %178 = load i32, ptr %177, align 8, !tbaa !79
+  %179 = ashr i32 %178, 1
+  %180 = icmp slt i32 %176, %179
+  br i1 %180, label %181, label %.loopexit
 
-182:                                              ; preds = %176
-  %183 = ashr i32 %179, 4
-  store i32 %183, ptr %178, align 8, !tbaa !79
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 187376
-  %185 = load i32, ptr %184, align 8, !tbaa !79
-  %186 = ashr i32 %185, 4
-  store i32 %186, ptr %184, align 8, !tbaa !79
+181:                                              ; preds = %175
+  %182 = ashr i32 %178, 4
+  store i32 %182, ptr %177, align 8, !tbaa !79
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 187376
+  %184 = load i32, ptr %183, align 8, !tbaa !79
+  %185 = ashr i32 %184, 4
+  store i32 %185, ptr %183, align 8, !tbaa !79
   br label %.loopexit
 
-187:                                              ; preds = %.preheader123, %187
-  %indvars.iv153 = phi i64 [ 0, %.preheader123 ], [ %indvars.iv.next154, %187 ]
-  %188 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+186:                                              ; preds = %.preheader123, %186
+  %indvars.iv153 = phi i64 [ 0, %.preheader123 ], [ %indvars.iv.next154, %186 ]
+  %187 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %189 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv.next154
-  %190 = load i32, ptr %189, align 4, !tbaa !79
-  %191 = sub i32 %188, %190
-  %192 = trunc nuw nsw i64 %indvars.iv153 to i32
-  %193 = lshr i32 %192, 1
-  %194 = xor i32 %193, %192
-  %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr inbounds nuw i32, ptr %136, i64 %195
-  store i32 %191, ptr %196, align 4, !tbaa !79
+  %188 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv.next154
+  %189 = load i32, ptr %188, align 4, !tbaa !79
+  %190 = sub i32 %187, %189
+  %191 = trunc nuw nsw i64 %indvars.iv153 to i32
+  %192 = lshr i32 %191, 1
+  %193 = xor i32 %192, %191
+  %194 = zext nneg i32 %193 to i64
+  %195 = getelementptr inbounds nuw i32, ptr %136, i64 %194
+  store i32 %190, ptr %195, align 4, !tbaa !79
   %exitcond156.not = icmp eq i64 %indvars.iv.next154, 4
-  br i1 %exitcond156.not, label %197, label %187, !llvm.loop !92
+  br i1 %exitcond156.not, label %196, label %186, !llvm.loop !92
 
-197:                                              ; preds = %187
-  %198 = load i32, ptr %136, align 4, !tbaa !79
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 187432
-  %200 = load i32, ptr %199, align 8, !tbaa !79
-  %201 = ashr i32 %200, 1
-  %202 = icmp slt i32 %198, %201
-  br i1 %202, label %203, label %.loopexit
+196:                                              ; preds = %186
+  %197 = load i32, ptr %136, align 4, !tbaa !79
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 187432
+  %199 = load i32, ptr %198, align 8, !tbaa !79
+  %200 = ashr i32 %199, 1
+  %201 = icmp slt i32 %197, %200
+  br i1 %201, label %202, label %.loopexit
 
-203:                                              ; preds = %197
-  %204 = ashr i32 %200, 4
-  store i32 %204, ptr %199, align 8, !tbaa !79
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 187440
-  %206 = load i32, ptr %205, align 8, !tbaa !79
-  %207 = ashr i32 %206, 4
-  store i32 %207, ptr %205, align 8, !tbaa !79
+202:                                              ; preds = %196
+  %203 = ashr i32 %199, 4
+  store i32 %203, ptr %198, align 8, !tbaa !79
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 187440
+  %205 = load i32, ptr %204, align 8, !tbaa !79
+  %206 = ashr i32 %205, 4
+  store i32 %206, ptr %204, align 8, !tbaa !79
   br label %.loopexit
 
-208:                                              ; preds = %133
-  %209 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 4600
-  %211 = load i32, ptr %210, align 8, !tbaa !79
-  %212 = add i32 %211, %209
-  %213 = icmp eq i32 %212, 4096
-  br i1 %213, label %214, label %216
+207:                                              ; preds = %133
+  %208 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 4600
+  %210 = load i32, ptr %209, align 8, !tbaa !79
+  %211 = add i32 %210, %208
+  %212 = icmp eq i32 %211, 4096
+  br i1 %212, label %213, label %215
 
-214:                                              ; preds = %208
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 4648
-  store double 1.000000e+00, ptr %215, align 8, !tbaa !93
+213:                                              ; preds = %207
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 4648
+  store double 1.000000e+00, ptr %214, align 8, !tbaa !93
   br label %.loopexit
 
-216:                                              ; preds = %208
-  %217 = uitofp i32 %212 to double
-  %218 = fmul reassoc nsz arcp contract afn double %217, 0x3F30000000000000
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 4648
-  store double %218, ptr %219, align 8, !tbaa !93
+215:                                              ; preds = %207
+  %216 = uitofp i32 %211 to double
+  %217 = fmul reassoc nsz arcp contract afn double %216, 0x3F30000000000000
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 4648
+  store double %217, ptr %218, align 8, !tbaa !93
   br label %.loopexit
 
-220:                                              ; preds = %133
-  %221 = icmp eq i32 %2, 41000
-  %or.cond9 = and i1 %221, %134
-  br i1 %or.cond9, label %.preheader116, label %234
+219:                                              ; preds = %133
+  %220 = icmp eq i32 %2, 41000
+  %or.cond9 = and i1 %220, %134
+  br i1 %or.cond9, label %.preheader116, label %233
 
-.preheader116:                                    ; preds = %220
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 4600
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 136576
-  br label %224
+.preheader116:                                    ; preds = %219
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 4600
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 136576
+  br label %223
 
-224:                                              ; preds = %.preheader116, %224
-  %indvars.iv177 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next178, %224 ]
-  %225 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %226 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv177
-  %227 = load i32, ptr %226, align 4, !tbaa !79
-  %228 = sub i32 %225, %227
-  %229 = trunc nuw nsw i64 %indvars.iv177 to i32
-  %230 = lshr i32 %229, 1
-  %231 = xor i32 %230, %229
-  %232 = zext nneg i32 %231 to i64
-  %233 = getelementptr inbounds nuw i32, ptr %223, i64 %232
-  store i32 %228, ptr %233, align 4, !tbaa !79
+223:                                              ; preds = %.preheader116, %223
+  %indvars.iv177 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next178, %223 ]
+  %224 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %225 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv177
+  %226 = load i32, ptr %225, align 4, !tbaa !79
+  %227 = sub i32 %224, %226
+  %228 = trunc nuw nsw i64 %indvars.iv177 to i32
+  %229 = lshr i32 %228, 1
+  %230 = xor i32 %229, %228
+  %231 = zext nneg i32 %230 to i64
+  %232 = getelementptr inbounds nuw i32, ptr %222, i64 %231
+  store i32 %227, ptr %232, align 4, !tbaa !79
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 4
-  br i1 %exitcond180.not, label %.loopexit, label %224, !llvm.loop !94
+  br i1 %exitcond180.not, label %.loopexit, label %223, !llvm.loop !94
 
-234:                                              ; preds = %220
-  %235 = icmp eq i32 %2, 41008
-  %236 = icmp eq i32 %4, 9
-  %or.cond11 = and i1 %235, %236
-  br i1 %or.cond11, label %.preheader119, label %250
+233:                                              ; preds = %219
+  %234 = icmp eq i32 %2, 41008
+  %235 = icmp eq i32 %4, 9
+  %or.cond11 = and i1 %234, %235
+  br i1 %or.cond11, label %.preheader119, label %249
 
-.preheader119:                                    ; preds = %234
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 4600
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 153256
+.preheader119:                                    ; preds = %233
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 4600
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 153256
   br label %.preheader118
 
-.preheader118:                                    ; preds = %.preheader119, %249
-  %indvars.iv173 = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next174, %249 ]
-  %239 = getelementptr inbounds nuw [4 x float], ptr %238, i64 %indvars.iv173
+.preheader118:                                    ; preds = %.preheader119, %248
+  %indvars.iv173 = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next174, %248 ]
+  %238 = getelementptr inbounds nuw [4 x float], ptr %237, i64 %indvars.iv173
   %.idx = mul nuw nsw i64 %indvars.iv173, 12
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %237, i64 %.idx
-  br label %240
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %236, i64 %.idx
+  br label %239
 
-240:                                              ; preds = %.preheader118, %240
-  %indvars.iv169 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next170, %240 ]
-  %241 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+239:                                              ; preds = %.preheader118, %239
+  %indvars.iv169 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next170, %239 ]
+  %240 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv169
-  %242 = load i32, ptr %gep, align 4, !tbaa !79
-  %243 = add i32 %242, %241
-  %244 = trunc i32 %243 to i16
-  %245 = sitofp i16 %244 to double
-  %246 = fmul reassoc nsz arcp contract afn double %245, 3.906250e-03
-  %247 = fptrunc reassoc nsz arcp contract afn double %246 to float
-  %248 = getelementptr inbounds nuw float, ptr %239, i64 %indvars.iv169
-  store float %247, ptr %248, align 4, !tbaa !87
+  %241 = load i32, ptr %gep, align 4, !tbaa !79
+  %242 = add i32 %241, %240
+  %243 = trunc i32 %242 to i16
+  %244 = sitofp i16 %243 to double
+  %245 = fmul reassoc nsz arcp contract afn double %244, 3.906250e-03
+  %246 = fptrunc reassoc nsz arcp contract afn double %245 to float
+  %247 = getelementptr inbounds nuw float, ptr %238, i64 %indvars.iv169
+  store float %246, ptr %247, align 4, !tbaa !87
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 3
-  br i1 %exitcond172.not, label %249, label %240, !llvm.loop !95
+  br i1 %exitcond172.not, label %248, label %239, !llvm.loop !95
 
-249:                                              ; preds = %240
+248:                                              ; preds = %239
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, 3
   br i1 %exitcond176.not, label %.loopexit, label %.preheader118, !llvm.loop !96
 
-250:                                              ; preds = %234
-  %251 = icmp eq i32 %2, 41010
-  %or.cond13 = and i1 %251, %236
+249:                                              ; preds = %233
+  %250 = icmp eq i32 %2, 41010
+  %or.cond13 = and i1 %250, %235
   %or.cond15 = and i1 %or.cond13, %134
-  br i1 %or.cond15, label %252, label %.loopexit
+  br i1 %or.cond15, label %251, label %.loopexit
 
-252:                                              ; preds = %250
+251:                                              ; preds = %249
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 4600
-  br label %254
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 4600
+  br label %253
 
-254:                                              ; preds = %252, %254
-  %indvars.iv165 = phi i64 [ 0, %252 ], [ %indvars.iv.next166, %254 ]
-  %255 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %256 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv165
-  %257 = load i32, ptr %256, align 4, !tbaa !79
-  %258 = add i32 %257, %255
-  %259 = trunc i32 %258 to i16
-  %260 = sitofp i16 %259 to double
-  %261 = fmul reassoc nsz arcp contract afn double %260, 3.906250e-03
-  %262 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv165
-  store double %261, ptr %262, align 8, !tbaa !97
+253:                                              ; preds = %251, %253
+  %indvars.iv165 = phi i64 [ 0, %251 ], [ %indvars.iv.next166, %253 ]
+  %254 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %255 = getelementptr inbounds nuw i32, ptr %252, i64 %indvars.iv165
+  %256 = load i32, ptr %255, align 4, !tbaa !79
+  %257 = add i32 %256, %254
+  %258 = trunc i32 %257 to i16
+  %259 = sitofp i16 %258 to double
+  %260 = fmul reassoc nsz arcp contract afn double %259, 3.906250e-03
+  %261 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv165
+  store double %260, ptr %261, align 8, !tbaa !97
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, 9
-  br i1 %exitcond168.not, label %263, label %254, !llvm.loop !98
+  br i1 %exitcond168.not, label %262, label %253, !llvm.loop !98
 
-263:                                              ; preds = %254
+262:                                              ; preds = %253
   call void @_ZN6LibRaw10aRGB_coeffEPA3_d(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %113, %74, %249, %224, %122, %214, %216, %176, %182, %22, %40, %56, %90, %158, %152, %203, %197, %250, %263, %99, %111, %80, %86, %63, %50, %54, %27, %34, %29, %12, %20, %18
+.loopexit:                                        ; preds = %113, %74, %248, %223, %122, %213, %215, %175, %181, %22, %40, %56, %90, %157, %151, %202, %196, %249, %262, %99, %111, %80, %86, %63, %50, %54, %27, %34, %29, %12, %20, %18
   ret void
 }
 

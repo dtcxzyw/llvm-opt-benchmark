@@ -14687,7 +14687,7 @@ define hidden void @_ZN12GraphBuilder19profile_return_typeEP11InstructionP8ciMet
   %28 = tail call noundef ptr @_ZN8ciMethod19method_data_or_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %.0) #19
   %29 = tail call noundef ptr @_ZN12ciMethodData11bci_to_dataEiP8ciMethod(ptr noundef nonnull align 8 dereferenceable(176) %28, i32 noundef %.016, ptr noundef null) #19
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %124, label %30
+  br i1 %.not, label %123, label %30
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %29, align 8
@@ -14701,7 +14701,7 @@ define hidden void @_ZN12GraphBuilder19profile_return_typeEP11InstructionP8ciMet
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %29) #19
-  br i1 %39, label %40, label %124
+  br i1 %39, label %40, label %123
 
 40:                                               ; preds = %35, %30
   %41 = load ptr, ptr %29, align 8
@@ -14717,7 +14717,7 @@ define hidden void @_ZN12GraphBuilder19profile_return_typeEP11InstructionP8ciMet
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %49, 1
   %.not22 = icmp eq i64 %50, 0
-  br i1 %.not22, label %124, label %63
+  br i1 %.not22, label %123, label %62
 
 51:                                               ; preds = %40
   %52 = load i64, ptr @TypeProfileWidth, align 8
@@ -14725,112 +14725,111 @@ define hidden void @_ZN12GraphBuilder19profile_return_typeEP11InstructionP8ciMet
   %54 = shl i32 %53, 1
   %55 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = sext i32 %54 to i64
-  %59 = getelementptr i64, ptr %57, i64 %58
-  %60 = getelementptr i8, ptr %59, i64 8
-  %61 = load i64, ptr %60, align 8
-  %62 = and i64 %61, 1
-  %.not21 = icmp eq i64 %62, 0
-  br i1 %.not21, label %124, label %63
+  %57 = sext i32 %54 to i64
+  %58 = getelementptr i64, ptr %56, i64 %57
+  %59 = getelementptr i8, ptr %58, i64 16
+  %60 = load i64, ptr %59, align 8
+  %61 = and i64 %60, 1
+  %.not21 = icmp eq i64 %61, 0
+  br i1 %.not21, label %123, label %62
 
-63:                                               ; preds = %45, %51
-  %64 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1808
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 128
+62:                                               ; preds = %45, %51
+  %63 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1808
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 128
+  %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = ptrtoint ptr %72 to i64
-  %76 = ptrtoint ptr %74 to i64
-  %77 = sub i64 %75, %76
-  %.not.i.i.i = icmp ult i64 %77, 128
-  br i1 %.not.i.i.i, label %80, label %78
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %74 = ptrtoint ptr %71 to i64
+  %75 = ptrtoint ptr %73 to i64
+  %76 = sub i64 %74, %75
+  %.not.i.i.i = icmp ult i64 %76, 128
+  br i1 %.not.i.i.i, label %79, label %77
 
-78:                                               ; preds = %63
-  %79 = getelementptr inbounds nuw i8, ptr %74, i64 128
-  store ptr %79, ptr %73, align 8
+77:                                               ; preds = %62
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 128
+  store ptr %78, ptr %72, align 8
   br label %_ZN11InstructionnwEm.exit
 
-80:                                               ; preds = %63
-  %81 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %70, i64 noundef 128, i32 noundef 0) #19
+79:                                               ; preds = %62
+  %80 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %69, i64 noundef 128, i32 noundef 0) #19
   br label %_ZN11InstructionnwEm.exit
 
-_ZN11InstructionnwEm.exit:                        ; preds = %78, %80
-  %.0.i.i.i = phi ptr [ %74, %78 ], [ %81, %80 ]
-  %82 = icmp eq ptr %.0.i.i.i, null
-  br i1 %82, label %111, label %83
+_ZN11InstructionnwEm.exit:                        ; preds = %77, %79
+  %.0.i.i.i = phi ptr [ %73, %77 ], [ %80, %79 ]
+  %81 = icmp eq ptr %.0.i.i.i, null
+  br i1 %81, label %110, label %82
 
-83:                                               ; preds = %_ZN11InstructionnwEm.exit
-  %84 = load ptr, ptr @voidType, align 8
+82:                                               ; preds = %_ZN11InstructionnwEm.exit
+  %83 = load ptr, ptr @voidType, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %86 = load ptr, ptr %64, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1808
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 128
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load i32, ptr %91, align 8
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %91, align 8
-  store i32 %92, ptr %85, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
-  store i32 0, ptr %94, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 0, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  store ptr %84, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
-  %99 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  store i64 %99, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  store ptr null, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %85 = load ptr, ptr %63, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1808
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 128
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load i32, ptr %90, align 8
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %90, align 8
+  store i32 %91, ptr %84, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
+  store i32 0, ptr %93, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
+  store i32 0, ptr %94, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
+  store ptr %83, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
+  %98 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  store i64 %98, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  store i32 0, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
+  store ptr null, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
   tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i, ptr noundef null) #19
   store ptr getelementptr inbounds nuw inrange(-16, 504) (i8, ptr @_ZTV17ProfileReturnType, i64 16), ptr %.0.i.i.i, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
-  store ptr %.0, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 104
-  store ptr %2, ptr %104, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 112
-  store i32 %.016, ptr %105, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 120
-  store ptr %1, ptr %106, align 8
-  %107 = load i32, ptr %100, align 8
-  %108 = or i32 %107, 1
-  store i32 %108, ptr %100, align 8
-  %109 = load i32, ptr %95, align 8
-  %110 = or i32 %109, 1
-  store i32 %110, ptr %95, align 8
-  br label %111
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
+  store ptr %.0, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 104
+  store ptr %2, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 112
+  store i32 %.016, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 120
+  store ptr %1, ptr %105, align 8
+  %106 = load i32, ptr %99, align 8
+  %107 = or i32 %106, 1
+  store i32 %107, ptr %99, align 8
+  %108 = load i32, ptr %94, align 8
+  %109 = or i32 %108, 1
+  store i32 %109, ptr %94, align 8
+  br label %110
 
-111:                                              ; preds = %83, %_ZN11InstructionnwEm.exit
-  %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %114, i64 40
-  %118 = load ptr, ptr %117, align 8
-  %119 = ptrtoint ptr %116 to i64
-  %120 = ptrtoint ptr %118 to i64
-  %121 = sub i64 %119, %120
-  %122 = trunc i64 %121 to i32
-  %123 = tail call noundef ptr @_ZN12GraphBuilder15append_with_bciEP11Instructioni(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %.0.i.i.i, i32 noundef %122)
-  br label %124
+110:                                              ; preds = %82, %_ZN11InstructionnwEm.exit
+  %111 = load ptr, ptr %0, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 40
+  %117 = load ptr, ptr %116, align 8
+  %118 = ptrtoint ptr %115 to i64
+  %119 = ptrtoint ptr %117 to i64
+  %120 = sub i64 %118, %119
+  %121 = trunc i64 %120 to i32
+  %122 = tail call noundef ptr @_ZN12GraphBuilder15append_with_bciEP11Instructioni(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %.0.i.i.i, i32 noundef %121)
+  br label %123
 
-124:                                              ; preds = %45, %51, %111, %35, %27
+123:                                              ; preds = %45, %51, %110, %35, %27
   ret void
 }
 
@@ -17677,7 +17676,7 @@ _ZN12GraphBuilder17profile_argumentsEv.exit:      ; preds = %38
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %67) #19
   %83 = load ptr, ptr %67, align 8
-  br i1 %82, label %84, label %94
+  br i1 %82, label %84, label %90
 
 84:                                               ; preds = %78
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 88
@@ -17685,95 +17684,94 @@ _ZN12GraphBuilder17profile_argumentsEv.exit:      ; preds = %38
   %87 = tail call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(16) %67) #19
   %88 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load i64, ptr %90, align 8
-  %92 = trunc i64 %91 to i32
-  %93 = sdiv i32 %92, 2
+  br label %_ZN12GraphBuilder17profile_argumentsEv.exit.thread.sink.split
+
+90:                                               ; preds = %78
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 96
+  %92 = load ptr, ptr %91, align 8
+  %93 = tail call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %67) #19
+  %94 = load i64, ptr @TypeProfileWidth, align 8
+  %95 = trunc i64 %94 to i32
+  %96 = shl i32 %95, 1
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = sext i32 %96 to i64
+  %100 = getelementptr i64, ptr %98, i64 %99
+  br label %_ZN12GraphBuilder17profile_argumentsEv.exit.thread.sink.split
+
+_ZN12GraphBuilder17profile_argumentsEv.exit.thread.sink.split: ; preds = %90, %84
+  %.sink31 = phi ptr [ %89, %84 ], [ %100, %90 ]
+  %101 = getelementptr i8, ptr %.sink31, i64 16
+  %102 = load i64, ptr %101, align 8
+  %103 = trunc i64 %102 to i32
+  %104 = sdiv i32 %103, 2
   br label %_ZN12GraphBuilder17profile_argumentsEv.exit.thread
 
-94:                                               ; preds = %78
-  %95 = getelementptr inbounds nuw i8, ptr %83, i64 96
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(16) %67) #19
-  %98 = load i64, ptr @TypeProfileWidth, align 8
-  %99 = trunc i64 %98 to i32
-  %100 = shl i32 %99, 1
-  %101 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %104 = sext i32 %100 to i64
-  %105 = getelementptr i64, ptr %103, i64 %104
-  %106 = getelementptr i8, ptr %105, i64 8
-  %107 = load i64, ptr %106, align 8
-  %108 = trunc i64 %107 to i32
-  %109 = sdiv i32 %108, 2
-  br label %_ZN12GraphBuilder17profile_argumentsEv.exit.thread
-
-_ZN12GraphBuilder17profile_argumentsEv.exit.thread: ; preds = %38, %84, %94, %49, %73, %_ZN12GraphBuilder17profile_argumentsEv.exit
-  %.019 = phi i32 [ 0, %73 ], [ 0, %49 ], [ 0, %_ZN12GraphBuilder17profile_argumentsEv.exit ], [ %93, %84 ], [ %109, %94 ], [ 0, %38 ]
-  %110 = load ptr, ptr %40, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  %112 = load ptr, ptr %111, align 8
-  %113 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %112) #19
-  %114 = icmp eq i32 %113, 3
-  %115 = load i8, ptr @C1UpdateMethodData, align 1
-  %116 = trunc i8 %115 to i1
-  %or.cond.i.i25 = select i1 %114, i1 %116, i1 false
+_ZN12GraphBuilder17profile_argumentsEv.exit.thread: ; preds = %_ZN12GraphBuilder17profile_argumentsEv.exit.thread.sink.split, %38, %49, %73, %_ZN12GraphBuilder17profile_argumentsEv.exit
+  %.019 = phi i32 [ 0, %73 ], [ 0, %49 ], [ 0, %_ZN12GraphBuilder17profile_argumentsEv.exit ], [ 0, %38 ], [ %104, %_ZN12GraphBuilder17profile_argumentsEv.exit.thread.sink.split ]
+  %105 = load ptr, ptr %40, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %107) #19
+  %109 = icmp eq i32 %108, 3
+  %110 = load i8, ptr @C1UpdateMethodData, align 1
+  %111 = trunc i8 %110 to i1
+  %or.cond.i.i25 = select i1 %109, i1 %111, i1 false
   br i1 %or.cond.i.i25, label %_ZN12GraphBuilder18profile_parametersEv.exit, label %_ZN12GraphBuilder18profile_parametersEv.exit.thread
 
 _ZN12GraphBuilder18profile_parametersEv.exit:     ; preds = %_ZN12GraphBuilder17profile_argumentsEv.exit.thread
-  %117 = tail call noundef zeroext i1 @_ZN10MethodData18profile_parametersEv() #19
-  %118 = icmp ne ptr %1, null
-  %or.cond = and i1 %118, %117
-  br i1 %or.cond, label %119, label %_ZN12GraphBuilder18profile_parametersEv.exit.thread
+  %112 = tail call noundef zeroext i1 @_ZN10MethodData18profile_parametersEv() #19
+  %113 = icmp ne ptr %1, null
+  %or.cond = and i1 %113, %112
+  br i1 %or.cond, label %114, label %_ZN12GraphBuilder18profile_parametersEv.exit.thread
 
-119:                                              ; preds = %_ZN12GraphBuilder18profile_parametersEv.exit
+114:                                              ; preds = %_ZN12GraphBuilder18profile_parametersEv.exit
+  %115 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
+  %.not22 = icmp eq ptr %115, null
+  br i1 %.not22, label %_ZN12GraphBuilder18profile_parametersEv.exit.thread, label %116
+
+116:                                              ; preds = %114
+  %117 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
+  %118 = tail call noundef ptr @_ZNK12ciMethodData20parameters_type_dataEv(ptr noundef nonnull align 8 dereferenceable(176) %117) #19
+  %.not23 = icmp eq ptr %118, null
+  br i1 %.not23, label %_ZN12GraphBuilder18profile_parametersEv.exit.thread, label %119
+
+119:                                              ; preds = %116
   %120 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
-  %.not22 = icmp eq ptr %120, null
-  br i1 %.not22, label %_ZN12GraphBuilder18profile_parametersEv.exit.thread, label %121
-
-121:                                              ; preds = %119
-  %122 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
-  %123 = tail call noundef ptr @_ZNK12ciMethodData20parameters_type_dataEv(ptr noundef nonnull align 8 dereferenceable(176) %122) #19
-  %.not23 = icmp eq ptr %123, null
-  br i1 %.not23, label %_ZN12GraphBuilder18profile_parametersEv.exit.thread, label %124
-
-124:                                              ; preds = %121
-  %125 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
-  %126 = tail call noundef ptr @_ZNK12ciMethodData20parameters_type_dataEv(ptr noundef nonnull align 8 dereferenceable(176) %125) #19
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %130 = load i64, ptr %129, align 8
-  %131 = trunc i64 %130 to i32
-  %132 = sdiv i32 %131, 2
-  %133 = load i32, ptr %2, align 4
-  %134 = sub nsw i32 %132, %133
-  %135 = tail call noundef i32 @llvm.smax.i32(i32 %.019, i32 %134)
+  %121 = tail call noundef ptr @_ZNK12ciMethodData20parameters_type_dataEv(ptr noundef nonnull align 8 dereferenceable(176) %120) #19
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = load i64, ptr %124, align 8
+  %126 = trunc i64 %125 to i32
+  %127 = sdiv i32 %126, 2
+  %128 = load i32, ptr %2, align 4
+  %129 = sub nsw i32 %127, %128
+  %130 = tail call noundef i32 @llvm.smax.i32(i32 %.019, i32 %129)
   br label %_ZN12GraphBuilder18profile_parametersEv.exit.thread
 
-_ZN12GraphBuilder18profile_parametersEv.exit.thread: ; preds = %_ZN12GraphBuilder17profile_argumentsEv.exit.thread, %119, %121, %124, %_ZN12GraphBuilder18profile_parametersEv.exit
-  %.1 = phi i32 [ %135, %124 ], [ %.019, %121 ], [ %.019, %119 ], [ %.019, %_ZN12GraphBuilder18profile_parametersEv.exit ], [ %.019, %_ZN12GraphBuilder17profile_argumentsEv.exit.thread ]
-  %136 = icmp sgt i32 %.1, 0
-  br i1 %136, label %_ZN13GrowableArrayIP11InstructionEC2Ei.exit, label %144
+_ZN12GraphBuilder18profile_parametersEv.exit.thread: ; preds = %_ZN12GraphBuilder17profile_argumentsEv.exit.thread, %114, %116, %119, %_ZN12GraphBuilder18profile_parametersEv.exit
+  %.1 = phi i32 [ %130, %119 ], [ %.019, %116 ], [ %.019, %114 ], [ %.019, %_ZN12GraphBuilder18profile_parametersEv.exit ], [ %.019, %_ZN12GraphBuilder17profile_argumentsEv.exit.thread ]
+  %131 = icmp sgt i32 %.1, 0
+  br i1 %131, label %_ZN13GrowableArrayIP11InstructionEC2Ei.exit, label %139
 
 _ZN13GrowableArrayIP11InstructionEC2Ei.exit:      ; preds = %_ZN12GraphBuilder18profile_parametersEv.exit.thread
-  %137 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #19
-  %138 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.1, i32 noundef 8) #19
-  store i32 0, ptr %137, align 4
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  store i32 %.1, ptr %139, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store ptr %138, ptr %140, align 8
-  %141 = zext nneg i32 %.1 to i64
-  %142 = shl nuw nsw i64 %141, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %138, i8 0, i64 %142, i1 false)
-  %143 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  store i64 0, ptr %143, align 8
-  br label %144
+  %132 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #19
+  %133 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.1, i32 noundef 8) #19
+  store i32 0, ptr %132, align 4
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 4
+  store i32 %.1, ptr %134, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  store ptr %133, ptr %135, align 8
+  %136 = zext nneg i32 %.1 to i64
+  %137 = shl nuw nsw i64 %136, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %133, i8 0, i64 %137, i1 false)
+  %138 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  store i64 0, ptr %138, align 8
+  br label %139
 
-144:                                              ; preds = %_ZN12GraphBuilder18profile_parametersEv.exit.thread, %_ZN13GrowableArrayIP11InstructionEC2Ei.exit
-  %.0 = phi ptr [ %137, %_ZN13GrowableArrayIP11InstructionEC2Ei.exit ], [ null, %_ZN12GraphBuilder18profile_parametersEv.exit.thread ]
+139:                                              ; preds = %_ZN12GraphBuilder18profile_parametersEv.exit.thread, %_ZN13GrowableArrayIP11InstructionEC2Ei.exit
+  %.0 = phi ptr [ %132, %_ZN13GrowableArrayIP11InstructionEC2Ei.exit ], [ null, %_ZN12GraphBuilder18profile_parametersEv.exit.thread ]
   ret ptr %.0
 }
 

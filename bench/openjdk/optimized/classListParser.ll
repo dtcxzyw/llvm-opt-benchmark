@@ -30,6 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.methodHandle = type { ptr, ptr }
 %class.Handle = type { ptr }
 %class.CallInfo = type { ptr, %class.methodHandle, %class.methodHandle, i32, i32, %class.Handle, %class.Handle }
+%class.ResolvedIndyEntry = type { ptr, i16, i16, i16, i8, i8 }
 
 $_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz = comdat any
 
@@ -4095,9 +4096,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %3, %_ZN10HandleArea
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
   %52 = phi ptr [ %41, %.lr.ph ], [ %99, %98 ]
   %.066 = phi i1 [ false, %.lr.ph ], [ %.255, %98 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 18
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
+  %53 = getelementptr inbounds nuw %class.ResolvedIndyEntry, ptr %52, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 18
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   store ptr %37, ptr %4, align 8

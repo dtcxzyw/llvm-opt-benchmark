@@ -978,20 +978,18 @@ copy_superblock.exit:                             ; preds = %.preheader14.i230, 
 define internal noundef i32 @escape124_decode_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %5
+  br label %4
 
-5:                                                ; preds = %1, %5
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = shl nuw nsw i64 %indvars.iv, 4
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @av_freep(ptr noundef nonnull %8) #7
+4:                                                ; preds = %1, %4
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
+  %5 = getelementptr inbounds nuw %struct.CodeBook, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  tail call void @av_freep(ptr noundef nonnull %6) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %9, label %5, !llvm.loop !60
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !60
 
-9:                                                ; preds = %5
+7:                                                ; preds = %4
   tail call void @av_frame_free(ptr noundef nonnull %3) #7
   ret i32 0
 }

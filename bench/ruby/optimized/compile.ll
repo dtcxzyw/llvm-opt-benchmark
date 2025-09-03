@@ -73509,7 +73509,7 @@ define internal fastcc i32 @ibf_dump_catch_table(ptr noundef readonly captures(n
   %7 = alloca [9 x i8], align 1
   %8 = alloca i64, align 8
   %.not = icmp eq ptr %.16.val.152.val, null
-  br i1 %.not, label %246, label %rbimpl_size_mul_or_raise.exit
+  br i1 %.not, label %245, label %rbimpl_size_mul_or_raise.exit
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %1
   %9 = load i32, ptr %.16.val.152.val, align 1, !tbaa !39
@@ -73519,474 +73519,470 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1
   %.not21 = icmp eq i32 %9, 0
   br i1 %.not21, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %rbimpl_size_mul_or_raise.exit
-  %13 = getelementptr i8, ptr %.16.val.152.val, i64 12
-  br label %14
+.lr.ph:                                           ; preds = %rbimpl_size_mul_or_raise.exit, %ibf_dump_iseq.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %ibf_dump_iseq.exit ], [ 0, %rbimpl_size_mul_or_raise.exit ]
+  %13 = getelementptr %struct.iseq_catch_table_entry, ptr %.16.val.152.val, i64 %indvars.iv
+  %14 = getelementptr i8, ptr %13, i64 12
+  %15 = load ptr, ptr %14, align 1, !tbaa !154
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %ibf_dump_iseq.exit, label %17
 
-14:                                               ; preds = %.lr.ph, %ibf_dump_iseq.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ibf_dump_iseq.exit ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 5
-  %15 = getelementptr i8, ptr %13, i64 %.idx
-  %16 = load ptr, ptr %15, align 1, !tbaa !154
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %ibf_dump_iseq.exit, label %18
-
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %0, align 8, !tbaa !306
-  %20 = ptrtoint ptr %16 to i64
+17:                                               ; preds = %.lr.ph
+  %18 = load ptr, ptr %0, align 8, !tbaa !306
+  %19 = ptrtoint ptr %15 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %21 = call i32 @rb_st_lookup(ptr noundef %19, i64 noundef %20, ptr noundef nonnull %8) #38
-  %.not.i.i.i = icmp eq i32 %21, 0
-  %22 = load i64, ptr %8, align 8
-  %23 = trunc i64 %22 to i32
+  %20 = call i32 @rb_st_lookup(ptr noundef %18, i64 noundef %19, ptr noundef nonnull %8) #38
+  %.not.i.i.i = icmp eq i32 %20, 0
+  %21 = load i64, ptr %8, align 8
+  %22 = trunc i64 %21 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %24 = icmp slt i32 %23, 0
-  %25 = select i1 %.not.i.i.i, i1 true, i1 %24
-  br i1 %25, label %26, label %ibf_dump_iseq.exit
+  %23 = icmp slt i32 %22, 0
+  %24 = select i1 %.not.i.i.i, i1 true, i1 %23
+  br i1 %24, label %25, label %ibf_dump_iseq.exit
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !311
-  %29 = trunc i64 %28 to i32
-  %sext.i.i = shl i64 %28, 32
-  %30 = ashr exact i64 %sext.i.i, 32
-  %31 = call i32 @rb_st_insert(ptr noundef %19, i64 noundef %20, i64 noundef %30) #38
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %27 = load i64, ptr %26, align 8, !tbaa !311
+  %28 = trunc i64 %27 to i32
+  %sext.i.i = shl i64 %27, 32
+  %29 = ashr exact i64 %sext.i.i, 32
+  %30 = call i32 @rb_st_insert(ptr noundef %18, i64 noundef %19, i64 noundef %29) #38
   br label %ibf_dump_iseq.exit
 
-ibf_dump_iseq.exit:                               ; preds = %14, %18, %26
-  %.0.i = phi i32 [ -1, %14 ], [ %29, %26 ], [ %23, %18 ]
-  %32 = getelementptr i32, ptr %12, i64 %indvars.iv
-  store i32 %.0.i, ptr %32, align 4, !tbaa !39
+ibf_dump_iseq.exit:                               ; preds = %.lr.ph, %17, %25
+  %.0.i = phi i32 [ -1, %.lr.ph ], [ %28, %25 ], [ %22, %17 ]
+  %31 = getelementptr i32, ptr %12, i64 %indvars.iv
+  store i32 %.0.i, ptr %31, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = load i32, ptr %.16.val.152.val, align 1, !tbaa !39
-  %34 = zext i32 %33 to i64
-  %35 = icmp samesign ult i64 %indvars.iv.next, %34
-  br i1 %35, label %14, label %._crit_edge, !llvm.loop !1108
+  %32 = load i32, ptr %.16.val.152.val, align 1, !tbaa !39
+  %33 = zext i32 %32 to i64
+  %34 = icmp samesign ult i64 %indvars.iv.next, %33
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !1108
 
 ._crit_edge:                                      ; preds = %ibf_dump_iseq.exit
-  %36 = getelementptr i8, ptr %0, i64 24
-  %.val37 = load ptr, ptr %36, align 8, !tbaa !307
+  %35 = getelementptr i8, ptr %0, i64 24
+  %.val37 = load ptr, ptr %35, align 8, !tbaa !307
   %.val37.val = load i64, ptr %.val37, align 8, !tbaa !308
-  %37 = inttoptr i64 %.val37.val to ptr
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !309
-  %40 = icmp sgt i64 %39, 4294967294
-  br i1 %40, label %54, label %ibf_dump_pos.exit.preheader
+  %36 = inttoptr i64 %.val37.val to ptr
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load i64, ptr %37, align 8, !tbaa !309
+  %39 = icmp sgt i64 %38, 4294967294
+  br i1 %39, label %53, label %ibf_dump_pos.exit.preheader
 
 ._crit_edge.thread:                               ; preds = %rbimpl_size_mul_or_raise.exit
-  %41 = getelementptr i8, ptr %0, i64 24
-  %.val3749 = load ptr, ptr %41, align 8, !tbaa !307
+  %40 = getelementptr i8, ptr %0, i64 24
+  %.val3749 = load ptr, ptr %40, align 8, !tbaa !307
   %.val37.val50 = load i64, ptr %.val3749, align 8, !tbaa !308
-  %42 = inttoptr i64 %.val37.val50 to ptr
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !309
-  %45 = icmp sgt i64 %44, 4294967294
-  br i1 %45, label %54, label %ibf_dump_pos.exit98
+  %41 = inttoptr i64 %.val37.val50 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !309
+  %44 = icmp sgt i64 %43, 4294967294
+  br i1 %44, label %53, label %ibf_dump_pos.exit98
 
 ibf_dump_pos.exit.preheader:                      ; preds = %._crit_edge
-  %46 = icmp eq i32 %33, 0
-  br i1 %46, label %ibf_dump_pos.exit98, label %.lr.ph20
+  %45 = icmp eq i32 %32, 0
+  br i1 %45, label %ibf_dump_pos.exit98, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %ibf_dump_pos.exit.preheader
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %48 = getelementptr inbounds nuw i8, ptr %.16.val.152.val, i64 4
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  br label %56
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %47 = getelementptr inbounds nuw i8, ptr %.16.val.152.val, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  br label %55
 
-54:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %55 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %55, ptr noundef nonnull @.str.226) #42
+53:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %54 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str.226) #42
   unreachable
 
-56:                                               ; preds = %.lr.ph20, %ibf_dump_write_small_value.exit97
+55:                                               ; preds = %.lr.ph20, %ibf_dump_write_small_value.exit97
   %indvars.iv41 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next42, %ibf_dump_write_small_value.exit97 ]
-  %57 = getelementptr i32, ptr %12, i64 %indvars.iv41
-  %58 = load i32, ptr %57, align 4, !tbaa !39
-  %59 = sext i32 %58 to i64
+  %56 = getelementptr i32, ptr %12, i64 %indvars.iv41
+  %57 = load i32, ptr %56, align 4, !tbaa !39
+  %58 = sext i32 %57 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br label %60
+  br label %59
 
-60:                                               ; preds = %63, %56
-  %indvars.iv.i = phi i64 [ 0, %56 ], [ %indvars.iv.next.i, %63 ]
-  %.01617.i = phi i64 [ %59, %56 ], [ %67, %63 ]
-  %61 = sub nuw nsw i64 7, %indvars.iv.i
-  %62 = lshr i64 %.01617.i, %61
-  %.not.i = icmp eq i64 %62, 0
-  br i1 %.not.i, label %.critedge.split.loop.exit20.i, label %63
+59:                                               ; preds = %62, %55
+  %indvars.iv.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i, %62 ]
+  %.01617.i = phi i64 [ %58, %55 ], [ %66, %62 ]
+  %60 = sub nuw nsw i64 7, %indvars.iv.i
+  %61 = lshr i64 %.01617.i, %60
+  %.not.i = icmp eq i64 %61, 0
+  br i1 %.not.i, label %.critedge.split.loop.exit20.i, label %62
 
-63:                                               ; preds = %60
-  %64 = trunc i64 %.01617.i to i8
-  %65 = sub nuw nsw i64 8, %indvars.iv.i
-  %66 = getelementptr i8, ptr %7, i64 %65
-  store i8 %64, ptr %66, align 1, !tbaa !22
+62:                                               ; preds = %59
+  %63 = trunc i64 %.01617.i to i8
+  %64 = sub nuw nsw i64 8, %indvars.iv.i
+  %65 = getelementptr i8, ptr %7, i64 %64
+  store i8 %63, ptr %65, align 1, !tbaa !22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %67 = lshr i64 %.01617.i, 8
+  %66 = lshr i64 %.01617.i, 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.critedge.i, label %60, !llvm.loop !1097
+  br i1 %exitcond.not.i, label %.critedge.i, label %59, !llvm.loop !1097
 
-.critedge.split.loop.exit20.i:                    ; preds = %60
-  %68 = trunc nuw nsw i64 %indvars.iv.i to i32
+.critedge.split.loop.exit20.i:                    ; preds = %59
+  %67 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %63, %.critedge.split.loop.exit20.i
-  %.016.lcssa.i = phi i64 [ %.01617.i, %.critedge.split.loop.exit20.i ], [ %67, %63 ]
-  %.0.lcssa.i = phi i32 [ %68, %.critedge.split.loop.exit20.i ], [ 8, %63 ]
-  %69 = zext nneg i32 %.0.lcssa.i to i64
-  %70 = shl nsw i64 %.016.lcssa.i, 1
-  %71 = or disjoint i64 %70, 1
-  %72 = shl i64 %71, %69
-  %73 = trunc i64 %72 to i8
-  %74 = sub nsw i32 8, %.0.lcssa.i
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr i8, ptr %7, i64 %75
-  store i8 %73, ptr %76, align 1, !tbaa !22
-  %.val.i = load ptr, ptr %36, align 8, !tbaa !307
+.critedge.i:                                      ; preds = %62, %.critedge.split.loop.exit20.i
+  %.016.lcssa.i = phi i64 [ %.01617.i, %.critedge.split.loop.exit20.i ], [ %66, %62 ]
+  %.0.lcssa.i = phi i32 [ %67, %.critedge.split.loop.exit20.i ], [ 8, %62 ]
+  %68 = zext nneg i32 %.0.lcssa.i to i64
+  %69 = shl nsw i64 %.016.lcssa.i, 1
+  %70 = or disjoint i64 %69, 1
+  %71 = shl i64 %70, %68
+  %72 = trunc i64 %71 to i8
+  %73 = sub nsw i32 8, %.0.lcssa.i
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr i8, ptr %7, i64 %74
+  store i8 %72, ptr %75, align 1, !tbaa !22
+  %.val.i = load ptr, ptr %35, align 8, !tbaa !307
   %.val.val.i = load i64, ptr %.val.i, align 8, !tbaa !308
-  %77 = inttoptr i64 %.val.val.i to ptr
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %79 = load i64, ptr %78, align 8, !tbaa !309
-  %80 = icmp sgt i64 %79, 4294967294
-  br i1 %80, label %81, label %ibf_dump_write_small_value.exit
+  %76 = inttoptr i64 %.val.val.i to ptr
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %78 = load i64, ptr %77, align 8, !tbaa !309
+  %79 = icmp sgt i64 %78, 4294967294
+  br i1 %79, label %80, label %ibf_dump_write_small_value.exit
 
-81:                                               ; preds = %.critedge.i
-  %82 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %82, ptr noundef nonnull @.str.226) #42
+80:                                               ; preds = %.critedge.i
+  %81 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %81, ptr noundef nonnull @.str.226) #42
   unreachable
 
 ibf_dump_write_small_value.exit:                  ; preds = %.critedge.i
-  %83 = add nuw nsw i32 %.0.lcssa.i, 1
-  %84 = zext nneg i32 %83 to i64
-  %85 = sub nsw i64 0, %84
-  %86 = getelementptr i8, ptr %47, i64 %85
-  %87 = call i64 @rb_str_cat(i64 noundef %.val.val.i, ptr noundef %86, i64 noundef %84) #38
+  %82 = add nuw nsw i32 %.0.lcssa.i, 1
+  %83 = zext nneg i32 %82 to i64
+  %84 = sub nsw i64 0, %83
+  %85 = getelementptr i8, ptr %46, i64 %84
+  %86 = call i64 @rb_str_cat(i64 noundef %.val.val.i, ptr noundef %85, i64 noundef %83) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %88 = getelementptr %struct.iseq_catch_table_entry, ptr %48, i64 %indvars.iv41
-  %89 = load i32, ptr %88, align 1, !tbaa !150
-  %90 = zext i32 %89 to i64
+  %87 = getelementptr %struct.iseq_catch_table_entry, ptr %47, i64 %indvars.iv41
+  %88 = load i32, ptr %87, align 1, !tbaa !150
+  %89 = zext i32 %88 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %91
+  br label %90
 
-91:                                               ; preds = %94, %ibf_dump_write_small_value.exit
-  %indvars.iv.i38 = phi i64 [ 0, %ibf_dump_write_small_value.exit ], [ %indvars.iv.next.i41, %94 ]
-  %.01617.i39 = phi i64 [ %90, %ibf_dump_write_small_value.exit ], [ %98, %94 ]
-  %92 = sub nuw nsw i64 7, %indvars.iv.i38
-  %93 = lshr i64 %.01617.i39, %92
-  %.not.i40 = icmp eq i64 %93, 0
-  br i1 %.not.i40, label %.critedge.split.loop.exit20.i48, label %94
+90:                                               ; preds = %93, %ibf_dump_write_small_value.exit
+  %indvars.iv.i38 = phi i64 [ 0, %ibf_dump_write_small_value.exit ], [ %indvars.iv.next.i41, %93 ]
+  %.01617.i39 = phi i64 [ %89, %ibf_dump_write_small_value.exit ], [ %97, %93 ]
+  %91 = sub nuw nsw i64 7, %indvars.iv.i38
+  %92 = lshr i64 %.01617.i39, %91
+  %.not.i40 = icmp eq i64 %92, 0
+  br i1 %.not.i40, label %.critedge.split.loop.exit20.i48, label %93
 
-94:                                               ; preds = %91
-  %95 = trunc i64 %.01617.i39 to i8
-  %96 = sub nuw nsw i64 8, %indvars.iv.i38
-  %97 = getelementptr i8, ptr %6, i64 %96
-  store i8 %95, ptr %97, align 1, !tbaa !22
+93:                                               ; preds = %90
+  %94 = trunc i64 %.01617.i39 to i8
+  %95 = sub nuw nsw i64 8, %indvars.iv.i38
+  %96 = getelementptr i8, ptr %6, i64 %95
+  store i8 %94, ptr %96, align 1, !tbaa !22
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i38, 1
-  %98 = lshr i64 %.01617.i39, 8
+  %97 = lshr i64 %.01617.i39, 8
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 8
-  br i1 %exitcond.not.i42, label %.critedge.i43, label %91, !llvm.loop !1097
+  br i1 %exitcond.not.i42, label %.critedge.i43, label %90, !llvm.loop !1097
 
-.critedge.split.loop.exit20.i48:                  ; preds = %91
-  %99 = trunc nuw nsw i64 %indvars.iv.i38 to i32
+.critedge.split.loop.exit20.i48:                  ; preds = %90
+  %98 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   br label %.critedge.i43
 
-.critedge.i43:                                    ; preds = %94, %.critedge.split.loop.exit20.i48
-  %.016.lcssa.i44 = phi i64 [ %.01617.i39, %.critedge.split.loop.exit20.i48 ], [ %98, %94 ]
-  %.0.lcssa.i45 = phi i32 [ %99, %.critedge.split.loop.exit20.i48 ], [ 8, %94 ]
-  %100 = zext nneg i32 %.0.lcssa.i45 to i64
-  %101 = shl nuw nsw i64 %.016.lcssa.i44, 1
-  %102 = or disjoint i64 %101, 1
-  %103 = shl i64 %102, %100
-  %104 = trunc i64 %103 to i8
-  %105 = sub nsw i32 8, %.0.lcssa.i45
-  %106 = zext i32 %105 to i64
-  %107 = getelementptr i8, ptr %6, i64 %106
-  store i8 %104, ptr %107, align 1, !tbaa !22
-  %.val.i46 = load ptr, ptr %36, align 8, !tbaa !307
+.critedge.i43:                                    ; preds = %93, %.critedge.split.loop.exit20.i48
+  %.016.lcssa.i44 = phi i64 [ %.01617.i39, %.critedge.split.loop.exit20.i48 ], [ %97, %93 ]
+  %.0.lcssa.i45 = phi i32 [ %98, %.critedge.split.loop.exit20.i48 ], [ 8, %93 ]
+  %99 = zext nneg i32 %.0.lcssa.i45 to i64
+  %100 = shl nuw nsw i64 %.016.lcssa.i44, 1
+  %101 = or disjoint i64 %100, 1
+  %102 = shl i64 %101, %99
+  %103 = trunc i64 %102 to i8
+  %104 = sub nsw i32 8, %.0.lcssa.i45
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr i8, ptr %6, i64 %105
+  store i8 %103, ptr %106, align 1, !tbaa !22
+  %.val.i46 = load ptr, ptr %35, align 8, !tbaa !307
   %.val.val.i47 = load i64, ptr %.val.i46, align 8, !tbaa !308
-  %108 = inttoptr i64 %.val.val.i47 to ptr
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %110 = load i64, ptr %109, align 8, !tbaa !309
-  %111 = icmp sgt i64 %110, 4294967294
-  br i1 %111, label %112, label %ibf_dump_write_small_value.exit49
+  %107 = inttoptr i64 %.val.val.i47 to ptr
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %109 = load i64, ptr %108, align 8, !tbaa !309
+  %110 = icmp sgt i64 %109, 4294967294
+  br i1 %110, label %111, label %ibf_dump_write_small_value.exit49
 
-112:                                              ; preds = %.critedge.i43
-  %113 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %113, ptr noundef nonnull @.str.226) #42
+111:                                              ; preds = %.critedge.i43
+  %112 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %112, ptr noundef nonnull @.str.226) #42
   unreachable
 
 ibf_dump_write_small_value.exit49:                ; preds = %.critedge.i43
-  %114 = add nuw nsw i32 %.0.lcssa.i45, 1
-  %115 = zext nneg i32 %114 to i64
-  %116 = sub nsw i64 0, %115
-  %117 = getelementptr i8, ptr %49, i64 %116
-  %118 = call i64 @rb_str_cat(i64 noundef %.val.val.i47, ptr noundef %117, i64 noundef %115) #38
+  %113 = add nuw nsw i32 %.0.lcssa.i45, 1
+  %114 = zext nneg i32 %113 to i64
+  %115 = sub nsw i64 0, %114
+  %116 = getelementptr i8, ptr %48, i64 %115
+  %117 = call i64 @rb_str_cat(i64 noundef %.val.val.i47, ptr noundef %116, i64 noundef %114) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %119 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %120 = load i32, ptr %119, align 1, !tbaa !152
-  %121 = zext i32 %120 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %119 = load i32, ptr %118, align 1, !tbaa !152
+  %120 = zext i32 %119 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %122
+  br label %121
 
-122:                                              ; preds = %125, %ibf_dump_write_small_value.exit49
-  %indvars.iv.i50 = phi i64 [ 0, %ibf_dump_write_small_value.exit49 ], [ %indvars.iv.next.i53, %125 ]
-  %.01617.i51 = phi i64 [ %121, %ibf_dump_write_small_value.exit49 ], [ %129, %125 ]
-  %123 = sub nuw nsw i64 7, %indvars.iv.i50
-  %124 = lshr i64 %.01617.i51, %123
-  %.not.i52 = icmp eq i64 %124, 0
-  br i1 %.not.i52, label %.critedge.split.loop.exit20.i60, label %125
+121:                                              ; preds = %124, %ibf_dump_write_small_value.exit49
+  %indvars.iv.i50 = phi i64 [ 0, %ibf_dump_write_small_value.exit49 ], [ %indvars.iv.next.i53, %124 ]
+  %.01617.i51 = phi i64 [ %120, %ibf_dump_write_small_value.exit49 ], [ %128, %124 ]
+  %122 = sub nuw nsw i64 7, %indvars.iv.i50
+  %123 = lshr i64 %.01617.i51, %122
+  %.not.i52 = icmp eq i64 %123, 0
+  br i1 %.not.i52, label %.critedge.split.loop.exit20.i60, label %124
 
-125:                                              ; preds = %122
-  %126 = trunc i64 %.01617.i51 to i8
-  %127 = sub nuw nsw i64 8, %indvars.iv.i50
-  %128 = getelementptr i8, ptr %5, i64 %127
-  store i8 %126, ptr %128, align 1, !tbaa !22
+124:                                              ; preds = %121
+  %125 = trunc i64 %.01617.i51 to i8
+  %126 = sub nuw nsw i64 8, %indvars.iv.i50
+  %127 = getelementptr i8, ptr %5, i64 %126
+  store i8 %125, ptr %127, align 1, !tbaa !22
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i50, 1
-  %129 = lshr i64 %.01617.i51, 8
+  %128 = lshr i64 %.01617.i51, 8
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, 8
-  br i1 %exitcond.not.i54, label %.critedge.i55, label %122, !llvm.loop !1097
+  br i1 %exitcond.not.i54, label %.critedge.i55, label %121, !llvm.loop !1097
 
-.critedge.split.loop.exit20.i60:                  ; preds = %122
-  %130 = trunc nuw nsw i64 %indvars.iv.i50 to i32
+.critedge.split.loop.exit20.i60:                  ; preds = %121
+  %129 = trunc nuw nsw i64 %indvars.iv.i50 to i32
   br label %.critedge.i55
 
-.critedge.i55:                                    ; preds = %125, %.critedge.split.loop.exit20.i60
-  %.016.lcssa.i56 = phi i64 [ %.01617.i51, %.critedge.split.loop.exit20.i60 ], [ %129, %125 ]
-  %.0.lcssa.i57 = phi i32 [ %130, %.critedge.split.loop.exit20.i60 ], [ 8, %125 ]
-  %131 = zext nneg i32 %.0.lcssa.i57 to i64
-  %132 = shl nuw nsw i64 %.016.lcssa.i56, 1
-  %133 = or disjoint i64 %132, 1
-  %134 = shl i64 %133, %131
-  %135 = trunc i64 %134 to i8
-  %136 = sub nsw i32 8, %.0.lcssa.i57
-  %137 = zext i32 %136 to i64
-  %138 = getelementptr i8, ptr %5, i64 %137
-  store i8 %135, ptr %138, align 1, !tbaa !22
-  %.val.i58 = load ptr, ptr %36, align 8, !tbaa !307
+.critedge.i55:                                    ; preds = %124, %.critedge.split.loop.exit20.i60
+  %.016.lcssa.i56 = phi i64 [ %.01617.i51, %.critedge.split.loop.exit20.i60 ], [ %128, %124 ]
+  %.0.lcssa.i57 = phi i32 [ %129, %.critedge.split.loop.exit20.i60 ], [ 8, %124 ]
+  %130 = zext nneg i32 %.0.lcssa.i57 to i64
+  %131 = shl nuw nsw i64 %.016.lcssa.i56, 1
+  %132 = or disjoint i64 %131, 1
+  %133 = shl i64 %132, %130
+  %134 = trunc i64 %133 to i8
+  %135 = sub nsw i32 8, %.0.lcssa.i57
+  %136 = zext i32 %135 to i64
+  %137 = getelementptr i8, ptr %5, i64 %136
+  store i8 %134, ptr %137, align 1, !tbaa !22
+  %.val.i58 = load ptr, ptr %35, align 8, !tbaa !307
   %.val.val.i59 = load i64, ptr %.val.i58, align 8, !tbaa !308
-  %139 = inttoptr i64 %.val.val.i59 to ptr
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %141 = load i64, ptr %140, align 8, !tbaa !309
-  %142 = icmp sgt i64 %141, 4294967294
-  br i1 %142, label %143, label %ibf_dump_write_small_value.exit61
+  %138 = inttoptr i64 %.val.val.i59 to ptr
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
+  %140 = load i64, ptr %139, align 8, !tbaa !309
+  %141 = icmp sgt i64 %140, 4294967294
+  br i1 %141, label %142, label %ibf_dump_write_small_value.exit61
 
-143:                                              ; preds = %.critedge.i55
-  %144 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %144, ptr noundef nonnull @.str.226) #42
+142:                                              ; preds = %.critedge.i55
+  %143 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %143, ptr noundef nonnull @.str.226) #42
   unreachable
 
 ibf_dump_write_small_value.exit61:                ; preds = %.critedge.i55
-  %145 = add nuw nsw i32 %.0.lcssa.i57, 1
-  %146 = zext nneg i32 %145 to i64
-  %147 = sub nsw i64 0, %146
-  %148 = getelementptr i8, ptr %50, i64 %147
-  %149 = call i64 @rb_str_cat(i64 noundef %.val.val.i59, ptr noundef %148, i64 noundef %146) #38
+  %144 = add nuw nsw i32 %.0.lcssa.i57, 1
+  %145 = zext nneg i32 %144 to i64
+  %146 = sub nsw i64 0, %145
+  %147 = getelementptr i8, ptr %49, i64 %146
+  %148 = call i64 @rb_str_cat(i64 noundef %.val.val.i59, ptr noundef %147, i64 noundef %145) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %150 = getelementptr inbounds nuw i8, ptr %88, i64 20
-  %151 = load i32, ptr %150, align 1, !tbaa !153
-  %152 = zext i32 %151 to i64
+  %149 = getelementptr inbounds nuw i8, ptr %87, i64 20
+  %150 = load i32, ptr %149, align 1, !tbaa !153
+  %151 = zext i32 %150 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %153
+  br label %152
 
-153:                                              ; preds = %156, %ibf_dump_write_small_value.exit61
-  %indvars.iv.i62 = phi i64 [ 0, %ibf_dump_write_small_value.exit61 ], [ %indvars.iv.next.i65, %156 ]
-  %.01617.i63 = phi i64 [ %152, %ibf_dump_write_small_value.exit61 ], [ %160, %156 ]
-  %154 = sub nuw nsw i64 7, %indvars.iv.i62
-  %155 = lshr i64 %.01617.i63, %154
-  %.not.i64 = icmp eq i64 %155, 0
-  br i1 %.not.i64, label %.critedge.split.loop.exit20.i72, label %156
+152:                                              ; preds = %155, %ibf_dump_write_small_value.exit61
+  %indvars.iv.i62 = phi i64 [ 0, %ibf_dump_write_small_value.exit61 ], [ %indvars.iv.next.i65, %155 ]
+  %.01617.i63 = phi i64 [ %151, %ibf_dump_write_small_value.exit61 ], [ %159, %155 ]
+  %153 = sub nuw nsw i64 7, %indvars.iv.i62
+  %154 = lshr i64 %.01617.i63, %153
+  %.not.i64 = icmp eq i64 %154, 0
+  br i1 %.not.i64, label %.critedge.split.loop.exit20.i72, label %155
 
-156:                                              ; preds = %153
-  %157 = trunc i64 %.01617.i63 to i8
-  %158 = sub nuw nsw i64 8, %indvars.iv.i62
-  %159 = getelementptr i8, ptr %4, i64 %158
-  store i8 %157, ptr %159, align 1, !tbaa !22
+155:                                              ; preds = %152
+  %156 = trunc i64 %.01617.i63 to i8
+  %157 = sub nuw nsw i64 8, %indvars.iv.i62
+  %158 = getelementptr i8, ptr %4, i64 %157
+  store i8 %156, ptr %158, align 1, !tbaa !22
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i62, 1
-  %160 = lshr i64 %.01617.i63, 8
+  %159 = lshr i64 %.01617.i63, 8
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, 8
-  br i1 %exitcond.not.i66, label %.critedge.i67, label %153, !llvm.loop !1097
+  br i1 %exitcond.not.i66, label %.critedge.i67, label %152, !llvm.loop !1097
 
-.critedge.split.loop.exit20.i72:                  ; preds = %153
-  %161 = trunc nuw nsw i64 %indvars.iv.i62 to i32
+.critedge.split.loop.exit20.i72:                  ; preds = %152
+  %160 = trunc nuw nsw i64 %indvars.iv.i62 to i32
   br label %.critedge.i67
 
-.critedge.i67:                                    ; preds = %156, %.critedge.split.loop.exit20.i72
-  %.016.lcssa.i68 = phi i64 [ %.01617.i63, %.critedge.split.loop.exit20.i72 ], [ %160, %156 ]
-  %.0.lcssa.i69 = phi i32 [ %161, %.critedge.split.loop.exit20.i72 ], [ 8, %156 ]
-  %162 = zext nneg i32 %.0.lcssa.i69 to i64
-  %163 = shl nuw nsw i64 %.016.lcssa.i68, 1
-  %164 = or disjoint i64 %163, 1
-  %165 = shl i64 %164, %162
-  %166 = trunc i64 %165 to i8
-  %167 = sub nsw i32 8, %.0.lcssa.i69
-  %168 = zext i32 %167 to i64
-  %169 = getelementptr i8, ptr %4, i64 %168
-  store i8 %166, ptr %169, align 1, !tbaa !22
-  %.val.i70 = load ptr, ptr %36, align 8, !tbaa !307
+.critedge.i67:                                    ; preds = %155, %.critedge.split.loop.exit20.i72
+  %.016.lcssa.i68 = phi i64 [ %.01617.i63, %.critedge.split.loop.exit20.i72 ], [ %159, %155 ]
+  %.0.lcssa.i69 = phi i32 [ %160, %.critedge.split.loop.exit20.i72 ], [ 8, %155 ]
+  %161 = zext nneg i32 %.0.lcssa.i69 to i64
+  %162 = shl nuw nsw i64 %.016.lcssa.i68, 1
+  %163 = or disjoint i64 %162, 1
+  %164 = shl i64 %163, %161
+  %165 = trunc i64 %164 to i8
+  %166 = sub nsw i32 8, %.0.lcssa.i69
+  %167 = zext i32 %166 to i64
+  %168 = getelementptr i8, ptr %4, i64 %167
+  store i8 %165, ptr %168, align 1, !tbaa !22
+  %.val.i70 = load ptr, ptr %35, align 8, !tbaa !307
   %.val.val.i71 = load i64, ptr %.val.i70, align 8, !tbaa !308
-  %170 = inttoptr i64 %.val.val.i71 to ptr
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %172 = load i64, ptr %171, align 8, !tbaa !309
-  %173 = icmp sgt i64 %172, 4294967294
-  br i1 %173, label %174, label %ibf_dump_write_small_value.exit73
+  %169 = inttoptr i64 %.val.val.i71 to ptr
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %171 = load i64, ptr %170, align 8, !tbaa !309
+  %172 = icmp sgt i64 %171, 4294967294
+  br i1 %172, label %173, label %ibf_dump_write_small_value.exit73
 
-174:                                              ; preds = %.critedge.i67
-  %175 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %175, ptr noundef nonnull @.str.226) #42
+173:                                              ; preds = %.critedge.i67
+  %174 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %174, ptr noundef nonnull @.str.226) #42
   unreachable
 
 ibf_dump_write_small_value.exit73:                ; preds = %.critedge.i67
-  %176 = add nuw nsw i32 %.0.lcssa.i69, 1
-  %177 = zext nneg i32 %176 to i64
-  %178 = sub nsw i64 0, %177
-  %179 = getelementptr i8, ptr %51, i64 %178
-  %180 = call i64 @rb_str_cat(i64 noundef %.val.val.i71, ptr noundef %179, i64 noundef %177) #38
+  %175 = add nuw nsw i32 %.0.lcssa.i69, 1
+  %176 = zext nneg i32 %175 to i64
+  %177 = sub nsw i64 0, %176
+  %178 = getelementptr i8, ptr %50, i64 %177
+  %179 = call i64 @rb_str_cat(i64 noundef %.val.val.i71, ptr noundef %178, i64 noundef %176) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %181 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %182 = load i32, ptr %181, align 1, !tbaa !155
-  %183 = zext i32 %182 to i64
+  %180 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %181 = load i32, ptr %180, align 1, !tbaa !155
+  %182 = zext i32 %181 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br label %184
+  br label %183
 
-184:                                              ; preds = %187, %ibf_dump_write_small_value.exit73
-  %indvars.iv.i74 = phi i64 [ 0, %ibf_dump_write_small_value.exit73 ], [ %indvars.iv.next.i77, %187 ]
-  %.01617.i75 = phi i64 [ %183, %ibf_dump_write_small_value.exit73 ], [ %191, %187 ]
-  %185 = sub nuw nsw i64 7, %indvars.iv.i74
-  %186 = lshr i64 %.01617.i75, %185
-  %.not.i76 = icmp eq i64 %186, 0
-  br i1 %.not.i76, label %.critedge.split.loop.exit20.i84, label %187
+183:                                              ; preds = %186, %ibf_dump_write_small_value.exit73
+  %indvars.iv.i74 = phi i64 [ 0, %ibf_dump_write_small_value.exit73 ], [ %indvars.iv.next.i77, %186 ]
+  %.01617.i75 = phi i64 [ %182, %ibf_dump_write_small_value.exit73 ], [ %190, %186 ]
+  %184 = sub nuw nsw i64 7, %indvars.iv.i74
+  %185 = lshr i64 %.01617.i75, %184
+  %.not.i76 = icmp eq i64 %185, 0
+  br i1 %.not.i76, label %.critedge.split.loop.exit20.i84, label %186
 
-187:                                              ; preds = %184
-  %188 = trunc i64 %.01617.i75 to i8
-  %189 = sub nuw nsw i64 8, %indvars.iv.i74
-  %190 = getelementptr i8, ptr %3, i64 %189
-  store i8 %188, ptr %190, align 1, !tbaa !22
+186:                                              ; preds = %183
+  %187 = trunc i64 %.01617.i75 to i8
+  %188 = sub nuw nsw i64 8, %indvars.iv.i74
+  %189 = getelementptr i8, ptr %3, i64 %188
+  store i8 %187, ptr %189, align 1, !tbaa !22
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i74, 1
-  %191 = lshr i64 %.01617.i75, 8
+  %190 = lshr i64 %.01617.i75, 8
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, 8
-  br i1 %exitcond.not.i78, label %.critedge.i79, label %184, !llvm.loop !1097
+  br i1 %exitcond.not.i78, label %.critedge.i79, label %183, !llvm.loop !1097
 
-.critedge.split.loop.exit20.i84:                  ; preds = %184
-  %192 = trunc nuw nsw i64 %indvars.iv.i74 to i32
+.critedge.split.loop.exit20.i84:                  ; preds = %183
+  %191 = trunc nuw nsw i64 %indvars.iv.i74 to i32
   br label %.critedge.i79
 
-.critedge.i79:                                    ; preds = %187, %.critedge.split.loop.exit20.i84
-  %.016.lcssa.i80 = phi i64 [ %.01617.i75, %.critedge.split.loop.exit20.i84 ], [ %191, %187 ]
-  %.0.lcssa.i81 = phi i32 [ %192, %.critedge.split.loop.exit20.i84 ], [ 8, %187 ]
-  %193 = zext nneg i32 %.0.lcssa.i81 to i64
-  %194 = shl nuw nsw i64 %.016.lcssa.i80, 1
-  %195 = or disjoint i64 %194, 1
-  %196 = shl i64 %195, %193
-  %197 = trunc i64 %196 to i8
-  %198 = sub nsw i32 8, %.0.lcssa.i81
-  %199 = zext i32 %198 to i64
-  %200 = getelementptr i8, ptr %3, i64 %199
-  store i8 %197, ptr %200, align 1, !tbaa !22
-  %.val.i82 = load ptr, ptr %36, align 8, !tbaa !307
+.critedge.i79:                                    ; preds = %186, %.critedge.split.loop.exit20.i84
+  %.016.lcssa.i80 = phi i64 [ %.01617.i75, %.critedge.split.loop.exit20.i84 ], [ %190, %186 ]
+  %.0.lcssa.i81 = phi i32 [ %191, %.critedge.split.loop.exit20.i84 ], [ 8, %186 ]
+  %192 = zext nneg i32 %.0.lcssa.i81 to i64
+  %193 = shl nuw nsw i64 %.016.lcssa.i80, 1
+  %194 = or disjoint i64 %193, 1
+  %195 = shl i64 %194, %192
+  %196 = trunc i64 %195 to i8
+  %197 = sub nsw i32 8, %.0.lcssa.i81
+  %198 = zext i32 %197 to i64
+  %199 = getelementptr i8, ptr %3, i64 %198
+  store i8 %196, ptr %199, align 1, !tbaa !22
+  %.val.i82 = load ptr, ptr %35, align 8, !tbaa !307
   %.val.val.i83 = load i64, ptr %.val.i82, align 8, !tbaa !308
-  %201 = inttoptr i64 %.val.val.i83 to ptr
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  %203 = load i64, ptr %202, align 8, !tbaa !309
-  %204 = icmp sgt i64 %203, 4294967294
-  br i1 %204, label %205, label %ibf_dump_write_small_value.exit85
+  %200 = inttoptr i64 %.val.val.i83 to ptr
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  %202 = load i64, ptr %201, align 8, !tbaa !309
+  %203 = icmp sgt i64 %202, 4294967294
+  br i1 %203, label %204, label %ibf_dump_write_small_value.exit85
 
-205:                                              ; preds = %.critedge.i79
-  %206 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %206, ptr noundef nonnull @.str.226) #42
+204:                                              ; preds = %.critedge.i79
+  %205 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %205, ptr noundef nonnull @.str.226) #42
   unreachable
 
 ibf_dump_write_small_value.exit85:                ; preds = %.critedge.i79
-  %207 = add nuw nsw i32 %.0.lcssa.i81, 1
-  %208 = zext nneg i32 %207 to i64
-  %209 = sub nsw i64 0, %208
-  %210 = getelementptr i8, ptr %52, i64 %209
-  %211 = call i64 @rb_str_cat(i64 noundef %.val.val.i83, ptr noundef %210, i64 noundef %208) #38
+  %206 = add nuw nsw i32 %.0.lcssa.i81, 1
+  %207 = zext nneg i32 %206 to i64
+  %208 = sub nsw i64 0, %207
+  %209 = getelementptr i8, ptr %51, i64 %208
+  %210 = call i64 @rb_str_cat(i64 noundef %.val.val.i83, ptr noundef %209, i64 noundef %207) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %212 = getelementptr inbounds nuw i8, ptr %88, i64 28
-  %213 = load i32, ptr %212, align 1, !tbaa !156
-  %214 = zext i32 %213 to i64
+  %211 = getelementptr inbounds nuw i8, ptr %87, i64 28
+  %212 = load i32, ptr %211, align 1, !tbaa !156
+  %213 = zext i32 %212 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  br label %215
+  br label %214
 
-215:                                              ; preds = %218, %ibf_dump_write_small_value.exit85
-  %indvars.iv.i86 = phi i64 [ 0, %ibf_dump_write_small_value.exit85 ], [ %indvars.iv.next.i89, %218 ]
-  %.01617.i87 = phi i64 [ %214, %ibf_dump_write_small_value.exit85 ], [ %222, %218 ]
-  %216 = sub nuw nsw i64 7, %indvars.iv.i86
-  %217 = lshr i64 %.01617.i87, %216
-  %.not.i88 = icmp eq i64 %217, 0
-  br i1 %.not.i88, label %.critedge.split.loop.exit20.i96, label %218
+214:                                              ; preds = %217, %ibf_dump_write_small_value.exit85
+  %indvars.iv.i86 = phi i64 [ 0, %ibf_dump_write_small_value.exit85 ], [ %indvars.iv.next.i89, %217 ]
+  %.01617.i87 = phi i64 [ %213, %ibf_dump_write_small_value.exit85 ], [ %221, %217 ]
+  %215 = sub nuw nsw i64 7, %indvars.iv.i86
+  %216 = lshr i64 %.01617.i87, %215
+  %.not.i88 = icmp eq i64 %216, 0
+  br i1 %.not.i88, label %.critedge.split.loop.exit20.i96, label %217
 
-218:                                              ; preds = %215
-  %219 = trunc i64 %.01617.i87 to i8
-  %220 = sub nuw nsw i64 8, %indvars.iv.i86
-  %221 = getelementptr i8, ptr %2, i64 %220
-  store i8 %219, ptr %221, align 1, !tbaa !22
+217:                                              ; preds = %214
+  %218 = trunc i64 %.01617.i87 to i8
+  %219 = sub nuw nsw i64 8, %indvars.iv.i86
+  %220 = getelementptr i8, ptr %2, i64 %219
+  store i8 %218, ptr %220, align 1, !tbaa !22
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i86, 1
-  %222 = lshr i64 %.01617.i87, 8
+  %221 = lshr i64 %.01617.i87, 8
   %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, 8
-  br i1 %exitcond.not.i90, label %.critedge.i91, label %215, !llvm.loop !1097
+  br i1 %exitcond.not.i90, label %.critedge.i91, label %214, !llvm.loop !1097
 
-.critedge.split.loop.exit20.i96:                  ; preds = %215
-  %223 = trunc nuw nsw i64 %indvars.iv.i86 to i32
+.critedge.split.loop.exit20.i96:                  ; preds = %214
+  %222 = trunc nuw nsw i64 %indvars.iv.i86 to i32
   br label %.critedge.i91
 
-.critedge.i91:                                    ; preds = %218, %.critedge.split.loop.exit20.i96
-  %.016.lcssa.i92 = phi i64 [ %.01617.i87, %.critedge.split.loop.exit20.i96 ], [ %222, %218 ]
-  %.0.lcssa.i93 = phi i32 [ %223, %.critedge.split.loop.exit20.i96 ], [ 8, %218 ]
-  %224 = zext nneg i32 %.0.lcssa.i93 to i64
-  %225 = shl nuw nsw i64 %.016.lcssa.i92, 1
-  %226 = or disjoint i64 %225, 1
-  %227 = shl i64 %226, %224
-  %228 = trunc i64 %227 to i8
-  %229 = sub nsw i32 8, %.0.lcssa.i93
-  %230 = zext i32 %229 to i64
-  %231 = getelementptr i8, ptr %2, i64 %230
-  store i8 %228, ptr %231, align 1, !tbaa !22
-  %.val.i94 = load ptr, ptr %36, align 8, !tbaa !307
+.critedge.i91:                                    ; preds = %217, %.critedge.split.loop.exit20.i96
+  %.016.lcssa.i92 = phi i64 [ %.01617.i87, %.critedge.split.loop.exit20.i96 ], [ %221, %217 ]
+  %.0.lcssa.i93 = phi i32 [ %222, %.critedge.split.loop.exit20.i96 ], [ 8, %217 ]
+  %223 = zext nneg i32 %.0.lcssa.i93 to i64
+  %224 = shl nuw nsw i64 %.016.lcssa.i92, 1
+  %225 = or disjoint i64 %224, 1
+  %226 = shl i64 %225, %223
+  %227 = trunc i64 %226 to i8
+  %228 = sub nsw i32 8, %.0.lcssa.i93
+  %229 = zext i32 %228 to i64
+  %230 = getelementptr i8, ptr %2, i64 %229
+  store i8 %227, ptr %230, align 1, !tbaa !22
+  %.val.i94 = load ptr, ptr %35, align 8, !tbaa !307
   %.val.val.i95 = load i64, ptr %.val.i94, align 8, !tbaa !308
-  %232 = inttoptr i64 %.val.val.i95 to ptr
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
-  %234 = load i64, ptr %233, align 8, !tbaa !309
-  %235 = icmp sgt i64 %234, 4294967294
-  br i1 %235, label %236, label %ibf_dump_write_small_value.exit97
+  %231 = inttoptr i64 %.val.val.i95 to ptr
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
+  %233 = load i64, ptr %232, align 8, !tbaa !309
+  %234 = icmp sgt i64 %233, 4294967294
+  br i1 %234, label %235, label %ibf_dump_write_small_value.exit97
 
-236:                                              ; preds = %.critedge.i91
-  %237 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %237, ptr noundef nonnull @.str.226) #42
+235:                                              ; preds = %.critedge.i91
+  %236 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %236, ptr noundef nonnull @.str.226) #42
   unreachable
 
 ibf_dump_write_small_value.exit97:                ; preds = %.critedge.i91
-  %238 = add nuw nsw i32 %.0.lcssa.i93, 1
-  %239 = zext nneg i32 %238 to i64
-  %240 = sub nsw i64 0, %239
-  %241 = getelementptr i8, ptr %53, i64 %240
-  %242 = call i64 @rb_str_cat(i64 noundef %.val.val.i95, ptr noundef %241, i64 noundef %239) #38
+  %237 = add nuw nsw i32 %.0.lcssa.i93, 1
+  %238 = zext nneg i32 %237 to i64
+  %239 = sub nsw i64 0, %238
+  %240 = getelementptr i8, ptr %52, i64 %239
+  %241 = call i64 @rb_str_cat(i64 noundef %.val.val.i95, ptr noundef %240, i64 noundef %238) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %243 = load i32, ptr %.16.val.152.val, align 1, !tbaa !39
-  %244 = zext i32 %243 to i64
-  %245 = icmp samesign ult i64 %indvars.iv.next42, %244
-  br i1 %245, label %56, label %ibf_dump_pos.exit98, !llvm.loop !1109
+  %242 = load i32, ptr %.16.val.152.val, align 1, !tbaa !39
+  %243 = zext i32 %242 to i64
+  %244 = icmp samesign ult i64 %indvars.iv.next42, %243
+  br i1 %244, label %55, label %ibf_dump_pos.exit98, !llvm.loop !1109
 
-246:                                              ; preds = %1
-  %247 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %247, align 8, !tbaa !307
+245:                                              ; preds = %1
+  %246 = getelementptr i8, ptr %0, i64 24
+  %.val = load ptr, ptr %246, align 8, !tbaa !307
   %.val.val = load i64, ptr %.val, align 8, !tbaa !308
-  %248 = inttoptr i64 %.val.val to ptr
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
-  %250 = load i64, ptr %249, align 8, !tbaa !309
-  %251 = icmp sgt i64 %250, 4294967294
-  br i1 %251, label %252, label %ibf_dump_pos.exit98
+  %247 = inttoptr i64 %.val.val to ptr
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
+  %249 = load i64, ptr %248, align 8, !tbaa !309
+  %250 = icmp sgt i64 %249, 4294967294
+  br i1 %250, label %251, label %ibf_dump_pos.exit98
 
-252:                                              ; preds = %246
-  %253 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %253, ptr noundef nonnull @.str.226) #42
+251:                                              ; preds = %245
+  %252 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !37
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %252, ptr noundef nonnull @.str.226) #42
   unreachable
 
-ibf_dump_pos.exit98:                              ; preds = %ibf_dump_write_small_value.exit97, %._crit_edge.thread, %ibf_dump_pos.exit.preheader, %246
-  %.0.in = phi i64 [ %250, %246 ], [ %39, %ibf_dump_pos.exit.preheader ], [ %44, %._crit_edge.thread ], [ %39, %ibf_dump_write_small_value.exit97 ]
+ibf_dump_pos.exit98:                              ; preds = %ibf_dump_write_small_value.exit97, %._crit_edge.thread, %ibf_dump_pos.exit.preheader, %245
+  %.0.in = phi i64 [ %249, %245 ], [ %38, %ibf_dump_pos.exit.preheader ], [ %43, %._crit_edge.thread ], [ %38, %ibf_dump_write_small_value.exit97 ]
   %.0 = trunc i64 %.0.in to i32
   ret i32 %.0
 }

@@ -77,49 +77,50 @@ define internal range(i32 -1094995529, 1) i32 @hcom_init(ptr noundef %0) #0 {
   %wide.trip.count = zext nneg i32 %36 to i64
   br label %39
 
-39:                                               ; preds = %.lr.ph, %53
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
+39:                                               ; preds = %.lr.ph, %54
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %40 = shl nsw i64 %indvars.iv, 2
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
   %42 = load i16, ptr %41, align 1, !tbaa !30
   %43 = tail call i16 @llvm.bswap.i16(i16 %42)
   %44 = getelementptr inbounds nuw %struct.HEntry, ptr %34, i64 %indvars.iv
   store i16 %43, ptr %44, align 2, !tbaa !39
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  %46 = load i16, ptr %45, align 1, !tbaa !30
-  %47 = tail call i16 @llvm.bswap.i16(i16 %46)
-  %48 = getelementptr inbounds nuw %struct.HEntry, ptr %34, i64 %indvars.iv, i32 1
-  store i16 %47, ptr %48, align 2, !tbaa !42
-  %49 = icmp sgt i16 %43, -1
-  br i1 %49, label %50, label %53
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 %40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i16, ptr %46, align 1, !tbaa !30
+  %48 = tail call i16 @llvm.bswap.i16(i16 %47)
+  %49 = getelementptr inbounds nuw %struct.HEntry, ptr %34, i64 %indvars.iv, i32 1
+  store i16 %48, ptr %49, align 2, !tbaa !42
+  %50 = icmp sgt i16 %43, -1
+  br i1 %50, label %51, label %54
 
-50:                                               ; preds = %39
-  %51 = zext nneg i16 %43 to i32
-  %.not49 = icmp sgt i32 %36, %51
-  %52 = sext i16 %47 to i32
-  %or.cond52.not = icmp ugt i32 %36, %52
+51:                                               ; preds = %39
+  %52 = zext nneg i16 %43 to i32
+  %.not49 = icmp sgt i32 %36, %52
+  %53 = sext i16 %48 to i32
+  %or.cond52.not = icmp ugt i32 %36, %53
   %or.cond59 = select i1 %.not49, i1 %or.cond52.not, i1 false
-  br i1 %or.cond59, label %53, label %.loopexit
+  br i1 %or.cond59, label %54, label %.loopexit
 
-53:                                               ; preds = %50, %39
+54:                                               ; preds = %51, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %39, !llvm.loop !43
 
-.critedge:                                        ; preds = %53, %.preheader
-  %54 = load i16, ptr %34, align 2, !tbaa !39
-  %55 = icmp slt i16 %54, 0
-  br i1 %55, label %.loopexit, label %56
+.critedge:                                        ; preds = %54, %.preheader
+  %55 = load i16, ptr %34, align 2, !tbaa !39
+  %56 = icmp slt i16 %55, 0
+  br i1 %56, label %.loopexit, label %57
 
-56:                                               ; preds = %.critedge
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 0, ptr %57, align 4, !tbaa !45
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %58, align 8, !tbaa !46
+57:                                               ; preds = %.critedge
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  store i32 0, ptr %58, align 4, !tbaa !45
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 0, ptr %59, align 8, !tbaa !46
   br label %.loopexit
 
-.loopexit:                                        ; preds = %50, %.critedge, %22, %11, %7, %56, %6
-  %.044 = phi i32 [ -1094995529, %6 ], [ 0, %56 ], [ -1094995529, %7 ], [ -1094995529, %11 ], [ -12, %22 ], [ -1094995529, %.critedge ], [ -1094995529, %50 ]
+.loopexit:                                        ; preds = %51, %.critedge, %22, %11, %7, %57, %6
+  %.044 = phi i32 [ -1094995529, %6 ], [ 0, %57 ], [ -1094995529, %7 ], [ -1094995529, %11 ], [ -12, %22 ], [ -1094995529, %.critedge ], [ -1094995529, %51 ]
   ret i32 %.044
 }
 

@@ -3,6 +3,8 @@ source_filename = "bench/luau/original/lfunc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%struct.lua_TValue = type { %union.Value, [1 x i32], i32 }
+%union.Value = type { ptr }
 %struct.LocVar = type { ptr, i32, i32, i8 }
 
 ; Function Attrs: mustprogress uwtable
@@ -63,24 +65,23 @@ define hidden noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %3, ptr %27, align 8, !tbaa !53
   %28 = icmp sgt i32 %1, 0
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  br i1 %28, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 44
+.lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %30
+  br label %.lr.ph
 
-._crit_edge:                                      ; preds = %30, %4
+._crit_edge:                                      ; preds = %.lr.ph, %4
   ret ptr %10
 
-30:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
-  store i32 0, ptr %31, align 4, !tbaa !53
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %29 = getelementptr inbounds nuw %struct.lua_TValue, ptr %10, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 44
+  store i32 0, ptr %30, align 4, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 }
 
 ; Function Attrs: mustprogress uwtable

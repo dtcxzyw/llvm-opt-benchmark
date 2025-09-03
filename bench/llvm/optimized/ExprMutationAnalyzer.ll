@@ -65316,32 +65316,31 @@ _ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERK
   %13 = lshr i32 %12, 24
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = lshr i32 %12, 19
-  %18 = and i32 %17, 1
-  %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !211
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit.thread, label %23
+  %16 = lshr i32 %12, 19
+  %17 = and i32 %16, 1
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !211
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit.thread, label %22
 
-23:                                               ; preds = %_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+22:                                               ; preds = %_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6027)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6030)
-  %25 = tail call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(16) %22) #25, !noalias !6033
-  store i32 %25, ptr %5, align 8, !tbaa !10, !alias.scope !6033
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %22, ptr %26, align 8, !tbaa !14, !alias.scope !6033
-  %27 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %2, ptr noundef %3) #25
+  %24 = tail call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(16) %21) #25, !noalias !6033
+  store i32 %24, ptr %5, align 8, !tbaa !10, !alias.scope !6033
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %21, ptr %25, align 8, !tbaa !14, !alias.scope !6033
+  %26 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %2, ptr noundef %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit.thread
 
-_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit.thread: ; preds = %8, %4, %23, %_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit
-  %28 = phi i1 [ false, %_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit ], [ %27, %23 ], [ false, %4 ], [ false, %8 ]
-  ret i1 %28
+_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit.thread: ; preds = %8, %4, %22, %_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit
+  %27 = phi i1 [ false, %_ZN5clang12ast_matchers8internal6getRHSINS_19CXXOperatorCallExprEEEPKNS_4ExprERKT_.exit ], [ %26, %22 ], [ false, %4 ], [ false, %8 ]
+  ret i1 %27
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

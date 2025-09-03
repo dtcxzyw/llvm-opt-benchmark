@@ -7493,8 +7493,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit1002: ; preds = %1689, %1683, %16
   %1700 = zext i1 %1699 to i32
   %reass.sub = sub nsw i32 %1700, %.02462195
   %1701 = sext i32 %reass.sub to i64
-  %1702 = getelementptr ptr, ptr %1664, i64 %1701
-  %1703 = getelementptr i8, ptr %1702, i64 8
+  %1702 = getelementptr ptr, ptr %.pre2234, i64 %1701
+  %1703 = getelementptr i8, ptr %1702, i64 32
   %1704 = load ptr, ptr %1703, align 8, !tbaa !100, !noalias !292
   store ptr %1704, ptr %56, align 8, !tbaa !9, !alias.scope !292
   %1705 = load i64, ptr %1704, align 8, !noalias !292

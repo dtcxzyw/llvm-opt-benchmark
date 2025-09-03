@@ -5830,7 +5830,7 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentR
 
 .lr.ph.i:                                         ; preds = %_ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemD2Ev.exit.i, %.lr.ph.preheader.i
   %.012.i = phi ptr [ %.1.i, %_ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemD2Ev.exit.i ], [ %.0.i.i.i, %.lr.ph.preheader.i ]
-  %.01011.i = phi i64 [ %37, %_ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemD2Ev.exit.i ], [ %6, %.lr.ph.preheader.i ]
+  %.01011.i = phi i64 [ %36, %_ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemD2Ev.exit.i ], [ %6, %.lr.ph.preheader.i ]
   %8 = getelementptr inbounds nuw i8, ptr %.012.i, i64 40
   %9 = load i64, ptr %8, align 8, !tbaa !96
   %10 = add i64 %9, 64
@@ -5846,119 +5846,117 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentR
 14:                                               ; preds = %11, %.lr.ph.i
   %.1.i = phi ptr [ %.0.i.i.i.i, %11 ], [ %.012.i, %.lr.ph.i ]
   %15 = and i64 %.01011.i, 63
-  %.idx.i = mul nuw nsw i64 %15, 96
-  %16 = getelementptr inbounds nuw i8, ptr %.1.i, i64 80
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %19 = load i64, ptr %18, align 8, !tbaa !60
-  %20 = and i64 %19, -4
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i, label %22
+  %16 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::channels::MaxConcurrentRateLimiter::QueueItem, true, true, false, 6>::Entry", ptr %.1.i, i64 %15, i32 2, i32 0, i64 64
+  %17 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::channels::MaxConcurrentRateLimiter::QueueItem, true, true, false, 6>::Entry", ptr %.1.i, i64 %15, i32 2, i32 0, i64 128
+  %18 = load i64, ptr %17, align 8, !tbaa !60
+  %19 = and i64 %18, -4
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i, label %21
 
-22:                                               ; preds = %14
-  %23 = inttoptr i64 %20 to ptr
-  %24 = load ptr, ptr %23, align 8, !tbaa !7
-  %25 = getelementptr i8, ptr %24, i64 -72
-  %26 = load i64, ptr %25, align 8
-  store i64 0, ptr %18, align 8, !tbaa !95
-  %27 = and i64 %19, 3
-  %.not4.i.i.i.i = icmp eq i64 %27, 0
-  br i1 %.not4.i.i.i.i, label %28, label %_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i
+21:                                               ; preds = %14
+  %22 = inttoptr i64 %19 to ptr
+  %23 = load ptr, ptr %22, align 8, !tbaa !7
+  %24 = getelementptr i8, ptr %23, i64 -72
+  %25 = load i64, ptr %24, align 8
+  store i64 0, ptr %17, align 8, !tbaa !95
+  %26 = and i64 %18, 3
+  %.not4.i.i.i.i = icmp eq i64 %26, 0
+  br i1 %.not4.i.i.i.i, label %27, label %_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %23, i64 %26
-  %30 = load ptr, ptr %29, align 8, !tbaa !7
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %29) #22
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %22, i64 %25
+  %29 = load ptr, ptr %28, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %31 = load ptr, ptr %30, align 8
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #22
   br label %_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i
 
-_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i: ; preds = %28, %22, %14
-  %33 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !94
-  %.not.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i, label %_ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemD2Ev.exit.i, label %35
+_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i: ; preds = %27, %21, %14
+  %32 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::channels::MaxConcurrentRateLimiter::QueueItem, true, true, false, 6>::Entry", ptr %.1.i, i64 %15, i32 2, i32 0, i64 120
+  %33 = load ptr, ptr %32, align 8, !tbaa !94
+  %.not.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i, label %_ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemD2Ev.exit.i, label %34
 
-35:                                               ; preds = %_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i
-  %36 = tail call noundef i64 %34(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(72) %17, ptr noundef null) #22
+34:                                               ; preds = %_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i
+  %35 = tail call noundef i64 %33(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(72) %16, ptr noundef null) #22
   br label %_ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemD2Ev.exit.i
 
-_ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemD2Ev.exit.i: ; preds = %35, %_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i
-  %37 = add i64 %.01011.i, 1
-  %exitcond.not.i = icmp eq i64 %37, %3
+_ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemD2Ev.exit.i: ; preds = %34, %_ZN5folly8Executor9KeepAliveINS_17SequencedExecutorEED2Ev.exit.i.i
+  %36 = add i64 %.01011.i, 1
+  %exitcond.not.i = icmp eq i64 %36, %3
   br i1 %exitcond.not.i, label %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE21cleanUpRemainingItemsEv.exit, label %.lr.ph.i, !llvm.loop !269
 
 _ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE21cleanUpRemainingItemsEv.exit: ; preds = %_ZN5folly8channels24MaxConcurrentRateLimiter9QueueItemD2Ev.exit.i, %1
-  %38 = load atomic i64, ptr %0 acquire, align 64
-  %.0.i.i.i1 = inttoptr i64 %38 to ptr
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i1, i64 32
-  %40 = load atomic i64, ptr %39 acquire, align 8
-  store atomic i64 0, ptr %39 monotonic, align 8
+  %37 = load atomic i64, ptr %0 acquire, align 64
+  %.0.i.i.i1 = inttoptr i64 %37 to ptr
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i1, i64 32
+  %39 = load atomic i64, ptr %38 acquire, align 8
+  store atomic i64 0, ptr %38 monotonic, align 8
   tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %.0.i.i.i1, i64 noundef 6208, i64 noundef 64) #30
-  %.not9.i = icmp eq i64 %40, 0
+  %.not9.i = icmp eq i64 %39, 0
   br i1 %.not9.i, label %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE24reclaimRemainingSegmentsEv.exit, label %.lr.ph.i2
 
 .lr.ph.i2:                                        ; preds = %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE21cleanUpRemainingItemsEv.exit, %.lr.ph.i2
-  %.0.in10.i = phi i64 [ %42, %.lr.ph.i2 ], [ %40, %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE21cleanUpRemainingItemsEv.exit ]
+  %.0.in10.i = phi i64 [ %41, %.lr.ph.i2 ], [ %39, %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE21cleanUpRemainingItemsEv.exit ]
   %.0.i = inttoptr i64 %.0.in10.i to ptr
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %42 = load atomic i64, ptr %41 acquire, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  %41 = load atomic i64, ptr %40 acquire, align 8
   tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %.0.i, i64 noundef 6208, i64 noundef 64) #30
-  %.not.i3 = icmp eq i64 %42, 0
+  %.not.i3 = icmp eq i64 %41, 0
   br i1 %.not.i3, label %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE24reclaimRemainingSegmentsEv.exit, label %.lr.ph.i2, !llvm.loop !270
 
 _ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE24reclaimRemainingSegmentsEv.exit: ; preds = %.lr.ph.i2, %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE21cleanUpRemainingItemsEv.exit
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %45 = load atomic i8, ptr %44 monotonic, align 4
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE8ConsumerD2Ev.exit
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %44 = load atomic i8, ptr %43 monotonic, align 4
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE8ConsumerD2Ev.exit
 
-47:                                               ; preds = %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE24reclaimRemainingSegmentsEv.exit
-  store atomic i8 0, ptr %44 monotonic, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %49 = load atomic i8, ptr %48 monotonic, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %52
+46:                                               ; preds = %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE24reclaimRemainingSegmentsEv.exit
+  store atomic i8 0, ptr %43 monotonic, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %48 = load atomic i8, ptr %47 monotonic, align 1
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %47
-  tail call void @_ZN5folly13hazptr_domainISt6atomicE18cleanup_cohort_tagEPKNS_17hazptr_obj_cohortIS1_EE(ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE, ptr noundef nonnull align 8 dereferenceable(32) %43) #22
-  br label %52
+50:                                               ; preds = %46
+  tail call void @_ZN5folly13hazptr_domainISt6atomicE18cleanup_cohort_tagEPKNS_17hazptr_obj_cohortIS1_EE(ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE, ptr noundef nonnull align 8 dereferenceable(32) %42) #22
+  br label %51
 
-52:                                               ; preds = %51, %47
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %54 = atomicrmw xchg ptr %53, i64 0 acq_rel, align 8
-  %.0.i.i.i.i.i.i = inttoptr i64 %54 to ptr
-  invoke void @_ZN5folly17hazptr_obj_cohortISt6atomicE12reclaim_listEPNS_10hazptr_objIS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef %.0.i.i.i.i.i.i)
-          to label %.noexc.i.i unwind label %62
+51:                                               ; preds = %50, %46
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %53 = atomicrmw xchg ptr %52, i64 0 acq_rel, align 8
+  %.0.i.i.i.i.i.i = inttoptr i64 %53 to ptr
+  invoke void @_ZN5folly17hazptr_obj_cohortISt6atomicE12reclaim_listEPNS_10hazptr_objIS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %.0.i.i.i.i.i.i)
+          to label %.noexc.i.i unwind label %61
 
-.noexc.i.i:                                       ; preds = %52
-  %55 = load atomic i64, ptr %43 acquire, align 16
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE8ConsumerD2Ev.exit, label %57
+.noexc.i.i:                                       ; preds = %51
+  %54 = load atomic i64, ptr %42 acquire, align 16
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE8ConsumerD2Ev.exit, label %56
 
-57:                                               ; preds = %.noexc.i.i
-  %58 = atomicrmw xchg ptr %43, i64 0 acq_rel, align 8
-  %.not.i.i.i.i4 = icmp eq i64 %58, 0
+56:                                               ; preds = %.noexc.i.i
+  %57 = atomicrmw xchg ptr %42, i64 0 acq_rel, align 8
+  %.not.i.i.i.i4 = icmp eq i64 %57, 0
   br i1 %.not.i.i.i.i4, label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit.i.i.i, label %.split.i.i.i.i
 
-.split.i.i.i.i:                                   ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = atomicrmw xchg ptr %59, i64 0 acq_rel, align 8
+.split.i.i.i.i:                                   ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = atomicrmw xchg ptr %58, i64 0 acq_rel, align 8
   br label %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit.i.i.i
 
-_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit.i.i.i: ; preds = %.split.i.i.i.i, %57
-  %.0.i.i.i.i.i.i.i = inttoptr i64 %58 to ptr
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store atomic i32 0, ptr %61 release, align 32
-  invoke void @_ZN5folly17hazptr_obj_cohortISt6atomicE12reclaim_listEPNS_10hazptr_objIS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef %.0.i.i.i.i.i.i.i)
-          to label %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE8ConsumerD2Ev.exit unwind label %62
+_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit.i.i.i: ; preds = %.split.i.i.i.i, %56
+  %.0.i.i.i.i.i.i.i = inttoptr i64 %57 to ptr
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store atomic i32 0, ptr %60 release, align 32
+  invoke void @_ZN5folly17hazptr_obj_cohortISt6atomicE12reclaim_listEPNS_10hazptr_objIS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %.0.i.i.i.i.i.i.i)
+          to label %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE8ConsumerD2Ev.exit unwind label %61
 
-62:                                               ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit.i.i.i, %52
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit.i.i.i, %51
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  tail call void @__clang_call_terminate(ptr %64) #29
+  %63 = extractvalue { ptr, i32 } %62, 0
+  tail call void @__clang_call_terminate(ptr %63) #29
   unreachable
 
 _ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE8ConsumerD2Ev.exit: ; preds = %_ZN5folly14UnboundedQueueINS_8channels24MaxConcurrentRateLimiter9QueueItemELb1ELb1ELb0ELm6ELm6ESt6atomicE24reclaimRemainingSegmentsEv.exit, %.noexc.i.i, %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit.i.i.i

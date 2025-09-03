@@ -143,34 +143,33 @@ define noundef i32 @ff_aac_usac_reset_state(ptr noundef %0, ptr noundef %1) loca
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %22
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  %25 = zext nneg i32 %.231 to i64
-  %.idx = mul nuw nsw i64 %25, 40352
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 168
-  %28 = getelementptr inbounds nuw i8, ptr %17, i64 40692
-  br label %29
+  %24 = zext nneg i32 %.231 to i64
+  %.idx = mul nuw nsw i64 %24, 40352
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 312
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 40692
+  br label %28
 
-29:                                               ; preds = %.lr.ph, %29
-  %.038 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(824) %27, i8 0, i64 824, i1 false)
-  store i32 67890, ptr %28, align 4, !tbaa !20
-  %30 = add nuw nsw i32 %.038, 1
-  %exitcond.not = icmp eq i32 %30, %.231
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !31
+28:                                               ; preds = %.lr.ph, %28
+  %.038 = phi i32 [ 0, %.lr.ph ], [ %29, %28 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(824) %26, i8 0, i64 824, i1 false)
+  store i32 67890, ptr %27, align 4, !tbaa !20
+  %29 = add nuw nsw i32 %.038, 1
+  %exitcond.not = icmp eq i32 %29, %.231
+  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !31
 
-.loopexit:                                        ; preds = %29, %16, %7
-  %.133 = phi i32 [ %.03239, %7 ], [ %.234, %16 ], [ %.234, %29 ]
-  %.130 = phi i32 [ %.02940, %7 ], [ %.231, %16 ], [ %.231, %29 ]
-  %.1 = phi i32 [ %.02742, %7 ], [ %.2, %16 ], [ %.2, %29 ]
-  %.sroa.7.1 = phi i32 [ %.sroa.7.043, %7 ], [ %.sroa.7.2, %16 ], [ %.sroa.7.2, %29 ]
-  %.sroa.5.1 = phi i32 [ %.sroa.5.044, %7 ], [ %.sroa.5.2, %16 ], [ %.sroa.5.2, %29 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.045, %7 ], [ %.sroa.0.2, %16 ], [ %.sroa.0.2, %29 ]
+.loopexit:                                        ; preds = %28, %16, %7
+  %.133 = phi i32 [ %.03239, %7 ], [ %.234, %16 ], [ %.234, %28 ]
+  %.130 = phi i32 [ %.02940, %7 ], [ %.231, %16 ], [ %.231, %28 ]
+  %.1 = phi i32 [ %.02742, %7 ], [ %.2, %16 ], [ %.2, %28 ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.043, %7 ], [ %.sroa.7.2, %16 ], [ %.sroa.7.2, %28 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.044, %7 ], [ %.sroa.5.2, %16 ], [ %.sroa.5.2, %28 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.045, %7 ], [ %.sroa.0.2, %16 ], [ %.sroa.0.2, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = load i32, ptr %3, align 8, !tbaa !4
-  %32 = sext i32 %31 to i64
-  %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %7, label %._crit_edge, !llvm.loop !33
+  %30 = load i32, ptr %3, align 8, !tbaa !4
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %7, label %._crit_edge, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

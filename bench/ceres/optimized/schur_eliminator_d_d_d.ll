@@ -2564,7 +2564,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 .lr.ph:                                           ; preds = %55, %_ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEEEEERKNT_10value_type11second_typeERKSB_RKNSC_10first_typeE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEEEEERKNT_10value_type11second_typeERKSB_RKNSC_10first_typeE.exit ], [ 1, %55 ]
-  %67 = phi ptr [ %133, %_ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEEEEERKNT_10value_type11second_typeERKSB_RKNSC_10first_typeE.exit ], [ %57, %55 ]
+  %67 = phi ptr [ %132, %_ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEEEEERKNT_10value_type11second_typeERKSB_RKNSC_10first_typeE.exit ], [ %57, %55 ]
   %68 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %67, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !96
   %70 = sext i32 %69 to i64
@@ -2673,32 +2673,31 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit.i: ; 
   unreachable
 
 _ZN5ceres9FindOrDieIN4absl12lts_202401169btree_mapIiiSt4lessIiESaISt4pairIKiiEEEEEERKNT_10value_type11second_typeERKSB_RKNSC_10first_typeE.exit: ; preds = %_ZNK4absl12lts_2024011618container_internal15btree_containerINS1_5btreeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEEE4findIiEENS1_14btree_iteratorIKNS1_10btree_nodeISB_EERKS9_PSJ_EERS8_.exit.i
-  %116 = shl i32 %.sroa.7.0.i.i.i.i.i, 3
-  %117 = and i32 %116, 2040
-  %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw i8, ptr %105, i64 %118
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %121 = load i32, ptr %120, align 4, !tbaa !90
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds double, ptr %7, i64 %122
-  %124 = load i32, ptr %42, align 4, !tbaa !170
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds double, ptr %14, i64 %125
-  %127 = load i32, ptr %29, align 8, !tbaa !171
-  %128 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %129 = load i32, ptr %128, align 4, !tbaa !170
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds double, ptr %14, i64 %130
-  tail call void @_ZN5ceres8internal34MatrixTransposeMatrixMultiplyNaiveILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii(ptr noundef %126, i32 noundef %127, i32 noundef %18, ptr noundef %131, i32 noundef %127, i32 noundef %73, ptr noundef %123, i32 noundef 0, i32 noundef 0, i32 noundef %18, i32 noundef %73)
+  %116 = and i32 %.sroa.7.0.i.i.i.i.i, 255
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %.sroa.0.0.i6.i.i.i.i, i64 %117
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %120 = load i32, ptr %119, align 4, !tbaa !90
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds double, ptr %7, i64 %121
+  %123 = load i32, ptr %42, align 4, !tbaa !170
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds double, ptr %14, i64 %124
+  %126 = load i32, ptr %29, align 8, !tbaa !171
+  %127 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %128 = load i32, ptr %127, align 4, !tbaa !170
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds double, ptr %14, i64 %129
+  tail call void @_ZN5ceres8internal34MatrixTransposeMatrixMultiplyNaiveILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii(ptr noundef %125, i32 noundef %126, i32 noundef %18, ptr noundef %130, i32 noundef %126, i32 noundef %73, ptr noundef %122, i32 noundef 0, i32 noundef 0, i32 noundef %18, i32 noundef %73)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %132 = load ptr, ptr %31, align 8, !tbaa !106
-  %133 = load ptr, ptr %30, align 8, !tbaa !126
+  %131 = load ptr, ptr %31, align 8, !tbaa !106
+  %132 = load ptr, ptr %30, align 8, !tbaa !126
+  %133 = ptrtoint ptr %131 to i64
   %134 = ptrtoint ptr %132 to i64
-  %135 = ptrtoint ptr %133 to i64
-  %136 = sub i64 %134, %135
-  %137 = ashr exact i64 %136, 3
-  %138 = icmp ugt i64 %137, %indvars.iv.next
-  br i1 %138, label %.lr.ph, label %._crit_edge, !llvm.loop !187
+  %135 = sub i64 %133, %134
+  %136 = ashr exact i64 %135, 3
+  %137 = icmp ugt i64 %136, %indvars.iv.next
+  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !187
 }
 
 ; Function Attrs: mustprogress uwtable

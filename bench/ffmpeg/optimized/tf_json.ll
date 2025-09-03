@@ -103,137 +103,136 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %97, label %25
+  br i1 %.not, label %96, label %25
 
 25:                                               ; preds = %tf_get_parent_section.exit
   %26 = load i32, ptr %4, align 4, !tbaa !20
   %.not37 = icmp eq i32 %26, 0
-  br i1 %.not37, label %39, label %27
+  br i1 %.not37, label %38, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = sext i32 %26 to i64
-  %30 = getelementptr i32, ptr %28, i64 %29
-  %31 = getelementptr i8, ptr %30, i64 -4
-  %32 = load i32, ptr %31, align 4, !tbaa !22
-  %.not38 = icmp eq i32 %32, 0
-  br i1 %.not38, label %39, label %33
+  %28 = sext i32 %26 to i64
+  %29 = getelementptr i32, ptr %0, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 52
+  %31 = load i32, ptr %30, align 4, !tbaa !22
+  %.not38 = icmp eq i32 %31, 0
+  br i1 %.not38, label %38, label %32
 
-33:                                               ; preds = %27
-  %34 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %34, align 8, !tbaa !23
-  %35 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !24
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %38 = load ptr, ptr %37, align 8, !tbaa !27
-  tail call void %38(ptr noundef %.val, ptr noundef nonnull @.str.7) #7
-  br label %39
+32:                                               ; preds = %27
+  %33 = getelementptr i8, ptr %0, i64 16
+  %.val = load ptr, ptr %33, align 8, !tbaa !23
+  %34 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  %37 = load ptr, ptr %36, align 8, !tbaa !27
+  tail call void %37(ptr noundef %.val, ptr noundef nonnull @.str.7) #7
+  br label %38
 
-39:                                               ; preds = %33, %27, %25
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %41 = load i32, ptr %40, align 8, !tbaa !29
-  %42 = and i32 %41, 1
-  %.not39 = icmp eq i32 %42, 0
-  br i1 %.not39, label %52, label %43
+38:                                               ; preds = %32, %27, %25
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %40 = load i32, ptr %39, align 8, !tbaa !29
+  %41 = and i32 %40, 1
+  %.not39 = icmp eq i32 %41, 0
+  br i1 %.not39, label %51, label %42
 
-43:                                               ; preds = %39
-  %44 = getelementptr i8, ptr %0, i64 16
-  %.val45 = load ptr, ptr %44, align 8, !tbaa !23
-  %45 = getelementptr inbounds nuw i8, ptr %.val45, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !24
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %48 = load ptr, ptr %47, align 8, !tbaa !27
-  tail call void %48(ptr noundef %.val45, ptr noundef nonnull @.str.10) #7
-  %49 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !32
-  %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %49, align 8, !tbaa !32
-  br label %97
+42:                                               ; preds = %38
+  %43 = getelementptr i8, ptr %0, i64 16
+  %.val45 = load ptr, ptr %43, align 8, !tbaa !23
+  %44 = getelementptr inbounds nuw i8, ptr %.val45, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
+  %47 = load ptr, ptr %46, align 8, !tbaa !27
+  tail call void %47(ptr noundef %.val45, ptr noundef nonnull @.str.10) #7
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %49 = load i32, ptr %48, align 8, !tbaa !32
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %48, align 8, !tbaa !32
+  br label %96
 
-52:                                               ; preds = %39
+51:                                               ; preds = %38
   call void @av_bprint_init(ptr noundef nonnull %3, i32 noundef 1, i32 noundef -1) #7
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !33
-  %55 = call fastcc ptr @json_escape_str(ptr noundef %3, ptr noundef %54, ptr noundef nonnull %0)
-  %56 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %57 = load i32, ptr %56, align 8, !tbaa !32
-  %58 = shl nsw i32 %57, 2
-  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %58, i32 noundef 32)
-  %59 = load i32, ptr %56, align 8, !tbaa !32
-  %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %56, align 8, !tbaa !32
-  %61 = load i32, ptr %40, align 8, !tbaa !29
-  %62 = and i32 %61, 2
-  %.not40 = icmp eq i32 %62, 0
-  br i1 %.not40, label %65, label %63
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
+  %54 = call fastcc ptr @json_escape_str(ptr noundef %3, ptr noundef %53, ptr noundef nonnull %0)
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %56 = load i32, ptr %55, align 8, !tbaa !32
+  %57 = shl nsw i32 %56, 2
+  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %57, i32 noundef 32)
+  %58 = load i32, ptr %55, align 8, !tbaa !32
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %55, align 8, !tbaa !32
+  %60 = load i32, ptr %39, align 8, !tbaa !29
+  %61 = and i32 %60, 2
+  %.not40 = icmp eq i32 %61, 0
+  br i1 %.not40, label %64, label %62
 
-63:                                               ; preds = %52
-  %64 = load ptr, ptr %3, align 8, !tbaa !34
-  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef %64)
-  br label %95
+62:                                               ; preds = %51
+  %63 = load ptr, ptr %3, align 8, !tbaa !34
+  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef %63)
+  br label %94
 
-65:                                               ; preds = %52
+64:                                               ; preds = %51
   %.not41 = icmp eq ptr %.0.i46, null
-  br i1 %.not41, label %.critedge, label %66
+  br i1 %.not41, label %.critedge, label %65
 
-66:                                               ; preds = %65
-  %67 = getelementptr inbounds nuw i8, ptr %.0.i46, i64 16
-  %68 = load i32, ptr %67, align 8, !tbaa !29
-  %69 = and i32 %68, 2
-  %.not42 = icmp eq i32 %69, 0
-  br i1 %.not42, label %70, label %74
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i46, i64 16
+  %67 = load i32, ptr %66, align 8, !tbaa !29
+  %68 = and i32 %67, 2
+  %.not42 = icmp eq i32 %68, 0
+  br i1 %.not42, label %69, label %73
 
-70:                                               ; preds = %66
-  %71 = load ptr, ptr %3, align 8, !tbaa !34
-  %72 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !19
-  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %71, ptr noundef %73)
-  br label %95
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %3, align 8, !tbaa !34
+  %71 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %72 = load ptr, ptr %71, align 8, !tbaa !19
+  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %70, ptr noundef %72)
+  br label %94
 
-74:                                               ; preds = %66
-  %75 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !19
-  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef %76)
-  %77 = load i32, ptr %67, align 8, !tbaa !29
-  %78 = and i32 %77, 16
-  %.not43 = icmp eq i32 %78, 0
-  br i1 %.not43, label %95, label %79
+73:                                               ; preds = %65
+  %74 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %75 = load ptr, ptr %74, align 8, !tbaa !19
+  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef %75)
+  %76 = load i32, ptr %66, align 8, !tbaa !29
+  %77 = and i32 %76, 16
+  %.not43 = icmp eq i32 %77, 0
+  br i1 %.not43, label %94, label %78
 
-79:                                               ; preds = %74
-  %80 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %81 = load i32, ptr %80, align 4, !tbaa !16
-  %.not44 = icmp eq i32 %81, 0
-  br i1 %.not44, label %82, label %85
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %80 = load i32, ptr %79, align 4, !tbaa !16
+  %.not44 = icmp eq i32 %80, 0
+  br i1 %.not44, label %81, label %84
 
-82:                                               ; preds = %79
-  %83 = load i32, ptr %56, align 8, !tbaa !32
-  %84 = shl nsw i32 %83, 2
-  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %84, i32 noundef 32)
-  br label %85
+81:                                               ; preds = %78
+  %82 = load i32, ptr %55, align 8, !tbaa !32
+  %83 = shl nsw i32 %82, 2
+  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %83, i32 noundef 32)
+  br label %84
 
-85:                                               ; preds = %82, %79
-  %86 = load ptr, ptr %53, align 8, !tbaa !33
-  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef %86)
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %88 = load i32, ptr %4, align 4, !tbaa !20
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i32, ptr %87, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !22
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %90, align 4, !tbaa !22
-  br label %95
+84:                                               ; preds = %81, %78
+  %85 = load ptr, ptr %52, align 8, !tbaa !33
+  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef %85)
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %87 = load i32, ptr %4, align 4, !tbaa !20
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i32, ptr %86, i64 %88
+  %90 = load i32, ptr %89, align 4, !tbaa !22
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %89, align 4, !tbaa !22
+  br label %94
 
-.critedge:                                        ; preds = %65
-  %93 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !19
-  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef %94)
-  br label %95
+.critedge:                                        ; preds = %64
+  %92 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %93 = load ptr, ptr %92, align 8, !tbaa !19
+  call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef %93)
+  br label %94
 
-95:                                               ; preds = %.critedge, %70, %85, %74, %63
-  %96 = call i32 @av_bprint_finalize(ptr noundef nonnull %3, ptr noundef null) #7
-  br label %97
+94:                                               ; preds = %.critedge, %69, %84, %73, %62
+  %95 = call i32 @av_bprint_finalize(ptr noundef nonnull %3, ptr noundef null) #7
+  br label %96
 
-97:                                               ; preds = %43, %95, %tf_get_parent_section.exit
+96:                                               ; preds = %42, %94, %tf_get_parent_section.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

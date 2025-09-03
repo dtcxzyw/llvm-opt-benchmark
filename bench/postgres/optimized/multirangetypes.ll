@@ -1168,37 +1168,37 @@ define dso_local noundef ptr @multirange_get_range(ptr noundef readonly captures
   %7 = load i16, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %11 = icmp sgt i32 %2, 0
-  br i1 %11, label %.lr.ph.i, label %multirange_get_bounds_offset.exit
+  %10 = icmp sgt i32 %2, 0
+  br i1 %10, label %.lr.ph.i, label %multirange_get_bounds_offset.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.010.i = phi i32 [ %17, %.lr.ph.i ], [ 0, %3 ]
-  %.089.i = phi i32 [ %18, %.lr.ph.i ], [ %2, %3 ]
-  %12 = zext nneg i32 %.089.i to i64
-  %13 = getelementptr i32, ptr %10, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -4
-  %15 = load i32, ptr %14, align 4
-  %16 = and i32 %15, 2147483647
-  %17 = add i32 %16, %.010.i
-  %.not.i = icmp sgt i32 %15, -1
-  %18 = add nsw i32 %.089.i, -1
-  %19 = icmp samesign ugt i32 %.089.i, 1
-  %or.cond.i = and i1 %19, %.not.i
+  %.010.i = phi i32 [ %16, %.lr.ph.i ], [ 0, %3 ]
+  %.089.i = phi i32 [ %17, %.lr.ph.i ], [ %2, %3 ]
+  %11 = zext nneg i32 %.089.i to i64
+  %12 = getelementptr i32, ptr %1, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 8
+  %14 = load i32, ptr %13, align 4
+  %15 = and i32 %14, 2147483647
+  %16 = add i32 %15, %.010.i
+  %.not.i = icmp sgt i32 %14, -1
+  %17 = add nsw i32 %.089.i, -1
+  %18 = icmp samesign ugt i32 %.089.i, 1
+  %or.cond.i = and i1 %18, %.not.i
   br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit.loopexit, !llvm.loop !21
 
 multirange_get_bounds_offset.exit.loopexit:       ; preds = %.lr.ph.i
-  %20 = zext i32 %17 to i64
+  %19 = zext i32 %16 to i64
   br label %multirange_get_bounds_offset.exit
 
 multirange_get_bounds_offset.exit:                ; preds = %multirange_get_bounds_offset.exit.loopexit, %3
-  %.1.i = phi i64 [ 0, %3 ], [ %20, %multirange_get_bounds_offset.exit.loopexit ]
+  %.1.i = phi i64 [ 0, %3 ], [ %19, %multirange_get_bounds_offset.exit.loopexit ]
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, -1
   %24 = zext i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 2
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %25
   %27 = sext i32 %2 to i64
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
   %29 = load i8, ptr %28, align 1
@@ -1452,38 +1452,38 @@ define dso_local void @multirange_get_bounds(ptr noundef readonly captures(none)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %13 = load i8, ptr %12, align 2, !range !22, !noundef !23
   %14 = trunc nuw i8 %13 to i1
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %16 = icmp sgt i32 %2, 0
-  %17 = zext i32 %2 to i64
-  br i1 %16, label %.lr.ph.i, label %multirange_get_bounds_offset.exit
+  %15 = icmp sgt i32 %2, 0
+  %16 = zext i32 %2 to i64
+  br i1 %15, label %.lr.ph.i, label %multirange_get_bounds_offset.exit
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.i ], [ %17, %5 ]
-  %.010.i = phi i32 [ %22, %.lr.ph.i ], [ 0, %5 ]
-  %18 = getelementptr i32, ptr %15, i64 %indvars.iv
-  %19 = getelementptr i8, ptr %18, i64 -4
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, 2147483647
-  %22 = add i32 %21, %.010.i
-  %.not.i = icmp sgt i32 %20, -1
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.i ], [ %16, %5 ]
+  %.010.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %5 ]
+  %17 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %18 = getelementptr i8, ptr %17, i64 8
+  %19 = load i32, ptr %18, align 4
+  %20 = and i32 %19, 2147483647
+  %21 = add i32 %20, %.010.i
+  %.not.i = icmp sgt i32 %19, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %23 = icmp samesign ugt i64 %indvars.iv, 1
-  %or.cond.i = and i1 %23, %.not.i
+  %22 = icmp samesign ugt i64 %indvars.iv, 1
+  %or.cond.i = and i1 %22, %.not.i
   br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit.loopexit, !llvm.loop !21
 
 multirange_get_bounds_offset.exit.loopexit:       ; preds = %.lr.ph.i
-  %24 = zext i32 %22 to i64
+  %23 = zext i32 %21 to i64
   br label %multirange_get_bounds_offset.exit
 
 multirange_get_bounds_offset.exit:                ; preds = %5, %multirange_get_bounds_offset.exit.loopexit
-  %.1.i = phi i64 [ %24, %multirange_get_bounds_offset.exit.loopexit ], [ 0, %5 ]
+  %.1.i = phi i64 [ %23, %multirange_get_bounds_offset.exit.loopexit ], [ 0, %5 ]
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %26, -1
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 2
-  %30 = getelementptr inbounds nuw i8, ptr %15, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %17
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %16
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %11, 105
   %34 = zext i32 %26 to i64

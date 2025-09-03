@@ -11796,15 +11796,14 @@ _ZN4llvm10InvokeInst13setUnwindDestEPNS_10BasicBlockE.exit: ; preds = %_ZN4llvm5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetCallBrDefaultDest(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 -32
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load i32, ptr %3, align 8, !tbaa !381
-  %5 = zext i32 %4 to i64
-  %6 = sub nsw i64 0, %5
-  %7 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 -32
-  %9 = load ptr, ptr %8, align 8, !tbaa !196
-  ret ptr %9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %3 = load i32, ptr %2, align 8, !tbaa !381
+  %4 = zext i32 %3 to i64
+  %5 = sub nsw i64 0, %4
+  %6 = getelementptr %"class.llvm::Use", ptr %0, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 -64
+  %8 = load ptr, ptr %7, align 8, !tbaa !196
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

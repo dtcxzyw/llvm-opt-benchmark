@@ -20807,11 +20807,11 @@ define linkonce_odr noundef ptr @_ZN7rocksdb18FilePickerMultiGet18GetNextFileInL
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 704
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false), !tbaa.struct !1296
-  %.pre37 = load i64, ptr %9, align 8, !tbaa !1267
+  %.pre36 = load i64, ptr %9, align 8, !tbaa !1267
   br label %33
 
 33:                                               ; preds = %22, %31, %17
-  %34 = phi i64 [ %10, %22 ], [ %.pre37, %31 ], [ %10, %17 ]
+  %34 = phi i64 [ %10, %22 ], [ %.pre36, %31 ], [ %10, %17 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 680
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !1296
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -20840,9 +20840,8 @@ define linkonce_odr noundef ptr @_ZN7rocksdb18FilePickerMultiGet18GetNextFileInL
   br i1 %.not, label %54, label %49
 
 49:                                               ; preds = %33
-  %.idx = shl nuw nsw i64 %34, 4
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx
+  %50 = getelementptr inbounds nuw %"struct.rocksdb::FilePickerMultiGet::FilePickerContext", ptr %0, i64 %34
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i32, ptr %51, align 8, !tbaa !1299
   %53 = zext i32 %52 to i64
   br label %58
@@ -20864,9 +20863,9 @@ define linkonce_odr noundef ptr @_ZN7rocksdb18FilePickerMultiGet18GetNextFileInL
 61:                                               ; preds = %58
   %62 = load i8, ptr %5, align 1, !tbaa !200, !range !170, !noundef !171
   %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %._crit_edge38
+  br i1 %63, label %64, label %._crit_edge37
 
-._crit_edge38:                                    ; preds = %61
+._crit_edge37:                                    ; preds = %61
   %.sroa.2.0..sroa_idx.i7.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 720
   %.sroa.2.0.copyload.i8.pre = load i64, ptr %.sroa.2.0..sroa_idx.i7.phi.trans.insert, align 8, !tbaa !285
   br label %89
@@ -20876,31 +20875,30 @@ define linkonce_odr noundef ptr @_ZN7rocksdb18FilePickerMultiGet18GetNextFileInL
   %.sroa.413.0.copyload = load i64, ptr %9, align 8, !tbaa !285
   %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 720
   %.sroa.232.0.copyload = load i64, ptr %.sroa.232.0..sroa_idx, align 8, !tbaa !285
-  %.not3335 = icmp eq i64 %.sroa.413.0.copyload, %.sroa.232.0.copyload
-  br i1 %.not3335, label %._crit_edge, label %.lr.ph
+  %.not3334 = icmp eq i64 %.sroa.413.0.copyload, %.sroa.232.0.copyload
+  br i1 %.not3334, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %64
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.copyload, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !221
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.copyload, i64 24
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.copyload, i64 32
-  br label %70
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.copyload, i64 16
+  %66 = load i64, ptr %65, align 8, !tbaa !221
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.copyload, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.copyload, i64 32
+  br label %69
 
-70:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
-  %.sroa.413.036 = phi i64 [ %.sroa.413.0.copyload, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
-  %.idx34 = shl nuw nsw i64 %.sroa.413.036, 4
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx34
+69:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
+  %.sroa.413.035 = phi i64 [ %.sroa.413.0.copyload, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
+  %70 = getelementptr inbounds nuw %"struct.rocksdb::FilePickerMultiGet::FilePickerContext", ptr %0, i64 %.sroa.413.035
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load i32, ptr %71, align 8, !tbaa !1299
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 8, !tbaa !1299
-  %74 = add i64 %.sroa.413.036, 1
-  %umax.i = call i64 @llvm.umax.i64(i64 %67, i64 %74)
+  %74 = add i64 %.sroa.413.035, 1
+  %umax.i = call i64 @llvm.umax.i64(i64 %66, i64 %74)
   %75 = add i64 %umax.i, -1
   br label %76
 
-76:                                               ; preds = %78, %70
-  %77 = phi i64 [ %79, %78 ], [ %.sroa.413.036, %70 ]
+76:                                               ; preds = %78, %69
+  %77 = phi i64 [ %79, %78 ], [ %.sroa.413.035, %69 ]
   %exitcond.not = icmp eq i64 %77, %75
   br i1 %exitcond.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %78
 
@@ -20910,9 +20908,9 @@ define linkonce_odr noundef ptr @_ZN7rocksdb18FilePickerMultiGet18GetNextFileInL
   %81 = load ptr, ptr %.sroa.011.0.copyload, align 8, !tbaa !220
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 3848
   %83 = load i64, ptr %82, align 8, !tbaa !222
-  %84 = load i64, ptr %68, align 8, !tbaa !235
+  %84 = load i64, ptr %67, align 8, !tbaa !235
   %85 = or i64 %84, %83
-  %86 = load i64, ptr %69, align 8, !tbaa !236
+  %86 = load i64, ptr %68, align 8, !tbaa !236
   %87 = or i64 %85, %86
   %88 = and i64 %87, %80
   %.not.i = icmp eq i64 %88, 0
@@ -20921,14 +20919,14 @@ define linkonce_odr noundef ptr @_ZN7rocksdb18FilePickerMultiGet18GetNextFileInL
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %76, %78
   %.lcssa.i = phi i64 [ %umax.i, %76 ], [ %79, %78 ]
   %.not33 = icmp eq i64 %.lcssa.i, %.sroa.232.0.copyload
-  br i1 %.not33, label %._crit_edge, label %70, !llvm.loop !1301
+  br i1 %.not33, label %._crit_edge, label %69, !llvm.loop !1301
 
 ._crit_edge:                                      ; preds = %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %64
   store i8 1, ptr %19, align 8, !tbaa !1255
   br label %89
 
-89:                                               ; preds = %._crit_edge38, %._crit_edge
-  %.sroa.2.0.copyload.i8 = phi i64 [ %.sroa.2.0.copyload.i8.pre, %._crit_edge38 ], [ %.sroa.232.0.copyload, %._crit_edge ]
+89:                                               ; preds = %._crit_edge37, %._crit_edge
+  %.sroa.2.0.copyload.i8 = phi i64 [ %.sroa.2.0.copyload.i8.pre, %._crit_edge37 ], [ %.sroa.232.0.copyload, %._crit_edge ]
   %90 = load ptr, ptr %2, align 8, !tbaa !220
   %91 = load i64, ptr %36, align 8, !tbaa !1267
   %92 = icmp eq i64 %91, %.sroa.2.0.copyload.i8
@@ -73765,9 +73763,8 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb18FilePickerMultiGet16Prepare
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %23, %26
   %storemerge.lcssa.i.i = phi i64 [ %storemerge3.i.i, %23 ], [ %13, %26 ]
-  %.idx151 = shl nuw nsw i64 %storemerge.lcssa.i.i, 4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx151
+  %28 = getelementptr inbounds nuw %"struct.rocksdb::FilePickerMultiGet::FilePickerContext", ptr %0, i64 %storemerge.lcssa.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !1299
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -73777,9 +73774,8 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %23, %26
   br i1 %35, label %.lr.ph.i.i39, label %.thread135
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit.thread: ; preds = %7
-  %.idx = shl nuw nsw i64 %10, 4
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
+  %36 = getelementptr inbounds nuw %"struct.rocksdb::FilePickerMultiGet::FilePickerContext", ptr %0, i64 %10
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !1299
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -73859,9 +73855,9 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit43: ; preds = %.lr.ph.i.i39, %46
   store i32 %63, ptr %4, align 4, !tbaa !1250
   %64 = load i32, ptr %0, align 8, !tbaa !1249
   %65 = icmp ult i32 %63, %64
-  br i1 %65, label %.lr.ph165, label %.loopexit
+  br i1 %65, label %.lr.ph164, label %.loopexit
 
-.lr.ph165:                                        ; preds = %.thread135
+.lr.ph164:                                        ; preds = %.thread135
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -73884,10 +73880,10 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit43: ; preds = %.lr.ph.i.i39, %46
   %79 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   br label %80
 
-80:                                               ; preds = %.lr.ph165, %291
-  %.pre173174 = phi i32 [ %64, %.lr.ph165 ], [ %.pre173175, %291 ]
-  %81 = phi i32 [ %64, %.lr.ph165 ], [ %292, %291 ]
-  %82 = phi i32 [ %63, %.lr.ph165 ], [ %293, %291 ]
+80:                                               ; preds = %.lr.ph164, %291
+  %.pre172173 = phi i32 [ %64, %.lr.ph164 ], [ %.pre172174, %291 ]
+  %81 = phi i32 [ %64, %.lr.ph164 ], [ %292, %291 ]
+  %82 = phi i32 [ %63, %.lr.ph164 ], [ %293, %291 ]
   %83 = load ptr, ptr %66, align 8, !tbaa !1278
   %84 = zext i32 %82 to i64
   %85 = icmp ult i32 %82, 8
@@ -73934,45 +73930,45 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit43: ; preds = %.lr.ph.i.i39, %46
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit55: ; preds = %106, %95
   %storemerge.lcssa.i.i50 = phi i64 [ %96, %95 ], [ %storemerge3.i.i52, %106 ]
-  %.not153162 = icmp eq i64 %storemerge.lcssa.i.i50, %98
-  br i1 %.not153162, label %.preheader.preheader, label %.lr.ph164
+  %.not152161 = icmp eq i64 %storemerge.lcssa.i.i50, %98
+  br i1 %.not152161, label %.preheader.preheader, label %.lr.ph163
 
-.lr.ph164:                                        ; preds = %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit55
+.lr.ph163:                                        ; preds = %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit55
   %111 = getelementptr inbounds nuw i8, ptr %97, i64 3848
   %112 = load i64, ptr %.sroa.6106.0..sroa_idx, align 8
   br label %113
 
-113:                                              ; preds = %.lr.ph164, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
-  %.sroa.5112.0163 = phi i64 [ %storemerge.lcssa.i.i50, %.lr.ph164 ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
-  %114 = getelementptr inbounds nuw %"struct.rocksdb::FilePickerMultiGet::FilePickerContext", ptr %74, i64 %.sroa.5112.0163
+113:                                              ; preds = %.lr.ph163, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
+  %.sroa.5112.0162 = phi i64 [ %storemerge.lcssa.i.i50, %.lr.ph163 ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
+  %114 = getelementptr inbounds nuw %"struct.rocksdb::FilePickerMultiGet::FilePickerContext", ptr %74, i64 %.sroa.5112.0162
   store i32 0, ptr %114, align 8, !tbaa !2660
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store i32 2147483647, ptr %115, align 4, !tbaa !2661
-  %116 = add i64 %.sroa.5112.0163, 1
+  %116 = add i64 %.sroa.5112.0162, 1
   %umax.i = call i64 @llvm.umax.i64(i64 %98, i64 %116)
   %117 = load i64, ptr %.sroa.7.0..sroa_idx, align 8
-  %invariant.op160 = or i64 %112, %117
+  %invariant.op159 = or i64 %112, %117
   %118 = add i64 %umax.i, -1
   br label %119
 
 119:                                              ; preds = %121, %113
-  %120 = phi i64 [ %122, %121 ], [ %.sroa.5112.0163, %113 ]
-  %exitcond167.not = icmp eq i64 %120, %118
-  br i1 %exitcond167.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %121
+  %120 = phi i64 [ %122, %121 ], [ %.sroa.5112.0162, %113 ]
+  %exitcond166.not = icmp eq i64 %120, %118
+  br i1 %exitcond166.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %121
 
 121:                                              ; preds = %119
   %122 = add i64 %120, 1
   %123 = shl nuw i64 1, %122
   %124 = load i64, ptr %111, align 8, !tbaa !222
-  %.reass161 = or i64 %124, %invariant.op160
-  %125 = and i64 %.reass161, %123
+  %.reass160 = or i64 %124, %invariant.op159
+  %125 = and i64 %.reass160, %123
   %.not.i = icmp eq i64 %125, 0
   br i1 %.not.i, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %119, !llvm.loop !264
 
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %119, %121
   %.lcssa.i = phi i64 [ %umax.i, %119 ], [ %122, %121 ]
-  %.not153 = icmp eq i64 %.lcssa.i, %98
-  br i1 %.not153, label %.preheader.preheader, label %113, !llvm.loop !2662
+  %.not152 = icmp eq i64 %.lcssa.i, %98
+  br i1 %.not152, label %.preheader.preheader, label %113, !llvm.loop !2662
 
 .preheader.preheader:                             ; preds = %109, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit55
   br label %.preheader
@@ -74006,14 +74002,14 @@ _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %119, %121
   %142 = load i64, ptr %70, align 8, !tbaa !221, !noalias !2665
   %143 = icmp ult i64 %140, %142
   %.pre = load i64, ptr %71, align 8, !tbaa !235
-  %.pre168 = load i64, ptr %72, align 8, !tbaa !236
+  %.pre167 = load i64, ptr %72, align 8, !tbaa !236
   br i1 %143, label %.lr.ph.i.i58, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit62
 
 .lr.ph.i.i58:                                     ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 3848
   %145 = load i64, ptr %144, align 8, !tbaa !222, !noalias !2665
   %146 = or i64 %.pre, %145
-  %147 = or i64 %146, %.pre168
+  %147 = or i64 %146, %.pre167
   br label %148
 
 148:                                              ; preds = %151, %.lr.ph.i.i58
@@ -74037,7 +74033,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit62: ; preds = %148, %151, %139
   store i64 %.sink.i, ptr %.sroa.4104.0..sroa_idx, align 8, !tbaa !285
   store i64 %.sroa.2.0.copyload.sink.i, ptr %.sroa.5105.0..sroa_idx, align 8, !tbaa !285
   store i64 %.pre, ptr %.sroa.6106.0..sroa_idx, align 8, !tbaa !285
-  store i64 %.pre168, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !285
+  store i64 %.pre167, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !285
   %154 = icmp ult i64 %.sink.i, %.sroa.2.0.copyload.sink.i
   br i1 %154, label %.lr.ph.i.i64, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68
 
@@ -74045,7 +74041,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit62: ; preds = %148, %151, %139
   %155 = getelementptr inbounds nuw i8, ptr %141, i64 3848
   %156 = load i64, ptr %155, align 8, !tbaa !222, !noalias !2668
   %157 = or i64 %.pre, %156
-  %158 = or i64 %157, %.pre168
+  %158 = or i64 %157, %.pre167
   br label %159
 
 159:                                              ; preds = %162, %.lr.ph.i.i64
@@ -74058,30 +74054,30 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit62: ; preds = %148, %151, %139
 162:                                              ; preds = %159
   %163 = add i64 %storemerge3.i.i65, 1
   %exitcond.not.i.i67 = icmp eq i64 %163, %.sroa.2.0.copyload.sink.i
-  br i1 %exitcond.not.i.i67, label %.critedge166, label %159, !llvm.loop !237
+  br i1 %exitcond.not.i.i67, label %.critedge165, label %159, !llvm.loop !237
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68: ; preds = %159, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit62
   %storemerge.lcssa.i.i63 = phi i64 [ %.sink.i, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit62 ], [ %storemerge3.i.i65, %159 ]
-  %.not152155 = icmp eq i64 %storemerge.lcssa.i.i63, %.sroa.2.0.copyload.sink.i
-  br i1 %.not152155, label %.critedge166, label %.lr.ph
+  %.not151154 = icmp eq i64 %storemerge.lcssa.i.i63, %.sroa.2.0.copyload.sink.i
+  br i1 %.not151154, label %.critedge165, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68
   %164 = getelementptr inbounds nuw i8, ptr %141, i64 3584
   br label %165
 
 ._crit_edge:                                      ; preds = %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit73
-  br i1 %.332, label %266, label %._crit_edge..critedge166_crit_edge
+  br i1 %.332, label %266, label %._crit_edge..critedge165_crit_edge
 
-._crit_edge..critedge166_crit_edge:               ; preds = %._crit_edge
-  %.pre172 = load i32, ptr %4, align 4, !tbaa !1250
-  %.pre173.pre = load i32, ptr %0, align 8, !tbaa !1249
-  br label %.critedge166
+._crit_edge..critedge165_crit_edge:               ; preds = %._crit_edge
+  %.pre171 = load i32, ptr %4, align 4, !tbaa !1250
+  %.pre172.pre = load i32, ptr %0, align 8, !tbaa !1249
+  br label %.critedge165
 
 165:                                              ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit73
   %166 = phi i64 [ %.pre, %.lr.ph ], [ %252, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit73 ]
-  %.029158 = phi i1 [ false, %.lr.ph ], [ %.332, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit73 ]
-  %.sroa.6.0156 = phi i64 [ %storemerge.lcssa.i.i63, %.lr.ph ], [ %.lcssa.i71, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit73 ]
-  %167 = getelementptr inbounds nuw %"struct.rocksdb::FilePickerMultiGet::FilePickerContext", ptr %74, i64 %.sroa.6.0156
+  %.029157 = phi i1 [ false, %.lr.ph ], [ %.332, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit73 ]
+  %.sroa.6.0155 = phi i64 [ %storemerge.lcssa.i.i63, %.lr.ph ], [ %.lcssa.i71, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit73 ]
+  %167 = getelementptr inbounds nuw %"struct.rocksdb::FilePickerMultiGet::FilePickerContext", ptr %74, i64 %.sroa.6.0155
   %168 = load i32, ptr %4, align 4, !tbaa !1250
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %248, label %170
@@ -74095,11 +74091,11 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68: ; preds = %159, %_ZNK7rocksd
 
 174:                                              ; preds = %170
   %175 = icmp eq i32 %173, 2147483647
-  %.pre169 = load ptr, ptr %67, align 8, !tbaa !1279
+  %.pre168 = load ptr, ptr %67, align 8, !tbaa !1279
   br i1 %175, label %176, label %180
 
 176:                                              ; preds = %174
-  %177 = load i64, ptr %.pre169, align 8, !tbaa !591
+  %177 = load i64, ptr %.pre168, align 8, !tbaa !591
   %178 = trunc i64 %177 to i32
   %179 = add nsw i32 %178, -1
   store i32 %179, ptr %172, align 4, !tbaa !2661
@@ -74107,11 +74103,11 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68: ; preds = %159, %_ZNK7rocksd
 
 180:                                              ; preds = %176, %174
   %181 = phi i32 [ %179, %176 ], [ %173, %174 ]
-  %182 = getelementptr inbounds nuw ptr, ptr %164, i64 %.sroa.6.0156
+  %182 = getelementptr inbounds nuw ptr, ptr %164, i64 %.sroa.6.0155
   %183 = load ptr, ptr %182, align 8, !tbaa !238
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 48
   %185 = add nsw i32 %181, 1
-  %186 = getelementptr inbounds nuw i8, ptr %.pre169, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %.pre168, i64 8
   %187 = load ptr, ptr %186, align 8, !tbaa !594
   %188 = zext i32 %171 to i64
   %.idx8.i = mul nuw nsw i64 %188, 80
@@ -74214,12 +74210,12 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.i.i.i.i.i: ; 
 
 "_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS2_21InternalKeyComparatorERKNS2_15LevelFilesBriefERKNS2_5SliceEjjE3$_0EclIPNS2_14FdWithKeyRangeESB_EEbT_RT0_.exit.i.i.i"
   %.pre.i = load ptr, ptr %186, align 8, !tbaa !594
-  %.pre170 = load i32, ptr %172, align 4, !tbaa !2661
-  %.pre177 = add nsw i32 %.pre170, 1
+  %.pre169 = load i32, ptr %172, align 4, !tbaa !2661
+  %.pre176 = add nsw i32 %.pre169, 1
   br label %_ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15LevelFilesBriefERKNS_5SliceEjj.exit
 
 _ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15LevelFilesBriefERKNS_5SliceEjj.exit: ; preds = %180, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i"
-  %.pre-phi = phi i32 [ %185, %180 ], [ %.pre177, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i" ]
+  %.pre-phi = phi i32 [ %185, %180 ], [ %.pre176, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i" ]
   %236 = phi ptr [ %187, %180 ], [ %.pre.i, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i" ]
   %.0.lcssa.i.i.i = phi ptr [ %189, %180 ], [ %.1.i.i.i, %"_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_12_GLOBAL__N_115FindFileInRangeERKNS0_21InternalKeyComparatorERKNS0_15LevelFilesBriefERKS3_jjE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit.i" ]
   %237 = ptrtoint ptr %.0.lcssa.i.i.i to i64
@@ -74233,7 +74229,7 @@ _ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15L
 .thread142:                                       ; preds = %_ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15LevelFilesBriefERKNS_5SliceEjj.exit
   store i32 0, ptr %167, align 8, !tbaa !2660
   store i32 2147483647, ptr %172, align 4, !tbaa !2661
-  %242 = shl nuw i64 1, %.sroa.6.0156
+  %242 = shl nuw i64 1, %.sroa.6.0155
   %243 = load i64, ptr %.sroa.6106.0..sroa_idx, align 8, !tbaa !235
   %244 = or i64 %243, %242
   store i64 %244, ptr %.sroa.6106.0..sroa_idx, align 8, !tbaa !235
@@ -74242,7 +74238,7 @@ _ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15L
 245:                                              ; preds = %170
   store i32 0, ptr %167, align 8, !tbaa !2660
   store i32 2147483647, ptr %172, align 4, !tbaa !2661
-  %246 = shl nuw i64 1, %.sroa.6.0156
+  %246 = shl nuw i64 1, %.sroa.6.0155
   %247 = or i64 %166, %246
   store i64 %247, ptr %.sroa.6106.0..sroa_idx, align 8, !tbaa !235
   br label %251
@@ -74253,14 +74249,14 @@ _ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15L
   store i32 %.028, ptr %249, align 4, !tbaa !2671
   %250 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store i32 %.028, ptr %250, align 8, !tbaa !1299
-  %.pre171 = load i64, ptr %.sroa.6106.0..sroa_idx, align 8
+  %.pre170 = load i64, ptr %.sroa.6106.0..sroa_idx, align 8
   br label %251
 
 251:                                              ; preds = %.thread142, %248, %245
-  %252 = phi i64 [ %.pre171, %248 ], [ %247, %245 ], [ %244, %.thread142 ]
-  %.332 = phi i1 [ true, %248 ], [ %.029158, %245 ], [ %.029158, %.thread142 ]
+  %252 = phi i64 [ %.pre170, %248 ], [ %247, %245 ], [ %244, %.thread142 ]
+  %.332 = phi i1 [ true, %248 ], [ %.029157, %245 ], [ %.029157, %.thread142 ]
   %253 = load i64, ptr %.sroa.5105.0..sroa_idx, align 8, !tbaa !221
-  %254 = add i64 %.sroa.6.0156, 1
+  %254 = add i64 %.sroa.6.0155, 1
   %umax.i70 = call i64 @llvm.umax.i64(i64 %253, i64 %254)
   %255 = load ptr, ptr %73, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 3848
@@ -74270,7 +74266,7 @@ _ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15L
   br label %259
 
 259:                                              ; preds = %261, %251
-  %260 = phi i64 [ %262, %261 ], [ %.sroa.6.0156, %251 ]
+  %260 = phi i64 [ %262, %261 ], [ %.sroa.6.0155, %251 ]
   %exitcond.not = icmp eq i64 %260, %258
   br i1 %exitcond.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit73, label %261
 
@@ -74285,8 +74281,8 @@ _ZN7rocksdb12_GLOBAL__N_115FindFileInRangeERKNS_21InternalKeyComparatorERKNS_15L
 
 _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit73: ; preds = %259, %261
   %.lcssa.i71 = phi i64 [ %umax.i70, %259 ], [ %262, %261 ]
-  %.not152 = icmp eq i64 %.lcssa.i71, %253
-  br i1 %.not152, label %._crit_edge, label %165, !llvm.loop !2672
+  %.not151 = icmp eq i64 %.lcssa.i71, %253
+  br i1 %.not151, label %._crit_edge, label %165, !llvm.loop !2672
 
 266:                                              ; preds = %._crit_edge
   %267 = load i64, ptr %.sroa.4104.0..sroa_idx, align 8, !tbaa !217, !noalias !2673
@@ -74357,17 +74353,17 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit79: ; preds = %273, %276
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %288, ptr noundef nonnull align 8 dereferenceable(24) %287, i64 24, i1 false), !tbaa.struct !1296
   br label %.loopexit
 
-.critedge166:                                     ; preds = %162, %._crit_edge..critedge166_crit_edge, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68
-  %.pre173 = phi i32 [ %.pre173.pre, %._crit_edge..critedge166_crit_edge ], [ %.pre173174, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68 ], [ %.pre173174, %162 ]
-  %289 = phi i32 [ %.pre172, %._crit_edge..critedge166_crit_edge ], [ %82, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68 ], [ %82, %162 ]
+.critedge165:                                     ; preds = %162, %._crit_edge..critedge165_crit_edge, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68
+  %.pre172 = phi i32 [ %.pre172.pre, %._crit_edge..critedge165_crit_edge ], [ %.pre172173, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68 ], [ %.pre172173, %162 ]
+  %289 = phi i32 [ %.pre171, %._crit_edge..critedge165_crit_edge ], [ %82, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit68 ], [ %82, %162 ]
   %290 = add i32 %289, 1
   store i32 %290, ptr %4, align 4, !tbaa !1250
   br label %291
 
-291:                                              ; preds = %.critedge166, %.critedge
-  %.pre173175 = phi i32 [ %.pre173, %.critedge166 ], [ %.pre173174, %.critedge ]
-  %292 = phi i32 [ %.pre173, %.critedge166 ], [ %81, %.critedge ]
-  %293 = phi i32 [ %290, %.critedge166 ], [ %127, %.critedge ]
+291:                                              ; preds = %.critedge165, %.critedge
+  %.pre172174 = phi i32 [ %.pre172, %.critedge165 ], [ %.pre172173, %.critedge ]
+  %292 = phi i32 [ %.pre172, %.critedge165 ], [ %81, %.critedge ]
+  %293 = phi i32 [ %290, %.critedge165 ], [ %127, %.critedge ]
   %294 = icmp ult i32 %293, %292
   br i1 %294, label %80, label %.loopexit
 

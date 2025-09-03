@@ -2168,124 +2168,123 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN5clang15OMPLinearClause13used_childrenEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::iterator_range") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !146
-  %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %6
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %6
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = add i32 %5, 1
-  %14 = zext i32 %13 to i64
-  %.idx3.i = shl nuw nsw i64 %14, 3
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx3.i
-  %.not.i = icmp ult i32 %13, 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = load i32, ptr %3, align 8, !tbaa !146
+  %5 = zext i32 %4 to i64
+  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %5
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %5
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %5
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %5
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %12 = add i32 %4, 1
+  %13 = zext i32 %12 to i64
+  %.idx3.i = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx3.i
+  %.not.i = icmp ult i32 %12, 4
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %2
-  %16 = lshr i64 %14, 2
-  %17 = and i64 %.idx3.i, 34359738336
-  %scevgep.i.i.i.i = getelementptr i8, ptr %12, i64 %17
+  %15 = lshr i64 %13, 2
+  %16 = and i64 %.idx3.i, 34359738336
+  %scevgep.i.i.i.i = getelementptr i8, ptr %11, i64 %16
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %32, %.lr.ph.preheader.i.i.i.i
-  %.041.i.i.i.i = phi i64 [ %34, %32 ], [ %16, %.lr.ph.preheader.i.i.i.i ]
-  %.02940.i.i.i.i = phi ptr [ %33, %32 ], [ %12, %.lr.ph.preheader.i.i.i.i ]
-  %18 = load ptr, ptr %.02940.i.i.i.i, align 8, !tbaa !15
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %20
+.lr.ph.i.i.i.i:                                   ; preds = %31, %.lr.ph.preheader.i.i.i.i
+  %.041.i.i.i.i = phi i64 [ %33, %31 ], [ %15, %.lr.ph.preheader.i.i.i.i ]
+  %.02940.i.i.i.i = phi ptr [ %32, %31 ], [ %11, %.lr.ph.preheader.i.i.i.i ]
+  %17 = load ptr, ptr %.02940.i.i.i.i, align 8, !tbaa !15
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %19
 
-20:                                               ; preds = %.lr.ph.i.i.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit, label %24
+19:                                               ; preds = %.lr.ph.i.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !15
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit, label %23
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26, label %28
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 16
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26, label %27
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !15
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28, label %32
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !15
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28, label %31
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 32
-  %34 = add nsw i64 %.041.i.i.i.i, -1
-  %35 = icmp sgt i64 %.041.i.i.i.i, 1
-  br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !283
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 32
+  %33 = add nsw i64 %.041.i.i.i.i, -1
+  %34 = icmp sgt i64 %.041.i.i.i.i, 1
+  br i1 %34, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !283
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %32
-  %36 = and i32 %13, 3
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %31
+  %35 = and i32 %12, 3
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
-  %.pre-phi47.i.i.i.i = phi i32 [ %36, %._crit_edge.loopexit.i.i.i.i ], [ %13, %2 ]
-  %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %12, %2 ]
+  %.pre-phi47.i.i.i.i = phi i32 [ %35, %._crit_edge.loopexit.i.i.i.i ], [ %12, %2 ]
+  %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %11, %2 ]
   switch i32 %.pre-phi47.i.i.i.i, label %default.unreachable [
-    i32 3, label %37
-    i32 2, label %42
-    i32 1, label %47
-    i32 0, label %50
+    i32 3, label %36
+    i32 2, label %41
+    i32 1, label %46
+    i32 0, label %49
   ]
 
-37:                                               ; preds = %._crit_edge.i.i.i.i
-  %38 = load ptr, ptr %.029.lcssa.i.i.i.i, align 8, !tbaa !15
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %40
+36:                                               ; preds = %._crit_edge.i.i.i.i
+  %37 = load ptr, ptr %.029.lcssa.i.i.i.i, align 8, !tbaa !15
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %39
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
-  br label %42
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
+  br label %41
 
-42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %43 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !15
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %45
+41:                                               ; preds = %39, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %40, %39 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %42 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !15
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %44
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
-  br label %47
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
+  br label %46
 
-47:                                               ; preds = %45, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %46, %45 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %48 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !15
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %50
+46:                                               ; preds = %44, %._crit_edge.i.i.i.i
+  %.2.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %47 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !15
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %49
 
 default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   unreachable
 
-50:                                               ; preds = %47, %._crit_edge.i.i.i.i
+49:                                               ; preds = %46, %._crit_edge.i.i.i.i
   br label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit
 
-_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %20
-  %51 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 8
+_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %19
+  %50 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 8
   br label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit
 
-_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26: ; preds = %24
-  %52 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 16
+_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26: ; preds = %23
+  %51 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 16
   br label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit
 
-_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28: ; preds = %28
-  %53 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 24
+_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28: ; preds = %27
+  %52 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 24
   br label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit
 
-_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28, %37, %42, %47, %50
-  %.028.i.i.i.i = phi ptr [ %15, %50 ], [ %.029.lcssa.i.i.i.i, %37 ], [ %.1.i.i.i.i, %42 ], [ %.2.i.i.i.i, %47 ], [ %51, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %52, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26 ], [ %53, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
-  store ptr %12, ptr %0, align 8
+_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28, %36, %41, %46, %49
+  %.028.i.i.i.i = phi ptr [ %14, %49 ], [ %.029.lcssa.i.i.i.i, %36 ], [ %.1.i.i.i.i, %41 ], [ %.2.i.i.i.i, %46 ], [ %50, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26 ], [ %52, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
+  store ptr %11, ptr %0, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.410.0..sroa_idx, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.028.i.i.i.i, ptr %54, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.028.i.i.i.i, ptr %53, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %.sroa.412.0..sroa_idx, align 8
   ret void
@@ -3833,17 +3832,16 @@ define dso_local void @_ZN5clang15OMPLinearClause12setUsedExprsEN4llvm8ArrayRefI
 
 4:                                                ; preds = %3
   %.idx = shl nuw nsw i64 %2, 3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !146
-  %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %14, ptr align 8 %1, i64 %.idx, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i32, ptr %5, align 8, !tbaa !146
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %7
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %1, i64 %.idx, i1 false)
   br label %_ZSt4copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit:  ; preds = %3, %4
@@ -3968,34 +3966,45 @@ _ZN5clang15OMPLinearClause8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds =
 
 _ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49.thread: ; preds = %_ZN5clang15OMPLinearClause8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %.pre-phi
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %.pre-phi
+  %70 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %.pre-phi
+  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %.pre-phi
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %.pre-phi
+  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.pre-phi
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.pre-phi
   br label %.lr.ph.preheader.i.i.i55
 
 _ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49:   ; preds = %_ZN5clang15OMPLinearClause8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   %.idx = shl nuw nsw i64 %17, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %68, i8 0, i64 %.idx, i1 false), !tbaa !15
-  %71 = getelementptr inbounds nuw ptr, ptr %68, i64 %.pre-phi
+  %75 = getelementptr inbounds nuw ptr, ptr %68, i64 %.pre-phi
   %.idx68 = shl nuw nsw i64 %17, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %71, i8 0, i64 %.idx68, i1 false), !tbaa !15
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %.pre-phi
-  %73 = add i32 %42, 1
-  %.not4.i.i.i54 = icmp eq i32 %73, 0
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %75, i8 0, i64 %.idx68, i1 false), !tbaa !15
+  %76 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %.pre-phi
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.pre-phi
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %.pre-phi
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %.pre-phi
+  %81 = add i32 %42, 1
+  %.not4.i.i.i54 = icmp eq i32 %81, 0
   br i1 %.not4.i.i.i54, label %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit57, label %.lr.ph.preheader.i.i.i55
 
 .lr.ph.preheader.i.i.i55:                         ; preds = %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49.thread, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49
-  %74 = phi i32 [ 1, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49.thread ], [ %73, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49 ]
-  %75 = phi ptr [ %70, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49.thread ], [ %72, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49 ]
-  %76 = zext i32 %74 to i64
-  %.idx69 = shl nuw nsw i64 %76, 3
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %77, i8 0, i64 %.idx69, i1 false), !tbaa !15
+  %82 = phi i32 [ 1, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49.thread ], [ %81, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49 ]
+  %83 = phi ptr [ %74, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49.thread ], [ %80, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49 ]
+  %84 = phi ptr [ %69, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49.thread ], [ %75, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49 ]
+  %85 = zext i32 %82 to i64
+  %.idx69 = shl nuw nsw i64 %85, 3
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %86, i8 0, i64 %.idx69, i1 false), !tbaa !15
   br label %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit57
 
 _ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit57:   ; preds = %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49, %.lr.ph.preheader.i.i.i55
-  %78 = phi ptr [ %72, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49 ], [ %75, %.lr.ph.preheader.i.i.i55 ]
-  store ptr %11, ptr %78, align 8, !tbaa !15
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store ptr %12, ptr %79, align 8, !tbaa !15
+  %87 = phi ptr [ %80, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49 ], [ %83, %.lr.ph.preheader.i.i.i55 ]
+  %88 = phi ptr [ %75, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49 ], [ %84, %.lr.ph.preheader.i.i.i55 ]
+  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %.pre-phi
+  store ptr %11, ptr %89, align 8, !tbaa !15
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 72
+  store ptr %12, ptr %90, align 8, !tbaa !15
   store ptr %13, ptr %47, align 8, !tbaa !277
   store i32 102, ptr %48, align 8, !tbaa !315
   store ptr %14, ptr %49, align 8, !tbaa !316

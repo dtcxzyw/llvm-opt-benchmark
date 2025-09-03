@@ -683,7 +683,7 @@ define void @_ZN6LibRaw12linear_tableEj(ptr noundef nonnull align 8 dereferencea
 
 5:                                                ; preds = %2
   %6 = icmp eq i32 %1, 0
-  br i1 %6, label %20, label %7
+  br i1 %6, label %19, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 5504
@@ -714,16 +714,15 @@ define void @_ZN6LibRaw12linear_tableEj(ptr noundef nonnull align 8 dereferencea
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread, %7
   %.01015 = phi i64 [ 65536, %.thread ], [ 65536, %7 ], [ %13, %._crit_edge.loopexit ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 5504
-  %15 = getelementptr i16, ptr %14, i64 %.01015
-  %16 = getelementptr i8, ptr %15, i64 -2
-  %17 = load i16, ptr %16, align 2, !tbaa !25
-  %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 153000
-  store i32 %18, ptr %19, align 8, !tbaa !31
-  br label %20
+  %14 = getelementptr i16, ptr %0, i64 %.01015
+  %15 = getelementptr i8, ptr %14, i64 5502
+  %16 = load i16, ptr %15, align 2, !tbaa !25
+  %17 = zext i16 %16 to i32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 153000
+  store i32 %17, ptr %18, align 8, !tbaa !31
+  br label %19
 
-20:                                               ; preds = %5, %._crit_edge
+19:                                               ; preds = %5, %._crit_edge
   ret void
 }
 

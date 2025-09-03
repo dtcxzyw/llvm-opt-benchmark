@@ -10492,10 +10492,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   store i8 0, ptr %AntiAliasing.i.i, align 1, !tbaa !46, !alias.scope !279
   store i16 34, ptr %TextureWrapU.i.i.i, align 8, !alias.scope !279
   store i16 1028, ptr %Wireframe.i.i, align 8, !alias.scope !279
-  %m_materials = getelementptr inbounds nuw i8, ptr %this, i64 248
   %12 = sext i32 %material_id to i64
-  %13 = getelementptr %"class.irr::video::SMaterial", ptr %m_materials, i64 %12
-  %arrayidx = getelementptr i8, ptr %13, i64 920
+  %13 = getelementptr %"class.irr::video::SMaterial", ptr %this, i64 %12
+  %arrayidx = getelementptr i8, ptr %13, i64 1168
   %call4 = invoke noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video9SMaterialaSEOS1_(ptr noundef nonnull align 8 dereferenceable(178) %arrayidx, ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -10538,7 +10537,7 @@ delete.notnull.i.3.i:                             ; preds = %_ZN3irr5video14SMat
 _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   store ptr %call2, ptr %arrayidx, align 8, !tbaa !26
-  %MaterialType = getelementptr i8, ptr %13, i64 1048
+  %MaterialType = getelementptr i8, ptr %13, i64 1296
   store i32 0, ptr %MaterialType, align 8, !tbaa !121
   br label %return
 

@@ -261,20 +261,20 @@ define i32 @ff_msmpeg4_pred_dc(ptr noundef readonly captures(none) %0, i32 nound
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 724
   %86 = load i32, ptr %85, align 4, !tbaa !51
   %87 = lshr i32 8, %86
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1160
-  br i1 %5, label %89, label %108
+  br i1 %5, label %88, label %108
 
-89:                                               ; preds = %82
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %91 = load i64, ptr %90, align 8, !tbaa !65
-  %92 = trunc i64 %91 to i32
-  %93 = load ptr, ptr %88, align 8, !tbaa !45
+88:                                               ; preds = %82
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %90 = load i64, ptr %89, align 8, !tbaa !65
+  %91 = trunc i64 %90 to i32
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %93 = load ptr, ptr %92, align 8, !tbaa !45
   %94 = ashr i32 %1, 1
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %96 = load i32, ptr %95, align 8, !tbaa !66
   %97 = shl nsw i32 %96, 1
   %98 = add nsw i32 %97, %94
-  %99 = mul i32 %87, %92
+  %99 = mul i32 %87, %91
   %100 = mul i32 %99, %98
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr %93, i64 %101
@@ -290,8 +290,8 @@ define i32 @ff_msmpeg4_pred_dc(ptr noundef readonly captures(none) %0, i32 nound
   %110 = load i64, ptr %109, align 8, !tbaa !68
   %111 = trunc i64 %110 to i32
   %112 = zext nneg i32 %1 to i64
-  %113 = getelementptr ptr, ptr %88, i64 %112
-  %114 = getelementptr i8, ptr %113, i64 -24
+  %113 = getelementptr ptr, ptr %0, i64 %112
+  %114 = getelementptr i8, ptr %113, i64 1136
   %115 = load ptr, ptr %114, align 8, !tbaa !45
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %117 = load i32, ptr %116, align 8, !tbaa !66
@@ -303,12 +303,12 @@ define i32 @ff_msmpeg4_pred_dc(ptr noundef readonly captures(none) %0, i32 nound
   %123 = load i32, ptr %122, align 4, !tbaa !67
   br label %124
 
-124:                                              ; preds = %108, %89
-  %.sink159 = phi i32 [ %123, %108 ], [ %107, %89 ]
-  %.sink = phi ptr [ %121, %108 ], [ %102, %89 ]
-  %125 = phi i32 [ %117, %108 ], [ %96, %89 ]
-  %126 = phi i32 [ %123, %108 ], [ %105, %89 ]
-  %.0119 = phi i32 [ %111, %108 ], [ %92, %89 ]
+124:                                              ; preds = %108, %88
+  %.sink159 = phi i32 [ %123, %108 ], [ %107, %88 ]
+  %.sink = phi ptr [ %121, %108 ], [ %102, %88 ]
+  %125 = phi i32 [ %117, %108 ], [ %96, %88 ]
+  %126 = phi i32 [ %123, %108 ], [ %105, %88 ]
+  %.0119 = phi i32 [ %111, %108 ], [ %91, %88 ]
   %127 = mul nsw i32 %.sink159, %87
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds i8, ptr %.sink, i64 %128

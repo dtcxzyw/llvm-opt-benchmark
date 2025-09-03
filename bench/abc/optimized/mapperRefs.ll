@@ -249,7 +249,7 @@ define float @Map_CutGetAreaFlow(ptr noundef captures(none) %0, i32 noundef %1) 
 
 16:                                               ; preds = %.lr.ph, %Map_NodeReadRefPhaseEst.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Map_NodeReadRefPhaseEst.exit ]
-  %.03235 = phi float [ %11, %.lr.ph ], [ %49, %Map_NodeReadRefPhaseEst.exit ]
+  %.03235 = phi float [ %11, %.lr.ph ], [ %48, %Map_NodeReadRefPhaseEst.exit ]
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = shl nuw i32 1, %17
   %19 = and i32 %18, %9
@@ -271,47 +271,45 @@ define float @Map_CutGetAreaFlow(ptr noundef captures(none) %0, i32 noundef %1) 
   br label %33
 
 33:                                               ; preds = %28, %16
+  %.pre-phi = phi i64 [ %30, %28 ], [ %24, %16 ]
   %.031 = phi ptr [ %32, %28 ], [ %26, %16 ]
-  %.0.in = phi i1 [ %29, %28 ], [ %20, %16 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.031, i64 80
-  %.offs = select i1 %.0.in, i64 76, i64 36
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.offs
+  %34 = getelementptr inbounds nuw %struct.Map_MatchStruct_t_, ptr %.031, i64 %.pre-phi
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 116
   %36 = load float, ptr %35, align 4, !tbaa !46
   %37 = load ptr, ptr %23, align 8, !tbaa !3
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %45, label %38
+  br i1 %.not.i, label %44, label %38
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %.not5.i = icmp eq ptr %40, null
-  br i1 %.not5.i, label %45, label %41
+  br i1 %.not5.i, label %44, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 44
-  %43 = zext i1 %.0.in to i64
-  %44 = getelementptr inbounds nuw float, ptr %42, i64 %43
+  %43 = getelementptr inbounds nuw float, ptr %42, i64 %.pre-phi
   br label %Map_NodeReadRefPhaseEst.exit
 
-45:                                               ; preds = %38, %33
-  %46 = getelementptr inbounds nuw i8, ptr %22, i64 52
+44:                                               ; preds = %38, %33
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 52
   br label %Map_NodeReadRefPhaseEst.exit
 
-Map_NodeReadRefPhaseEst.exit:                     ; preds = %41, %45
-  %.0.in.i = phi ptr [ %44, %41 ], [ %46, %45 ]
+Map_NodeReadRefPhaseEst.exit:                     ; preds = %41, %44
+  %.0.in.i = phi ptr [ %43, %41 ], [ %45, %44 ]
   %.0.i = load float, ptr %.0.in.i, align 4, !tbaa !10
-  %47 = fcmp oeq float %.0.i, 0.000000e+00
-  %.030 = select i1 %47, float 1.000000e+00, float %.0.i
-  %48 = fdiv float %36, %.030
-  %49 = fadd float %.03235, %48
+  %46 = fcmp oeq float %.0.i, 0.000000e+00
+  %.030 = select i1 %46, float 1.000000e+00, float %.0.i
+  %47 = fdiv float %36, %.030
+  %48 = fadd float %.03235, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %Map_NodeReadRefPhaseEst.exit, %2
-  %.032.lcssa = phi float [ %11, %2 ], [ %49, %Map_NodeReadRefPhaseEst.exit ]
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store float %.032.lcssa, ptr %50, align 4, !tbaa !46
+  %.032.lcssa = phi float [ %11, %2 ], [ %48, %Map_NodeReadRefPhaseEst.exit ]
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store float %.032.lcssa, ptr %49, align 4, !tbaa !46
   ret float %.032.lcssa
 }
 
@@ -330,9 +328,8 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 10:                                               ; preds = %8
   %.not59 = icmp eq i32 %2, 0
   %11 = sext i32 %1 to i64
-  %.idx = mul nsw i64 %11, 40
-  %12 = getelementptr i8, ptr %0, i64 96
-  %13 = getelementptr i8, ptr %12, i64 %.idx
+  %12 = getelementptr %struct.Map_MatchStruct_t_, ptr %0, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !48
@@ -355,30 +352,30 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 .lr.ph:                                           ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not61 = icmp eq i32 %2, 0
-  br i1 %.not61, label %.lr.ph.split.us.preheader, label %.lr.ph.split
+  %.not60 = icmp eq i32 %2, 0
+  br i1 %.not60, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.thread, %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %79
-  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %79 ], [ 0, %.lr.ph.split.us.preheader ]
-  %.05567.us = phi float [ %.1.us, %79 ], [ %9, %.lr.ph.split.us.preheader ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv71
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %79 ], [ 0, %.lr.ph.split.us.preheader ]
+  %.05566.us = phi float [ %.1.us, %79 ], [ %9, %.lr.ph.split.us.preheader ]
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv70
   %26 = load ptr, ptr %25, align 8, !tbaa !29
-  %27 = trunc nuw nsw i64 %indvars.iv71 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv70 to i32
   %28 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %27) #7
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %30 = load ptr, ptr %29, align 8, !tbaa !3
-  %.not62.us = icmp eq ptr %30, null
-  br i1 %.not62.us, label %44, label %31
+  %.not61.us = icmp eq ptr %30, null
+  br i1 %.not61.us, label %44, label %31
 
 31:                                               ; preds = %.lr.ph.split.us
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %33 = load ptr, ptr %32, align 8, !tbaa !3
-  %.not63.us = icmp eq ptr %33, null
-  br i1 %.not63.us, label %44, label %34
+  %.not62.us = icmp eq ptr %33, null
+  br i1 %.not62.us, label %44, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -416,11 +413,11 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %58 = load ptr, ptr %57, align 8, !tbaa !50
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 140
   %60 = load float, ptr %59, align 4, !tbaa !51
-  %61 = fadd float %.05567.us, %60
+  %61 = fadd float %.05566.us, %60
   br label %62
 
 62:                                               ; preds = %55, %51, %44
-  %.4.us = phi float [ %61, %55 ], [ %.05567.us, %51 ], [ %.05567.us, %44 ]
+  %.4.us = phi float [ %61, %55 ], [ %.05566.us, %51 ], [ %.05566.us, %44 ]
   %63 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %64 = load i32, ptr %63, align 8, !tbaa !8
   %65 = add nsw i32 %64, -1
@@ -429,17 +426,17 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %66, label %79, label %67
 
 67:                                               ; preds = %62, %34
-  %.pre-phi74 = phi i64 [ %46, %62 ], [ %39, %34 ]
-  %.3.us = phi float [ %.4.us, %62 ], [ %.05567.us, %34 ]
-  %68 = getelementptr inbounds ptr, ptr %29, i64 %.pre-phi74
+  %.pre-phi73 = phi i64 [ %46, %62 ], [ %39, %34 ]
+  %.3.us = phi float [ %.4.us, %62 ], [ %.05566.us, %34 ]
+  %68 = getelementptr inbounds ptr, ptr %29, i64 %.pre-phi73
   %69 = load ptr, ptr %68, align 8, !tbaa !3
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %67
-  %.not66.us = icmp eq i32 %28, 0
-  %72 = zext i1 %.not66.us to i32
-  %73 = zext i1 %.not66.us to i64
+  %.not65.us = icmp eq i32 %28, 0
+  %72 = zext i1 %.not65.us to i32
+  %73 = zext i1 %.not65.us to i64
   %74 = getelementptr inbounds nuw ptr, ptr %29, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !3
   br label %76
@@ -452,30 +449,30 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %79
 
 79:                                               ; preds = %76, %62, %34
-  %.1.us = phi float [ %78, %76 ], [ %.05567.us, %34 ], [ %.4.us, %62 ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %.1.us = phi float [ %78, %76 ], [ %.05566.us, %34 ], [ %.4.us, %62 ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %80 = load i8, ptr %5, align 4, !tbaa !44
   %81 = sext i8 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next72, %81
+  %82 = icmp slt i64 %indvars.iv.next71, %81
   br i1 %82, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %.lr.ph ]
-  %.05567 = phi float [ %.1, %137 ], [ %9, %.lr.ph ]
+  %.05566 = phi float [ %.1, %137 ], [ %9, %.lr.ph ]
   %83 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !29
   %85 = trunc nuw nsw i64 %indvars.iv to i32
   %86 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %85) #7
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 144
   %88 = load ptr, ptr %87, align 8, !tbaa !3
-  %.not64 = icmp eq ptr %88, null
-  br i1 %.not64, label %102, label %89
+  %.not63 = icmp eq ptr %88, null
+  br i1 %.not63, label %102, label %89
 
 89:                                               ; preds = %.lr.ph.split
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 152
   %91 = load ptr, ptr %90, align 8, !tbaa !3
-  %.not65 = icmp eq ptr %91, null
-  br i1 %.not65, label %102, label %92
+  %.not64 = icmp eq ptr %91, null
+  br i1 %.not64, label %102, label %92
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 32
@@ -513,11 +510,11 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %116 = load ptr, ptr %115, align 8, !tbaa !50
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 140
   %118 = load float, ptr %117, align 4, !tbaa !51
-  %119 = fadd float %.05567, %118
+  %119 = fadd float %.05566, %118
   br label %120
 
 120:                                              ; preds = %113, %109, %102
-  %.2 = phi float [ %119, %113 ], [ %.05567, %109 ], [ %.05567, %102 ]
+  %.2 = phi float [ %119, %113 ], [ %.05566, %109 ], [ %.05566, %102 ]
   %121 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %122 = load i32, ptr %121, align 8, !tbaa !8
   %123 = add nsw i32 %122, 1
@@ -527,16 +524,16 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 125:                                              ; preds = %92, %120
   %.pre-phi = phi i64 [ %97, %92 ], [ %104, %120 ]
-  %.3 = phi float [ %.05567, %92 ], [ %.2, %120 ]
+  %.3 = phi float [ %.05566, %92 ], [ %.2, %120 ]
   %126 = getelementptr inbounds ptr, ptr %87, i64 %.pre-phi
   %127 = load ptr, ptr %126, align 8, !tbaa !3
   %128 = icmp eq ptr %127, null
   br i1 %128, label %129, label %134
 
 129:                                              ; preds = %125
-  %.not66 = icmp eq i32 %86, 0
-  %130 = zext i1 %.not66 to i32
-  %131 = zext i1 %.not66 to i64
+  %.not65 = icmp eq i32 %86, 0
+  %130 = zext i1 %.not65 to i32
+  %131 = zext i1 %.not65 to i64
   %132 = getelementptr inbounds nuw ptr, ptr %87, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !3
   br label %134
@@ -549,7 +546,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %137
 
 137:                                              ; preds = %120, %92, %134
-  %.1 = phi float [ %.05567, %92 ], [ %136, %134 ], [ %.2, %120 ]
+  %.1 = phi float [ %.05566, %92 ], [ %136, %134 ], [ %.2, %120 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = load i8, ptr %5, align 4, !tbaa !44
   %139 = sext i8 %138 to i64
@@ -613,8 +610,8 @@ define void @Map_MappingSetRefs_rec(ptr noundef readonly captures(none) %0, ptr 
   %15 = load i32, ptr %14, align 4, !tbaa !8
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4, !tbaa !8
-  %.not48 = icmp eq i32 %15, 0
-  br i1 %.not48, label %.lr.ph, label %.loopexit
+  %.not47 = icmp eq i32 %15, 0
+  br i1 %.not47, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %17 = phi i64 [ %38, %tailrecurse ], [ %13, %2 ]
@@ -674,12 +671,11 @@ tailrecurse:                                      ; preds = %23
   %53 = load i32, ptr %52, align 8, !tbaa !59
   %.not35 = icmp eq i32 %53, 0
   %.pre = zext nneg i32 %.029 to i64
-  %.pre62 = mul nuw nsw i64 %.pre, 40
   br i1 %.not35, label %._crit_edge, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 96
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.pre62
+  %55 = getelementptr inbounds nuw %struct.Map_MatchStruct_t_, ptr %.0, i64 %.pre
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 96
   %57 = load ptr, ptr %56, align 8, !tbaa !36
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %59 = load ptr, ptr %58, align 8, !tbaa !48
@@ -687,20 +683,20 @@ tailrecurse:                                      ; preds = %23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %51, %54
-  %60 = getelementptr inbounds nuw i8, ptr %.0, i64 92
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.pre62
+  %60 = getelementptr inbounds nuw %struct.Map_MatchStruct_t_, ptr %.0, i64 %.pre
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 92
   %62 = load i32, ptr %61, align 4, !tbaa !40
   %63 = getelementptr inbounds nuw i8, ptr %.0, i64 76
   %64 = load i8, ptr %63, align 4, !tbaa !44
   %65 = icmp sgt i8 %64, 0
-  br i1 %65, label %.lr.ph50, label %.loopexit
+  br i1 %65, label %.lr.ph49, label %.loopexit
 
-.lr.ph50:                                         ; preds = %._crit_edge
+.lr.ph49:                                         ; preds = %._crit_edge
   %66 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   br label %67
 
-67:                                               ; preds = %.lr.ph50, %67
-  %indvars.iv = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next, %67 ]
+67:                                               ; preds = %.lr.ph49, %67
+  %indvars.iv = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %67 ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
   %69 = lshr i32 %62, %68
   %70 = and i32 %69, 1

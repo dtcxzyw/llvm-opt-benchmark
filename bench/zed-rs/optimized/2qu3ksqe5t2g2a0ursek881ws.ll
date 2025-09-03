@@ -4897,17 +4897,16 @@ define hidden { i32, i32 } @"_ZN4text14BufferSnapshot34summaries_for_anchors_wit
   unreachable
 
 187:                                              ; preds = %183
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %189 = load i64, ptr %188, align 8, !noundef !4
-  %.idx = mul nuw nsw i64 %177, 152
-  %190 = getelementptr inbounds nuw i8, ptr %172, i64 376
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx
+  %188 = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }, ptr %172, i64 %177
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %190 = load i64, ptr %189, align 8, !noundef !4
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 376
   %192 = load i8, ptr %191, align 8, !range !809, !noundef !4
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %203, label %194
 
 194:                                              ; preds = %203, %187
-  %.sroa.016.0 = phi i64 [ %207, %203 ], [ %189, %187 ]
+  %.sroa.016.0 = phi i64 [ %207, %203 ], [ %190, %187 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %196 = call { i32, i32 } @_ZN4rope6Cursor7summary17h77d648e995d06ac7E(ptr noalias noundef nonnull align 8 dereferenceable(432) %195, i64 noundef %.sroa.016.0)
@@ -4929,7 +4928,7 @@ define hidden { i32, i32 } @"_ZN4text14BufferSnapshot34summaries_for_anchors_wit
 203:                                              ; preds = %187
   %204 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %205 = load i64, ptr %204, align 8, !noundef !4
-  %206 = add i64 %189, %44
+  %206 = add i64 %190, %44
   %207 = sub i64 %206, %205
   br label %194
 

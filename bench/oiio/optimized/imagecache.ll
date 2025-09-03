@@ -9288,7 +9288,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_014ImageCacheImpl15check_max_filesEPNS
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 32, !tbaa !454
   %11 = icmp slt i32 %8, %10
-  br i1 %11, label %187, label %12
+  br i1 %11, label %184, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 149
@@ -9308,7 +9308,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_014ImageCacheImpl15check_max_filesEPNS
   %.0..0..0..0..0..0..i.i = load i8, ptr %4, align 1, !tbaa !456, !range !173, !noundef !174
   %22 = trunc nuw i8 %.0..0..0..0..0..0..i.i to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %22, label %187, label %_ZN11OpenImageIO6v3_1_010spin_mutex4lockEv.exit
+  br i1 %22, label %184, label %_ZN11OpenImageIO6v3_1_010spin_mutex4lockEv.exit
 
 23:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -9485,7 +9485,7 @@ _ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intru
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE4findERKS2_b.exit
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE4findERKS2_b.exit: ; preds = %89, %87
-  %.sroa.1757.0 = phi i64 [ undef, %87 ], [ %91, %89 ]
+  %.sroa.1755.0 = phi i64 [ undef, %87 ], [ %91, %89 ]
   %.sroa.19.0 = phi i8 [ 0, %87 ], [ 1, %89 ]
   %.sroa.10.0 = phi i32 [ -1, %87 ], [ %90, %89 ]
   %92 = load i32, ptr %39, align 8, !tbaa !464
@@ -9507,7 +9507,7 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_p
   store ptr %46, ptr %5, align 8, !tbaa !460
   store i32 %.sroa.10.0, ptr %39, align 8, !tbaa !464
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.sroa.1757.0, ptr %102, align 8, !tbaa !479
+  store i64 %.sroa.1755.0, ptr %102, align 8, !tbaa !479
   store i8 %.sroa.19.0, ptr %40, align 8, !tbaa !465
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit
 
@@ -9519,8 +9519,8 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_p
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %108
 
-108:                                              ; preds = %161, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit
-  %.0 = phi i32 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit ], [ %.18994, %161 ]
+108:                                              ; preds = %159, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit
+  %.0 = phi i32 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit ], [ %.18792, %159 ]
   %109 = load atomic i32, ptr %7 seq_cst, align 16
   %110 = load i32, ptr %9, align 32, !tbaa !454
   %111 = icmp sge i32 %109, %110
@@ -9528,7 +9528,7 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_p
   %113 = select i1 %111, i1 %112, i1 false
   %.pr.pre = load ptr, ptr %5, align 8, !tbaa !460
   %.not.i = icmp eq ptr %.pr.pre, null
-  br i1 %113, label %114, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread
+  br i1 %113, label %114, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread
 
 114:                                              ; preds = %108
   br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread, label %115
@@ -9540,183 +9540,177 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_p
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit: ; preds = %115
   %118 = zext nneg i32 %116 to i64
-  %.idx.i = shl nuw nsw i64 %118, 7
-  %119 = getelementptr inbounds nuw i8, ptr %.pr.pre, i64 72
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
-  %122 = load ptr, ptr %121, align 8, !tbaa !472
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %124 = load i64, ptr %123, align 8, !tbaa !478
-  %125 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %122, i64 %124
-  %126 = load ptr, ptr %103, align 8, !tbaa !480
-  %.not = icmp eq ptr %126, %125
-  br i1 %.not, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40
+  %119 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %.pr.pre, i64 %118, i32 2, i32 0, i32 6
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
+  %121 = load ptr, ptr %120, align 8, !tbaa !472
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 40
+  %123 = load i64, ptr %122, align 8, !tbaa !478
+  %124 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %121, i64 %123
+  %125 = load ptr, ptr %103, align 8, !tbaa !480
+  %.not = icmp eq ptr %125, %124
+  br i1 %.not, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread: ; preds = %114, %115, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::iterator") align 8 %6, ptr noundef nonnull align 64 dereferenceable(8256) %104)
-          to label %127 unwind label %148
+          to label %126 unwind label %147
 
-127:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread
-  %128 = load i32, ptr %39, align 8, !tbaa !464
-  %129 = icmp sgt i32 %128, -1
-  %130 = load i8, ptr %40, align 8, !range !173
-  %131 = trunc nuw i8 %130 to i1
-  %or.cond112 = select i1 %129, i1 %131, i1 false
-  br i1 %or.cond112, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i28, label %137
+126:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread
+  %127 = load i32, ptr %39, align 8, !tbaa !464
+  %128 = icmp sgt i32 %127, -1
+  %129 = load i8, ptr %40, align 8, !range !173
+  %130 = trunc nuw i8 %129 to i1
+  %or.cond110 = select i1 %128, i1 %130, i1 false
+  br i1 %or.cond110, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i28, label %136
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i28: ; preds = %127
-  %132 = load ptr, ptr %5, align 8, !tbaa !460
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 64
-  %134 = zext nneg i32 %128 to i64
-  %135 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %133, i64 %134
-  %136 = atomicrmw sub ptr %135, i32 1073741824 release, align 4
-  br label %137
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i28: ; preds = %126
+  %131 = load ptr, ptr %5, align 8, !tbaa !460
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 64
+  %133 = zext nneg i32 %127 to i64
+  %134 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %132, i64 %133
+  %135 = atomicrmw sub ptr %134, i32 1073741824 release, align 4
+  br label %136
 
-137:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i28, %127
-  %138 = load ptr, ptr %6, align 8, !tbaa !460
-  store ptr %138, ptr %5, align 8, !tbaa !460
-  %139 = load i32, ptr %105, align 8, !tbaa !464
-  store i32 %139, ptr %39, align 8, !tbaa !464
-  %140 = load i64, ptr %106, align 8, !tbaa !479
-  store i64 %140, ptr %103, align 8, !tbaa !479
-  %141 = load i8, ptr %107, align 8, !tbaa !465, !range !173, !noundef !174
-  store i8 %141, ptr %40, align 8, !tbaa !465
-  %.not.i.i30 = icmp eq ptr %138, null
-  %142 = inttoptr i64 %140 to ptr
-  br i1 %.not.i.i30, label %.thread90, label %143
+136:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i28, %126
+  %137 = load ptr, ptr %6, align 8, !tbaa !460
+  store ptr %137, ptr %5, align 8, !tbaa !460
+  %138 = load i32, ptr %105, align 8, !tbaa !464
+  store i32 %138, ptr %39, align 8, !tbaa !464
+  %139 = load i64, ptr %106, align 8, !tbaa !479
+  store i64 %139, ptr %103, align 8, !tbaa !479
+  %140 = load i8, ptr %107, align 8, !tbaa !465, !range !173, !noundef !174
+  store i8 %140, ptr %40, align 8, !tbaa !465
+  %.not.i.i30 = icmp eq ptr %137, null
+  %141 = inttoptr i64 %139 to ptr
+  br i1 %.not.i.i30, label %.thread88, label %142
 
-.thread90:                                        ; preds = %137
+.thread88:                                        ; preds = %136
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit43.thread
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit41.thread
 
-143:                                              ; preds = %137
-  %144 = icmp sgt i32 %139, -1
+142:                                              ; preds = %136
+  %143 = icmp sgt i32 %138, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %144, label %.thread95, label %.loopexit
+  br i1 %143, label %.thread93, label %.loopexit
 
-.thread95:                                        ; preds = %143
-  %145 = add nsw i32 %.0, 1
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40
+.thread93:                                        ; preds = %142
+  %144 = add nsw i32 %.0, 1
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39
 
-146:                                              ; preds = %161
-  %147 = landingpad { ptr, i32 }
+145:                                              ; preds = %159
+  %146 = landingpad { ptr, i32 }
           cleanup
-  br label %188
+  br label %185
 
-148:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread
-  %149 = landingpad { ptr, i32 }
+147:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread
+  %148 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %188
+  br label %185
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit, %.thread95
-  %150 = phi ptr [ %142, %.thread95 ], [ %126, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
-  %151 = phi i32 [ %139, %.thread95 ], [ %116, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
-  %152 = phi ptr [ %138, %.thread95 ], [ %.pr.pre, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
-  %.18994 = phi i32 [ %145, %.thread95 ], [ %.0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
-  %153 = zext nneg i32 %151 to i64
-  %.idx.i39 = shl nuw nsw i64 %153, 7
-  %154 = getelementptr inbounds nuw i8, ptr %152, i64 72
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 %.idx.i39
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
-  %157 = load ptr, ptr %156, align 8, !tbaa !472
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 40
-  %159 = load i64, ptr %158, align 8, !tbaa !478
-  %160 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %157, i64 %159
-  %.not66 = icmp eq ptr %150, %160
-  br i1 %.not66, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread.thread, label %161
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit, %.thread93
+  %149 = phi ptr [ %141, %.thread93 ], [ %125, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
+  %150 = phi i32 [ %138, %.thread93 ], [ %116, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
+  %151 = phi ptr [ %137, %.thread93 ], [ %.pr.pre, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
+  %.18792 = phi i32 [ %144, %.thread93 ], [ %.0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
+  %152 = zext nneg i32 %150 to i64
+  %153 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %151, i64 %152, i32 2, i32 0, i32 6
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 32
+  %155 = load ptr, ptr %154, align 8, !tbaa !472
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 40
+  %157 = load i64, ptr %156, align 8, !tbaa !478
+  %158 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %155, i64 %157
+  %.not64 = icmp eq ptr %149, %158
+  br i1 %.not64, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread.thread, label %159
 
-161:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40
-  %162 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  %163 = load ptr, ptr %162, align 8, !tbaa !481
-  call void @_ZN11OpenImageIO6v3_1_014ImageCacheFile7releaseEv(ptr noundef nonnull align 8 dereferenceable(352) %163)
+159:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39
+  %160 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %161 = load ptr, ptr %160, align 8, !tbaa !481
+  call void @_ZN11OpenImageIO6v3_1_014ImageCacheFile7releaseEv(ptr noundef nonnull align 8 dereferenceable(352) %161)
   invoke void @_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(25) %5)
-          to label %108 unwind label %146, !llvm.loop !483
+          to label %108 unwind label %145, !llvm.loop !483
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread: ; preds = %108
-  br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit43.thread, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread.thread
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread: ; preds = %108
+  br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit41.thread, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread.thread
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread.thread: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread
-  %.pr98 = phi ptr [ %.pr.pre, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread ], [ %152, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40 ]
-  %.pr64 = load i32, ptr %39, align 8, !tbaa !464
-  %164 = icmp sgt i32 %.pr64, -1
-  br i1 %164, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit43, label %.loopexit
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread.thread: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread
+  %.pr96 = phi ptr [ %.pr.pre, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread ], [ %151, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39 ]
+  %.pr62 = load i32, ptr %39, align 8, !tbaa !464
+  %162 = icmp sgt i32 %.pr62, -1
+  br i1 %162, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit41, label %.loopexit
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit43: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread.thread
-  %165 = zext nneg i32 %.pr64 to i64
-  %.idx.i42 = shl nuw nsw i64 %165, 7
-  %166 = getelementptr inbounds nuw i8, ptr %.pr98, i64 72
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 %.idx.i42
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
-  %169 = load ptr, ptr %168, align 8, !tbaa !472
-  %170 = getelementptr inbounds nuw i8, ptr %167, i64 40
-  %171 = load i64, ptr %170, align 8, !tbaa !478
-  %172 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %169, i64 %171
-  %173 = load ptr, ptr %103, align 8, !tbaa !480
-  %.not67 = icmp eq ptr %173, %172
-  br i1 %.not67, label %.loopexit, label %174
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit41: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread.thread
+  %163 = zext nneg i32 %.pr62 to i64
+  %164 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %.pr96, i64 %163, i32 2, i32 0, i32 6
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
+  %166 = load ptr, ptr %165, align 8, !tbaa !472
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 40
+  %168 = load i64, ptr %167, align 8, !tbaa !478
+  %169 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %166, i64 %168
+  %170 = load ptr, ptr %103, align 8, !tbaa !480
+  %.not65 = icmp eq ptr %170, %169
+  br i1 %.not65, label %.loopexit, label %171
 
-174:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit43
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %176 = load i64, ptr %175, align 8, !tbaa !180
+171:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit41
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %173 = load i64, ptr %172, align 8, !tbaa !180
   br label %.loopexit
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit43.thread: ; preds = %.thread90, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit41.thread: ; preds = %.thread88, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread
   store i64 0, ptr %41, align 64, !tbaa !180
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 8584
-  store atomic i8 0, ptr %177 release, align 8
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit47
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 8584
+  store atomic i8 0, ptr %174 release, align 8
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit45
 
-.loopexit:                                        ; preds = %143, %174, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit43, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread.thread
-  %.ph = phi ptr [ %.pr98, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread.thread ], [ %.pr98, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit43 ], [ %.pr98, %174 ], [ %138, %143 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread.thread ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit43 ], [ %176, %174 ], [ 0, %143 ]
+.loopexit:                                        ; preds = %142, %171, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit41, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread.thread
+  %.ph = phi ptr [ %.pr96, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread.thread ], [ %.pr96, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit41 ], [ %.pr96, %171 ], [ %137, %142 ]
+  %.sroa.0.0.ph = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread.thread ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit41 ], [ %173, %171 ], [ 0, %142 ]
   store i64 %.sroa.0.0.ph, ptr %41, align 64, !tbaa !180
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 8584
-  store atomic i8 0, ptr %178 release, align 8
-  %179 = load i32, ptr %39, align 8, !tbaa !464
-  %180 = icmp sgt i32 %179, -1
-  %181 = load i8, ptr %40, align 8, !range !173
-  %182 = trunc nuw i8 %181 to i1
-  %or.cond114 = select i1 %180, i1 %182, i1 false
-  br i1 %or.cond114, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i46, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit47
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 8584
+  store atomic i8 0, ptr %175 release, align 8
+  %176 = load i32, ptr %39, align 8, !tbaa !464
+  %177 = icmp sgt i32 %176, -1
+  %178 = load i8, ptr %40, align 8, !range !173
+  %179 = trunc nuw i8 %178 to i1
+  %or.cond112 = select i1 %177, i1 %179, i1 false
+  br i1 %or.cond112, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i44, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit45
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i46: ; preds = %.loopexit
-  %183 = getelementptr inbounds nuw i8, ptr %.ph, i64 64
-  %184 = zext nneg i32 %179 to i64
-  %185 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %183, i64 %184
-  %186 = atomicrmw sub ptr %185, i32 1073741824 release, align 4
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit47
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i44: ; preds = %.loopexit
+  %180 = getelementptr inbounds nuw i8, ptr %.ph, i64 64
+  %181 = zext nneg i32 %176 to i64
+  %182 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %180, i64 %181
+  %183 = atomicrmw sub ptr %182, i32 1073741824 release, align 4
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit45
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit47: ; preds = %.loopexit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i46, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit43.thread
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit45: ; preds = %.loopexit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i44, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit41.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %187
+  br label %184
 
-187:                                              ; preds = %19, %2, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit47
+184:                                              ; preds = %19, %2, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit45
   ret void
 
-188:                                              ; preds = %146, %148
-  %.pn17.pn = phi { ptr, i32 } [ %147, %146 ], [ %149, %148 ]
-  %189 = load ptr, ptr %5, align 8, !tbaa !460
-  %.not.i.i48 = icmp eq ptr %189, null
-  br i1 %.not.i.i48, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit51, label %190
+185:                                              ; preds = %145, %147
+  %.pn17.pn = phi { ptr, i32 } [ %146, %145 ], [ %148, %147 ]
+  %186 = load ptr, ptr %5, align 8, !tbaa !460
+  %.not.i.i46 = icmp eq ptr %186, null
+  br i1 %.not.i.i46, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit49, label %187
 
-190:                                              ; preds = %188
-  %191 = load i32, ptr %39, align 8, !tbaa !464
-  %192 = icmp sgt i32 %191, -1
-  %193 = load i8, ptr %40, align 8, !range !173
-  %194 = trunc nuw i8 %193 to i1
-  %or.cond116 = select i1 %192, i1 %194, i1 false
-  br i1 %or.cond116, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i50, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit51
+187:                                              ; preds = %185
+  %188 = load i32, ptr %39, align 8, !tbaa !464
+  %189 = icmp sgt i32 %188, -1
+  %190 = load i8, ptr %40, align 8, !range !173
+  %191 = trunc nuw i8 %190 to i1
+  %or.cond114 = select i1 %189, i1 %191, i1 false
+  br i1 %or.cond114, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i48, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit49
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i50: ; preds = %190
-  %195 = getelementptr inbounds nuw i8, ptr %189, i64 64
-  %196 = zext nneg i32 %191 to i64
-  %197 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %195, i64 %196
-  %198 = atomicrmw sub ptr %197, i32 1073741824 release, align 4
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit51
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i48: ; preds = %187
+  %192 = getelementptr inbounds nuw i8, ptr %186, i64 64
+  %193 = zext nneg i32 %188 to i64
+  %194 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %192, i64 %193
+  %195 = atomicrmw sub ptr %194, i32 1073741824 release, align 4
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit49
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit51: ; preds = %190, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i50, %188
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit49: ; preds = %187, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i48, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn17.pn
 }
@@ -14657,15 +14651,15 @@ _ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit:    ; preds = %6
   br label %_ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit.thread
 
 _ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit.thread: ; preds = %_ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit, %6
-  %.sroa.069.0 = phi ptr [ %1, %6 ], [ %spec.select, %_ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit ]
+  %.sroa.068.0 = phi ptr [ %1, %6 ], [ %spec.select, %_ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit ]
   br i1 %5, label %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit.thread, label %14
 
 14:                                               ; preds = %_ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit.thread
-  %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.069.0, null
+  %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.068.0, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_07ustringEPNS4_14ImageCacheFileEENS_9robin_mapIS5_S7_St4hashIS5_ESt8equal_toIS5_ESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E8hash_keyIS5_EEmRKT_.exit.i.i.i, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %.sroa.069.0, i64 -64
+  %16 = getelementptr inbounds i8, ptr %.sroa.068.0, i64 -64
   %17 = load i64, ptr %16, align 8, !tbaa !466
   br label %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_07ustringEPNS4_14ImageCacheFileEENS_9robin_mapIS5_S7_St4hashIS5_ESt8equal_toIS5_ESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E8hash_keyIS5_EEmRKT_.exit.i.i.i
 
@@ -14687,7 +14681,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_07ustringEPN
   %.015.i.i.i.i = phi i16 [ %30, %28 ], [ 0, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_07ustringEPNS4_14ImageCacheFileEENS_9robin_mapIS5_S7_St4hashIS5_ESt8equal_toIS5_ESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E8hash_keyIS5_EEmRKT_.exit.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !11
-  %27 = icmp eq ptr %26, %.sroa.069.0
+  %27 = icmp eq ptr %26, %.sroa.068.0
   br i1 %27, label %_ZNK3tsl9robin_mapIN11OpenImageIO6v3_1_07ustringEPNS2_14ImageCacheFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIS3_S5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS3_.exit.loopexit.i, label %28, !prof !476
 
 28:                                               ; preds = %.lr.ph.i.i.i.i
@@ -14725,121 +14719,121 @@ _ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit: 
   br i1 %.not, label %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit.thread, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit
 
 _ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit.thread: ; preds = %_ZNK3tsl9robin_mapIN11OpenImageIO6v3_1_07ustringEPNS2_14ImageCacheFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIS3_S5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS3_.exit.i, %_ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit.thread, %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit
-  %.not.i.i.i29 = icmp eq ptr %.sroa.069.0, null
-  br i1 %.not.i.i.i29, label %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i, label %42
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %.not.i.i.i29 = icmp eq ptr %.sroa.068.0, null
+  br i1 %.not.i.i.i29, label %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i, label %43
 
-42:                                               ; preds = %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit.thread
-  %43 = getelementptr inbounds i8, ptr %.sroa.069.0, i64 -64
-  %44 = load i64, ptr %43, align 8, !tbaa !466
-  %45 = lshr i64 %44, 58
+43:                                               ; preds = %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit.thread
+  %44 = getelementptr inbounds i8, ptr %.sroa.068.0, i64 -64
+  %45 = load i64, ptr %44, align 8, !tbaa !466
+  %46 = lshr i64 %45, 58
   br label %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i
 
-_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i: ; preds = %42, %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit.thread
-  %.0.i.i.i30 = phi i64 [ %45, %42 ], [ 0, %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit.thread ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %47 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %46, i64 %.0.i.i.i30
-  %48 = cmpxchg weak ptr %47, i32 0, i32 1073741824 acquire acquire, align 4
-  %49 = extractvalue { i32, i1 } %48, 1
-  br i1 %49, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i
+_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i: ; preds = %43, %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit.thread
+  %.0.i.i.i30 = phi i64 [ %46, %43 ], [ 0, %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit.thread ]
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %48 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %47, i64 %.0.i.i.i30
+  %49 = cmpxchg weak ptr %48, i32 0, i32 1073741824 acquire acquire, align 4
+  %50 = extractvalue { i32, i1 } %49, 1
+  br i1 %50, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i
 
 _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i: ; preds = %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i
   %.sroa.0.0.i.i.i.i = phi i32 [ %.sroa.0.1.i.i.i.i, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i ], [ 1, %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i ]
   %.not.i.i.i.i.i = icmp sgt i32 %.sroa.0.0.i.i.i.i, 16
-  br i1 %.not.i.i.i.i.i, label %54, label %50
+  br i1 %.not.i.i.i.i.i, label %55, label %51
 
-50:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i
-  %51 = icmp sgt i32 %.sroa.0.0.i.i.i.i, 0
-  br i1 %51, label %.lr.ph.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i
+51:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i
+  %52 = icmp sgt i32 %.sroa.0.0.i.i.i.i, 0
+  br i1 %52, label %.lr.ph.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %50, %.lr.ph.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i = phi i32 [ %52, %.lr.ph.i.i.i.i.i.i ], [ 0, %50 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %51, %.lr.ph.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i = phi i32 [ %53, %.lr.ph.i.i.i.i.i.i ], [ 0, %51 ]
   tail call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !457
-  %52 = add nuw nsw i32 %.03.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i = icmp eq i32 %52, %.sroa.0.0.i.i.i.i
+  %53 = add nuw nsw i32 %.03.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i = icmp eq i32 %53, %.sroa.0.0.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !458
 
-_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i, %50
-  %53 = shl nsw i32 %.sroa.0.0.i.i.i.i, 1
+_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i, %51
+  %54 = shl nsw i32 %.sroa.0.0.i.i.i.i, 1
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i
 
-54:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i
-  %55 = tail call noundef i32 @sched_yield() #8
+55:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i
+  %56 = tail call noundef i32 @sched_yield() #8
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i
 
-_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i: ; preds = %54, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i
-  %.sroa.0.1.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i, %54 ], [ %53, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i ]
-  %56 = cmpxchg weak ptr %47, i32 0, i32 1073741824 acquire acquire, align 4
-  %57 = extractvalue { i32, i1 } %56, 1
-  br i1 %57, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i, !llvm.loop !470
+_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i: ; preds = %55, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i
+  %.sroa.0.1.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i, %55 ], [ %54, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i ]
+  %57 = cmpxchg weak ptr %48, i32 0, i32 1073741824 acquire acquire, align 4
+  %58 = extractvalue { i32, i1 } %57, 1
+  br i1 %58, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i, !llvm.loop !470
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit: ; preds = %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i, %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i
-  br i1 %.not.i.i.i29, label %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33, label %58
+  br i1 %.not.i.i.i29, label %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33, label %59
 
-58:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit
-  %59 = getelementptr inbounds i8, ptr %.sroa.069.0, i64 -64
-  %60 = load i64, ptr %59, align 8, !tbaa !466, !noalias !600
+59:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit
+  %60 = getelementptr inbounds i8, ptr %.sroa.068.0, i64 -64
+  %61 = load i64, ptr %60, align 8, !tbaa !466, !noalias !600
   br label %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33
 
-_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33: ; preds = %58, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit
-  %.0.i.i.i34 = phi i64 [ %60, %58 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit ]
-  %61 = lshr i64 %.0.i.i.i34, 58
-  %62 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %46, i64 %61
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load i64, ptr %63, align 8, !tbaa !471, !noalias !600
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  %66 = load ptr, ptr %65, align 8, !tbaa !472, !noalias !600
-  %.0813.i.i.i.i.i.i.i = and i64 %64, %.0.i.i.i34
-  %67 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %66, i64 %.0813.i.i.i.i.i.i.i
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %69 = load i16, ptr %68, align 4, !tbaa !473, !noalias !600
-  %.not14.i.i.i.i.i.i.i = icmp slt i16 %69, 0
+_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33: ; preds = %59, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit
+  %.0.i.i.i34 = phi i64 [ %61, %59 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8lock_binERKS2_.exit ]
+  %62 = lshr i64 %.0.i.i.i34, 58
+  %63 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %47, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load i64, ptr %64, align 8, !tbaa !471, !noalias !600
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %67 = load ptr, ptr %66, align 8, !tbaa !472, !noalias !600
+  %.0813.i.i.i.i.i.i.i = and i64 %65, %.0.i.i.i34
+  %68 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %67, i64 %.0813.i.i.i.i.i.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %70 = load i16, ptr %69, align 4, !tbaa !473, !noalias !600
+  %.not14.i.i.i.i.i.i.i = icmp slt i16 %70, 0
   br i1 %.not14.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33, %74
-  %70 = phi ptr [ %77, %74 ], [ %67, %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33 ]
-  %.0816.i.i.i.i.i.i.i = phi i64 [ %.08.i.i.i.i.i.i.i, %74 ], [ %.0813.i.i.i.i.i.i.i, %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33 ]
-  %.015.i.i.i.i.i.i.i = phi i16 [ %76, %74 ], [ 0, %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33 ]
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !11, !noalias !600
-  %73 = icmp eq ptr %72, %.sroa.069.0
-  br i1 %73, label %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.loopexit.i, label %74, !prof !476
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33, %75
+  %71 = phi ptr [ %78, %75 ], [ %68, %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33 ]
+  %.0816.i.i.i.i.i.i.i = phi i64 [ %.08.i.i.i.i.i.i.i, %75 ], [ %.0813.i.i.i.i.i.i.i, %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33 ]
+  %.015.i.i.i.i.i.i.i = phi i16 [ %77, %75 ], [ 0, %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33 ]
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !11, !noalias !600
+  %74 = icmp eq ptr %73, %.sroa.068.0
+  br i1 %74, label %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.loopexit.i, label %75, !prof !476
 
-74:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %75 = add i64 %.0816.i.i.i.i.i.i.i, 1
-  %76 = add i16 %.015.i.i.i.i.i.i.i, 1
-  %.08.i.i.i.i.i.i.i = and i64 %75, %64
-  %77 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %66, i64 %.08.i.i.i.i.i.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %79 = load i16, ptr %78, align 4, !tbaa !473, !noalias !600
-  %.not.i.i.i.i.i.i.i = icmp sgt i16 %76, %79
+75:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %76 = add i64 %.0816.i.i.i.i.i.i.i, 1
+  %77 = add i16 %.015.i.i.i.i.i.i.i, 1
+  %.08.i.i.i.i.i.i.i = and i64 %76, %65
+  %78 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %67, i64 %.08.i.i.i.i.i.i.i
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %80 = load i16, ptr %79, align 4, !tbaa !473, !noalias !600
+  %.not.i.i.i.i.i.i.i = icmp sgt i16 %77, %80
   br i1 %.not.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !477
 
-._crit_edge.i.i.i.i.i.i.i:                        ; preds = %74, %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33
-  %80 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %81 = load i64, ptr %80, align 16, !tbaa !478, !noalias !600
-  %82 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %66, i64 %81
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %75, %_ZNKSt4hashIN11OpenImageIO6v3_1_07ustringEEclES2_.exit.i33
+  %81 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %82 = load i64, ptr %81, align 16, !tbaa !478, !noalias !600
+  %83 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %67, i64 %82
   br label %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.i
 
 _ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.phi.trans.insert.i35 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  %.phi.trans.insert.i35 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %.pre.i36 = load i64, ptr %.phi.trans.insert.i35, align 16, !tbaa !478, !noalias !600
   br label %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.i
 
 _ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.i: ; preds = %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.loopexit.i, %._crit_edge.i.i.i.i.i.i.i
-  %83 = phi i64 [ %81, %._crit_edge.i.i.i.i.i.i.i ], [ %.pre.i36, %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.loopexit.i ]
-  %.sroa.09.0.i.i.i.i.i.i.i = phi ptr [ %82, %._crit_edge.i.i.i.i.i.i.i ], [ %70, %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.loopexit.i ]
-  %84 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %66, i64 %83
-  %85 = icmp eq ptr %.sroa.09.0.i.i.i.i.i.i.i, %84
-  br i1 %85, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE4findERKS2_b.exit
+  %84 = phi i64 [ %82, %._crit_edge.i.i.i.i.i.i.i ], [ %.pre.i36, %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.loopexit.i ]
+  %.sroa.09.0.i.i.i.i.i.i.i = phi ptr [ %83, %._crit_edge.i.i.i.i.i.i.i ], [ %71, %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.loopexit.i ]
+  %85 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %67, i64 %84
+  %86 = icmp eq ptr %.sroa.09.0.i.i.i.i.i.i.i, %85
+  br i1 %86, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE4findERKS2_b.exit
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE4findERKS2_b.exit: ; preds = %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.i
-  %86 = trunc nuw nsw i64 %61 to i32
-  %.idx.i = shl nuw nsw i64 %61, 7
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx.i
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %87 = trunc nuw nsw i64 %62 to i32
+  %.idx = shl nuw nsw i64 %62, 7
+  %88 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 104
   %90 = load ptr, ptr %89, align 8, !tbaa !472
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 112
   %92 = load i64, ptr %91, align 16, !tbaa !478
   %93 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %90, i64 %92
   %.not91 = icmp eq ptr %.sroa.09.0.i.i.i.i.i.i.i, %93
@@ -14851,9 +14845,9 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_p
   br label %_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheFileEED2Ev.exit
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread: ; preds = %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.i, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE4findERKS2_b.exit
-  %.sroa.11.07582 = phi i32 [ %86, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE4findERKS2_b.exit ], [ -1, %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.i ]
+  %.sroa.11.07481 = phi i32 [ %87, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE4findERKS2_b.exit ], [ -1, %_ZN11OpenImageIO6v3_1_014find_with_hashIN3tsl9robin_mapINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIS4_S7_EELb0ENS2_2rh26power_of_two_growth_policyILm2EEEEES4_TnNSt9enable_ifIXsr3pvt18has_find_with_hashIT_EE5valueEiE4typeELi0EEENSK_8iteratorERSK_RKT0_m.exit.i ]
   %97 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #47
-  invoke void @_ZN11OpenImageIO6v3_1_014ImageCacheFileC1ERNS0_14ImageCacheImplEPNS0_23ImageCachePerThreadInfoENS0_7ustringEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(352) %97, ptr noundef nonnull align 64 dereferenceable(25240) %0, ptr noundef %2, ptr %.sroa.069.0, ptr noundef %3, ptr noundef %4)
+  invoke void @_ZN11OpenImageIO6v3_1_014ImageCacheFileC1ERNS0_14ImageCacheImplEPNS0_23ImageCachePerThreadInfoENS0_7ustringEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(352) %97, ptr noundef nonnull align 64 dereferenceable(25240) %0, ptr noundef %2, ptr %.sroa.068.0, ptr noundef %3, ptr noundef %4)
           to label %98 unwind label %132
 
 98:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread
@@ -14861,7 +14855,7 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_p
   br i1 %.not.i.i.i29, label %_ZNSt4pairIN11OpenImageIO6v3_1_07ustringENS1_13intrusive_ptrINS1_14ImageCacheFileEEEEC2IS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS9_SA_EEEbE4typeELb1EEERKS2_RKS5_.exit.i.i.i, label %100
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %.sroa.069.0, i64 -64
+  %101 = getelementptr inbounds i8, ptr %.sroa.068.0, i64 -64
   %102 = load i64, ptr %101, align 8, !tbaa !466
   %103 = lshr i64 %102, 51
   %104 = and i64 %103, 8064
@@ -14870,9 +14864,9 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_p
 
 _ZNSt4pairIN11OpenImageIO6v3_1_07ustringENS1_13intrusive_ptrINS1_14ImageCacheFileEEEEC2IS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS9_SA_EEEbE4typeELb1EEERKS2_RKS5_.exit.i.i.i: ; preds = %100, %98
   %.0.i.i.i40 = phi i64 [ %105, %100 ], [ 8, %98 ]
-  %106 = getelementptr inbounds nuw i8, ptr %46, i64 %.0.i.i.i40
+  %106 = getelementptr inbounds nuw i8, ptr %47, i64 %.0.i.i.i40
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %107 = ptrtoint ptr %.sroa.069.0 to i64
+  %107 = ptrtoint ptr %.sroa.068.0 to i64
   store i64 %107, ptr %8, align 8, !tbaa !180
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %97, ptr %108, align 8, !tbaa !481
@@ -14916,7 +14910,7 @@ _ZNSt4pairIN11OpenImageIO6v3_1_07ustringENS1_13intrusive_ptrINS1_14ImageCacheFil
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %123 = atomicrmw sub ptr %97, i32 1 seq_cst, align 4
   %124 = icmp eq i32 %123, 1
-  br i1 %124, label %134, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit55
+  br i1 %124, label %134, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit54
 
 _ZN3tsl9robin_mapIN11OpenImageIO6v3_1_07ustringENS2_13intrusive_ptrINS2_14ImageCacheFileEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIS3_S6_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE7emplaceIJRKS3_RKS6_EEESB_INS_17detail_robin_hash10robin_hashISC_NSH_9KeySelectENSH_11ValueSelectES8_SA_SD_Lb0ESG_E14robin_iteratorILb0EEEbEDpOT_.exit.i: ; preds = %115, %112, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_07ustringENS4_13intrusive_ptrINS4_14ImageCacheFileEEEENS_9robin_mapIS5_S8_St4hashIS5_ESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E6insertIS9_EES2_INSM_14robin_iteratorILb0EEEbEOT_.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14943,97 +14937,96 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_p
   %133 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef 352) #46
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit55
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit54
 
 134:                                              ; preds = %_ZNSt4pairIN11OpenImageIO6v3_1_07ustringENS1_13intrusive_ptrINS1_14ImageCacheFileEEEED2Ev.exit8.i.i.i
   call void @_ZN11OpenImageIO6v3_1_014ImageCacheFileD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %97) #8
   call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef 352) #46
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit55
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit54
 
 _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheFileEED2Ev.exit: ; preds = %131, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE6insertERKS2_RKS5_b.exit, %94
   %135 = phi i1 [ true, %94 ], [ false, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE6insertERKS2_RKS5_b.exit ], [ false, %131 ]
-  %.sroa.11.07581 = phi i32 [ %86, %94 ], [ %.sroa.11.07582, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE6insertERKS2_RKS5_b.exit ], [ %.sroa.11.07582, %131 ]
+  %.sroa.11.07480 = phi i32 [ %87, %94 ], [ %.sroa.11.07481, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE6insertERKS2_RKS5_b.exit ], [ %.sroa.11.07481, %131 ]
   %.1 = phi ptr [ %96, %94 ], [ %97, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE6insertERKS2_RKS5_b.exit ], [ %97, %131 ]
-  %136 = atomicrmw sub ptr %47, i32 1073741824 release, align 4
-  %137 = icmp sgt i32 %.sroa.11.07581, -1
+  %136 = atomicrmw sub ptr %48, i32 1073741824 release, align 4
+  %137 = icmp sgt i32 %.sroa.11.07480, -1
   %or.cond = and i1 %5, %137
-  br i1 %or.cond, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit46, label %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit
+  br i1 %or.cond, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit45, label %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit46: ; preds = %_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheFileEED2Ev.exit
-  %138 = zext nneg i32 %.sroa.11.07581 to i64
-  %.idx.i45 = shl nuw nsw i64 %138, 7
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 %.idx.i45
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
-  %142 = load ptr, ptr %141, align 8, !tbaa !472
-  %143 = getelementptr inbounds nuw i8, ptr %140, i64 40
-  %144 = load i64, ptr %143, align 16, !tbaa !478
-  %145 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %142, i64 %144
-  %.not92 = icmp eq ptr %.sroa.09.0.i.i.i.i.i.i.i, %145
-  br i1 %.not92, label %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit, label %146
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit45: ; preds = %_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheFileEED2Ev.exit
+  %138 = zext nneg i32 %.sroa.11.07480 to i64
+  %.idx93 = shl nuw nsw i64 %138, 7
+  %139 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx93
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 104
+  %141 = load ptr, ptr %140, align 8, !tbaa !472
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 112
+  %143 = load i64, ptr %142, align 16, !tbaa !478
+  %144 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %141, i64 %143
+  %.not95 = icmp eq ptr %.sroa.09.0.i.i.i.i.i.i.i, %144
+  br i1 %.not95, label %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit, label %145
 
-146:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit46
-  call void @_ZN11OpenImageIO6v3_1_014ImageCacheImpl10invalidateENS0_7ustringEb(ptr noundef nonnull align 64 dereferenceable(25240) %0, ptr %.sroa.069.0, i1 noundef zeroext true)
-  %147 = getelementptr inbounds nuw i8, ptr %.1, i64 312
-  store ptr %3, ptr %147, align 8, !tbaa !228
-  %.not.i47 = icmp eq ptr %4, null
-  br i1 %.not.i47, label %149, label %.noexc
+145:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit45
+  call void @_ZN11OpenImageIO6v3_1_014ImageCacheImpl10invalidateENS0_7ustringEb(ptr noundef nonnull align 64 dereferenceable(25240) %0, ptr %.sroa.068.0, i1 noundef zeroext true)
+  %146 = getelementptr inbounds nuw i8, ptr %.1, i64 312
+  store ptr %3, ptr %146, align 8, !tbaa !228
+  %.not.i46 = icmp eq ptr %4, null
+  br i1 %.not.i46, label %148, label %.noexc
 
-.noexc:                                           ; preds = %146
-  %148 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #47
-  invoke void @_ZN11OpenImageIO6v3_1_09ImageSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(160) %148, ptr noundef nonnull align 8 dereferenceable(160) %4)
-          to label %149 unwind label %.body49.thread
+.noexc:                                           ; preds = %145
+  %147 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #47
+  invoke void @_ZN11OpenImageIO6v3_1_09ImageSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(160) %147, ptr noundef nonnull align 8 dereferenceable(160) %4)
+          to label %148 unwind label %.body48.thread
 
-149:                                              ; preds = %.noexc, %146
-  %150 = phi ptr [ %148, %.noexc ], [ null, %146 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.1, i64 320
-  %152 = load ptr, ptr %151, align 8, !tbaa !97
-  store ptr %150, ptr %151, align 8, !tbaa !97
-  %.not.i.i.i48 = icmp eq ptr %152, null
-  br i1 %.not.i.i.i48, label %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit, label %153
+148:                                              ; preds = %.noexc, %145
+  %149 = phi ptr [ %147, %.noexc ], [ null, %145 ]
+  %150 = getelementptr inbounds nuw i8, ptr %.1, i64 320
+  %151 = load ptr, ptr %150, align 8, !tbaa !97
+  store ptr %149, ptr %150, align 8, !tbaa !97
+  %.not.i.i.i47 = icmp eq ptr %151, null
+  br i1 %.not.i.i.i47, label %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit, label %152
 
-153:                                              ; preds = %149
-  call void @_ZNKSt14default_deleteIN11OpenImageIO6v3_1_09ImageSpecEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull %152)
+152:                                              ; preds = %148
+  call void @_ZNKSt14default_deleteIN11OpenImageIO6v3_1_09ImageSpecEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %150, ptr noundef nonnull %151)
   br label %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit
 
-.body49.thread:                                   ; preds = %.noexc
-  %154 = landingpad { ptr, i32 }
+.body48.thread:                                   ; preds = %.noexc
+  %153 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %148, i64 noundef 160) #46
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit55
+  call void @_ZdlPvm(ptr noundef nonnull %147, i64 noundef 160) #46
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit54
 
-_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit: ; preds = %153, %149, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit46, %_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheFileEED2Ev.exit
-  br i1 %135, label %162, label %155
+_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit: ; preds = %152, %148, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit45, %_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheFileEED2Ev.exit
+  br i1 %135, label %161, label %154
 
-155:                                              ; preds = %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit
-  %156 = getelementptr inbounds nuw i8, ptr %.1, i64 288
-  %157 = load ptr, ptr %156, align 8, !tbaa !603
-  %.not27 = icmp eq ptr %157, null
-  br i1 %.not27, label %158, label %162
+154:                                              ; preds = %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit
+  %155 = getelementptr inbounds nuw i8, ptr %.1, i64 288
+  %156 = load ptr, ptr %155, align 8, !tbaa !603
+  %.not27 = icmp eq ptr %156, null
+  br i1 %.not27, label %157, label %161
 
-158:                                              ; preds = %155
-  %159 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %160 = load i32, ptr %159, align 8, !tbaa !604
-  %161 = add nsw i32 %160, 1
-  store i32 %161, ptr %159, align 8, !tbaa !604
-  br label %162
+157:                                              ; preds = %154
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %159 = load i32, ptr %158, align 8, !tbaa !604
+  %160 = add nsw i32 %159, 1
+  store i32 %160, ptr %158, align 8, !tbaa !604
+  br label %161
 
-162:                                              ; preds = %155, %158, %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit
+161:                                              ; preds = %154, %157, %_ZN11OpenImageIO6v3_1_014ImageCacheFile5resetEPFPNS0_10ImageInputEvEPKNS0_9ImageSpecE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %163 = ptrtoint ptr %.sroa.069.0 to i64
-  store i64 %163, ptr %7, align 8, !tbaa !180
-  %164 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.1, ptr %164, align 8, !tbaa !598
-  %165 = call { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_07ustringEPNS4_14ImageCacheFileEENS_9robin_mapIS5_S7_St4hashIS5_ESt8equal_toIS5_ESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E11insert_implIS5_JS8_EEES2_INSL_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %2, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %162 = ptrtoint ptr %.sroa.068.0 to i64
+  store i64 %162, ptr %7, align 8, !tbaa !180
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.1, ptr %163, align 8, !tbaa !598
+  %164 = call { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_07ustringEPNS4_14ImageCacheFileEENS_9robin_mapIS5_S7_St4hashIS5_ESt8equal_toIS5_ESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E11insert_implIS5_JS8_EEES2_INSL_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %2, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit55: ; preds = %134, %_ZNSt4pairIN11OpenImageIO6v3_1_07ustringENS1_13intrusive_ptrINS1_14ImageCacheFileEEEED2Ev.exit8.i.i.i, %132, %.body49.thread
-  %.pn89 = phi { ptr, i32 } [ %154, %.body49.thread ], [ %133, %132 ], [ %117, %_ZNSt4pairIN11OpenImageIO6v3_1_07ustringENS1_13intrusive_ptrINS1_14ImageCacheFileEEEED2Ev.exit8.i.i.i ], [ %117, %134 ]
-  resume { ptr, i32 } %.pn89
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit54: ; preds = %134, %_ZNSt4pairIN11OpenImageIO6v3_1_07ustringENS1_13intrusive_ptrINS1_14ImageCacheFileEEEED2Ev.exit8.i.i.i, %132, %.body48.thread
+  %.pn88 = phi { ptr, i32 } [ %153, %.body48.thread ], [ %133, %132 ], [ %117, %_ZNSt4pairIN11OpenImageIO6v3_1_07ustringENS1_13intrusive_ptrINS1_14ImageCacheFileEEEED2Ev.exit8.i.i.i ], [ %117, %134 ]
+  resume { ptr, i32 } %.pn88
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit: ; preds = %162, %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit
-  %.0 = phi ptr [ %41, %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit ], [ %.1, %162 ]
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit: ; preds = %161, %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit
+  %.0 = phi ptr [ %41, %_ZNK11OpenImageIO6v3_1_023ImageCachePerThreadInfo9find_fileENS0_7ustringE.exit ], [ %.1, %161 ]
   ret ptr %.0
 }
 
@@ -16222,157 +16215,152 @@ _ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_
   store i8 1, ptr %3, align 8, !tbaa !465
   %.pre.i = load i32, ptr %2, align 8, !tbaa !464
   %15 = sext i32 %.pre.i to i64
-  %16 = shl nsw i64 %15, 7
-  %17 = load ptr, ptr %0, align 8, !tbaa !460
-  %18 = getelementptr i8, ptr %17, i64 72
-  %19 = getelementptr i8, ptr %18, i64 %16
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %21 = load i64, ptr %20, align 8, !tbaa !478
-  %.not.i.i.i = icmp eq i64 %21, 0
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %16 = load ptr, ptr %0, align 8, !tbaa !460
+  %17 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %16, i64 %15, i32 2, i32 0, i32 6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %19 = load i64, ptr %18, align 8, !tbaa !478
+  %.not.i.i.i = icmp eq i64 %19, 0
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !472
   br i1 %.not.i.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, %25
-  %.04.i.i.i = phi i64 [ %26, %25 ], [ 0, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
-  %22 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i, i64 %.04.i.i.i, i32 1
-  %23 = load i16, ptr %22, align 4, !tbaa !473
-  %24 = icmp eq i16 %23, -1
-  br i1 %24, label %25, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
+.lr.ph.i.i.i:                                     ; preds = %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, %23
+  %.04.i.i.i = phi i64 [ %24, %23 ], [ 0, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
+  %20 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i, i64 %.04.i.i.i, i32 1
+  %21 = load i16, ptr %20, align 4, !tbaa !473
+  %22 = icmp eq i16 %21, -1
+  br i1 %22, label %23, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
 
-25:                                               ; preds = %.lr.ph.i.i.i
-  %26 = add nuw i64 %.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %26, %21
+23:                                               ; preds = %.lr.ph.i.i.i
+  %24 = add nuw i64 %.04.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %24, %19
   br i1 %exitcond.not.i.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, label %.lr.ph.i.i.i, !llvm.loop !629
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit: ; preds = %.lr.ph.i.i.i, %25, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i
-  %.0.lcssa.i.i.i = phi i64 [ 0, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ], [ %.04.i.i.i, %.lr.ph.i.i.i ], [ %21, %25 ]
-  %27 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i, i64 %.0.lcssa.i.i.i
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %27, ptr %28, align 8, !tbaa !479
-  %30 = getelementptr i8, ptr %29, i64 %16
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !472
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %34 = load i64, ptr %33, align 16, !tbaa !478
-  %35 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %32, i64 %34
-  %36 = icmp eq ptr %27, %35
-  br i1 %36, label %.lr.ph, label %.loopexit
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit: ; preds = %.lr.ph.i.i.i, %23, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i
+  %.0.lcssa.i.i.i = phi i64 [ 0, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ], [ %.04.i.i.i, %.lr.ph.i.i.i ], [ %19, %23 ]
+  %25 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i, i64 %.0.lcssa.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %25, ptr %26, align 8, !tbaa !479
+  %27 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %1, i64 %15, i32 2, i32 0, i32 6
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %29 = load ptr, ptr %28, align 8, !tbaa !472
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %31 = load i64, ptr %30, align 16, !tbaa !478
+  %32 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %29, i64 %31
+  %33 = icmp eq ptr %25, %32
+  br i1 %33, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25
-  %37 = phi ptr [ %63, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25 ], [ %17, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
-  %38 = phi i32 [ %64, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25 ], [ %.pre.i, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
-  %39 = icmp eq i32 %38, 63
-  br i1 %39, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit, label %42
+.lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24
+  %34 = phi ptr [ %60, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24 ], [ %16, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
+  %35 = phi i32 [ %61, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24 ], [ %.pre.i, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
+  %36 = icmp eq i32 %35, 63
+  br i1 %36, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit, label %39
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit: ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8128
-  %41 = atomicrmw sub ptr %40, i32 1073741824 release, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8128
+  %38 = atomicrmw sub ptr %37, i32 1073741824 release, align 4
   store i8 0, ptr %3, align 8, !tbaa !465
   store i32 -1, ptr %2, align 8, !tbaa !464
   br label %.loopexit
 
-42:                                               ; preds = %.lr.ph
-  %43 = add nsw i32 %38, 1
-  %44 = icmp sgt i32 %38, -1
-  br i1 %44, label %45, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3
+39:                                               ; preds = %.lr.ph
+  %40 = add nsw i32 %35, 1
+  %41 = icmp sgt i32 %35, -1
+  br i1 %41, label %42, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3: ; preds = %42
-  store i32 %43, ptr %2, align 8, !tbaa !464
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3: ; preds = %39
+  store i32 %40, ptr %2, align 8, !tbaa !464
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %47 = zext nneg i32 %38 to i64
-  %48 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %46, i64 %47
-  %49 = atomicrmw sub ptr %48, i32 1073741824 release, align 4
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %44 = zext nneg i32 %35 to i64
+  %45 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %43, i64 %44
+  %46 = atomicrmw sub ptr %45, i32 1073741824 release, align 4
   store i8 0, ptr %3, align 8, !tbaa !465
-  %.pre34.pre = load ptr, ptr %0, align 8, !tbaa !460
-  store i32 %43, ptr %2, align 8, !tbaa !464
-  %50 = getelementptr inbounds nuw i8, ptr %.pre34.pre, i64 64
-  %51 = zext nneg i32 %43 to i64
-  %52 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %50, i64 %51
-  %53 = cmpxchg weak ptr %52, i32 0, i32 1073741824 acquire acquire, align 4
-  %54 = extractvalue { i32, i1 } %53, 1
-  br i1 %54, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i13
+  %.pre32.pre = load ptr, ptr %0, align 8, !tbaa !460
+  store i32 %40, ptr %2, align 8, !tbaa !464
+  %47 = getelementptr inbounds nuw i8, ptr %.pre32.pre, i64 64
+  %48 = zext nneg i32 %40 to i64
+  %49 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %47, i64 %48
+  %50 = cmpxchg weak ptr %49, i32 0, i32 1073741824 acquire acquire, align 4
+  %51 = extractvalue { i32, i1 } %50, 1
+  br i1 %51, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i12
 
-_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i13: ; preds = %45, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17
-  %.sroa.0.0.i.i.i.i.i14 = phi i32 [ %.sroa.0.1.i.i.i.i.i18, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17 ], [ 1, %45 ]
-  %.not.i.i.i.i.i.i15 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i14, 16
-  br i1 %.not.i.i.i.i.i.i15, label %59, label %55
+_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i12: ; preds = %42, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16
+  %.sroa.0.0.i.i.i.i.i13 = phi i32 [ %.sroa.0.1.i.i.i.i.i17, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16 ], [ 1, %42 ]
+  %.not.i.i.i.i.i.i14 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i13, 16
+  br i1 %.not.i.i.i.i.i.i14, label %56, label %52
 
-55:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i13
-  %56 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i14, 0
-  br i1 %56, label %.lr.ph.i.i.i.i.i.i.i21, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i16
+52:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i12
+  %53 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i13, 0
+  br i1 %53, label %.lr.ph.i.i.i.i.i.i.i20, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i15
 
-.lr.ph.i.i.i.i.i.i.i21:                           ; preds = %55, %.lr.ph.i.i.i.i.i.i.i21
-  %.03.i.i.i.i.i.i.i22 = phi i32 [ %57, %.lr.ph.i.i.i.i.i.i.i21 ], [ 0, %55 ]
+.lr.ph.i.i.i.i.i.i.i20:                           ; preds = %52, %.lr.ph.i.i.i.i.i.i.i20
+  %.03.i.i.i.i.i.i.i21 = phi i32 [ %54, %.lr.ph.i.i.i.i.i.i.i20 ], [ 0, %52 ]
   tail call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !457
-  %57 = add nuw nsw i32 %.03.i.i.i.i.i.i.i22, 1
-  %exitcond.not.i.i.i.i.i.i.i23 = icmp eq i32 %57, %.sroa.0.0.i.i.i.i.i14
-  br i1 %exitcond.not.i.i.i.i.i.i.i23, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i16, label %.lr.ph.i.i.i.i.i.i.i21, !llvm.loop !458
+  %54 = add nuw nsw i32 %.03.i.i.i.i.i.i.i21, 1
+  %exitcond.not.i.i.i.i.i.i.i22 = icmp eq i32 %54, %.sroa.0.0.i.i.i.i.i13
+  br i1 %exitcond.not.i.i.i.i.i.i.i22, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i15, label %.lr.ph.i.i.i.i.i.i.i20, !llvm.loop !458
 
-_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i16: ; preds = %.lr.ph.i.i.i.i.i.i.i21, %55
-  %58 = shl nsw i32 %.sroa.0.0.i.i.i.i.i14, 1
-  br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17
+_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i15: ; preds = %.lr.ph.i.i.i.i.i.i.i20, %52
+  %55 = shl nsw i32 %.sroa.0.0.i.i.i.i.i13, 1
+  br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16
 
-59:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i13
-  %60 = tail call noundef i32 @sched_yield() #8
-  br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17
+56:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i12
+  %57 = tail call noundef i32 @sched_yield() #8
+  br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16
 
-_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17: ; preds = %59, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i16
-  %.sroa.0.1.i.i.i.i.i18 = phi i32 [ %.sroa.0.0.i.i.i.i.i14, %59 ], [ %58, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i16 ]
-  %61 = cmpxchg weak ptr %52, i32 0, i32 1073741824 acquire acquire, align 4
-  %62 = extractvalue { i32, i1 } %61, 1
-  br i1 %62, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i13, !llvm.loop !470
+_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16: ; preds = %56, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i15
+  %.sroa.0.1.i.i.i.i.i17 = phi i32 [ %.sroa.0.0.i.i.i.i.i13, %56 ], [ %55, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i15 ]
+  %58 = cmpxchg weak ptr %49, i32 0, i32 1073741824 acquire acquire, align 4
+  %59 = extractvalue { i32, i1 } %58, 1
+  br i1 %59, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i12, !llvm.loop !470
 
-_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19: ; preds = %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17, %45
+_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18: ; preds = %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16, %42
   store i8 1, ptr %3, align 8, !tbaa !465
-  %.pre.i20 = load i32, ptr %2, align 8, !tbaa !464
-  %.pre33 = load ptr, ptr %0, align 8, !tbaa !460
+  %.pre.i19 = load i32, ptr %2, align 8, !tbaa !464
+  %.pre31 = load ptr, ptr %0, align 8, !tbaa !460
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19
-  %63 = phi ptr [ %37, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3 ], [ %.pre33, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19 ]
-  %64 = phi i32 [ %43, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3 ], [ %.pre.i20, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19 ]
-  %65 = sext i32 %64 to i64
-  %.idx.i5 = shl nsw i64 %65, 7
-  %66 = getelementptr i8, ptr %63, i64 72
-  %67 = getelementptr i8, ptr %66, i64 %.idx.i5
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %69 = load i64, ptr %68, align 8, !tbaa !478
-  %.not.i.i.i6 = icmp eq i64 %69, 0
-  %.phi.trans.insert.i.i.i7 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %.pre.i.i.i8 = load ptr, ptr %.phi.trans.insert.i.i.i7, align 8, !tbaa !472
-  br i1 %.not.i.i.i6, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25, label %.lr.ph.i.i.i9
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18
+  %60 = phi ptr [ %34, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3 ], [ %.pre31, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18 ]
+  %61 = phi i32 [ %40, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3 ], [ %.pre.i19, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18 ]
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %60, i64 %62, i32 2, i32 0, i32 6
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %65 = load i64, ptr %64, align 8, !tbaa !478
+  %.not.i.i.i5 = icmp eq i64 %65, 0
+  %.phi.trans.insert.i.i.i6 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %.pre.i.i.i7 = load ptr, ptr %.phi.trans.insert.i.i.i6, align 8, !tbaa !472
+  br i1 %.not.i.i.i5, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24, label %.lr.ph.i.i.i8
 
-.lr.ph.i.i.i9:                                    ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4, %73
-  %.04.i.i.i10 = phi i64 [ %74, %73 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4 ]
-  %70 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i8, i64 %.04.i.i.i10, i32 1
-  %71 = load i16, ptr %70, align 4, !tbaa !473
-  %72 = icmp eq i16 %71, -1
-  br i1 %72, label %73, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25
+.lr.ph.i.i.i8:                                    ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4, %69
+  %.04.i.i.i9 = phi i64 [ %70, %69 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4 ]
+  %66 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i7, i64 %.04.i.i.i9, i32 1
+  %67 = load i16, ptr %66, align 4, !tbaa !473
+  %68 = icmp eq i16 %67, -1
+  br i1 %68, label %69, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24
 
-73:                                               ; preds = %.lr.ph.i.i.i9
-  %74 = add nuw i64 %.04.i.i.i10, 1
-  %exitcond.not.i.i.i12 = icmp eq i64 %74, %69
-  br i1 %exitcond.not.i.i.i12, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25, label %.lr.ph.i.i.i9, !llvm.loop !629
+69:                                               ; preds = %.lr.ph.i.i.i8
+  %70 = add nuw i64 %.04.i.i.i9, 1
+  %exitcond.not.i.i.i11 = icmp eq i64 %70, %65
+  br i1 %exitcond.not.i.i.i11, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24, label %.lr.ph.i.i.i8, !llvm.loop !629
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25: ; preds = %.lr.ph.i.i.i9, %73, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4
-  %.0.lcssa.i.i.i11 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4 ], [ %.04.i.i.i10, %.lr.ph.i.i.i9 ], [ %69, %73 ]
-  %75 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i8, i64 %.0.lcssa.i.i.i11
-  store ptr %75, ptr %28, align 8, !tbaa !479
-  %76 = getelementptr i8, ptr %29, i64 %.idx.i5
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = load ptr, ptr %77, align 8, !tbaa !472
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  %80 = load i64, ptr %79, align 16, !tbaa !478
-  %81 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %78, i64 %80
-  %82 = icmp eq ptr %75, %81
-  br i1 %82, label %.lr.ph, label %.loopexit
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24: ; preds = %.lr.ph.i.i.i8, %69, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4
+  %.0.lcssa.i.i.i10 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4 ], [ %.04.i.i.i9, %.lr.ph.i.i.i8 ], [ %65, %69 ]
+  %71 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i7, i64 %.0.lcssa.i.i.i10
+  store ptr %71, ptr %26, align 8, !tbaa !479
+  %72 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %1, i64 %62, i32 2, i32 0, i32 6
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %74 = load ptr, ptr %73, align 8, !tbaa !472
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %76 = load i64, ptr %75, align 16, !tbaa !478
+  %77 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %74, i64 %76
+  %78 = icmp eq ptr %71, %77
+  br i1 %78, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
+.loopexit:                                        ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
   ret void
 }
 
@@ -16402,155 +16390,151 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_07ustringENS4
   %14 = load ptr, ptr %0, align 8, !tbaa !460
   %15 = load i32, ptr %13, align 8, !tbaa !464
   %16 = sext i32 %15 to i64
-  %.idx7 = shl nsw i64 %16, 7
-  %17 = getelementptr i8, ptr %14, i64 72
-  %18 = getelementptr i8, ptr %17, i64 %.idx7
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !472
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %22 = load i64, ptr %21, align 8, !tbaa !478
-  %23 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %20, i64 %22
-  %24 = icmp eq ptr %8, %23
-  br i1 %24, label %.lr.ph, label %.loopexit
+  %17 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %14, i64 %16, i32 2, i32 0, i32 6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8, !tbaa !472
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %21 = load i64, ptr %20, align 8, !tbaa !478
+  %22 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %19, i64 %21
+  %23 = icmp eq ptr %8, %22
+  br i1 %23, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_07ustringENS4_13intrusive_ptrINS4_14ImageCacheFileEEEENS_9robin_mapIS5_S8_St4hashIS5_ESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E14robin_iteratorILb0EEppEv.exit
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %26
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %25
 
-26:                                               ; preds = %.lr.ph, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
-  %.pre1617 = phi ptr [ %14, %.lr.ph ], [ %.pre1618, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
-  %27 = phi ptr [ %14, %.lr.ph ], [ %63, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
-  %28 = phi i32 [ %15, %.lr.ph ], [ %64, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
-  %29 = icmp eq i32 %28, 63
-  br i1 %29, label %30, label %35
+25:                                               ; preds = %.lr.ph, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
+  %.pre1516 = phi ptr [ %14, %.lr.ph ], [ %.pre1517, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
+  %26 = phi ptr [ %14, %.lr.ph ], [ %62, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
+  %27 = phi i32 [ %15, %.lr.ph ], [ %63, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
+  %28 = icmp eq i32 %27, 63
+  br i1 %28, label %29, label %34
 
-30:                                               ; preds = %26
-  %31 = load i8, ptr %25, align 8, !tbaa !465, !range !173, !noundef !174
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
+29:                                               ; preds = %25
+  %30 = load i8, ptr %24, align 8, !tbaa !465, !range !173, !noundef !174
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i: ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8128
-  %34 = atomicrmw sub ptr %33, i32 1073741824 release, align 4
-  store i8 0, ptr %25, align 8, !tbaa !465
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i: ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 8128
+  %33 = atomicrmw sub ptr %32, i32 1073741824 release, align 4
+  store i8 0, ptr %24, align 8, !tbaa !465
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit: ; preds = %30, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit: ; preds = %29, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i
   store i32 -1, ptr %13, align 8, !tbaa !464
   br label %.loopexit
 
-35:                                               ; preds = %26
-  %36 = add nsw i32 %28, 1
-  %37 = icmp sgt i32 %28, -1
-  br i1 %37, label %38, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i
+34:                                               ; preds = %25
+  %35 = add nsw i32 %27, 1
+  %36 = icmp sgt i32 %27, -1
+  br i1 %36, label %37, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i
 
-38:                                               ; preds = %35
-  %39 = load i8, ptr %25, align 8, !tbaa !465, !range !173, !noundef !174
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge
+37:                                               ; preds = %34
+  %38 = load i8, ptr %24, align 8, !tbaa !465, !range !173, !noundef !174
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i: ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %42 = zext nneg i32 %28 to i64
-  %43 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %41, i64 %42
-  %44 = atomicrmw sub ptr %43, i32 1073741824 release, align 4
-  store i8 0, ptr %25, align 8, !tbaa !465
-  %.pre16.pre = load ptr, ptr %0, align 8, !tbaa !460
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i: ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %41 = zext nneg i32 %27 to i64
+  %42 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %40, i64 %41
+  %43 = atomicrmw sub ptr %42, i32 1073741824 release, align 4
+  store i8 0, ptr %24, align 8, !tbaa !465
+  %.pre15.pre = load ptr, ptr %0, align 8, !tbaa !460
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge: ; preds = %38, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i
-  %.pre16 = phi ptr [ %.pre16.pre, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i ], [ %.pre1617, %38 ]
-  store i32 %36, ptr %13, align 8, !tbaa !464
-  br label %48
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge: ; preds = %37, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i
+  %.pre15 = phi ptr [ %.pre15.pre, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i ], [ %.pre1516, %37 ]
+  store i32 %35, ptr %13, align 8, !tbaa !464
+  br label %47
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i: ; preds = %35
-  store i32 %36, ptr %13, align 8, !tbaa !464
-  %45 = icmp ne i32 %28, -1
-  %46 = load i8, ptr %25, align 8, !range !173
-  %47 = trunc nuw i8 %46 to i1
-  %or.cond = select i1 %45, i1 true, i1 %47
-  br i1 %or.cond, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i, label %48
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i: ; preds = %34
+  store i32 %35, ptr %13, align 8, !tbaa !464
+  %44 = icmp ne i32 %27, -1
+  %45 = load i8, ptr %24, align 8, !range !173
+  %46 = trunc nuw i8 %45 to i1
+  %or.cond = select i1 %44, i1 true, i1 %46
+  br i1 %or.cond, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i, label %47
 
-48:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i
-  %49 = phi ptr [ %.pre16, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge ], [ %27, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ]
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %51 = zext nneg i32 %36 to i64
-  %52 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %50, i64 %51
-  %53 = cmpxchg weak ptr %52, i32 0, i32 1073741824 acquire acquire, align 4
-  %54 = extractvalue { i32, i1 } %53, 1
-  br i1 %54, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
+47:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i
+  %48 = phi ptr [ %.pre15, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge ], [ %26, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
+  %50 = zext nneg i32 %35 to i64
+  %51 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %49, i64 %50
+  %52 = cmpxchg weak ptr %51, i32 0, i32 1073741824 acquire acquire, align 4
+  %53 = extractvalue { i32, i1 } %52, 1
+  br i1 %53, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
 
-_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i: ; preds = %48, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
-  %.sroa.0.0.i.i.i.i.i = phi i32 [ %.sroa.0.1.i.i.i.i.i, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i ], [ 1, %48 ]
+_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i: ; preds = %47, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ %.sroa.0.1.i.i.i.i.i, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i ], [ 1, %47 ]
   %.not.i.i.i.i.i.i = icmp sgt i32 %.sroa.0.0.i.i.i.i.i, 16
-  br i1 %.not.i.i.i.i.i.i, label %59, label %55
+  br i1 %.not.i.i.i.i.i.i, label %58, label %54
 
-55:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
-  %56 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i, 0
-  br i1 %56, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
+54:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
+  %55 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i, 0
+  br i1 %55, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %55, %.lr.ph.i.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i.i = phi i32 [ %57, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %55 ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %54, %.lr.ph.i.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i.i = phi i32 [ %56, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %54 ]
   tail call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !457
-  %57 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %57, %.sroa.0.0.i.i.i.i.i
+  %56 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %56, %.sroa.0.0.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !458
 
-_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %55
-  %58 = shl nsw i32 %.sroa.0.0.i.i.i.i.i, 1
+_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %54
+  %57 = shl nsw i32 %.sroa.0.0.i.i.i.i.i, 1
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
-59:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
-  %60 = tail call noundef i32 @sched_yield() #8
+58:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
+  %59 = tail call noundef i32 @sched_yield() #8
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
-_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %59, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
-  %.sroa.0.1.i.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.i, %59 ], [ %58, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i ]
-  %61 = cmpxchg weak ptr %52, i32 0, i32 1073741824 acquire acquire, align 4
-  %62 = extractvalue { i32, i1 } %61, 1
-  br i1 %62, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i, !llvm.loop !470
+_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %58, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
+  %.sroa.0.1.i.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.i, %58 ], [ %57, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i ]
+  %60 = cmpxchg weak ptr %51, i32 0, i32 1073741824 acquire acquire, align 4
+  %61 = extractvalue { i32, i1 } %60, 1
+  br i1 %61, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i, !llvm.loop !470
 
-_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i: ; preds = %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i, %48
-  store i8 1, ptr %25, align 8, !tbaa !465
+_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i: ; preds = %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i, %47
+  store i8 1, ptr %24, align 8, !tbaa !465
   %.pre.i = load i32, ptr %13, align 8, !tbaa !464
-  %.pre15 = load ptr, ptr %0, align 8, !tbaa !460
+  %.pre14 = load ptr, ptr %0, align 8, !tbaa !460
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i: ; preds = %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i
-  %.pre1618 = phi ptr [ %.pre1617, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre15, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
-  %63 = phi ptr [ %27, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre15, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
-  %64 = phi i32 [ %36, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre.i, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
-  %65 = sext i32 %64 to i64
-  %.idx.i = shl nsw i64 %65, 7
-  %66 = getelementptr i8, ptr %63, i64 72
-  %67 = getelementptr i8, ptr %66, i64 %.idx.i
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %69 = load i64, ptr %68, align 8, !tbaa !478
-  %.not.i.i.i = icmp eq i64 %69, 0
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %.pre1517 = phi ptr [ %.pre1516, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre14, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
+  %62 = phi ptr [ %26, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre14, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
+  %63 = phi i32 [ %35, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre.i, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>, std::hash<OIIO::ustring>, std::equal_to<OpenImageIO::v3_1_0::ustring>, 64, tsl::robin_map<OpenImageIO::v3_1_0::ustring, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheFile>>>::Bin", ptr %62, i64 %64, i32 2, i32 0, i32 6
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  %67 = load i64, ptr %66, align 8, !tbaa !478
+  %.not.i.i.i = icmp eq i64 %67, 0
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %65, i64 32
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !472
   br i1 %.not.i.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i, %73
-  %.04.i.i.i = phi i64 [ %74, %73 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i ]
-  %70 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i, i64 %.04.i.i.i, i32 1
-  %71 = load i16, ptr %70, align 4, !tbaa !473
-  %72 = icmp eq i16 %71, -1
-  br i1 %72, label %73, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
+.lr.ph.i.i.i:                                     ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i, %71
+  %.04.i.i.i = phi i64 [ %72, %71 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i ]
+  %68 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i, i64 %.04.i.i.i, i32 1
+  %69 = load i16, ptr %68, align 4, !tbaa !473
+  %70 = icmp eq i16 %69, -1
+  br i1 %70, label %71, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
 
-73:                                               ; preds = %.lr.ph.i.i.i
-  %74 = add nuw i64 %.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %74, %69
+71:                                               ; preds = %.lr.ph.i.i.i
+  %72 = add nuw i64 %.04.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %72, %67
   br i1 %exitcond.not.i.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, label %.lr.ph.i.i.i, !llvm.loop !629
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit: ; preds = %.lr.ph.i.i.i, %73, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i
-  %.0.lcssa.i.i.i = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i ], [ %.04.i.i.i, %.lr.ph.i.i.i ], [ %69, %73 ]
-  %75 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i, i64 %.0.lcssa.i.i.i
-  store ptr %75, ptr %2, align 8, !tbaa !479
-  %76 = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !472
-  %77 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %76, i64 %69
-  %78 = icmp eq ptr %75, %77
-  br i1 %78, label %26, label %.loopexit, !llvm.loop !632
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit: ; preds = %.lr.ph.i.i.i, %71, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i
+  %.0.lcssa.i.i.i = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i ], [ %.04.i.i.i, %.lr.ph.i.i.i ], [ %67, %71 ]
+  %73 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %.pre.i.i.i, i64 %.0.lcssa.i.i.i
+  store ptr %73, ptr %2, align 8, !tbaa !479
+  %74 = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !472
+  %75 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.375", ptr %74, i64 %67
+  %76 = icmp eq ptr %73, %75
+  br i1 %76, label %25, label %.loopexit, !llvm.loop !632
 
 .loopexit:                                        ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_07ustringENS4_13intrusive_ptrINS4_14ImageCacheFileEEEENS_9robin_mapIS5_S8_St4hashIS5_ESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E14robin_iteratorILb0EEppEv.exit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_7ustringENS0_13intrusive_ptrINS0_14ImageCacheFileEEESt4hashIS2_ESt8equal_toIS2_ELm64EN3tsl9robin_mapIS2_S5_S7_S9_SaISt4pairIS2_S5_EELb0ENSA_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
   ret void
@@ -36878,14 +36862,14 @@ define hidden void @_ZN11OpenImageIO6v3_1_014ImageCacheImpl13check_max_memEPNS0_
   %5 = alloca %"class.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::iterator", align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::iterator", align 8
   %7 = alloca %"struct.OpenImageIO::v3_1_0::TileID", align 8
-  %.sroa.068 = alloca { i32, i32, i32, i32, i32, i16, i16, i32 }, align 8
+  %.sroa.065 = alloca { i32, i32, i32, i32, i32, i16, i16, i32 }, align 8
   %8 = alloca %"class.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::iterator", align 8
   %.sroa.0 = alloca { i32, i32, i32, i32, i32, i16, i16, i32 }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8704
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8708
   %11 = load atomic i32, ptr %10 seq_cst, align 4
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %200, label %13
+  br i1 %12, label %196, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 25200
@@ -36893,7 +36877,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_014ImageCacheImpl13check_max_memEPNS0_
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load atomic i64, ptr %16 seq_cst, align 8
   %18 = icmp slt i64 %15, %17
-  br i1 %18, label %200, label %19
+  br i1 %18, label %196, label %19
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 25192
@@ -36904,7 +36888,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_014ImageCacheImpl13check_max_memEPNS0_
   %.0..0..0..0..0..0..i.i = load i8, ptr %3, align 1, !tbaa !456, !range !173, !noundef !174
   %23 = trunc nuw i8 %.0..0..0..0..0..0..i.i to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %23, label %200, label %24
+  br i1 %23, label %196, label %24
 
 24:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -36929,8 +36913,8 @@ define hidden void @_ZN11OpenImageIO6v3_1_014ImageCacheImpl13check_max_memEPNS0_
   %34 = icmp sgt i32 %33, -1
   %35 = load i8, ptr %26, align 8, !range !173
   %36 = trunc nuw i8 %35 to i1
-  %or.cond118 = select i1 %34, i1 %36, i1 false
-  br i1 %or.cond118, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit
+  %or.cond115 = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond115, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i: ; preds = %32
   %37 = load ptr, ptr %4, align 8, !tbaa !552
@@ -36960,27 +36944,27 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_pt
   %51 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %201
+  br label %197
 
 52:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit, %24
   %53 = load atomic i64, ptr %14 seq_cst, align 16
   %54 = load atomic i64, ptr %16 seq_cst, align 8
-  %.not85 = icmp slt i64 %53, %54
-  br i1 %.not85, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread, label %.lr.ph
+  %.not82 = icmp slt i64 %53, %54
+  br i1 %.not82, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.569.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %0, i64 25180
+  %.sroa.566.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %0, i64 25180
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %62
 
-62:                                               ; preds = %.lr.ph, %171
-  %.0484 = phi i32 [ 0, %.lr.ph ], [ %.15104109, %171 ]
+62:                                               ; preds = %.lr.ph, %168
+  %.0481 = phi i32 [ 0, %.lr.ph ], [ %.15101106, %168 ]
   %63 = load ptr, ptr %4, align 8, !tbaa !552
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread, label %64
@@ -36992,348 +36976,340 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_pt
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit: ; preds = %64
   %67 = zext nneg i32 %65 to i64
-  %.idx.i = shl nuw nsw i64 %67, 7
-  %68 = getelementptr inbounds nuw i8, ptr %63, i64 72
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !658
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  %73 = load i64, ptr %72, align 8, !tbaa !891
-  %74 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %71, i64 %73
-  %75 = load ptr, ptr %55, align 8, !tbaa !895
-  %.not = icmp eq ptr %75, %74
-  br i1 %.not, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39
+  %68 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %63, i64 %67, i32 2, i32 0, i32 6
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %70 = load ptr, ptr %69, align 8, !tbaa !658
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %72 = load i64, ptr %71, align 8, !tbaa !891
+  %73 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %70, i64 %72
+  %74 = load ptr, ptr %55, align 8, !tbaa !895
+  %.not = icmp eq ptr %74, %73
+  br i1 %.not, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread: ; preds = %62, %64, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::iterator") align 8 %6, ptr noundef nonnull align 64 dereferenceable(16448) %9)
-          to label %76 unwind label %97
+          to label %75 unwind label %96
 
-76:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread
-  %77 = load i32, ptr %25, align 8, !tbaa !892
-  %78 = icmp sgt i32 %77, -1
-  %79 = load i8, ptr %26, align 8, !range !173
-  %80 = trunc nuw i8 %79 to i1
-  %or.cond120 = select i1 %78, i1 %80, i1 false
-  br i1 %or.cond120, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i27, label %86
+75:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread
+  %76 = load i32, ptr %25, align 8, !tbaa !892
+  %77 = icmp sgt i32 %76, -1
+  %78 = load i8, ptr %26, align 8, !range !173
+  %79 = trunc nuw i8 %78 to i1
+  %or.cond117 = select i1 %77, i1 %79, i1 false
+  br i1 %or.cond117, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i27, label %85
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i27: ; preds = %76
-  %81 = load ptr, ptr %4, align 8, !tbaa !552
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
-  %83 = zext nneg i32 %77 to i64
-  %84 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %82, i64 %83
-  %85 = atomicrmw sub ptr %84, i32 1073741824 release, align 4
-  br label %86
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i27: ; preds = %75
+  %80 = load ptr, ptr %4, align 8, !tbaa !552
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 64
+  %82 = zext nneg i32 %76 to i64
+  %83 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %81, i64 %82
+  %84 = atomicrmw sub ptr %83, i32 1073741824 release, align 4
+  br label %85
 
-86:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i27, %76
-  %87 = load ptr, ptr %6, align 8, !tbaa !552
-  store ptr %87, ptr %4, align 8, !tbaa !552
-  %88 = load i32, ptr %56, align 8, !tbaa !892
-  store i32 %88, ptr %25, align 8, !tbaa !892
-  %89 = load i64, ptr %57, align 8, !tbaa !894
-  store i64 %89, ptr %55, align 8, !tbaa !894
-  %90 = load i8, ptr %58, align 8, !tbaa !893, !range !173, !noundef !174
-  store i8 %90, ptr %26, align 8, !tbaa !893
-  %.not.i.i29 = icmp eq ptr %87, null
-  %91 = inttoptr i64 %89 to ptr
-  br i1 %.not.i.i29, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread.thread, label %92
+85:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i27, %75
+  %86 = load ptr, ptr %6, align 8, !tbaa !552
+  store ptr %86, ptr %4, align 8, !tbaa !552
+  %87 = load i32, ptr %56, align 8, !tbaa !892
+  store i32 %87, ptr %25, align 8, !tbaa !892
+  %88 = load i64, ptr %57, align 8, !tbaa !894
+  store i64 %88, ptr %55, align 8, !tbaa !894
+  %89 = load i8, ptr %58, align 8, !tbaa !893, !range !173, !noundef !174
+  store i8 %89, ptr %26, align 8, !tbaa !893
+  %.not.i.i29 = icmp eq ptr %86, null
+  %90 = inttoptr i64 %88 to ptr
+  br i1 %.not.i.i29, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38.thread.thread, label %91
 
-92:                                               ; preds = %86
-  %93 = icmp sgt i32 %88, -1
+91:                                               ; preds = %85
+  %92 = icmp sgt i32 %87, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %93, label %.thread110, label %.thread
+  br i1 %92, label %.thread107, label %.thread
 
-.thread110:                                       ; preds = %92
-  %94 = add nsw i32 %.0484, 1
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39
+.thread107:                                       ; preds = %91
+  %93 = add nsw i32 %.0481, 1
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38
 
-95:                                               ; preds = %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit.thread
-  %96 = landingpad { ptr, i32 }
+94:                                               ; preds = %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit.thread
+  %95 = landingpad { ptr, i32 }
           cleanup
-  br label %201
+  br label %197
 
-97:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread
-  %98 = landingpad { ptr, i32 }
+96:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit.thread
+  %97 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %201
+  br label %197
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread.thread: ; preds = %86
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38.thread.thread: ; preds = %85
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55.thread
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52.thread
 
-.thread:                                          ; preds = %92
+.thread:                                          ; preds = %91
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  br label %191
+  br label %187
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit, %.thread110
-  %99 = phi ptr [ %91, %.thread110 ], [ %75, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
-  %100 = phi i32 [ %88, %.thread110 ], [ %65, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
-  %101 = phi ptr [ %87, %.thread110 ], [ %63, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
-  %.15104109 = phi i32 [ %94, %.thread110 ], [ %.0484, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
-  %102 = zext nneg i32 %100 to i64
-  %.idx.i38 = shl nuw nsw i64 %102, 7
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 72
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i38
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %106 = load ptr, ptr %105, align 8, !tbaa !658
-  %107 = getelementptr inbounds nuw i8, ptr %104, i64 40
-  %108 = load i64, ptr %107, align 8, !tbaa !891
-  %109 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %106, i64 %108
-  %.not81 = icmp eq ptr %99, %109
-  br i1 %.not81, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread, label %110
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit, %.thread107
+  %98 = phi ptr [ %90, %.thread107 ], [ %74, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
+  %99 = phi i32 [ %87, %.thread107 ], [ %65, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
+  %100 = phi ptr [ %86, %.thread107 ], [ %63, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
+  %.15101106 = phi i32 [ %93, %.thread107 ], [ %.0481, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit ]
+  %101 = zext nneg i32 %99 to i64
+  %102 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %100, i64 %101, i32 2, i32 0, i32 6
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
+  %104 = load ptr, ptr %103, align 8, !tbaa !658
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 40
+  %106 = load i64, ptr %105, align 8, !tbaa !891
+  %107 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %104, i64 %106
+  %.not78 = icmp eq ptr %98, %107
+  br i1 %.not78, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38.thread, label %108
 
-110:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39
-  %111 = getelementptr inbounds nuw i8, ptr %99, i64 48
-  %112 = load ptr, ptr %111, align 8, !tbaa !531
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 78
-  %114 = load volatile i8, ptr %113, align 2, !tbaa !575, !range !173, !noundef !174
-  %115 = trunc nuw i8 %114 to i1
-  %116 = getelementptr inbounds nuw i8, ptr %112, i64 76
-  %117 = load i8, ptr %116, align 4, !range !173
-  %118 = trunc nuw i8 %117 to i1
-  %or.cond.i = select i1 %115, i1 %118, i1 false
+108:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38
+  %109 = getelementptr inbounds nuw i8, ptr %98, i64 48
+  %110 = load ptr, ptr %109, align 8, !tbaa !531
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 78
+  %112 = load volatile i8, ptr %111, align 2, !tbaa !575, !range !173, !noundef !174
+  %113 = trunc nuw i8 %112 to i1
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 76
+  %115 = load i8, ptr %114, align 4, !range !173
+  %116 = trunc nuw i8 %115 to i1
+  %or.cond.i = select i1 %113, i1 %116, i1 false
   br i1 %or.cond.i, label %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit, label %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit.thread
 
-_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit: ; preds = %110
-  %119 = getelementptr inbounds nuw i8, ptr %112, i64 80
-  %120 = cmpxchg ptr %119, i32 1, i32 0 seq_cst seq_cst, align 4
-  %121 = extractvalue { i32, i1 } %120, 1
-  br i1 %121, label %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit.thread, label %122
+_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit: ; preds = %108
+  %117 = getelementptr inbounds nuw i8, ptr %110, i64 80
+  %118 = cmpxchg ptr %117, i32 1, i32 0 seq_cst seq_cst, align 4
+  %119 = extractvalue { i32, i1 } %118, 1
+  br i1 %119, label %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit.thread, label %120
 
-122:                                              ; preds = %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit
+120:                                              ; preds = %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %123 = load ptr, ptr %55, align 8, !tbaa !895
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %124, i64 40, i1 false), !tbaa.struct !633
+  %121 = load ptr, ptr %55, align 8, !tbaa !895
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %122, i64 40, i1 false), !tbaa.struct !633
   invoke void @_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(25) %4)
-          to label %125 unwind label %165
+          to label %123 unwind label %162
 
-125:                                              ; preds = %122
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.068)
-  %126 = load ptr, ptr %4, align 8, !tbaa !552
-  %.not.i40 = icmp ne ptr %126, null
+123:                                              ; preds = %120
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.065)
+  %124 = load ptr, ptr %4, align 8, !tbaa !552
+  %.not.i39 = icmp ne ptr %124, null
   %.pre = load i32, ptr %25, align 8, !tbaa !892
-  %127 = icmp sgt i32 %.pre, -1
-  %or.cond116 = select i1 %.not.i40, i1 %127, i1 false
-  br i1 %or.cond116, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42.thread
+  %125 = icmp sgt i32 %.pre, -1
+  %or.cond113 = select i1 %.not.i39, i1 %125, i1 false
+  br i1 %or.cond113, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42: ; preds = %125
-  %128 = zext nneg i32 %.pre to i64
-  %.idx.i41 = shl nuw nsw i64 %128, 7
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 72
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx.i41
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
-  %132 = load ptr, ptr %131, align 8, !tbaa !658
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  %134 = load i64, ptr %133, align 8, !tbaa !891
-  %135 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %132, i64 %134
-  %136 = load ptr, ptr %55, align 8, !tbaa !895
-  %.not83 = icmp eq ptr %136, %135
-  br i1 %.not83, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42.thread, label %137
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40: ; preds = %123
+  %126 = zext nneg i32 %.pre to i64
+  %127 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %124, i64 %126, i32 2, i32 0, i32 6
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
+  %129 = load ptr, ptr %128, align 8, !tbaa !658
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 40
+  %131 = load i64, ptr %130, align 8, !tbaa !891
+  %132 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %129, i64 %131
+  %133 = load ptr, ptr %55, align 8, !tbaa !895
+  %.not80 = icmp eq ptr %133, %132
+  br i1 %.not80, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread, label %134
 
-137:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42
-  %138 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.068, ptr noundef nonnull align 8 dereferenceable(28) %138, i64 28, i1 false), !tbaa.struct !633
-  %.sroa.569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 36
-  %.sroa.569.0.copyload = load i32, ptr %.sroa.569.0..sroa_idx, align 4, !tbaa !277
-  %.sroa.672.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 40
-  %.sroa.672.0.copyload = load ptr, ptr %.sroa.672.0..sroa_idx, align 8, !tbaa !634
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42.thread
+134:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.065, ptr noundef nonnull align 8 dereferenceable(28) %135, i64 28, i1 false), !tbaa.struct !633
+  %.sroa.566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 36
+  %.sroa.566.0.copyload = load i32, ptr %.sroa.566.0..sroa_idx, align 4, !tbaa !277
+  %.sroa.669.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 40
+  %.sroa.669.0.copyload = load ptr, ptr %.sroa.669.0..sroa_idx, align 8, !tbaa !634
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42.thread: ; preds = %125, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42, %137
-  %.sroa.672.0 = phi ptr [ %.sroa.672.0.copyload, %137 ], [ null, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42 ], [ null, %125 ]
-  %.sroa.569.0 = phi i32 [ %.sroa.569.0.copyload, %137 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42 ], [ 0, %125 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(28) %27, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.068, i64 28, i1 false), !tbaa.struct !633
-  store i32 %.sroa.569.0, ptr %.sroa.569.0..sroa_idx70, align 4, !tbaa !277
-  store ptr %.sroa.672.0, ptr %28, align 32, !tbaa !634
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.068)
-  %139 = icmp sgt i32 %.pre, -1
-  %140 = load i8, ptr %26, align 8, !range !173
-  %141 = trunc nuw i8 %140 to i1
-  %or.cond = select i1 %139, i1 %141, i1 false
-  br i1 %or.cond, label %142, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread: ; preds = %123, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40, %134
+  %.sroa.669.0 = phi ptr [ %.sroa.669.0.copyload, %134 ], [ null, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40 ], [ null, %123 ]
+  %.sroa.566.0 = phi i32 [ %.sroa.566.0.copyload, %134 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40 ], [ 0, %123 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(28) %27, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.065, i64 28, i1 false), !tbaa.struct !633
+  store i32 %.sroa.566.0, ptr %.sroa.566.0..sroa_idx67, align 4, !tbaa !277
+  store ptr %.sroa.669.0, ptr %28, align 32, !tbaa !634
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.065)
+  %136 = icmp sgt i32 %.pre, -1
+  %137 = load i8, ptr %26, align 8, !range !173
+  %138 = trunc nuw i8 %137 to i1
+  %or.cond = select i1 %136, i1 %138, i1 false
+  br i1 %or.cond, label %139, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit
 
-142:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42.thread
-  %143 = getelementptr inbounds nuw i8, ptr %126, i64 64
-  %144 = zext nneg i32 %.pre to i64
-  %145 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %143, i64 %144
-  %146 = atomicrmw sub ptr %145, i32 1073741824 release, align 4
+139:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread
+  %140 = getelementptr inbounds nuw i8, ptr %124, i64 64
+  %141 = zext nneg i32 %.pre to i64
+  %142 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %140, i64 %141
+  %143 = atomicrmw sub ptr %142, i32 1073741824 release, align 4
   store i8 0, ptr %26, align 8, !tbaa !893
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit: ; preds = %142, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit42.thread
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit: ; preds = %139, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit40.thread
   invoke void @_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE5eraseERKS2_b(ptr noundef nonnull align 64 dereferenceable(16448) %9, ptr noundef nonnull align 8 dereferenceable(40) %7, i1 noundef zeroext true)
-          to label %147 unwind label %165
+          to label %144 unwind label %162
 
-147:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit
-  %148 = load ptr, ptr %28, align 32, !tbaa !517
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %169, label %150
+144:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit
+  %145 = load ptr, ptr %28, align 32, !tbaa !517
+  %146 = icmp eq ptr %145, null
+  br i1 %146, label %166, label %147
 
-150:                                              ; preds = %147
+147:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE4findERKS2_b(ptr dead_on_unwind nonnull writable sret(%"class.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::iterator") align 8 %8, ptr noundef nonnull align 64 dereferenceable(16448) %9, ptr noundef nonnull align 8 dereferenceable(40) %27, i1 noundef zeroext true)
-          to label %151 unwind label %167
+          to label %148 unwind label %164
 
-151:                                              ; preds = %150
-  %152 = load i32, ptr %25, align 8, !tbaa !892
-  %153 = icmp sgt i32 %152, -1
-  %154 = load i8, ptr %26, align 8, !range !173
-  %155 = trunc nuw i8 %154 to i1
-  %or.cond122 = select i1 %153, i1 %155, i1 false
-  br i1 %or.cond122, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i43, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit48
+148:                                              ; preds = %147
+  %149 = load i32, ptr %25, align 8, !tbaa !892
+  %150 = icmp sgt i32 %149, -1
+  %151 = load i8, ptr %26, align 8, !range !173
+  %152 = trunc nuw i8 %151 to i1
+  %or.cond119 = select i1 %150, i1 %152, i1 false
+  br i1 %or.cond119, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i41, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit46
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i43: ; preds = %151
-  %156 = load ptr, ptr %4, align 8, !tbaa !552
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 64
-  %158 = zext nneg i32 %152 to i64
-  %159 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %157, i64 %158
-  %160 = atomicrmw sub ptr %159, i32 1073741824 release, align 4
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit48
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i41: ; preds = %148
+  %153 = load ptr, ptr %4, align 8, !tbaa !552
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 64
+  %155 = zext nneg i32 %149 to i64
+  %156 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %154, i64 %155
+  %157 = atomicrmw sub ptr %156, i32 1073741824 release, align 4
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit46
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit48: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i43, %151
-  %161 = load ptr, ptr %8, align 8, !tbaa !552
-  store ptr %161, ptr %4, align 8, !tbaa !552
-  %162 = load i32, ptr %59, align 8, !tbaa !892
-  store i32 %162, ptr %25, align 8, !tbaa !892
-  %163 = load i64, ptr %60, align 8, !tbaa !894
-  store i64 %163, ptr %55, align 8, !tbaa !894
-  %164 = load i8, ptr %61, align 8, !tbaa !893, !range !173, !noundef !174
-  store i8 %164, ptr %26, align 8, !tbaa !893
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit46: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i41, %148
+  %158 = load ptr, ptr %8, align 8, !tbaa !552
+  store ptr %158, ptr %4, align 8, !tbaa !552
+  %159 = load i32, ptr %59, align 8, !tbaa !892
+  store i32 %159, ptr %25, align 8, !tbaa !892
+  %160 = load i64, ptr %60, align 8, !tbaa !894
+  store i64 %160, ptr %55, align 8, !tbaa !894
+  %161 = load i8, ptr %61, align 8, !tbaa !893, !range !173, !noundef !174
+  store i8 %161, ptr %26, align 8, !tbaa !893
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %169
+  br label %166
 
-165:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit, %122
-  %166 = landingpad { ptr, i32 }
+162:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit, %120
+  %163 = landingpad { ptr, i32 }
           cleanup
-  br label %170
+  br label %167
 
-167:                                              ; preds = %150
-  %168 = landingpad { ptr, i32 }
+164:                                              ; preds = %147
+  %165 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %170
+  br label %167
 
-169:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit48, %147
+166:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit46, %144
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %171
+  br label %168
 
-170:                                              ; preds = %165, %167
-  %.pn16.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %166, %165 ]
+167:                                              ; preds = %162, %164
+  %.pn16.pn.pn = phi { ptr, i32 } [ %165, %164 ], [ %163, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %201
+  br label %197
 
-_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit.thread: ; preds = %110, %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit
+_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit.thread: ; preds = %108, %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit
   invoke void @_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(25) %4)
-          to label %171 unwind label %95
+          to label %168 unwind label %94
 
-171:                                              ; preds = %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit.thread, %169
-  %172 = load atomic i64, ptr %14 seq_cst, align 16
-  %173 = load atomic i64, ptr %16 seq_cst, align 8
-  %174 = icmp sge i64 %172, %173
-  %175 = icmp slt i32 %.15104109, 100
-  %176 = select i1 %174, i1 %175, i1 false
-  br i1 %176, label %62, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread, !llvm.loop !896
+168:                                              ; preds = %_ZN11OpenImageIO6v3_1_014ImageCacheTile7releaseEv.exit.thread, %166
+  %169 = load atomic i64, ptr %14 seq_cst, align 16
+  %170 = load atomic i64, ptr %16 seq_cst, align 8
+  %171 = icmp sge i64 %169, %170
+  %172 = icmp slt i32 %.15101106, 100
+  %173 = select i1 %171, i1 %172, i1 false
+  br i1 %173, label %62, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38.thread, !llvm.loop !896
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread: ; preds = %171, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39, %52
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38.thread: ; preds = %168, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38, %52
   %.pr = load ptr, ptr %4, align 8, !tbaa !552
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  %.not.i53 = icmp eq ptr %.pr, null
-  br i1 %.not.i53, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55.thread, label %177
+  %.not.i51 = icmp eq ptr %.pr, null
+  br i1 %.not.i51, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52.thread, label %174
 
-177:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread
-  %.pr79 = load i32, ptr %25, align 8, !tbaa !892
-  %178 = icmp sgt i32 %.pr79, -1
-  br i1 %178, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55, label %191
+174:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38.thread
+  %.pr76 = load i32, ptr %25, align 8, !tbaa !892
+  %175 = icmp sgt i32 %.pr76, -1
+  br i1 %175, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52, label %187
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55: ; preds = %177
-  %179 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %180 = zext nneg i32 %.pr79 to i64
-  %.idx.i54 = shl nuw nsw i64 %180, 7
-  %181 = getelementptr inbounds nuw i8, ptr %.pr, i64 72
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx.i54
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 32
-  %184 = load ptr, ptr %183, align 8, !tbaa !658
-  %185 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  %186 = load i64, ptr %185, align 8, !tbaa !891
-  %187 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %184, i64 %186
-  %188 = load ptr, ptr %179, align 8, !tbaa !895
-  %.not82 = icmp eq ptr %188, %187
-  br i1 %.not82, label %191, label %189
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52: ; preds = %174
+  %176 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %177 = zext nneg i32 %.pr76 to i64
+  %178 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %.pr, i64 %177, i32 2, i32 0, i32 6
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 32
+  %180 = load ptr, ptr %179, align 8, !tbaa !658
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 40
+  %182 = load i64, ptr %181, align 8, !tbaa !891
+  %183 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %180, i64 %182
+  %184 = load ptr, ptr %176, align 8, !tbaa !895
+  %.not79 = icmp eq ptr %184, %183
+  br i1 %.not79, label %187, label %185
 
-189:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55
-  %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(28) %190, i64 28, i1 false), !tbaa.struct !633
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %188, i64 36
+185:                                              ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(28) %186, i64 28, i1 false), !tbaa.struct !633
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 36
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !277
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %188, i64 40
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 40
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !634
-  br label %191
+  br label %187
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55.thread: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread.thread, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit39.thread
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52.thread: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38.thread.thread, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit38.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(28) %27, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.0, i64 28, i1 false), !tbaa.struct !633
-  %.sroa.5.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %0, i64 25180
-  store i32 0, ptr %.sroa.5.0..sroa_idx64, align 4, !tbaa !277
+  %.sroa.5.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %0, i64 25180
+  store i32 0, ptr %.sroa.5.0..sroa_idx61, align 4, !tbaa !277
   store ptr null, ptr %28, align 32, !tbaa !634
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   store atomic i8 0, ptr %20 release, align 8
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit59
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit56
 
-191:                                              ; preds = %189, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55, %177, %.thread
-  %.ph = phi ptr [ %87, %.thread ], [ %.pr, %177 ], [ %.pr, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55 ], [ %.pr, %189 ]
-  %.sroa.6.0.ph = phi ptr [ null, %.thread ], [ null, %177 ], [ null, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55 ], [ %.sroa.6.0.copyload, %189 ]
-  %.sroa.5.0.ph = phi i32 [ 0, %.thread ], [ 0, %177 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55 ], [ %.sroa.5.0.copyload, %189 ]
+187:                                              ; preds = %185, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52, %174, %.thread
+  %.ph = phi ptr [ %86, %.thread ], [ %.pr, %174 ], [ %.pr, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52 ], [ %.pr, %185 ]
+  %.sroa.6.0.ph = phi ptr [ null, %.thread ], [ null, %174 ], [ null, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52 ], [ %.sroa.6.0.copyload, %185 ]
+  %.sroa.5.0.ph = phi i32 [ 0, %.thread ], [ 0, %174 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52 ], [ %.sroa.5.0.copyload, %185 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(28) %27, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.0, i64 28, i1 false), !tbaa.struct !633
-  %.sroa.5.0..sroa_idx64113 = getelementptr inbounds nuw i8, ptr %0, i64 25180
-  store i32 %.sroa.5.0.ph, ptr %.sroa.5.0..sroa_idx64113, align 4, !tbaa !277
+  %.sroa.5.0..sroa_idx61110 = getelementptr inbounds nuw i8, ptr %0, i64 25180
+  store i32 %.sroa.5.0.ph, ptr %.sroa.5.0..sroa_idx61110, align 4, !tbaa !277
   store ptr %.sroa.6.0.ph, ptr %28, align 32, !tbaa !634
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   store atomic i8 0, ptr %20 release, align 8
-  %192 = load i32, ptr %25, align 8, !tbaa !892
-  %193 = icmp sgt i32 %192, -1
-  %194 = load i8, ptr %26, align 8, !range !173
-  %195 = trunc nuw i8 %194 to i1
-  %or.cond124 = select i1 %193, i1 %195, i1 false
-  br i1 %or.cond124, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i58, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit59
+  %188 = load i32, ptr %25, align 8, !tbaa !892
+  %189 = icmp sgt i32 %188, -1
+  %190 = load i8, ptr %26, align 8, !range !173
+  %191 = trunc nuw i8 %190 to i1
+  %or.cond121 = select i1 %189, i1 %191, i1 false
+  br i1 %or.cond121, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i55, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit56
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i58: ; preds = %191
-  %196 = getelementptr inbounds nuw i8, ptr %.ph, i64 64
-  %197 = zext nneg i32 %192 to i64
-  %198 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %196, i64 %197
-  %199 = atomicrmw sub ptr %198, i32 1073741824 release, align 4
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit59
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i55: ; preds = %187
+  %192 = getelementptr inbounds nuw i8, ptr %.ph, i64 64
+  %193 = zext nneg i32 %188 to i64
+  %194 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %192, i64 %193
+  %195 = atomicrmw sub ptr %194, i32 1073741824 release, align 4
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit56
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit59: ; preds = %191, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i58, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit55.thread
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit56: ; preds = %187, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i55, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorcvbEv.exit52.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %200
+  br label %196
 
-200:                                              ; preds = %19, %13, %2, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit59
+196:                                              ; preds = %19, %13, %2, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit56
   ret void
 
-201:                                              ; preds = %95, %97, %170, %50
-  %.pn20.pn = phi { ptr, i32 } [ %51, %50 ], [ %96, %95 ], [ %.pn16.pn.pn, %170 ], [ %98, %97 ]
-  %202 = load ptr, ptr %4, align 8, !tbaa !552
-  %.not.i.i60 = icmp eq ptr %202, null
-  br i1 %.not.i.i60, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit63, label %203
+197:                                              ; preds = %94, %96, %167, %50
+  %.pn20.pn = phi { ptr, i32 } [ %51, %50 ], [ %95, %94 ], [ %.pn16.pn.pn, %167 ], [ %97, %96 ]
+  %198 = load ptr, ptr %4, align 8, !tbaa !552
+  %.not.i.i57 = icmp eq ptr %198, null
+  br i1 %.not.i.i57, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit60, label %199
 
-203:                                              ; preds = %201
-  %204 = load i32, ptr %25, align 8, !tbaa !892
-  %205 = icmp sgt i32 %204, -1
-  %206 = load i8, ptr %26, align 8, !range !173
-  %207 = trunc nuw i8 %206 to i1
-  %or.cond126 = select i1 %205, i1 %207, i1 false
-  br i1 %or.cond126, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i62, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit63
+199:                                              ; preds = %197
+  %200 = load i32, ptr %25, align 8, !tbaa !892
+  %201 = icmp sgt i32 %200, -1
+  %202 = load i8, ptr %26, align 8, !range !173
+  %203 = trunc nuw i8 %202 to i1
+  %or.cond123 = select i1 %201, i1 %203, i1 false
+  br i1 %or.cond123, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i59, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit60
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i62: ; preds = %203
-  %208 = getelementptr inbounds nuw i8, ptr %202, i64 64
-  %209 = zext nneg i32 %204 to i64
-  %210 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %208, i64 %209
-  %211 = atomicrmw sub ptr %210, i32 1073741824 release, align 4
-  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit63
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i59: ; preds = %199
+  %204 = getelementptr inbounds nuw i8, ptr %198, i64 64
+  %205 = zext nneg i32 %200 to i64
+  %206 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %204, i64 %205
+  %207 = atomicrmw sub ptr %206, i32 1073741824 release, align 4
+  br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit60
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit63: ; preds = %203, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i62, %201
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit60: ; preds = %199, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i.i59, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn20.pn
 }
@@ -37600,157 +37576,152 @@ _ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_p
   store i8 1, ptr %3, align 8, !tbaa !893
   %.pre.i = load i32, ptr %2, align 8, !tbaa !892
   %15 = sext i32 %.pre.i to i64
-  %16 = shl nsw i64 %15, 7
-  %17 = load ptr, ptr %0, align 8, !tbaa !552
-  %18 = getelementptr i8, ptr %17, i64 72
-  %19 = getelementptr i8, ptr %18, i64 %16
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %21 = load i64, ptr %20, align 8, !tbaa !891
-  %.not.i.i.i = icmp eq i64 %21, 0
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %16 = load ptr, ptr %0, align 8, !tbaa !552
+  %17 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %16, i64 %15, i32 2, i32 0, i32 6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %19 = load i64, ptr %18, align 8, !tbaa !891
+  %.not.i.i.i = icmp eq i64 %19, 0
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !658
   br i1 %.not.i.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, %25
-  %.04.i.i.i = phi i64 [ %26, %25 ], [ 0, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
-  %22 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i, i64 %.04.i.i.i, i32 1
-  %23 = load i16, ptr %22, align 4, !tbaa !655
-  %24 = icmp eq i16 %23, -1
-  br i1 %24, label %25, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
+.lr.ph.i.i.i:                                     ; preds = %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, %23
+  %.04.i.i.i = phi i64 [ %24, %23 ], [ 0, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
+  %20 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i, i64 %.04.i.i.i, i32 1
+  %21 = load i16, ptr %20, align 4, !tbaa !655
+  %22 = icmp eq i16 %21, -1
+  br i1 %22, label %23, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
 
-25:                                               ; preds = %.lr.ph.i.i.i
-  %26 = add nuw i64 %.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %26, %21
+23:                                               ; preds = %.lr.ph.i.i.i
+  %24 = add nuw i64 %.04.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %24, %19
   br i1 %exitcond.not.i.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, label %.lr.ph.i.i.i, !llvm.loop !900
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit: ; preds = %.lr.ph.i.i.i, %25, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i
-  %.0.lcssa.i.i.i = phi i64 [ 0, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ], [ %.04.i.i.i, %.lr.ph.i.i.i ], [ %21, %25 ]
-  %27 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i, i64 %.0.lcssa.i.i.i
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %27, ptr %28, align 8, !tbaa !894
-  %30 = getelementptr i8, ptr %29, i64 %16
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !658
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %34 = load i64, ptr %33, align 16, !tbaa !891
-  %35 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %32, i64 %34
-  %36 = icmp eq ptr %27, %35
-  br i1 %36, label %.lr.ph, label %.loopexit
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit: ; preds = %.lr.ph.i.i.i, %23, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i
+  %.0.lcssa.i.i.i = phi i64 [ 0, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ], [ %.04.i.i.i, %.lr.ph.i.i.i ], [ %19, %23 ]
+  %25 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i, i64 %.0.lcssa.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %25, ptr %26, align 8, !tbaa !894
+  %27 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %1, i64 %15, i32 2, i32 0, i32 6
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %29 = load ptr, ptr %28, align 8, !tbaa !658
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %31 = load i64, ptr %30, align 16, !tbaa !891
+  %32 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %29, i64 %31
+  %33 = icmp eq ptr %25, %32
+  br i1 %33, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25
-  %37 = phi ptr [ %63, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25 ], [ %17, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
-  %38 = phi i32 [ %64, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25 ], [ %.pre.i, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
-  %39 = icmp eq i32 %38, 127
-  br i1 %39, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit, label %42
+.lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24
+  %34 = phi ptr [ %60, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24 ], [ %16, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
+  %35 = phi i32 [ %61, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24 ], [ %.pre.i, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
+  %36 = icmp eq i32 %35, 127
+  br i1 %36, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit, label %39
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit: ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16320
-  %41 = atomicrmw sub ptr %40, i32 1073741824 release, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16320
+  %38 = atomicrmw sub ptr %37, i32 1073741824 release, align 4
   store i8 0, ptr %3, align 8, !tbaa !893
   store i32 -1, ptr %2, align 8, !tbaa !892
   br label %.loopexit
 
-42:                                               ; preds = %.lr.ph
-  %43 = add nsw i32 %38, 1
-  %44 = icmp sgt i32 %38, -1
-  br i1 %44, label %45, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3
+39:                                               ; preds = %.lr.ph
+  %40 = add nsw i32 %35, 1
+  %41 = icmp sgt i32 %35, -1
+  br i1 %41, label %42, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3: ; preds = %42
-  store i32 %43, ptr %2, align 8, !tbaa !892
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3: ; preds = %39
+  store i32 %40, ptr %2, align 8, !tbaa !892
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %47 = zext nneg i32 %38 to i64
-  %48 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %46, i64 %47
-  %49 = atomicrmw sub ptr %48, i32 1073741824 release, align 4
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %44 = zext nneg i32 %35 to i64
+  %45 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %43, i64 %44
+  %46 = atomicrmw sub ptr %45, i32 1073741824 release, align 4
   store i8 0, ptr %3, align 8, !tbaa !893
-  %.pre34.pre = load ptr, ptr %0, align 8, !tbaa !552
-  store i32 %43, ptr %2, align 8, !tbaa !892
-  %50 = getelementptr inbounds nuw i8, ptr %.pre34.pre, i64 64
-  %51 = zext nneg i32 %43 to i64
-  %52 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %50, i64 %51
-  %53 = cmpxchg weak ptr %52, i32 0, i32 1073741824 acquire acquire, align 4
-  %54 = extractvalue { i32, i1 } %53, 1
-  br i1 %54, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i13
+  %.pre32.pre = load ptr, ptr %0, align 8, !tbaa !552
+  store i32 %40, ptr %2, align 8, !tbaa !892
+  %47 = getelementptr inbounds nuw i8, ptr %.pre32.pre, i64 64
+  %48 = zext nneg i32 %40 to i64
+  %49 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %47, i64 %48
+  %50 = cmpxchg weak ptr %49, i32 0, i32 1073741824 acquire acquire, align 4
+  %51 = extractvalue { i32, i1 } %50, 1
+  br i1 %51, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i12
 
-_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i13: ; preds = %45, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17
-  %.sroa.0.0.i.i.i.i.i14 = phi i32 [ %.sroa.0.1.i.i.i.i.i18, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17 ], [ 1, %45 ]
-  %.not.i.i.i.i.i.i15 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i14, 16
-  br i1 %.not.i.i.i.i.i.i15, label %59, label %55
+_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i12: ; preds = %42, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16
+  %.sroa.0.0.i.i.i.i.i13 = phi i32 [ %.sroa.0.1.i.i.i.i.i17, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16 ], [ 1, %42 ]
+  %.not.i.i.i.i.i.i14 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i13, 16
+  br i1 %.not.i.i.i.i.i.i14, label %56, label %52
 
-55:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i13
-  %56 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i14, 0
-  br i1 %56, label %.lr.ph.i.i.i.i.i.i.i21, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i16
+52:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i12
+  %53 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i13, 0
+  br i1 %53, label %.lr.ph.i.i.i.i.i.i.i20, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i15
 
-.lr.ph.i.i.i.i.i.i.i21:                           ; preds = %55, %.lr.ph.i.i.i.i.i.i.i21
-  %.03.i.i.i.i.i.i.i22 = phi i32 [ %57, %.lr.ph.i.i.i.i.i.i.i21 ], [ 0, %55 ]
+.lr.ph.i.i.i.i.i.i.i20:                           ; preds = %52, %.lr.ph.i.i.i.i.i.i.i20
+  %.03.i.i.i.i.i.i.i21 = phi i32 [ %54, %.lr.ph.i.i.i.i.i.i.i20 ], [ 0, %52 ]
   tail call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !457
-  %57 = add nuw nsw i32 %.03.i.i.i.i.i.i.i22, 1
-  %exitcond.not.i.i.i.i.i.i.i23 = icmp eq i32 %57, %.sroa.0.0.i.i.i.i.i14
-  br i1 %exitcond.not.i.i.i.i.i.i.i23, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i16, label %.lr.ph.i.i.i.i.i.i.i21, !llvm.loop !458
+  %54 = add nuw nsw i32 %.03.i.i.i.i.i.i.i21, 1
+  %exitcond.not.i.i.i.i.i.i.i22 = icmp eq i32 %54, %.sroa.0.0.i.i.i.i.i13
+  br i1 %exitcond.not.i.i.i.i.i.i.i22, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i15, label %.lr.ph.i.i.i.i.i.i.i20, !llvm.loop !458
 
-_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i16: ; preds = %.lr.ph.i.i.i.i.i.i.i21, %55
-  %58 = shl nsw i32 %.sroa.0.0.i.i.i.i.i14, 1
-  br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17
+_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i15: ; preds = %.lr.ph.i.i.i.i.i.i.i20, %52
+  %55 = shl nsw i32 %.sroa.0.0.i.i.i.i.i13, 1
+  br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16
 
-59:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i13
-  %60 = tail call noundef i32 @sched_yield() #8
-  br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17
+56:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i12
+  %57 = tail call noundef i32 @sched_yield() #8
+  br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16
 
-_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17: ; preds = %59, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i16
-  %.sroa.0.1.i.i.i.i.i18 = phi i32 [ %.sroa.0.0.i.i.i.i.i14, %59 ], [ %58, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i16 ]
-  %61 = cmpxchg weak ptr %52, i32 0, i32 1073741824 acquire acquire, align 4
-  %62 = extractvalue { i32, i1 } %61, 1
-  br i1 %62, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i13, !llvm.loop !470
+_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16: ; preds = %56, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i15
+  %.sroa.0.1.i.i.i.i.i17 = phi i32 [ %.sroa.0.0.i.i.i.i.i13, %56 ], [ %55, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i15 ]
+  %58 = cmpxchg weak ptr %49, i32 0, i32 1073741824 acquire acquire, align 4
+  %59 = extractvalue { i32, i1 } %58, 1
+  br i1 %59, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i12, !llvm.loop !470
 
-_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19: ; preds = %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i17, %45
+_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18: ; preds = %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i16, %42
   store i8 1, ptr %3, align 8, !tbaa !893
-  %.pre.i20 = load i32, ptr %2, align 8, !tbaa !892
-  %.pre33 = load ptr, ptr %0, align 8, !tbaa !552
+  %.pre.i19 = load i32, ptr %2, align 8, !tbaa !892
+  %.pre31 = load ptr, ptr %0, align 8, !tbaa !552
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19
-  %63 = phi ptr [ %37, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3 ], [ %.pre33, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19 ]
-  %64 = phi i32 [ %43, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3 ], [ %.pre.i20, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i19 ]
-  %65 = sext i32 %64 to i64
-  %.idx.i5 = shl nsw i64 %65, 7
-  %66 = getelementptr i8, ptr %63, i64 72
-  %67 = getelementptr i8, ptr %66, i64 %.idx.i5
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %69 = load i64, ptr %68, align 8, !tbaa !891
-  %.not.i.i.i6 = icmp eq i64 %69, 0
-  %.phi.trans.insert.i.i.i7 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %.pre.i.i.i8 = load ptr, ptr %.phi.trans.insert.i.i.i7, align 8, !tbaa !658
-  br i1 %.not.i.i.i6, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25, label %.lr.ph.i.i.i9
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4: ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18
+  %60 = phi ptr [ %34, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3 ], [ %.pre31, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18 ]
+  %61 = phi i32 [ %40, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i3 ], [ %.pre.i19, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i18 ]
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %60, i64 %62, i32 2, i32 0, i32 6
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %65 = load i64, ptr %64, align 8, !tbaa !891
+  %.not.i.i.i5 = icmp eq i64 %65, 0
+  %.phi.trans.insert.i.i.i6 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %.pre.i.i.i7 = load ptr, ptr %.phi.trans.insert.i.i.i6, align 8, !tbaa !658
+  br i1 %.not.i.i.i5, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24, label %.lr.ph.i.i.i8
 
-.lr.ph.i.i.i9:                                    ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4, %73
-  %.04.i.i.i10 = phi i64 [ %74, %73 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4 ]
-  %70 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i8, i64 %.04.i.i.i10, i32 1
-  %71 = load i16, ptr %70, align 4, !tbaa !655
-  %72 = icmp eq i16 %71, -1
-  br i1 %72, label %73, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25
+.lr.ph.i.i.i8:                                    ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4, %69
+  %.04.i.i.i9 = phi i64 [ %70, %69 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4 ]
+  %66 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i7, i64 %.04.i.i.i9, i32 1
+  %67 = load i16, ptr %66, align 4, !tbaa !655
+  %68 = icmp eq i16 %67, -1
+  br i1 %68, label %69, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24
 
-73:                                               ; preds = %.lr.ph.i.i.i9
-  %74 = add nuw i64 %.04.i.i.i10, 1
-  %exitcond.not.i.i.i12 = icmp eq i64 %74, %69
-  br i1 %exitcond.not.i.i.i12, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25, label %.lr.ph.i.i.i9, !llvm.loop !900
+69:                                               ; preds = %.lr.ph.i.i.i8
+  %70 = add nuw i64 %.04.i.i.i9, 1
+  %exitcond.not.i.i.i11 = icmp eq i64 %70, %65
+  br i1 %exitcond.not.i.i.i11, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24, label %.lr.ph.i.i.i8, !llvm.loop !900
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25: ; preds = %.lr.ph.i.i.i9, %73, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4
-  %.0.lcssa.i.i.i11 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4 ], [ %.04.i.i.i10, %.lr.ph.i.i.i9 ], [ %69, %73 ]
-  %75 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i8, i64 %.0.lcssa.i.i.i11
-  store ptr %75, ptr %28, align 8, !tbaa !894
-  %76 = getelementptr i8, ptr %29, i64 %.idx.i5
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = load ptr, ptr %77, align 8, !tbaa !658
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  %80 = load i64, ptr %79, align 16, !tbaa !891
-  %81 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %78, i64 %80
-  %82 = icmp eq ptr %75, %81
-  br i1 %82, label %.lr.ph, label %.loopexit
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24: ; preds = %.lr.ph.i.i.i8, %69, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4
+  %.0.lcssa.i.i.i10 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i4 ], [ %.04.i.i.i9, %.lr.ph.i.i.i8 ], [ %65, %69 ]
+  %71 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i7, i64 %.0.lcssa.i.i.i10
+  store ptr %71, ptr %26, align 8, !tbaa !894
+  %72 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %1, i64 %62, i32 2, i32 0, i32 6
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %74 = load ptr, ptr %73, align 8, !tbaa !658
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %76 = load i64, ptr %75, align 16, !tbaa !891
+  %77 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %74, i64 %76
+  %78 = icmp eq ptr %71, %77
+  br i1 %78, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit25, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
+.loopexit:                                        ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit24, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
   ret void
 }
 
@@ -37780,155 +37751,151 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_06TileIDENS4_
   %14 = load ptr, ptr %0, align 8, !tbaa !552
   %15 = load i32, ptr %13, align 8, !tbaa !892
   %16 = sext i32 %15 to i64
-  %.idx7 = shl nsw i64 %16, 7
-  %17 = getelementptr i8, ptr %14, i64 72
-  %18 = getelementptr i8, ptr %17, i64 %.idx7
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !658
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %22 = load i64, ptr %21, align 8, !tbaa !891
-  %23 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %20, i64 %22
-  %24 = icmp eq ptr %8, %23
-  br i1 %24, label %.lr.ph, label %.loopexit
+  %17 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %14, i64 %16, i32 2, i32 0, i32 6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8, !tbaa !658
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %21 = load i64, ptr %20, align 8, !tbaa !891
+  %22 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %19, i64 %21
+  %23 = icmp eq ptr %8, %22
+  br i1 %23, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_06TileIDENS4_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E14robin_iteratorILb0EEppEv.exit
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %26
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %25
 
-26:                                               ; preds = %.lr.ph, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
-  %.pre1617 = phi ptr [ %14, %.lr.ph ], [ %.pre1618, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
-  %27 = phi ptr [ %14, %.lr.ph ], [ %63, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
-  %28 = phi i32 [ %15, %.lr.ph ], [ %64, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
-  %29 = icmp eq i32 %28, 127
-  br i1 %29, label %30, label %35
+25:                                               ; preds = %.lr.ph, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
+  %.pre1516 = phi ptr [ %14, %.lr.ph ], [ %.pre1517, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
+  %26 = phi ptr [ %14, %.lr.ph ], [ %62, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
+  %27 = phi i32 [ %15, %.lr.ph ], [ %63, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit ]
+  %28 = icmp eq i32 %27, 127
+  br i1 %28, label %29, label %34
 
-30:                                               ; preds = %26
-  %31 = load i8, ptr %25, align 8, !tbaa !893, !range !173, !noundef !174
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
+29:                                               ; preds = %25
+  %30 = load i8, ptr %24, align 8, !tbaa !893, !range !173, !noundef !174
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i: ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 16320
-  %34 = atomicrmw sub ptr %33, i32 1073741824 release, align 4
-  store i8 0, ptr %25, align 8, !tbaa !893
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i: ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 16320
+  %33 = atomicrmw sub ptr %32, i32 1073741824 release, align 4
+  store i8 0, ptr %24, align 8, !tbaa !893
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit: ; preds = %30, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit: ; preds = %29, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i
   store i32 -1, ptr %13, align 8, !tbaa !892
   br label %.loopexit
 
-35:                                               ; preds = %26
-  %36 = add nsw i32 %28, 1
-  %37 = icmp sgt i32 %28, -1
-  br i1 %37, label %38, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i
+34:                                               ; preds = %25
+  %35 = add nsw i32 %27, 1
+  %36 = icmp sgt i32 %27, -1
+  br i1 %36, label %37, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i
 
-38:                                               ; preds = %35
-  %39 = load i8, ptr %25, align 8, !tbaa !893, !range !173, !noundef !174
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge
+37:                                               ; preds = %34
+  %38 = load i8, ptr %24, align 8, !tbaa !893, !range !173, !noundef !174
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i: ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %42 = zext nneg i32 %28 to i64
-  %43 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %41, i64 %42
-  %44 = atomicrmw sub ptr %43, i32 1073741824 release, align 4
-  store i8 0, ptr %25, align 8, !tbaa !893
-  %.pre16.pre = load ptr, ptr %0, align 8, !tbaa !552
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i: ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %41 = zext nneg i32 %27 to i64
+  %42 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %40, i64 %41
+  %43 = atomicrmw sub ptr %42, i32 1073741824 release, align 4
+  store i8 0, ptr %24, align 8, !tbaa !893
+  %.pre15.pre = load ptr, ptr %0, align 8, !tbaa !552
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge: ; preds = %38, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i
-  %.pre16 = phi ptr [ %.pre16.pre, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i ], [ %.pre1617, %38 ]
-  store i32 %36, ptr %13, align 8, !tbaa !892
-  br label %48
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge: ; preds = %37, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i
+  %.pre15 = phi ptr [ %.pre15.pre, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator6unlockEv.exit.i.i ], [ %.pre1516, %37 ]
+  store i32 %35, ptr %13, align 8, !tbaa !892
+  br label %47
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i: ; preds = %35
-  store i32 %36, ptr %13, align 8, !tbaa !892
-  %45 = icmp ne i32 %28, -1
-  %46 = load i8, ptr %25, align 8, !range !173
-  %47 = trunc nuw i8 %46 to i1
-  %or.cond = select i1 %45, i1 true, i1 %47
-  br i1 %or.cond, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i, label %48
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i: ; preds = %34
+  store i32 %35, ptr %13, align 8, !tbaa !892
+  %44 = icmp ne i32 %27, -1
+  %45 = load i8, ptr %24, align 8, !range !173
+  %46 = trunc nuw i8 %45 to i1
+  %or.cond = select i1 %44, i1 true, i1 %46
+  br i1 %or.cond, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i, label %47
 
-48:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i
-  %49 = phi ptr [ %.pre16, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge ], [ %27, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ]
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %51 = zext nneg i32 %36 to i64
-  %52 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %50, i64 %51
-  %53 = cmpxchg weak ptr %52, i32 0, i32 1073741824 acquire acquire, align 4
-  %54 = extractvalue { i32, i1 } %53, 1
-  br i1 %54, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
+47:                                               ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i
+  %48 = phi ptr [ %.pre15, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.thread._crit_edge ], [ %26, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
+  %50 = zext nneg i32 %35 to i64
+  %51 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %49, i64 %50
+  %52 = cmpxchg weak ptr %51, i32 0, i32 1073741824 acquire acquire, align 4
+  %53 = extractvalue { i32, i1 } %52, 1
+  br i1 %53, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
 
-_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i: ; preds = %48, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
-  %.sroa.0.0.i.i.i.i.i = phi i32 [ %.sroa.0.1.i.i.i.i.i, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i ], [ 1, %48 ]
+_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i: ; preds = %47, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
+  %.sroa.0.0.i.i.i.i.i = phi i32 [ %.sroa.0.1.i.i.i.i.i, %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i ], [ 1, %47 ]
   %.not.i.i.i.i.i.i = icmp sgt i32 %.sroa.0.0.i.i.i.i.i, 16
-  br i1 %.not.i.i.i.i.i.i, label %59, label %55
+  br i1 %.not.i.i.i.i.i.i, label %58, label %54
 
-55:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
-  %56 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i, 0
-  br i1 %56, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
+54:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
+  %55 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i, 0
+  br i1 %55, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %55, %.lr.ph.i.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i.i = phi i32 [ %57, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %55 ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %54, %.lr.ph.i.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i.i = phi i32 [ %56, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %54 ]
   tail call void asm sideeffect "pause;", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !457
-  %57 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %57, %.sroa.0.0.i.i.i.i.i
+  %56 = add nuw nsw i32 %.03.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %56, %.sroa.0.0.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !458
 
-_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %55
-  %58 = shl nsw i32 %.sroa.0.0.i.i.i.i.i, 1
+_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %54
+  %57 = shl nsw i32 %.sroa.0.0.i.i.i.i.i, 1
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
-59:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
-  %60 = tail call noundef i32 @sched_yield() #8
+58:                                               ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i
+  %59 = tail call noundef i32 @sched_yield() #8
   br label %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i
 
-_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %59, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
-  %.sroa.0.1.i.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.i, %59 ], [ %58, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i ]
-  %61 = cmpxchg weak ptr %52, i32 0, i32 1073741824 acquire acquire, align 4
-  %62 = extractvalue { i32, i1 } %61, 1
-  br i1 %62, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i, !llvm.loop !470
+_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i: ; preds = %58, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i
+  %.sroa.0.1.i.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.i, %58 ], [ %57, %_ZN11OpenImageIO6v3_1_05pauseEi.exit.i.i.i.i.i.i ]
+  %60 = cmpxchg weak ptr %51, i32 0, i32 1073741824 acquire acquire, align 4
+  %61 = extractvalue { i32, i1 } %60, 1
+  br i1 %61, label %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i.i, !llvm.loop !470
 
-_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i: ; preds = %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i, %48
-  store i8 1, ptr %25, align 8, !tbaa !893
+_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i: ; preds = %_ZN11OpenImageIO6v3_1_014atomic_backoffclEv.exit.i.i.i.i.i, %47
+  store i8 1, ptr %24, align 8, !tbaa !893
   %.pre.i = load i32, ptr %13, align 8, !tbaa !892
-  %.pre15 = load ptr, ptr %0, align 8, !tbaa !552
+  %.pre14 = load ptr, ptr %0, align 8, !tbaa !552
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i
 
 _ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i: ; preds = %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i
-  %.pre1618 = phi ptr [ %.pre1617, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre15, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
-  %63 = phi ptr [ %27, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre15, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
-  %64 = phi i32 [ %36, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre.i, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
-  %65 = sext i32 %64 to i64
-  %.idx.i = shl nsw i64 %65, 7
-  %66 = getelementptr i8, ptr %63, i64 72
-  %67 = getelementptr i8, ptr %66, i64 %.idx.i
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %69 = load i64, ptr %68, align 8, !tbaa !891
-  %.not.i.i.i = icmp eq i64 %69, 0
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %.pre1517 = phi ptr [ %.pre1516, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre14, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
+  %62 = phi ptr [ %26, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre14, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
+  %63 = phi i32 [ %35, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i ], [ %.pre.i, %_ZNK11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE3Bin4lockEv.exit.i.i ]
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher, std::equal_to<OpenImageIO::v3_1_0::TileID>, 128, tsl::robin_map<OpenImageIO::v3_1_0::TileID, OpenImageIO::v3_1_0::intrusive_ptr<OpenImageIO::v3_1_0::ImageCacheTile>, OpenImageIO::v3_1_0::TileID::Hasher>>::Bin", ptr %62, i64 %64, i32 2, i32 0, i32 6
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  %67 = load i64, ptr %66, align 8, !tbaa !891
+  %.not.i.i.i = icmp eq i64 %67, 0
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %65, i64 32
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !658
   br i1 %.not.i.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i, %73
-  %.04.i.i.i = phi i64 [ %74, %73 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i ]
-  %70 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i, i64 %.04.i.i.i, i32 1
-  %71 = load i16, ptr %70, align 4, !tbaa !655
-  %72 = icmp eq i16 %71, -1
-  br i1 %72, label %73, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
+.lr.ph.i.i.i:                                     ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i, %71
+  %.04.i.i.i = phi i64 [ %72, %71 ], [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i ]
+  %68 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i, i64 %.04.i.i.i, i32 1
+  %69 = load i16, ptr %68, align 4, !tbaa !655
+  %70 = icmp eq i16 %69, -1
+  br i1 %70, label %71, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit
 
-73:                                               ; preds = %.lr.ph.i.i.i
-  %74 = add nuw i64 %.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %74, %69
+71:                                               ; preds = %.lr.ph.i.i.i
+  %72 = add nuw i64 %.04.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %72, %67
   br i1 %exitcond.not.i.i.i, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, label %.lr.ph.i.i.i, !llvm.loop !900
 
-_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit: ; preds = %.lr.ph.i.i.i, %73, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i
-  %.0.lcssa.i.i.i = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i ], [ %.04.i.i.i, %.lr.ph.i.i.i ], [ %69, %73 ]
-  %75 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i, i64 %.0.lcssa.i.i.i
-  store ptr %75, ptr %2, align 8, !tbaa !894
-  %76 = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !658
-  %77 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %76, i64 %69
-  %78 = icmp eq ptr %75, %77
-  br i1 %78, label %26, label %.loopexit, !llvm.loop !902
+_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit: ; preds = %.lr.ph.i.i.i, %71, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i
+  %.0.lcssa.i.i.i = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator4lockEv.exit.i ], [ %.04.i.i.i, %.lr.ph.i.i.i ], [ %67, %71 ]
+  %73 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %.pre.i.i.i, i64 %.0.lcssa.i.i.i
+  store ptr %73, ptr %2, align 8, !tbaa !894
+  %74 = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !658
+  %75 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.414", ptr %74, i64 %67
+  %76 = icmp eq ptr %73, %75
+  br i1 %76, label %25, label %.loopexit, !llvm.loop !902
 
 .loopexit:                                        ; preds = %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5rebinEi.exit, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIN11OpenImageIO6v3_1_06TileIDENS4_13intrusive_ptrINS4_14ImageCacheTileEEEENS_9robin_mapIS5_S8_NS5_6HasherESt8equal_toIS5_ESaIS9_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E14robin_iteratorILb0EEppEv.exit, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentINS0_6TileIDENS0_13intrusive_ptrINS0_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit
   ret void

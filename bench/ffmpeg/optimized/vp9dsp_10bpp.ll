@@ -1643,47 +1643,45 @@ define internal void @vert_left_8x8_c(ptr noundef writeonly captures(none) %0, i
   %52 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv53
   %53 = sub nuw nsw i64 14, %49
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %51, ptr nonnull align 2 %52, i64 %53, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %55 = sub nsw i64 0, %indvars.iv53
-  %56 = getelementptr inbounds i16, ptr %54, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 -2
-  %58 = load i16, ptr %34, align 2, !tbaa !9
+  %54 = sub nsw i64 0, %indvars.iv53
+  %55 = getelementptr i16, ptr %51, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 14
+  %57 = load i16, ptr %34, align 2, !tbaa !9
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  br label %59
+  br label %58
 
-59:                                               ; preds = %59, %48
-  %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %59 ]
-  %60 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv.i
-  store i16 %58, ptr %60, align 2, !tbaa !9
+58:                                               ; preds = %58, %48
+  %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %58 ]
+  %59 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv.i
+  store i16 %57, ptr %59, align 2, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %indvars.iv53
-  br i1 %exitcond.not.i, label %memset_bpc.exit, label %59, !llvm.loop !17
+  br i1 %exitcond.not.i, label %memset_bpc.exit, label %58, !llvm.loop !17
 
-memset_bpc.exit:                                  ; preds = %59
-  %61 = or disjoint i64 %49, 1
-  %62 = mul nuw nsw i64 %30, %61
-  %63 = getelementptr inbounds nuw i16, ptr %0, i64 %62
-  %64 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv53
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %63, ptr nonnull align 2 %64, i64 %53, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %66 = getelementptr inbounds i16, ptr %65, i64 %55
-  %67 = getelementptr inbounds i8, ptr %66, i64 -2
-  %68 = load i16, ptr %34, align 2, !tbaa !9
-  br label %69
+memset_bpc.exit:                                  ; preds = %58
+  %60 = or disjoint i64 %49, 1
+  %61 = mul nuw nsw i64 %30, %60
+  %62 = getelementptr inbounds nuw i16, ptr %0, i64 %61
+  %63 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv53
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %62, ptr nonnull align 2 %63, i64 %53, i1 false)
+  %64 = getelementptr i16, ptr %62, i64 %54
+  %65 = getelementptr i8, ptr %64, i64 14
+  %66 = load i16, ptr %34, align 2, !tbaa !9
+  br label %67
 
-69:                                               ; preds = %69, %memset_bpc.exit
-  %indvars.iv.i46 = phi i64 [ 0, %memset_bpc.exit ], [ %indvars.iv.next.i47, %69 ]
-  %70 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv.i46
-  store i16 %68, ptr %70, align 2, !tbaa !9
+67:                                               ; preds = %67, %memset_bpc.exit
+  %indvars.iv.i46 = phi i64 [ 0, %memset_bpc.exit ], [ %indvars.iv.next.i47, %67 ]
+  %68 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv.i46
+  store i16 %66, ptr %68, align 2, !tbaa !9
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.i46, %indvars.iv53
-  br i1 %exitcond.not.i48, label %memset_bpc.exit49, label %69, !llvm.loop !17
+  br i1 %exitcond.not.i48, label %memset_bpc.exit49, label %67, !llvm.loop !17
 
-memset_bpc.exit49:                                ; preds = %69
+memset_bpc.exit49:                                ; preds = %67
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
-  br i1 %exitcond56.not, label %71, label %48, !llvm.loop !27
+  br i1 %exitcond56.not, label %69, label %48, !llvm.loop !27
 
-71:                                               ; preds = %memset_bpc.exit49
+69:                                               ; preds = %memset_bpc.exit49
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -2778,47 +2776,45 @@ define internal void @vert_left_16x16_c(ptr noundef writeonly captures(none) %0,
   %52 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv53
   %53 = sub nuw nsw i64 30, %49
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %51, ptr nonnull align 2 %52, i64 %53, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %55 = sub nsw i64 0, %indvars.iv53
-  %56 = getelementptr inbounds i16, ptr %54, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 -2
-  %58 = load i16, ptr %34, align 2, !tbaa !9
+  %54 = sub nsw i64 0, %indvars.iv53
+  %55 = getelementptr i16, ptr %51, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 30
+  %57 = load i16, ptr %34, align 2, !tbaa !9
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  br label %59
+  br label %58
 
-59:                                               ; preds = %59, %48
-  %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %59 ]
-  %60 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv.i
-  store i16 %58, ptr %60, align 2, !tbaa !9
+58:                                               ; preds = %58, %48
+  %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %58 ]
+  %59 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv.i
+  store i16 %57, ptr %59, align 2, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %indvars.iv53
-  br i1 %exitcond.not.i, label %memset_bpc.exit, label %59, !llvm.loop !17
+  br i1 %exitcond.not.i, label %memset_bpc.exit, label %58, !llvm.loop !17
 
-memset_bpc.exit:                                  ; preds = %59
-  %61 = or disjoint i64 %49, 1
-  %62 = mul nuw nsw i64 %30, %61
-  %63 = getelementptr inbounds nuw i16, ptr %0, i64 %62
-  %64 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv53
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %63, ptr nonnull align 2 %64, i64 %53, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %66 = getelementptr inbounds i16, ptr %65, i64 %55
-  %67 = getelementptr inbounds i8, ptr %66, i64 -2
-  %68 = load i16, ptr %34, align 2, !tbaa !9
-  br label %69
+memset_bpc.exit:                                  ; preds = %58
+  %60 = or disjoint i64 %49, 1
+  %61 = mul nuw nsw i64 %30, %60
+  %62 = getelementptr inbounds nuw i16, ptr %0, i64 %61
+  %63 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv53
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %62, ptr nonnull align 2 %63, i64 %53, i1 false)
+  %64 = getelementptr i16, ptr %62, i64 %54
+  %65 = getelementptr i8, ptr %64, i64 30
+  %66 = load i16, ptr %34, align 2, !tbaa !9
+  br label %67
 
-69:                                               ; preds = %69, %memset_bpc.exit
-  %indvars.iv.i46 = phi i64 [ 0, %memset_bpc.exit ], [ %indvars.iv.next.i47, %69 ]
-  %70 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv.i46
-  store i16 %68, ptr %70, align 2, !tbaa !9
+67:                                               ; preds = %67, %memset_bpc.exit
+  %indvars.iv.i46 = phi i64 [ 0, %memset_bpc.exit ], [ %indvars.iv.next.i47, %67 ]
+  %68 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv.i46
+  store i16 %66, ptr %68, align 2, !tbaa !9
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.i46, %indvars.iv53
-  br i1 %exitcond.not.i48, label %memset_bpc.exit49, label %69, !llvm.loop !17
+  br i1 %exitcond.not.i48, label %memset_bpc.exit49, label %67, !llvm.loop !17
 
-memset_bpc.exit49:                                ; preds = %69
+memset_bpc.exit49:                                ; preds = %67
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 8
-  br i1 %exitcond56.not, label %71, label %48, !llvm.loop !50
+  br i1 %exitcond56.not, label %69, label %48, !llvm.loop !50
 
-71:                                               ; preds = %memset_bpc.exit49
+69:                                               ; preds = %memset_bpc.exit49
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -4229,47 +4225,45 @@ define internal void @vert_left_32x32_c(ptr noundef writeonly captures(none) %0,
   %52 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv53
   %53 = sub nuw nsw i64 62, %49
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %51, ptr nonnull align 2 %52, i64 %53, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %55 = sub nsw i64 0, %indvars.iv53
-  %56 = getelementptr inbounds i16, ptr %54, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 -2
-  %58 = load i16, ptr %34, align 2, !tbaa !9
+  %54 = sub nsw i64 0, %indvars.iv53
+  %55 = getelementptr i16, ptr %51, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 62
+  %57 = load i16, ptr %34, align 2, !tbaa !9
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  br label %59
+  br label %58
 
-59:                                               ; preds = %59, %48
-  %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %59 ]
-  %60 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv.i
-  store i16 %58, ptr %60, align 2, !tbaa !9
+58:                                               ; preds = %58, %48
+  %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %58 ]
+  %59 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv.i
+  store i16 %57, ptr %59, align 2, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %indvars.iv53
-  br i1 %exitcond.not.i, label %memset_bpc.exit, label %59, !llvm.loop !17
+  br i1 %exitcond.not.i, label %memset_bpc.exit, label %58, !llvm.loop !17
 
-memset_bpc.exit:                                  ; preds = %59
-  %61 = or disjoint i64 %49, 1
-  %62 = mul nuw nsw i64 %30, %61
-  %63 = getelementptr inbounds nuw i16, ptr %0, i64 %62
-  %64 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv53
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %63, ptr nonnull align 2 %64, i64 %53, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  %66 = getelementptr inbounds i16, ptr %65, i64 %55
-  %67 = getelementptr inbounds i8, ptr %66, i64 -2
-  %68 = load i16, ptr %34, align 2, !tbaa !9
-  br label %69
+memset_bpc.exit:                                  ; preds = %58
+  %60 = or disjoint i64 %49, 1
+  %61 = mul nuw nsw i64 %30, %60
+  %62 = getelementptr inbounds nuw i16, ptr %0, i64 %61
+  %63 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv53
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %62, ptr nonnull align 2 %63, i64 %53, i1 false)
+  %64 = getelementptr i16, ptr %62, i64 %54
+  %65 = getelementptr i8, ptr %64, i64 62
+  %66 = load i16, ptr %34, align 2, !tbaa !9
+  br label %67
 
-69:                                               ; preds = %69, %memset_bpc.exit
-  %indvars.iv.i46 = phi i64 [ 0, %memset_bpc.exit ], [ %indvars.iv.next.i47, %69 ]
-  %70 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv.i46
-  store i16 %68, ptr %70, align 2, !tbaa !9
+67:                                               ; preds = %67, %memset_bpc.exit
+  %indvars.iv.i46 = phi i64 [ 0, %memset_bpc.exit ], [ %indvars.iv.next.i47, %67 ]
+  %68 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv.i46
+  store i16 %66, ptr %68, align 2, !tbaa !9
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.i46, %indvars.iv53
-  br i1 %exitcond.not.i48, label %memset_bpc.exit49, label %69, !llvm.loop !17
+  br i1 %exitcond.not.i48, label %memset_bpc.exit49, label %67, !llvm.loop !17
 
-memset_bpc.exit49:                                ; preds = %69
+memset_bpc.exit49:                                ; preds = %67
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 16
-  br i1 %exitcond56.not, label %71, label %48, !llvm.loop !73
+  br i1 %exitcond56.not, label %69, label %48, !llvm.loop !73
 
-71:                                               ; preds = %memset_bpc.exit49
+69:                                               ; preds = %memset_bpc.exit49
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

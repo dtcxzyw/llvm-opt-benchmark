@@ -2452,29 +2452,28 @@ define internal fastcc void @ogg_restore(ptr noundef %0) unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 456
-  br label %16
+  br label %15
 
-16:                                               ; preds = %.lr.ph, %38
+15:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %17 = load ptr, ptr %3, align 8, !tbaa !35
-  %18 = getelementptr inbounds nuw %struct.ogg_stream, ptr %17, i64 %indvars.iv
-  tail call void @av_freep(ptr noundef %18) #9
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 408
-  tail call void @av_freep(ptr noundef nonnull %19) #9
-  %20 = load i32, ptr %14, align 8, !tbaa !135
-  %21 = sext i32 %20 to i64
-  %.not37 = icmp slt i64 %indvars.iv, %21
-  br i1 %.not37, label %22, label %25
+  %16 = load ptr, ptr %3, align 8, !tbaa !35
+  %17 = getelementptr inbounds nuw %struct.ogg_stream, ptr %16, i64 %indvars.iv
+  tail call void @av_freep(ptr noundef %17) #9
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 408
+  tail call void @av_freep(ptr noundef nonnull %18) #9
+  %19 = load i32, ptr %14, align 8, !tbaa !135
+  %20 = sext i32 %19 to i64
+  %.not37 = icmp slt i64 %indvars.iv, %20
+  br i1 %.not37, label %21, label %25
 
-22:                                               ; preds = %16
-  %.idx = mul nuw nsw i64 %indvars.iv, 432
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw %struct.ogg_stream, ptr %7, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 456
   %24 = load ptr, ptr %23, align 8, !tbaa !137
   %.not38 = icmp eq ptr %24, null
   br i1 %.not38, label %25, label %38
 
-25:                                               ; preds = %22, %16
+25:                                               ; preds = %21, %15
   %26 = load ptr, ptr %2, align 8, !tbaa !12
   %27 = load ptr, ptr %26, align 8, !tbaa !35
   %28 = getelementptr inbounds nuw %struct.ogg_stream, ptr %27, i64 %indvars.iv
@@ -2502,12 +2501,12 @@ free_stream.exit:                                 ; preds = %25, %31, %34
   tail call void @av_freep(ptr noundef nonnull %37) #9
   br label %38
 
-38:                                               ; preds = %free_stream.exit, %22
+38:                                               ; preds = %free_stream.exit, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %11, align 8, !tbaa !34
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %16, label %._crit_edge, !llvm.loop !138
+  br i1 %41, label %15, label %._crit_edge, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %38, %8
   %42 = load i64, ptr %7, align 8, !tbaa !131

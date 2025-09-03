@@ -857,16 +857,16 @@ define dso_local void @ipv6_push_nfrag_opts(ptr noundef %0, ptr noundef readonly
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %90, label %9
+  br i1 %8, label %89, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %11 = load i8, ptr %10, align 1
-  switch i8 %11, label %74 [
+  switch i8 %11, label %73 [
     i8 0, label %12
     i8 1, label %12
     i8 2, label %12
-    i8 4, label %35
+    i8 4, label %34
   ]
 
 12:                                               ; preds = %9, %9, %9
@@ -894,114 +894,113 @@ define dso_local void @ipv6_push_nfrag_opts(ptr noundef %0, ptr noundef readonly
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %24
-  %30 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %31 = getelementptr %struct.in6_addr, ptr %30, i64 %23
-  %32 = getelementptr i8, ptr %31, i64 -16
-  %33 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %32, ptr noundef align 4 dereferenceable(16) %33, i64 16, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %34, ptr %3, align 8
-  br label %71
+  %30 = getelementptr %struct.in6_addr, ptr %18, i64 %23
+  %31 = getelementptr i8, ptr %30, i64 -8
+  %32 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %31, ptr noundef align 4 dereferenceable(16) %32, i64 16, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %33, ptr %3, align 8
+  br label %70
 
-35:                                               ; preds = %9
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = shl nuw nsw i32 %38, 3
-  %40 = add nuw nsw i32 %39, 8
-  %41 = tail call ptr @skb_push(ptr noundef %0, i32 noundef %40) #10
-  %42 = load i64, ptr %7, align 4
-  store i64 %42, ptr %41, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %44 = load i8, ptr %43, align 4
-  %45 = zext i8 %44 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %47 = getelementptr i8, ptr %41, i64 24
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %49 = getelementptr i8, ptr %7, i64 24
-  %50 = zext i8 %44 to i64
-  %51 = shl nuw nsw i64 %50, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %47, ptr align 4 %49, i64 %51, i1 false)
-  %52 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef align 4 dereferenceable(16) %52, i64 16, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i64
-  %56 = getelementptr %struct.in6_addr, ptr %48, i64 %55
-  store ptr %56, ptr %3, align 8
-  %57 = load i8, ptr %36, align 1
-  %58 = zext i8 %57 to i32
-  %59 = shl nuw nsw i32 %45, 1
-  %60 = add nuw nsw i32 %59, 2
-  %61 = icmp samesign ult i32 %60, %58
-  br i1 %61, label %62, label %71
+34:                                               ; preds = %9
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %36 = load i8, ptr %35, align 1
+  %37 = zext i8 %36 to i32
+  %38 = shl nuw nsw i32 %37, 3
+  %39 = add nuw nsw i32 %38, 8
+  %40 = tail call ptr @skb_push(ptr noundef %0, i32 noundef %39) #10
+  %41 = load i64, ptr %7, align 4
+  store i64 %41, ptr %40, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %43 = load i8, ptr %42, align 4
+  %44 = zext i8 %43 to i32
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %46 = getelementptr i8, ptr %40, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %48 = getelementptr i8, ptr %7, i64 24
+  %49 = zext i8 %43 to i64
+  %50 = shl nuw nsw i64 %49, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 4 %48, i64 %50, i1 false)
+  %51 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef align 4 dereferenceable(16) %51, i64 16, i1 false)
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i64
+  %55 = getelementptr %struct.in6_addr, ptr %47, i64 %54
+  store ptr %55, ptr %3, align 8
+  %56 = load i8, ptr %35, align 1
+  %57 = zext i8 %56 to i32
+  %58 = shl nuw nsw i32 %44, 1
+  %59 = add nuw nsw i32 %58, 2
+  %60 = icmp samesign ult i32 %59, %57
+  br i1 %60, label %61, label %70
 
-62:                                               ; preds = %35
-  %63 = shl nuw nsw i32 %45, 4
-  %64 = add nuw nsw i32 %63, 24
-  %65 = sub nuw nsw i32 %58, %60
-  %66 = shl nuw nsw i32 %65, 3
-  %67 = zext nneg i32 %64 to i64
-  %68 = getelementptr i8, ptr %41, i64 %67
-  %69 = getelementptr i8, ptr %7, i64 %67
-  %70 = zext nneg i32 %66 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %69, i64 %70, i1 false)
-  br label %71
+61:                                               ; preds = %34
+  %62 = shl nuw nsw i32 %44, 4
+  %63 = add nuw nsw i32 %62, 24
+  %64 = sub nuw nsw i32 %57, %59
+  %65 = shl nuw nsw i32 %64, 3
+  %66 = zext nneg i32 %63 to i64
+  %67 = getelementptr i8, ptr %40, i64 %66
+  %68 = getelementptr i8, ptr %7, i64 %66
+  %69 = zext nneg i32 %65 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %68, i64 %69, i1 false)
+  br label %70
 
-71:                                               ; preds = %62, %35, %._crit_edge
-  %72 = phi ptr [ %18, %._crit_edge ], [ %41, %62 ], [ %41, %35 ]
-  %73 = load i8, ptr %2, align 1
-  store i8 %73, ptr %72, align 4
+70:                                               ; preds = %61, %34, %._crit_edge
+  %71 = phi ptr [ %18, %._crit_edge ], [ %40, %61 ], [ %40, %34 ]
+  %72 = load i8, ptr %2, align 1
+  store i8 %72, ptr %71, align 4
   store i8 43, ptr %2, align 1
-  br label %74
+  br label %73
 
-74:                                               ; preds = %71, %9
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %90, label %78
+73:                                               ; preds = %70, %9
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %89, label %77
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 1
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = shl nuw nsw i32 %81, 3
-  %83 = add nuw nsw i32 %82, 8
-  %84 = tail call ptr @skb_push(ptr noundef %0, i32 noundef %83) #10
-  %85 = load i8, ptr %79, align 1
-  %86 = zext i8 %85 to i64
-  %87 = shl nuw nsw i64 %86, 3
-  %88 = add nuw nsw i64 %87, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %84, ptr noundef nonnull align 1 dereferenceable(1) %76, i64 %88, i1 false)
-  %89 = load i8, ptr %2, align 1
-  store i8 %89, ptr %84, align 1
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 1
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = shl nuw nsw i32 %80, 3
+  %82 = add nuw nsw i32 %81, 8
+  %83 = tail call ptr @skb_push(ptr noundef %0, i32 noundef %82) #10
+  %84 = load i8, ptr %78, align 1
+  %85 = zext i8 %84 to i64
+  %86 = shl nuw nsw i64 %85, 3
+  %87 = add nuw nsw i64 %86, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %83, ptr noundef nonnull align 1 dereferenceable(1) %75, i64 %87, i1 false)
+  %88 = load i8, ptr %2, align 1
+  store i8 %88, ptr %83, align 1
   store i8 60, ptr %2, align 1
-  br label %90
+  br label %89
 
-90:                                               ; preds = %78, %74, %5
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %92 = load ptr, ptr %91, align 8
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %106, label %94
+89:                                               ; preds = %77, %73, %5
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %91 = load ptr, ptr %90, align 8
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %105, label %93
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i32
-  %98 = shl nuw nsw i32 %97, 3
-  %99 = add nuw nsw i32 %98, 8
-  %100 = tail call ptr @skb_push(ptr noundef %0, i32 noundef %99) #10
-  %101 = load i8, ptr %95, align 1
-  %102 = zext i8 %101 to i64
-  %103 = shl nuw nsw i64 %102, 3
-  %104 = add nuw nsw i64 %103, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %100, ptr noundef nonnull align 1 dereferenceable(1) %92, i64 %104, i1 false)
-  %105 = load i8, ptr %2, align 1
-  store i8 %105, ptr %100, align 1
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 1
+  %95 = load i8, ptr %94, align 1
+  %96 = zext i8 %95 to i32
+  %97 = shl nuw nsw i32 %96, 3
+  %98 = add nuw nsw i32 %97, 8
+  %99 = tail call ptr @skb_push(ptr noundef %0, i32 noundef %98) #10
+  %100 = load i8, ptr %94, align 1
+  %101 = zext i8 %100 to i64
+  %102 = shl nuw nsw i64 %101, 3
+  %103 = add nuw nsw i64 %102, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %99, ptr noundef nonnull align 1 dereferenceable(1) %91, i64 %103, i1 false)
+  %104 = load i8, ptr %2, align 1
+  store i8 %104, ptr %99, align 1
   store i8 0, ptr %2, align 1
-  br label %106
+  br label %105
 
-106:                                              ; preds = %94, %90
+105:                                              ; preds = %93, %89
   ret void
 }
 

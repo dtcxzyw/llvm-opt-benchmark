@@ -24,6 +24,10 @@ target triple = "x86_64-pc-linux-gnu"
 %class.BytecodeStream = type { %class.BaseBytecodeStream.base, i32 }
 %class.BaseBytecodeStream.base = type <{ [8 x i8], %class.methodHandle, i32, i32, i32, i32, i8, i8 }>
 %class.methodHandle = type { ptr, ptr }
+%class.ResolvedFieldEntry = type <{ ptr, i32, i16, i16, i8, i8, i8, i8, [4 x i8] }>
+%class.ResolvedIndyEntry = type { ptr, i16, i16, i16, i8, i8 }
+%class.ResolvedMethodEntry = type { ptr, %union.anon.7, i16, i16, i8, i8, i8, i8 }
+%union.anon.7 = type { ptr }
 %class.CheckedExceptionElement = type { i16 }
 %class.MethodParametersElement = type { i16, i16 }
 
@@ -1797,8 +1801,8 @@ define hidden void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodH
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN5Bytes11put_Java_u2EPht.exit.us
-  %21 = phi i32 [ %43, %_ZN5Bytes11put_Java_u2EPht.exit.us ], [ %13, %.lr.ph ]
-  %.054.us = phi ptr [ %42, %_ZN5Bytes11put_Java_u2EPht.exit.us ], [ %1, %.lr.ph ]
+  %21 = phi i32 [ %42, %_ZN5Bytes11put_Java_u2EPht.exit.us ], [ %13, %.lr.ph ]
+  %.052.us = phi ptr [ %41, %_ZN5Bytes11put_Java_u2EPht.exit.us ], [ %1, %.lr.ph ]
   %22 = load ptr, ptr %16, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -1809,226 +1813,220 @@ define hidden void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodH
   %29 = trunc i8 %28 to i1
   %30 = trunc i32 %21 to i8
   %31 = select i1 %29, i8 -60, i8 %30
-  store i8 %31, ptr %.054.us, align 1
+  store i8 %31, ptr %.052.us, align 1
   %32 = icmp sgt i32 %27, 1
   br i1 %32, label %33, label %_ZN5Bytes11put_Java_u2EPht.exit.us
 
 33:                                               ; preds = %.lr.ph.split.us
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %35 = sext i32 %25 to i64
-  %36 = getelementptr inbounds i8, ptr %34, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %.054.us, i64 1
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  %39 = add nsw i32 %27, -1
-  %40 = zext nneg i32 %39 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %38, i64 %40, i1 false)
+  %34 = sext i32 %25 to i64
+  %35 = getelementptr i8, ptr %24, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %.052.us, i64 1
+  %37 = getelementptr i8, ptr %35, i64 57
+  %38 = add nsw i32 %27, -1
+  %39 = zext nneg i32 %38 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %37, i64 %39, i1 false)
   br label %_ZN5Bytes11put_Java_u2EPht.exit.us
 
 _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.us
-  %41 = sext i32 %27 to i64
-  %42 = getelementptr inbounds i8, ptr %.054.us, i64 %41
-  %43 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
+  %40 = sext i32 %27 to i64
+  %41 = getelementptr inbounds i8, ptr %.052.us, i64 %40
+  %42 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %43 = icmp sgt i32 %42, -1
+  br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5Bytes11put_Java_u2EPht.exit
-  %45 = phi i32 [ %159, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %13, %.lr.ph ]
-  %.054 = phi ptr [ %158, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %1, %.lr.ph ]
-  %46 = load ptr, ptr %16, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %17, align 8
-  %50 = load i32, ptr %18, align 4
-  %51 = sub nsw i32 %50, %49
-  %52 = load i8, ptr %19, align 8
-  %53 = trunc i8 %52 to i1
-  %54 = trunc i32 %45 to i8
-  %55 = select i1 %53, i8 -60, i8 %54
-  store i8 %55, ptr %.054, align 1
-  %56 = icmp sgt i32 %51, 1
-  br i1 %56, label %57, label %_ZN5Bytes11put_Java_u2EPht.exit
+  %44 = phi i32 [ %156, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %13, %.lr.ph ]
+  %.052 = phi ptr [ %155, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %1, %.lr.ph ]
+  %45 = load ptr, ptr %16, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i32, ptr %17, align 8
+  %49 = load i32, ptr %18, align 4
+  %50 = sub nsw i32 %49, %48
+  %51 = load i8, ptr %19, align 8
+  %52 = trunc i8 %51 to i1
+  %53 = trunc i32 %44 to i8
+  %54 = select i1 %52, i8 -60, i8 %53
+  store i8 %54, ptr %.052, align 1
+  %55 = icmp sgt i32 %50, 1
+  br i1 %55, label %56, label %_ZN5Bytes11put_Java_u2EPht.exit
 
-57:                                               ; preds = %.lr.ph.split
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  %59 = sext i32 %49 to i64
-  %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  %61 = getelementptr inbounds nuw i8, ptr %.054, i64 1
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  %63 = add nsw i32 %51, -1
-  %64 = zext nneg i32 %63 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %62, i64 %64, i1 false)
-  switch i32 %45, label %_ZN5Bytes11put_Java_u2EPht.exit [
-    i32 178, label %65
-    i32 179, label %65
-    i32 180, label %65
-    i32 181, label %65
-    i32 182, label %85
-    i32 183, label %85
-    i32 184, label %85
-    i32 186, label %85
-    i32 185, label %85
-    i32 19, label %116
+56:                                               ; preds = %.lr.ph.split
+  %57 = sext i32 %48 to i64
+  %58 = getelementptr i8, ptr %47, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %.052, i64 1
+  %60 = getelementptr i8, ptr %58, i64 57
+  %61 = add nsw i32 %50, -1
+  %62 = zext nneg i32 %61 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull align 1 %60, i64 %62, i1 false)
+  switch i32 %44, label %_ZN5Bytes11put_Java_u2EPht.exit [
+    i32 178, label %63
+    i32 179, label %63
+    i32 180, label %63
+    i32 181, label %63
+    i32 182, label %82
+    i32 183, label %82
+    i32 184, label %82
+    i32 186, label %82
+    i32 185, label %82
+    i32 19, label %113
     i32 18, label %.thread
   ]
 
-65:                                               ; preds = %57, %57, %57, %57
-  %.0.i.i = load i16, ptr %62, align 1
-  %66 = load ptr, ptr %0, align 8
+63:                                               ; preds = %56, %56, %56, %56
+  %.0.i.i = load i16, ptr %60, align 1
+  %64 = load ptr, ptr %0, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  %74 = load ptr, ptr %73, align 8
-  %75 = zext i16 %.0.i.i to i64
-  %.idx53 = mul nuw nsw i64 %75, 24
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 22
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx53
-  %78 = load i16, ptr %77, align 2
-  %79 = call noundef i16 @llvm.bswap.i16(i16 %78)
-  %80 = ptrtoint ptr %61 to i64
-  %81 = and i64 %80, 1
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %84
+  %73 = zext i16 %.0.i.i to i64
+  %74 = getelementptr inbounds nuw %class.ResolvedFieldEntry, ptr %72, i64 %73, i32 8, i64 2
+  %75 = load i16, ptr %74, align 2
+  %76 = call noundef i16 @llvm.bswap.i16(i16 %75)
+  %77 = ptrtoint ptr %59 to i64
+  %78 = and i64 %77, 1
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %80, label %81
 
-83:                                               ; preds = %65
-  store i16 %79, ptr %61, align 2
+80:                                               ; preds = %63
+  store i16 %76, ptr %59, align 2
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-84:                                               ; preds = %65
-  store i16 %79, ptr %61, align 1
+81:                                               ; preds = %63
+  store i16 %76, ptr %59, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-85:                                               ; preds = %57, %57, %57, %57, %57
-  %86 = icmp eq i32 %45, 186
-  %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
+82:                                               ; preds = %56, %56, %56, %56, %56
+  %83 = icmp eq i32 %44, 186
+  %84 = load ptr, ptr %0, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %90 = load ptr, ptr %89, align 8
+  br i1 %83, label %91, label %97
+
+91:                                               ; preds = %82
+  %.0.i.i47 = load i32, ptr %60, align 1
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %93 = load ptr, ptr %92, align 8
-  br i1 %86, label %94, label %100
+  %94 = sext i32 %.0.i.i47 to i64
+  %95 = getelementptr %class.ResolvedIndyEntry, ptr %93, i64 %94
+  %96 = getelementptr i8, ptr %95, i64 18
+  br label %103
 
-94:                                               ; preds = %85
-  %.0.i.i47 = load i32, ptr %62, align 1
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  %96 = load ptr, ptr %95, align 8
-  %97 = sext i32 %.0.i.i47 to i64
-  %.idx52 = shl nsw i64 %97, 4
-  %98 = getelementptr i8, ptr %96, i64 18
-  %99 = getelementptr i8, ptr %98, i64 %.idx52
-  br label %106
+97:                                               ; preds = %82
+  %.0.i.i46 = load i16, ptr %60, align 1
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 56
+  %99 = load ptr, ptr %98, align 8
+  %100 = zext i16 %.0.i.i46 to i64
+  %101 = getelementptr inbounds nuw %class.ResolvedMethodEntry, ptr %99, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  br label %103
 
-100:                                              ; preds = %85
-  %.0.i.i46 = load i16, ptr %62, align 1
-  %101 = getelementptr inbounds nuw i8, ptr %93, i64 56
-  %102 = load ptr, ptr %101, align 8
-  %103 = zext i16 %.0.i.i46 to i64
-  %.idx = mul nuw nsw i64 %103, 24
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx
-  br label %106
-
-106:                                              ; preds = %100, %94
-  %.043.in.in = phi ptr [ %99, %94 ], [ %105, %100 ]
+103:                                              ; preds = %97, %91
+  %.043.in.in = phi ptr [ %96, %91 ], [ %102, %97 ]
   %.043.in = load i16, ptr %.043.in.in, align 2
-  %107 = call noundef i16 @llvm.bswap.i16(i16 %.043.in)
-  %108 = ptrtoint ptr %61 to i64
-  %109 = and i64 %108, 1
-  %110 = icmp eq i64 %109, 0
-  br i1 %110, label %111, label %112
+  %104 = call noundef i16 @llvm.bswap.i16(i16 %.043.in)
+  %105 = ptrtoint ptr %59 to i64
+  %106 = and i64 %105, 1
+  %107 = icmp eq i64 %106, 0
+  br i1 %107, label %108, label %109
 
-111:                                              ; preds = %106
-  store i16 %107, ptr %61, align 2
+108:                                              ; preds = %103
+  store i16 %104, ptr %59, align 2
   br label %_ZN5Bytes11put_Java_u2EPht.exit48
 
-112:                                              ; preds = %106
-  store i16 %107, ptr %61, align 1
+109:                                              ; preds = %103
+  store i16 %104, ptr %59, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit48
 
-_ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %111, %112
-  br i1 %86, label %113, label %_ZN5Bytes11put_Java_u2EPht.exit
+_ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %108, %109
+  br i1 %83, label %110, label %_ZN5Bytes11put_Java_u2EPht.exit
 
-113:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit48
-  %114 = getelementptr inbounds nuw i8, ptr %.054, i64 4
-  store i8 0, ptr %114, align 1
-  %115 = getelementptr inbounds nuw i8, ptr %.054, i64 3
-  store i8 0, ptr %115, align 1
+110:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit48
+  %111 = getelementptr inbounds nuw i8, ptr %.052, i64 4
+  store i8 0, ptr %111, align 1
+  %112 = getelementptr inbounds nuw i8, ptr %.052, i64 3
+  store i8 0, ptr %112, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-116:                                              ; preds = %57
-  %117 = load i32, ptr %20, align 4
-  %118 = and i32 %117, -2
-  %switch = icmp eq i32 %118, 230
-  br i1 %switch, label %121, label %_ZN5Bytes11put_Java_u2EPht.exit
+113:                                              ; preds = %56
+  %114 = load i32, ptr %20, align 4
+  %115 = and i32 %114, -2
+  %switch = icmp eq i32 %115, 230
+  br i1 %switch, label %118, label %_ZN5Bytes11put_Java_u2EPht.exit
 
-.thread:                                          ; preds = %57
-  %119 = load i32, ptr %20, align 4
-  %120 = and i32 %119, -2
-  %switch61 = icmp eq i32 %120, 230
-  br i1 %switch61, label %141, label %_ZN5Bytes11put_Java_u2EPht.exit
+.thread:                                          ; preds = %56
+  %116 = load i32, ptr %20, align 4
+  %117 = and i32 %116, -2
+  %switch59 = icmp eq i32 %117, 230
+  br i1 %switch59, label %138, label %_ZN5Bytes11put_Java_u2EPht.exit
 
-121:                                              ; preds = %116
-  %.0.i.i49 = load i16, ptr %62, align 1
-  %122 = zext i16 %.0.i.i49 to i64
-  %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %129 = load ptr, ptr %128, align 8, !nonnull !14, !noundef !14
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
-  %133 = getelementptr inbounds nuw i16, ptr %132, i64 %122
-  %134 = load i16, ptr %133, align 2
-  %135 = call noundef i16 @llvm.bswap.i16(i16 %134)
-  %136 = ptrtoint ptr %61 to i64
-  %137 = and i64 %136, 1
-  %138 = icmp eq i64 %137, 0
-  br i1 %138, label %139, label %140
+118:                                              ; preds = %113
+  %.0.i.i49 = load i16, ptr %60, align 1
+  %119 = zext i16 %.0.i.i49 to i64
+  %120 = load ptr, ptr %0, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %126 = load ptr, ptr %125, align 8, !nonnull !14, !noundef !14
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
+  %130 = getelementptr inbounds nuw i16, ptr %129, i64 %119
+  %131 = load i16, ptr %130, align 2
+  %132 = call noundef i16 @llvm.bswap.i16(i16 %131)
+  %133 = ptrtoint ptr %59 to i64
+  %134 = and i64 %133, 1
+  %135 = icmp eq i64 %134, 0
+  br i1 %135, label %136, label %137
 
-139:                                              ; preds = %121
-  store i16 %135, ptr %61, align 2
+136:                                              ; preds = %118
+  store i16 %132, ptr %59, align 2
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-140:                                              ; preds = %121
-  store i16 %135, ptr %61, align 1
+137:                                              ; preds = %118
+  store i16 %132, ptr %59, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-141:                                              ; preds = %.thread
-  %142 = load i8, ptr %62, align 1
-  %143 = zext i8 %142 to i64
-  %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %150 = load ptr, ptr %149, align 8, !nonnull !14, !noundef !14
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
-  %154 = getelementptr inbounds nuw i16, ptr %153, i64 %143
-  %155 = load i16, ptr %154, align 2
-  %156 = trunc i16 %155 to i8
-  store i8 %156, ptr %61, align 1
+138:                                              ; preds = %.thread
+  %139 = load i8, ptr %60, align 1
+  %140 = zext i8 %139 to i64
+  %141 = load ptr, ptr %0, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  %147 = load ptr, ptr %146, align 8, !nonnull !14, !noundef !14
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  %151 = getelementptr inbounds nuw i16, ptr %150, i64 %140
+  %152 = load i16, ptr %151, align 2
+  %153 = trunc i16 %152 to i8
+  store i8 %153, ptr %59, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-_ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %.thread, %116, %.lr.ph.split, %140, %139, %84, %83, %113, %_ZN5Bytes11put_Java_u2EPht.exit48, %141, %57
-  %157 = sext i32 %51 to i64
-  %158 = getelementptr inbounds i8, ptr %.054, i64 %157
-  %159 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
-  %160 = icmp sgt i32 %159, -1
-  br i1 %160, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+_ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %.thread, %113, %.lr.ph.split, %137, %136, %81, %80, %110, %_ZN5Bytes11put_Java_u2EPht.exit48, %138, %56
+  %154 = sext i32 %50 to i64
+  %155 = getelementptr inbounds i8, ptr %.052, i64 %154
+  %156 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %157 = icmp sgt i32 %156, -1
+  br i1 %157, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN5Bytes11put_Java_u2EPht.exit, %_ZN5Bytes11put_Java_u2EPht.exit.us, %2
-  %161 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %161) #12
+  %158 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %158) #12
   ret void
 }
 
@@ -4944,135 +4942,136 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i11: ; preds = %73, %
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit13
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit13: ; preds = %84, %85
-  %86 = getelementptr i8, ptr %64, i64 2
-  %87 = load i16, ptr %86, align 2
-  %88 = load ptr, ptr %19, align 8
-  %89 = load ptr, ptr %21, align 8
-  %90 = ptrtoint ptr %88 to i64
+  %86 = getelementptr i16, ptr %6, i64 %indvars.iv
+  %87 = getelementptr i8, ptr %86, i64 6
+  %88 = load i16, ptr %87, align 2
+  %89 = load ptr, ptr %19, align 8
+  %90 = load ptr, ptr %21, align 8
   %91 = ptrtoint ptr %89 to i64
-  %92 = sub i64 %90, %91
-  %93 = add i64 %92, 2
-  %94 = load i64, ptr %27, align 8
-  %.not.i.i14 = icmp ult i64 %93, %94
-  br i1 %.not.i.i14, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16, label %95
+  %92 = ptrtoint ptr %90 to i64
+  %93 = sub i64 %91, %92
+  %94 = add i64 %93, 2
+  %95 = load i64, ptr %27, align 8
+  %.not.i.i14 = icmp ult i64 %94, %95
+  br i1 %.not.i.i14, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16, label %96
 
-95:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit13
-  %96 = shl i64 %94, 1
-  %97 = add i64 %96, 3
-  %98 = and i64 %97, -1024
-  %99 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %89, i64 noundef %94, i64 noundef %98, i32 noundef 0) #12
-  store ptr %99, ptr %21, align 8
-  store i64 %98, ptr %27, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 %92
-  %.pre.i15 = ptrtoint ptr %100 to i64
+96:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit13
+  %97 = shl i64 %95, 1
+  %98 = add i64 %97, 3
+  %99 = and i64 %98, -1024
+  %100 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %90, i64 noundef %95, i64 noundef %99, i32 noundef 0) #12
+  store ptr %100, ptr %21, align 8
+  store i64 %99, ptr %27, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 %93
+  %.pre.i15 = ptrtoint ptr %101 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16: ; preds = %95, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit13
-  %.pre-phi.i17 = phi i64 [ %90, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit13 ], [ %.pre.i15, %95 ]
-  %101 = phi ptr [ %88, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit13 ], [ %100, %95 ]
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 2
-  store ptr %102, ptr %19, align 8
-  %103 = tail call noundef i16 @llvm.bswap.i16(i16 %87)
-  %104 = and i64 %.pre-phi.i17, 1
-  %105 = icmp eq i64 %104, 0
-  br i1 %105, label %106, label %107
-
-106:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16
-  store i16 %103, ptr %101, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16: ; preds = %96, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit13
+  %.pre-phi.i17 = phi i64 [ %91, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit13 ], [ %.pre.i15, %96 ]
+  %102 = phi ptr [ %89, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit13 ], [ %101, %96 ]
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 2
+  store ptr %103, ptr %19, align 8
+  %104 = tail call noundef i16 @llvm.bswap.i16(i16 %88)
+  %105 = and i64 %.pre-phi.i17, 1
+  %106 = icmp eq i64 %105, 0
+  br i1 %106, label %107, label %108
 
 107:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16
-  store i16 %103, ptr %101, align 1
+  store i16 %104, ptr %102, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18: ; preds = %106, %107
-  %108 = getelementptr i8, ptr %64, i64 4
-  %109 = load i16, ptr %108, align 2
-  %110 = load ptr, ptr %19, align 8
-  %111 = load ptr, ptr %21, align 8
-  %112 = ptrtoint ptr %110 to i64
-  %113 = ptrtoint ptr %111 to i64
-  %114 = sub i64 %112, %113
-  %115 = add i64 %114, 2
-  %116 = load i64, ptr %27, align 8
-  %.not.i.i19 = icmp ult i64 %115, %116
-  br i1 %.not.i.i19, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i21, label %117
+108:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i16
+  store i16 %104, ptr %102, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18
 
-117:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18
-  %118 = shl i64 %116, 1
-  %119 = add i64 %118, 3
-  %120 = and i64 %119, -1024
-  %121 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %111, i64 noundef %116, i64 noundef %120, i32 noundef 0) #12
-  store ptr %121, ptr %21, align 8
-  store i64 %120, ptr %27, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 %114
-  %.pre.i20 = ptrtoint ptr %122 to i64
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18: ; preds = %107, %108
+  %109 = getelementptr i8, ptr %86, i64 8
+  %110 = load i16, ptr %109, align 2
+  %111 = load ptr, ptr %19, align 8
+  %112 = load ptr, ptr %21, align 8
+  %113 = ptrtoint ptr %111 to i64
+  %114 = ptrtoint ptr %112 to i64
+  %115 = sub i64 %113, %114
+  %116 = add i64 %115, 2
+  %117 = load i64, ptr %27, align 8
+  %.not.i.i19 = icmp ult i64 %116, %117
+  br i1 %.not.i.i19, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i21, label %118
+
+118:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18
+  %119 = shl i64 %117, 1
+  %120 = add i64 %119, 3
+  %121 = and i64 %120, -1024
+  %122 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %112, i64 noundef %117, i64 noundef %121, i32 noundef 0) #12
+  store ptr %122, ptr %21, align 8
+  store i64 %121, ptr %27, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 %115
+  %.pre.i20 = ptrtoint ptr %123 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i21
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i21: ; preds = %117, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18
-  %.pre-phi.i22 = phi i64 [ %112, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18 ], [ %.pre.i20, %117 ]
-  %123 = phi ptr [ %110, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18 ], [ %122, %117 ]
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 2
-  store ptr %124, ptr %19, align 8
-  %125 = tail call noundef i16 @llvm.bswap.i16(i16 %109)
-  %126 = and i64 %.pre-phi.i22, 1
-  %127 = icmp eq i64 %126, 0
-  br i1 %127, label %128, label %129
-
-128:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i21
-  store i16 %125, ptr %123, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i21: ; preds = %118, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18
+  %.pre-phi.i22 = phi i64 [ %113, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18 ], [ %.pre.i20, %118 ]
+  %124 = phi ptr [ %111, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18 ], [ %123, %118 ]
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 2
+  store ptr %125, ptr %19, align 8
+  %126 = tail call noundef i16 @llvm.bswap.i16(i16 %110)
+  %127 = and i64 %.pre-phi.i22, 1
+  %128 = icmp eq i64 %127, 0
+  br i1 %128, label %129, label %130
 
 129:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i21
-  store i16 %125, ptr %123, align 1
+  store i16 %126, ptr %124, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23: ; preds = %128, %129
-  %130 = getelementptr i8, ptr %64, i64 6
-  %131 = load i16, ptr %130, align 2
-  %132 = load ptr, ptr %19, align 8
-  %133 = load ptr, ptr %21, align 8
-  %134 = ptrtoint ptr %132 to i64
-  %135 = ptrtoint ptr %133 to i64
-  %136 = sub i64 %134, %135
-  %137 = add i64 %136, 2
-  %138 = load i64, ptr %27, align 8
-  %.not.i.i24 = icmp ult i64 %137, %138
-  br i1 %.not.i.i24, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i26, label %139
+130:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i21
+  store i16 %126, ptr %124, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23
 
-139:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23
-  %140 = shl i64 %138, 1
-  %141 = add i64 %140, 3
-  %142 = and i64 %141, -1024
-  %143 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %133, i64 noundef %138, i64 noundef %142, i32 noundef 0) #12
-  store ptr %143, ptr %21, align 8
-  store i64 %142, ptr %27, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 %136
-  %.pre.i25 = ptrtoint ptr %144 to i64
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23: ; preds = %129, %130
+  %131 = getelementptr i8, ptr %86, i64 10
+  %132 = load i16, ptr %131, align 2
+  %133 = load ptr, ptr %19, align 8
+  %134 = load ptr, ptr %21, align 8
+  %135 = ptrtoint ptr %133 to i64
+  %136 = ptrtoint ptr %134 to i64
+  %137 = sub i64 %135, %136
+  %138 = add i64 %137, 2
+  %139 = load i64, ptr %27, align 8
+  %.not.i.i24 = icmp ult i64 %138, %139
+  br i1 %.not.i.i24, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i26, label %140
+
+140:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23
+  %141 = shl i64 %139, 1
+  %142 = add i64 %141, 3
+  %143 = and i64 %142, -1024
+  %144 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %134, i64 noundef %139, i64 noundef %143, i32 noundef 0) #12
+  store ptr %144, ptr %21, align 8
+  store i64 %143, ptr %27, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 %137
+  %.pre.i25 = ptrtoint ptr %145 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i26
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i26: ; preds = %139, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23
-  %.pre-phi.i27 = phi i64 [ %134, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23 ], [ %.pre.i25, %139 ]
-  %145 = phi ptr [ %132, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23 ], [ %144, %139 ]
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 2
-  store ptr %146, ptr %19, align 8
-  %147 = tail call noundef i16 @llvm.bswap.i16(i16 %131)
-  %148 = and i64 %.pre-phi.i27, 1
-  %149 = icmp eq i64 %148, 0
-  br i1 %149, label %150, label %151
-
-150:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i26
-  store i16 %147, ptr %145, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit28
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i26: ; preds = %140, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23
+  %.pre-phi.i27 = phi i64 [ %135, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23 ], [ %.pre.i25, %140 ]
+  %146 = phi ptr [ %133, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23 ], [ %145, %140 ]
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 2
+  store ptr %147, ptr %19, align 8
+  %148 = tail call noundef i16 @llvm.bswap.i16(i16 %132)
+  %149 = and i64 %.pre-phi.i27, 1
+  %150 = icmp eq i64 %149, 0
+  br i1 %150, label %151, label %152
 
 151:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i26
-  store i16 %147, ptr %145, align 1
+  store i16 %148, ptr %146, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit28
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit28: ; preds = %150, %151
+152:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i26
+  store i16 %148, ptr %146, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit28
+
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit28: ; preds = %151, %152
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %152 = trunc nuw i64 %indvars.iv.next to i32
-  %.not41 = icmp sgt i32 %1, %152
+  %153 = trunc nuw i64 %indvars.iv.next to i32
+  %.not41 = icmp sgt i32 %1, %153
   br i1 %.not41, label %63, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit28, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit

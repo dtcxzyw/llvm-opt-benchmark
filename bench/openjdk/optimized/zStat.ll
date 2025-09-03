@@ -7743,36 +7743,34 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9ZStatHeap24at_select_relocation_setERK27ZRelocationSetSelectorStats(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2312) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1552
-  br label %6
+  br label %4
 
-6:                                                ; preds = %2, %6
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %.015 = phi i64 [ 0, %2 ], [ %15, %6 ]
-  %7 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv, i32 2
-  %8 = load i64, ptr %7, align 8
-  %.idx = mul nuw nsw i64 %indvars.iv, 48
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %12 = load i64, ptr %11, align 8
-  %13 = add i64 %8, %.015
-  %14 = add i64 %13, %10
-  %15 = add i64 %14, %12
+4:                                                ; preds = %2, %4
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
+  %.014 = phi i64 [ 0, %2 ], [ %14, %4 ]
+  %5 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv, i32 2
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 784
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1552
+  %11 = load i64, ptr %10, align 8
+  %12 = add i64 %6, %.014
+  %13 = add i64 %12, %9
+  %14 = add i64 %13, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %_ZN7ZLockerI5ZLockED2Ev.exit, label %6, !llvm.loop !141
+  br i1 %exitcond.not, label %_ZN7ZLockerI5ZLockED2Ev.exit, label %4, !llvm.loop !141
 
-_ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %6
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = load i64, ptr %17, align 8
-  %19 = sub i64 %18, %15
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i64 %19, ptr %20, align 8
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
+_ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i64 %14, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %17 = load i64, ptr %16, align 8
+  %18 = sub i64 %17, %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i64 %18, ptr %19, align 8
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 

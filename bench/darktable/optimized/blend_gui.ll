@@ -1619,15 +1619,15 @@ define internal fastcc void @_blendop_blendif_update_tab(ptr noundef %0, i32 nou
   %32 = getelementptr inbounds [2 x i32], ptr %31, i64 %16
   br label %36
 
-33:                                               ; preds = %119
+33:                                               ; preds = %120
   call void @_update_gradient_slider_pickers(ptr poison, ptr noundef %0)
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %35 = load i32, ptr %34, align 8, !tbaa !129
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %129, label %120
+  br i1 %.not, label %130, label %121
 
-36:                                               ; preds = %2, %119
-  %indvars.iv104 = phi i64 [ 1, %2 ], [ %indvars.iv.next105, %119 ]
+36:                                               ; preds = %2, %120
+  %indvars.iv104 = phi i64 [ 1, %2 ], [ %indvars.iv.next105, %120 ]
   %37 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv104
   %38 = load i32, ptr %37, align 4, !tbaa !77
   %39 = getelementptr inbounds nuw %struct.dt_iop_gui_blendif_filter_t, ptr %19, i64 %indvars.iv104
@@ -1745,7 +1745,7 @@ define internal fastcc void @_blendop_blendif_update_tab(ptr noundef %0, i32 nou
   %108 = load i32, ptr %107, align 4, !tbaa !77
   %109 = call i32 %94(ptr noundef %97, ptr noundef %0, i32 noundef %108) #17
   store i32 %109, ptr %107, align 4, !tbaa !77
-  br label %119
+  br label %120
 
 110:                                              ; preds = %._crit_edge
   %.val91 = load ptr, ptr %4, align 8, !tbaa !6
@@ -1754,47 +1754,47 @@ define internal fastcc void @_blendop_blendif_update_tab(ptr noundef %0, i32 nou
   %113 = icmp eq ptr %97, %112
   call void @dtgtk_gradient_slider_multivalue_set_scale_callback(ptr noundef %97, ptr noundef null) #17
   %.str.120..str.121.i.i = select i1 %113, ptr @.str.120, ptr @.str.121
-  %..i.i = select i1 %113, i64 80, i64 8
   %114 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.120..str.121.i.i, i32 noundef 5) #17
-  %115 = getelementptr inbounds nuw i8, ptr %.val91, i64 136
-  %116 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.205, ptr noundef %114, ptr noundef nonnull @.str.107) #17
-  %117 = getelementptr inbounds nuw i8, ptr %115, i64 %..i.i
-  %118 = load ptr, ptr %117, align 8, !tbaa !138
-  call void @gtk_label_set_text(ptr noundef %118, ptr noundef %116) #17
-  call void @g_free(ptr noundef %116) #17
-  br label %119
+  %115 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.205, ptr noundef %114, ptr noundef nonnull @.str.107) #17
+  %116 = zext i1 %113 to i64
+  %117 = getelementptr inbounds nuw %struct.dt_iop_gui_blendif_filter_t, ptr %.val91, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 144
+  %119 = load ptr, ptr %118, align 8, !tbaa !138
+  call void @gtk_label_set_text(ptr noundef %119, ptr noundef %115) #17
+  call void @g_free(ptr noundef %115) #17
+  br label %120
 
-119:                                              ; preds = %110, %106
+120:                                              ; preds = %110, %106
   %indvars.iv.next105 = add nsw i64 %indvars.iv104, -1
   %.not108 = icmp eq i64 %indvars.iv104, 0
   br i1 %.not108, label %33, label %36
 
-120:                                              ; preds = %33
-  %121 = getelementptr inbounds nuw i8, ptr %7, i64 324
-  %122 = load i32, ptr %18, align 8, !tbaa !77
-  %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw float, ptr %121, i64 %123
-  %125 = load float, ptr %124, align 4, !tbaa !74
-  %126 = getelementptr inbounds nuw i8, ptr %17, i64 36
-  %127 = load float, ptr %126, align 4, !tbaa !139
-  %128 = fsub reassoc nsz arcp contract afn float %125, %127
-  br label %129
+121:                                              ; preds = %33
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 324
+  %123 = load i32, ptr %18, align 8, !tbaa !77
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr inbounds nuw float, ptr %122, i64 %124
+  %126 = load float, ptr %125, align 4, !tbaa !74
+  %127 = getelementptr inbounds nuw i8, ptr %17, i64 36
+  %128 = load float, ptr %127, align 4, !tbaa !139
+  %129 = fsub reassoc nsz arcp contract afn float %126, %128
+  br label %130
 
-129:                                              ; preds = %120, %33
-  %.0 = phi nsz float [ %128, %120 ], [ 0.000000e+00, %33 ]
-  %130 = getelementptr inbounds nuw i8, ptr %5, i64 488
-  %131 = load ptr, ptr %130, align 8, !tbaa !140
-  %132 = tail call i64 @gtk_widget_get_type() #18
-  %133 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %132) #17
-  call void @gtk_widget_set_sensitive(ptr noundef %133, i32 noundef %35) #17
-  %134 = load ptr, ptr %130, align 8, !tbaa !140
-  %135 = call ptr @g_type_check_instance_cast(ptr noundef %134, i64 noundef %132) #17
-  call void @dt_bauhaus_slider_set(ptr noundef %135, float noundef %.0) #17
-  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 96
-  %138 = load i32, ptr %137, align 8, !tbaa !66
-  %139 = add nsw i32 %138, -1
-  store i32 %139, ptr %137, align 8, !tbaa !66
+130:                                              ; preds = %121, %33
+  %.0 = phi nsz float [ %129, %121 ], [ 0.000000e+00, %33 ]
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 488
+  %132 = load ptr, ptr %131, align 8, !tbaa !140
+  %133 = tail call i64 @gtk_widget_get_type() #18
+  %134 = call ptr @g_type_check_instance_cast(ptr noundef %132, i64 noundef %133) #17
+  call void @gtk_widget_set_sensitive(ptr noundef %134, i32 noundef %35) #17
+  %135 = load ptr, ptr %131, align 8, !tbaa !140
+  %136 = call ptr @g_type_check_instance_cast(ptr noundef %135, i64 noundef %133) #17
+  call void @dt_bauhaus_slider_set(ptr noundef %136, float noundef %.0) #17
+  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 96
+  %139 = load i32, ptr %138, align 8, !tbaa !66
+  %140 = add nsw i32 %139, -1
+  store i32 %140, ptr %138, align 8, !tbaa !66
   call fastcc void @_blendop_blendif_highlight_changed_tabs(ptr noundef %0)
   ret void
 }
@@ -1835,17 +1835,17 @@ define internal range(i32 0, 2) i32 @_blendop_blendif_disp_alternative_log(ptr n
   %10 = select i1 %9, ptr @log10_scale_callback, ptr null
   tail call void @dtgtk_gradient_slider_multivalue_set_scale_callback(ptr noundef %0, ptr noundef %10) #17
   %.str.120..str.121.i = select i1 %8, ptr @.str.120, ptr @.str.121
-  %..i = select i1 %8, i64 80, i64 8
   %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.120..str.121.i, i32 noundef 5) #17
-  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 136
-  %13 = select i1 %9, ptr %4, ptr @.str.107
-  %14 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.205, ptr noundef %11, ptr noundef %13) #17
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %..i
-  %16 = load ptr, ptr %15, align 8, !tbaa !138
-  tail call void @gtk_label_set_text(ptr noundef %16, ptr noundef %14) #17
-  tail call void @g_free(ptr noundef %14) #17
-  %17 = zext i1 %9 to i32
-  ret i32 %17
+  %12 = select i1 %9, ptr %4, ptr @.str.107
+  %13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.205, ptr noundef %11, ptr noundef %12) #17
+  %14 = zext i1 %8 to i64
+  %15 = getelementptr inbounds nuw %struct.dt_iop_gui_blendif_filter_t, ptr %.val, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  %17 = load ptr, ptr %16, align 8, !tbaa !138
+  tail call void @gtk_label_set_text(ptr noundef %17, ptr noundef %13) #17
+  tail call void @g_free(ptr noundef %13) #17
+  %18 = zext i1 %9 to i32
+  ret i32 %18
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -1874,17 +1874,17 @@ define internal range(i32 0, 2) i32 @_blendop_blendif_disp_alternative_mag(ptr n
   %10 = select i1 %9, ptr @magnifier_scale_callback, ptr null
   tail call void @dtgtk_gradient_slider_multivalue_set_scale_callback(ptr noundef %0, ptr noundef %10) #17
   %.str.120..str.121.i = select i1 %8, ptr @.str.120, ptr @.str.121
-  %..i = select i1 %8, i64 80, i64 8
   %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.120..str.121.i, i32 noundef 5) #17
-  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 136
-  %13 = select i1 %9, ptr %4, ptr @.str.107
-  %14 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.205, ptr noundef %11, ptr noundef %13) #17
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %..i
-  %16 = load ptr, ptr %15, align 8, !tbaa !138
-  tail call void @gtk_label_set_text(ptr noundef %16, ptr noundef %14) #17
-  tail call void @g_free(ptr noundef %14) #17
-  %17 = zext i1 %9 to i32
-  ret i32 %17
+  %12 = select i1 %9, ptr %4, ptr @.str.107
+  %13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.205, ptr noundef %11, ptr noundef %12) #17
+  %14 = zext i1 %8 to i64
+  %15 = getelementptr inbounds nuw %struct.dt_iop_gui_blendif_filter_t, ptr %.val, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  %17 = load ptr, ptr %16, align 8, !tbaa !138
+  tail call void @gtk_label_set_text(ptr noundef %17, ptr noundef %13) #17
+  tail call void @g_free(ptr noundef %13) #17
+  %18 = zext i1 %9 to i32
+  ret i32 %18
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -2509,16 +2509,15 @@ define internal void @_blendop_blendif_sliders_callback(ptr noundef %0, ptr noun
   %15 = load i32, ptr %14, align 8, !tbaa !72
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds %struct.dt_iop_gui_blendif_channel_t, ptr %13, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %20 = load ptr, ptr %19, align 8, !tbaa !108
-  %21 = icmp eq ptr %0, %20
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %23 = zext i1 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !77
-  %.offs = select i1 %21, i64 88, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 %.offs
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %19 = load ptr, ptr %18, align 8, !tbaa !108
+  %20 = icmp eq ptr %0, %19
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %22 = zext i1 %20 to i64
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %24 = load i32, ptr %23, align 4, !tbaa !77
+  %25 = getelementptr inbounds nuw %struct.dt_iop_gui_blendif_filter_t, ptr %1, i64 %22
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %28 = load ptr, ptr %27, align 8, !tbaa !120
   %29 = tail call i64 @gtk_toggle_button_get_type() #18
@@ -2542,7 +2541,7 @@ define internal void @_blendop_blendif_sliders_callback(ptr noundef %0, ptr noun
 
 39:                                               ; preds = %37, %32, %7
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 68
-  %41 = shl i32 %25, 2
+  %41 = shl i32 %24, 2
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw float, ptr %40, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 632
@@ -2559,7 +2558,7 @@ define internal void @_blendop_blendif_sliders_callback(ptr noundef %0, ptr noun
   %50 = getelementptr inbounds nuw i8, ptr %.val.val, i64 324
   %51 = sext i32 %48 to i64
   %52 = getelementptr inbounds %struct.dt_iop_gui_blendif_channel_t, ptr %.val43, i64 %51, i32 7
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %23
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %22
   %54 = load i32, ptr %53, align 4, !tbaa !77
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw float, ptr %50, i64 %55
@@ -2607,7 +2606,7 @@ define internal void @_blendop_blendif_sliders_callback(ptr noundef %0, ptr noun
   br i1 %78, label %79, label %85
 
 79:                                               ; preds = %75
-  %80 = shl nuw i32 1, %25
+  %80 = shl nuw i32 1, %24
   %81 = xor i32 %80, -1
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %83 = load i32, ptr %82, align 4, !tbaa !116
@@ -2616,7 +2615,7 @@ define internal void @_blendop_blendif_sliders_callback(ptr noundef %0, ptr noun
   br label %90
 
 85:                                               ; preds = %75, %65
-  %86 = shl nuw i32 1, %25
+  %86 = shl nuw i32 1, %24
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %88 = load i32, ptr %87, align 4, !tbaa !116
   %89 = or i32 %88, %86

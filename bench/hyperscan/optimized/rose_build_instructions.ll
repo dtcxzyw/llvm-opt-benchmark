@@ -4204,65 +4204,63 @@ define hidden void @_ZNK3ue221RoseInstrCheckLongLit5writeEPvRNS_14RoseEngineBlob
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, %22, %20, %19
   %25 = phi ptr [ %.pre8.i, %19 ], [ %11, %20 ], [ %11, %22 ], [ %23, %24 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 -1
-  %27 = sub i64 0, %8
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %6, i64 %8, i1 false)
+  %26 = sub i64 0, %8
+  %27 = getelementptr i8, ptr %25, i64 %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %6, i64 %8, i1 false)
   %.not.i.i6.i = icmp ult i64 %16, 4294967296
-  br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %30
+  br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %28
 
-30:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31)
-          to label %32 unwind label %33
+28:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
+  %29 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %29)
+          to label %30 unwind label %31
 
-32:                                               ; preds = %30
-  tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
+30:                                               ; preds = %28
+  tail call void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
   unreachable
 
-common.resume:                                    ; preds = %41, %33
-  %.sink = phi ptr [ %39, %41 ], [ %31, %33 ]
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ]
+common.resume:                                    ; preds = %39, %31
+  %.sink = phi ptr [ %37, %39 ], [ %29, %31 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %32, %31 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #27
   resume { ptr, i32 } %common.resume.op
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+31:                                               ; preds = %28
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %35 = trunc nuw i64 %16 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %35, ptr %36, align 4
-  %37 = load i64, ptr %7, align 8
-  %.not.i.i = icmp ult i64 %37, 4294967296
-  br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %38
+  %33 = trunc nuw i64 %16 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %33, ptr %34, align 4
+  %35 = load i64, ptr %7, align 8
+  %.not.i.i = icmp ult i64 %35, 4294967296
+  br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %36
 
-38:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %39)
-          to label %40 unwind label %41
+36:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
+  %37 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %37)
+          to label %38 unwind label %39
 
-40:                                               ; preds = %38
-  tail call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
+38:                                               ; preds = %36
+  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
   unreachable
 
-41:                                               ; preds = %38
-  %42 = landingpad { ptr, i32 }
+39:                                               ; preds = %36
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %43 = trunc nuw i64 %37 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %46)
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %47, ptr %48, align 4
+  %41 = trunc nuw i64 %35 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %41, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %44)
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %45, ptr %46, align 4
   ret void
 }
 
@@ -4339,32 +4337,30 @@ _ZN3ue214RoseEngineBlob3padEm.exit:               ; preds = %4, %20, %22, %24, %
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit: ; preds = %34, %35, %37, %39
   %40 = phi ptr [ %.pre8, %34 ], [ %28, %35 ], [ %28, %37 ], [ %38, %39 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 -1
-  %42 = sub i64 0, %2
-  %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %1, i64 %2, i1 false)
+  %41 = sub i64 0, %2
+  %42 = getelementptr i8, ptr %40, i64 %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %1, i64 %2, i1 false)
   %.not.i.i6 = icmp ult i64 %31, 4294967296
-  br i1 %.not.i.i6, label %_ZN3ue210verify_u32ImEEjT_.exit, label %45
+  br i1 %.not.i.i6, label %_ZN3ue210verify_u32ImEEjT_.exit, label %43
 
-45:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %46 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %46)
-          to label %47 unwind label %48
+43:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
+  %44 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %44)
+          to label %45 unwind label %46
 
-47:                                               ; preds = %45
-  tail call void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
+45:                                               ; preds = %43
+  tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
   unreachable
 
-48:                                               ; preds = %45
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %46) #27
-  resume { ptr, i32 } %49
+  tail call void @__cxa_free_exception(ptr nonnull %44) #27
+  resume { ptr, i32 } %47
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %50 = trunc nuw i64 %31 to i32
-  ret i32 %50
+  %48 = trunc nuw i64 %31 to i32
+  ret i32 %48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4407,65 +4403,63 @@ define hidden void @_ZNK3ue227RoseInstrCheckLongLitNocase5writeEPvRNS_14RoseEngi
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, %22, %20, %19
   %25 = phi ptr [ %.pre8.i, %19 ], [ %11, %20 ], [ %11, %22 ], [ %23, %24 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 -1
-  %27 = sub i64 0, %8
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %6, i64 %8, i1 false)
+  %26 = sub i64 0, %8
+  %27 = getelementptr i8, ptr %25, i64 %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %6, i64 %8, i1 false)
   %.not.i.i6.i = icmp ult i64 %16, 4294967296
-  br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %30
+  br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %28
 
-30:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31)
-          to label %32 unwind label %33
+28:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
+  %29 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %29)
+          to label %30 unwind label %31
 
-32:                                               ; preds = %30
-  tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
+30:                                               ; preds = %28
+  tail call void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
   unreachable
 
-common.resume:                                    ; preds = %41, %33
-  %.sink = phi ptr [ %39, %41 ], [ %31, %33 ]
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ]
+common.resume:                                    ; preds = %39, %31
+  %.sink = phi ptr [ %37, %39 ], [ %29, %31 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %32, %31 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #27
   resume { ptr, i32 } %common.resume.op
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+31:                                               ; preds = %28
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %35 = trunc nuw i64 %16 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %35, ptr %36, align 4
-  %37 = load i64, ptr %7, align 8
-  %.not.i.i = icmp ult i64 %37, 4294967296
-  br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %38
+  %33 = trunc nuw i64 %16 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %33, ptr %34, align 4
+  %35 = load i64, ptr %7, align 8
+  %.not.i.i = icmp ult i64 %35, 4294967296
+  br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %36
 
-38:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %39)
-          to label %40 unwind label %41
+36:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
+  %37 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %37)
+          to label %38 unwind label %39
 
-40:                                               ; preds = %38
-  tail call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
+38:                                               ; preds = %36
+  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
   unreachable
 
-41:                                               ; preds = %38
-  %42 = landingpad { ptr, i32 }
+39:                                               ; preds = %36
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %43 = trunc nuw i64 %37 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %46)
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %47, ptr %48, align 4
+  %41 = trunc nuw i64 %35 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %41, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %44)
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %45, ptr %46, align 4
   ret void
 }
 
@@ -4509,65 +4503,63 @@ define hidden void @_ZNK3ue220RoseInstrCheckMedLit5writeEPvRNS_14RoseEngineBlobE
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, %22, %20, %19
   %25 = phi ptr [ %.pre8.i, %19 ], [ %11, %20 ], [ %11, %22 ], [ %23, %24 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 -1
-  %27 = sub i64 0, %8
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %6, i64 %8, i1 false)
+  %26 = sub i64 0, %8
+  %27 = getelementptr i8, ptr %25, i64 %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %6, i64 %8, i1 false)
   %.not.i.i6.i = icmp ult i64 %16, 4294967296
-  br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %30
+  br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %28
 
-30:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31)
-          to label %32 unwind label %33
+28:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
+  %29 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %29)
+          to label %30 unwind label %31
 
-32:                                               ; preds = %30
-  tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
+30:                                               ; preds = %28
+  tail call void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
   unreachable
 
-common.resume:                                    ; preds = %41, %33
-  %.sink = phi ptr [ %39, %41 ], [ %31, %33 ]
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ]
+common.resume:                                    ; preds = %39, %31
+  %.sink = phi ptr [ %37, %39 ], [ %29, %31 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %32, %31 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #27
   resume { ptr, i32 } %common.resume.op
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+31:                                               ; preds = %28
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %35 = trunc nuw i64 %16 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %35, ptr %36, align 4
-  %37 = load i64, ptr %7, align 8
-  %.not.i.i = icmp ult i64 %37, 4294967296
-  br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %38
+  %33 = trunc nuw i64 %16 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %33, ptr %34, align 4
+  %35 = load i64, ptr %7, align 8
+  %.not.i.i = icmp ult i64 %35, 4294967296
+  br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %36
 
-38:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %39)
-          to label %40 unwind label %41
+36:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
+  %37 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %37)
+          to label %38 unwind label %39
 
-40:                                               ; preds = %38
-  tail call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
+38:                                               ; preds = %36
+  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
   unreachable
 
-41:                                               ; preds = %38
-  %42 = landingpad { ptr, i32 }
+39:                                               ; preds = %36
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %43 = trunc nuw i64 %37 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %46)
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %47, ptr %48, align 4
+  %41 = trunc nuw i64 %35 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %41, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %44)
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %45, ptr %46, align 4
   ret void
 }
 
@@ -4611,65 +4603,63 @@ define hidden void @_ZNK3ue226RoseInstrCheckMedLitNocase5writeEPvRNS_14RoseEngin
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %24, %22, %20, %19
   %25 = phi ptr [ %.pre8.i, %19 ], [ %11, %20 ], [ %11, %22 ], [ %23, %24 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 -1
-  %27 = sub i64 0, %8
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %6, i64 %8, i1 false)
+  %26 = sub i64 0, %8
+  %27 = getelementptr i8, ptr %25, i64 %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %6, i64 %8, i1 false)
   %.not.i.i6.i = icmp ult i64 %16, 4294967296
-  br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %30
+  br i1 %.not.i.i6.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %28
 
-30:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31)
-          to label %32 unwind label %33
+28:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
+  %29 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %29)
+          to label %30 unwind label %31
 
-32:                                               ; preds = %30
-  tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
+30:                                               ; preds = %28
+  tail call void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
   unreachable
 
-common.resume:                                    ; preds = %41, %33
-  %.sink = phi ptr [ %39, %41 ], [ %31, %33 ]
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ]
+common.resume:                                    ; preds = %39, %31
+  %.sink = phi ptr [ %37, %39 ], [ %29, %31 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %32, %31 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #27
   resume { ptr, i32 } %common.resume.op
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+31:                                               ; preds = %28
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %35 = trunc nuw i64 %16 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %35, ptr %36, align 4
-  %37 = load i64, ptr %7, align 8
-  %.not.i.i = icmp ult i64 %37, 4294967296
-  br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %38
+  %33 = trunc nuw i64 %16 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %33, ptr %34, align 4
+  %35 = load i64, ptr %7, align 8
+  %.not.i.i = icmp ult i64 %35, 4294967296
+  br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %36
 
-38:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %39 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %39)
-          to label %40 unwind label %41
+36:                                               ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
+  %37 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %37)
+          to label %38 unwind label %39
 
-40:                                               ; preds = %38
-  tail call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
+38:                                               ; preds = %36
+  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
   unreachable
 
-41:                                               ; preds = %38
-  %42 = landingpad { ptr, i32 }
+39:                                               ; preds = %36
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %43 = trunc nuw i64 %37 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %46)
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %47, ptr %48, align 4
+  %41 = trunc nuw i64 %35 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %41, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %0, ptr noundef %44)
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %45, ptr %46, align 4
   ret void
 }
 

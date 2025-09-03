@@ -196,31 +196,27 @@ define dso_local void @quicklistRelease(ptr noundef %0) local_unnamed_addr #1 {
   %.not3.i = icmp eq i32 %24, 0
   br i1 %.not3.i, label %quicklistBookmarksClear.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %26
+.lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
+  %25 = phi i32 [ %38, %.lr.ph.i ], [ %24, %._crit_edge ]
+  %26 = phi i64 [ %35, %.lr.ph.i ], [ %21, %._crit_edge ]
+  %27 = add nsw i32 %25, -1
+  %28 = zext nneg i32 %27 to i64
+  %29 = shl nuw nsw i64 %28, 32
+  %30 = and i64 %26, -64424509441
+  %31 = or i64 %29, %30
+  store i64 %31, ptr %20, align 8
+  %32 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %0, i64 %28
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  %34 = load ptr, ptr %33, align 8, !tbaa !20
+  tail call void @zfree(ptr noundef %34) #23
+  %35 = load i64, ptr %20, align 8
+  %36 = lshr i64 %35, 32
+  %37 = trunc nuw i64 %36 to i32
+  %38 = and i32 %37, 15
+  %.not.i = icmp eq i32 %38, 0
+  br i1 %.not.i, label %quicklistBookmarksClear.exit, label %.lr.ph.i, !llvm.loop !22
 
-26:                                               ; preds = %26, %.lr.ph.i
-  %27 = phi i32 [ %24, %.lr.ph.i ], [ %39, %26 ]
-  %28 = phi i64 [ %21, %.lr.ph.i ], [ %36, %26 ]
-  %29 = add nsw i32 %27, -1
-  %30 = zext nneg i32 %29 to i64
-  %31 = shl nuw nsw i64 %30, 32
-  %32 = and i64 %28, -64424509441
-  %33 = or i64 %31, %32
-  store i64 %33, ptr %20, align 8
-  %.idx.i = shl nuw nsw i64 %30, 4
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
-  %35 = load ptr, ptr %34, align 8, !tbaa !20
-  tail call void @zfree(ptr noundef %35) #23
-  %36 = load i64, ptr %20, align 8
-  %37 = lshr i64 %36, 32
-  %38 = trunc nuw i64 %37 to i32
-  %39 = and i32 %38, 15
-  %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %quicklistBookmarksClear.exit, label %26, !llvm.loop !22
-
-quicklistBookmarksClear.exit:                     ; preds = %26, %._crit_edge
+quicklistBookmarksClear.exit:                     ; preds = %.lr.ph.i, %._crit_edge
   tail call void @zfree(ptr noundef nonnull %0) #23
   ret void
 }
@@ -237,31 +233,27 @@ define dso_local void @quicklistBookmarksClear(ptr noundef captures(none) %0) lo
   %.not3 = icmp eq i32 %6, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %8
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %7 = phi i32 [ %20, %.lr.ph ], [ %6, %1 ]
+  %8 = phi i64 [ %17, %.lr.ph ], [ %3, %1 ]
+  %9 = add nsw i32 %7, -1
+  %10 = zext nneg i32 %9 to i64
+  %11 = shl nuw nsw i64 %10, 32
+  %12 = and i64 %8, -64424509441
+  %13 = or i64 %11, %12
+  store i64 %13, ptr %2, align 8
+  %14 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %0, i64 %10
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  tail call void @zfree(ptr noundef %16) #23
+  %17 = load i64, ptr %2, align 8
+  %18 = lshr i64 %17, 32
+  %19 = trunc nuw i64 %18 to i32
+  %20 = and i32 %19, 15
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
-8:                                                ; preds = %.lr.ph, %8
-  %9 = phi i32 [ %6, %.lr.ph ], [ %21, %8 ]
-  %10 = phi i64 [ %3, %.lr.ph ], [ %18, %8 ]
-  %11 = add nsw i32 %9, -1
-  %12 = zext nneg i32 %11 to i64
-  %13 = shl nuw nsw i64 %12, 32
-  %14 = and i64 %10, -64424509441
-  %15 = or i64 %13, %14
-  store i64 %15, ptr %2, align 8
-  %.idx = shl nuw nsw i64 %12, 4
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %17 = load ptr, ptr %16, align 8, !tbaa !20
-  tail call void @zfree(ptr noundef %17) #23
-  %18 = load i64, ptr %2, align 8
-  %19 = lshr i64 %18, 32
-  %20 = trunc nuw i64 %19 to i32
-  %21 = and i32 %20, 15
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !22
-
-._crit_edge:                                      ; preds = %8, %1
+._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
 }
 

@@ -19457,12 +19457,12 @@ _ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_15OMPLinearClauseEEEN4ll
   %48 = phi i64 [ 0, %37 ], [ %47, %._crit_edge.loopexit ]
   %.lcssa = phi i8 [ %38, %37 ], [ %104, %._crit_edge.loopexit ]
   %.1.lcssa = phi i1 [ %.03267, %37 ], [ true, %._crit_edge.loopexit ]
-  %49 = getelementptr inbounds nuw ptr, ptr %40, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %39, i64 %48
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %48
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %48
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %48
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %55 = load ptr, ptr %54, align 8, !tbaa !629
   %.not37 = icmp eq ptr %55, null
   br i1 %.not37, label %112, label %106

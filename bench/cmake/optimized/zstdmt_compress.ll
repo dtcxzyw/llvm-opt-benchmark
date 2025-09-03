@@ -386,7 +386,7 @@ declare i64 @ZSTD_freeCDict(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %60, label %3
+  br i1 %2, label %58, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8, !tbaa !4
@@ -396,108 +396,106 @@ define dso_local i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly captures(address_i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !37
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %ZSTDMT_sizeof_bufferPool.exit, label %.lr.ph.i
+  br i1 %.not.i, label %ZSTDMT_sizeof_bufferPool.exit, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
+.lr.ph.preheader.i:                               ; preds = %3
   %wide.trip.count.i = zext i32 %9 to i64
-  br label %11
+  br label %.lr.ph.i
 
-11:                                               ; preds = %11, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %14, %11 ]
-  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
-  %13 = load i64, ptr %12, align 8, !tbaa !57
-  %14 = add i64 %13, %.010.i
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.010.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %13, %.lr.ph.i ]
+  %10 = getelementptr inbounds nuw %struct.buffer_s, ptr %7, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %12 = load i64, ptr %11, align 8, !tbaa !57
+  %13 = add i64 %12, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ZSTDMT_sizeof_bufferPool.exit, label %11, !llvm.loop !58
+  br i1 %exitcond.not.i, label %ZSTDMT_sizeof_bufferPool.exit, label %.lr.ph.i, !llvm.loop !58
 
-ZSTDMT_sizeof_bufferPool.exit:                    ; preds = %11, %3
-  %.0.lcssa.i = phi i64 [ 0, %3 ], [ %14, %11 ]
-  %15 = add i32 %9, -1
-  %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2832
-  %18 = load i32, ptr %17, align 8, !tbaa !40
-  %19 = add i32 %18, 1
-  %20 = zext i32 %19 to i64
-  %21 = mul nuw nsw i64 %20, 360
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !46
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !47
-  %.not.i9 = icmp eq i32 %25, 0
+ZSTDMT_sizeof_bufferPool.exit:                    ; preds = %.lr.ph.i, %3
+  %.0.lcssa.i = phi i64 [ 0, %3 ], [ %13, %.lr.ph.i ]
+  %14 = add i32 %9, -1
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2832
+  %17 = load i32, ptr %16, align 8, !tbaa !40
+  %18 = add i32 %17, 1
+  %19 = zext i32 %18 to i64
+  %20 = mul nuw nsw i64 %19, 360
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load ptr, ptr %21, align 8, !tbaa !46
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !47
+  %.not.i9 = icmp eq i32 %24, 0
   br i1 %.not.i9, label %ZSTDMT_sizeof_CCtxPool.exit, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %ZSTDMT_sizeof_bufferPool.exit
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %wide.trip.count.i11 = zext i32 %25 to i64
-  br label %27
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %wide.trip.count.i11 = zext i32 %24 to i64
+  br label %26
 
-27:                                               ; preds = %27, %.lr.ph.i10
-  %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %27 ]
-  %.011.i = phi i64 [ 0, %.lr.ph.i10 ], [ %31, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i12
-  %29 = load ptr, ptr %28, align 8, !tbaa !49
-  %30 = tail call i64 @ZSTD_sizeof_CCtx(ptr noundef %29) #16
-  %31 = add i64 %30, %.011.i
+26:                                               ; preds = %26, %.lr.ph.i10
+  %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %26 ]
+  %.011.i = phi i64 [ 0, %.lr.ph.i10 ], [ %30, %26 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i12
+  %28 = load ptr, ptr %27, align 8, !tbaa !49
+  %29 = tail call i64 @ZSTD_sizeof_CCtx(ptr noundef %28) #16
+  %30 = add i64 %29, %.011.i
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, %wide.trip.count.i11
-  br i1 %exitcond.not.i14, label %ZSTDMT_sizeof_CCtxPool.exit, label %27, !llvm.loop !59
+  br i1 %exitcond.not.i14, label %ZSTDMT_sizeof_CCtxPool.exit, label %26, !llvm.loop !59
 
-ZSTDMT_sizeof_CCtxPool.exit:                      ; preds = %27, %ZSTDMT_sizeof_bufferPool.exit
-  %.0.lcssa.i15 = phi i64 [ 0, %ZSTDMT_sizeof_bufferPool.exit ], [ %31, %27 ]
-  %32 = add i32 %25, -1
-  %33 = zext i32 %32 to i64
-  %34 = shl nuw nsw i64 %33, 3
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !52
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load i32, ptr %37, align 8, !tbaa !37
-  %.not.i.i = icmp eq i32 %38, 0
-  br i1 %.not.i.i, label %ZSTDMT_sizeof_seqPool.exit, label %.lr.ph.i.i
+ZSTDMT_sizeof_CCtxPool.exit:                      ; preds = %26, %ZSTDMT_sizeof_bufferPool.exit
+  %.0.lcssa.i15 = phi i64 [ 0, %ZSTDMT_sizeof_bufferPool.exit ], [ %30, %26 ]
+  %31 = add i32 %24, -1
+  %32 = zext i32 %31 to i64
+  %33 = shl nuw nsw i64 %32, 3
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %35 = load ptr, ptr %34, align 8, !tbaa !52
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load i32, ptr %36, align 8, !tbaa !37
+  %.not.i.i = icmp eq i32 %37, 0
+  br i1 %.not.i.i, label %ZSTDMT_sizeof_seqPool.exit, label %.lr.ph.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %ZSTDMT_sizeof_CCtxPool.exit
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %wide.trip.count.i.i = zext i32 %38 to i64
-  br label %40
+.lr.ph.preheader.i.i:                             ; preds = %ZSTDMT_sizeof_CCtxPool.exit
+  %wide.trip.count.i.i = zext i32 %37 to i64
+  br label %.lr.ph.i.i
 
-40:                                               ; preds = %40, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %40 ]
-  %.010.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %43, %40 ]
-  %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i, 4
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i
-  %42 = load i64, ptr %41, align 8, !tbaa !57
-  %43 = add i64 %42, %.010.i.i
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %.010.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %41, %.lr.ph.i.i ]
+  %38 = getelementptr inbounds nuw %struct.buffer_s, ptr %35, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  %40 = load i64, ptr %39, align 8, !tbaa !57
+  %41 = add i64 %40, %.010.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %ZSTDMT_sizeof_seqPool.exit, label %40, !llvm.loop !58
+  br i1 %exitcond.not.i.i, label %ZSTDMT_sizeof_seqPool.exit, label %.lr.ph.i.i, !llvm.loop !58
 
-ZSTDMT_sizeof_seqPool.exit:                       ; preds = %40, %ZSTDMT_sizeof_CCtxPool.exit
-  %.0.lcssa.i.i = phi i64 [ 0, %ZSTDMT_sizeof_CCtxPool.exit ], [ %43, %40 ]
-  %44 = add i32 %38, -1
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  %47 = load ptr, ptr %46, align 8, !tbaa !55
-  %48 = tail call i64 @ZSTD_sizeof_CDict(ptr noundef %47) #16
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %50 = load i64, ptr %49, align 8, !tbaa !60
-  %reass.add = add nuw nsw i64 %45, %16
+ZSTDMT_sizeof_seqPool.exit:                       ; preds = %.lr.ph.i.i, %ZSTDMT_sizeof_CCtxPool.exit
+  %.0.lcssa.i.i = phi i64 [ 0, %ZSTDMT_sizeof_CCtxPool.exit ], [ %41, %.lr.ph.i.i ]
+  %42 = add i32 %37, -1
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2904
+  %45 = load ptr, ptr %44, align 8, !tbaa !55
+  %46 = tail call i64 @ZSTD_sizeof_CDict(ptr noundef %45) #16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %48 = load i64, ptr %47, align 8, !tbaa !60
+  %reass.add = add nuw nsw i64 %43, %15
   %reass.mul = shl nuw nsw i64 %reass.add, 4
-  %51 = add i64 %5, 3104
-  %52 = add i64 %51, %.0.lcssa.i
-  %53 = add i64 %52, %21
-  %54 = add i64 %53, %34
-  %55 = add i64 %54, %.0.lcssa.i15
-  %56 = add i64 %55, %reass.mul
-  %57 = add i64 %56, %.0.lcssa.i.i
-  %58 = add i64 %57, %48
-  %59 = add i64 %58, %50
-  br label %60
+  %49 = add i64 %5, 3104
+  %50 = add i64 %49, %.0.lcssa.i
+  %51 = add i64 %50, %20
+  %52 = add i64 %51, %33
+  %53 = add i64 %52, %.0.lcssa.i15
+  %54 = add i64 %53, %reass.mul
+  %55 = add i64 %54, %.0.lcssa.i.i
+  %56 = add i64 %55, %46
+  %57 = add i64 %56, %48
+  br label %58
 
-60:                                               ; preds = %1, %ZSTDMT_sizeof_seqPool.exit
-  %.0 = phi i64 [ %59, %ZSTDMT_sizeof_seqPool.exit ], [ 0, %1 ]
+58:                                               ; preds = %1, %ZSTDMT_sizeof_seqPool.exit
+  %.0 = phi i64 [ %57, %ZSTDMT_sizeof_seqPool.exit ], [ 0, %1 ]
   ret i64 %.0
 }
 

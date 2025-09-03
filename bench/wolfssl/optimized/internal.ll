@@ -6533,10 +6533,8 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
   br i1 %.not, label %.lr.ph.split.us.preheader, label %.lr.ph.split, !llvm.loop !239
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %scevgep = getelementptr i8, ptr %.072196, i64 2
   %24 = zext nneg i32 %.077195 to i64
-  %25 = getelementptr i8, ptr %scevgep, i64 %24
-  %scevgep215 = getelementptr i8, ptr %25, i64 -2
+  %25 = getelementptr i8, ptr %.072196, i64 %24
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %31
@@ -6573,7 +6571,7 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
 
 .split.us.preheader:                              ; preds = %31, %22
   %.380.lcssa = phi i32 [ %.380168, %22 ], [ 0, %31 ]
-  %.375 = phi ptr [ %19, %22 ], [ %scevgep215, %31 ]
+  %.375 = phi ptr [ %19, %22 ], [ %25, %31 ]
   %scevgep216 = getelementptr i8, ptr %.083194, i64 1
   %38 = add i32 %.089193, -1
   %39 = zext i32 %38 to i64

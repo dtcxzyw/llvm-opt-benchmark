@@ -17702,8 +17702,8 @@ _ZN4llvm11raw_ostreamlsEc.exit729:                ; preds = %1589, %1591
   %1623 = load i32, ptr %1622, align 8, !tbaa !569
   %1624 = zext i32 %1623 to i64
   %1625 = sub nsw i64 0, %1624
-  %1626 = getelementptr inbounds %"class.llvm::Use", ptr %1497, i64 %1625
-  %1627 = getelementptr inbounds i8, ptr %1626, i64 -32
+  %1626 = getelementptr %"class.llvm::Use", ptr %1, i64 %1625
+  %1627 = getelementptr i8, ptr %1626, i64 -64
   %1628 = load ptr, ptr %1627, align 8, !tbaa !176
   call fastcc void @_ZN12_GLOBAL__N_114AssemblyWriter12writeOperandEPKN4llvm5ValueEb(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef %1628, i1 noundef zeroext true)
   %1629 = load ptr, ptr %0, align 8, !tbaa !344

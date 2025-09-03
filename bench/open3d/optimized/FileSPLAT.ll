@@ -38975,71 +38975,70 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit12.i.backedge: ; pred
   store i8 0, ptr %80, align 1, !tbaa !51
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull readonly align 64 dereferenceable(24) %31, i64 24, i1 false), !tbaa.struct !843
-  %82 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %84
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %83
 
 thread-pre-split.i.i:                             ; preds = %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i
   %.pre.i.i = load i8, ptr %72, align 4, !tbaa !777
-  br label %84
+  br label %83
 
-84:                                               ; preds = %thread-pre-split.i.i, %77
+83:                                               ; preds = %thread-pre-split.i.i, %77
   %.pr48.i.i = phi i8 [ %.pr.i.i, %thread-pre-split.i.i ], [ 1, %77 ]
-  %85 = phi i8 [ %.promoted2.i21.i.i, %thread-pre-split.i.i ], [ 0, %77 ]
+  %84 = phi i8 [ %.promoted2.i21.i.i, %thread-pre-split.i.i ], [ 0, %77 ]
   %.pre.i.i.i = phi i8 [ %.pre.i33.i.i, %thread-pre-split.i.i ], [ 0, %77 ]
-  %86 = phi i8 [ %.pre.i.i, %thread-pre-split.i.i ], [ %73, %77 ]
-  %87 = icmp ult i8 %.pr48.i.i, 8
-  br i1 %87, label %.lr.ph.i.i.i, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i"
+  %85 = phi i8 [ %.pre.i.i, %thread-pre-split.i.i ], [ %73, %77 ]
+  %86 = icmp ult i8 %.pr48.i.i, 8
+  br i1 %86, label %.lr.ph.i.i.i, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i"
 
-.lr.ph.i.i.i:                                     ; preds = %84
+.lr.ph.i.i.i:                                     ; preds = %83
   %.phi.trans.insert.i.i.i = zext i8 %.pre.i.i.i to i64
   %.phi.trans.insert5.i.i.i = getelementptr inbounds nuw i8, ptr %80, i64 %.phi.trans.insert.i.i.i
   %.pre6.i.i.i = load i8, ptr %.phi.trans.insert5.i.i.i, align 1, !tbaa !51
-  %88 = icmp ult i8 %.pre6.i.i.i, %86
-  br i1 %88, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader", label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i"
+  %87 = icmp ult i8 %.pre6.i.i.i, %85
+  br i1 %87, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader", label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i"
 
 "_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader": ; preds = %.lr.ph.i.i.i
-  %.idx.i.i.i.i10 = mul nuw nsw i64 %.phi.trans.insert.i.i.i, 24
-  %89 = getelementptr i8, ptr %82, i64 %.idx.i.i.i.i10
-  %.val.i.i.i.i11 = load i64, ptr %89, align 8, !tbaa !831
-  %90 = icmp ugt i64 %.val.i.i.i.i11, 499
+  %88 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %4, i64 %.phi.trans.insert.i.i.i
+  %89 = getelementptr i8, ptr %88, i64 24
+  %.val.i.i.i.i10 = load i64, ptr %89, align 8, !tbaa !831
+  %90 = icmp ugt i64 %.val.i.i.i.i10, 499
   br i1 %90, label %.lr.ph, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i"
 
 91:                                               ; preds = %.lr.ph
-  %92 = icmp ult i8 %103, %86
+  %92 = icmp ult i8 %104, %85
   br i1 %92, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i", label %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i.loopexit_crit_edge", !llvm.loop !844
 
 "_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i": ; preds = %91
-  %.idx.i.i.i.i = mul nuw nsw i64 %105, 24
-  %93 = getelementptr i8, ptr %82, i64 %.idx.i.i.i.i
-  %.val.i.i.i.i = load i64, ptr %93, align 8, !tbaa !831
-  %94 = icmp ugt i64 %.val.i.i.i.i, 499
-  br i1 %94, label %.lr.ph, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i", !llvm.loop !844
+  %93 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %4, i64 %106
+  %94 = getelementptr i8, ptr %93, i64 24
+  %.val.i.i.i.i = load i64, ptr %94, align 8, !tbaa !831
+  %95 = icmp ugt i64 %.val.i.i.i.i, 499
+  br i1 %95, label %.lr.ph, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i", !llvm.loop !844
 
 .lr.ph:                                           ; preds = %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader", %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i"
-  %95 = phi i64 [ %105, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i" ], [ %.phi.trans.insert.i.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader" ]
-  %.pre.i36.i22.i12 = phi i8 [ %104, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i" ], [ %.pre.i.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader" ]
-  %96 = getelementptr inbounds nuw i8, ptr %80, i64 %95
-  %97 = add i8 %.pre.i36.i22.i12, 1
-  %98 = and i8 %97, 7
-  store i8 %98, ptr %4, align 8, !tbaa !838
-  %99 = zext nneg i8 %98 to i64
-  %100 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %81, i64 %99
-  %101 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %81, i64 %95
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %101, i64 24, i1 false), !tbaa.struct !843
-  call fastcc void @"_ZN3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSB_8geometry9TensorMapEE3$_0EC2ERSI_NS0_2d05splitE"(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %100)
-  %102 = load i8, ptr %96, align 1, !tbaa !51
-  %103 = add i8 %102, 1
-  store i8 %103, ptr %96, align 1, !tbaa !51
-  %104 = load i8, ptr %4, align 8, !tbaa !838
-  %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw i8, ptr %80, i64 %105
-  store i8 %103, ptr %106, align 1, !tbaa !51
-  %107 = load i8, ptr %79, align 2, !tbaa !842
-  %108 = add i8 %107, 1
-  store i8 %108, ptr %79, align 2, !tbaa !842
-  %109 = icmp ult i8 %108, 8
-  br i1 %109, label %91, label %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i", !llvm.loop !844
+  %96 = phi i64 [ %106, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i" ], [ %.phi.trans.insert.i.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader" ]
+  %.pre.i36.i22.i11 = phi i8 [ %105, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i" ], [ %.pre.i.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader" ]
+  %97 = getelementptr inbounds nuw i8, ptr %80, i64 %96
+  %98 = add i8 %.pre.i36.i22.i11, 1
+  %99 = and i8 %98, 7
+  store i8 %99, ptr %4, align 8, !tbaa !838
+  %100 = zext nneg i8 %99 to i64
+  %101 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %81, i64 %100
+  %102 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %81, i64 %96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %102, i64 24, i1 false), !tbaa.struct !843
+  call fastcc void @"_ZN3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSB_8geometry9TensorMapEE3$_0EC2ERSI_NS0_2d05splitE"(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %101)
+  %103 = load i8, ptr %97, align 1, !tbaa !51
+  %104 = add i8 %103, 1
+  store i8 %104, ptr %97, align 1, !tbaa !51
+  %105 = load i8, ptr %4, align 8, !tbaa !838
+  %106 = zext i8 %105 to i64
+  %107 = getelementptr inbounds nuw i8, ptr %80, i64 %106
+  store i8 %104, ptr %107, align 1, !tbaa !51
+  %108 = load i8, ptr %79, align 2, !tbaa !842
+  %109 = add i8 %108, 1
+  store i8 %109, ptr %79, align 2, !tbaa !842
+  %110 = icmp ult i8 %109, 8
+  br i1 %110, label %91, label %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i", !llvm.loop !844
 
 "._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i": ; preds = %.lr.ph
   br label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i", !llvm.loop !844
@@ -39047,180 +39046,180 @@ thread-pre-split.i.i:                             ; preds = %_ZN3tbb6detail2d118
 "._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i.loopexit_crit_edge": ; preds = %91
   br label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i", !llvm.loop !844
 
-"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i": ; preds = %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i", %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader", %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i.loopexit_crit_edge", %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i", %.lr.ph.i.i.i, %84
-  %.pr45.i.i = phi i8 [ %.pr48.i.i, %84 ], [ %108, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i" ], [ %.pr48.i.i, %.lr.ph.i.i.i ], [ %108, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i.loopexit_crit_edge" ], [ %.pr48.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader" ], [ %108, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i" ]
-  %110 = phi i8 [ %85, %84 ], [ %104, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i" ], [ %85, %.lr.ph.i.i.i ], [ %104, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i.loopexit_crit_edge" ], [ %85, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader" ], [ %104, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i" ]
-  %.pre.i34.i.i = phi i8 [ %.pre.i.i.i, %84 ], [ %104, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i" ], [ %.pre.i.i.i, %.lr.ph.i.i.i ], [ %104, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i.loopexit_crit_edge" ], [ %.pre.i.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader" ], [ %104, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i" ]
-  %111 = load ptr, ptr %83, align 32, !tbaa !790
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %113 = load atomic i8, ptr %112 monotonic, align 1, !range !251, !noundef !252
-  %114 = trunc nuw i8 %113 to i1
-  br i1 %114, label %115, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i"
+"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i": ; preds = %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i", %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader", %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i.loopexit_crit_edge", %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i", %.lr.ph.i.i.i, %83
+  %.pr45.i.i = phi i8 [ %.pr48.i.i, %83 ], [ %109, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i" ], [ %.pr48.i.i, %.lr.ph.i.i.i ], [ %109, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i.loopexit_crit_edge" ], [ %.pr48.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader" ], [ %109, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i" ]
+  %111 = phi i8 [ %84, %83 ], [ %105, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i" ], [ %84, %.lr.ph.i.i.i ], [ %105, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i.loopexit_crit_edge" ], [ %84, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader" ], [ %105, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i" ]
+  %.pre.i34.i.i = phi i8 [ %.pre.i.i.i, %83 ], [ %105, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.loopexit_crit_edge28.i" ], [ %.pre.i.i.i, %.lr.ph.i.i.i ], [ %105, %"._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i.loopexit_crit_edge" ], [ %.pre.i.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i.preheader" ], [ %105, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i.i" ]
+  %112 = load ptr, ptr %82, align 32, !tbaa !790
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %114 = load atomic i8, ptr %113 monotonic, align 1, !range !251, !noundef !252
+  %115 = trunc nuw i8 %114 to i1
+  br i1 %115, label %116, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i"
 
 "_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i": ; preds = %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i"
-  %.pre50.i.i = zext i8 %110 to i64
+  %.pre50.i.i = zext i8 %111 to i64
   br label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i"
 
-115:                                              ; preds = %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i"
-  %116 = load i8, ptr %72, align 4, !tbaa !777
-  %117 = add i8 %116, 1
-  store i8 %117, ptr %72, align 4, !tbaa !777
-  %118 = icmp ugt i8 %.pr45.i.i, 1
-  br i1 %118, label %.noexc.i.i, label %146
+116:                                              ; preds = %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit.i.i"
+  %117 = load i8, ptr %72, align 4, !tbaa !777
+  %118 = add i8 %117, 1
+  store i8 %118, ptr %72, align 4, !tbaa !777
+  %119 = icmp ugt i8 %.pr45.i.i, 1
+  br i1 %119, label %.noexc.i.i, label %147
 
-.noexc.i.i:                                       ; preds = %115
-  %119 = load i8, ptr %78, align 1, !tbaa !841
-  %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw i8, ptr %80, i64 %120
-  %122 = load i8, ptr %121, align 1, !tbaa !51
+.noexc.i.i:                                       ; preds = %116
+  %120 = load i8, ptr %78, align 1, !tbaa !841
+  %121 = zext i8 %120 to i64
+  %122 = getelementptr inbounds nuw i8, ptr %80, i64 %121
+  %123 = load i8, ptr %122, align 1, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !759
-  %123 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
-  %124 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %81, i64 %120
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %125, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEEE", i64 16), ptr %123, align 64, !tbaa !53
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %126, ptr noundef nonnull readonly align 8 dereferenceable(24) %124, i64 24, i1 false), !tbaa.struct !843
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 96
-  store ptr null, ptr %127, align 32, !tbaa !790
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 104
-  %129 = load i64, ptr %13, align 8, !tbaa !778
-  %130 = lshr i64 %129, 1
-  store i64 %130, ptr %13, align 8, !tbaa !778
-  store i64 %130, ptr %128, align 8, !tbaa !778
-  %131 = getelementptr inbounds nuw i8, ptr %123, i64 112
-  store i32 2, ptr %131, align 16, !tbaa !776
-  %132 = getelementptr inbounds nuw i8, ptr %123, i64 116
-  %133 = load i8, ptr %72, align 4, !tbaa !777
-  %134 = getelementptr inbounds nuw i8, ptr %123, i64 120
-  %135 = load i64, ptr %3, align 8, !tbaa !779
-  store i64 %135, ptr %134, align 8, !tbaa !779
-  %136 = sub i8 %133, %122
-  store i8 %136, ptr %132, align 4, !tbaa !777
-  %137 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1)
-  %138 = load ptr, ptr %83, align 32, !tbaa !832
-  store ptr %138, ptr %137, align 8, !tbaa !780
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store i32 2, ptr %139, align 8, !tbaa !784
-  %140 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %141 = load i64, ptr %3, align 8, !tbaa !779
-  store i64 %141, ptr %140, align 8, !tbaa !779
-  %142 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  store i8 0, ptr %142, align 8, !tbaa !833
-  store ptr %137, ptr %83, align 32, !tbaa !790
-  store ptr %137, ptr %127, align 32, !tbaa !790
+  %124 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  %125 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %81, i64 %121
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %126, i8 0, i64 56, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEEE", i64 16), ptr %124, align 64, !tbaa !53
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %127, ptr noundef nonnull readonly align 8 dereferenceable(24) %125, i64 24, i1 false), !tbaa.struct !843
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 96
+  store ptr null, ptr %128, align 32, !tbaa !790
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 104
+  %130 = load i64, ptr %13, align 8, !tbaa !778
+  %131 = lshr i64 %130, 1
+  store i64 %131, ptr %13, align 8, !tbaa !778
+  store i64 %131, ptr %129, align 8, !tbaa !778
+  %132 = getelementptr inbounds nuw i8, ptr %124, i64 112
+  store i32 2, ptr %132, align 16, !tbaa !776
+  %133 = getelementptr inbounds nuw i8, ptr %124, i64 116
+  %134 = load i8, ptr %72, align 4, !tbaa !777
+  %135 = getelementptr inbounds nuw i8, ptr %124, i64 120
+  %136 = load i64, ptr %3, align 8, !tbaa !779
+  store i64 %136, ptr %135, align 8, !tbaa !779
+  %137 = sub i8 %134, %123
+  store i8 %137, ptr %133, align 4, !tbaa !777
+  %138 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  %139 = load ptr, ptr %82, align 32, !tbaa !832
+  store ptr %139, ptr %138, align 8, !tbaa !780
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  store i32 2, ptr %140, align 8, !tbaa !784
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 16
+  %142 = load i64, ptr %3, align 8, !tbaa !779
+  store i64 %142, ptr %141, align 8, !tbaa !779
+  %143 = getelementptr inbounds nuw i8, ptr %138, i64 24
+  store i8 0, ptr %143, align 8, !tbaa !833
+  store ptr %138, ptr %82, align 32, !tbaa !790
+  store ptr %138, ptr %128, align 32, !tbaa !790
   %.val.i.i13.i.i = load ptr, ptr %1, align 8, !tbaa !835
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %123, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i13.i.i)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %124, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i13.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %143 = add i8 %.pr45.i.i, -1
-  store i8 %143, ptr %79, align 2, !tbaa !842
-  %144 = add i8 %119, 1
-  %145 = and i8 %144, 7
-  store i8 %145, ptr %78, align 1, !tbaa !841
+  %144 = add i8 %.pr45.i.i, -1
+  store i8 %144, ptr %79, align 2, !tbaa !842
+  %145 = add i8 %120, 1
+  %146 = and i8 %145, 7
+  store i8 %146, ptr %78, align 1, !tbaa !841
   br label %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i
 
-146:                                              ; preds = %115
-  %147 = zext i8 %110 to i64
-  %148 = getelementptr inbounds nuw i8, ptr %80, i64 %147
-  %149 = load i8, ptr %148, align 1, !tbaa !51
-  %150 = icmp ult i8 %149, %117
-  br i1 %150, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i", label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i"
+147:                                              ; preds = %116
+  %148 = zext i8 %111 to i64
+  %149 = getelementptr inbounds nuw i8, ptr %80, i64 %148
+  %150 = load i8, ptr %149, align 1, !tbaa !51
+  %151 = icmp ult i8 %150, %118
+  br i1 %151, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i", label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i"
 
-"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i": ; preds = %146
-  %.idx.i.i.i = mul nuw nsw i64 %147, 24
-  %151 = getelementptr i8, ptr %82, i64 %.idx.i.i.i
-  %.val.i.i14.i = load i64, ptr %151, align 8, !tbaa !831
-  %152 = icmp ugt i64 %.val.i.i14.i, 499
-  br i1 %152, label %thread-pre-split26.i.i, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i"
+"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i": ; preds = %147
+  %152 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %4, i64 %148
+  %153 = getelementptr i8, ptr %152, i64 24
+  %.val.i.i14.i = load i64, ptr %153, align 8, !tbaa !831
+  %154 = icmp ugt i64 %.val.i.i14.i, 499
+  br i1 %154, label %thread-pre-split26.i.i, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i"
 
-"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i": ; preds = %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i", %146, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i"
-  %.pre-phi.i.i = phi i64 [ %.pre50.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i" ], [ %147, %146 ], [ %147, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i" ]
-  %153 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %81, i64 %.pre-phi.i.i
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %.sroa.01.0.copyload.i.i.i.i.i.i17.i.i = load ptr, ptr %154, align 8, !tbaa !332
-  %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %156 = load i64, ptr %155, align 8, !tbaa !831
-  %157 = getelementptr inbounds i64, ptr %.sroa.01.0.copyload.i.i.i.i.i.i17.i.i, i64 %156
-  %158 = load ptr, ptr %153, align 8, !tbaa !837
-  call fastcc void @"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNS8_8geometry9TensorMapEE3$_0EvT_SF_T0_"(ptr %.sroa.01.0.copyload.i.i.i.i.i.i17.i.i, ptr %157, ptr noundef nonnull byval(%class.anon.299) align 8 %158)
-  %159 = add i8 %.pr45.i.i, -1
-  store i8 %159, ptr %79, align 2, !tbaa !842
-  %160 = add i8 %110, 7
-  %161 = and i8 %160, 7
-  store i8 %161, ptr %4, align 8, !tbaa !838
+"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i": ; preds = %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i", %147, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i"
+  %.pre-phi.i.i = phi i64 [ %.pre50.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i" ], [ %148, %147 ], [ %148, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i" ]
+  %155 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %81, i64 %.pre-phi.i.i
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %.sroa.01.0.copyload.i.i.i.i.i.i17.i.i = load ptr, ptr %156, align 8, !tbaa !332
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %158 = load i64, ptr %157, align 8, !tbaa !831
+  %159 = getelementptr inbounds i64, ptr %.sroa.01.0.copyload.i.i.i.i.i.i17.i.i, i64 %158
+  %160 = load ptr, ptr %155, align 8, !tbaa !837
+  call fastcc void @"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNS8_8geometry9TensorMapEE3$_0EvT_SF_T0_"(ptr %.sroa.01.0.copyload.i.i.i.i.i.i17.i.i, ptr %159, ptr noundef nonnull byval(%class.anon.299) align 8 %160)
+  %161 = add i8 %.pr45.i.i, -1
+  store i8 %161, ptr %79, align 2, !tbaa !842
+  %162 = add i8 %111, 7
+  %163 = and i8 %162, 7
+  store i8 %163, ptr %4, align 8, !tbaa !838
   br label %thread-pre-split26.i.i
 
 thread-pre-split26.i.i:                           ; preds = %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i", %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i"
-  %.pr44.i.i = phi i8 [ %159, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i" ], [ %.pr45.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i" ]
-  %162 = phi i8 [ %161, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i" ], [ %110, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i" ]
-  %163 = icmp eq i8 %.pr44.i.i, 0
-  br i1 %163, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EED2Ev.exit25.i.i", label %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i
+  %.pr44.i.i = phi i8 [ %161, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i" ], [ %.pr45.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i" ]
+  %164 = phi i8 [ %163, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.thread.i.i" ], [ %111, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EE12is_divisibleEh.exit.i.i" ]
+  %165 = icmp eq i8 %.pr44.i.i, 0
+  br i1 %165, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EED2Ev.exit25.i.i", label %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i
 
 _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: ; preds = %thread-pre-split26.i.i, %.noexc.i.i
-  %.pr.i.i = phi i8 [ %143, %.noexc.i.i ], [ %.pr44.i.i, %thread-pre-split26.i.i ]
-  %.promoted2.i21.i.i = phi i8 [ %110, %.noexc.i.i ], [ %162, %thread-pre-split26.i.i ]
-  %.pre.i33.i.i = phi i8 [ %.pre.i34.i.i, %.noexc.i.i ], [ %162, %thread-pre-split26.i.i ]
-  %164 = load ptr, ptr %1, align 8, !tbaa !835
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 15
-  %166 = load atomic i8, ptr %165 monotonic, align 1
-  %167 = icmp eq i8 %166, -1
-  %168 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %169 = load ptr, ptr %168, align 8
-  %.0.i.i.i.i = select i1 %167, ptr %169, ptr %164
-  %170 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i)
-  br i1 %170, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EED2Ev.exit25.i.i", label %thread-pre-split.i.i, !llvm.loop !845
+  %.pr.i.i = phi i8 [ %144, %.noexc.i.i ], [ %.pr44.i.i, %thread-pre-split26.i.i ]
+  %.promoted2.i21.i.i = phi i8 [ %111, %.noexc.i.i ], [ %164, %thread-pre-split26.i.i ]
+  %.pre.i33.i.i = phi i8 [ %.pre.i34.i.i, %.noexc.i.i ], [ %164, %thread-pre-split26.i.i ]
+  %166 = load ptr, ptr %1, align 8, !tbaa !835
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 15
+  %168 = load atomic i8, ptr %167 monotonic, align 1
+  %169 = icmp eq i8 %168, -1
+  %170 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %171 = load ptr, ptr %170, align 8
+  %.0.i.i.i.i = select i1 %169, ptr %171, ptr %166
+  %172 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i)
+  br i1 %172, label %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EED2Ev.exit25.i.i", label %thread-pre-split.i.i, !llvm.loop !845
 
 "_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EED2Ev.exit25.i.i": ; preds = %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i, %thread-pre-split26.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSG_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISE_SM_EEKNS1_16auto_partitionerEEESN_EEvRT_RT0_RNS1_14execution_dataE.exit"
 
 "_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSG_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISE_SM_EEKNS1_16auto_partitionerEEESN_EEvRT_RT0_RNS1_14execution_dataE.exit": ; preds = %.critedge.thread.i, %"_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EELh8EED2Ev.exit25.i.i"
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %172 = load ptr, ptr %171, align 32, !tbaa !790
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %174 = load i64, ptr %173, align 8, !tbaa !779
-  %175 = load ptr, ptr %0, align 64, !tbaa !53
-  %176 = load ptr, ptr %175, align 8
-  call void %176(ptr noundef nonnull align 64 dereferenceable(128) %0) #42
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %178 = atomicrmw sub ptr %177, i32 1 seq_cst, align 4
-  %179 = add i32 %178, -1
-  %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit", label %.lr.ph.i.i
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %174 = load ptr, ptr %173, align 32, !tbaa !790
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %176 = load i64, ptr %175, align 8, !tbaa !779
+  %177 = load ptr, ptr %0, align 64, !tbaa !53
+  %178 = load ptr, ptr %177, align 8
+  call void %178(ptr noundef nonnull align 64 dereferenceable(128) %0) #42
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %180 = atomicrmw sub ptr %179, i32 1 seq_cst, align 4
+  %181 = add i32 %180, -1
+  %182 = icmp sgt i32 %181, 0
+  br i1 %182, label %"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSG_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISE_SM_EEKNS1_16auto_partitionerEEESN_EEvRT_RT0_RNS1_14execution_dataE.exit", %182
-  %.020.i.i = phi ptr [ %181, %182 ], [ %172, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSG_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISE_SM_EEKNS1_16auto_partitionerEEESN_EEvRT_RT0_RNS1_14execution_dataE.exit" ]
-  %181 = load ptr, ptr %.020.i.i, align 8, !tbaa !780
-  %.not.i.i6 = icmp eq ptr %181, null
-  br i1 %.not.i.i6, label %190, label %182
+.lr.ph.i.i:                                       ; preds = %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSG_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISE_SM_EEKNS1_16auto_partitionerEEESN_EEvRT_RT0_RNS1_14execution_dataE.exit", %184
+  %.020.i.i = phi ptr [ %183, %184 ], [ %174, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSG_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISE_SM_EEKNS1_16auto_partitionerEEESN_EEvRT_RT0_RNS1_14execution_dataE.exit" ]
+  %183 = load ptr, ptr %.020.i.i, align 8, !tbaa !780
+  %.not.i.i6 = icmp eq ptr %183, null
+  br i1 %.not.i.i6, label %192, label %184
 
-182:                                              ; preds = %.lr.ph.i.i
-  %183 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 16
-  %184 = load i64, ptr %183, align 8, !tbaa !779
-  %185 = inttoptr i64 %184 to ptr
-  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %185, ptr noundef nonnull %.020.i.i, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1)
-  %186 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  %187 = atomicrmw sub ptr %186, i32 1 seq_cst, align 4
-  %188 = add i32 %187, -1
-  %189 = icmp sgt i32 %188, 0
-  br i1 %189, label %"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit", label %.lr.ph.i.i
+184:                                              ; preds = %.lr.ph.i.i
+  %185 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 16
+  %186 = load i64, ptr %185, align 8, !tbaa !779
+  %187 = inttoptr i64 %186 to ptr
+  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %187, ptr noundef nonnull %.020.i.i, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  %188 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %189 = atomicrmw sub ptr %188, i32 1 seq_cst, align 4
+  %190 = add i32 %189, -1
+  %191 = icmp sgt i32 %190, 0
+  br i1 %191, label %"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit", label %.lr.ph.i.i
 
-190:                                              ; preds = %.lr.ph.i.i
-  %191 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 24
-  %192 = atomicrmw add ptr %191, i64 -1 seq_cst, align 8
-  %.not.i.i.i.i = icmp eq i64 %192, 1
-  br i1 %.not.i.i.i.i, label %193, label %"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit"
+192:                                              ; preds = %.lr.ph.i.i
+  %193 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 24
+  %194 = atomicrmw add ptr %193, i64 -1 seq_cst, align 8
+  %.not.i.i.i.i = icmp eq i64 %194, 1
+  br i1 %.not.i.i.i.i, label %195, label %"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit"
 
-193:                                              ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 16
-  %195 = ptrtoint ptr %194 to i64
-  call void @_ZN3tbb6detail2r114notify_waitersEm(i64 noundef %195)
+195:                                              ; preds = %192
+  %196 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 16
+  %197 = ptrtoint ptr %196 to i64
+  call void @_ZN3tbb6detail2r114notify_waitersEm(i64 noundef %197)
   br label %"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit"
 
-"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit": ; preds = %182, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSG_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISE_SM_EEKNS1_16auto_partitionerEEESN_EEvRT_RT0_RNS1_14execution_dataE.exit", %190, %193
-  %196 = inttoptr i64 %174 to ptr
-  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %196, ptr noundef nonnull align 64 dereferenceable(128) %0, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
+"_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSC_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISA_SI_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit": ; preds = %184, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNSG_8geometry9TensorMapEE3$_0EENS1_15quick_sort_bodyISE_SM_EEKNS1_16auto_partitionerEEESN_EEvRT_RT0_RNS1_14execution_dataE.exit", %192, %195
+  %198 = inttoptr i64 %176 to ptr
+  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %198, ptr noundef nonnull align 64 dereferenceable(128) %0, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret ptr null
 }
 

@@ -15180,14 +15180,13 @@ _ZN4gpui3app10entity_map9EntityMap4read17h950969eeeca623d6E.exit125.i: ; preds =
           to label %.lr.ph.i unwind label %398, !noalias !4153
 
 490:                                              ; preds = %486
-  %.idx.i = mul nuw nsw i64 %480, 600
-  %491 = getelementptr inbounds nuw i8, ptr %475, i64 640
-  %492 = getelementptr inbounds nuw i8, ptr %491, i64 %.idx.i
-  %493 = getelementptr inbounds nuw i8, ptr %492, i64 32
+  %491 = getelementptr inbounds nuw { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }, ptr %475, i64 %480
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 640
+  %493 = getelementptr inbounds nuw i8, ptr %491, i64 672
   %494 = load i64, ptr %493, align 8, !alias.scope !4381, !noalias !4384, !noundef !4
   %495 = icmp ugt i64 %494, 4
   %496 = load ptr, ptr %492, align 8, !alias.scope !4381, !noalias !4384, !nonnull !4
-  %497 = getelementptr inbounds nuw i8, ptr %492, i64 8
+  %497 = getelementptr inbounds nuw i8, ptr %491, i64 648
   %498 = load i64, ptr %497, align 8, !alias.scope !4381, !noalias !4384
   %.sink12.i158.i = select i1 %495, ptr %496, ptr %492
   %.sink11.i159.i = select i1 %495, i64 %498, i64 %494
@@ -17628,14 +17627,13 @@ _ZN4gpui3app10entity_map9EntityMap4read17h950969eeeca623d6E.exit128.i: ; preds =
           to label %.lr.ph.preheader unwind label %405, !noalias !4736
 
 497:                                              ; preds = %493
-  %.idx.i = mul nuw nsw i64 %487, 600
-  %498 = getelementptr inbounds nuw i8, ptr %482, i64 640
-  %499 = getelementptr inbounds nuw i8, ptr %498, i64 %.idx.i
-  %500 = getelementptr inbounds nuw i8, ptr %499, i64 32
+  %498 = getelementptr inbounds nuw { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }, ptr %482, i64 %487
+  %499 = getelementptr inbounds nuw i8, ptr %498, i64 640
+  %500 = getelementptr inbounds nuw i8, ptr %498, i64 672
   %501 = load i64, ptr %500, align 8, !alias.scope !4978, !noalias !4981, !noundef !4
   %502 = icmp ugt i64 %501, 4
   %503 = load ptr, ptr %499, align 8, !alias.scope !4978, !noalias !4981, !nonnull !4
-  %504 = getelementptr inbounds nuw i8, ptr %499, i64 8
+  %504 = getelementptr inbounds nuw i8, ptr %498, i64 648
   %505 = load i64, ptr %504, align 8, !alias.scope !4978, !noalias !4981
   %.sink12.i162.i = select i1 %502, ptr %503, ptr %499
   %.sink11.i163.i = select i1 %502, i64 %505, i64 %501
@@ -74496,8 +74494,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
 
 45:                                               ; preds = %.backedge
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }, ptr %18, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 -48
+  %47 = getelementptr inbounds nuw { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }, ptr %0, i64 %46
+  %48 = getelementptr inbounds i8, ptr %47, i64 -24
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   br label %50
 
@@ -74805,12 +74803,12 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17he8e70a383fa11dbdE.exit: ; p
 
 51:                                               ; preds = %.backedge
   %52 = zext i32 %49 to i64
-  %53 = getelementptr inbounds nuw { { i64, { i64, [1 x i64] } }, ptr, i64 }, ptr %13, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 -80
+  %53 = getelementptr inbounds nuw { { i64, { i64, [1 x i64] } }, ptr, i64 }, ptr %0, i64 %52
+  %54 = getelementptr inbounds i8, ptr %53, i64 -40
   %55 = load i64, ptr %54, align 8, !alias.scope !16104, !noalias !16109, !noundef !4
-  %56 = getelementptr inbounds i8, ptr %53, i64 -72
+  %56 = getelementptr inbounds i8, ptr %53, i64 -32
   %.val.i = load i64, ptr %56, align 8, !range !291, !alias.scope !16111, !noalias !16109, !noundef !4
-  %57 = getelementptr inbounds i8, ptr %53, i64 -64
+  %57 = getelementptr inbounds i8, ptr %53, i64 -24
   %.val1.i = load i64, ptr %57, align 8, !alias.scope !16111, !noalias !16109
   %trunc.i.i = trunc nuw i64 %.val.i to i1
   %spec.select.i.i = select i1 %trunc.i.i, i64 %.val1.i, i64 undef

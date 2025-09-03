@@ -508,9 +508,8 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %.idx = mul nuw nsw i64 %6, 24
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %7 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load i64, ptr %8, align 8
   %10 = icmp sgt i64 %9, %2
   br i1 %10, label %122, label %11

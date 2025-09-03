@@ -1135,7 +1135,7 @@ define dso_local void @git_attr_set_direction(i32 noundef %0) local_unnamed_addr
 6:                                                ; preds = %1
   %7 = load i32, ptr @direction, align 4, !tbaa !22
   %.not = icmp eq i32 %0, %7
-  br i1 %.not, label %53, label %8
+  br i1 %.not, label %52, label %8
 
 8:                                                ; preds = %6
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @check_vector, i64 24)) #21
@@ -1144,7 +1144,7 @@ define dso_local void @git_attr_set_direction(i32 noundef %0) local_unnamed_addr
   br i1 %.not.i, label %drop_all_attr_stacks.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %drop_attr_stack.exit.i
-  %11 = phi i64 [ %50, %drop_attr_stack.exit.i ], [ %10, %8 ]
+  %11 = phi i64 [ %49, %drop_attr_stack.exit.i ], [ %10, %8 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %drop_attr_stack.exit.i ], [ 0, %8 ]
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @check_vector, i64 16), align 8, !tbaa !41
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
@@ -1155,7 +1155,7 @@ define dso_local void @git_attr_set_direction(i32 noundef %0) local_unnamed_addr
   br i1 %.not5.i.i, label %drop_attr_stack.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %attr_stack_free.exit.i
-  %17 = phi ptr [ %49, %attr_stack_free.exit.i ], [ %16, %.lr.ph.i ]
+  %17 = phi ptr [ %48, %attr_stack_free.exit.i ], [ %16, %.lr.ph.i ]
   %18 = load ptr, ptr %17, align 8, !tbaa !58
   store ptr %18, ptr %15, align 8, !tbaa !57
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1180,51 +1180,47 @@ define dso_local void @git_attr_set_direction(i32 noundef %0) local_unnamed_addr
   %.not30.i.i = icmp eq i64 %29, 0
   br i1 %.not30.i.i, label %._crit_edge.i.i, label %.lr.ph.i5.i
 
-.lr.ph.i5.i:                                      ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  br label %31
+.lr.ph.i5.i:                                      ; preds = %24, %39
+  %30 = phi i64 [ %40, %39 ], [ %29, %24 ]
+  %.02325.i.i = phi i64 [ %41, %39 ], [ 0, %24 ]
+  %31 = getelementptr inbounds nuw %struct.attr_state, ptr %27, i64 %.02325.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  %33 = load ptr, ptr %32, align 8, !tbaa !33
+  %34 = icmp eq ptr %33, @git_attr__true
+  %35 = icmp eq ptr %33, @git_attr__false
+  %or.cond.i.i = or i1 %34, %35
+  %36 = icmp eq ptr %33, null
+  %or.cond3.i.i = or i1 %36, %or.cond.i.i
+  %37 = icmp eq ptr %33, @git_attr__unknown
+  %or.cond5.i.i = or i1 %37, %or.cond3.i.i
+  br i1 %or.cond5.i.i, label %39, label %38
 
-31:                                               ; preds = %40, %.lr.ph.i5.i
-  %32 = phi i64 [ %29, %.lr.ph.i5.i ], [ %41, %40 ]
-  %.02325.i.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %42, %40 ]
-  %.idx.i.i = shl nuw nsw i64 %.02325.i.i, 4
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i
-  %34 = load ptr, ptr %33, align 8, !tbaa !33
-  %35 = icmp eq ptr %34, @git_attr__true
-  %36 = icmp eq ptr %34, @git_attr__false
-  %or.cond.i.i = or i1 %35, %36
-  %37 = icmp eq ptr %34, null
-  %or.cond3.i.i = or i1 %37, %or.cond.i.i
-  %38 = icmp eq ptr %34, @git_attr__unknown
-  %or.cond5.i.i = or i1 %38, %or.cond3.i.i
-  br i1 %or.cond5.i.i, label %40, label %39
-
-39:                                               ; preds = %31
-  tail call void @free(ptr noundef %34) #21
+38:                                               ; preds = %.lr.ph.i5.i
+  tail call void @free(ptr noundef %33) #21
   %.pre.i.i = load i64, ptr %28, align 8, !tbaa !31
-  br label %40
+  br label %39
 
-40:                                               ; preds = %39, %31
-  %41 = phi i64 [ %32, %31 ], [ %.pre.i.i, %39 ]
-  %42 = add nuw i64 %.02325.i.i, 1
-  %43 = icmp ult i64 %42, %41
-  br i1 %43, label %31, label %._crit_edge.i.i, !llvm.loop !69
+39:                                               ; preds = %38, %.lr.ph.i5.i
+  %40 = phi i64 [ %30, %.lr.ph.i5.i ], [ %.pre.i.i, %38 ]
+  %41 = add nuw i64 %.02325.i.i, 1
+  %42 = icmp ult i64 %41, %40
+  br i1 %42, label %.lr.ph.i5.i, label %._crit_edge.i.i, !llvm.loop !69
 
-._crit_edge.i.i:                                  ; preds = %40, %24
+._crit_edge.i.i:                                  ; preds = %39, %24
   tail call void @free(ptr noundef nonnull %27) #21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %44 = load i32, ptr %21, align 8, !tbaa !65
-  %45 = zext i32 %44 to i64
-  %46 = icmp samesign ult i64 %indvars.iv.next.i.i, %45
-  br i1 %46, label %24, label %attr_stack_free.exit.i, !llvm.loop !70
+  %43 = load i32, ptr %21, align 8, !tbaa !65
+  %44 = zext i32 %43 to i64
+  %45 = icmp samesign ult i64 %indvars.iv.next.i.i, %44
+  br i1 %45, label %24, label %attr_stack_free.exit.i, !llvm.loop !70
 
 attr_stack_free.exit.i:                           ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !66
-  tail call void @free(ptr noundef %48) #21
+  %46 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %47 = load ptr, ptr %46, align 8, !tbaa !66
+  tail call void @free(ptr noundef %47) #21
   tail call void @free(ptr noundef nonnull %17) #21
-  %49 = load ptr, ptr %15, align 8, !tbaa !57
-  %.not.i.i = icmp eq ptr %49, null
+  %48 = load ptr, ptr %15, align 8, !tbaa !57
+  %.not.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i, label %drop_attr_stack.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !61
 
 drop_attr_stack.exit.loopexit.i:                  ; preds = %attr_stack_free.exit.i
@@ -1232,16 +1228,16 @@ drop_attr_stack.exit.loopexit.i:                  ; preds = %attr_stack_free.exi
   br label %drop_attr_stack.exit.i
 
 drop_attr_stack.exit.i:                           ; preds = %drop_attr_stack.exit.loopexit.i, %.lr.ph.i
-  %50 = phi i64 [ %.pre.i, %drop_attr_stack.exit.loopexit.i ], [ %11, %.lr.ph.i ]
+  %49 = phi i64 [ %.pre.i, %drop_attr_stack.exit.loopexit.i ], [ %11, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %51 = icmp ugt i64 %50, %indvars.iv.next.i
-  br i1 %51, label %.lr.ph.i, label %drop_all_attr_stacks.exit, !llvm.loop !71
+  %50 = icmp ugt i64 %49, %indvars.iv.next.i
+  br i1 %50, label %.lr.ph.i, label %drop_all_attr_stacks.exit, !llvm.loop !71
 
 drop_all_attr_stacks.exit:                        ; preds = %drop_attr_stack.exit.i, %8
-  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @check_vector, i64 24)) #21
-  br label %53
+  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @check_vector, i64 24)) #21
+  br label %52
 
-53:                                               ; preds = %drop_all_attr_stacks.exit, %6
+52:                                               ; preds = %drop_all_attr_stacks.exit, %6
   store i32 %0, ptr @direction, align 4, !tbaa !22
   ret void
 }
@@ -2351,48 +2347,44 @@ define internal fastcc void @attr_stack_free(ptr noundef captures(none) %0) unna
   %.not30 = icmp eq i64 %12, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  br label %14
+.lr.ph:                                           ; preds = %7, %22
+  %13 = phi i64 [ %23, %22 ], [ %12, %7 ]
+  %.02325 = phi i64 [ %24, %22 ], [ 0, %7 ]
+  %14 = getelementptr inbounds nuw %struct.attr_state, ptr %10, i64 %.02325
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %16 = load ptr, ptr %15, align 8, !tbaa !33
+  %17 = icmp eq ptr %16, @git_attr__true
+  %18 = icmp eq ptr %16, @git_attr__false
+  %or.cond = or i1 %17, %18
+  %19 = icmp eq ptr %16, null
+  %or.cond3 = or i1 %19, %or.cond
+  %20 = icmp eq ptr %16, @git_attr__unknown
+  %or.cond5 = or i1 %20, %or.cond3
+  br i1 %or.cond5, label %22, label %21
 
-14:                                               ; preds = %.lr.ph, %23
-  %15 = phi i64 [ %12, %.lr.ph ], [ %24, %23 ]
-  %.02325 = phi i64 [ 0, %.lr.ph ], [ %25, %23 ]
-  %.idx = shl nuw nsw i64 %.02325, 4
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
-  %17 = load ptr, ptr %16, align 8, !tbaa !33
-  %18 = icmp eq ptr %17, @git_attr__true
-  %19 = icmp eq ptr %17, @git_attr__false
-  %or.cond = or i1 %18, %19
-  %20 = icmp eq ptr %17, null
-  %or.cond3 = or i1 %20, %or.cond
-  %21 = icmp eq ptr %17, @git_attr__unknown
-  %or.cond5 = or i1 %21, %or.cond3
-  br i1 %or.cond5, label %23, label %22
-
-22:                                               ; preds = %14
-  tail call void @free(ptr noundef %17) #21
+21:                                               ; preds = %.lr.ph
+  tail call void @free(ptr noundef %16) #21
   %.pre = load i64, ptr %11, align 8, !tbaa !31
-  br label %23
+  br label %22
 
-23:                                               ; preds = %14, %22
-  %24 = phi i64 [ %15, %14 ], [ %.pre, %22 ]
-  %25 = add nuw i64 %.02325, 1
-  %26 = icmp ult i64 %25, %24
-  br i1 %26, label %14, label %._crit_edge, !llvm.loop !69
+22:                                               ; preds = %.lr.ph, %21
+  %23 = phi i64 [ %13, %.lr.ph ], [ %.pre, %21 ]
+  %24 = add nuw i64 %.02325, 1
+  %25 = icmp ult i64 %24, %23
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
-._crit_edge:                                      ; preds = %23, %7
+._crit_edge:                                      ; preds = %22, %7
   tail call void @free(ptr noundef nonnull %10) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr %4, align 8, !tbaa !65
-  %28 = zext i32 %27 to i64
-  %29 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %29, label %7, label %._crit_edge29, !llvm.loop !70
+  %26 = load i32, ptr %4, align 8, !tbaa !65
+  %27 = zext i32 %26 to i64
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
+  br i1 %28, label %7, label %._crit_edge29, !llvm.loop !70
 
 ._crit_edge29:                                    ; preds = %._crit_edge, %1
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !66
-  tail call void @free(ptr noundef %31) #21
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %30 = load ptr, ptr %29, align 8, !tbaa !66
+  tail call void @free(ptr noundef %30) #21
   tail call void @free(ptr noundef nonnull %0) #21
   ret void
 }

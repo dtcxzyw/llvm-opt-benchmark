@@ -1394,9 +1394,8 @@ _ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit: ; preds = %10, %14
   %.sroa.1.0.extract.trunc.i46 = zext nneg i24 %.sroa.1.0.extract.shift.i45 to i64
   %sext.i = shl nuw i64 %.sroa.1.0.extract.trunc.i46, 56
   %26 = ashr exact i64 %sext.i, 56
-  %.idx.i = mul nsw i64 %26, 56
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %28 = getelementptr i8, ptr %27, i64 %.idx.i
+  %27 = getelementptr %"struct.G1PLABAllocator::PLABData", ptr %0, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 56
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds %"struct.G1PLABAllocator::PLABData", ptr %9, i64 %.pre-phi
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -1562,9 +1561,8 @@ define hidden noundef i64 @_ZNK15G1PLABAllocator9plab_sizeE16G1HeapRegionAttr(pt
   %.sroa.1.0.extract.trunc = zext nneg i24 %.sroa.1.0.extract.shift to i64
   %sext = shl i64 %.sroa.1.0.extract.trunc, 56
   %3 = ashr exact i64 %sext, 56
-  %.idx = mul nsw i64 %3, 56
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = getelementptr i8, ptr %4, i64 %.idx
+  %4 = getelementptr %"struct.G1PLABAllocator::PLABData", ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 56
   %6 = load i64, ptr %5, align 8
   ret i64 %6
 }
@@ -1609,12 +1607,12 @@ define hidden void @_ZN15G1PLABAllocator22flush_and_retire_statsEj(ptr noundef n
 _ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit: ; preds = %2, %.split.us
   %5 = phi i1 [ true, %2 ], [ false, %.split.us ]
   %exitcond.not = phi i1 [ false, %2 ], [ true, %.split.us ]
-  %indvars.iv68 = phi i64 [ 0, %2 ], [ 1, %.split.us ]
+  %indvars.iv67 = phi i64 [ 0, %2 ], [ 1, %.split.us ]
   %6 = load ptr, ptr %0, align 8
-  %trunc = trunc nuw i64 %indvars.iv68 to i1
+  %trunc = trunc nuw i64 %indvars.iv67 to i1
   %spec.select = select i1 %trunc, i64 808, i64 664
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 %spec.select
-  %8 = getelementptr inbounds nuw %"struct.G1PLABAllocator::PLABData", ptr %4, i64 %indvars.iv68
+  %8 = getelementptr inbounds nuw %"struct.G1PLABAllocator::PLABData", ptr %4, i64 %indvars.iv67
   br i1 %5, label %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit.split.us, label %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit.split
 
 _ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit.split.us: ; preds = %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit
@@ -1622,8 +1620,8 @@ _ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit.split.us: ; pre
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 4294967295
-  %.not66 = icmp eq i64 %12, 0
-  br i1 %.not66, label %.split.us, label %_ZNK15G1PLABAllocator12alloc_bufferEaj.exit.us
+  %.not65 = icmp eq i64 %12, 0
+  br i1 %.not65, label %.split.us, label %_ZNK15G1PLABAllocator12alloc_bufferEaj.exit.us
 
 _ZNK15G1PLABAllocator12alloc_bufferEaj.exit.us:   ; preds = %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit.split.us, %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us
   %13 = phi ptr [ %17, %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.us ], [ %9, %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit.split.us ]
@@ -1675,8 +1673,8 @@ _ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.thread: ; preds = %_ZN15G1Col
 
 37:                                               ; preds = %.split.us
   %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_115ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not59 = icmp eq ptr %38, null
-  br i1 %.not59, label %56, label %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit41
+  %.not58 = icmp eq ptr %38, null
+  br i1 %.not58, label %56, label %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit41
 
 _ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit41: ; preds = %37
   %39 = load ptr, ptr %0, align 8

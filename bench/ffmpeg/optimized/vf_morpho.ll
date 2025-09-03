@@ -1490,8 +1490,8 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 22140
   %8 = load i32, ptr %7, align 4, !tbaa !51
-  %.not119143 = icmp sgt i32 %8, 0
-  br i1 %.not119143, label %.lr.ph, label %difference.exit.thread138
+  %.not115139 = icmp sgt i32 %8, 0
+  br i1 %.not115139, label %.lr.ph, label %difference.exit.thread134
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 22084
@@ -1503,13 +1503,12 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 616
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 1256
   %17 = sext i32 %2 to i64
-  %.idx = mul nsw i64 %17, 320
-  %18 = getelementptr i8, ptr %6, i64 1736
-  %19 = getelementptr i8, ptr %18, i64 %.idx
+  %18 = getelementptr [2 x [4 x %struct.LUT]], ptr %6, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 1736
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 936
   %21 = load i32, ptr %11, align 8, !tbaa !115
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.lr.ph.split, label %difference.exit.thread138
+  br i1 %22, label %.lr.ph.split, label %difference.exit.thread134
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %difference.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %difference.exit.thread ], [ 0, %.lr.ph ]
@@ -1586,7 +1585,7 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
   %67 = getelementptr inbounds nuw %struct.LUT, ptr %19, i64 %indvars.iv
   %68 = tail call fastcc i32 @erode(ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %36, ptr noundef %67, i32 noundef %26, i32 noundef %28)
   %69 = icmp slt i32 %68, 0
-  br i1 %69, label %difference.exit.thread138, label %70
+  br i1 %69, label %difference.exit.thread134, label %70
 
 70:                                               ; preds = %64
   %71 = getelementptr inbounds nuw %struct.IPlane, ptr %15, i64 %indvars.iv
@@ -1621,34 +1620,34 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
   %88 = getelementptr inbounds nuw %struct.LUT, ptr %19, i64 %indvars.iv
   %89 = tail call fastcc i32 @dilate(ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %36, ptr noundef %88, i32 noundef %26, i32 noundef %28)
   %90 = icmp slt i32 %89, 0
-  br i1 %90, label %difference.exit.thread138, label %91
+  br i1 %90, label %difference.exit.thread134, label %91
 
 91:                                               ; preds = %85
   %92 = getelementptr inbounds nuw %struct.IPlane, ptr %20, i64 %indvars.iv
   %93 = icmp slt i32 %26, %28
-  br i1 %93, label %.lr.ph.i120, label %difference.exit.thread
+  br i1 %93, label %.lr.ph.i116, label %difference.exit.thread
 
-.lr.ph.i120:                                      ; preds = %91
+.lr.ph.i116:                                      ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %96 = sext i32 %26 to i64
   br label %97
 
-97:                                               ; preds = %97, %.lr.ph.i120
-  %indvars.iv.i121 = phi i64 [ %96, %.lr.ph.i120 ], [ %indvars.iv.next.i122, %97 ]
+97:                                               ; preds = %97, %.lr.ph.i116
+  %indvars.iv.i117 = phi i64 [ %96, %.lr.ph.i116 ], [ %indvars.iv.next.i118, %97 ]
   %98 = load ptr, ptr %94, align 8, !tbaa !80
   %99 = load ptr, ptr %86, align 8, !tbaa !70
-  %100 = getelementptr inbounds ptr, ptr %99, i64 %indvars.iv.i121
+  %100 = getelementptr inbounds ptr, ptr %99, i64 %indvars.iv.i117
   %101 = load ptr, ptr %100, align 8, !tbaa !68
   %102 = load ptr, ptr %92, align 8, !tbaa !70
-  %103 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv.i121
+  %103 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv.i117
   %104 = load ptr, ptr %103, align 8, !tbaa !68
   %105 = load i32, ptr %95, align 8, !tbaa !73
   tail call void %98(ptr noundef %101, ptr noundef %104, i32 noundef %105) #14
-  %indvars.iv.next.i122 = add nsw i64 %indvars.iv.i121, 1
-  %lftr.wideiv.i123 = trunc i64 %indvars.iv.next.i122 to i32
-  %exitcond.not.i124 = icmp eq i32 %28, %lftr.wideiv.i123
-  br i1 %exitcond.not.i124, label %difference.exit.thread, label %97, !llvm.loop !119
+  %indvars.iv.next.i118 = add nsw i64 %indvars.iv.i117, 1
+  %lftr.wideiv.i119 = trunc i64 %indvars.iv.next.i118 to i32
+  %exitcond.not.i120 = icmp eq i32 %28, %lftr.wideiv.i119
+  br i1 %exitcond.not.i120, label %difference.exit.thread, label %97, !llvm.loop !119
 
 106:                                              ; preds = %52
   %107 = getelementptr inbounds nuw %struct.IPlane, ptr %15, i64 %indvars.iv
@@ -1656,34 +1655,34 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
   %109 = getelementptr inbounds nuw %struct.LUT, ptr %19, i64 %indvars.iv
   %110 = tail call fastcc i32 @erode(ptr noundef nonnull %107, ptr noundef nonnull %108, ptr noundef nonnull %36, ptr noundef %109, i32 noundef %26, i32 noundef %28)
   %111 = icmp slt i32 %110, 0
-  br i1 %111, label %difference.exit.thread138, label %112
+  br i1 %111, label %difference.exit.thread134, label %112
 
 112:                                              ; preds = %106
   %113 = getelementptr inbounds nuw %struct.IPlane, ptr %20, i64 %indvars.iv
   %114 = icmp slt i32 %26, %28
-  br i1 %114, label %.lr.ph.i125, label %difference.exit.thread
+  br i1 %114, label %.lr.ph.i121, label %difference.exit.thread
 
-.lr.ph.i125:                                      ; preds = %112
+.lr.ph.i121:                                      ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 72
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %117 = sext i32 %26 to i64
   br label %118
 
-118:                                              ; preds = %118, %.lr.ph.i125
-  %indvars.iv.i126 = phi i64 [ %117, %.lr.ph.i125 ], [ %indvars.iv.next.i127, %118 ]
+118:                                              ; preds = %118, %.lr.ph.i121
+  %indvars.iv.i122 = phi i64 [ %117, %.lr.ph.i121 ], [ %indvars.iv.next.i123, %118 ]
   %119 = load ptr, ptr %115, align 8, !tbaa !83
   %120 = load ptr, ptr %107, align 8, !tbaa !70
-  %121 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv.i126
+  %121 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv.i122
   %122 = load ptr, ptr %121, align 8, !tbaa !68
   %123 = load ptr, ptr %113, align 8, !tbaa !70
-  %124 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv.i126
+  %124 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv.i122
   %125 = load ptr, ptr %124, align 8, !tbaa !68
   %126 = load i32, ptr %116, align 8, !tbaa !73
   tail call void %119(ptr noundef %122, ptr noundef %125, i32 noundef %126) #14
-  %indvars.iv.next.i127 = add nsw i64 %indvars.iv.i126, 1
-  %lftr.wideiv.i128 = trunc i64 %indvars.iv.next.i127 to i32
-  %exitcond.not.i129 = icmp eq i32 %28, %lftr.wideiv.i128
-  br i1 %exitcond.not.i129, label %difference.exit.thread, label %118, !llvm.loop !118
+  %indvars.iv.next.i123 = add nsw i64 %indvars.iv.i122, 1
+  %lftr.wideiv.i124 = trunc i64 %indvars.iv.next.i123 to i32
+  %exitcond.not.i125 = icmp eq i32 %28, %lftr.wideiv.i124
+  br i1 %exitcond.not.i125, label %difference.exit.thread, label %118, !llvm.loop !118
 
 127:                                              ; preds = %52
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 900) #14
@@ -1693,16 +1692,16 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
 difference.exit:                                  ; preds = %59, %54
   %.0104 = phi i32 [ %58, %54 ], [ %63, %59 ]
   %128 = icmp slt i32 %.0104, 0
-  br i1 %128, label %difference.exit.thread138, label %difference.exit.thread
+  br i1 %128, label %difference.exit.thread134, label %difference.exit.thread
 
 difference.exit.thread:                           ; preds = %118, %97, %76, %112, %91, %70, %35, %40, %44, %48, %.lr.ph.split, %30, %difference.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = load i32, ptr %7, align 4, !tbaa !51
   %130 = sext i32 %129 to i64
-  %.not119 = icmp slt i64 %indvars.iv.next, %130
-  br i1 %.not119, label %.lr.ph.split, label %difference.exit.thread138, !llvm.loop !120
+  %.not115 = icmp slt i64 %indvars.iv.next, %130
+  br i1 %.not115, label %.lr.ph.split, label %difference.exit.thread134, !llvm.loop !120
 
-difference.exit.thread138:                        ; preds = %difference.exit.thread, %difference.exit, %64, %85, %106, %.lr.ph, %4
+difference.exit.thread134:                        ; preds = %difference.exit.thread, %difference.exit, %64, %85, %106, %.lr.ph, %4
   %spec.select = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %110, %106 ], [ %89, %85 ], [ %68, %64 ], [ %.0104, %difference.exit ], [ 0, %difference.exit.thread ]
   ret i32 %spec.select
 }

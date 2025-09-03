@@ -2797,177 +2797,175 @@ define hidden void @_ZN16ZGenerationYoung11mark_followEv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN16ZGenerationYoung26compute_tenuring_thresholdE27ZRelocationSetSelectorStats(ptr nonnull readnone align 64 captures(none) %0, ptr noundef readonly byval(%class.ZRelocationSetSelectorStats) align 8 captures(none) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1552
-  br label %5
+  br label %3
 
-5:                                                ; preds = %2, %22
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %22 ]
-  %.04670 = phi i64 [ 0, %2 ], [ %23, %22 ]
-  %.04769 = phi i64 [ 0, %2 ], [ %13, %22 ]
-  %.04868 = phi double [ 0.000000e+00, %2 ], [ %.1, %22 ]
-  %.04967 = phi i32 [ 0, %2 ], [ %.150, %22 ]
-  %.05166 = phi i32 [ 0, %2 ], [ %.152, %22 ]
-  %6 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv, i32 2
-  %7 = load i64, ptr %6, align 8
-  %.idx = mul nuw nsw i64 %indvars.iv, 48
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %9 = load i64, ptr %8, align 8
-  %10 = add i64 %9, %7
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %12 = load i64, ptr %11, align 8
-  %13 = add i64 %10, %12
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %22, label %14
+3:                                                ; preds = %2, %21
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %21 ]
+  %.04669 = phi i64 [ 0, %2 ], [ %22, %21 ]
+  %.04768 = phi i64 [ 0, %2 ], [ %12, %21 ]
+  %.04867 = phi double [ 0.000000e+00, %2 ], [ %.1, %21 ]
+  %.04966 = phi i32 [ 0, %2 ], [ %.150, %21 ]
+  %.05165 = phi i32 [ 0, %2 ], [ %.152, %21 ]
+  %4 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv, i32 2
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 784
+  %8 = load i64, ptr %7, align 8
+  %9 = add i64 %8, %5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1552
+  %11 = load i64, ptr %10, align 8
+  %12 = add i64 %9, %11
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %21, label %13
 
-14:                                               ; preds = %5
-  %.not55 = icmp eq i64 %.04769, 0
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %.not55, label %22, label %16
+13:                                               ; preds = %3
+  %.not55 = icmp eq i64 %.04768, 0
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %.not55, label %21, label %15
 
-16:                                               ; preds = %14
-  %17 = uitofp i64 %13 to double
-  %18 = uitofp i64 %.04769 to double
-  %19 = fdiv double %17, %18
-  %20 = fadd double %.04868, %19
-  %21 = add i32 %.04967, 1
-  br label %22
+15:                                               ; preds = %13
+  %16 = uitofp i64 %12 to double
+  %17 = uitofp i64 %.04768 to double
+  %18 = fdiv double %16, %17
+  %19 = fadd double %.04867, %18
+  %20 = add i32 %.04966, 1
+  br label %21
 
-22:                                               ; preds = %14, %16, %5
-  %.152 = phi i32 [ %15, %16 ], [ %15, %14 ], [ %.05166, %5 ]
-  %.150 = phi i32 [ %21, %16 ], [ %.04967, %14 ], [ %.04967, %5 ]
-  %.1 = phi double [ %20, %16 ], [ %.04868, %14 ], [ %.04868, %5 ]
-  %23 = add i64 %13, %.04670
+21:                                               ; preds = %13, %15, %3
+  %.152 = phi i32 [ %14, %15 ], [ %14, %13 ], [ %.05165, %3 ]
+  %.150 = phi i32 [ %20, %15 ], [ %.04966, %13 ], [ %.04966, %3 ]
+  %.1 = phi double [ %19, %15 ], [ %.04867, %13 ], [ %.04867, %3 ]
+  %22 = add i64 %12, %.04669
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %24, label %5, !llvm.loop !18
+  br i1 %exitcond.not, label %23, label %3, !llvm.loop !18
 
-24:                                               ; preds = %22
-  %25 = icmp eq i64 %23, 0
-  br i1 %25, label %96, label %26
+23:                                               ; preds = %21
+  %24 = icmp eq i64 %22, 0
+  br i1 %24, label %95, label %25
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 3224
-  %29 = tail call noundef i64 @_ZNK9ZStatHeap29used_generation_at_mark_startEv(ptr noundef nonnull align 8 dereferenceable(488) %28) #17
-  %30 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3224
-  %32 = tail call noundef i64 @_ZNK9ZStatHeap19garbage_at_mark_endEv(ptr noundef nonnull align 8 dereferenceable(488) %31) #17
-  %33 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 3224
-  %35 = tail call noundef i64 @_ZNK9ZStatHeap21allocated_at_mark_endEv(ptr noundef nonnull align 8 dereferenceable(488) %34) #17
-  %36 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %37 = tail call noundef i64 @_ZNK5ZHeap17soft_max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %36) #17
-  %38 = icmp eq i32 %.150, 0
-  %39 = uitofp i32 %.150 to double
-  %40 = fdiv double %.1, %39
-  %41 = fdiv double 1.000000e+00, %40
-  %42 = select i1 %38, double 1.000000e+00, double %41
-  %43 = uitofp i64 %37 to double
-  %44 = uitofp i64 %23 to double
-  %45 = fdiv double %43, %44
-  %46 = fcmp ogt double %45, 1.000000e+00
-  %47 = select i1 %46, double %45, double 1.000000e+00
-  %48 = uitofp i64 %35 to double
-  %49 = add i64 %32, 1
-  %50 = uitofp i64 %49 to double
-  %51 = fdiv double %48, %50
-  %52 = fcmp olt double %51, 1.000000e+00
-  %53 = select i1 %52, double %51, double 1.000000e+00
-  %54 = fmul double %53, 1.600000e+01
-  %55 = fcmp ogt double %54, 2.000000e+00
-  %56 = select i1 %55, double %54, double 2.000000e+00
-  %57 = tail call double @llvm.log.f64(double %47)
-  %58 = tail call double @llvm.log.f64(double %56)
-  %59 = fdiv double %57, %58
-  %60 = fmul double %42, %59
-  %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not56 = icmp eq ptr %61, null
-  br i1 %.not56, label %64, label %62
+25:                                               ; preds = %23
+  %26 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 3224
+  %28 = tail call noundef i64 @_ZNK9ZStatHeap29used_generation_at_mark_startEv(ptr noundef nonnull align 8 dereferenceable(488) %27) #17
+  %29 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 3224
+  %31 = tail call noundef i64 @_ZNK9ZStatHeap19garbage_at_mark_endEv(ptr noundef nonnull align 8 dereferenceable(488) %30) #17
+  %32 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 3224
+  %34 = tail call noundef i64 @_ZNK9ZStatHeap21allocated_at_mark_endEv(ptr noundef nonnull align 8 dereferenceable(488) %33) #17
+  %35 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
+  %36 = tail call noundef i64 @_ZNK5ZHeap17soft_max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %35) #17
+  %37 = icmp eq i32 %.150, 0
+  %38 = uitofp i32 %.150 to double
+  %39 = fdiv double %.1, %38
+  %40 = fdiv double 1.000000e+00, %39
+  %41 = select i1 %37, double 1.000000e+00, double %40
+  %42 = uitofp i64 %36 to double
+  %43 = uitofp i64 %22 to double
+  %44 = fdiv double %42, %43
+  %45 = fcmp ogt double %44, 1.000000e+00
+  %46 = select i1 %45, double %44, double 1.000000e+00
+  %47 = uitofp i64 %34 to double
+  %48 = add i64 %31, 1
+  %49 = uitofp i64 %48 to double
+  %50 = fdiv double %47, %49
+  %51 = fcmp olt double %50, 1.000000e+00
+  %52 = select i1 %51, double %50, double 1.000000e+00
+  %53 = fmul double %52, 1.600000e+01
+  %54 = fcmp ogt double %53, 2.000000e+00
+  %55 = select i1 %54, double %53, double 2.000000e+00
+  %56 = tail call double @llvm.log.f64(double %46)
+  %57 = tail call double @llvm.log.f64(double %55)
+  %58 = fdiv double %56, %57
+  %59 = fmul double %41, %58
+  %60 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not56 = icmp eq ptr %60, null
+  br i1 %.not56, label %63, label %61
 
-62:                                               ; preds = %26
-  %63 = lshr i64 %35, 20
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.72, i64 noundef %63)
-  br label %64
+61:                                               ; preds = %25
+  %62 = lshr i64 %34, 20
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.72, i64 noundef %62)
+  br label %63
 
-64:                                               ; preds = %26, %62
-  %65 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not57 = icmp eq ptr %65, null
-  br i1 %.not57, label %68, label %66
+63:                                               ; preds = %25, %61
+  %64 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not57 = icmp eq ptr %64, null
+  br i1 %.not57, label %67, label %65
 
-66:                                               ; preds = %64
-  %67 = lshr i64 %32, 20
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.73, i64 noundef %67)
-  br label %68
+65:                                               ; preds = %63
+  %66 = lshr i64 %31, 20
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.73, i64 noundef %66)
+  br label %67
 
-68:                                               ; preds = %64, %66
-  %69 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not58 = icmp eq ptr %69, null
-  br i1 %.not58, label %71, label %70
+67:                                               ; preds = %63, %65
+  %68 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not58 = icmp eq ptr %68, null
+  br i1 %.not58, label %70, label %69
 
-70:                                               ; preds = %68
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.74, double noundef %51)
-  br label %71
+69:                                               ; preds = %67
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.74, double noundef %50)
+  br label %70
 
-71:                                               ; preds = %68, %70
-  %72 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not59 = icmp eq ptr %72, null
-  br i1 %.not59, label %74, label %73
+70:                                               ; preds = %67, %69
+  %71 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not59 = icmp eq ptr %71, null
+  br i1 %.not59, label %73, label %72
 
-73:                                               ; preds = %71
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.75, double noundef %56)
-  br label %74
+72:                                               ; preds = %70
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.75, double noundef %55)
+  br label %73
 
-74:                                               ; preds = %71, %73
-  %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not60 = icmp eq ptr %75, null
-  br i1 %.not60, label %77, label %76
+73:                                               ; preds = %70, %72
+  %74 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not60 = icmp eq ptr %74, null
+  br i1 %.not60, label %76, label %75
 
-76:                                               ; preds = %74
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.76, double noundef %45)
-  br label %77
+75:                                               ; preds = %73
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.76, double noundef %44)
+  br label %76
 
-77:                                               ; preds = %74, %76
-  %78 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not61 = icmp eq ptr %78, null
-  br i1 %.not61, label %80, label %79
+76:                                               ; preds = %73, %75
+  %77 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not61 = icmp eq ptr %77, null
+  br i1 %.not61, label %79, label %78
 
-79:                                               ; preds = %77
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.77, double noundef %47)
-  br label %80
+78:                                               ; preds = %76
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.77, double noundef %46)
+  br label %79
 
-80:                                               ; preds = %77, %79
-  %81 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not62 = icmp eq ptr %81, null
-  br i1 %.not62, label %83, label %82
+79:                                               ; preds = %76, %78
+  %80 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not62 = icmp eq ptr %80, null
+  br i1 %.not62, label %82, label %81
 
-82:                                               ; preds = %80
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.78, double noundef %59)
-  br label %83
+81:                                               ; preds = %79
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.78, double noundef %58)
+  br label %82
 
-83:                                               ; preds = %80, %82
-  %84 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not63 = icmp eq ptr %84, null
-  br i1 %.not63, label %86, label %85
+82:                                               ; preds = %79, %81
+  %83 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not63 = icmp eq ptr %83, null
+  br i1 %.not63, label %85, label %84
 
-85:                                               ; preds = %83
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.79, double noundef %42)
-  br label %86
+84:                                               ; preds = %82
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.79, double noundef %41)
+  br label %85
 
-86:                                               ; preds = %83, %85
-  %87 = add nuw i32 %.152, 1
-  %88 = load i32, ptr @MaxTenuringThreshold, align 4
-  %89 = tail call noundef i32 @llvm.umin.i32(i32 %87, i32 %88)
-  %90 = icmp ne i32 %88, 0
-  %91 = zext i1 %90 to i32
-  %92 = tail call double @llvm.round.f64(double %60)
-  %93 = fptoui double %92 to i32
-  %94 = tail call noundef i32 @llvm.umax.i32(i32 %93, i32 %91)
-  %95 = tail call noundef i32 @llvm.umin.i32(i32 %94, i32 %89)
-  br label %96
+85:                                               ; preds = %82, %84
+  %86 = add nuw i32 %.152, 1
+  %87 = load i32, ptr @MaxTenuringThreshold, align 4
+  %88 = tail call noundef i32 @llvm.umin.i32(i32 %86, i32 %87)
+  %89 = icmp ne i32 %87, 0
+  %90 = zext i1 %89 to i32
+  %91 = tail call double @llvm.round.f64(double %59)
+  %92 = fptoui double %91 to i32
+  %93 = tail call noundef i32 @llvm.umax.i32(i32 %92, i32 %90)
+  %94 = tail call noundef i32 @llvm.umin.i32(i32 %93, i32 %88)
+  br label %95
 
-96:                                               ; preds = %24, %86
-  %.0 = phi i32 [ %95, %86 ], [ 0, %24 ]
+95:                                               ; preds = %23, %85
+  %.0 = phi i32 [ %94, %85 ], [ 0, %23 ]
   ret i32 %.0
 }
 

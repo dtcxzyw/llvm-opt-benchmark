@@ -83593,23 +83593,22 @@ define i32 @ma_engine_find_closest_listener(ptr noundef %0, float noundef %1, fl
   br i1 %switch, label %.loopexit, label %ma_engine_listener_is_enabled.exit.lr.ph
 
 ma_engine_listener_is_enabled.exit.lr.ph:         ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 760
   br label %ma_engine_listener_is_enabled.exit
 
 ma_engine_listener_is_enabled.exit:               ; preds = %ma_engine_listener_is_enabled.exit.lr.ph, %34
-  %11 = phi i32 [ %8, %ma_engine_listener_is_enabled.exit.lr.ph ], [ %35, %34 ]
+  %10 = phi i32 [ %8, %ma_engine_listener_is_enabled.exit.lr.ph ], [ %35, %34 ]
   %indvars.iv = phi i64 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph ], [ %indvars.iv.next, %34 ]
   %.03847 = phi i32 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph ], [ %.2, %34 ]
   %.03946 = phi float [ 0x47EFFFFFE0000000, %ma_engine_listener_is_enabled.exit.lr.ph ], [ %.241, %34 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv, 112
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %11 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 856
   %13 = load i32, ptr %12, align 8, !tbaa !759
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %34, label %14
 
 14:                                               ; preds = %ma_engine_listener_is_enabled.exit
-  %15 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %9, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 60
   %18 = atomicrmw volatile xchg ptr %17, i32 1 acquire, align 4
@@ -83653,7 +83652,7 @@ ma_spatializer_listener_get_position.exit:        ; preds = %.loopexit.i.i.i, %1
   br label %34
 
 34:                                               ; preds = %ma_engine_listener_is_enabled.exit, %ma_spatializer_listener_get_position.exit
-  %35 = phi i32 [ %.pre, %ma_spatializer_listener_get_position.exit ], [ %11, %ma_engine_listener_is_enabled.exit ]
+  %35 = phi i32 [ %.pre, %ma_spatializer_listener_get_position.exit ], [ %10, %ma_engine_listener_is_enabled.exit ]
   %.241 = phi float [ %.140, %ma_spatializer_listener_get_position.exit ], [ %.03946, %ma_engine_listener_is_enabled.exit ]
   %.2 = phi i32 [ %.1, %ma_spatializer_listener_get_position.exit ], [ %.03847, %ma_engine_listener_is_enabled.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -83679,9 +83678,8 @@ define i32 @ma_engine_listener_is_enabled(ptr noundef readonly captures(address_
 
 7:                                                ; preds = %4
   %8 = zext i32 %1 to i64
-  %.idx = mul nuw nsw i64 %8, 112
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %9 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %0, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 856
   %11 = load i32, ptr %10, align 8, !tbaa !759
   br label %12
 
@@ -84157,9 +84155,8 @@ define void @ma_engine_listener_set_enabled(ptr noundef captures(address_is_null
 
 8:                                                ; preds = %5
   %9 = zext i32 %1 to i64
-  %.idx = mul nuw nsw i64 %9, 112
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
+  %10 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 856
   store i32 %2, ptr %11, align 8, !tbaa !759
   br label %12
 
@@ -86163,23 +86160,22 @@ ma_sound_get_engine.exit:                         ; preds = %.loopexit.i.i.i.i, 
   br i1 %switch.i, label %ma_engine_find_closest_listener.exit, label %ma_engine_listener_is_enabled.exit.lr.ph.i
 
 ma_engine_listener_is_enabled.exit.lr.ph.i:       ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 856
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 760
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 760
   br label %ma_engine_listener_is_enabled.exit.i
 
 ma_engine_listener_is_enabled.exit.i:             ; preds = %47, %ma_engine_listener_is_enabled.exit.lr.ph.i
-  %25 = phi i32 [ %22, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %48, %47 ]
+  %24 = phi i32 [ %22, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %48, %47 ]
   %indvars.iv.i = phi i64 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
   %.03847.i = phi i32 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %.2.i, %47 ]
   %.03946.i = phi float [ 0x47EFFFFFE0000000, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %.241.i, %47 ]
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i, 112
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i
+  %25 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %18, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 856
   %27 = load i32, ptr %26, align 8, !tbaa !759
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %47, label %28
 
 28:                                               ; preds = %ma_engine_listener_is_enabled.exit.i
-  %29 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %24, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %23, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 60
   %32 = atomicrmw volatile xchg ptr %31, i32 1 acquire, align 4
@@ -86223,7 +86219,7 @@ ma_spatializer_listener_get_position.exit.i:      ; preds = %.loopexit.i.i.i.i11
   br label %47
 
 47:                                               ; preds = %ma_spatializer_listener_get_position.exit.i, %ma_engine_listener_is_enabled.exit.i
-  %48 = phi i32 [ %.pre.i, %ma_spatializer_listener_get_position.exit.i ], [ %25, %ma_engine_listener_is_enabled.exit.i ]
+  %48 = phi i32 [ %.pre.i, %ma_spatializer_listener_get_position.exit.i ], [ %24, %ma_engine_listener_is_enabled.exit.i ]
   %.241.i = phi float [ %.140.i, %ma_spatializer_listener_get_position.exit.i ], [ %.03946.i, %ma_engine_listener_is_enabled.exit.i ]
   %.2.i = phi i32 [ %.1.i, %ma_spatializer_listener_get_position.exit.i ], [ %.03847.i, %ma_engine_listener_is_enabled.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -126531,23 +126527,22 @@ ma_spatializer_get_position.exit:                 ; preds = %.loopexit.i.i.i, %m
   br i1 %switch.i, label %ma_engine_find_closest_listener.exit, label %ma_engine_listener_is_enabled.exit.lr.ph.i
 
 ma_engine_listener_is_enabled.exit.lr.ph.i:       ; preds = %ma_spatializer_get_position.exit
-  %157 = getelementptr inbounds nuw i8, ptr %154, i64 856
-  %158 = getelementptr inbounds nuw i8, ptr %154, i64 760
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 760
   br label %ma_engine_listener_is_enabled.exit.i
 
 ma_engine_listener_is_enabled.exit.i:             ; preds = %181, %ma_engine_listener_is_enabled.exit.lr.ph.i
-  %159 = phi i32 [ %156, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %182, %181 ]
+  %158 = phi i32 [ %156, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %182, %181 ]
   %indvars.iv.i = phi i64 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %indvars.iv.next.i, %181 ]
   %.03847.i = phi i32 [ 0, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %.2.i, %181 ]
   %.03946.i = phi float [ 0x47EFFFFFE0000000, %ma_engine_listener_is_enabled.exit.lr.ph.i ], [ %.241.i, %181 ]
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i, 112
-  %160 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i.i
+  %159 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %154, i64 %indvars.iv.i
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 856
   %161 = load i32, ptr %160, align 8, !tbaa !759
   %.not.i158 = icmp eq i32 %161, 0
   br i1 %.not.i158, label %181, label %162
 
 162:                                              ; preds = %ma_engine_listener_is_enabled.exit.i
-  %163 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %158, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %157, i64 %indvars.iv.i
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 48
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 60
   %166 = atomicrmw volatile xchg ptr %165, i32 1 acquire, align 4
@@ -126591,7 +126586,7 @@ ma_spatializer_listener_get_position.exit.i:      ; preds = %.loopexit.i.i.i.i, 
   br label %181
 
 181:                                              ; preds = %ma_spatializer_listener_get_position.exit.i, %ma_engine_listener_is_enabled.exit.i
-  %182 = phi i32 [ %.pre.i, %ma_spatializer_listener_get_position.exit.i ], [ %159, %ma_engine_listener_is_enabled.exit.i ]
+  %182 = phi i32 [ %.pre.i, %ma_spatializer_listener_get_position.exit.i ], [ %158, %ma_engine_listener_is_enabled.exit.i ]
   %.241.i = phi float [ %.140.i, %ma_spatializer_listener_get_position.exit.i ], [ %.03946.i, %ma_engine_listener_is_enabled.exit.i ]
   %.2.i = phi i32 [ %.1.i, %ma_spatializer_listener_get_position.exit.i ], [ %.03847.i, %ma_engine_listener_is_enabled.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

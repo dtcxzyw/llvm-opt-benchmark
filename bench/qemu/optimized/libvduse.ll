@@ -354,9 +354,8 @@ vduse_queue_get_head.exit:                        ; preds = %36
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %65 = load ptr, ptr %64, align 8
   %66 = zext i16 %44 to i64
-  %.idx.i = shl nuw nsw i64 %66, 4
-  %67 = getelementptr i8, ptr %65, i64 24
-  %68 = getelementptr i8, ptr %67, i64 %.idx.i
+  %67 = getelementptr %struct.VduseDescStateSplit, ptr %65, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 24
   store i64 %62, ptr %68, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %69 = load ptr, ptr %64, align 8
@@ -1387,9 +1386,8 @@ define internal fastcc void @vduse_queue_enable(ptr noundef %0) unnamed_addr #2 
   %122 = getelementptr inbounds nuw %struct.VduseVirtqInflightDesc, ptr %119, i64 %121
   store i16 %118, ptr %122, align 8
   %123 = load ptr, ptr %69, align 8
-  %.idx.i = shl nuw nsw i64 %indvars.iv59.i, 4
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx.i
+  %124 = getelementptr inbounds nuw %struct.VduseDescStateSplit, ptr %123, i64 %indvars.iv59.i
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = load i64, ptr %125, align 8
   %127 = load ptr, ptr %67, align 8
   %128 = load i16, ptr %66, align 8

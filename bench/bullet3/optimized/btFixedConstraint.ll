@@ -72,38 +72,37 @@ _Z16btNormalizeAnglef.exit.i:                     ; preds = %18, %16, %14
 _ZN30btGeneric6DofSpring2Constraint20setAngularLowerLimitERK9btVector3.exit: ; preds = %_Z16btNormalizeAnglef.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 996
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  br label %22
+  br label %21
 
-22:                                               ; preds = %_Z16btNormalizeAnglef.exit.i9, %_ZN30btGeneric6DofSpring2Constraint20setAngularLowerLimitERK9btVector3.exit
+21:                                               ; preds = %_Z16btNormalizeAnglef.exit.i9, %_ZN30btGeneric6DofSpring2Constraint20setAngularLowerLimitERK9btVector3.exit
   %indvars.iv.i8 = phi i64 [ 0, %_ZN30btGeneric6DofSpring2Constraint20setAngularLowerLimitERK9btVector3.exit ], [ %indvars.iv.next.i11, %_Z16btNormalizeAnglef.exit.i9 ]
-  %23 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i8
-  %24 = load float, ptr %23, align 4, !tbaa !7
-  %25 = tail call noundef float @fmodf(float noundef %24, float noundef 0x401921FB60000000) #11, !tbaa !10
-  %26 = fcmp olt float %25, 0xC00921FB60000000
-  br i1 %26, label %27, label %29
+  %22 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i8
+  %23 = load float, ptr %22, align 4, !tbaa !7
+  %24 = tail call noundef float @fmodf(float noundef %23, float noundef 0x401921FB60000000) #11, !tbaa !10
+  %25 = fcmp olt float %24, 0xC00921FB60000000
+  br i1 %25, label %26, label %28
 
-27:                                               ; preds = %22
-  %28 = fadd float %25, 0x401921FB60000000
+26:                                               ; preds = %21
+  %27 = fadd float %24, 0x401921FB60000000
   br label %_Z16btNormalizeAnglef.exit.i9
 
-29:                                               ; preds = %22
-  %30 = fcmp ogt float %25, 0x400921FB60000000
-  br i1 %30, label %31, label %_Z16btNormalizeAnglef.exit.i9
+28:                                               ; preds = %21
+  %29 = fcmp ogt float %24, 0x400921FB60000000
+  br i1 %29, label %30, label %_Z16btNormalizeAnglef.exit.i9
 
-31:                                               ; preds = %29
-  %32 = fadd float %25, 0xC01921FB60000000
+30:                                               ; preds = %28
+  %31 = fadd float %24, 0xC01921FB60000000
   br label %_Z16btNormalizeAnglef.exit.i9
 
-_Z16btNormalizeAnglef.exit.i9:                    ; preds = %31, %29, %27
-  %.0.i.i10 = phi float [ %28, %27 ], [ %32, %31 ], [ %25, %29 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i8, 88
-  %33 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
+_Z16btNormalizeAnglef.exit.i9:                    ; preds = %30, %28, %26
+  %.0.i.i10 = phi float [ %27, %26 ], [ %31, %30 ], [ %24, %28 ]
+  %32 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %0, i64 %indvars.iv.i8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 996
   store float %.0.i.i10, ptr %33, align 4, !tbaa !17
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 3
-  br i1 %exitcond.not.i12, label %_ZN30btGeneric6DofSpring2Constraint20setAngularUpperLimitERK9btVector3.exit, label %22, !llvm.loop !18
+  br i1 %exitcond.not.i12, label %_ZN30btGeneric6DofSpring2Constraint20setAngularUpperLimitERK9btVector3.exit, label %21, !llvm.loop !18
 
 _ZN30btGeneric6DofSpring2Constraint20setAngularUpperLimitERK9btVector3.exit: ; preds = %_Z16btNormalizeAnglef.exit.i9
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -215,43 +214,43 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit: ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 128
   br label %22
 
-22:                                               ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i140, %_ZNK11btTransform9serializeER20btTransformFloatData.exit
-  %indvars.iv.i.i136 = phi i64 [ 0, %_ZNK11btTransform9serializeER20btTransformFloatData.exit ], [ %indvars.iv.next.i.i141, %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i140 ]
-  %23 = getelementptr inbounds nuw %class.btVector3, ptr %20, i64 %indvars.iv.i.i136
-  %24 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %21, i64 %indvars.iv.i.i136
+22:                                               ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i136, %_ZNK11btTransform9serializeER20btTransformFloatData.exit
+  %indvars.iv.i.i132 = phi i64 [ 0, %_ZNK11btTransform9serializeER20btTransformFloatData.exit ], [ %indvars.iv.next.i.i137, %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i136 ]
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %20, i64 %indvars.iv.i.i132
+  %24 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %21, i64 %indvars.iv.i.i132
   br label %25
 
 25:                                               ; preds = %25, %22
-  %indvars.iv.i.i.i137 = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i.i138, %25 ]
-  %26 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i.i137
+  %indvars.iv.i.i.i133 = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i.i134, %25 ]
+  %26 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i.i133
   %27 = load float, ptr %26, align 4, !tbaa !7
-  %28 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i.i.i137
+  %28 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i.i.i133
   store float %27, ptr %28, align 4, !tbaa !7
-  %indvars.iv.next.i.i.i138 = add nuw nsw i64 %indvars.iv.i.i.i137, 1
-  %exitcond.not.i.i.i139 = icmp eq i64 %indvars.iv.next.i.i.i138, 4
-  br i1 %exitcond.not.i.i.i139, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i140, label %25, !llvm.loop !19
+  %indvars.iv.next.i.i.i134 = add nuw nsw i64 %indvars.iv.i.i.i133, 1
+  %exitcond.not.i.i.i135 = icmp eq i64 %indvars.iv.next.i.i.i134, 4
+  br i1 %exitcond.not.i.i.i135, label %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i136, label %25, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i140: ; preds = %25
-  %indvars.iv.next.i.i141 = add nuw nsw i64 %indvars.iv.i.i136, 1
-  %exitcond.not.i.i142 = icmp eq i64 %indvars.iv.next.i.i141, 3
-  br i1 %exitcond.not.i.i142, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i143, label %22, !llvm.loop !20
+_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i136: ; preds = %25
+  %indvars.iv.next.i.i137 = add nuw nsw i64 %indvars.iv.i.i132, 1
+  %exitcond.not.i.i138 = icmp eq i64 %indvars.iv.next.i.i137, 3
+  br i1 %exitcond.not.i.i138, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i139, label %22, !llvm.loop !20
 
-_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i143: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i140
+_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i139: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i136
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 176
   br label %31
 
-31:                                               ; preds = %31, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i143
-  %indvars.iv.i3.i144 = phi i64 [ 0, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i143 ], [ %indvars.iv.next.i4.i145, %31 ]
-  %32 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i3.i144
+31:                                               ; preds = %31, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i139
+  %indvars.iv.i3.i140 = phi i64 [ 0, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i139 ], [ %indvars.iv.next.i4.i141, %31 ]
+  %32 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i3.i140
   %33 = load float, ptr %32, align 4, !tbaa !7
-  %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.i3.i144
+  %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.i3.i140
   store float %33, ptr %34, align 4, !tbaa !7
-  %indvars.iv.next.i4.i145 = add nuw nsw i64 %indvars.iv.i3.i144, 1
-  %exitcond.not.i5.i146 = icmp eq i64 %indvars.iv.next.i4.i145, 4
-  br i1 %exitcond.not.i5.i146, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit147.preheader, label %31, !llvm.loop !19
+  %indvars.iv.next.i4.i141 = add nuw nsw i64 %indvars.iv.i3.i140, 1
+  %exitcond.not.i5.i142 = icmp eq i64 %indvars.iv.next.i4.i141, 4
+  br i1 %exitcond.not.i5.i142, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit143.preheader, label %31, !llvm.loop !19
 
-_ZNK11btTransform9serializeER20btTransformFloatData.exit147.preheader: ; preds = %31
+_ZNK11btTransform9serializeER20btTransformFloatData.exit143.preheader: ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 424
@@ -266,10 +265,10 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit147.preheader: ; preds =
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 616
-  br label %_ZNK11btTransform9serializeER20btTransformFloatData.exit147
+  br label %_ZNK11btTransform9serializeER20btTransformFloatData.exit143
 
-_ZNK11btTransform9serializeER20btTransformFloatData.exit147: ; preds = %_ZNK11btTransform9serializeER20btTransformFloatData.exit147.preheader, %_ZNK11btTransform9serializeER20btTransformFloatData.exit147
-  %indvars.iv = phi i64 [ 0, %_ZNK11btTransform9serializeER20btTransformFloatData.exit147.preheader ], [ %indvars.iv.next, %_ZNK11btTransform9serializeER20btTransformFloatData.exit147 ]
+_ZNK11btTransform9serializeER20btTransformFloatData.exit143: ; preds = %_ZNK11btTransform9serializeER20btTransformFloatData.exit143.preheader, %_ZNK11btTransform9serializeER20btTransformFloatData.exit143
+  %indvars.iv = phi i64 [ 0, %_ZNK11btTransform9serializeER20btTransformFloatData.exit143.preheader ], [ %indvars.iv.next, %_ZNK11btTransform9serializeER20btTransformFloatData.exit143 ]
   %49 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %35, i64 %indvars.iv
   %50 = load float, ptr %49, align 8, !tbaa !12
   %51 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
@@ -324,9 +323,9 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit147: ; preds = %_ZNK11bt
   store float %86, ptr %87, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %88, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit147, !llvm.loop !32
+  br i1 %exitcond.not, label %88, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit143, !llvm.loop !32
 
-88:                                               ; preds = %_ZNK11btTransform9serializeER20btTransformFloatData.exit147
+88:                                               ; preds = %_ZNK11btTransform9serializeER20btTransformFloatData.exit143
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 452
   store float 0.000000e+00, ptr %89, align 4, !tbaa !7
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 436
@@ -355,304 +354,299 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit147: ; preds = %_ZNK11bt
   store float 0.000000e+00, ptr %101, align 4, !tbaa !7
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 632
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 636
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 640
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 644
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  br label %111
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 636
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 640
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 644
+  br label %107
 
-111:                                              ; preds = %88, %111
-  %indvars.iv205218 = phi i64 [ 0, %88 ], [ %indvars.iv.next206, %111 ]
-  %112 = mul nuw nsw i64 %indvars.iv205218, 88
-  %113 = getelementptr inbounds nuw i8, ptr %35, i64 %112
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 28
-  %115 = load i8, ptr %114, align 4, !tbaa !33, !range !34, !noundef !35
-  %116 = getelementptr inbounds nuw i8, ptr %103, i64 %indvars.iv205218
-  store i8 %115, ptr %116, align 1, !tbaa !36
-  %117 = getelementptr inbounds nuw i8, ptr %104, i64 %112
-  %118 = load i8, ptr %117, align 8, !tbaa !37, !range !34, !noundef !35
-  %119 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv205218
-  store i8 %118, ptr %119, align 1, !tbaa !36
-  %120 = getelementptr inbounds nuw i8, ptr %106, i64 %112
-  %121 = load i8, ptr %120, align 8, !tbaa !38, !range !34, !noundef !35
-  %122 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv205218
-  store i8 %121, ptr %122, align 1, !tbaa !36
-  %123 = getelementptr inbounds nuw i8, ptr %108, i64 %112
-  %124 = load i8, ptr %123, align 8, !tbaa !39, !range !34, !noundef !35
-  %125 = getelementptr inbounds nuw i8, ptr %109, i64 %indvars.iv205218
-  store i8 %124, ptr %125, align 1, !tbaa !36
-  %126 = getelementptr inbounds nuw i8, ptr %110, i64 %112
-  %127 = load i8, ptr %126, align 8, !tbaa !40, !range !34, !noundef !35
-  %128 = getelementptr inbounds nuw i8, ptr %102, i64 %indvars.iv205218
-  store i8 %127, ptr %128, align 1, !tbaa !36
-  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205218, 1
-  %.not121 = icmp eq i64 %indvars.iv.next206, 3
-  br i1 %.not121, label %129, label %111
+107:                                              ; preds = %88, %107
+  %indvars.iv201213 = phi i64 [ 0, %88 ], [ %indvars.iv.next202, %107 ]
+  %108 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %0, i64 %indvars.iv201213
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1020
+  %110 = load i8, ptr %109, align 4, !tbaa !33, !range !34, !noundef !35
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 %indvars.iv201213
+  store i8 %110, ptr %111, align 1, !tbaa !36
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 1032
+  %113 = load i8, ptr %112, align 8, !tbaa !37, !range !34, !noundef !35
+  %114 = getelementptr inbounds nuw i8, ptr %104, i64 %indvars.iv201213
+  store i8 %113, ptr %114, align 1, !tbaa !36
+  %115 = getelementptr inbounds nuw i8, ptr %108, i64 1040
+  %116 = load i8, ptr %115, align 8, !tbaa !38, !range !34, !noundef !35
+  %117 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv201213
+  store i8 %116, ptr %117, align 1, !tbaa !36
+  %118 = getelementptr inbounds nuw i8, ptr %108, i64 1048
+  %119 = load i8, ptr %118, align 8, !tbaa !39, !range !34, !noundef !35
+  %120 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv201213
+  store i8 %119, ptr %120, align 1, !tbaa !36
+  %121 = getelementptr inbounds nuw i8, ptr %108, i64 1056
+  %122 = load i8, ptr %121, align 8, !tbaa !40, !range !34, !noundef !35
+  %123 = getelementptr inbounds nuw i8, ptr %102, i64 %indvars.iv201213
+  store i8 %122, ptr %123, align 1, !tbaa !36
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201213, 1
+  %.not121 = icmp eq i64 %indvars.iv.next202, 3
+  br i1 %.not121, label %124, label %107
 
-129:                                              ; preds = %111
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 635
-  store i8 0, ptr %130, align 1, !tbaa !36
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 639
-  store i8 0, ptr %131, align 1, !tbaa !36
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 643
-  store i8 0, ptr %132, align 1, !tbaa !36
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 647
-  store i8 0, ptr %133, align 1, !tbaa !36
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 651
-  store i8 0, ptr %134, align 1, !tbaa !36
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  br label %137
+124:                                              ; preds = %107
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 635
+  store i8 0, ptr %125, align 1, !tbaa !36
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 639
+  store i8 0, ptr %126, align 1, !tbaa !36
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 643
+  store i8 0, ptr %127, align 1, !tbaa !36
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 647
+  store i8 0, ptr %128, align 1, !tbaa !36
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 651
+  store i8 0, ptr %129, align 1, !tbaa !36
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  br label %132
 
-137:                                              ; preds = %137, %129
-  %indvars.iv.i = phi i64 [ 0, %129 ], [ %indvars.iv.next.i, %137 ]
-  %138 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv.i
-  %139 = load float, ptr %138, align 4, !tbaa !7
-  %140 = getelementptr inbounds nuw float, ptr %136, i64 %indvars.iv.i
-  store float %139, ptr %140, align 4, !tbaa !7
+132:                                              ; preds = %132, %124
+  %indvars.iv.i = phi i64 [ 0, %124 ], [ %indvars.iv.next.i, %132 ]
+  %133 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i
+  %134 = load float, ptr %133, align 4, !tbaa !7
+  %135 = getelementptr inbounds nuw float, ptr %131, i64 %indvars.iv.i
+  store float %134, ptr %135, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %137, !llvm.loop !19
+  br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %132, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %137
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  br label %143
+_ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  br label %138
 
-143:                                              ; preds = %143, %_ZNK9btVector39serializeER18btVector3FloatData.exit
-  %indvars.iv.i148 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit ], [ %indvars.iv.next.i149, %143 ]
-  %144 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i148
-  %145 = load float, ptr %144, align 4, !tbaa !7
-  %146 = getelementptr inbounds nuw float, ptr %142, i64 %indvars.iv.i148
-  store float %145, ptr %146, align 4, !tbaa !7
+138:                                              ; preds = %138, %_ZNK9btVector39serializeER18btVector3FloatData.exit
+  %indvars.iv.i144 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit ], [ %indvars.iv.next.i145, %138 ]
+  %139 = getelementptr inbounds nuw float, ptr %136, i64 %indvars.iv.i144
+  %140 = load float, ptr %139, align 4, !tbaa !7
+  %141 = getelementptr inbounds nuw float, ptr %137, i64 %indvars.iv.i144
+  store float %140, ptr %141, align 4, !tbaa !7
+  %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i144, 1
+  %exitcond.not.i146 = icmp eq i64 %indvars.iv.next.i145, 4
+  br i1 %exitcond.not.i146, label %_ZNK9btVector39serializeER18btVector3FloatData.exit147, label %138, !llvm.loop !19
+
+_ZNK9btVector39serializeER18btVector3FloatData.exit147: ; preds = %138
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  br label %144
+
+144:                                              ; preds = %144, %_ZNK9btVector39serializeER18btVector3FloatData.exit147
+  %indvars.iv.i148 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit147 ], [ %indvars.iv.next.i149, %144 ]
+  %145 = getelementptr inbounds nuw float, ptr %142, i64 %indvars.iv.i148
+  %146 = load float, ptr %145, align 4, !tbaa !7
+  %147 = getelementptr inbounds nuw float, ptr %143, i64 %indvars.iv.i148
+  store float %146, ptr %147, align 4, !tbaa !7
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i148, 1
   %exitcond.not.i150 = icmp eq i64 %indvars.iv.next.i149, 4
-  br i1 %exitcond.not.i150, label %_ZNK9btVector39serializeER18btVector3FloatData.exit151, label %143, !llvm.loop !19
+  br i1 %exitcond.not.i150, label %_ZNK9btVector39serializeER18btVector3FloatData.exit151, label %144, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit151: ; preds = %143
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %148 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  br label %149
+_ZNK9btVector39serializeER18btVector3FloatData.exit151: ; preds = %144
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  br label %150
 
-149:                                              ; preds = %149, %_ZNK9btVector39serializeER18btVector3FloatData.exit151
-  %indvars.iv.i152 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit151 ], [ %indvars.iv.next.i153, %149 ]
-  %150 = getelementptr inbounds nuw float, ptr %147, i64 %indvars.iv.i152
-  %151 = load float, ptr %150, align 4, !tbaa !7
-  %152 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv.i152
-  store float %151, ptr %152, align 4, !tbaa !7
+150:                                              ; preds = %150, %_ZNK9btVector39serializeER18btVector3FloatData.exit151
+  %indvars.iv.i152 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit151 ], [ %indvars.iv.next.i153, %150 ]
+  %151 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv.i152
+  %152 = load float, ptr %151, align 4, !tbaa !7
+  %153 = getelementptr inbounds nuw float, ptr %149, i64 %indvars.iv.i152
+  store float %152, ptr %153, align 4, !tbaa !7
   %indvars.iv.next.i153 = add nuw nsw i64 %indvars.iv.i152, 1
   %exitcond.not.i154 = icmp eq i64 %indvars.iv.next.i153, 4
-  br i1 %exitcond.not.i154, label %_ZNK9btVector39serializeER18btVector3FloatData.exit155, label %149, !llvm.loop !19
+  br i1 %exitcond.not.i154, label %_ZNK9btVector39serializeER18btVector3FloatData.exit155, label %150, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit155: ; preds = %149
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  br label %155
+_ZNK9btVector39serializeER18btVector3FloatData.exit155: ; preds = %150
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  br label %156
 
-155:                                              ; preds = %155, %_ZNK9btVector39serializeER18btVector3FloatData.exit155
-  %indvars.iv.i156 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit155 ], [ %indvars.iv.next.i157, %155 ]
-  %156 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv.i156
-  %157 = load float, ptr %156, align 4, !tbaa !7
-  %158 = getelementptr inbounds nuw float, ptr %154, i64 %indvars.iv.i156
-  store float %157, ptr %158, align 4, !tbaa !7
+156:                                              ; preds = %156, %_ZNK9btVector39serializeER18btVector3FloatData.exit155
+  %indvars.iv.i156 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit155 ], [ %indvars.iv.next.i157, %156 ]
+  %157 = getelementptr inbounds nuw float, ptr %154, i64 %indvars.iv.i156
+  %158 = load float, ptr %157, align 4, !tbaa !7
+  %159 = getelementptr inbounds nuw float, ptr %155, i64 %indvars.iv.i156
+  store float %158, ptr %159, align 4, !tbaa !7
   %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i156, 1
   %exitcond.not.i158 = icmp eq i64 %indvars.iv.next.i157, 4
-  br i1 %exitcond.not.i158, label %_ZNK9btVector39serializeER18btVector3FloatData.exit159, label %155, !llvm.loop !19
+  br i1 %exitcond.not.i158, label %_ZNK9btVector39serializeER18btVector3FloatData.exit159, label %156, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit159: ; preds = %155
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  br label %161
+_ZNK9btVector39serializeER18btVector3FloatData.exit159: ; preds = %156
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  br label %162
 
-161:                                              ; preds = %161, %_ZNK9btVector39serializeER18btVector3FloatData.exit159
-  %indvars.iv.i160 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit159 ], [ %indvars.iv.next.i161, %161 ]
-  %162 = getelementptr inbounds nuw float, ptr %159, i64 %indvars.iv.i160
-  %163 = load float, ptr %162, align 4, !tbaa !7
-  %164 = getelementptr inbounds nuw float, ptr %160, i64 %indvars.iv.i160
-  store float %163, ptr %164, align 4, !tbaa !7
+162:                                              ; preds = %162, %_ZNK9btVector39serializeER18btVector3FloatData.exit159
+  %indvars.iv.i160 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit159 ], [ %indvars.iv.next.i161, %162 ]
+  %163 = getelementptr inbounds nuw float, ptr %160, i64 %indvars.iv.i160
+  %164 = load float, ptr %163, align 4, !tbaa !7
+  %165 = getelementptr inbounds nuw float, ptr %161, i64 %indvars.iv.i160
+  store float %164, ptr %165, align 4, !tbaa !7
   %indvars.iv.next.i161 = add nuw nsw i64 %indvars.iv.i160, 1
   %exitcond.not.i162 = icmp eq i64 %indvars.iv.next.i161, 4
-  br i1 %exitcond.not.i162, label %_ZNK9btVector39serializeER18btVector3FloatData.exit163, label %161, !llvm.loop !19
+  br i1 %exitcond.not.i162, label %_ZNK9btVector39serializeER18btVector3FloatData.exit163, label %162, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit163: ; preds = %161
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  br label %167
+_ZNK9btVector39serializeER18btVector3FloatData.exit163: ; preds = %162
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  br label %168
 
-167:                                              ; preds = %167, %_ZNK9btVector39serializeER18btVector3FloatData.exit163
-  %indvars.iv.i164 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit163 ], [ %indvars.iv.next.i165, %167 ]
-  %168 = getelementptr inbounds nuw float, ptr %165, i64 %indvars.iv.i164
-  %169 = load float, ptr %168, align 4, !tbaa !7
-  %170 = getelementptr inbounds nuw float, ptr %166, i64 %indvars.iv.i164
-  store float %169, ptr %170, align 4, !tbaa !7
+168:                                              ; preds = %168, %_ZNK9btVector39serializeER18btVector3FloatData.exit163
+  %indvars.iv.i164 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit163 ], [ %indvars.iv.next.i165, %168 ]
+  %169 = getelementptr inbounds nuw float, ptr %166, i64 %indvars.iv.i164
+  %170 = load float, ptr %169, align 4, !tbaa !7
+  %171 = getelementptr inbounds nuw float, ptr %167, i64 %indvars.iv.i164
+  store float %170, ptr %171, align 4, !tbaa !7
   %indvars.iv.next.i165 = add nuw nsw i64 %indvars.iv.i164, 1
   %exitcond.not.i166 = icmp eq i64 %indvars.iv.next.i165, 4
-  br i1 %exitcond.not.i166, label %_ZNK9btVector39serializeER18btVector3FloatData.exit167, label %167, !llvm.loop !19
+  br i1 %exitcond.not.i166, label %_ZNK9btVector39serializeER18btVector3FloatData.exit167, label %168, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit167: ; preds = %167
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  br label %173
+_ZNK9btVector39serializeER18btVector3FloatData.exit167: ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 900
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  br label %174
 
-173:                                              ; preds = %173, %_ZNK9btVector39serializeER18btVector3FloatData.exit167
-  %indvars.iv.i168 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit167 ], [ %indvars.iv.next.i169, %173 ]
-  %174 = getelementptr inbounds nuw float, ptr %171, i64 %indvars.iv.i168
-  %175 = load float, ptr %174, align 4, !tbaa !7
-  %176 = getelementptr inbounds nuw float, ptr %172, i64 %indvars.iv.i168
-  store float %175, ptr %176, align 4, !tbaa !7
+174:                                              ; preds = %174, %_ZNK9btVector39serializeER18btVector3FloatData.exit167
+  %indvars.iv.i168 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit167 ], [ %indvars.iv.next.i169, %174 ]
+  %175 = getelementptr inbounds nuw float, ptr %172, i64 %indvars.iv.i168
+  %176 = load float, ptr %175, align 4, !tbaa !7
+  %177 = getelementptr inbounds nuw float, ptr %173, i64 %indvars.iv.i168
+  store float %176, ptr %177, align 4, !tbaa !7
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i168, 1
   %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, 4
-  br i1 %exitcond.not.i170, label %_ZNK9btVector39serializeER18btVector3FloatData.exit171, label %173, !llvm.loop !19
+  br i1 %exitcond.not.i170, label %_ZNK9btVector39serializeER18btVector3FloatData.exit171, label %174, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit171: ; preds = %173
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 900
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  br label %179
+_ZNK9btVector39serializeER18btVector3FloatData.exit171: ; preds = %174
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 916
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  br label %180
 
-179:                                              ; preds = %179, %_ZNK9btVector39serializeER18btVector3FloatData.exit171
-  %indvars.iv.i172 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit171 ], [ %indvars.iv.next.i173, %179 ]
-  %180 = getelementptr inbounds nuw float, ptr %177, i64 %indvars.iv.i172
-  %181 = load float, ptr %180, align 4, !tbaa !7
-  %182 = getelementptr inbounds nuw float, ptr %178, i64 %indvars.iv.i172
-  store float %181, ptr %182, align 4, !tbaa !7
+180:                                              ; preds = %180, %_ZNK9btVector39serializeER18btVector3FloatData.exit171
+  %indvars.iv.i172 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit171 ], [ %indvars.iv.next.i173, %180 ]
+  %181 = getelementptr inbounds nuw float, ptr %178, i64 %indvars.iv.i172
+  %182 = load float, ptr %181, align 4, !tbaa !7
+  %183 = getelementptr inbounds nuw float, ptr %179, i64 %indvars.iv.i172
+  store float %182, ptr %183, align 4, !tbaa !7
   %indvars.iv.next.i173 = add nuw nsw i64 %indvars.iv.i172, 1
   %exitcond.not.i174 = icmp eq i64 %indvars.iv.next.i173, 4
-  br i1 %exitcond.not.i174, label %_ZNK9btVector39serializeER18btVector3FloatData.exit175, label %179, !llvm.loop !19
+  br i1 %exitcond.not.i174, label %_ZNK9btVector39serializeER18btVector3FloatData.exit175, label %180, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit175: ; preds = %179
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  br label %185
+_ZNK9btVector39serializeER18btVector3FloatData.exit175: ; preds = %180
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 828
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  br label %186
 
-185:                                              ; preds = %185, %_ZNK9btVector39serializeER18btVector3FloatData.exit175
-  %indvars.iv.i176 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit175 ], [ %indvars.iv.next.i177, %185 ]
-  %186 = getelementptr inbounds nuw float, ptr %183, i64 %indvars.iv.i176
-  %187 = load float, ptr %186, align 4, !tbaa !7
-  %188 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv.i176
-  store float %187, ptr %188, align 4, !tbaa !7
+186:                                              ; preds = %186, %_ZNK9btVector39serializeER18btVector3FloatData.exit175
+  %indvars.iv.i176 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit175 ], [ %indvars.iv.next.i177, %186 ]
+  %187 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv.i176
+  %188 = load float, ptr %187, align 4, !tbaa !7
+  %189 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv.i176
+  store float %188, ptr %189, align 4, !tbaa !7
   %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i176, 1
   %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, 4
-  br i1 %exitcond.not.i178, label %_ZNK9btVector39serializeER18btVector3FloatData.exit179, label %185, !llvm.loop !19
+  br i1 %exitcond.not.i178, label %_ZNK9btVector39serializeER18btVector3FloatData.exit179, label %186, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit179: ; preds = %185
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 828
-  %190 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  br label %191
+_ZNK9btVector39serializeER18btVector3FloatData.exit179: ; preds = %186
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 844
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  br label %192
 
-191:                                              ; preds = %191, %_ZNK9btVector39serializeER18btVector3FloatData.exit179
-  %indvars.iv.i180 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit179 ], [ %indvars.iv.next.i181, %191 ]
-  %192 = getelementptr inbounds nuw float, ptr %189, i64 %indvars.iv.i180
-  %193 = load float, ptr %192, align 4, !tbaa !7
-  %194 = getelementptr inbounds nuw float, ptr %190, i64 %indvars.iv.i180
-  store float %193, ptr %194, align 4, !tbaa !7
+192:                                              ; preds = %192, %_ZNK9btVector39serializeER18btVector3FloatData.exit179
+  %indvars.iv.i180 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit179 ], [ %indvars.iv.next.i181, %192 ]
+  %193 = getelementptr inbounds nuw float, ptr %190, i64 %indvars.iv.i180
+  %194 = load float, ptr %193, align 4, !tbaa !7
+  %195 = getelementptr inbounds nuw float, ptr %191, i64 %indvars.iv.i180
+  store float %194, ptr %195, align 4, !tbaa !7
   %indvars.iv.next.i181 = add nuw nsw i64 %indvars.iv.i180, 1
   %exitcond.not.i182 = icmp eq i64 %indvars.iv.next.i181, 4
-  br i1 %exitcond.not.i182, label %_ZNK9btVector39serializeER18btVector3FloatData.exit183, label %191, !llvm.loop !19
+  br i1 %exitcond.not.i182, label %_ZNK9btVector39serializeER18btVector3FloatData.exit183, label %192, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit183: ; preds = %191
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 844
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  br label %197
+_ZNK9btVector39serializeER18btVector3FloatData.exit183: ; preds = %192
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  br label %198
 
-197:                                              ; preds = %197, %_ZNK9btVector39serializeER18btVector3FloatData.exit183
-  %indvars.iv.i184 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit183 ], [ %indvars.iv.next.i185, %197 ]
-  %198 = getelementptr inbounds nuw float, ptr %195, i64 %indvars.iv.i184
-  %199 = load float, ptr %198, align 4, !tbaa !7
-  %200 = getelementptr inbounds nuw float, ptr %196, i64 %indvars.iv.i184
-  store float %199, ptr %200, align 4, !tbaa !7
+198:                                              ; preds = %198, %_ZNK9btVector39serializeER18btVector3FloatData.exit183
+  %indvars.iv.i184 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit183 ], [ %indvars.iv.next.i185, %198 ]
+  %199 = getelementptr inbounds nuw float, ptr %196, i64 %indvars.iv.i184
+  %200 = load float, ptr %199, align 4, !tbaa !7
+  %201 = getelementptr inbounds nuw float, ptr %197, i64 %indvars.iv.i184
+  store float %200, ptr %201, align 4, !tbaa !7
   %indvars.iv.next.i185 = add nuw nsw i64 %indvars.iv.i184, 1
   %exitcond.not.i186 = icmp eq i64 %indvars.iv.next.i185, 4
-  br i1 %exitcond.not.i186, label %_ZNK9btVector39serializeER18btVector3FloatData.exit187, label %197, !llvm.loop !19
+  br i1 %exitcond.not.i186, label %_ZNK9btVector39serializeER18btVector3FloatData.exit187, label %198, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit187: ; preds = %197
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  br label %203
+_ZNK9btVector39serializeER18btVector3FloatData.exit187: ; preds = %198
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 884
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br label %204
 
-203:                                              ; preds = %203, %_ZNK9btVector39serializeER18btVector3FloatData.exit187
-  %indvars.iv.i188 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit187 ], [ %indvars.iv.next.i189, %203 ]
-  %204 = getelementptr inbounds nuw float, ptr %201, i64 %indvars.iv.i188
-  %205 = load float, ptr %204, align 4, !tbaa !7
-  %206 = getelementptr inbounds nuw float, ptr %202, i64 %indvars.iv.i188
-  store float %205, ptr %206, align 4, !tbaa !7
+204:                                              ; preds = %204, %_ZNK9btVector39serializeER18btVector3FloatData.exit187
+  %indvars.iv.i188 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit187 ], [ %indvars.iv.next.i189, %204 ]
+  %205 = getelementptr inbounds nuw float, ptr %202, i64 %indvars.iv.i188
+  %206 = load float, ptr %205, align 4, !tbaa !7
+  %207 = getelementptr inbounds nuw float, ptr %203, i64 %indvars.iv.i188
+  store float %206, ptr %207, align 4, !tbaa !7
   %indvars.iv.next.i189 = add nuw nsw i64 %indvars.iv.i188, 1
   %exitcond.not.i190 = icmp eq i64 %indvars.iv.next.i189, 4
-  br i1 %exitcond.not.i190, label %_ZNK9btVector39serializeER18btVector3FloatData.exit191, label %203, !llvm.loop !19
+  br i1 %exitcond.not.i190, label %_ZNK9btVector39serializeER18btVector3FloatData.exit191.preheader, label %204, !llvm.loop !19
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit191: ; preds = %203
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 884
-  %208 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  br label %209
+_ZNK9btVector39serializeER18btVector3FloatData.exit191.preheader: ; preds = %204
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 416
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 400
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 819
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 404
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 822
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 860
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 412
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  br label %_ZNK9btVector39serializeER18btVector3FloatData.exit191
 
-209:                                              ; preds = %209, %_ZNK9btVector39serializeER18btVector3FloatData.exit191
-  %indvars.iv.i192 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit191 ], [ %indvars.iv.next.i193, %209 ]
-  %210 = getelementptr inbounds nuw float, ptr %207, i64 %indvars.iv.i192
-  %211 = load float, ptr %210, align 4, !tbaa !7
-  %212 = getelementptr inbounds nuw float, ptr %208, i64 %indvars.iv.i192
-  store float %211, ptr %212, align 4, !tbaa !7
-  %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i192, 1
-  %exitcond.not.i194 = icmp eq i64 %indvars.iv.next.i193, 4
-  br i1 %exitcond.not.i194, label %_ZNK9btVector39serializeER18btVector3FloatData.exit195.preheader, label %209, !llvm.loop !19
+_ZNK9btVector39serializeER18btVector3FloatData.exit191: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit191.preheader, %_ZNK9btVector39serializeER18btVector3FloatData.exit191
+  %indvars.iv205214 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit191.preheader ], [ %indvars.iv.next206, %_ZNK9btVector39serializeER18btVector3FloatData.exit191 ]
+  %218 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv205214
+  %219 = load i8, ptr %218, align 1, !tbaa !41, !range !34, !noundef !35
+  %220 = getelementptr inbounds nuw i8, ptr %210, i64 %indvars.iv205214
+  store i8 %219, ptr %220, align 1, !tbaa !36
+  %221 = getelementptr inbounds nuw i8, ptr %211, i64 %indvars.iv205214
+  %222 = load i8, ptr %221, align 1, !tbaa !41, !range !34, !noundef !35
+  %223 = getelementptr inbounds nuw i8, ptr %212, i64 %indvars.iv205214
+  store i8 %222, ptr %223, align 1, !tbaa !36
+  %224 = getelementptr inbounds nuw i8, ptr %213, i64 %indvars.iv205214
+  %225 = load i8, ptr %224, align 1, !tbaa !41, !range !34, !noundef !35
+  %226 = getelementptr inbounds nuw i8, ptr %214, i64 %indvars.iv205214
+  store i8 %225, ptr %226, align 1, !tbaa !36
+  %227 = getelementptr inbounds nuw i8, ptr %215, i64 %indvars.iv205214
+  %228 = load i8, ptr %227, align 1, !tbaa !41, !range !34, !noundef !35
+  %229 = getelementptr inbounds nuw i8, ptr %216, i64 %indvars.iv205214
+  store i8 %228, ptr %229, align 1, !tbaa !36
+  %230 = getelementptr inbounds nuw i8, ptr %217, i64 %indvars.iv205214
+  %231 = load i8, ptr %230, align 1, !tbaa !41, !range !34, !noundef !35
+  %232 = getelementptr inbounds nuw i8, ptr %208, i64 %indvars.iv205214
+  store i8 %231, ptr %232, align 1, !tbaa !36
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205214, 1
+  %.not = icmp eq i64 %indvars.iv.next206, 3
+  br i1 %.not, label %233, label %_ZNK9btVector39serializeER18btVector3FloatData.exit191
 
-_ZNK9btVector39serializeER18btVector3FloatData.exit195.preheader: ; preds = %209
-  %213 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %215 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 819
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 404
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 822
-  %219 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 860
-  %221 = getelementptr inbounds nuw i8, ptr %1, i64 412
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  br label %_ZNK9btVector39serializeER18btVector3FloatData.exit195
-
-_ZNK9btVector39serializeER18btVector3FloatData.exit195: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit195.preheader, %_ZNK9btVector39serializeER18btVector3FloatData.exit195
-  %indvars.iv210219 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit195.preheader ], [ %indvars.iv.next211, %_ZNK9btVector39serializeER18btVector3FloatData.exit195 ]
-  %223 = getelementptr inbounds nuw i8, ptr %214, i64 %indvars.iv210219
-  %224 = load i8, ptr %223, align 1, !tbaa !41, !range !34, !noundef !35
-  %225 = getelementptr inbounds nuw i8, ptr %215, i64 %indvars.iv210219
-  store i8 %224, ptr %225, align 1, !tbaa !36
-  %226 = getelementptr inbounds nuw i8, ptr %216, i64 %indvars.iv210219
-  %227 = load i8, ptr %226, align 1, !tbaa !41, !range !34, !noundef !35
-  %228 = getelementptr inbounds nuw i8, ptr %217, i64 %indvars.iv210219
-  store i8 %227, ptr %228, align 1, !tbaa !36
-  %229 = getelementptr inbounds nuw i8, ptr %218, i64 %indvars.iv210219
-  %230 = load i8, ptr %229, align 1, !tbaa !41, !range !34, !noundef !35
-  %231 = getelementptr inbounds nuw i8, ptr %219, i64 %indvars.iv210219
-  store i8 %230, ptr %231, align 1, !tbaa !36
-  %232 = getelementptr inbounds nuw i8, ptr %220, i64 %indvars.iv210219
-  %233 = load i8, ptr %232, align 1, !tbaa !41, !range !34, !noundef !35
-  %234 = getelementptr inbounds nuw i8, ptr %221, i64 %indvars.iv210219
-  store i8 %233, ptr %234, align 1, !tbaa !36
-  %235 = getelementptr inbounds nuw i8, ptr %222, i64 %indvars.iv210219
-  %236 = load i8, ptr %235, align 1, !tbaa !41, !range !34, !noundef !35
-  %237 = getelementptr inbounds nuw i8, ptr %213, i64 %indvars.iv210219
-  store i8 %236, ptr %237, align 1, !tbaa !36
-  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210219, 1
-  %.not = icmp eq i64 %indvars.iv.next211, 3
-  br i1 %.not, label %238, label %_ZNK9btVector39serializeER18btVector3FloatData.exit195
-
-238:                                              ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit195
-  %239 = getelementptr inbounds nuw i8, ptr %1, i64 403
-  store i8 0, ptr %239, align 1, !tbaa !36
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 407
-  store i8 0, ptr %240, align 1, !tbaa !36
-  %241 = getelementptr inbounds nuw i8, ptr %1, i64 411
-  store i8 0, ptr %241, align 1, !tbaa !36
-  %242 = getelementptr inbounds nuw i8, ptr %1, i64 415
-  store i8 0, ptr %242, align 1, !tbaa !36
-  %243 = getelementptr inbounds nuw i8, ptr %1, i64 419
-  store i8 0, ptr %243, align 1, !tbaa !36
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 1256
-  %245 = load i32, ptr %244, align 8, !tbaa !42
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 652
-  store i32 %245, ptr %246, align 4, !tbaa !54
-  %247 = getelementptr inbounds nuw i8, ptr %1, i64 420
-  store i32 0, ptr %247, align 4
+233:                                              ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit191
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 403
+  store i8 0, ptr %234, align 1, !tbaa !36
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 407
+  store i8 0, ptr %235, align 1, !tbaa !36
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 411
+  store i8 0, ptr %236, align 1, !tbaa !36
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 415
+  store i8 0, ptr %237, align 1, !tbaa !36
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 419
+  store i8 0, ptr %238, align 1, !tbaa !36
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  %240 = load i32, ptr %239, align 8, !tbaa !42
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 652
+  store i32 %240, ptr %241, align 4, !tbaa !54
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 420
+  store i32 0, ptr %242, align 4
   ret ptr @.str
 }
 

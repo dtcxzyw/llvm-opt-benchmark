@@ -5804,9 +5804,8 @@ list_length.exit80:                               ; preds = %45
   %87 = shl nsw i64 %86, 4
   %88 = getelementptr i8, ptr %81, i64 %87
   %89 = sext i32 %84 to i64
-  %.idx = mul nsw i64 %89, 100
-  %90 = getelementptr i8, ptr %88, i64 115
-  %91 = getelementptr i8, ptr %90, i64 %.idx
+  %90 = getelementptr %struct.FormData_pg_attribute, ptr %88, i64 %89
+  %91 = getelementptr i8, ptr %90, i64 115
   %92 = load i8, ptr %91, align 1, !range !4, !noundef !5
   %93 = trunc nuw i8 %92 to i1
   br label %120
@@ -6028,7 +6027,7 @@ define dso_local nonnull ptr @attnumAttName(ptr noundef readonly captures(none) 
 4:                                                ; preds = %2
   %5 = trunc i32 %1 to i16
   %6 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %5) #11
-  br label %23
+  br label %22
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6048,14 +6047,13 @@ define dso_local nonnull ptr @attnumAttName(ptr noundef readonly captures(none) 
   %16 = zext nneg i32 %10 to i64
   %17 = shl nuw nsw i64 %16, 4
   %18 = getelementptr i8, ptr %9, i64 %17
-  %19 = getelementptr i8, ptr %18, i64 24
-  %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.FormData_pg_attribute, ptr %19, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 -100
-  br label %23
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr %struct.FormData_pg_attribute, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -76
+  br label %22
 
-23:                                               ; preds = %15, %4
-  %.pn = phi ptr [ %6, %4 ], [ %22, %15 ]
+22:                                               ; preds = %15, %4
+  %.pn = phi ptr [ %6, %4 ], [ %21, %15 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   ret ptr %.0
 }
@@ -6068,7 +6066,7 @@ define dso_local i32 @attnumTypeId(ptr noundef readonly captures(none) %0, i32 n
 4:                                                ; preds = %2
   %5 = trunc i32 %1 to i16
   %6 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %5) #11
-  br label %23
+  br label %22
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6088,14 +6086,13 @@ define dso_local i32 @attnumTypeId(ptr noundef readonly captures(none) %0, i32 n
   %16 = zext nneg i32 %10 to i64
   %17 = shl nuw nsw i64 %16, 4
   %18 = getelementptr i8, ptr %9, i64 %17
-  %19 = getelementptr i8, ptr %18, i64 24
-  %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.FormData_pg_attribute, ptr %19, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 -100
-  br label %23
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr %struct.FormData_pg_attribute, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -76
+  br label %22
 
-23:                                               ; preds = %15, %4
-  %.pn = phi ptr [ %6, %4 ], [ %22, %15 ]
+22:                                               ; preds = %15, %4
+  %.pn = phi ptr [ %6, %4 ], [ %21, %15 ]
   %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 68
   %.0 = load i32, ptr %.0.in, align 4
   ret i32 %.0
@@ -6104,7 +6101,7 @@ define dso_local i32 @attnumTypeId(ptr noundef readonly captures(none) %0, i32 n
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @attnumCollationId(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 1
-  br i1 %3, label %21, label %4
+  br i1 %3, label %19, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6124,15 +6121,13 @@ define dso_local i32 @attnumCollationId(ptr noundef readonly captures(none) %0, 
   %13 = zext nneg i32 %7 to i64
   %14 = shl nuw nsw i64 %13, 4
   %15 = getelementptr i8, ptr %6, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 24
-  %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr %struct.FormData_pg_attribute, ptr %16, i64 %17
-  %19 = getelementptr i8, ptr %18, i64 -4
-  %20 = load i32, ptr %19, align 4
-  br label %21
+  %16 = zext nneg i32 %1 to i64
+  %17 = getelementptr %struct.FormData_pg_attribute, ptr %15, i64 %16, i32 1, i32 0, i64 16
+  %18 = load i32, ptr %17, align 4
+  br label %19
 
-21:                                               ; preds = %2, %12
-  %.0 = phi i32 [ %20, %12 ], [ 0, %2 ]
+19:                                               ; preds = %2, %12
+  %.0 = phi i32 [ %18, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 

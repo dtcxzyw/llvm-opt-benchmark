@@ -19854,13 +19854,12 @@ define hidden { ptr, i64 } @_ZN12multi_buffer19MultiBufferSnapshot18excerpt_cont
   unreachable
 
 106:                                              ; preds = %101
-  %107 = getelementptr inbounds nuw i8, ptr %66, i64 496
-  %108 = load i64, ptr %107, align 8, !noundef !5
-  %.idx = mul nuw nsw i64 %95, 600
-  %109 = getelementptr inbounds nuw i8, ptr %90, i64 632
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx
+  %107 = getelementptr inbounds nuw { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }, ptr %90, i64 %95
+  %108 = getelementptr inbounds nuw i8, ptr %66, i64 496
+  %109 = load i64, ptr %108, align 8, !noundef !5
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 632
   %111 = load i64, ptr %110, align 8, !noundef !5
-  %112 = icmp eq i64 %108, %111
+  %112 = icmp eq i64 %109, %111
   br i1 %112, label %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit17.sink.split", label %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit17"
 
 "_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit17.sink.split": ; preds = %106, %64

@@ -5,6 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.FFOutputFormat = type { %struct.AVOutputFormat, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.AVOutputFormat = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr }
+%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [13 x i8] c"yuv4mpegpipe\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"YUV4MPEG pipe\00", align 1
@@ -297,61 +298,60 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
   %35 = sub nsw i32 0, %26
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 10
   %37 = sub nsw i32 0, %28
-  %38 = getelementptr inbounds nuw i8, ptr %31, i64 28
-  %39 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  br label %40
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  br label %39
 
-40:                                               ; preds = %.lr.ph58, %._crit_edge
-  %41 = phi i8 [ %33, %.lr.ph58 ], [ %62, %._crit_edge ]
+39:                                               ; preds = %.lr.ph58, %._crit_edge
+  %40 = phi i8 [ %33, %.lr.ph58 ], [ %62, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %._crit_edge ]
-  %42 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
-  %43 = load ptr, ptr %42, align 8, !tbaa !53
-  %44 = icmp ugt i8 %41, 2
-  %45 = trunc nuw nsw i64 %indvars.iv to i32
-  %46 = add nsw i32 %45, -1
-  %or.cond = icmp ult i32 %46, 2
-  %or.cond53 = and i1 %44, %or.cond
-  br i1 %or.cond53, label %47, label %56
+  %41 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8, !tbaa !53
+  %43 = icmp ugt i8 %40, 2
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
+  %45 = add nsw i32 %44, -1
+  %or.cond = icmp ult i32 %45, 2
+  %or.cond53 = and i1 %43, %or.cond
+  br i1 %or.cond53, label %46, label %55
 
-47:                                               ; preds = %40
-  %48 = load i8, ptr %34, align 1, !tbaa !54
-  %49 = zext nneg i8 %48 to i32
-  %50 = ashr i32 %35, %49
-  %51 = sub nsw i32 0, %50
-  %52 = load i8, ptr %36, align 2, !tbaa !55
-  %53 = zext nneg i8 %52 to i32
-  %54 = ashr i32 %37, %53
-  %55 = sub nsw i32 0, %54
-  br label %56
+46:                                               ; preds = %39
+  %47 = load i8, ptr %34, align 1, !tbaa !54
+  %48 = zext nneg i8 %47 to i32
+  %49 = ashr i32 %35, %48
+  %50 = sub nsw i32 0, %49
+  %51 = load i8, ptr %36, align 2, !tbaa !55
+  %52 = zext nneg i8 %51 to i32
+  %53 = ashr i32 %37, %52
+  %54 = sub nsw i32 0, %53
+  br label %55
 
-56:                                               ; preds = %47, %40
-  %.049 = phi i32 [ %28, %40 ], [ %55, %47 ]
-  %.048 = phi i32 [ %26, %40 ], [ %51, %47 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %57 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
+55:                                               ; preds = %46, %39
+  %.049 = phi i32 [ %28, %39 ], [ %54, %46 ]
+  %.048 = phi i32 [ %26, %39 ], [ %50, %46 ]
+  %56 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %31, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %58 = load i32, ptr %57, align 4, !tbaa !56
   %59 = mul nsw i32 %58, %.048
   %60 = icmp sgt i32 %.049, 0
   br i1 %60, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %56
-  %61 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+.lr.ph:                                           ; preds = %55
+  %61 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   br label %65
 
 ._crit_edge.loopexit:                             ; preds = %65
   %.pre = load i8, ptr %32, align 8, !tbaa !51
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %56
-  %62 = phi i8 [ %.pre, %._crit_edge.loopexit ], [ %41, %56 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %55
+  %62 = phi i8 [ %.pre, %._crit_edge.loopexit ], [ %40, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = zext i8 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next, %63
-  br i1 %64, label %40, label %.loopexit, !llvm.loop !58
+  br i1 %64, label %39, label %.loopexit, !llvm.loop !58
 
 65:                                               ; preds = %.lr.ph, %65
   %.055 = phi i32 [ 0, %.lr.ph ], [ %69, %65 ]
-  %.04754 = phi ptr [ %43, %.lr.ph ], [ %68, %65 ]
+  %.04754 = phi ptr [ %42, %.lr.ph ], [ %68, %65 ]
   tail call void @avio_write(ptr noundef %11, ptr noundef %.04754, i32 noundef %59) #3
   %66 = load i32, ptr %61, align 4, !tbaa !46
   %67 = sext i32 %66 to i64

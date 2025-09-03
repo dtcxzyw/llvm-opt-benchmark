@@ -2594,8 +2594,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb
 _ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit:  ; preds = %._crit_edge
   %336 = load i16, ptr %328, align 4
   %337 = zext i16 %336 to i64
-  %338 = getelementptr inbounds nuw ptr, ptr %323, i64 %337
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
+  %338 = getelementptr inbounds nuw ptr, ptr %1, i64 %337
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 24
   %340 = load ptr, ptr %339, align 8, !tbaa !41
   %.not220 = icmp eq ptr %340, null
   br i1 %.not220, label %_ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread, label %357
@@ -3370,8 +3370,8 @@ _ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit.thread: ; preds 
   br label %_ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread
 
 648:                                              ; preds = %.lr.ph554, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
-  %649 = phi i64 [ %645, %.lr.ph554 ], [ %691, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ]
-  %650 = phi ptr [ %643, %.lr.ph554 ], [ %689, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ]
+  %649 = phi i64 [ %645, %.lr.ph554 ], [ %690, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ]
+  %650 = phi ptr [ %643, %.lr.ph554 ], [ %688, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ]
   %.4553 = phi i32 [ %.0, %.lr.ph554 ], [ %.5, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %651 = and i64 %649, 3
@@ -3387,7 +3387,7 @@ _ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = 
   %656 = load ptr, ptr %655, align 8, !tbaa !41
   store ptr %656, ptr %27, align 8, !tbaa !41
   %.not233 = icmp eq ptr %656, null
-  br i1 %.not233, label %679, label %657
+  br i1 %.not233, label %678, label %657
 
 657:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
   %.not234 = icmp eq i32 %.4553, 0
@@ -3395,89 +3395,88 @@ _ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = 
 
 658:                                              ; preds = %657
   %659 = add nsw i32 %.4553, -1
-  br label %679
+  br label %678
 
 .preheader:                                       ; preds = %657, %.thread
   %660 = phi ptr [ %.5195.ph, %.thread ], [ %656, %657 ]
   %661 = load i16, ptr %660, align 8
   %662 = and i16 %661, 510
   %spec.select.i.i.i.i.i.i.i.i394.not = icmp eq i16 %662, 134
-  br i1 %spec.select.i.i.i.i.i.i.i.i394.not, label %663, label %673
+  br i1 %spec.select.i.i.i.i.i.i.i.i394.not, label %663, label %672
 
 663:                                              ; preds = %.preheader
   %664 = and i16 %661, 135
   %.not.i396 = icmp eq i16 %664, 135
-  br i1 %.not.i396, label %665, label %671
+  br i1 %.not.i396, label %665, label %670
 
 665:                                              ; preds = %663
-  %666 = getelementptr inbounds nuw i8, ptr %660, i64 24
-  %667 = lshr i16 %661, 9
-  %.lobit.i.i.i.i = and i16 %667, 1
-  %668 = zext nneg i16 %.lobit.i.i.i.i to i64
-  %669 = getelementptr inbounds nuw ptr, ptr %666, i64 %668
-  %670 = getelementptr inbounds nuw i8, ptr %669, i64 8
+  %666 = lshr i16 %661, 9
+  %.lobit.i.i.i.i = and i16 %666, 1
+  %667 = zext nneg i16 %.lobit.i.i.i.i to i64
+  %668 = getelementptr inbounds nuw ptr, ptr %660, i64 %667
+  %669 = getelementptr inbounds nuw i8, ptr %668, i64 32
   br label %.thread
 
-671:                                              ; preds = %663
+670:                                              ; preds = %663
   %.not11.i = icmp eq i16 %664, 134
   call void @llvm.assume(i1 %.not11.i)
-  %672 = getelementptr inbounds nuw i8, ptr %660, i64 24
+  %671 = getelementptr inbounds nuw i8, ptr %660, i64 24
   br label %.thread
 
-673:                                              ; preds = %.preheader
-  %674 = and i16 %661, 511
-  %.not526 = icmp eq i16 %674, 2
-  br i1 %.not526, label %675, label %.thread506
+672:                                              ; preds = %.preheader
+  %673 = and i16 %661, 511
+  %.not526 = icmp eq i16 %673, 2
+  br i1 %.not526, label %674, label %.thread506
 
-675:                                              ; preds = %673
-  %676 = getelementptr inbounds nuw i8, ptr %660, i64 16
+674:                                              ; preds = %672
+  %675 = getelementptr inbounds nuw i8, ptr %660, i64 16
   br label %.thread
 
-.thread:                                          ; preds = %671, %665, %675
-  %.5195.ph.in = phi ptr [ %676, %675 ], [ %670, %665 ], [ %672, %671 ]
+.thread:                                          ; preds = %670, %665, %674
+  %.5195.ph.in = phi ptr [ %675, %674 ], [ %669, %665 ], [ %671, %670 ]
   %.5195.ph = load ptr, ptr %.5195.ph.in, align 8, !tbaa !41
-  %677 = load i32, ptr %33, align 4, !tbaa !40
-  %678 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %647, ptr noundef nonnull align 8 dereferenceable(8) %27)
-  store i32 %677, ptr %678, align 4, !tbaa !40
+  %676 = load i32, ptr %33, align 4, !tbaa !40
+  %677 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %647, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  store i32 %676, ptr %677, align 4, !tbaa !40
   store ptr %.5195.ph, ptr %27, align 8, !tbaa !41
   br label %.preheader
 
-.thread506:                                       ; preds = %673
+.thread506:                                       ; preds = %672
   call fastcc void @_ZN12_GLOBAL__N_116JumpScopeChecker21BuildScopeInformationEPN5clang4StmtERj(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef nonnull %660, ptr noundef nonnull align 4 dereferenceable(4) %33)
-  br label %679
+  br label %678
 
-679:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, %.thread506, %658
+678:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, %.thread506, %658
   %.5 = phi i32 [ %659, %658 ], [ 0, %.thread506 ], [ %.4553, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %680 = load i64, ptr %642, align 8, !tbaa !225
-  %681 = and i64 %680, 3
-  %682 = icmp eq i64 %681, 0
-  br i1 %682, label %683, label %686
+  %679 = load i64, ptr %642, align 8, !tbaa !225
+  %680 = and i64 %679, 3
+  %681 = icmp eq i64 %680, 0
+  br i1 %681, label %682, label %685
 
-683:                                              ; preds = %679
-  %684 = load ptr, ptr %26, align 8, !tbaa !95
-  %685 = getelementptr inbounds nuw i8, ptr %684, i64 8
-  store ptr %685, ptr %26, align 8, !tbaa !95
+682:                                              ; preds = %678
+  %683 = load ptr, ptr %26, align 8, !tbaa !95
+  %684 = getelementptr inbounds nuw i8, ptr %683, i64 8
+  store ptr %684, ptr %26, align 8, !tbaa !95
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-686:                                              ; preds = %679
-  %.not.i399 = icmp ult i64 %680, 4
-  br i1 %.not.i399, label %688, label %687
+685:                                              ; preds = %678
+  %.not.i399 = icmp ult i64 %679, 4
+  br i1 %.not.i399, label %687, label %686
 
-687:                                              ; preds = %686
+686:                                              ; preds = %685
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-688:                                              ; preds = %686
+687:                                              ; preds = %685
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %26, i1 noundef zeroext true) #13
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %683, %687, %688
-  %689 = load ptr, ptr %26, align 8, !tbaa !95
-  %690 = icmp ne ptr %689, %.sroa.0.0.copyload
-  %691 = load i64, ptr %642, align 8
-  %692 = icmp ne i64 %691, %.sroa.4.0.copyload
-  %.not3.i = select i1 %690, i1 true, i1 %692
+_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %682, %686, %687
+  %688 = load ptr, ptr %26, align 8, !tbaa !95
+  %689 = icmp ne ptr %688, %.sroa.0.0.copyload
+  %690 = load i64, ptr %642, align 8
+  %691 = icmp ne i64 %690, %.sroa.4.0.copyload
+  %.not3.i = select i1 %689, i1 true, i1 %691
   br i1 %.not3.i, label %648, label %._crit_edge555
 
 _ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread: ; preds = %.lr.ph547, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit286, %_ZN5clang8DeclStmt5declsEv.exit, %205, %._crit_edge, %.critedge239, %_ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit334, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit300, %264, %262, %.critedge, %._crit_edge555, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit392, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit385, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit348, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit341, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit308, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116JumpScopeChecker9GotoScopeELb1EE9push_backES3_.exit

@@ -4223,20 +4223,19 @@ define internal fastcc void @intel_dp_reset_max_link_params(ptr noundef %0) unna
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 304, i32 2313, i64 12) #14, !srcloc !18
   tail call void asm sideeffect "906: nop\0A\09.pushsection .discard.instr_end\0A\09.long 906b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 906) #14, !srcloc !19
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_end\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #14, !srcloc !20
-  br label %47
+  br label %46
 
 41:                                               ; preds = %1
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %43 = zext nneg i32 %24 to i64
-  %44 = getelementptr i32, ptr %42, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 -4
-  %46 = load i32, ptr %45, align 4
-  br label %47
+  %42 = zext nneg i32 %24 to i64
+  %43 = getelementptr i32, ptr %0, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 156
+  %45 = load i32, ptr %44, align 4
+  br label %46
 
-47:                                               ; preds = %41, %39
-  %48 = phi i32 [ %46, %41 ], [ 162000, %39 ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store i32 %48, ptr %49, align 4
+46:                                               ; preds = %41, %39
+  %47 = phi i32 [ %45, %41 ], [ 162000, %39 ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  store i32 %47, ptr %48, align 4
   ret void
 }
 

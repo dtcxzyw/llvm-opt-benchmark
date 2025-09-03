@@ -6773,10 +6773,9 @@ define noundef zeroext i1 @"_ZN64_$LT$fish..ast..Redirection$u20$as$u20$fish..as
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %7, %.preheader.._crit_edge_crit_edge.i.i.i
   %14 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %8, %7 ]
-  %15 = shl i64 %14, 4
-  %.idx.i = and i64 %15, 16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %15 = and i64 %14, 1
+  %16 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 81
   %18 = load i8, ptr %17, align 1, !range !331, !alias.scope !321, !noundef !4
   %19 = icmp eq i8 %18, 6
   ret i1 %19
@@ -6920,10 +6919,9 @@ define noundef zeroext i1 @"_ZN74_$LT$fish..ast..ArgumentOrRedirection$u20$as$u2
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %7, %.preheader.._crit_edge_crit_edge.i.i.i
   %14 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %8, %7 ]
-  %15 = shl i64 %14, 4
-  %.idx.i = and i64 %15, 16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %15 = and i64 %14, 1
+  %16 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 81
   %18 = load i8, ptr %17, align 1, !range !331, !alias.scope !332, !noundef !4
   %19 = add nsw i8 %18, -2
   %switch.and = and i8 %19, -5
@@ -7195,10 +7193,9 @@ define noundef zeroext i1 @"_ZN63_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast
 
 _ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit: ; preds = %7, %.preheader.._crit_edge_crit_edge.i.i
   %14 = phi i64 [ %.pre.i.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %8, %7 ]
-  %15 = shl i64 %14, 4
-  %.idx = and i64 %15, 16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
+  %15 = and i64 %14, 1
+  %16 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load i8, ptr %17, align 8, !range !352, !noundef !4
   %19 = icmp eq i8 %18, 6
   ret i1 %19
@@ -7241,10 +7238,9 @@ define noundef zeroext i1 @"_ZN61_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..
 
 _ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit: ; preds = %7, %.preheader.._crit_edge_crit_edge.i.i
   %14 = phi i64 [ %.pre.i.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %8, %7 ]
-  %15 = shl i64 %14, 4
-  %.idx = and i64 %15, 16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
+  %15 = and i64 %14, 1
+  %16 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load i8, ptr %17, align 8, !range !352, !noundef !4
   %19 = icmp eq i8 %18, 4
   ret i1 %19
@@ -7288,10 +7284,9 @@ define noundef zeroext i1 @"_ZN68_$LT$fish..ast..JobContinuation$u20$as$u20$fish
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %7, %.preheader.._crit_edge_crit_edge.i.i.i
   %14 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %8, %7 ]
-  %15 = shl i64 %14, 4
-  %.idx.i = and i64 %15, 16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %15 = and i64 %14, 1
+  %16 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 81
   %18 = load i8, ptr %17, align 1, !range !331, !alias.scope !381, !noundef !4
   %19 = icmp eq i8 %18, 3
   ret i1 %19
@@ -7335,10 +7330,9 @@ define noundef zeroext i1 @"_ZN79_$LT$fish..ast..JobConjunctionContinuation$u20$
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %7, %.preheader.._crit_edge_crit_edge.i.i.i
   %14 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %8, %7 ]
-  %15 = shl i64 %14, 4
-  %.idx.i = and i64 %15, 16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %15 = and i64 %14, 1
+  %16 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 81
   %18 = load i8, ptr %17, align 1, !range !331, !alias.scope !391, !noundef !4
   %19 = and i8 %18, 14
   %switch = icmp eq i8 %19, 8
@@ -7486,7 +7480,7 @@ _ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit: ; preds = %8, %.pre
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 14
   %20 = load i8, ptr %19, align 2, !range !139, !noundef !4
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %32
+  br i1 %21, label %22, label %35
 
 22:                                               ; preds = %_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
@@ -7508,38 +7502,34 @@ _ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit: ; preds = %8, %.pre
   %28 = add i64 %24, 1
   store i64 %28, ptr %5, align 8, !alias.scope !431
   %.not.i.i.i = icmp ugt i64 %28, 1
-  br i1 %.not.i.i.i, label %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.loopexit, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit, label %.lr.ph.i.i.i
 
-_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.loopexit: ; preds = %.lr.ph.i.i.i
-  %.pre = shl i64 %23, 4
-  %.pre3 = and i64 %.pre, 16
-  br label %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit
-
-_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %22, %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.loopexit
-  %.pre-phi4 = phi i64 [ %.pre3, %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.loopexit ], [ %.idx, %22 ]
-  %.idx.i = xor i64 %.pre-phi4, 16
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i
-  %31 = load i8, ptr %30, align 1, !range !331, !alias.scope !422, !noundef !4
-  switch i8 %31, label %32 [
-    i8 2, label %33
-    i8 4, label %33
-    i8 11, label %34
+_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %.lr.ph.i.i.i, %22
+  %29 = phi i64 [ %.pre.i.i.i, %22 ], [ %23, %.lr.ph.i.i.i ]
+  %30 = and i64 %29, 1
+  %31 = xor i64 %30, 1
+  %32 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 81
+  %34 = load i8, ptr %33, align 1, !range !331, !alias.scope !422, !noundef !4
+  switch i8 %34, label %35 [
+    i8 2, label %36
+    i8 4, label %36
+    i8 11, label %37
   ]
 
-32:                                               ; preds = %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit, %_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit, %33, %34
-  %.sroa.0.0 = phi i1 [ true, %33 ], [ %37, %34 ], [ false, %_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit ], [ false, %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit ]
+35:                                               ; preds = %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit, %_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit, %36, %37
+  %.sroa.0.0 = phi i1 [ true, %36 ], [ %40, %37 ], [ false, %_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit ], [ false, %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit ]
   ret i1 %.sroa.0.0
 
-33:                                               ; preds = %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit, %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit
-  br label %32
+36:                                               ; preds = %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit, %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit
+  br label %35
 
-34:                                               ; preds = %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 219
-  %.val = load i8, ptr %35, align 1, !noundef !4
-  %36 = and i8 %.val, 8
-  %37 = icmp ne i8 %36, 0
-  br label %32
+37:                                               ; preds = %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 219
+  %.val = load i8, ptr %38, align 1, !noundef !4
+  %39 = and i8 %.val, 8
+  %40 = icmp ne i8 %39, 0
+  br label %35
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7580,10 +7570,9 @@ define noundef zeroext i1 @"_ZN61_$LT$fish..ast..Argument$u20$as$u20$fish..ast..
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %7, %.preheader.._crit_edge_crit_edge.i.i.i
   %14 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %8, %7 ]
-  %15 = shl i64 %14, 4
-  %.idx.i = and i64 %15, 16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %15 = and i64 %14, 1
+  %16 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 81
   %18 = load i8, ptr %17, align 1, !range !331, !alias.scope !432, !noundef !4
   %19 = icmp eq i8 %18, 2
   ret i1 %19
@@ -10328,10 +10317,9 @@ define noundef range(i8 1, 15) i8 @_ZN4fish3ast9Populator9peek_type17h222aaddabc
 _ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit: ; preds = %15, %.preheader.._crit_edge_crit_edge.i.i
   %22 = phi i64 [ %.pre.i.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %16, %15 ]
   %23 = add i64 %22, %1
-  %24 = shl i64 %23, 4
-  %.idx = and i64 %24, 16
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
+  %24 = and i64 %23, 1
+  %25 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 81
   %27 = load i8, ptr %26, align 1, !range !331, !noundef !4
   ret i8 %27
 }
@@ -11593,10 +11581,9 @@ define void @_ZN4fish3ast9Populator37consume_excess_token_generating_error17h49b
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %299, %.preheader.._crit_edge_crit_edge.i.i.i
   %306 = phi i64 [ %297, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %301, %299 ]
   %307 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %300, %299 ]
-  %308 = shl i64 %307, 4
-  %.idx.i = and i64 %308, 16
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 %.idx.i
+  %308 = and i64 %307, 1
+  %309 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %308
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 81
   %311 = load i8, ptr %310, align 1, !range !331, !alias.scope !857, !noundef !4
   %312 = icmp eq i8 %311, 2
   br i1 %312, label %859, label %278
@@ -17917,10 +17904,9 @@ define void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d
 
 _ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit.i: ; preds = %30, %.preheader.._crit_edge_crit_edge.i.i.i
   %37 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %31, %30 ]
-  %38 = shl i64 %37, 4
-  %.idx.i = and i64 %38, 16
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
+  %38 = and i64 %37, 1
+  %39 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
   %41 = load i8, ptr %40, align 8, !range !352, !alias.scope !1538, !noalias !1535, !noundef !4
   switch i8 %41, label %42 [
     i8 2, label %45
@@ -20860,10 +20846,9 @@ define void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noal
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.i.i: ; preds = %16, %.preheader.._crit_edge_crit_edge.i.i.i.i.i
   %23 = phi i64 [ %.pre.i.i.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i.i.i ], [ %17, %16 ]
-  %24 = shl i64 %23, 4
-  %.idx.i.i.i = and i64 %24, 16
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i.i
+  %24 = and i64 %23, 1
+  %25 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 81
   %27 = load i8, ptr %26, align 1, !range !331, !alias.scope !1924, !noundef !4
   %28 = icmp eq i8 %27, 11
   br i1 %28, label %32, label %_ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit
@@ -20962,10 +20947,9 @@ define void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933f
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.i.i: ; preds = %38, %.preheader.._crit_edge_crit_edge.i.i.i.i.i
   %45 = phi i64 [ %.pre.i.i.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i.i.i ], [ %39, %38 ]
-  %46 = shl i64 %45, 4
-  %.idx.i.i.i = and i64 %46, 16
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i.i
+  %46 = and i64 %45, 1
+  %47 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 81
   %49 = load i8, ptr %48, align 1, !range !331, !alias.scope !1942, !noundef !4
   %50 = icmp eq i8 %49, 11
   br i1 %50, label %68, label %_ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit.thread
@@ -21010,10 +20994,9 @@ _ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit: ; preds = %29
 
 _ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit: ; preds = %55, %.preheader.._crit_edge_crit_edge.i.i
   %62 = phi i64 [ %.pre.i.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %56, %55 ]
-  %63 = shl i64 %62, 4
-  %.idx = and i64 %63, 16
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 86
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx
+  %63 = and i64 %62, 1
+  %64 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 86
   %66 = load i8, ptr %65, align 2, !range !139, !noundef !4
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %72, label %69
@@ -22206,10 +22189,9 @@ define void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.i.i: ; preds = %55, %.preheader.._crit_edge_crit_edge.i.i.i.i.i
   %62 = phi i64 [ %.pre.i.i.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i.i.i ], [ %56, %55 ]
-  %63 = shl i64 %62, 4
-  %.idx.i.i.i = and i64 %63, 16
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i.i
+  %63 = and i64 %62, 1
+  %64 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 81
   %66 = load i8, ptr %65, align 1, !range !331, !alias.scope !2090, !noundef !4
   %67 = icmp eq i8 %66, 11
   br i1 %67, label %94, label %_ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit.thread
@@ -23365,10 +23347,9 @@ define void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr dead_
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.i.i: ; preds = %54, %.preheader.._crit_edge_crit_edge.i.i.i.i.i
   %61 = phi i64 [ %.pre.i.i.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i.i.i ], [ %55, %54 ]
-  %62 = shl i64 %61, 4
-  %.idx.i.i.i = and i64 %62, 16
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 81
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i.i
+  %62 = and i64 %61, 1
+  %63 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %1, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 81
   %65 = load i8, ptr %64, align 1, !range !331, !alias.scope !2241, !noundef !4
   %66 = icmp eq i8 %65, 11
   br i1 %66, label %93, label %_ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit.thread
@@ -24398,7 +24379,7 @@ define void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(pt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 217
   %6 = load i8, ptr %5, align 1, !range !139, !alias.scope !2385, !noundef !4
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %37, label %8
+  br i1 %7, label %36, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 219
@@ -24443,13 +24424,12 @@ define void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(pt
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.i.i: ; preds = %17, %.preheader.._crit_edge_crit_edge.i.i.i.i.i
   %24 = phi i64 [ %.pre.i.i.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i.i.i ], [ %18, %17 ]
-  %25 = shl i64 %24, 4
-  %.idx.i.i.i = and i64 %25, 16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i
+  %25 = and i64 %24, 1
+  %26 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 81
   %28 = load i8, ptr %27, align 1, !range !331, !alias.scope !2396, !noundef !4
   %29 = icmp eq i8 %28, 11
-  br i1 %29, label %37, label %_ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit
+  br i1 %29, label %36, label %_ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit
 
 _ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit: ; preds = %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.i.i, %8
   %30 = tail call { i32, i32 } @_ZN4fish15parse_constants11SourceRange3new17he1a688aaeb7d0534E(i64 noundef 0, i64 noundef 0)
@@ -24459,46 +24439,45 @@ _ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit: ; preds = %_ZN
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 85
-  br label %38
+  br label %37
 
-37:                                               ; preds = %2, %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.i.i
+36:                                               ; preds = %2, %_ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit.i.i
   store i32 0, ptr %1, align 4
   br label %59
 
-38:                                               ; preds = %52, %_ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit
+37:                                               ; preds = %52, %_ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit
   %.sroa.03.0 = phi i32 [ %31, %_ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit ], [ %.sroa.03.1, %52 ]
   %.sroa.45.0 = phi i32 [ %32, %_ZN4fish3ast9Populator15unsource_leaves17hce8ad31e519e3fe2E.exit ], [ %.sroa.45.1, %52 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2397)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2400)
-  %39 = load i64, ptr %34, align 8, !alias.scope !2403, !noundef !4
-  %.not4.i.i.not = icmp eq i64 %39, 0
+  %38 = load i64, ptr %34, align 8, !alias.scope !2403, !noundef !4
+  %.not4.i.i.not = icmp eq i64 %38, 0
   br i1 %.not4.i.i.not, label %.lr.ph.i.i, label %.preheader.._crit_edge_crit_edge.i.i
 
-.preheader.._crit_edge_crit_edge.i.i:             ; preds = %38
+.preheader.._crit_edge_crit_edge.i.i:             ; preds = %37
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2403
   br label %_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit
 
-.lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %37, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2403
   call fastcc void @_ZN4fish3ast11TokenStream13next_from_tok17hf85e69a0738936c5E(ptr noalias noundef align 4 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(152) %33)
-  %40 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2403, !noundef !4
-  %41 = load i64, ptr %34, align 8, !alias.scope !2403, !noundef !4
-  %42 = add i64 %41, %40
-  %43 = and i64 %42, 1
-  %44 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %35, i64 %43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  %39 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2403, !noundef !4
+  %40 = load i64, ptr %34, align 8, !alias.scope !2403, !noundef !4
+  %41 = add i64 %40, %39
+  %42 = and i64 %41, 1
+  %43 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %35, i64 %42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2403
-  %45 = add i64 %41, 1
-  store i64 %45, ptr %34, align 8, !alias.scope !2403
-  %.not.i.i7.not = icmp eq i64 %45, 0
+  %44 = add i64 %40, 1
+  store i64 %44, ptr %34, align 8, !alias.scope !2403
+  %.not.i.i7.not = icmp eq i64 %44, 0
   br i1 %.not.i.i7.not, label %.lr.ph.i.i, label %_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit
 
 _ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit: ; preds = %.lr.ph.i.i, %.preheader.._crit_edge_crit_edge.i.i
-  %46 = phi i64 [ %.pre.i.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %40, %.lr.ph.i.i ]
-  %47 = shl i64 %46, 4
-  %.idx = and i64 %47, 16
-  %48 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
+  %45 = phi i64 [ %.pre.i.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %39, %.lr.ph.i.i ]
+  %46 = and i64 %45, 1
+  %47 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 85
   %49 = load i8, ptr %48, align 1, !range !139, !noundef !4
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %52, label %51
@@ -24520,9 +24499,9 @@ _ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit: ; preds = %.lr.ph.i
   %58 = add i32 %57, %54
   %.sroa.03.1 = select i1 %56, i32 %54, i32 %.sroa.03.0
   %.sroa.45.1 = select i1 %56, i32 %55, i32 %58
-  br label %38
+  br label %37
 
-59:                                               ; preds = %51, %37
+59:                                               ; preds = %51, %36
   ret void
 }
 
@@ -50792,10 +50771,9 @@ define noundef zeroext i1 @"_ZN59_$LT$fish..ast..SemiNl$u20$as$u20$fish..ast..Ch
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %8, %.preheader.._crit_edge_crit_edge.i.i.i
   %15 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %9, %8 ]
-  %16 = shl i64 %15, 4
-  %.idx.i = and i64 %16, 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %16 = and i64 %15, 1
+  %17 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1, !range !331, !alias.scope !4532, !noundef !4
   store i8 %19, ptr %3, align 1
   %20 = call noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd951f0cadca120dfE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull readonly align 1 @anon.c3855246c02a9407b3365b2c3e5c0e37.467, i64 noundef 1)
@@ -50915,10 +50893,9 @@ define noundef zeroext i1 @"_ZN60_$LT$fish..ast..String_$u20$as$u20$fish..ast..C
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %8, %.preheader.._crit_edge_crit_edge.i.i.i
   %15 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %9, %8 ]
-  %16 = shl i64 %15, 4
-  %.idx.i = and i64 %16, 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %16 = and i64 %15, 1
+  %17 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1, !range !331, !alias.scope !4542, !noundef !4
   store i8 %19, ptr %3, align 1
   %20 = call noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd951f0cadca120dfE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull readonly align 1 @anon.c3855246c02a9407b3365b2c3e5c0e37.1242, i64 noundef 1)
@@ -51038,10 +51015,9 @@ define noundef zeroext i1 @"_ZN68_$LT$fish..ast..TokenBackground$u20$as$u20$fish
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %8, %.preheader.._crit_edge_crit_edge.i.i.i
   %15 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %9, %8 ]
-  %16 = shl i64 %15, 4
-  %.idx.i = and i64 %16, 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %16 = and i64 %15, 1
+  %17 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1, !range !331, !alias.scope !4552, !noundef !4
   store i8 %19, ptr %3, align 1
   %20 = call noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd951f0cadca120dfE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull readonly align 1 @anon.c3855246c02a9407b3365b2c3e5c0e37.559, i64 noundef 1)
@@ -51161,10 +51137,9 @@ define noundef zeroext i1 @"_ZN69_$LT$fish..ast..TokenConjunction$u20$as$u20$fis
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %8, %.preheader.._crit_edge_crit_edge.i.i.i
   %15 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %9, %8 ]
-  %16 = shl i64 %15, 4
-  %.idx.i = and i64 %16, 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %16 = and i64 %15, 1
+  %17 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1, !range !331, !alias.scope !4562, !noundef !4
   store i8 %19, ptr %3, align 1
   %20 = call noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd951f0cadca120dfE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull readonly align 1 @anon.c3855246c02a9407b3365b2c3e5c0e37.1249, i64 noundef 2)
@@ -51284,10 +51259,9 @@ define noundef zeroext i1 @"_ZN62_$LT$fish..ast..TokenPipe$u20$as$u20$fish..ast.
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %8, %.preheader.._crit_edge_crit_edge.i.i.i
   %15 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %9, %8 ]
-  %16 = shl i64 %15, 4
-  %.idx.i = and i64 %16, 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %16 = and i64 %15, 1
+  %17 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1, !range !331, !alias.scope !4572, !noundef !4
   store i8 %19, ptr %3, align 1
   %20 = call noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd951f0cadca120dfE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull readonly align 1 @anon.c3855246c02a9407b3365b2c3e5c0e37.1253, i64 noundef 1)
@@ -51407,10 +51381,9 @@ define noundef zeroext i1 @"_ZN67_$LT$fish..ast..TokenLeftBrace$u20$as$u20$fish.
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %8, %.preheader.._crit_edge_crit_edge.i.i.i
   %15 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %9, %8 ]
-  %16 = shl i64 %15, 4
-  %.idx.i = and i64 %16, 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %16 = and i64 %15, 1
+  %17 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1, !range !331, !alias.scope !4582, !noundef !4
   store i8 %19, ptr %3, align 1
   %20 = call noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd951f0cadca120dfE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull readonly align 1 @anon.c3855246c02a9407b3365b2c3e5c0e37.1257, i64 noundef 1)
@@ -51530,10 +51503,9 @@ define noundef zeroext i1 @"_ZN68_$LT$fish..ast..TokenRightBrace$u20$as$u20$fish
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %8, %.preheader.._crit_edge_crit_edge.i.i.i
   %15 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %9, %8 ]
-  %16 = shl i64 %15, 4
-  %.idx.i = and i64 %16, 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %16 = and i64 %15, 1
+  %17 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1, !range !331, !alias.scope !4592, !noundef !4
   store i8 %19, ptr %3, align 1
   %20 = call noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd951f0cadca120dfE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull readonly align 1 @anon.c3855246c02a9407b3365b2c3e5c0e37.1261, i64 noundef 1)
@@ -51653,10 +51625,9 @@ define noundef zeroext i1 @"_ZN69_$LT$fish..ast..TokenRedirection$u20$as$u20$fis
 
 _ZN4fish3ast9Populator9peek_type17h222aaddabc7f8283E.exit: ; preds = %8, %.preheader.._crit_edge_crit_edge.i.i.i
   %15 = phi i64 [ %.pre.i.i.i, %.preheader.._crit_edge_crit_edge.i.i.i ], [ %9, %8 ]
-  %16 = shl i64 %15, 4
-  %.idx.i = and i64 %16, 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %16 = and i64 %15, 1
+  %17 = getelementptr inbounds nuw { i32, i32, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1, !range !331, !alias.scope !4602, !noundef !4
   store i8 %19, ptr %3, align 1
   %20 = call noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd951f0cadca120dfE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull readonly align 1 @anon.c3855246c02a9407b3365b2c3e5c0e37.1265, i64 noundef 1)

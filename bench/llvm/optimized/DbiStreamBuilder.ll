@@ -233,20 +233,19 @@ define dso_local void @_ZN4llvm3pdb16DbiStreamBuilderC2ERNS_3msf10MSFBuilderE(pt
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm16BinaryByteStreamE, i64 16), ptr %21, align 8, !tbaa !103
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, i8 0, i64 64, i1 false)
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %2
-  %.idx.i = phi i64 [ 0, %2 ], [ %.add.i, %24 ]
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
-  %25 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 40
-  store i8 0, ptr %25, align 8, !tbaa !105
+23:                                               ; preds = %23, %2
+  %.idx.i = phi i64 [ 0, %2 ], [ %.add.i, %23 ]
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
+  %24 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 448
+  store i8 0, ptr %24, align 8, !tbaa !105
   %.add.i = add nuw nsw i64 %.idx.i, 48
-  %26 = icmp eq i64 %.add.i, 528
-  br i1 %26, label %_ZNSt5arrayISt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEELm11EEC2Ev.exit, label %24
+  %25 = icmp eq i64 %.add.i, 528
+  br i1 %25, label %_ZNSt5arrayISt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEELm11EEC2Ev.exit, label %23
 
-_ZNSt5arrayISt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEELm11EEC2Ev.exit: ; preds = %24
+_ZNSt5arrayISt8optionalIN4llvm3pdb16DbiStreamBuilder11DebugStreamEELm11EEC2Ev.exit: ; preds = %23
   ret void
 }
 

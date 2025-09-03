@@ -72,120 +72,118 @@ define dso_local i32 @sidtab_set_initial(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %5, label %.thread8, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr %struct.sidtab_isid_entry, ptr %7, i64 %8
-  %10 = getelementptr i8, ptr %9, i64 -112
-  %11 = getelementptr i8, ptr %9, i64 -104
-  %12 = getelementptr i8, ptr %9, i64 -96
-  %13 = load i32, ptr %2, align 8
-  store i32 %13, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %15 = load i32, ptr %14, align 4
-  %16 = getelementptr i8, ptr %9, i64 -92
-  store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load i32, ptr %17, align 8
-  %19 = getelementptr i8, ptr %9, i64 -88
-  store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %30, label %23
+  %7 = zext nneg i32 %1 to i64
+  %8 = getelementptr %struct.sidtab_isid_entry, ptr %0, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -24
+  %10 = getelementptr i8, ptr %8, i64 -16
+  %11 = getelementptr i8, ptr %8, i64 -8
+  %12 = load i32, ptr %2, align 8
+  store i32 %12, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = getelementptr i8, ptr %8, i64 -4
+  store i32 %14, ptr %15, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load i32, ptr %16, align 8
+  store i32 %17, ptr %8, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %28, label %21
 
-23:                                               ; preds = %6
-  %24 = tail call noalias ptr @kstrdup(ptr noundef nonnull %21, i32 noundef 2080) #13
-  %25 = getelementptr i8, ptr %9, i64 -32
-  store ptr %24, ptr %25, align 8
-  %26 = icmp eq ptr %24, null
-  br i1 %26, label %.thread8, label %27
+21:                                               ; preds = %6
+  %22 = tail call noalias ptr @kstrdup(ptr noundef nonnull %19, i32 noundef 2080) #13
+  %23 = getelementptr i8, ptr %8, i64 56
+  store ptr %22, ptr %23, align 8
+  %24 = icmp eq ptr %22, null
+  br i1 %24, label %.thread8, label %25
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %29 = load i32, ptr %28, align 4
-  br label %32
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %27 = load i32, ptr %26, align 4
+  br label %30
 
-30:                                               ; preds = %6
-  %31 = getelementptr i8, ptr %9, i64 -32
-  store ptr null, ptr %31, align 8
-  br label %32
+28:                                               ; preds = %6
+  %29 = getelementptr i8, ptr %8, i64 56
+  store ptr null, ptr %29, align 8
+  br label %30
 
-32:                                               ; preds = %30, %27
-  %33 = phi i32 [ 0, %30 ], [ %29, %27 ]
-  %34 = getelementptr i8, ptr %9, i64 -84
-  store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %36 = load i32, ptr %35, align 8
-  %37 = getelementptr i8, ptr %9, i64 -80
-  store i32 %36, ptr %37, align 8
-  %38 = getelementptr i8, ptr %9, i64 -72
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %40 = tail call i32 @ebitmap_cpy(ptr noundef %38, ptr noundef nonnull %39) #13
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %51
+30:                                               ; preds = %28, %25
+  %31 = phi i32 [ 0, %28 ], [ %27, %25 ]
+  %32 = getelementptr i8, ptr %8, i64 4
+  store i32 %31, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %34 = load i32, ptr %33, align 8
+  %35 = getelementptr i8, ptr %8, i64 8
+  store i32 %34, ptr %35, align 8
+  %36 = getelementptr i8, ptr %8, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %38 = tail call i32 @ebitmap_cpy(ptr noundef %36, ptr noundef nonnull %37) #13
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %49
 
-42:                                               ; preds = %32
-  %43 = getelementptr i8, ptr %2, i64 40
-  %44 = load i32, ptr %43, align 8
-  %45 = getelementptr i8, ptr %9, i64 -56
-  store i32 %44, ptr %45, align 8
-  %46 = getelementptr i8, ptr %9, i64 -48
-  %47 = getelementptr i8, ptr %2, i64 48
-  %48 = tail call i32 @ebitmap_cpy(ptr noundef %46, ptr noundef %47) #13
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %54, label %50
+40:                                               ; preds = %30
+  %41 = getelementptr i8, ptr %2, i64 40
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr i8, ptr %8, i64 32
+  store i32 %42, ptr %43, align 8
+  %44 = getelementptr i8, ptr %8, i64 40
+  %45 = getelementptr i8, ptr %2, i64 48
+  %46 = tail call i32 @ebitmap_cpy(ptr noundef %44, ptr noundef %45) #13
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %52, label %48
 
-50:                                               ; preds = %42
-  tail call void @ebitmap_destroy(ptr noundef %38) #13
-  br label %51
+48:                                               ; preds = %40
+  tail call void @ebitmap_destroy(ptr noundef %36) #13
+  br label %49
 
-51:                                               ; preds = %32, %50
-  %.ph = phi i32 [ %48, %50 ], [ %40, %32 ]
-  %52 = getelementptr i8, ptr %9, i64 -32
-  %53 = load ptr, ptr %52, align 8
-  tail call void @kfree(ptr noundef %53) #13
-  store ptr null, ptr %52, align 8
-  store i32 0, ptr %34, align 4
+49:                                               ; preds = %30, %48
+  %.ph = phi i32 [ %46, %48 ], [ %38, %30 ]
+  %50 = getelementptr i8, ptr %8, i64 56
+  %51 = load ptr, ptr %50, align 8
+  tail call void @kfree(ptr noundef %51) #13
+  store ptr null, ptr %50, align 8
+  store i32 0, ptr %32, align 4
   br label %.thread8
 
-54:                                               ; preds = %42
-  %55 = getelementptr i8, ptr %9, i64 -24
-  store ptr null, ptr %55, align 8
-  store i32 1, ptr %10, align 8
-  %56 = tail call i32 @context_compute_hash(ptr noundef %2) #13
-  %57 = tail call fastcc i32 @context_to_sid(ptr noundef %0, ptr noundef %2, i32 noundef %56)
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %.thread8
+52:                                               ; preds = %40
+  %53 = getelementptr i8, ptr %8, i64 64
+  store ptr null, ptr %53, align 8
+  store i32 1, ptr %9, align 8
+  %54 = tail call i32 @context_compute_hash(ptr noundef %2) #13
+  %55 = tail call fastcc i32 @context_to_sid(ptr noundef %0, ptr noundef %2, i32 noundef %54)
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %.thread8
 
-59:                                               ; preds = %54
-  store i32 %1, ptr %11, align 8
-  %60 = getelementptr i8, ptr %9, i64 -100
-  store i32 %56, ptr %60, align 4
-  %61 = getelementptr i8, ptr %9, i64 -16
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 3112
-  %63 = mul i32 %56, 1640531527
-  %64 = lshr i32 %63, 23
-  %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr %struct.hlist_head, ptr %62, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  store volatile ptr %67, ptr %61, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %71, label %69
+57:                                               ; preds = %52
+  store i32 %1, ptr %10, align 8
+  %58 = getelementptr i8, ptr %8, i64 -12
+  store i32 %54, ptr %58, align 4
+  %59 = getelementptr i8, ptr %8, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 3112
+  %61 = mul i32 %54, 1640531527
+  %62 = lshr i32 %61, 23
+  %63 = zext nneg i32 %62 to i64
+  %64 = getelementptr %struct.hlist_head, ptr %60, i64 %63
+  %65 = load ptr, ptr %64, align 8
+  store volatile ptr %65, ptr %59, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %69, label %67
 
-69:                                               ; preds = %59
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store volatile ptr %61, ptr %70, align 8
-  br label %71
+67:                                               ; preds = %57
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store volatile ptr %59, ptr %68, align 8
+  br label %69
 
-71:                                               ; preds = %69, %59
-  store volatile ptr %61, ptr %66, align 8
-  %72 = getelementptr i8, ptr %9, i64 -8
-  store volatile ptr %66, ptr %72, align 8
+69:                                               ; preds = %67, %57
+  store volatile ptr %59, ptr %64, align 8
+  %70 = getelementptr i8, ptr %8, i64 80
+  store volatile ptr %64, ptr %70, align 8
   br label %.thread8
 
-.thread8:                                         ; preds = %23, %51, %71, %54, %3
-  %73 = phi i32 [ -22, %3 ], [ 0, %71 ], [ 0, %54 ], [ -12, %23 ], [ %.ph, %51 ]
-  ret i32 %73
+.thread8:                                         ; preds = %21, %49, %69, %52, %3
+  %71 = phi i32 [ -22, %3 ], [ 0, %69 ], [ 0, %52 ], [ -12, %21 ], [ %.ph, %49 ]
+  ret i32 %71
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -470,40 +468,39 @@ define dso_local ptr @sidtab_search_entry(ptr noundef %0, i32 noundef %1) local_
 48:                                               ; preds = %.thread
   %49 = zext nneg i32 %13 to i64
   %50 = getelementptr %struct.sidtab_entry, ptr %46, i64 %49
-  br label %59
+  br label %58
 
 51:                                               ; preds = %4
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %53 = zext nneg i32 %1 to i64
-  %54 = getelementptr %struct.sidtab_isid_entry, ptr %52, i64 %53
-  %55 = getelementptr i8, ptr %54, i64 -112
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 0
-  %58 = getelementptr i8, ptr %54, i64 -104
-  br i1 %57, label %.thread6, label %59
+  %52 = zext nneg i32 %1 to i64
+  %53 = getelementptr %struct.sidtab_isid_entry, ptr %0, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 -24
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp eq i32 %55, 0
+  %57 = getelementptr i8, ptr %53, i64 -16
+  br i1 %56, label %.thread6, label %58
 
-59:                                               ; preds = %51, %48
-  %60 = phi ptr [ %58, %51 ], [ %50, %48 ]
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread6, label %62
+58:                                               ; preds = %51, %48
+  %59 = phi ptr [ %57, %51 ], [ %50, %48 ]
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %.thread6, label %61
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 20
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %71, label %.thread6
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 20
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %70, label %.thread6
 
-.thread6:                                         ; preds = %27, %51, %.thread, %6, %62, %59, %2
-  %66 = getelementptr i8, ptr %0, i64 312
-  %67 = load i32, ptr %66, align 8
-  %68 = icmp eq i32 %67, 0
-  %69 = getelementptr i8, ptr %0, i64 320
-  %70 = select i1 %68, ptr null, ptr %69
-  br label %71
+.thread6:                                         ; preds = %27, %51, %.thread, %6, %61, %58, %2
+  %65 = getelementptr i8, ptr %0, i64 312
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp eq i32 %66, 0
+  %68 = getelementptr i8, ptr %0, i64 320
+  %69 = select i1 %67, ptr null, ptr %68
+  br label %70
 
-71:                                               ; preds = %.thread6, %62
-  %72 = phi ptr [ %70, %.thread6 ], [ %60, %62 ]
-  ret ptr %72
+70:                                               ; preds = %.thread6, %61
+  %71 = phi ptr [ %69, %.thread6 ], [ %59, %61 ]
+  ret ptr %71
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -583,34 +580,33 @@ define dso_local ptr @sidtab_search_entry_force(ptr noundef %0, i32 noundef %1) 
 48:                                               ; preds = %.thread
   %49 = zext nneg i32 %13 to i64
   %50 = getelementptr %struct.sidtab_entry, ptr %46, i64 %49
-  br label %59
+  br label %58
 
 51:                                               ; preds = %4
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %53 = zext nneg i32 %1 to i64
-  %54 = getelementptr %struct.sidtab_isid_entry, ptr %52, i64 %53
-  %55 = getelementptr i8, ptr %54, i64 -112
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 0
-  %58 = getelementptr i8, ptr %54, i64 -104
-  br i1 %57, label %.thread6, label %59
+  %52 = zext nneg i32 %1 to i64
+  %53 = getelementptr %struct.sidtab_isid_entry, ptr %0, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 -24
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp eq i32 %55, 0
+  %57 = getelementptr i8, ptr %53, i64 -16
+  br i1 %56, label %.thread6, label %58
 
-59:                                               ; preds = %51, %48
-  %60 = phi ptr [ %58, %51 ], [ %50, %48 ]
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread6, label %67
+58:                                               ; preds = %51, %48
+  %59 = phi ptr [ %57, %51 ], [ %50, %48 ]
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %.thread6, label %66
 
-.thread6:                                         ; preds = %27, %51, %.thread, %6, %59, %2
-  %62 = getelementptr i8, ptr %0, i64 312
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp eq i32 %63, 0
-  %65 = getelementptr i8, ptr %0, i64 320
-  %66 = select i1 %64, ptr null, ptr %65
-  br label %67
+.thread6:                                         ; preds = %27, %51, %.thread, %6, %58, %2
+  %61 = getelementptr i8, ptr %0, i64 312
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp eq i32 %62, 0
+  %64 = getelementptr i8, ptr %0, i64 320
+  %65 = select i1 %63, ptr null, ptr %64
+  br label %66
 
-67:                                               ; preds = %.thread6, %59
-  %68 = phi ptr [ %66, %.thread6 ], [ %60, %59 ]
-  ret ptr %68
+66:                                               ; preds = %.thread6, %58
+  %67 = phi ptr [ %65, %.thread6 ], [ %59, %58 ]
+  ret ptr %67
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

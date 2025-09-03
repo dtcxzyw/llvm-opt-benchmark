@@ -2033,40 +2033,40 @@ _ZL21getPhysicalRegisterVTPN4llvm6SDNodeEjPKNS_15TargetInstrInfoE.exit.i: ; pred
   %873 = load i16, ptr %868, align 8, !tbaa !199
   %874 = zext i16 %873 to i64
   %875 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %868, i64 %874
-  %876 = getelementptr inbounds nuw i8, ptr %875, i64 32
-  %877 = load i16, ptr %871, align 4, !tbaa !230
-  %878 = zext i16 %877 to i64
-  %879 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %876, i64 %878
-  br label %883
+  %876 = load i16, ptr %871, align 4, !tbaa !230
+  %877 = zext i16 %876 to i64
+  %878 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %875, i64 %877
+  br label %882
 
 .lr.ph289.i.i:                                    ; preds = %841, %.lr.ph289.i.i
-  %.0186287.i.i = phi i32 [ %882, %.lr.ph289.i.i ], [ 0, %841 ]
-  %880 = load ptr, ptr %229, align 8, !tbaa !137
-  %881 = load ptr, ptr %741, align 8, !tbaa !136
-  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(952) %880, ptr %881, i32 %.0186287.i.i, ptr nonnull %844, i32 %.0186287.i.i) #20
-  %882 = add nuw nsw i32 %.0186287.i.i, 1
-  %.not199.i.i = icmp eq i32 %882, %848
+  %.0186287.i.i = phi i32 [ %881, %.lr.ph289.i.i ], [ 0, %841 ]
+  %879 = load ptr, ptr %229, align 8, !tbaa !137
+  %880 = load ptr, ptr %741, align 8, !tbaa !136
+  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(952) %879, ptr %880, i32 %.0186287.i.i, ptr nonnull %844, i32 %.0186287.i.i) #20
+  %881 = add nuw nsw i32 %.0186287.i.i, 1
+  %.not199.i.i = icmp eq i32 %881, %848
   br i1 %.not199.i.i, label %._crit_edge290.loopexit.i.i, label %.lr.ph289.i.i, !llvm.loop !231
 
-883:                                              ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i, %.lr.ph294.i.i
+882:                                              ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i, %.lr.ph294.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph294.i.i ], [ %indvars.iv.next.i.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i ]
-  %884 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %879, i64 %indvars.iv.i.i, i32 3
+  %883 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %878, i64 %indvars.iv.i.i
+  %884 = getelementptr inbounds nuw i8, ptr %883, i64 36
   %885 = load i16, ptr %884, align 2, !tbaa !232
   %886 = and i16 %885, 1
   %.not.i218.i.i = icmp eq i16 %886, 0
   br i1 %.not.i218.i.i, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.i.i
 
-_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.i.i: ; preds = %883
+_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.i.i: ; preds = %882
   %887 = getelementptr inbounds nuw i8, ptr %856, i64 248
   %888 = load i16, ptr %887, align 8
   %889 = or i16 %888, 8
   store i16 %889, ptr %887, align 8
   br label %.loopexit.i95.i
 
-_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i: ; preds = %883
+_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i: ; preds = %882
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not200.i.i = icmp eq i64 %indvars.iv.next.i.i, %872
-  br i1 %.not200.i.i, label %.loopexit.i95.i, label %883, !llvm.loop !234
+  br i1 %.not200.i.i, label %.loopexit.i95.i, label %882, !llvm.loop !234
 
 .loopexit.i95.i:                                  ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.i.i, %._crit_edge290.i.i
   %890 = getelementptr inbounds nuw i8, ptr %868, i64 16

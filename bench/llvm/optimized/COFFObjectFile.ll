@@ -7914,7 +7914,7 @@ _ZNK4llvm6object14COFFObjectFile14dynamic_relocsEv.exit: ; preds = %_ZNK4llvm6ob
 
 28:                                               ; preds = %.lr.ph121, %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit
   %.0.copyload.i.i.i.i.i62127 = phi i32 [ %.0.copyload.i.i.i.i.pre, %.lr.ph121 ], [ %.0.copyload.i.i.i.i.i62, %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit ]
-  %29 = phi ptr [ %19, %.lr.ph121 ], [ %139, %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit ]
+  %29 = phi ptr [ %19, %.lr.ph121 ], [ %141, %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit ]
   %.sroa.099.0120 = phi ptr [ null, %.lr.ph121 ], [ %.sroa.099.1, %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit ]
   %.sroa.592.0119 = phi ptr [ %20, %.lr.ph121 ], [ %.sroa.592.1, %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit ]
   call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
@@ -8090,7 +8090,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %59
     i8 0, label %84
     i8 1, label %91
     i8 2, label %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit58
-    i8 3, label %112
+    i8 3, label %114
   ]
 
 84:                                               ; preds = %80
@@ -8110,141 +8110,143 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %59
 _ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit:  ; preds = %84, %86
   %.0.i38 = phi i64 [ %90, %86 ], [ 4, %84 ]
   call void @llvm.memset.p0.i64(ptr align 1 %.0, i8 0, i64 %.0.i38, i1 false)
-  br label %112
+  br label %114
 
 91:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  %92 = getelementptr inbounds nuw i8, ptr %62, i64 2
+  %92 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral.1", ptr %.sroa.076.0115, i64 %61
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 10
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   store i64 0, ptr %.sroa.0.i, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
-  %93 = and i16 %.0.copyload.i.i.i.i.i39, 8192
-  %switch.not.not.i.i = icmp eq i16 %93, 0
-  br i1 %switch.not.not.i.i, label %94, label %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit
+  %94 = and i16 %.0.copyload.i.i.i.i.i39, 8192
+  %switch.not.not.i.i = icmp eq i16 %94, 0
+  br i1 %switch.not.not.i.i, label %95, label %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit
 
-94:                                               ; preds = %91
+95:                                               ; preds = %91
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
-  %95 = lshr i16 %.0.copyload.i.i.i.i.i39, 14
-  %96 = trunc nuw nsw i16 %95 to i8
-  %97 = shl nuw nsw i8 1, %96
-  %98 = zext nneg i8 %97 to i64
+  %96 = lshr i16 %.0.copyload.i.i.i.i.i39, 14
+  %97 = trunc nuw nsw i16 %96 to i8
+  %98 = shl nuw nsw i8 1, %97
+  %99 = zext nneg i8 %98 to i64
   br label %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit
 
-_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit: ; preds = %91, %94
-  %.0.i.i42 = phi i64 [ %98, %94 ], [ 4, %91 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i, ptr nonnull align 1 %92, i64 %.0.i.i42, i1 false)
+_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit: ; preds = %91, %95
+  %.0.i.i42 = phi i64 [ %99, %95 ], [ 4, %91 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i, ptr nonnull align 1 %93, i64 %.0.i.i42, i1 false)
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..0.copyload.i.i.i.i = load i64, ptr %.sroa.0.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   store i64 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..0.copyload.i.i.i.i, ptr %.sroa.0, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   %.0.copyload.i.i.i.i.i43 = load i16, ptr %62, align 1
-  %99 = and i16 %.0.copyload.i.i.i.i.i43, 8192
-  %switch.not.not.i44 = icmp eq i16 %99, 0
-  br i1 %switch.not.not.i44, label %100, label %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit46
+  %100 = and i16 %.0.copyload.i.i.i.i.i43, 8192
+  %switch.not.not.i44 = icmp eq i16 %100, 0
+  br i1 %switch.not.not.i44, label %101, label %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit46
 
-100:                                              ; preds = %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit
+101:                                              ; preds = %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
-  %101 = lshr i16 %.0.copyload.i.i.i.i.i43, 14
-  %102 = trunc nuw nsw i16 %101 to i8
-  %103 = shl nuw nsw i8 1, %102
-  %104 = zext nneg i8 %103 to i64
+  %102 = lshr i16 %.0.copyload.i.i.i.i.i43, 14
+  %103 = trunc nuw nsw i16 %102 to i8
+  %104 = shl nuw nsw i8 1, %103
+  %105 = zext nneg i8 %104 to i64
   br label %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit46
 
-_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit46: ; preds = %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit, %100
-  %.0.i45 = phi i64 [ %104, %100 ], [ 4, %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit ]
+_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit46: ; preds = %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit, %101
+  %.0.i45 = phi i64 [ %105, %101 ], [ 4, %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr nonnull align 8 %.sroa.0, i64 %.0.i45, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  br label %112
+  br label %114
 
 _ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit58: ; preds = %80
-  %105 = getelementptr inbounds nuw i8, ptr %62, i64 2
+  %106 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral.1", ptr %.sroa.076.0115, i64 %61
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 10
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %105, i64 1) ]
-  %.0.copyload.i.i.i11.i49 = load i16, ptr %105, align 1
-  %106 = zext i16 %.0.copyload.i.i.i11.i49 to i32
-  %107 = and i16 %.0.copyload.i.i.i.i.i39, 16384
-  %.not.i50 = icmp eq i16 %107, 0
-  %108 = sub nsw i32 0, %106
-  %spec.select.i51 = select i1 %.not.i50, i32 %106, i32 %108
+  call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 1) ]
+  %.0.copyload.i.i.i11.i49 = load i16, ptr %107, align 1
+  %108 = zext i16 %.0.copyload.i.i.i11.i49 to i32
+  %109 = and i16 %.0.copyload.i.i.i.i.i39, 16384
+  %.not.i50 = icmp eq i16 %109, 0
+  %110 = sub nsw i32 0, %108
+  %spec.select.i51 = select i1 %.not.i50, i32 %108, i32 %110
   %.not9.i52 = icmp sgt i16 %.0.copyload.i.i.i.i.i39, -1
-  %109 = select i1 %.not9.i52, i32 2, i32 3
-  %110 = shl nsw i32 %spec.select.i51, %109
+  %111 = select i1 %.not9.i52, i32 2, i32 3
+  %112 = shl nsw i32 %spec.select.i51, %111
   call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 1) ]
   %.0.copyload.i.i.i.i59 = load i32, ptr %.0, align 1
-  %111 = add i32 %110, %.0.copyload.i.i.i.i59
+  %113 = add i32 %112, %.0.copyload.i.i.i.i59
   call void @llvm.assume(i1 true) [ "align"(ptr %.0, i64 1) ]
-  store i32 %111, ptr %.0, align 1
-  br label %112
+  store i32 %113, ptr %.0, align 1
+  br label %114
 
 default.unreachable:                              ; preds = %80
   unreachable
 
-112:                                              ; preds = %80, %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit58, %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit46, %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit
+114:                                              ; preds = %80, %_ZNK4llvm6object14Arm64XRelocRef8getValueEv.exit58, %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit46, %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i16, ptr %62, align 1
-  %113 = lshr i16 %.0.copyload.i.i.i.i.i.i.i, 12
-  %114 = trunc nuw nsw i16 %113 to i8
-  %115 = and i8 %114, 3
-  switch i8 %115, label %123 [
-    i8 1, label %116
+  %115 = lshr i16 %.0.copyload.i.i.i.i.i.i.i, 12
+  %116 = trunc nuw nsw i16 %115 to i8
+  %117 = and i8 %116, 3
+  switch i8 %117, label %125 [
+    i8 1, label %118
     i8 2, label %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i
   ]
 
-116:                                              ; preds = %112
+118:                                              ; preds = %114
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
-  %117 = lshr i16 %.0.copyload.i.i.i.i.i.i.i, 14
-  %118 = trunc nuw nsw i16 %117 to i8
-  %119 = shl nuw nsw i8 1, %118
-  %120 = lshr i8 %119, 1
-  %121 = add nuw nsw i8 %120, 1
-  %122 = zext nneg i8 %121 to i32
+  %119 = lshr i16 %.0.copyload.i.i.i.i.i.i.i, 14
+  %120 = trunc nuw nsw i16 %119 to i8
+  %121 = shl nuw nsw i8 1, %120
+  %122 = lshr i8 %121, 1
+  %123 = add nuw nsw i8 %122, 1
+  %124 = zext nneg i8 %123 to i32
   br label %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i
 
-123:                                              ; preds = %112
+125:                                              ; preds = %114
   br label %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i
 
-_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i: ; preds = %123, %116, %112
-  %.0.i.i.i = phi i32 [ 1, %123 ], [ %122, %116 ], [ 2, %112 ]
-  %124 = add i32 %.0.i.i.i, %.sroa.7.0116
-  %125 = zext i32 %124 to i64
-  %126 = shl nuw nsw i64 %125, 1
-  %127 = add nuw nsw i64 %126, 8
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.076.0115, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 1) ]
-  %.0.copyload.i.i.i.i.i60 = load i32, ptr %128, align 1
-  %129 = zext i32 %.0.copyload.i.i.i.i.i60 to i64
-  %130 = icmp samesign ult i64 %127, %129
-  br i1 %130, label %131, label %_ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit
+_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i: ; preds = %125, %118, %114
+  %.0.i.i.i = phi i32 [ 1, %125 ], [ %124, %118 ], [ 2, %114 ]
+  %126 = add i32 %.0.i.i.i, %.sroa.7.0116
+  %127 = zext i32 %126 to i64
+  %128 = shl nuw nsw i64 %127, 1
+  %129 = add nuw nsw i64 %128, 8
+  %130 = getelementptr inbounds nuw i8, ptr %.sroa.076.0115, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %130, i64 1) ]
+  %.0.copyload.i.i.i.i.i60 = load i32, ptr %130, align 1
+  %131 = zext i32 %.0.copyload.i.i.i.i.i60 to i64
+  %132 = icmp samesign ult i64 %129, %131
+  br i1 %132, label %133, label %_ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit
 
-131:                                              ; preds = %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i
-  %132 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral.1", ptr %60, i64 %125
-  call void @llvm.assume(i1 true) [ "align"(ptr %132, i64 1) ]
-  %.0.copyload.i.i.i1.i.i = load i16, ptr %132, align 1
+133:                                              ; preds = %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i
+  %134 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral.1", ptr %60, i64 %127
+  call void @llvm.assume(i1 true) [ "align"(ptr %134, i64 1) ]
+  %.0.copyload.i.i.i1.i.i = load i16, ptr %134, align 1
   %.not.i.i61 = icmp eq i16 %.0.copyload.i.i.i1.i.i, 0
-  br i1 %.not.i.i61, label %133, label %_ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit
+  br i1 %.not.i.i61, label %135, label %_ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit
 
-133:                                              ; preds = %131
-  %134 = add i32 %124, 1
-  %.pre.i.i = zext i32 %134 to i64
+135:                                              ; preds = %133
+  %136 = add i32 %126, 1
+  %.pre.i.i = zext i32 %136 to i64
   %.pre4.i.i = shl nuw nsw i64 %.pre.i.i, 1
   %.pre6.i.i = add nuw nsw i64 %.pre4.i.i, 8
   br label %_ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit
 
-_ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit: ; preds = %133, %131, %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i
-  %.sroa.7.1 = phi i32 [ %134, %133 ], [ %124, %131 ], [ %124, %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i ]
-  %.pre-phi7.i.i = phi i64 [ %.pre6.i.i, %133 ], [ %127, %131 ], [ %127, %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i ]
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %133 ], [ %125, %131 ], [ %125, %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 1) ]
-  %135 = icmp eq i64 %.pre-phi7.i.i, %129
-  %136 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral.1", ptr %60, i64 %.pre-phi.i.i
-  %.sroa.076.1 = select i1 %135, ptr %136, ptr %.sroa.076.0115
-  %.sroa.7.2 = select i1 %135, i32 0, i32 %.sroa.7.1
-  %137 = icmp ne ptr %.sroa.076.1, %52
-  %138 = icmp ne i32 %.sroa.7.2, 0
-  %.not3.i = or i1 %137, %138
+_ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit: ; preds = %135, %133, %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i
+  %.sroa.7.1 = phi i32 [ %136, %135 ], [ %126, %133 ], [ %126, %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i ]
+  %.pre-phi7.i.i = phi i64 [ %.pre6.i.i, %135 ], [ %129, %133 ], [ %129, %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i ]
+  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %135 ], [ %127, %133 ], [ %127, %_ZNK4llvm6object14Arm64XRelocRef12getEntrySizeEv.exit.i.i ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %130, i64 1) ]
+  %137 = icmp eq i64 %.pre-phi7.i.i, %131
+  %138 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral.1", ptr %60, i64 %.pre-phi.i.i
+  %.sroa.076.1 = select i1 %137, ptr %138, ptr %.sroa.076.0115
+  %.sroa.7.2 = select i1 %137, i32 0, i32 %.sroa.7.1
+  %139 = icmp ne ptr %.sroa.076.1, %52
+  %140 = icmp ne i32 %.sroa.7.2, 0
+  %.not3.i = or i1 %139, %140
   br i1 %.not3.i, label %.lr.ph, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %_ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit
@@ -8254,50 +8256,50 @@ _ZN4llvm6object16content_iteratorINS0_14Arm64XRelocRefEEppEv.exit: ; preds = %13
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit, %_ZNK4llvm6object15DynamicRelocRef7getTypeEv.exit
   %.0.copyload.i.i.i.i.i62 = phi i32 [ %.0.copyload.i.i.i.i.i62127, %_ZNK4llvm6object15DynamicRelocRef7getTypeEv.exit ], [ %.0.copyload.i.i.i.i.i62127, %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit ], [ %.0.copyload.i.i.i.i.i62.pre, %.loopexit.loopexit ]
-  %139 = phi ptr [ %29, %_ZNK4llvm6object15DynamicRelocRef7getTypeEv.exit ], [ %29, %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit ], [ %.pre, %.loopexit.loopexit ]
+  %141 = phi ptr [ %29, %_ZNK4llvm6object15DynamicRelocRef7getTypeEv.exit ], [ %29, %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit ], [ %.pre, %.loopexit.loopexit ]
   %.sroa.099.1 = phi ptr [ %.sroa.099.0120, %_ZNK4llvm6object15DynamicRelocRef7getTypeEv.exit ], [ %.sroa.099.0120, %_ZNK4llvm6object15DynamicRelocRef13arm64x_relocsEv.exit ], [ %.sroa.099.3, %.loopexit.loopexit ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %139, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %141, i64 1) ]
   switch i32 %.0.copyload.i.i.i.i.i62, label %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit [
-    i32 1, label %140
-    i32 2, label %152
+    i32 1, label %142
+    i32 2, label %154
   ]
 
-140:                                              ; preds = %.loopexit
-  %141 = load ptr, ptr %24, align 8, !tbaa !58
-  %.not13.i.i = icmp eq ptr %141, null
-  br i1 %.not13.i.i, label %147, label %142
+142:                                              ; preds = %.loopexit
+  %143 = load ptr, ptr %24, align 8, !tbaa !58
+  %.not13.i.i = icmp eq ptr %143, null
+  br i1 %.not13.i.i, label %149, label %144
 
-142:                                              ; preds = %140
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %143, i64 1) ]
-  %.0.copyload.i.i.i7.i.i = load i32, ptr %143, align 1
-  %144 = zext i32 %.0.copyload.i.i.i7.i.i to i64
-  %145 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 %144
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 12
+144:                                              ; preds = %142
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %145, i64 1) ]
+  %.0.copyload.i.i.i7.i.i = load i32, ptr %145, align 1
+  %146 = zext i32 %.0.copyload.i.i.i7.i.i to i64
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 %146
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 12
   br label %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit
 
-147:                                              ; preds = %140
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %148, i64 1) ]
-  %.0.copyload.i.i.i8.i.i = load i32, ptr %148, align 1
-  %149 = zext i32 %.0.copyload.i.i.i8.i.i to i64
-  %150 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 %149
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+149:                                              ; preds = %142
+  %150 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %150, i64 1) ]
+  %.0.copyload.i.i.i8.i.i = load i32, ptr %150, align 1
+  %151 = zext i32 %.0.copyload.i.i.i8.i.i to i64
+  %152 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 %151
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   br label %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit
 
-152:                                              ; preds = %.loopexit
+154:                                              ; preds = %.loopexit
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.592.0119, i64 1) ]
   %.0.copyload.i.i.i11.i.i = load i32, ptr %.sroa.592.0119, align 1
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %153, i64 1) ]
-  %.0.copyload.i.i.i12.i.i = load i32, ptr %153, align 1
-  %154 = add i32 %.0.copyload.i.i.i12.i.i, %.0.copyload.i.i.i11.i.i
-  %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 %155
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %155, i64 1) ]
+  %.0.copyload.i.i.i12.i.i = load i32, ptr %155, align 1
+  %156 = add i32 %.0.copyload.i.i.i12.i.i, %.0.copyload.i.i.i11.i.i
+  %157 = zext i32 %156 to i64
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.592.0119, i64 %157
   br label %_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit
 
-_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit: ; preds = %.loopexit, %142, %147, %152
-  %.sroa.592.1 = phi ptr [ %.sroa.592.0119, %.loopexit ], [ %151, %147 ], [ %146, %142 ], [ %156, %152 ]
+_ZN4llvm6object16content_iteratorINS0_15DynamicRelocRefEEppEv.exit: ; preds = %.loopexit, %144, %149, %154
+  %.sroa.592.1 = phi ptr [ %.sroa.592.0119, %.loopexit ], [ %153, %149 ], [ %148, %144 ], [ %158, %154 ]
   %.not111 = icmp eq ptr %.sroa.592.1, %23
   br i1 %.not111, label %_ZNK4llvm6object14COFFObjectFile10getMachineEv.exit.thread108, label %28
 
@@ -8489,62 +8491,63 @@ define dso_local noundef zeroext range(i8 1, 9) i8 @_ZNK4llvm6object14Arm64XRelo
 define dso_local noundef i64 @_ZNK4llvm6object14Arm64XRelocRef8getValueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #16 align 2 {
   %.sroa.0 = alloca i64, align 8
   %2 = load ptr, ptr %0, align 8, !tbaa !501
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !503
-  %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral.1", ptr %3, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
-  %.0.copyload.i.i.i.i = load i16, ptr %7, align 1
-  %9 = lshr i16 %.0.copyload.i.i.i.i, 12
-  %10 = trunc nuw nsw i16 %9 to i8
-  %11 = and i8 %10, 3
-  switch i8 %11, label %26 [
-    i8 1, label %12
-    i8 2, label %19
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8, !tbaa !503
+  %5 = zext i32 %4 to i64
+  %6 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral.1", ptr %2, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral.1", ptr %8, i64 %5
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
+  %.0.copyload.i.i.i.i = load i16, ptr %9, align 1
+  %10 = lshr i16 %.0.copyload.i.i.i.i, 12
+  %11 = trunc nuw nsw i16 %10 to i8
+  %12 = and i8 %11, 3
+  switch i8 %12, label %27 [
+    i8 1, label %13
+    i8 2, label %20
   ]
 
-12:                                               ; preds = %1
+13:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store i64 0, ptr %.sroa.0, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
-  %13 = and i16 %.0.copyload.i.i.i.i, 8192
-  %switch.not.not.i = icmp eq i16 %13, 0
-  br i1 %switch.not.not.i, label %14, label %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
+  %14 = and i16 %.0.copyload.i.i.i.i, 8192
+  %switch.not.not.i = icmp eq i16 %14, 0
+  br i1 %switch.not.not.i, label %15, label %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit
 
-14:                                               ; preds = %12
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
-  %15 = lshr i16 %.0.copyload.i.i.i.i, 14
-  %16 = trunc nuw nsw i16 %15 to i8
-  %17 = shl nuw nsw i8 1, %16
-  %18 = zext nneg i8 %17 to i64
+15:                                               ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
+  %16 = lshr i16 %.0.copyload.i.i.i.i, 14
+  %17 = trunc nuw nsw i16 %16 to i8
+  %18 = shl nuw nsw i8 1, %17
+  %19 = zext nneg i8 %18 to i64
   br label %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit
 
-_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit:  ; preds = %12, %14
-  %.0.i = phi i64 [ %18, %14 ], [ 4, %12 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0, ptr nonnull align 1 %8, i64 %.0.i, i1 false)
+_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit:  ; preds = %13, %15
+  %.0.i = phi i64 [ %19, %15 ], [ 4, %13 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0, ptr nonnull align 1 %7, i64 %.0.i, i1 false)
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..0.copyload.i.i.i = load i64, ptr %.sroa.0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  br label %26
+  br label %27
 
-19:                                               ; preds = %1
+20:                                               ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
-  %.0.copyload.i.i.i11 = load i16, ptr %8, align 1
-  %20 = zext i16 %.0.copyload.i.i.i11 to i32
-  %21 = and i16 %.0.copyload.i.i.i.i, 16384
-  %.not = icmp eq i16 %21, 0
-  %22 = sub nsw i32 0, %20
-  %spec.select = select i1 %.not, i32 %20, i32 %22
+  %.0.copyload.i.i.i11 = load i16, ptr %7, align 1
+  %21 = zext i16 %.0.copyload.i.i.i11 to i32
+  %22 = and i16 %.0.copyload.i.i.i.i, 16384
+  %.not = icmp eq i16 %22, 0
+  %23 = sub nsw i32 0, %21
+  %spec.select = select i1 %.not, i32 %21, i32 %23
   %.not9 = icmp sgt i16 %.0.copyload.i.i.i.i, -1
-  %23 = select i1 %.not9, i32 2, i32 3
-  %24 = shl nsw i32 %spec.select, %23
-  %25 = sext i32 %24 to i64
-  br label %26
+  %24 = select i1 %.not9, i32 2, i32 3
+  %25 = shl nsw i32 %spec.select, %24
+  %26 = sext i32 %25 to i64
+  br label %27
 
-26:                                               ; preds = %1, %19, %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit
-  %.08 = phi i64 [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..0.copyload.i.i.i, %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit ], [ %25, %19 ], [ 0, %1 ]
+27:                                               ; preds = %1, %20, %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit
+  %.08 = phi i64 [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..0.copyload.i.i.i, %_ZNK4llvm6object14Arm64XRelocRef7getSizeEv.exit ], [ %26, %20 ], [ 0, %1 ]
   ret i64 %.08
 }
 

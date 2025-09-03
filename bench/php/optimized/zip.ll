@@ -1096,44 +1096,44 @@ zend_string_free.exit:                            ; preds = %449, %455, %456
   br label %.thread1683
 
 490:                                              ; preds = %zend_string_alloc.exit
-  %491 = getelementptr inbounds nuw i8, ptr %448, i64 24
-  %492 = getelementptr i8, ptr %491, i64 %432
-  %493 = getelementptr i8, ptr %492, i64 -1
-  %494 = load i8, ptr %493, align 1, !tbaa !5
-  %495 = icmp eq i8 %494, 47
-  %496 = load i16, ptr %192, align 2
-  br i1 %495, label %497, label %507
+  %491 = getelementptr i8, ptr %448, i64 %432
+  %492 = getelementptr i8, ptr %491, i64 23
+  %493 = load i8, ptr %492, align 1, !tbaa !5
+  %494 = icmp eq i8 %493, 47
+  %495 = load i16, ptr %192, align 2
+  br i1 %494, label %496, label %506
 
-497:                                              ; preds = %490
-  %498 = or i16 %496, 8
-  store i16 %498, ptr %192, align 2
+496:                                              ; preds = %490
+  %497 = or i16 %495, 8
+  store i16 %497, ptr %192, align 2
   %.not1352 = icmp eq i16 %395, 1
-  br i1 %.not1352, label %504, label %499
+  br i1 %.not1352, label %503, label %498
 
-499:                                              ; preds = %497
-  %500 = add nsw i32 %431, -1
-  %501 = getelementptr inbounds nuw i8, ptr %448, i64 16
-  %502 = load i64, ptr %501, align 8, !tbaa !55
-  %503 = add i64 %502, -1
-  store i64 %503, ptr %501, align 8, !tbaa !55
-  br label %504
+498:                                              ; preds = %496
+  %499 = add nsw i32 %431, -1
+  %500 = getelementptr inbounds nuw i8, ptr %448, i64 16
+  %501 = load i64, ptr %500, align 8, !tbaa !55
+  %502 = add i64 %501, -1
+  store i64 %502, ptr %500, align 8, !tbaa !55
+  br label %503
 
-504:                                              ; preds = %499, %497
-  %.01194 = phi i32 [ %500, %499 ], [ 1, %497 ]
-  %505 = load i32, ptr %214, align 8, !tbaa !50
-  %506 = or i32 %505, 511
-  store i32 %506, ptr %214, align 8, !tbaa !50
-  br label %509
+503:                                              ; preds = %498, %496
+  %.01194 = phi i32 [ %499, %498 ], [ 1, %496 ]
+  %504 = load i32, ptr %214, align 8, !tbaa !50
+  %505 = or i32 %504, 511
+  store i32 %505, ptr %214, align 8, !tbaa !50
+  br label %508
 
-507:                                              ; preds = %490
-  %508 = and i16 %496, -9
-  store i16 %508, ptr %192, align 2
-  br label %509
+506:                                              ; preds = %490
+  %507 = and i16 %495, -9
+  store i16 %507, ptr %192, align 2
+  br label %508
 
-509:                                              ; preds = %507, %504
-  %.11195 = phi i32 [ %.01194, %504 ], [ %431, %507 ]
+508:                                              ; preds = %506, %503
+  %.11195 = phi i32 [ %.01194, %503 ], [ %431, %506 ]
+  %509 = getelementptr inbounds nuw i8, ptr %448, i64 24
   %510 = zext nneg i32 %.11195 to i64
-  %511 = getelementptr inbounds nuw i8, ptr %491, i64 %510
+  %511 = getelementptr inbounds nuw i8, ptr %509, i64 %510
   store i8 0, ptr %511, align 1, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %512 = load i16, ptr %192, align 2
@@ -1141,7 +1141,7 @@ zend_string_free.exit:                            ; preds = %449, %455, %456
   %.not1353 = icmp eq i16 %513, 0
   br i1 %.not1353, label %514, label %615
 
-514:                                              ; preds = %509
+514:                                              ; preds = %508
   %515 = call i64 @_php_stream_tell(ptr noundef %0) #16
   %516 = load i64, ptr %216, align 8, !tbaa !51
   %517 = call i32 @_php_stream_seek(ptr noundef %0, i64 noundef %516, i32 noundef 0) #16
@@ -1373,7 +1373,7 @@ zend_string_free.exit1592:                        ; preds = %568, %574, %575
   %614 = add i64 %613, %611
   br label %625
 
-615:                                              ; preds = %509
+615:                                              ; preds = %508
   %616 = load i64, ptr %216, align 8, !tbaa !51
   %617 = add i64 %616, 30
   %618 = load ptr, ptr %220, align 8, !tbaa !56

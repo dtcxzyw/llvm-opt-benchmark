@@ -2399,115 +2399,114 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -512, 1) i32 @wq_sleep(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %narrow = mul nuw nsw i32 %1, 40
-  %6 = zext nneg i32 %narrow to i64
-  %7 = getelementptr i8, ptr %5, i64 %6
-  %8 = getelementptr i8, ptr %7, i64 8
-  br label %9
+  %5 = zext nneg i32 %narrow to i64
+  %6 = getelementptr i8, ptr %0, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 840
+  br label %8
 
-9:                                                ; preds = %13, %4
-  %10 = phi ptr [ %8, %4 ], [ %11, %13 ]
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %8
-  br i1 %12, label %28, label %13
+8:                                                ; preds = %12, %4
+  %9 = phi ptr [ %7, %4 ], [ %10, %12 ]
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, %7
+  br i1 %11, label %27, label %12
 
-13:                                               ; preds = %9
-  %14 = getelementptr i8, ptr %11, i64 -8
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 108
-  %17 = load i32, ptr %16, align 4
-  %18 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !7
-  %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 108
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp sgt i32 %17, %21
-  br i1 %22, label %9, label %23, !llvm.loop !15
+12:                                               ; preds = %8
+  %13 = getelementptr i8, ptr %10, i64 -8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 108
+  %16 = load i32, ptr %15, align 4
+  %17 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !7
+  %18 = inttoptr i64 %17 to ptr
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 108
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp sgt i32 %16, %20
+  br i1 %21, label %8, label %22, !llvm.loop !15
 
-23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %26 = load ptr, ptr %25, align 8
-  store ptr %24, ptr %25, align 8
-  store ptr %11, ptr %24, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %26, ptr %27, align 8
-  store volatile ptr %24, ptr %26, align 8
-  br label %33
+22:                                               ; preds = %12
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %25 = load ptr, ptr %24, align 8
+  store ptr %23, ptr %24, align 8
+  store ptr %10, ptr %23, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %25, ptr %26, align 8
+  store volatile ptr %23, ptr %25, align 8
+  br label %32
 
-28:                                               ; preds = %9
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %30 = getelementptr i8, ptr %7, i64 16
-  %31 = load ptr, ptr %30, align 8
-  store ptr %29, ptr %30, align 8
-  store ptr %8, ptr %29, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %31, ptr %32, align 8
-  store volatile ptr %29, ptr %31, align 8
-  br label %33
+27:                                               ; preds = %8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %29 = getelementptr i8, ptr %6, i64 848
+  %30 = load ptr, ptr %29, align 8
+  store ptr %28, ptr %29, align 8
+  store ptr %7, ptr %28, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %30, ptr %31, align 8
+  store volatile ptr %28, ptr %30, align 8
+  br label %32
 
-33:                                               ; preds = %28, %23
-  %34 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !7
-  %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br label %38
+32:                                               ; preds = %27, %22
+  %33 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !7
+  %34 = inttoptr i64 %33 to ptr
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br label %37
 
-38:                                               ; preds = %54, %33
-  store volatile i32 1, ptr %36, align 8
+37:                                               ; preds = %53, %32
+  store volatile i32 1, ptr %35, align 8
   tail call void @_raw_spin_unlock(ptr noundef %0) #15
-  %39 = tail call i32 @schedule_hrtimeout_range_clock(ptr noundef %2, i64 noundef 0, i32 noundef 0, i32 noundef 0) #15
-  %40 = load volatile i32, ptr %37, align 8
-  %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %43
+  %38 = tail call i32 @schedule_hrtimeout_range_clock(ptr noundef %2, i64 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %39 = load volatile i32, ptr %36, align 8
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %41, label %42
 
-42:                                               ; preds = %38
+41:                                               ; preds = %37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
-  br label %63
+  br label %62
 
-43:                                               ; preds = %38
+42:                                               ; preds = %37
   tail call void @_raw_spin_lock(ptr noundef %0) #15
-  %44 = load volatile i32, ptr %37, align 8
-  %45 = icmp eq i32 %44, 1
-  br i1 %45, label %.loopexit, label %46
+  %43 = load volatile i32, ptr %36, align 8
+  %44 = icmp eq i32 %43, 1
+  br i1 %44, label %.loopexit, label %45
 
-46:                                               ; preds = %43
-  %47 = load volatile i64, ptr %35, align 8
-  %48 = and i64 %47, 131072
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %.critedge, !prof !11
+45:                                               ; preds = %42
+  %46 = load volatile i64, ptr %34, align 8
+  %47 = and i64 %46, 131072
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %49, label %.critedge, !prof !11
 
-50:                                               ; preds = %46
-  %51 = load volatile i64, ptr %35, align 8
-  %52 = and i64 %51, 4
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %54, label %.critedge
+49:                                               ; preds = %45
+  %50 = load volatile i64, ptr %34, align 8
+  %51 = and i64 %50, 4
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %53, label %.critedge
 
-54:                                               ; preds = %50
-  %55 = icmp eq i32 %39, 0
-  br i1 %55, label %.critedge, label %38, !llvm.loop !19
+53:                                               ; preds = %49
+  %54 = icmp eq i32 %38, 0
+  br i1 %54, label %.critedge, label %37, !llvm.loop !19
 
-.critedge:                                        ; preds = %46, %54, %50
-  %56 = phi i32 [ -512, %50 ], [ -110, %54 ], [ -512, %46 ]
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %57, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %59, ptr %61, align 8
-  store volatile ptr %60, ptr %59, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %57, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %58, align 8
+.critedge:                                        ; preds = %45, %53, %49
+  %55 = phi i32 [ -512, %49 ], [ -110, %53 ], [ -512, %45 ]
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %56, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store ptr %58, ptr %60, align 8
+  store volatile ptr %59, ptr %58, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %56, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %57, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %43, %.critedge
-  %62 = phi i32 [ %56, %.critedge ], [ 0, %43 ]
+.loopexit:                                        ; preds = %42, %.critedge
+  %61 = phi i32 [ %55, %.critedge ], [ 0, %42 ]
   tail call void @_raw_spin_unlock(ptr noundef %0) #15
-  br label %63
+  br label %62
 
-63:                                               ; preds = %.loopexit, %42
-  %64 = phi i32 [ 0, %42 ], [ %62, %.loopexit ]
-  ret i32 %64
+62:                                               ; preds = %.loopexit, %41
+  %63 = phi i32 [ 0, %41 ], [ %61, %.loopexit ]
+  ret i32 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

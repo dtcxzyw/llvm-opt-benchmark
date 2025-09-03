@@ -9015,7 +9015,7 @@ define void @_ZN6LibRaw22quicktake_100_load_rawEv(ptr noundef nonnull align 8 de
   %11 = tail call ptr @__cxa_allocate_exception(i64 4) #13
   store i32 5, ptr %11, align 16, !tbaa !125
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
-          to label %321 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %320 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.loopexit:           ; preds = %296
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -9636,43 +9636,42 @@ _ZN6LibRaw10getbithuffEiPt.exit199:               ; preds = %227, %179, %233
   %298 = mul nuw nsw i64 %indvars.iv291, 644
   %299 = load ptr, ptr %262, align 8, !tbaa !99
   %300 = getelementptr i8, ptr %2, i64 %298
-  %301 = getelementptr i8, ptr %300, i64 1288
-  br label %302
+  br label %301
 
-302:                                              ; preds = %.lr.ph262, %302
-  %indvars.iv288 = phi i64 [ 0, %.lr.ph262 ], [ %indvars.iv.next289, %302 ]
-  %303 = getelementptr i8, ptr %301, i64 %indvars.iv288
-  %304 = getelementptr i8, ptr %303, i64 2
-  %305 = load i8, ptr %304, align 1, !tbaa !88
-  %306 = zext i8 %305 to i64
-  %307 = getelementptr inbounds nuw i16, ptr @_ZZN6LibRaw22quicktake_100_load_rawEvE7t_curve, i64 %306
-  %308 = load i16, ptr %307, align 2, !tbaa !86
-  %309 = load i16, ptr %263, align 2, !tbaa !98
-  %310 = zext i16 %309 to i64
-  %311 = mul nuw nsw i64 %indvars.iv291, %310
-  %312 = getelementptr inbounds nuw i16, ptr %299, i64 %311
-  %313 = getelementptr inbounds nuw i16, ptr %312, i64 %indvars.iv288
-  store i16 %308, ptr %313, align 2, !tbaa !86
+301:                                              ; preds = %.lr.ph262, %301
+  %indvars.iv288 = phi i64 [ 0, %.lr.ph262 ], [ %indvars.iv.next289, %301 ]
+  %302 = getelementptr i8, ptr %300, i64 %indvars.iv288
+  %303 = getelementptr i8, ptr %302, i64 1290
+  %304 = load i8, ptr %303, align 1, !tbaa !88
+  %305 = zext i8 %304 to i64
+  %306 = getelementptr inbounds nuw i16, ptr @_ZZN6LibRaw22quicktake_100_load_rawEvE7t_curve, i64 %305
+  %307 = load i16, ptr %306, align 2, !tbaa !86
+  %308 = load i16, ptr %263, align 2, !tbaa !98
+  %309 = zext i16 %308 to i64
+  %310 = mul nuw nsw i64 %indvars.iv291, %309
+  %311 = getelementptr inbounds nuw i16, ptr %299, i64 %310
+  %312 = getelementptr inbounds nuw i16, ptr %311, i64 %indvars.iv288
+  store i16 %307, ptr %312, align 2, !tbaa !86
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %314 = load i16, ptr %3, align 2, !tbaa !148
-  %315 = zext i16 %314 to i64
-  %316 = icmp samesign ult i64 %indvars.iv.next289, %315
-  br i1 %316, label %302, label %._crit_edge263, !llvm.loop !232
+  %313 = load i16, ptr %3, align 2, !tbaa !148
+  %314 = zext i16 %313 to i64
+  %315 = icmp samesign ult i64 %indvars.iv.next289, %314
+  br i1 %315, label %301, label %._crit_edge263, !llvm.loop !232
 
-._crit_edge263:                                   ; preds = %302, %.preheader
+._crit_edge263:                                   ; preds = %301, %.preheader
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %317 = load i16, ptr %7, align 4, !tbaa !145
-  %318 = zext i16 %317 to i64
-  %319 = icmp samesign ult i64 %indvars.iv.next292, %318
-  br i1 %319, label %296, label %_ZNSt6vectorIhSaIhEED2Ev.exit201, !llvm.loop !233
+  %316 = load i16, ptr %7, align 4, !tbaa !145
+  %317 = zext i16 %316 to i64
+  %318 = icmp samesign ult i64 %indvars.iv.next292, %317
+  br i1 %318, label %296, label %_ZNSt6vectorIhSaIhEED2Ev.exit201, !llvm.loop !233
 
 _ZNSt6vectorIhSaIhEED2Ev.exit201:                 ; preds = %._crit_edge263, %.preheader210, %.preheader209
-  %320 = getelementptr inbounds nuw i8, ptr %0, i64 153000
-  store i32 1023, ptr %320, align 8, !tbaa !96
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 153000
+  store i32 1023, ptr %319, align 8, !tbaa !96
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 311696) #17
   ret void
 
-321:                                              ; preds = %10
+320:                                              ; preds = %10
   unreachable
 }
 

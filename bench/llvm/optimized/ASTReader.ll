@@ -132390,12 +132390,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit66: ; pr
   %244 = call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %243) #39
   %245 = load i32, ptr %137, align 4, !tbaa !5405
   %246 = zext i32 %245 to i64
-  %247 = getelementptr inbounds nuw ptr, ptr %233, i64 %246
+  %247 = getelementptr inbounds nuw ptr, ptr %1, i64 %246
   %248 = getelementptr inbounds nuw ptr, ptr %247, i64 %246
   %249 = getelementptr inbounds nuw ptr, ptr %248, i64 %246
   %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %246
   %251 = getelementptr inbounds nuw ptr, ptr %250, i64 %246
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 72
   store ptr %244, ptr %252, align 8, !tbaa !5094
   store i32 0, ptr %140, align 8, !tbaa !698
   %.not45107 = icmp eq i32 %138, -1

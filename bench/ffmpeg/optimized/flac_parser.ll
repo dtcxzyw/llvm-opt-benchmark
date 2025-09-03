@@ -1856,7 +1856,7 @@ define internal fastcc range(i32 0, 89) i32 @check_header_mismatch(ptr noundef r
   %61 = icmp eq i32 %.0106, 0
   %62 = icmp ne i32 %.0104, 0
   %or.cond = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond, label %151, label %63
+  br i1 %or.cond, label %149, label %63
 
 63:                                               ; preds = %57, %.critedge, %59
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1915,117 +1915,115 @@ define internal fastcc range(i32 0, 89) i32 @check_header_mismatch(ptr noundef r
   br i1 %.not125, label %.critedge134, label %.preheader, !llvm.loop !104
 
 88:                                               ; preds = %82
-  %89 = getelementptr inbounds nuw i8, ptr %.096157, i64 4
-  %90 = getelementptr i32, ptr %89, i64 %73
-  %91 = getelementptr i8, ptr %90, i64 -4
-  %92 = load i32, ptr %91, align 4, !tbaa !58
-  %93 = icmp slt i32 %92, 50
-  %spec.select = zext i1 %93 to i32
-  %spec.select135 = select i1 %93, ptr %2, ptr %.096157
+  %89 = getelementptr i32, ptr %.096157, i64 %73
+  %90 = load i32, ptr %89, align 4, !tbaa !58
+  %91 = icmp slt i32 %90, 50
+  %spec.select = zext i1 %91 to i32
+  %spec.select135 = select i1 %91, ptr %2, ptr %.096157
   br label %.critedge134
 
 .critedge134:                                     ; preds = %.preheader, %.thread, %88
-  %94 = phi i32 [ %spec.select, %88 ], [ 1, %.thread ], [ 0, %.preheader ]
+  %92 = phi i32 [ %spec.select, %88 ], [ 1, %.thread ], [ 0, %.preheader ]
   %.1 = phi ptr [ %1, %88 ], [ %1, %.thread ], [ %.091, %.preheader ]
   %.0 = phi ptr [ %spec.select135, %88 ], [ %2, %.thread ], [ %2, %.preheader ]
-  %95 = load i32, ptr %.0, align 8, !tbaa !66
-  %96 = load i32, ptr %.1, align 8, !tbaa !66
-  %97 = sub nsw i32 %95, %96
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %100 = load ptr, ptr %99, align 8, !tbaa !22
-  %101 = sext i32 %96 to i64
-  %102 = getelementptr inbounds i8, ptr %100, i64 %101
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %104 = load ptr, ptr %103, align 8, !tbaa !23
-  %.not.i = icmp ult ptr %102, %104
-  br i1 %.not.i, label %._crit_edge.i, label %105
+  %93 = load i32, ptr %.0, align 8, !tbaa !66
+  %94 = load i32, ptr %.1, align 8, !tbaa !66
+  %95 = sub nsw i32 %93, %94
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %98 = load ptr, ptr %97, align 8, !tbaa !22
+  %99 = sext i32 %94 to i64
+  %100 = getelementptr inbounds i8, ptr %98, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %102 = load ptr, ptr %101, align 8, !tbaa !23
+  %.not.i = icmp ult ptr %100, %102
+  br i1 %.not.i, label %._crit_edge.i, label %103
 
 ._crit_edge.i:                                    ; preds = %.critedge134
-  %.pre.i = ptrtoint ptr %104 to i64
+  %.pre.i = ptrtoint ptr %102 to i64
   br label %flac_fifo_read.exit
 
-105:                                              ; preds = %.critedge134
-  %106 = load ptr, ptr %98, align 8, !tbaa !20
-  %107 = ptrtoint ptr %104 to i64
-  %108 = ptrtoint ptr %106 to i64
-  %.neg.i = sub i64 %108, %107
-  %109 = getelementptr inbounds i8, ptr %102, i64 %.neg.i
+103:                                              ; preds = %.critedge134
+  %104 = load ptr, ptr %96, align 8, !tbaa !20
+  %105 = ptrtoint ptr %102 to i64
+  %106 = ptrtoint ptr %104 to i64
+  %.neg.i = sub i64 %106, %105
+  %107 = getelementptr inbounds i8, ptr %100, i64 %.neg.i
   br label %flac_fifo_read.exit
 
-flac_fifo_read.exit:                              ; preds = %._crit_edge.i, %105
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %107, %105 ]
-  %.0.i = phi ptr [ %102, %._crit_edge.i ], [ %109, %105 ]
-  %110 = sext i32 %97 to i64
-  %111 = ptrtoint ptr %.0.i to i64
-  %112 = sub i64 %.pre-phi.i, %111
-  %113 = tail call i64 @llvm.smin.i64(i64 %112, i64 %110)
-  %114 = trunc i64 %113 to i32
-  %115 = tail call ptr @av_crc_get_table(i32 noundef 1) #9
-  %sext = shl i64 %113, 32
-  %116 = ashr exact i64 %sext, 32
-  %117 = tail call i32 @av_crc(ptr noundef %115, i32 noundef 0, ptr noundef %.0.i, i64 noundef %116) #11
-  %118 = load i32, ptr %.0, align 8, !tbaa !66
-  %119 = load i32, ptr %.1, align 8, !tbaa !66
-  %120 = add i32 %119, %114
-  %121 = sub i32 %118, %120
-  %.not126 = icmp eq i32 %118, %120
-  br i1 %.not126, label %139, label %122
+flac_fifo_read.exit:                              ; preds = %._crit_edge.i, %103
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %105, %103 ]
+  %.0.i = phi ptr [ %100, %._crit_edge.i ], [ %107, %103 ]
+  %108 = sext i32 %95 to i64
+  %109 = ptrtoint ptr %.0.i to i64
+  %110 = sub i64 %.pre-phi.i, %109
+  %111 = tail call i64 @llvm.smin.i64(i64 %110, i64 %108)
+  %112 = trunc i64 %111 to i32
+  %113 = tail call ptr @av_crc_get_table(i32 noundef 1) #9
+  %sext = shl i64 %111, 32
+  %114 = ashr exact i64 %sext, 32
+  %115 = tail call i32 @av_crc(ptr noundef %113, i32 noundef 0, ptr noundef %.0.i, i64 noundef %114) #11
+  %116 = load i32, ptr %.0, align 8, !tbaa !66
+  %117 = load i32, ptr %.1, align 8, !tbaa !66
+  %118 = add i32 %117, %112
+  %119 = sub i32 %116, %118
+  %.not126 = icmp eq i32 %116, %118
+  br i1 %.not126, label %137, label %120
 
-122:                                              ; preds = %flac_fifo_read.exit
-  %123 = load ptr, ptr %99, align 8, !tbaa !22
-  %124 = sext i32 %120 to i64
-  %125 = getelementptr inbounds i8, ptr %123, i64 %124
-  %126 = load ptr, ptr %103, align 8, !tbaa !23
-  %.not.i138 = icmp ult ptr %125, %126
-  br i1 %.not.i138, label %._crit_edge.i142, label %127
+120:                                              ; preds = %flac_fifo_read.exit
+  %121 = load ptr, ptr %97, align 8, !tbaa !22
+  %122 = sext i32 %118 to i64
+  %123 = getelementptr inbounds i8, ptr %121, i64 %122
+  %124 = load ptr, ptr %101, align 8, !tbaa !23
+  %.not.i138 = icmp ult ptr %123, %124
+  br i1 %.not.i138, label %._crit_edge.i142, label %125
 
-._crit_edge.i142:                                 ; preds = %122
-  %.pre.i143 = ptrtoint ptr %126 to i64
+._crit_edge.i142:                                 ; preds = %120
+  %.pre.i143 = ptrtoint ptr %124 to i64
   br label %flac_fifo_read.exit144
 
-127:                                              ; preds = %122
-  %128 = load ptr, ptr %98, align 8, !tbaa !20
-  %129 = ptrtoint ptr %126 to i64
-  %130 = ptrtoint ptr %128 to i64
-  %.neg.i139 = sub i64 %130, %129
-  %131 = getelementptr inbounds i8, ptr %125, i64 %.neg.i139
+125:                                              ; preds = %120
+  %126 = load ptr, ptr %96, align 8, !tbaa !20
+  %127 = ptrtoint ptr %124 to i64
+  %128 = ptrtoint ptr %126 to i64
+  %.neg.i139 = sub i64 %128, %127
+  %129 = getelementptr inbounds i8, ptr %123, i64 %.neg.i139
   br label %flac_fifo_read.exit144
 
-flac_fifo_read.exit144:                           ; preds = %._crit_edge.i142, %127
-  %.pre-phi.i140 = phi i64 [ %.pre.i143, %._crit_edge.i142 ], [ %129, %127 ]
-  %.0.i141 = phi ptr [ %125, %._crit_edge.i142 ], [ %131, %127 ]
-  %132 = sext i32 %121 to i64
-  %133 = ptrtoint ptr %.0.i141 to i64
-  %134 = sub i64 %.pre-phi.i140, %133
-  %135 = tail call i64 @llvm.smin.i64(i64 %134, i64 %132)
-  %136 = tail call ptr @av_crc_get_table(i32 noundef 1) #9
-  %sext148 = shl i64 %135, 32
-  %137 = ashr exact i64 %sext148, 32
-  %138 = tail call i32 @av_crc(ptr noundef %136, i32 noundef %117, ptr noundef %.0.i141, i64 noundef %137) #11
-  br label %139
+flac_fifo_read.exit144:                           ; preds = %._crit_edge.i142, %125
+  %.pre-phi.i140 = phi i64 [ %.pre.i143, %._crit_edge.i142 ], [ %127, %125 ]
+  %.0.i141 = phi ptr [ %123, %._crit_edge.i142 ], [ %129, %125 ]
+  %130 = sext i32 %119 to i64
+  %131 = ptrtoint ptr %.0.i141 to i64
+  %132 = sub i64 %.pre-phi.i140, %131
+  %133 = tail call i64 @llvm.smin.i64(i64 %132, i64 %130)
+  %134 = tail call ptr @av_crc_get_table(i32 noundef 1) #9
+  %sext148 = shl i64 %133, 32
+  %135 = ashr exact i64 %sext148, 32
+  %136 = tail call i32 @av_crc(ptr noundef %134, i32 noundef %115, ptr noundef %.0.i141, i64 noundef %135) #11
+  br label %137
 
-139:                                              ; preds = %flac_fifo_read.exit144, %flac_fifo_read.exit
-  %.195 = phi i32 [ %138, %flac_fifo_read.exit144 ], [ %117, %flac_fifo_read.exit ]
-  %140 = icmp eq i32 %.195, 0
-  %141 = zext i1 %140 to i32
-  %142 = icmp eq i32 %94, %141
-  br i1 %142, label %151, label %.critedge137
+137:                                              ; preds = %flac_fifo_read.exit144, %flac_fifo_read.exit
+  %.195 = phi i32 [ %136, %flac_fifo_read.exit144 ], [ %115, %flac_fifo_read.exit ]
+  %138 = icmp eq i32 %.195, 0
+  %139 = zext i1 %138 to i32
+  %140 = icmp eq i32 %92, %139
+  br i1 %140, label %149, label %.critedge137
 
-.critedge137:                                     ; preds = %.thread, %71, %139
-  %143 = add nuw nsw i32 %.0106, 50
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %145 = load ptr, ptr %144, align 8, !tbaa !25
-  %146 = add nuw nsw i32 %3, 24
-  %147 = load i32, ptr %1, align 8, !tbaa !66
-  %148 = load i64, ptr %10, align 8, !tbaa !54
-  %149 = load i32, ptr %2, align 8, !tbaa !66
-  %150 = load i64, ptr %8, align 8, !tbaa !54
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %145, i32 noundef %146, ptr noundef nonnull @.str.9, i32 noundef %147, i64 noundef %148, i32 noundef %149, i64 noundef %150) #9
-  br label %151
+.critedge137:                                     ; preds = %.thread, %71, %137
+  %141 = add nuw nsw i32 %.0106, 50
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %143 = load ptr, ptr %142, align 8, !tbaa !25
+  %144 = add nuw nsw i32 %3, 24
+  %145 = load i32, ptr %1, align 8, !tbaa !66
+  %146 = load i64, ptr %10, align 8, !tbaa !54
+  %147 = load i32, ptr %2, align 8, !tbaa !66
+  %148 = load i64, ptr %8, align 8, !tbaa !54
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %143, i32 noundef %144, ptr noundef nonnull @.str.9, i32 noundef %145, i64 noundef %146, i32 noundef %147, i64 noundef %148) #9
+  br label %149
 
-151:                                              ; preds = %139, %.critedge137, %.critedge
-  %.1107 = phi i32 [ %.0106, %.critedge ], [ %143, %.critedge137 ], [ %.0106, %139 ]
+149:                                              ; preds = %137, %.critedge137, %.critedge
+  %.1107 = phi i32 [ %.0106, %.critedge ], [ %141, %.critedge137 ], [ %.0106, %137 ]
   ret i32 %.1107
 }
 

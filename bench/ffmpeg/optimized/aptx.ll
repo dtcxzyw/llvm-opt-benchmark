@@ -7,6 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.InvertQuantize = type { i32, i32, i32 }
 %struct.Prediction = type { [2 x i32], [2 x i32], [24 x i32], i32, [48 x i32], i32, i32, i32 }
 %struct.Quantize = type { i32, i32, i32 }
+%struct.Channel = type { i32, i32, [4 x i32], %struct.QMFAnalysis, [4 x %struct.Quantize], [4 x %struct.InvertQuantize], [4 x %struct.Prediction] }
+%struct.QMFAnalysis = type { [2 x %struct.FilterSignal], [2 x [2 x %struct.FilterSignal]] }
+%struct.FilterSignal = type { i32, [32 x i32] }
 
 @quantize_intervals_LF = internal constant [65 x i32] [i32 -9948, i32 9948, i32 29860, i32 49808, i32 69822, i32 89926, i32 110144, i32 130502, i32 151026, i32 171738, i32 192666, i32 213832, i32 235264, i32 256982, i32 279014, i32 301384, i32 324118, i32 347244, i32 370790, i32 394782, i32 419250, i32 444226, i32 469742, i32 495832, i32 522536, i32 549890, i32 577936, i32 606720, i32 636290, i32 666700, i32 698006, i32 730270, i32 763562, i32 797958, i32 833538, i32 870398, i32 908640, i32 948376, i32 989740, i32 1032874, i32 1077948, i32 1125150, i32 1174700, i32 1226850, i32 1281900, i32 1340196, i32 1402156, i32 1468282, i32 1539182, i32 1615610, i32 1698514, i32 1789098, i32 1888944, i32 2000168, i32 2125700, i32 2269750, i32 2438670, i32 2642660, i32 2899462, i32 3243240, i32 3746078, i32 4535138, i32 5664098, i32 7102424, i32 8897462], align 16
 @invert_quantize_dither_factors_LF = internal constant [65 x i32] [i32 9948, i32 9948, i32 9962, i32 9988, i32 10026, i32 10078, i32 10142, i32 10218, i32 10306, i32 10408, i32 10520, i32 10646, i32 10784, i32 10934, i32 11098, i32 11274, i32 11462, i32 11664, i32 11880, i32 12112, i32 12358, i32 12618, i32 12898, i32 13194, i32 13510, i32 13844, i32 14202, i32 14582, i32 14988, i32 15422, i32 15884, i32 16380, i32 16912, i32 17484, i32 18098, i32 18762, i32 19480, i32 20258, i32 21106, i32 22030, i32 23044, i32 24158, i32 25390, i32 26760, i32 28290, i32 30008, i32 31954, i32 34172, i32 36728, i32 39700, i32 43202, i32 47382, i32 52462, i32 58762, i32 66770, i32 77280, i32 91642, i32 112348, i32 144452, i32 199326, i32 303512, i32 485546, i32 643414, i32 794914, i32 1000124], align 16
@@ -344,49 +347,47 @@ aptx_process_subband.exit:                        ; preds = %9, %._crit_edge.loo
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1094995529, 1) i32 @ff_aptx_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  %3 = load i32, ptr %2, align 4, !tbaa !36
-  %.not = icmp eq i32 %3, 2
-  br i1 %.not, label %4, label %.loopexit
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 356
+  %5 = load i32, ptr %4, align 4, !tbaa !53
+  %.not = icmp eq i32 %5, 2
+  br i1 %.not, label %6, label %.loopexit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !53
+6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !55
   %11 = icmp eq i32 %10, 86102
   %12 = zext i1 %11 to i32
-  store i32 %12, ptr %6, align 4, !tbaa !60
+  store i32 %12, ptr %3, align 4, !tbaa !60
   %13 = select i1 %11, i32 6, i32 4
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %13, ptr %14, align 4, !tbaa !62
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  br label %16
+  br label %15
 
-16:                                               ; preds = %4, %23
-  %17 = phi i1 [ true, %4 ], [ false, %23 ]
-  %indvars.iv22 = phi i64 [ 0, %4 ], [ 2192, %23 ]
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv22
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 912
-  br label %20
+15:                                               ; preds = %6, %21
+  %16 = phi i1 [ true, %6 ], [ false, %21 ]
+  %indvars.iv21 = phi i64 [ 0, %6 ], [ 1, %21 ]
+  %17 = getelementptr inbounds nuw %struct.Channel, ptr %3, i64 %indvars.iv21, i32 6, i64 0, i32 1, i64 1
+  br label %18
 
-20:                                               ; preds = %16, %20
-  %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %struct.Prediction, ptr %19, i64 %indvars.iv
-  store i32 1, ptr %21, align 4, !tbaa !12
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 1, ptr %22, align 4, !tbaa !12
+18:                                               ; preds = %15, %18
+  %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %18 ]
+  %19 = getelementptr inbounds nuw %struct.Prediction, ptr %17, i64 %indvars.iv
+  store i32 1, ptr %19, align 4, !tbaa !12
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 1, ptr %20, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %23, label %20, !llvm.loop !63
+  br i1 %exitcond.not, label %21, label %18, !llvm.loop !63
 
-23:                                               ; preds = %20
-  br i1 %17, label %16, label %.loopexit, !llvm.loop !64
+21:                                               ; preds = %18
+  br i1 %16, label %15, label %.loopexit, !llvm.loop !64
 
-.loopexit:                                        ; preds = %23, %1
-  %.0 = phi i32 [ -1094995529, %1 ], [ 0, %23 ]
+.loopexit:                                        ; preds = %21, %1
+  %.0 = phi i32 [ -1094995529, %1 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -442,7 +443,7 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !33 = !{!29, !6, i64 112}
 !34 = distinct !{!34, !14}
 !35 = distinct !{!35, !14}
-!36 = !{!37, !6, i64 356}
+!36 = !{!37, !19, i64 32}
 !37 = !{!"AVCodecContext", !38, i64 0, !6, i64 8, !6, i64 12, !39, i64 16, !6, i64 24, !6, i64 28, !19, i64 32, !40, i64 40, !19, i64 48, !41, i64 56, !6, i64 64, !6, i64 68, !42, i64 72, !6, i64 80, !43, i64 84, !43, i64 92, !43, i64 100, !6, i64 108, !6, i64 112, !6, i64 116, !6, i64 120, !6, i64 124, !43, i64 128, !6, i64 136, !6, i64 140, !6, i64 144, !6, i64 148, !6, i64 152, !6, i64 156, !6, i64 160, !6, i64 164, !6, i64 168, !6, i64 172, !6, i64 176, !19, i64 184, !19, i64 192, !6, i64 200, !44, i64 204, !44, i64 208, !44, i64 212, !44, i64 216, !44, i64 220, !44, i64 224, !44, i64 228, !44, i64 232, !44, i64 236, !6, i64 240, !6, i64 244, !6, i64 248, !6, i64 252, !6, i64 256, !6, i64 260, !6, i64 264, !6, i64 268, !6, i64 272, !6, i64 276, !6, i64 280, !6, i64 284, !20, i64 288, !20, i64 296, !20, i64 304, !6, i64 312, !6, i64 316, !6, i64 320, !6, i64 324, !6, i64 328, !6, i64 332, !6, i64 336, !6, i64 340, !6, i64 344, !6, i64 348, !45, i64 352, !6, i64 376, !6, i64 380, !6, i64 384, !6, i64 388, !6, i64 392, !6, i64 396, !6, i64 400, !6, i64 404, !19, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !44, i64 428, !44, i64 432, !6, i64 436, !6, i64 440, !6, i64 444, !6, i64 448, !6, i64 452, !46, i64 456, !41, i64 464, !41, i64 472, !44, i64 480, !44, i64 484, !6, i64 488, !6, i64 492, !42, i64 496, !42, i64 504, !6, i64 512, !6, i64 516, !6, i64 520, !6, i64 524, !6, i64 528, !47, i64 536, !19, i64 544, !48, i64 552, !48, i64 560, !6, i64 568, !6, i64 572, !7, i64 576, !6, i64 640, !6, i64 644, !6, i64 648, !6, i64 652, !6, i64 656, !6, i64 660, !6, i64 664, !19, i64 672, !19, i64 680, !6, i64 688, !6, i64 692, !6, i64 696, !6, i64 700, !6, i64 704, !6, i64 708, !6, i64 712, !6, i64 716, !6, i64 720, !6, i64 724, !49, i64 728, !42, i64 736, !6, i64 744, !6, i64 748, !42, i64 752, !42, i64 760, !42, i64 768, !50, i64 776, !6, i64 784, !6, i64 788, !41, i64 792, !6, i64 800, !6, i64 804, !41, i64 808, !19, i64 816, !41, i64 824, !18, i64 832, !6, i64 840, !51, i64 848, !6, i64 856}
 !38 = !{!"p1 _ZTS7AVClass", !19, i64 0}
 !39 = !{!"p1 _ZTS7AVCodec", !19, i64 0}
@@ -459,7 +460,7 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !50 = !{!"p1 _ZTS16AVPacketSideData", !19, i64 0}
 !51 = !{!"p2 _ZTS15AVFrameSideData", !52, i64 0}
 !52 = !{!"any p2 pointer", !19, i64 0}
-!53 = !{!37, !19, i64 32}
+!53 = !{!37, !6, i64 356}
 !54 = !{!37, !39, i64 16}
 !55 = !{!56, !6, i64 20}
 !56 = !{!"AVCodec", !42, i64 0, !42, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !7, i64 28, !57, i64 32, !19, i64 40, !18, i64 48, !19, i64 56, !38, i64 64, !58, i64 72, !42, i64 80, !59, i64 88}

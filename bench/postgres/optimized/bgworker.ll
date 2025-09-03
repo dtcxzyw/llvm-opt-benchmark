@@ -201,14 +201,14 @@ define dso_local void @BackgroundWorkerStateChange(i1 noundef zeroext %0) local_
   %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, i32 noundef %9, i32 noundef %11) #14
   br label %ReportBackgroundWorkerPID.exit.sink.split
 
-.lr.ph:                                           ; preds = %.preheader, %121
-  %indvars.iv = phi i64 [ %indvars.iv.next, %121 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %120
+  %indvars.iv = phi i64 [ %indvars.iv.next, %120 ], [ 0, %.preheader ]
   %13 = load ptr, ptr @BackgroundWorkerData, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = getelementptr inbounds nuw %struct.BackgroundWorkerSlot, ptr %14, i64 %indvars.iv
   %16 = load i8, ptr %15, align 8, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %121
+  br i1 %17, label %18, label %120
 
 18:                                               ; preds = %.lr.ph
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
@@ -236,13 +236,13 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %27 = load i8, ptr %26, align 1, !range !4, !noundef !5
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %29, label %121
+  br i1 %28, label %29, label %120
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %.sroa.0.016.i, i64 -4
   %31 = load i8, ptr %30, align 4, !range !4, !noundef !5
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %121, label %33
+  br i1 %32, label %120, label %33
 
 33:                                               ; preds = %29
   store i8 1, ptr %30, align 4
@@ -253,183 +253,181 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
 
 36:                                               ; preds = %33
   %37 = tail call i32 @kill(i32 noundef %35, i32 noundef 15) #14
-  br label %121
+  br label %120
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr @BackgroundWorkerData, align 8
   %40 = sext i32 %21 to i64
-  %.idx.i = mul nsw i64 %40, 1488
-  %41 = getelementptr i8, ptr %39, i64 20
-  %42 = getelementptr i8, ptr %41, i64 %.idx.i
-  store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %.sroa.0.016.i, i64 -32
-  %44 = load i32, ptr %43, align 8
-  %.not.i61 = icmp eq i32 %44, 0
-  br i1 %.not.i61, label %121, label %45
+  %41 = getelementptr %struct.BackgroundWorkerSlot, ptr %39, i64 %40, i32 4, i32 0, i64 4
+  store i32 0, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %.sroa.0.016.i, i64 -32
+  %43 = load i32, ptr %42, align 8
+  %.not.i61 = icmp eq i32 %43, 0
+  br i1 %.not.i61, label %120, label %44
 
-45:                                               ; preds = %38
-  %46 = tail call i32 @kill(i32 noundef %44, i32 noundef 10) #14
-  br label %121
+44:                                               ; preds = %38
+  %45 = tail call i32 @kill(i32 noundef %43, i32 noundef 10) #14
+  br label %120
 
 .loopexit:                                        ; preds = %select.unfold.i, %18
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 1
-  br i1 %0, label %47, label %.thread
+  br i1 %0, label %46, label %.thread
 
 .thread:                                          ; preds = %.loopexit
   store i8 1, ptr %.phi.trans.insert, align 1
-  br label %49
+  br label %48
 
-47:                                               ; preds = %.loopexit
+46:                                               ; preds = %.loopexit
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !4
-  %48 = trunc nuw i8 %.pre to i1
-  br i1 %48, label %49, label %64
+  %47 = trunc nuw i8 %.pre to i1
+  br i1 %47, label %48, label %63
 
-49:                                               ; preds = %.thread, %47
-  %50 = getelementptr inbounds nuw i8, ptr %15, i64 1480
-  %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %15, i64 208
-  %53 = load i32, ptr %52, align 8
-  %54 = and i32 %53, 16
-  %.not58 = icmp eq i32 %54, 0
-  br i1 %.not58, label %60, label %55
+48:                                               ; preds = %.thread, %46
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 1480
+  %50 = load i32, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 208
+  %52 = load i32, ptr %51, align 8
+  %53 = and i32 %52, 16
+  %.not58 = icmp eq i32 %53, 0
+  br i1 %.not58, label %59, label %54
 
-55:                                               ; preds = %49
-  %56 = load ptr, ptr @BackgroundWorkerData, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = load i32, ptr %57, align 8
-  %59 = add i32 %58, 1
-  store i32 %59, ptr %57, align 8
-  br label %60
+54:                                               ; preds = %48
+  %55 = load ptr, ptr @BackgroundWorkerData, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = load i32, ptr %56, align 8
+  %58 = add i32 %57, 1
+  store i32 %58, ptr %56, align 8
+  br label %59
 
-60:                                               ; preds = %55, %49
-  %61 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 0, ptr %61, align 4
+59:                                               ; preds = %54, %48
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 0, ptr %60, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
   store i8 0, ptr %15, align 8
-  %.not59 = icmp eq i32 %51, 0
-  br i1 %.not59, label %121, label %62
+  %.not59 = icmp eq i32 %50, 0
+  br i1 %.not59, label %120, label %61
 
-62:                                               ; preds = %60
-  %63 = tail call i32 @kill(i32 noundef %51, i32 noundef 10) #14
-  br label %121
+61:                                               ; preds = %59
+  %62 = tail call i32 @kill(i32 noundef %50, i32 noundef 10) #14
+  br label %120
 
-64:                                               ; preds = %47
-  %65 = load ptr, ptr @PostmasterContext, align 8
-  %66 = tail call ptr @MemoryContextAllocExtended(ptr noundef %65, i64 noundef 1512, i32 noundef 6) #14
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %73
+63:                                               ; preds = %46
+  %64 = load ptr, ptr @PostmasterContext, align 8
+  %65 = tail call ptr @MemoryContextAllocExtended(ptr noundef %64, i64 noundef 1512, i32 noundef 6) #14
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %72
 
-68:                                               ; preds = %64
-  %69 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
-  br i1 %69, label %70, label %ReportBackgroundWorkerPID.exit
+67:                                               ; preds = %63
+  %68 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  br i1 %68, label %69, label %ReportBackgroundWorkerPID.exit
 
-70:                                               ; preds = %68
-  %71 = tail call i32 @errcode(i32 noundef 8389) #14
-  %72 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #14
+69:                                               ; preds = %67
+  %70 = tail call i32 @errcode(i32 noundef 8389) #14
+  %71 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #14
   br label %ReportBackgroundWorkerPID.exit.sink.split
 
-73:                                               ; preds = %64
-  %74 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %66, ptr noundef nonnull %74, i64 noundef 96) #14
-  %75 = getelementptr inbounds nuw i8, ptr %66, i64 96
-  %76 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %75, ptr noundef nonnull %76, i64 noundef 96) #14
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 204
-  %78 = getelementptr inbounds nuw i8, ptr %15, i64 220
-  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %77, ptr noundef nonnull %78, i64 noundef 1024) #14
-  %79 = getelementptr inbounds nuw i8, ptr %66, i64 1228
-  %80 = getelementptr inbounds nuw i8, ptr %15, i64 1244
-  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %79, ptr noundef nonnull %80, i64 noundef 96) #14
-  %81 = getelementptr inbounds nuw i8, ptr %15, i64 208
-  %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %66, i64 192
-  store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %15, i64 212
-  %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %66, i64 196
-  store i32 %85, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %15, i64 216
-  %88 = load i32, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %66, i64 200
-  store i32 %88, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %15, i64 1344
-  %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %66, i64 1328
-  store i64 %91, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %66, i64 1336
-  %94 = getelementptr inbounds nuw i8, ptr %15, i64 1352
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %93, ptr noundef nonnull align 8 dereferenceable(128) %94, i64 128, i1 false)
-  %95 = getelementptr inbounds nuw i8, ptr %15, i64 1480
-  %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %66, i64 1464
-  store i32 %96, ptr %97, align 8
-  %98 = tail call zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef %96) #14
-  br i1 %98, label %105, label %99
+72:                                               ; preds = %63
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %65, ptr noundef nonnull %73, i64 noundef 96) #14
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %74, ptr noundef nonnull %75, i64 noundef 96) #14
+  %76 = getelementptr inbounds nuw i8, ptr %65, i64 204
+  %77 = getelementptr inbounds nuw i8, ptr %15, i64 220
+  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %76, ptr noundef nonnull %77, i64 noundef 1024) #14
+  %78 = getelementptr inbounds nuw i8, ptr %65, i64 1228
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 1244
+  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %78, ptr noundef nonnull %79, i64 noundef 96) #14
+  %80 = getelementptr inbounds nuw i8, ptr %15, i64 208
+  %81 = load i32, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %65, i64 192
+  store i32 %81, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %15, i64 212
+  %84 = load i32, ptr %83, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %65, i64 196
+  store i32 %84, ptr %85, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %15, i64 216
+  %87 = load i32, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %65, i64 200
+  store i32 %87, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %15, i64 1344
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %65, i64 1328
+  store i64 %90, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %65, i64 1336
+  %93 = getelementptr inbounds nuw i8, ptr %15, i64 1352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %92, ptr noundef nonnull align 8 dereferenceable(128) %93, i64 128, i1 false)
+  %94 = getelementptr inbounds nuw i8, ptr %15, i64 1480
+  %95 = load i32, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %65, i64 1464
+  store i32 %95, ptr %96, align 8
+  %97 = tail call zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef %95) #14
+  br i1 %97, label %104, label %98
 
-99:                                               ; preds = %73
-  %100 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
-  br i1 %100, label %101, label %104
+98:                                               ; preds = %72
+  %99 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  br i1 %99, label %100, label %103
 
-101:                                              ; preds = %99
-  %102 = load i32, ptr %97, align 8
-  %103 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %102) #14
+100:                                              ; preds = %98
+  %101 = load i32, ptr %96, align 8
+  %102 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %101) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 399, ptr noundef nonnull @__func__.BackgroundWorkerStateChange) #14
+  br label %103
+
+103:                                              ; preds = %100, %98
+  store i32 0, ptr %96, align 8
   br label %104
 
-104:                                              ; preds = %101, %99
-  store i32 0, ptr %97, align 8
-  br label %105
+104:                                              ; preds = %103, %72
+  %105 = getelementptr inbounds nuw i8, ptr %65, i64 1472
+  store i32 0, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %65, i64 1480
+  store i64 0, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %65, i64 1488
+  %108 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %108, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %65, i64 1492
+  store i8 0, ptr %109, align 4
+  %110 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  br i1 %110, label %111, label %113
 
-105:                                              ; preds = %104, %73
-  %106 = getelementptr inbounds nuw i8, ptr %66, i64 1472
-  store i32 0, ptr %106, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %66, i64 1480
-  store i64 0, ptr %107, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %66, i64 1488
-  %109 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %109, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %66, i64 1492
-  store i8 0, ptr %110, align 4
-  %111 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
-  br i1 %111, label %112, label %114
-
-112:                                              ; preds = %105
-  %113 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef nonnull %66) #14
+111:                                              ; preds = %104
+  %112 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef nonnull %65) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 412, ptr noundef nonnull @__func__.BackgroundWorkerStateChange) #14
-  br label %114
+  br label %113
 
-114:                                              ; preds = %112, %105
-  %115 = getelementptr inbounds nuw i8, ptr %66, i64 1496
-  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %118, label %dlist_push_head.exit
+113:                                              ; preds = %111, %104
+  %114 = getelementptr inbounds nuw i8, ptr %65, i64 1496
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %117, label %dlist_push_head.exit
 
-118:                                              ; preds = %114
+117:                                              ; preds = %113
   store ptr @BackgroundWorkerList, ptr @BackgroundWorkerList, align 8
   br label %dlist_push_head.exit
 
-dlist_push_head.exit:                             ; preds = %114, %118
-  %119 = phi ptr [ @BackgroundWorkerList, %118 ], [ %116, %114 ]
-  %120 = getelementptr inbounds nuw i8, ptr %66, i64 1504
-  store ptr %119, ptr %120, align 8
-  store ptr @BackgroundWorkerList, ptr %115, align 8
-  store ptr %115, ptr %119, align 8
-  store ptr %115, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
-  br label %121
+dlist_push_head.exit:                             ; preds = %113, %117
+  %118 = phi ptr [ @BackgroundWorkerList, %117 ], [ %115, %113 ]
+  %119 = getelementptr inbounds nuw i8, ptr %65, i64 1504
+  store ptr %118, ptr %119, align 8
+  store ptr @BackgroundWorkerList, ptr %114, align 8
+  store ptr %114, ptr %118, align 8
+  store ptr %114, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
+  br label %120
 
-121:                                              ; preds = %dlist_push_head.exit, %.lr.ph, %36, %29, %25, %62, %60, %38, %45
+120:                                              ; preds = %dlist_push_head.exit, %.lr.ph, %36, %29, %25, %61, %59, %38, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %122 = load i32, ptr @max_worker_processes, align 4
-  %123 = sext i32 %122 to i64
-  %124 = icmp slt i64 %indvars.iv.next, %123
-  br i1 %124, label %.lr.ph, label %ReportBackgroundWorkerPID.exit, !llvm.loop !12
+  %121 = load i32, ptr @max_worker_processes, align 4
+  %122 = sext i32 %121 to i64
+  %123 = icmp slt i64 %indvars.iv.next, %122
+  br i1 %123, label %.lr.ph, label %ReportBackgroundWorkerPID.exit, !llvm.loop !12
 
-ReportBackgroundWorkerPID.exit.sink.split:        ; preds = %8, %70
-  %.sink = phi i32 [ 355, %70 ], [ 262, %8 ]
+ReportBackgroundWorkerPID.exit.sink.split:        ; preds = %8, %69
+  %.sink = phi i32 [ 355, %69 ], [ 262, %8 ]
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.BackgroundWorkerStateChange) #14
   br label %ReportBackgroundWorkerPID.exit
 
-ReportBackgroundWorkerPID.exit:                   ; preds = %121, %ReportBackgroundWorkerPID.exit.sink.split, %.preheader, %68, %6
+ReportBackgroundWorkerPID.exit:                   ; preds = %120, %ReportBackgroundWorkerPID.exit.sink.split, %.preheader, %67, %6
   ret void
 }
 
@@ -453,20 +451,18 @@ define dso_local void @ReportBackgroundWorkerPID(ptr noundef readonly captures(n
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %7 = load i32, ptr %6, align 8
-  %.idx = mul nsw i64 %5, 1488
-  %8 = getelementptr i8, ptr %2, i64 20
-  %9 = getelementptr i8, ptr %8, i64 %.idx
-  store i32 %7, ptr %9, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  %11 = load i32, ptr %10, align 8
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %14, label %12
+  %8 = getelementptr %struct.BackgroundWorkerSlot, ptr %2, i64 %5, i32 4, i32 0, i64 4
+  store i32 %7, ptr %8, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1464
+  %10 = load i32, ptr %9, align 8
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %13, label %11
 
-12:                                               ; preds = %1
-  %13 = tail call i32 @kill(i32 noundef %11, i32 noundef 10) #14
-  br label %14
+11:                                               ; preds = %1
+  %12 = tail call i32 @kill(i32 noundef %10, i32 noundef 10) #14
+  br label %13
 
-14:                                               ; preds = %12, %1
+13:                                               ; preds = %11, %1
   ret void
 }
 
@@ -535,73 +531,71 @@ define dso_local void @ReportBackgroundWorkerExit(ptr noundef %0) local_unnamed_
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %7 = load i32, ptr %6, align 8
-  %.idx = mul nsw i64 %5, 1488
-  %8 = getelementptr i8, ptr %2, i64 20
-  %9 = getelementptr i8, ptr %8, i64 %.idx
-  store i32 %7, ptr %9, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1492
-  %13 = load i8, ptr %12, align 4, !range !4, !noundef !5
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %19, label %15
+  %8 = getelementptr %struct.BackgroundWorkerSlot, ptr %2, i64 %5, i32 4, i32 0, i64 4
+  store i32 %7, ptr %8, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1464
+  %10 = load i32, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1492
+  %12 = load i8, ptr %11, align 4, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %18, label %14
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %41
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %16, -1
+  br i1 %17, label %18, label %40
 
-19:                                               ; preds = %15, %1
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %21 = load i32, ptr %3, align 8
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %20, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %25 = load i32, ptr %24, align 8
-  %26 = and i32 %25, 16
-  %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %31, label %27
+18:                                               ; preds = %14, %1
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %20 = load i32, ptr %3, align 8
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %19, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %24 = load i32, ptr %23, align 8
+  %25 = and i32 %24, 16
+  %.not.i = icmp eq i32 %25, 0
+  br i1 %.not.i, label %30, label %26
 
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load i32, ptr %28, align 8
-  %30 = add i32 %29, 1
-  store i32 %30, ptr %28, align 8
-  br label %31
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load i32, ptr %27, align 8
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %27, align 8
+  br label %30
 
-31:                                               ; preds = %27, %19
+30:                                               ; preds = %26, %18
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
-  store i8 0, ptr %23, align 8
-  %32 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
-  br i1 %32, label %33, label %ForgetBackgroundWorker.exit
+  store i8 0, ptr %22, align 8
+  %31 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  br i1 %31, label %32, label %ForgetBackgroundWorker.exit
 
-33:                                               ; preds = %31
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #14
+32:                                               ; preds = %30
+  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #14
   br label %ForgetBackgroundWorker.exit
 
-ForgetBackgroundWorker.exit:                      ; preds = %31, %33
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %37, ptr %39, align 8
-  %40 = load ptr, ptr %35, align 8
-  store ptr %40, ptr %37, align 8
+ForgetBackgroundWorker.exit:                      ; preds = %30, %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1496
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %34, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %36, ptr %38, align 8
+  %39 = load ptr, ptr %34, align 8
+  store ptr %39, ptr %36, align 8
   tail call void @pfree(ptr noundef nonnull %0) #14
-  br label %41
+  br label %40
 
-41:                                               ; preds = %ForgetBackgroundWorker.exit, %15
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %44, label %42
+40:                                               ; preds = %ForgetBackgroundWorker.exit, %14
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %43, label %41
 
-42:                                               ; preds = %41
-  %43 = tail call i32 @kill(i32 noundef %11, i32 noundef 10) #14
-  br label %44
+41:                                               ; preds = %40
+  %42 = tail call i32 @kill(i32 noundef %10, i32 noundef 10) #14
+  br label %43
 
-44:                                               ; preds = %42, %41
+43:                                               ; preds = %41, %40
   ret void
 }
 
@@ -647,7 +641,7 @@ define dso_local void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #0 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold
-  %2 = phi ptr [ %33, %select.unfold ], [ %.pre20, %.lr.ph.preheader ]
+  %2 = phi ptr [ %32, %select.unfold ], [ %.pre20, %.lr.ph.preheader ]
   %.sroa.0.018 = phi ptr [ %.sroa.8.019, %select.unfold ], [ %1, %.lr.ph.preheader ]
   %.sroa.8.019.in = getelementptr inbounds nuw i8, ptr %.sroa.0.018, i64 8
   %.sroa.8.019 = load ptr, ptr %.sroa.8.019.in, align 8
@@ -655,60 +649,58 @@ define dso_local void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #0 
   %4 = getelementptr inbounds i8, ptr %.sroa.0.018, i64 -8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %.idx = mul nsw i64 %6, 1488
-  %7 = getelementptr i8, ptr %2, i64 20
-  %8 = getelementptr i8, ptr %7, i64 %.idx
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %9, -1
-  br i1 %10, label %11, label %select.unfold
+  %7 = getelementptr %struct.BackgroundWorkerSlot, ptr %2, i64 %6, i32 4, i32 0, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, -1
+  br i1 %9, label %10, label %select.unfold
 
-11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.018, i64 -32
-  %13 = load i32, ptr %12, align 8
-  %.not14 = icmp eq i32 %13, 0
-  br i1 %.not14, label %select.unfold, label %14
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds i8, ptr %.sroa.0.018, i64 -32
+  %12 = load i32, ptr %11, align 8
+  %.not14 = icmp eq i32 %12, 0
+  br i1 %.not14, label %select.unfold, label %13
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %15, i64 %6
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.018, i64 -1304
-  %18 = load i32, ptr %17, align 8
-  %19 = and i32 %18, 16
-  %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %24, label %20
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %15 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %14, i64 %6
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.018, i64 -1304
+  %17 = load i32, ptr %16, align 8
+  %18 = and i32 %17, 16
+  %.not.i = icmp eq i32 %18, 0
+  br i1 %.not.i, label %23, label %19
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %22 = load i32, ptr %21, align 8
-  %23 = add i32 %22, 1
-  store i32 %23, ptr %21, align 8
-  br label %24
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = add i32 %21, 1
+  store i32 %22, ptr %20, align 8
+  br label %23
 
-24:                                               ; preds = %20, %14
+23:                                               ; preds = %19, %13
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
-  store i8 0, ptr %16, align 8
-  %25 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
-  br i1 %25, label %26, label %ForgetBackgroundWorker.exit
+  store i8 0, ptr %15, align 8
+  %24 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  br i1 %24, label %25, label %ForgetBackgroundWorker.exit
 
-26:                                               ; preds = %24
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #14
+25:                                               ; preds = %23
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #14
   br label %ForgetBackgroundWorker.exit
 
-ForgetBackgroundWorker.exit:                      ; preds = %24, %26
-  %28 = load ptr, ptr %.sroa.8.019.in, align 8
-  %29 = load ptr, ptr %.sroa.0.018, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %28, ptr %30, align 8
-  %31 = load ptr, ptr %.sroa.0.018, align 8
-  store ptr %31, ptr %28, align 8
+ForgetBackgroundWorker.exit:                      ; preds = %23, %25
+  %27 = load ptr, ptr %.sroa.8.019.in, align 8
+  %28 = load ptr, ptr %.sroa.0.018, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %.sroa.0.018, align 8
+  store ptr %30, ptr %27, align 8
   tail call void @pfree(ptr noundef nonnull %3) #14
-  %32 = tail call i32 @kill(i32 noundef %13, i32 noundef 10) #14
+  %31 = tail call i32 @kill(i32 noundef %12, i32 noundef 10) #14
   %.pre = load ptr, ptr @BackgroundWorkerData, align 8
   br label %select.unfold
 
-select.unfold:                                    ; preds = %ForgetBackgroundWorker.exit, %11, %.lr.ph
-  %33 = phi ptr [ %.pre, %ForgetBackgroundWorker.exit ], [ %2, %11 ], [ %2, %.lr.ph ]
+select.unfold:                                    ; preds = %ForgetBackgroundWorker.exit, %10, %.lr.ph
+  %32 = phi ptr [ %.pre, %ForgetBackgroundWorker.exit ], [ %2, %10 ], [ %2, %.lr.ph ]
   %.not13 = icmp eq ptr %.sroa.8.019, @BackgroundWorkerList
   br i1 %.not13, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !15
 

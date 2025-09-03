@@ -4376,103 +4376,102 @@ define internal fastcc void @fill_tone_level_array(ptr noundef %0, i32 noundef r
   %87 = zext i1 %67 to i64
   %88 = getelementptr inbounds nuw [64 x float], ptr @fft_tone_level_table, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 118096
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 138064
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 138736
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 137936
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 138320
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 137936
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 138320
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 138736
   %wide.trip.count335 = zext nneg i32 %spec.select205 to i64
   %wide.trip.count311 = zext nneg i32 %3 to i64
   %wide.trip.count320 = zext nneg i32 %3 to i64
   %wide.trip.count329 = zext nneg i32 %3 to i64
-  br label %94
+  br label %93
 
-94:                                               ; preds = %.preheader213, %.loopexit
+93:                                               ; preds = %.preheader213, %.loopexit
   %indvars.iv331 = phi i64 [ 0, %.preheader213 ], [ %indvars.iv.next332, %.loopexit ]
-  %95 = add nsw i64 %indvars.iv331, -4
-  %or.cond3 = icmp ult i64 %95, 20
-  br i1 %or.cond3, label %.preheader208, label %131
+  %94 = add nsw i64 %indvars.iv331, -4
+  %or.cond3 = icmp ult i64 %94, 20
+  br i1 %or.cond3, label %.preheader208, label %130
 
-.preheader208:                                    ; preds = %94
+.preheader208:                                    ; preds = %93
   br i1 %4, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader208
   %invariant.gep256 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv331
-  %96 = lshr i64 %indvars.iv331, 3
-  %invariant.gep258 = getelementptr inbounds nuw [8 x [8 x i8]], ptr %92, i64 %96
-  %invariant.gep260 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %95
-  %invariant.gep262 = getelementptr inbounds nuw i8, ptr %91, i64 %95
+  %95 = lshr i64 %indvars.iv331, 3
+  %invariant.gep258 = getelementptr inbounds nuw [8 x [8 x i8]], ptr %90, i64 %95
+  %invariant.gep260 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %94
+  %invariant.gep262 = getelementptr inbounds nuw i8, ptr %92, i64 %94
   %invariant.gep264 = getelementptr inbounds nuw [64 x i8], ptr %70, i64 %indvars.iv331
   %invariant.gep266 = getelementptr inbounds nuw [64 x float], ptr %89, i64 %indvars.iv331
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %130
-  %indvars.iv326 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next327, %130 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %129
+  %indvars.iv326 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next327, %129 ]
   %gep257 = getelementptr inbounds nuw [30 x [8 x i8]], ptr %invariant.gep256, i64 %indvars.iv326
   %gep259 = getelementptr inbounds nuw [3 x [8 x [8 x i8]]], ptr %invariant.gep258, i64 %indvars.iv326
   %gep261 = getelementptr inbounds nuw [26 x [8 x i8]], ptr %invariant.gep260, i64 %indvars.iv326
   %gep263 = getelementptr inbounds nuw [26 x i8], ptr %invariant.gep262, i64 %indvars.iv326
   %gep265 = getelementptr inbounds nuw [30 x [64 x i8]], ptr %invariant.gep264, i64 %indvars.iv326
   %gep267 = getelementptr inbounds nuw [30 x [64 x float]], ptr %invariant.gep266, i64 %indvars.iv326
-  br label %97
+  br label %96
 
-97:                                               ; preds = %.preheader, %128
-  %indvars.iv322 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next323, %128 ]
-  %98 = lshr i64 %indvars.iv322, 3
-  %99 = and i64 %98, 536870911
-  %100 = getelementptr inbounds nuw i8, ptr %gep257, i64 %99
-  %101 = load i8, ptr %100, align 1, !tbaa !30
-  %102 = sext i8 %101 to i32
-  %103 = getelementptr inbounds nuw [8 x i8], ptr %gep259, i64 %99
-  %104 = and i64 %indvars.iv322, 7
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
-  %106 = load i8, ptr %105, align 1, !tbaa !30
-  %107 = sext i8 %106 to i32
-  %108 = getelementptr inbounds nuw i8, ptr %gep261, i64 %99
-  %109 = load i8, ptr %108, align 1, !tbaa !30
-  %110 = sext i8 %109 to i32
-  %111 = add nsw i32 %110, %107
-  %112 = load i8, ptr %gep263, align 1, !tbaa !30
-  %113 = sext i8 %112 to i32
-  %114 = add nsw i32 %111, %113
-  %115 = sub nsw i32 %102, %114
-  %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds nuw i8, ptr %gep265, i64 %indvars.iv322
-  store i8 %116, ptr %117, align 1, !tbaa !30
-  %118 = icmp slt i32 %115, 0
-  br i1 %118, label %128, label %119
+96:                                               ; preds = %.preheader, %127
+  %indvars.iv322 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next323, %127 ]
+  %97 = lshr i64 %indvars.iv322, 3
+  %98 = and i64 %97, 536870911
+  %99 = getelementptr inbounds nuw i8, ptr %gep257, i64 %98
+  %100 = load i8, ptr %99, align 1, !tbaa !30
+  %101 = sext i8 %100 to i32
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %gep259, i64 %98
+  %103 = and i64 %indvars.iv322, 7
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 %103
+  %105 = load i8, ptr %104, align 1, !tbaa !30
+  %106 = sext i8 %105 to i32
+  %107 = getelementptr inbounds nuw i8, ptr %gep261, i64 %98
+  %108 = load i8, ptr %107, align 1, !tbaa !30
+  %109 = sext i8 %108 to i32
+  %110 = add nsw i32 %109, %106
+  %111 = load i8, ptr %gep263, align 1, !tbaa !30
+  %112 = sext i8 %111 to i32
+  %113 = add nsw i32 %110, %112
+  %114 = sub nsw i32 %101, %113
+  %115 = trunc i32 %114 to i8
+  %116 = getelementptr inbounds nuw i8, ptr %gep265, i64 %indvars.iv322
+  store i8 %115, ptr %116, align 1, !tbaa !30
+  %117 = icmp slt i32 %114, 0
+  br i1 %117, label %127, label %118
 
-119:                                              ; preds = %97
-  %120 = load i32, ptr %65, align 8, !tbaa !69
-  %121 = icmp ne i32 %120, 0
-  %122 = icmp ne i32 %114, %102
-  %or.cond5 = or i1 %121, %122
-  br i1 %or.cond5, label %123, label %128
+118:                                              ; preds = %96
+  %119 = load i32, ptr %65, align 8, !tbaa !69
+  %120 = icmp ne i32 %119, 0
+  %121 = icmp ne i32 %113, %101
+  %or.cond5 = or i1 %120, %121
+  br i1 %or.cond5, label %122, label %127
 
-123:                                              ; preds = %119
-  %124 = and i32 %115, 63
-  %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw float, ptr %88, i64 %125
-  %127 = load float, ptr %126, align 4, !tbaa !27
-  br label %128
+122:                                              ; preds = %118
+  %123 = and i32 %114, 63
+  %124 = zext nneg i32 %123 to i64
+  %125 = getelementptr inbounds nuw float, ptr %88, i64 %124
+  %126 = load float, ptr %125, align 4, !tbaa !27
+  br label %127
 
-128:                                              ; preds = %97, %119, %123
-  %.sink346 = phi float [ %127, %123 ], [ 0.000000e+00, %119 ], [ 0.000000e+00, %97 ]
-  %129 = getelementptr inbounds nuw float, ptr %gep267, i64 %indvars.iv322
-  store float %.sink346, ptr %129, align 4, !tbaa !27
+127:                                              ; preds = %96, %118, %122
+  %.sink346 = phi float [ %126, %122 ], [ 0.000000e+00, %118 ], [ 0.000000e+00, %96 ]
+  %128 = getelementptr inbounds nuw float, ptr %gep267, i64 %indvars.iv322
+  store float %.sink346, ptr %128, align 4, !tbaa !27
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next323, 64
-  br i1 %exitcond325.not, label %130, label %97, !llvm.loop !187
+  br i1 %exitcond325.not, label %129, label %96, !llvm.loop !187
 
-130:                                              ; preds = %128
+129:                                              ; preds = %127
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
   br i1 %exitcond330.not, label %.loopexit, label %.preheader, !llvm.loop !188
 
-131:                                              ; preds = %94
-  %132 = icmp samesign ugt i64 %indvars.iv331, 4
-  br i1 %132, label %.preheader209, label %.preheader211
+130:                                              ; preds = %93
+  %131 = icmp samesign ugt i64 %indvars.iv331, 4
+  br i1 %131, label %.preheader209, label %.preheader211
 
-.preheader211:                                    ; preds = %131
+.preheader211:                                    ; preds = %130
   br i1 %4, label %.preheader207.lr.ph, label %.loopexit
 
 .preheader207.lr.ph:                              ; preds = %.preheader211
@@ -4481,12 +4480,12 @@ define internal fastcc void @fill_tone_level_array(ptr noundef %0, i32 noundef r
   %invariant.gep238 = getelementptr inbounds nuw [64 x float], ptr %89, i64 %indvars.iv331
   br label %.preheader207
 
-.preheader209:                                    ; preds = %131
+.preheader209:                                    ; preds = %130
   br i1 %4, label %.preheader206.lr.ph, label %.loopexit
 
 .preheader206.lr.ph:                              ; preds = %.preheader209
   %invariant.gep244 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv331
-  %invariant.gep246 = getelementptr i8, ptr %91, i64 %indvars.iv331
+  %invariant.gep246 = getelementptr i8, ptr %0, i64 %indvars.iv331
   %invariant.gep248 = getelementptr inbounds nuw [64 x i8], ptr %70, i64 %indvars.iv331
   %invariant.gep250 = getelementptr inbounds nuw [64 x float], ptr %89, i64 %indvars.iv331
   br label %.preheader206
@@ -4494,10 +4493,10 @@ define internal fastcc void @fill_tone_level_array(ptr noundef %0, i32 noundef r
 .preheader206:                                    ; preds = %.preheader206.lr.ph, %164
   %indvars.iv317 = phi i64 [ 0, %.preheader206.lr.ph ], [ %indvars.iv.next318, %164 ]
   %gep245 = getelementptr inbounds nuw [30 x [8 x i8]], ptr %invariant.gep244, i64 %indvars.iv317
-  %.idx = mul nuw nsw i64 %indvars.iv317, 192
-  %133 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx
+  %132 = getelementptr inbounds nuw [3 x [8 x [8 x i8]]], ptr %0, i64 %indvars.iv317
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 138064
   %gep247 = getelementptr [26 x i8], ptr %invariant.gep246, i64 %indvars.iv317
-  %134 = getelementptr i8, ptr %gep247, i64 -4
+  %134 = getelementptr i8, ptr %gep247, i64 138732
   %gep249 = getelementptr inbounds nuw [30 x [64 x i8]], ptr %invariant.gep248, i64 %indvars.iv317
   %gep251 = getelementptr inbounds nuw [30 x [64 x float]], ptr %invariant.gep250, i64 %indvars.iv317
   br label %135
@@ -4596,10 +4595,10 @@ define internal fastcc void @fill_tone_level_array(ptr noundef %0, i32 noundef r
   %exitcond312.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count311
   br i1 %exitcond312.not, label %.loopexit, label %.preheader207, !llvm.loop !192
 
-.loopexit:                                        ; preds = %183, %164, %130, %.preheader211, %.preheader209, %.preheader208
+.loopexit:                                        ; preds = %183, %164, %129, %.preheader211, %.preheader209, %.preheader208
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %exitcond336.not = icmp eq i64 %indvars.iv.next332, %wide.trip.count335
-  br i1 %exitcond336.not, label %.loopexit214, label %94, !llvm.loop !193
+  br i1 %exitcond336.not, label %.loopexit214, label %93, !llvm.loop !193
 
 .loopexit214:                                     ; preds = %._crit_edge226.us, %.loopexit, %.preheader217
   ret void

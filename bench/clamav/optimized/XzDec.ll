@@ -693,8 +693,8 @@ define i32 @MixCoder_Code(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   br label %83
 
 78:                                               ; preds = %67
-  %79 = getelementptr i64, ptr %26, i64 %indvars.iv
-  %80 = getelementptr i8, ptr %79, i64 -8
+  %79 = getelementptr i64, ptr %0, i64 %indvars.iv
+  %80 = getelementptr i8, ptr %79, i64 24
   %81 = load i64, ptr %80, align 8, !tbaa !26
   %82 = add i64 %81, %73
   store i64 %82, ptr %80, align 8, !tbaa !26

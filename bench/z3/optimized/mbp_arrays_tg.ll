@@ -3818,7 +3818,7 @@ _ZN3mbp10term_graph7add_deqEP4exprS2_.exit:       ; preds = %294
   store i64 %300, ptr %13, align 8, !tbaa !60
   %301 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %301, align 8, !tbaa !62
-  %.not140375 = icmp eq i64 %53, 40
+  %.not140375 = icmp samesign eq i64 %53, 40
   br i1 %.not140375, label %._crit_edge379, label %.lr.ph378
 
 ._crit_edge379:                                   ; preds = %317, %._crit_edge374
@@ -5589,14 +5589,14 @@ define linkonce_odr hidden void @_ZN3mbp12mbp_array_tg4impl8elimrdwrEP3app(ptr n
   %.idx = shl nuw nsw i64 %8, 3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %10 = load ptr, ptr %4, align 8, !tbaa !63
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !88
-  %14 = add i32 %13, -1
-  %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %15
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %12 = load i32, ptr %11, align 8, !tbaa !88
+  %13 = add i32 %12, -1
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %15 = zext i32 %13 to i64
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !63
-  %18 = load ptr, ptr %11, align 8, !tbaa !63
+  %18 = load ptr, ptr %14, align 8, !tbaa !63
   %.not66 = icmp eq i32 %7, 1
   br i1 %.not66, label %.critedge, label %.lr.ph
 

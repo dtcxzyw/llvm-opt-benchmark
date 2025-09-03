@@ -1784,7 +1784,7 @@ define dso_local void @_ZN23b3Generic6DofConstraint8getInfo2EPN17b3TypedConstrai
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 817
   %119 = load i8, ptr %118, align 1, !tbaa !44, !range !73, !noundef !74
   %120 = trunc nuw i8 %119 to i1
-  br i1 %120, label %121, label %170
+  br i1 %120, label %121, label %167
 
 121:                                              ; preds = %3
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -1795,9 +1795,9 @@ define dso_local void @_ZN23b3Generic6DofConstraint8getInfo2EPN17b3TypedConstrai
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %128
 
-128:                                              ; preds = %168, %121
-  %indvars.iv.i = phi i64 [ 0, %121 ], [ %indvars.iv.next.i, %168 ]
-  %.034.i = phi i32 [ 0, %121 ], [ %.1.i, %168 ]
+128:                                              ; preds = %165, %121
+  %indvars.iv.i = phi i64 [ 0, %121 ], [ %indvars.iv.next.i, %165 ]
+  %.034.i = phi i32 [ 0, %121 ], [ %.1.i, %165 ]
   %129 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %122, i64 %indvars.iv.i
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 56
   %131 = load i32, ptr %130, align 8, !tbaa !33
@@ -1806,7 +1806,7 @@ define dso_local void @_ZN23b3Generic6DofConstraint8getInfo2EPN17b3TypedConstrai
   %134 = load i8, ptr %133, align 4, !range !73
   %135 = icmp ne i8 %134, 0
   %or.cond.not.i.i = select i1 %132, i1 true, i1 %135
-  br i1 %or.cond.not.i.i, label %136, label %168
+  br i1 %or.cond.not.i.i, label %136, label %165
 
 136:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1823,149 +1823,143 @@ define dso_local void @_ZN23b3Generic6DofConstraint8getInfo2EPN17b3TypedConstrai
   %142 = ashr i32 %138, %141
   %143 = and i32 %142, 1
   %.not.i = icmp eq i32 %143, 0
-  br i1 %.not.i, label %144, label %150
+  br i1 %.not.i, label %144, label %149
 
 144:                                              ; preds = %136
   %145 = load ptr, ptr %126, align 8, !tbaa !105
   %146 = load float, ptr %145, align 4, !tbaa !16
-  %147 = shl nuw nsw i64 %indvars.iv.i, 6
-  %148 = getelementptr inbounds nuw i8, ptr %122, i64 %147
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 28
-  store float %146, ptr %149, align 4, !tbaa !27
-  br label %150
+  %147 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 412
+  store float %146, ptr %148, align 4, !tbaa !27
+  br label %149
 
-150:                                              ; preds = %144, %136
-  %151 = and i32 %142, 2
-  %.not30.i = icmp eq i32 %151, 0
-  br i1 %.not30.i, label %152, label %158
+149:                                              ; preds = %144, %136
+  %150 = and i32 %142, 2
+  %.not30.i = icmp eq i32 %150, 0
+  br i1 %.not30.i, label %151, label %156
 
-152:                                              ; preds = %150
-  %153 = load ptr, ptr %126, align 8, !tbaa !105
-  %154 = load float, ptr %153, align 4, !tbaa !16
-  %155 = shl nuw nsw i64 %indvars.iv.i, 6
-  %156 = getelementptr inbounds nuw i8, ptr %122, i64 %155
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 36
-  store float %154, ptr %157, align 4, !tbaa !29
-  br label %158
+151:                                              ; preds = %149
+  %152 = load ptr, ptr %126, align 8, !tbaa !105
+  %153 = load float, ptr %152, align 4, !tbaa !16
+  %154 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 420
+  store float %153, ptr %155, align 4, !tbaa !29
+  br label %156
 
-158:                                              ; preds = %152, %150
-  %159 = and i32 %142, 4
-  %.not31.i = icmp eq i32 %159, 0
-  br i1 %.not31.i, label %160, label %165
+156:                                              ; preds = %151, %149
+  %157 = and i32 %142, 4
+  %.not31.i = icmp eq i32 %157, 0
+  br i1 %.not31.i, label %158, label %162
 
-160:                                              ; preds = %158
-  %161 = load float, ptr %127, align 4, !tbaa !109
-  %162 = shl nuw nsw i64 %indvars.iv.i, 6
-  %163 = getelementptr inbounds nuw i8, ptr %122, i64 %162
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 32
-  store float %161, ptr %164, align 16, !tbaa !28
+158:                                              ; preds = %156
+  %159 = load float, ptr %127, align 4, !tbaa !109
+  %160 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 416
+  store float %159, ptr %161, align 16, !tbaa !28
+  br label %162
+
+162:                                              ; preds = %158, %156
+  %163 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef nonnull %129, ptr noundef nonnull readonly align 16 dereferenceable(64) %6, ptr noundef nonnull readonly align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 16 dereferenceable(16) %114, ptr noundef nonnull readonly align 16 dereferenceable(16) %115, ptr noundef nonnull readonly align 16 dereferenceable(16) %116, ptr noundef nonnull readonly align 16 dereferenceable(16) %117, ptr noundef readonly %1, i32 noundef %.034.i, ptr noundef nonnull align 16 dereferenceable(16) %5, i32 noundef 1, i32 noundef 0)
+  %164 = add nsw i32 %163, %.034.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %165
 
-165:                                              ; preds = %160, %158
-  %166 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef nonnull %129, ptr noundef nonnull readonly align 16 dereferenceable(64) %6, ptr noundef nonnull readonly align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 16 dereferenceable(16) %114, ptr noundef nonnull readonly align 16 dereferenceable(16) %115, ptr noundef nonnull readonly align 16 dereferenceable(16) %116, ptr noundef nonnull readonly align 16 dereferenceable(16) %117, ptr noundef readonly %1, i32 noundef %.034.i, ptr noundef nonnull align 16 dereferenceable(16) %5, i32 noundef 1, i32 noundef 0)
-  %167 = add nsw i32 %166, %.034.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %168
-
-168:                                              ; preds = %165, %128
-  %.1.i = phi i32 [ %167, %165 ], [ %.034.i, %128 ]
+165:                                              ; preds = %162, %128
+  %.1.i = phi i32 [ %164, %162 ], [ %.034.i, %128 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit, label %128, !llvm.loop !110
 
-_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit: ; preds = %168
-  %169 = call noundef i32 @_ZN23b3Generic6DofConstraint15setLinearLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef %1, i32 noundef %.1.i, ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 16 dereferenceable(16) %114, ptr noundef nonnull align 16 dereferenceable(16) %115, ptr noundef nonnull align 16 dereferenceable(16) %116, ptr noundef nonnull align 16 dereferenceable(16) %117)
+_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit: ; preds = %165
+  %166 = call noundef i32 @_ZN23b3Generic6DofConstraint15setLinearLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef %1, i32 noundef %.1.i, ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 16 dereferenceable(16) %114, ptr noundef nonnull align 16 dereferenceable(16) %115, ptr noundef nonnull align 16 dereferenceable(16) %116, ptr noundef nonnull align 16 dereferenceable(16) %117)
   br label %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit40
 
-170:                                              ; preds = %3
-  %171 = call noundef i32 @_ZN23b3Generic6DofConstraint15setLinearLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 16 dereferenceable(16) %114, ptr noundef nonnull align 16 dereferenceable(16) %115, ptr noundef nonnull align 16 dereferenceable(16) %116, ptr noundef nonnull align 16 dereferenceable(16) %117)
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %174 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 820
-  %176 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  br label %178
+167:                                              ; preds = %3
+  %168 = call noundef i32 @_ZN23b3Generic6DofConstraint15setLinearLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 16 dereferenceable(16) %114, ptr noundef nonnull align 16 dereferenceable(16) %115, ptr noundef nonnull align 16 dereferenceable(16) %116, ptr noundef nonnull align 16 dereferenceable(16) %117)
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %171 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 820
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  br label %175
 
-178:                                              ; preds = %218, %170
-  %indvars.iv.i28 = phi i64 [ 0, %170 ], [ %indvars.iv.next.i32, %218 ]
-  %.034.i29 = phi i32 [ %171, %170 ], [ %.1.i31, %218 ]
-  %179 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %172, i64 %indvars.iv.i28
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 56
-  %181 = load i32, ptr %180, align 8, !tbaa !33
-  %182 = icmp ne i32 %181, 0
-  %183 = getelementptr inbounds nuw i8, ptr %179, i64 44
-  %184 = load i8, ptr %183, align 4, !range !73
-  %185 = icmp ne i8 %184, 0
-  %or.cond.not.i.i30 = select i1 %182, i1 true, i1 %185
-  br i1 %or.cond.not.i.i30, label %186, label %218
+175:                                              ; preds = %212, %167
+  %indvars.iv.i28 = phi i64 [ 0, %167 ], [ %indvars.iv.next.i32, %212 ]
+  %.034.i29 = phi i32 [ %168, %167 ], [ %.1.i31, %212 ]
+  %176 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %169, i64 %indvars.iv.i28
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 56
+  %178 = load i32, ptr %177, align 8, !tbaa !33
+  %179 = icmp ne i32 %178, 0
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 44
+  %181 = load i8, ptr %180, align 4, !range !73
+  %182 = icmp ne i8 %181, 0
+  %or.cond.not.i.i30 = select i1 %179, i1 true, i1 %182
+  br i1 %or.cond.not.i.i30, label %183, label %212
 
-186:                                              ; preds = %178
+183:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %187 = getelementptr inbounds nuw %class.b3Vector3, ptr %173, i64 %indvars.iv.i28
-  %.sroa.0.0.copyload.i.i34 = load <2 x float>, ptr %187, align 16
-  %.sroa.2.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %184 = getelementptr inbounds nuw %class.b3Vector3, ptr %170, i64 %indvars.iv.i28
+  %.sroa.0.0.copyload.i.i34 = load <2 x float>, ptr %184, align 16
+  %.sroa.2.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %.sroa.2.0.copyload.i.i36 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i.i35, align 8, !tbaa !8
   store <2 x float> %.sroa.0.0.copyload.i.i34, ptr %4, align 16
-  store <2 x float> %.sroa.2.0.copyload.i.i36, ptr %174, align 8
-  %188 = load i32, ptr %175, align 4, !tbaa !45
-  %189 = trunc nuw nsw i64 %indvars.iv.i28 to i32
-  %190 = mul nuw nsw i32 %189, 3
-  %191 = add nuw nsw i32 %190, 9
-  %192 = ashr i32 %188, %191
-  %193 = and i32 %192, 1
-  %.not.i37 = icmp eq i32 %193, 0
-  br i1 %.not.i37, label %194, label %200
+  store <2 x float> %.sroa.2.0.copyload.i.i36, ptr %171, align 8
+  %185 = load i32, ptr %172, align 4, !tbaa !45
+  %186 = trunc nuw nsw i64 %indvars.iv.i28 to i32
+  %187 = mul nuw nsw i32 %186, 3
+  %188 = add nuw nsw i32 %187, 9
+  %189 = ashr i32 %185, %188
+  %190 = and i32 %189, 1
+  %.not.i37 = icmp eq i32 %190, 0
+  br i1 %.not.i37, label %191, label %196
 
-194:                                              ; preds = %186
-  %195 = load ptr, ptr %176, align 8, !tbaa !105
-  %196 = load float, ptr %195, align 4, !tbaa !16
-  %197 = shl nuw nsw i64 %indvars.iv.i28, 6
-  %198 = getelementptr inbounds nuw i8, ptr %172, i64 %197
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 28
-  store float %196, ptr %199, align 4, !tbaa !27
-  br label %200
+191:                                              ; preds = %183
+  %192 = load ptr, ptr %173, align 8, !tbaa !105
+  %193 = load float, ptr %192, align 4, !tbaa !16
+  %194 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i28
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 412
+  store float %193, ptr %195, align 4, !tbaa !27
+  br label %196
 
-200:                                              ; preds = %194, %186
-  %201 = and i32 %192, 2
-  %.not30.i38 = icmp eq i32 %201, 0
-  br i1 %.not30.i38, label %202, label %208
+196:                                              ; preds = %191, %183
+  %197 = and i32 %189, 2
+  %.not30.i38 = icmp eq i32 %197, 0
+  br i1 %.not30.i38, label %198, label %203
 
-202:                                              ; preds = %200
-  %203 = load ptr, ptr %176, align 8, !tbaa !105
-  %204 = load float, ptr %203, align 4, !tbaa !16
-  %205 = shl nuw nsw i64 %indvars.iv.i28, 6
-  %206 = getelementptr inbounds nuw i8, ptr %172, i64 %205
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 36
-  store float %204, ptr %207, align 4, !tbaa !29
-  br label %208
+198:                                              ; preds = %196
+  %199 = load ptr, ptr %173, align 8, !tbaa !105
+  %200 = load float, ptr %199, align 4, !tbaa !16
+  %201 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i28
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 420
+  store float %200, ptr %202, align 4, !tbaa !29
+  br label %203
 
-208:                                              ; preds = %202, %200
-  %209 = and i32 %192, 4
-  %.not31.i39 = icmp eq i32 %209, 0
-  br i1 %.not31.i39, label %210, label %215
+203:                                              ; preds = %198, %196
+  %204 = and i32 %189, 4
+  %.not31.i39 = icmp eq i32 %204, 0
+  br i1 %.not31.i39, label %205, label %209
 
-210:                                              ; preds = %208
-  %211 = load float, ptr %177, align 4, !tbaa !109
-  %212 = shl nuw nsw i64 %indvars.iv.i28, 6
-  %213 = getelementptr inbounds nuw i8, ptr %172, i64 %212
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 32
-  store float %211, ptr %214, align 16, !tbaa !28
-  br label %215
+205:                                              ; preds = %203
+  %206 = load float, ptr %174, align 4, !tbaa !109
+  %207 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i28
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 416
+  store float %206, ptr %208, align 16, !tbaa !28
+  br label %209
 
-215:                                              ; preds = %210, %208
-  %216 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef nonnull %179, ptr noundef nonnull readonly align 16 dereferenceable(64) %6, ptr noundef nonnull readonly align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 16 dereferenceable(16) %114, ptr noundef nonnull readonly align 16 dereferenceable(16) %115, ptr noundef nonnull readonly align 16 dereferenceable(16) %116, ptr noundef nonnull readonly align 16 dereferenceable(16) %117, ptr noundef readonly %1, i32 noundef %.034.i29, ptr noundef nonnull align 16 dereferenceable(16) %4, i32 noundef 1, i32 noundef 0)
-  %217 = add nsw i32 %216, %.034.i29
+209:                                              ; preds = %205, %203
+  %210 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef nonnull %176, ptr noundef nonnull readonly align 16 dereferenceable(64) %6, ptr noundef nonnull readonly align 16 dereferenceable(64) %7, ptr noundef nonnull readonly align 16 dereferenceable(16) %114, ptr noundef nonnull readonly align 16 dereferenceable(16) %115, ptr noundef nonnull readonly align 16 dereferenceable(16) %116, ptr noundef nonnull readonly align 16 dereferenceable(16) %117, ptr noundef readonly %1, i32 noundef %.034.i29, ptr noundef nonnull align 16 dereferenceable(16) %4, i32 noundef 1, i32 noundef 0)
+  %211 = add nsw i32 %210, %.034.i29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %218
+  br label %212
 
-218:                                              ; preds = %215, %178
-  %.1.i31 = phi i32 [ %217, %215 ], [ %.034.i29, %178 ]
+212:                                              ; preds = %209, %175
+  %.1.i31 = phi i32 [ %211, %209 ], [ %.034.i29, %175 ]
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 3
-  br i1 %exitcond.not.i33, label %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit40, label %178, !llvm.loop !110
+  br i1 %exitcond.not.i33, label %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit40, label %175, !llvm.loop !110
 
-_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit40: ; preds = %218, %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit
+_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit40: ; preds = %212, %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -1982,12 +1976,12 @@ define dso_local noundef i32 @_ZN23b3Generic6DofConstraint16setAngularLimitsEPN1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %18
 
-17:                                               ; preds = %58
+17:                                               ; preds = %55
   ret i32 %.1
 
-18:                                               ; preds = %9, %58
-  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %58 ]
-  %.034 = phi i32 [ %2, %9 ], [ %.1, %58 ]
+18:                                               ; preds = %9, %55
+  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %55 ]
+  %.034 = phi i32 [ %2, %9 ], [ %.1, %55 ]
   %19 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %11, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load i32, ptr %20, align 8, !tbaa !33
@@ -1996,7 +1990,7 @@ define dso_local noundef i32 @_ZN23b3Generic6DofConstraint16setAngularLimitsEPN1
   %24 = load i8, ptr %23, align 4, !range !73
   %25 = icmp ne i8 %24, 0
   %or.cond.not.i = select i1 %22, i1 true, i1 %25
-  br i1 %or.cond.not.i, label %26, label %58
+  br i1 %or.cond.not.i, label %26, label %55
 
 26:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2013,52 +2007,49 @@ define dso_local noundef i32 @_ZN23b3Generic6DofConstraint16setAngularLimitsEPN1
   %32 = ashr i32 %28, %31
   %33 = and i32 %32, 1
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %34, label %40
+  br i1 %.not, label %34, label %39
 
 34:                                               ; preds = %26
   %35 = load ptr, ptr %15, align 8, !tbaa !105
   %36 = load float, ptr %35, align 4, !tbaa !16
-  %37 = shl nuw nsw i64 %indvars.iv, 6
-  %38 = getelementptr inbounds nuw i8, ptr %11, i64 %37
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 28
-  store float %36, ptr %39, align 4, !tbaa !27
-  br label %40
+  %37 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 412
+  store float %36, ptr %38, align 4, !tbaa !27
+  br label %39
 
-40:                                               ; preds = %34, %26
-  %41 = and i32 %32, 2
-  %.not30 = icmp eq i32 %41, 0
-  br i1 %.not30, label %42, label %48
+39:                                               ; preds = %34, %26
+  %40 = and i32 %32, 2
+  %.not30 = icmp eq i32 %40, 0
+  br i1 %.not30, label %41, label %46
 
-42:                                               ; preds = %40
-  %43 = load ptr, ptr %15, align 8, !tbaa !105
-  %44 = load float, ptr %43, align 4, !tbaa !16
-  %45 = shl nuw nsw i64 %indvars.iv, 6
-  %46 = getelementptr inbounds nuw i8, ptr %11, i64 %45
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
-  store float %44, ptr %47, align 4, !tbaa !29
-  br label %48
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %15, align 8, !tbaa !105
+  %43 = load float, ptr %42, align 4, !tbaa !16
+  %44 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 420
+  store float %43, ptr %45, align 4, !tbaa !29
+  br label %46
 
-48:                                               ; preds = %42, %40
-  %49 = and i32 %32, 4
-  %.not31 = icmp eq i32 %49, 0
-  br i1 %.not31, label %50, label %55
+46:                                               ; preds = %41, %39
+  %47 = and i32 %32, 4
+  %.not31 = icmp eq i32 %47, 0
+  br i1 %.not31, label %48, label %52
 
-50:                                               ; preds = %48
-  %51 = load float, ptr %16, align 4, !tbaa !109
-  %52 = shl nuw nsw i64 %indvars.iv, 6
-  %53 = getelementptr inbounds nuw i8, ptr %11, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store float %51, ptr %54, align 16, !tbaa !28
+48:                                               ; preds = %46
+  %49 = load float, ptr %16, align 4, !tbaa !109
+  %50 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 416
+  store float %49, ptr %51, align 16, !tbaa !28
+  br label %52
+
+52:                                               ; preds = %48, %46
+  %53 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef nonnull %19, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.034, ptr noundef nonnull align 16 dereferenceable(16) %10, i32 noundef 1, i32 noundef 0)
+  %54 = add nsw i32 %53, %.034
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %55
 
-55:                                               ; preds = %50, %48
-  %56 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef nonnull %19, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.034, ptr noundef nonnull align 16 dereferenceable(16) %10, i32 noundef 1, i32 noundef 0)
-  %57 = add nsw i32 %56, %.034
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %58
-
-58:                                               ; preds = %18, %55
-  %.1 = phi i32 [ %57, %55 ], [ %.034, %18 ]
+55:                                               ; preds = %18, %52
+  %.1 = phi i32 [ %54, %52 ], [ %.034, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %17, label %18, !llvm.loop !110
@@ -2350,7 +2341,7 @@ _ZN23b3Generic6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %26, %35, 
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 817
   %57 = load i8, ptr %56, align 1, !tbaa !44, !range !73, !noundef !74
   %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %59, label %107
+  br i1 %58, label %59, label %104
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -2360,9 +2351,9 @@ _ZN23b3Generic6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %26, %35, 
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %65
 
-65:                                               ; preds = %105, %59
-  %indvars.iv.i = phi i64 [ 0, %59 ], [ %indvars.iv.next.i, %105 ]
-  %.034.i = phi i32 [ 0, %59 ], [ %.1.i, %105 ]
+65:                                               ; preds = %102, %59
+  %indvars.iv.i = phi i64 [ 0, %59 ], [ %indvars.iv.next.i, %102 ]
+  %.034.i = phi i32 [ 0, %59 ], [ %.1.i, %102 ]
   %66 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %13, i64 %indvars.iv.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %68 = load i32, ptr %67, align 8, !tbaa !33
@@ -2371,7 +2362,7 @@ _ZN23b3Generic6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %26, %35, 
   %71 = load i8, ptr %70, align 4, !range !73
   %72 = icmp ne i8 %71, 0
   %or.cond.not.i.i36 = select i1 %69, i1 true, i1 %72
-  br i1 %or.cond.not.i.i36, label %73, label %105
+  br i1 %or.cond.not.i.i36, label %73, label %102
 
 73:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -2388,148 +2379,142 @@ _ZN23b3Generic6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %26, %35, 
   %79 = ashr i32 %75, %78
   %80 = and i32 %79, 1
   %.not.i = icmp eq i32 %80, 0
-  br i1 %.not.i, label %81, label %87
+  br i1 %.not.i, label %81, label %86
 
 81:                                               ; preds = %73
   %82 = load ptr, ptr %63, align 8, !tbaa !105
   %83 = load float, ptr %82, align 4, !tbaa !16
-  %84 = shl nuw nsw i64 %indvars.iv.i, 6
-  %85 = getelementptr inbounds nuw i8, ptr %13, i64 %84
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 28
-  store float %83, ptr %86, align 4, !tbaa !27
-  br label %87
+  %84 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 412
+  store float %83, ptr %85, align 4, !tbaa !27
+  br label %86
 
-87:                                               ; preds = %81, %73
-  %88 = and i32 %79, 2
-  %.not30.i = icmp eq i32 %88, 0
-  br i1 %.not30.i, label %89, label %95
+86:                                               ; preds = %81, %73
+  %87 = and i32 %79, 2
+  %.not30.i = icmp eq i32 %87, 0
+  br i1 %.not30.i, label %88, label %93
 
-89:                                               ; preds = %87
-  %90 = load ptr, ptr %63, align 8, !tbaa !105
-  %91 = load float, ptr %90, align 4, !tbaa !16
-  %92 = shl nuw nsw i64 %indvars.iv.i, 6
-  %93 = getelementptr inbounds nuw i8, ptr %13, i64 %92
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 36
-  store float %91, ptr %94, align 4, !tbaa !29
-  br label %95
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %63, align 8, !tbaa !105
+  %90 = load float, ptr %89, align 4, !tbaa !16
+  %91 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 420
+  store float %90, ptr %92, align 4, !tbaa !29
+  br label %93
 
-95:                                               ; preds = %89, %87
-  %96 = and i32 %79, 4
-  %.not31.i = icmp eq i32 %96, 0
-  br i1 %.not31.i, label %97, label %102
+93:                                               ; preds = %88, %86
+  %94 = and i32 %79, 4
+  %.not31.i = icmp eq i32 %94, 0
+  br i1 %.not31.i, label %95, label %99
 
-97:                                               ; preds = %95
-  %98 = load float, ptr %64, align 4, !tbaa !109
-  %99 = shl nuw nsw i64 %indvars.iv.i, 6
-  %100 = getelementptr inbounds nuw i8, ptr %13, i64 %99
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  store float %98, ptr %101, align 16, !tbaa !28
+95:                                               ; preds = %93
+  %96 = load float, ptr %64, align 4, !tbaa !109
+  %97 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 416
+  store float %96, ptr %98, align 16, !tbaa !28
+  br label %99
+
+99:                                               ; preds = %95, %93
+  %100 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef nonnull %66, ptr noundef nonnull readonly align 16 dereferenceable(64) %2, ptr noundef nonnull readonly align 16 dereferenceable(64) %3, ptr noundef nonnull readonly align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 16 dereferenceable(16) %6, ptr noundef nonnull readonly align 16 dereferenceable(16) %7, ptr noundef readonly %1, i32 noundef %.034.i, ptr noundef nonnull align 16 dereferenceable(16) %11, i32 noundef 1, i32 noundef 0)
+  %101 = add nsw i32 %100, %.034.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %102
 
-102:                                              ; preds = %97, %95
-  %103 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef nonnull %66, ptr noundef nonnull readonly align 16 dereferenceable(64) %2, ptr noundef nonnull readonly align 16 dereferenceable(64) %3, ptr noundef nonnull readonly align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 16 dereferenceable(16) %6, ptr noundef nonnull readonly align 16 dereferenceable(16) %7, ptr noundef readonly %1, i32 noundef %.034.i, ptr noundef nonnull align 16 dereferenceable(16) %11, i32 noundef 1, i32 noundef 0)
-  %104 = add nsw i32 %103, %.034.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %105
-
-105:                                              ; preds = %102, %65
-  %.1.i = phi i32 [ %104, %102 ], [ %.034.i, %65 ]
+102:                                              ; preds = %99, %65
+  %.1.i = phi i32 [ %101, %99 ], [ %.034.i, %65 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit, label %65, !llvm.loop !110
 
-_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit: ; preds = %105
-  %106 = tail call noundef i32 @_ZN23b3Generic6DofConstraint15setLinearLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef %1, i32 noundef %.1.i, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
+_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit: ; preds = %102
+  %103 = tail call noundef i32 @_ZN23b3Generic6DofConstraint15setLinearLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef %1, i32 noundef %.1.i, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
   br label %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit49
 
-107:                                              ; preds = %55
-  %108 = tail call noundef i32 @_ZN23b3Generic6DofConstraint15setLinearLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %110 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 820
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  br label %114
+104:                                              ; preds = %55
+  %105 = tail call noundef i32 @_ZN23b3Generic6DofConstraint15setLinearLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %107 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 820
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  br label %111
 
-114:                                              ; preds = %154, %107
-  %indvars.iv.i37 = phi i64 [ 0, %107 ], [ %indvars.iv.next.i41, %154 ]
-  %.034.i38 = phi i32 [ %108, %107 ], [ %.1.i40, %154 ]
-  %115 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %13, i64 %indvars.iv.i37
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
-  %117 = load i32, ptr %116, align 8, !tbaa !33
-  %118 = icmp ne i32 %117, 0
-  %119 = getelementptr inbounds nuw i8, ptr %115, i64 44
-  %120 = load i8, ptr %119, align 4, !range !73
-  %121 = icmp ne i8 %120, 0
-  %or.cond.not.i.i39 = select i1 %118, i1 true, i1 %121
-  br i1 %or.cond.not.i.i39, label %122, label %154
+111:                                              ; preds = %148, %104
+  %indvars.iv.i37 = phi i64 [ 0, %104 ], [ %indvars.iv.next.i41, %148 ]
+  %.034.i38 = phi i32 [ %105, %104 ], [ %.1.i40, %148 ]
+  %112 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %13, i64 %indvars.iv.i37
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 56
+  %114 = load i32, ptr %113, align 8, !tbaa !33
+  %115 = icmp ne i32 %114, 0
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 44
+  %117 = load i8, ptr %116, align 4, !range !73
+  %118 = icmp ne i8 %117, 0
+  %or.cond.not.i.i39 = select i1 %115, i1 true, i1 %118
+  br i1 %or.cond.not.i.i39, label %119, label %148
 
-122:                                              ; preds = %114
+119:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %123 = getelementptr inbounds nuw %class.b3Vector3, ptr %109, i64 %indvars.iv.i37
-  %.sroa.0.0.copyload.i.i43 = load <2 x float>, ptr %123, align 16
-  %.sroa.2.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %120 = getelementptr inbounds nuw %class.b3Vector3, ptr %106, i64 %indvars.iv.i37
+  %.sroa.0.0.copyload.i.i43 = load <2 x float>, ptr %120, align 16
+  %.sroa.2.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %.sroa.2.0.copyload.i.i45 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i.i44, align 8, !tbaa !8
   store <2 x float> %.sroa.0.0.copyload.i.i43, ptr %10, align 16
-  store <2 x float> %.sroa.2.0.copyload.i.i45, ptr %110, align 8
-  %124 = load i32, ptr %111, align 4, !tbaa !45
-  %125 = trunc nuw nsw i64 %indvars.iv.i37 to i32
-  %126 = mul nuw nsw i32 %125, 3
-  %127 = add nuw nsw i32 %126, 9
-  %128 = ashr i32 %124, %127
-  %129 = and i32 %128, 1
-  %.not.i46 = icmp eq i32 %129, 0
-  br i1 %.not.i46, label %130, label %136
+  store <2 x float> %.sroa.2.0.copyload.i.i45, ptr %107, align 8
+  %121 = load i32, ptr %108, align 4, !tbaa !45
+  %122 = trunc nuw nsw i64 %indvars.iv.i37 to i32
+  %123 = mul nuw nsw i32 %122, 3
+  %124 = add nuw nsw i32 %123, 9
+  %125 = ashr i32 %121, %124
+  %126 = and i32 %125, 1
+  %.not.i46 = icmp eq i32 %126, 0
+  br i1 %.not.i46, label %127, label %132
 
-130:                                              ; preds = %122
-  %131 = load ptr, ptr %112, align 8, !tbaa !105
-  %132 = load float, ptr %131, align 4, !tbaa !16
-  %133 = shl nuw nsw i64 %indvars.iv.i37, 6
-  %134 = getelementptr inbounds nuw i8, ptr %13, i64 %133
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 28
-  store float %132, ptr %135, align 4, !tbaa !27
-  br label %136
+127:                                              ; preds = %119
+  %128 = load ptr, ptr %109, align 8, !tbaa !105
+  %129 = load float, ptr %128, align 4, !tbaa !16
+  %130 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i37
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 412
+  store float %129, ptr %131, align 4, !tbaa !27
+  br label %132
 
-136:                                              ; preds = %130, %122
-  %137 = and i32 %128, 2
-  %.not30.i47 = icmp eq i32 %137, 0
-  br i1 %.not30.i47, label %138, label %144
+132:                                              ; preds = %127, %119
+  %133 = and i32 %125, 2
+  %.not30.i47 = icmp eq i32 %133, 0
+  br i1 %.not30.i47, label %134, label %139
 
-138:                                              ; preds = %136
-  %139 = load ptr, ptr %112, align 8, !tbaa !105
-  %140 = load float, ptr %139, align 4, !tbaa !16
-  %141 = shl nuw nsw i64 %indvars.iv.i37, 6
-  %142 = getelementptr inbounds nuw i8, ptr %13, i64 %141
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 36
-  store float %140, ptr %143, align 4, !tbaa !29
-  br label %144
+134:                                              ; preds = %132
+  %135 = load ptr, ptr %109, align 8, !tbaa !105
+  %136 = load float, ptr %135, align 4, !tbaa !16
+  %137 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i37
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 420
+  store float %136, ptr %138, align 4, !tbaa !29
+  br label %139
 
-144:                                              ; preds = %138, %136
-  %145 = and i32 %128, 4
-  %.not31.i48 = icmp eq i32 %145, 0
-  br i1 %.not31.i48, label %146, label %151
+139:                                              ; preds = %134, %132
+  %140 = and i32 %125, 4
+  %.not31.i48 = icmp eq i32 %140, 0
+  br i1 %.not31.i48, label %141, label %145
 
-146:                                              ; preds = %144
-  %147 = load float, ptr %113, align 4, !tbaa !109
-  %148 = shl nuw nsw i64 %indvars.iv.i37, 6
-  %149 = getelementptr inbounds nuw i8, ptr %13, i64 %148
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 32
-  store float %147, ptr %150, align 16, !tbaa !28
-  br label %151
+141:                                              ; preds = %139
+  %142 = load float, ptr %110, align 4, !tbaa !109
+  %143 = getelementptr inbounds nuw %class.b3RotationalLimitMotor, ptr %0, i64 %indvars.iv.i37
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 416
+  store float %142, ptr %144, align 16, !tbaa !28
+  br label %145
 
-151:                                              ; preds = %146, %144
-  %152 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef nonnull %115, ptr noundef nonnull readonly align 16 dereferenceable(64) %2, ptr noundef nonnull readonly align 16 dereferenceable(64) %3, ptr noundef nonnull readonly align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 16 dereferenceable(16) %6, ptr noundef nonnull readonly align 16 dereferenceable(16) %7, ptr noundef readonly %1, i32 noundef %.034.i38, ptr noundef nonnull align 16 dereferenceable(16) %10, i32 noundef 1, i32 noundef 0)
-  %153 = add nsw i32 %152, %.034.i38
+145:                                              ; preds = %141, %139
+  %146 = call noundef i32 @_ZN23b3Generic6DofConstraint21get_limit_motor_info2EP22b3RotationalLimitMotorRK11b3TransformS4_RK9b3Vector3S7_S7_S7_PN17b3TypedConstraint17b3ConstraintInfo2EiRS5_ii(ptr noundef nonnull align 16 dereferenceable(824) %0, ptr noundef nonnull %112, ptr noundef nonnull readonly align 16 dereferenceable(64) %2, ptr noundef nonnull readonly align 16 dereferenceable(64) %3, ptr noundef nonnull readonly align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 16 dereferenceable(16) %6, ptr noundef nonnull readonly align 16 dereferenceable(16) %7, ptr noundef readonly %1, i32 noundef %.034.i38, ptr noundef nonnull align 16 dereferenceable(16) %10, i32 noundef 1, i32 noundef 0)
+  %147 = add nsw i32 %146, %.034.i38
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %154
+  br label %148
 
-154:                                              ; preds = %151, %114
-  %.1.i40 = phi i32 [ %153, %151 ], [ %.034.i38, %114 ]
+148:                                              ; preds = %145, %111
+  %.1.i40 = phi i32 [ %147, %145 ], [ %.034.i38, %111 ]
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 3
-  br i1 %exitcond.not.i42, label %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit49, label %114, !llvm.loop !110
+  br i1 %exitcond.not.i42, label %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit49, label %111, !llvm.loop !110
 
-_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit49: ; preds = %154, %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit
+_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit49: ; preds = %148, %_ZN23b3Generic6DofConstraint16setAngularLimitsEPN17b3TypedConstraint17b3ConstraintInfo2EiRK11b3TransformS5_RK9b3Vector3S8_S8_S8_.exit
   ret void
 }
 
@@ -3163,7 +3148,7 @@ define dso_local void @_ZN23b3Generic6DofConstraint8setParamEifi(ptr noundef non
   br i1 %or.cond, label %5, label %18
 
 5:                                                ; preds = %4
-  switch i32 %1, label %41 [
+  switch i32 %1, label %38 [
     i32 2, label %6
     i32 4, label %10
     i32 3, label %14
@@ -3193,50 +3178,47 @@ define dso_local void @_ZN23b3Generic6DofConstraint8setParamEifi(ptr noundef non
 18:                                               ; preds = %4
   %19 = add i32 %3, -3
   %or.cond3 = icmp ult i32 %19, 3
-  br i1 %or.cond3, label %20, label %41
+  br i1 %or.cond3, label %20, label %38
 
 20:                                               ; preds = %18
-  switch i32 %1, label %41 [
+  switch i32 %1, label %38 [
     i32 2, label %21
-    i32 4, label %26
-    i32 3, label %31
+    i32 4, label %25
+    i32 3, label %29
   ]
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %23 = zext nneg i32 %3 to i64
-  %24 = getelementptr %class.b3RotationalLimitMotor, ptr %22, i64 %23
-  %25 = getelementptr i8, ptr %24, i64 -160
-  store float %2, ptr %25, align 16, !tbaa !28
+  %22 = zext nneg i32 %3 to i64
+  %23 = getelementptr %class.b3RotationalLimitMotor, ptr %0, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 224
+  store float %2, ptr %24, align 16, !tbaa !28
   br label %.sink.split
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %28 = zext nneg i32 %3 to i64
-  %29 = getelementptr %class.b3RotationalLimitMotor, ptr %27, i64 %28
-  %30 = getelementptr i8, ptr %29, i64 -156
-  store float %2, ptr %30, align 4, !tbaa !29
+25:                                               ; preds = %20
+  %26 = zext nneg i32 %3 to i64
+  %27 = getelementptr %class.b3RotationalLimitMotor, ptr %0, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 228
+  store float %2, ptr %28, align 4, !tbaa !29
   br label %.sink.split
 
-31:                                               ; preds = %20
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %33 = zext nneg i32 %3 to i64
-  %34 = getelementptr %class.b3RotationalLimitMotor, ptr %32, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 -164
-  store float %2, ptr %35, align 4, !tbaa !27
+29:                                               ; preds = %20
+  %30 = zext nneg i32 %3 to i64
+  %31 = getelementptr %class.b3RotationalLimitMotor, ptr %0, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 220
+  store float %2, ptr %32, align 4, !tbaa !27
   br label %.sink.split
 
-.sink.split:                                      ; preds = %14, %10, %6, %21, %26, %31
-  %.sink = phi i32 [ 1, %31 ], [ 2, %26 ], [ 4, %21 ], [ 4, %6 ], [ 2, %10 ], [ 1, %14 ]
-  %36 = mul nuw nsw i32 %3, 3
-  %37 = shl nuw nsw i32 %.sink, %36
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 820
-  %39 = load i32, ptr %38, align 4, !tbaa !45
-  %40 = or i32 %39, %37
-  store i32 %40, ptr %38, align 4, !tbaa !45
-  br label %41
+.sink.split:                                      ; preds = %14, %10, %6, %21, %25, %29
+  %.sink = phi i32 [ 1, %29 ], [ 2, %25 ], [ 4, %21 ], [ 4, %6 ], [ 2, %10 ], [ 1, %14 ]
+  %33 = mul nuw nsw i32 %3, 3
+  %34 = shl nuw nsw i32 %.sink, %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 820
+  %36 = load i32, ptr %35, align 4, !tbaa !45
+  %37 = or i32 %36, %34
+  store i32 %37, ptr %35, align 4, !tbaa !45
+  br label %38
 
-41:                                               ; preds = %.sink.split, %20, %18, %5
+38:                                               ; preds = %.sink.split, %20, %18, %5
   ret void
 }
 
@@ -3246,7 +3228,7 @@ define dso_local noundef float @_ZNK23b3Generic6DofConstraint8getParamEii(ptr no
   br i1 %or.cond, label %4, label %20
 
 4:                                                ; preds = %3
-  switch i32 %1, label %41 [
+  switch i32 %1, label %38 [
     i32 2, label %5
     i32 4, label %10
     i32 3, label %15
@@ -3257,60 +3239,57 @@ define dso_local noundef float @_ZNK23b3Generic6DofConstraint8getParamEii(ptr no
   %7 = zext nneg i32 %2 to i64
   %8 = getelementptr inbounds nuw float, ptr %6, i64 %7
   %9 = load float, ptr %8, align 4, !tbaa !16
-  br label %41
+  br label %38
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %12 = zext nneg i32 %2 to i64
   %13 = getelementptr inbounds nuw float, ptr %11, i64 %12
   %14 = load float, ptr %13, align 4, !tbaa !16
-  br label %41
+  br label %38
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %17 = zext nneg i32 %2 to i64
   %18 = getelementptr inbounds nuw float, ptr %16, i64 %17
   %19 = load float, ptr %18, align 4, !tbaa !16
-  br label %41
+  br label %38
 
 20:                                               ; preds = %3
   %21 = add i32 %2, -3
   %or.cond3 = icmp ult i32 %21, 3
-  br i1 %or.cond3, label %22, label %41
+  br i1 %or.cond3, label %22, label %38
 
 22:                                               ; preds = %20
-  switch i32 %1, label %41 [
+  switch i32 %1, label %38 [
     i32 2, label %23
-    i32 4, label %29
-    i32 3, label %35
+    i32 4, label %28
+    i32 3, label %33
   ]
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %25 = zext nneg i32 %2 to i64
-  %26 = getelementptr %class.b3RotationalLimitMotor, ptr %24, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -160
-  %28 = load float, ptr %27, align 16, !tbaa !28
-  br label %41
+  %24 = zext nneg i32 %2 to i64
+  %25 = getelementptr %class.b3RotationalLimitMotor, ptr %0, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 224
+  %27 = load float, ptr %26, align 16, !tbaa !28
+  br label %38
 
-29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %31 = zext nneg i32 %2 to i64
-  %32 = getelementptr %class.b3RotationalLimitMotor, ptr %30, i64 %31
-  %33 = getelementptr i8, ptr %32, i64 -156
-  %34 = load float, ptr %33, align 4, !tbaa !29
-  br label %41
+28:                                               ; preds = %22
+  %29 = zext nneg i32 %2 to i64
+  %30 = getelementptr %class.b3RotationalLimitMotor, ptr %0, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 228
+  %32 = load float, ptr %31, align 4, !tbaa !29
+  br label %38
 
-35:                                               ; preds = %22
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %37 = zext nneg i32 %2 to i64
-  %38 = getelementptr %class.b3RotationalLimitMotor, ptr %36, i64 %37
-  %39 = getelementptr i8, ptr %38, i64 -164
-  %40 = load float, ptr %39, align 4, !tbaa !27
-  br label %41
+33:                                               ; preds = %22
+  %34 = zext nneg i32 %2 to i64
+  %35 = getelementptr %class.b3RotationalLimitMotor, ptr %0, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 220
+  %37 = load float, ptr %36, align 4, !tbaa !27
+  br label %38
 
-41:                                               ; preds = %22, %35, %29, %23, %20, %5, %10, %15, %4
-  %.0 = phi float [ 0.000000e+00, %4 ], [ %9, %5 ], [ %14, %10 ], [ %19, %15 ], [ 0.000000e+00, %22 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ], [ 0.000000e+00, %20 ]
+38:                                               ; preds = %22, %33, %28, %23, %20, %5, %10, %15, %4
+  %.0 = phi float [ 0.000000e+00, %4 ], [ %9, %5 ], [ %14, %10 ], [ %19, %15 ], [ 0.000000e+00, %22 ], [ %27, %23 ], [ %32, %28 ], [ %37, %33 ], [ 0.000000e+00, %20 ]
   ret float %.0
 }
 

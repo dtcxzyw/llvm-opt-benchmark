@@ -115,8 +115,8 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %46 = add i32 %45, -13
   %47 = sitofp i32 %46 to float
   %48 = fdiv nsz float %47, 2.000000e+01
-  %49 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv122
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 28
+  %49 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv122
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 540
   store float %48, ptr %50, align 4, !tbaa !28
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 25

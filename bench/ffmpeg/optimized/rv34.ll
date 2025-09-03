@@ -569,23 +569,23 @@ define i32 @ff_rv34_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wri
   br label %.thread
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %25 = load i8, ptr %8, align 1, !tbaa !10
-  %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  %28 = shl nuw nsw i32 %26, 3
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %reass.sub = sub i32 %10, %28
-  %32 = add i32 %reass.sub, -9
-  %33 = load i32, ptr %24, align 1, !tbaa !10
+  %24 = load i8, ptr %8, align 1, !tbaa !10
+  %25 = zext i8 %24 to i32
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 5
+  %27 = shl nuw nsw i32 %25, 3
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 9
+  %reass.sub = sub i32 %10, %27
+  %31 = add i32 %reass.sub, -9
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %33 = load i32, ptr %32, align 1, !tbaa !10
   %34 = icmp eq i32 %33, 1
-  %35 = load i32, ptr %27, align 1, !tbaa !10
+  %35 = load i32, ptr %26, align 1, !tbaa !10
   %36 = tail call i32 @llvm.bswap.i32(i32 %35)
   %spec.select.i = select i1 %34, i32 %35, i32 %36
   %37 = icmp slt i32 %spec.select.i, 0
-  %38 = icmp sgt i32 %spec.select.i, %32
+  %38 = icmp sgt i32 %spec.select.i, %31
   %or.cond297 = or i1 %37, %38
   br i1 %or.cond297, label %39, label %40
 
@@ -596,8 +596,8 @@ define i32 @ff_rv34_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wri
 40:                                               ; preds = %23
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 4160
   %42 = zext nneg i32 %spec.select.i to i64
-  %43 = getelementptr inbounds nuw i8, ptr %31, i64 %42
-  %44 = sub nsw i32 %32, %spec.select.i
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 %42
+  %44 = sub nsw i32 %31, %spec.select.i
   %45 = shl nsw i32 %44, 3
   %or.cond.i = icmp samesign ult i32 %45, 2147483135
   %.018.i = select i1 %or.cond.i, i32 %45, i32 0
@@ -1034,8 +1034,8 @@ define i32 @ff_rv34_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %322 = getelementptr inbounds nuw i8, ptr %12, i64 6800
   %323 = getelementptr inbounds nuw i8, ptr %12, i64 1208
   %324 = getelementptr inbounds nuw i8, ptr %12, i64 4336
-  %325 = zext i8 %25 to i64
-  %326 = add nuw nsw i32 %26, 1
+  %325 = zext i8 %24 to i64
+  %326 = add nuw nsw i32 %25, 1
   %wide.trip.count = zext nneg i32 %326 to i64
   %327 = getelementptr inbounds nuw i8, ptr %12, i64 1232
   br label %328
@@ -1047,7 +1047,7 @@ define i32 @ff_rv34_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wri
 
 get_slice_offset.exit:                            ; preds = %328
   %329 = shl nsw i64 %indvars.iv417, 3
-  %330 = getelementptr inbounds nuw i8, ptr %27, i64 %329
+  %330 = getelementptr inbounds nuw i8, ptr %26, i64 %329
   %331 = getelementptr inbounds i8, ptr %330, i64 -4
   %332 = load i32, ptr %331, align 1, !tbaa !10
   %333 = icmp eq i32 %332, 1
@@ -1060,7 +1060,7 @@ get_slice_offset.exit:                            ; preds = %328
 
 337:                                              ; preds = %get_slice_offset.exit
   %338 = shl nsw i64 %indvars.iv.next418, 3
-  %339 = getelementptr inbounds nuw i8, ptr %27, i64 %338
+  %339 = getelementptr inbounds nuw i8, ptr %26, i64 %338
   %340 = getelementptr inbounds i8, ptr %339, i64 -4
   %341 = load i32, ptr %340, align 1, !tbaa !10
   %342 = icmp eq i32 %341, 1
@@ -1070,10 +1070,10 @@ get_slice_offset.exit:                            ; preds = %328
   br label %get_slice_offset.exit310
 
 get_slice_offset.exit310:                         ; preds = %get_slice_offset.exit, %337
-  %.0.i308 = phi i32 [ %32, %get_slice_offset.exit ], [ %spec.select.i309, %337 ]
+  %.0.i308 = phi i32 [ %31, %get_slice_offset.exit ], [ %spec.select.i309, %337 ]
   %345 = icmp slt i32 %spec.select.i307, 0
   %346 = icmp sgt i32 %spec.select.i307, %.0.i308
-  %347 = icmp sgt i32 %.0.i308, %32
+  %347 = icmp sgt i32 %.0.i308, %31
   %348 = or i1 %346, %347
   %or.cond301 = select i1 %345, i1 true, i1 %348
   br i1 %or.cond301, label %349, label %350
@@ -1103,7 +1103,7 @@ get_slice_offset.exit310:                         ; preds = %get_slice_offset.ex
 
 362:                                              ; preds = %360
   %363 = shl nuw nsw i64 %361, 3
-  %364 = getelementptr inbounds nuw i8, ptr %27, i64 %363
+  %364 = getelementptr inbounds nuw i8, ptr %26, i64 %363
   %365 = getelementptr inbounds i8, ptr %364, i64 -4
   %366 = load i32, ptr %365, align 1, !tbaa !10
   %367 = icmp eq i32 %366, 1
@@ -1113,16 +1113,16 @@ get_slice_offset.exit310:                         ; preds = %get_slice_offset.ex
   br label %get_slice_offset.exit313
 
 get_slice_offset.exit313:                         ; preds = %360, %362
-  %.0.i311 = phi i32 [ %32, %360 ], [ %spec.select.i312, %362 ]
+  %.0.i311 = phi i32 [ %31, %360 ], [ %spec.select.i312, %362 ]
   %370 = icmp slt i32 %.0.i311, %.0.i308
-  %371 = icmp sgt i32 %.0.i311, %32
+  %371 = icmp sgt i32 %.0.i311, %31
   %or.cond302 = or i1 %370, %371
   br i1 %or.cond302, label %386, label %372
 
 372:                                              ; preds = %get_slice_offset.exit313
   %373 = zext nneg i32 %.0.i308 to i64
-  %374 = getelementptr inbounds nuw i8, ptr %31, i64 %373
-  %375 = sub nsw i32 %32, %.0.i308
+  %374 = getelementptr inbounds nuw i8, ptr %30, i64 %373
+  %375 = sub nsw i32 %31, %.0.i308
   %376 = shl nsw i32 %375, 3
   %or.cond.i314 = icmp ult i32 %376, 2147483135
   %.018.i315 = select i1 %or.cond.i314, i32 %376, i32 0
@@ -1154,7 +1154,7 @@ get_slice_offset.exit313:                         ; preds = %360, %362
   %.0.i308.pn = phi i32 [ %.0.i308, %350 ], [ %.0.i308, %384 ], [ %.0.i311, %372 ]
   %.2241 = sub nsw i32 %.0.i308.pn, %spec.select.i307
   %387 = icmp slt i32 %.2241, 0
-  %.not290 = icmp sgt i32 %.0.i308.pn, %32
+  %.not290 = icmp sgt i32 %.0.i308.pn, %31
   %or.cond303 = or i1 %.not290, %387
   br i1 %or.cond303, label %388, label %389
 
@@ -1166,7 +1166,7 @@ get_slice_offset.exit313:                         ; preds = %360, %362
 389:                                              ; preds = %.thread324
   %390 = load i32, ptr %239, align 8, !tbaa !131
   %391 = zext nneg i32 %spec.select.i307 to i64
-  %392 = getelementptr inbounds nuw i8, ptr %31, i64 %391
+  %392 = getelementptr inbounds nuw i8, ptr %30, i64 %391
   %393 = shl nsw i32 %.2241, 3
   %or.cond.i.i = icmp samesign ult i32 %393, 2147483135
   %.018.i.i = select i1 %or.cond.i.i, i32 %393, i32 0

@@ -854,63 +854,63 @@ _ZNK2OT12MathVariants15get_glyph_partsEj14hb_direction_tP9hb_font_tjPjP23hb_ot_m
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2OT13MathConstants9get_valueE21hb_ot_math_constant_tP9hb_font_t(ptr noundef nonnull align 1 dereferenceable(214) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
-  switch i32 %1, label %108 [
+  switch i32 %1, label %104 [
     i32 0, label %4
     i32 1, label %4
     i32 2, label %15
     i32 3, label %15
-    i32 54, label %34
-    i32 53, label %34
-    i32 41, label %34
-    i32 17, label %34
-    i32 6, label %66
-    i32 5, label %66
-    i32 7, label %66
-    i32 35, label %66
-    i32 39, label %66
-    i32 34, label %66
-    i32 40, label %66
-    i32 33, label %66
-    i32 36, label %66
-    i32 32, label %66
-    i32 37, label %66
-    i32 38, label %66
-    i32 21, label %66
-    i32 20, label %66
-    i32 4, label %66
-    i32 45, label %66
-    i32 44, label %66
-    i32 43, label %66
-    i32 50, label %66
-    i32 52, label %66
-    i32 51, label %66
-    i32 49, label %66
-    i32 42, label %66
-    i32 25, label %66
-    i32 24, label %66
-    i32 27, label %66
-    i32 26, label %66
-    i32 23, label %66
-    i32 22, label %66
-    i32 29, label %66
-    i32 30, label %66
-    i32 31, label %66
-    i32 28, label %66
-    i32 10, label %66
-    i32 8, label %66
-    i32 9, label %66
-    i32 15, label %66
-    i32 14, label %66
-    i32 16, label %66
-    i32 13, label %66
-    i32 11, label %66
-    i32 12, label %66
-    i32 48, label %66
-    i32 47, label %66
-    i32 46, label %66
-    i32 19, label %66
-    i32 18, label %66
-    i32 55, label %98
+    i32 54, label %32
+    i32 53, label %32
+    i32 41, label %32
+    i32 17, label %32
+    i32 6, label %63
+    i32 5, label %63
+    i32 7, label %63
+    i32 35, label %63
+    i32 39, label %63
+    i32 34, label %63
+    i32 40, label %63
+    i32 33, label %63
+    i32 36, label %63
+    i32 32, label %63
+    i32 37, label %63
+    i32 38, label %63
+    i32 21, label %63
+    i32 20, label %63
+    i32 4, label %63
+    i32 45, label %63
+    i32 44, label %63
+    i32 43, label %63
+    i32 50, label %63
+    i32 52, label %63
+    i32 51, label %63
+    i32 49, label %63
+    i32 42, label %63
+    i32 25, label %63
+    i32 24, label %63
+    i32 27, label %63
+    i32 26, label %63
+    i32 23, label %63
+    i32 22, label %63
+    i32 29, label %63
+    i32 30, label %63
+    i32 31, label %63
+    i32 28, label %63
+    i32 10, label %63
+    i32 8, label %63
+    i32 9, label %63
+    i32 15, label %63
+    i32 14, label %63
+    i32 16, label %63
+    i32 13, label %63
+    i32 11, label %63
+    i32 12, label %63
+    i32 48, label %63
+    i32 47, label %63
+    i32 46, label %63
+    i32 19, label %63
+    i32 18, label %63
+    i32 55, label %94
   ]
 
 4:                                                ; preds = %3, %3
@@ -924,113 +924,109 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT13MathConstants9get_valueE21hb_ot
   %12 = zext i8 %11 to i16
   %13 = or disjoint i16 %9, %12
   %14 = sext i16 %13 to i32
-  br label %108
+  br label %104
 
 15:                                               ; preds = %3, %3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr %"struct.OT::IntType", ptr %16, i64 %17
-  %19 = getelementptr i8, ptr %18, i64 -4
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i16
-  %22 = shl nuw i16 %21, 8
-  %23 = getelementptr i8, ptr %18, i64 -3
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i16
-  %26 = or disjoint i16 %22, %25
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %28 = load i64, ptr %27, align 8
-  %29 = sext i16 %26 to i64
-  %30 = mul nsw i64 %28, %29
-  %31 = add nsw i64 %30, 32768
-  %32 = lshr i64 %31, 16
-  %33 = trunc i64 %32 to i32
-  br label %108
+  %16 = zext nneg i32 %1 to i64
+  %17 = getelementptr %"struct.OT::IntType", ptr %0, i64 %16
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i16
+  %20 = shl nuw i16 %19, 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i16
+  %24 = or disjoint i16 %20, %23
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %26 = load i64, ptr %25, align 8
+  %27 = sext i16 %24 to i64
+  %28 = mul nsw i64 %26, %27
+  %29 = add nsw i64 %28, 32768
+  %30 = lshr i64 %29, 16
+  %31 = trunc i64 %30 to i32
+  br label %104
 
-34:                                               ; preds = %3, %3, %3, %3
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = zext nneg i32 %1 to i64
-  %37 = getelementptr %"struct.OT::MathValueRecord", ptr %35, i64 %36
-  %38 = getelementptr i8, ptr %37, i64 -16
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i16
-  %41 = shl nuw i16 %40, 8
-  %42 = getelementptr i8, ptr %37, i64 -15
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i16
-  %45 = or disjoint i16 %41, %44
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %47 = load i64, ptr %46, align 8
-  %48 = sext i16 %45 to i64
-  %49 = mul nsw i64 %47, %48
-  %50 = add nsw i64 %49, 32768
-  %51 = lshr i64 %50, 16
-  %52 = trunc i64 %51 to i32
-  %53 = getelementptr i8, ptr %37, i64 -14
-  %54 = load i8, ptr %53, align 1
-  %55 = getelementptr i8, ptr %37, i64 -13
-  %56 = load i8, ptr %55, align 1
-  %57 = or i8 %56, %54
-  %58 = icmp eq i8 %57, 0
-  %59 = zext i8 %54 to i64
-  %60 = shl nuw nsw i64 %59, 8
-  %61 = zext i8 %56 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %60
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %61
-  %.0.i.i.i = select i1 %58, ptr @_hb_NullPool, ptr %63
-  %64 = tail call noundef i32 @_ZNK2OT6Device11get_x_deltaEP9hb_font_tRKNS_14VariationStoreEPf(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i.i, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(12) @_hb_NullPool, ptr noundef null)
-  %65 = add nsw i32 %64, %52
-  br label %108
+32:                                               ; preds = %3, %3, %3, %3
+  %33 = zext nneg i32 %1 to i64
+  %34 = getelementptr %"struct.OT::MathValueRecord", ptr %0, i64 %33
+  %35 = getelementptr i8, ptr %34, i64 -8
+  %36 = load i8, ptr %35, align 1
+  %37 = zext i8 %36 to i16
+  %38 = shl nuw i16 %37, 8
+  %39 = getelementptr i8, ptr %34, i64 -7
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i16
+  %42 = or disjoint i16 %38, %41
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %44 = load i64, ptr %43, align 8
+  %45 = sext i16 %42 to i64
+  %46 = mul nsw i64 %44, %45
+  %47 = add nsw i64 %46, 32768
+  %48 = lshr i64 %47, 16
+  %49 = trunc i64 %48 to i32
+  %50 = getelementptr i8, ptr %34, i64 -6
+  %51 = load i8, ptr %50, align 1
+  %52 = getelementptr i8, ptr %34, i64 -5
+  %53 = load i8, ptr %52, align 1
+  %54 = or i8 %53, %51
+  %55 = icmp eq i8 %54, 0
+  %56 = zext i8 %51 to i64
+  %57 = shl nuw nsw i64 %56, 8
+  %58 = zext i8 %53 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %57
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %58
+  %.0.i.i.i = select i1 %55, ptr @_hb_NullPool, ptr %60
+  %61 = tail call noundef i32 @_ZNK2OT6Device11get_x_deltaEP9hb_font_tRKNS_14VariationStoreEPf(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i.i, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(12) @_hb_NullPool, ptr noundef null)
+  %62 = add nsw i32 %61, %49
+  br label %104
 
-66:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = zext nneg i32 %1 to i64
-  %69 = getelementptr %"struct.OT::MathValueRecord", ptr %67, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 -16
+63:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %64 = zext nneg i32 %1 to i64
+  %65 = getelementptr %"struct.OT::MathValueRecord", ptr %0, i64 %64
+  %66 = getelementptr i8, ptr %65, i64 -8
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i16
+  %69 = shl nuw i16 %68, 8
+  %70 = getelementptr i8, ptr %65, i64 -7
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i16
-  %73 = shl nuw i16 %72, 8
-  %74 = getelementptr i8, ptr %69, i64 -15
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i16
-  %77 = or disjoint i16 %73, %76
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %79 = load i64, ptr %78, align 8
-  %80 = sext i16 %77 to i64
-  %81 = mul nsw i64 %79, %80
-  %82 = add nsw i64 %81, 32768
-  %83 = lshr i64 %82, 16
-  %84 = trunc i64 %83 to i32
-  %85 = getelementptr i8, ptr %69, i64 -14
-  %86 = load i8, ptr %85, align 1
-  %87 = getelementptr i8, ptr %69, i64 -13
-  %88 = load i8, ptr %87, align 1
-  %89 = or i8 %88, %86
-  %90 = icmp eq i8 %89, 0
-  %91 = zext i8 %86 to i64
-  %92 = shl nuw nsw i64 %91, 8
-  %93 = zext i8 %88 to i64
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 %92
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %93
-  %.0.i.i.i9 = select i1 %90, ptr @_hb_NullPool, ptr %95
-  %96 = tail call noundef i32 @_ZNK2OT6Device11get_y_deltaEP9hb_font_tRKNS_14VariationStoreEPf(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i.i9, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(12) @_hb_NullPool, ptr noundef null)
-  %97 = add nsw i32 %96, %84
-  br label %108
+  %73 = or disjoint i16 %69, %72
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %75 = load i64, ptr %74, align 8
+  %76 = sext i16 %73 to i64
+  %77 = mul nsw i64 %75, %76
+  %78 = add nsw i64 %77, 32768
+  %79 = lshr i64 %78, 16
+  %80 = trunc i64 %79 to i32
+  %81 = getelementptr i8, ptr %65, i64 -6
+  %82 = load i8, ptr %81, align 1
+  %83 = getelementptr i8, ptr %65, i64 -5
+  %84 = load i8, ptr %83, align 1
+  %85 = or i8 %84, %82
+  %86 = icmp eq i8 %85, 0
+  %87 = zext i8 %82 to i64
+  %88 = shl nuw nsw i64 %87, 8
+  %89 = zext i8 %84 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 %88
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %89
+  %.0.i.i.i9 = select i1 %86, ptr @_hb_NullPool, ptr %91
+  %92 = tail call noundef i32 @_ZNK2OT6Device11get_y_deltaEP9hb_font_tRKNS_14VariationStoreEPf(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i.i9, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(12) @_hb_NullPool, ptr noundef null)
+  %93 = add nsw i32 %92, %80
+  br label %104
 
-98:                                               ; preds = %3
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 212
+94:                                               ; preds = %3
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %96 = load i8, ptr %95, align 1
+  %97 = zext i8 %96 to i16
+  %98 = shl nuw i16 %97, 8
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 213
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i16
-  %102 = shl nuw i16 %101, 8
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 213
-  %104 = load i8, ptr %103, align 1
-  %105 = zext i8 %104 to i16
-  %106 = or disjoint i16 %102, %105
-  %107 = sext i16 %106 to i32
-  br label %108
+  %102 = or disjoint i16 %98, %101
+  %103 = sext i16 %102 to i32
+  br label %104
 
-108:                                              ; preds = %3, %98, %66, %34, %15, %4
-  %.0 = phi i32 [ %14, %4 ], [ %33, %15 ], [ %65, %34 ], [ %97, %66 ], [ %107, %98 ], [ 0, %3 ]
+104:                                              ; preds = %3, %94, %63, %32, %15, %4
+  %.0 = phi i32 [ %14, %4 ], [ %31, %15 ], [ %62, %32 ], [ %93, %63 ], [ %103, %94 ], [ 0, %3 ]
   ret i32 %.0
 }
 

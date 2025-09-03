@@ -2588,2639 +2588,2632 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %39
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %38
 
-39:                                               ; preds = %6, %._crit_edge
-  %.0213.idx875 = phi i64 [ 0, %6 ], [ %.0213.add, %._crit_edge ]
-  %.sroa.0.0874 = phi ptr [ null, %6 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
-  %.0213.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.0213.idx875
+38:                                               ; preds = %6, %._crit_edge
+  %.0213.idx874 = phi i64 [ 0, %6 ], [ %.0213.add, %._crit_edge ]
+  %.sroa.0.0873 = phi ptr [ null, %6 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
+  %.0213.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.0213.idx874
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %40 = load i64, ptr %.0213.ptr, align 8, !tbaa !114
-  store i64 %40, ptr %8, align 8, !tbaa !18
-  %41 = getelementptr inbounds nuw i8, ptr %.0213.ptr, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !116
-  %43 = getelementptr inbounds nuw i8, ptr %.0213.ptr, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !117
+  %39 = load i64, ptr %.0213.ptr, align 8, !tbaa !114
+  store i64 %39, ptr %8, align 8, !tbaa !18
+  %40 = getelementptr inbounds nuw i8, ptr %.0213.ptr, i64 8
+  %41 = load i64, ptr %40, align 8, !tbaa !116
+  %42 = getelementptr inbounds nuw i8, ptr %.0213.ptr, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !117
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.b1.i = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i, label %._crit_edge.i, label %logDWARF.exit
 
-._crit_edge.i:                                    ; preds = %39
+._crit_edge.i:                                    ; preds = %38
   %.pre.i = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %45 = trunc nuw i8 %.pre.i to i1
-  br i1 %45, label %49, label %52
+  %44 = trunc nuw i8 %.pre.i to i1
+  br i1 %44, label %48, label %51
 
-logDWARF.exit:                                    ; preds = %39
-  %46 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %47 = icmp ne ptr %46, null
-  %48 = zext i1 %47 to i8
-  store i8 %48, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit:                                    ; preds = %38
+  %45 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %46 = icmp ne ptr %45, null
+  %47 = zext i1 %46 to i8
+  store i8 %47, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %47, label %49, label %52
+  br i1 %46, label %48, label %51
 
-49:                                               ; preds = %._crit_edge.i, %logDWARF.exit
-  %50 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.37, i64 noundef %42) #16
+48:                                               ; preds = %._crit_edge.i, %logDWARF.exit
+  %49 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.37, i64 noundef %41) #16
   %.pre = load i64, ptr %8, align 8, !tbaa !18
-  br label %52
+  br label %51
 
-52:                                               ; preds = %._crit_edge.i, %49, %logDWARF.exit
-  %53 = phi i64 [ %40, %._crit_edge.i ], [ %.pre, %49 ], [ %40, %logDWARF.exit ]
-  %54 = icmp uge i64 %53, %42
-  %55 = icmp eq i64 %44, 0
-  %.not254871 = select i1 %54, i1 true, i1 %55
-  br i1 %.not254871, label %._crit_edge, label %.lr.ph
+51:                                               ; preds = %._crit_edge.i, %48, %logDWARF.exit
+  %52 = phi i64 [ %39, %._crit_edge.i ], [ %.pre, %48 ], [ %39, %logDWARF.exit ]
+  %53 = icmp uge i64 %52, %41
+  %54 = icmp eq i64 %43, 0
+  %.not253870 = select i1 %53, i1 true, i1 %54
+  br i1 %.not253870, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %52
-  %56 = inttoptr i64 %42 to ptr
-  br label %57
+.lr.ph:                                           ; preds = %51
+  %55 = inttoptr i64 %41 to ptr
+  br label %56
 
-57:                                               ; preds = %.lr.ph, %1299
-  %58 = phi i64 [ %53, %.lr.ph ], [ %1300, %1299 ]
-  %.0218873 = phi i64 [ 0, %.lr.ph ], [ %.2220, %1299 ]
-  %.sroa.0.1872 = phi ptr [ %.sroa.0.0874, %.lr.ph ], [ %.sroa.0.2, %1299 ]
-  %59 = inttoptr i64 %58 to ptr
-  %.0.copyload.i = load i8, ptr %59, align 1
-  %60 = add nuw i64 %58, 1
-  store i64 %60, ptr %8, align 8, !tbaa !18
-  switch i8 %.0.copyload.i, label %1199 [
-    i8 0, label %61
-    i8 1, label %69
-    i8 2, label %79
-    i8 3, label %94
-    i8 4, label %109
-    i8 5, label %123
-    i8 6, label %199
-    i8 7, label %246
-    i8 8, label %293
-    i8 9, label %340
-    i8 10, label %420
-    i8 11, label %430
-    i8 12, label %441
-    i8 13, label %509
-    i8 14, label %551
-    i8 15, label %586
-    i8 16, label %623
-    i8 17, label %701
-    i8 18, label %770
-    i8 19, label %836
-    i8 20, label %868
-    i8 21, label %942
-    i8 22, label %1011
-    i8 46, label %1089
-    i8 47, label %1124
+56:                                               ; preds = %.lr.ph, %1294
+  %57 = phi i64 [ %52, %.lr.ph ], [ %1295, %1294 ]
+  %.0218872 = phi i64 [ 0, %.lr.ph ], [ %.2220, %1294 ]
+  %.sroa.0.1871 = phi ptr [ %.sroa.0.0873, %.lr.ph ], [ %.sroa.0.2, %1294 ]
+  %58 = inttoptr i64 %57 to ptr
+  %.0.copyload.i = load i8, ptr %58, align 1
+  %59 = add nuw i64 %57, 1
+  store i64 %59, ptr %8, align 8, !tbaa !18
+  switch i8 %.0.copyload.i, label %1194 [
+    i8 0, label %60
+    i8 1, label %68
+    i8 2, label %78
+    i8 3, label %93
+    i8 4, label %108
+    i8 5, label %122
+    i8 6, label %198
+    i8 7, label %245
+    i8 8, label %292
+    i8 9, label %339
+    i8 10, label %419
+    i8 11, label %429
+    i8 12, label %440
+    i8 13, label %508
+    i8 14, label %550
+    i8 15, label %585
+    i8 16, label %622
+    i8 17, label %698
+    i8 18, label %767
+    i8 19, label %833
+    i8 20, label %865
+    i8 21, label %939
+    i8 22, label %1008
+    i8 46, label %1084
+    i8 47, label %1119
   ]
 
-61:                                               ; preds = %57
-  %.b1.i257 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i257, label %._crit_edge.i258, label %logDWARF.exit260
+60:                                               ; preds = %56
+  %.b1.i256 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i256, label %._crit_edge.i257, label %logDWARF.exit259
 
-._crit_edge.i258:                                 ; preds = %61
-  %.pre.i259 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %62 = trunc nuw i8 %.pre.i259 to i1
-  br i1 %62, label %66, label %1299
+._crit_edge.i257:                                 ; preds = %60
+  %.pre.i258 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %61 = trunc nuw i8 %.pre.i258 to i1
+  br i1 %61, label %65, label %1294
 
-logDWARF.exit260:                                 ; preds = %61
-  %63 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %64 = icmp ne ptr %63, null
-  %65 = zext i1 %64 to i8
-  store i8 %65, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit259:                                 ; preds = %60
+  %62 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %63 = icmp ne ptr %62, null
+  %64 = zext i1 %63 to i8
+  store i8 %64, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %64, label %66, label %1299
+  br i1 %63, label %65, label %1294
 
-66:                                               ; preds = %._crit_edge.i258, %logDWARF.exit260
-  %67 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %68 = call i64 @fwrite(ptr nonnull @.str.38, i64 11, i64 1, ptr %67) #19
-  br label %1299
+65:                                               ; preds = %._crit_edge.i257, %logDWARF.exit259
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %67 = call i64 @fwrite(ptr nonnull @.str.38, i64 11, i64 1, ptr %66) #19
+  br label %1294
 
-69:                                               ; preds = %57
-  %70 = load i8, ptr %38, align 8, !tbaa !41
-  %71 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %42, i8 noundef zeroext %70, i64 noundef 0)
-  %.b1.i261 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i261, label %._crit_edge.i262, label %logDWARF.exit264
+68:                                               ; preds = %56
+  %69 = load i8, ptr %37, align 8, !tbaa !41
+  %70 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %41, i8 noundef zeroext %69, i64 noundef 0)
+  %.b1.i260 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i260, label %._crit_edge.i261, label %logDWARF.exit263
 
-._crit_edge.i262:                                 ; preds = %69
-  %.pre.i263 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %72 = trunc nuw i8 %.pre.i263 to i1
-  br i1 %72, label %76, label %1299
+._crit_edge.i261:                                 ; preds = %68
+  %.pre.i262 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %71 = trunc nuw i8 %.pre.i262 to i1
+  br i1 %71, label %75, label %1294
 
-logDWARF.exit264:                                 ; preds = %69
-  %73 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %74 = icmp ne ptr %73, null
-  %75 = zext i1 %74 to i8
-  store i8 %75, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit263:                                 ; preds = %68
+  %72 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %73 = icmp ne ptr %72, null
+  %74 = zext i1 %73 to i8
+  store i8 %74, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %74, label %76, label %1299
+  br i1 %73, label %75, label %1294
 
-76:                                               ; preds = %._crit_edge.i262, %logDWARF.exit264
-  %77 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %78 = call i64 @fwrite(ptr nonnull @.str.39, i64 15, i64 1, ptr %77) #19
-  br label %1299
+75:                                               ; preds = %._crit_edge.i261, %logDWARF.exit263
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %77 = call i64 @fwrite(ptr nonnull @.str.39, i64 15, i64 1, ptr %76) #19
+  br label %1294
 
-79:                                               ; preds = %57
-  %80 = inttoptr i64 %60 to ptr
-  %.0.copyload.i265 = load i8, ptr %80, align 1
-  %81 = zext i8 %.0.copyload.i265 to i32
-  %82 = load i32, ptr %37, align 8, !tbaa !57
-  %83 = mul i32 %82, %81
-  %84 = zext i32 %83 to i64
-  %85 = add i64 %.0218873, %84
-  %86 = add i64 %58, 2
-  store i64 %86, ptr %8, align 8, !tbaa !18
-  %.b1.i266 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i266, label %._crit_edge.i267, label %logDWARF.exit269
+78:                                               ; preds = %56
+  %79 = inttoptr i64 %59 to ptr
+  %.0.copyload.i264 = load i8, ptr %79, align 1
+  %80 = zext i8 %.0.copyload.i264 to i32
+  %81 = load i32, ptr %36, align 8, !tbaa !57
+  %82 = mul i32 %81, %80
+  %83 = zext i32 %82 to i64
+  %84 = add i64 %.0218872, %83
+  %85 = add i64 %57, 2
+  store i64 %85, ptr %8, align 8, !tbaa !18
+  %.b1.i265 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i265, label %._crit_edge.i266, label %logDWARF.exit268
 
-._crit_edge.i267:                                 ; preds = %79
-  %.pre.i268 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %87 = trunc nuw i8 %.pre.i268 to i1
-  br i1 %87, label %91, label %1299
+._crit_edge.i266:                                 ; preds = %78
+  %.pre.i267 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %86 = trunc nuw i8 %.pre.i267 to i1
+  br i1 %86, label %90, label %1294
 
-logDWARF.exit269:                                 ; preds = %79
-  %88 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %89 = icmp ne ptr %88, null
-  %90 = zext i1 %89 to i8
-  store i8 %90, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit268:                                 ; preds = %78
+  %87 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %88 = icmp ne ptr %87, null
+  %89 = zext i1 %88 to i8
+  store i8 %89, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %89, label %91, label %1299
+  br i1 %88, label %90, label %1294
 
-91:                                               ; preds = %._crit_edge.i267, %logDWARF.exit269
-  %92 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.40, i64 noundef %85) #16
-  br label %1299
+90:                                               ; preds = %._crit_edge.i266, %logDWARF.exit268
+  %91 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.40, i64 noundef %84) #16
+  br label %1294
 
-94:                                               ; preds = %57
-  %95 = inttoptr i64 %60 to ptr
-  %.0.copyload.i270 = load i16, ptr %95, align 1
-  %96 = zext i16 %.0.copyload.i270 to i32
-  %97 = load i32, ptr %37, align 8, !tbaa !57
-  %98 = mul i32 %97, %96
-  %99 = zext i32 %98 to i64
-  %100 = add i64 %.0218873, %99
-  %101 = add i64 %58, 3
-  store i64 %101, ptr %8, align 8, !tbaa !18
-  %.b1.i271 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i271, label %._crit_edge.i272, label %logDWARF.exit274
+93:                                               ; preds = %56
+  %94 = inttoptr i64 %59 to ptr
+  %.0.copyload.i269 = load i16, ptr %94, align 1
+  %95 = zext i16 %.0.copyload.i269 to i32
+  %96 = load i32, ptr %36, align 8, !tbaa !57
+  %97 = mul i32 %96, %95
+  %98 = zext i32 %97 to i64
+  %99 = add i64 %.0218872, %98
+  %100 = add i64 %57, 3
+  store i64 %100, ptr %8, align 8, !tbaa !18
+  %.b1.i270 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i270, label %._crit_edge.i271, label %logDWARF.exit273
 
-._crit_edge.i272:                                 ; preds = %94
-  %.pre.i273 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %102 = trunc nuw i8 %.pre.i273 to i1
-  br i1 %102, label %106, label %1299
+._crit_edge.i271:                                 ; preds = %93
+  %.pre.i272 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %101 = trunc nuw i8 %.pre.i272 to i1
+  br i1 %101, label %105, label %1294
 
-logDWARF.exit274:                                 ; preds = %94
-  %103 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %104 = icmp ne ptr %103, null
-  %105 = zext i1 %104 to i8
-  store i8 %105, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit273:                                 ; preds = %93
+  %102 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %103 = icmp ne ptr %102, null
+  %104 = zext i1 %103 to i8
+  store i8 %104, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %104, label %106, label %1299
+  br i1 %103, label %105, label %1294
 
-106:                                              ; preds = %._crit_edge.i272, %logDWARF.exit274
-  %107 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.41, i64 noundef %100) #16
-  br label %1299
+105:                                              ; preds = %._crit_edge.i271, %logDWARF.exit273
+  %106 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.41, i64 noundef %99) #16
+  br label %1294
 
-109:                                              ; preds = %57
-  %110 = inttoptr i64 %60 to ptr
-  %.0.copyload.i275 = load i32, ptr %110, align 1
-  %111 = load i32, ptr %37, align 8, !tbaa !57
-  %112 = mul i32 %111, %.0.copyload.i275
-  %113 = zext i32 %112 to i64
-  %114 = add i64 %.0218873, %113
-  %115 = add i64 %58, 5
-  store i64 %115, ptr %8, align 8, !tbaa !18
-  %.b1.i276 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i276, label %._crit_edge.i277, label %logDWARF.exit279
+108:                                              ; preds = %56
+  %109 = inttoptr i64 %59 to ptr
+  %.0.copyload.i274 = load i32, ptr %109, align 1
+  %110 = load i32, ptr %36, align 8, !tbaa !57
+  %111 = mul i32 %110, %.0.copyload.i274
+  %112 = zext i32 %111 to i64
+  %113 = add i64 %.0218872, %112
+  %114 = add i64 %57, 5
+  store i64 %114, ptr %8, align 8, !tbaa !18
+  %.b1.i275 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i275, label %._crit_edge.i276, label %logDWARF.exit278
 
-._crit_edge.i277:                                 ; preds = %109
-  %.pre.i278 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %116 = trunc nuw i8 %.pre.i278 to i1
-  br i1 %116, label %120, label %1299
+._crit_edge.i276:                                 ; preds = %108
+  %.pre.i277 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %115 = trunc nuw i8 %.pre.i277 to i1
+  br i1 %115, label %119, label %1294
 
-logDWARF.exit279:                                 ; preds = %109
-  %117 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %118 = icmp ne ptr %117, null
-  %119 = zext i1 %118 to i8
-  store i8 %119, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit278:                                 ; preds = %108
+  %116 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %117 = icmp ne ptr %116, null
+  %118 = zext i1 %117 to i8
+  store i8 %118, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %118, label %120, label %1299
+  br i1 %117, label %119, label %1294
 
-120:                                              ; preds = %._crit_edge.i277, %logDWARF.exit279
-  %121 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.42, i64 noundef %114) #16
-  br label %1299
+119:                                              ; preds = %._crit_edge.i276, %logDWARF.exit278
+  %120 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.42, i64 noundef %113) #16
+  br label %1294
 
-123:                                              ; preds = %57
-  %124 = inttoptr i64 %60 to ptr
-  br label %125
+122:                                              ; preds = %56
+  %123 = inttoptr i64 %59 to ptr
+  br label %124
 
-125:                                              ; preds = %145, %123
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %145 ], [ 0, %123 ]
-  %.018.i = phi i64 [ %146, %145 ], [ 0, %123 ]
-  %.0.i = phi ptr [ %147, %145 ], [ %124, %123 ]
-  %126 = icmp eq ptr %.0.i, %56
-  br i1 %126, label %127, label %132
+124:                                              ; preds = %144, %122
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %144 ], [ 0, %122 ]
+  %.018.i = phi i64 [ %145, %144 ], [ 0, %122 ]
+  %.0.i = phi ptr [ %146, %144 ], [ %123, %122 ]
+  %125 = icmp eq ptr %.0.i, %55
+  br i1 %125, label %126, label %131
 
-127:                                              ; preds = %125
-  %128 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %130 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %131 = call i32 @fflush(ptr noundef %130)
+126:                                              ; preds = %124
+  %127 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %129 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %130 = call i32 @fflush(ptr noundef %129)
   call void @abort() #17
   unreachable
 
-132:                                              ; preds = %125
-  %133 = load i8, ptr %.0.i, align 1, !tbaa !45
-  %134 = icmp samesign ugt i64 %indvars.iv.i, 63
-  br i1 %134, label %140, label %135
+131:                                              ; preds = %124
+  %132 = load i8, ptr %.0.i, align 1, !tbaa !45
+  %133 = icmp samesign ugt i64 %indvars.iv.i, 63
+  br i1 %133, label %139, label %134
 
-135:                                              ; preds = %132
-  %136 = and i8 %133, 127
-  %137 = zext nneg i8 %136 to i64
-  %138 = shl i64 %137, %indvars.iv.i
-  %139 = lshr exact i64 %138, %indvars.iv.i
-  %.not.i = icmp eq i64 %139, %137
-  br i1 %.not.i, label %145, label %140
+134:                                              ; preds = %131
+  %135 = and i8 %132, 127
+  %136 = zext nneg i8 %135 to i64
+  %137 = shl i64 %136, %indvars.iv.i
+  %138 = lshr exact i64 %137, %indvars.iv.i
+  %.not.i = icmp eq i64 %138, %136
+  br i1 %.not.i, label %144, label %139
 
-140:                                              ; preds = %135, %132
-  %141 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %143 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %144 = call i32 @fflush(ptr noundef %143)
+139:                                              ; preds = %134, %131
+  %140 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %142 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %143 = call i32 @fflush(ptr noundef %142)
   call void @abort() #17
   unreachable
 
-145:                                              ; preds = %135
-  %146 = or i64 %138, %.018.i
+144:                                              ; preds = %134
+  %145 = or i64 %137, %.018.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
-  %147 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  %148 = icmp slt i8 %133, 0
-  br i1 %148, label %125, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !46
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  %147 = icmp slt i8 %132, 0
+  br i1 %147, label %124, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %145
-  %149 = ptrtoint ptr %147 to i64
-  store i64 %149, ptr %8, align 8, !tbaa !18
-  br label %150
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %144
+  %148 = ptrtoint ptr %146 to i64
+  store i64 %148, ptr %8, align 8, !tbaa !18
+  br label %149
 
-150:                                              ; preds = %170, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit
-  %indvars.iv.i280 = phi i64 [ %indvars.iv.next.i284, %170 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit ]
-  %.018.i281 = phi i64 [ %171, %170 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit ]
-  %.0.i282 = phi ptr [ %172, %170 ], [ %147, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit ]
-  %151 = icmp eq ptr %.0.i282, %56
-  br i1 %151, label %152, label %157
+149:                                              ; preds = %169, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit
+  %indvars.iv.i279 = phi i64 [ %indvars.iv.next.i283, %169 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit ]
+  %.018.i280 = phi i64 [ %170, %169 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit ]
+  %.0.i281 = phi ptr [ %171, %169 ], [ %146, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit ]
+  %150 = icmp eq ptr %.0.i281, %55
+  br i1 %150, label %151, label %156
 
-152:                                              ; preds = %150
-  %153 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %155 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %156 = call i32 @fflush(ptr noundef %155)
+151:                                              ; preds = %149
+  %152 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %154 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %155 = call i32 @fflush(ptr noundef %154)
   call void @abort() #17
   unreachable
 
-157:                                              ; preds = %150
-  %158 = load i8, ptr %.0.i282, align 1, !tbaa !45
-  %159 = icmp samesign ugt i64 %indvars.iv.i280, 63
-  br i1 %159, label %165, label %160
+156:                                              ; preds = %149
+  %157 = load i8, ptr %.0.i281, align 1, !tbaa !45
+  %158 = icmp samesign ugt i64 %indvars.iv.i279, 63
+  br i1 %158, label %164, label %159
 
-160:                                              ; preds = %157
-  %161 = and i8 %158, 127
-  %162 = zext nneg i8 %161 to i64
-  %163 = shl i64 %162, %indvars.iv.i280
-  %164 = lshr exact i64 %163, %indvars.iv.i280
-  %.not.i283 = icmp eq i64 %164, %162
-  br i1 %.not.i283, label %170, label %165
+159:                                              ; preds = %156
+  %160 = and i8 %157, 127
+  %161 = zext nneg i8 %160 to i64
+  %162 = shl i64 %161, %indvars.iv.i279
+  %163 = lshr exact i64 %162, %indvars.iv.i279
+  %.not.i282 = icmp eq i64 %163, %161
+  br i1 %.not.i282, label %169, label %164
 
-165:                                              ; preds = %160, %157
-  %166 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %168 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %169 = call i32 @fflush(ptr noundef %168)
+164:                                              ; preds = %159, %156
+  %165 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %167 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %168 = call i32 @fflush(ptr noundef %167)
   call void @abort() #17
   unreachable
 
-170:                                              ; preds = %160
-  %171 = or i64 %163, %.018.i281
-  %indvars.iv.next.i284 = add nuw nsw i64 %indvars.iv.i280, 7
-  %172 = getelementptr inbounds nuw i8, ptr %.0.i282, i64 1
-  %173 = icmp slt i8 %158, 0
-  br i1 %173, label %150, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit285, !llvm.loop !46
+169:                                              ; preds = %159
+  %170 = or i64 %162, %.018.i280
+  %indvars.iv.next.i283 = add nuw nsw i64 %indvars.iv.i279, 7
+  %171 = getelementptr inbounds nuw i8, ptr %.0.i281, i64 1
+  %172 = icmp slt i8 %157, 0
+  br i1 %172, label %149, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit284, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit285: ; preds = %170
-  %174 = ptrtoint ptr %172 to i64
-  store i64 %174, ptr %8, align 8, !tbaa !18
-  %175 = load i32, ptr %30, align 4, !tbaa !59
-  %176 = sext i32 %175 to i64
-  %177 = mul nsw i64 %171, %176
-  %178 = icmp ugt i64 %146, 32
-  br i1 %178, label %179, label %184
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit284: ; preds = %169
+  %173 = ptrtoint ptr %171 to i64
+  store i64 %173, ptr %8, align 8, !tbaa !18
+  %174 = load i32, ptr %30, align 4, !tbaa !59
+  %175 = sext i32 %174 to i64
+  %176 = mul nsw i64 %170, %175
+  %177 = icmp ugt i64 %145, 32
+  br i1 %177, label %178, label %183
 
-179:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit285
-  %180 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %181 = call i64 @fwrite(ptr nonnull @.str.43, i64 70, i64 1, ptr %180) #19
-  %182 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %183 = call i32 @fflush(ptr noundef %182)
+178:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit284
+  %179 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %180 = call i64 @fwrite(ptr nonnull @.str.43, i64 70, i64 1, ptr %179) #19
+  %181 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %182 = call i32 @fflush(ptr noundef %181)
   br label %.loopexit
 
-184:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit285
-  %185 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %146
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %187 = load i8, ptr %186, align 4, !tbaa !118, !range !10, !noundef !44
-  %188 = trunc nuw i8 %187 to i1
-  br i1 %188, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit, label %189
+183:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit284
+  %184 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %145
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
+  %186 = load i8, ptr %185, align 4, !tbaa !118, !range !10, !noundef !44
+  %187 = trunc nuw i8 %186 to i1
+  br i1 %187, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit, label %188
 
-189:                                              ; preds = %184
-  %190 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, ptr noundef nonnull align 8 dereferenceable(16) %185, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %186, align 4, !tbaa !118
+188:                                              ; preds = %183
+  %189 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %145
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull align 8 dereferenceable(16) %184, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %185, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit: ; preds = %184, %189
-  store i32 2, ptr %185, align 8, !tbaa !110
-  %191 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  store i64 %177, ptr %191, align 8, !tbaa !121
-  %.b1.i286 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i286, label %._crit_edge.i287, label %logDWARF.exit289
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit: ; preds = %183, %188
+  store i32 2, ptr %184, align 8, !tbaa !110
+  %190 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  store i64 %176, ptr %190, align 8, !tbaa !121
+  %.b1.i285 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i285, label %._crit_edge.i286, label %logDWARF.exit288
 
-._crit_edge.i287:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit
-  %.pre.i288 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %192 = trunc nuw i8 %.pre.i288 to i1
-  br i1 %192, label %196, label %1299
+._crit_edge.i286:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit
+  %.pre.i287 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %191 = trunc nuw i8 %.pre.i287 to i1
+  br i1 %191, label %195, label %1294
 
-logDWARF.exit289:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit
-  %193 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %194 = icmp ne ptr %193, null
-  %195 = zext i1 %194 to i8
-  store i8 %195, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit288:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit
+  %192 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %193 = icmp ne ptr %192, null
+  %194 = zext i1 %193 to i8
+  store i8 %194, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %194, label %196, label %1299
+  br i1 %193, label %195, label %1294
 
-196:                                              ; preds = %._crit_edge.i287, %logDWARF.exit289
-  %197 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.44, i64 noundef %146, i64 noundef %177) #16
-  br label %1299
+195:                                              ; preds = %._crit_edge.i286, %logDWARF.exit288
+  %196 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.44, i64 noundef %145, i64 noundef %176) #16
+  br label %1294
 
-199:                                              ; preds = %57
-  %200 = inttoptr i64 %60 to ptr
-  br label %201
+198:                                              ; preds = %56
+  %199 = inttoptr i64 %59 to ptr
+  br label %200
 
-201:                                              ; preds = %221, %199
-  %indvars.iv.i290 = phi i64 [ %indvars.iv.next.i294, %221 ], [ 0, %199 ]
-  %.018.i291 = phi i64 [ %222, %221 ], [ 0, %199 ]
-  %.0.i292 = phi ptr [ %223, %221 ], [ %200, %199 ]
-  %202 = icmp eq ptr %.0.i292, %56
-  br i1 %202, label %203, label %208
+200:                                              ; preds = %220, %198
+  %indvars.iv.i289 = phi i64 [ %indvars.iv.next.i293, %220 ], [ 0, %198 ]
+  %.018.i290 = phi i64 [ %221, %220 ], [ 0, %198 ]
+  %.0.i291 = phi ptr [ %222, %220 ], [ %199, %198 ]
+  %201 = icmp eq ptr %.0.i291, %55
+  br i1 %201, label %202, label %207
 
-203:                                              ; preds = %201
-  %204 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %204, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %206 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %207 = call i32 @fflush(ptr noundef %206)
+202:                                              ; preds = %200
+  %203 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %205 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %206 = call i32 @fflush(ptr noundef %205)
   call void @abort() #17
   unreachable
 
-208:                                              ; preds = %201
-  %209 = load i8, ptr %.0.i292, align 1, !tbaa !45
-  %210 = icmp samesign ugt i64 %indvars.iv.i290, 63
-  br i1 %210, label %216, label %211
+207:                                              ; preds = %200
+  %208 = load i8, ptr %.0.i291, align 1, !tbaa !45
+  %209 = icmp samesign ugt i64 %indvars.iv.i289, 63
+  br i1 %209, label %215, label %210
 
-211:                                              ; preds = %208
-  %212 = and i8 %209, 127
-  %213 = zext nneg i8 %212 to i64
-  %214 = shl i64 %213, %indvars.iv.i290
-  %215 = lshr exact i64 %214, %indvars.iv.i290
-  %.not.i293 = icmp eq i64 %215, %213
-  br i1 %.not.i293, label %221, label %216
+210:                                              ; preds = %207
+  %211 = and i8 %208, 127
+  %212 = zext nneg i8 %211 to i64
+  %213 = shl i64 %212, %indvars.iv.i289
+  %214 = lshr exact i64 %213, %indvars.iv.i289
+  %.not.i292 = icmp eq i64 %214, %212
+  br i1 %.not.i292, label %220, label %215
 
-216:                                              ; preds = %211, %208
-  %217 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %219 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %220 = call i32 @fflush(ptr noundef %219)
+215:                                              ; preds = %210, %207
+  %216 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %216, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %218 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %219 = call i32 @fflush(ptr noundef %218)
   call void @abort() #17
   unreachable
 
-221:                                              ; preds = %211
-  %222 = or i64 %214, %.018.i291
-  %indvars.iv.next.i294 = add nuw nsw i64 %indvars.iv.i290, 7
-  %223 = getelementptr inbounds nuw i8, ptr %.0.i292, i64 1
-  %224 = icmp slt i8 %209, 0
-  br i1 %224, label %201, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit295, !llvm.loop !46
+220:                                              ; preds = %210
+  %221 = or i64 %213, %.018.i290
+  %indvars.iv.next.i293 = add nuw nsw i64 %indvars.iv.i289, 7
+  %222 = getelementptr inbounds nuw i8, ptr %.0.i291, i64 1
+  %223 = icmp slt i8 %208, 0
+  br i1 %223, label %200, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit294, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit295: ; preds = %221
-  %225 = ptrtoint ptr %223 to i64
-  store i64 %225, ptr %8, align 8, !tbaa !18
-  %226 = icmp ugt i64 %222, 32
-  br i1 %226, label %227, label %232
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit294: ; preds = %220
+  %224 = ptrtoint ptr %222 to i64
+  store i64 %224, ptr %8, align 8, !tbaa !18
+  %225 = icmp ugt i64 %221, 32
+  br i1 %225, label %226, label %231
 
-227:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit295
-  %228 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %229 = call i64 @fwrite(ptr nonnull @.str.45, i64 71, i64 1, ptr %228) #19
-  %230 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %231 = call i32 @fflush(ptr noundef %230)
+226:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit294
+  %227 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %228 = call i64 @fwrite(ptr nonnull @.str.45, i64 71, i64 1, ptr %227) #19
+  %229 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %230 = call i32 @fflush(ptr noundef %229)
   br label %.loopexit
 
-232:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit295
-  %233 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %222
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  %235 = load i8, ptr %234, align 4, !tbaa !118, !range !10, !noundef !44
-  %236 = trunc nuw i8 %235 to i1
-  br i1 %236, label %237, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
+231:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit294
+  %232 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %221
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
+  %234 = load i8, ptr %233, align 4, !tbaa !118, !range !10, !noundef !44
+  %235 = trunc nuw i8 %234 to i1
+  br i1 %235, label %236, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
 
-237:                                              ; preds = %232
-  %238 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %222
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, ptr noundef nonnull align 8 dereferenceable(16) %238, i64 16, i1 false), !tbaa.struct !119
+236:                                              ; preds = %231
+  %237 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %221
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %232, ptr noundef nonnull align 8 dereferenceable(16) %237, i64 16, i1 false), !tbaa.struct !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit: ; preds = %232, %237
-  %.b1.i296 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i296, label %._crit_edge.i297, label %logDWARF.exit299
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit: ; preds = %231, %236
+  %.b1.i295 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i295, label %._crit_edge.i296, label %logDWARF.exit298
 
-._crit_edge.i297:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
-  %.pre.i298 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %239 = trunc nuw i8 %.pre.i298 to i1
-  br i1 %239, label %243, label %1299
+._crit_edge.i296:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
+  %.pre.i297 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %238 = trunc nuw i8 %.pre.i297 to i1
+  br i1 %238, label %242, label %1294
 
-logDWARF.exit299:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
-  %240 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %241 = icmp ne ptr %240, null
-  %242 = zext i1 %241 to i8
-  store i8 %242, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit298:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
+  %239 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %240 = icmp ne ptr %239, null
+  %241 = zext i1 %240 to i8
+  store i8 %241, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %241, label %243, label %1299
+  br i1 %240, label %242, label %1294
 
-243:                                              ; preds = %._crit_edge.i297, %logDWARF.exit299
-  %244 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %245 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.46, i64 noundef %222) #16
-  br label %1299
+242:                                              ; preds = %._crit_edge.i296, %logDWARF.exit298
+  %243 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %244 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef nonnull @.str.46, i64 noundef %221) #16
+  br label %1294
 
-246:                                              ; preds = %57
-  %247 = inttoptr i64 %60 to ptr
-  br label %248
+245:                                              ; preds = %56
+  %246 = inttoptr i64 %59 to ptr
+  br label %247
 
-248:                                              ; preds = %268, %246
-  %indvars.iv.i300 = phi i64 [ %indvars.iv.next.i304, %268 ], [ 0, %246 ]
-  %.018.i301 = phi i64 [ %269, %268 ], [ 0, %246 ]
-  %.0.i302 = phi ptr [ %270, %268 ], [ %247, %246 ]
-  %249 = icmp eq ptr %.0.i302, %56
-  br i1 %249, label %250, label %255
+247:                                              ; preds = %267, %245
+  %indvars.iv.i299 = phi i64 [ %indvars.iv.next.i303, %267 ], [ 0, %245 ]
+  %.018.i300 = phi i64 [ %268, %267 ], [ 0, %245 ]
+  %.0.i301 = phi ptr [ %269, %267 ], [ %246, %245 ]
+  %248 = icmp eq ptr %.0.i301, %55
+  br i1 %248, label %249, label %254
 
-250:                                              ; preds = %248
-  %251 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %252 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %251, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %253 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %254 = call i32 @fflush(ptr noundef %253)
+249:                                              ; preds = %247
+  %250 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %251 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %250, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %252 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %253 = call i32 @fflush(ptr noundef %252)
   call void @abort() #17
   unreachable
 
-255:                                              ; preds = %248
-  %256 = load i8, ptr %.0.i302, align 1, !tbaa !45
-  %257 = icmp samesign ugt i64 %indvars.iv.i300, 63
-  br i1 %257, label %263, label %258
+254:                                              ; preds = %247
+  %255 = load i8, ptr %.0.i301, align 1, !tbaa !45
+  %256 = icmp samesign ugt i64 %indvars.iv.i299, 63
+  br i1 %256, label %262, label %257
 
-258:                                              ; preds = %255
-  %259 = and i8 %256, 127
-  %260 = zext nneg i8 %259 to i64
-  %261 = shl i64 %260, %indvars.iv.i300
-  %262 = lshr exact i64 %261, %indvars.iv.i300
-  %.not.i303 = icmp eq i64 %262, %260
-  br i1 %.not.i303, label %268, label %263
+257:                                              ; preds = %254
+  %258 = and i8 %255, 127
+  %259 = zext nneg i8 %258 to i64
+  %260 = shl i64 %259, %indvars.iv.i299
+  %261 = lshr exact i64 %260, %indvars.iv.i299
+  %.not.i302 = icmp eq i64 %261, %259
+  br i1 %.not.i302, label %267, label %262
 
-263:                                              ; preds = %258, %255
-  %264 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %265 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %264, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %266 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %267 = call i32 @fflush(ptr noundef %266)
+262:                                              ; preds = %257, %254
+  %263 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %265 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %266 = call i32 @fflush(ptr noundef %265)
   call void @abort() #17
   unreachable
 
-268:                                              ; preds = %258
-  %269 = or i64 %261, %.018.i301
-  %indvars.iv.next.i304 = add nuw nsw i64 %indvars.iv.i300, 7
-  %270 = getelementptr inbounds nuw i8, ptr %.0.i302, i64 1
-  %271 = icmp slt i8 %256, 0
-  br i1 %271, label %248, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit305, !llvm.loop !46
+267:                                              ; preds = %257
+  %268 = or i64 %260, %.018.i300
+  %indvars.iv.next.i303 = add nuw nsw i64 %indvars.iv.i299, 7
+  %269 = getelementptr inbounds nuw i8, ptr %.0.i301, i64 1
+  %270 = icmp slt i8 %255, 0
+  br i1 %270, label %247, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit304, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit305: ; preds = %268
-  %272 = ptrtoint ptr %270 to i64
-  store i64 %272, ptr %8, align 8, !tbaa !18
-  %273 = icmp ugt i64 %269, 32
-  br i1 %273, label %274, label %279
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit304: ; preds = %267
+  %271 = ptrtoint ptr %269 to i64
+  store i64 %271, ptr %8, align 8, !tbaa !18
+  %272 = icmp ugt i64 %268, 32
+  br i1 %272, label %273, label %278
 
-274:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit305
-  %275 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %276 = call i64 @fwrite(ptr nonnull @.str.47, i64 64, i64 1, ptr %275) #19
-  %277 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %278 = call i32 @fflush(ptr noundef %277)
+273:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit304
+  %274 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %275 = call i64 @fwrite(ptr nonnull @.str.47, i64 64, i64 1, ptr %274) #19
+  %276 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %277 = call i32 @fflush(ptr noundef %276)
   br label %.loopexit
 
-279:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit305
-  %280 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %269
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  %282 = load i8, ptr %281, align 4, !tbaa !118, !range !10, !noundef !44
-  %283 = trunc nuw i8 %282 to i1
-  br i1 %283, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit, label %284
+278:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit304
+  %279 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %268
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 4
+  %281 = load i8, ptr %280, align 4, !tbaa !118, !range !10, !noundef !44
+  %282 = trunc nuw i8 %281 to i1
+  br i1 %282, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit, label %283
 
-284:                                              ; preds = %279
-  %285 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %269
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %285, ptr noundef nonnull align 8 dereferenceable(16) %280, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %281, align 4, !tbaa !118
+283:                                              ; preds = %278
+  %284 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %268
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %284, ptr noundef nonnull align 8 dereferenceable(16) %279, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %280, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit: ; preds = %279, %284
-  store i32 1, ptr %280, align 8, !tbaa !110
-  %.b1.i306 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i306, label %._crit_edge.i307, label %logDWARF.exit309
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit: ; preds = %278, %283
+  store i32 1, ptr %279, align 8, !tbaa !110
+  %.b1.i305 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i305, label %._crit_edge.i306, label %logDWARF.exit308
 
-._crit_edge.i307:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit
-  %.pre.i308 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %286 = trunc nuw i8 %.pre.i308 to i1
-  br i1 %286, label %290, label %1299
+._crit_edge.i306:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit
+  %.pre.i307 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %285 = trunc nuw i8 %.pre.i307 to i1
+  br i1 %285, label %289, label %1294
 
-logDWARF.exit309:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit
-  %287 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %288 = icmp ne ptr %287, null
-  %289 = zext i1 %288 to i8
-  store i8 %289, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit308:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit
+  %286 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %287 = icmp ne ptr %286, null
+  %288 = zext i1 %287 to i8
+  store i8 %288, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %288, label %290, label %1299
+  br i1 %287, label %289, label %1294
 
-290:                                              ; preds = %._crit_edge.i307, %logDWARF.exit309
-  %291 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %292 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %291, ptr noundef nonnull @.str.48, i64 noundef %269) #16
-  br label %1299
+289:                                              ; preds = %._crit_edge.i306, %logDWARF.exit308
+  %290 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %290, ptr noundef nonnull @.str.48, i64 noundef %268) #16
+  br label %1294
 
-293:                                              ; preds = %57
-  %294 = inttoptr i64 %60 to ptr
-  br label %295
+292:                                              ; preds = %56
+  %293 = inttoptr i64 %59 to ptr
+  br label %294
 
-295:                                              ; preds = %315, %293
-  %indvars.iv.i310 = phi i64 [ %indvars.iv.next.i314, %315 ], [ 0, %293 ]
-  %.018.i311 = phi i64 [ %316, %315 ], [ 0, %293 ]
-  %.0.i312 = phi ptr [ %317, %315 ], [ %294, %293 ]
-  %296 = icmp eq ptr %.0.i312, %56
-  br i1 %296, label %297, label %302
+294:                                              ; preds = %314, %292
+  %indvars.iv.i309 = phi i64 [ %indvars.iv.next.i313, %314 ], [ 0, %292 ]
+  %.018.i310 = phi i64 [ %315, %314 ], [ 0, %292 ]
+  %.0.i311 = phi ptr [ %316, %314 ], [ %293, %292 ]
+  %295 = icmp eq ptr %.0.i311, %55
+  br i1 %295, label %296, label %301
 
-297:                                              ; preds = %295
-  %298 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %298, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %300 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %301 = call i32 @fflush(ptr noundef %300)
+296:                                              ; preds = %294
+  %297 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %298 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %297, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %299 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %300 = call i32 @fflush(ptr noundef %299)
   call void @abort() #17
   unreachable
 
-302:                                              ; preds = %295
-  %303 = load i8, ptr %.0.i312, align 1, !tbaa !45
-  %304 = icmp samesign ugt i64 %indvars.iv.i310, 63
-  br i1 %304, label %310, label %305
+301:                                              ; preds = %294
+  %302 = load i8, ptr %.0.i311, align 1, !tbaa !45
+  %303 = icmp samesign ugt i64 %indvars.iv.i309, 63
+  br i1 %303, label %309, label %304
 
-305:                                              ; preds = %302
-  %306 = and i8 %303, 127
-  %307 = zext nneg i8 %306 to i64
-  %308 = shl i64 %307, %indvars.iv.i310
-  %309 = lshr exact i64 %308, %indvars.iv.i310
-  %.not.i313 = icmp eq i64 %309, %307
-  br i1 %.not.i313, label %315, label %310
+304:                                              ; preds = %301
+  %305 = and i8 %302, 127
+  %306 = zext nneg i8 %305 to i64
+  %307 = shl i64 %306, %indvars.iv.i309
+  %308 = lshr exact i64 %307, %indvars.iv.i309
+  %.not.i312 = icmp eq i64 %308, %306
+  br i1 %.not.i312, label %314, label %309
 
-310:                                              ; preds = %305, %302
-  %311 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %312 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %313 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %314 = call i32 @fflush(ptr noundef %313)
+309:                                              ; preds = %304, %301
+  %310 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %312 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %313 = call i32 @fflush(ptr noundef %312)
   call void @abort() #17
   unreachable
 
-315:                                              ; preds = %305
-  %316 = or i64 %308, %.018.i311
-  %indvars.iv.next.i314 = add nuw nsw i64 %indvars.iv.i310, 7
-  %317 = getelementptr inbounds nuw i8, ptr %.0.i312, i64 1
-  %318 = icmp slt i8 %303, 0
-  br i1 %318, label %295, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit315, !llvm.loop !46
+314:                                              ; preds = %304
+  %315 = or i64 %307, %.018.i310
+  %indvars.iv.next.i313 = add nuw nsw i64 %indvars.iv.i309, 7
+  %316 = getelementptr inbounds nuw i8, ptr %.0.i311, i64 1
+  %317 = icmp slt i8 %302, 0
+  br i1 %317, label %294, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit314, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit315: ; preds = %315
-  %319 = ptrtoint ptr %317 to i64
-  store i64 %319, ptr %8, align 8, !tbaa !18
-  %320 = icmp ugt i64 %316, 32
-  br i1 %320, label %321, label %326
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit314: ; preds = %314
+  %318 = ptrtoint ptr %316 to i64
+  store i64 %318, ptr %8, align 8, !tbaa !18
+  %319 = icmp ugt i64 %315, 32
+  br i1 %319, label %320, label %325
 
-321:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit315
-  %322 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %323 = call i64 @fwrite(ptr nonnull @.str.49, i64 65, i64 1, ptr %322) #19
-  %324 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %325 = call i32 @fflush(ptr noundef %324)
+320:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit314
+  %321 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %322 = call i64 @fwrite(ptr nonnull @.str.49, i64 65, i64 1, ptr %321) #19
+  %323 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %324 = call i32 @fflush(ptr noundef %323)
   br label %.loopexit
 
-326:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit315
-  %327 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %316
-  %328 = getelementptr inbounds nuw i8, ptr %327, i64 4
-  %329 = load i8, ptr %328, align 4, !tbaa !118, !range !10, !noundef !44
-  %330 = trunc nuw i8 %329 to i1
-  br i1 %330, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit316, label %331
+325:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit314
+  %326 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %315
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 4
+  %328 = load i8, ptr %327, align 4, !tbaa !118, !range !10, !noundef !44
+  %329 = trunc nuw i8 %328 to i1
+  br i1 %329, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit315, label %330
 
-331:                                              ; preds = %326
-  %332 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %316
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %332, ptr noundef nonnull align 8 dereferenceable(16) %327, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %328, align 4, !tbaa !118
-  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit316
+330:                                              ; preds = %325
+  %331 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %315
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %331, ptr noundef nonnull align 8 dereferenceable(16) %326, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %327, align 4, !tbaa !118
+  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit315
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit316: ; preds = %326, %331
-  store i32 0, ptr %327, align 8, !tbaa !110
-  %.b1.i317 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i317, label %._crit_edge.i318, label %logDWARF.exit320
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit315: ; preds = %325, %330
+  store i32 0, ptr %326, align 8, !tbaa !110
+  %.b1.i316 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i316, label %._crit_edge.i317, label %logDWARF.exit319
 
-._crit_edge.i318:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit316
-  %.pre.i319 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %333 = trunc nuw i8 %.pre.i319 to i1
-  br i1 %333, label %337, label %1299
+._crit_edge.i317:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit315
+  %.pre.i318 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %332 = trunc nuw i8 %.pre.i318 to i1
+  br i1 %332, label %336, label %1294
 
-logDWARF.exit320:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit316
-  %334 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %335 = icmp ne ptr %334, null
-  %336 = zext i1 %335 to i8
-  store i8 %336, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit319:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit315
+  %333 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %334 = icmp ne ptr %333, null
+  %335 = zext i1 %334 to i8
+  store i8 %335, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %335, label %337, label %1299
+  br i1 %334, label %336, label %1294
 
-337:                                              ; preds = %._crit_edge.i318, %logDWARF.exit320
-  %338 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %338, ptr noundef nonnull @.str.50, i64 noundef %316) #16
-  br label %1299
+336:                                              ; preds = %._crit_edge.i317, %logDWARF.exit319
+  %337 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %338 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %337, ptr noundef nonnull @.str.50, i64 noundef %315) #16
+  br label %1294
 
-340:                                              ; preds = %57
-  %341 = inttoptr i64 %60 to ptr
-  br label %342
+339:                                              ; preds = %56
+  %340 = inttoptr i64 %59 to ptr
+  br label %341
 
-342:                                              ; preds = %362, %340
-  %indvars.iv.i321 = phi i64 [ %indvars.iv.next.i325, %362 ], [ 0, %340 ]
-  %.018.i322 = phi i64 [ %363, %362 ], [ 0, %340 ]
-  %.0.i323 = phi ptr [ %364, %362 ], [ %341, %340 ]
-  %343 = icmp eq ptr %.0.i323, %56
-  br i1 %343, label %344, label %349
+341:                                              ; preds = %361, %339
+  %indvars.iv.i320 = phi i64 [ %indvars.iv.next.i324, %361 ], [ 0, %339 ]
+  %.018.i321 = phi i64 [ %362, %361 ], [ 0, %339 ]
+  %.0.i322 = phi ptr [ %363, %361 ], [ %340, %339 ]
+  %342 = icmp eq ptr %.0.i322, %55
+  br i1 %342, label %343, label %348
 
-344:                                              ; preds = %342
-  %345 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %346 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %347 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %348 = call i32 @fflush(ptr noundef %347)
+343:                                              ; preds = %341
+  %344 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %345 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %344, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %346 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %347 = call i32 @fflush(ptr noundef %346)
   call void @abort() #17
   unreachable
 
-349:                                              ; preds = %342
-  %350 = load i8, ptr %.0.i323, align 1, !tbaa !45
-  %351 = icmp samesign ugt i64 %indvars.iv.i321, 63
-  br i1 %351, label %357, label %352
+348:                                              ; preds = %341
+  %349 = load i8, ptr %.0.i322, align 1, !tbaa !45
+  %350 = icmp samesign ugt i64 %indvars.iv.i320, 63
+  br i1 %350, label %356, label %351
 
-352:                                              ; preds = %349
-  %353 = and i8 %350, 127
-  %354 = zext nneg i8 %353 to i64
-  %355 = shl i64 %354, %indvars.iv.i321
-  %356 = lshr exact i64 %355, %indvars.iv.i321
-  %.not.i324 = icmp eq i64 %356, %354
-  br i1 %.not.i324, label %362, label %357
+351:                                              ; preds = %348
+  %352 = and i8 %349, 127
+  %353 = zext nneg i8 %352 to i64
+  %354 = shl i64 %353, %indvars.iv.i320
+  %355 = lshr exact i64 %354, %indvars.iv.i320
+  %.not.i323 = icmp eq i64 %355, %353
+  br i1 %.not.i323, label %361, label %356
 
-357:                                              ; preds = %352, %349
-  %358 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %359 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %358, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %360 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %361 = call i32 @fflush(ptr noundef %360)
+356:                                              ; preds = %351, %348
+  %357 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %358 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %357, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %359 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %360 = call i32 @fflush(ptr noundef %359)
   call void @abort() #17
   unreachable
 
-362:                                              ; preds = %352
-  %363 = or i64 %355, %.018.i322
-  %indvars.iv.next.i325 = add nuw nsw i64 %indvars.iv.i321, 7
-  %364 = getelementptr inbounds nuw i8, ptr %.0.i323, i64 1
-  %365 = icmp slt i8 %350, 0
-  br i1 %365, label %342, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326, !llvm.loop !46
+361:                                              ; preds = %351
+  %362 = or i64 %354, %.018.i321
+  %indvars.iv.next.i324 = add nuw nsw i64 %indvars.iv.i320, 7
+  %363 = getelementptr inbounds nuw i8, ptr %.0.i322, i64 1
+  %364 = icmp slt i8 %349, 0
+  br i1 %364, label %341, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit325, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326: ; preds = %362
-  %366 = ptrtoint ptr %364 to i64
-  store i64 %366, ptr %8, align 8, !tbaa !18
-  br label %367
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit325: ; preds = %361
+  %365 = ptrtoint ptr %363 to i64
+  store i64 %365, ptr %8, align 8, !tbaa !18
+  br label %366
 
-367:                                              ; preds = %387, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326
-  %indvars.iv.i327 = phi i64 [ %indvars.iv.next.i331, %387 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326 ]
-  %.018.i328 = phi i64 [ %388, %387 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326 ]
-  %.0.i329 = phi ptr [ %389, %387 ], [ %364, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326 ]
-  %368 = icmp eq ptr %.0.i329, %56
-  br i1 %368, label %369, label %374
+366:                                              ; preds = %386, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit325
+  %indvars.iv.i326 = phi i64 [ %indvars.iv.next.i330, %386 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit325 ]
+  %.018.i327 = phi i64 [ %387, %386 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit325 ]
+  %.0.i328 = phi ptr [ %388, %386 ], [ %363, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit325 ]
+  %367 = icmp eq ptr %.0.i328, %55
+  br i1 %367, label %368, label %373
 
-369:                                              ; preds = %367
-  %370 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %371 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %370, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %372 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %373 = call i32 @fflush(ptr noundef %372)
+368:                                              ; preds = %366
+  %369 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %370 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %369, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %371 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %372 = call i32 @fflush(ptr noundef %371)
   call void @abort() #17
   unreachable
 
-374:                                              ; preds = %367
-  %375 = load i8, ptr %.0.i329, align 1, !tbaa !45
-  %376 = icmp samesign ugt i64 %indvars.iv.i327, 63
-  br i1 %376, label %382, label %377
+373:                                              ; preds = %366
+  %374 = load i8, ptr %.0.i328, align 1, !tbaa !45
+  %375 = icmp samesign ugt i64 %indvars.iv.i326, 63
+  br i1 %375, label %381, label %376
 
-377:                                              ; preds = %374
-  %378 = and i8 %375, 127
-  %379 = zext nneg i8 %378 to i64
-  %380 = shl i64 %379, %indvars.iv.i327
-  %381 = lshr exact i64 %380, %indvars.iv.i327
-  %.not.i330 = icmp eq i64 %381, %379
-  br i1 %.not.i330, label %387, label %382
+376:                                              ; preds = %373
+  %377 = and i8 %374, 127
+  %378 = zext nneg i8 %377 to i64
+  %379 = shl i64 %378, %indvars.iv.i326
+  %380 = lshr exact i64 %379, %indvars.iv.i326
+  %.not.i329 = icmp eq i64 %380, %378
+  br i1 %.not.i329, label %386, label %381
 
-382:                                              ; preds = %377, %374
-  %383 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %384 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %383, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %385 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %386 = call i32 @fflush(ptr noundef %385)
+381:                                              ; preds = %376, %373
+  %382 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %383 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %382, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %384 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %385 = call i32 @fflush(ptr noundef %384)
   call void @abort() #17
   unreachable
 
-387:                                              ; preds = %377
-  %388 = or i64 %380, %.018.i328
-  %indvars.iv.next.i331 = add nuw nsw i64 %indvars.iv.i327, 7
-  %389 = getelementptr inbounds nuw i8, ptr %.0.i329, i64 1
-  %390 = icmp slt i8 %375, 0
-  br i1 %390, label %367, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit332, !llvm.loop !46
+386:                                              ; preds = %376
+  %387 = or i64 %379, %.018.i327
+  %indvars.iv.next.i330 = add nuw nsw i64 %indvars.iv.i326, 7
+  %388 = getelementptr inbounds nuw i8, ptr %.0.i328, i64 1
+  %389 = icmp slt i8 %374, 0
+  br i1 %389, label %366, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit331, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit332: ; preds = %387
-  %391 = ptrtoint ptr %389 to i64
-  store i64 %391, ptr %8, align 8, !tbaa !18
-  %392 = icmp ugt i64 %363, 32
-  br i1 %392, label %393, label %398
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit331: ; preds = %386
+  %390 = ptrtoint ptr %388 to i64
+  store i64 %390, ptr %8, align 8, !tbaa !18
+  %391 = icmp ugt i64 %362, 32
+  br i1 %391, label %392, label %397
 
-393:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit332
-  %394 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %395 = call i64 @fwrite(ptr nonnull @.str.51, i64 63, i64 1, ptr %394) #19
-  %396 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %397 = call i32 @fflush(ptr noundef %396)
+392:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit331
+  %393 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %394 = call i64 @fwrite(ptr nonnull @.str.51, i64 63, i64 1, ptr %393) #19
+  %395 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %396 = call i32 @fflush(ptr noundef %395)
   br label %.loopexit
 
-398:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit332
-  %399 = icmp ugt i64 %388, 32
-  br i1 %399, label %400, label %405
+397:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit331
+  %398 = icmp ugt i64 %387, 32
+  br i1 %398, label %399, label %404
 
-400:                                              ; preds = %398
-  %401 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %402 = call i64 @fwrite(ptr nonnull @.str.52, i64 64, i64 1, ptr %401) #19
-  %403 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %404 = call i32 @fflush(ptr noundef %403)
+399:                                              ; preds = %397
+  %400 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %401 = call i64 @fwrite(ptr nonnull @.str.52, i64 64, i64 1, ptr %400) #19
+  %402 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %403 = call i32 @fflush(ptr noundef %402)
   br label %.loopexit
 
-405:                                              ; preds = %398
-  %406 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %363
-  %407 = getelementptr inbounds nuw i8, ptr %406, i64 4
-  %408 = load i8, ptr %407, align 4, !tbaa !118, !range !10, !noundef !44
-  %409 = trunc nuw i8 %408 to i1
-  br i1 %409, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit333, label %410
+404:                                              ; preds = %397
+  %405 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %362
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 4
+  %407 = load i8, ptr %406, align 4, !tbaa !118, !range !10, !noundef !44
+  %408 = trunc nuw i8 %407 to i1
+  br i1 %408, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit332, label %409
 
-410:                                              ; preds = %405
-  %411 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %363
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %411, ptr noundef nonnull align 8 dereferenceable(16) %406, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %407, align 4, !tbaa !118
-  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit333
+409:                                              ; preds = %404
+  %410 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %362
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %410, ptr noundef nonnull align 8 dereferenceable(16) %405, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %406, align 4, !tbaa !118
+  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit332
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit333: ; preds = %405, %410
-  store i32 5, ptr %406, align 8, !tbaa !110
-  %412 = getelementptr inbounds nuw i8, ptr %406, i64 8
-  store i64 %388, ptr %412, align 8, !tbaa !121
-  %.b1.i334 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i334, label %._crit_edge.i335, label %logDWARF.exit337
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit332: ; preds = %404, %409
+  store i32 5, ptr %405, align 8, !tbaa !110
+  %411 = getelementptr inbounds nuw i8, ptr %405, i64 8
+  store i64 %387, ptr %411, align 8, !tbaa !121
+  %.b1.i333 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i333, label %._crit_edge.i334, label %logDWARF.exit336
 
-._crit_edge.i335:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit333
-  %.pre.i336 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %413 = trunc nuw i8 %.pre.i336 to i1
-  br i1 %413, label %417, label %1299
+._crit_edge.i334:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit332
+  %.pre.i335 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %412 = trunc nuw i8 %.pre.i335 to i1
+  br i1 %412, label %416, label %1294
 
-logDWARF.exit337:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit333
-  %414 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %415 = icmp ne ptr %414, null
-  %416 = zext i1 %415 to i8
-  store i8 %416, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit336:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit332
+  %413 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %414 = icmp ne ptr %413, null
+  %415 = zext i1 %414 to i8
+  store i8 %415, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %415, label %417, label %1299
+  br i1 %414, label %416, label %1294
 
-417:                                              ; preds = %._crit_edge.i335, %logDWARF.exit337
-  %418 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %419 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %418, ptr noundef nonnull @.str.53, i64 noundef %363, i64 noundef %388) #16
-  br label %1299
+416:                                              ; preds = %._crit_edge.i334, %logDWARF.exit336
+  %417 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %418 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %417, ptr noundef nonnull @.str.53, i64 noundef %362, i64 noundef %387) #16
+  br label %1294
 
-420:                                              ; preds = %57
-  %421 = alloca [560 x i8], align 16
-  store ptr %.sroa.0.1872, ptr %421, align 16, !tbaa !122
-  %422 = getelementptr inbounds nuw i8, ptr %421, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %422, ptr noundef nonnull align 8 dereferenceable(552) %5, i64 552, i1 false), !tbaa.struct !125
-  %.b1.i338 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i338, label %._crit_edge.i339, label %logDWARF.exit341
+419:                                              ; preds = %56
+  %420 = alloca [560 x i8], align 16
+  store ptr %.sroa.0.1871, ptr %420, align 16, !tbaa !122
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %421, ptr noundef nonnull align 8 dereferenceable(552) %5, i64 552, i1 false), !tbaa.struct !125
+  %.b1.i337 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i337, label %._crit_edge.i338, label %logDWARF.exit340
 
-._crit_edge.i339:                                 ; preds = %420
-  %.pre.i340 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %423 = trunc nuw i8 %.pre.i340 to i1
-  br i1 %423, label %427, label %1299
+._crit_edge.i338:                                 ; preds = %419
+  %.pre.i339 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %422 = trunc nuw i8 %.pre.i339 to i1
+  br i1 %422, label %426, label %1294
 
-logDWARF.exit341:                                 ; preds = %420
-  %424 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %425 = icmp ne ptr %424, null
-  %426 = zext i1 %425 to i8
-  store i8 %426, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit340:                                 ; preds = %419
+  %423 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %424 = icmp ne ptr %423, null
+  %425 = zext i1 %424 to i8
+  store i8 %425, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %425, label %427, label %1299
+  br i1 %424, label %426, label %1294
 
-427:                                              ; preds = %._crit_edge.i339, %logDWARF.exit341
-  %428 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %429 = call i64 @fwrite(ptr nonnull @.str.54, i64 22, i64 1, ptr %428) #19
-  br label %1299
+426:                                              ; preds = %._crit_edge.i338, %logDWARF.exit340
+  %427 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %428 = call i64 @fwrite(ptr nonnull @.str.54, i64 22, i64 1, ptr %427) #19
+  br label %1294
 
-430:                                              ; preds = %57
-  %.not251 = icmp eq ptr %.sroa.0.1872, null
-  br i1 %.not251, label %.loopexit, label %431
+429:                                              ; preds = %56
+  %.not250 = icmp eq ptr %.sroa.0.1871, null
+  br i1 %.not250, label %.loopexit, label %430
 
-431:                                              ; preds = %430
-  %432 = getelementptr inbounds nuw i8, ptr %.sroa.0.1872, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %5, ptr noundef nonnull align 8 dereferenceable(552) %432, i64 552, i1 false), !tbaa.struct !125
-  %433 = load ptr, ptr %.sroa.0.1872, align 8, !tbaa !122
-  %.b1.i342 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i342, label %._crit_edge.i343, label %logDWARF.exit345
+430:                                              ; preds = %429
+  %431 = getelementptr inbounds nuw i8, ptr %.sroa.0.1871, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %5, ptr noundef nonnull align 8 dereferenceable(552) %431, i64 552, i1 false), !tbaa.struct !125
+  %432 = load ptr, ptr %.sroa.0.1871, align 8, !tbaa !122
+  %.b1.i341 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i341, label %._crit_edge.i342, label %logDWARF.exit344
 
-._crit_edge.i343:                                 ; preds = %431
-  %.pre.i344 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %434 = trunc nuw i8 %.pre.i344 to i1
-  br i1 %434, label %438, label %1299
+._crit_edge.i342:                                 ; preds = %430
+  %.pre.i343 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %433 = trunc nuw i8 %.pre.i343 to i1
+  br i1 %433, label %437, label %1294
 
-logDWARF.exit345:                                 ; preds = %431
-  %435 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %436 = icmp ne ptr %435, null
-  %437 = zext i1 %436 to i8
-  store i8 %437, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit344:                                 ; preds = %430
+  %434 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %435 = icmp ne ptr %434, null
+  %436 = zext i1 %435 to i8
+  store i8 %436, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %436, label %438, label %1299
+  br i1 %435, label %437, label %1294
 
-438:                                              ; preds = %._crit_edge.i343, %logDWARF.exit345
-  %439 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %440 = call i64 @fwrite(ptr nonnull @.str.55, i64 21, i64 1, ptr %439) #19
-  br label %1299
+437:                                              ; preds = %._crit_edge.i342, %logDWARF.exit344
+  %438 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %439 = call i64 @fwrite(ptr nonnull @.str.55, i64 21, i64 1, ptr %438) #19
+  br label %1294
 
-441:                                              ; preds = %57
-  %442 = inttoptr i64 %60 to ptr
-  br label %443
+440:                                              ; preds = %56
+  %441 = inttoptr i64 %59 to ptr
+  br label %442
 
-443:                                              ; preds = %463, %441
-  %indvars.iv.i346 = phi i64 [ %indvars.iv.next.i350, %463 ], [ 0, %441 ]
-  %.018.i347 = phi i64 [ %464, %463 ], [ 0, %441 ]
-  %.0.i348 = phi ptr [ %465, %463 ], [ %442, %441 ]
-  %444 = icmp eq ptr %.0.i348, %56
-  br i1 %444, label %445, label %450
+442:                                              ; preds = %462, %440
+  %indvars.iv.i345 = phi i64 [ %indvars.iv.next.i349, %462 ], [ 0, %440 ]
+  %.018.i346 = phi i64 [ %463, %462 ], [ 0, %440 ]
+  %.0.i347 = phi ptr [ %464, %462 ], [ %441, %440 ]
+  %443 = icmp eq ptr %.0.i347, %55
+  br i1 %443, label %444, label %449
 
-445:                                              ; preds = %443
-  %446 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %447 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %446, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %448 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %449 = call i32 @fflush(ptr noundef %448)
+444:                                              ; preds = %442
+  %445 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %446 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %445, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %447 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %448 = call i32 @fflush(ptr noundef %447)
   call void @abort() #17
   unreachable
 
-450:                                              ; preds = %443
-  %451 = load i8, ptr %.0.i348, align 1, !tbaa !45
-  %452 = icmp samesign ugt i64 %indvars.iv.i346, 63
-  br i1 %452, label %458, label %453
+449:                                              ; preds = %442
+  %450 = load i8, ptr %.0.i347, align 1, !tbaa !45
+  %451 = icmp samesign ugt i64 %indvars.iv.i345, 63
+  br i1 %451, label %457, label %452
 
-453:                                              ; preds = %450
-  %454 = and i8 %451, 127
-  %455 = zext nneg i8 %454 to i64
-  %456 = shl i64 %455, %indvars.iv.i346
-  %457 = lshr exact i64 %456, %indvars.iv.i346
-  %.not.i349 = icmp eq i64 %457, %455
-  br i1 %.not.i349, label %463, label %458
+452:                                              ; preds = %449
+  %453 = and i8 %450, 127
+  %454 = zext nneg i8 %453 to i64
+  %455 = shl i64 %454, %indvars.iv.i345
+  %456 = lshr exact i64 %455, %indvars.iv.i345
+  %.not.i348 = icmp eq i64 %456, %454
+  br i1 %.not.i348, label %462, label %457
 
-458:                                              ; preds = %453, %450
-  %459 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %460 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %459, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %461 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %462 = call i32 @fflush(ptr noundef %461)
+457:                                              ; preds = %452, %449
+  %458 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %459 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %458, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %460 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %461 = call i32 @fflush(ptr noundef %460)
   call void @abort() #17
   unreachable
 
-463:                                              ; preds = %453
-  %464 = or i64 %456, %.018.i347
-  %indvars.iv.next.i350 = add nuw nsw i64 %indvars.iv.i346, 7
-  %465 = getelementptr inbounds nuw i8, ptr %.0.i348, i64 1
-  %466 = icmp slt i8 %451, 0
-  br i1 %466, label %443, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351, !llvm.loop !46
+462:                                              ; preds = %452
+  %463 = or i64 %455, %.018.i346
+  %indvars.iv.next.i349 = add nuw nsw i64 %indvars.iv.i345, 7
+  %464 = getelementptr inbounds nuw i8, ptr %.0.i347, i64 1
+  %465 = icmp slt i8 %450, 0
+  br i1 %465, label %442, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit350, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351: ; preds = %463
-  %467 = ptrtoint ptr %465 to i64
-  store i64 %467, ptr %8, align 8, !tbaa !18
-  br label %468
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit350: ; preds = %462
+  %466 = ptrtoint ptr %464 to i64
+  store i64 %466, ptr %8, align 8, !tbaa !18
+  br label %467
 
-468:                                              ; preds = %488, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351
-  %indvars.iv.i352 = phi i64 [ %indvars.iv.next.i356, %488 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351 ]
-  %.018.i353 = phi i64 [ %489, %488 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351 ]
-  %.0.i354 = phi ptr [ %490, %488 ], [ %465, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351 ]
-  %469 = icmp eq ptr %.0.i354, %56
-  br i1 %469, label %470, label %475
+467:                                              ; preds = %487, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit350
+  %indvars.iv.i351 = phi i64 [ %indvars.iv.next.i355, %487 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit350 ]
+  %.018.i352 = phi i64 [ %488, %487 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit350 ]
+  %.0.i353 = phi ptr [ %489, %487 ], [ %464, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit350 ]
+  %468 = icmp eq ptr %.0.i353, %55
+  br i1 %468, label %469, label %474
 
-470:                                              ; preds = %468
-  %471 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %472 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %471, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %473 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %474 = call i32 @fflush(ptr noundef %473)
+469:                                              ; preds = %467
+  %470 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %471 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %470, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %472 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %473 = call i32 @fflush(ptr noundef %472)
   call void @abort() #17
   unreachable
 
-475:                                              ; preds = %468
-  %476 = load i8, ptr %.0.i354, align 1, !tbaa !45
-  %477 = icmp samesign ugt i64 %indvars.iv.i352, 63
-  br i1 %477, label %483, label %478
+474:                                              ; preds = %467
+  %475 = load i8, ptr %.0.i353, align 1, !tbaa !45
+  %476 = icmp samesign ugt i64 %indvars.iv.i351, 63
+  br i1 %476, label %482, label %477
 
-478:                                              ; preds = %475
-  %479 = and i8 %476, 127
-  %480 = zext nneg i8 %479 to i64
-  %481 = shl i64 %480, %indvars.iv.i352
-  %482 = lshr exact i64 %481, %indvars.iv.i352
-  %.not.i355 = icmp eq i64 %482, %480
-  br i1 %.not.i355, label %488, label %483
+477:                                              ; preds = %474
+  %478 = and i8 %475, 127
+  %479 = zext nneg i8 %478 to i64
+  %480 = shl i64 %479, %indvars.iv.i351
+  %481 = lshr exact i64 %480, %indvars.iv.i351
+  %.not.i354 = icmp eq i64 %481, %479
+  br i1 %.not.i354, label %487, label %482
 
-483:                                              ; preds = %478, %475
-  %484 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %484, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %486 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %487 = call i32 @fflush(ptr noundef %486)
+482:                                              ; preds = %477, %474
+  %483 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %484 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %483, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %485 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %486 = call i32 @fflush(ptr noundef %485)
   call void @abort() #17
   unreachable
 
-488:                                              ; preds = %478
-  %489 = or i64 %481, %.018.i353
-  %indvars.iv.next.i356 = add nuw nsw i64 %indvars.iv.i352, 7
-  %490 = getelementptr inbounds nuw i8, ptr %.0.i354, i64 1
-  %491 = icmp slt i8 %476, 0
-  br i1 %491, label %468, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit357, !llvm.loop !46
+487:                                              ; preds = %477
+  %488 = or i64 %480, %.018.i352
+  %indvars.iv.next.i355 = add nuw nsw i64 %indvars.iv.i351, 7
+  %489 = getelementptr inbounds nuw i8, ptr %.0.i353, i64 1
+  %490 = icmp slt i8 %475, 0
+  br i1 %490, label %467, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit356, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit357: ; preds = %488
-  %492 = ptrtoint ptr %490 to i64
-  store i64 %492, ptr %8, align 8, !tbaa !18
-  %493 = icmp ugt i64 %464, 32
-  br i1 %493, label %494, label %499
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit356: ; preds = %487
+  %491 = ptrtoint ptr %489 to i64
+  store i64 %491, ptr %8, align 8, !tbaa !18
+  %492 = icmp ugt i64 %463, 32
+  br i1 %492, label %493, label %498
 
-494:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit357
-  %495 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %496 = call i64 @fwrite(ptr nonnull @.str.56, i64 62, i64 1, ptr %495) #19
-  %497 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %498 = call i32 @fflush(ptr noundef %497)
+493:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit356
+  %494 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %495 = call i64 @fwrite(ptr nonnull @.str.56, i64 62, i64 1, ptr %494) #19
+  %496 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %497 = call i32 @fflush(ptr noundef %496)
   br label %.loopexit
 
-499:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit357
-  %500 = trunc nuw nsw i64 %464 to i32
-  store i32 %500, ptr %5, align 8, !tbaa !126
-  %501 = trunc i64 %489 to i32
-  store i32 %501, ptr %35, align 4, !tbaa !127
-  %.b1.i358 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i358, label %._crit_edge.i359, label %logDWARF.exit361
+498:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit356
+  %499 = trunc nuw nsw i64 %463 to i32
+  store i32 %499, ptr %5, align 8, !tbaa !126
+  %500 = trunc i64 %488 to i32
+  store i32 %500, ptr %34, align 4, !tbaa !127
+  %.b1.i357 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i357, label %._crit_edge.i358, label %logDWARF.exit360
 
-._crit_edge.i359:                                 ; preds = %499
-  %.pre.i360 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %502 = trunc nuw i8 %.pre.i360 to i1
-  br i1 %502, label %506, label %1299
+._crit_edge.i358:                                 ; preds = %498
+  %.pre.i359 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %501 = trunc nuw i8 %.pre.i359 to i1
+  br i1 %501, label %505, label %1294
 
-logDWARF.exit361:                                 ; preds = %499
-  %503 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %504 = icmp ne ptr %503, null
-  %505 = zext i1 %504 to i8
-  store i8 %505, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit360:                                 ; preds = %498
+  %502 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %503 = icmp ne ptr %502, null
+  %504 = zext i1 %503 to i8
+  store i8 %504, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %504, label %506, label %1299
+  br i1 %503, label %505, label %1294
 
-506:                                              ; preds = %._crit_edge.i359, %logDWARF.exit361
-  %507 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %508 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %507, ptr noundef nonnull @.str.57, i64 noundef %464, i64 noundef %489) #16
-  br label %1299
+505:                                              ; preds = %._crit_edge.i358, %logDWARF.exit360
+  %506 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %507 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.57, i64 noundef %463, i64 noundef %488) #16
+  br label %1294
 
-509:                                              ; preds = %57
-  %510 = inttoptr i64 %60 to ptr
-  br label %511
+508:                                              ; preds = %56
+  %509 = inttoptr i64 %59 to ptr
+  br label %510
 
-511:                                              ; preds = %531, %509
-  %indvars.iv.i362 = phi i64 [ %indvars.iv.next.i366, %531 ], [ 0, %509 ]
-  %.018.i363 = phi i64 [ %532, %531 ], [ 0, %509 ]
-  %.0.i364 = phi ptr [ %533, %531 ], [ %510, %509 ]
-  %512 = icmp eq ptr %.0.i364, %56
-  br i1 %512, label %513, label %518
+510:                                              ; preds = %530, %508
+  %indvars.iv.i361 = phi i64 [ %indvars.iv.next.i365, %530 ], [ 0, %508 ]
+  %.018.i362 = phi i64 [ %531, %530 ], [ 0, %508 ]
+  %.0.i363 = phi ptr [ %532, %530 ], [ %509, %508 ]
+  %511 = icmp eq ptr %.0.i363, %55
+  br i1 %511, label %512, label %517
 
-513:                                              ; preds = %511
-  %514 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %515 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %514, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %516 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %517 = call i32 @fflush(ptr noundef %516)
+512:                                              ; preds = %510
+  %513 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %514 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %513, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %515 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %516 = call i32 @fflush(ptr noundef %515)
   call void @abort() #17
   unreachable
 
-518:                                              ; preds = %511
-  %519 = load i8, ptr %.0.i364, align 1, !tbaa !45
-  %520 = icmp samesign ugt i64 %indvars.iv.i362, 63
-  br i1 %520, label %526, label %521
+517:                                              ; preds = %510
+  %518 = load i8, ptr %.0.i363, align 1, !tbaa !45
+  %519 = icmp samesign ugt i64 %indvars.iv.i361, 63
+  br i1 %519, label %525, label %520
 
-521:                                              ; preds = %518
-  %522 = and i8 %519, 127
-  %523 = zext nneg i8 %522 to i64
-  %524 = shl i64 %523, %indvars.iv.i362
-  %525 = lshr exact i64 %524, %indvars.iv.i362
-  %.not.i365 = icmp eq i64 %525, %523
-  br i1 %.not.i365, label %531, label %526
+520:                                              ; preds = %517
+  %521 = and i8 %518, 127
+  %522 = zext nneg i8 %521 to i64
+  %523 = shl i64 %522, %indvars.iv.i361
+  %524 = lshr exact i64 %523, %indvars.iv.i361
+  %.not.i364 = icmp eq i64 %524, %522
+  br i1 %.not.i364, label %530, label %525
 
-526:                                              ; preds = %521, %518
-  %527 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %528 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %527, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %529 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %530 = call i32 @fflush(ptr noundef %529)
+525:                                              ; preds = %520, %517
+  %526 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %527 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %526, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %528 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %529 = call i32 @fflush(ptr noundef %528)
   call void @abort() #17
   unreachable
 
-531:                                              ; preds = %521
-  %532 = or i64 %524, %.018.i363
-  %indvars.iv.next.i366 = add nuw nsw i64 %indvars.iv.i362, 7
-  %533 = getelementptr inbounds nuw i8, ptr %.0.i364, i64 1
-  %534 = icmp slt i8 %519, 0
-  br i1 %534, label %511, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit367, !llvm.loop !46
+530:                                              ; preds = %520
+  %531 = or i64 %523, %.018.i362
+  %indvars.iv.next.i365 = add nuw nsw i64 %indvars.iv.i361, 7
+  %532 = getelementptr inbounds nuw i8, ptr %.0.i363, i64 1
+  %533 = icmp slt i8 %518, 0
+  br i1 %533, label %510, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit366, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit367: ; preds = %531
-  %535 = ptrtoint ptr %533 to i64
-  store i64 %535, ptr %8, align 8, !tbaa !18
-  %536 = icmp ugt i64 %532, 32
-  br i1 %536, label %537, label %542
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit366: ; preds = %530
+  %534 = ptrtoint ptr %532 to i64
+  store i64 %534, ptr %8, align 8, !tbaa !18
+  %535 = icmp ugt i64 %531, 32
+  br i1 %535, label %536, label %541
 
-537:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit367
-  %538 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %539 = call i64 @fwrite(ptr nonnull @.str.58, i64 71, i64 1, ptr %538) #19
-  %540 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %541 = call i32 @fflush(ptr noundef %540)
+536:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit366
+  %537 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %538 = call i64 @fwrite(ptr nonnull @.str.58, i64 71, i64 1, ptr %537) #19
+  %539 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %540 = call i32 @fflush(ptr noundef %539)
   br label %.loopexit
 
-542:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit367
-  %543 = trunc nuw nsw i64 %532 to i32
-  store i32 %543, ptr %5, align 8, !tbaa !126
-  %.b1.i368 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i368, label %._crit_edge.i369, label %logDWARF.exit371
+541:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit366
+  %542 = trunc nuw nsw i64 %531 to i32
+  store i32 %542, ptr %5, align 8, !tbaa !126
+  %.b1.i367 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i367, label %._crit_edge.i368, label %logDWARF.exit370
 
-._crit_edge.i369:                                 ; preds = %542
-  %.pre.i370 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %544 = trunc nuw i8 %.pre.i370 to i1
-  br i1 %544, label %548, label %1299
+._crit_edge.i368:                                 ; preds = %541
+  %.pre.i369 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %543 = trunc nuw i8 %.pre.i369 to i1
+  br i1 %543, label %547, label %1294
 
-logDWARF.exit371:                                 ; preds = %542
-  %545 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %546 = icmp ne ptr %545, null
-  %547 = zext i1 %546 to i8
-  store i8 %547, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit370:                                 ; preds = %541
+  %544 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %545 = icmp ne ptr %544, null
+  %546 = zext i1 %545 to i8
+  store i8 %546, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %546, label %548, label %1299
+  br i1 %545, label %547, label %1294
 
-548:                                              ; preds = %._crit_edge.i369, %logDWARF.exit371
-  %549 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %550 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %549, ptr noundef nonnull @.str.59, i64 noundef %532) #16
-  br label %1299
+547:                                              ; preds = %._crit_edge.i368, %logDWARF.exit370
+  %548 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef nonnull @.str.59, i64 noundef %531) #16
+  br label %1294
 
-551:                                              ; preds = %57
-  %552 = inttoptr i64 %60 to ptr
-  br label %553
+550:                                              ; preds = %56
+  %551 = inttoptr i64 %59 to ptr
+  br label %552
 
-553:                                              ; preds = %573, %551
-  %indvars.iv.i372 = phi i64 [ %indvars.iv.next.i376, %573 ], [ 0, %551 ]
-  %.018.i373 = phi i64 [ %574, %573 ], [ 0, %551 ]
-  %.0.i374 = phi ptr [ %575, %573 ], [ %552, %551 ]
-  %554 = icmp eq ptr %.0.i374, %56
-  br i1 %554, label %555, label %560
+552:                                              ; preds = %572, %550
+  %indvars.iv.i371 = phi i64 [ %indvars.iv.next.i375, %572 ], [ 0, %550 ]
+  %.018.i372 = phi i64 [ %573, %572 ], [ 0, %550 ]
+  %.0.i373 = phi ptr [ %574, %572 ], [ %551, %550 ]
+  %553 = icmp eq ptr %.0.i373, %55
+  br i1 %553, label %554, label %559
 
-555:                                              ; preds = %553
-  %556 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %557 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %556, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %558 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %559 = call i32 @fflush(ptr noundef %558)
+554:                                              ; preds = %552
+  %555 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %556 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %555, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %557 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %558 = call i32 @fflush(ptr noundef %557)
   call void @abort() #17
   unreachable
 
-560:                                              ; preds = %553
-  %561 = load i8, ptr %.0.i374, align 1, !tbaa !45
-  %562 = icmp samesign ugt i64 %indvars.iv.i372, 63
-  br i1 %562, label %568, label %563
+559:                                              ; preds = %552
+  %560 = load i8, ptr %.0.i373, align 1, !tbaa !45
+  %561 = icmp samesign ugt i64 %indvars.iv.i371, 63
+  br i1 %561, label %567, label %562
 
-563:                                              ; preds = %560
-  %564 = and i8 %561, 127
-  %565 = zext nneg i8 %564 to i64
-  %566 = shl i64 %565, %indvars.iv.i372
-  %567 = lshr exact i64 %566, %indvars.iv.i372
-  %.not.i375 = icmp eq i64 %567, %565
-  br i1 %.not.i375, label %573, label %568
+562:                                              ; preds = %559
+  %563 = and i8 %560, 127
+  %564 = zext nneg i8 %563 to i64
+  %565 = shl i64 %564, %indvars.iv.i371
+  %566 = lshr exact i64 %565, %indvars.iv.i371
+  %.not.i374 = icmp eq i64 %566, %564
+  br i1 %.not.i374, label %572, label %567
 
-568:                                              ; preds = %563, %560
-  %569 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %570 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %569, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %571 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %572 = call i32 @fflush(ptr noundef %571)
+567:                                              ; preds = %562, %559
+  %568 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %569 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %568, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %570 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %571 = call i32 @fflush(ptr noundef %570)
   call void @abort() #17
   unreachable
 
-573:                                              ; preds = %563
-  %574 = or i64 %566, %.018.i373
-  %indvars.iv.next.i376 = add nuw nsw i64 %indvars.iv.i372, 7
-  %575 = getelementptr inbounds nuw i8, ptr %.0.i374, i64 1
-  %576 = icmp slt i8 %561, 0
-  br i1 %576, label %553, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit377, !llvm.loop !46
+572:                                              ; preds = %562
+  %573 = or i64 %565, %.018.i372
+  %indvars.iv.next.i375 = add nuw nsw i64 %indvars.iv.i371, 7
+  %574 = getelementptr inbounds nuw i8, ptr %.0.i373, i64 1
+  %575 = icmp slt i8 %560, 0
+  br i1 %575, label %552, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit376, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit377: ; preds = %573
-  %577 = ptrtoint ptr %575 to i64
-  store i64 %577, ptr %8, align 8, !tbaa !18
-  %578 = trunc i64 %574 to i32
-  store i32 %578, ptr %35, align 4, !tbaa !127
-  %.b1.i378 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i378, label %._crit_edge.i379, label %logDWARF.exit381
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit376: ; preds = %572
+  %576 = ptrtoint ptr %574 to i64
+  store i64 %576, ptr %8, align 8, !tbaa !18
+  %577 = trunc i64 %573 to i32
+  store i32 %577, ptr %34, align 4, !tbaa !127
+  %.b1.i377 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i377, label %._crit_edge.i378, label %logDWARF.exit380
 
-._crit_edge.i379:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit377
-  %.pre.i380 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %579 = trunc nuw i8 %.pre.i380 to i1
-  br i1 %579, label %583, label %1299
+._crit_edge.i378:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit376
+  %.pre.i379 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %578 = trunc nuw i8 %.pre.i379 to i1
+  br i1 %578, label %582, label %1294
 
-logDWARF.exit381:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit377
-  %580 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %581 = icmp ne ptr %580, null
-  %582 = zext i1 %581 to i8
-  store i8 %582, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit380:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit376
+  %579 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %580 = icmp ne ptr %579, null
+  %581 = zext i1 %580 to i8
+  store i8 %581, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %581, label %583, label %1299
+  br i1 %580, label %582, label %1294
 
-583:                                              ; preds = %._crit_edge.i379, %logDWARF.exit381
-  %584 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %585 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %584, ptr noundef nonnull @.str.60, i32 noundef %578) #16
-  br label %1299
+582:                                              ; preds = %._crit_edge.i378, %logDWARF.exit380
+  %583 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %584 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %583, ptr noundef nonnull @.str.60, i32 noundef %577) #16
+  br label %1294
 
-586:                                              ; preds = %57
+585:                                              ; preds = %56
   store i32 0, ptr %5, align 8, !tbaa !126
-  store i64 %60, ptr %36, align 8, !tbaa !128
-  %587 = inttoptr i64 %60 to ptr
-  br label %588
+  store i64 %59, ptr %35, align 8, !tbaa !128
+  %586 = inttoptr i64 %59 to ptr
+  br label %587
 
-588:                                              ; preds = %608, %586
-  %indvars.iv.i382 = phi i64 [ %indvars.iv.next.i386, %608 ], [ 0, %586 ]
-  %.018.i383 = phi i64 [ %609, %608 ], [ 0, %586 ]
-  %.0.i384 = phi ptr [ %610, %608 ], [ %587, %586 ]
-  %589 = icmp eq ptr %.0.i384, %56
-  br i1 %589, label %590, label %595
+587:                                              ; preds = %607, %585
+  %indvars.iv.i381 = phi i64 [ %indvars.iv.next.i385, %607 ], [ 0, %585 ]
+  %.018.i382 = phi i64 [ %608, %607 ], [ 0, %585 ]
+  %.0.i383 = phi ptr [ %609, %607 ], [ %586, %585 ]
+  %588 = icmp eq ptr %.0.i383, %55
+  br i1 %588, label %589, label %594
 
-590:                                              ; preds = %588
-  %591 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %592 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %591, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %593 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %594 = call i32 @fflush(ptr noundef %593)
+589:                                              ; preds = %587
+  %590 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %591 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %590, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %592 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %593 = call i32 @fflush(ptr noundef %592)
   call void @abort() #17
   unreachable
 
-595:                                              ; preds = %588
-  %596 = load i8, ptr %.0.i384, align 1, !tbaa !45
-  %597 = icmp samesign ugt i64 %indvars.iv.i382, 63
-  br i1 %597, label %603, label %598
+594:                                              ; preds = %587
+  %595 = load i8, ptr %.0.i383, align 1, !tbaa !45
+  %596 = icmp samesign ugt i64 %indvars.iv.i381, 63
+  br i1 %596, label %602, label %597
 
-598:                                              ; preds = %595
-  %599 = and i8 %596, 127
-  %600 = zext nneg i8 %599 to i64
-  %601 = shl i64 %600, %indvars.iv.i382
-  %602 = lshr exact i64 %601, %indvars.iv.i382
-  %.not.i385 = icmp eq i64 %602, %600
-  br i1 %.not.i385, label %608, label %603
+597:                                              ; preds = %594
+  %598 = and i8 %595, 127
+  %599 = zext nneg i8 %598 to i64
+  %600 = shl i64 %599, %indvars.iv.i381
+  %601 = lshr exact i64 %600, %indvars.iv.i381
+  %.not.i384 = icmp eq i64 %601, %599
+  br i1 %.not.i384, label %607, label %602
 
-603:                                              ; preds = %598, %595
-  %604 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %605 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %604, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %606 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %607 = call i32 @fflush(ptr noundef %606)
+602:                                              ; preds = %597, %594
+  %603 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %604 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %603, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %605 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %606 = call i32 @fflush(ptr noundef %605)
   call void @abort() #17
   unreachable
 
-608:                                              ; preds = %598
-  %609 = or i64 %601, %.018.i383
-  %indvars.iv.next.i386 = add nuw nsw i64 %indvars.iv.i382, 7
-  %610 = getelementptr inbounds nuw i8, ptr %.0.i384, i64 1
-  %611 = icmp slt i8 %596, 0
-  br i1 %611, label %588, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit387, !llvm.loop !46
+607:                                              ; preds = %597
+  %608 = or i64 %600, %.018.i382
+  %indvars.iv.next.i385 = add nuw nsw i64 %indvars.iv.i381, 7
+  %609 = getelementptr inbounds nuw i8, ptr %.0.i383, i64 1
+  %610 = icmp slt i8 %595, 0
+  br i1 %610, label %587, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit386, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit387: ; preds = %608
-  %612 = ptrtoint ptr %610 to i64
-  store i64 %612, ptr %8, align 8, !tbaa !18
-  %.not250 = icmp eq i64 %609, -1
-  br i1 %.not250, label %613, label %614
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit386: ; preds = %607
+  %611 = ptrtoint ptr %609 to i64
+  store i64 %611, ptr %8, align 8, !tbaa !18
+  %.not249 = icmp eq i64 %608, -1
+  br i1 %.not249, label %612, label %613
 
-613:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit387
+612:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit386
   call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 620, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20parseFDEInstructionsERS1_RKNS2_8FDE_InfoERKNS2_8CIE_InfoEmiPNS2_10PrologInfoE) #17
   unreachable
 
-614:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit387
-  %615 = add i64 %609, %612
-  store i64 %615, ptr %8, align 8, !tbaa !18
-  %.b1.i388 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i388, label %._crit_edge.i389, label %logDWARF.exit391
+613:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit386
+  %614 = add i64 %608, %611
+  store i64 %614, ptr %8, align 8, !tbaa !18
+  %.b1.i387 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i387, label %._crit_edge.i388, label %logDWARF.exit390
 
-._crit_edge.i389:                                 ; preds = %614
-  %.pre.i390 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %616 = trunc nuw i8 %.pre.i390 to i1
-  br i1 %616, label %620, label %1299
+._crit_edge.i388:                                 ; preds = %613
+  %.pre.i389 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %615 = trunc nuw i8 %.pre.i389 to i1
+  br i1 %615, label %619, label %1294
 
-logDWARF.exit391:                                 ; preds = %614
-  %617 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %618 = icmp ne ptr %617, null
-  %619 = zext i1 %618 to i8
-  store i8 %619, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit390:                                 ; preds = %613
+  %616 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %617 = icmp ne ptr %616, null
+  %618 = zext i1 %617 to i8
+  store i8 %618, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %618, label %620, label %1299
+  br i1 %617, label %619, label %1294
 
-620:                                              ; preds = %._crit_edge.i389, %logDWARF.exit391
-  %621 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %622 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %621, ptr noundef nonnull @.str.64, i64 noundef %60, i64 noundef %609) #16
-  br label %1299
+619:                                              ; preds = %._crit_edge.i388, %logDWARF.exit390
+  %620 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %621 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %620, ptr noundef nonnull @.str.64, i64 noundef %59, i64 noundef %608) #16
+  br label %1294
 
-623:                                              ; preds = %57
-  %624 = inttoptr i64 %60 to ptr
-  br label %625
+622:                                              ; preds = %56
+  %623 = inttoptr i64 %59 to ptr
+  br label %624
 
-625:                                              ; preds = %645, %623
-  %indvars.iv.i392 = phi i64 [ %indvars.iv.next.i396, %645 ], [ 0, %623 ]
-  %.018.i393 = phi i64 [ %646, %645 ], [ 0, %623 ]
-  %.0.i394 = phi ptr [ %647, %645 ], [ %624, %623 ]
-  %626 = icmp eq ptr %.0.i394, %56
-  br i1 %626, label %627, label %632
+624:                                              ; preds = %644, %622
+  %indvars.iv.i391 = phi i64 [ %indvars.iv.next.i395, %644 ], [ 0, %622 ]
+  %.018.i392 = phi i64 [ %645, %644 ], [ 0, %622 ]
+  %.0.i393 = phi ptr [ %646, %644 ], [ %623, %622 ]
+  %625 = icmp eq ptr %.0.i393, %55
+  br i1 %625, label %626, label %631
 
-627:                                              ; preds = %625
-  %628 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %629 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %628, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %630 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %631 = call i32 @fflush(ptr noundef %630)
+626:                                              ; preds = %624
+  %627 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %628 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %627, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %629 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %630 = call i32 @fflush(ptr noundef %629)
   call void @abort() #17
   unreachable
 
-632:                                              ; preds = %625
-  %633 = load i8, ptr %.0.i394, align 1, !tbaa !45
-  %634 = icmp samesign ugt i64 %indvars.iv.i392, 63
-  br i1 %634, label %640, label %635
+631:                                              ; preds = %624
+  %632 = load i8, ptr %.0.i393, align 1, !tbaa !45
+  %633 = icmp samesign ugt i64 %indvars.iv.i391, 63
+  br i1 %633, label %639, label %634
 
-635:                                              ; preds = %632
-  %636 = and i8 %633, 127
-  %637 = zext nneg i8 %636 to i64
-  %638 = shl i64 %637, %indvars.iv.i392
-  %639 = lshr exact i64 %638, %indvars.iv.i392
-  %.not.i395 = icmp eq i64 %639, %637
-  br i1 %.not.i395, label %645, label %640
+634:                                              ; preds = %631
+  %635 = and i8 %632, 127
+  %636 = zext nneg i8 %635 to i64
+  %637 = shl i64 %636, %indvars.iv.i391
+  %638 = lshr exact i64 %637, %indvars.iv.i391
+  %.not.i394 = icmp eq i64 %638, %636
+  br i1 %.not.i394, label %644, label %639
 
-640:                                              ; preds = %635, %632
-  %641 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %642 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %641, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %643 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %644 = call i32 @fflush(ptr noundef %643)
+639:                                              ; preds = %634, %631
+  %640 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %641 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %640, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %642 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %643 = call i32 @fflush(ptr noundef %642)
   call void @abort() #17
   unreachable
 
-645:                                              ; preds = %635
-  %646 = or i64 %638, %.018.i393
-  %indvars.iv.next.i396 = add nuw nsw i64 %indvars.iv.i392, 7
-  %647 = getelementptr inbounds nuw i8, ptr %.0.i394, i64 1
-  %648 = icmp slt i8 %633, 0
-  br i1 %648, label %625, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit397, !llvm.loop !46
+644:                                              ; preds = %634
+  %645 = or i64 %637, %.018.i392
+  %indvars.iv.next.i395 = add nuw nsw i64 %indvars.iv.i391, 7
+  %646 = getelementptr inbounds nuw i8, ptr %.0.i393, i64 1
+  %647 = icmp slt i8 %632, 0
+  br i1 %647, label %624, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit396, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit397: ; preds = %645
-  %649 = ptrtoint ptr %647 to i64
-  store i64 %649, ptr %8, align 8, !tbaa !18
-  %650 = icmp ugt i64 %646, 32
-  br i1 %650, label %651, label %656
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit396: ; preds = %644
+  %648 = ptrtoint ptr %646 to i64
+  store i64 %648, ptr %8, align 8, !tbaa !18
+  %649 = icmp ugt i64 %645, 32
+  br i1 %649, label %650, label %655
 
-651:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit397
-  %652 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %653 = call i64 @fwrite(ptr nonnull @.str.65, i64 65, i64 1, ptr %652) #19
-  %654 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %655 = call i32 @fflush(ptr noundef %654)
+650:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit396
+  %651 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %652 = call i64 @fwrite(ptr nonnull @.str.65, i64 65, i64 1, ptr %651) #19
+  %653 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %654 = call i32 @fflush(ptr noundef %653)
   br label %.loopexit
 
-656:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit397
-  %657 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %646
-  %658 = getelementptr inbounds nuw i8, ptr %657, i64 4
-  %659 = load i8, ptr %658, align 4, !tbaa !118, !range !10, !noundef !44
-  %660 = trunc nuw i8 %659 to i1
-  br i1 %660, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398, label %661
+655:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit396
+  %656 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %645
+  %657 = getelementptr inbounds nuw i8, ptr %656, i64 4
+  %658 = load i8, ptr %657, align 4, !tbaa !118, !range !10, !noundef !44
+  %659 = trunc nuw i8 %658 to i1
+  br i1 %659, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit397, label %660
 
-661:                                              ; preds = %656
-  %662 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %646
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %662, ptr noundef nonnull align 8 dereferenceable(16) %657, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %658, align 4, !tbaa !118
-  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398
+660:                                              ; preds = %655
+  %661 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %645
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %661, ptr noundef nonnull align 8 dereferenceable(16) %656, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %657, align 4, !tbaa !118
+  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit397
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398: ; preds = %656, %661
-  store i32 6, ptr %657, align 8, !tbaa !110
-  %663 = getelementptr inbounds nuw i8, ptr %657, i64 8
-  store i64 %649, ptr %663, align 8, !tbaa !121
-  br label %664
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit397: ; preds = %655, %660
+  store i32 6, ptr %656, align 8, !tbaa !110
+  %662 = getelementptr inbounds nuw i8, ptr %656, i64 8
+  store i64 %648, ptr %662, align 8, !tbaa !121
+  br label %663
 
-664:                                              ; preds = %684, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398
-  %indvars.iv.i399 = phi i64 [ %indvars.iv.next.i403, %684 ], [ 0, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398 ]
-  %.018.i400 = phi i64 [ %685, %684 ], [ 0, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398 ]
-  %.0.i401 = phi ptr [ %686, %684 ], [ %647, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398 ]
-  %665 = icmp eq ptr %.0.i401, %56
-  br i1 %665, label %666, label %671
+663:                                              ; preds = %683, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit397
+  %indvars.iv.i398 = phi i64 [ %indvars.iv.next.i402, %683 ], [ 0, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit397 ]
+  %.018.i399 = phi i64 [ %684, %683 ], [ 0, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit397 ]
+  %.0.i400 = phi ptr [ %685, %683 ], [ %646, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit397 ]
+  %664 = icmp eq ptr %.0.i400, %55
+  br i1 %664, label %665, label %670
 
-666:                                              ; preds = %664
-  %667 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %668 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %667, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %669 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %670 = call i32 @fflush(ptr noundef %669)
+665:                                              ; preds = %663
+  %666 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %667 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %666, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %668 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %669 = call i32 @fflush(ptr noundef %668)
   call void @abort() #17
   unreachable
 
-671:                                              ; preds = %664
-  %672 = load i8, ptr %.0.i401, align 1, !tbaa !45
-  %673 = icmp samesign ugt i64 %indvars.iv.i399, 63
-  br i1 %673, label %679, label %674
+670:                                              ; preds = %663
+  %671 = load i8, ptr %.0.i400, align 1, !tbaa !45
+  %672 = icmp samesign ugt i64 %indvars.iv.i398, 63
+  br i1 %672, label %678, label %673
 
-674:                                              ; preds = %671
-  %675 = and i8 %672, 127
-  %676 = zext nneg i8 %675 to i64
-  %677 = shl i64 %676, %indvars.iv.i399
-  %678 = lshr exact i64 %677, %indvars.iv.i399
-  %.not.i402 = icmp eq i64 %678, %676
-  br i1 %.not.i402, label %684, label %679
+673:                                              ; preds = %670
+  %674 = and i8 %671, 127
+  %675 = zext nneg i8 %674 to i64
+  %676 = shl i64 %675, %indvars.iv.i398
+  %677 = lshr exact i64 %676, %indvars.iv.i398
+  %.not.i401 = icmp eq i64 %677, %675
+  br i1 %.not.i401, label %683, label %678
 
-679:                                              ; preds = %674, %671
-  %680 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %681 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %680, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %682 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %683 = call i32 @fflush(ptr noundef %682)
+678:                                              ; preds = %673, %670
+  %679 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %680 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %679, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %681 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %682 = call i32 @fflush(ptr noundef %681)
   call void @abort() #17
   unreachable
 
-684:                                              ; preds = %674
-  %685 = or i64 %677, %.018.i400
-  %indvars.iv.next.i403 = add nuw nsw i64 %indvars.iv.i399, 7
-  %686 = getelementptr inbounds nuw i8, ptr %.0.i401, i64 1
-  %687 = icmp slt i8 %672, 0
-  br i1 %687, label %664, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit404, !llvm.loop !46
+683:                                              ; preds = %673
+  %684 = or i64 %676, %.018.i399
+  %indvars.iv.next.i402 = add nuw nsw i64 %indvars.iv.i398, 7
+  %685 = getelementptr inbounds nuw i8, ptr %.0.i400, i64 1
+  %686 = icmp slt i8 %671, 0
+  br i1 %686, label %663, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit403, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit404: ; preds = %684
-  %688 = ptrtoint ptr %686 to i64
-  store i64 %688, ptr %8, align 8, !tbaa !18
-  %.not248 = icmp eq i64 %685, -1
-  br i1 %.not248, label %689, label %690
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit403: ; preds = %683
+  %687 = ptrtoint ptr %685 to i64
+  store i64 %687, ptr %8, align 8, !tbaa !18
+  %.not248 = icmp eq i64 %684, -1
+  br i1 %.not248, label %688, label %689
 
-689:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit404
+688:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit403
   call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 636, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20parseFDEInstructionsERS1_RKNS2_8FDE_InfoERKNS2_8CIE_InfoEmiPNS2_10PrologInfoE) #17
   unreachable
 
-690:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit404
-  %691 = add i64 %685, %688
-  store i64 %691, ptr %8, align 8, !tbaa !18
-  %.b1.i405 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i405, label %._crit_edge.i406, label %logDWARF.exit408
+689:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit403
+  %690 = add i64 %684, %687
+  store i64 %690, ptr %8, align 8, !tbaa !18
+  %.b1.i404 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i404, label %._crit_edge.i405, label %logDWARF.exit407
 
-._crit_edge.i406:                                 ; preds = %690
-  %.pre.i407 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %692 = trunc nuw i8 %.pre.i407 to i1
-  br i1 %692, label %696, label %1299
+._crit_edge.i405:                                 ; preds = %689
+  %.pre.i406 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %691 = trunc nuw i8 %.pre.i406 to i1
+  br i1 %691, label %695, label %1294
 
-logDWARF.exit408:                                 ; preds = %690
-  %693 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %694 = icmp ne ptr %693, null
-  %695 = zext i1 %694 to i8
-  store i8 %695, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit407:                                 ; preds = %689
+  %692 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %693 = icmp ne ptr %692, null
+  %694 = zext i1 %693 to i8
+  store i8 %694, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %694, label %696, label %1299
+  br i1 %693, label %695, label %1294
 
-696:                                              ; preds = %._crit_edge.i406, %logDWARF.exit408
-  %697 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %.idx249 = shl nuw nsw i64 %646, 4
-  %698 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx249
-  %699 = load i64, ptr %698, align 8, !tbaa !121
-  %700 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %697, ptr noundef nonnull @.str.66, i64 noundef %646, i64 noundef %699, i64 noundef %685) #16
-  br label %1299
+695:                                              ; preds = %._crit_edge.i405, %logDWARF.exit407
+  %696 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %697 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %696, ptr noundef nonnull @.str.66, i64 noundef %645, i64 noundef %648, i64 noundef %684) #16
+  br label %1294
 
-701:                                              ; preds = %57
-  %702 = inttoptr i64 %60 to ptr
-  br label %703
+698:                                              ; preds = %56
+  %699 = inttoptr i64 %59 to ptr
+  br label %700
 
-703:                                              ; preds = %723, %701
-  %indvars.iv.i409 = phi i64 [ %indvars.iv.next.i413, %723 ], [ 0, %701 ]
-  %.018.i410 = phi i64 [ %724, %723 ], [ 0, %701 ]
-  %.0.i411 = phi ptr [ %725, %723 ], [ %702, %701 ]
-  %704 = icmp eq ptr %.0.i411, %56
-  br i1 %704, label %705, label %710
+700:                                              ; preds = %720, %698
+  %indvars.iv.i408 = phi i64 [ %indvars.iv.next.i412, %720 ], [ 0, %698 ]
+  %.018.i409 = phi i64 [ %721, %720 ], [ 0, %698 ]
+  %.0.i410 = phi ptr [ %722, %720 ], [ %699, %698 ]
+  %701 = icmp eq ptr %.0.i410, %55
+  br i1 %701, label %702, label %707
 
-705:                                              ; preds = %703
-  %706 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %707 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %706, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %708 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %709 = call i32 @fflush(ptr noundef %708)
+702:                                              ; preds = %700
+  %703 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %704 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %703, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %705 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %706 = call i32 @fflush(ptr noundef %705)
   call void @abort() #17
   unreachable
 
-710:                                              ; preds = %703
-  %711 = load i8, ptr %.0.i411, align 1, !tbaa !45
-  %712 = icmp samesign ugt i64 %indvars.iv.i409, 63
-  br i1 %712, label %718, label %713
+707:                                              ; preds = %700
+  %708 = load i8, ptr %.0.i410, align 1, !tbaa !45
+  %709 = icmp samesign ugt i64 %indvars.iv.i408, 63
+  br i1 %709, label %715, label %710
 
-713:                                              ; preds = %710
-  %714 = and i8 %711, 127
-  %715 = zext nneg i8 %714 to i64
-  %716 = shl i64 %715, %indvars.iv.i409
-  %717 = lshr exact i64 %716, %indvars.iv.i409
-  %.not.i412 = icmp eq i64 %717, %715
-  br i1 %.not.i412, label %723, label %718
+710:                                              ; preds = %707
+  %711 = and i8 %708, 127
+  %712 = zext nneg i8 %711 to i64
+  %713 = shl i64 %712, %indvars.iv.i408
+  %714 = lshr exact i64 %713, %indvars.iv.i408
+  %.not.i411 = icmp eq i64 %714, %712
+  br i1 %.not.i411, label %720, label %715
 
-718:                                              ; preds = %713, %710
-  %719 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %720 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %719, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %721 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %722 = call i32 @fflush(ptr noundef %721)
+715:                                              ; preds = %710, %707
+  %716 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %717 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %716, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %718 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %719 = call i32 @fflush(ptr noundef %718)
   call void @abort() #17
   unreachable
 
-723:                                              ; preds = %713
-  %724 = or i64 %716, %.018.i410
-  %indvars.iv.next.i413 = add nuw nsw i64 %indvars.iv.i409, 7
-  %725 = getelementptr inbounds nuw i8, ptr %.0.i411, i64 1
-  %726 = icmp slt i8 %711, 0
-  br i1 %726, label %703, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414, !llvm.loop !46
+720:                                              ; preds = %710
+  %721 = or i64 %713, %.018.i409
+  %indvars.iv.next.i412 = add nuw nsw i64 %indvars.iv.i408, 7
+  %722 = getelementptr inbounds nuw i8, ptr %.0.i410, i64 1
+  %723 = icmp slt i8 %708, 0
+  br i1 %723, label %700, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit413, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414: ; preds = %723
-  %727 = ptrtoint ptr %725 to i64
-  store i64 %727, ptr %8, align 8, !tbaa !18
-  %728 = icmp ugt i64 %724, 32
-  br i1 %728, label %729, label %.preheader
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit413: ; preds = %720
+  %724 = ptrtoint ptr %722 to i64
+  store i64 %724, ptr %8, align 8, !tbaa !18
+  %725 = icmp ugt i64 %721, 32
+  br i1 %725, label %726, label %.preheader
 
-729:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414
-  %730 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %731 = call i64 @fwrite(ptr nonnull @.str.67, i64 73, i64 1, ptr %730) #19
-  %732 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %733 = call i32 @fflush(ptr noundef %732)
+726:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit413
+  %727 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %728 = call i64 @fwrite(ptr nonnull @.str.67, i64 73, i64 1, ptr %727) #19
+  %729 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %730 = call i32 @fflush(ptr noundef %729)
   br label %.loopexit
 
-.preheader:                                       ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414, %740
-  %indvars.iv.i415 = phi i64 [ %indvars.iv.next.i418, %740 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414 ]
-  %.018.i416 = phi i64 [ %746, %740 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414 ]
-  %.0.i417 = phi ptr [ %741, %740 ], [ %725, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414 ]
-  %734 = icmp eq ptr %.0.i417, %56
-  br i1 %734, label %735, label %740
+.preheader:                                       ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit413, %737
+  %indvars.iv.i414 = phi i64 [ %indvars.iv.next.i417, %737 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit413 ]
+  %.018.i415 = phi i64 [ %743, %737 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit413 ]
+  %.0.i416 = phi ptr [ %738, %737 ], [ %722, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit413 ]
+  %731 = icmp eq ptr %.0.i416, %55
+  br i1 %731, label %732, label %737
 
-735:                                              ; preds = %.preheader
-  %736 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %737 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %736, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getSLEB128ERmm, ptr noundef nonnull @.str.94) #16
-  %738 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %739 = call i32 @fflush(ptr noundef %738)
+732:                                              ; preds = %.preheader
+  %733 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %734 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %733, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getSLEB128ERmm, ptr noundef nonnull @.str.94) #16
+  %735 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %736 = call i32 @fflush(ptr noundef %735)
   call void @abort() #17
   unreachable
 
-740:                                              ; preds = %.preheader
-  %741 = getelementptr inbounds nuw i8, ptr %.0.i417, i64 1
-  %742 = load i8, ptr %.0.i417, align 1, !tbaa !45
-  %743 = and i8 %742, 127
-  %744 = zext nneg i8 %743 to i64
-  %745 = shl i64 %744, %indvars.iv.i415
-  %746 = or i64 %745, %.018.i416
-  %indvars.iv.next.i418 = add nuw nsw i64 %indvars.iv.i415, 7
-  %.not.i419 = icmp sgt i8 %742, -1
-  br i1 %.not.i419, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, label %.preheader, !llvm.loop !58
+737:                                              ; preds = %.preheader
+  %738 = getelementptr inbounds nuw i8, ptr %.0.i416, i64 1
+  %739 = load i8, ptr %.0.i416, align 1, !tbaa !45
+  %740 = and i8 %739, 127
+  %741 = zext nneg i8 %740 to i64
+  %742 = shl i64 %741, %indvars.iv.i414
+  %743 = or i64 %742, %.018.i415
+  %indvars.iv.next.i417 = add nuw nsw i64 %indvars.iv.i414, 7
+  %.not.i418 = icmp sgt i8 %739, -1
+  br i1 %.not.i418, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, label %.preheader, !llvm.loop !58
 
-_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %740
-  %747 = icmp samesign ugt i8 %742, 63
-  %748 = icmp samesign ult i64 %indvars.iv.i415, 57
-  %or.cond.i = select i1 %747, i1 %748, i1 false
-  %749 = and i64 %indvars.iv.next.i418, 4294967295
-  %750 = shl nsw i64 -1, %749
-  %751 = select i1 %or.cond.i, i64 %750, i64 0
-  %.1.i = or i64 %746, %751
-  %752 = ptrtoint ptr %741 to i64
-  store i64 %752, ptr %8, align 8, !tbaa !18
-  %753 = load i32, ptr %30, align 4, !tbaa !59
-  %754 = sext i32 %753 to i64
-  %755 = mul nsw i64 %.1.i, %754
-  %756 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %724
-  %757 = getelementptr inbounds nuw i8, ptr %756, i64 4
-  %758 = load i8, ptr %757, align 4, !tbaa !118, !range !10, !noundef !44
-  %759 = trunc nuw i8 %758 to i1
-  br i1 %759, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit420, label %760
+_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %737
+  %744 = icmp samesign ugt i8 %739, 63
+  %745 = icmp samesign ult i64 %indvars.iv.i414, 57
+  %or.cond.i = select i1 %744, i1 %745, i1 false
+  %746 = and i64 %indvars.iv.next.i417, 4294967295
+  %747 = shl nsw i64 -1, %746
+  %748 = select i1 %or.cond.i, i64 %747, i64 0
+  %.1.i = or i64 %743, %748
+  %749 = ptrtoint ptr %738 to i64
+  store i64 %749, ptr %8, align 8, !tbaa !18
+  %750 = load i32, ptr %30, align 4, !tbaa !59
+  %751 = sext i32 %750 to i64
+  %752 = mul nsw i64 %.1.i, %751
+  %753 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %721
+  %754 = getelementptr inbounds nuw i8, ptr %753, i64 4
+  %755 = load i8, ptr %754, align 4, !tbaa !118, !range !10, !noundef !44
+  %756 = trunc nuw i8 %755 to i1
+  br i1 %756, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit419, label %757
 
-760:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit
-  %761 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %724
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %761, ptr noundef nonnull align 8 dereferenceable(16) %756, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %757, align 4, !tbaa !118
-  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit420
+757:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit
+  %758 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %721
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %758, ptr noundef nonnull align 8 dereferenceable(16) %753, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %754, align 4, !tbaa !118
+  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit419
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit420: ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, %760
-  store i32 2, ptr %756, align 8, !tbaa !110
-  %762 = getelementptr inbounds nuw i8, ptr %756, i64 8
-  store i64 %755, ptr %762, align 8, !tbaa !121
-  %.b1.i421 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i421, label %._crit_edge.i422, label %logDWARF.exit424
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit419: ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, %757
+  store i32 2, ptr %753, align 8, !tbaa !110
+  %759 = getelementptr inbounds nuw i8, ptr %753, i64 8
+  store i64 %752, ptr %759, align 8, !tbaa !121
+  %.b1.i420 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i420, label %._crit_edge.i421, label %logDWARF.exit423
 
-._crit_edge.i422:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit420
-  %.pre.i423 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %763 = trunc nuw i8 %.pre.i423 to i1
-  br i1 %763, label %767, label %1299
+._crit_edge.i421:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit419
+  %.pre.i422 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %760 = trunc nuw i8 %.pre.i422 to i1
+  br i1 %760, label %764, label %1294
 
-logDWARF.exit424:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit420
-  %764 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %765 = icmp ne ptr %764, null
-  %766 = zext i1 %765 to i8
-  store i8 %766, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit423:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit419
+  %761 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %762 = icmp ne ptr %761, null
+  %763 = zext i1 %762 to i8
+  store i8 %763, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %765, label %767, label %1299
+  br i1 %762, label %764, label %1294
 
-767:                                              ; preds = %._crit_edge.i422, %logDWARF.exit424
-  %768 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %769 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %768, ptr noundef nonnull @.str.68, i64 noundef %724, i64 noundef %755) #16
-  br label %1299
+764:                                              ; preds = %._crit_edge.i421, %logDWARF.exit423
+  %765 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %766 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %765, ptr noundef nonnull @.str.68, i64 noundef %721, i64 noundef %752) #16
+  br label %1294
 
-770:                                              ; preds = %57
-  %771 = inttoptr i64 %60 to ptr
-  br label %772
+767:                                              ; preds = %56
+  %768 = inttoptr i64 %59 to ptr
+  br label %769
 
-772:                                              ; preds = %792, %770
-  %indvars.iv.i425 = phi i64 [ %indvars.iv.next.i429, %792 ], [ 0, %770 ]
-  %.018.i426 = phi i64 [ %793, %792 ], [ 0, %770 ]
-  %.0.i427 = phi ptr [ %794, %792 ], [ %771, %770 ]
-  %773 = icmp eq ptr %.0.i427, %56
-  br i1 %773, label %774, label %779
+769:                                              ; preds = %789, %767
+  %indvars.iv.i424 = phi i64 [ %indvars.iv.next.i428, %789 ], [ 0, %767 ]
+  %.018.i425 = phi i64 [ %790, %789 ], [ 0, %767 ]
+  %.0.i426 = phi ptr [ %791, %789 ], [ %768, %767 ]
+  %770 = icmp eq ptr %.0.i426, %55
+  br i1 %770, label %771, label %776
 
-774:                                              ; preds = %772
-  %775 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %776 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %775, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %777 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %778 = call i32 @fflush(ptr noundef %777)
+771:                                              ; preds = %769
+  %772 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %773 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %772, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %774 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %775 = call i32 @fflush(ptr noundef %774)
   call void @abort() #17
   unreachable
 
-779:                                              ; preds = %772
-  %780 = load i8, ptr %.0.i427, align 1, !tbaa !45
-  %781 = icmp samesign ugt i64 %indvars.iv.i425, 63
-  br i1 %781, label %787, label %782
+776:                                              ; preds = %769
+  %777 = load i8, ptr %.0.i426, align 1, !tbaa !45
+  %778 = icmp samesign ugt i64 %indvars.iv.i424, 63
+  br i1 %778, label %784, label %779
 
-782:                                              ; preds = %779
-  %783 = and i8 %780, 127
-  %784 = zext nneg i8 %783 to i64
-  %785 = shl i64 %784, %indvars.iv.i425
-  %786 = lshr exact i64 %785, %indvars.iv.i425
-  %.not.i428 = icmp eq i64 %786, %784
-  br i1 %.not.i428, label %792, label %787
+779:                                              ; preds = %776
+  %780 = and i8 %777, 127
+  %781 = zext nneg i8 %780 to i64
+  %782 = shl i64 %781, %indvars.iv.i424
+  %783 = lshr exact i64 %782, %indvars.iv.i424
+  %.not.i427 = icmp eq i64 %783, %781
+  br i1 %.not.i427, label %789, label %784
 
-787:                                              ; preds = %782, %779
-  %788 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %789 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %788, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %790 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %791 = call i32 @fflush(ptr noundef %790)
+784:                                              ; preds = %779, %776
+  %785 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %786 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %785, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %787 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %788 = call i32 @fflush(ptr noundef %787)
   call void @abort() #17
   unreachable
 
-792:                                              ; preds = %782
-  %793 = or i64 %785, %.018.i426
-  %indvars.iv.next.i429 = add nuw nsw i64 %indvars.iv.i425, 7
-  %794 = getelementptr inbounds nuw i8, ptr %.0.i427, i64 1
-  %795 = icmp slt i8 %780, 0
-  br i1 %795, label %772, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit430, !llvm.loop !46
+789:                                              ; preds = %779
+  %790 = or i64 %782, %.018.i425
+  %indvars.iv.next.i428 = add nuw nsw i64 %indvars.iv.i424, 7
+  %791 = getelementptr inbounds nuw i8, ptr %.0.i426, i64 1
+  %792 = icmp slt i8 %777, 0
+  br i1 %792, label %769, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit429, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit430: ; preds = %792
-  %796 = ptrtoint ptr %794 to i64
-  store i64 %796, ptr %8, align 8, !tbaa !18
-  br label %797
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit429: ; preds = %789
+  %793 = ptrtoint ptr %791 to i64
+  store i64 %793, ptr %8, align 8, !tbaa !18
+  br label %794
 
-797:                                              ; preds = %804, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit430
-  %indvars.iv.i431 = phi i64 [ %indvars.iv.next.i434, %804 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit430 ]
-  %.018.i432 = phi i64 [ %810, %804 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit430 ]
-  %.0.i433 = phi ptr [ %805, %804 ], [ %794, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit430 ]
-  %798 = icmp eq ptr %.0.i433, %56
-  br i1 %798, label %799, label %804
+794:                                              ; preds = %801, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit429
+  %indvars.iv.i430 = phi i64 [ %indvars.iv.next.i433, %801 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit429 ]
+  %.018.i431 = phi i64 [ %807, %801 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit429 ]
+  %.0.i432 = phi ptr [ %802, %801 ], [ %791, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit429 ]
+  %795 = icmp eq ptr %.0.i432, %55
+  br i1 %795, label %796, label %801
 
-799:                                              ; preds = %797
-  %800 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %801 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %800, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getSLEB128ERmm, ptr noundef nonnull @.str.94) #16
-  %802 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %803 = call i32 @fflush(ptr noundef %802)
+796:                                              ; preds = %794
+  %797 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %798 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %797, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getSLEB128ERmm, ptr noundef nonnull @.str.94) #16
+  %799 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %800 = call i32 @fflush(ptr noundef %799)
   call void @abort() #17
   unreachable
 
-804:                                              ; preds = %797
-  %805 = getelementptr inbounds nuw i8, ptr %.0.i433, i64 1
-  %806 = load i8, ptr %.0.i433, align 1, !tbaa !45
-  %807 = and i8 %806, 127
-  %808 = zext nneg i8 %807 to i64
-  %809 = shl i64 %808, %indvars.iv.i431
-  %810 = or i64 %809, %.018.i432
-  %indvars.iv.next.i434 = add nuw nsw i64 %indvars.iv.i431, 7
-  %.not.i435 = icmp sgt i8 %806, -1
-  br i1 %.not.i435, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit438, label %797, !llvm.loop !58
+801:                                              ; preds = %794
+  %802 = getelementptr inbounds nuw i8, ptr %.0.i432, i64 1
+  %803 = load i8, ptr %.0.i432, align 1, !tbaa !45
+  %804 = and i8 %803, 127
+  %805 = zext nneg i8 %804 to i64
+  %806 = shl i64 %805, %indvars.iv.i430
+  %807 = or i64 %806, %.018.i431
+  %indvars.iv.next.i433 = add nuw nsw i64 %indvars.iv.i430, 7
+  %.not.i434 = icmp sgt i8 %803, -1
+  br i1 %.not.i434, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit437, label %794, !llvm.loop !58
 
-_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit438: ; preds = %804
-  %811 = icmp samesign ugt i8 %806, 63
-  %812 = icmp samesign ult i64 %indvars.iv.i431, 57
-  %or.cond.i436 = select i1 %811, i1 %812, i1 false
-  %813 = and i64 %indvars.iv.next.i434, 4294967295
-  %814 = shl nsw i64 -1, %813
-  %815 = select i1 %or.cond.i436, i64 %814, i64 0
-  %.1.i437 = or i64 %810, %815
-  %816 = ptrtoint ptr %805 to i64
-  store i64 %816, ptr %8, align 8, !tbaa !18
-  %817 = load i32, ptr %30, align 4, !tbaa !59
-  %818 = sext i32 %817 to i64
-  %819 = mul nsw i64 %.1.i437, %818
-  %820 = icmp ugt i64 %793, 32
-  br i1 %820, label %821, label %826
+_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit437: ; preds = %801
+  %808 = icmp samesign ugt i8 %803, 63
+  %809 = icmp samesign ult i64 %indvars.iv.i430, 57
+  %or.cond.i435 = select i1 %808, i1 %809, i1 false
+  %810 = and i64 %indvars.iv.next.i433, 4294967295
+  %811 = shl nsw i64 -1, %810
+  %812 = select i1 %or.cond.i435, i64 %811, i64 0
+  %.1.i436 = or i64 %807, %812
+  %813 = ptrtoint ptr %802 to i64
+  store i64 %813, ptr %8, align 8, !tbaa !18
+  %814 = load i32, ptr %30, align 4, !tbaa !59
+  %815 = sext i32 %814 to i64
+  %816 = mul nsw i64 %.1.i436, %815
+  %817 = icmp ugt i64 %790, 32
+  br i1 %817, label %818, label %823
 
-821:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit438
-  %822 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %823 = call i64 @fwrite(ptr nonnull @.str.69, i64 65, i64 1, ptr %822) #19
-  %824 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %825 = call i32 @fflush(ptr noundef %824)
+818:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit437
+  %819 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %820 = call i64 @fwrite(ptr nonnull @.str.69, i64 65, i64 1, ptr %819) #19
+  %821 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %822 = call i32 @fflush(ptr noundef %821)
   br label %.loopexit
 
-826:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit438
-  %827 = trunc nuw nsw i64 %793 to i32
-  store i32 %827, ptr %5, align 8, !tbaa !126
-  %828 = trunc i64 %819 to i32
-  store i32 %828, ptr %35, align 4, !tbaa !127
-  %.b1.i439 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i439, label %._crit_edge.i440, label %logDWARF.exit442
+823:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit437
+  %824 = trunc nuw nsw i64 %790 to i32
+  store i32 %824, ptr %5, align 8, !tbaa !126
+  %825 = trunc i64 %816 to i32
+  store i32 %825, ptr %34, align 4, !tbaa !127
+  %.b1.i438 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i438, label %._crit_edge.i439, label %logDWARF.exit441
 
-._crit_edge.i440:                                 ; preds = %826
-  %.pre.i441 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %829 = trunc nuw i8 %.pre.i441 to i1
-  br i1 %829, label %833, label %1299
+._crit_edge.i439:                                 ; preds = %823
+  %.pre.i440 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %826 = trunc nuw i8 %.pre.i440 to i1
+  br i1 %826, label %830, label %1294
 
-logDWARF.exit442:                                 ; preds = %826
-  %830 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %831 = icmp ne ptr %830, null
-  %832 = zext i1 %831 to i8
-  store i8 %832, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit441:                                 ; preds = %823
+  %827 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %828 = icmp ne ptr %827, null
+  %829 = zext i1 %828 to i8
+  store i8 %829, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %831, label %833, label %1299
+  br i1 %828, label %830, label %1294
 
-833:                                              ; preds = %._crit_edge.i440, %logDWARF.exit442
-  %834 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %835 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %834, ptr noundef nonnull @.str.70, i64 noundef %793, i64 noundef %819) #16
-  br label %1299
+830:                                              ; preds = %._crit_edge.i439, %logDWARF.exit441
+  %831 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %832 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %831, ptr noundef nonnull @.str.70, i64 noundef %790, i64 noundef %816) #16
+  br label %1294
 
-836:                                              ; preds = %57
-  %837 = inttoptr i64 %60 to ptr
-  br label %838
+833:                                              ; preds = %56
+  %834 = inttoptr i64 %59 to ptr
+  br label %835
 
-838:                                              ; preds = %845, %836
-  %indvars.iv.i443 = phi i64 [ %indvars.iv.next.i446, %845 ], [ 0, %836 ]
-  %.018.i444 = phi i64 [ %851, %845 ], [ 0, %836 ]
-  %.0.i445 = phi ptr [ %846, %845 ], [ %837, %836 ]
-  %839 = icmp eq ptr %.0.i445, %56
-  br i1 %839, label %840, label %845
+835:                                              ; preds = %842, %833
+  %indvars.iv.i442 = phi i64 [ %indvars.iv.next.i445, %842 ], [ 0, %833 ]
+  %.018.i443 = phi i64 [ %848, %842 ], [ 0, %833 ]
+  %.0.i444 = phi ptr [ %843, %842 ], [ %834, %833 ]
+  %836 = icmp eq ptr %.0.i444, %55
+  br i1 %836, label %837, label %842
 
-840:                                              ; preds = %838
-  %841 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %842 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %841, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getSLEB128ERmm, ptr noundef nonnull @.str.94) #16
-  %843 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %844 = call i32 @fflush(ptr noundef %843)
+837:                                              ; preds = %835
+  %838 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %839 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %838, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getSLEB128ERmm, ptr noundef nonnull @.str.94) #16
+  %840 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %841 = call i32 @fflush(ptr noundef %840)
   call void @abort() #17
   unreachable
 
-845:                                              ; preds = %838
-  %846 = getelementptr inbounds nuw i8, ptr %.0.i445, i64 1
-  %847 = load i8, ptr %.0.i445, align 1, !tbaa !45
-  %848 = and i8 %847, 127
-  %849 = zext nneg i8 %848 to i64
-  %850 = shl i64 %849, %indvars.iv.i443
-  %851 = or i64 %850, %.018.i444
-  %indvars.iv.next.i446 = add nuw nsw i64 %indvars.iv.i443, 7
-  %.not.i447 = icmp sgt i8 %847, -1
-  br i1 %.not.i447, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit450, label %838, !llvm.loop !58
+842:                                              ; preds = %835
+  %843 = getelementptr inbounds nuw i8, ptr %.0.i444, i64 1
+  %844 = load i8, ptr %.0.i444, align 1, !tbaa !45
+  %845 = and i8 %844, 127
+  %846 = zext nneg i8 %845 to i64
+  %847 = shl i64 %846, %indvars.iv.i442
+  %848 = or i64 %847, %.018.i443
+  %indvars.iv.next.i445 = add nuw nsw i64 %indvars.iv.i442, 7
+  %.not.i446 = icmp sgt i8 %844, -1
+  br i1 %.not.i446, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit449, label %835, !llvm.loop !58
 
-_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit450: ; preds = %845
-  %852 = icmp samesign ugt i8 %847, 63
-  %853 = icmp samesign ult i64 %indvars.iv.i443, 57
-  %or.cond.i448 = select i1 %852, i1 %853, i1 false
-  %854 = and i64 %indvars.iv.next.i446, 4294967295
-  %855 = shl nsw i64 -1, %854
-  %856 = select i1 %or.cond.i448, i64 %855, i64 0
-  %.1.i449 = or i64 %851, %856
-  %857 = ptrtoint ptr %846 to i64
-  store i64 %857, ptr %8, align 8, !tbaa !18
-  %858 = load i32, ptr %30, align 4, !tbaa !59
-  %859 = trunc i64 %.1.i449 to i32
-  %860 = mul i32 %858, %859
-  store i32 %860, ptr %35, align 4, !tbaa !127
-  %.b1.i451 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i451, label %._crit_edge.i452, label %logDWARF.exit454
+_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit449: ; preds = %842
+  %849 = icmp samesign ugt i8 %844, 63
+  %850 = icmp samesign ult i64 %indvars.iv.i442, 57
+  %or.cond.i447 = select i1 %849, i1 %850, i1 false
+  %851 = and i64 %indvars.iv.next.i445, 4294967295
+  %852 = shl nsw i64 -1, %851
+  %853 = select i1 %or.cond.i447, i64 %852, i64 0
+  %.1.i448 = or i64 %848, %853
+  %854 = ptrtoint ptr %843 to i64
+  store i64 %854, ptr %8, align 8, !tbaa !18
+  %855 = load i32, ptr %30, align 4, !tbaa !59
+  %856 = trunc i64 %.1.i448 to i32
+  %857 = mul i32 %855, %856
+  store i32 %857, ptr %34, align 4, !tbaa !127
+  %.b1.i450 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i450, label %._crit_edge.i451, label %logDWARF.exit453
 
-._crit_edge.i452:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit450
-  %.pre.i453 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %861 = trunc nuw i8 %.pre.i453 to i1
-  br i1 %861, label %865, label %1299
+._crit_edge.i451:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit449
+  %.pre.i452 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %858 = trunc nuw i8 %.pre.i452 to i1
+  br i1 %858, label %862, label %1294
 
-logDWARF.exit454:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit450
-  %862 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %863 = icmp ne ptr %862, null
-  %864 = zext i1 %863 to i8
-  store i8 %864, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit453:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit449
+  %859 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %860 = icmp ne ptr %859, null
+  %861 = zext i1 %860 to i8
+  store i8 %861, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %863, label %865, label %1299
+  br i1 %860, label %862, label %1294
 
-865:                                              ; preds = %._crit_edge.i452, %logDWARF.exit454
-  %866 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %867 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %866, ptr noundef nonnull @.str.71, i32 noundef %860) #16
-  br label %1299
+862:                                              ; preds = %._crit_edge.i451, %logDWARF.exit453
+  %863 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %864 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %863, ptr noundef nonnull @.str.71, i32 noundef %857) #16
+  br label %1294
 
-868:                                              ; preds = %57
-  %869 = inttoptr i64 %60 to ptr
-  br label %870
+865:                                              ; preds = %56
+  %866 = inttoptr i64 %59 to ptr
+  br label %867
 
-870:                                              ; preds = %890, %868
-  %indvars.iv.i455 = phi i64 [ %indvars.iv.next.i459, %890 ], [ 0, %868 ]
-  %.018.i456 = phi i64 [ %891, %890 ], [ 0, %868 ]
-  %.0.i457 = phi ptr [ %892, %890 ], [ %869, %868 ]
-  %871 = icmp eq ptr %.0.i457, %56
-  br i1 %871, label %872, label %877
+867:                                              ; preds = %887, %865
+  %indvars.iv.i454 = phi i64 [ %indvars.iv.next.i458, %887 ], [ 0, %865 ]
+  %.018.i455 = phi i64 [ %888, %887 ], [ 0, %865 ]
+  %.0.i456 = phi ptr [ %889, %887 ], [ %866, %865 ]
+  %868 = icmp eq ptr %.0.i456, %55
+  br i1 %868, label %869, label %874
 
-872:                                              ; preds = %870
-  %873 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %874 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %873, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %875 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %876 = call i32 @fflush(ptr noundef %875)
+869:                                              ; preds = %867
+  %870 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %871 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %870, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %872 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %873 = call i32 @fflush(ptr noundef %872)
   call void @abort() #17
   unreachable
 
-877:                                              ; preds = %870
-  %878 = load i8, ptr %.0.i457, align 1, !tbaa !45
-  %879 = icmp samesign ugt i64 %indvars.iv.i455, 63
-  br i1 %879, label %885, label %880
+874:                                              ; preds = %867
+  %875 = load i8, ptr %.0.i456, align 1, !tbaa !45
+  %876 = icmp samesign ugt i64 %indvars.iv.i454, 63
+  br i1 %876, label %882, label %877
 
-880:                                              ; preds = %877
-  %881 = and i8 %878, 127
-  %882 = zext nneg i8 %881 to i64
-  %883 = shl i64 %882, %indvars.iv.i455
-  %884 = lshr exact i64 %883, %indvars.iv.i455
-  %.not.i458 = icmp eq i64 %884, %882
-  br i1 %.not.i458, label %890, label %885
+877:                                              ; preds = %874
+  %878 = and i8 %875, 127
+  %879 = zext nneg i8 %878 to i64
+  %880 = shl i64 %879, %indvars.iv.i454
+  %881 = lshr exact i64 %880, %indvars.iv.i454
+  %.not.i457 = icmp eq i64 %881, %879
+  br i1 %.not.i457, label %887, label %882
 
-885:                                              ; preds = %880, %877
-  %886 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %887 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %886, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %888 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %889 = call i32 @fflush(ptr noundef %888)
+882:                                              ; preds = %877, %874
+  %883 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %884 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %883, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %885 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %886 = call i32 @fflush(ptr noundef %885)
   call void @abort() #17
   unreachable
 
-890:                                              ; preds = %880
-  %891 = or i64 %883, %.018.i456
-  %indvars.iv.next.i459 = add nuw nsw i64 %indvars.iv.i455, 7
-  %892 = getelementptr inbounds nuw i8, ptr %.0.i457, i64 1
-  %893 = icmp slt i8 %878, 0
-  br i1 %893, label %870, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460, !llvm.loop !46
+887:                                              ; preds = %877
+  %888 = or i64 %880, %.018.i455
+  %indvars.iv.next.i458 = add nuw nsw i64 %indvars.iv.i454, 7
+  %889 = getelementptr inbounds nuw i8, ptr %.0.i456, i64 1
+  %890 = icmp slt i8 %875, 0
+  br i1 %890, label %867, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit459, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460: ; preds = %890
-  %894 = ptrtoint ptr %892 to i64
-  store i64 %894, ptr %8, align 8, !tbaa !18
-  %895 = icmp ugt i64 %891, 32
-  br i1 %895, label %896, label %.preheader564
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit459: ; preds = %887
+  %891 = ptrtoint ptr %889 to i64
+  store i64 %891, ptr %8, align 8, !tbaa !18
+  %892 = icmp ugt i64 %888, 32
+  br i1 %892, label %893, label %.preheader563
 
-896:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460
-  %897 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %898 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %897, ptr noundef nonnull @.str.72, i64 noundef %891) #16
-  %899 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %900 = call i32 @fflush(ptr noundef %899)
+893:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit459
+  %894 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %895 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %894, ptr noundef nonnull @.str.72, i64 noundef %888) #16
+  %896 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %897 = call i32 @fflush(ptr noundef %896)
   br label %.loopexit
 
-.preheader564:                                    ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460, %920
-  %indvars.iv.i461 = phi i64 [ %indvars.iv.next.i465, %920 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460 ]
-  %.018.i462 = phi i64 [ %921, %920 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460 ]
-  %.0.i463 = phi ptr [ %922, %920 ], [ %892, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460 ]
-  %901 = icmp eq ptr %.0.i463, %56
-  br i1 %901, label %902, label %907
+.preheader563:                                    ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit459, %917
+  %indvars.iv.i460 = phi i64 [ %indvars.iv.next.i464, %917 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit459 ]
+  %.018.i461 = phi i64 [ %918, %917 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit459 ]
+  %.0.i462 = phi ptr [ %919, %917 ], [ %889, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit459 ]
+  %898 = icmp eq ptr %.0.i462, %55
+  br i1 %898, label %899, label %904
 
-902:                                              ; preds = %.preheader564
-  %903 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %904 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %903, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %905 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %906 = call i32 @fflush(ptr noundef %905)
+899:                                              ; preds = %.preheader563
+  %900 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %901 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %900, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %902 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %903 = call i32 @fflush(ptr noundef %902)
   call void @abort() #17
   unreachable
 
-907:                                              ; preds = %.preheader564
-  %908 = load i8, ptr %.0.i463, align 1, !tbaa !45
-  %909 = icmp samesign ugt i64 %indvars.iv.i461, 63
-  br i1 %909, label %915, label %910
+904:                                              ; preds = %.preheader563
+  %905 = load i8, ptr %.0.i462, align 1, !tbaa !45
+  %906 = icmp samesign ugt i64 %indvars.iv.i460, 63
+  br i1 %906, label %912, label %907
 
-910:                                              ; preds = %907
-  %911 = and i8 %908, 127
-  %912 = zext nneg i8 %911 to i64
-  %913 = shl i64 %912, %indvars.iv.i461
-  %914 = lshr exact i64 %913, %indvars.iv.i461
-  %.not.i464 = icmp eq i64 %914, %912
-  br i1 %.not.i464, label %920, label %915
+907:                                              ; preds = %904
+  %908 = and i8 %905, 127
+  %909 = zext nneg i8 %908 to i64
+  %910 = shl i64 %909, %indvars.iv.i460
+  %911 = lshr exact i64 %910, %indvars.iv.i460
+  %.not.i463 = icmp eq i64 %911, %909
+  br i1 %.not.i463, label %917, label %912
 
-915:                                              ; preds = %910, %907
-  %916 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %917 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %916, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %918 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %919 = call i32 @fflush(ptr noundef %918)
+912:                                              ; preds = %907, %904
+  %913 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %914 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %913, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %915 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %916 = call i32 @fflush(ptr noundef %915)
   call void @abort() #17
   unreachable
 
-920:                                              ; preds = %910
-  %921 = or i64 %913, %.018.i462
-  %indvars.iv.next.i465 = add nuw nsw i64 %indvars.iv.i461, 7
-  %922 = getelementptr inbounds nuw i8, ptr %.0.i463, i64 1
-  %923 = icmp slt i8 %908, 0
-  br i1 %923, label %.preheader564, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit466, !llvm.loop !46
+917:                                              ; preds = %907
+  %918 = or i64 %910, %.018.i461
+  %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i460, 7
+  %919 = getelementptr inbounds nuw i8, ptr %.0.i462, i64 1
+  %920 = icmp slt i8 %905, 0
+  br i1 %920, label %.preheader563, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit465, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit466: ; preds = %920
-  %924 = ptrtoint ptr %922 to i64
-  store i64 %924, ptr %8, align 8, !tbaa !18
-  %925 = load i32, ptr %30, align 4, !tbaa !59
-  %926 = sext i32 %925 to i64
-  %927 = mul nsw i64 %921, %926
-  %928 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %891
-  %929 = getelementptr inbounds nuw i8, ptr %928, i64 4
-  %930 = load i8, ptr %929, align 4, !tbaa !118, !range !10, !noundef !44
-  %931 = trunc nuw i8 %930 to i1
-  br i1 %931, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit467, label %932
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit465: ; preds = %917
+  %921 = ptrtoint ptr %919 to i64
+  store i64 %921, ptr %8, align 8, !tbaa !18
+  %922 = load i32, ptr %30, align 4, !tbaa !59
+  %923 = sext i32 %922 to i64
+  %924 = mul nsw i64 %918, %923
+  %925 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %888
+  %926 = getelementptr inbounds nuw i8, ptr %925, i64 4
+  %927 = load i8, ptr %926, align 4, !tbaa !118, !range !10, !noundef !44
+  %928 = trunc nuw i8 %927 to i1
+  br i1 %928, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit466, label %929
 
-932:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit466
-  %933 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %891
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %933, ptr noundef nonnull align 8 dereferenceable(16) %928, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %929, align 4, !tbaa !118
-  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit467
+929:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit465
+  %930 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %888
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %930, ptr noundef nonnull align 8 dereferenceable(16) %925, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %926, align 4, !tbaa !118
+  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit466
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit467: ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit466, %932
-  store i32 4, ptr %928, align 8, !tbaa !110
-  %934 = getelementptr inbounds nuw i8, ptr %928, i64 8
-  store i64 %927, ptr %934, align 8, !tbaa !121
-  %.b1.i468 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i468, label %._crit_edge.i469, label %logDWARF.exit471
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit466: ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit465, %929
+  store i32 4, ptr %925, align 8, !tbaa !110
+  %931 = getelementptr inbounds nuw i8, ptr %925, i64 8
+  store i64 %924, ptr %931, align 8, !tbaa !121
+  %.b1.i467 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i467, label %._crit_edge.i468, label %logDWARF.exit470
 
-._crit_edge.i469:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit467
-  %.pre.i470 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %935 = trunc nuw i8 %.pre.i470 to i1
-  br i1 %935, label %939, label %1299
+._crit_edge.i468:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit466
+  %.pre.i469 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %932 = trunc nuw i8 %.pre.i469 to i1
+  br i1 %932, label %936, label %1294
 
-logDWARF.exit471:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit467
-  %936 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %937 = icmp ne ptr %936, null
-  %938 = zext i1 %937 to i8
-  store i8 %938, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit470:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit466
+  %933 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %934 = icmp ne ptr %933, null
+  %935 = zext i1 %934 to i8
+  store i8 %935, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %937, label %939, label %1299
+  br i1 %934, label %936, label %1294
 
-939:                                              ; preds = %._crit_edge.i469, %logDWARF.exit471
-  %940 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %941 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %940, ptr noundef nonnull @.str.73, i64 noundef %891, i64 noundef %927) #16
-  br label %1299
+936:                                              ; preds = %._crit_edge.i468, %logDWARF.exit470
+  %937 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %938 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %937, ptr noundef nonnull @.str.73, i64 noundef %888, i64 noundef %924) #16
+  br label %1294
 
-942:                                              ; preds = %57
-  %943 = inttoptr i64 %60 to ptr
-  br label %944
+939:                                              ; preds = %56
+  %940 = inttoptr i64 %59 to ptr
+  br label %941
 
-944:                                              ; preds = %964, %942
-  %indvars.iv.i472 = phi i64 [ %indvars.iv.next.i476, %964 ], [ 0, %942 ]
-  %.018.i473 = phi i64 [ %965, %964 ], [ 0, %942 ]
-  %.0.i474 = phi ptr [ %966, %964 ], [ %943, %942 ]
-  %945 = icmp eq ptr %.0.i474, %56
-  br i1 %945, label %946, label %951
+941:                                              ; preds = %961, %939
+  %indvars.iv.i471 = phi i64 [ %indvars.iv.next.i475, %961 ], [ 0, %939 ]
+  %.018.i472 = phi i64 [ %962, %961 ], [ 0, %939 ]
+  %.0.i473 = phi ptr [ %963, %961 ], [ %940, %939 ]
+  %942 = icmp eq ptr %.0.i473, %55
+  br i1 %942, label %943, label %948
 
-946:                                              ; preds = %944
-  %947 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %948 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %947, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %949 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %950 = call i32 @fflush(ptr noundef %949)
+943:                                              ; preds = %941
+  %944 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %945 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %944, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %946 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %947 = call i32 @fflush(ptr noundef %946)
   call void @abort() #17
   unreachable
 
-951:                                              ; preds = %944
-  %952 = load i8, ptr %.0.i474, align 1, !tbaa !45
-  %953 = icmp samesign ugt i64 %indvars.iv.i472, 63
-  br i1 %953, label %959, label %954
+948:                                              ; preds = %941
+  %949 = load i8, ptr %.0.i473, align 1, !tbaa !45
+  %950 = icmp samesign ugt i64 %indvars.iv.i471, 63
+  br i1 %950, label %956, label %951
 
-954:                                              ; preds = %951
-  %955 = and i8 %952, 127
-  %956 = zext nneg i8 %955 to i64
-  %957 = shl i64 %956, %indvars.iv.i472
-  %958 = lshr exact i64 %957, %indvars.iv.i472
-  %.not.i475 = icmp eq i64 %958, %956
-  br i1 %.not.i475, label %964, label %959
+951:                                              ; preds = %948
+  %952 = and i8 %949, 127
+  %953 = zext nneg i8 %952 to i64
+  %954 = shl i64 %953, %indvars.iv.i471
+  %955 = lshr exact i64 %954, %indvars.iv.i471
+  %.not.i474 = icmp eq i64 %955, %953
+  br i1 %.not.i474, label %961, label %956
 
-959:                                              ; preds = %954, %951
-  %960 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %961 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %960, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %962 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %963 = call i32 @fflush(ptr noundef %962)
+956:                                              ; preds = %951, %948
+  %957 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %958 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %957, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %959 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %960 = call i32 @fflush(ptr noundef %959)
   call void @abort() #17
   unreachable
 
-964:                                              ; preds = %954
-  %965 = or i64 %957, %.018.i473
-  %indvars.iv.next.i476 = add nuw nsw i64 %indvars.iv.i472, 7
-  %966 = getelementptr inbounds nuw i8, ptr %.0.i474, i64 1
-  %967 = icmp slt i8 %952, 0
-  br i1 %967, label %944, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477, !llvm.loop !46
+961:                                              ; preds = %951
+  %962 = or i64 %954, %.018.i472
+  %indvars.iv.next.i475 = add nuw nsw i64 %indvars.iv.i471, 7
+  %963 = getelementptr inbounds nuw i8, ptr %.0.i473, i64 1
+  %964 = icmp slt i8 %949, 0
+  br i1 %964, label %941, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit476, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477: ; preds = %964
-  %968 = ptrtoint ptr %966 to i64
-  store i64 %968, ptr %8, align 8, !tbaa !18
-  %969 = icmp ugt i64 %965, 32
-  br i1 %969, label %970, label %.preheader565
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit476: ; preds = %961
+  %965 = ptrtoint ptr %963 to i64
+  store i64 %965, ptr %8, align 8, !tbaa !18
+  %966 = icmp ugt i64 %962, 32
+  br i1 %966, label %967, label %.preheader564
 
-970:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477
-  %971 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %972 = call i64 @fwrite(ptr nonnull @.str.74, i64 68, i64 1, ptr %971) #19
-  %973 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %974 = call i32 @fflush(ptr noundef %973)
+967:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit476
+  %968 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %969 = call i64 @fwrite(ptr nonnull @.str.74, i64 68, i64 1, ptr %968) #19
+  %970 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %971 = call i32 @fflush(ptr noundef %970)
   br label %.loopexit
 
-.preheader565:                                    ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477, %981
-  %indvars.iv.i478 = phi i64 [ %indvars.iv.next.i481, %981 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477 ]
-  %.018.i479 = phi i64 [ %987, %981 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477 ]
-  %.0.i480 = phi ptr [ %982, %981 ], [ %966, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477 ]
-  %975 = icmp eq ptr %.0.i480, %56
-  br i1 %975, label %976, label %981
+.preheader564:                                    ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit476, %978
+  %indvars.iv.i477 = phi i64 [ %indvars.iv.next.i480, %978 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit476 ]
+  %.018.i478 = phi i64 [ %984, %978 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit476 ]
+  %.0.i479 = phi ptr [ %979, %978 ], [ %963, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit476 ]
+  %972 = icmp eq ptr %.0.i479, %55
+  br i1 %972, label %973, label %978
 
-976:                                              ; preds = %.preheader565
-  %977 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %978 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %977, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getSLEB128ERmm, ptr noundef nonnull @.str.94) #16
-  %979 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %980 = call i32 @fflush(ptr noundef %979)
+973:                                              ; preds = %.preheader564
+  %974 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %975 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %974, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getSLEB128ERmm, ptr noundef nonnull @.str.94) #16
+  %976 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %977 = call i32 @fflush(ptr noundef %976)
   call void @abort() #17
   unreachable
 
-981:                                              ; preds = %.preheader565
-  %982 = getelementptr inbounds nuw i8, ptr %.0.i480, i64 1
-  %983 = load i8, ptr %.0.i480, align 1, !tbaa !45
-  %984 = and i8 %983, 127
-  %985 = zext nneg i8 %984 to i64
-  %986 = shl i64 %985, %indvars.iv.i478
-  %987 = or i64 %986, %.018.i479
-  %indvars.iv.next.i481 = add nuw nsw i64 %indvars.iv.i478, 7
-  %.not.i482 = icmp sgt i8 %983, -1
-  br i1 %.not.i482, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit485, label %.preheader565, !llvm.loop !58
+978:                                              ; preds = %.preheader564
+  %979 = getelementptr inbounds nuw i8, ptr %.0.i479, i64 1
+  %980 = load i8, ptr %.0.i479, align 1, !tbaa !45
+  %981 = and i8 %980, 127
+  %982 = zext nneg i8 %981 to i64
+  %983 = shl i64 %982, %indvars.iv.i477
+  %984 = or i64 %983, %.018.i478
+  %indvars.iv.next.i480 = add nuw nsw i64 %indvars.iv.i477, 7
+  %.not.i481 = icmp sgt i8 %980, -1
+  br i1 %.not.i481, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit484, label %.preheader564, !llvm.loop !58
 
-_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit485: ; preds = %981
-  %988 = icmp samesign ugt i8 %983, 63
-  %989 = icmp samesign ult i64 %indvars.iv.i478, 57
-  %or.cond.i483 = select i1 %988, i1 %989, i1 false
-  %990 = and i64 %indvars.iv.next.i481, 4294967295
-  %991 = shl nsw i64 -1, %990
-  %992 = select i1 %or.cond.i483, i64 %991, i64 0
-  %.1.i484 = or i64 %987, %992
-  %993 = ptrtoint ptr %982 to i64
-  store i64 %993, ptr %8, align 8, !tbaa !18
-  %994 = load i32, ptr %30, align 4, !tbaa !59
-  %995 = sext i32 %994 to i64
-  %996 = mul nsw i64 %.1.i484, %995
-  %997 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %965
-  %998 = getelementptr inbounds nuw i8, ptr %997, i64 4
-  %999 = load i8, ptr %998, align 4, !tbaa !118, !range !10, !noundef !44
-  %1000 = trunc nuw i8 %999 to i1
-  br i1 %1000, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit486, label %1001
+_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit484: ; preds = %978
+  %985 = icmp samesign ugt i8 %980, 63
+  %986 = icmp samesign ult i64 %indvars.iv.i477, 57
+  %or.cond.i482 = select i1 %985, i1 %986, i1 false
+  %987 = and i64 %indvars.iv.next.i480, 4294967295
+  %988 = shl nsw i64 -1, %987
+  %989 = select i1 %or.cond.i482, i64 %988, i64 0
+  %.1.i483 = or i64 %984, %989
+  %990 = ptrtoint ptr %979 to i64
+  store i64 %990, ptr %8, align 8, !tbaa !18
+  %991 = load i32, ptr %30, align 4, !tbaa !59
+  %992 = sext i32 %991 to i64
+  %993 = mul nsw i64 %.1.i483, %992
+  %994 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %962
+  %995 = getelementptr inbounds nuw i8, ptr %994, i64 4
+  %996 = load i8, ptr %995, align 4, !tbaa !118, !range !10, !noundef !44
+  %997 = trunc nuw i8 %996 to i1
+  br i1 %997, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit485, label %998
 
-1001:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit485
-  %1002 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %965
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1002, ptr noundef nonnull align 8 dereferenceable(16) %997, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %998, align 4, !tbaa !118
-  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit486
+998:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit484
+  %999 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %962
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %999, ptr noundef nonnull align 8 dereferenceable(16) %994, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %995, align 4, !tbaa !118
+  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit485
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit486: ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit485, %1001
-  store i32 4, ptr %997, align 8, !tbaa !110
-  %1003 = getelementptr inbounds nuw i8, ptr %997, i64 8
-  store i64 %996, ptr %1003, align 8, !tbaa !121
-  %.b1.i487 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i487, label %._crit_edge.i488, label %logDWARF.exit490
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit485: ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit484, %998
+  store i32 4, ptr %994, align 8, !tbaa !110
+  %1000 = getelementptr inbounds nuw i8, ptr %994, i64 8
+  store i64 %993, ptr %1000, align 8, !tbaa !121
+  %.b1.i486 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i486, label %._crit_edge.i487, label %logDWARF.exit489
 
-._crit_edge.i488:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit486
-  %.pre.i489 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %1004 = trunc nuw i8 %.pre.i489 to i1
-  br i1 %1004, label %1008, label %1299
+._crit_edge.i487:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit485
+  %.pre.i488 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %1001 = trunc nuw i8 %.pre.i488 to i1
+  br i1 %1001, label %1005, label %1294
 
-logDWARF.exit490:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit486
-  %1005 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %1006 = icmp ne ptr %1005, null
-  %1007 = zext i1 %1006 to i8
-  store i8 %1007, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit489:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit485
+  %1002 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %1003 = icmp ne ptr %1002, null
+  %1004 = zext i1 %1003 to i8
+  store i8 %1004, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %1006, label %1008, label %1299
+  br i1 %1003, label %1005, label %1294
 
-1008:                                             ; preds = %._crit_edge.i488, %logDWARF.exit490
-  %1009 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1010 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1009, ptr noundef nonnull @.str.75, i64 noundef %965, i64 noundef %996) #16
-  br label %1299
+1005:                                             ; preds = %._crit_edge.i487, %logDWARF.exit489
+  %1006 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1007 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1006, ptr noundef nonnull @.str.75, i64 noundef %962, i64 noundef %993) #16
+  br label %1294
 
-1011:                                             ; preds = %57
-  %1012 = inttoptr i64 %60 to ptr
-  br label %1013
+1008:                                             ; preds = %56
+  %1009 = inttoptr i64 %59 to ptr
+  br label %1010
 
-1013:                                             ; preds = %1033, %1011
-  %indvars.iv.i491 = phi i64 [ %indvars.iv.next.i495, %1033 ], [ 0, %1011 ]
-  %.018.i492 = phi i64 [ %1034, %1033 ], [ 0, %1011 ]
-  %.0.i493 = phi ptr [ %1035, %1033 ], [ %1012, %1011 ]
-  %1014 = icmp eq ptr %.0.i493, %56
-  br i1 %1014, label %1015, label %1020
+1010:                                             ; preds = %1030, %1008
+  %indvars.iv.i490 = phi i64 [ %indvars.iv.next.i494, %1030 ], [ 0, %1008 ]
+  %.018.i491 = phi i64 [ %1031, %1030 ], [ 0, %1008 ]
+  %.0.i492 = phi ptr [ %1032, %1030 ], [ %1009, %1008 ]
+  %1011 = icmp eq ptr %.0.i492, %55
+  br i1 %1011, label %1012, label %1017
 
-1015:                                             ; preds = %1013
-  %1016 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1017 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1016, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %1018 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1019 = call i32 @fflush(ptr noundef %1018)
+1012:                                             ; preds = %1010
+  %1013 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1014 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1013, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %1015 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1016 = call i32 @fflush(ptr noundef %1015)
   call void @abort() #17
   unreachable
 
-1020:                                             ; preds = %1013
-  %1021 = load i8, ptr %.0.i493, align 1, !tbaa !45
-  %1022 = icmp samesign ugt i64 %indvars.iv.i491, 63
-  br i1 %1022, label %1028, label %1023
+1017:                                             ; preds = %1010
+  %1018 = load i8, ptr %.0.i492, align 1, !tbaa !45
+  %1019 = icmp samesign ugt i64 %indvars.iv.i490, 63
+  br i1 %1019, label %1025, label %1020
 
-1023:                                             ; preds = %1020
-  %1024 = and i8 %1021, 127
-  %1025 = zext nneg i8 %1024 to i64
-  %1026 = shl i64 %1025, %indvars.iv.i491
-  %1027 = lshr exact i64 %1026, %indvars.iv.i491
-  %.not.i494 = icmp eq i64 %1027, %1025
-  br i1 %.not.i494, label %1033, label %1028
+1020:                                             ; preds = %1017
+  %1021 = and i8 %1018, 127
+  %1022 = zext nneg i8 %1021 to i64
+  %1023 = shl i64 %1022, %indvars.iv.i490
+  %1024 = lshr exact i64 %1023, %indvars.iv.i490
+  %.not.i493 = icmp eq i64 %1024, %1022
+  br i1 %.not.i493, label %1030, label %1025
 
-1028:                                             ; preds = %1023, %1020
-  %1029 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1030 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1029, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %1031 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1032 = call i32 @fflush(ptr noundef %1031)
+1025:                                             ; preds = %1020, %1017
+  %1026 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1027 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1026, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %1028 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1029 = call i32 @fflush(ptr noundef %1028)
   call void @abort() #17
   unreachable
 
-1033:                                             ; preds = %1023
-  %1034 = or i64 %1026, %.018.i492
-  %indvars.iv.next.i495 = add nuw nsw i64 %indvars.iv.i491, 7
-  %1035 = getelementptr inbounds nuw i8, ptr %.0.i493, i64 1
-  %1036 = icmp slt i8 %1021, 0
-  br i1 %1036, label %1013, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit496, !llvm.loop !46
+1030:                                             ; preds = %1020
+  %1031 = or i64 %1023, %.018.i491
+  %indvars.iv.next.i494 = add nuw nsw i64 %indvars.iv.i490, 7
+  %1032 = getelementptr inbounds nuw i8, ptr %.0.i492, i64 1
+  %1033 = icmp slt i8 %1018, 0
+  br i1 %1033, label %1010, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit495, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit496: ; preds = %1033
-  %1037 = ptrtoint ptr %1035 to i64
-  store i64 %1037, ptr %8, align 8, !tbaa !18
-  %1038 = icmp ugt i64 %1034, 32
-  br i1 %1038, label %1039, label %1044
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit495: ; preds = %1030
+  %1034 = ptrtoint ptr %1032 to i64
+  store i64 %1034, ptr %8, align 8, !tbaa !18
+  %1035 = icmp ugt i64 %1031, 32
+  br i1 %1035, label %1036, label %1041
 
-1039:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit496
-  %1040 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1041 = call i64 @fwrite(ptr nonnull @.str.76, i64 69, i64 1, ptr %1040) #19
-  %1042 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1043 = call i32 @fflush(ptr noundef %1042)
+1036:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit495
+  %1037 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1038 = call i64 @fwrite(ptr nonnull @.str.76, i64 69, i64 1, ptr %1037) #19
+  %1039 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1040 = call i32 @fflush(ptr noundef %1039)
   br label %.loopexit
 
-1044:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit496
-  %1045 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1034
-  %1046 = getelementptr inbounds nuw i8, ptr %1045, i64 4
-  %1047 = load i8, ptr %1046, align 4, !tbaa !118, !range !10, !noundef !44
-  %1048 = trunc nuw i8 %1047 to i1
-  br i1 %1048, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497, label %1049
+1041:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit495
+  %1042 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1031
+  %1043 = getelementptr inbounds nuw i8, ptr %1042, i64 4
+  %1044 = load i8, ptr %1043, align 4, !tbaa !118, !range !10, !noundef !44
+  %1045 = trunc nuw i8 %1044 to i1
+  br i1 %1045, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit496, label %1046
 
-1049:                                             ; preds = %1044
-  %1050 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1034
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1050, ptr noundef nonnull align 8 dereferenceable(16) %1045, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %1046, align 4, !tbaa !118
-  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497
+1046:                                             ; preds = %1041
+  %1047 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1031
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1047, ptr noundef nonnull align 8 dereferenceable(16) %1042, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %1043, align 4, !tbaa !118
+  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit496
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497: ; preds = %1044, %1049
-  store i32 7, ptr %1045, align 8, !tbaa !110
-  %1051 = getelementptr inbounds nuw i8, ptr %1045, i64 8
-  store i64 %1037, ptr %1051, align 8, !tbaa !121
-  br label %1052
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit496: ; preds = %1041, %1046
+  store i32 7, ptr %1042, align 8, !tbaa !110
+  %1048 = getelementptr inbounds nuw i8, ptr %1042, i64 8
+  store i64 %1034, ptr %1048, align 8, !tbaa !121
+  br label %1049
 
-1052:                                             ; preds = %1072, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497
-  %indvars.iv.i498 = phi i64 [ %indvars.iv.next.i502, %1072 ], [ 0, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497 ]
-  %.018.i499 = phi i64 [ %1073, %1072 ], [ 0, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497 ]
-  %.0.i500 = phi ptr [ %1074, %1072 ], [ %1035, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497 ]
-  %1053 = icmp eq ptr %.0.i500, %56
-  br i1 %1053, label %1054, label %1059
+1049:                                             ; preds = %1069, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit496
+  %indvars.iv.i497 = phi i64 [ %indvars.iv.next.i501, %1069 ], [ 0, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit496 ]
+  %.018.i498 = phi i64 [ %1070, %1069 ], [ 0, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit496 ]
+  %.0.i499 = phi ptr [ %1071, %1069 ], [ %1032, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit496 ]
+  %1050 = icmp eq ptr %.0.i499, %55
+  br i1 %1050, label %1051, label %1056
 
-1054:                                             ; preds = %1052
-  %1055 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1056 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1055, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %1057 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1058 = call i32 @fflush(ptr noundef %1057)
+1051:                                             ; preds = %1049
+  %1052 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1053 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1052, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %1054 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1055 = call i32 @fflush(ptr noundef %1054)
   call void @abort() #17
   unreachable
 
-1059:                                             ; preds = %1052
-  %1060 = load i8, ptr %.0.i500, align 1, !tbaa !45
-  %1061 = icmp samesign ugt i64 %indvars.iv.i498, 63
-  br i1 %1061, label %1067, label %1062
+1056:                                             ; preds = %1049
+  %1057 = load i8, ptr %.0.i499, align 1, !tbaa !45
+  %1058 = icmp samesign ugt i64 %indvars.iv.i497, 63
+  br i1 %1058, label %1064, label %1059
 
-1062:                                             ; preds = %1059
-  %1063 = and i8 %1060, 127
-  %1064 = zext nneg i8 %1063 to i64
-  %1065 = shl i64 %1064, %indvars.iv.i498
-  %1066 = lshr exact i64 %1065, %indvars.iv.i498
-  %.not.i501 = icmp eq i64 %1066, %1064
-  br i1 %.not.i501, label %1072, label %1067
+1059:                                             ; preds = %1056
+  %1060 = and i8 %1057, 127
+  %1061 = zext nneg i8 %1060 to i64
+  %1062 = shl i64 %1061, %indvars.iv.i497
+  %1063 = lshr exact i64 %1062, %indvars.iv.i497
+  %.not.i500 = icmp eq i64 %1063, %1061
+  br i1 %.not.i500, label %1069, label %1064
 
-1067:                                             ; preds = %1062, %1059
-  %1068 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1069 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1068, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %1070 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1071 = call i32 @fflush(ptr noundef %1070)
+1064:                                             ; preds = %1059, %1056
+  %1065 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1066 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1065, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %1067 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1068 = call i32 @fflush(ptr noundef %1067)
   call void @abort() #17
   unreachable
 
-1072:                                             ; preds = %1062
-  %1073 = or i64 %1065, %.018.i499
-  %indvars.iv.next.i502 = add nuw nsw i64 %indvars.iv.i498, 7
-  %1074 = getelementptr inbounds nuw i8, ptr %.0.i500, i64 1
-  %1075 = icmp slt i8 %1060, 0
-  br i1 %1075, label %1052, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit503, !llvm.loop !46
+1069:                                             ; preds = %1059
+  %1070 = or i64 %1062, %.018.i498
+  %indvars.iv.next.i501 = add nuw nsw i64 %indvars.iv.i497, 7
+  %1071 = getelementptr inbounds nuw i8, ptr %.0.i499, i64 1
+  %1072 = icmp slt i8 %1057, 0
+  br i1 %1072, label %1049, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit502, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit503: ; preds = %1072
-  %1076 = ptrtoint ptr %1074 to i64
-  store i64 %1076, ptr %8, align 8, !tbaa !18
-  %.not247 = icmp eq i64 %1073, -1
-  br i1 %.not247, label %1077, label %1078
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit502: ; preds = %1069
+  %1073 = ptrtoint ptr %1071 to i64
+  store i64 %1073, ptr %8, align 8, !tbaa !18
+  %.not247 = icmp eq i64 %1070, -1
+  br i1 %.not247, label %1074, label %1075
 
-1077:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit503
+1074:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit502
   call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 719, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20parseFDEInstructionsERS1_RKNS2_8FDE_InfoERKNS2_8CIE_InfoEmiPNS2_10PrologInfoE) #17
   unreachable
 
-1078:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit503
-  %1079 = add i64 %1073, %1076
-  store i64 %1079, ptr %8, align 8, !tbaa !18
-  %.b1.i504 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i504, label %._crit_edge.i505, label %logDWARF.exit507
+1075:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit502
+  %1076 = add i64 %1070, %1073
+  store i64 %1076, ptr %8, align 8, !tbaa !18
+  %.b1.i503 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i503, label %._crit_edge.i504, label %logDWARF.exit506
 
-._crit_edge.i505:                                 ; preds = %1078
-  %.pre.i506 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %1080 = trunc nuw i8 %.pre.i506 to i1
-  br i1 %1080, label %1084, label %1299
+._crit_edge.i504:                                 ; preds = %1075
+  %.pre.i505 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %1077 = trunc nuw i8 %.pre.i505 to i1
+  br i1 %1077, label %1081, label %1294
 
-logDWARF.exit507:                                 ; preds = %1078
-  %1081 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %1082 = icmp ne ptr %1081, null
-  %1083 = zext i1 %1082 to i8
-  store i8 %1083, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit506:                                 ; preds = %1075
+  %1078 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %1079 = icmp ne ptr %1078, null
+  %1080 = zext i1 %1079 to i8
+  store i8 %1080, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %1082, label %1084, label %1299
+  br i1 %1079, label %1081, label %1294
 
-1084:                                             ; preds = %._crit_edge.i505, %logDWARF.exit507
-  %1085 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %.idx = shl nuw nsw i64 %1034, 4
-  %1086 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
-  %1087 = load i64, ptr %1086, align 8, !tbaa !121
-  %1088 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1085, ptr noundef nonnull @.str.77, i64 noundef %1034, i64 noundef %1087, i64 noundef %1073) #16
-  br label %1299
+1081:                                             ; preds = %._crit_edge.i504, %logDWARF.exit506
+  %1082 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1083 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1082, ptr noundef nonnull @.str.77, i64 noundef %1031, i64 noundef %1034, i64 noundef %1070) #16
+  br label %1294
 
-1089:                                             ; preds = %57
-  %1090 = inttoptr i64 %60 to ptr
-  br label %1091
+1084:                                             ; preds = %56
+  %1085 = inttoptr i64 %59 to ptr
+  br label %1086
 
-1091:                                             ; preds = %1111, %1089
-  %indvars.iv.i508 = phi i64 [ %indvars.iv.next.i512, %1111 ], [ 0, %1089 ]
-  %.018.i509 = phi i64 [ %1112, %1111 ], [ 0, %1089 ]
-  %.0.i510 = phi ptr [ %1113, %1111 ], [ %1090, %1089 ]
-  %1092 = icmp eq ptr %.0.i510, %56
-  br i1 %1092, label %1093, label %1098
+1086:                                             ; preds = %1106, %1084
+  %indvars.iv.i507 = phi i64 [ %indvars.iv.next.i511, %1106 ], [ 0, %1084 ]
+  %.018.i508 = phi i64 [ %1107, %1106 ], [ 0, %1084 ]
+  %.0.i509 = phi ptr [ %1108, %1106 ], [ %1085, %1084 ]
+  %1087 = icmp eq ptr %.0.i509, %55
+  br i1 %1087, label %1088, label %1093
 
-1093:                                             ; preds = %1091
-  %1094 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1095 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1094, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %1096 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1097 = call i32 @fflush(ptr noundef %1096)
+1088:                                             ; preds = %1086
+  %1089 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1090 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1089, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %1091 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1092 = call i32 @fflush(ptr noundef %1091)
   call void @abort() #17
   unreachable
 
-1098:                                             ; preds = %1091
-  %1099 = load i8, ptr %.0.i510, align 1, !tbaa !45
-  %1100 = icmp samesign ugt i64 %indvars.iv.i508, 63
-  br i1 %1100, label %1106, label %1101
+1093:                                             ; preds = %1086
+  %1094 = load i8, ptr %.0.i509, align 1, !tbaa !45
+  %1095 = icmp samesign ugt i64 %indvars.iv.i507, 63
+  br i1 %1095, label %1101, label %1096
 
-1101:                                             ; preds = %1098
-  %1102 = and i8 %1099, 127
-  %1103 = zext nneg i8 %1102 to i64
-  %1104 = shl i64 %1103, %indvars.iv.i508
-  %1105 = lshr exact i64 %1104, %indvars.iv.i508
-  %.not.i511 = icmp eq i64 %1105, %1103
-  br i1 %.not.i511, label %1111, label %1106
+1096:                                             ; preds = %1093
+  %1097 = and i8 %1094, 127
+  %1098 = zext nneg i8 %1097 to i64
+  %1099 = shl i64 %1098, %indvars.iv.i507
+  %1100 = lshr exact i64 %1099, %indvars.iv.i507
+  %.not.i510 = icmp eq i64 %1100, %1098
+  br i1 %.not.i510, label %1106, label %1101
 
-1106:                                             ; preds = %1101, %1098
-  %1107 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1107, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %1109 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1110 = call i32 @fflush(ptr noundef %1109)
+1101:                                             ; preds = %1096, %1093
+  %1102 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1102, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %1104 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1105 = call i32 @fflush(ptr noundef %1104)
   call void @abort() #17
   unreachable
 
-1111:                                             ; preds = %1101
-  %1112 = or i64 %1104, %.018.i509
-  %indvars.iv.next.i512 = add nuw nsw i64 %indvars.iv.i508, 7
-  %1113 = getelementptr inbounds nuw i8, ptr %.0.i510, i64 1
-  %1114 = icmp slt i8 %1099, 0
-  br i1 %1114, label %1091, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit513, !llvm.loop !46
+1106:                                             ; preds = %1096
+  %1107 = or i64 %1099, %.018.i508
+  %indvars.iv.next.i511 = add nuw nsw i64 %indvars.iv.i507, 7
+  %1108 = getelementptr inbounds nuw i8, ptr %.0.i509, i64 1
+  %1109 = icmp slt i8 %1094, 0
+  br i1 %1109, label %1086, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit512, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit513: ; preds = %1111
-  %1115 = ptrtoint ptr %1113 to i64
-  store i64 %1115, ptr %8, align 8, !tbaa !18
-  %1116 = trunc i64 %1112 to i32
-  store i32 %1116, ptr %33, align 8, !tbaa !103
-  %.b1.i514 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i514, label %._crit_edge.i515, label %logDWARF.exit517
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit512: ; preds = %1106
+  %1110 = ptrtoint ptr %1108 to i64
+  store i64 %1110, ptr %8, align 8, !tbaa !18
+  %1111 = trunc i64 %1107 to i32
+  store i32 %1111, ptr %33, align 8, !tbaa !103
+  %.b1.i513 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i513, label %._crit_edge.i514, label %logDWARF.exit516
 
-._crit_edge.i515:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit513
-  %.pre.i516 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %1117 = trunc nuw i8 %.pre.i516 to i1
-  br i1 %1117, label %1121, label %1299
+._crit_edge.i514:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit512
+  %.pre.i515 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %1112 = trunc nuw i8 %.pre.i515 to i1
+  br i1 %1112, label %1116, label %1294
 
-logDWARF.exit517:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit513
-  %1118 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %1119 = icmp ne ptr %1118, null
-  %1120 = zext i1 %1119 to i8
-  store i8 %1120, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit516:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit512
+  %1113 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %1114 = icmp ne ptr %1113, null
+  %1115 = zext i1 %1114 to i8
+  store i8 %1115, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %1119, label %1121, label %1299
+  br i1 %1114, label %1116, label %1294
 
-1121:                                             ; preds = %._crit_edge.i515, %logDWARF.exit517
-  %1122 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1122, ptr noundef nonnull @.str.78, i64 noundef %1112) #16
-  br label %1299
+1116:                                             ; preds = %._crit_edge.i514, %logDWARF.exit516
+  %1117 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1117, ptr noundef nonnull @.str.78, i64 noundef %1107) #16
+  br label %1294
 
-1124:                                             ; preds = %57
-  %1125 = inttoptr i64 %60 to ptr
-  br label %1126
+1119:                                             ; preds = %56
+  %1120 = inttoptr i64 %59 to ptr
+  br label %1121
 
-1126:                                             ; preds = %1146, %1124
-  %indvars.iv.i518 = phi i64 [ %indvars.iv.next.i522, %1146 ], [ 0, %1124 ]
-  %.018.i519 = phi i64 [ %1147, %1146 ], [ 0, %1124 ]
-  %.0.i520 = phi ptr [ %1148, %1146 ], [ %1125, %1124 ]
-  %1127 = icmp eq ptr %.0.i520, %56
-  br i1 %1127, label %1128, label %1133
+1121:                                             ; preds = %1141, %1119
+  %indvars.iv.i517 = phi i64 [ %indvars.iv.next.i521, %1141 ], [ 0, %1119 ]
+  %.018.i518 = phi i64 [ %1142, %1141 ], [ 0, %1119 ]
+  %.0.i519 = phi ptr [ %1143, %1141 ], [ %1120, %1119 ]
+  %1122 = icmp eq ptr %.0.i519, %55
+  br i1 %1122, label %1123, label %1128
 
-1128:                                             ; preds = %1126
-  %1129 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1129, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %1131 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1132 = call i32 @fflush(ptr noundef %1131)
+1123:                                             ; preds = %1121
+  %1124 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1124, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %1126 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1127 = call i32 @fflush(ptr noundef %1126)
   call void @abort() #17
   unreachable
 
-1133:                                             ; preds = %1126
-  %1134 = load i8, ptr %.0.i520, align 1, !tbaa !45
-  %1135 = icmp samesign ugt i64 %indvars.iv.i518, 63
-  br i1 %1135, label %1141, label %1136
+1128:                                             ; preds = %1121
+  %1129 = load i8, ptr %.0.i519, align 1, !tbaa !45
+  %1130 = icmp samesign ugt i64 %indvars.iv.i517, 63
+  br i1 %1130, label %1136, label %1131
 
-1136:                                             ; preds = %1133
-  %1137 = and i8 %1134, 127
-  %1138 = zext nneg i8 %1137 to i64
-  %1139 = shl i64 %1138, %indvars.iv.i518
-  %1140 = lshr exact i64 %1139, %indvars.iv.i518
-  %.not.i521 = icmp eq i64 %1140, %1138
-  br i1 %.not.i521, label %1146, label %1141
+1131:                                             ; preds = %1128
+  %1132 = and i8 %1129, 127
+  %1133 = zext nneg i8 %1132 to i64
+  %1134 = shl i64 %1133, %indvars.iv.i517
+  %1135 = lshr exact i64 %1134, %indvars.iv.i517
+  %.not.i520 = icmp eq i64 %1135, %1133
+  br i1 %.not.i520, label %1141, label %1136
 
-1141:                                             ; preds = %1136, %1133
-  %1142 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1142, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %1144 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1145 = call i32 @fflush(ptr noundef %1144)
+1136:                                             ; preds = %1131, %1128
+  %1137 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1137, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %1139 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1140 = call i32 @fflush(ptr noundef %1139)
   call void @abort() #17
   unreachable
 
-1146:                                             ; preds = %1136
-  %1147 = or i64 %1139, %.018.i519
-  %indvars.iv.next.i522 = add nuw nsw i64 %indvars.iv.i518, 7
-  %1148 = getelementptr inbounds nuw i8, ptr %.0.i520, i64 1
-  %1149 = icmp slt i8 %1134, 0
-  br i1 %1149, label %1126, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523, !llvm.loop !46
+1141:                                             ; preds = %1131
+  %1142 = or i64 %1134, %.018.i518
+  %indvars.iv.next.i521 = add nuw nsw i64 %indvars.iv.i517, 7
+  %1143 = getelementptr inbounds nuw i8, ptr %.0.i519, i64 1
+  %1144 = icmp slt i8 %1129, 0
+  br i1 %1144, label %1121, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit522, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523: ; preds = %1146
-  %1150 = ptrtoint ptr %1148 to i64
-  store i64 %1150, ptr %8, align 8, !tbaa !18
-  %1151 = icmp ugt i64 %1147, 32
-  br i1 %1151, label %1152, label %.preheader566
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit522: ; preds = %1141
+  %1145 = ptrtoint ptr %1143 to i64
+  store i64 %1145, ptr %8, align 8, !tbaa !18
+  %1146 = icmp ugt i64 %1142, 32
+  br i1 %1146, label %1147, label %.preheader565
 
-1152:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523
-  %1153 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1154 = call i64 @fwrite(ptr nonnull @.str.79, i64 83, i64 1, ptr %1153) #19
-  %1155 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1156 = call i32 @fflush(ptr noundef %1155)
+1147:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit522
+  %1148 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1149 = call i64 @fwrite(ptr nonnull @.str.79, i64 83, i64 1, ptr %1148) #19
+  %1150 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1151 = call i32 @fflush(ptr noundef %1150)
   br label %.loopexit
 
-.preheader566:                                    ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523, %1176
-  %indvars.iv.i524 = phi i64 [ %indvars.iv.next.i528, %1176 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523 ]
-  %.018.i525 = phi i64 [ %1177, %1176 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523 ]
-  %.0.i526 = phi ptr [ %1178, %1176 ], [ %1148, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523 ]
-  %1157 = icmp eq ptr %.0.i526, %56
-  br i1 %1157, label %1158, label %1163
+.preheader565:                                    ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit522, %1171
+  %indvars.iv.i523 = phi i64 [ %indvars.iv.next.i527, %1171 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit522 ]
+  %.018.i524 = phi i64 [ %1172, %1171 ], [ 0, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit522 ]
+  %.0.i525 = phi ptr [ %1173, %1171 ], [ %1143, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit522 ]
+  %1152 = icmp eq ptr %.0.i525, %55
+  br i1 %1152, label %1153, label %1158
 
-1158:                                             ; preds = %.preheader566
-  %1159 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1159, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %1161 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1162 = call i32 @fflush(ptr noundef %1161)
+1153:                                             ; preds = %.preheader565
+  %1154 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1154, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %1156 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1157 = call i32 @fflush(ptr noundef %1156)
   call void @abort() #17
   unreachable
 
-1163:                                             ; preds = %.preheader566
-  %1164 = load i8, ptr %.0.i526, align 1, !tbaa !45
-  %1165 = icmp samesign ugt i64 %indvars.iv.i524, 63
-  br i1 %1165, label %1171, label %1166
+1158:                                             ; preds = %.preheader565
+  %1159 = load i8, ptr %.0.i525, align 1, !tbaa !45
+  %1160 = icmp samesign ugt i64 %indvars.iv.i523, 63
+  br i1 %1160, label %1166, label %1161
 
-1166:                                             ; preds = %1163
-  %1167 = and i8 %1164, 127
-  %1168 = zext nneg i8 %1167 to i64
-  %1169 = shl i64 %1168, %indvars.iv.i524
-  %1170 = lshr exact i64 %1169, %indvars.iv.i524
-  %.not.i527 = icmp eq i64 %1170, %1168
-  br i1 %.not.i527, label %1176, label %1171
+1161:                                             ; preds = %1158
+  %1162 = and i8 %1159, 127
+  %1163 = zext nneg i8 %1162 to i64
+  %1164 = shl i64 %1163, %indvars.iv.i523
+  %1165 = lshr exact i64 %1164, %indvars.iv.i523
+  %.not.i526 = icmp eq i64 %1165, %1163
+  br i1 %.not.i526, label %1171, label %1166
 
-1171:                                             ; preds = %1166, %1163
-  %1172 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1172, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %1174 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1175 = call i32 @fflush(ptr noundef %1174)
+1166:                                             ; preds = %1161, %1158
+  %1167 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1167, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %1169 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1170 = call i32 @fflush(ptr noundef %1169)
   call void @abort() #17
   unreachable
 
-1176:                                             ; preds = %1166
-  %1177 = or i64 %1169, %.018.i525
-  %indvars.iv.next.i528 = add nuw nsw i64 %indvars.iv.i524, 7
-  %1178 = getelementptr inbounds nuw i8, ptr %.0.i526, i64 1
-  %1179 = icmp slt i8 %1164, 0
-  br i1 %1179, label %.preheader566, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit529, !llvm.loop !46
+1171:                                             ; preds = %1161
+  %1172 = or i64 %1164, %.018.i524
+  %indvars.iv.next.i527 = add nuw nsw i64 %indvars.iv.i523, 7
+  %1173 = getelementptr inbounds nuw i8, ptr %.0.i525, i64 1
+  %1174 = icmp slt i8 %1159, 0
+  br i1 %1174, label %.preheader565, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit528, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit529: ; preds = %1176
-  %1180 = ptrtoint ptr %1178 to i64
-  store i64 %1180, ptr %8, align 8, !tbaa !18
-  %1181 = load i32, ptr %30, align 4, !tbaa !59
-  %1182 = sext i32 %1181 to i64
-  %1183 = mul nsw i64 %1177, %1182
-  %1184 = sub nsw i64 0, %1183
-  %1185 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1147
-  %1186 = getelementptr inbounds nuw i8, ptr %1185, i64 4
-  %1187 = load i8, ptr %1186, align 4, !tbaa !118, !range !10, !noundef !44
-  %1188 = trunc nuw i8 %1187 to i1
-  br i1 %1188, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit530, label %1189
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit528: ; preds = %1171
+  %1175 = ptrtoint ptr %1173 to i64
+  store i64 %1175, ptr %8, align 8, !tbaa !18
+  %1176 = load i32, ptr %30, align 4, !tbaa !59
+  %1177 = sext i32 %1176 to i64
+  %1178 = mul nsw i64 %1172, %1177
+  %1179 = sub nsw i64 0, %1178
+  %1180 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1142
+  %1181 = getelementptr inbounds nuw i8, ptr %1180, i64 4
+  %1182 = load i8, ptr %1181, align 4, !tbaa !118, !range !10, !noundef !44
+  %1183 = trunc nuw i8 %1182 to i1
+  br i1 %1183, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit529, label %1184
 
-1189:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit529
-  %1190 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1147
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1190, ptr noundef nonnull align 8 dereferenceable(16) %1185, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %1186, align 4, !tbaa !118
-  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit530
+1184:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit528
+  %1185 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1142
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1185, ptr noundef nonnull align 8 dereferenceable(16) %1180, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %1181, align 4, !tbaa !118
+  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit529
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit530: ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit529, %1189
-  store i32 2, ptr %1185, align 8, !tbaa !110
-  %1191 = getelementptr inbounds nuw i8, ptr %1185, i64 8
-  store i64 %1184, ptr %1191, align 8, !tbaa !121
-  %.b1.i531 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i531, label %._crit_edge.i532, label %logDWARF.exit534
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit529: ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit528, %1184
+  store i32 2, ptr %1180, align 8, !tbaa !110
+  %1186 = getelementptr inbounds nuw i8, ptr %1180, i64 8
+  store i64 %1179, ptr %1186, align 8, !tbaa !121
+  %.b1.i530 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i530, label %._crit_edge.i531, label %logDWARF.exit533
 
-._crit_edge.i532:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit530
-  %.pre.i533 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %1192 = trunc nuw i8 %.pre.i533 to i1
-  br i1 %1192, label %1196, label %1299
+._crit_edge.i531:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit529
+  %.pre.i532 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %1187 = trunc nuw i8 %.pre.i532 to i1
+  br i1 %1187, label %1191, label %1294
 
-logDWARF.exit534:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit530
-  %1193 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %1194 = icmp ne ptr %1193, null
-  %1195 = zext i1 %1194 to i8
-  store i8 %1195, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit533:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit529
+  %1188 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %1189 = icmp ne ptr %1188, null
+  %1190 = zext i1 %1189 to i8
+  store i8 %1190, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %1194, label %1196, label %1299
+  br i1 %1189, label %1191, label %1294
 
-1196:                                             ; preds = %._crit_edge.i532, %logDWARF.exit534
-  %1197 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1197, ptr noundef nonnull @.str.80, i64 noundef %1183) #16
-  br label %1299
+1191:                                             ; preds = %._crit_edge.i531, %logDWARF.exit533
+  %1192 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1192, ptr noundef nonnull @.str.80, i64 noundef %1178) #16
+  br label %1294
 
-1199:                                             ; preds = %57
-  %1200 = zext i8 %.0.copyload.i to i32
-  %1201 = and i8 %.0.copyload.i, 63
-  %1202 = lshr i32 %1200, 6
-  switch i32 %1202, label %default.unreachable [
-    i32 2, label %1203
-    i32 1, label %1256
-    i32 3, label %1269
-    i32 0, label %1291
+1194:                                             ; preds = %56
+  %1195 = zext i8 %.0.copyload.i to i32
+  %1196 = and i8 %.0.copyload.i, 63
+  %1197 = lshr i32 %1195, 6
+  switch i32 %1197, label %default.unreachable [
+    i32 2, label %1198
+    i32 1, label %1251
+    i32 3, label %1264
+    i32 0, label %1286
   ]
 
-1203:                                             ; preds = %1199
-  %1204 = zext nneg i8 %1201 to i64
-  %1205 = icmp samesign ugt i8 %1201, 32
-  br i1 %1205, label %1206, label %1211
+1198:                                             ; preds = %1194
+  %1199 = zext nneg i8 %1196 to i64
+  %1200 = icmp samesign ugt i8 %1196, 32
+  br i1 %1200, label %1201, label %1206
 
-1206:                                             ; preds = %1203
-  %1207 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1207, ptr noundef nonnull @.str.81, i64 noundef %1204) #16
-  %1209 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1210 = call i32 @fflush(ptr noundef %1209)
+1201:                                             ; preds = %1198
+  %1202 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1202, ptr noundef nonnull @.str.81, i64 noundef %1199) #16
+  %1204 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1205 = call i32 @fflush(ptr noundef %1204)
   br label %.loopexit
 
-1211:                                             ; preds = %1203
-  %1212 = inttoptr i64 %60 to ptr
-  br label %1213
+1206:                                             ; preds = %1198
+  %1207 = inttoptr i64 %59 to ptr
+  br label %1208
 
-1213:                                             ; preds = %1233, %1211
-  %indvars.iv.i535 = phi i64 [ %indvars.iv.next.i539, %1233 ], [ 0, %1211 ]
-  %.018.i536 = phi i64 [ %1234, %1233 ], [ 0, %1211 ]
-  %.0.i537 = phi ptr [ %1235, %1233 ], [ %1212, %1211 ]
-  %1214 = icmp eq ptr %.0.i537, %56
-  br i1 %1214, label %1215, label %1220
+1208:                                             ; preds = %1228, %1206
+  %indvars.iv.i534 = phi i64 [ %indvars.iv.next.i538, %1228 ], [ 0, %1206 ]
+  %.018.i535 = phi i64 [ %1229, %1228 ], [ 0, %1206 ]
+  %.0.i536 = phi ptr [ %1230, %1228 ], [ %1207, %1206 ]
+  %1209 = icmp eq ptr %.0.i536, %55
+  br i1 %1209, label %1210, label %1215
 
-1215:                                             ; preds = %1213
-  %1216 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1216, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
-  %1218 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1219 = call i32 @fflush(ptr noundef %1218)
+1210:                                             ; preds = %1208
+  %1211 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1212 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1211, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.92) #16
+  %1213 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1214 = call i32 @fflush(ptr noundef %1213)
   call void @abort() #17
   unreachable
 
-1220:                                             ; preds = %1213
-  %1221 = load i8, ptr %.0.i537, align 1, !tbaa !45
-  %1222 = icmp samesign ugt i64 %indvars.iv.i535, 63
-  br i1 %1222, label %1228, label %1223
+1215:                                             ; preds = %1208
+  %1216 = load i8, ptr %.0.i536, align 1, !tbaa !45
+  %1217 = icmp samesign ugt i64 %indvars.iv.i534, 63
+  br i1 %1217, label %1223, label %1218
 
-1223:                                             ; preds = %1220
-  %1224 = and i8 %1221, 127
-  %1225 = zext nneg i8 %1224 to i64
-  %1226 = shl i64 %1225, %indvars.iv.i535
-  %1227 = lshr exact i64 %1226, %indvars.iv.i535
-  %.not.i538 = icmp eq i64 %1227, %1225
-  br i1 %.not.i538, label %1233, label %1228
+1218:                                             ; preds = %1215
+  %1219 = and i8 %1216, 127
+  %1220 = zext nneg i8 %1219 to i64
+  %1221 = shl i64 %1220, %indvars.iv.i534
+  %1222 = lshr exact i64 %1221, %indvars.iv.i534
+  %.not.i537 = icmp eq i64 %1222, %1220
+  br i1 %.not.i537, label %1228, label %1223
 
-1228:                                             ; preds = %1223, %1220
-  %1229 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1229, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
-  %1231 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1232 = call i32 @fflush(ptr noundef %1231)
+1223:                                             ; preds = %1218, %1215
+  %1224 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1224, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._ZN9libunwind17LocalAddressSpace10getULEB128ERmm, ptr noundef nonnull @.str.93) #16
+  %1226 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1227 = call i32 @fflush(ptr noundef %1226)
   call void @abort() #17
   unreachable
 
-1233:                                             ; preds = %1223
-  %1234 = or i64 %1226, %.018.i536
-  %indvars.iv.next.i539 = add nuw nsw i64 %indvars.iv.i535, 7
-  %1235 = getelementptr inbounds nuw i8, ptr %.0.i537, i64 1
-  %1236 = icmp slt i8 %1221, 0
-  br i1 %1236, label %1213, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit540, !llvm.loop !46
+1228:                                             ; preds = %1218
+  %1229 = or i64 %1221, %.018.i535
+  %indvars.iv.next.i538 = add nuw nsw i64 %indvars.iv.i534, 7
+  %1230 = getelementptr inbounds nuw i8, ptr %.0.i536, i64 1
+  %1231 = icmp slt i8 %1216, 0
+  br i1 %1231, label %1208, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit539, !llvm.loop !46
 
-_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit540: ; preds = %1233
-  %1237 = ptrtoint ptr %1235 to i64
-  store i64 %1237, ptr %8, align 8, !tbaa !18
-  %1238 = load i32, ptr %30, align 4, !tbaa !59
-  %1239 = sext i32 %1238 to i64
-  %1240 = mul nsw i64 %1234, %1239
-  %1241 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1204
-  %1242 = getelementptr inbounds nuw i8, ptr %1241, i64 4
-  %1243 = load i8, ptr %1242, align 4, !tbaa !118, !range !10, !noundef !44
-  %1244 = trunc nuw i8 %1243 to i1
-  br i1 %1244, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit541, label %1245
+_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit539: ; preds = %1228
+  %1232 = ptrtoint ptr %1230 to i64
+  store i64 %1232, ptr %8, align 8, !tbaa !18
+  %1233 = load i32, ptr %30, align 4, !tbaa !59
+  %1234 = sext i32 %1233 to i64
+  %1235 = mul nsw i64 %1229, %1234
+  %1236 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1199
+  %1237 = getelementptr inbounds nuw i8, ptr %1236, i64 4
+  %1238 = load i8, ptr %1237, align 4, !tbaa !118, !range !10, !noundef !44
+  %1239 = trunc nuw i8 %1238 to i1
+  br i1 %1239, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit540, label %1240
 
-1245:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit540
-  %1246 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1204
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1246, ptr noundef nonnull align 8 dereferenceable(16) %1241, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %1242, align 4, !tbaa !118
-  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit541
+1240:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit539
+  %1241 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1199
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1241, ptr noundef nonnull align 8 dereferenceable(16) %1236, i64 16, i1 false), !tbaa.struct !119
+  store i8 1, ptr %1237, align 4, !tbaa !118
+  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit540
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit541: ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit540, %1245
-  store i32 2, ptr %1241, align 8, !tbaa !110
-  %1247 = getelementptr inbounds nuw i8, ptr %1241, i64 8
-  store i64 %1240, ptr %1247, align 8, !tbaa !121
-  %.b1.i542 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i542, label %._crit_edge.i543, label %logDWARF.exit545
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit540: ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit539, %1240
+  store i32 2, ptr %1236, align 8, !tbaa !110
+  %1242 = getelementptr inbounds nuw i8, ptr %1236, i64 8
+  store i64 %1235, ptr %1242, align 8, !tbaa !121
+  %.b1.i541 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i541, label %._crit_edge.i542, label %logDWARF.exit544
 
-._crit_edge.i543:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit541
-  %.pre.i544 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %1248 = trunc nuw i8 %.pre.i544 to i1
-  br i1 %1248, label %1252, label %1299
+._crit_edge.i542:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit540
+  %.pre.i543 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %1243 = trunc nuw i8 %.pre.i543 to i1
+  br i1 %1243, label %1247, label %1294
 
-logDWARF.exit545:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit541
-  %1249 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %1250 = icmp ne ptr %1249, null
-  %1251 = zext i1 %1250 to i8
-  store i8 %1251, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit544:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit540
+  %1244 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %1245 = icmp ne ptr %1244, null
+  %1246 = zext i1 %1245 to i8
+  store i8 %1246, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %1250, label %1252, label %1299
+  br i1 %1245, label %1247, label %1294
 
-1252:                                             ; preds = %._crit_edge.i543, %logDWARF.exit545
-  %1253 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1254 = zext nneg i8 %1201 to i32
-  %1255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1253, ptr noundef nonnull @.str.82, i32 noundef %1254, i64 noundef %1240) #16
-  br label %1299
+1247:                                             ; preds = %._crit_edge.i542, %logDWARF.exit544
+  %1248 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1249 = zext nneg i8 %1196 to i32
+  %1250 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1248, ptr noundef nonnull @.str.82, i32 noundef %1249, i64 noundef %1235) #16
+  br label %1294
 
-1256:                                             ; preds = %1199
-  %1257 = zext nneg i8 %1201 to i32
-  %1258 = load i32, ptr %37, align 8, !tbaa !57
-  %1259 = mul i32 %1258, %1257
-  %1260 = zext i32 %1259 to i64
-  %1261 = add i64 %.0218873, %1260
-  %.b1.i546 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i546, label %._crit_edge.i547, label %logDWARF.exit549
+1251:                                             ; preds = %1194
+  %1252 = zext nneg i8 %1196 to i32
+  %1253 = load i32, ptr %36, align 8, !tbaa !57
+  %1254 = mul i32 %1253, %1252
+  %1255 = zext i32 %1254 to i64
+  %1256 = add i64 %.0218872, %1255
+  %.b1.i545 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i545, label %._crit_edge.i546, label %logDWARF.exit548
 
-._crit_edge.i547:                                 ; preds = %1256
-  %.pre.i548 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %1262 = trunc nuw i8 %.pre.i548 to i1
-  br i1 %1262, label %1266, label %1299
+._crit_edge.i546:                                 ; preds = %1251
+  %.pre.i547 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %1257 = trunc nuw i8 %.pre.i547 to i1
+  br i1 %1257, label %1261, label %1294
 
-logDWARF.exit549:                                 ; preds = %1256
-  %1263 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %1264 = icmp ne ptr %1263, null
-  %1265 = zext i1 %1264 to i8
-  store i8 %1265, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit548:                                 ; preds = %1251
+  %1258 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %1259 = icmp ne ptr %1258, null
+  %1260 = zext i1 %1259 to i8
+  store i8 %1260, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %1264, label %1266, label %1299
+  br i1 %1259, label %1261, label %1294
 
-1266:                                             ; preds = %._crit_edge.i547, %logDWARF.exit549
-  %1267 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1267, ptr noundef nonnull @.str.83, i64 noundef %1261) #16
-  br label %1299
+1261:                                             ; preds = %._crit_edge.i546, %logDWARF.exit548
+  %1262 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1262, ptr noundef nonnull @.str.83, i64 noundef %1256) #16
+  br label %1294
 
-1269:                                             ; preds = %1199
-  %1270 = zext nneg i8 %1201 to i64
-  %1271 = icmp samesign ugt i8 %1201, 32
-  br i1 %1271, label %1272, label %1277
+1264:                                             ; preds = %1194
+  %1265 = zext nneg i8 %1196 to i64
+  %1266 = icmp samesign ugt i8 %1196, 32
+  br i1 %1266, label %1267, label %1272
 
-1272:                                             ; preds = %1269
-  %1273 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1274 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1273, ptr noundef nonnull @.str.84, i64 noundef %1270) #16
-  %1275 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1276 = call i32 @fflush(ptr noundef %1275)
+1267:                                             ; preds = %1264
+  %1268 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1269 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1268, ptr noundef nonnull @.str.84, i64 noundef %1265) #16
+  %1270 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1271 = call i32 @fflush(ptr noundef %1270)
   br label %.loopexit
 
-1277:                                             ; preds = %1269
-  %1278 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1270
-  %1279 = getelementptr inbounds nuw i8, ptr %1278, i64 4
-  %1280 = load i8, ptr %1279, align 4, !tbaa !118, !range !10, !noundef !44
-  %1281 = trunc nuw i8 %1280 to i1
-  br i1 %1281, label %1282, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit550
+1272:                                             ; preds = %1264
+  %1273 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1265
+  %1274 = getelementptr inbounds nuw i8, ptr %1273, i64 4
+  %1275 = load i8, ptr %1274, align 4, !tbaa !118, !range !10, !noundef !44
+  %1276 = trunc nuw i8 %1275 to i1
+  br i1 %1276, label %1277, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit549
 
-1282:                                             ; preds = %1277
-  %1283 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1270
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1278, ptr noundef nonnull align 8 dereferenceable(16) %1283, i64 16, i1 false), !tbaa.struct !119
-  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit550
+1277:                                             ; preds = %1272
+  %1278 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1265
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1273, ptr noundef nonnull align 8 dereferenceable(16) %1278, i64 16, i1 false), !tbaa.struct !119
+  br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit549
 
-_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit550: ; preds = %1277, %1282
-  %.b1.i551 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i551, label %._crit_edge.i552, label %logDWARF.exit554
+_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit549: ; preds = %1272, %1277
+  %.b1.i550 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i550, label %._crit_edge.i551, label %logDWARF.exit553
 
-._crit_edge.i552:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit550
-  %.pre.i553 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %1284 = trunc nuw i8 %.pre.i553 to i1
-  br i1 %1284, label %1288, label %1299
+._crit_edge.i551:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit549
+  %.pre.i552 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %1279 = trunc nuw i8 %.pre.i552 to i1
+  br i1 %1279, label %1283, label %1294
 
-logDWARF.exit554:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit550
-  %1285 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %1286 = icmp ne ptr %1285, null
-  %1287 = zext i1 %1286 to i8
-  store i8 %1287, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit553:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit549
+  %1280 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %1281 = icmp ne ptr %1280, null
+  %1282 = zext i1 %1281 to i8
+  store i8 %1282, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %1286, label %1288, label %1299
+  br i1 %1281, label %1283, label %1294
 
-1288:                                             ; preds = %._crit_edge.i552, %logDWARF.exit554
-  %1289 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1290 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1289, ptr noundef nonnull @.str.85, i64 noundef %1270) #16
-  br label %1299
+1283:                                             ; preds = %._crit_edge.i551, %logDWARF.exit553
+  %1284 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1285 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1284, ptr noundef nonnull @.str.85, i64 noundef %1265) #16
+  br label %1294
 
-default.unreachable:                              ; preds = %1199
+default.unreachable:                              ; preds = %1194
   unreachable
 
-1291:                                             ; preds = %1199
-  %.b1.i555 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i555, label %._crit_edge.i556, label %logDWARF.exit558
+1286:                                             ; preds = %1194
+  %.b1.i554 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b1.i554, label %._crit_edge.i555, label %logDWARF.exit557
 
-._crit_edge.i556:                                 ; preds = %1291
-  %.pre.i557 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
-  %1292 = trunc nuw i8 %.pre.i557 to i1
-  br i1 %1292, label %1296, label %.loopexit
+._crit_edge.i555:                                 ; preds = %1286
+  %.pre.i556 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
+  %1287 = trunc nuw i8 %.pre.i556 to i1
+  br i1 %1287, label %1291, label %.loopexit
 
-logDWARF.exit558:                                 ; preds = %1291
-  %1293 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
-  %1294 = icmp ne ptr %1293, null
-  %1295 = zext i1 %1294 to i8
-  store i8 %1295, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
+logDWARF.exit557:                                 ; preds = %1286
+  %1288 = call ptr @getenv(ptr noundef nonnull @.str.17) #15
+  %1289 = icmp ne ptr %1288, null
+  %1290 = zext i1 %1289 to i8
+  store i8 %1290, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6
   store i1 true, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %1294, label %1296, label %.loopexit
+  br i1 %1289, label %1291, label %.loopexit
 
-1296:                                             ; preds = %._crit_edge.i556, %logDWARF.exit558
-  %1297 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %1298 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1297, ptr noundef nonnull @.str.86, i32 noundef %1200) #16
+1291:                                             ; preds = %._crit_edge.i555, %logDWARF.exit557
+  %1292 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %1293 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1292, ptr noundef nonnull @.str.86, i32 noundef %1195) #16
   br label %.loopexit
 
-1299:                                             ; preds = %._crit_edge.i552, %._crit_edge.i547, %._crit_edge.i543, %._crit_edge.i532, %._crit_edge.i515, %._crit_edge.i505, %._crit_edge.i488, %._crit_edge.i469, %._crit_edge.i452, %._crit_edge.i440, %._crit_edge.i422, %._crit_edge.i406, %._crit_edge.i389, %._crit_edge.i379, %._crit_edge.i369, %._crit_edge.i359, %._crit_edge.i343, %._crit_edge.i339, %._crit_edge.i335, %._crit_edge.i318, %._crit_edge.i307, %._crit_edge.i297, %._crit_edge.i287, %._crit_edge.i277, %._crit_edge.i272, %._crit_edge.i267, %._crit_edge.i262, %._crit_edge.i258, %66, %logDWARF.exit260, %76, %logDWARF.exit264, %91, %logDWARF.exit269, %106, %logDWARF.exit274, %120, %logDWARF.exit279, %196, %logDWARF.exit289, %243, %logDWARF.exit299, %290, %logDWARF.exit309, %337, %logDWARF.exit320, %417, %logDWARF.exit337, %438, %logDWARF.exit345, %506, %logDWARF.exit361, %548, %logDWARF.exit371, %583, %logDWARF.exit381, %620, %logDWARF.exit391, %696, %logDWARF.exit408, %767, %logDWARF.exit424, %833, %logDWARF.exit442, %865, %logDWARF.exit454, %939, %logDWARF.exit471, %1008, %logDWARF.exit490, %1084, %logDWARF.exit507, %1121, %logDWARF.exit517, %1196, %logDWARF.exit534, %logDWARF.exit554, %1288, %logDWARF.exit549, %1266, %logDWARF.exit545, %1252, %logDWARF.exit341, %427
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1872, %1252 ], [ %.sroa.0.1872, %logDWARF.exit545 ], [ %.sroa.0.1872, %1266 ], [ %.sroa.0.1872, %logDWARF.exit549 ], [ %.sroa.0.1872, %1288 ], [ %.sroa.0.1872, %logDWARF.exit554 ], [ %.sroa.0.1872, %66 ], [ %.sroa.0.1872, %logDWARF.exit260 ], [ %.sroa.0.1872, %76 ], [ %.sroa.0.1872, %logDWARF.exit264 ], [ %.sroa.0.1872, %91 ], [ %.sroa.0.1872, %logDWARF.exit269 ], [ %.sroa.0.1872, %106 ], [ %.sroa.0.1872, %logDWARF.exit274 ], [ %.sroa.0.1872, %120 ], [ %.sroa.0.1872, %logDWARF.exit279 ], [ %.sroa.0.1872, %196 ], [ %.sroa.0.1872, %logDWARF.exit289 ], [ %.sroa.0.1872, %243 ], [ %.sroa.0.1872, %logDWARF.exit299 ], [ %.sroa.0.1872, %290 ], [ %.sroa.0.1872, %logDWARF.exit309 ], [ %.sroa.0.1872, %337 ], [ %.sroa.0.1872, %logDWARF.exit320 ], [ %.sroa.0.1872, %417 ], [ %.sroa.0.1872, %logDWARF.exit337 ], [ %421, %427 ], [ %421, %logDWARF.exit341 ], [ %433, %438 ], [ %433, %logDWARF.exit345 ], [ %.sroa.0.1872, %506 ], [ %.sroa.0.1872, %logDWARF.exit361 ], [ %.sroa.0.1872, %548 ], [ %.sroa.0.1872, %logDWARF.exit371 ], [ %.sroa.0.1872, %583 ], [ %.sroa.0.1872, %logDWARF.exit381 ], [ %.sroa.0.1872, %620 ], [ %.sroa.0.1872, %logDWARF.exit391 ], [ %.sroa.0.1872, %696 ], [ %.sroa.0.1872, %logDWARF.exit408 ], [ %.sroa.0.1872, %767 ], [ %.sroa.0.1872, %logDWARF.exit424 ], [ %.sroa.0.1872, %833 ], [ %.sroa.0.1872, %logDWARF.exit442 ], [ %.sroa.0.1872, %865 ], [ %.sroa.0.1872, %logDWARF.exit454 ], [ %.sroa.0.1872, %939 ], [ %.sroa.0.1872, %logDWARF.exit471 ], [ %.sroa.0.1872, %1008 ], [ %.sroa.0.1872, %logDWARF.exit490 ], [ %.sroa.0.1872, %1084 ], [ %.sroa.0.1872, %logDWARF.exit507 ], [ %.sroa.0.1872, %1121 ], [ %.sroa.0.1872, %logDWARF.exit517 ], [ %.sroa.0.1872, %1196 ], [ %.sroa.0.1872, %logDWARF.exit534 ], [ %.sroa.0.1872, %._crit_edge.i258 ], [ %.sroa.0.1872, %._crit_edge.i262 ], [ %.sroa.0.1872, %._crit_edge.i267 ], [ %.sroa.0.1872, %._crit_edge.i272 ], [ %.sroa.0.1872, %._crit_edge.i277 ], [ %.sroa.0.1872, %._crit_edge.i287 ], [ %.sroa.0.1872, %._crit_edge.i297 ], [ %.sroa.0.1872, %._crit_edge.i307 ], [ %.sroa.0.1872, %._crit_edge.i318 ], [ %.sroa.0.1872, %._crit_edge.i335 ], [ %421, %._crit_edge.i339 ], [ %433, %._crit_edge.i343 ], [ %.sroa.0.1872, %._crit_edge.i359 ], [ %.sroa.0.1872, %._crit_edge.i369 ], [ %.sroa.0.1872, %._crit_edge.i379 ], [ %.sroa.0.1872, %._crit_edge.i389 ], [ %.sroa.0.1872, %._crit_edge.i406 ], [ %.sroa.0.1872, %._crit_edge.i422 ], [ %.sroa.0.1872, %._crit_edge.i440 ], [ %.sroa.0.1872, %._crit_edge.i452 ], [ %.sroa.0.1872, %._crit_edge.i469 ], [ %.sroa.0.1872, %._crit_edge.i488 ], [ %.sroa.0.1872, %._crit_edge.i505 ], [ %.sroa.0.1872, %._crit_edge.i515 ], [ %.sroa.0.1872, %._crit_edge.i532 ], [ %.sroa.0.1872, %._crit_edge.i543 ], [ %.sroa.0.1872, %._crit_edge.i547 ], [ %.sroa.0.1872, %._crit_edge.i552 ]
-  %.2220 = phi i64 [ %.0218873, %1252 ], [ %.0218873, %logDWARF.exit545 ], [ %1261, %1266 ], [ %1261, %logDWARF.exit549 ], [ %.0218873, %1288 ], [ %.0218873, %logDWARF.exit554 ], [ %.0218873, %66 ], [ %.0218873, %logDWARF.exit260 ], [ %71, %76 ], [ %71, %logDWARF.exit264 ], [ %85, %91 ], [ %85, %logDWARF.exit269 ], [ %100, %106 ], [ %100, %logDWARF.exit274 ], [ %114, %120 ], [ %114, %logDWARF.exit279 ], [ %.0218873, %196 ], [ %.0218873, %logDWARF.exit289 ], [ %.0218873, %243 ], [ %.0218873, %logDWARF.exit299 ], [ %.0218873, %290 ], [ %.0218873, %logDWARF.exit309 ], [ %.0218873, %337 ], [ %.0218873, %logDWARF.exit320 ], [ %.0218873, %417 ], [ %.0218873, %logDWARF.exit337 ], [ %.0218873, %427 ], [ %.0218873, %logDWARF.exit341 ], [ %.0218873, %438 ], [ %.0218873, %logDWARF.exit345 ], [ %.0218873, %506 ], [ %.0218873, %logDWARF.exit361 ], [ %.0218873, %548 ], [ %.0218873, %logDWARF.exit371 ], [ %.0218873, %583 ], [ %.0218873, %logDWARF.exit381 ], [ %.0218873, %620 ], [ %.0218873, %logDWARF.exit391 ], [ %.0218873, %696 ], [ %.0218873, %logDWARF.exit408 ], [ %.0218873, %767 ], [ %.0218873, %logDWARF.exit424 ], [ %.0218873, %833 ], [ %.0218873, %logDWARF.exit442 ], [ %.0218873, %865 ], [ %.0218873, %logDWARF.exit454 ], [ %.0218873, %939 ], [ %.0218873, %logDWARF.exit471 ], [ %.0218873, %1008 ], [ %.0218873, %logDWARF.exit490 ], [ %.0218873, %1084 ], [ %.0218873, %logDWARF.exit507 ], [ %.0218873, %1121 ], [ %.0218873, %logDWARF.exit517 ], [ %.0218873, %1196 ], [ %.0218873, %logDWARF.exit534 ], [ %.0218873, %._crit_edge.i258 ], [ %71, %._crit_edge.i262 ], [ %85, %._crit_edge.i267 ], [ %100, %._crit_edge.i272 ], [ %114, %._crit_edge.i277 ], [ %.0218873, %._crit_edge.i287 ], [ %.0218873, %._crit_edge.i297 ], [ %.0218873, %._crit_edge.i307 ], [ %.0218873, %._crit_edge.i318 ], [ %.0218873, %._crit_edge.i335 ], [ %.0218873, %._crit_edge.i339 ], [ %.0218873, %._crit_edge.i343 ], [ %.0218873, %._crit_edge.i359 ], [ %.0218873, %._crit_edge.i369 ], [ %.0218873, %._crit_edge.i379 ], [ %.0218873, %._crit_edge.i389 ], [ %.0218873, %._crit_edge.i406 ], [ %.0218873, %._crit_edge.i422 ], [ %.0218873, %._crit_edge.i440 ], [ %.0218873, %._crit_edge.i452 ], [ %.0218873, %._crit_edge.i469 ], [ %.0218873, %._crit_edge.i488 ], [ %.0218873, %._crit_edge.i505 ], [ %.0218873, %._crit_edge.i515 ], [ %.0218873, %._crit_edge.i532 ], [ %.0218873, %._crit_edge.i543 ], [ %1261, %._crit_edge.i547 ], [ %.0218873, %._crit_edge.i552 ]
-  %1300 = load i64, ptr %8, align 8, !tbaa !18
-  %1301 = icmp uge i64 %1300, %42
-  %1302 = icmp uge i64 %.2220, %44
-  %.not254 = select i1 %1301, i1 true, i1 %1302
-  br i1 %.not254, label %._crit_edge, label %57, !llvm.loop !129
+1294:                                             ; preds = %._crit_edge.i551, %._crit_edge.i546, %._crit_edge.i542, %._crit_edge.i531, %._crit_edge.i514, %._crit_edge.i504, %._crit_edge.i487, %._crit_edge.i468, %._crit_edge.i451, %._crit_edge.i439, %._crit_edge.i421, %._crit_edge.i405, %._crit_edge.i388, %._crit_edge.i378, %._crit_edge.i368, %._crit_edge.i358, %._crit_edge.i342, %._crit_edge.i338, %._crit_edge.i334, %._crit_edge.i317, %._crit_edge.i306, %._crit_edge.i296, %._crit_edge.i286, %._crit_edge.i276, %._crit_edge.i271, %._crit_edge.i266, %._crit_edge.i261, %._crit_edge.i257, %65, %logDWARF.exit259, %75, %logDWARF.exit263, %90, %logDWARF.exit268, %105, %logDWARF.exit273, %119, %logDWARF.exit278, %195, %logDWARF.exit288, %242, %logDWARF.exit298, %289, %logDWARF.exit308, %336, %logDWARF.exit319, %416, %logDWARF.exit336, %437, %logDWARF.exit344, %505, %logDWARF.exit360, %547, %logDWARF.exit370, %582, %logDWARF.exit380, %619, %logDWARF.exit390, %695, %logDWARF.exit407, %764, %logDWARF.exit423, %830, %logDWARF.exit441, %862, %logDWARF.exit453, %936, %logDWARF.exit470, %1005, %logDWARF.exit489, %1081, %logDWARF.exit506, %1116, %logDWARF.exit516, %1191, %logDWARF.exit533, %logDWARF.exit553, %1283, %logDWARF.exit548, %1261, %logDWARF.exit544, %1247, %logDWARF.exit340, %426
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1871, %1247 ], [ %.sroa.0.1871, %logDWARF.exit544 ], [ %.sroa.0.1871, %1261 ], [ %.sroa.0.1871, %logDWARF.exit548 ], [ %.sroa.0.1871, %1283 ], [ %.sroa.0.1871, %logDWARF.exit553 ], [ %.sroa.0.1871, %65 ], [ %.sroa.0.1871, %logDWARF.exit259 ], [ %.sroa.0.1871, %75 ], [ %.sroa.0.1871, %logDWARF.exit263 ], [ %.sroa.0.1871, %90 ], [ %.sroa.0.1871, %logDWARF.exit268 ], [ %.sroa.0.1871, %105 ], [ %.sroa.0.1871, %logDWARF.exit273 ], [ %.sroa.0.1871, %119 ], [ %.sroa.0.1871, %logDWARF.exit278 ], [ %.sroa.0.1871, %195 ], [ %.sroa.0.1871, %logDWARF.exit288 ], [ %.sroa.0.1871, %242 ], [ %.sroa.0.1871, %logDWARF.exit298 ], [ %.sroa.0.1871, %289 ], [ %.sroa.0.1871, %logDWARF.exit308 ], [ %.sroa.0.1871, %336 ], [ %.sroa.0.1871, %logDWARF.exit319 ], [ %.sroa.0.1871, %416 ], [ %.sroa.0.1871, %logDWARF.exit336 ], [ %420, %426 ], [ %420, %logDWARF.exit340 ], [ %432, %437 ], [ %432, %logDWARF.exit344 ], [ %.sroa.0.1871, %505 ], [ %.sroa.0.1871, %logDWARF.exit360 ], [ %.sroa.0.1871, %547 ], [ %.sroa.0.1871, %logDWARF.exit370 ], [ %.sroa.0.1871, %582 ], [ %.sroa.0.1871, %logDWARF.exit380 ], [ %.sroa.0.1871, %619 ], [ %.sroa.0.1871, %logDWARF.exit390 ], [ %.sroa.0.1871, %695 ], [ %.sroa.0.1871, %logDWARF.exit407 ], [ %.sroa.0.1871, %764 ], [ %.sroa.0.1871, %logDWARF.exit423 ], [ %.sroa.0.1871, %830 ], [ %.sroa.0.1871, %logDWARF.exit441 ], [ %.sroa.0.1871, %862 ], [ %.sroa.0.1871, %logDWARF.exit453 ], [ %.sroa.0.1871, %936 ], [ %.sroa.0.1871, %logDWARF.exit470 ], [ %.sroa.0.1871, %1005 ], [ %.sroa.0.1871, %logDWARF.exit489 ], [ %.sroa.0.1871, %1081 ], [ %.sroa.0.1871, %logDWARF.exit506 ], [ %.sroa.0.1871, %1116 ], [ %.sroa.0.1871, %logDWARF.exit516 ], [ %.sroa.0.1871, %1191 ], [ %.sroa.0.1871, %logDWARF.exit533 ], [ %.sroa.0.1871, %._crit_edge.i257 ], [ %.sroa.0.1871, %._crit_edge.i261 ], [ %.sroa.0.1871, %._crit_edge.i266 ], [ %.sroa.0.1871, %._crit_edge.i271 ], [ %.sroa.0.1871, %._crit_edge.i276 ], [ %.sroa.0.1871, %._crit_edge.i286 ], [ %.sroa.0.1871, %._crit_edge.i296 ], [ %.sroa.0.1871, %._crit_edge.i306 ], [ %.sroa.0.1871, %._crit_edge.i317 ], [ %.sroa.0.1871, %._crit_edge.i334 ], [ %420, %._crit_edge.i338 ], [ %432, %._crit_edge.i342 ], [ %.sroa.0.1871, %._crit_edge.i358 ], [ %.sroa.0.1871, %._crit_edge.i368 ], [ %.sroa.0.1871, %._crit_edge.i378 ], [ %.sroa.0.1871, %._crit_edge.i388 ], [ %.sroa.0.1871, %._crit_edge.i405 ], [ %.sroa.0.1871, %._crit_edge.i421 ], [ %.sroa.0.1871, %._crit_edge.i439 ], [ %.sroa.0.1871, %._crit_edge.i451 ], [ %.sroa.0.1871, %._crit_edge.i468 ], [ %.sroa.0.1871, %._crit_edge.i487 ], [ %.sroa.0.1871, %._crit_edge.i504 ], [ %.sroa.0.1871, %._crit_edge.i514 ], [ %.sroa.0.1871, %._crit_edge.i531 ], [ %.sroa.0.1871, %._crit_edge.i542 ], [ %.sroa.0.1871, %._crit_edge.i546 ], [ %.sroa.0.1871, %._crit_edge.i551 ]
+  %.2220 = phi i64 [ %.0218872, %1247 ], [ %.0218872, %logDWARF.exit544 ], [ %1256, %1261 ], [ %1256, %logDWARF.exit548 ], [ %.0218872, %1283 ], [ %.0218872, %logDWARF.exit553 ], [ %.0218872, %65 ], [ %.0218872, %logDWARF.exit259 ], [ %70, %75 ], [ %70, %logDWARF.exit263 ], [ %84, %90 ], [ %84, %logDWARF.exit268 ], [ %99, %105 ], [ %99, %logDWARF.exit273 ], [ %113, %119 ], [ %113, %logDWARF.exit278 ], [ %.0218872, %195 ], [ %.0218872, %logDWARF.exit288 ], [ %.0218872, %242 ], [ %.0218872, %logDWARF.exit298 ], [ %.0218872, %289 ], [ %.0218872, %logDWARF.exit308 ], [ %.0218872, %336 ], [ %.0218872, %logDWARF.exit319 ], [ %.0218872, %416 ], [ %.0218872, %logDWARF.exit336 ], [ %.0218872, %426 ], [ %.0218872, %logDWARF.exit340 ], [ %.0218872, %437 ], [ %.0218872, %logDWARF.exit344 ], [ %.0218872, %505 ], [ %.0218872, %logDWARF.exit360 ], [ %.0218872, %547 ], [ %.0218872, %logDWARF.exit370 ], [ %.0218872, %582 ], [ %.0218872, %logDWARF.exit380 ], [ %.0218872, %619 ], [ %.0218872, %logDWARF.exit390 ], [ %.0218872, %695 ], [ %.0218872, %logDWARF.exit407 ], [ %.0218872, %764 ], [ %.0218872, %logDWARF.exit423 ], [ %.0218872, %830 ], [ %.0218872, %logDWARF.exit441 ], [ %.0218872, %862 ], [ %.0218872, %logDWARF.exit453 ], [ %.0218872, %936 ], [ %.0218872, %logDWARF.exit470 ], [ %.0218872, %1005 ], [ %.0218872, %logDWARF.exit489 ], [ %.0218872, %1081 ], [ %.0218872, %logDWARF.exit506 ], [ %.0218872, %1116 ], [ %.0218872, %logDWARF.exit516 ], [ %.0218872, %1191 ], [ %.0218872, %logDWARF.exit533 ], [ %.0218872, %._crit_edge.i257 ], [ %70, %._crit_edge.i261 ], [ %84, %._crit_edge.i266 ], [ %99, %._crit_edge.i271 ], [ %113, %._crit_edge.i276 ], [ %.0218872, %._crit_edge.i286 ], [ %.0218872, %._crit_edge.i296 ], [ %.0218872, %._crit_edge.i306 ], [ %.0218872, %._crit_edge.i317 ], [ %.0218872, %._crit_edge.i334 ], [ %.0218872, %._crit_edge.i338 ], [ %.0218872, %._crit_edge.i342 ], [ %.0218872, %._crit_edge.i358 ], [ %.0218872, %._crit_edge.i368 ], [ %.0218872, %._crit_edge.i378 ], [ %.0218872, %._crit_edge.i388 ], [ %.0218872, %._crit_edge.i405 ], [ %.0218872, %._crit_edge.i421 ], [ %.0218872, %._crit_edge.i439 ], [ %.0218872, %._crit_edge.i451 ], [ %.0218872, %._crit_edge.i468 ], [ %.0218872, %._crit_edge.i487 ], [ %.0218872, %._crit_edge.i504 ], [ %.0218872, %._crit_edge.i514 ], [ %.0218872, %._crit_edge.i531 ], [ %.0218872, %._crit_edge.i542 ], [ %1256, %._crit_edge.i546 ], [ %.0218872, %._crit_edge.i551 ]
+  %1295 = load i64, ptr %8, align 8, !tbaa !18
+  %1296 = icmp uge i64 %1295, %41
+  %1297 = icmp uge i64 %.2220, %43
+  %.not253 = select i1 %1296, i1 true, i1 %1297
+  br i1 %.not253, label %._crit_edge, label %56, !llvm.loop !129
 
-.loopexit:                                        ; preds = %430, %1206, %1272, %179, %227, %274, %321, %393, %400, %494, %537, %651, %729, %821, %896, %970, %1039, %1152, %1296, %logDWARF.exit558, %._crit_edge.i556
+.loopexit:                                        ; preds = %429, %1201, %1267, %178, %226, %273, %320, %392, %399, %493, %536, %650, %726, %818, %893, %967, %1036, %1147, %1291, %logDWARF.exit557, %._crit_edge.i555
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.critedge256
+  br label %.critedge255
 
-._crit_edge:                                      ; preds = %1299, %52
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0874, %52 ], [ %.sroa.0.2, %1299 ]
+._crit_edge:                                      ; preds = %1294, %51
+  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0873, %51 ], [ %.sroa.0.2, %1294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.0213.add = add nuw nsw i64 %.0213.idx875, 24
+  %.0213.add = add nuw nsw i64 %.0213.idx874, 24
   %.not = icmp eq i64 %.0213.add, 48
-  br i1 %.not, label %.critedge256, label %39
+  br i1 %.not, label %.critedge255, label %38
 
-.critedge256:                                     ; preds = %._crit_edge, %.loopexit
-  %.not869 = phi i1 [ false, %.loopexit ], [ true, %._crit_edge ]
+.critedge255:                                     ; preds = %._crit_edge, %.loopexit
+  %.not868 = phi i1 [ false, %.loopexit ], [ true, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i1 %.not869
+  ret i1 %.not868
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

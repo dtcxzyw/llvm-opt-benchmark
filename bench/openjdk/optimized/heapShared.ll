@@ -5482,22 +5482,18 @@ define hidden void @_ZN10HeapShared31resolve_classes_for_subgraph_ofEP10JavaThre
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %.lr.ph.i, label %_ZN10HeapShared23clear_archived_roots_ofEP5Klass.exit
 
-.lr.ph.i:                                         ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  br label %65
-
-65:                                               ; preds = %65, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv.i
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %68 = load i32, ptr %67, align 4
-  call void @_ZN10HeapShared10clear_rootEi(i32 noundef %68)
+.lr.ph.i:                                         ; preds = %61, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %61 ]
+  %64 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load i32, ptr %65, align 4
+  call void @_ZN10HeapShared10clear_rootEi(i32 noundef %66)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %69 = trunc nuw i64 %indvars.iv.next.i to i32
-  %70 = icmp sgt i32 %62, %69
-  br i1 %70, label %65, label %_ZN10HeapShared23clear_archived_roots_ofEP5Klass.exit, !llvm.loop !41
+  %67 = trunc nuw i64 %indvars.iv.next.i to i32
+  %68 = icmp sgt i32 %62, %67
+  br i1 %68, label %.lr.ph.i, label %_ZN10HeapShared23clear_archived_roots_ofEP5Klass.exit, !llvm.loop !41
 
-_ZN10HeapShared23clear_archived_roots_ofEP5Klass.exit: ; preds = %55, %65, %61, %.loopexit.i, %37, %30, %10, %8
+_ZN10HeapShared23clear_archived_roots_ofEP5Klass.exit: ; preds = %55, %.lr.ph.i, %61, %.loopexit.i, %37, %30, %10, %8
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
   ret void
 }
@@ -6009,22 +6005,18 @@ define hidden void @_ZN10HeapShared23clear_archived_roots_ofEP5Klass(ptr noundef
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph, label %_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit
 
-.lr.ph:                                           ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  br label %56
-
-56:                                               ; preds = %.lr.ph, %56
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = load i32, ptr %58, align 4
-  tail call void @_ZN10HeapShared10clear_rootEi(i32 noundef %59)
+.lr.ph:                                           ; preds = %52, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %52 ]
+  %55 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = load i32, ptr %56, align 4
+  tail call void @_ZN10HeapShared10clear_rootEi(i32 noundef %57)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %60 = trunc nuw i64 %indvars.iv.next to i32
-  %61 = icmp sgt i32 %53, %60
-  br i1 %61, label %56, label %_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit, !llvm.loop !41
+  %58 = trunc nuw i64 %indvars.iv.next to i32
+  %59 = icmp sgt i32 %53, %58
+  br i1 %59, label %.lr.ph, label %_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit, !llvm.loop !41
 
-_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit: ; preds = %46, %56, %52, %28, %21, %1, %.loopexit
+_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit: ; preds = %46, %.lr.ph, %52, %28, %21, %1, %.loopexit
   ret void
 }
 

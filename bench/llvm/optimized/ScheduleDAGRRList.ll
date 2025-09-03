@@ -3682,31 +3682,31 @@ _ZN12_GLOBAL__N_117ScheduleDAGRRList14CreateNewSUnitEPN4llvm6SDNodeE.exit179.i.i
   %980 = load i16, ptr %975, align 8, !tbaa !425
   %981 = zext i16 %980 to i64
   %982 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %975, i64 %981
-  %983 = getelementptr inbounds nuw i8, ptr %982, i64 32
-  %984 = load i16, ptr %978, align 4, !tbaa !435
-  %985 = zext i16 %984 to i64
-  %986 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %983, i64 %985
-  br label %987
+  %983 = load i16, ptr %978, align 4, !tbaa !435
+  %984 = zext i16 %983 to i64
+  %985 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %982, i64 %984
+  br label %986
 
-987:                                              ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i.i.i, %.lr.ph.i.i87.i.i
+986:                                              ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i.i.i, %.lr.ph.i.i87.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i87.i.i ], [ %indvars.iv.next.i.i.i.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i.i.i ]
-  %988 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %986, i64 %indvars.iv.i.i.i.i, i32 3
+  %987 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %985, i64 %indvars.iv.i.i.i.i
+  %988 = getelementptr inbounds nuw i8, ptr %987, i64 36
   %989 = load i16, ptr %988, align 2, !tbaa !436
   %990 = and i16 %989, 1
   %.not.i180.i.i.i.i = icmp eq i16 %990, 0
   br i1 %.not.i180.i.i.i.i, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i.i.i, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.i.i.i.i
 
-_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.i.i.i.i: ; preds = %987
+_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.i.i.i.i: ; preds = %986
   %991 = getelementptr inbounds nuw i8, ptr %962, i64 248
   %992 = load i16, ptr %991, align 8
   %993 = or i16 %992, 8
   store i16 %993, ptr %991, align 8
   br label %.loopexit233.i.i.i.i
 
-_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i.i.i: ; preds = %987
+_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i.i.i: ; preds = %986
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %.not165.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %979
-  br i1 %.not165.i.i.i.i, label %.loopexit233.i.i.i.i, label %987, !llvm.loop !438
+  br i1 %.not165.i.i.i.i, label %.loopexit233.i.i.i.i, label %986, !llvm.loop !438
 
 .loopexit233.i.i.i.i:                             ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i.i.i.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.i.i.i.i, %_ZN12_GLOBAL__N_117ScheduleDAGRRList14CreateNewSUnitEPN4llvm6SDNodeE.exit179.i.i.i.i
   %994 = getelementptr inbounds nuw i8, ptr %975, i64 16
@@ -7407,11 +7407,11 @@ _ZL14getNodeRegMaskPKN4llvm6SDNodeE.exit.thread.i: ; preds = %313, %_ZL24CheckFo
   %374 = load i16, ptr %365, align 8, !tbaa !425
   %375 = zext i16 %374 to i64
   %376 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %365, i64 %375
-  %377 = getelementptr inbounds nuw i8, ptr %376, i64 32
-  %378 = load i16, ptr %371, align 4, !tbaa !435
-  %379 = zext i16 %378 to i64
-  %380 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %377, i64 %379
-  %381 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %380, i64 %indvars.iv.i, i32 1
+  %377 = load i16, ptr %371, align 4, !tbaa !435
+  %378 = zext i16 %377 to i64
+  %379 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %376, i64 %378
+  %380 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %379, i64 %indvars.iv.i
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 34
   %382 = load i8, ptr %381, align 2, !tbaa !483
   %383 = and i8 %382, 4
   %.not191.i = icmp eq i8 %383, 0
@@ -10039,12 +10039,12 @@ _ZL18hasOnlyLiveOutUsesPKN4llvm5SUnitE.exit.i:    ; preds = %.thread.i.i, %59, %
   %92 = load i16, ptr %73, align 8, !tbaa !425
   %93 = zext i16 %92 to i64
   %94 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %73, i64 %93
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  %96 = load i16, ptr %81, align 4, !tbaa !435
-  %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %95, i64 %97
-  %99 = zext nneg i32 %87 to i64
-  %100 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %98, i64 %99, i32 3
+  %95 = load i16, ptr %81, align 4, !tbaa !435
+  %96 = zext i16 %95 to i64
+  %97 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %94, i64 %96
+  %98 = zext nneg i32 %87 to i64
+  %99 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %97, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 36
   %101 = load i16, ptr %100, align 2, !tbaa !436
   %102 = and i16 %101, 1
   %.not.i96.i = icmp eq i16 %102, 0
@@ -10548,12 +10548,12 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i: ; p
   %353 = load i16, ptr %337, align 8, !tbaa !425
   %354 = zext i16 %353 to i64
   %355 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %337, i64 %354
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 32
-  %357 = load i16, ptr %345, align 4, !tbaa !435
-  %358 = zext i16 %357 to i64
-  %359 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %356, i64 %358
-  %360 = zext nneg i32 %350 to i64
-  %361 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %359, i64 %360, i32 3
+  %356 = load i16, ptr %345, align 4, !tbaa !435
+  %357 = zext i16 %356 to i64
+  %358 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %355, i64 %357
+  %359 = zext nneg i32 %350 to i64
+  %360 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %358, i64 %359
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 36
   %362 = load i16, ptr %361, align 2, !tbaa !436
   %363 = and i16 %362, 1
   %.not.i.i115.i = icmp eq i16 %363, 0

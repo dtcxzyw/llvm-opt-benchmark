@@ -8,6 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
 %struct.ThreadData = type { ptr, i32, i32, i32, i32, i32 }
+%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [6 x i8] c"bwdif\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"Deinterlace the input image.\00", align 1
@@ -210,9 +211,8 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %14 = load i32, ptr %13, align 4, !tbaa !63
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %16 = load ptr, ptr %15, align 8, !tbaa !30
-  %.idx = mul nsw i64 %12, 20
-  %17 = getelementptr i8, ptr %16, i64 40
-  %18 = getelementptr i8, ptr %17, i64 %.idx
+  %17 = getelementptr %struct.AVComponentDescriptor, ptr %16, i64 %12
+  %18 = getelementptr i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 4, !tbaa !43
   %notmask = shl nsw i32 -1, %19
   %20 = xor i32 %notmask, -1

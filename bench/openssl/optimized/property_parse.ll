@@ -1417,15 +1417,14 @@ define i64 @ossl_property_list_to_string(ptr noundef %0, ptr noundef readonly ca
   br i1 %13, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = zext nneg i32 %12 to i64
-  %16 = getelementptr %struct.ossl_property_definition_st, ptr %14, i64 %15
+  %14 = zext nneg i32 %12 to i64
+  %15 = getelementptr %struct.ossl_property_definition_st, ptr %1, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 -16
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %put_num.exit
-  %.153.pn = phi ptr [ %.153, %put_num.exit ], [ %16, %.lr.ph.preheader ]
+  %.153 = phi ptr [ %101, %put_num.exit ], [ %16, %.lr.ph.preheader ]
   %.02252 = phi i32 [ %100, %put_num.exit ], [ 0, %.lr.ph.preheader ]
-  %.153 = getelementptr i8, ptr %.153.pn, i64 -24
   %17 = load i32, ptr %.153, align 8, !tbaa !14
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %put_num.exit, label %19
@@ -1464,7 +1463,7 @@ put_char.exit:                                    ; preds = %21, %24
   br label %30
 
 30:                                               ; preds = %put_char.exit, %19
-  %31 = getelementptr i8, ptr %.153.pn, i64 -12
+  %31 = getelementptr inbounds nuw i8, ptr %.153, i64 12
   %32 = load i8, ptr %31, align 4
   %33 = and i8 %32, 1
   %.not29 = icmp eq i8 %33, 0
@@ -1481,7 +1480,7 @@ put_char.exit:                                    ; preds = %21, %24
   br label %.sink.split.sink.split
 
 37:                                               ; preds = %30
-  %38 = getelementptr i8, ptr %.153.pn, i64 -16
+  %38 = getelementptr inbounds nuw i8, ptr %.153, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !11
   %40 = icmp eq i32 %39, 2
   br i1 %40, label %41, label %50
@@ -1523,7 +1522,7 @@ put_char.exit:                                    ; preds = %21, %24
 
 54:                                               ; preds = %50
   call fastcc void @put_str(ptr noundef %52, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %55 = getelementptr i8, ptr %.153.pn, i64 -16
+  %55 = getelementptr inbounds nuw i8, ptr %.153, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !11
   switch i32 %56, label %put_num.exit [
     i32 1, label %57
@@ -1586,7 +1585,7 @@ put_char.exit46:                                  ; preds = %67, %70
   %75 = load i64, ptr %.sink13.i44, align 8, !tbaa !30
   %76 = add i64 %75, %.sink12.i45
   store i64 %76, ptr %.sink13.i44, align 8, !tbaa !30
-  %77 = getelementptr i8, ptr %.153.pn, i64 -20
+  %77 = getelementptr inbounds nuw i8, ptr %.153, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !15
   switch i32 %78, label %.loopexit [
     i32 0, label %79
@@ -1594,7 +1593,7 @@ put_char.exit46:                                  ; preds = %67, %70
   ]
 
 79:                                               ; preds = %put_char.exit46
-  %80 = getelementptr i8, ptr %.153.pn, i64 -8
+  %80 = getelementptr inbounds nuw i8, ptr %.153, i64 16
   %81 = load i32, ptr %80, align 8, !tbaa !3
   %82 = tail call ptr @ossl_property_value_str(ptr noundef %0, i32 noundef %81) #9
   %83 = icmp eq ptr %82, null
@@ -1605,7 +1604,7 @@ put_char.exit46:                                  ; preds = %67, %70
   br label %put_num.exit
 
 85:                                               ; preds = %put_char.exit46
-  %86 = getelementptr i8, ptr %.153.pn, i64 -8
+  %86 = getelementptr inbounds nuw i8, ptr %.153, i64 16
   %87 = load i64, ptr %86, align 8, !tbaa !3
   %88 = icmp slt i64 %87, 0
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %87, i1 true)
@@ -1642,38 +1641,39 @@ put_char.exit46:                                  ; preds = %67, %70
 
 put_num.exit:                                     ; preds = %97, %._crit_edge.i, %84, %54, %.lr.ph
   %100 = add nuw nsw i32 %.02252, 1
-  %101 = load i32, ptr %1, align 8, !tbaa !25
-  %102 = icmp slt i32 %100, %101
-  br i1 %102, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
+  %101 = getelementptr inbounds i8, ptr %.153, i64 -24
+  %102 = load i32, ptr %1, align 8, !tbaa !25
+  %103 = icmp slt i32 %100, %102
+  br i1 %103, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %put_num.exit
   %.pre54 = load i64, ptr %6, align 8, !tbaa !30
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %103 = phi i64 [ %.pre54, %._crit_edge.loopexit ], [ %3, %11 ]
-  %cond = icmp eq i64 %103, 0
-  br i1 %cond, label %put_char.exit51, label %104
+  %104 = phi i64 [ %.pre54, %._crit_edge.loopexit ], [ %3, %11 ]
+  %cond = icmp eq i64 %104, 0
+  br i1 %cond, label %put_char.exit51, label %105
 
-104:                                              ; preds = %._crit_edge
-  %105 = load ptr, ptr %5, align 8, !tbaa !8
-  store i8 0, ptr %105, align 1, !tbaa !3
-  %106 = load i64, ptr %7, align 8, !tbaa !30
-  %107 = add i64 %106, 1
-  store i64 %107, ptr %7, align 8, !tbaa !30
+105:                                              ; preds = %._crit_edge
+  %106 = load ptr, ptr %5, align 8, !tbaa !8
+  store i8 0, ptr %106, align 1, !tbaa !3
+  %107 = load i64, ptr %7, align 8, !tbaa !30
+  %108 = add i64 %107, 1
+  store i64 %108, ptr %7, align 8, !tbaa !30
   br label %put_char.exit51
 
-put_char.exit51:                                  ; preds = %._crit_edge, %104
-  %.sink13.i49 = phi ptr [ %6, %104 ], [ %7, %._crit_edge ]
-  %.sink12.i50 = phi i64 [ -1, %104 ], [ 1, %._crit_edge ]
-  %108 = load i64, ptr %.sink13.i49, align 8, !tbaa !30
-  %109 = add i64 %108, %.sink12.i50
-  store i64 %109, ptr %.sink13.i49, align 8, !tbaa !30
-  %110 = load i64, ptr %7, align 8, !tbaa !30
+put_char.exit51:                                  ; preds = %._crit_edge, %105
+  %.sink13.i49 = phi ptr [ %6, %105 ], [ %7, %._crit_edge ]
+  %.sink12.i50 = phi i64 [ -1, %105 ], [ 1, %._crit_edge ]
+  %109 = load i64, ptr %.sink13.i49, align 8, !tbaa !30
+  %110 = add i64 %109, %.sink12.i50
+  store i64 %110, ptr %.sink13.i49, align 8, !tbaa !30
+  %111 = load i64, ptr %7, align 8, !tbaa !30
   br label %.loopexit
 
 .loopexit:                                        ; preds = %put_char.exit46, %79, %50, %9, %10, %put_char.exit51
-  %.023 = phi i64 [ %110, %put_char.exit51 ], [ 1, %10 ], [ 1, %9 ], [ 0, %50 ], [ 0, %79 ], [ 0, %put_char.exit46 ]
+  %.023 = phi i64 [ %111, %put_char.exit51 ], [ 1, %10 ], [ 1, %9 ], [ 0, %50 ], [ 0, %79 ], [ 0, %put_char.exit46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.023
 }

@@ -318,20 +318,18 @@ define internal range(i32 -2147483648, 1) i32 @seq_read_packet(ptr noundef reado
 define internal noundef i32 @seq_read_close(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %5
+  br label %4
 
-5:                                                ; preds = %1, %5
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = shl nuw nsw i64 %indvars.iv, 4
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @av_freep(ptr noundef nonnull %8) #5
+4:                                                ; preds = %1, %4
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
+  %5 = getelementptr inbounds nuw %struct.TiertexSeqFrameBuffer, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  tail call void @av_freep(ptr noundef nonnull %6) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %9, label %5, !llvm.loop !76
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !76
 
-9:                                                ; preds = %5
+7:                                                ; preds = %4
   ret i32 0
 }
 

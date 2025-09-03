@@ -1854,10 +1854,8 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %31, label %.thread, label %.preheader234.preheader
 
 .preheader234.preheader:                          ; preds = %30
-  %scevgep = getelementptr i8, ptr %.1142303, i64 1
   %32 = zext nneg i32 %.1149302 to i64
-  %33 = getelementptr i8, ptr %scevgep, i64 %32
-  %scevgep374 = getelementptr i8, ptr %33, i64 -1
+  %33 = getelementptr i8, ptr %.1142303, i64 %32
   br label %.preheader234
 
 .preheader234:                                    ; preds = %.preheader234.preheader, %35
@@ -1875,7 +1873,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
 
 .critedge:                                        ; preds = %35, %.preheader234, %.lr.ph306
   %.2150 = phi i32 [ %.1149302, %.lr.ph306 ], [ %37, %35 ], [ 0, %.preheader234 ]
-  %.2143 = phi ptr [ %.1142303, %.lr.ph306 ], [ %36, %35 ], [ %scevgep374, %.preheader234 ]
+  %.2143 = phi ptr [ %.1142303, %.lr.ph306 ], [ %36, %35 ], [ %33, %.preheader234 ]
   %40 = icmp sgt i32 %.2184305.in, 2
   br i1 %40, label %.lr.ph306, label %.thread, !llvm.loop !22
 

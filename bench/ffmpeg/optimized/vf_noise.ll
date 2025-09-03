@@ -154,69 +154,67 @@ define internal range(i32 -12, 1) i32 @init(ptr noundef readonly captures(none) 
   %6 = load i32, ptr %5, align 4, !tbaa !25
   %7 = icmp sgt i32 %6, -1
   %8 = load i32, ptr %4, align 8, !tbaa !29
-  %.not34 = icmp eq i32 %8, 0
+  %.not31 = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %10 = load i32, ptr %9, align 4, !tbaa !30
-  %.not35 = icmp eq i32 %10, 0
+  %.not32 = icmp eq i32 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 115024
   %. = select i1 %7, i32 %6, i32 123457
   br label %12
 
-12:                                               ; preds = %1, %23
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %23 ]
-  %13 = mul nuw nsw i64 %indvars.iv, 114976
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 268
-  store i32 %., ptr %15, align 4, !tbaa !31
-  br i1 %.not34, label %18, label %16
+12:                                               ; preds = %1, %21
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %21 ]
+  %13 = getelementptr inbounds nuw %struct.FilterParams, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 115292
+  store i32 %., ptr %14, align 4, !tbaa !31
+  br i1 %.not31, label %17, label %15
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw %struct.FilterParams, ptr %11, i64 %indvars.iv
-  store i32 %8, ptr %17, align 8, !tbaa !32
-  br label %18
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw %struct.FilterParams, ptr %11, i64 %indvars.iv
+  store i32 %8, ptr %16, align 8, !tbaa !32
+  br label %17
 
-18:                                               ; preds = %16, %12
-  br i1 %.not35, label %23, label %19
+17:                                               ; preds = %15, %12
+  br i1 %.not32, label %21, label %18
 
-19:                                               ; preds = %18
-  %20 = mul nuw nsw i64 %indvars.iv, 114976
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 %10, ptr %22, align 4, !tbaa !33
-  br label %23
+18:                                               ; preds = %17
+  %19 = getelementptr inbounds nuw %struct.FilterParams, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 115028
+  store i32 %10, ptr %20, align 4, !tbaa !33
+  br label %21
 
-23:                                               ; preds = %18, %19
+21:                                               ; preds = %17, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader, label %12, !llvm.loop !34
 
-.preheader:                                       ; preds = %23, %30
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %30 ], [ 0, %23 ]
-  %24 = getelementptr inbounds nuw %struct.FilterParams, ptr %11, i64 %indvars.iv43
-  %25 = load i32, ptr %24, align 8, !tbaa !32
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %30, label %26
+.preheader:                                       ; preds = %21, %28
+  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %28 ], [ 0, %21 ]
+  %22 = getelementptr inbounds nuw %struct.FilterParams, ptr %11, i64 %indvars.iv36
+  %23 = load i32, ptr %22, align 8, !tbaa !32
+  %.not = icmp eq i32 %23, 0
+  br i1 %.not, label %28, label %24
 
-26:                                               ; preds = %.preheader
-  %27 = trunc nuw nsw i64 %indvars.iv43 to i32
-  %28 = tail call fastcc i32 @init_noise(ptr noundef nonnull %3, i32 noundef %27) #9
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %.loopexit, label %30
+24:                                               ; preds = %.preheader
+  %25 = trunc nuw nsw i64 %indvars.iv36 to i32
+  %26 = tail call fastcc i32 @init_noise(ptr noundef nonnull %3, i32 noundef %25) #9
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %.loopexit, label %28
 
-30:                                               ; preds = %.preheader, %26
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next44, 4
-  br i1 %exitcond46.not, label %31, label %.preheader, !llvm.loop !35
+28:                                               ; preds = %.preheader, %24
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %exitcond39.not = icmp eq i64 %indvars.iv.next37, 4
+  br i1 %exitcond39.not, label %29, label %.preheader, !llvm.loop !35
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 574928
-  store ptr @ff_line_noise_c, ptr %32, align 8, !tbaa !36
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 574936
-  store ptr @ff_line_noise_avg_c, ptr %33, align 8, !tbaa !37
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 574928
+  store ptr @ff_line_noise_c, ptr %30, align 8, !tbaa !36
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 574936
+  store ptr @ff_line_noise_avg_c, ptr %31, align 8, !tbaa !37
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %31
-  %.026 = phi i32 [ 0, %31 ], [ %28, %26 ]
+.loopexit:                                        ; preds = %24, %29
+  %.026 = phi i32 [ 0, %29 ], [ %26, %24 ]
   ret i32 %.026
 }
 
@@ -224,20 +222,18 @@ define internal range(i32 -12, 1) i32 @init(ptr noundef readonly captures(none) 
 define internal void @uninit(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !13
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 115024
-  br label %5
+  br label %4
 
-5:                                                ; preds = %1, %5
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = mul nuw nsw i64 %indvars.iv, 114976
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 272
-  tail call void @av_freep(ptr noundef nonnull %8) #10
+4:                                                ; preds = %1, %4
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
+  %5 = getelementptr inbounds nuw %struct.FilterParams, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 115296
+  tail call void @av_freep(ptr noundef nonnull %6) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %9, label %5, !llvm.loop !38
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !38
 
-9:                                                ; preds = %5
+7:                                                ; preds = %4
   ret void
 }
 

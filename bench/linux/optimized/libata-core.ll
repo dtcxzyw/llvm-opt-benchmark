@@ -5041,7 +5041,7 @@ define dso_local ptr @ata_dev_next(ptr noundef readonly captures(address, ret: a
 
 6:                                                ; preds = %3
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %8, label %30
+  br i1 %7, label %8, label %29
 
 8:                                                ; preds = %6
   switch i32 %2, label %default.unreachable10 [
@@ -5053,94 +5053,93 @@ define dso_local ptr @ata_dev_next(ptr noundef readonly captures(address, ret: a
 
 9:                                                ; preds = %8, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1152
-  br label %56
+  br label %55
 
 11:                                               ; preds = %8, %8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1152
-  %13 = load ptr, ptr %1, align 64
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8256
-  %15 = icmp eq ptr %14, %1
-  br i1 %15, label %20, label %16
+  %12 = load ptr, ptr %1, align 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8256
+  %14 = icmp eq ptr %13, %1
+  br i1 %14, label %19, label %15
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 14720
-  %18 = load ptr, ptr %17, align 64
-  %19 = icmp eq ptr %18, %1
-  br i1 %19, label %20, label %25
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 14720
+  %17 = load ptr, ptr %16, align 64
+  %18 = icmp eq ptr %17, %1
+  br i1 %18, label %19, label %24
 
-20:                                               ; preds = %16, %11
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %22 = load i64, ptr %21, align 8
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %26
+19:                                               ; preds = %15, %11
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %21 = load i64, ptr %20, align 8
+  %22 = and i64 %21, 1
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %25
 
-25:                                               ; preds = %20, %16
-  br label %26
+24:                                               ; preds = %19, %15
+  br label %25
 
-26:                                               ; preds = %25, %20
-  %27 = phi i64 [ 1, %25 ], [ 2, %20 ]
-  %28 = getelementptr %struct.ata_device, ptr %12, i64 %27
-  %29 = getelementptr i8, ptr %28, i64 -2624
-  br label %56
+25:                                               ; preds = %24, %19
+  %26 = phi i64 [ 1, %24 ], [ 2, %19 ]
+  %27 = getelementptr %struct.ata_device, ptr %1, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 -1472
+  br label %55
 
-default.unreachable10:                            ; preds = %30, %8
+default.unreachable10:                            ; preds = %29, %8
   unreachable
 
-30:                                               ; preds = %59, %6
-  %31 = phi ptr [ %0, %6 ], [ %57, %59 ]
+29:                                               ; preds = %58, %6
+  %30 = phi ptr [ %0, %6 ], [ %56, %58 ]
   switch i32 %2, label %default.unreachable10 [
-    i32 0, label %32
-    i32 2, label %32
-    i32 1, label %52
-    i32 3, label %52
+    i32 0, label %31
+    i32 2, label %31
+    i32 1, label %51
+    i32 3, label %51
   ]
 
-32:                                               ; preds = %30, %30
-  %33 = getelementptr i8, ptr %31, i64 2624
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1152
-  %35 = load ptr, ptr %1, align 64
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8256
-  %37 = icmp eq ptr %36, %1
-  br i1 %37, label %42, label %38
+31:                                               ; preds = %29, %29
+  %32 = getelementptr i8, ptr %30, i64 2624
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1152
+  %34 = load ptr, ptr %1, align 64
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8256
+  %36 = icmp eq ptr %35, %1
+  br i1 %36, label %41, label %37
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 14720
-  %40 = load ptr, ptr %39, align 64
-  %41 = icmp eq ptr %40, %1
-  br i1 %41, label %42, label %47
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 14720
+  %39 = load ptr, ptr %38, align 64
+  %40 = icmp eq ptr %39, %1
+  br i1 %40, label %41, label %46
 
-42:                                               ; preds = %38, %32
-  %43 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %44 = load i64, ptr %43, align 8
-  %45 = and i64 %44, 1
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %48
+41:                                               ; preds = %37, %31
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %43 = load i64, ptr %42, align 8
+  %44 = and i64 %43, 1
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %46, label %47
 
-47:                                               ; preds = %42, %38
-  br label %48
+46:                                               ; preds = %41, %37
+  br label %47
 
-48:                                               ; preds = %47, %42
-  %49 = phi i64 [ 1, %47 ], [ 2, %42 ]
-  %50 = getelementptr %struct.ata_device, ptr %34, i64 %49
-  %51 = icmp ult ptr %33, %50
-  br i1 %51, label %56, label %.critedge
+47:                                               ; preds = %46, %41
+  %48 = phi i64 [ 1, %46 ], [ 2, %41 ]
+  %49 = getelementptr %struct.ata_device, ptr %33, i64 %48
+  %50 = icmp ult ptr %32, %49
+  br i1 %50, label %55, label %.critedge
 
-52:                                               ; preds = %30, %30
-  %53 = getelementptr i8, ptr %31, i64 -2624
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 1152
-  %55 = icmp ult ptr %53, %54
-  br i1 %55, label %.critedge, label %56
+51:                                               ; preds = %29, %29
+  %52 = getelementptr i8, ptr %30, i64 -2624
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 1152
+  %54 = icmp ult ptr %52, %53
+  br i1 %54, label %.critedge, label %55
 
-56:                                               ; preds = %52, %48, %26, %9
-  %57 = phi ptr [ %53, %52 ], [ %33, %48 ], [ %29, %26 ], [ %10, %9 ]
-  %58 = icmp samesign ult i32 %2, 2
-  br i1 %58, label %59, label %.critedge
+55:                                               ; preds = %51, %47, %25, %9
+  %56 = phi ptr [ %52, %51 ], [ %32, %47 ], [ %28, %25 ], [ %10, %9 ]
+  %57 = icmp samesign ult i32 %2, 2
+  br i1 %57, label %58, label %.critedge
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 800
-  %61 = load i32, ptr %60, align 32
-  switch i32 %61, label %30 [
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 800
+  %60 = load i32, ptr %59, align 32
+  switch i32 %60, label %29 [
     i32 7, label %.critedge
     i32 5, label %.critedge
     i32 3, label %.critedge
@@ -5148,9 +5147,9 @@ default.unreachable10:                            ; preds = %30, %8
     i32 9, label %.critedge
   ]
 
-.critedge:                                        ; preds = %59, %59, %59, %59, %59, %56, %52, %48
-  %62 = phi ptr [ null, %48 ], [ null, %52 ], [ %57, %56 ], [ %57, %59 ], [ %57, %59 ], [ %57, %59 ], [ %57, %59 ], [ %57, %59 ]
-  ret ptr %62
+.critedge:                                        ; preds = %58, %58, %58, %58, %58, %55, %51, %47
+  %61 = phi ptr [ null, %47 ], [ null, %51 ], [ %56, %55 ], [ %56, %58 ], [ %56, %58 ], [ %56, %58 ], [ %56, %58 ], [ %56, %58 ]
+  ret ptr %61
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)

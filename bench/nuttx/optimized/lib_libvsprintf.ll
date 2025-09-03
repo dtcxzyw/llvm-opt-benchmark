@@ -424,8 +424,8 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 .lr.ph90:                                         ; preds = %181, %188
   %.343389 = phi i8 [ %189, %188 ], [ %140, %181 ]
   %183 = zext i8 %.343389 to i64
-  %184 = getelementptr i8, ptr %13, i64 %183
-  %185 = getelementptr i8, ptr %184, i64 -1
+  %184 = getelementptr i8, ptr %4, i64 %183
+  %185 = getelementptr i8, ptr %184, i64 4
   %186 = load i8, ptr %185, align 1
   %187 = icmp eq i8 %186, 48
   br i1 %187, label %188, label %.critedge

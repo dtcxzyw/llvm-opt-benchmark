@@ -454,38 +454,37 @@ define dso_local i32 @_hash_get_oldblock_from_newbucket(ptr noundef %0, i32 noun
 BufferGetPage.exit:                               ; preds = %9, %15
   %.0.i.i = phi ptr [ %14, %9 ], [ %20, %15 ]
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %37, label %21
+  br i1 %.not, label %36, label %21
 
 21:                                               ; preds = %BufferGetPage.exit
-  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 76
-  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
-  %24 = sub nuw nsw i32 32, %23
-  %25 = icmp samesign ult i32 %6, 512
-  br i1 %25, label %_hash_spareindex.exit, label %26
+  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
+  %23 = sub nuw nsw i32 32, %22
+  %24 = icmp samesign ult i32 %6, 512
+  br i1 %24, label %_hash_spareindex.exit, label %25
 
-26:                                               ; preds = %21
-  %27 = shl nuw nsw i32 %24, 2
-  %28 = add nsw i32 %27, -30
-  %29 = sub nsw i32 29, %23
-  %30 = lshr i32 %6, %29
-  %31 = and i32 %30, 3
-  %32 = add nuw nsw i32 %28, %31
+25:                                               ; preds = %21
+  %26 = shl nuw nsw i32 %23, 2
+  %27 = add nsw i32 %26, -30
+  %28 = sub nsw i32 29, %22
+  %29 = lshr i32 %6, %28
+  %30 = and i32 %29, 3
+  %31 = add nuw nsw i32 %27, %30
   br label %_hash_spareindex.exit
 
-_hash_spareindex.exit:                            ; preds = %21, %26
-  %.0.i = phi i32 [ %32, %26 ], [ %24, %21 ]
-  %33 = sext i32 %.0.i to i64
-  %34 = getelementptr i32, ptr %22, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 -4
-  %36 = load i32, ptr %35, align 4
-  br label %37
+_hash_spareindex.exit:                            ; preds = %21, %25
+  %.0.i = phi i32 [ %31, %25 ], [ %23, %21 ]
+  %32 = sext i32 %.0.i to i64
+  %33 = getelementptr i32, ptr %.0.i.i, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 72
+  %35 = load i32, ptr %34, align 4
+  br label %36
 
-37:                                               ; preds = %BufferGetPage.exit, %_hash_spareindex.exit
-  %38 = phi i32 [ %36, %_hash_spareindex.exit ], [ 0, %BufferGetPage.exit ]
-  %39 = add nuw i32 %6, 1
-  %40 = add i32 %39, %38
+36:                                               ; preds = %BufferGetPage.exit, %_hash_spareindex.exit
+  %37 = phi i32 [ %35, %_hash_spareindex.exit ], [ 0, %BufferGetPage.exit ]
+  %38 = add nuw i32 %6, 1
+  %39 = add i32 %38, %37
   tail call void @_hash_relbuf(ptr noundef %0, i32 noundef %7) #8
-  ret i32 %40
+  ret i32 %39
 }
 
 declare i32 @_hash_getbuf(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

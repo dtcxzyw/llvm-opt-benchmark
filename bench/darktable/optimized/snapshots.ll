@@ -1636,69 +1636,65 @@ define internal void @_signal_image_changed(ptr readnone captures(none) %0, ptr 
 define internal void @_signal_image_removed(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br label %7
+  br label %6
 
-7:                                                ; preds = %3, %31
-  %.09 = phi i32 [ 0, %3 ], [ %.1, %31 ]
-  %narrow = mul nuw nsw i32 %.09, 136
-  %8 = zext nneg i32 %narrow to i64
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %11 = load i32, ptr %10, align 8, !tbaa !69
-  %12 = icmp eq i32 %11, %1
-  br i1 %12, label %13, label %29
+6:                                                ; preds = %3, %28
+  %.08 = phi i32 [ 0, %3 ], [ %.1, %28 ]
+  %7 = zext nneg i32 %.08 to i64
+  %8 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %5, i64 %7, i32 14
+  %9 = load i32, ptr %8, align 8, !tbaa !69
+  %10 = icmp eq i32 %9, %1
+  br i1 %10, label %11, label %26
 
-13:                                               ; preds = %7
-  %14 = load ptr, ptr %4, align 8, !tbaa !6
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = zext nneg i32 %.09 to i64
-  %17 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %15, i64 %16
-  tail call fastcc void @_clear_snapshot_entry(ptr noundef nonnull %17)
-  %.not = icmp eq i32 %.09, 9
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %4, align 8, !tbaa !6
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %13, i64 %7
+  tail call fastcc void @_clear_snapshot_entry(ptr noundef nonnull %14)
+  %.not = icmp eq i32 %.08, 9
   br i1 %.not, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 1248
-  tail call fastcc void @_clear_snapshot_entry(ptr noundef nonnull %18)
-  tail call fastcc void @_init_snapshot_entry(ptr noundef nonnull %2, ptr noundef nonnull %18)
-  %19 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !159
-  %21 = add i32 %20, -1
-  store i32 %21, ptr %19, align 4, !tbaa !159
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !63
-  %24 = icmp eq i32 %23, %.09
-  br i1 %24, label %27, label %_remove_snapshot_entry.exit
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %11
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 1248
+  tail call fastcc void @_clear_snapshot_entry(ptr noundef nonnull %15)
+  tail call fastcc void @_init_snapshot_entry(ptr noundef nonnull %2, ptr noundef nonnull %15)
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %17 = load i32, ptr %16, align 4, !tbaa !159
+  %18 = add i32 %17, -1
+  store i32 %18, ptr %16, align 4, !tbaa !159
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %20 = load i32, ptr %19, align 8, !tbaa !63
+  %21 = icmp eq i32 %20, %.08
+  br i1 %21, label %24, label %_remove_snapshot_entry.exit
 
-.lr.ph.i:                                         ; preds = %13, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %16, %13 ]
-  %25 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %15, i64 %indvars.iv.i
+.lr.ph.i:                                         ; preds = %11, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %7, %11 ]
+  %22 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %13, i64 %indvars.iv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %26 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %15, i64 %indvars.iv.next.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %25, ptr noundef nonnull align 8 dereferenceable(136) %26, i64 136, i1 false)
+  %23 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %13, i64 %indvars.iv.next.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull align 8 dereferenceable(136) %23, i64 136, i1 false)
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-27:                                               ; preds = %._crit_edge.i
-  store i32 -1, ptr %22, align 8, !tbaa !63
+24:                                               ; preds = %._crit_edge.i
+  store i32 -1, ptr %19, align 8, !tbaa !63
   br label %_remove_snapshot_entry.exit
 
-_remove_snapshot_entry.exit:                      ; preds = %._crit_edge.i, %27
-  %28 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #14
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %28) #14
-  br label %31
+_remove_snapshot_entry.exit:                      ; preds = %._crit_edge.i, %24
+  %25 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #14
+  tail call void (ptr, ...) @dt_control_log(ptr noundef %25) #14
+  br label %28
 
-29:                                               ; preds = %7
-  %30 = add nuw nsw i32 %.09, 1
-  br label %31
+26:                                               ; preds = %6
+  %27 = add nuw nsw i32 %.08, 1
+  br label %28
 
-31:                                               ; preds = %29, %_remove_snapshot_entry.exit
-  %.1 = phi i32 [ %.09, %_remove_snapshot_entry.exit ], [ %30, %29 ]
-  %32 = icmp ult i32 %.1, 10
-  br i1 %32, label %7, label %33
+28:                                               ; preds = %26, %_remove_snapshot_entry.exit
+  %.1 = phi i32 [ %.08, %_remove_snapshot_entry.exit ], [ %27, %26 ]
+  %29 = icmp ult i32 %.1, 10
+  br i1 %29, label %6, label %30
 
-33:                                               ; preds = %31
+30:                                               ; preds = %28
   ret void
 }
 
@@ -1899,19 +1895,19 @@ define internal i32 @_lib_button_button_pressed_callback(ptr noundef %0, ptr nou
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %10, %3
-  %indvars.iv8.i = phi i64 [ %indvars.iv.next9.i, %10 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %6, i64 %indvars.iv8.i
+  %indvars.iv7.i = phi i64 [ %indvars.iv.next8.i, %10 ], [ 0, %3 ]
+  %7 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %6, i64 %indvars.iv7.i
   %8 = load ptr, ptr %7, align 8, !tbaa !194
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %.split3.us.loopexit.split.loop.exit.i, label %10
 
 10:                                               ; preds = %.split.us.i
-  %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
-  %exitcond11.i = icmp eq i64 %indvars.iv.next9.i, 10
-  br i1 %exitcond11.i, label %_look_for_widget.exit, label %.split.us.i
+  %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
+  %exitcond10.i = icmp eq i64 %indvars.iv.next8.i, 10
+  br i1 %exitcond10.i, label %_look_for_widget.exit, label %.split.us.i
 
 .split3.us.loopexit.split.loop.exit.i:            ; preds = %.split.us.i
-  %sext = shl i64 %indvars.iv8.i, 32
+  %sext = shl i64 %indvars.iv7.i, 32
   %11 = ashr exact i64 %sext, 32
   br label %_look_for_widget.exit
 
@@ -1940,12 +1936,10 @@ _look_for_widget.exit:                            ; preds = %10, %.split3.us.loo
 
 25:                                               ; preds = %18, %_look_for_widget.exit
   tail call void @gtk_widget_set_focus_on_click(ptr noundef %0, i32 noundef 0) #14
-  %.idx = mul nsw i64 %.us-phi.i, 136
-  %26 = getelementptr i8, ptr %5, i64 56
-  %27 = getelementptr i8, ptr %26, i64 %.idx
-  %28 = load ptr, ptr %27, align 8, !tbaa !169
-  %29 = tail call i32 @gtk_widget_has_focus(ptr noundef %28) #14
-  ret i32 %29
+  %26 = getelementptr %struct.dt_lib_snapshot_t, ptr %5, i64 %.us-phi.i, i32 7
+  %27 = load ptr, ptr %26, align 8, !tbaa !169
+  %28 = tail call i32 @gtk_widget_has_focus(ptr noundef %27) #14
+  ret i32 %28
 }
 
 declare ptr @gtk_label_new(ptr noundef) local_unnamed_addr #3
@@ -1965,51 +1959,49 @@ declare ptr @gtk_entry_new() local_unnamed_addr #3
 define internal void @_entry_activated_callback(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %.split.i
 
-.split.i:                                         ; preds = %11, %2
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %2 ]
-  %6 = mul nuw nsw i64 %indvars.iv.i, 136
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !194
-  %10 = icmp eq ptr %9, %0
-  br i1 %10, label %.split3.us.loopexit12.split.loop.exit.i, label %11
+.split.i:                                         ; preds = %8, %2
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %2 ]
+  %5 = getelementptr inbounds nuw %struct.dt_lib_snapshot_t, ptr %4, i64 %indvars.iv.i, i32 7
+  %6 = load ptr, ptr %5, align 8, !tbaa !194
+  %7 = icmp eq ptr %6, %0
+  br i1 %7, label %.split3.us.loopexit11.split.loop.exit.i, label %8
 
-11:                                               ; preds = %.split.i
+8:                                                ; preds = %.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 10
   br i1 %exitcond.i, label %_look_for_widget.exit, label %.split.i
 
-.split3.us.loopexit12.split.loop.exit.i:          ; preds = %.split.i
+.split3.us.loopexit11.split.loop.exit.i:          ; preds = %.split.i
   %sext = shl i64 %indvars.iv.i, 32
-  %12 = ashr exact i64 %sext, 32
+  %9 = ashr exact i64 %sext, 32
   br label %_look_for_widget.exit
 
-_look_for_widget.exit:                            ; preds = %11, %.split3.us.loopexit12.split.loop.exit.i
-  %.us-phi.i = phi i64 [ %12, %.split3.us.loopexit12.split.loop.exit.i ], [ 0, %11 ]
-  %13 = getelementptr inbounds %struct.dt_lib_snapshot_t, ptr %5, i64 %.us-phi.i
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !169
-  %16 = tail call i64 @gtk_entry_get_type() #15
-  %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #14
-  %18 = tail call ptr @gtk_entry_get_text(ptr noundef %17) #14
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %20 = load ptr, ptr %19, align 8, !tbaa !186
-  %21 = tail call ptr @dt_history_get_name_label(ptr noundef %20, ptr noundef %18, i32 noundef 1) #14
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !168
-  %24 = tail call i64 @gtk_label_get_type() #15
-  %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %23, i64 noundef %24) #14
-  tail call void @gtk_label_set_markup(ptr noundef %25, ptr noundef %21) #14
-  tail call void @g_free(ptr noundef %21) #14
-  %26 = load ptr, ptr %14, align 8, !tbaa !169
-  tail call void @gtk_widget_hide(ptr noundef %26) #14
-  %27 = load ptr, ptr %22, align 8, !tbaa !168
-  tail call void @gtk_widget_show(ptr noundef %27) #14
-  %28 = load ptr, ptr %13, align 8, !tbaa !161
-  tail call void @gtk_widget_grab_focus(ptr noundef %28) #14
+_look_for_widget.exit:                            ; preds = %8, %.split3.us.loopexit11.split.loop.exit.i
+  %.us-phi.i = phi i64 [ %9, %.split3.us.loopexit11.split.loop.exit.i ], [ 0, %8 ]
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %11 = getelementptr inbounds %struct.dt_lib_snapshot_t, ptr %10, i64 %.us-phi.i
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %13 = load ptr, ptr %12, align 8, !tbaa !169
+  %14 = tail call i64 @gtk_entry_get_type() #15
+  %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %14) #14
+  %16 = tail call ptr @gtk_entry_get_text(ptr noundef %15) #14
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %18 = load ptr, ptr %17, align 8, !tbaa !186
+  %19 = tail call ptr @dt_history_get_name_label(ptr noundef %18, ptr noundef %16, i32 noundef 1) #14
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !168
+  %22 = tail call i64 @gtk_label_get_type() #15
+  %23 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef %22) #14
+  tail call void @gtk_label_set_markup(ptr noundef %23, ptr noundef %19) #14
+  tail call void @g_free(ptr noundef %19) #14
+  %24 = load ptr, ptr %12, align 8, !tbaa !169
+  tail call void @gtk_widget_hide(ptr noundef %24) #14
+  %25 = load ptr, ptr %20, align 8, !tbaa !168
+  tail call void @gtk_widget_show(ptr noundef %25) #14
+  %26 = load ptr, ptr %11, align 8, !tbaa !161
+  tail call void @gtk_widget_grab_focus(ptr noundef %26) #14
   ret void
 }
 

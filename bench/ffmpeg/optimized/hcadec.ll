@@ -915,21 +915,18 @@ define internal noundef i32 @decode_close(ptr noundef readonly captures(none) %0
 define internal void @decode_flush(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %6
+  br label %5
 
-5:                                                ; preds = %6
+4:                                                ; preds = %5
   ret void
 
-6:                                                ; preds = %1, %6
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = mul nuw nsw i64 %indvars.iv, 2848
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2048
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %9, i8 0, i64 512, i1 false)
+5:                                                ; preds = %1, %5
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
+  %6 = getelementptr inbounds nuw %struct.ChannelContext, ptr %3, i64 %indvars.iv, i32 4, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !87
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !87
 }
 
 declare ptr @avpriv_float_dsp_alloc(i32 noundef) local_unnamed_addr #3

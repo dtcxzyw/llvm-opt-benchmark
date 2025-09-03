@@ -2415,13 +2415,13 @@ define void @_ZN6icu_7713LikelySubtagsC2ERNS_17LikelySubtagsDataE(ptr noundef no
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 232
   invoke void @_ZN6icu_7718LocaleDistanceDataC1EOS0_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %23)
-          to label %24 unwind label %63
+          to label %24 unwind label %62
 
 24:                                               ; preds = %2
   store ptr null, ptr %1, align 8, !tbaa !45
   store ptr null, ptr %20, align 8, !tbaa !93
   %25 = invoke noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %13, i32 noundef 42)
-          to label %26 unwind label %65
+          to label %26 unwind label %64
 
 26:                                               ; preds = %24
   %27 = load i32, ptr %18, align 8, !tbaa !116
@@ -2437,7 +2437,7 @@ define void @_ZN6icu_7713LikelySubtagsC2ERNS_17LikelySubtagsDataE(ptr noundef no
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %36, ptr %37, align 8, !tbaa !118
   %38 = invoke noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %13, i32 noundef 42)
-          to label %39 unwind label %65
+          to label %39 unwind label %64
 
 39:                                               ; preds = %26
   %40 = load i32, ptr %18, align 8, !tbaa !116
@@ -2453,7 +2453,7 @@ define void @_ZN6icu_7713LikelySubtagsC2ERNS_17LikelySubtagsDataE(ptr noundef no
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %49, ptr %50, align 8, !tbaa !119
   %51 = invoke noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %13, i32 noundef 42)
-          to label %52 unwind label %65
+          to label %52 unwind label %64
 
 52:                                               ; preds = %39
   %53 = load ptr, ptr %17, align 8, !tbaa !115
@@ -2462,7 +2462,7 @@ define void @_ZN6icu_7713LikelySubtagsC2ERNS_17LikelySubtagsDataE(ptr noundef no
   %56 = lshr i8 %55, 1
   %57 = zext nneg i8 %56 to i32
   %58 = invoke noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %54, i32 noundef %57)
-          to label %_ZNK6icu_779BytesTrie8getValueEv.exit unwind label %65
+          to label %_ZNK6icu_779BytesTrie8getValueEv.exit unwind label %64
 
 _ZNK6icu_779BytesTrie8getValueEv.exit:            ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2470,67 +2470,66 @@ _ZNK6icu_779BytesTrie8getValueEv.exit:            ; preds = %52
   %60 = load ptr, ptr %16, align 8, !tbaa !114
   store ptr %60, ptr %17, align 8, !tbaa !115
   store i32 -1, ptr %18, align 8, !tbaa !116
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %67
+  br label %66
 
-62:                                               ; preds = %86
+61:                                               ; preds = %85
   ret void
 
-63:                                               ; preds = %2
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  br label %88
-
-65:                                               ; preds = %52, %39, %26, %24
-  %66 = landingpad { ptr, i32 }
+62:                                               ; preds = %2
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %87
 
-67:                                               ; preds = %_ZNK6icu_779BytesTrie8getValueEv.exit, %86
-  %indvars.iv = phi i64 [ 97, %_ZNK6icu_779BytesTrie8getValueEv.exit ], [ %indvars.iv.next, %86 ]
-  %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = invoke noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %13, i32 noundef %68)
-          to label %70 unwind label %84
-
-70:                                               ; preds = %67
-  %71 = icmp eq i32 %69, 1
-  %.pre = load ptr, ptr %16, align 8, !tbaa !114
-  br i1 %71, label %72, label %86
-
-72:                                               ; preds = %70
-  %73 = load i32, ptr %18, align 8, !tbaa !116
-  %74 = add nsw i32 %73, 2
-  %75 = zext i32 %74 to i64
-  %76 = shl i64 %75, 59
-  %77 = load ptr, ptr %17, align 8, !tbaa !115
-  %78 = ptrtoint ptr %77 to i64
-  %79 = ptrtoint ptr %.pre to i64
-  %80 = sub i64 %78, %79
-  %81 = or i64 %80, %76
-  %82 = getelementptr i64, ptr %61, i64 %indvars.iv
-  %83 = getelementptr i8, ptr %82, i64 -776
-  store i64 %81, ptr %83, align 8, !tbaa !121
+64:                                               ; preds = %52, %39, %26, %24
+  %65 = landingpad { ptr, i32 }
+          cleanup
   br label %86
 
-84:                                               ; preds = %67
-  %85 = landingpad { ptr, i32 }
-          cleanup
-  br label %87
+66:                                               ; preds = %_ZNK6icu_779BytesTrie8getValueEv.exit, %85
+  %indvars.iv = phi i64 [ 97, %_ZNK6icu_779BytesTrie8getValueEv.exit ], [ %indvars.iv.next, %85 ]
+  %67 = trunc nuw nsw i64 %indvars.iv to i32
+  %68 = invoke noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %13, i32 noundef %67)
+          to label %69 unwind label %83
 
-86:                                               ; preds = %72, %70
+69:                                               ; preds = %66
+  %70 = icmp eq i32 %68, 1
+  %.pre = load ptr, ptr %16, align 8, !tbaa !114
+  br i1 %70, label %71, label %85
+
+71:                                               ; preds = %69
+  %72 = load i32, ptr %18, align 8, !tbaa !116
+  %73 = add nsw i32 %72, 2
+  %74 = zext i32 %73 to i64
+  %75 = shl i64 %74, 59
+  %76 = load ptr, ptr %17, align 8, !tbaa !115
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %.pre to i64
+  %79 = sub i64 %77, %78
+  %80 = or i64 %79, %75
+  %81 = getelementptr i64, ptr %0, i64 %indvars.iv
+  %82 = getelementptr i8, ptr %81, i64 -688
+  store i64 %80, ptr %82, align 8, !tbaa !121
+  br label %85
+
+83:                                               ; preds = %66
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  br label %86
+
+85:                                               ; preds = %71, %69
   store ptr %.pre, ptr %17, align 8, !tbaa !115
   store i32 -1, ptr %18, align 8, !tbaa !116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 123
-  br i1 %exitcond.not, label %62, label %67, !llvm.loop !122
+  br i1 %exitcond.not, label %61, label %66, !llvm.loop !122
 
-87:                                               ; preds = %84, %65
-  %.pn = phi { ptr, i32 } [ %85, %84 ], [ %66, %65 ]
+86:                                               ; preds = %83, %64
+  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %65, %64 ]
   tail call void @_ZN6icu_7718LocaleDistanceDataD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #17
-  br label %88
+  br label %87
 
-88:                                               ; preds = %87, %63
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %87 ], [ %64, %63 ]
+87:                                               ; preds = %86, %62
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %86 ], [ %63, %62 ]
   tail call void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %13) #17
   tail call void @_ZN6icu_7713CharStringMapD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
   tail call void @_ZN6icu_7713CharStringMapD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17

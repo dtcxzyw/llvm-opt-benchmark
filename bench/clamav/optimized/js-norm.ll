@@ -3369,8 +3369,8 @@ state_update_scope.exit.thread:                   ; preds = %69, %.thread.i, %ou
   br i1 %415, label %.preheader.i24.preheader, label %416
 
 416:                                              ; preds = %._crit_edge
-  %417 = getelementptr inbounds nuw i8, ptr %24, i64 %414
-  %418 = getelementptr inbounds i8, ptr %417, i64 -9
+  %417 = getelementptr inbounds nuw i8, ptr %4, i64 %414
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %418, ptr noundef nonnull dereferenceable(9) @.str.5, i64 9)
   %.not16 = icmp eq i32 %bcmp, 0
   br i1 %.not16, label %buf_outs.exit47, label %.preheader.i24.preheader

@@ -30,6 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.elapsedTimer = type <{ i64, i64, i8, [7 x i8] }>
 %class.BootstrapInfo = type { [8 x i8], %class.constantPoolHandle, i32, i32, i32, ptr, ptr, %class.Handle, %class.Handle, %class.Handle, %class.Handle, i8, %class.Handle, %class.methodHandle, %class.Handle }
 %class.constantPoolHandle = type { ptr, ptr }
+%class.ResolvedIndyEntry = type { ptr, i16, i16, i16, i8, i8 }
 %class.ResolvedMethodEntry = type { ptr, %union.anon.4, i16, i16, i8, i8, i8, i8 }
 %union.anon.4 = type { ptr }
 
@@ -6402,9 +6403,8 @@ _ZN19PerfTraceTimedEventC2EP15PerfLongCounterS1_.exit: ; preds = %_ZN13PerfTrace
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %2 to i64
-  %.idx = shl nsw i64 %29, 4
-  %30 = getelementptr i8, ptr %28, i64 18
-  %31 = getelementptr i8, ptr %30, i64 %.idx
+  %30 = getelementptr %class.ResolvedIndyEntry, ptr %28, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 18
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i32
   call void @_ZN13BootstrapInfoC1ERK18constantPoolHandleii(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %33, i32 noundef %2) #11

@@ -21,15 +21,15 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.std::tuple.1244" = type { %"struct.std::_Tuple_impl.1245" }
-%"struct.std::_Tuple_impl.1245" = type { %"struct.std::_Head_base.1246" }
-%"struct.std::_Head_base.1246" = type { ptr }
-%"class.std::tuple.1247" = type { i8 }
 %"struct.cmCTest::Private::PartInfo" = type { %"class.std::vector", i8, %"class.std::__cxx11::basic_string" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::tuple.1244" = type { %"struct.std::_Tuple_impl.1245" }
+%"struct.std::_Tuple_impl.1245" = type { %"struct.std::_Head_base.1246" }
+%"struct.std::_Head_base.1246" = type { ptr }
+%"class.std::tuple.1247" = type { i8 }
 %"class.cmsys::Status" = type { i32, %union.anon.31 }
 %union.anon.31 = type { i32 }
 %"class.std::basic_ofstream" = type { %"class.std::basic_ostream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
@@ -5871,9 +5871,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186: ; preds = %_Z
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ]
   %277 = load ptr, ptr %0, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %.idx = shl nuw nsw i64 %indvars.iv, 6
-  %278 = getelementptr inbounds nuw i8, ptr %277, i64 696
-  %279 = getelementptr inbounds nuw i8, ptr %278, i64 %.idx
+  %278 = getelementptr inbounds nuw %"struct.cmCTest::Private::PartInfo", ptr %277, i64 %indvars.iv
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 696
   invoke void @_ZN5cmsys11SystemTools9LowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %279)
           to label %280 unwind label %291
 
@@ -12873,17 +12872,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %17 = load ptr, ptr %0, align 8, !tbaa !121
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 688
-  br label %19
+  br label %18
 
-19:                                               ; preds = %.preheader, %19
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %.idx29 = shl nuw nsw i64 %indvars.iv, 6
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx29
+18:                                               ; preds = %.preheader, %18
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %18 ]
+  %19 = getelementptr inbounds nuw %"struct.cmCTest::Private::PartInfo", ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 688
   store i8 1, ptr %20, align 8, !tbaa !367
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not17 = icmp eq i64 %indvars.iv.next, 12
-  br i1 %.not17, label %.loopexit, label %19, !llvm.loop !369
+  br i1 %.not17, label %.loopexit, label %18, !llvm.loop !369
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %22 = call noundef i32 @_ZN7cmCTest15GetPartFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -12893,9 +12891,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 23:                                               ; preds = %21
   %24 = load ptr, ptr %0, align 8, !tbaa !121
   %25 = zext i32 %22 to i64
-  %.idx = shl nuw nsw i64 %25, 6
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 688
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
+  %26 = getelementptr inbounds nuw %"struct.cmCTest::Private::PartInfo", ptr %24, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 688
   store i8 1, ptr %27, align 8, !tbaa !367
   br label %.loopexit
 
@@ -13108,8 +13105,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
-.loopexit:                                        ; preds = %19, %23, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %28
-  %.0 = phi i1 [ false, %28 ], [ false, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ true, %23 ], [ true, %19 ]
+.loopexit:                                        ; preds = %18, %23, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %28
+  %.0 = phi i1 [ false, %28 ], [ false, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ true, %23 ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -83897,17 +83894,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
 
 .preheader.i.i.i.i:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i
   %20 = load ptr, ptr %9, align 8, !tbaa !121
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 688
-  br label %22
+  br label %21
 
-22:                                               ; preds = %22, %.preheader.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %22 ]
-  %.idx29.i.i.i.i = shl nuw nsw i64 %indvars.iv.i.i.i.i, 6
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx29.i.i.i.i
+21:                                               ; preds = %21, %.preheader.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %21 ]
+  %22 = getelementptr inbounds nuw %"struct.cmCTest::Private::PartInfo", ptr %20, i64 %indvars.iv.i.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 688
   store i8 1, ptr %23, align 8, !tbaa !367
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %.not17.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 12
-  br i1 %.not17.i.i.i.i, label %.loopexit.i.i.i, label %22, !llvm.loop !369
+  br i1 %.not17.i.i.i.i, label %.loopexit.i.i.i, label %21, !llvm.loop !369
 
 24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i
   %25 = call noundef i32 @_ZN7cmCTest15GetPartFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -83917,9 +83913,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %9, align 8, !tbaa !121
   %28 = zext i32 %25 to i64
-  %.idx.i.i.i.i = shl nuw nsw i64 %28, 6
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 688
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i
+  %29 = getelementptr inbounds nuw %"struct.cmCTest::Private::PartInfo", ptr %27, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 688
   store i8 1, ptr %30, align 8, !tbaa !367
   br label %.loopexit.i.i.i
 
@@ -84490,7 +84485,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i96
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %294
 
-.loopexit.i.i.i:                                  ; preds = %22, %26
+.loopexit.i.i.i:                                  ; preds = %21, %26
   %292 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %293 = load ptr, ptr %292, align 8, !tbaa !3025
   store i8 1, ptr %293, align 1, !tbaa !172

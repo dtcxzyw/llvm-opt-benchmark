@@ -10963,12 +10963,12 @@ define internal fastcc noundef zeroext i1 @_ZL29checkTypeParamListConsistencyRN5
 
 136:                                              ; preds = %4
   %137 = icmp ugt i32 %54, %52
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br i1 %137, label %139, label %144
+  br i1 %137, label %138, label %144
 
-139:                                              ; preds = %136
+138:                                              ; preds = %136
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %140 = zext i32 %52 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %138, i64 %140
+  %141 = getelementptr inbounds nuw ptr, ptr %139, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !1231
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %143, align 8, !tbaa !23
@@ -10976,8 +10976,8 @@ define internal fastcc noundef zeroext i1 @_ZL29checkTypeParamListConsistencyRN5
 
 144:                                              ; preds = %136
   %145 = zext i32 %54 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %138, i64 %145
-  %147 = getelementptr inbounds i8, ptr %146, i64 -8
+  %146 = getelementptr inbounds nuw ptr, ptr %2, i64 %145
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8, !tbaa !1231
   %149 = load ptr, ptr %148, align 8, !tbaa !28
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
@@ -10988,8 +10988,8 @@ define internal fastcc noundef zeroext i1 @_ZL29checkTypeParamListConsistencyRN5
   %153 = tail call i32 @_ZN5clang4Sema19getLocForEndOfTokenENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %.sroa.3.0.extract.trunc.i, i32 noundef 0) #22
   br label %154
 
-154:                                              ; preds = %144, %139
-  %storemerge = phi i32 [ %153, %144 ], [ %.sroa.0.0.copyload.i, %139 ]
+154:                                              ; preds = %144, %138
+  %storemerge = phi i32 [ %153, %144 ], [ %.sroa.0.0.copyload.i, %138 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %30, ptr noundef nonnull align 8 dereferenceable(8) %155, i32 %storemerge, i32 noundef 4113, i1 noundef zeroext false) #22

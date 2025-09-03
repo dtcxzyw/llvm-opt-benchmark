@@ -2787,14 +2787,13 @@ declare noundef ptr @_ZN5clang8CaseStmt6CreateERKNS_10ASTContextEPNS_4ExprES5_NS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN5clang4Sema17ActOnCaseStmtBodyEPNS_4StmtES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17504) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #8 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i16, ptr %1, align 8
-  %6 = lshr i16 %5, 9
-  %.lobit.i.i.i = and i16 %6, 1
-  %7 = zext nneg i16 %.lobit.i.i.i to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %2, ptr %9, align 8, !tbaa !791
+  %4 = load i16, ptr %1, align 8
+  %5 = lshr i16 %4, 9
+  %.lobit.i.i.i = and i16 %5, 1
+  %6 = zext nneg i16 %.lobit.i.i.i to i64
+  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %2, ptr %8, align 8, !tbaa !791
   ret void
 }
 

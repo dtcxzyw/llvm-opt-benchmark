@@ -866,37 +866,36 @@ select_getanyfile.exit:                           ; preds = %2
   %.not1421 = icmp eq ptr %20, null
   br i1 %.not1421, label %._crit_edge25, label %.lr.ph24
 
-.lr.ph24:                                         ; preds = %._crit_edge, %28
-  %.11322 = phi ptr [ %30, %28 ], [ %20, %._crit_edge ]
+.lr.ph24:                                         ; preds = %._crit_edge, %27
+  %.11322 = phi ptr [ %29, %27 ], [ %20, %._crit_edge ]
   %21 = getelementptr inbounds nuw i8, ptr %.11322, i64 152
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 1
   %.not15 = icmp eq i8 %23, 0
-  br i1 %.not15, label %28, label %24
+  br i1 %.not15, label %27, label %24
 
 24:                                               ; preds = %.lr.ph24
-  %25 = getelementptr inbounds nuw i8, ptr %.11322, i64 248
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %6
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 6
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.94, ptr noundef nonnull %27) #19
-  br label %28
+  %25 = getelementptr inbounds nuw i8, ptr %.11322, i64 %6
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 254
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.94, ptr noundef nonnull %26) #19
+  br label %27
 
-28:                                               ; preds = %.lr.ph24, %24
-  %29 = getelementptr inbounds nuw i8, ptr %.11322, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !39
-  %.not14 = icmp eq ptr %30, null
+27:                                               ; preds = %.lr.ph24, %24
+  %28 = getelementptr inbounds nuw i8, ptr %.11322, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !39
+  %.not14 = icmp eq ptr %29, null
   br i1 %.not14, label %._crit_edge25, label %.lr.ph24, !llvm.loop !42
 
-._crit_edge25:                                    ; preds = %28, %._crit_edge
-  %31 = load i64, ptr %3, align 8, !tbaa !43
-  %.not.i.i = icmp eq i64 %31, 0
+._crit_edge25:                                    ; preds = %27, %._crit_edge
+  %30 = load i64, ptr %3, align 8, !tbaa !43
+  %.not.i.i = icmp eq i64 %30, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %._crit_edge25
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !15
-  %.neg.i = add i64 %33, 1
-  %.not.i17 = icmp eq i64 %31, %.neg.i
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %32 = load i64, ptr %31, align 8, !tbaa !15
+  %.neg.i = add i64 %32, 1
+  %.not.i17 = icmp eq i64 %30, %.neg.i
   br i1 %.not.i17, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
 strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %._crit_edge25
@@ -908,33 +907,33 @@ strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %strbuf_avail.exit.thread.i
   %.pre-phi.i = phi i64 [ %.pre7.i, %strbuf_avail.exit.thread.i ], [ %.neg.i, %strbuf_avail.exit.i ]
-  %34 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %33, %strbuf_avail.exit.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !12
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.pre-phi.i, ptr %37, align 8, !tbaa !15
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %34
-  store i8 10, ptr %38, align 1, !tbaa !4
-  %39 = load ptr, ptr %35, align 8, !tbaa !12
-  %40 = load i64, ptr %37, align 8, !tbaa !15
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
-  store i8 0, ptr %41, align 1, !tbaa !4
+  %33 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %32, %strbuf_avail.exit.i ]
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !12
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %.pre-phi.i, ptr %36, align 8, !tbaa !15
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %33
+  store i8 10, ptr %37, align 1, !tbaa !4
+  %38 = load ptr, ptr %34, align 8, !tbaa !12
+  %39 = load i64, ptr %36, align 8, !tbaa !15
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
+  store i8 0, ptr %40, align 1, !tbaa !4
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #19
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #19
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #19
-  %42 = load i64, ptr %37, align 8, !tbaa !15
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.50, ptr noundef nonnull @content_length, i64 noundef %42) #19
+  %41 = load i64, ptr %36, align 8, !tbaa !15
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.50, ptr noundef nonnull @content_length, i64 noundef %41) #19
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @content_type, ptr noundef nonnull @.str.95) #19
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull @.str.23, i64 noundef 2) #19
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !12
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !15
-  call void @write_or_die(i32 noundef 1, ptr noundef %44, i64 noundef %46) #19
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !15
+  call void @write_or_die(i32 noundef 1, ptr noundef %43, i64 noundef %45) #19
   call void @strbuf_release(ptr noundef %0) #19
-  %47 = load ptr, ptr %35, align 8, !tbaa !12
-  %48 = load i64, ptr %37, align 8, !tbaa !15
-  call void @write_or_die(i32 noundef 1, ptr noundef %47, i64 noundef %48) #19
+  %46 = load ptr, ptr %34, align 8, !tbaa !12
+  %47 = load i64, ptr %36, align 8, !tbaa !15
+  call void @write_or_die(i32 noundef 1, ptr noundef %46, i64 noundef %47) #19
   call void @strbuf_release(ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

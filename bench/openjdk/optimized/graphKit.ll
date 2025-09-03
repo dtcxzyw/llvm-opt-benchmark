@@ -13645,7 +13645,7 @@ define hidden noundef ptr @_ZN8GraphKit40record_profiled_receiver_for_speculatio
   %3 = alloca %class.ciCallProfile, align 8
   %4 = load i8, ptr @UseTypeSpeculation, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %125
+  br i1 %5, label %6, label %124
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -13843,37 +13843,36 @@ _ZNK8GraphKit7java_bcEv.exit33._crit_edge:        ; preds = %_ZNK8GraphKit7java_
 
 .lr.ph:                                           ; preds = %105
   %112 = load ptr, ptr %100, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  br label %114
+  br label %113
 
-114:                                              ; preds = %.lr.ph, %120
-  %.01439 = phi i32 [ 0, %.lr.ph ], [ %121, %120 ]
-  %115 = shl i32 %.01439, 1
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr i64, ptr %113, i64 %116
-  %118 = getelementptr i8, ptr %117, i64 8
-  %119 = load i64, ptr %118, align 8
-  %.not17 = icmp eq i64 %119, 0
-  br i1 %.not17, label %120, label %._crit_edge.loopexit
+113:                                              ; preds = %.lr.ph, %119
+  %.01439 = phi i32 [ 0, %.lr.ph ], [ %120, %119 ]
+  %114 = shl i32 %.01439, 1
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr i64, ptr %112, i64 %115
+  %117 = getelementptr i8, ptr %116, i64 16
+  %118 = load i64, ptr %117, align 8
+  %.not17 = icmp eq i64 %118, 0
+  br i1 %.not17, label %119, label %._crit_edge.loopexit
 
-120:                                              ; preds = %114
-  %121 = add nuw i32 %.01439, 1
-  %exitcond.not = icmp eq i32 %121, %111
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %114, !llvm.loop !37
+119:                                              ; preds = %113
+  %120 = add nuw i32 %.01439, 1
+  %exitcond.not = icmp eq i32 %120, %111
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %113, !llvm.loop !37
 
-._crit_edge.loopexit:                             ; preds = %114, %120
-  %.014.lcssa.ph = phi i32 [ %111, %120 ], [ %.01439, %114 ]
-  %122 = icmp eq i32 %.014.lcssa.ph, %111
-  %123 = select i1 %122, i32 0, i32 2
+._crit_edge.loopexit:                             ; preds = %113, %119
+  %.014.lcssa.ph = phi i32 [ %111, %119 ], [ %.01439, %113 ]
+  %121 = icmp eq i32 %.014.lcssa.ph, %111
+  %122 = select i1 %121, i32 0, i32 2
   br label %_ZNK8GraphKit7java_bcEv.exit33.thread
 
 _ZNK8GraphKit7java_bcEv.exit33.thread:            ; preds = %105, %._crit_edge.loopexit, %_ZNK8GraphKit7java_bcEv.exit26.thread, %95, %90, %84, %_ZNK8GraphKit7java_bcEv.exit33
-  %.015 = phi i32 [ 2, %90 ], [ 2, %84 ], [ 2, %_ZNK8GraphKit7java_bcEv.exit33 ], [ 1, %95 ], [ 2, %_ZNK8GraphKit7java_bcEv.exit26.thread ], [ 0, %105 ], [ %123, %._crit_edge.loopexit ]
-  %124 = call noundef ptr @_ZN8GraphKit30record_profile_for_speculationEP4NodeP7ciKlass14ProfilePtrKind(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %.0.i, i32 noundef %.015)
-  br label %125
+  %.015 = phi i32 [ 2, %90 ], [ 2, %84 ], [ 2, %_ZNK8GraphKit7java_bcEv.exit33 ], [ 1, %95 ], [ 2, %_ZNK8GraphKit7java_bcEv.exit26.thread ], [ 0, %105 ], [ %122, %._crit_edge.loopexit ]
+  %123 = call noundef ptr @_ZN8GraphKit30record_profile_for_speculationEP4NodeP7ciKlass14ProfilePtrKind(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %.0.i, i32 noundef %.015)
+  br label %124
 
-125:                                              ; preds = %2, %_ZNK8GraphKit7java_bcEv.exit33.thread
-  %.0 = phi ptr [ %124, %_ZNK8GraphKit7java_bcEv.exit33.thread ], [ %1, %2 ]
+124:                                              ; preds = %2, %_ZNK8GraphKit7java_bcEv.exit33.thread
+  %.0 = phi ptr [ %123, %_ZNK8GraphKit7java_bcEv.exit33.thread ], [ %1, %2 ]
   ret ptr %.0
 }
 

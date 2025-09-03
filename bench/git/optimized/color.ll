@@ -153,11 +153,9 @@ define dso_local range(i32 -1, 1) i32 @color_parse_mem(ptr noundef %0, i32 nound
   br i1 %28, label %.lr.ph256.preheader, label %.critedge4
 
 .lr.ph256.preheader:                              ; preds = %.critedge2
-  %scevgep308 = getelementptr i8, ptr %.193275, i64 1
-  %29 = getelementptr i8, ptr %scevgep308, i64 %26
+  %29 = getelementptr i8, ptr %.193275, i64 %26
   %30 = zext nneg i32 %.2104252 to i64
   %31 = getelementptr i8, ptr %29, i64 %30
-  %scevgep309 = getelementptr i8, ptr %31, i64 -1
   br label %.lr.ph256
 
 .lr.ph256:                                        ; preds = %.lr.ph256.preheader, %37
@@ -181,7 +179,7 @@ define dso_local range(i32 -1, 1) i32 @color_parse_mem(ptr noundef %0, i32 nound
   %41 = phi i64 [ %26, %.critedge2 ], [ %24, %.critedge2.thread ], [ %26, %37 ], [ %26, %.lr.ph256 ]
   %.087.lcssa.in334 = phi i64 [ %indvars.iv, %.critedge2 ], [ %indvars.iv.next, %.critedge2.thread ], [ %indvars.iv, %37 ], [ %indvars.iv, %.lr.ph256 ]
   %.3105.lcssa = phi i32 [ %.2104252, %.critedge2 ], [ 0, %.critedge2.thread ], [ %.3105254, %.lr.ph256 ], [ 0, %37 ]
-  %.294.lcssa = phi ptr [ %27, %.critedge2 ], [ %25, %.critedge2.thread ], [ %.294255, %.lr.ph256 ], [ %scevgep309, %37 ]
+  %.294.lcssa = phi ptr [ %27, %.critedge2 ], [ %25, %.critedge2.thread ], [ %.294255, %.lr.ph256 ], [ %31, %37 ]
   %.087.lcssa335 = trunc i64 %.087.lcssa.in334 to i32
   %42 = tail call i32 @strncasecmp(ptr noundef readonly %.193275, ptr noundef nonnull @.str.13, i64 noundef %41) #14
   %.not.i = icmp eq i32 %42, 0

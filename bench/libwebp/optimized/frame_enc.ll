@@ -7,6 +7,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.VP8EncIterator = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [37 x i8], ptr, i32, [9 x i32], [9 x i32], [4 x [3 x i64]], i64, i64, ptr, i32, i32, i32, i32, [2 x [2 x i8]], ptr, ptr, ptr, ptr, ptr, ptr, [88 x i8], [3359 x i8] }
 %struct.VP8ModeScore = type { i64, i64, i64, i64, i64, [16 x i16], [16 x [16 x i16]], [8 x [16 x i16]], i32, [16 x i8], i32, i32, [2 x [3 x i8]] }
 %struct.VP8BitWriter = type { i32, i32, i32, i32, ptr, i64, i64, i32 }
+%struct.VP8SegmentInfo = type { %struct.VP8Matrix, %struct.VP8Matrix, %struct.VP8Matrix, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
+%struct.VP8Matrix = type { [16 x i16], [16 x i16], [16 x i32], [16 x i32], [16 x i16] }
 %struct.VP8MBInfo = type { i8, i8, [2 x i8] }
 
 @VP8Cat3 = hidden local_unnamed_addr constant [3 x i8] c"\AD\94\8C", align 1
@@ -911,9 +913,8 @@ define internal fastcc void @StoreSideInfo(ptr noundef nonnull readonly captures
   %84 = lshr i8 %83, 5
   %85 = and i8 %84, 3
   %86 = zext nneg i8 %85 to i64
-  %.idx = mul nuw nsw i64 %86, 744
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 1288
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx
+  %87 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %3, i64 %86
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1288
   %89 = load i32, ptr %88, align 8, !tbaa !96
   %90 = trunc i32 %89 to i8
   br label %.sink.split

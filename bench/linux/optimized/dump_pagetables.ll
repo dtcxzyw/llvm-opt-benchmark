@@ -970,31 +970,30 @@ define internal void @note_page(ptr noundef captures(none) %0, i64 noundef %1, i
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal void @effective_prot(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) #5 align 16 {
   %4 = icmp sgt i32 %1, 0
-  br i1 %4, label %5, label %16
+  br i1 %4, label %5, label %15
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr i64, ptr %6, i64 %7
-  %9 = getelementptr i8, ptr %8, i64 -8
-  %10 = load i64, ptr %9, align 8
-  %11 = and i64 %2, 6
-  %12 = and i64 %11, %10
-  %13 = or i64 %10, %2
-  %14 = and i64 %13, -9223372036854775808
-  %15 = or disjoint i64 %14, %12
-  br label %18
+  %6 = zext nneg i32 %1 to i64
+  %7 = getelementptr i64, ptr %0, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 40
+  %9 = load i64, ptr %8, align 8
+  %10 = and i64 %2, 6
+  %11 = and i64 %10, %9
+  %12 = or i64 %9, %2
+  %13 = and i64 %12, -9223372036854775808
+  %14 = or disjoint i64 %13, %11
+  br label %17
 
-16:                                               ; preds = %3
-  %17 = and i64 %2, -4503599627366401
-  br label %18
+15:                                               ; preds = %3
+  %16 = and i64 %2, -4503599627366401
+  br label %17
 
-18:                                               ; preds = %16, %5
-  %19 = phi i64 [ %15, %5 ], [ %17, %16 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = sext i32 %1 to i64
-  %22 = getelementptr i64, ptr %20, i64 %21
-  store i64 %19, ptr %22, align 8
+17:                                               ; preds = %15, %5
+  %18 = phi i64 [ %14, %5 ], [ %16, %15 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %20 = sext i32 %1 to i64
+  %21 = getelementptr i64, ptr %19, i64 %20
+  store i64 %18, ptr %21, align 8
   ret void
 }
 

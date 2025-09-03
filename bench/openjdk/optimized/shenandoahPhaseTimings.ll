@@ -479,8 +479,8 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %32
-  %33 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv164
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv164
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 27832
   store ptr %13, ptr %34, align 8
   %35 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
   %36 = load i32, ptr %0, align 8
@@ -533,7 +533,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84:     ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i88, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89:         ; preds = %54
-  %55 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %33, i64 27840
   store ptr %35, ptr %55, align 8
   %56 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
   %57 = load i32, ptr %0, align 8
@@ -586,7 +586,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94:     ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i98, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99:         ; preds = %75
-  %76 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %33, i64 27848
   store ptr %56, ptr %76, align 8
   %77 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
   %78 = load i32, ptr %0, align 8
@@ -639,7 +639,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104:    ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i108, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109:        ; preds = %96
-  %97 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %33, i64 27856
   store ptr %77, ptr %97, align 8
   %98 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
   %99 = load i32, ptr %0, align 8
@@ -692,7 +692,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114:    ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i118, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119:        ; preds = %117
-  %118 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %33, i64 27864
   store ptr %98, ptr %118, align 8
   %119 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
   %120 = load i32, ptr %0, align 8
@@ -745,7 +745,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124:    ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i128, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129:        ; preds = %138
-  %139 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  %139 = getelementptr inbounds nuw i8, ptr %33, i64 27872
   store ptr %119, ptr %139, align 8
   %140 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
   %141 = load i32, ptr %0, align 8
@@ -798,7 +798,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134:    ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i138, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139:        ; preds = %159
-  %160 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  %160 = getelementptr inbounds nuw i8, ptr %33, i64 27880
   store ptr %140, ptr %160, align 8
   %161 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
   %162 = load i32, ptr %0, align 8
@@ -851,7 +851,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144:    ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i148, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149:        ; preds = %180
-  %181 = getelementptr inbounds nuw i8, ptr %33, i64 72
+  %181 = getelementptr inbounds nuw i8, ptr %33, i64 27888
   store ptr %161, ptr %181, align 8
   %182 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
   %183 = load i32, ptr %0, align 8
@@ -904,7 +904,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154:    ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i158, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159:        ; preds = %201
-  %202 = getelementptr inbounds nuw i8, ptr %33, i64 80
+  %202 = getelementptr inbounds nuw i8, ptr %33, i64 27896
   store ptr %182, ptr %202, align 8
   br label %203
 
@@ -1029,56 +1029,52 @@ define hidden void @_ZN22ShenandoahPhaseTimings20record_workers_startENS_5PhaseE
   %3 = icmp eq i32 %1, 305
   br i1 %3, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 27816
-  br label %5
-
-5:                                                ; preds = %.preheader, %_ZN15WorkerDataArrayIdE5resetEv.exit
-  %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %_ZN15WorkerDataArrayIdE5resetEv.exit ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2448
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i32, ptr %10, align 8
-  %.not.i.i = icmp eq i32 %11, 0
+.preheader:                                       ; preds = %2, %_ZN15WorkerDataArrayIdE5resetEv.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN15WorkerDataArrayIdE5resetEv.exit ], [ 1, %2 ]
+  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 30264
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = load i32, ptr %8, align 8
+  %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %5, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %5 ]
-  %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i.i
-  store double %9, ptr %13, align 8
+.lr.ph.i.i:                                       ; preds = %.preheader, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader ]
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i.i
+  store double %7, ptr %11, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %14 = load i32, ptr %10, align 8
-  %15 = zext i32 %14 to i64
-  %16 = icmp samesign ult i64 %indvars.iv.next.i.i, %15
-  br i1 %16, label %.lr.ph.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i, !llvm.loop !8
+  %12 = load i32, ptr %8, align 8
+  %13 = zext i32 %12 to i64
+  %14 = icmp samesign ult i64 %indvars.iv.next.i.i, %13
+  br i1 %14, label %.lr.ph.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i, !llvm.loop !8
 
-_ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %5
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  br label %18
+_ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %.preheader
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  br label %16
 
-18:                                               ; preds = %22, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i
-  %indvars.iv.i = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i ], [ %indvars.iv.next.i, %22 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
-  %20 = load ptr, ptr %19, align 8
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %22, label %21
+16:                                               ; preds = %20, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i
+  %indvars.iv.i = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i ], [ %indvars.iv.next.i, %20 ]
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %18 = load ptr, ptr %17, align 8
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %20, label %19
 
-21:                                               ; preds = %18
-  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %20)
-  br label %22
+19:                                               ; preds = %16
+  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %18)
+  br label %20
 
-22:                                               ; preds = %21, %18
+20:                                               ; preds = %19, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %18, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %16, !llvm.loop !9
 
-_ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %22
+_ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZN15WorkerDataArrayIdE5resetEv.exit, %2
   ret void
@@ -1092,96 +1088,95 @@ define hidden void @_ZN22ShenandoahPhaseTimings18record_workers_endENS_5PhaseE(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(30352) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 27816
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %4
+  br label %3
 
-4:                                                ; preds = %1, %.split.us.thread
-  %indvars.iv45 = phi i64 [ 0, %1 ], [ %7, %.split.us.thread ]
-  %5 = trunc nuw nsw i64 %indvars.iv45 to i32
-  %6 = tail call noundef zeroext i1 @_ZN22ShenandoahPhaseTimings15is_worker_phaseENS_5PhaseE(i32 noundef %5)
-  %7 = add nuw nsw i64 %indvars.iv45, 1
-  %8 = load i32, ptr %0, align 8
-  %.not = icmp ne i32 %8, 0
-  %or.cond.not = select i1 %6, i1 %.not, i1 false
+3:                                                ; preds = %1, %.split.us.thread
+  %indvars.iv45 = phi i64 [ 0, %1 ], [ %6, %.split.us.thread ]
+  %4 = trunc nuw nsw i64 %indvars.iv45 to i32
+  %5 = tail call noundef zeroext i1 @_ZN22ShenandoahPhaseTimings15is_worker_phaseENS_5PhaseE(i32 noundef %4)
+  %6 = add nuw nsw i64 %indvars.iv45, 1
+  %7 = load i32, ptr %0, align 8
+  %.not = icmp ne i32 %7, 0
+  %or.cond.not = select i1 %5, i1 %.not, i1 false
   br i1 %or.cond.not, label %.preheader.split.preheader, label %.split.us.thread
 
-.preheader.split.preheader:                       ; preds = %4
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %7
-  %invariant.gep = getelementptr double, ptr %3, i64 %indvars.iv45
+.preheader.split.preheader:                       ; preds = %3
+  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %6
+  %invariant.gep = getelementptr double, ptr %0, i64 %indvars.iv45
   br label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %._crit_edge.thread
-  %10 = phi i32 [ 1, %.preheader.split.preheader ], [ %32, %._crit_edge.thread ]
+  %9 = phi i32 [ 1, %.preheader.split.preheader ], [ %31, %._crit_edge.thread ]
   %indvars.iv42 = phi i64 [ 1, %.preheader.split.preheader ], [ %indvars.iv.next43, %._crit_edge.thread ]
   %.03037 = phi double [ -1.000000e+00, %.preheader.split.preheader ], [ %.131, %._crit_edge.thread ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv42
-  %12 = load ptr, ptr %11, align 8
-  %.not39 = icmp eq i32 %10, 0
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv42
+  %11 = load ptr, ptr %10, align 8
+  %.not39 = icmp eq i32 %9, 0
   br i1 %.not39, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader.split, %22
-  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader.split ]
-  %.02934 = phi double [ %.1, %22 ], [ -1.000000e+00, %.preheader.split ]
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
-  %15 = load double, ptr %14, align 8
-  %16 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
-  %17 = fcmp une double %15, %16
-  br i1 %17, label %18, label %22
+.lr.ph:                                           ; preds = %.preheader.split, %21
+  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader.split ]
+  %.02934 = phi double [ %.1, %21 ], [ -1.000000e+00, %.preheader.split ]
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %14 = load double, ptr %13, align 8
+  %15 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
+  %16 = fcmp une double %14, %15
+  br i1 %16, label %17, label %21
 
-18:                                               ; preds = %.lr.ph
-  %19 = fcmp oeq double %.02934, -1.000000e+00
-  br i1 %19, label %22, label %20
+17:                                               ; preds = %.lr.ph
+  %18 = fcmp oeq double %.02934, -1.000000e+00
+  br i1 %18, label %21, label %19
 
-20:                                               ; preds = %18
-  %21 = fadd double %.02934, %15
-  br label %22
+19:                                               ; preds = %17
+  %20 = fadd double %.02934, %14
+  br label %21
 
-22:                                               ; preds = %18, %.lr.ph, %20
-  %.1 = phi double [ %21, %20 ], [ %.02934, %.lr.ph ], [ %15, %18 ]
+21:                                               ; preds = %17, %.lr.ph, %19
+  %.1 = phi double [ %20, %19 ], [ %.02934, %.lr.ph ], [ %14, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr %0, align 8
-  %24 = zext i32 %23 to i64
-  %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %22 = load i32, ptr %0, align 8
+  %23 = zext i32 %22 to i64
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %22
-  %26 = fcmp une double %.1, -1.000000e+00
-  br i1 %26, label %27, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %21
+  %25 = fcmp une double %.1, -1.000000e+00
+  br i1 %25, label %26, label %._crit_edge.thread
 
-27:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv42
-  %28 = getelementptr inbounds nuw i8, ptr %gep, i64 8
-  store double %.1, ptr %28, align 8
-  %29 = fcmp oeq double %.03037, -1.000000e+00
-  br i1 %29, label %._crit_edge.thread, label %30
+  %27 = getelementptr inbounds nuw i8, ptr %gep, i64 16
+  store double %.1, ptr %27, align 8
+  %28 = fcmp oeq double %.03037, -1.000000e+00
+  br i1 %28, label %._crit_edge.thread, label %29
 
-30:                                               ; preds = %27
-  %31 = fadd double %.03037, %.1
+29:                                               ; preds = %26
+  %30 = fadd double %.03037, %.1
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader.split, %27, %._crit_edge, %30
-  %32 = phi i32 [ %23, %30 ], [ %23, %._crit_edge ], [ %23, %27 ], [ 0, %.preheader.split ]
-  %.131 = phi double [ %31, %30 ], [ %.03037, %._crit_edge ], [ %.1, %27 ], [ %.03037, %.preheader.split ]
+._crit_edge.thread:                               ; preds = %.preheader.split, %26, %._crit_edge, %29
+  %31 = phi i32 [ %22, %29 ], [ %22, %._crit_edge ], [ %22, %26 ], [ 0, %.preheader.split ]
+  %.131 = phi double [ %30, %29 ], [ %.03037, %._crit_edge ], [ %.1, %26 ], [ %.03037, %.preheader.split ]
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, 10
   br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !13
 
 .split.us:                                        ; preds = %._crit_edge.thread
-  %33 = fcmp une double %.131, -1.000000e+00
-  br i1 %33, label %34, label %.split.us.thread
+  %32 = fcmp une double %.131, -1.000000e+00
+  br i1 %32, label %33, label %.split.us.thread
 
-34:                                               ; preds = %.split.us
-  %35 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv45
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store double %.131, ptr %36, align 8
+33:                                               ; preds = %.split.us
+  %34 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv45
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store double %.131, ptr %35, align 8
   br label %.split.us.thread
 
-.split.us.thread:                                 ; preds = %4, %34, %.split.us
-  %exitcond48.not = icmp eq i64 %7, 316
-  br i1 %exitcond48.not, label %37, label %4, !llvm.loop !15
+.split.us.thread:                                 ; preds = %3, %33, %.split.us
+  %exitcond48.not = icmp eq i64 %6, 316
+  br i1 %exitcond48.not, label %36, label %3, !llvm.loop !15
 
-37:                                               ; preds = %.split.us.thread
+36:                                               ; preds = %.split.us.thread
   ret void
 }
 

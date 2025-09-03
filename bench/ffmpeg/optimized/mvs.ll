@@ -2774,9 +2774,8 @@ derive_corner_mvf.exit.i.i:                       ; preds = %check_available.exi
   %191 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 17
   %192 = load i8, ptr %191, align 1, !tbaa !29
   %193 = sext i8 %192 to i64
-  %.idx.i.i.i = shl nsw i64 %193, 5
-  %194 = getelementptr i8, ptr %160, i64 944
-  %195 = getelementptr i8, ptr %194, i64 %.idx.i.i.i
+  %194 = getelementptr %struct.VVCRefPic, ptr %160, i64 %193
+  %195 = getelementptr i8, ptr %194, i64 944
   %196 = load i32, ptr %195, align 8, !tbaa !68
   %197 = icmp eq i32 %171, %196
   br i1 %197, label %198, label %204
@@ -4190,98 +4189,97 @@ mvp_spatial_candidates.exit:                      ; preds = %78, %86
   %125 = getelementptr inbounds nuw i8, ptr %.val21, i64 2840
   %126 = load i32, ptr %125, align 8, !tbaa !181
   %.not14.i = icmp sgt i32 %126, 0
-  br i1 %.not14.i, label %.lr.ph.i, label %.loopexit
+  br i1 %.not14.i, label %.lr.ph.preheader.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %116
+.lr.ph.preheader.i:                               ; preds = %116
   %127 = tail call i32 @llvm.umin.i32(i32 %126, i32 4)
-  %128 = getelementptr inbounds nuw i8, ptr %.val21, i64 2720
-  %129 = add nuw nsw i32 %127, 1
-  %wide.trip.count.i = zext nneg i32 %129 to i64
-  br label %130
+  %128 = add nuw nsw i32 %127, 1
+  %wide.trip.count.i = zext nneg i32 %128 to i64
+  br label %.lr.ph.i
 
-130:                                              ; preds = %ff_vvc_round_mv.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %ff_vvc_round_mv.exit.i ]
-  %.04116.i = phi i32 [ %.1.ph, %.lr.ph.i ], [ %.445.ph.i, %ff_vvc_round_mv.exit.i ]
-  %131 = getelementptr %struct.MvField, ptr %128, i64 %indvars.iv.i
-  %132 = getelementptr i8, ptr %131, i64 -4
-  %133 = load i8, ptr %132, align 4, !tbaa !92
-  %134 = zext i8 %133 to i32
-  %135 = getelementptr i8, ptr %131, i64 -8
-  br label %136
+.lr.ph.i:                                         ; preds = %ff_vvc_round_mv.exit.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %ff_vvc_round_mv.exit.i ]
+  %.04116.i = phi i32 [ %.1.ph, %.lr.ph.preheader.i ], [ %.445.ph.i, %ff_vvc_round_mv.exit.i ]
+  %129 = getelementptr %struct.MvField, ptr %.val21, i64 %indvars.iv.i
+  %130 = getelementptr i8, ptr %129, i64 2716
+  %131 = load i8, ptr %130, align 4, !tbaa !92
+  %132 = zext i8 %131 to i32
+  %133 = getelementptr i8, ptr %129, i64 2712
+  br label %134
 
-136:                                              ; preds = %173, %130
-  %.14212.i = phi i32 [ %.04116.i, %130 ], [ %.445.ph.i, %173 ]
-  %.not18.i = phi i1 [ true, %130 ], [ false, %173 ]
-  %.04611.i = phi i32 [ 0, %130 ], [ 1, %173 ]
-  %137 = xor i32 %.04611.i, %2
-  %138 = add nuw nsw i32 %137, 1
-  %139 = and i32 %138, %134
-  %.not54.i = icmp eq i32 %139, 0
-  br i1 %.not54.i, label %173, label %140
+134:                                              ; preds = %171, %.lr.ph.i
+  %.14212.i = phi i32 [ %.04116.i, %.lr.ph.i ], [ %.445.ph.i, %171 ]
+  %.not18.i = phi i1 [ true, %.lr.ph.i ], [ false, %171 ]
+  %.04611.i = phi i32 [ 0, %.lr.ph.i ], [ 1, %171 ]
+  %135 = xor i32 %.04611.i, %2
+  %136 = add nuw nsw i32 %135, 1
+  %137 = and i32 %136, %132
+  %.not54.i = icmp eq i32 %137, 0
+  br i1 %.not54.i, label %171, label %138
 
-140:                                              ; preds = %136
-  %141 = zext nneg i32 %137 to i64
-  %142 = getelementptr inbounds nuw %struct.RefPicList, ptr %.val.val, i64 %141
-  %143 = getelementptr inbounds nuw i8, ptr %135, i64 %141
-  %144 = load i8, ptr %143, align 1, !tbaa !29
-  %145 = sext i8 %144 to i64
-  %146 = getelementptr inbounds %struct.VVCRefPic, ptr %142, i64 %145, i32 1
-  %147 = load i32, ptr %146, align 8, !tbaa !68
-  %148 = icmp eq i32 %124, %147
-  br i1 %148, label %149, label %173
+138:                                              ; preds = %134
+  %139 = zext nneg i32 %135 to i64
+  %140 = getelementptr inbounds nuw %struct.RefPicList, ptr %.val.val, i64 %139
+  %141 = getelementptr inbounds nuw i8, ptr %133, i64 %139
+  %142 = load i8, ptr %141, align 1, !tbaa !29
+  %143 = sext i8 %142 to i64
+  %144 = getelementptr inbounds %struct.VVCRefPic, ptr %140, i64 %143, i32 1
+  %145 = load i32, ptr %144, align 8, !tbaa !68
+  %146 = icmp eq i32 %124, %145
+  br i1 %146, label %147, label %171
 
-149:                                              ; preds = %140
-  %150 = icmp eq i32 %1, %.14212.i
-  br i1 %150, label %151, label %171
+147:                                              ; preds = %138
+  %148 = icmp eq i32 %1, %.14212.i
+  br i1 %148, label %149, label %169
 
-151:                                              ; preds = %149
-  %152 = getelementptr i8, ptr %131, i64 -24
-  %153 = getelementptr inbounds nuw %struct.Mv, ptr %152, i64 %141
-  %154 = load i64, ptr %153, align 8
-  store i64 %154, ptr %5, align 4
+149:                                              ; preds = %147
+  %150 = getelementptr i8, ptr %129, i64 2696
+  %151 = getelementptr inbounds nuw %struct.Mv, ptr %150, i64 %139
+  %152 = load i64, ptr %151, align 8
+  store i64 %152, ptr %5, align 4
   %.not.i.i26 = icmp eq i32 %4, 0
-  br i1 %.not.i.i26, label %mvp_temporal_candidates.exit, label %155
+  br i1 %.not.i.i26, label %mvp_temporal_candidates.exit, label %153
 
-155:                                              ; preds = %151
-  %156 = lshr i64 %154, 32
-  %157 = trunc nuw i64 %156 to i32
-  %158 = trunc i64 %154 to i32
-  %159 = add nsw i32 %4, -1
-  %160 = shl nuw i32 1, %159
-  %161 = add nsw i32 %160, %158
-  %162 = icmp sgt i32 %158, -1
-  %.neg.i.i27 = sext i1 %162 to i32
-  %163 = add i32 %161, %.neg.i.i27
-  %164 = shl nsw i32 -1, %4
-  %165 = and i32 %163, %164
-  store i32 %165, ptr %5, align 4, !tbaa !4
-  %166 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %167 = add nsw i32 %160, %157
-  %168 = icmp sgt i64 %154, -1
-  %.neg19.i.i28 = sext i1 %168 to i32
-  %169 = add i32 %167, %.neg19.i.i28
-  %170 = and i32 %169, %164
-  store i32 %170, ptr %166, align 4, !tbaa !9
+153:                                              ; preds = %149
+  %154 = lshr i64 %152, 32
+  %155 = trunc nuw i64 %154 to i32
+  %156 = trunc i64 %152 to i32
+  %157 = add nsw i32 %4, -1
+  %158 = shl nuw i32 1, %157
+  %159 = add nsw i32 %158, %156
+  %160 = icmp sgt i32 %156, -1
+  %.neg.i.i27 = sext i1 %160 to i32
+  %161 = add i32 %159, %.neg.i.i27
+  %162 = shl nsw i32 -1, %4
+  %163 = and i32 %161, %162
+  store i32 %163, ptr %5, align 4, !tbaa !4
+  %164 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %165 = add nsw i32 %158, %155
+  %166 = icmp sgt i64 %152, -1
+  %.neg19.i.i28 = sext i1 %166 to i32
+  %167 = add i32 %165, %.neg19.i.i28
+  %168 = and i32 %167, %162
+  store i32 %168, ptr %164, align 4, !tbaa !9
   br label %mvp_temporal_candidates.exit
 
-171:                                              ; preds = %149
-  %172 = add nsw i32 %.14212.i, 1
-  br label %173
+169:                                              ; preds = %147
+  %170 = add nsw i32 %.14212.i, 1
+  br label %171
 
-173:                                              ; preds = %171, %140, %136
-  %.445.ph.i = phi i32 [ %.14212.i, %136 ], [ %.14212.i, %140 ], [ %172, %171 ]
-  br i1 %.not18.i, label %136, label %ff_vvc_round_mv.exit.i, !llvm.loop !210
+171:                                              ; preds = %169, %138, %134
+  %.445.ph.i = phi i32 [ %.14212.i, %134 ], [ %.14212.i, %138 ], [ %170, %169 ]
+  br i1 %.not18.i, label %134, label %ff_vvc_round_mv.exit.i, !llvm.loop !210
 
-ff_vvc_round_mv.exit.i:                           ; preds = %173
+ff_vvc_round_mv.exit.i:                           ; preds = %171
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %130, !llvm.loop !211
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !211
 
 .loopexit:                                        ; preds = %ff_vvc_round_mv.exit.i, %116
   store i64 0, ptr %5, align 4
   br label %mvp_temporal_candidates.exit
 
-mvp_temporal_candidates.exit:                     ; preds = %155, %151, %99, %98, %mvp_spatial_candidates.exit, %.loopexit
+mvp_temporal_candidates.exit:                     ; preds = %153, %149, %99, %98, %mvp_spatial_candidates.exit, %.loopexit
   ret void
 }
 

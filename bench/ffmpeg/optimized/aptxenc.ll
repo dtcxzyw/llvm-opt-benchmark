@@ -318,30 +318,29 @@ aptx_qmf_polyphase_analysis.exit20.i.i.i:         ; preds = %aptx_qmf_convolutio
 aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_analysis.exit20.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call void @ff_aptx_generate_dither(ptr noundef nonnull %48) #5
-  %143 = getelementptr inbounds nuw i8, ptr %48, i64 1228
-  %144 = getelementptr inbounds nuw i8, ptr %48, i64 816
-  %145 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %146 = getelementptr inbounds nuw i8, ptr %48, i64 864
-  %147 = sext i32 %49 to i64
-  %148 = getelementptr inbounds [4 x %struct.anon], ptr @ff_aptx_quant_tables, i64 %147
-  br label %149
+  %143 = getelementptr inbounds nuw i8, ptr %48, i64 816
+  %144 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %48, i64 864
+  %146 = sext i32 %49 to i64
+  %147 = getelementptr inbounds [4 x %struct.anon], ptr @ff_aptx_quant_tables, i64 %146
+  br label %148
 
-149:                                              ; preds = %aptx_quantize_difference.exit.i.i, %aptx_qmf_tree_analysis.exit.i.i
+148:                                              ; preds = %aptx_quantize_difference.exit.i.i, %aptx_qmf_tree_analysis.exit.i.i
   %indvars.iv.i.i = phi i64 [ 0, %aptx_qmf_tree_analysis.exit.i.i ], [ %indvars.iv.next.i.i, %aptx_quantize_difference.exit.i.i ]
-  %150 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i
-  %151 = load i32, ptr %150, align 4, !tbaa !45
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 320
-  %152 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx.i.i
+  %149 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i
+  %150 = load i32, ptr %149, align 4, !tbaa !45
+  %151 = getelementptr inbounds nuw %struct.Prediction, ptr %48, i64 %indvars.iv.i.i
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1228
   %153 = load i32, ptr %152, align 4, !tbaa !58
-  %154 = sub nsw i32 %151, %153
+  %154 = sub nsw i32 %150, %153
   %155 = tail call i32 @llvm.smax.i32(i32 %154, i32 -8388608)
   %.0.i.i.i = tail call i32 @llvm.smin.i32(i32 %155, i32 8388607)
-  %156 = getelementptr inbounds nuw %struct.Quantize, ptr %144, i64 %indvars.iv.i.i
-  %157 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i.i
+  %156 = getelementptr inbounds nuw %struct.Quantize, ptr %143, i64 %indvars.iv.i.i
+  %157 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv.i.i
   %158 = load i32, ptr %157, align 4, !tbaa !45
-  %159 = getelementptr inbounds nuw %struct.InvertQuantize, ptr %146, i64 %indvars.iv.i.i
+  %159 = getelementptr inbounds nuw %struct.InvertQuantize, ptr %145, i64 %indvars.iv.i.i
   %160 = load i32, ptr %159, align 4, !tbaa !60
-  %161 = getelementptr inbounds nuw %struct.anon, ptr %148, i64 %indvars.iv.i.i
+  %161 = getelementptr inbounds nuw %struct.anon, ptr %147, i64 %indvars.iv.i.i
   %162 = load ptr, ptr %161, align 16, !tbaa !62
   %163 = tail call i32 @llvm.abs.i32(i32 %.0.i.i.i, i1 true)
   %164 = tail call i32 @llvm.umin.i32(i32 %163, i32 8388607)
@@ -351,11 +350,11 @@ aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_
   %168 = icmp sgt i32 %167, 0
   br i1 %168, label %.lr.ph.i.i.i, label %.aptx_bin_search.exit_crit_edge.i.i.i
 
-.aptx_bin_search.exit_crit_edge.i.i.i:            ; preds = %149
+.aptx_bin_search.exit_crit_edge.i.i.i:            ; preds = %148
   %.pre.i.i.i = sext i32 %160 to i64
   br label %aptx_quantize_difference.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %149
+.lr.ph.i.i.i:                                     ; preds = %148
   %169 = lshr i32 %164, 4
   %170 = sext i32 %160 to i64
   %171 = zext nneg i32 %169 to i64
@@ -460,7 +459,7 @@ aptx_quantize_difference.exit.i.i:                ; preds = %173, %.aptx_bin_sea
   store i32 %243, ptr %244, align 4, !tbaa !68
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %aptx_encode_channel.exit.i, label %149, !llvm.loop !69
+  br i1 %exitcond.not.i.i, label %aptx_encode_channel.exit.i, label %148, !llvm.loop !69
 
 aptx_encode_channel.exit.i:                       ; preds = %aptx_quantize_difference.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -5749,47 +5749,49 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit14: ; preds = %_ZN4llvm16
   br i1 %.not, label %_ZN12_GLOBAL__N_112StmtProfiler22VisitTemplateArgumentsEPKN5clang19TemplateArgumentLocEj.exit, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
 
 _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit14
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  %64 = load i32, ptr %63, align 4, !tbaa !171
-  %65 = load ptr, ptr %23, align 8, !tbaa !78
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !79
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  %69 = load i32, ptr %68, align 4, !tbaa !81
-  %.not.i.i.not.i.i = icmp ult i32 %67, %69
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, label %70, !prof !82
+  %62 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %1, i64 %56
+  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %59
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 44
+  %66 = load i32, ptr %65, align 4, !tbaa !171
+  %67 = load ptr, ptr %23, align 8, !tbaa !78
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = load i32, ptr %68, align 8, !tbaa !79
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 12
+  %71 = load i32, ptr %70, align 4, !tbaa !81
+  %.not.i.i.not.i.i = icmp ult i32 %69, %71
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, label %72, !prof !82
 
-70:                                               ; preds = %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
-  %71 = zext i32 %67 to i64
-  %72 = add nuw nsw i64 %71, 1
-  %73 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %65, ptr noundef nonnull %73, i64 noundef %72, i64 noundef 4) #12
-  %.pre.i.i = load i32, ptr %66, align 8, !tbaa !79
+72:                                               ; preds = %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
+  %73 = zext i32 %69 to i64
+  %74 = add nuw nsw i64 %73, 1
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %67, ptr noundef nonnull %75, i64 noundef %74, i64 noundef 4) #12
+  %.pre.i.i = load i32, ptr %68, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit, %70
-  %74 = phi i32 [ %67, %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit ], [ %.pre.i.i, %70 ]
-  %75 = load ptr, ptr %65, align 8, !tbaa !83
-  %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
-  store i32 %64, ptr %77, align 1
-  %78 = load i32, ptr %66, align 8, !tbaa !79
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %66, align 8, !tbaa !79
-  %.not.i2325 = icmp eq i32 %64, 0
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit, %72
+  %76 = phi i32 [ %69, %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit ], [ %.pre.i.i, %72 ]
+  %77 = load ptr, ptr %67, align 8, !tbaa !83
+  %78 = zext i32 %76 to i64
+  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %78
+  store i32 %66, ptr %79, align 1
+  %80 = load i32, ptr %68, align 8, !tbaa !79
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %68, align 8, !tbaa !79
+  %.not.i2325 = icmp eq i32 %66, 0
   br i1 %.not.i2325, label %_ZN12_GLOBAL__N_112StmtProfiler22VisitTemplateArgumentsEPKN5clang19TemplateArgumentLocEj.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
-  %80 = zext i32 %64 to i64
+  %82 = zext i32 %66 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %81 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %62, i64 %indvars.iv
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitTemplateArgumentERKN5clang16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull align 8 dereferenceable(24) %81)
+  %83 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %64, i64 %indvars.iv
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitTemplateArgumentERKN5clang16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull align 8 dereferenceable(24) %83)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not.i23 = icmp eq i64 %indvars.iv.next, %80
+  %.not.i23 = icmp eq i64 %indvars.iv.next, %82
   br i1 %.not.i23, label %_ZN12_GLOBAL__N_112StmtProfiler22VisitTemplateArgumentsEPKN5clang19TemplateArgumentLocEj.exit, label %.lr.ph, !llvm.loop !173
 
 _ZN12_GLOBAL__N_112StmtProfiler22VisitTemplateArgumentsEPKN5clang19TemplateArgumentLocEj.exit: ; preds = %.lr.ph, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit14, %14
@@ -11811,12 +11813,12 @@ _ZN12_GLOBAL__N_117OMPClauseProfiler27VistOMPClauseWithPostUpdateEPKN5clang23OMP
 
 70:                                               ; preds = %68, %._crit_edge96
   %.pre-phi = phi i64 [ %.pre105, %68 ], [ %56, %._crit_edge96 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %3, i64 %.pre-phi
+  %71 = getelementptr inbounds nuw ptr, ptr %1, i64 %.pre-phi
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %.pre-phi
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.pre-phi
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.pre-phi
   %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %.pre-phi
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 72
   %77 = load ptr, ptr %76, align 8, !tbaa !164
   %.not54 = icmp eq ptr %77, null
   br i1 %.not54, label %80, label %78

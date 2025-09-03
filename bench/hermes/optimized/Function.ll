@@ -956,11 +956,11 @@ _ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i: ; preds = %entry
 
 cond.false.i:                                     ; preds = %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i, %entry
   %.pre = load i64, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, align 8
-  %.pre37 = and i64 %.pre, 281474976710655
+  %.pre36 = and i64 %.pre, 281474976710655
   br label %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_8CallableEEENS0_6HandleIT_EEv.exit
 
 _ZNK6hermes2vm10NativeArgs11dyncastThisINS0_8CallableEEENS0_6HandleIT_EEv.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i, %cond.false.i
-  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i ], [ %.pre37, %cond.false.i ]
+  %and.i.i.pre-phi = phi i64 [ %and.i.i.i, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i ], [ %.pre36, %cond.false.i ]
   %5 = phi i64 [ %agg.tmp.sroa.0.0.copyload.i, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i ], [ %.pre, %cond.false.i ]
   %retval.sroa.0.0.i = phi ptr [ %1, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit.i ], [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %cond.false.i ]
   %cmp.i.i = icmp ugt i64 %5, -844424930131969
@@ -1037,22 +1037,22 @@ _ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11Herm
   store i64 %or.i.i.i.i, ptr %arrayidx23.i.i.i, align 8
   %arrayidx.i21.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -56
   store i64 %retval.sroa.0.0.i11, ptr %arrayidx.i21.i.i, align 8
-  %cmp35 = icmp ugt i32 %8, 1
-  br i1 %cmp35, label %for.body, label %for.end
+  %cmp34 = icmp ugt i32 %8, 1
+  br i1 %cmp34, label %for.body, label %for.end
 
 if.then10:                                        ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
   %call11 = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #13
   br label %cleanup
 
 for.body:                                         ; preds = %_ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11HermesValueE.exit, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit20
-  %i.036 = phi i32 [ %inc, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit20 ], [ 1, %_ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11HermesValueE.exit ]
+  %i.035 = phi i32 [ %inc, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit20 ], [ 1, %_ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11HermesValueE.exit ]
   %13 = load i32, ptr %argCount_.i, align 8
-  %cmp.i14 = icmp ult i32 %i.036, %13
+  %cmp.i14 = icmp ult i32 %i.035, %13
   br i1 %cmp.i14, label %cond.true.i16, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit20
 
 cond.true.i16:                                    ; preds = %for.body
   %14 = load ptr, ptr %args, align 8, !noalias !22
-  %conv.i = zext i32 %i.036 to i64
+  %conv.i = zext i32 %i.035 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i
   %add.ptr.i.i.i17 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %14, i64 %idx.neg.i.i.i
   %incdec.ptr.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr.i.i.i17, i64 -8
@@ -1061,13 +1061,13 @@ cond.true.i16:                                    ; preds = %for.body
 
 _ZNK6hermes2vm10NativeArgs6getArgEj.exit20:       ; preds = %for.body, %cond.true.i16
   %retval.sroa.0.0.i15 = phi i64 [ %retval.sroa.0.0.copyload.i19, %cond.true.i16 ], [ -1688849860263936, %for.body ]
-  %sub20 = add i32 %i.036, -1
-  %conv.i23 = sext i32 %sub20 to i64
-  %idx.neg.i.i.i24 = sub nsw i64 0, %conv.i23
-  %add.ptr.i.i.i25 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %arrayidx.i21.i.i, i64 %idx.neg.i.i.i24
-  %incdec.ptr.i.i.i26 = getelementptr inbounds i8, ptr %add.ptr.i.i.i25, i64 -8
-  store i64 %retval.sroa.0.0.i15, ptr %incdec.ptr.i.i.i26, align 8
-  %inc = add nuw i32 %i.036, 1
+  %sub20 = add i32 %i.035, -1
+  %conv.i22 = sext i32 %sub20 to i64
+  %idx.neg.i.i.i23 = sub nsw i64 0, %conv.i22
+  %add.ptr.i.i.i24 = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %add.ptr.i.i.i, i64 %idx.neg.i.i.i23
+  %incdec.ptr.i.i.i25 = getelementptr i8, ptr %add.ptr.i.i.i24, i64 -64
+  store i64 %retval.sroa.0.0.i15, ptr %incdec.ptr.i.i.i25, align 8
+  %inc = add nuw i32 %i.035, 1
   %exitcond.not = icmp eq i32 %inc, %8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
@@ -1077,22 +1077,22 @@ for.end:                                          ; preds = %_ZNK6hermes2vm10Nat
   %15 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %bf.load.i.i.i.i = load i32, ptr %15, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
-  %conv.i.i.i.i28 = zext nneg i32 %bf.lshr.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i28
+  %conv.i.i.i.i27 = zext nneg i32 %bf.lshr.i.i.i.i to i64
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i27
   %16 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %call3.i = getelementptr inbounds nuw i8, ptr %16, i64 112
   %17 = load ptr, ptr %call3.i, align 8
   %call6.i = tail call { i32, i64 } %17(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #13
   %18 = extractvalue { i32, i64 } %call6.i, 0
   %19 = extractvalue { i32, i64 } %call6.i, 1
-  %cmp.i29 = icmp ne i32 %18, 0
-  %spec.select = zext i1 %cmp.i29 to i32
-  %spec.select34 = select i1 %cmp.i29, i64 %19, i64 undef
+  %cmp.i28 = icmp ne i32 %18, 0
+  %spec.select = zext i1 %cmp.i28 to i32
+  %spec.select33 = select i1 %cmp.i28, i64 %19, i64 undef
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end, %if.then10
   %retval.sroa.0.1 = phi i32 [ %call11, %if.then10 ], [ %spec.select, %for.end ]
-  %retval.sroa.5.1 = phi i64 [ undef, %if.then10 ], [ %spec.select34, %for.end ]
+  %retval.sroa.5.1 = phi i64 [ undef, %if.then10 ], [ %spec.select33, %for.end ]
   %20 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
   %dec.i = add i32 %20, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i.i, align 8

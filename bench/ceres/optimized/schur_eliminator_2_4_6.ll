@@ -2877,193 +2877,192 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit.i: ; 
   unreachable
 
 .lver.check:                                      ; preds = %_ZNK4absl12lts_2024011618container_internal15btree_containerINS1_5btreeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEEEE4findIiEENS1_14btree_iteratorIKNS1_10btree_nodeISB_EERKS9_PSJ_EERS8_.exit.i
-  %189 = shl i32 %.sroa.7.0.i.i.i.i.i, 3
-  %190 = and i32 %189, 2040
-  %191 = zext nneg i32 %190 to i64
-  %192 = getelementptr inbounds nuw i8, ptr %178, i64 %191
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
-  %194 = load i32, ptr %193, align 4, !tbaa !90
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr double, ptr %7, i64 %195
-  %197 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  %198 = load i32, ptr %197, align 4, !tbaa !170
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds double, ptr %14, i64 %199
-  %201 = sext i32 %146 to i64
-  %202 = getelementptr i8, ptr %200, i64 48
-  %203 = getelementptr i8, ptr %196, i64 8
-  %204 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  %205 = getelementptr i8, ptr %200, i64 56
-  %206 = getelementptr i8, ptr %196, i64 16
-  %207 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  %208 = getelementptr i8, ptr %200, i64 64
-  %209 = getelementptr i8, ptr %196, i64 24
-  %210 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  %211 = getelementptr i8, ptr %200, i64 72
-  %212 = getelementptr i8, ptr %196, i64 32
-  %213 = getelementptr inbounds nuw i8, ptr %200, i64 32
-  %214 = getelementptr i8, ptr %200, i64 80
-  %215 = getelementptr i8, ptr %196, i64 40
-  %216 = getelementptr inbounds nuw i8, ptr %200, i64 40
-  %217 = getelementptr i8, ptr %200, i64 88
+  %189 = and i32 %.sroa.7.0.i.i.i.i.i, 255
+  %190 = zext nneg i32 %189 to i64
+  %191 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %.sroa.0.0.i6.i.i.i.i, i64 %190
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
+  %193 = load i32, ptr %192, align 4, !tbaa !90
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr double, ptr %7, i64 %194
+  %196 = getelementptr inbounds nuw i8, ptr %142, i64 4
+  %197 = load i32, ptr %196, align 4, !tbaa !170
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds double, ptr %14, i64 %198
+  %200 = sext i32 %146 to i64
+  %201 = getelementptr i8, ptr %199, i64 48
+  %202 = getelementptr i8, ptr %195, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  %204 = getelementptr i8, ptr %199, i64 56
+  %205 = getelementptr i8, ptr %195, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %199, i64 16
+  %207 = getelementptr i8, ptr %199, i64 64
+  %208 = getelementptr i8, ptr %195, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  %210 = getelementptr i8, ptr %199, i64 72
+  %211 = getelementptr i8, ptr %195, i64 32
+  %212 = getelementptr inbounds nuw i8, ptr %199, i64 32
+  %213 = getelementptr i8, ptr %199, i64 80
+  %214 = getelementptr i8, ptr %195, i64 40
+  %215 = getelementptr inbounds nuw i8, ptr %199, i64 40
+  %216 = getelementptr i8, ptr %199, i64 88
   %ident.check.not = icmp eq i32 %146, 1
   br i1 %ident.check.not, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
-  %.05.i.i.i.i.i.i.i.i.i.i62.lver.orig = phi i64 [ %281, %.ph.lver.orig ], [ 0, %.lver.check ]
-  %218 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i62.lver.orig, %201
-  %219 = getelementptr double, ptr %196, i64 %218
-  %220 = getelementptr inbounds nuw double, ptr %48, i64 %.05.i.i.i.i.i.i.i.i.i.i62.lver.orig
-  %221 = load double, ptr %220, align 8, !tbaa !139
-  %222 = load double, ptr %200, align 8, !tbaa !139
-  %223 = fmul double %221, %222
-  %224 = getelementptr i8, ptr %220, i64 32
-  %225 = load double, ptr %224, align 8, !tbaa !139
-  %226 = load double, ptr %202, align 8, !tbaa !139
-  %227 = fmul double %225, %226
-  %228 = fadd double %223, %227
-  %229 = load double, ptr %219, align 8, !tbaa !139
-  %230 = fadd double %229, %228
-  store double %230, ptr %219, align 8, !tbaa !139
-  %231 = getelementptr double, ptr %203, i64 %218
-  %232 = load double, ptr %220, align 8, !tbaa !139
-  %233 = load double, ptr %204, align 8, !tbaa !139
-  %234 = fmul double %232, %233
-  %235 = load double, ptr %224, align 8, !tbaa !139
-  %236 = load double, ptr %205, align 8, !tbaa !139
-  %237 = fmul double %235, %236
-  %238 = fadd double %234, %237
-  %239 = load double, ptr %231, align 8, !tbaa !139
-  %240 = fadd double %239, %238
-  store double %240, ptr %231, align 8, !tbaa !139
-  %241 = getelementptr double, ptr %206, i64 %218
-  %242 = load double, ptr %220, align 8, !tbaa !139
-  %243 = load double, ptr %207, align 8, !tbaa !139
-  %244 = fmul double %242, %243
-  %245 = load double, ptr %224, align 8, !tbaa !139
-  %246 = load double, ptr %208, align 8, !tbaa !139
-  %247 = fmul double %245, %246
-  %248 = fadd double %244, %247
-  %249 = load double, ptr %241, align 8, !tbaa !139
-  %250 = fadd double %249, %248
-  store double %250, ptr %241, align 8, !tbaa !139
-  %251 = getelementptr double, ptr %209, i64 %218
-  %252 = load double, ptr %220, align 8, !tbaa !139
-  %253 = load double, ptr %210, align 8, !tbaa !139
-  %254 = fmul double %252, %253
-  %255 = load double, ptr %224, align 8, !tbaa !139
-  %256 = load double, ptr %211, align 8, !tbaa !139
-  %257 = fmul double %255, %256
-  %258 = fadd double %254, %257
-  %259 = load double, ptr %251, align 8, !tbaa !139
-  %260 = fadd double %259, %258
-  store double %260, ptr %251, align 8, !tbaa !139
-  %261 = getelementptr double, ptr %212, i64 %218
-  %262 = load double, ptr %220, align 8, !tbaa !139
-  %263 = load double, ptr %213, align 8, !tbaa !139
-  %264 = fmul double %262, %263
-  %265 = load double, ptr %224, align 8, !tbaa !139
-  %266 = load double, ptr %214, align 8, !tbaa !139
-  %267 = fmul double %265, %266
-  %268 = fadd double %264, %267
-  %269 = load double, ptr %261, align 8, !tbaa !139
-  %270 = fadd double %269, %268
-  store double %270, ptr %261, align 8, !tbaa !139
-  %271 = getelementptr double, ptr %215, i64 %218
-  %272 = load double, ptr %220, align 8, !tbaa !139
-  %273 = load double, ptr %216, align 8, !tbaa !139
-  %274 = fmul double %272, %273
-  %275 = load double, ptr %224, align 8, !tbaa !139
-  %276 = load double, ptr %217, align 8, !tbaa !139
-  %277 = fmul double %275, %276
-  %278 = fadd double %274, %277
-  %279 = load double, ptr %271, align 8, !tbaa !139
-  %280 = fadd double %279, %278
-  store double %280, ptr %271, align 8, !tbaa !139
-  %281 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i62.lver.orig, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i.i63.lver.orig = icmp eq i64 %281, 4
+  %.05.i.i.i.i.i.i.i.i.i.i62.lver.orig = phi i64 [ %280, %.ph.lver.orig ], [ 0, %.lver.check ]
+  %217 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i62.lver.orig, %200
+  %218 = getelementptr double, ptr %195, i64 %217
+  %219 = getelementptr inbounds nuw double, ptr %48, i64 %.05.i.i.i.i.i.i.i.i.i.i62.lver.orig
+  %220 = load double, ptr %219, align 8, !tbaa !139
+  %221 = load double, ptr %199, align 8, !tbaa !139
+  %222 = fmul double %220, %221
+  %223 = getelementptr i8, ptr %219, i64 32
+  %224 = load double, ptr %223, align 8, !tbaa !139
+  %225 = load double, ptr %201, align 8, !tbaa !139
+  %226 = fmul double %224, %225
+  %227 = fadd double %222, %226
+  %228 = load double, ptr %218, align 8, !tbaa !139
+  %229 = fadd double %228, %227
+  store double %229, ptr %218, align 8, !tbaa !139
+  %230 = getelementptr double, ptr %202, i64 %217
+  %231 = load double, ptr %219, align 8, !tbaa !139
+  %232 = load double, ptr %203, align 8, !tbaa !139
+  %233 = fmul double %231, %232
+  %234 = load double, ptr %223, align 8, !tbaa !139
+  %235 = load double, ptr %204, align 8, !tbaa !139
+  %236 = fmul double %234, %235
+  %237 = fadd double %233, %236
+  %238 = load double, ptr %230, align 8, !tbaa !139
+  %239 = fadd double %238, %237
+  store double %239, ptr %230, align 8, !tbaa !139
+  %240 = getelementptr double, ptr %205, i64 %217
+  %241 = load double, ptr %219, align 8, !tbaa !139
+  %242 = load double, ptr %206, align 8, !tbaa !139
+  %243 = fmul double %241, %242
+  %244 = load double, ptr %223, align 8, !tbaa !139
+  %245 = load double, ptr %207, align 8, !tbaa !139
+  %246 = fmul double %244, %245
+  %247 = fadd double %243, %246
+  %248 = load double, ptr %240, align 8, !tbaa !139
+  %249 = fadd double %248, %247
+  store double %249, ptr %240, align 8, !tbaa !139
+  %250 = getelementptr double, ptr %208, i64 %217
+  %251 = load double, ptr %219, align 8, !tbaa !139
+  %252 = load double, ptr %209, align 8, !tbaa !139
+  %253 = fmul double %251, %252
+  %254 = load double, ptr %223, align 8, !tbaa !139
+  %255 = load double, ptr %210, align 8, !tbaa !139
+  %256 = fmul double %254, %255
+  %257 = fadd double %253, %256
+  %258 = load double, ptr %250, align 8, !tbaa !139
+  %259 = fadd double %258, %257
+  store double %259, ptr %250, align 8, !tbaa !139
+  %260 = getelementptr double, ptr %211, i64 %217
+  %261 = load double, ptr %219, align 8, !tbaa !139
+  %262 = load double, ptr %212, align 8, !tbaa !139
+  %263 = fmul double %261, %262
+  %264 = load double, ptr %223, align 8, !tbaa !139
+  %265 = load double, ptr %213, align 8, !tbaa !139
+  %266 = fmul double %264, %265
+  %267 = fadd double %263, %266
+  %268 = load double, ptr %260, align 8, !tbaa !139
+  %269 = fadd double %268, %267
+  store double %269, ptr %260, align 8, !tbaa !139
+  %270 = getelementptr double, ptr %214, i64 %217
+  %271 = load double, ptr %219, align 8, !tbaa !139
+  %272 = load double, ptr %215, align 8, !tbaa !139
+  %273 = fmul double %271, %272
+  %274 = load double, ptr %223, align 8, !tbaa !139
+  %275 = load double, ptr %216, align 8, !tbaa !139
+  %276 = fmul double %274, %275
+  %277 = fadd double %273, %276
+  %278 = load double, ptr %270, align 8, !tbaa !139
+  %279 = fadd double %278, %277
+  store double %279, ptr %270, align 8, !tbaa !139
+  %280 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i62.lver.orig, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i.i63.lver.orig = icmp eq i64 %280, 4
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i63.lver.orig, label %_ZN5ceres8internal29MatrixTransposeMatrixMultiplyILi2ELi4ELi2ELi6ELi1EEEvPKdiiS3_iiPdiiii.exit, label %.ph.lver.orig, !llvm.loop !186
 
 .ph:                                              ; preds = %.lver.check
-  %load_initial = load double, ptr %212, align 8
-  br label %282
+  %load_initial = load double, ptr %211, align 8
+  br label %281
 
-282:                                              ; preds = %282, %.ph
-  %store_forwarded = phi double [ %load_initial, %.ph ], [ %344, %282 ]
-  %.05.i.i.i.i.i.i.i.i.i.i62 = phi i64 [ 0, %.ph ], [ %345, %282 ]
-  %283 = mul nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i62, %201
-  %284 = getelementptr double, ptr %196, i64 %283
-  %285 = getelementptr inbounds nuw double, ptr %48, i64 %.05.i.i.i.i.i.i.i.i.i.i62
-  %286 = load double, ptr %285, align 8, !tbaa !139
-  %287 = load double, ptr %200, align 8, !tbaa !139
-  %288 = fmul double %286, %287
-  %289 = getelementptr i8, ptr %285, i64 32
-  %290 = load double, ptr %289, align 8, !tbaa !139
-  %291 = load double, ptr %202, align 8, !tbaa !139
-  %292 = fmul double %290, %291
-  %293 = fadd double %288, %292
-  %294 = load double, ptr %284, align 8, !tbaa !139
-  %295 = fadd double %294, %293
-  store double %295, ptr %284, align 8, !tbaa !139
-  %296 = getelementptr double, ptr %203, i64 %283
-  %297 = load double, ptr %285, align 8, !tbaa !139
-  %298 = load double, ptr %204, align 8, !tbaa !139
-  %299 = fmul double %297, %298
-  %300 = load double, ptr %289, align 8, !tbaa !139
-  %301 = load double, ptr %205, align 8, !tbaa !139
-  %302 = fmul double %300, %301
-  %303 = fadd double %299, %302
-  %304 = load double, ptr %296, align 8, !tbaa !139
-  %305 = fadd double %304, %303
-  store double %305, ptr %296, align 8, !tbaa !139
-  %306 = getelementptr double, ptr %206, i64 %283
-  %307 = load double, ptr %285, align 8, !tbaa !139
-  %308 = load double, ptr %207, align 8, !tbaa !139
-  %309 = fmul double %307, %308
-  %310 = load double, ptr %289, align 8, !tbaa !139
-  %311 = load double, ptr %208, align 8, !tbaa !139
-  %312 = fmul double %310, %311
-  %313 = fadd double %309, %312
-  %314 = load double, ptr %306, align 8, !tbaa !139
-  %315 = fadd double %314, %313
-  store double %315, ptr %306, align 8, !tbaa !139
-  %316 = getelementptr double, ptr %209, i64 %283
-  %317 = load double, ptr %285, align 8, !tbaa !139
-  %318 = load double, ptr %210, align 8, !tbaa !139
-  %319 = fmul double %317, %318
-  %320 = load double, ptr %289, align 8, !tbaa !139
-  %321 = load double, ptr %211, align 8, !tbaa !139
-  %322 = fmul double %320, %321
-  %323 = fadd double %319, %322
-  %324 = load double, ptr %316, align 8, !tbaa !139
-  %325 = fadd double %324, %323
-  store double %325, ptr %316, align 8, !tbaa !139
-  %326 = getelementptr double, ptr %212, i64 %283
-  %327 = load double, ptr %285, align 8, !tbaa !139
-  %328 = load double, ptr %213, align 8, !tbaa !139
-  %329 = fmul double %327, %328
-  %330 = load double, ptr %289, align 8, !tbaa !139
-  %331 = load double, ptr %214, align 8, !tbaa !139
-  %332 = fmul double %330, %331
-  %333 = fadd double %329, %332
-  %334 = fadd double %store_forwarded, %333
-  store double %334, ptr %326, align 8, !tbaa !139
-  %335 = getelementptr double, ptr %215, i64 %283
-  %336 = load double, ptr %285, align 8, !tbaa !139
-  %337 = load double, ptr %216, align 8, !tbaa !139
-  %338 = fmul double %336, %337
-  %339 = load double, ptr %289, align 8, !tbaa !139
-  %340 = load double, ptr %217, align 8, !tbaa !139
-  %341 = fmul double %339, %340
-  %342 = fadd double %338, %341
-  %343 = load double, ptr %335, align 8, !tbaa !139
-  %344 = fadd double %343, %342
-  store double %344, ptr %335, align 8, !tbaa !139
-  %345 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i62, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i.i63 = icmp eq i64 %345, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i63, label %_ZN5ceres8internal29MatrixTransposeMatrixMultiplyILi2ELi4ELi2ELi6ELi1EEEvPKdiiS3_iiPdiiii.exit, label %282, !llvm.loop !186
+281:                                              ; preds = %281, %.ph
+  %store_forwarded = phi double [ %load_initial, %.ph ], [ %343, %281 ]
+  %.05.i.i.i.i.i.i.i.i.i.i62 = phi i64 [ 0, %.ph ], [ %344, %281 ]
+  %282 = mul nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i62, %200
+  %283 = getelementptr double, ptr %195, i64 %282
+  %284 = getelementptr inbounds nuw double, ptr %48, i64 %.05.i.i.i.i.i.i.i.i.i.i62
+  %285 = load double, ptr %284, align 8, !tbaa !139
+  %286 = load double, ptr %199, align 8, !tbaa !139
+  %287 = fmul double %285, %286
+  %288 = getelementptr i8, ptr %284, i64 32
+  %289 = load double, ptr %288, align 8, !tbaa !139
+  %290 = load double, ptr %201, align 8, !tbaa !139
+  %291 = fmul double %289, %290
+  %292 = fadd double %287, %291
+  %293 = load double, ptr %283, align 8, !tbaa !139
+  %294 = fadd double %293, %292
+  store double %294, ptr %283, align 8, !tbaa !139
+  %295 = getelementptr double, ptr %202, i64 %282
+  %296 = load double, ptr %284, align 8, !tbaa !139
+  %297 = load double, ptr %203, align 8, !tbaa !139
+  %298 = fmul double %296, %297
+  %299 = load double, ptr %288, align 8, !tbaa !139
+  %300 = load double, ptr %204, align 8, !tbaa !139
+  %301 = fmul double %299, %300
+  %302 = fadd double %298, %301
+  %303 = load double, ptr %295, align 8, !tbaa !139
+  %304 = fadd double %303, %302
+  store double %304, ptr %295, align 8, !tbaa !139
+  %305 = getelementptr double, ptr %205, i64 %282
+  %306 = load double, ptr %284, align 8, !tbaa !139
+  %307 = load double, ptr %206, align 8, !tbaa !139
+  %308 = fmul double %306, %307
+  %309 = load double, ptr %288, align 8, !tbaa !139
+  %310 = load double, ptr %207, align 8, !tbaa !139
+  %311 = fmul double %309, %310
+  %312 = fadd double %308, %311
+  %313 = load double, ptr %305, align 8, !tbaa !139
+  %314 = fadd double %313, %312
+  store double %314, ptr %305, align 8, !tbaa !139
+  %315 = getelementptr double, ptr %208, i64 %282
+  %316 = load double, ptr %284, align 8, !tbaa !139
+  %317 = load double, ptr %209, align 8, !tbaa !139
+  %318 = fmul double %316, %317
+  %319 = load double, ptr %288, align 8, !tbaa !139
+  %320 = load double, ptr %210, align 8, !tbaa !139
+  %321 = fmul double %319, %320
+  %322 = fadd double %318, %321
+  %323 = load double, ptr %315, align 8, !tbaa !139
+  %324 = fadd double %323, %322
+  store double %324, ptr %315, align 8, !tbaa !139
+  %325 = getelementptr double, ptr %211, i64 %282
+  %326 = load double, ptr %284, align 8, !tbaa !139
+  %327 = load double, ptr %212, align 8, !tbaa !139
+  %328 = fmul double %326, %327
+  %329 = load double, ptr %288, align 8, !tbaa !139
+  %330 = load double, ptr %213, align 8, !tbaa !139
+  %331 = fmul double %329, %330
+  %332 = fadd double %328, %331
+  %333 = fadd double %store_forwarded, %332
+  store double %333, ptr %325, align 8, !tbaa !139
+  %334 = getelementptr double, ptr %214, i64 %282
+  %335 = load double, ptr %284, align 8, !tbaa !139
+  %336 = load double, ptr %215, align 8, !tbaa !139
+  %337 = fmul double %335, %336
+  %338 = load double, ptr %288, align 8, !tbaa !139
+  %339 = load double, ptr %216, align 8, !tbaa !139
+  %340 = fmul double %338, %339
+  %341 = fadd double %337, %340
+  %342 = load double, ptr %334, align 8, !tbaa !139
+  %343 = fadd double %342, %341
+  store double %343, ptr %334, align 8, !tbaa !139
+  %344 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i62, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i.i63 = icmp eq i64 %344, 4
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i63, label %_ZN5ceres8internal29MatrixTransposeMatrixMultiplyILi2ELi4ELi2ELi6ELi1EEEvPKdiiS3_iiPdiiii.exit, label %281, !llvm.loop !186
 
-_ZN5ceres8internal29MatrixTransposeMatrixMultiplyILi2ELi4ELi2ELi6ELi1EEEvPKdiiS3_iiPdiiii.exit: ; preds = %.ph.lver.orig, %282
+_ZN5ceres8internal29MatrixTransposeMatrixMultiplyILi2ELi4ELi2ELi6ELi1EEEvPKdiiS3_iiPdiiii.exit: ; preds = %.ph.lver.orig, %281
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %133
   br i1 %exitcond.not, label %._crit_edge, label %141, !llvm.loop !187

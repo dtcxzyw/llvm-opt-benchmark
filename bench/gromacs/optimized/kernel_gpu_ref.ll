@@ -264,18 +264,18 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %.1312444 = phi i32 [ %.0311455, %.preheader398.lr.ph ], [ %.7318, %154 ]
   %.3322443 = phi float [ %.0319, %.preheader398.lr.ph ], [ %.12, %154 ]
   %.0331442 = phi float [ 0.000000e+00, %.preheader398.lr.ph ], [ %.9340, %154 ]
-  %144 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_packed_t", ptr %135, i64 %indvars.iv488, i32 1, i64 0, i32 1
-  %145 = load i32, ptr %144, align 4, !tbaa !145
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds nuw %"struct.gmx::nbnxn_excl_t", ptr %136, i64 %146
-  store ptr %147, ptr %12, align 16, !tbaa !147
-  %148 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %149 = load i32, ptr %148, align 4, !tbaa !145
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"struct.gmx::nbnxn_excl_t", ptr %136, i64 %150
-  store ptr %151, ptr %77, align 8, !tbaa !147
-  %152 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_packed_t", ptr %135, i64 %indvars.iv488
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
+  %144 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_packed_t", ptr %135, i64 %indvars.iv488
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 20
+  %146 = load i32, ptr %145, align 4, !tbaa !145
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds nuw %"struct.gmx::nbnxn_excl_t", ptr %136, i64 %147
+  store ptr %148, ptr %12, align 16, !tbaa !147
+  %149 = getelementptr inbounds nuw i8, ptr %144, i64 28
+  %150 = load i32, ptr %149, align 4, !tbaa !145
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr inbounds nuw %"struct.gmx::nbnxn_excl_t", ptr %136, i64 %151
+  store ptr %152, ptr %77, align 8, !tbaa !147
+  %153 = getelementptr inbounds nuw i8, ptr %144, i64 16
   br label %155
 
 ._crit_edge:                                      ; preds = %154, %133
@@ -300,7 +300,7 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   %.2313437 = phi i32 [ %.1312444, %.preheader398 ], [ %.7318, %161 ]
   %.4323436 = phi float [ %.3322443, %.preheader398 ], [ %.12, %161 ]
   %.1332435 = phi float [ %.0331442, %.preheader398 ], [ %.9340, %161 ]
-  %156 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv484
+  %156 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv484
   %157 = load i32, ptr %156, align 4, !tbaa !110
   %158 = shl nuw nsw i64 %indvars.iv484, 3
   %159 = shl nsw i32 %157, 3

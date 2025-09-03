@@ -2363,52 +2363,51 @@ define linkonce_odr hidden void @_ZN43ShenandoahConcurrentWeakRootsEvacUpdateTas
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV43ShenandoahConcurrentWeakRootsEvacUpdateTask, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = tail call noundef zeroext i1 @_ZNK14ShenandoahHeap14unload_classesEv(ptr noundef nonnull align 8 dereferenceable(2657) %2) #14
-  br i1 %3, label %4, label %6
+  br i1 %3, label %4, label %.preheader
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 736
   tail call void @_ZN35ShenandoahConcurrentNMethodIterator15nmethods_do_endEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  br label %.preheader
+
+.preheader:                                       ; preds = %4, %1
   br label %6
 
-6:                                                ; preds = %4, %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %8
-
-8:                                                ; preds = %8, %6
-  %indvars.iv.i.i = phi i64 [ 5, %6 ], [ %indvars.iv.next.i.i, %8 ]
-  %9 = getelementptr ptr, ptr %7, i64 %indvars.iv.i.i
-  %10 = getelementptr i8, ptr %9, i64 -40
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef i64 @_ZNK10OopStorage13BasicParState8num_deadEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #14
-  tail call void @_ZNK10OopStorage15report_num_deadEm(ptr noundef nonnull align 8 dereferenceable(126) %12, i64 noundef %13) #14
+6:                                                ; preds = %.preheader, %6
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %6 ], [ 5, %.preheader ]
+  %7 = getelementptr ptr, ptr %0, i64 %indvars.iv.i.i
+  %8 = getelementptr i8, ptr %7, i64 -16
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call noundef i64 @_ZNK10OopStorage13BasicParState8num_deadEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #14
+  tail call void @_ZNK10OopStorage15report_num_deadEm(ptr noundef nonnull align 8 dereferenceable(126) %10, i64 noundef %11) #14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 15
-  br i1 %.not.i.i, label %_ZN21ShenandoahVMWeakRootsILb1EE15report_num_deadEv.exit, label %8
+  br i1 %.not.i.i, label %_ZN21ShenandoahVMWeakRootsILb1EE15report_num_deadEv.exit, label %6
 
-_ZN21ShenandoahVMWeakRootsILb1EE15report_num_deadEv.exit: ; preds = %8
-  %14 = load ptr, ptr @ClassLoaderDataGraph_lock, align 8
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %14) #14
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %24) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %23) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %22) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %21) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %20) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(296) %19) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(344) %18) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %17) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(440) %16) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %15) #14
+_ZN21ShenandoahVMWeakRootsILb1EE15report_num_deadEv.exit: ; preds = %6
+  %12 = load ptr, ptr @ClassLoaderDataGraph_lock, align 8
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %12) #14
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %22) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %21) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %20) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %19) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %18) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(296) %17) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(344) %16) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %15) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(440) %14) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %13) #14
   ret void
 }
 

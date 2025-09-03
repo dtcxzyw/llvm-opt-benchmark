@@ -558,8 +558,8 @@ bytestream2_get_byte.exit218:                     ; preds = %bytestream2_get_be3
   br i1 %209, label %decode_mb.exit, label %210
 
 210:                                              ; preds = %.split.i
-  %211 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv89.i
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
+  %211 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv89.i
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 400
   %213 = load i32, ptr %212, align 4, !tbaa !54
   %214 = load i16, ptr %99, align 16, !tbaa !73
   %215 = trunc i32 %213 to i16

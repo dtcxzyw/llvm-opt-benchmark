@@ -1996,9 +1996,8 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %16
 
 _ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %16
   %.pre-phi.i = phi i64 [ %27, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ 1, %16 ]
-  %.idx = mul nuw nsw i64 %.pre-phi.i, 496
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 5676
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
+  %30 = getelementptr inbounds nuw [496 x i8], ptr %25, i64 %.pre-phi.i
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 5676
   %32 = load i8, ptr %31, align 1, !tbaa !355
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %_ZNK4llvm3EVT13getSizeInBitsEv.exit, label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit.thread

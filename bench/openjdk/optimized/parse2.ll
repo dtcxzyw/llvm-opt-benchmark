@@ -2418,7 +2418,7 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %20, %23
   %26 = add nsw i32 %25, -1
   store i32 %26, ptr %24, align 8
   tail call void @_ZN5Parse5mergeEi(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %13) #15
-  br label %281
+  br label %279
 
 27:                                               ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2501,10 +2501,10 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %20, %23
   %wide.trip.count108 = zext i32 %75 to i64
   br i1 %51, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %119
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %119 ], [ 0, %.lr.ph ]
-  %.064.in100.us = phi i1 [ %90, %119 ], [ %54, %.lr.ph ]
-  %.198.us = phi i32 [ %.2.us, %119 ], [ %.094, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %118
+  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %118 ], [ 0, %.lr.ph ]
+  %.064.in100.us = phi i1 [ %90, %118 ], [ %54, %.lr.ph ]
+  %.198.us = phi i32 [ %.2.us, %118 ], [ %.094, %.lr.ph ]
   %76 = add nuw i64 %indvars.iv105, %74
   %77 = load ptr, ptr %2, align 8
   %78 = load ptr, ptr %4, align 8
@@ -2521,403 +2521,401 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %20, %23
   %88 = load i32, ptr %49, align 8
   %89 = icmp sle i32 %87, %88
   %90 = or i1 %.064.in100.us, %89
-  br i1 %.not79, label %99, label %91
+  br i1 %.not79, label %98, label %91
 
 91:                                               ; preds = %.lr.ph.split.us
   %92 = load ptr, ptr %73, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %.idx125 = shl i64 %indvars.iv105, 4
-  %94 = getelementptr i8, ptr %93, i64 %.idx125
-  %95 = getelementptr i8, ptr %94, i64 24
-  %96 = load i64, ptr %95, align 8
-  %97 = trunc i64 %96 to i32
-  %98 = uitofp i32 %97 to float
-  br label %99
+  %93 = getelementptr i8, ptr %92, i64 %.idx125
+  %94 = getelementptr i8, ptr %93, i64 32
+  %95 = load i64, ptr %94, align 8
+  %96 = trunc i64 %95 to i32
+  %97 = uitofp i32 %96 to float
+  br label %98
 
-99:                                               ; preds = %91, %.lr.ph.split.us
-  %.065.us = phi float [ %98, %91 ], [ 1.000000e+00, %.lr.ph.split.us ]
-  %100 = icmp slt i32 %.198.us, 0
-  br i1 %100, label %._ZN11SwitchRange6adjoinEiifb.exit.thread.us_crit_edge, label %101
+98:                                               ; preds = %91, %.lr.ph.split.us
+  %.065.us = phi float [ %97, %91 ], [ 1.000000e+00, %.lr.ph.split.us ]
+  %99 = icmp slt i32 %.198.us, 0
+  br i1 %99, label %._ZN11SwitchRange6adjoinEiifb.exit.thread.us_crit_edge, label %100
 
-._ZN11SwitchRange6adjoinEiifb.exit.thread.us_crit_edge: ; preds = %99
+._ZN11SwitchRange6adjoinEiifb.exit.thread.us_crit_edge: ; preds = %98
   %.pre = trunc i64 %76 to i32
   br label %_ZN11SwitchRange6adjoinEiifb.exit.thread.us
 
-101:                                              ; preds = %99
-  %102 = zext nneg i32 %.198.us to i64
-  %103 = getelementptr inbounds nuw %class.SwitchRange, ptr %57, i64 %102
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  %105 = load i32, ptr %104, align 4
-  %106 = add nsw i32 %105, 1
-  %107 = trunc i64 %76 to i32
-  %108 = icmp eq i32 %106, %107
-  br i1 %108, label %109, label %_ZN11SwitchRange6adjoinEiifb.exit.thread.us
+100:                                              ; preds = %98
+  %101 = zext nneg i32 %.198.us to i64
+  %102 = getelementptr inbounds nuw %class.SwitchRange, ptr %57, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %104 = load i32, ptr %103, align 4
+  %105 = add nsw i32 %104, 1
+  %106 = trunc i64 %76 to i32
+  %107 = icmp eq i32 %105, %106
+  br i1 %107, label %108, label %_ZN11SwitchRange6adjoinEiifb.exit.thread.us
 
-109:                                              ; preds = %101
-  %110 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %111 = load i32, ptr %110, align 4
-  %.not.i.i.us = icmp eq i32 %87, %111
+108:                                              ; preds = %100
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %110 = load i32, ptr %109, align 4
+  %.not.i.i.us = icmp eq i32 %87, %110
   br i1 %.not.i.i.us, label %._crit_edge.i.i.us, label %_ZN11SwitchRange6adjoinEiifb.exit.thread.us
 
-._crit_edge.i.i.us:                               ; preds = %109
-  %.phi.trans.insert.i.i.us = getelementptr inbounds nuw i8, ptr %103, i64 12
+._crit_edge.i.i.us:                               ; preds = %108
+  %.phi.trans.insert.i.i.us = getelementptr inbounds nuw i8, ptr %102, i64 12
   %.pre.i.i.us = load float, ptr %.phi.trans.insert.i.i.us, align 4
-  store i32 %106, ptr %104, align 4
-  %112 = fadd float %.065.us, %.pre.i.i.us
-  store float %112, ptr %.phi.trans.insert.i.i.us, align 4
-  br label %119
+  store i32 %105, ptr %103, align 4
+  %111 = fadd float %.065.us, %.pre.i.i.us
+  store float %111, ptr %.phi.trans.insert.i.i.us, align 4
+  br label %118
 
-_ZN11SwitchRange6adjoinEiifb.exit.thread.us:      ; preds = %._ZN11SwitchRange6adjoinEiifb.exit.thread.us_crit_edge, %109, %101
-  %.pre-phi = phi i32 [ %.pre, %._ZN11SwitchRange6adjoinEiifb.exit.thread.us_crit_edge ], [ %107, %109 ], [ %107, %101 ]
-  %113 = add nsw i32 %.198.us, 1
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %114
+_ZN11SwitchRange6adjoinEiifb.exit.thread.us:      ; preds = %._ZN11SwitchRange6adjoinEiifb.exit.thread.us_crit_edge, %108, %100
+  %.pre-phi = phi i32 [ %.pre, %._ZN11SwitchRange6adjoinEiifb.exit.thread.us_crit_edge ], [ %106, %108 ], [ %106, %100 ]
+  %112 = add nsw i32 %.198.us, 1
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %113
+  store i32 %.pre-phi, ptr %114, align 4
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store i32 %.pre-phi, ptr %115, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  store i32 %.pre-phi, ptr %116, align 4
-  %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store i32 %87, ptr %117, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 12
-  store float %.065.us, ptr %118, align 4
-  br label %119
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store i32 %87, ptr %116, align 4
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 12
+  store float %.065.us, ptr %117, align 4
+  br label %118
 
-119:                                              ; preds = %_ZN11SwitchRange6adjoinEiifb.exit.thread.us, %._crit_edge.i.i.us
-  %.2.us = phi i32 [ %113, %_ZN11SwitchRange6adjoinEiifb.exit.thread.us ], [ %.198.us, %._crit_edge.i.i.us ]
+118:                                              ; preds = %_ZN11SwitchRange6adjoinEiifb.exit.thread.us, %._crit_edge.i.i.us
+  %.2.us = phi i32 [ %112, %_ZN11SwitchRange6adjoinEiifb.exit.thread.us ], [ %.198.us, %._crit_edge.i.i.us ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
   br i1 %exitcond109.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %173
-  %indvars.iv = phi i64 [ %indvars.iv.next, %173 ], [ 0, %.lr.ph ]
-  %.064.in100 = phi i1 [ %134, %173 ], [ %54, %.lr.ph ]
-  %.198 = phi i32 [ %.2, %173 ], [ %.094, %.lr.ph ]
-  %120 = add nuw i64 %indvars.iv, %74
-  %121 = load ptr, ptr %2, align 8
-  %122 = load ptr, ptr %4, align 8
+.lr.ph.split:                                     ; preds = %.lr.ph, %171
+  %indvars.iv = phi i64 [ %indvars.iv.next, %171 ], [ 0, %.lr.ph ]
+  %.064.in100 = phi i1 [ %133, %171 ], [ %54, %.lr.ph ]
+  %.198 = phi i32 [ %.2, %171 ], [ %.094, %.lr.ph ]
+  %119 = add nuw i64 %indvars.iv, %74
+  %120 = load ptr, ptr %2, align 8
+  %121 = load ptr, ptr %4, align 8
+  %122 = ptrtoint ptr %120 to i64
   %123 = ptrtoint ptr %121 to i64
-  %124 = ptrtoint ptr %122 to i64
-  %125 = sub i64 %123, %124
-  %126 = trunc i64 %125 to i32
-  %127 = load ptr, ptr %10, align 8
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 12
-  %.0.i.i.i.i.i81 = load i32, ptr %129, align 1
-  %130 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i81)
-  %131 = add nsw i32 %130, %126
-  %132 = load i32, ptr %49, align 8
-  %133 = icmp sle i32 %131, %132
-  %134 = or i1 %.064.in100, %133
-  br i1 %.not79, label %143, label %135
+  %124 = sub i64 %122, %123
+  %125 = trunc i64 %124 to i32
+  %126 = load ptr, ptr %10, align 8
+  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 12
+  %.0.i.i.i.i.i81 = load i32, ptr %128, align 1
+  %129 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i81)
+  %130 = add nsw i32 %129, %125
+  %131 = load i32, ptr %49, align 8
+  %132 = icmp sle i32 %130, %131
+  %133 = or i1 %.064.in100, %132
+  br i1 %.not79, label %141, label %134
 
-135:                                              ; preds = %.lr.ph.split
-  %136 = load ptr, ptr %73, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+134:                                              ; preds = %.lr.ph.split
+  %135 = load ptr, ptr %73, align 8
   %.idx = shl i64 %indvars.iv, 4
-  %138 = getelementptr i8, ptr %137, i64 %.idx
-  %139 = getelementptr i8, ptr %138, i64 24
-  %140 = load i64, ptr %139, align 8
-  %141 = trunc i64 %140 to i32
-  %142 = uitofp i32 %141 to float
-  br label %143
+  %136 = getelementptr i8, ptr %135, i64 %.idx
+  %137 = getelementptr i8, ptr %136, i64 32
+  %138 = load i64, ptr %137, align 8
+  %139 = trunc i64 %138 to i32
+  %140 = uitofp i32 %139 to float
+  br label %141
 
-143:                                              ; preds = %135, %.lr.ph.split
-  %.065 = phi float [ %142, %135 ], [ 1.000000e+00, %.lr.ph.split ]
-  %144 = icmp slt i32 %.198, 0
-  br i1 %144, label %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, label %145
+141:                                              ; preds = %134, %.lr.ph.split
+  %.065 = phi float [ %140, %134 ], [ 1.000000e+00, %.lr.ph.split ]
+  %142 = icmp slt i32 %.198, 0
+  br i1 %142, label %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, label %143
 
-._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge: ; preds = %143
-  %.pre112 = trunc i64 %120 to i32
+._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge: ; preds = %141
+  %.pre112 = trunc i64 %119 to i32
   br label %_ZN11SwitchRange6adjoinEiifb.exit.thread
 
-145:                                              ; preds = %143
-  %146 = zext nneg i32 %.198 to i64
-  %147 = getelementptr inbounds nuw %class.SwitchRange, ptr %57, i64 %146
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
-  %149 = load i32, ptr %148, align 4
-  %150 = add nsw i32 %149, 1
-  %151 = trunc i64 %120 to i32
-  %152 = icmp eq i32 %150, %151
-  br i1 %152, label %153, label %_ZN11SwitchRange6adjoinEiifb.exit.thread
+143:                                              ; preds = %141
+  %144 = zext nneg i32 %.198 to i64
+  %145 = getelementptr inbounds nuw %class.SwitchRange, ptr %57, i64 %144
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
+  %147 = load i32, ptr %146, align 4
+  %148 = add nsw i32 %147, 1
+  %149 = trunc i64 %119 to i32
+  %150 = icmp eq i32 %148, %149
+  br i1 %150, label %151, label %_ZN11SwitchRange6adjoinEiifb.exit.thread
 
-153:                                              ; preds = %145
-  %154 = fcmp oeq float %.065, 0.000000e+00
-  %155 = getelementptr inbounds nuw i8, ptr %147, i64 12
-  %156 = load float, ptr %155, align 4
-  %157 = fcmp une float %156, 0.000000e+00
-  br i1 %154, label %158, label %163
+151:                                              ; preds = %143
+  %152 = fcmp oeq float %.065, 0.000000e+00
+  %153 = getelementptr inbounds nuw i8, ptr %145, i64 12
+  %154 = load float, ptr %153, align 4
+  %155 = fcmp une float %154, 0.000000e+00
+  br i1 %152, label %156, label %161
 
-158:                                              ; preds = %153
-  br i1 %157, label %_ZN11SwitchRange6adjoinEiifb.exit.thread, label %159
+156:                                              ; preds = %151
+  br i1 %155, label %_ZN11SwitchRange6adjoinEiifb.exit.thread, label %157
 
-159:                                              ; preds = %158
-  %160 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %161 = load i32, ptr %160, align 4
-  %.not10.i.i = icmp eq i32 %131, %161
-  br i1 %.not10.i.i, label %_ZN11SwitchRange6adjoinEiifb.exit, label %162
+157:                                              ; preds = %156
+  %158 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %159 = load i32, ptr %158, align 4
+  %.not10.i.i = icmp eq i32 %130, %159
+  br i1 %.not10.i.i, label %_ZN11SwitchRange6adjoinEiifb.exit, label %160
 
-162:                                              ; preds = %159
-  store i32 2147483647, ptr %160, align 4
+160:                                              ; preds = %157
+  store i32 2147483647, ptr %158, align 4
   br label %_ZN11SwitchRange6adjoinEiifb.exit
 
-163:                                              ; preds = %153
-  %164 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %165 = load i32, ptr %164, align 4
-  %.not9.i.i = icmp eq i32 %131, %165
-  %or.cond.i.i = select i1 %157, i1 %.not9.i.i, i1 false
+161:                                              ; preds = %151
+  %162 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %163 = load i32, ptr %162, align 4
+  %.not9.i.i = icmp eq i32 %130, %163
+  %or.cond.i.i = select i1 %155, i1 %.not9.i.i, i1 false
   br i1 %or.cond.i.i, label %_ZN11SwitchRange6adjoinEiifb.exit, label %_ZN11SwitchRange6adjoinEiifb.exit.thread
 
-_ZN11SwitchRange6adjoinEiifb.exit:                ; preds = %159, %162, %163
-  store i32 %150, ptr %148, align 4
-  %166 = fadd float %.065, %156
-  store float %166, ptr %155, align 4
-  br label %173
+_ZN11SwitchRange6adjoinEiifb.exit:                ; preds = %157, %160, %161
+  store i32 %148, ptr %146, align 4
+  %164 = fadd float %.065, %154
+  store float %164, ptr %153, align 4
+  br label %171
 
-_ZN11SwitchRange6adjoinEiifb.exit.thread:         ; preds = %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, %145, %163, %158
-  %.pre-phi113 = phi i32 [ %.pre112, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %151, %145 ], [ %151, %163 ], [ %151, %158 ]
-  %167 = add nsw i32 %.198, 1
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %168
-  store i32 %.pre-phi113, ptr %169, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
-  store i32 %.pre-phi113, ptr %170, align 4
-  %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 %131, ptr %171, align 4
-  %172 = getelementptr inbounds nuw i8, ptr %169, i64 12
-  store float %.065, ptr %172, align 4
-  br label %173
+_ZN11SwitchRange6adjoinEiifb.exit.thread:         ; preds = %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, %143, %161, %156
+  %.pre-phi113 = phi i32 [ %.pre112, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %149, %143 ], [ %149, %161 ], [ %149, %156 ]
+  %165 = add nsw i32 %.198, 1
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %166
+  store i32 %.pre-phi113, ptr %167, align 4
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  store i32 %.pre-phi113, ptr %168, align 4
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  store i32 %130, ptr %169, align 4
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 12
+  store float %.065, ptr %170, align 4
+  br label %171
 
-173:                                              ; preds = %_ZN11SwitchRange6adjoinEiifb.exit, %_ZN11SwitchRange6adjoinEiifb.exit.thread
-  %.2 = phi i32 [ %167, %_ZN11SwitchRange6adjoinEiifb.exit.thread ], [ %.198, %_ZN11SwitchRange6adjoinEiifb.exit ]
+171:                                              ; preds = %_ZN11SwitchRange6adjoinEiifb.exit, %_ZN11SwitchRange6adjoinEiifb.exit.thread
+  %.2 = phi i32 [ %165, %_ZN11SwitchRange6adjoinEiifb.exit.thread ], [ %.198, %_ZN11SwitchRange6adjoinEiifb.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count108
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %173, %119
-  %.1.lcssa = phi i32 [ %.2.us, %119 ], [ %.2, %173 ]
-  %.064.in.lcssa = phi i1 [ %90, %119 ], [ %134, %173 ]
+._crit_edge:                                      ; preds = %171, %118
+  %.1.lcssa = phi i32 [ %.2.us, %118 ], [ %.2, %171 ]
+  %.064.in.lcssa = phi i1 [ %90, %118 ], [ %133, %171 ]
   %.not77 = icmp eq i32 %.0.i.i.i.i80, -129
-  br i1 %.not77, label %218, label %174
+  br i1 %.not77, label %216, label %172
 
-174:                                              ; preds = %._crit_edge
+172:                                              ; preds = %._crit_edge
   %.not78 = icmp eq ptr %.0, null
-  br i1 %.not78, label %184, label %175
+  br i1 %.not78, label %182, label %173
 
-175:                                              ; preds = %174
-  %176 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr i8, ptr %177, i64 16
-  %179 = load i64, ptr %178, align 8
-  %180 = trunc i64 %179 to i32
-  %181 = uitofp i32 %180 to float
-  %182 = select i1 %.not73, float 1.000000e+00, float 2.000000e+00
-  %183 = fdiv float %181, %182
-  br label %184
+173:                                              ; preds = %172
+  %174 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr i8, ptr %175, i64 16
+  %177 = load i64, ptr %176, align 8
+  %178 = trunc i64 %177 to i32
+  %179 = uitofp i32 %178 to float
+  %180 = select i1 %.not73, float 1.000000e+00, float 2.000000e+00
+  %181 = fdiv float %179, %180
+  br label %182
 
-184:                                              ; preds = %175, %174
-  %.063 = phi float [ %183, %175 ], [ 1.000000e+00, %174 ]
-  %185 = sext i32 %.1.lcssa to i64
-  %186 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %185
-  %187 = add nsw i32 %17, 1
-  %188 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %189 = load i32, ptr %188, align 4
-  %190 = icmp eq i32 %17, %189
-  br i1 %190, label %191, label %211
+182:                                              ; preds = %173, %172
+  %.063 = phi float [ %181, %173 ], [ 1.000000e+00, %172 ]
+  %183 = sext i32 %.1.lcssa to i64
+  %184 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %183
+  %185 = add nsw i32 %17, 1
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 4
+  %187 = load i32, ptr %186, align 4
+  %188 = icmp eq i32 %17, %187
+  br i1 %188, label %189, label %209
 
-191:                                              ; preds = %184
-  br i1 %51, label %205, label %192
+189:                                              ; preds = %182
+  br i1 %51, label %203, label %190
 
-192:                                              ; preds = %191
-  %193 = fcmp oeq float %.063, 0.000000e+00
-  %194 = getelementptr inbounds nuw i8, ptr %186, i64 12
-  %195 = load float, ptr %194, align 4
-  %196 = fcmp une float %195, 0.000000e+00
-  br i1 %193, label %197, label %202
+190:                                              ; preds = %189
+  %191 = fcmp oeq float %.063, 0.000000e+00
+  %192 = getelementptr inbounds nuw i8, ptr %184, i64 12
+  %193 = load float, ptr %192, align 4
+  %194 = fcmp une float %193, 0.000000e+00
+  br i1 %191, label %195, label %200
 
-197:                                              ; preds = %192
-  br i1 %196, label %211, label %198
+195:                                              ; preds = %190
+  br i1 %194, label %209, label %196
 
-198:                                              ; preds = %197
-  %199 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %200 = load i32, ptr %199, align 4
-  %.not10.i = icmp eq i32 %13, %200
-  br i1 %.not10.i, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit, label %201
+196:                                              ; preds = %195
+  %197 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %198 = load i32, ptr %197, align 4
+  %.not10.i = icmp eq i32 %13, %198
+  br i1 %.not10.i, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit, label %199
 
-201:                                              ; preds = %198
-  store i32 2147483647, ptr %199, align 4
+199:                                              ; preds = %196
+  store i32 2147483647, ptr %197, align 4
   br label %_ZN11SwitchRange11adjoinRangeEiiifb.exit
 
-202:                                              ; preds = %192
-  %203 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %204 = load i32, ptr %203, align 4
-  %.not9.i = icmp eq i32 %13, %204
-  %or.cond.i = select i1 %196, i1 %.not9.i, i1 false
-  br i1 %or.cond.i, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit, label %211
+200:                                              ; preds = %190
+  %201 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %202 = load i32, ptr %201, align 4
+  %.not9.i = icmp eq i32 %13, %202
+  %or.cond.i = select i1 %194, i1 %.not9.i, i1 false
+  br i1 %or.cond.i, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit, label %209
 
-205:                                              ; preds = %191
-  %206 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %207 = load i32, ptr %206, align 4
-  %.not.i82 = icmp eq i32 %13, %207
-  br i1 %.not.i82, label %._crit_edge.i, label %211
+203:                                              ; preds = %189
+  %204 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %205 = load i32, ptr %204, align 4
+  %.not.i82 = icmp eq i32 %13, %205
+  br i1 %.not.i82, label %._crit_edge.i, label %209
 
-._crit_edge.i:                                    ; preds = %205
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %186, i64 12
+._crit_edge.i:                                    ; preds = %203
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %184, i64 12
   %.pre.i = load float, ptr %.phi.trans.insert.i, align 4
   br label %_ZN11SwitchRange11adjoinRangeEiiifb.exit
 
-_ZN11SwitchRange11adjoinRangeEiiifb.exit:         ; preds = %198, %201, %202, %._crit_edge.i
-  %208 = phi float [ %.pre.i, %._crit_edge.i ], [ %195, %202 ], [ %195, %201 ], [ %195, %198 ]
-  store i32 2147483647, ptr %188, align 4
-  %209 = getelementptr inbounds nuw i8, ptr %186, i64 12
-  %210 = fadd float %.063, %208
-  store float %210, ptr %209, align 4
-  br label %218
+_ZN11SwitchRange11adjoinRangeEiiifb.exit:         ; preds = %196, %199, %200, %._crit_edge.i
+  %206 = phi float [ %.pre.i, %._crit_edge.i ], [ %193, %200 ], [ %193, %199 ], [ %193, %196 ]
+  store i32 2147483647, ptr %186, align 4
+  %207 = getelementptr inbounds nuw i8, ptr %184, i64 12
+  %208 = fadd float %.063, %206
+  store float %208, ptr %207, align 4
+  br label %216
 
-211:                                              ; preds = %197, %202, %205, %184
-  %212 = add nsw i32 %.1.lcssa, 1
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %213
-  store i32 %187, ptr %214, align 4
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
-  store i32 2147483647, ptr %215, align 4
-  %216 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  store i32 %13, ptr %216, align 4
-  %217 = getelementptr inbounds nuw i8, ptr %214, i64 12
-  store float %.063, ptr %217, align 4
-  br label %218
+209:                                              ; preds = %195, %200, %203, %182
+  %210 = add nsw i32 %.1.lcssa, 1
+  %211 = sext i32 %210 to i64
+  %212 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %211
+  store i32 %185, ptr %212, align 4
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
+  store i32 2147483647, ptr %213, align 4
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  store i32 %13, ptr %214, align 4
+  %215 = getelementptr inbounds nuw i8, ptr %212, i64 12
+  store float %.063, ptr %215, align 4
+  br label %216
 
-218:                                              ; preds = %_ZN11SwitchRange11adjoinRangeEiiifb.exit, %211, %._crit_edge
-  %.3 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %_ZN11SwitchRange11adjoinRangeEiiifb.exit ], [ %212, %211 ]
-  br i1 %51, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %219
+216:                                              ; preds = %_ZN11SwitchRange11adjoinRangeEiiifb.exit, %209, %._crit_edge
+  %.3 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %_ZN11SwitchRange11adjoinRangeEiiifb.exit ], [ %210, %209 ]
+  br i1 %51, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %217
 
-219:                                              ; preds = %218
-  %220 = icmp eq i32 %.3, 0
-  br i1 %220, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.preheader.i
+217:                                              ; preds = %216
+  %218 = icmp eq i32 %.3, 0
+  br i1 %218, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %219
-  %221 = icmp sgt i32 %.3, 0
-  br i1 %221, label %.lr.ph.i.preheader, label %._crit_edge.i83
+.preheader.i:                                     ; preds = %217
+  %219 = icmp sgt i32 %.3, 0
+  br i1 %219, label %.lr.ph.i.preheader, label %._crit_edge.i83
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %222 = zext nneg i32 %.3 to i64
+  %220 = zext nneg i32 %.3 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %250
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %250 ], [ 0, %.lr.ph.i.preheader ]
-  %.034.i = phi i32 [ %.1.i, %250 ], [ 0, %.lr.ph.i.preheader ]
-  %223 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %224 = sub nsw i32 %223, %.034.i
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %225
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %248
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %248 ], [ 0, %.lr.ph.i.preheader ]
+  %.034.i = phi i32 [ %.1.i, %248 ], [ 0, %.lr.ph.i.preheader ]
+  %221 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %222 = sub nsw i32 %221, %.034.i
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %223
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %227 = getelementptr inbounds nuw %class.SwitchRange, ptr %57, i64 %indvars.iv.next.i
+  %225 = getelementptr inbounds nuw %class.SwitchRange, ptr %57, i64 %indvars.iv.next.i
+  %226 = load i32, ptr %225, align 4
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %228 = load i32, ptr %227, align 4
-  %229 = getelementptr inbounds nuw i8, ptr %227, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %224, i64 4
   %230 = load i32, ptr %229, align 4
-  %231 = getelementptr inbounds nuw i8, ptr %226, i64 4
-  %232 = load i32, ptr %231, align 4
-  %233 = add nsw i32 %232, 1
-  %234 = icmp eq i32 %228, %233
-  %235 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %236 = load i32, ptr %235, align 4
-  %.not.i.i.i = icmp eq i32 %230, %236
-  %or.cond.i.i85 = select i1 %234, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.i.i85, label %237, label %_ZN11SwitchRange6adjoinERS_.exit.i
+  %231 = add nsw i32 %230, 1
+  %232 = icmp eq i32 %226, %231
+  %233 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  %234 = load i32, ptr %233, align 4
+  %.not.i.i.i = icmp eq i32 %228, %234
+  %or.cond.i.i85 = select i1 %232, i1 %.not.i.i.i, i1 false
+  br i1 %or.cond.i.i85, label %235, label %_ZN11SwitchRange6adjoinERS_.exit.i
 
-237:                                              ; preds = %.lr.ph.i
-  %238 = getelementptr inbounds nuw i8, ptr %227, i64 12
-  %239 = load float, ptr %238, align 4
-  %240 = getelementptr inbounds nuw i8, ptr %227, i64 4
-  %241 = load i32, ptr %240, align 4
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %226, i64 12
+235:                                              ; preds = %.lr.ph.i
+  %236 = getelementptr inbounds nuw i8, ptr %225, i64 12
+  %237 = load float, ptr %236, align 4
+  %238 = getelementptr inbounds nuw i8, ptr %225, i64 4
+  %239 = load i32, ptr %238, align 4
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %224, i64 12
   %.pre.i.i.i = load float, ptr %.phi.trans.insert.i.i.i, align 4
-  store i32 %241, ptr %231, align 4
-  %242 = fadd float %239, %.pre.i.i.i
-  store float %242, ptr %.phi.trans.insert.i.i.i, align 4
-  %243 = add nsw i32 %.034.i, 1
-  br label %250
+  store i32 %239, ptr %229, align 4
+  %240 = fadd float %237, %.pre.i.i.i
+  store float %240, ptr %.phi.trans.insert.i.i.i, align 4
+  %241 = add nsw i32 %.034.i, 1
+  br label %248
 
 _ZN11SwitchRange6adjoinERS_.exit.i:               ; preds = %.lr.ph.i
-  %244 = icmp sgt i32 %.034.i, 0
-  br i1 %244, label %245, label %250
+  %242 = icmp sgt i32 %.034.i, 0
+  br i1 %242, label %243, label %248
 
-245:                                              ; preds = %_ZN11SwitchRange6adjoinERS_.exit.i
-  %246 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %247 = sub nsw i32 %246, %.034.i
-  %248 = sext i32 %247 to i64
-  %249 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %249, ptr noundef nonnull align 4 dereferenceable(16) %227, i64 16, i1 false)
-  br label %250
+243:                                              ; preds = %_ZN11SwitchRange6adjoinERS_.exit.i
+  %244 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %245 = sub nsw i32 %244, %.034.i
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %246
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %247, ptr noundef nonnull align 4 dereferenceable(16) %225, i64 16, i1 false)
+  br label %248
 
-250:                                              ; preds = %245, %_ZN11SwitchRange6adjoinERS_.exit.i, %237
-  %.1.i = phi i32 [ %243, %237 ], [ %.034.i, %245 ], [ %.034.i, %_ZN11SwitchRange6adjoinERS_.exit.i ]
-  %exitcond110.not = icmp eq i64 %indvars.iv.next.i, %222
+248:                                              ; preds = %243, %_ZN11SwitchRange6adjoinERS_.exit.i, %235
+  %.1.i = phi i32 [ %241, %235 ], [ %.034.i, %243 ], [ %.034.i, %_ZN11SwitchRange6adjoinERS_.exit.i ]
+  %exitcond110.not = icmp eq i64 %indvars.iv.next.i, %220
   br i1 %exitcond110.not, label %._crit_edge.i83, label %.lr.ph.i, !llvm.loop !9
 
-._crit_edge.i83:                                  ; preds = %250, %.preheader.i
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %250 ]
-  %251 = sub nsw i32 %.3, %.0.lcssa.i
-  %.not36.i = icmp slt i32 %251, 0
+._crit_edge.i83:                                  ; preds = %248, %.preheader.i
+  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %248 ]
+  %249 = sub nsw i32 %.3, %.0.lcssa.i
+  %.not36.i = icmp slt i32 %249, 0
   br i1 %.not36.i, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.lr.ph39.i.preheader
 
 .lr.ph39.i.preheader:                             ; preds = %._crit_edge.i83
-  %narrow = add nuw i32 %251, 1
-  %252 = zext i32 %narrow to i64
+  %narrow = add nuw i32 %249, 1
+  %250 = zext i32 %narrow to i64
   br label %.lr.ph39.i
 
-.lr.ph39.i:                                       ; preds = %.lr.ph39.i.preheader, %261
-  %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %261 ], [ 0, %.lr.ph39.i.preheader ]
-  %253 = getelementptr inbounds nuw %class.SwitchRange, ptr %57, i64 %indvars.iv42.i
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 12
-  %255 = load float, ptr %254, align 4
-  %256 = fcmp oeq float %255, 0.000000e+00
-  br i1 %256, label %257, label %261
+.lr.ph39.i:                                       ; preds = %.lr.ph39.i.preheader, %259
+  %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %259 ], [ 0, %.lr.ph39.i.preheader ]
+  %251 = getelementptr inbounds nuw %class.SwitchRange, ptr %57, i64 %indvars.iv42.i
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 12
+  %253 = load float, ptr %252, align 4
+  %254 = fcmp oeq float %253, 0.000000e+00
+  br i1 %254, label %255, label %259
 
-257:                                              ; preds = %.lr.ph39.i
-  %258 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  %259 = load i32, ptr %258, align 4
-  %.not32.i = icmp eq i32 %259, 2147483647
-  br i1 %.not32.i, label %261, label %260
+255:                                              ; preds = %.lr.ph39.i
+  %256 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %257 = load i32, ptr %256, align 4
+  %.not32.i = icmp eq i32 %257, 2147483647
+  br i1 %.not32.i, label %259, label %258
 
-260:                                              ; preds = %257
-  store i32 2147483647, ptr %258, align 4
-  br label %261
+258:                                              ; preds = %255
+  store i32 2147483647, ptr %256, align 4
+  br label %259
 
-261:                                              ; preds = %260, %257, %.lr.ph39.i
+259:                                              ; preds = %258, %255, %.lr.ph39.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
-  %exitcond111.not = icmp eq i64 %indvars.iv.next43.i, %252
+  %exitcond111.not = icmp eq i64 %indvars.iv.next43.i, %250
   br i1 %exitcond111.not, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.lr.ph39.i, !llvm.loop !10
 
-_ZL12merge_rangesP11SwitchRangeRi.exit:           ; preds = %261, %._crit_edge.i83, %219, %218
-  %.4 = phi i32 [ %.3, %218 ], [ 0, %219 ], [ %251, %._crit_edge.i83 ], [ %251, %261 ]
-  br i1 %.064.in.lcssa, label %262, label %263
+_ZL12merge_rangesP11SwitchRangeRi.exit:           ; preds = %259, %._crit_edge.i83, %217, %216
+  %.4 = phi i32 [ %.3, %216 ], [ 0, %217 ], [ %249, %._crit_edge.i83 ], [ %249, %259 ]
+  br i1 %.064.in.lcssa, label %260, label %261
 
-262:                                              ; preds = %_ZL12merge_rangesP11SwitchRangeRi.exit
+260:                                              ; preds = %_ZL12merge_rangesP11SwitchRangeRi.exit
   tail call void @_ZN5Parse13add_safepointEv(ptr noundef nonnull align 8 dereferenceable(352) %0) #15
-  br label %263
+  br label %261
 
-263:                                              ; preds = %262, %_ZL12merge_rangesP11SwitchRangeRi.exit
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 40
+261:                                              ; preds = %260, %_ZL12merge_rangesP11SwitchRangeRi.exit
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %263 = load ptr, ptr %262, align 8
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 56
   %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 56
-  %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %269 = load i32, ptr %268, align 8
-  %270 = add nsw i32 %269, -1
-  store i32 %270, ptr %268, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  %272 = load i32, ptr %271, align 8
-  %273 = add i32 %272, %270
-  %274 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  %275 = load ptr, ptr %274, align 8
-  %276 = zext i32 %273 to i64
-  %277 = getelementptr inbounds nuw ptr, ptr %275, i64 %276
-  %278 = load ptr, ptr %277, align 8
-  %279 = sext i32 %.4 to i64
-  %280 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %279
-  tail call void @_ZN5Parse18jump_switch_rangesEP4NodeP11SwitchRangeS3_i(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %278, ptr noundef nonnull %57, ptr noundef %280, i32 noundef 0)
-  br label %281
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %267 = load i32, ptr %266, align 8
+  %268 = add nsw i32 %267, -1
+  store i32 %268, ptr %266, align 8
+  %269 = getelementptr inbounds nuw i8, ptr %265, i64 16
+  %270 = load i32, ptr %269, align 8
+  %271 = add i32 %270, %268
+  %272 = getelementptr inbounds nuw i8, ptr %263, i64 8
+  %273 = load ptr, ptr %272, align 8
+  %274 = zext i32 %271 to i64
+  %275 = getelementptr inbounds nuw ptr, ptr %273, i64 %274
+  %276 = load ptr, ptr %275, align 8
+  %277 = sext i32 %.4 to i64
+  %278 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %277
+  tail call void @_ZN5Parse18jump_switch_rangesEP4NodeP11SwitchRangeS3_i(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %276, ptr noundef nonnull %57, ptr noundef %278, i32 noundef 0)
+  br label %279
 
-281:                                              ; preds = %263, %_ZN5Parse19maybe_add_safepointEi.exit
+279:                                              ; preds = %261, %_ZN5Parse19maybe_add_safepointEi.exit
   ret void
 }
 
@@ -3907,7 +3905,7 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %17, %20
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr %21, align 8
   tail call void @_ZN5Parse5mergeEi(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %13) #15
-  br label %314
+  br label %313
 
 24:                                               ; preds = %1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4015,465 +4013,464 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %17, %20
   %91 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store i32 %90, ptr %91, align 4
   %92 = load ptr, ptr %53, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = getelementptr i64, ptr %93, i64 %74
-  %95 = getelementptr i8, ptr %94, i64 24
-  %96 = load i64, ptr %95, align 8
-  %97 = trunc i64 %96 to i32
-  %98 = tail call noundef i32 @llvm.umin.i32(i32 %97, i32 2147483647)
-  %99 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 %98, ptr %99, align 4
+  %93 = getelementptr i64, ptr %92, i64 %74
+  %94 = getelementptr i8, ptr %93, i64 32
+  %95 = load i64, ptr %94, align 8
+  %96 = trunc i64 %95 to i32
+  %97 = tail call noundef i32 @llvm.umin.i32(i32 %96, i32 2147483647)
+  %98 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store i32 %97, ptr %98, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count151
-  br i1 %exitcond.not, label %100, label %.lr.ph.split, !llvm.loop !16
+  br i1 %exitcond.not, label %99, label %.lr.ph.split, !llvm.loop !16
 
-100:                                              ; preds = %.lr.ph.split
-  %101 = zext nneg i32 %15 to i64
-  tail call void @qsort(ptr noundef nonnull %51, i64 noundef %101, i64 noundef 12, ptr noundef nonnull @_ZL8jint_cmpPKvS0_) #15
-  %102 = xor i32 %15, -1
-  %103 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr i8, ptr %104, i64 16
-  %106 = load i64, ptr %105, align 8
-  %107 = trunc i64 %106 to i32
-  %108 = uitofp i32 %107 to float
-  %109 = uitofp i32 %102 to float
-  %110 = fdiv float %108, %109
+99:                                               ; preds = %.lr.ph.split
+  %100 = zext nneg i32 %15 to i64
+  tail call void @qsort(ptr noundef nonnull %51, i64 noundef %100, i64 noundef 12, ptr noundef nonnull @_ZL8jint_cmpPKvS0_) #15
+  %101 = xor i32 %15, -1
+  %102 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr i8, ptr %103, i64 16
+  %105 = load i64, ptr %104, align 8
+  %106 = trunc i64 %105 to i32
+  %107 = uitofp i32 %106 to float
+  %108 = uitofp i32 %101 to float
+  %109 = fdiv float %107, %108
   br label %.lr.ph142.preheader
 
-.lr.ph142.preheader:                              ; preds = %100, %._crit_edge.thread
-  %.091 = phi float [ %110, %100 ], [ 1.000000e+00, %._crit_edge.thread ]
-  %111 = shl nuw nsw i32 %15, 1
-  %112 = or disjoint i32 %111, 1
-  %113 = load i32, ptr %45, align 8
-  %114 = zext nneg i32 %112 to i64
-  %115 = shl nuw nsw i64 %114, 4
-  %116 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %115, i32 noundef 0) #15
-  %117 = icmp sle i32 %13, %113
+.lr.ph142.preheader:                              ; preds = %99, %._crit_edge.thread
+  %.091 = phi float [ %109, %99 ], [ 1.000000e+00, %._crit_edge.thread ]
+  %110 = shl nuw nsw i32 %15, 1
+  %111 = or disjoint i32 %110, 1
+  %112 = load i32, ptr %45, align 8
+  %113 = zext nneg i32 %111 to i64
+  %114 = shl nuw nsw i64 %113, 4
+  %115 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %114, i32 noundef 0) #15
+  %116 = icmp sle i32 %13, %112
   %wide.trip.count156 = zext nneg i32 %15 to i64
   br label %.lr.ph142
 
-.lr.ph142:                                        ; preds = %.lr.ph142.preheader, %210
-  %indvars.iv153 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next154, %210 ]
-  %.092.in140 = phi i1 [ %117, %.lr.ph142.preheader ], [ %134, %210 ]
-  %.0130138 = phi i32 [ -1, %.lr.ph142.preheader ], [ %.2, %210 ]
+.lr.ph142:                                        ; preds = %.lr.ph142.preheader, %209
+  %indvars.iv153 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next154, %209 ]
+  %.092.in140 = phi i1 [ %116, %.lr.ph142.preheader ], [ %133, %209 ]
+  %.0130138 = phi i32 [ -1, %.lr.ph142.preheader ], [ %.2, %209 ]
   %.idx182 = mul nuw nsw i64 %indvars.iv153, 12
-  %118 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx182
-  %119 = load i32, ptr %118, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp slt i32 %.0130138, 0
-  br i1 %124, label %130, label %125
+  %117 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx182
+  %118 = load i32, ptr %117, align 4
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 4
+  %120 = load i32, ptr %119, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %122 = load i32, ptr %121, align 4
+  %123 = icmp slt i32 %.0130138, 0
+  br i1 %123, label %129, label %124
 
-125:                                              ; preds = %.lr.ph142
-  %126 = zext nneg i32 %.0130138 to i64
-  %127 = getelementptr inbounds nuw %class.SwitchRange, ptr %116, i64 %126, i32 1
-  %128 = load i32, ptr %127, align 4
-  %129 = add nsw i32 %128, 1
-  br label %130
+124:                                              ; preds = %.lr.ph142
+  %125 = zext nneg i32 %.0130138 to i64
+  %126 = getelementptr inbounds nuw %class.SwitchRange, ptr %115, i64 %125, i32 1
+  %127 = load i32, ptr %126, align 4
+  %128 = add nsw i32 %127, 1
+  br label %129
 
-130:                                              ; preds = %.lr.ph142, %125
-  %131 = phi i32 [ %129, %125 ], [ -2147483648, %.lr.ph142 ]
-  %132 = load i32, ptr %45, align 8
-  %133 = icmp sle i32 %121, %132
-  %134 = or i1 %.092.in140, %133
-  %135 = sitofp i32 %119 to float
-  %136 = sitofp i32 %131 to float
-  %137 = fsub float %135, %136
-  %138 = fmul float %.091, %137
-  %.not104 = icmp eq i32 %119, %131
-  br i1 %.not104, label %175, label %139
+129:                                              ; preds = %.lr.ph142, %124
+  %130 = phi i32 [ %128, %124 ], [ -2147483648, %.lr.ph142 ]
+  %131 = load i32, ptr %45, align 8
+  %132 = icmp sle i32 %120, %131
+  %133 = or i1 %.092.in140, %132
+  %134 = sitofp i32 %118 to float
+  %135 = sitofp i32 %130 to float
+  %136 = fsub float %134, %135
+  %137 = fmul float %.091, %136
+  %.not104 = icmp eq i32 %118, %130
+  br i1 %.not104, label %174, label %138
 
-139:                                              ; preds = %130
-  br i1 %124, label %._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge, label %140
+138:                                              ; preds = %129
+  br i1 %123, label %._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge, label %139
 
-._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge: ; preds = %139
-  %.pre165 = add nsw i32 %119, -1
+._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge: ; preds = %138
+  %.pre165 = add nsw i32 %118, -1
   br label %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread
 
-140:                                              ; preds = %139
-  %141 = zext nneg i32 %.0130138 to i64
-  %142 = getelementptr inbounds nuw %class.SwitchRange, ptr %116, i64 %141
-  %143 = add nsw i32 %119, -1
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  %145 = load i32, ptr %144, align 4
-  %146 = add nsw i32 %145, 1
-  %147 = icmp eq i32 %131, %146
-  br i1 %147, label %148, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread
+139:                                              ; preds = %138
+  %140 = zext nneg i32 %.0130138 to i64
+  %141 = getelementptr inbounds nuw %class.SwitchRange, ptr %115, i64 %140
+  %142 = add nsw i32 %118, -1
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 4
+  %144 = load i32, ptr %143, align 4
+  %145 = add nsw i32 %144, 1
+  %146 = icmp eq i32 %130, %145
+  br i1 %146, label %147, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread
 
-148:                                              ; preds = %140
-  br i1 %47, label %162, label %149
+147:                                              ; preds = %139
+  br i1 %47, label %161, label %148
 
-149:                                              ; preds = %148
-  %150 = fcmp oeq float %138, 0.000000e+00
-  %151 = getelementptr inbounds nuw i8, ptr %142, i64 12
-  %152 = load float, ptr %151, align 4
-  %153 = fcmp une float %152, 0.000000e+00
-  br i1 %150, label %154, label %159
+148:                                              ; preds = %147
+  %149 = fcmp oeq float %137, 0.000000e+00
+  %150 = getelementptr inbounds nuw i8, ptr %141, i64 12
+  %151 = load float, ptr %150, align 4
+  %152 = fcmp une float %151, 0.000000e+00
+  br i1 %149, label %153, label %158
 
-154:                                              ; preds = %149
-  br i1 %153, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread, label %155
+153:                                              ; preds = %148
+  br i1 %152, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread, label %154
 
-155:                                              ; preds = %154
-  %156 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %157 = load i32, ptr %156, align 4
-  %.not10.i = icmp eq i32 %13, %157
-  br i1 %.not10.i, label %.thread184, label %158
+154:                                              ; preds = %153
+  %155 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %156 = load i32, ptr %155, align 4
+  %.not10.i = icmp eq i32 %13, %156
+  br i1 %.not10.i, label %.thread184, label %157
 
-158:                                              ; preds = %155
-  store i32 2147483647, ptr %156, align 4
+157:                                              ; preds = %154
+  store i32 2147483647, ptr %155, align 4
   br label %.thread184
 
-159:                                              ; preds = %149
-  %160 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %161 = load i32, ptr %160, align 4
-  %.not9.i = icmp eq i32 %13, %161
-  %or.cond.i = select i1 %153, i1 %.not9.i, i1 false
+158:                                              ; preds = %148
+  %159 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %160 = load i32, ptr %159, align 4
+  %.not9.i = icmp eq i32 %13, %160
+  %or.cond.i = select i1 %152, i1 %.not9.i, i1 false
   br i1 %or.cond.i, label %.thread184, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread
 
-162:                                              ; preds = %148
-  %163 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %164 = load i32, ptr %163, align 4
-  %.not.i107 = icmp eq i32 %13, %164
+161:                                              ; preds = %147
+  %162 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %163 = load i32, ptr %162, align 4
+  %.not.i107 = icmp eq i32 %13, %163
   br i1 %.not.i107, label %._crit_edge.i, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread
 
-._crit_edge.i:                                    ; preds = %162
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %142, i64 12
+._crit_edge.i:                                    ; preds = %161
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %141, i64 12
   %.pre.i = load float, ptr %.phi.trans.insert.i, align 4
   br label %.thread184
 
-.thread184:                                       ; preds = %155, %158, %159, %._crit_edge.i
-  %165 = phi float [ %.pre.i, %._crit_edge.i ], [ %152, %159 ], [ %152, %158 ], [ %152, %155 ]
-  store i32 %143, ptr %144, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %142, i64 12
-  %167 = fadd float %138, %165
-  store float %167, ptr %166, align 4
-  %168 = sitofp i32 %123 to float
-  br label %181
+.thread184:                                       ; preds = %154, %157, %158, %._crit_edge.i
+  %164 = phi float [ %.pre.i, %._crit_edge.i ], [ %151, %158 ], [ %151, %157 ], [ %151, %154 ]
+  store i32 %142, ptr %143, align 4
+  %165 = getelementptr inbounds nuw i8, ptr %141, i64 12
+  %166 = fadd float %137, %164
+  store float %166, ptr %165, align 4
+  %167 = sitofp i32 %122 to float
+  br label %180
 
-_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread:  ; preds = %._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge, %140, %162, %159, %154
-  %.pre-phi166 = phi i32 [ %.pre165, %._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge ], [ %143, %140 ], [ %143, %162 ], [ %143, %159 ], [ %143, %154 ]
-  %169 = add nsw i32 %.0130138, 1
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds %class.SwitchRange, ptr %116, i64 %170
-  store i32 %131, ptr %171, align 4
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
-  store i32 %.pre-phi166, ptr %172, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  store i32 %13, ptr %173, align 4
-  %174 = getelementptr inbounds nuw i8, ptr %171, i64 12
-  store float %138, ptr %174, align 4
-  br label %175
+_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread:  ; preds = %._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge, %139, %161, %158, %153
+  %.pre-phi166 = phi i32 [ %.pre165, %._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge ], [ %142, %139 ], [ %142, %161 ], [ %142, %158 ], [ %142, %153 ]
+  %168 = add nsw i32 %.0130138, 1
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %169
+  store i32 %130, ptr %170, align 4
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
+  store i32 %.pre-phi166, ptr %171, align 4
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  store i32 %13, ptr %172, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %170, i64 12
+  store float %137, ptr %173, align 4
+  br label %174
 
-175:                                              ; preds = %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread, %130
-  %.1 = phi i32 [ %.0130138, %130 ], [ %169, %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread ]
-  %176 = icmp slt i32 %.1, 0
-  br i1 %176, label %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, label %177
+174:                                              ; preds = %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread, %129
+  %.1 = phi i32 [ %.0130138, %129 ], [ %168, %_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread ]
+  %175 = icmp slt i32 %.1, 0
+  br i1 %175, label %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, label %176
 
-._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge: ; preds = %175
-  %.pre163 = sitofp i32 %123 to float
+._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge: ; preds = %174
+  %.pre163 = sitofp i32 %122 to float
   br label %_ZN11SwitchRange6adjoinEiifb.exit.thread
 
-177:                                              ; preds = %175
+176:                                              ; preds = %174
   %.phi.trans.insert = zext nneg i32 %.1 to i64
-  %.phi.trans.insert162 = getelementptr inbounds nuw %class.SwitchRange, ptr %116, i64 %.phi.trans.insert, i32 1
+  %.phi.trans.insert162 = getelementptr inbounds nuw %class.SwitchRange, ptr %115, i64 %.phi.trans.insert, i32 1
   %.pre = load i32, ptr %.phi.trans.insert162, align 4
-  %178 = add nsw i32 %.pre, 1
-  %179 = icmp eq i32 %119, %178
-  %180 = sitofp i32 %123 to float
-  br i1 %179, label %181, label %_ZN11SwitchRange6adjoinEiifb.exit.thread
+  %177 = add nsw i32 %.pre, 1
+  %178 = icmp eq i32 %118, %177
+  %179 = sitofp i32 %122 to float
+  br i1 %178, label %180, label %_ZN11SwitchRange6adjoinEiifb.exit.thread
 
-181:                                              ; preds = %.thread184, %177
-  %182 = phi float [ %168, %.thread184 ], [ %180, %177 ]
-  %.pn = phi i64 [ %141, %.thread184 ], [ %.phi.trans.insert, %177 ]
-  %.1133187 = phi i32 [ %.0130138, %.thread184 ], [ %.1, %177 ]
-  %183 = getelementptr inbounds nuw %class.SwitchRange, ptr %116, i64 %.pn
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  br i1 %47, label %198, label %185
+180:                                              ; preds = %.thread184, %176
+  %181 = phi float [ %167, %.thread184 ], [ %179, %176 ]
+  %.pn = phi i64 [ %140, %.thread184 ], [ %.phi.trans.insert, %176 ]
+  %.1133187 = phi i32 [ %.0130138, %.thread184 ], [ %.1, %176 ]
+  %182 = getelementptr inbounds nuw %class.SwitchRange, ptr %115, i64 %.pn
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
+  br i1 %47, label %197, label %184
 
-185:                                              ; preds = %181
-  %186 = icmp eq i32 %123, 0
-  %187 = getelementptr inbounds nuw i8, ptr %183, i64 12
-  %188 = load float, ptr %187, align 4
-  %189 = fcmp une float %188, 0.000000e+00
-  br i1 %186, label %190, label %195
+184:                                              ; preds = %180
+  %185 = icmp eq i32 %122, 0
+  %186 = getelementptr inbounds nuw i8, ptr %182, i64 12
+  %187 = load float, ptr %186, align 4
+  %188 = fcmp une float %187, 0.000000e+00
+  br i1 %185, label %189, label %194
 
-190:                                              ; preds = %185
-  br i1 %189, label %_ZN11SwitchRange6adjoinEiifb.exit.thread, label %191
+189:                                              ; preds = %184
+  br i1 %188, label %_ZN11SwitchRange6adjoinEiifb.exit.thread, label %190
 
-191:                                              ; preds = %190
-  %192 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %193 = load i32, ptr %192, align 4
-  %.not10.i.i = icmp eq i32 %121, %193
-  br i1 %.not10.i.i, label %_ZN11SwitchRange6adjoinEiifb.exit, label %194
+190:                                              ; preds = %189
+  %191 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %192 = load i32, ptr %191, align 4
+  %.not10.i.i = icmp eq i32 %120, %192
+  br i1 %.not10.i.i, label %_ZN11SwitchRange6adjoinEiifb.exit, label %193
 
-194:                                              ; preds = %191
-  store i32 2147483647, ptr %192, align 4
+193:                                              ; preds = %190
+  store i32 2147483647, ptr %191, align 4
   br label %_ZN11SwitchRange6adjoinEiifb.exit
 
-195:                                              ; preds = %185
-  %196 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %197 = load i32, ptr %196, align 4
-  %.not9.i.i = icmp eq i32 %121, %197
-  %or.cond.i.i = select i1 %189, i1 %.not9.i.i, i1 false
+194:                                              ; preds = %184
+  %195 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %196 = load i32, ptr %195, align 4
+  %.not9.i.i = icmp eq i32 %120, %196
+  %or.cond.i.i = select i1 %188, i1 %.not9.i.i, i1 false
   br i1 %or.cond.i.i, label %_ZN11SwitchRange6adjoinEiifb.exit, label %_ZN11SwitchRange6adjoinEiifb.exit.thread
 
-198:                                              ; preds = %181
-  %199 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %200 = load i32, ptr %199, align 4
-  %.not.i.i = icmp eq i32 %121, %200
+197:                                              ; preds = %180
+  %198 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %199 = load i32, ptr %198, align 4
+  %.not.i.i = icmp eq i32 %120, %199
   br i1 %.not.i.i, label %._crit_edge.i.i, label %_ZN11SwitchRange6adjoinEiifb.exit.thread
 
-._crit_edge.i.i:                                  ; preds = %198
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %183, i64 12
+._crit_edge.i.i:                                  ; preds = %197
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %182, i64 12
   %.pre.i.i = load float, ptr %.phi.trans.insert.i.i, align 4
   br label %_ZN11SwitchRange6adjoinEiifb.exit
 
-_ZN11SwitchRange6adjoinEiifb.exit:                ; preds = %191, %194, %195, %._crit_edge.i.i
-  %201 = phi float [ %.pre.i.i, %._crit_edge.i.i ], [ %188, %195 ], [ %188, %194 ], [ %188, %191 ]
-  store i32 %119, ptr %184, align 4
-  %202 = getelementptr inbounds nuw i8, ptr %183, i64 12
-  %203 = fadd float %201, %182
-  store float %203, ptr %202, align 4
-  br label %210
+_ZN11SwitchRange6adjoinEiifb.exit:                ; preds = %190, %193, %194, %._crit_edge.i.i
+  %200 = phi float [ %.pre.i.i, %._crit_edge.i.i ], [ %187, %194 ], [ %187, %193 ], [ %187, %190 ]
+  store i32 %118, ptr %183, align 4
+  %201 = getelementptr inbounds nuw i8, ptr %182, i64 12
+  %202 = fadd float %200, %181
+  store float %202, ptr %201, align 4
+  br label %209
 
-_ZN11SwitchRange6adjoinEiifb.exit.thread:         ; preds = %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, %177, %198, %195, %190
-  %.pre-phi164 = phi float [ %.pre163, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %180, %177 ], [ %182, %198 ], [ %182, %195 ], [ %182, %190 ]
-  %.1134 = phi i32 [ %.1, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %.1, %177 ], [ %.1133187, %198 ], [ %.1133187, %195 ], [ %.1133187, %190 ]
-  %204 = add nsw i32 %.1134, 1
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds %class.SwitchRange, ptr %116, i64 %205
-  store i32 %119, ptr %206, align 4
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 4
-  store i32 %119, ptr %207, align 4
-  %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  store i32 %121, ptr %208, align 4
-  %209 = getelementptr inbounds nuw i8, ptr %206, i64 12
-  store float %.pre-phi164, ptr %209, align 4
-  br label %210
+_ZN11SwitchRange6adjoinEiifb.exit.thread:         ; preds = %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, %176, %197, %194, %189
+  %.pre-phi164 = phi float [ %.pre163, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %179, %176 ], [ %181, %197 ], [ %181, %194 ], [ %181, %189 ]
+  %.1134 = phi i32 [ %.1, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %.1, %176 ], [ %.1133187, %197 ], [ %.1133187, %194 ], [ %.1133187, %189 ]
+  %203 = add nsw i32 %.1134, 1
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %204
+  store i32 %118, ptr %205, align 4
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 4
+  store i32 %118, ptr %206, align 4
+  %207 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  store i32 %120, ptr %207, align 4
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 12
+  store float %.pre-phi164, ptr %208, align 4
+  br label %209
 
-210:                                              ; preds = %_ZN11SwitchRange6adjoinEiifb.exit, %_ZN11SwitchRange6adjoinEiifb.exit.thread
-  %.2 = phi i32 [ %204, %_ZN11SwitchRange6adjoinEiifb.exit.thread ], [ %.1133187, %_ZN11SwitchRange6adjoinEiifb.exit ]
+209:                                              ; preds = %_ZN11SwitchRange6adjoinEiifb.exit, %_ZN11SwitchRange6adjoinEiifb.exit.thread
+  %.2 = phi i32 [ %203, %_ZN11SwitchRange6adjoinEiifb.exit.thread ], [ %.1133187, %_ZN11SwitchRange6adjoinEiifb.exit ]
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
   br i1 %exitcond157.not, label %._crit_edge143, label %.lr.ph142, !llvm.loop !17
 
-._crit_edge143:                                   ; preds = %210
-  %211 = getelementptr i32, ptr %51, i64 %49
-  %212 = getelementptr i8, ptr %211, i64 -12
-  %213 = load i32, ptr %212, align 4
-  %.not103 = icmp eq i32 %213, 2147483647
-  br i1 %.not103, label %251, label %214
+._crit_edge143:                                   ; preds = %209
+  %210 = getelementptr i32, ptr %51, i64 %49
+  %211 = getelementptr i8, ptr %210, i64 -12
+  %212 = load i32, ptr %211, align 4
+  %.not103 = icmp eq i32 %212, 2147483647
+  br i1 %.not103, label %250, label %213
 
-214:                                              ; preds = %._crit_edge143
-  %215 = sext i32 %.2 to i64
-  %216 = getelementptr inbounds %class.SwitchRange, ptr %116, i64 %215
-  %217 = add nsw i32 %213, 1
-  %218 = sitofp i32 %213 to float
-  %219 = fsub float 0x41E0000000000000, %218
-  %220 = fmul float %.091, %219
-  %221 = getelementptr inbounds nuw i8, ptr %216, i64 4
-  %222 = load i32, ptr %221, align 4
-  %223 = icmp eq i32 %213, %222
-  br i1 %223, label %224, label %244
+213:                                              ; preds = %._crit_edge143
+  %214 = sext i32 %.2 to i64
+  %215 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %214
+  %216 = add nsw i32 %212, 1
+  %217 = sitofp i32 %212 to float
+  %218 = fsub float 0x41E0000000000000, %217
+  %219 = fmul float %.091, %218
+  %220 = getelementptr inbounds nuw i8, ptr %215, i64 4
+  %221 = load i32, ptr %220, align 4
+  %222 = icmp eq i32 %212, %221
+  br i1 %222, label %223, label %243
 
-224:                                              ; preds = %214
-  br i1 %47, label %238, label %225
+223:                                              ; preds = %213
+  br i1 %47, label %237, label %224
 
-225:                                              ; preds = %224
-  %226 = fcmp oeq float %220, 0.000000e+00
-  %227 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %228 = load float, ptr %227, align 4
-  %229 = fcmp une float %228, 0.000000e+00
-  br i1 %226, label %230, label %235
+224:                                              ; preds = %223
+  %225 = fcmp oeq float %219, 0.000000e+00
+  %226 = getelementptr inbounds nuw i8, ptr %215, i64 12
+  %227 = load float, ptr %226, align 4
+  %228 = fcmp une float %227, 0.000000e+00
+  br i1 %225, label %229, label %234
 
-230:                                              ; preds = %225
-  br i1 %229, label %244, label %231
+229:                                              ; preds = %224
+  br i1 %228, label %243, label %230
 
-231:                                              ; preds = %230
-  %232 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %233 = load i32, ptr %232, align 4
-  %.not10.i115 = icmp eq i32 %13, %233
-  br i1 %.not10.i115, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit116, label %234
+230:                                              ; preds = %229
+  %231 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %232 = load i32, ptr %231, align 4
+  %.not10.i115 = icmp eq i32 %13, %232
+  br i1 %.not10.i115, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit116, label %233
 
-234:                                              ; preds = %231
-  store i32 2147483647, ptr %232, align 4
+233:                                              ; preds = %230
+  store i32 2147483647, ptr %231, align 4
   br label %_ZN11SwitchRange11adjoinRangeEiiifb.exit116
 
-235:                                              ; preds = %225
-  %236 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %237 = load i32, ptr %236, align 4
-  %.not9.i113 = icmp eq i32 %13, %237
-  %or.cond.i114 = select i1 %229, i1 %.not9.i113, i1 false
-  br i1 %or.cond.i114, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit116, label %244
+234:                                              ; preds = %224
+  %235 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %236 = load i32, ptr %235, align 4
+  %.not9.i113 = icmp eq i32 %13, %236
+  %or.cond.i114 = select i1 %228, i1 %.not9.i113, i1 false
+  br i1 %or.cond.i114, label %_ZN11SwitchRange11adjoinRangeEiiifb.exit116, label %243
 
-238:                                              ; preds = %224
-  %239 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %240 = load i32, ptr %239, align 4
-  %.not.i109 = icmp eq i32 %13, %240
-  br i1 %.not.i109, label %._crit_edge.i110, label %244
+237:                                              ; preds = %223
+  %238 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %239 = load i32, ptr %238, align 4
+  %.not.i109 = icmp eq i32 %13, %239
+  br i1 %.not.i109, label %._crit_edge.i110, label %243
 
-._crit_edge.i110:                                 ; preds = %238
-  %.phi.trans.insert.i111 = getelementptr inbounds nuw i8, ptr %216, i64 12
+._crit_edge.i110:                                 ; preds = %237
+  %.phi.trans.insert.i111 = getelementptr inbounds nuw i8, ptr %215, i64 12
   %.pre.i112 = load float, ptr %.phi.trans.insert.i111, align 4
   br label %_ZN11SwitchRange11adjoinRangeEiiifb.exit116
 
-_ZN11SwitchRange11adjoinRangeEiiifb.exit116:      ; preds = %231, %234, %235, %._crit_edge.i110
-  %241 = phi float [ %.pre.i112, %._crit_edge.i110 ], [ %228, %235 ], [ %228, %234 ], [ %228, %231 ]
-  store i32 2147483647, ptr %221, align 4
-  %242 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %243 = fadd float %220, %241
-  store float %243, ptr %242, align 4
-  br label %251
+_ZN11SwitchRange11adjoinRangeEiiifb.exit116:      ; preds = %230, %233, %234, %._crit_edge.i110
+  %240 = phi float [ %.pre.i112, %._crit_edge.i110 ], [ %227, %234 ], [ %227, %233 ], [ %227, %230 ]
+  store i32 2147483647, ptr %220, align 4
+  %241 = getelementptr inbounds nuw i8, ptr %215, i64 12
+  %242 = fadd float %219, %240
+  store float %242, ptr %241, align 4
+  br label %250
 
-244:                                              ; preds = %230, %235, %238, %214
-  %245 = add nsw i32 %.2, 1
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds %class.SwitchRange, ptr %116, i64 %246
-  store i32 %217, ptr %247, align 4
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 4
-  store i32 2147483647, ptr %248, align 4
-  %249 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  store i32 %13, ptr %249, align 4
-  %250 = getelementptr inbounds nuw i8, ptr %247, i64 12
-  store float %220, ptr %250, align 4
-  br label %251
+243:                                              ; preds = %229, %234, %237, %213
+  %244 = add nsw i32 %.2, 1
+  %245 = sext i32 %244 to i64
+  %246 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %245
+  store i32 %216, ptr %246, align 4
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 4
+  store i32 2147483647, ptr %247, align 4
+  %248 = getelementptr inbounds nuw i8, ptr %246, i64 8
+  store i32 %13, ptr %248, align 4
+  %249 = getelementptr inbounds nuw i8, ptr %246, i64 12
+  store float %219, ptr %249, align 4
+  br label %250
 
-251:                                              ; preds = %_ZN11SwitchRange11adjoinRangeEiiifb.exit116, %244, %._crit_edge143
-  %.3 = phi i32 [ %.2, %._crit_edge143 ], [ %.2, %_ZN11SwitchRange11adjoinRangeEiiifb.exit116 ], [ %245, %244 ]
-  br i1 %47, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %252
+250:                                              ; preds = %_ZN11SwitchRange11adjoinRangeEiiifb.exit116, %243, %._crit_edge143
+  %.3 = phi i32 [ %.2, %._crit_edge143 ], [ %.2, %_ZN11SwitchRange11adjoinRangeEiiifb.exit116 ], [ %244, %243 ]
+  br i1 %47, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %251
 
-252:                                              ; preds = %251
-  %253 = icmp eq i32 %.3, 0
-  br i1 %253, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.preheader.i
+251:                                              ; preds = %250
+  %252 = icmp eq i32 %.3, 0
+  br i1 %252, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %252
-  %254 = icmp sgt i32 %.3, 0
-  br i1 %254, label %.lr.ph.i.preheader, label %._crit_edge.i117
+.preheader.i:                                     ; preds = %251
+  %253 = icmp sgt i32 %.3, 0
+  br i1 %253, label %.lr.ph.i.preheader, label %._crit_edge.i117
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %255 = zext nneg i32 %.3 to i64
+  %254 = zext nneg i32 %.3 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %283
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %283 ], [ 0, %.lr.ph.i.preheader ]
-  %.034.i = phi i32 [ %.1.i, %283 ], [ 0, %.lr.ph.i.preheader ]
-  %256 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %257 = sub nsw i32 %256, %.034.i
-  %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds %class.SwitchRange, ptr %116, i64 %258
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %282
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %282 ], [ 0, %.lr.ph.i.preheader ]
+  %.034.i = phi i32 [ %.1.i, %282 ], [ 0, %.lr.ph.i.preheader ]
+  %255 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %256 = sub nsw i32 %255, %.034.i
+  %257 = sext i32 %256 to i64
+  %258 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %257
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %260 = getelementptr inbounds nuw %class.SwitchRange, ptr %116, i64 %indvars.iv.next.i
-  %261 = load i32, ptr %260, align 4
-  %262 = getelementptr inbounds nuw i8, ptr %260, i64 8
-  %263 = load i32, ptr %262, align 4
-  %264 = getelementptr inbounds nuw i8, ptr %259, i64 4
-  %265 = load i32, ptr %264, align 4
-  %266 = add nsw i32 %265, 1
-  %267 = icmp eq i32 %261, %266
-  %268 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  %269 = load i32, ptr %268, align 4
-  %.not.i.i.i = icmp eq i32 %263, %269
-  %or.cond.i.i119 = select i1 %267, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.i.i119, label %270, label %_ZN11SwitchRange6adjoinERS_.exit.i
+  %259 = getelementptr inbounds nuw %class.SwitchRange, ptr %115, i64 %indvars.iv.next.i
+  %260 = load i32, ptr %259, align 4
+  %261 = getelementptr inbounds nuw i8, ptr %259, i64 8
+  %262 = load i32, ptr %261, align 4
+  %263 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  %264 = load i32, ptr %263, align 4
+  %265 = add nsw i32 %264, 1
+  %266 = icmp eq i32 %260, %265
+  %267 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %268 = load i32, ptr %267, align 4
+  %.not.i.i.i = icmp eq i32 %262, %268
+  %or.cond.i.i119 = select i1 %266, i1 %.not.i.i.i, i1 false
+  br i1 %or.cond.i.i119, label %269, label %_ZN11SwitchRange6adjoinERS_.exit.i
 
-270:                                              ; preds = %.lr.ph.i
-  %271 = getelementptr inbounds nuw i8, ptr %260, i64 12
-  %272 = load float, ptr %271, align 4
-  %273 = getelementptr inbounds nuw i8, ptr %260, i64 4
-  %274 = load i32, ptr %273, align 4
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %259, i64 12
+269:                                              ; preds = %.lr.ph.i
+  %270 = getelementptr inbounds nuw i8, ptr %259, i64 12
+  %271 = load float, ptr %270, align 4
+  %272 = getelementptr inbounds nuw i8, ptr %259, i64 4
+  %273 = load i32, ptr %272, align 4
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %258, i64 12
   %.pre.i.i.i = load float, ptr %.phi.trans.insert.i.i.i, align 4
-  store i32 %274, ptr %264, align 4
-  %275 = fadd float %272, %.pre.i.i.i
-  store float %275, ptr %.phi.trans.insert.i.i.i, align 4
-  %276 = add nsw i32 %.034.i, 1
-  br label %283
+  store i32 %273, ptr %263, align 4
+  %274 = fadd float %271, %.pre.i.i.i
+  store float %274, ptr %.phi.trans.insert.i.i.i, align 4
+  %275 = add nsw i32 %.034.i, 1
+  br label %282
 
 _ZN11SwitchRange6adjoinERS_.exit.i:               ; preds = %.lr.ph.i
-  %277 = icmp sgt i32 %.034.i, 0
-  br i1 %277, label %278, label %283
+  %276 = icmp sgt i32 %.034.i, 0
+  br i1 %276, label %277, label %282
 
-278:                                              ; preds = %_ZN11SwitchRange6adjoinERS_.exit.i
-  %279 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %280 = sub nsw i32 %279, %.034.i
-  %281 = sext i32 %280 to i64
-  %282 = getelementptr inbounds %class.SwitchRange, ptr %116, i64 %281
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %282, ptr noundef nonnull align 4 dereferenceable(16) %260, i64 16, i1 false)
-  br label %283
+277:                                              ; preds = %_ZN11SwitchRange6adjoinERS_.exit.i
+  %278 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %279 = sub nsw i32 %278, %.034.i
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %280
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %281, ptr noundef nonnull align 4 dereferenceable(16) %259, i64 16, i1 false)
+  br label %282
 
-283:                                              ; preds = %278, %_ZN11SwitchRange6adjoinERS_.exit.i, %270
-  %.1.i = phi i32 [ %276, %270 ], [ %.034.i, %278 ], [ %.034.i, %_ZN11SwitchRange6adjoinERS_.exit.i ]
-  %exitcond158.not = icmp eq i64 %indvars.iv.next.i, %255
+282:                                              ; preds = %277, %_ZN11SwitchRange6adjoinERS_.exit.i, %269
+  %.1.i = phi i32 [ %275, %269 ], [ %.034.i, %277 ], [ %.034.i, %_ZN11SwitchRange6adjoinERS_.exit.i ]
+  %exitcond158.not = icmp eq i64 %indvars.iv.next.i, %254
   br i1 %exitcond158.not, label %._crit_edge.i117, label %.lr.ph.i, !llvm.loop !9
 
-._crit_edge.i117:                                 ; preds = %283, %.preheader.i
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %283 ]
-  %284 = sub nsw i32 %.3, %.0.lcssa.i
-  %.not36.i = icmp slt i32 %284, 0
+._crit_edge.i117:                                 ; preds = %282, %.preheader.i
+  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %282 ]
+  %283 = sub nsw i32 %.3, %.0.lcssa.i
+  %.not36.i = icmp slt i32 %283, 0
   br i1 %.not36.i, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.lr.ph39.i.preheader
 
 .lr.ph39.i.preheader:                             ; preds = %._crit_edge.i117
-  %narrow = add nuw i32 %284, 1
-  %285 = zext i32 %narrow to i64
+  %narrow = add nuw i32 %283, 1
+  %284 = zext i32 %narrow to i64
   br label %.lr.ph39.i
 
-.lr.ph39.i:                                       ; preds = %.lr.ph39.i.preheader, %294
-  %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %294 ], [ 0, %.lr.ph39.i.preheader ]
-  %286 = getelementptr inbounds nuw %class.SwitchRange, ptr %116, i64 %indvars.iv42.i
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 12
-  %288 = load float, ptr %287, align 4
-  %289 = fcmp oeq float %288, 0.000000e+00
-  br i1 %289, label %290, label %294
+.lr.ph39.i:                                       ; preds = %.lr.ph39.i.preheader, %293
+  %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %293 ], [ 0, %.lr.ph39.i.preheader ]
+  %285 = getelementptr inbounds nuw %class.SwitchRange, ptr %115, i64 %indvars.iv42.i
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 12
+  %287 = load float, ptr %286, align 4
+  %288 = fcmp oeq float %287, 0.000000e+00
+  br i1 %288, label %289, label %293
 
-290:                                              ; preds = %.lr.ph39.i
-  %291 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  %292 = load i32, ptr %291, align 4
-  %.not32.i = icmp eq i32 %292, 2147483647
-  br i1 %.not32.i, label %294, label %293
+289:                                              ; preds = %.lr.ph39.i
+  %290 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  %291 = load i32, ptr %290, align 4
+  %.not32.i = icmp eq i32 %291, 2147483647
+  br i1 %.not32.i, label %293, label %292
 
-293:                                              ; preds = %290
-  store i32 2147483647, ptr %291, align 4
-  br label %294
+292:                                              ; preds = %289
+  store i32 2147483647, ptr %290, align 4
+  br label %293
 
-294:                                              ; preds = %293, %290, %.lr.ph39.i
+293:                                              ; preds = %292, %289, %.lr.ph39.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
-  %exitcond159.not = icmp eq i64 %indvars.iv.next43.i, %285
+  %exitcond159.not = icmp eq i64 %indvars.iv.next43.i, %284
   br i1 %exitcond159.not, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.lr.ph39.i, !llvm.loop !10
 
-_ZL12merge_rangesP11SwitchRangeRi.exit:           ; preds = %294, %._crit_edge.i117, %252, %251
-  %.4 = phi i32 [ %.3, %251 ], [ 0, %252 ], [ %284, %._crit_edge.i117 ], [ %284, %294 ]
-  br i1 %134, label %295, label %296
+_ZL12merge_rangesP11SwitchRangeRi.exit:           ; preds = %293, %._crit_edge.i117, %251, %250
+  %.4 = phi i32 [ %.3, %250 ], [ 0, %251 ], [ %283, %._crit_edge.i117 ], [ %283, %293 ]
+  br i1 %133, label %294, label %295
 
-295:                                              ; preds = %_ZL12merge_rangesP11SwitchRangeRi.exit
+294:                                              ; preds = %_ZL12merge_rangesP11SwitchRangeRi.exit
   tail call void @_ZN5Parse13add_safepointEv(ptr noundef nonnull align 8 dereferenceable(352) %0) #15
-  br label %296
+  br label %295
 
-296:                                              ; preds = %295, %_ZL12merge_rangesP11SwitchRangeRi.exit
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %298 = load ptr, ptr %297, align 8
-  %299 = getelementptr inbounds nuw i8, ptr %298, i64 56
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %302 = load i32, ptr %301, align 8
-  %303 = add nsw i32 %302, -1
-  store i32 %303, ptr %301, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %300, i64 16
-  %305 = load i32, ptr %304, align 8
-  %306 = add i32 %305, %303
-  %307 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  %308 = load ptr, ptr %307, align 8
-  %309 = zext i32 %306 to i64
-  %310 = getelementptr inbounds nuw ptr, ptr %308, i64 %309
-  %311 = load ptr, ptr %310, align 8
-  %312 = sext i32 %.4 to i64
-  %313 = getelementptr inbounds %class.SwitchRange, ptr %116, i64 %312
-  tail call void @_ZN5Parse18jump_switch_rangesEP4NodeP11SwitchRangeS3_i(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %311, ptr noundef nonnull %116, ptr noundef %313, i32 noundef 0)
-  br label %314
+295:                                              ; preds = %294, %_ZL12merge_rangesP11SwitchRangeRi.exit
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %297 = load ptr, ptr %296, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 56
+  %299 = load ptr, ptr %298, align 8
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %301 = load i32, ptr %300, align 8
+  %302 = add nsw i32 %301, -1
+  store i32 %302, ptr %300, align 8
+  %303 = getelementptr inbounds nuw i8, ptr %299, i64 16
+  %304 = load i32, ptr %303, align 8
+  %305 = add i32 %304, %302
+  %306 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  %307 = load ptr, ptr %306, align 8
+  %308 = zext i32 %305 to i64
+  %309 = getelementptr inbounds nuw ptr, ptr %307, i64 %308
+  %310 = load ptr, ptr %309, align 8
+  %311 = sext i32 %.4 to i64
+  %312 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %311
+  tail call void @_ZN5Parse18jump_switch_rangesEP4NodeP11SwitchRangeS3_i(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %310, ptr noundef nonnull %115, ptr noundef %312, i32 noundef 0)
+  br label %313
 
-314:                                              ; preds = %296, %_ZN5Parse19maybe_add_safepointEi.exit
+313:                                              ; preds = %295, %_ZN5Parse19maybe_add_safepointEi.exit
   ret void
 }
 

@@ -7275,38 +7275,36 @@ index2adr.exit19:                                 ; preds = %77, %86, %93, %99, 
   %143 = load i64, ptr %.0.i17, align 8, !tbaa !17
   %144 = and i64 %143, 140737488355327
   %145 = inttoptr i64 %144 to ptr
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 40
-  %147 = sext i32 %4 to i64
-  %148 = getelementptr %struct.GCRef, ptr %146, i64 %147
-  %149 = getelementptr i8, ptr %148, i64 -8
-  %150 = load i64, ptr %149, align 8, !tbaa !17
-  %151 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  %152 = sext i32 %2 to i64
-  %153 = getelementptr %struct.GCRef, ptr %151, i64 %152
-  %154 = getelementptr i8, ptr %153, i64 -8
-  store i64 %150, ptr %154, align 8, !tbaa !17
-  %155 = inttoptr i64 %150 to ptr
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %157 = load i8, ptr %156, align 8, !tbaa !17
-  %158 = and i8 %157, 3
-  %.not = icmp eq i8 %158, 0
-  br i1 %.not, label %167, label %159
+  %146 = sext i32 %4 to i64
+  %147 = getelementptr %struct.GCRef, ptr %145, i64 %146
+  %148 = getelementptr i8, ptr %147, i64 32
+  %149 = load i64, ptr %148, align 8, !tbaa !17
+  %150 = sext i32 %2 to i64
+  %151 = getelementptr %struct.GCRef, ptr %75, i64 %150
+  %152 = getelementptr i8, ptr %151, i64 32
+  store i64 %149, ptr %152, align 8, !tbaa !17
+  %153 = inttoptr i64 %149 to ptr
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %155 = load i8, ptr %154, align 8, !tbaa !17
+  %156 = and i8 %155, 3
+  %.not = icmp eq i8 %156, 0
+  br i1 %.not, label %165, label %157
 
-159:                                              ; preds = %index2adr.exit19
-  %160 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %161 = load i8, ptr %160, align 8, !tbaa !17
-  %162 = and i8 %161, 4
-  %.not16 = icmp eq i8 %162, 0
-  br i1 %.not16, label %167, label %163
+157:                                              ; preds = %index2adr.exit19
+  %158 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %159 = load i8, ptr %158, align 8, !tbaa !17
+  %160 = and i8 %159, 4
+  %.not16 = icmp eq i8 %160, 0
+  br i1 %.not16, label %165, label %161
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %165 = load i64, ptr %164, align 8, !tbaa !21
-  %166 = inttoptr i64 %165 to ptr
-  tail call void @lj_gc_barrierf(ptr noundef %166, ptr noundef nonnull %75, ptr noundef nonnull %155) #13
-  br label %167
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %163 = load i64, ptr %162, align 8, !tbaa !21
+  %164 = inttoptr i64 %163 to ptr
+  tail call void @lj_gc_barrierf(ptr noundef %164, ptr noundef nonnull %75, ptr noundef nonnull %153) #13
+  br label %165
 
-167:                                              ; preds = %163, %159, %index2adr.exit19
+165:                                              ; preds = %161, %157, %index2adr.exit19
   ret void
 }
 

@@ -6,9 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TableFuncRoutine = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.pg_tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%union.ListCell = type { ptr }
 %struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
 %struct.nameData = type { [64 x i8] }
+%union.ListCell = type { ptr }
 
 @xmlbinary = dso_local local_unnamed_addr global i32 0, align 4
 @xmloption = dso_local local_unnamed_addr global i32 1, align 4
@@ -1359,27 +1359,26 @@ xsd_schema_element_start.exit:                    ; preds = %14, %15
   %20 = zext nneg i32 %18 to i64
   %21 = shl nuw nsw i64 %20, 4
   %22 = getelementptr i8, ptr %0, i64 %21
-  %23 = getelementptr i8, ptr %22, i64 115
-  br label %25
+  br label %24
 
-24:                                               ; preds = %25
+23:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %20
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !12
 
-25:                                               ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 100
-  %26 = getelementptr i8, ptr %23, i64 %.idx
+24:                                               ; preds = %.lr.ph, %23
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
+  %25 = getelementptr %struct.FormData_pg_attribute, ptr %22, i64 %indvars.iv
+  %26 = getelementptr i8, ptr %25, i64 115
   %27 = load i8, ptr %26, align 1, !range !4, !noundef !5
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %24, label %29
+  br i1 %28, label %23, label %29
 
-29:                                               ; preds = %25
+29:                                               ; preds = %24
   %30 = call ptr @map_sql_identifier_to_xml_name(ptr nonnull poison, i1 zeroext poison, i1 zeroext poison)
   unreachable
 
-._crit_edge:                                      ; preds = %24, %xsd_schema_element_start.exit
+._crit_edge:                                      ; preds = %23, %xsd_schema_element_start.exit
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.112) #12
   br i1 %2, label %32, label %31
 

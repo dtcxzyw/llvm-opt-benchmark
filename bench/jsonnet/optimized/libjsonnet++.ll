@@ -391,10 +391,9 @@ define noundef zeroext i1 @_ZN7jsonnet7Jsonnet17evaluateFileMultiERKNSt7__cxx111
   %scevgep20.i = getelementptr i8, ptr %.019.i, i64 %strlen.i
   %21 = getelementptr i8, ptr %scevgep20.i, i64 2
   %strlen21.i = call i64 @strlen(ptr nonnull dereferenceable(1) %21)
-  %scevgep22.i = getelementptr i8, ptr %.019.i, i64 2
-  %22 = getelementptr i8, ptr %scevgep22.i, i64 %strlen21.i
+  %22 = getelementptr i8, ptr %.019.i, i64 %strlen21.i
   %scevgep23.i = getelementptr i8, ptr %22, i64 %strlen.i
-  %23 = getelementptr inbounds nuw i8, ptr %scevgep23.i, i64 1
+  %23 = getelementptr i8, ptr %scevgep23.i, i64 3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.019.i, ptr %4, align 8
   store ptr %21, ptr %20, align 8
@@ -459,10 +458,9 @@ define noundef zeroext i1 @_ZN7jsonnet7Jsonnet20evaluateSnippetMultiERKNSt7__cxx
   %scevgep20.i = getelementptr i8, ptr %.019.i, i64 %strlen.i
   %23 = getelementptr i8, ptr %scevgep20.i, i64 2
   %strlen21.i = call i64 @strlen(ptr nonnull dereferenceable(1) %23)
-  %scevgep22.i = getelementptr i8, ptr %.019.i, i64 2
-  %24 = getelementptr i8, ptr %scevgep22.i, i64 %strlen21.i
+  %24 = getelementptr i8, ptr %.019.i, i64 %strlen21.i
   %scevgep23.i = getelementptr i8, ptr %24, i64 %strlen.i
-  %25 = getelementptr inbounds nuw i8, ptr %scevgep23.i, i64 1
+  %25 = getelementptr i8, ptr %scevgep23.i, i64 3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.019.i, ptr %5, align 8
   store ptr %23, ptr %22, align 8

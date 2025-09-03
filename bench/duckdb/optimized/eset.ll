@@ -58,9 +58,8 @@ define i64 @duckdb_je_eset_nextents_get(ptr noundef readonly captures(none) %0, 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @duckdb_je_eset_nbytes_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = zext i32 %1 to i64
-  %.idx = shl nuw nsw i64 %3, 4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 6440
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
+  %4 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %0, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 6440
   %6 = load atomic i64, ptr %5 monotonic, align 8
   ret i64 %6
 }
@@ -413,34 +412,33 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   br i1 %52, label %.lr.ph.i, label %eset_first_fit.exit
 
 .lr.ph.i:                                         ; preds = %fb_ffs.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %55
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %54
 
-55:                                               ; preds = %fb_ffs.exit36.i, %.lr.ph.i
+54:                                               ; preds = %fb_ffs.exit36.i, %.lr.ph.i
   %.025.in45.i = phi i64 [ %51, %.lr.ph.i ], [ %96, %fb_ffs.exit36.i ]
   %.02644.i = phi i32 [ %4, %.lr.ph.i ], [ %spec.store.select.i, %fb_ffs.exit36.i ]
   %.sroa.5.043.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.5.1.i, %fb_ffs.exit36.i ]
   %.sroa.0.042.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.1.i, %fb_ffs.exit36.i ]
   %.02741.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %fb_ffs.exit36.i ]
-  %56 = icmp eq i32 %.02644.i, 64
-  %spec.store.select.i = select i1 %56, i32 63, i32 %.02644.i
-  %57 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_pind2sz_tab, i64 %.025.in45.i
-  %58 = load i64, ptr %57, align 8, !tbaa !21
-  %59 = zext nneg i32 %spec.store.select.i to i64
-  %60 = lshr i64 %58, %59
-  %61 = icmp ugt i64 %60, %9
-  br i1 %61, label %eset_first_fit.exit, label %62
+  %55 = icmp eq i32 %.02644.i, 64
+  %spec.store.select.i = select i1 %55, i32 63, i32 %.02644.i
+  %56 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_pind2sz_tab, i64 %.025.in45.i
+  %57 = load i64, ptr %56, align 8, !tbaa !21
+  %58 = zext nneg i32 %spec.store.select.i to i64
+  %59 = lshr i64 %57, %58
+  %60 = icmp ugt i64 %59, %9
+  br i1 %60, label %eset_first_fit.exit, label %61
 
-62:                                               ; preds = %55
-  %63 = icmp eq ptr %.02741.i, null
-  br i1 %63, label %74, label %64
+61:                                               ; preds = %54
+  %62 = icmp eq ptr %.02741.i, null
+  br i1 %62, label %74, label %63
 
-64:                                               ; preds = %62
-  %.idx.i = shl nuw nsw i64 %.025.in45.i, 5
-  %65 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %0, i64 %.025.in45.i
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %68 = load i64, ptr %67, align 8
   %69 = tail call i32 @llvm.ucmp.i32.i64(i64 %66, i64 %.sroa.0.042.i)
   %70 = shl nsw i32 %69, 1
@@ -449,8 +447,8 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %78
 
-74:                                               ; preds = %64, %62
-  %75 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %54, i64 %.025.in45.i
+74:                                               ; preds = %63, %61
+  %75 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %53, i64 %.025.in45.i
   %76 = tail call ptr @duckdb_je_edata_heap_first(ptr noundef nonnull %75) #7
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %77, align 8, !tbaa !21
@@ -458,10 +456,10 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !21
   br label %78
 
-78:                                               ; preds = %74, %64
-  %.2.i = phi ptr [ %76, %74 ], [ %.02741.i, %64 ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.0.copyload.i, %74 ], [ %.sroa.0.042.i, %64 ]
-  %.sroa.5.1.i = phi i64 [ %.sroa.5.0.copyload.i, %74 ], [ %.sroa.5.043.i, %64 ]
+78:                                               ; preds = %74, %63
+  %.2.i = phi ptr [ %76, %74 ], [ %.02741.i, %63 ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.0.copyload.i, %74 ], [ %.sroa.0.042.i, %63 ]
+  %.sroa.5.1.i = phi i64 [ %.sroa.5.0.copyload.i, %74 ], [ %.sroa.5.043.i, %63 ]
   %79 = icmp eq i64 %.025.in45.i, 199
   br i1 %79, label %eset_first_fit.exit, label %80
 
@@ -495,10 +493,10 @@ fb_ffs.exit36.i:                                  ; preds = %90, %80
   %95 = shl nuw nsw i64 %.039.i.lcssa.i32.i, 6
   %96 = or disjoint i64 %95, %94
   %97 = icmp samesign ult i64 %96, 200
-  br i1 %97, label %55, label %eset_first_fit.exit
+  br i1 %97, label %54, label %eset_first_fit.exit
 
-eset_first_fit.exit:                              ; preds = %.lr.ph.i.i, %55, %78, %fb_ffs.exit36.i, %.lr.ph.i34.i, %30, %34, %fb_ffs.exit.i
-  %.0.i = phi ptr [ %35, %34 ], [ null, %30 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %.lr.ph.i34.i ], [ %.2.i, %fb_ffs.exit36.i ], [ %.02741.i, %55 ], [ %.2.i, %78 ], [ null, %.lr.ph.i.i ]
+eset_first_fit.exit:                              ; preds = %.lr.ph.i.i, %54, %78, %fb_ffs.exit36.i, %.lr.ph.i34.i, %30, %34, %fb_ffs.exit.i
+  %.0.i = phi ptr [ %35, %34 ], [ null, %30 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %.lr.ph.i34.i ], [ %.2.i, %fb_ffs.exit36.i ], [ %.02741.i, %54 ], [ %.2.i, %78 ], [ null, %.lr.ph.i.i ]
   %98 = icmp ugt i64 %2, 4096
   %99 = icmp eq ptr %.0.i, null
   %or.cond = select i1 %98, i1 %99, i1 false

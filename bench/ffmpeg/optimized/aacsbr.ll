@@ -6166,8 +6166,8 @@ get_vlc2.exit:                                    ; preds = %29, %50
   store i32 %94, ptr %14, align 8, !tbaa !35
   %95 = shl nuw nsw i32 %92, %17
   %96 = trunc nuw nsw i32 %95 to i8
-  %97 = getelementptr inbounds nuw [5 x i8], ptr %13, i64 %indvars.iv91
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 5
+  %97 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 %indvars.iv91
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 88645
   store i8 %96, ptr %98, align 1, !tbaa !9
   %99 = load i32, ptr %12, align 8, !tbaa !50
   %100 = icmp ugt i32 %99, 1
@@ -7637,8 +7637,8 @@ sbr_env_estimate.exit:                            ; preds = %.loopexit86.i, %.lo
   %681 = getelementptr inbounds nuw [48 x float], ptr %310, i64 %indvars.iv247.i
   %682 = getelementptr inbounds nuw [48 x float], ptr %311, i64 %indvars.iv247.i
   %683 = getelementptr inbounds nuw [48 x float], ptr %324, i64 %indvars.iv247.i
-  %684 = getelementptr inbounds nuw [48 x i8], ptr %460, i64 %indvars.iv247.i
-  %685 = getelementptr inbounds nuw i8, ptr %684, i64 48
+  %684 = getelementptr inbounds nuw [48 x i8], ptr %336, i64 %indvars.iv247.i
+  %685 = getelementptr inbounds nuw i8, ptr %684, i64 86096
   %686 = getelementptr inbounds nuw [48 x float], ptr %325, i64 %indvars.iv247.i
   %687 = getelementptr inbounds nuw [48 x i8], ptr %313, i64 %indvars.iv247.i
   %688 = getelementptr inbounds nuw [48 x float], ptr %319, i64 %indvars.iv247.i
@@ -8533,9 +8533,8 @@ define internal void @sbr_hf_assemble(ptr noundef %0, ptr noundef %1, ptr nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @sbr_x_gen(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 19456)) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #11 {
   %7 = sext i32 %5 to i64
-  %.idx = mul nsw i64 %7, 88752
-  %8 = getelementptr i8, ptr %0, i64 88837
-  %9 = getelementptr i8, ptr %8, i64 %.idx
+  %8 = getelementptr %struct.SBRData, ptr %0, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 88837
   %10 = load i8, ptr %9, align 1, !tbaa !57
   %11 = icmp ugt i8 %10, 16
   %12 = zext i8 %10 to i32

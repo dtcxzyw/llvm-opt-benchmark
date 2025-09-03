@@ -15761,8 +15761,8 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit: ; preds = %_ZNK5clang4Decl7h
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 1724
   %88 = load i32, ptr %87, align 4
   %89 = and i32 %88, 3
-  %.not36 = icmp eq i32 %89, 0
-  br i1 %.not36, label %459, label %90
+  %.not35 = icmp eq i32 %89, 0
+  br i1 %.not35, label %459, label %90
 
 90:                                               ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 312
@@ -15802,8 +15802,8 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit: ; preds = %_ZNK5clang4Decl7h
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread6.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1682
 
 _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.not.i.i25 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i, %106
-  br i1 %.not.i.i25, label %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread6.i.i, label %114
+  %.not.i.i24 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i, %106
+  br i1 %.not.i.i24, label %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread6.i.i, label %114
 
 _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread6.i.i: ; preds = %111, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i.i, %100, %90
   %113 = ptrtoint ptr %96 to i64
@@ -16167,9 +16167,8 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.i: ; preds = %285, %
 
 292:                                              ; preds = %290
   %293 = and i64 %.pre.i.i.i, 65535
-  %.idx.i.i.i22 = shl nuw nsw i64 %293, 3
-  %294 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 52
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 %.idx.i.i.i22
+  %294 = getelementptr inbounds nuw %"class.clang::QualType", ptr %.1.i.i.i, i64 %293
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 52
   %296 = ptrtoint ptr %295 to i64
   %297 = add i64 %296, 7
   %298 = and i64 %297, -8
@@ -16217,21 +16216,21 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %323 = getelementptr inbounds nuw ptr, ptr %322, i64 %switch.load
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 %293
   %.not7.i.i.i.i.i.i = icmp samesign eq i64 %293, 0
-  br i1 %.not7.i.i.i.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i.i.i.i23
+  br i1 %.not7.i.i.i.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i.i.i.i22
 
-.lr.ph.i.i.i.i.i.i23:                             ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i23
-  %.09.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i84.i.i, %.lr.ph.i.i.i.i.i.i23 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i.i.i ]
-  %.058.i.i.i.i.i.i = phi ptr [ %329, %.lr.ph.i.i.i.i.i.i23 ], [ %323, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i22:                             ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i22
+  %.09.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i84.i.i, %.lr.ph.i.i.i.i.i.i22 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i.i.i ]
+  %.058.i.i.i.i.i.i = phi ptr [ %329, %.lr.ph.i.i.i.i.i.i22 ], [ %323, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i.i.i ]
   %325 = load i8, ptr %.058.i.i.i.i.i.i, align 1, !tbaa !1685
   %326 = lshr i8 %325, 5
   %327 = and i8 %326, 1
   %328 = zext nneg i8 %327 to i32
   %spec.select.i.i.i.i84.i.i = add i32 %.09.i.i.i.i.i.i, %328
   %329 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i.i, i64 1
-  %.not.i.i.i.i.i.i24 = icmp eq ptr %329, %324
-  br i1 %.not.i.i.i.i.i.i24, label %_ZN4llvm8count_ifINS_8ArrayRefIN5clang12FunctionType16ExtParameterInfoEEEZNS2_7CodeGen12RequiredArgs16forPrototypePlusEPKNS2_17FunctionProtoTypeEjEUlRKS4_E_EEDaOT_T0_.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i23, !llvm.loop !1687
+  %.not.i.i.i.i.i.i23 = icmp eq ptr %329, %324
+  br i1 %.not.i.i.i.i.i.i23, label %_ZN4llvm8count_ifINS_8ArrayRefIN5clang12FunctionType16ExtParameterInfoEEEZNS2_7CodeGen12RequiredArgs16forPrototypePlusEPKNS2_17FunctionProtoTypeEjEUlRKS4_E_EEDaOT_T0_.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i22, !llvm.loop !1687
 
-_ZN4llvm8count_ifINS_8ArrayRefIN5clang12FunctionType16ExtParameterInfoEEEZNS2_7CodeGen12RequiredArgs16forPrototypePlusEPKNS2_17FunctionProtoTypeEjEUlRKS4_E_EEDaOT_T0_.exit.i.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i23
+_ZN4llvm8count_ifINS_8ArrayRefIN5clang12FunctionType16ExtParameterInfoEEEZNS2_7CodeGen12RequiredArgs16forPrototypePlusEPKNS2_17FunctionProtoTypeEjEUlRKS4_E_EEDaOT_T0_.exit.i.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i22
   %330 = add i32 %spec.select.i.i.i.i84.i.i, 1
   br label %._crit_edge.i.i.i
 
@@ -16532,8 +16531,8 @@ _ZN12_GLOBAL__N_113ItaniumCXXABI37getSignedVirtualMemberFunctionPointerEPKN5clan
   %467 = shl nsw i64 %2, 1
   %468 = load i32, ptr %87, align 4
   %469 = and i32 %468, 3
-  %.not37 = icmp eq i32 %469, 0
-  %470 = zext i1 %.not37 to i64
+  %.not36 = icmp eq i32 %469, 0
+  %470 = zext i1 %.not36 to i64
   %471 = or disjoint i64 %467, %470
   %472 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %466, i64 noundef %471, i1 noundef zeroext false) #22
   br label %514
@@ -16558,8 +16557,8 @@ _ZN12_GLOBAL__N_113ItaniumCXXABI37getSignedVirtualMemberFunctionPointerEPKN5clan
   %486 = load ptr, ptr %485, align 16, !tbaa !740
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 16
   %488 = load i8, ptr %487, align 16
-  %.not.i27 = icmp eq i8 %488, 26
-  br i1 %.not.i27, label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit, label %489
+  %.not.i26 = icmp eq i8 %488, 26
+  br i1 %.not.i26, label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit, label %489
 
 489:                                              ; preds = %482
   %490 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %486) #22

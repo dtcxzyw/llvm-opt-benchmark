@@ -1621,44 +1621,43 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   store i32 %130, ptr %131, align 8, !tbaa !64
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %134 = getelementptr i8, ptr %0, i64 108
-  br label %135
+  br label %134
 
-135:                                              ; preds = %65, %._crit_edge.i
+134:                                              ; preds = %65, %._crit_edge.i
   %indvars.iv640 = phi i64 [ 0, %65 ], [ %indvars.iv.next641, %._crit_edge.i ]
-  %136 = icmp eq i64 %indvars.iv640, 2
-  br i1 %136, label %.preheader.i, label %142
+  %135 = icmp eq i64 %indvars.iv640, 2
+  br i1 %135, label %.preheader.i, label %141
 
-137:                                              ; preds = %.preheader.i
+136:                                              ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %141, label %.preheader.i, !llvm.loop !104
+  br i1 %exitcond.not.i, label %140, label %.preheader.i, !llvm.loop !104
 
-.preheader.i:                                     ; preds = %135, %137
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %137 ], [ 0, %135 ]
-  %138 = getelementptr inbounds nuw %struct.Tree, ptr %132, i64 %indvars.iv.i
-  %139 = tail call fastcc i32 @read_tree(ptr noundef nonnull %2, ptr noundef nonnull %138)
-  %140 = icmp sgt i32 %139, -1
-  br i1 %140, label %137, label %read_colors.exit
+.preheader.i:                                     ; preds = %134, %136
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %136 ], [ 0, %134 ]
+  %137 = getelementptr inbounds nuw %struct.Tree, ptr %132, i64 %indvars.iv.i
+  %138 = tail call fastcc i32 @read_tree(ptr noundef nonnull %2, ptr noundef nonnull %137)
+  %139 = icmp sgt i32 %138, -1
+  br i1 %139, label %136, label %read_colors.exit
 
-141:                                              ; preds = %137
+140:                                              ; preds = %136
   store i32 0, ptr %133, align 8, !tbaa !105
-  br label %142
+  br label %141
 
-142:                                              ; preds = %141, %135
-  %143 = trunc i64 %indvars.iv640 to i32
-  %144 = add i32 %143, -8
-  %or.cond.i = icmp ult i32 %144, -2
-  br i1 %or.cond.i, label %145, label %._crit_edge.i
+141:                                              ; preds = %140, %134
+  %142 = trunc i64 %indvars.iv640 to i32
+  %143 = add i32 %142, -8
+  %or.cond.i = icmp ult i32 %143, -2
+  br i1 %or.cond.i, label %144, label %._crit_edge.i
 
-145:                                              ; preds = %142
-  %.idx.i = mul nuw nsw i64 %indvars.iv640, 56
-  %146 = getelementptr i8, ptr %134, i64 %.idx.i
+144:                                              ; preds = %141
+  %145 = getelementptr %struct.Bundle, ptr %0, i64 %indvars.iv640
+  %146 = getelementptr i8, ptr %145, i64 108
   %147 = tail call fastcc i32 @read_tree(ptr noundef nonnull %2, ptr noundef %146)
   %148 = icmp sgt i32 %147, -1
   br i1 %148, label %._crit_edge.i, label %read_colors.exit
 
-._crit_edge.i:                                    ; preds = %142, %145
+._crit_edge.i:                                    ; preds = %141, %144
   %149 = getelementptr inbounds nuw %struct.Bundle, ptr %79, i64 %indvars.iv640
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %151 = load ptr, ptr %150, align 8, !tbaa !59
@@ -1668,7 +1667,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   store ptr %151, ptr %153, align 8, !tbaa !63
   %indvars.iv.next641 = add nuw nsw i64 %indvars.iv640, 1
   %exitcond643.not = icmp eq i64 %indvars.iv.next641, 9
-  br i1 %exitcond643.not, label %154, label %135, !llvm.loop !106
+  br i1 %exitcond643.not, label %154, label %134, !llvm.loop !106
 
 154:                                              ; preds = %._crit_edge.i
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3107,8 +3106,8 @@ unquantize_dct_coeffs.exit459:                    ; preds = %.lr.ph.i455, %953
   store i32 %1021, ptr %1012, align 8, !tbaa !56
   br label %read_colors.exit
 
-read_colors.exit:                                 ; preds = %145, %.preheader.i, %546, %254, %514, %510, %506, %.loopexit491, %222, %218, %.lr.ph.i, %.lr.ph.i405, %945, %894, %700, %635, %bink_put_pixels.exit450.thread, %bink_put_pixels.exit437.thread, %.thread473, %bink_put_pixels.exit.thread, %.thread466, %545, %447, %252, %.loopexit495, %1014, %1005, %759
-  %.0 = phi i32 [ -1094995529, %1005 ], [ -1094995529, %759 ], [ 0, %1014 ], [ 0, %.loopexit495 ], [ -1094995529, %252 ], [ -1094995529, %447 ], [ -1094995529, %545 ], [ -1094995529, %.thread466 ], [ -1094995529, %bink_put_pixels.exit.thread ], [ -1094995529, %.thread473 ], [ -1094995529, %bink_put_pixels.exit437.thread ], [ -1094995529, %bink_put_pixels.exit450.thread ], [ %951, %945 ], [ %899, %894 ], [ %705, %700 ], [ -1094995529, %635 ], [ -1094995529, %.lr.ph.i405 ], [ -1094995529, %.lr.ph.i ], [ -1094995529, %546 ], [ -1094995529, %254 ], [ %516, %514 ], [ %512, %510 ], [ %508, %506 ], [ %504, %.loopexit491 ], [ %224, %222 ], [ %220, %218 ], [ %139, %.preheader.i ], [ %147, %145 ]
+read_colors.exit:                                 ; preds = %144, %.preheader.i, %546, %254, %514, %510, %506, %.loopexit491, %222, %218, %.lr.ph.i, %.lr.ph.i405, %945, %894, %700, %635, %bink_put_pixels.exit450.thread, %bink_put_pixels.exit437.thread, %.thread473, %bink_put_pixels.exit.thread, %.thread466, %545, %447, %252, %.loopexit495, %1014, %1005, %759
+  %.0 = phi i32 [ -1094995529, %1005 ], [ -1094995529, %759 ], [ 0, %1014 ], [ 0, %.loopexit495 ], [ -1094995529, %252 ], [ -1094995529, %447 ], [ -1094995529, %545 ], [ -1094995529, %.thread466 ], [ -1094995529, %bink_put_pixels.exit.thread ], [ -1094995529, %.thread473 ], [ -1094995529, %bink_put_pixels.exit437.thread ], [ -1094995529, %bink_put_pixels.exit450.thread ], [ %951, %945 ], [ %899, %894 ], [ %705, %700 ], [ -1094995529, %635 ], [ -1094995529, %.lr.ph.i405 ], [ -1094995529, %.lr.ph.i ], [ -1094995529, %546 ], [ -1094995529, %254 ], [ %516, %514 ], [ %512, %510 ], [ %508, %506 ], [ %504, %.loopexit491 ], [ %224, %222 ], [ %220, %218 ], [ %138, %.preheader.i ], [ %147, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

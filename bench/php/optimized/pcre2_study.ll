@@ -1085,13 +1085,12 @@ thread-pre-split:                                 ; preds = %5
 
 262:                                              ; preds = %.backedge
   %263 = load ptr, ptr %22, align 8, !tbaa !18
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %263, i64 64
   br label %264
 
 264:                                              ; preds = %264, %262
   %indvars.iv.i = phi i64 [ 0, %262 ], [ %indvars.iv.next.i, %264 ]
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %265 = getelementptr inbounds nuw i8, ptr %gep.i, i64 512
+  %gep.i = getelementptr inbounds nuw i8, ptr %263, i64 %indvars.iv.i
+  %265 = getelementptr inbounds nuw i8, ptr %gep.i, i64 576
   %266 = load i8, ptr %265, align 1, !tbaa !17
   %267 = xor i8 %266, -1
   %268 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i
@@ -1111,13 +1110,12 @@ thread-pre-split:                                 ; preds = %5
 
 272:                                              ; preds = %.backedge
   %273 = load ptr, ptr %22, align 8, !tbaa !18
-  %invariant.gep.i324 = getelementptr inbounds nuw i8, ptr %273, i64 64
   br label %274
 
 274:                                              ; preds = %274, %272
   %indvars.iv.i325 = phi i64 [ 0, %272 ], [ %indvars.iv.next.i327, %274 ]
-  %gep.i326 = getelementptr inbounds nuw i8, ptr %invariant.gep.i324, i64 %indvars.iv.i325
-  %275 = getelementptr inbounds nuw i8, ptr %gep.i326, i64 512
+  %gep.i326 = getelementptr inbounds nuw i8, ptr %273, i64 %indvars.iv.i325
+  %275 = getelementptr inbounds nuw i8, ptr %gep.i326, i64 576
   %276 = load i8, ptr %275, align 1, !tbaa !17
   %277 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i325
   %278 = load i8, ptr %277, align 1, !tbaa !17
@@ -1247,13 +1245,12 @@ thread-pre-split:                                 ; preds = %5
 
 344:                                              ; preds = %.backedge
   %345 = load ptr, ptr %22, align 8, !tbaa !18
-  %invariant.gep.i352 = getelementptr inbounds nuw i8, ptr %345, i64 160
   br label %346
 
 346:                                              ; preds = %346, %344
   %indvars.iv.i353 = phi i64 [ 0, %344 ], [ %indvars.iv.next.i355, %346 ]
-  %gep.i354 = getelementptr inbounds nuw i8, ptr %invariant.gep.i352, i64 %indvars.iv.i353
-  %347 = getelementptr inbounds nuw i8, ptr %gep.i354, i64 512
+  %gep.i354 = getelementptr inbounds nuw i8, ptr %345, i64 %indvars.iv.i353
+  %347 = getelementptr inbounds nuw i8, ptr %gep.i354, i64 672
   %348 = load i8, ptr %347, align 1, !tbaa !17
   %349 = xor i8 %348, -1
   %350 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i353
@@ -1273,13 +1270,12 @@ thread-pre-split:                                 ; preds = %5
 
 354:                                              ; preds = %.backedge
   %355 = load ptr, ptr %22, align 8, !tbaa !18
-  %invariant.gep.i362 = getelementptr inbounds nuw i8, ptr %355, i64 160
   br label %356
 
 356:                                              ; preds = %356, %354
   %indvars.iv.i363 = phi i64 [ 0, %354 ], [ %indvars.iv.next.i365, %356 ]
-  %gep.i364 = getelementptr inbounds nuw i8, ptr %invariant.gep.i362, i64 %indvars.iv.i363
-  %357 = getelementptr inbounds nuw i8, ptr %gep.i364, i64 512
+  %gep.i364 = getelementptr inbounds nuw i8, ptr %355, i64 %indvars.iv.i363
+  %357 = getelementptr inbounds nuw i8, ptr %gep.i364, i64 672
   %358 = load i8, ptr %357, align 1, !tbaa !17
   %359 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i363
   %360 = load i8, ptr %359, align 1, !tbaa !17
@@ -1402,13 +1398,12 @@ thread-pre-split:                                 ; preds = %5
 
 418:                                              ; preds = %391
   %419 = load ptr, ptr %22, align 8, !tbaa !18
-  %invariant.gep.i373 = getelementptr inbounds nuw i8, ptr %419, i64 64
   br label %420
 
 420:                                              ; preds = %420, %418
   %indvars.iv.i374 = phi i64 [ 0, %418 ], [ %indvars.iv.next.i376, %420 ]
-  %gep.i375 = getelementptr inbounds nuw i8, ptr %invariant.gep.i373, i64 %indvars.iv.i374
-  %421 = getelementptr inbounds nuw i8, ptr %gep.i375, i64 512
+  %gep.i375 = getelementptr inbounds nuw i8, ptr %419, i64 %indvars.iv.i374
+  %421 = getelementptr inbounds nuw i8, ptr %gep.i375, i64 576
   %422 = load i8, ptr %421, align 1, !tbaa !17
   %423 = xor i8 %422, -1
   %424 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i374
@@ -1428,13 +1423,12 @@ thread-pre-split:                                 ; preds = %5
 
 428:                                              ; preds = %391
   %429 = load ptr, ptr %22, align 8, !tbaa !18
-  %invariant.gep.i383 = getelementptr inbounds nuw i8, ptr %429, i64 64
   br label %430
 
 430:                                              ; preds = %430, %428
   %indvars.iv.i384 = phi i64 [ 0, %428 ], [ %indvars.iv.next.i386, %430 ]
-  %gep.i385 = getelementptr inbounds nuw i8, ptr %invariant.gep.i383, i64 %indvars.iv.i384
-  %431 = getelementptr inbounds nuw i8, ptr %gep.i385, i64 512
+  %gep.i385 = getelementptr inbounds nuw i8, ptr %429, i64 %indvars.iv.i384
+  %431 = getelementptr inbounds nuw i8, ptr %gep.i385, i64 576
   %432 = load i8, ptr %431, align 1, !tbaa !17
   %433 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i384
   %434 = load i8, ptr %433, align 1, !tbaa !17
@@ -1564,13 +1558,12 @@ thread-pre-split:                                 ; preds = %5
 
 500:                                              ; preds = %391
   %501 = load ptr, ptr %22, align 8, !tbaa !18
-  %invariant.gep.i415 = getelementptr inbounds nuw i8, ptr %501, i64 160
   br label %502
 
 502:                                              ; preds = %502, %500
   %indvars.iv.i416 = phi i64 [ 0, %500 ], [ %indvars.iv.next.i418, %502 ]
-  %gep.i417 = getelementptr inbounds nuw i8, ptr %invariant.gep.i415, i64 %indvars.iv.i416
-  %503 = getelementptr inbounds nuw i8, ptr %gep.i417, i64 512
+  %gep.i417 = getelementptr inbounds nuw i8, ptr %501, i64 %indvars.iv.i416
+  %503 = getelementptr inbounds nuw i8, ptr %gep.i417, i64 672
   %504 = load i8, ptr %503, align 1, !tbaa !17
   %505 = xor i8 %504, -1
   %506 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i416
@@ -1590,13 +1583,12 @@ thread-pre-split:                                 ; preds = %5
 
 510:                                              ; preds = %391
   %511 = load ptr, ptr %22, align 8, !tbaa !18
-  %invariant.gep.i425 = getelementptr inbounds nuw i8, ptr %511, i64 160
   br label %512
 
 512:                                              ; preds = %512, %510
   %indvars.iv.i426 = phi i64 [ 0, %510 ], [ %indvars.iv.next.i428, %512 ]
-  %gep.i427 = getelementptr inbounds nuw i8, ptr %invariant.gep.i425, i64 %indvars.iv.i426
-  %513 = getelementptr inbounds nuw i8, ptr %gep.i427, i64 512
+  %gep.i427 = getelementptr inbounds nuw i8, ptr %511, i64 %indvars.iv.i426
+  %513 = getelementptr inbounds nuw i8, ptr %gep.i427, i64 672
   %514 = load i8, ptr %513, align 1, !tbaa !17
   %515 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i426
   %516 = load i8, ptr %515, align 1, !tbaa !17

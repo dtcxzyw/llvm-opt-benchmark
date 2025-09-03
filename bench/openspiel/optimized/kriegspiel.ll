@@ -2591,9 +2591,8 @@ _ZNK10open_spiel5chess10ChessBoard11IsMoveLegalERKNS0_4MoveE.exit: ; preds = %_Z
   %42 = ashr exact i32 %sext1.i.i, 24
   %43 = add nsw i32 %41, %42
   %44 = sext i32 %43 to i64
-  %.idx = shl nsw i64 %44, 1
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %46 = getelementptr i8, ptr %45, i64 %.idx
+  %45 = getelementptr %"struct.open_spiel::chess::Piece", ptr %1, i64 %44
+  %46 = getelementptr i8, ptr %45, i64 7
   %47 = load i8, ptr %46, align 1
   switch i8 %47, label %49 [
     i8 0, label %50
@@ -2768,9 +2767,8 @@ _ZNK10open_spiel5chess10ChessBoard11IsMoveLegalERKNS0_4MoveE.exit: ; preds = %_Z
   %37 = ashr exact i32 %sext1.i.i, 24
   %38 = add nsw i32 %36, %37
   %39 = sext i32 %38 to i64
-  %.idx = shl nsw i64 %39, 1
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %41 = getelementptr i8, ptr %40, i64 %.idx
+  %40 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 7
   %42 = load i8, ptr %41, align 1
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %44 = load i32, ptr %43, align 4

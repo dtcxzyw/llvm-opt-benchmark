@@ -7386,9 +7386,8 @@ _ZNSt6vectorIlSaIlEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 18:                                               ; preds = %_ZNSt6vectorIlSaIlEE7reserveEm.exit
   %19 = sdiv i32 %6, 4
   %20 = sext i32 %19 to i64
-  %.idx = mul nsw i64 %20, 48
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %22 = getelementptr i8, ptr %21, i64 %.idx
+  %21 = getelementptr %"class.open_spiel::hearts::Trick", ptr %1, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 108
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -9344,9 +9343,9 @@ define void @_ZN10open_spiel6hearts11HeartsState12ComputeScoreEv(ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(1600) %0)
-  br i1 %7, label %.preheader41, label %9
+  br i1 %7, label %.preheader40, label %9
 
-.preheader41:                                     ; preds = %1
+.preheader40:                                     ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %15
 
@@ -9370,9 +9369,9 @@ define void @_ZN10open_spiel6hearts11HeartsState12ComputeScoreEv(ptr noundef non
   %14 = zext i32 %.1 to i64
   br label %.critedge
 
-15:                                               ; preds = %.preheader41, %24
-  %indvars.iv = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next, %24 ]
-  %.03345 = phi i32 [ -3, %.preheader41 ], [ %.1, %24 ]
+15:                                               ; preds = %.preheader40, %24
+  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %24 ]
+  %.03344 = phi i32 [ -3, %.preheader40 ], [ %.1, %24 ]
   %16 = getelementptr inbounds nuw %"class.open_spiel::hearts::Trick", ptr %8, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
@@ -9382,33 +9381,33 @@ define void @_ZN10open_spiel6hearts11HeartsState12ComputeScoreEv(ptr noundef non
   ]
 
 19:                                               ; preds = %15
-  %20 = icmp eq i32 %.03345, -3
+  %20 = icmp eq i32 %.03344, -3
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %22 = load i32, ptr %21, align 4
   br i1 %20, label %24, label %23
 
 23:                                               ; preds = %19
-  %.not35 = icmp eq i32 %.03345, %22
+  %.not35 = icmp eq i32 %.03344, %22
   br i1 %.not35, label %24, label %.loopexit
 
 24:                                               ; preds = %19, %15, %15, %23
-  %.1 = phi i32 [ %.03345, %23 ], [ %.03345, %15 ], [ %.03345, %15 ], [ %22, %19 ]
+  %.1 = phi i32 [ %.03344, %23 ], [ %.03344, %15 ], [ %.03344, %15 ], [ %22, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond.not, label %.critedge.preheader, label %15, !llvm.loop !97
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
-  %indvars.iv52 = phi i64 [ 0, %.critedge.preheader ], [ %indvars.iv.next53, %.critedge ]
-  %25 = icmp eq i64 %indvars.iv52, %14
+  %indvars.iv51 = phi i64 [ 0, %.critedge.preheader ], [ %indvars.iv.next52, %.critedge ]
+  %25 = icmp eq i64 %indvars.iv51, %14
   %26 = select i1 %25, double -2.600000e+01, double 2.600000e+01
   %27 = load ptr, ptr %13, align 8
-  %28 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv52
+  %28 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv51
   %29 = load double, ptr %28, align 8
   %30 = fadd double %29, %26
   store double %30, ptr %28, align 8
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next53, 4
-  br i1 %exitcond55.not, label %.loopexit.thread, label %.critedge, !llvm.loop !98
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next52, 4
+  br i1 %exitcond54.not, label %.loopexit.thread, label %.critedge, !llvm.loop !98
 
 .loopexit:                                        ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -9423,44 +9422,43 @@ define void @_ZN10open_spiel6hearts11HeartsState12ComputeScoreEv(ptr noundef non
 
 .preheader:                                       ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  br label %44
+  br label %43
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
-  %indvars.iv56 = phi i64 [ 0, %.noexc ], [ %indvars.iv.next57, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
-  %36 = mul nuw nsw i64 %indvars.iv56, 48
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 %36
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
-  %39 = load i32, ptr %38, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %34, i64 %40
-  %42 = load i32, ptr %41, align 4
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %41, align 4
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next57, 13
-  br i1 %exitcond60.not, label %.preheader, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, !llvm.loop !99
+  %indvars.iv55 = phi i64 [ 0, %.noexc ], [ %indvars.iv.next56, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
+  %36 = getelementptr inbounds nuw %"class.open_spiel::hearts::Trick", ptr %0, i64 %indvars.iv55
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 116
+  %38 = load i32, ptr %37, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i32, ptr %34, i64 %39
+  %41 = load i32, ptr %40, align 4
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %40, align 4
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next56, 13
+  br i1 %exitcond58.not, label %.preheader, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, !llvm.loop !99
 
-44:                                               ; preds = %.preheader, %53
-  %indvars.iv61 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next62, %53 ]
-  %45 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv61
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %53
+43:                                               ; preds = %.preheader, %52
+  %indvars.iv59 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next60, %52 ]
+  %44 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv59
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %52
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %35, align 8
-  %50 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv61
-  %51 = load double, ptr %50, align 8
-  %52 = fadd double %51, -5.000000e+00
-  store double %52, ptr %50, align 8
-  br label %53
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %35, align 8
+  %49 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv59
+  %50 = load double, ptr %49, align 8
+  %51 = fadd double %50, -5.000000e+00
+  store double %51, ptr %49, align 8
+  br label %52
 
-53:                                               ; preds = %44, %48
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next62, 4
-  br i1 %exitcond64.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %44, !llvm.loop !100
+52:                                               ; preds = %43, %47
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next60, 4
+  br i1 %exitcond62.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %43, !llvm.loop !100
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %53
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %52
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 16) #31
   br label %.loopexit.thread
 

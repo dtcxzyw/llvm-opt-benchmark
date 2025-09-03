@@ -1801,58 +1801,58 @@ apply_mid_side_stereo.exit:                       ; preds = %apply_mid_side_ster
 .lr.ph100.i:                                      ; preds = %apply_mid_side_stereo.exit
   %665 = getelementptr inbounds nuw i8, ptr %660, i64 40
   %666 = load i32, ptr %665, align 8, !tbaa !105
-  %667 = getelementptr inbounds nuw i8, ptr %660, i64 7180
-  %668 = icmp sgt i32 %666, 0
-  %669 = getelementptr inbounds nuw i8, ptr %660, i64 14
-  br i1 %668, label %.lr.ph.us.preheader.i590, label %.preheader93.lr.ph.i
+  %667 = icmp sgt i32 %666, 0
+  %668 = getelementptr inbounds nuw i8, ptr %660, i64 14
+  br i1 %667, label %.lr.ph.us.preheader.i590, label %.preheader93.lr.ph.i
 
 .lr.ph.us.preheader.i590:                         ; preds = %.lr.ph100.i
-  %670 = zext nneg i32 %666 to i64
+  %669 = zext nneg i32 %666 to i64
   br label %.lr.ph.us.i591
 
 .lr.ph.us.i591:                                   ; preds = %.critedge.us.i, %.lr.ph.us.preheader.i590
-  %.07799.us.i = phi i32 [ %684, %.critedge.us.i ], [ 0, %.lr.ph.us.preheader.i590 ]
-  %.08298.us.i = phi i32 [ %679, %.critedge.us.i ], [ 0, %.lr.ph.us.preheader.i590 ]
-  %671 = shl nsw i32 %.07799.us.i, 4
-  %672 = zext nneg i32 %671 to i64
-  %invariant.gep.i = getelementptr i8, ptr %667, i64 %672
-  br label %673
+  %.07799.us.i = phi i32 [ %683, %.critedge.us.i ], [ 0, %.lr.ph.us.preheader.i590 ]
+  %.08298.us.i = phi i32 [ %678, %.critedge.us.i ], [ 0, %.lr.ph.us.preheader.i590 ]
+  %670 = shl nsw i32 %.07799.us.i, 4
+  %671 = zext nneg i32 %670 to i64
+  %invariant.gep.i = getelementptr i8, ptr %660, i64 %671
+  br label %672
 
-673:                                              ; preds = %676, %.lr.ph.us.i591
-  %indvars.iv.i592 = phi i64 [ %670, %.lr.ph.us.i591 ], [ %indvars.iv.next.i593, %676 ]
+672:                                              ; preds = %675, %.lr.ph.us.i591
+  %indvars.iv.i592 = phi i64 [ %669, %.lr.ph.us.i591 ], [ %indvars.iv.next.i593, %675 ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i592
-  %674 = getelementptr i8, ptr %gep.i, i64 -1
-  %675 = load i8, ptr %674, align 1, !tbaa !66
-  %.not91.us.i = icmp eq i8 %675, 0
-  br i1 %.not91.us.i, label %.critedge.us.split.loop.exit.i, label %676
+  %673 = getelementptr i8, ptr %gep.i, i64 7179
+  %674 = load i8, ptr %673, align 1, !tbaa !66
+  %.not91.us.i = icmp eq i8 %674, 0
+  br i1 %.not91.us.i, label %.critedge.us.split.loop.exit.i, label %675
 
-676:                                              ; preds = %673
+675:                                              ; preds = %672
   %indvars.iv.next.i593 = add nsw i64 %indvars.iv.i592, -1
-  %677 = icmp sgt i64 %indvars.iv.i592, 1
-  br i1 %677, label %673, label %.critedge.us.i, !llvm.loop !185
+  %676 = icmp sgt i64 %indvars.iv.i592, 1
+  br i1 %676, label %672, label %.critedge.us.i, !llvm.loop !185
 
-.critedge.us.split.loop.exit.i:                   ; preds = %673
-  %678 = trunc nuw nsw i64 %indvars.iv.i592 to i32
+.critedge.us.split.loop.exit.i:                   ; preds = %672
+  %677 = trunc nuw nsw i64 %indvars.iv.i592 to i32
   br label %.critedge.us.i
 
-.critedge.us.i:                                   ; preds = %676, %.critedge.us.split.loop.exit.i
-  %.081.lcssa.us.i = phi i32 [ %678, %.critedge.us.split.loop.exit.i ], [ 0, %676 ]
-  %679 = call i32 @llvm.smax.i32(i32 %.08298.us.i, i32 %.081.lcssa.us.i)
-  %680 = zext nneg i32 %.07799.us.i to i64
-  %681 = getelementptr inbounds nuw i8, ptr %669, i64 %680
-  %682 = load i8, ptr %681, align 1, !tbaa !66
-  %683 = zext i8 %682 to i32
-  %684 = add nuw nsw i32 %.07799.us.i, %683
-  %685 = icmp slt i32 %684, %663
-  br i1 %685, label %.lr.ph.us.i591, label %._crit_edge.i, !llvm.loop !186
+.critedge.us.i:                                   ; preds = %675, %.critedge.us.split.loop.exit.i
+  %.081.lcssa.us.i = phi i32 [ %677, %.critedge.us.split.loop.exit.i ], [ 0, %675 ]
+  %678 = call i32 @llvm.smax.i32(i32 %.08298.us.i, i32 %.081.lcssa.us.i)
+  %679 = zext nneg i32 %.07799.us.i to i64
+  %680 = getelementptr inbounds nuw i8, ptr %668, i64 %679
+  %681 = load i8, ptr %680, align 1, !tbaa !66
+  %682 = zext i8 %681 to i32
+  %683 = add nuw nsw i32 %.07799.us.i, %682
+  %684 = icmp slt i32 %683, %663
+  br i1 %684, label %.lr.ph.us.i591, label %._crit_edge.i, !llvm.loop !186
 
 ._crit_edge.i:                                    ; preds = %.critedge.us.i
-  %686 = trunc i32 %679 to i8
+  %685 = trunc i32 %678 to i8
   br label %.preheader93.lr.ph.i
 
 .preheader93.lr.ph.i:                             ; preds = %.lr.ph100.i, %._crit_edge.i
-  %.082.lcssa150.i = phi i8 [ %686, %._crit_edge.i ], [ 0, %.lr.ph100.i ]
+  %.082.lcssa150.i = phi i8 [ %685, %._crit_edge.i ], [ 0, %.lr.ph100.i ]
   store i8 %.082.lcssa150.i, ptr %660, align 8, !tbaa !116
+  %686 = getelementptr inbounds nuw i8, ptr %660, i64 7180
   %687 = call i8 @llvm.umax.i8(i8 %.082.lcssa150.i, i8 1)
   %umax824 = zext i8 %687 to i64
   br label %.preheader93.i
@@ -1865,10 +1865,10 @@ apply_mid_side_stereo.exit:                       ; preds = %apply_mid_side_ster
   br i1 %.not123.i, label %._crit_edge107.i, label %.preheader92.lr.ph.i
 
 .preheader92.lr.ph.i:                             ; preds = %.preheader93.i
-  %689 = getelementptr inbounds nuw i8, ptr %669, i64 %.pre.i
+  %689 = getelementptr inbounds nuw i8, ptr %668, i64 %.pre.i
   %690 = shl nsw i32 %.178108.i, 4
   %691 = zext nneg i32 %690 to i64
-  %invariant.gep159.i = getelementptr inbounds nuw i8, ptr %667, i64 %691
+  %invariant.gep159.i = getelementptr inbounds nuw i8, ptr %686, i64 %691
   br label %.preheader92.i
 
 .preheader92.i:                                   ; preds = %._crit_edge103.i, %.preheader92.lr.ph.i
@@ -1881,7 +1881,7 @@ apply_mid_side_stereo.exit:                       ; preds = %apply_mid_side_ster
   %693 = zext i8 %692 to i32
   %694 = add nuw nsw i32 %.178108.i, %693
   %695 = zext nneg i32 %694 to i64
-  %invariant.gep157.i = getelementptr inbounds nuw i8, ptr %667, i64 %indvars.iv132.i
+  %invariant.gep157.i = getelementptr inbounds nuw i8, ptr %686, i64 %indvars.iv132.i
   br label %.lr.ph.i588
 
 696:                                              ; preds = %.lr.ph.i588
@@ -1907,7 +1907,7 @@ apply_mid_side_stereo.exit:                       ; preds = %apply_mid_side_ster
 
 ._crit_edge107.i:                                 ; preds = %._crit_edge103.i, %.preheader93.i
   %700 = phi i8 [ 0, %.preheader93.i ], [ %.082.lcssa150.i, %._crit_edge103.i ]
-  %701 = getelementptr inbounds nuw i8, ptr %669, i64 %.pre.i
+  %701 = getelementptr inbounds nuw i8, ptr %668, i64 %.pre.i
   %702 = load i8, ptr %701, align 1, !tbaa !66
   %703 = zext i8 %702 to i32
   %704 = add nuw nsw i32 %.178108.i, %703

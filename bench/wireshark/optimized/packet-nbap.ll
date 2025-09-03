@@ -18,9 +18,9 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.5 = type { %struct.anon.6 }
 %struct.anon.6 = type { ptr }
 %struct._address = type { i32, i32, ptr, ptr }
+%struct.nbap_hsdsch_channel_info_t = type { %struct._address, i16, i32, i32, i8 }
 %struct.nbap_dch_channel_info_t = type { i32, i32, i32, [64 x i32], [64 x i32], i32, [64 x i32], [64 x i32] }
 %struct.fp_dch_channel_info_t = type { i32, [64 x i32], [64 x i32], i32, [64 x i32], [64 x i32] }
-%struct.nbap_hsdsch_channel_info_t = type { %struct._address, i16, i32, i32, i8 }
 %struct.nbap_edch_channel_info_t = type { %struct._address, i16, i32, [16 x i8], [16 x i32], i8, [16 x i8] }
 %struct.nbap_common_channel_info_t = type { %struct._address, i16, i32 }
 
@@ -20020,20 +20020,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PCH_ParametersItem
   store i32 65535, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 109
   store i8 2, ptr %26, align 1
-  %27 = getelementptr i8, ptr %19, i64 267508
-  br label %28
+  br label %27
 
-28:                                               ; preds = %28, %17
-  %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %28 ]
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 40
-  %29 = getelementptr i8, ptr %27, i64 %.idx.i.i
+27:                                               ; preds = %27, %17
+  %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %27 ]
+  %28 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %19, i64 %indvars.iv.i.i
+  %29 = getelementptr i8, ptr %28, i64 267508
   store i8 1, ptr %29, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %28, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %27, !llvm.loop !9
 
-nbap_get_private_data.exit.i:                     ; preds = %28, %4
-  %.0.i.i = phi ptr [ %15, %4 ], [ %19, %28 ]
+nbap_get_private_data.exit.i:                     ; preds = %27, %4
+  %.0.i.i = phi ptr [ %15, %4 ], [ %19, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
   store i32 0, ptr %.0.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
@@ -20432,20 +20431,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RACH_ParametersIte
   store i32 65535, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 109
   store i8 2, ptr %26, align 1
-  %27 = getelementptr i8, ptr %19, i64 267508
-  br label %28
+  br label %27
 
-28:                                               ; preds = %28, %17
-  %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %28 ]
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 40
-  %29 = getelementptr i8, ptr %27, i64 %.idx.i.i
+27:                                               ; preds = %27, %17
+  %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %27 ]
+  %28 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %19, i64 %indvars.iv.i.i
+  %29 = getelementptr i8, ptr %28, i64 267508
   store i8 1, ptr %29, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %28, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %27, !llvm.loop !9
 
-nbap_get_private_data.exit.i:                     ; preds = %28, %4
-  %.0.i.i = phi ptr [ %15, %4 ], [ %19, %28 ]
+nbap_get_private_data.exit.i:                     ; preds = %27, %4
+  %.0.i.i = phi ptr [ %15, %4 ], [ %19, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
   store i32 0, ptr %.0.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
@@ -27719,20 +27717,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_Information
   store i32 65535, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 109
   store i8 2, ptr %24, align 1
-  %25 = getelementptr i8, ptr %17, i64 267508
-  br label %26
+  br label %25
 
-26:                                               ; preds = %26, %15
-  %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %26 ]
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 40
-  %27 = getelementptr i8, ptr %25, i64 %.idx.i.i
+25:                                               ; preds = %25, %15
+  %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %25 ]
+  %26 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %17, i64 %indvars.iv.i.i
+  %27 = getelementptr i8, ptr %26, i64 267508
   store i8 1, ptr %27, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %25, !llvm.loop !9
 
-nbap_get_private_data.exit.i:                     ; preds = %26, %4
-  %.0.i.i = phi ptr [ %13, %4 ], [ %17, %26 ]
+nbap_get_private_data.exit.i:                     ; preds = %25, %4
+  %.0.i.i = phi ptr [ %13, %4 ], [ %17, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 267472
   %29 = load ptr, ptr %8, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
@@ -27741,7 +27738,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %33 = load i16, ptr %32, align 1
   %34 = and i16 %33, 8
   %.not.i = icmp eq i16 %34, 0
-  br i1 %.not.i, label %.preheader.i, label %.loopexit82.i
+  br i1 %.not.i, label %.preheader.i, label %.loopexit81.i
 
 .preheader.i:                                     ; preds = %nbap_get_private_data.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %nbap_get_private_data.exit.i ]
@@ -27754,9 +27751,9 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   store i8 0, ptr %38, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.loopexit82.i, label %.preheader.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.loopexit81.i, label %.preheader.i, !llvm.loop !19
 
-.loopexit82.i:                                    ; preds = %.preheader.i, %nbap_get_private_data.exit.i
+.loopexit81.i:                                    ; preds = %.preheader.i, %nbap_get_private_data.exit.i
   %39 = load i32, ptr @ett_nbap_HSDSCH_Information_to_Modify, align 4
   %40 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef %39, ptr noundef nonnull @HSDSCH_Information_to_Modify_sequence)
   %41 = load ptr, ptr %8, align 8
@@ -27768,13 +27765,13 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %.not74.i = icmp eq i16 %46, 0
   br i1 %.not74.i, label %47, label %dissect_nbap_HSDSCH_Information_to_Modify.exit
 
-47:                                               ; preds = %.loopexit82.i
+47:                                               ; preds = %.loopexit81.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %48
 
 48:                                               ; preds = %145, %47
-  %indvars.iv86.i = phi i64 [ 0, %47 ], [ %indvars.iv.next87.i, %145 ]
-  %49 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %28, i64 %indvars.iv86.i
+  %indvars.iv85.i = phi i64 [ 0, %47 ], [ %indvars.iv.next86.i, %145 ]
+  %49 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %28, i64 %indvars.iv85.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i16, ptr %50, align 8
   %.not75.i = icmp eq i16 %51, 0
@@ -27850,8 +27847,8 @@ copy_address_wmem.exit.i:                         ; preds = %89, %71
   %98 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc0(ptr noundef %97, i64 noundef 12) #9
   %99 = getelementptr inbounds nuw i8, ptr %73, i64 64
   store ptr %98, ptr %99, align 8
-  %100 = trunc nuw nsw i64 %indvars.iv86.i to i32
-  %101 = trunc i64 %indvars.iv86.i to i8
+  %100 = trunc nuw nsw i64 %indvars.iv85.i to i32
+  %101 = trunc i64 %indvars.iv85.i to i8
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 5
   store i8 %101, ptr %102, align 1
   %103 = load ptr, ptr %8, align 8
@@ -27860,7 +27857,7 @@ copy_address_wmem.exit.i:                         ; preds = %89, %71
   %106 = load i32, ptr @proto_nbap, align 4
   %107 = call ptr @p_get_proto_data(ptr noundef %105, ptr noundef %103, i32 noundef %106, i32 noundef 0)
   %108 = icmp eq ptr %107, null
-  br i1 %108, label %109, label %nbap_get_private_data.exit81.i
+  br i1 %108, label %109, label %nbap_get_private_data.exit80.i
 
 109:                                              ; preds = %copy_address_wmem.exit.i
   %110 = load ptr, ptr %104, align 8
@@ -27878,20 +27875,19 @@ copy_address_wmem.exit.i:                         ; preds = %89, %71
   store i32 65535, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 109
   store i8 2, ptr %118, align 1
-  %119 = getelementptr i8, ptr %111, i64 267508
-  br label %120
+  br label %119
 
-120:                                              ; preds = %120, %109
-  %indvars.iv.i77.i = phi i64 [ 0, %109 ], [ %indvars.iv.next.i79.i, %120 ]
-  %.idx.i78.i = mul nuw nsw i64 %indvars.iv.i77.i, 40
-  %121 = getelementptr i8, ptr %119, i64 %.idx.i78.i
+119:                                              ; preds = %119, %109
+  %indvars.iv.i77.i = phi i64 [ 0, %109 ], [ %indvars.iv.next.i78.i, %119 ]
+  %120 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %111, i64 %indvars.iv.i77.i
+  %121 = getelementptr i8, ptr %120, i64 267508
   store i8 1, ptr %121, align 4
-  %indvars.iv.next.i79.i = add nuw nsw i64 %indvars.iv.i77.i, 1
-  %exitcond.not.i80.i = icmp eq i64 %indvars.iv.next.i79.i, 8
-  br i1 %exitcond.not.i80.i, label %nbap_get_private_data.exit81.i, label %120, !llvm.loop !9
+  %indvars.iv.next.i78.i = add nuw nsw i64 %indvars.iv.i77.i, 1
+  %exitcond.not.i79.i = icmp eq i64 %indvars.iv.next.i78.i, 8
+  br i1 %exitcond.not.i79.i, label %nbap_get_private_data.exit80.i, label %119, !llvm.loop !9
 
-nbap_get_private_data.exit81.i:                   ; preds = %120, %copy_address_wmem.exit.i
-  %.0.i76.i = phi ptr [ %107, %copy_address_wmem.exit.i ], [ %111, %120 ]
+nbap_get_private_data.exit80.i:                   ; preds = %119, %copy_address_wmem.exit.i
+  %.0.i76.i = phi ptr [ %107, %copy_address_wmem.exit.i ], [ %111, %119 ]
   %122 = getelementptr inbounds nuw i8, ptr %.0.i76.i, i64 24
   %123 = load i32, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %73, i64 56
@@ -27909,14 +27905,14 @@ nbap_get_private_data.exit81.i:                   ; preds = %120, %copy_address_
   %133 = icmp eq i8 %132, 0
   br i1 %133, label %134, label %138
 
-134:                                              ; preds = %nbap_get_private_data.exit81.i
+134:                                              ; preds = %nbap_get_private_data.exit80.i
   %135 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %136 = load i32, ptr %135, align 8
   %137 = icmp ugt i32 %136, 12
   %..i = select i1 %137, i32 2, i32 1
   br label %140
 
-138:                                              ; preds = %nbap_get_private_data.exit81.i
+138:                                              ; preds = %nbap_get_private_data.exit80.i
   %139 = zext i8 %132 to i32
   br label %140
 
@@ -27933,11 +27929,11 @@ nbap_get_private_data.exit81.i:                   ; preds = %120, %copy_address_
   br label %145
 
 145:                                              ; preds = %140, %59, %52, %48
-  %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
-  %exitcond89.not.i = icmp eq i64 %indvars.iv.next87.i, 8
-  br i1 %exitcond89.not.i, label %dissect_nbap_HSDSCH_Information_to_Modify.exit, label %48, !llvm.loop !20
+  %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
+  %exitcond88.not.i = icmp eq i64 %indvars.iv.next86.i, 8
+  br i1 %exitcond88.not.i, label %dissect_nbap_HSDSCH_Information_to_Modify.exit, label %48, !llvm.loop !20
 
-dissect_nbap_HSDSCH_Information_to_Modify.exit:   ; preds = %145, %.loopexit82.i
+dissect_nbap_HSDSCH_Information_to_Modify.exit:   ; preds = %145, %.loopexit81.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %146 = add i32 %40, 7
   %147 = ashr i32 %146, 3
@@ -27989,20 +27985,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_MACdFlows_t
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i.i, %25 ]
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %dissect_nbap_HSDSCH_MACdFlows_to_Delete.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %dissect_nbap_HSDSCH_MACdFlows_to_Delete.exit, label %24, !llvm.loop !9
 
-dissect_nbap_HSDSCH_MACdFlows_to_Delete.exit:     ; preds = %25, %4
-  %.0.i.i = phi ptr [ %12, %4 ], [ %16, %25 ]
+dissect_nbap_HSDSCH_MACdFlows_to_Delete.exit:     ; preds = %24, %4
+  %.0.i.i = phi ptr [ %12, %4 ], [ %16, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store i32 0, ptr %27, align 8
   %28 = load i32, ptr @ett_nbap_HSDSCH_MACdFlows_to_Delete, align 4
@@ -28064,20 +28059,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_E_DCH_FDD_Informat
   store i32 65535, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 109
   store i8 2, ptr %26, align 1
-  %27 = getelementptr i8, ptr %19, i64 267508
-  br label %28
+  br label %27
 
-28:                                               ; preds = %28, %17
-  %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %28 ]
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 40
-  %29 = getelementptr i8, ptr %27, i64 %.idx.i.i
+27:                                               ; preds = %27, %17
+  %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %27 ]
+  %28 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %19, i64 %indvars.iv.i.i
+  %29 = getelementptr i8, ptr %28, i64 267508
   store i8 1, ptr %29, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %28, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %27, !llvm.loop !9
 
-nbap_get_private_data.exit.i:                     ; preds = %28, %4
-  %.0.i.i = phi ptr [ %15, %4 ], [ %19, %28 ]
+nbap_get_private_data.exit.i:                     ; preds = %27, %4
+  %.0.i.i = phi ptr [ %15, %4 ], [ %19, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 266352
   store i32 0, ptr %.0.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
@@ -29066,20 +29060,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_Common_Syst
   store i32 65535, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 109
   store i8 2, ptr %24, align 1
-  %25 = getelementptr i8, ptr %17, i64 267508
-  br label %26
+  br label %25
 
-26:                                               ; preds = %26, %15
-  %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %26 ]
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 40
-  %27 = getelementptr i8, ptr %25, i64 %.idx.i.i
+25:                                               ; preds = %25, %15
+  %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %25 ]
+  %26 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %17, i64 %indvars.iv.i.i
+  %27 = getelementptr i8, ptr %26, i64 267508
   store i8 1, ptr %27, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %25, !llvm.loop !9
 
-nbap_get_private_data.exit.i:                     ; preds = %26, %4
-  %.0.i.i = phi ptr [ %13, %4 ], [ %17, %26 ]
+nbap_get_private_data.exit.i:                     ; preds = %25, %4
+  %.0.i.i = phi ptr [ %13, %4 ], [ %17, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 267792
   %29 = load ptr, ptr %8, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
@@ -29088,7 +29081,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %33 = load i16, ptr %32, align 1
   %34 = and i16 %33, 8
   %.not.i = icmp eq i16 %34, 0
-  br i1 %.not.i, label %.preheader.i, label %.loopexit65.i
+  br i1 %.not.i, label %.preheader.i, label %.loopexit64.i
 
 .preheader.i:                                     ; preds = %nbap_get_private_data.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %nbap_get_private_data.exit.i ]
@@ -29099,9 +29092,9 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   store i32 0, ptr %37, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.loopexit65.i, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.loopexit64.i, label %.preheader.i, !llvm.loop !21
 
-.loopexit65.i:                                    ; preds = %.preheader.i, %nbap_get_private_data.exit.i
+.loopexit64.i:                                    ; preds = %.preheader.i, %nbap_get_private_data.exit.i
   %38 = load i32, ptr @ett_nbap_HSDSCH_Common_System_InformationFDD, align 4
   %39 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef %38, ptr noundef nonnull @HSDSCH_Common_System_InformationFDD_sequence)
   %40 = load ptr, ptr %8, align 8
@@ -29113,13 +29106,13 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %.not57.i = icmp eq i16 %45, 0
   br i1 %.not57.i, label %46, label %dissect_nbap_HSDSCH_Common_System_InformationFDD.exit
 
-46:                                               ; preds = %.loopexit65.i
+46:                                               ; preds = %.loopexit64.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %47
 
 47:                                               ; preds = %129, %46
-  %indvars.iv69.i = phi i64 [ 0, %46 ], [ %indvars.iv.next70.i, %129 ]
-  %48 = getelementptr %struct.nbap_common_channel_info_t, ptr %28, i64 %indvars.iv69.i
+  %indvars.iv68.i = phi i64 [ 0, %46 ], [ %indvars.iv.next69.i, %129 ]
+  %48 = getelementptr %struct.nbap_common_channel_info_t, ptr %28, i64 %indvars.iv68.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i16, ptr %49, align 8
   %.not58.i = icmp eq i16 %50, 0
@@ -29200,7 +29193,7 @@ copy_address_wmem.exit.i:                         ; preds = %88, %70
   %102 = load i32, ptr @proto_nbap, align 4
   %103 = call ptr @p_get_proto_data(ptr noundef %101, ptr noundef %99, i32 noundef %102, i32 noundef 0)
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %nbap_get_private_data.exit64.i
+  br i1 %104, label %105, label %nbap_get_private_data.exit63.i
 
 105:                                              ; preds = %copy_address_wmem.exit.i
   %106 = load ptr, ptr %100, align 8
@@ -29218,20 +29211,19 @@ copy_address_wmem.exit.i:                         ; preds = %88, %70
   store i32 65535, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 109
   store i8 2, ptr %114, align 1
-  %115 = getelementptr i8, ptr %107, i64 267508
-  br label %116
+  br label %115
 
-116:                                              ; preds = %116, %105
-  %indvars.iv.i60.i = phi i64 [ 0, %105 ], [ %indvars.iv.next.i62.i, %116 ]
-  %.idx.i61.i = mul nuw nsw i64 %indvars.iv.i60.i, 40
-  %117 = getelementptr i8, ptr %115, i64 %.idx.i61.i
+115:                                              ; preds = %115, %105
+  %indvars.iv.i60.i = phi i64 [ 0, %105 ], [ %indvars.iv.next.i61.i, %115 ]
+  %116 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %107, i64 %indvars.iv.i60.i
+  %117 = getelementptr i8, ptr %116, i64 267508
   store i8 1, ptr %117, align 4
-  %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i60.i, 1
-  %exitcond.not.i63.i = icmp eq i64 %indvars.iv.next.i62.i, 8
-  br i1 %exitcond.not.i63.i, label %nbap_get_private_data.exit64.i, label %116, !llvm.loop !9
+  %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i60.i, 1
+  %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i61.i, 8
+  br i1 %exitcond.not.i62.i, label %nbap_get_private_data.exit63.i, label %115, !llvm.loop !9
 
-nbap_get_private_data.exit64.i:                   ; preds = %116, %copy_address_wmem.exit.i
-  %.0.i59.i = phi ptr [ %103, %copy_address_wmem.exit.i ], [ %107, %116 ]
+nbap_get_private_data.exit63.i:                   ; preds = %115, %copy_address_wmem.exit.i
+  %.0.i59.i = phi ptr [ %103, %copy_address_wmem.exit.i ], [ %107, %115 ]
   %118 = getelementptr inbounds nuw i8, ptr %.0.i59.i, i64 84
   %119 = load i32, ptr %118, align 4
   %120 = trunc i32 %119 to i8
@@ -29245,17 +29237,17 @@ nbap_get_private_data.exit64.i:                   ; preds = %116, %copy_address_
   %125 = getelementptr inbounds nuw i8, ptr %72, i64 76
   %126 = sext i32 %123 to i64
   %127 = getelementptr i32, ptr %125, i64 %126
-  %128 = trunc nuw nsw i64 %indvars.iv69.i to i32
+  %128 = trunc nuw nsw i64 %indvars.iv68.i to i32
   store i32 %128, ptr %127, align 4
   call void @set_umts_fp_conv_data(ptr noundef %64, ptr noundef %72)
   br label %129
 
-129:                                              ; preds = %nbap_get_private_data.exit64.i, %58, %51, %47
-  %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
-  %exitcond72.not.i = icmp eq i64 %indvars.iv.next70.i, 8
-  br i1 %exitcond72.not.i, label %dissect_nbap_HSDSCH_Common_System_InformationFDD.exit, label %47, !llvm.loop !22
+129:                                              ; preds = %nbap_get_private_data.exit63.i, %58, %51, %47
+  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
+  %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, 8
+  br i1 %exitcond71.not.i, label %dissect_nbap_HSDSCH_Common_System_InformationFDD.exit, label %47, !llvm.loop !22
 
-dissect_nbap_HSDSCH_Common_System_InformationFDD.exit: ; preds = %129, %.loopexit65.i
+dissect_nbap_HSDSCH_Common_System_InformationFDD.exit: ; preds = %129, %.loopexit64.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %130 = add i32 %39, 7
   %131 = ashr i32 %130, 3
@@ -34419,20 +34411,19 @@ define internal i32 @dissect_nbap_ProcedureID(ptr noundef %0, i32 noundef %1, pt
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = load i32, ptr @ett_nbap_ProcedureID, align 4
   %27 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %26, ptr noundef nonnull @ProcedureID_sequence)
   %28 = load ptr, ptr %6, align 8
@@ -34522,20 +34513,19 @@ define internal i32 @dissect_nbap_ProcedureCode(ptr noundef %0, i32 noundef %1, 
   store i32 65535, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 109
   store i8 2, ptr %25, align 1
-  %26 = getelementptr i8, ptr %18, i64 267508
-  br label %27
+  br label %26
 
-27:                                               ; preds = %27, %16
-  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %27 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %28 = getelementptr i8, ptr %26, i64 %.idx.i
+26:                                               ; preds = %26, %16
+  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %26 ]
+  %27 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %18, i64 %indvars.iv.i
+  %28 = getelementptr i8, ptr %27, i64 267508
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %27, %5
-  %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
+nbap_get_private_data.exit:                       ; preds = %26, %5
+  %.0.i = phi ptr [ %14, %5 ], [ %18, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   store i32 %8, ptr %29, align 4
   %30 = load ptr, ptr %9, align 8
@@ -34575,20 +34565,19 @@ define internal i32 @dissect_nbap_DdMode(ptr noundef %0, i32 noundef %1, ptr nou
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %27 = tail call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 3, ptr noundef nonnull %26, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   ret i32 %27
@@ -34633,20 +34622,19 @@ define internal i32 @dissect_nbap_T_shortTransActionId(ptr noundef %0, i32 nound
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 44
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 127, ptr noundef nonnull %26, i1 noundef zeroext false)
   ret i32 %27
@@ -34679,20 +34667,19 @@ define internal i32 @dissect_nbap_T_longTransActionId(ptr noundef %0, i32 nounde
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 44
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 32767, ptr noundef nonnull %26, i1 noundef zeroext false)
   ret i32 %27
@@ -34891,20 +34878,19 @@ define internal i32 @dissect_nbap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, 
   store i32 65535, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 109
   store i8 2, ptr %25, align 1
-  %26 = getelementptr i8, ptr %18, i64 267508
-  br label %27
+  br label %26
 
-27:                                               ; preds = %27, %16
-  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %27 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %28 = getelementptr i8, ptr %26, i64 %.idx.i
+26:                                               ; preds = %26, %16
+  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %26 ]
+  %27 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %18, i64 %indvars.iv.i
+  %28 = getelementptr i8, ptr %27, i64 267508
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %27, %5
-  %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
+nbap_get_private_data.exit:                       ; preds = %26, %5
+  %.0.i = phi ptr [ %14, %5 ], [ %18, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
   store i32 %8, ptr %29, align 4
   %.not = icmp eq ptr %3, null
@@ -34964,20 +34950,19 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
   store i32 65535, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 109
   store i8 2, ptr %19, align 1
-  %20 = getelementptr i8, ptr %12, i64 267508
-  br label %21
+  br label %20
 
-21:                                               ; preds = %21, %10
-  %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %21 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %22 = getelementptr i8, ptr %20, i64 %.idx.i
+20:                                               ; preds = %20, %10
+  %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %20 ]
+  %21 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %12, i64 %indvars.iv.i
+  %22 = getelementptr i8, ptr %21, i64 267508
   store i8 1, ptr %22, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %21, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %20, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %21, %4
-  %.0.i = phi ptr [ %8, %4 ], [ %12, %21 ]
+nbap_get_private_data.exit:                       ; preds = %20, %4
+  %.0.i = phi ptr [ %8, %4 ], [ %12, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr @nbap_extension_dissector_table, align 8
@@ -35190,20 +35175,19 @@ define internal i32 @dissect_nbap_CRNC_CommunicationContextID(ptr noundef %0, i3
   store i32 65535, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 109
   store i8 2, ptr %25, align 1
-  %26 = getelementptr i8, ptr %18, i64 267508
-  br label %27
+  br label %26
 
-27:                                               ; preds = %27, %16
-  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %27 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %28 = getelementptr i8, ptr %26, i64 %.idx.i
+26:                                               ; preds = %26, %16
+  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %26 ]
+  %27 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %18, i64 %indvars.iv.i
+  %28 = getelementptr i8, ptr %27, i64 267508
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %27, %5
-  %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
+nbap_get_private_data.exit:                       ; preds = %26, %5
+  %.0.i = phi ptr [ %14, %5 ], [ %18, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store i32 %8, ptr %29, align 8
   %30 = load ptr, ptr %9, align 8
@@ -35212,7 +35196,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %33 = load i32, ptr @proto_nbap, align 4
   %34 = call ptr @p_get_proto_data(ptr noundef %32, ptr noundef %30, i32 noundef %33, i32 noundef 0)
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %nbap_get_private_data.exit12
+  br i1 %35, label %36, label %nbap_get_private_data.exit11
 
 36:                                               ; preds = %nbap_get_private_data.exit
   %37 = load ptr, ptr %31, align 8
@@ -35230,20 +35214,19 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   store i32 65535, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 109
   store i8 2, ptr %45, align 1
-  %46 = getelementptr i8, ptr %38, i64 267508
-  br label %47
+  br label %46
 
-47:                                               ; preds = %47, %36
-  %indvars.iv.i8 = phi i64 [ 0, %36 ], [ %indvars.iv.next.i10, %47 ]
-  %.idx.i9 = mul nuw nsw i64 %indvars.iv.i8, 40
-  %48 = getelementptr i8, ptr %46, i64 %.idx.i9
+46:                                               ; preds = %46, %36
+  %indvars.iv.i8 = phi i64 [ 0, %36 ], [ %indvars.iv.next.i9, %46 ]
+  %47 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %38, i64 %indvars.iv.i8
+  %48 = getelementptr i8, ptr %47, i64 267508
   store i8 1, ptr %48, align 4
-  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
-  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %47, !llvm.loop !9
+  %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
+  %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 8
+  br i1 %exitcond.not.i10, label %nbap_get_private_data.exit11, label %46, !llvm.loop !9
 
-nbap_get_private_data.exit12:                     ; preds = %47, %nbap_get_private_data.exit
-  %.0.i7 = phi ptr [ %34, %nbap_get_private_data.exit ], [ %38, %47 ]
+nbap_get_private_data.exit11:                     ; preds = %46, %nbap_get_private_data.exit
+  %.0.i7 = phi ptr [ %34, %nbap_get_private_data.exit ], [ %38, %46 ]
   %49 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 108
   store i8 1, ptr %49, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -35656,20 +35639,19 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
   store i32 65535, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 109
   store i8 2, ptr %19, align 1
-  %20 = getelementptr i8, ptr %12, i64 267508
-  br label %21
+  br label %20
 
-21:                                               ; preds = %21, %10
-  %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %21 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %22 = getelementptr i8, ptr %20, i64 %.idx.i
+20:                                               ; preds = %20, %10
+  %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %20 ]
+  %21 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %12, i64 %indvars.iv.i
+  %22 = getelementptr i8, ptr %21, i64 267508
   store i8 1, ptr %22, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %21, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %20, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %21, %4
-  %.0.i = phi ptr [ %8, %4 ], [ %12, %21 ]
+nbap_get_private_data.exit:                       ; preds = %20, %4
+  %.0.i = phi ptr [ %8, %4 ], [ %12, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr @nbap_ies_dissector_table, align 8
@@ -35771,37 +35753,33 @@ define internal i32 @dissect_nbap_CommonPhysicalChannelID(ptr noundef %0, i32 no
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %6, i1 noundef zeroext false)
   %28 = load i32, ptr %6, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   store i32 %28, ptr %29, align 4
   %30 = icmp ult i32 %28, 128
-  br i1 %30, label %31, label %36
+  br i1 %30, label %31, label %34
 
 31:                                               ; preds = %nbap_get_private_data.exit
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
-  %narrow = mul nuw nsw i32 %28, 1040
-  %33 = zext nneg i32 %narrow to i64
-  %34 = getelementptr i8, ptr %32, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 4
-  store i32 0, ptr %35, align 4
-  br label %36
+  %32 = zext nneg i32 %28 to i64
+  %33 = getelementptr %struct.nbap_dch_channel_info_t, ptr %.0.i, i64 %32, i32 3, i64 26
+  store i32 0, ptr %33, align 4
+  br label %34
 
-36:                                               ; preds = %31, %nbap_get_private_data.exit
+34:                                               ; preds = %31, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
@@ -36098,20 +36076,19 @@ define internal i32 @dissect_nbap_FACH_ParametersItem_CTCH_SetupRqstFDD(ptr noun
   store i32 65535, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 109
   store i8 2, ptr %25, align 1
-  %26 = getelementptr i8, ptr %18, i64 267508
-  br label %27
+  br label %26
 
-27:                                               ; preds = %27, %16
-  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %27 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %28 = getelementptr i8, ptr %26, i64 %.idx.i
+26:                                               ; preds = %26, %16
+  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %26 ]
+  %27 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %18, i64 %indvars.iv.i
+  %28 = getelementptr i8, ptr %27, i64 267508
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %27, %5
-  %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
+nbap_get_private_data.exit:                       ; preds = %26, %5
+  %.0.i = phi ptr [ %14, %5 ], [ %18, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   store i32 0, ptr %.0.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
@@ -36527,37 +36504,33 @@ define internal i32 @dissect_nbap_CommonTransportChannelID(ptr noundef %0, i32 n
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %6, i1 noundef zeroext false)
   %28 = load i32, ptr %6, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
   store i32 %28, ptr %29, align 4
   %30 = icmp ult i32 %28, 128
-  br i1 %30, label %31, label %36
+  br i1 %30, label %31, label %34
 
 31:                                               ; preds = %nbap_get_private_data.exit
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
-  %narrow = mul nuw nsw i32 %28, 1040
-  %33 = zext nneg i32 %narrow to i64
-  %34 = getelementptr i8, ptr %32, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 4
-  store i32 0, ptr %35, align 4
-  br label %36
+  %32 = zext nneg i32 %28 to i64
+  %33 = getelementptr %struct.nbap_dch_channel_info_t, ptr %.0.i, i64 %32, i32 3, i64 26
+  store i32 0, ptr %33, align 4
+  br label %34
 
-36:                                               ; preds = %31, %nbap_get_private_data.exit
+34:                                               ; preds = %31, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
@@ -36614,20 +36587,19 @@ define internal i32 @dissect_nbap_TransportFormatSet_DynamicPartList(ptr noundef
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 0, ptr %26, align 8
   %27 = load i32, ptr @ett_nbap_TransportFormatSet_DynamicPartList, align 4
@@ -36669,20 +36641,19 @@ define internal i32 @dissect_nbap_TransportFormatSet_DynamicPartList_item(ptr no
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
@@ -36721,26 +36692,25 @@ define internal i32 @dissect_nbap_TransportFormatSet_NrOfTransportBlocks(ptr nou
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   %28 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 512, ptr noundef nonnull %6, i1 noundef zeroext false)
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %97, label %31
+  br i1 %.not, label %95, label %31
 
 31:                                               ; preds = %nbap_get_private_data.exit
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
@@ -36748,16 +36718,16 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %34 = icmp ult i32 %30, 65
   %35 = icmp ne i32 %33, -1
   %or.cond3 = select i1 %34, i1 %35, i1 false
-  br i1 %or.cond3, label %36, label %97
+  br i1 %or.cond3, label %36, label %95
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load i32, ptr %37, align 8
-  switch i32 %38, label %97 [
+  switch i32 %38, label %95 [
     i32 0, label %39
-    i32 1, label %50
-    i32 2, label %61
-    i32 4, label %79
+    i32 1, label %49
+    i32 2, label %59
+    i32 4, label %77
   ]
 
 39:                                               ; preds = %36
@@ -36768,77 +36738,75 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
   %45 = load i32, ptr %6, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 268
-  %47 = zext nneg i32 %30 to i64
-  %48 = getelementptr i32, ptr %46, i64 %47
-  %49 = getelementptr i8, ptr %48, i64 -4
-  store i32 %45, ptr %49, align 4
-  br label %97
+  %46 = zext nneg i32 %30 to i64
+  %47 = getelementptr i32, ptr %41, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 264
+  store i32 %45, ptr %48, align 4
+  br label %95
 
-50:                                               ; preds = %36
-  %51 = zext i32 %33 to i64
-  %52 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 524
-  %54 = load i32, ptr %53, align 4
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %53, align 4
-  %56 = load i32, ptr %6, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 784
-  %58 = zext nneg i32 %30 to i64
-  %59 = getelementptr i32, ptr %57, i64 %58
-  %60 = getelementptr i8, ptr %59, i64 -4
-  store i32 %56, ptr %60, align 4
-  br label %97
+49:                                               ; preds = %36
+  %50 = zext i32 %33 to i64
+  %51 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 524
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %52, align 4
+  %55 = load i32, ptr %6, align 4
+  %56 = zext nneg i32 %30 to i64
+  %57 = getelementptr i32, ptr %51, i64 %56
+  %58 = getelementptr i8, ptr %57, i64 780
+  store i32 %55, ptr %58, align 4
+  br label %95
 
-61:                                               ; preds = %36
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
-  %63 = load i32, ptr %62, align 4
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %64
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load i32, ptr %66, align 4
-  %68 = add i32 %67, 1
-  store i32 %68, ptr %66, align 4
-  %69 = load i32, ptr %6, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 268
-  %71 = add nsw i32 %30, -1
-  %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr i32, ptr %70, i64 %72
-  store i32 %69, ptr %73, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %65, i64 524
-  %75 = load i32, ptr %74, align 4
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %74, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %65, i64 784
-  %78 = getelementptr i32, ptr %77, i64 %72
-  store i32 %69, ptr %78, align 4
-  br label %97
+59:                                               ; preds = %36
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
+  %61 = load i32, ptr %60, align 4
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load i32, ptr %64, align 4
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 4
+  %67 = load i32, ptr %6, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 268
+  %69 = add nsw i32 %30, -1
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr i32, ptr %68, i64 %70
+  store i32 %67, ptr %71, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 524
+  %73 = load i32, ptr %72, align 4
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %72, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 784
+  %76 = getelementptr i32, ptr %75, i64 %70
+  store i32 %67, ptr %76, align 4
+  br label %95
 
-79:                                               ; preds = %36
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
-  %81 = load i32, ptr %80, align 4
-  %82 = zext i32 %81 to i64
-  %83 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %82
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load i32, ptr %84, align 4
-  %86 = add i32 %85, 1
-  store i32 %86, ptr %84, align 4
-  %87 = load i32, ptr %6, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 268
-  %89 = add nsw i32 %30, -1
-  %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr i32, ptr %88, i64 %90
-  store i32 %87, ptr %91, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %83, i64 524
-  %93 = load i32, ptr %92, align 4
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %92, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %83, i64 784
-  %96 = getelementptr i32, ptr %95, i64 %90
-  store i32 %87, ptr %96, align 4
-  br label %97
+77:                                               ; preds = %36
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
+  %79 = load i32, ptr %78, align 4
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = load i32, ptr %82, align 4
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %82, align 4
+  %85 = load i32, ptr %6, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 268
+  %87 = add nsw i32 %30, -1
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr i32, ptr %86, i64 %88
+  store i32 %85, ptr %89, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 524
+  %91 = load i32, ptr %90, align 4
+  %92 = add i32 %91, 1
+  store i32 %92, ptr %90, align 4
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 784
+  %94 = getelementptr i32, ptr %93, i64 %88
+  store i32 %85, ptr %94, align 4
+  br label %95
 
-97:                                               ; preds = %31, %36, %79, %61, %50, %39, %nbap_get_private_data.exit
+95:                                               ; preds = %31, %36, %77, %59, %49, %39, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %28
 }
@@ -36872,26 +36840,25 @@ define internal i32 @dissect_nbap_TransportFormatSet_TransportBlockSize(ptr noun
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   %28 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 5000, ptr noundef nonnull %6, i1 noundef zeroext false)
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %79, label %31
+  br i1 %.not, label %77, label %31
 
 31:                                               ; preds = %nbap_get_private_data.exit
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
@@ -36899,16 +36866,16 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %34 = icmp ult i32 %30, 65
   %35 = icmp ne i32 %33, -1
   %or.cond3 = select i1 %34, i1 %35, i1 false
-  br i1 %or.cond3, label %36, label %79
+  br i1 %or.cond3, label %36, label %77
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load i32, ptr %37, align 8
-  switch i32 %38, label %79 [
+  switch i32 %38, label %77 [
     i32 0, label %39
-    i32 1, label %47
-    i32 2, label %55
-    i32 4, label %67
+    i32 1, label %46
+    i32 2, label %53
+    i32 4, label %65
   ]
 
 39:                                               ; preds = %36
@@ -36916,58 +36883,56 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %41 = zext i32 %33 to i64
   %.idx38 = mul nuw nsw i64 %41, 1040
   %42 = getelementptr i8, ptr %27, i64 %.idx38
-  %43 = getelementptr i8, ptr %42, i64 12
-  %44 = zext nneg i32 %30 to i64
-  %45 = getelementptr i32, ptr %43, i64 %44
-  %46 = getelementptr i8, ptr %45, i64 -4
-  store i32 %40, ptr %46, align 4
-  br label %79
+  %43 = zext nneg i32 %30 to i64
+  %44 = getelementptr i32, ptr %42, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 8
+  store i32 %40, ptr %45, align 4
+  br label %77
 
-47:                                               ; preds = %36
-  %48 = load i32, ptr %6, align 4
-  %49 = zext i32 %33 to i64
-  %.idx = mul nuw nsw i64 %49, 1040
-  %50 = getelementptr i8, ptr %27, i64 %.idx
-  %51 = getelementptr i8, ptr %50, i64 528
-  %52 = zext nneg i32 %30 to i64
-  %53 = getelementptr i32, ptr %51, i64 %52
-  %54 = getelementptr i8, ptr %53, i64 -4
-  store i32 %48, ptr %54, align 4
-  br label %79
+46:                                               ; preds = %36
+  %47 = load i32, ptr %6, align 4
+  %48 = zext i32 %33 to i64
+  %.idx = mul nuw nsw i64 %48, 1040
+  %49 = getelementptr i8, ptr %27, i64 %.idx
+  %50 = zext nneg i32 %30 to i64
+  %51 = getelementptr i32, ptr %49, i64 %50
+  %52 = getelementptr i8, ptr %51, i64 524
+  store i32 %47, ptr %52, align 4
+  br label %77
 
-55:                                               ; preds = %36
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
-  %57 = load i32, ptr %56, align 4
-  %58 = load i32, ptr %6, align 4
-  %59 = zext i32 %57 to i64
-  %60 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %59
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  %62 = add nsw i32 %30, -1
-  %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr i32, ptr %61, i64 %63
-  store i32 %58, ptr %64, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 528
-  %66 = getelementptr i32, ptr %65, i64 %63
-  store i32 %58, ptr %66, align 4
-  br label %79
+53:                                               ; preds = %36
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
+  %55 = load i32, ptr %54, align 4
+  %56 = load i32, ptr %6, align 4
+  %57 = zext i32 %55 to i64
+  %58 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %60 = add nsw i32 %30, -1
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr i32, ptr %59, i64 %61
+  store i32 %56, ptr %62, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 528
+  %64 = getelementptr i32, ptr %63, i64 %61
+  store i32 %56, ptr %64, align 4
+  br label %77
 
-67:                                               ; preds = %36
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
-  %69 = load i32, ptr %68, align 4
-  %70 = load i32, ptr %6, align 4
-  %71 = zext i32 %69 to i64
-  %72 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %71
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
-  %74 = add nsw i32 %30, -1
-  %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr i32, ptr %73, i64 %75
-  store i32 %70, ptr %76, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 528
-  %78 = getelementptr i32, ptr %77, i64 %75
-  store i32 %70, ptr %78, align 4
-  br label %79
+65:                                               ; preds = %36
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
+  %67 = load i32, ptr %66, align 4
+  %68 = load i32, ptr %6, align 4
+  %69 = zext i32 %67 to i64
+  %70 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 12
+  %72 = add nsw i32 %30, -1
+  %73 = zext nneg i32 %72 to i64
+  %74 = getelementptr i32, ptr %71, i64 %73
+  store i32 %68, ptr %74, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 528
+  %76 = getelementptr i32, ptr %75, i64 %73
+  store i32 %68, ptr %76, align 4
+  br label %77
 
-79:                                               ; preds = %31, %36, %67, %55, %47, %39, %nbap_get_private_data.exit
+77:                                               ; preds = %31, %36, %65, %53, %46, %39, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %28
 }
@@ -37082,20 +37047,19 @@ define internal i32 @dissect_nbap_T_transportFormatSet(ptr noundef %0, i32 nound
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 4, ptr %27, align 8
@@ -37166,17 +37130,16 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   store i32 65535, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 109
   store i8 2, ptr %26, align 1
-  %27 = getelementptr i8, ptr %19, i64 267508
-  br label %28
+  br label %27
 
-28:                                               ; preds = %28, %17
-  %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %28 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %29 = getelementptr i8, ptr %27, i64 %.idx.i
+27:                                               ; preds = %27, %17
+  %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %27 ]
+  %28 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %19, i64 %indvars.iv.i
+  %29 = getelementptr i8, ptr %28, i64 267508
   store i8 1, ptr %29, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.sink.split, label %28, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.sink.split, label %27, !llvm.loop !9
 
 30:                                               ; preds = %5
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -37204,17 +37167,16 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   store i32 65535, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 109
   store i8 2, ptr %47, align 1
-  %48 = getelementptr i8, ptr %40, i64 267508
-  br label %49
+  br label %48
 
-49:                                               ; preds = %49, %38
-  %indvars.iv.i10 = phi i64 [ 0, %38 ], [ %indvars.iv.next.i12, %49 ]
-  %.idx.i11 = mul nuw nsw i64 %indvars.iv.i10, 40
-  %50 = getelementptr i8, ptr %48, i64 %.idx.i11
+48:                                               ; preds = %48, %38
+  %indvars.iv.i10 = phi i64 [ 0, %38 ], [ %indvars.iv.next.i11, %48 ]
+  %49 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %40, i64 %indvars.iv.i10
+  %50 = getelementptr i8, ptr %49, i64 267508
   store i8 1, ptr %50, align 4
-  %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i10, 1
-  %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 8
-  br i1 %exitcond.not.i13, label %.sink.split, label %49, !llvm.loop !9
+  %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
+  %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 8
+  br i1 %exitcond.not.i12, label %.sink.split, label %48, !llvm.loop !9
 
 51:                                               ; preds = %5
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -37242,17 +37204,16 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   store i32 65535, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 109
   store i8 2, ptr %68, align 1
-  %69 = getelementptr i8, ptr %61, i64 267508
-  br label %70
+  br label %69
 
-70:                                               ; preds = %70, %59
-  %indvars.iv.i16 = phi i64 [ 0, %59 ], [ %indvars.iv.next.i18, %70 ]
-  %.idx.i17 = mul nuw nsw i64 %indvars.iv.i16, 40
-  %71 = getelementptr i8, ptr %69, i64 %.idx.i17
+69:                                               ; preds = %69, %59
+  %indvars.iv.i15 = phi i64 [ 0, %59 ], [ %indvars.iv.next.i16, %69 ]
+  %70 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %61, i64 %indvars.iv.i15
+  %71 = getelementptr i8, ptr %70, i64 267508
   store i8 1, ptr %71, align 4
-  %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
-  %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, 8
-  br i1 %exitcond.not.i19, label %.sink.split, label %70, !llvm.loop !9
+  %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 1
+  %exitcond.not.i17 = icmp eq i64 %indvars.iv.next.i16, 8
+  br i1 %exitcond.not.i17, label %.sink.split, label %69, !llvm.loop !9
 
 72:                                               ; preds = %5
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -37280,22 +37241,21 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   store i32 65535, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 109
   store i8 2, ptr %89, align 1
-  %90 = getelementptr i8, ptr %82, i64 267508
-  br label %91
+  br label %90
 
-91:                                               ; preds = %91, %80
-  %indvars.iv.i22 = phi i64 [ 0, %80 ], [ %indvars.iv.next.i24, %91 ]
-  %.idx.i23 = mul nuw nsw i64 %indvars.iv.i22, 40
-  %92 = getelementptr i8, ptr %90, i64 %.idx.i23
+90:                                               ; preds = %90, %80
+  %indvars.iv.i20 = phi i64 [ 0, %80 ], [ %indvars.iv.next.i21, %90 ]
+  %91 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %82, i64 %indvars.iv.i20
+  %92 = getelementptr i8, ptr %91, i64 267508
   store i8 1, ptr %92, align 4
-  %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 1
-  %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, 8
-  br i1 %exitcond.not.i25, label %.sink.split, label %91, !llvm.loop !9
+  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
+  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 8
+  br i1 %exitcond.not.i22, label %.sink.split, label %90, !llvm.loop !9
 
-.sink.split:                                      ; preds = %91, %70, %49, %28, %72, %51, %30, %9
-  %.0.i21.sink = phi ptr [ %15, %9 ], [ %36, %30 ], [ %57, %51 ], [ %78, %72 ], [ %19, %28 ], [ %40, %49 ], [ %61, %70 ], [ %82, %91 ]
-  %.sink = phi i32 [ 18, %9 ], [ 36, %30 ], [ 72, %51 ], [ 144, %72 ], [ 18, %28 ], [ 36, %49 ], [ 72, %70 ], [ 144, %91 ]
-  %93 = getelementptr inbounds nuw i8, ptr %.0.i21.sink, i64 96
+.sink.split:                                      ; preds = %90, %69, %48, %27, %72, %51, %30, %9
+  %.0.i19.sink = phi ptr [ %15, %9 ], [ %36, %30 ], [ %57, %51 ], [ %78, %72 ], [ %19, %27 ], [ %40, %48 ], [ %61, %69 ], [ %82, %90 ]
+  %.sink = phi i32 [ 18, %9 ], [ 36, %30 ], [ 72, %51 ], [ 144, %72 ], [ 18, %27 ], [ 36, %48 ], [ 72, %69 ], [ 144, %90 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.0.i19.sink, i64 96
   store i32 %.sink, ptr %93, align 8
   br label %94
 
@@ -37573,20 +37533,19 @@ define internal i32 @dissect_nbap_CommonTransportChannel_InformationResponse(ptr
   store i32 65535, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 109
   store i8 2, ptr %24, align 1
-  %25 = getelementptr i8, ptr %17, i64 267508
-  br label %26
+  br label %25
 
-26:                                               ; preds = %26, %15
-  %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %26 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %27 = getelementptr i8, ptr %25, i64 %.idx.i
+25:                                               ; preds = %25, %15
+  %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %25 ]
+  %26 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %17, i64 %indvars.iv.i
+  %27 = getelementptr i8, ptr %26, i64 267508
   store i8 1, ptr %27, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %26, %5
-  %.0.i = phi ptr [ %13, %5 ], [ %17, %26 ]
+nbap_get_private_data.exit:                       ; preds = %25, %5
+  %.0.i = phi ptr [ %13, %5 ], [ %17, %25 ]
   store i32 0, ptr %.0.i, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %28, align 4
@@ -37713,20 +37672,19 @@ define internal i32 @dissect_nbap_BindingID(ptr noundef %0, i32 noundef %1, ptr 
   store i32 65535, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 109
   store i8 2, ptr %31, align 1
-  %32 = getelementptr i8, ptr %24, i64 267508
-  br label %33
+  br label %32
 
-33:                                               ; preds = %33, %22
-  %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %33 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %34 = getelementptr i8, ptr %32, i64 %.idx.i
+32:                                               ; preds = %32, %22
+  %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %32 ]
+  %33 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %24, i64 %indvars.iv.i
+  %34 = getelementptr i8, ptr %33, i64 267508
   store i8 1, ptr %34, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %33, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %32, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %33, %12
-  %.0.i = phi ptr [ %20, %12 ], [ %24, %33 ]
+nbap_get_private_data.exit:                       ; preds = %32, %12
+  %.0.i = phi ptr [ %20, %12 ], [ %24, %32 ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 %14, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -37770,20 +37728,19 @@ define internal i32 @dissect_nbap_TransportLayerAddress(ptr noundef %0, i32 noun
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 160, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %28 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %28, null
@@ -38809,20 +38766,19 @@ define internal i32 @dissect_nbap_MIB_SB_SIB_InformationItem_SystemInfoUpdateRqs
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 100
   store i32 10, ptr %26, align 4
   %27 = load ptr, ptr %6, align 8
@@ -38831,7 +38787,7 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   %30 = load i32, ptr @proto_nbap, align 4
   %31 = tail call ptr @p_get_proto_data(ptr noundef %29, ptr noundef %27, i32 noundef %30, i32 noundef 0)
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %nbap_get_private_data.exit12
+  br i1 %32, label %33, label %nbap_get_private_data.exit11
 
 33:                                               ; preds = %nbap_get_private_data.exit
   %34 = load ptr, ptr %28, align 8
@@ -38849,20 +38805,19 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   store i32 65535, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 109
   store i8 2, ptr %42, align 1
-  %43 = getelementptr i8, ptr %35, i64 267508
-  br label %44
+  br label %43
 
-44:                                               ; preds = %44, %33
-  %indvars.iv.i8 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i10, %44 ]
-  %.idx.i9 = mul nuw nsw i64 %indvars.iv.i8, 40
-  %45 = getelementptr i8, ptr %43, i64 %.idx.i9
+43:                                               ; preds = %43, %33
+  %indvars.iv.i8 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i9, %43 ]
+  %44 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %35, i64 %indvars.iv.i8
+  %45 = getelementptr i8, ptr %44, i64 267508
   store i8 1, ptr %45, align 4
-  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
-  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %44, !llvm.loop !9
+  %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
+  %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 8
+  br i1 %exitcond.not.i10, label %nbap_get_private_data.exit11, label %43, !llvm.loop !9
 
-nbap_get_private_data.exit12:                     ; preds = %44, %nbap_get_private_data.exit
-  %.0.i7 = phi ptr [ %31, %nbap_get_private_data.exit ], [ %35, %44 ]
+nbap_get_private_data.exit11:                     ; preds = %43, %nbap_get_private_data.exit
+  %.0.i7 = phi ptr [ %31, %nbap_get_private_data.exit ], [ %35, %43 ]
   %46 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 104
   store i32 0, ptr %46, align 8
   %47 = load i32, ptr @ett_nbap_MIB_SB_SIB_InformationItem_SystemInfoUpdateRqst, align 4
@@ -38897,20 +38852,19 @@ define internal i32 @dissect_nbap_IB_Type(ptr noundef %0, i32 noundef %1, ptr no
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 100
   %27 = tail call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 26, ptr noundef nonnull %26, i1 noundef zeroext true, i32 noundef 15, ptr noundef null)
   ret i32 %27
@@ -38995,20 +38949,19 @@ define internal i32 @dissect_nbap_Segment_Type(ptr noundef %0, i32 noundef %1, p
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 104
   %27 = tail call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 7, ptr noundef nonnull %26, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   ret i32 %27
@@ -39044,20 +38997,19 @@ define internal i32 @dissect_nbap_IB_SG_DATA(ptr noundef %0, i32 noundef %1, ptr
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = add i32 %1, 7
   %28 = sdiv i32 %27, 8
   %29 = shl nsw i32 %28, 3
@@ -39694,20 +39646,19 @@ define internal i32 @dissect_nbap_UL_ScramblingCodeNumber(ptr noundef %0, i32 no
   store i32 65535, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 109
   store i8 2, ptr %25, align 1
-  %26 = getelementptr i8, ptr %18, i64 267508
-  br label %27
+  br label %26
 
-27:                                               ; preds = %27, %16
-  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %27 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %28 = getelementptr i8, ptr %26, i64 %.idx.i
+26:                                               ; preds = %26, %16
+  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %26 ]
+  %27 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %18, i64 %indvars.iv.i
+  %28 = getelementptr i8, ptr %27, i64 267508
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %27, %5
-  %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
+nbap_get_private_data.exit:                       ; preds = %26, %5
+  %.0.i = phi ptr [ %14, %5 ], [ %18, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   store i32 %8, ptr %29, align 4
   %30 = load ptr, ptr %9, align 8
@@ -39716,7 +39667,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %33 = load i32, ptr @proto_nbap, align 4
   %34 = call ptr @p_get_proto_data(ptr noundef %32, ptr noundef %30, i32 noundef %33, i32 noundef 0)
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %nbap_get_private_data.exit16
+  br i1 %35, label %36, label %nbap_get_private_data.exit15
 
 36:                                               ; preds = %nbap_get_private_data.exit
   %37 = load ptr, ptr %31, align 8
@@ -39734,20 +39685,19 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   store i32 65535, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 109
   store i8 2, ptr %45, align 1
-  %46 = getelementptr i8, ptr %38, i64 267508
-  br label %47
+  br label %46
 
-47:                                               ; preds = %47, %36
-  %indvars.iv.i12 = phi i64 [ 0, %36 ], [ %indvars.iv.next.i14, %47 ]
-  %.idx.i13 = mul nuw nsw i64 %indvars.iv.i12, 40
-  %48 = getelementptr i8, ptr %46, i64 %.idx.i13
+46:                                               ; preds = %46, %36
+  %indvars.iv.i12 = phi i64 [ 0, %36 ], [ %indvars.iv.next.i13, %46 ]
+  %47 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %38, i64 %indvars.iv.i12
+  %48 = getelementptr i8, ptr %47, i64 267508
   store i8 1, ptr %48, align 4
-  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
-  %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 8
-  br i1 %exitcond.not.i15, label %nbap_get_private_data.exit16, label %47, !llvm.loop !9
+  %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
+  %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, 8
+  br i1 %exitcond.not.i14, label %nbap_get_private_data.exit15, label %46, !llvm.loop !9
 
-nbap_get_private_data.exit16:                     ; preds = %47, %nbap_get_private_data.exit
-  %.0.i11 = phi ptr [ %34, %nbap_get_private_data.exit ], [ %38, %47 ]
+nbap_get_private_data.exit15:                     ; preds = %46, %nbap_get_private_data.exit
+  %.0.i11 = phi ptr [ %34, %nbap_get_private_data.exit ], [ %38, %46 ]
   %49 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = load i32, ptr %6, align 4
@@ -39756,14 +39706,14 @@ nbap_get_private_data.exit16:                     ; preds = %47, %nbap_get_priva
   %or.cond = select i1 %52, i1 %53, i1 false
   br i1 %or.cond, label %54, label %58
 
-54:                                               ; preds = %nbap_get_private_data.exit16
+54:                                               ; preds = %nbap_get_private_data.exit15
   %55 = load ptr, ptr @nbap_scrambling_code_crncc_map, align 8
   %56 = zext i32 %50 to i64
   %57 = inttoptr i64 %56 to ptr
   call void @wmem_tree_insert32(ptr noundef %55, i32 noundef %51, ptr noundef nonnull %57)
   br label %58
 
-58:                                               ; preds = %54, %nbap_get_private_data.exit16
+58:                                               ; preds = %54, %nbap_get_private_data.exit15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
@@ -39863,17 +39813,16 @@ define internal i32 @dissect_nbap_PayloadCRC_PresenceIndicator(ptr noundef %0, i
   store i32 65535, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 109
   store i8 2, ptr %27, align 1
-  %28 = getelementptr i8, ptr %20, i64 267508
-  br label %29
+  br label %28
 
-29:                                               ; preds = %29, %18
-  %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %29 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %30 = getelementptr i8, ptr %28, i64 %.idx.i
+28:                                               ; preds = %28, %18
+  %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %28 ]
+  %29 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %20, i64 %indvars.iv.i
+  %30 = getelementptr i8, ptr %29, i64 267508
   store i8 1, ptr %30, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %29, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %28, !llvm.loop !9
 
 31:                                               ; preds = %5
   br i1 %16, label %32, label %nbap_get_private_data.exit
@@ -39894,21 +39843,20 @@ define internal i32 @dissect_nbap_PayloadCRC_PresenceIndicator(ptr noundef %0, i
   store i32 65535, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 109
   store i8 2, ptr %41, align 1
-  %42 = getelementptr i8, ptr %34, i64 267508
-  br label %43
+  br label %42
 
-43:                                               ; preds = %43, %32
-  %indvars.iv.i8 = phi i64 [ 0, %32 ], [ %indvars.iv.next.i10, %43 ]
-  %.idx.i9 = mul nuw nsw i64 %indvars.iv.i8, 40
-  %44 = getelementptr i8, ptr %42, i64 %.idx.i9
+42:                                               ; preds = %42, %32
+  %indvars.iv.i8 = phi i64 [ 0, %32 ], [ %indvars.iv.next.i9, %42 ]
+  %43 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %34, i64 %indvars.iv.i8
+  %44 = getelementptr i8, ptr %43, i64 267508
   store i8 1, ptr %44, align 4
-  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
-  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit, label %43, !llvm.loop !9
+  %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
+  %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 8
+  br i1 %exitcond.not.i10, label %nbap_get_private_data.exit, label %42, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %43, %29, %31, %17
-  %.0.i7.sink = phi ptr [ %15, %17 ], [ %15, %31 ], [ %20, %29 ], [ %34, %43 ]
-  %.sink = phi i8 [ 1, %17 ], [ 0, %31 ], [ 1, %29 ], [ 0, %43 ]
+nbap_get_private_data.exit:                       ; preds = %42, %28, %31, %17
+  %.0.i7.sink = phi ptr [ %15, %17 ], [ %15, %31 ], [ %20, %28 ], [ %34, %42 ]
+  %.sink = phi i8 [ 1, %17 ], [ 0, %31 ], [ 1, %28 ], [ 0, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %.0.i7.sink, i64 109
   store i8 %.sink, ptr %45, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -39948,20 +39896,19 @@ define internal i32 @dissect_nbap_DCH_Specific_FDD_InformationList(ptr noundef %
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   store i32 0, ptr %26, align 4
   %27 = load ptr, ptr %6, align 8
@@ -39970,7 +39917,7 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   %30 = load i32, ptr @proto_nbap, align 4
   %31 = tail call ptr @p_get_proto_data(ptr noundef %29, ptr noundef %27, i32 noundef %30, i32 noundef 0)
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %nbap_get_private_data.exit12
+  br i1 %32, label %33, label %nbap_get_private_data.exit11
 
 33:                                               ; preds = %nbap_get_private_data.exit
   %34 = load ptr, ptr %28, align 8
@@ -39988,20 +39935,19 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   store i32 65535, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 109
   store i8 2, ptr %42, align 1
-  %43 = getelementptr i8, ptr %35, i64 267508
-  br label %44
+  br label %43
 
-44:                                               ; preds = %44, %33
-  %indvars.iv.i8 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i10, %44 ]
-  %.idx.i9 = mul nuw nsw i64 %indvars.iv.i8, 40
-  %45 = getelementptr i8, ptr %43, i64 %.idx.i9
+43:                                               ; preds = %43, %33
+  %indvars.iv.i8 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i9, %43 ]
+  %44 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %35, i64 %indvars.iv.i8
+  %45 = getelementptr i8, ptr %44, i64 267508
   store i8 1, ptr %45, align 4
-  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
-  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %44, !llvm.loop !9
+  %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
+  %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 8
+  br i1 %exitcond.not.i10, label %nbap_get_private_data.exit11, label %43, !llvm.loop !9
 
-nbap_get_private_data.exit12:                     ; preds = %44, %nbap_get_private_data.exit
-  %.0.i7 = phi ptr [ %31, %nbap_get_private_data.exit ], [ %35, %44 ]
+nbap_get_private_data.exit11:                     ; preds = %43, %nbap_get_private_data.exit
+  %.0.i7 = phi ptr [ %31, %nbap_get_private_data.exit ], [ %35, %43 ]
   %46 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 56
   store i32 0, ptr %46, align 8
   %47 = load i32, ptr @ett_nbap_DCH_Specific_FDD_InformationList, align 4
@@ -40036,20 +39982,19 @@ define internal i32 @dissect_nbap_DCH_Specific_FDD_Item(ptr noundef %0, i32 noun
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, 1
@@ -40062,7 +40007,7 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   %34 = load i32, ptr @proto_nbap, align 4
   %35 = tail call ptr @p_get_proto_data(ptr noundef %33, ptr noundef %31, i32 noundef %34, i32 noundef 0)
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %nbap_get_private_data.exit13
+  br i1 %36, label %37, label %nbap_get_private_data.exit12
 
 37:                                               ; preds = %nbap_get_private_data.exit
   %38 = load ptr, ptr %32, align 8
@@ -40080,20 +40025,19 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   store i32 65535, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 109
   store i8 2, ptr %46, align 1
-  %47 = getelementptr i8, ptr %39, i64 267508
-  br label %48
+  br label %47
 
-48:                                               ; preds = %48, %37
-  %indvars.iv.i9 = phi i64 [ 0, %37 ], [ %indvars.iv.next.i11, %48 ]
-  %.idx.i10 = mul nuw nsw i64 %indvars.iv.i9, 40
-  %49 = getelementptr i8, ptr %47, i64 %.idx.i10
+47:                                               ; preds = %47, %37
+  %indvars.iv.i9 = phi i64 [ 0, %37 ], [ %indvars.iv.next.i10, %47 ]
+  %48 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %39, i64 %indvars.iv.i9
+  %49 = getelementptr i8, ptr %48, i64 267508
   store i8 1, ptr %49, align 4
-  %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i9, 1
-  %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 8
-  br i1 %exitcond.not.i12, label %nbap_get_private_data.exit13, label %48, !llvm.loop !9
+  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
+  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
+  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %47, !llvm.loop !9
 
-nbap_get_private_data.exit13:                     ; preds = %48, %nbap_get_private_data.exit
-  %.0.i8 = phi ptr [ %35, %nbap_get_private_data.exit ], [ %39, %48 ]
+nbap_get_private_data.exit12:                     ; preds = %47, %nbap_get_private_data.exit
+  %.0.i8 = phi ptr [ %35, %nbap_get_private_data.exit ], [ %39, %47 ]
   %50 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 52
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr %6, align 8
@@ -40102,9 +40046,9 @@ nbap_get_private_data.exit13:                     ; preds = %48, %nbap_get_priva
   %55 = load i32, ptr @proto_nbap, align 4
   %56 = tail call ptr @p_get_proto_data(ptr noundef %54, ptr noundef %52, i32 noundef %55, i32 noundef 0)
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %nbap_get_private_data.exit19
+  br i1 %57, label %58, label %nbap_get_private_data.exit17
 
-58:                                               ; preds = %nbap_get_private_data.exit13
+58:                                               ; preds = %nbap_get_private_data.exit12
   %59 = load ptr, ptr %53, align 8
   %60 = tail call noalias dereferenceable_or_null(268056) ptr @wmem_alloc0(ptr noundef %59, i64 noundef 268056) #9
   %61 = load ptr, ptr %53, align 8
@@ -40120,21 +40064,20 @@ nbap_get_private_data.exit13:                     ; preds = %48, %nbap_get_priva
   store i32 65535, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 109
   store i8 2, ptr %67, align 1
-  %68 = getelementptr i8, ptr %60, i64 267508
-  br label %69
+  br label %68
 
-69:                                               ; preds = %69, %58
-  %indvars.iv.i15 = phi i64 [ 0, %58 ], [ %indvars.iv.next.i17, %69 ]
-  %.idx.i16 = mul nuw nsw i64 %indvars.iv.i15, 40
-  %70 = getelementptr i8, ptr %68, i64 %.idx.i16
+68:                                               ; preds = %68, %58
+  %indvars.iv.i14 = phi i64 [ 0, %58 ], [ %indvars.iv.next.i15, %68 ]
+  %69 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %60, i64 %indvars.iv.i14
+  %70 = getelementptr i8, ptr %69, i64 267508
   store i8 1, ptr %70, align 4
-  %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
-  %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 8
-  br i1 %exitcond.not.i18, label %nbap_get_private_data.exit19, label %69, !llvm.loop !9
+  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
+  %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 8
+  br i1 %exitcond.not.i16, label %nbap_get_private_data.exit17, label %68, !llvm.loop !9
 
-nbap_get_private_data.exit19:                     ; preds = %69, %nbap_get_private_data.exit13
-  %.0.i14 = phi ptr [ %56, %nbap_get_private_data.exit13 ], [ %60, %69 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 56
+nbap_get_private_data.exit17:                     ; preds = %68, %nbap_get_private_data.exit12
+  %.0.i13 = phi ptr [ %56, %nbap_get_private_data.exit12 ], [ %60, %68 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 56
   store i32 %51, ptr %71, align 8
   ret i32 %30
 }
@@ -40168,20 +40111,19 @@ define internal i32 @dissect_nbap_T_dCH_ID(ptr noundef %0, i32 noundef %1, ptr n
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   %28 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %6, i1 noundef zeroext false)
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
@@ -40246,39 +40188,36 @@ define internal i32 @dissect_nbap_T_ul_TransportFormatSet(ptr noundef %0, i32 no
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 0, ptr %28, align 8
   %.not = icmp eq i32 %27, -1
-  br i1 %.not, label %33, label %29
+  br i1 %.not, label %32, label %29
 
 29:                                               ; preds = %nbap_get_private_data.exit
   %30 = zext i32 %27 to i64
-  %.idx = mul nuw nsw i64 %30, 1040
-  %31 = getelementptr i8, ptr %.0.i, i64 120
-  %32 = getelementptr i8, ptr %31, i64 %.idx
-  store i32 0, ptr %32, align 4
-  br label %33
+  %31 = getelementptr %struct.nbap_dch_channel_info_t, ptr %.0.i, i64 %30, i32 3, i64 27
+  store i32 0, ptr %31, align 4
+  br label %32
 
-33:                                               ; preds = %29, %nbap_get_private_data.exit
-  %34 = load i32, ptr @ett_nbap_TransportFormatSet, align 4
-  %35 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %34, ptr noundef nonnull @TransportFormatSet_sequence)
-  ret i32 %35
+32:                                               ; preds = %29, %nbap_get_private_data.exit
+  %33 = load i32, ptr @ett_nbap_TransportFormatSet, align 4
+  %34 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %33, ptr noundef nonnull @TransportFormatSet_sequence)
+  ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -40308,39 +40247,36 @@ define internal i32 @dissect_nbap_T_dl_TransportFormatSet(ptr noundef %0, i32 no
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 1, ptr %28, align 8
   %.not = icmp eq i32 %27, -1
-  br i1 %.not, label %33, label %29
+  br i1 %.not, label %32, label %29
 
 29:                                               ; preds = %nbap_get_private_data.exit
   %30 = zext i32 %27 to i64
-  %.idx = mul nuw nsw i64 %30, 1040
-  %31 = getelementptr i8, ptr %.0.i, i64 636
-  %32 = getelementptr i8, ptr %31, i64 %.idx
-  store i32 0, ptr %32, align 4
-  br label %33
+  %31 = getelementptr %struct.nbap_dch_channel_info_t, ptr %.0.i, i64 %30, i32 6, i64 27
+  store i32 0, ptr %31, align 4
+  br label %32
 
-33:                                               ; preds = %29, %nbap_get_private_data.exit
-  %34 = load i32, ptr @ett_nbap_TransportFormatSet, align 4
-  %35 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %34, ptr noundef nonnull @TransportFormatSet_sequence)
-  ret i32 %35
+32:                                               ; preds = %29, %nbap_get_private_data.exit
+  %33 = load i32, ptr @ett_nbap_TransportFormatSet, align 4
+  %34 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %33, ptr noundef nonnull @TransportFormatSet_sequence)
+  ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -40577,20 +40513,19 @@ define internal i32 @dissect_nbap_DCH_ID(ptr noundef %0, i32 noundef %1, ptr nou
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %26, i1 noundef zeroext false)
   ret i32 %27
@@ -40780,20 +40715,19 @@ define internal i32 @dissect_nbap_NodeB_CommunicationContextID(ptr noundef %0, i
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 1048575, ptr noundef nonnull %6, i1 noundef zeroext false)
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 108
   %29 = load i8, ptr %28, align 4, !range !15, !noundef !16
@@ -41243,20 +41177,19 @@ define internal i32 @dissect_nbap_T_dCH_ID_01(ptr noundef %0, i32 noundef %1, pt
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = load ptr, ptr %7, align 8
@@ -41265,7 +41198,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %32 = load i32, ptr @proto_nbap, align 4
   %33 = tail call ptr @p_get_proto_data(ptr noundef %31, ptr noundef %29, i32 noundef %32, i32 noundef 0)
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %nbap_get_private_data.exit12
+  br i1 %34, label %35, label %nbap_get_private_data.exit11
 
 35:                                               ; preds = %nbap_get_private_data.exit
   %36 = load ptr, ptr %30, align 8
@@ -41283,20 +41216,19 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i32 65535, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 109
   store i8 2, ptr %44, align 1
-  %45 = getelementptr i8, ptr %37, i64 267508
-  br label %46
+  br label %45
 
-46:                                               ; preds = %46, %35
-  %indvars.iv.i8 = phi i64 [ 0, %35 ], [ %indvars.iv.next.i10, %46 ]
-  %.idx.i9 = mul nuw nsw i64 %indvars.iv.i8, 40
-  %47 = getelementptr i8, ptr %45, i64 %.idx.i9
+45:                                               ; preds = %45, %35
+  %indvars.iv.i8 = phi i64 [ 0, %35 ], [ %indvars.iv.next.i9, %45 ]
+  %46 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %37, i64 %indvars.iv.i8
+  %47 = getelementptr i8, ptr %46, i64 267508
   store i8 1, ptr %47, align 4
-  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
-  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %46, !llvm.loop !9
+  %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
+  %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 8
+  br i1 %exitcond.not.i10, label %nbap_get_private_data.exit11, label %45, !llvm.loop !9
 
-nbap_get_private_data.exit12:                     ; preds = %46, %nbap_get_private_data.exit
-  %.0.i7 = phi ptr [ %33, %nbap_get_private_data.exit ], [ %37, %46 ]
+nbap_get_private_data.exit11:                     ; preds = %45, %nbap_get_private_data.exit
+  %.0.i7 = phi ptr [ %33, %nbap_get_private_data.exit ], [ %37, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 52
   store i32 %28, ptr %48, align 4
   ret i32 %6
@@ -41329,39 +41261,36 @@ define internal i32 @dissect_nbap_T_ul_TransportFormatSet_01(ptr noundef %0, i32
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 0, ptr %28, align 8
   %.not = icmp eq i32 %27, -1
-  br i1 %.not, label %33, label %29
+  br i1 %.not, label %32, label %29
 
 29:                                               ; preds = %nbap_get_private_data.exit
   %30 = zext i32 %27 to i64
-  %.idx = mul nuw nsw i64 %30, 1040
-  %31 = getelementptr i8, ptr %.0.i, i64 120
-  %32 = getelementptr i8, ptr %31, i64 %.idx
-  store i32 0, ptr %32, align 4
-  br label %33
+  %31 = getelementptr %struct.nbap_dch_channel_info_t, ptr %.0.i, i64 %30, i32 3, i64 27
+  store i32 0, ptr %31, align 4
+  br label %32
 
-33:                                               ; preds = %29, %nbap_get_private_data.exit
-  %34 = load i32, ptr @ett_nbap_TransportFormatSet, align 4
-  %35 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %34, ptr noundef nonnull @TransportFormatSet_sequence)
-  ret i32 %35
+32:                                               ; preds = %29, %nbap_get_private_data.exit
+  %33 = load i32, ptr @ett_nbap_TransportFormatSet, align 4
+  %34 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %33, ptr noundef nonnull @TransportFormatSet_sequence)
+  ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -41391,39 +41320,36 @@ define internal i32 @dissect_nbap_T_dl_TransportFormatSet_01(ptr noundef %0, i32
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 1, ptr %28, align 8
   %.not = icmp eq i32 %27, -1
-  br i1 %.not, label %33, label %29
+  br i1 %.not, label %32, label %29
 
 29:                                               ; preds = %nbap_get_private_data.exit
   %30 = zext i32 %27 to i64
-  %.idx = mul nuw nsw i64 %30, 1040
-  %31 = getelementptr i8, ptr %.0.i, i64 636
-  %32 = getelementptr i8, ptr %31, i64 %.idx
-  store i32 0, ptr %32, align 4
-  br label %33
+  %31 = getelementptr %struct.nbap_dch_channel_info_t, ptr %.0.i, i64 %30, i32 6, i64 27
+  store i32 0, ptr %31, align 4
+  br label %32
 
-33:                                               ; preds = %29, %nbap_get_private_data.exit
-  %34 = load i32, ptr @ett_nbap_TransportFormatSet, align 4
-  %35 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %34, ptr noundef nonnull @TransportFormatSet_sequence)
-  ret i32 %35
+32:                                               ; preds = %29, %nbap_get_private_data.exit
+  %33 = load i32, ptr @ett_nbap_TransportFormatSet, align 4
+  %34 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %33, ptr noundef nonnull @TransportFormatSet_sequence)
+  ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -43082,20 +43008,19 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_ID(ptr noundef %0, i32 noundef
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %6, i1 noundef zeroext false)
   %28 = load i32, ptr %6, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
@@ -43118,11 +43043,10 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   unreachable
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267440
-  %38 = zext nneg i32 %31 to i64
-  %39 = getelementptr i32, ptr %37, i64 %38
-  %40 = getelementptr i8, ptr %39, i64 -4
-  store i32 %28, ptr %40, align 4
+  %37 = zext nneg i32 %31 to i64
+  %38 = getelementptr i32, ptr %.0.i, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 267436
+  store i32 %28, ptr %39, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
@@ -43610,28 +43534,26 @@ define internal i32 @dissect_nbap_T_hSDSCH_Physical_Layer_Category(ptr noundef %
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 64, ptr noundef nonnull %6, i1 noundef zeroext true)
   %28 = load i32, ptr %6, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %30 to i64
-  %.idx = mul nuw nsw i64 %31, 40
-  %32 = getelementptr i8, ptr %.0.i, i64 267504
-  %33 = getelementptr i8, ptr %32, i64 %.idx
+  %32 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %.0.i, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 267504
   store i32 %28, ptr %33, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
@@ -43690,20 +43612,19 @@ define internal i32 @dissect_nbap_MAC_PDU_SizeExtended(ptr noundef %0, i32 nound
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267472
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 1504, ptr noundef null, i1 noundef zeroext true)
   %28 = load ptr, ptr %6, align 8
@@ -43712,7 +43633,7 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   %31 = load i32, ptr @proto_nbap, align 4
   %32 = tail call ptr @p_get_proto_data(ptr noundef %30, ptr noundef %28, i32 noundef %31, i32 noundef 0)
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %nbap_get_private_data.exit17
+  br i1 %33, label %34, label %nbap_get_private_data.exit16
 
 34:                                               ; preds = %nbap_get_private_data.exit
   %35 = load ptr, ptr %29, align 8
@@ -43730,20 +43651,19 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   store i32 65535, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 109
   store i8 2, ptr %43, align 1
-  %44 = getelementptr i8, ptr %36, i64 267508
-  br label %45
+  br label %44
 
-45:                                               ; preds = %45, %34
-  %indvars.iv.i13 = phi i64 [ 0, %34 ], [ %indvars.iv.next.i15, %45 ]
-  %.idx.i14 = mul nuw nsw i64 %indvars.iv.i13, 40
-  %46 = getelementptr i8, ptr %44, i64 %.idx.i14
+44:                                               ; preds = %44, %34
+  %indvars.iv.i13 = phi i64 [ 0, %34 ], [ %indvars.iv.next.i14, %44 ]
+  %45 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %36, i64 %indvars.iv.i13
+  %46 = getelementptr i8, ptr %45, i64 267508
   store i8 1, ptr %46, align 4
-  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1
-  %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 8
-  br i1 %exitcond.not.i16, label %nbap_get_private_data.exit17, label %45, !llvm.loop !9
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
+  %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 8
+  br i1 %exitcond.not.i15, label %nbap_get_private_data.exit16, label %44, !llvm.loop !9
 
-nbap_get_private_data.exit17:                     ; preds = %45, %nbap_get_private_data.exit
-  %.0.i12 = phi ptr [ %32, %nbap_get_private_data.exit ], [ %36, %45 ]
+nbap_get_private_data.exit16:                     ; preds = %44, %nbap_get_private_data.exit
+  %.0.i12 = phi ptr [ %32, %nbap_get_private_data.exit ], [ %36, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 72
   store i8 1, ptr %47, align 8
   %48 = load ptr, ptr %6, align 8
@@ -43752,56 +43672,52 @@ nbap_get_private_data.exit17:                     ; preds = %45, %nbap_get_priva
   %51 = load i32, ptr @proto_nbap, align 4
   %52 = tail call ptr @p_get_proto_data(ptr noundef %50, ptr noundef %48, i32 noundef %51, i32 noundef 0)
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %55, label %nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge
+  br i1 %53, label %54, label %nbap_get_private_data.exit21
 
-nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge: ; preds = %nbap_get_private_data.exit17
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %52, i64 68
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %54 = zext i32 %.pre to i64
-  br label %nbap_get_private_data.exit23
+54:                                               ; preds = %nbap_get_private_data.exit16
+  %55 = load ptr, ptr %49, align 8
+  %56 = tail call noalias dereferenceable_or_null(268056) ptr @wmem_alloc0(ptr noundef %55, i64 noundef 268056) #9
+  %57 = load ptr, ptr %49, align 8
+  %58 = load i32, ptr @proto_nbap, align 4
+  tail call void @p_add_proto_data(ptr noundef %57, ptr noundef %48, i32 noundef %58, i32 noundef 0, ptr noundef %56)
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 68
+  store i32 3, ptr %59, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 108
+  store i8 0, ptr %60, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 12
+  store i32 65535, ptr %61, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  store i32 65535, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 109
+  store i8 2, ptr %63, align 1
+  br label %64
 
-55:                                               ; preds = %nbap_get_private_data.exit17
-  %56 = load ptr, ptr %49, align 8
-  %57 = tail call noalias dereferenceable_or_null(268056) ptr @wmem_alloc0(ptr noundef %56, i64 noundef 268056) #9
-  %58 = load ptr, ptr %49, align 8
-  %59 = load i32, ptr @proto_nbap, align 4
-  tail call void @p_add_proto_data(ptr noundef %58, ptr noundef %48, i32 noundef %59, i32 noundef 0, ptr noundef %57)
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 68
-  store i32 3, ptr %60, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 108
-  store i8 0, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  store i32 65535, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  store i32 65535, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 109
-  store i8 2, ptr %64, align 1
-  %65 = getelementptr i8, ptr %57, i64 267508
-  br label %66
+64:                                               ; preds = %64, %54
+  %indvars.iv.i18 = phi i64 [ 0, %54 ], [ %indvars.iv.next.i19, %64 ]
+  %65 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %56, i64 %indvars.iv.i18
+  %66 = getelementptr i8, ptr %65, i64 267508
+  store i8 1, ptr %66, align 4
+  %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
+  %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, 8
+  br i1 %exitcond.not.i20, label %nbap_get_private_data.exit21, label %64, !llvm.loop !9
 
-66:                                               ; preds = %66, %55
-  %indvars.iv.i19 = phi i64 [ 0, %55 ], [ %indvars.iv.next.i21, %66 ]
-  %.idx.i20 = mul nuw nsw i64 %indvars.iv.i19, 40
-  %67 = getelementptr i8, ptr %65, i64 %.idx.i20
-  store i8 1, ptr %67, align 4
-  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 1
-  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 8
-  br i1 %exitcond.not.i22, label %nbap_get_private_data.exit23, label %66, !llvm.loop !9
+nbap_get_private_data.exit21:                     ; preds = %64, %nbap_get_private_data.exit16
+  %.0.i17 = phi ptr [ %52, %nbap_get_private_data.exit16 ], [ %56, %64 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 68
+  %68 = load i32, ptr %67, align 4
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %26, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %72 = load i16, ptr %71, align 8
+  %.not = icmp eq i16 %72, 0
+  br i1 %.not, label %75, label %73
 
-nbap_get_private_data.exit23:                     ; preds = %66, %nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge
-  %68 = phi i64 [ %54, %nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge ], [ 3, %66 ]
-  %69 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %26, i64 %68
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %71 = load i16, ptr %70, align 8
-  %.not = icmp eq i16 %71, 0
-  br i1 %.not, label %74, label %72
+73:                                               ; preds = %nbap_get_private_data.exit21
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 36
+  store i8 2, ptr %74, align 4
+  br label %75
 
-72:                                               ; preds = %nbap_get_private_data.exit23
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 36
-  store i8 2, ptr %73, align 4
-  br label %74
-
-74:                                               ; preds = %72, %nbap_get_private_data.exit23
+75:                                               ; preds = %73, %nbap_get_private_data.exit21
   ret i32 %27
 }
 
@@ -44623,20 +44539,19 @@ define internal i32 @dissect_nbap_HSDSCH_FDD_Information(ptr noundef %0, i32 nou
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267472
   %28 = load ptr, ptr %7, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
@@ -44645,7 +44560,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %32 = load i16, ptr %31, align 1
   %33 = and i16 %32, 8
   %.not = icmp eq i16 %33, 0
-  br i1 %.not, label %.preheader, label %.loopexit81
+  br i1 %.not, label %.preheader, label %.loopexit80
 
 .preheader:                                       ; preds = %nbap_get_private_data.exit, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %nbap_get_private_data.exit ]
@@ -44658,9 +44573,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i8 0, ptr %37, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit81, label %.preheader, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit80, label %.preheader, !llvm.loop !31
 
-.loopexit81:                                      ; preds = %.preheader, %nbap_get_private_data.exit
+.loopexit80:                                      ; preds = %.preheader, %nbap_get_private_data.exit
   %38 = load i32, ptr @ett_nbap_HSDSCH_FDD_Information, align 4
   %39 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %38, ptr noundef nonnull @HSDSCH_FDD_Information_sequence)
   %40 = load ptr, ptr %7, align 8
@@ -44672,13 +44587,13 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.not73 = icmp eq i16 %45, 0
   br i1 %.not73, label %46, label %.loopexit
 
-46:                                               ; preds = %.loopexit81
+46:                                               ; preds = %.loopexit80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   br label %47
 
 47:                                               ; preds = %46, %143
-  %indvars.iv85 = phi i64 [ 0, %46 ], [ %indvars.iv.next86, %143 ]
-  %48 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %27, i64 %indvars.iv85
+  %indvars.iv84 = phi i64 [ 0, %46 ], [ %indvars.iv.next85, %143 ]
+  %48 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %27, i64 %indvars.iv84
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i16, ptr %49, align 8
   %.not74 = icmp eq i16 %50, 0
@@ -44754,8 +44669,8 @@ copy_address_wmem.exit:                           ; preds = %70, %88
   %97 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc0(ptr noundef %96, i64 noundef 12) #9
   %98 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr %97, ptr %98, align 8
-  %99 = trunc nuw nsw i64 %indvars.iv85 to i32
-  %100 = trunc i64 %indvars.iv85 to i8
+  %99 = trunc nuw nsw i64 %indvars.iv84 to i32
+  %100 = trunc i64 %indvars.iv84 to i8
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 5
   store i8 %100, ptr %101, align 1
   %102 = load ptr, ptr %7, align 8
@@ -44764,7 +44679,7 @@ copy_address_wmem.exit:                           ; preds = %70, %88
   %105 = load i32, ptr @proto_nbap, align 4
   %106 = call ptr @p_get_proto_data(ptr noundef %104, ptr noundef %102, i32 noundef %105, i32 noundef 0)
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %108, label %nbap_get_private_data.exit80
+  br i1 %107, label %108, label %nbap_get_private_data.exit79
 
 108:                                              ; preds = %copy_address_wmem.exit
   %109 = load ptr, ptr %103, align 8
@@ -44782,20 +44697,19 @@ copy_address_wmem.exit:                           ; preds = %70, %88
   store i32 65535, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 109
   store i8 2, ptr %117, align 1
-  %118 = getelementptr i8, ptr %110, i64 267508
-  br label %119
+  br label %118
 
-119:                                              ; preds = %119, %108
-  %indvars.iv.i76 = phi i64 [ 0, %108 ], [ %indvars.iv.next.i78, %119 ]
-  %.idx.i77 = mul nuw nsw i64 %indvars.iv.i76, 40
-  %120 = getelementptr i8, ptr %118, i64 %.idx.i77
+118:                                              ; preds = %118, %108
+  %indvars.iv.i76 = phi i64 [ 0, %108 ], [ %indvars.iv.next.i77, %118 ]
+  %119 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %110, i64 %indvars.iv.i76
+  %120 = getelementptr i8, ptr %119, i64 267508
   store i8 1, ptr %120, align 4
-  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i76, 1
-  %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 8
-  br i1 %exitcond.not.i79, label %nbap_get_private_data.exit80, label %119, !llvm.loop !9
+  %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
+  %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, 8
+  br i1 %exitcond.not.i78, label %nbap_get_private_data.exit79, label %118, !llvm.loop !9
 
-nbap_get_private_data.exit80:                     ; preds = %119, %copy_address_wmem.exit
-  %.0.i75 = phi ptr [ %106, %copy_address_wmem.exit ], [ %110, %119 ]
+nbap_get_private_data.exit79:                     ; preds = %118, %copy_address_wmem.exit
+  %.0.i75 = phi ptr [ %106, %copy_address_wmem.exit ], [ %110, %118 ]
   %121 = getelementptr inbounds nuw i8, ptr %.0.i75, i64 24
   %122 = load i32, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %72, i64 56
@@ -44813,14 +44727,14 @@ nbap_get_private_data.exit80:                     ; preds = %119, %copy_address_
   %132 = icmp eq i8 %131, 0
   br i1 %132, label %133, label %137
 
-133:                                              ; preds = %nbap_get_private_data.exit80
+133:                                              ; preds = %nbap_get_private_data.exit79
   %134 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %135 = load i32, ptr %134, align 8
   %136 = icmp ugt i32 %135, 12
   %. = select i1 %136, i32 2, i32 1
   br label %139
 
-137:                                              ; preds = %nbap_get_private_data.exit80
+137:                                              ; preds = %nbap_get_private_data.exit79
   %138 = zext i8 %131 to i32
   br label %139
 
@@ -44835,11 +44749,11 @@ nbap_get_private_data.exit80:                     ; preds = %119, %copy_address_
   br label %143
 
 143:                                              ; preds = %47, %58, %139, %51
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next86, 8
-  br i1 %exitcond88.not, label %.loopexit, label %47, !llvm.loop !32
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond87.not = icmp eq i64 %indvars.iv.next85, 8
+  br i1 %exitcond87.not, label %.loopexit, label %47, !llvm.loop !32
 
-.loopexit:                                        ; preds = %143, %.loopexit81
+.loopexit:                                        ; preds = %143, %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %39
 }
@@ -44875,20 +44789,19 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlows_Information(ptr noundef %0, i
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
@@ -44957,20 +44870,19 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i32 65535, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 109
   store i8 2, ptr %65, align 1
-  %66 = getelementptr i8, ptr %58, i64 267508
-  br label %67
+  br label %66
 
-67:                                               ; preds = %67, %56
-  %indvars.iv.i.i = phi i64 [ 0, %56 ], [ %indvars.iv.next.i.i, %67 ]
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 40
-  %68 = getelementptr i8, ptr %66, i64 %.idx.i.i
+66:                                               ; preds = %66, %56
+  %indvars.iv.i.i = phi i64 [ 0, %56 ], [ %indvars.iv.next.i.i, %66 ]
+  %67 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %58, i64 %indvars.iv.i.i
+  %68 = getelementptr i8, ptr %67, i64 267508
   store i8 1, ptr %68, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %67, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %nbap_get_private_data.exit.i, label %66, !llvm.loop !9
 
-nbap_get_private_data.exit.i:                     ; preds = %67, %50
-  %.0.i.i = phi ptr [ %54, %50 ], [ %58, %67 ]
+nbap_get_private_data.exit.i:                     ; preds = %66, %50
+  %.0.i.i = phi ptr [ %54, %50 ], [ %58, %66 ]
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 267472
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %44, i64 20
@@ -45178,20 +45090,19 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InfoItem(ptr noundef 
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   store i32 0, ptr %.0.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %27, align 4
@@ -45270,20 +45181,19 @@ define internal i32 @dissect_nbap_PriorityQueue_InfoItem(ptr noundef %0, i32 nou
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
@@ -45359,45 +45269,43 @@ define internal i32 @dissect_nbap_RLC_Mode(ptr noundef %0, i32 noundef %1, ptr n
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267472
-  %28 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
-  %29 = load i32, ptr %6, align 4
-  switch i32 %29, label %36 [
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
+  %27 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
+  %28 = load i32, ptr %6, align 4
+  switch i32 %28, label %35 [
     i32 0, label %.sink.split
-    i32 1, label %30
+    i32 1, label %29
   ]
 
-30:                                               ; preds = %nbap_get_private_data.exit
+29:                                               ; preds = %nbap_get_private_data.exit
   br label %.sink.split
 
-.sink.split:                                      ; preds = %nbap_get_private_data.exit, %30
-  %.sink = phi i32 [ 2, %30 ], [ 3, %nbap_get_private_data.exit ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
-  %32 = load i32, ptr %31, align 4
-  %33 = zext i32 %32 to i64
-  %.idx = mul nuw nsw i64 %33, 40
-  %34 = getelementptr i8, ptr %27, i64 %.idx
-  %35 = getelementptr i8, ptr %34, i64 28
-  store i32 %.sink, ptr %35, align 4
-  br label %36
+.sink.split:                                      ; preds = %nbap_get_private_data.exit, %29
+  %.sink = phi i32 [ 2, %29 ], [ 3, %nbap_get_private_data.exit ]
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
+  %31 = load i32, ptr %30, align 4
+  %32 = zext i32 %31 to i64
+  %.idx = mul nuw nsw i64 %32, 40
+  %33 = getelementptr i8, ptr %.0.i, i64 %.idx
+  %34 = getelementptr i8, ptr %33, i64 267500
+  store i32 %.sink, ptr %34, align 4
+  br label %35
 
-36:                                               ; preds = %.sink.split, %nbap_get_private_data.exit
+35:                                               ; preds = %.sink.split, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %28
+  ret i32 %27
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -45442,20 +45350,19 @@ define internal i32 @dissect_nbap_MACdPDU_Size(ptr noundef %0, i32 noundef %1, p
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 5000, ptr noundef nonnull %6, i1 noundef zeroext true)
   %28 = load i32, ptr %6, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
@@ -45467,29 +45374,27 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %34 = load i16, ptr %33, align 1
   %35 = and i16 %34, 8
   %.not = icmp eq i16 %35, 0
-  br i1 %.not, label %36, label %49
+  br i1 %.not, label %36, label %48
 
 36:                                               ; preds = %nbap_get_private_data.exit
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, -1
   %or.cond = icmp ult i32 %39, 16
-  br i1 %or.cond, label %40, label %49
+  br i1 %or.cond, label %40, label %48
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %.idx = mul nuw nsw i64 %43, 136
-  %44 = getelementptr i8, ptr %.0.i, i64 266400
-  %45 = getelementptr i8, ptr %44, i64 %.idx
-  %46 = zext nneg i32 %38 to i64
-  %47 = getelementptr i32, ptr %45, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 -4
-  store i32 %28, ptr %48, align 4
-  br label %49
+  %44 = getelementptr %struct.nbap_edch_channel_info_t, ptr %.0.i, i64 %43
+  %45 = zext nneg i32 %38 to i64
+  %46 = getelementptr i32, ptr %44, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 266396
+  store i32 %28, ptr %47, align 4
+  br label %48
 
-49:                                               ; preds = %36, %40, %nbap_get_private_data.exit
+48:                                               ; preds = %36, %40, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
@@ -45528,20 +45433,19 @@ define internal i32 @dissect_nbap_HSDSCH_RNTI(ptr noundef %0, i32 noundef %1, pt
   store i32 65535, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 109
   store i8 2, ptr %24, align 1
-  %25 = getelementptr i8, ptr %17, i64 267508
-  br label %26
+  br label %25
 
-26:                                               ; preds = %26, %15
-  %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %26 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %27 = getelementptr i8, ptr %25, i64 %.idx.i
+25:                                               ; preds = %25, %15
+  %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %25 ]
+  %26 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %17, i64 %indvars.iv.i
+  %27 = getelementptr i8, ptr %26, i64 267508
   store i8 1, ptr %27, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %26, %5
-  %.0.i = phi ptr [ %13, %5 ], [ %17, %26 ]
+nbap_get_private_data.exit:                       ; preds = %25, %5
+  %.0.i = phi ptr [ %13, %5 ], [ %17, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267472
   %29 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull %6, i1 noundef zeroext false)
   %30 = load i32, ptr %6, align 4
@@ -45765,20 +45669,19 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoItem(ptr noundef %
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   store i8 0, ptr %27, align 8
   %28 = load i32, ptr @ett_nbap_E_DCH_MACdFlow_Specific_InfoItem, align 4
@@ -45906,20 +45809,19 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_ID(ptr noundef %0, i32 noundef 
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %26, i1 noundef zeroext false)
   ret i32 %27
@@ -45983,20 +45885,19 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelInformation(ptr noundef %0
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 0, ptr %26, align 8
   %27 = load i32, ptr @ett_nbap_E_DCH_LogicalChannelInformation, align 4
@@ -46005,9 +45906,8 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %.idx = mul nuw nsw i64 %32, 136
-  %33 = getelementptr i8, ptr %.0.i, i64 266380
-  %34 = getelementptr i8, ptr %33, i64 %.idx
+  %33 = getelementptr %struct.nbap_edch_channel_info_t, ptr %.0.i, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 266380
   store i32 %29, ptr %34, align 4
   ret i32 %28
 }
@@ -46052,20 +45952,19 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelInformationItem(ptr nounde
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
@@ -46104,20 +46003,19 @@ define internal i32 @dissect_nbap_LogicalChannelID(ptr noundef %0, i32 noundef %
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %6, i1 noundef zeroext false)
   %28 = load i32, ptr %6, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
@@ -46126,23 +46024,21 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, -1
   %or.cond = icmp ult i32 %32, 16
-  br i1 %or.cond, label %33, label %43
+  br i1 %or.cond, label %33, label %42
 
 33:                                               ; preds = %nbap_get_private_data.exit
   %34 = trunc i32 %28 to i8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %.idx = mul nuw nsw i64 %37, 136
-  %38 = getelementptr i8, ptr %.0.i, i64 266465
-  %39 = getelementptr i8, ptr %38, i64 %.idx
-  %40 = zext nneg i32 %31 to i64
-  %41 = getelementptr i8, ptr %39, i64 %40
-  %42 = getelementptr i8, ptr %41, i64 -1
-  store i8 %34, ptr %42, align 1
-  br label %43
+  %38 = getelementptr %struct.nbap_edch_channel_info_t, ptr %.0.i, i64 %37
+  %39 = zext nneg i32 %31 to i64
+  %40 = getelementptr i8, ptr %38, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 266464
+  store i8 %34, ptr %41, align 1
+  br label %42
 
-43:                                               ; preds = %33, %nbap_get_private_data.exit
+42:                                               ; preds = %33, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
@@ -46188,20 +46084,19 @@ define internal i32 @dissect_nbap_E_DCH_DDI_Value(ptr noundef %0, i32 noundef %1
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 62, ptr noundef nonnull %6, i1 noundef zeroext false)
   %28 = load i32, ptr %6, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 76
@@ -46213,30 +46108,28 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %34 = load i16, ptr %33, align 1
   %35 = and i16 %34, 8
   %.not = icmp eq i16 %35, 0
-  br i1 %.not, label %36, label %50
+  br i1 %.not, label %36, label %49
 
 36:                                               ; preds = %nbap_get_private_data.exit
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, -1
   %or.cond = icmp ult i32 %39, 16
-  br i1 %or.cond, label %40, label %50
+  br i1 %or.cond, label %40, label %49
 
 40:                                               ; preds = %36
   %41 = trunc i32 %28 to i8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %.idx = mul nuw nsw i64 %44, 136
-  %45 = getelementptr i8, ptr %.0.i, i64 266384
-  %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = zext nneg i32 %38 to i64
-  %48 = getelementptr i8, ptr %46, i64 %47
-  %49 = getelementptr i8, ptr %48, i64 -1
-  store i8 %41, ptr %49, align 1
-  br label %50
+  %45 = getelementptr %struct.nbap_edch_channel_info_t, ptr %.0.i, i64 %44
+  %46 = zext nneg i32 %38 to i64
+  %47 = getelementptr i8, ptr %45, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 266383
+  store i8 %41, ptr %48, align 1
+  br label %49
 
-50:                                               ; preds = %36, %40, %nbap_get_private_data.exit
+49:                                               ; preds = %36, %40, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
@@ -46458,20 +46351,19 @@ define internal i32 @dissect_nbap_RL_Specific_DCH_Info_Item(ptr noundef %0, i32 
   store i32 65535, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 109
   store i8 2, ptr %25, align 1
-  %26 = getelementptr i8, ptr %18, i64 267508
-  br label %27
+  br label %26
 
-27:                                               ; preds = %27, %16
-  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %27 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %28 = getelementptr i8, ptr %26, i64 %.idx.i
+26:                                               ; preds = %26, %16
+  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %26 ]
+  %27 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %18, i64 %indvars.iv.i
+  %28 = getelementptr i8, ptr %27, i64 267508
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %27, %5
-  %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
+nbap_get_private_data.exit:                       ; preds = %26, %5
+  %.0.i = phi ptr [ %14, %5 ], [ %18, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   store i32 0, ptr %.0.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
@@ -46822,20 +46714,19 @@ define internal i32 @dissect_nbap_T_dCH_id(ptr noundef %0, i32 noundef %1, ptr n
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = load ptr, ptr %7, align 8
@@ -46844,7 +46735,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %32 = load i32, ptr @proto_nbap, align 4
   %33 = tail call ptr @p_get_proto_data(ptr noundef %31, ptr noundef %29, i32 noundef %32, i32 noundef 0)
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %nbap_get_private_data.exit12
+  br i1 %34, label %35, label %nbap_get_private_data.exit11
 
 35:                                               ; preds = %nbap_get_private_data.exit
   %36 = load ptr, ptr %30, align 8
@@ -46862,20 +46753,19 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i32 65535, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 109
   store i8 2, ptr %44, align 1
-  %45 = getelementptr i8, ptr %37, i64 267508
-  br label %46
+  br label %45
 
-46:                                               ; preds = %46, %35
-  %indvars.iv.i8 = phi i64 [ 0, %35 ], [ %indvars.iv.next.i10, %46 ]
-  %.idx.i9 = mul nuw nsw i64 %indvars.iv.i8, 40
-  %47 = getelementptr i8, ptr %45, i64 %.idx.i9
+45:                                               ; preds = %45, %35
+  %indvars.iv.i8 = phi i64 [ 0, %35 ], [ %indvars.iv.next.i9, %45 ]
+  %46 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %37, i64 %indvars.iv.i8
+  %47 = getelementptr i8, ptr %46, i64 267508
   store i8 1, ptr %47, align 4
-  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
-  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 8
-  br i1 %exitcond.not.i11, label %nbap_get_private_data.exit12, label %46, !llvm.loop !9
+  %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
+  %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 8
+  br i1 %exitcond.not.i10, label %nbap_get_private_data.exit11, label %45, !llvm.loop !9
 
-nbap_get_private_data.exit12:                     ; preds = %46, %nbap_get_private_data.exit
-  %.0.i7 = phi ptr [ %33, %nbap_get_private_data.exit ], [ %37, %46 ]
+nbap_get_private_data.exit11:                     ; preds = %45, %nbap_get_private_data.exit
+  %.0.i7 = phi ptr [ %33, %nbap_get_private_data.exit ], [ %37, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 52
   store i32 %28, ptr %48, align 4
   ret i32 %6
@@ -46945,20 +46835,19 @@ define internal i32 @dissect_nbap_RL_Specific_E_DCH_Information_Item(ptr noundef
   store i32 65535, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 109
   store i8 2, ptr %25, align 1
-  %26 = getelementptr i8, ptr %18, i64 267508
-  br label %27
+  br label %26
 
-27:                                               ; preds = %27, %16
-  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %27 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %28 = getelementptr i8, ptr %26, i64 %.idx.i
+26:                                               ; preds = %26, %16
+  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %26 ]
+  %27 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %18, i64 %indvars.iv.i
+  %28 = getelementptr i8, ptr %27, i64 267508
   store i8 1, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %27, %5
-  %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
+nbap_get_private_data.exit:                       ; preds = %26, %5
+  %.0.i = phi ptr [ %14, %5 ], [ %18, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 266352
   store i32 0, ptr %.0.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
@@ -47585,20 +47474,19 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InformationResp_Item(
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
@@ -47960,20 +47848,19 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InfoItem_to_Modify(pt
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   store i32 0, ptr %.0.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %27, align 4
@@ -48063,20 +47950,19 @@ define internal i32 @dissect_nbap_PriorityQueue_InfoItem_to_Add(ptr noundef %0, 
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 1, ptr %26, align 8
   %27 = load i32, ptr @ett_nbap_PriorityQueue_InfoItem_to_Add, align 4
@@ -48132,20 +48018,19 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlows_to_Delete_Item(ptr noundef %0
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
@@ -48197,20 +48082,19 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoItem_to_Modify(ptr
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 266352
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 1, ptr %28, align 8
@@ -48385,20 +48269,19 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelToModifyItem(ptr noundef %
   store i32 65535, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 109
   store i8 2, ptr %24, align 1
-  %25 = getelementptr i8, ptr %17, i64 267508
-  br label %26
+  br label %25
 
-26:                                               ; preds = %26, %15
-  %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %26 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %27 = getelementptr i8, ptr %25, i64 %.idx.i
+25:                                               ; preds = %25, %15
+  %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %25 ]
+  %26 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %17, i64 %indvars.iv.i
+  %27 = getelementptr i8, ptr %26, i64 267508
   store i8 1, ptr %27, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %26, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %26, %5
-  %.0.i = phi ptr [ %13, %5 ], [ %17, %26 ]
+nbap_get_private_data.exit:                       ; preds = %25, %5
+  %.0.i = phi ptr [ %13, %5 ], [ %17, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, 1
@@ -48844,20 +48727,19 @@ define internal i32 @dissect_nbap_Common_MACFlow_ID(ptr noundef %0, i32 noundef 
   store i32 65535, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 109
   store i8 2, ptr %22, align 1
-  %23 = getelementptr i8, ptr %15, i64 267508
-  br label %24
+  br label %23
 
-24:                                               ; preds = %24, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %25 = getelementptr i8, ptr %23, i64 %.idx.i
+23:                                               ; preds = %23, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
+  %24 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 267508
   store i8 1, ptr %25, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %23, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %24, %5
-  %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
+nbap_get_private_data.exit:                       ; preds = %23, %5
+  %.0.i = phi ptr [ %11, %5 ], [ %15, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 84
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %26, i1 noundef zeroext false)
   ret i32 %27
@@ -48911,20 +48793,19 @@ define internal i32 @dissect_nbap_CommonMACFlow_Specific_InfoItem(ptr noundef %0
   store i32 65535, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 109
   store i8 2, ptr %23, align 1
-  %24 = getelementptr i8, ptr %16, i64 267508
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %25 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %26 = getelementptr i8, ptr %24, i64 %.idx.i
+24:                                               ; preds = %24, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %16, i64 %indvars.iv.i
+  %26 = getelementptr i8, ptr %25, i64 267508
   store i8 1, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i, label %nbap_get_private_data.exit, label %24, !llvm.loop !9
 
-nbap_get_private_data.exit:                       ; preds = %25, %5
-  %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
+nbap_get_private_data.exit:                       ; preds = %24, %5
+  %.0.i = phi ptr [ %12, %5 ], [ %16, %24 ]
   store i32 0, ptr %.0.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %27, align 4

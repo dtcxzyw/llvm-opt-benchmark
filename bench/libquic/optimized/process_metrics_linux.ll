@@ -1637,7 +1637,7 @@ define noundef i32 @_ZNK4base14ProcessMetrics14GetOpenFdCountEv(ptr noundef nonn
 
 .outer:                                           ; preds = %.tail15, %.preheader
   %.ph = phi i64 [ %34, %.tail15 ], [ 0, %.preheader ]
-  %.ph29 = phi i64 [ %35, %.tail15 ], [ 0, %.preheader ]
+  %.ph30 = phi i64 [ %35, %.tail15 ], [ 0, %.preheader ]
   %.07.ph = phi i32 [ %spec.select, %.tail15 ], [ 0, %.preheader ]
   br label %18
 
@@ -1657,20 +1657,20 @@ define noundef i32 @_ZNK4base14ProcessMetrics14GetOpenFdCountEv(ptr noundef nonn
 
 18:                                               ; preds = %.outer, %.tail
   %19 = phi i64 [ %34, %.tail ], [ %.ph, %.outer ]
-  %20 = phi i64 [ %35, %.tail ], [ %.ph29, %.outer ]
+  %20 = phi i64 [ %35, %.tail ], [ %.ph30, %.outer ]
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %._crit_edge.i, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %11, i64 %19
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %19
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %24 = load i16, ptr %23, align 8, !tbaa !54
   %25 = zext i16 %24 to i64
   %26 = add i64 %19, %25
   store i64 %26, ptr %10, align 8, !tbaa !57
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %18, %21
+._crit_edge.i:                                    ; preds = %21, %18
   %27 = phi i64 [ %26, %21 ], [ %19, %18 ]
   %.not6.i = icmp eq i64 %27, %20
   br i1 %.not6.i, label %28, label %sub_0
@@ -1694,26 +1694,26 @@ define noundef i32 @_ZNK4base14ProcessMetrics14GetOpenFdCountEv(ptr noundef nonn
 sub_0:                                            ; preds = %._crit_edge.i, %32
   %34 = phi i64 [ %27, %._crit_edge.i ], [ 0, %32 ]
   %35 = phi i64 [ %20, %._crit_edge.i ], [ %33, %32 ]
-  %36 = getelementptr inbounds nuw i8, ptr %11, i64 %34
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 19
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %34
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 23
   %38 = load i8, ptr %37, align 1
   %.not19 = icmp eq i8 %38, 46
   br i1 %.not19, label %.tail, label %.tail15
 
 .tail:                                            ; preds = %sub_0
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %18, label %sub_117, !llvm.loop !59
 
 sub_117:                                          ; preds = %.tail
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %43 = load i8, ptr %42, align 1
   %.not21 = icmp eq i8 %43, 46
   br i1 %.not21, label %sub_2, label %.tail15
 
 sub_2:                                            ; preds = %sub_117
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 21
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 25
   %45 = load i8, ptr %44, align 1
   %46 = icmp ne i8 %45, 0
   %47 = zext i1 %46 to i32
@@ -1757,11 +1757,11 @@ _ZN4base14DirReaderLinux4NextEv.exit:             ; preds = %28, %28
   unreachable
 
 _ZN4base14DirReaderLinuxD2Ev.exit:                ; preds = %9, %_ZN4base14DirReaderLinux4NextEv.exit, %51, %52, %.thread7.i
-  %.028 = phi i32 [ %.07.ph, %_ZN4base14DirReaderLinux4NextEv.exit ], [ %.07.ph, %51 ], [ %.07.ph, %52 ], [ %.07.ph, %.thread7.i ], [ -1, %9 ]
+  %.029 = phi i32 [ %.07.ph, %_ZN4base14DirReaderLinux4NextEv.exit ], [ %.07.ph, %51 ], [ %.07.ph, %52 ], [ %.07.ph, %.thread7.i ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.028
+  ret i32 %.029
 
 59:                                               ; preds = %16, %14
   %.pn = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ]

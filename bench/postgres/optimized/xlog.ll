@@ -35,6 +35,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.CheckPoint = type { i64, i32, i32, i8, i32, %struct.FullTransactionId, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i32 }
 %struct.FullTransactionId = type { i64 }
 %struct.xl_restore_point = type { i64, [64 x i8] }
+%struct.DecodedBkpBlock = type { i8, %struct.RelFileLocator, i32, i32, i32, i8, i8, i8, ptr, i16, i16, i16, i8, i8, ptr, i16, i16 }
+%struct.RelFileLocator = type { i32, i32, i32 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
@@ -9777,9 +9779,8 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
   %.06379.us = phi i8 [ %214, %212 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %205 = zext i8 %.06379.us to i64
-  %.idx.us = shl nuw nsw i64 %205, 6
-  %206 = getelementptr inbounds nuw i8, ptr %204, i64 117
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 %.idx.us
+  %206 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %204, i64 %205
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 117
   %208 = load i8, ptr %207, align 1, !range !4, !noundef !5
   %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %210, label %.split.us
@@ -9806,9 +9807,8 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
   %.06379 = phi i8 [ %235, %233 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %220 = zext i8 %.06379 to i64
-  %.idx = shl nuw nsw i64 %220, 6
-  %221 = getelementptr inbounds nuw i8, ptr %219, i64 117
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 %.idx
+  %221 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %219, i64 %220
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 117
   %223 = load i8, ptr %222, align 1, !range !4, !noundef !5
   %224 = trunc nuw i8 %223 to i1
   br i1 %224, label %227, label %233

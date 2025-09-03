@@ -2862,19 +2862,17 @@ define hidden void @_PyTuple_DebugMallocStats(ptr noundef %0) local_unnamed_addr
   %8 = load ptr, ptr %3, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !9
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 11064
-  %12 = shl nuw nsw i64 %indvars.iv, 4
-  %13 = getelementptr i8, ptr %11, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !24
-  %16 = trunc i64 %15 to i32
-  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyTuple_Type, i64 32), align 8, !tbaa !133
-  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyTuple_Type, i64 40), align 8, !tbaa !134
-  %19 = mul i64 %18, %indvars.iv.next
-  %20 = add i64 %17, 7
-  %21 = add i64 %20, %19
-  %22 = and i64 %21, -8
-  call void @_PyDebugAllocatorStats(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %16, i64 noundef %22) #9
+  %11 = getelementptr %struct._Py_freelist, ptr %10, i64 %indvars.iv
+  %12 = getelementptr i8, ptr %11, i64 11072
+  %13 = load i64, ptr %12, align 8, !tbaa !24
+  %14 = trunc i64 %13 to i32
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyTuple_Type, i64 32), align 8, !tbaa !133
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyTuple_Type, i64 40), align 8, !tbaa !134
+  %17 = mul i64 %16, %indvars.iv.next
+  %18 = add i64 %15, 7
+  %19 = add i64 %18, %17
+  %20 = and i64 %19, -8
+  call void @_PyDebugAllocatorStats(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %14, i64 noundef %20) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
   br i1 %exitcond.not, label %4, label %5, !llvm.loop !135

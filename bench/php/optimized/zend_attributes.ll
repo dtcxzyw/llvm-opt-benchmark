@@ -210,11 +210,10 @@ define dso_local range(i32 -1, 1) i32 @zend_get_attribute_value(ptr noundef %0, 
 
 7:                                                ; preds = %4
   %8 = zext i32 %2 to i64
-  %.idx = mul nuw nsw i64 %8, 24
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %9 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %1, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %13 = load i32, ptr %12, align 8, !tbaa !11
   store ptr %11, ptr %0, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -966,28 +965,27 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
   br i1 %.not150, label %.thread138, label %.lr.ph
 
 .lr.ph:                                           ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  br label %53
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  br label %52
 
-53:                                               ; preds = %.lr.ph, %88
+52:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
   %.1101146 = phi ptr [ null, %.lr.ph ], [ %.3.ph, %88 ]
   %.1106144 = phi i32 [ 0, %.lr.ph ], [ %.3108.ph, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.idx.i = mul nuw nsw i64 %indvars.iv, 24
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i
+  %53 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %2, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !11
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %57 = load i32, ptr %56, align 8, !tbaa !11
   store ptr %55, ptr %7, align 8, !tbaa !11
-  store i32 %57, ptr %51, align 8, !tbaa !11
+  store i32 %57, ptr %50, align 8, !tbaa !11
   %58 = and i32 %57, 65280
   %.not21.i = icmp eq i32 %58, 0
   br i1 %.not21.i, label %68, label %59
 
-59:                                               ; preds = %53
+59:                                               ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !11
   %62 = and i32 %61, 128
@@ -1007,8 +1005,8 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
   call void @zval_copy_ctor_func(ptr noundef nonnull %7) #16
   br label %68
 
-68:                                               ; preds = %67, %.critedge.i, %53
-  %69 = load i8, ptr %51, align 8, !tbaa !11
+68:                                               ; preds = %67, %.critedge.i, %52
+  %69 = load i8, ptr %50, align 8, !tbaa !11
   %70 = icmp eq i8 %69, 11
   br i1 %70, label %71, label %73
 
@@ -1018,7 +1016,7 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
   br i1 %.not23.i, label %73, label %92
 
 73:                                               ; preds = %71, %68
-  %74 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %52, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %51, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !75
   %.not120 = icmp eq ptr %75, null
   br i1 %.not120, label %82, label %76
@@ -1041,7 +1039,7 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
 82:                                               ; preds = %73
   %83 = getelementptr inbounds nuw %struct._zval_struct, ptr %48, i64 %indvars.iv
   %84 = load ptr, ptr %7, align 8, !tbaa !11
-  %85 = load i32, ptr %51, align 8, !tbaa !11
+  %85 = load i32, ptr %50, align 8, !tbaa !11
   store ptr %84, ptr %83, align 8, !tbaa !11
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 %85, ptr %86, align 8, !tbaa !11
@@ -1056,7 +1054,7 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
   %89 = load i32, ptr %43, align 4, !tbaa !4
   %90 = zext i32 %89 to i64
   %91 = icmp samesign ult i64 %indvars.iv.next, %90
-  br i1 %91, label %53, label %.thread138
+  br i1 %91, label %52, label %.thread138
 
 92:                                               ; preds = %71
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #16

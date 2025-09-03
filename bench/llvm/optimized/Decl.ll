@@ -26842,7 +26842,7 @@ define dso_local i64 @_ZNK5clang10ImportDecl14getSourceRangeEv(ptr noundef nonnu
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br label %18
+  br label %17
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -26859,14 +26859,13 @@ define dso_local i64 @_ZNK5clang10ImportDecl14getSourceRangeEv(ptr noundef nonnu
   br i1 %.not.i.i, label %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit, label %10, !llvm.loop !1107
 
 _ZNK5clang10ImportDecl17getIdentifierLocsEv.exit: ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = zext i32 %.0.i.i to i64
-  %16 = getelementptr %"class.clang::SourceLocation", ptr %14, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 -4
-  br label %18
+  %14 = zext i32 %.0.i.i to i64
+  %15 = getelementptr %"class.clang::SourceLocation", ptr %0, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 52
+  br label %17
 
-18:                                               ; preds = %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit, %5
-  %.sroa.3.0.in = phi ptr [ %17, %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit ], [ %6, %5 ]
+17:                                               ; preds = %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit, %5
+  %.sroa.3.0.in = phi ptr [ %16, %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit ], [ %6, %5 ]
   %.sroa.3.0 = load i32, ptr %.sroa.3.0.in, align 4, !tbaa !18
   %.sroa.3.0.insert.ext = zext i32 %.sroa.3.0 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32

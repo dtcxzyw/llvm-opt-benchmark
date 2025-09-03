@@ -445,8 +445,8 @@ define i32 @Maj3_ManMarkup(ptr noundef captures(none) %0) local_unnamed_addr #1 
   %.262 = phi i32 [ %33, %.lr.ph ], [ 0, %.preheader56 ]
   %26 = load i32, ptr %11, align 8, !tbaa !11
   %27 = sext i32 %26 to i64
-  %28 = getelementptr [32 x i32], ptr %18, i64 %27
-  %29 = getelementptr i8, ptr %28, i64 -128
+  %28 = getelementptr [32 x i32], ptr %0, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -88
   %reass.sub = sub i32 %26, %.262
   %30 = add i32 %reass.sub, -2
   %31 = sext i32 %30 to i64

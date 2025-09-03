@@ -2457,7 +2457,7 @@ define internal noundef double @entry_func(ptr noundef %0, double noundef %1, do
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.16) #14
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 344
   store i32 -22, ptr %10, align 8, !tbaa !120
-  br label %33
+  br label %32
 
 11:                                               ; preds = %3
   %12 = fcmp uno double %1, 0.000000e+00
@@ -2467,41 +2467,40 @@ define internal noundef double @entry_func(ptr noundef %0, double noundef %1, do
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17, double noundef %1, double noundef %2) #14
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 344
   store i32 -22, ptr %14, align 8, !tbaa !120
-  br label %33
+  br label %32
 
 15:                                               ; preds = %11
   %16 = icmp sgt i32 %7, 0
-  br i1 %16, label %17, label %26
+  br i1 %16, label %17, label %25
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  %19 = zext nneg i32 %7 to i64
-  %20 = getelementptr %struct.GainEntry, ptr %18, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 -16
-  %22 = load double, ptr %21, align 8, !tbaa !146
-  %23 = fcmp nsz ugt double %1, %22
-  br i1 %23, label %26, label %24
+  %18 = zext nneg i32 %7 to i64
+  %19 = getelementptr %struct.GainEntry, ptr %5, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 336
+  %21 = load double, ptr %20, align 8, !tbaa !146
+  %22 = fcmp nsz ugt double %1, %21
+  br i1 %22, label %25, label %23
 
-24:                                               ; preds = %17
+23:                                               ; preds = %17
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.18, double noundef %1, double noundef %2) #14
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  store i32 -22, ptr %25, align 8, !tbaa !120
-  br label %33
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 344
+  store i32 -22, ptr %24, align 8, !tbaa !120
+  br label %32
 
-26:                                               ; preds = %17, %15
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  %28 = sext i32 %7 to i64
-  %29 = getelementptr inbounds %struct.GainEntry, ptr %27, i64 %28
-  store double %1, ptr %29, align 8, !tbaa !146
-  %.idx = shl nsw i64 %28, 4
-  %30 = getelementptr i8, ptr %27, i64 %.idx
-  %31 = getelementptr i8, ptr %30, i64 8
-  store double %2, ptr %31, align 8, !tbaa !148
-  %32 = add nsw i32 %7, 1
-  store i32 %32, ptr %6, align 4, !tbaa !119
-  br label %33
+25:                                               ; preds = %17, %15
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 352
+  %27 = sext i32 %7 to i64
+  %28 = getelementptr inbounds %struct.GainEntry, ptr %26, i64 %27
+  store double %1, ptr %28, align 8, !tbaa !146
+  %.idx = shl nsw i64 %27, 4
+  %29 = getelementptr i8, ptr %26, i64 %.idx
+  %30 = getelementptr i8, ptr %29, i64 8
+  store double %2, ptr %30, align 8, !tbaa !148
+  %31 = add nsw i32 %7, 1
+  store i32 %31, ptr %6, align 4, !tbaa !119
+  br label %32
 
-33:                                               ; preds = %26, %24, %13, %9
+32:                                               ; preds = %25, %23, %13, %9
   ret double 0.000000e+00
 }
 

@@ -4802,12 +4802,12 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %4, i8 0, i64 16384, i1 false)
   %33 = sext i32 %.075 to i64
   %34 = icmp sgt i32 %.075, 1
-  br i1 %34, label %.lr.ph102, label %._crit_edge
+  br i1 %34, label %.lr.ph101, label %._crit_edge
 
-.lr.ph102:                                        ; preds = %32, %.critedge
-  %.072101 = phi i64 [ %64, %.critedge ], [ 1, %32 ]
+.lr.ph101:                                        ; preds = %32, %.critedge
+  %.072100 = phi i64 [ %64, %.critedge ], [ 1, %32 ]
   %35 = load ptr, ptr %11, align 8, !tbaa !58
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.072101
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.072100
   %37 = load ptr, ptr %36, align 8, !tbaa !59
   %38 = call i32 @getLongLongFromObject(ptr noundef %37, ptr noundef nonnull %2) #16
   %39 = icmp ne i32 %38, 0
@@ -4816,13 +4816,13 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
   %or.cond4 = select i1 %39, i1 true, i1 %41
   br i1 %or.cond4, label %42, label %43
 
-42:                                               ; preds = %.lr.ph102
+42:                                               ; preds = %.lr.ph101
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.122) #16
   br label %123
 
-43:                                               ; preds = %.lr.ph102
+43:                                               ; preds = %.lr.ph101
   %44 = load ptr, ptr %11, align 8, !tbaa !58
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.072101
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.072100
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !59
   %48 = call i32 @getLongLongFromObject(ptr noundef %47, ptr noundef nonnull %3) #16
@@ -4848,15 +4848,15 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
 57:                                               ; preds = %53
   %sext = shl i64 %54, 32
   %58 = ashr exact i64 %sext, 32
-  %.not8899 = icmp slt i64 %50, %58
-  br i1 %.not8899, label %.critedge, label %.lr.ph
+  %.not8798 = icmp slt i64 %50, %58
+  br i1 %.not8798, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ %58, %57 ]
   %59 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
   %60 = load i8, ptr %59, align 1, !tbaa !5
-  %.not89 = icmp eq i8 %60, 0
-  br i1 %.not89, label %63, label %61
+  %.not88 = icmp eq i8 %60, 0
+  br i1 %.not88, label %63, label %61
 
 61:                                               ; preds = %.lr.ph
   %62 = trunc nsw i64 %indvars.iv to i32
@@ -4866,13 +4866,13 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
 63:                                               ; preds = %.lr.ph
   store i8 1, ptr %59, align 1, !tbaa !5
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %.not88.not = icmp sgt i64 %50, %indvars.iv
-  br i1 %.not88.not, label %.lr.ph, label %.critedge, !llvm.loop !152
+  %.not87.not = icmp sgt i64 %50, %indvars.iv
+  br i1 %.not87.not, label %.lr.ph, label %.critedge, !llvm.loop !152
 
 .critedge:                                        ; preds = %63, %57
-  %64 = add nuw nsw i64 %.072101, 2
+  %64 = add nuw nsw i64 %.072100, 2
   %65 = icmp slt i64 %64, %33
-  br i1 %65, label %.lr.ph102, label %._crit_edge, !llvm.loop !153
+  br i1 %65, label %.lr.ph101, label %._crit_edge, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %.critedge, %32
   %66 = call ptr @getMyClusterNode() #16
@@ -4881,88 +4881,86 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %68
 
 68:                                               ; preds = %._crit_edge, %97
-  %indvars.iv118 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next119, %97 ]
-  %.065105 = phi i32 [ 0, %._crit_edge ], [ %.1, %97 ]
-  %.066104 = phi ptr [ %67, %._crit_edge ], [ %.167, %97 ]
-  %.068103 = phi i32 [ 32, %._crit_edge ], [ %.169, %97 ]
-  %69 = trunc nuw nsw i64 %indvars.iv118 to i32
+  %indvars.iv117 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next118, %97 ]
+  %.065104 = phi i32 [ 0, %._crit_edge ], [ %.1, %97 ]
+  %.066103 = phi ptr [ %67, %._crit_edge ], [ %.167, %97 ]
+  %.068102 = phi i32 [ 32, %._crit_edge ], [ %.169, %97 ]
+  %69 = trunc nuw nsw i64 %indvars.iv117 to i32
   %70 = call ptr @getNodeBySlot(i32 noundef %69) #16
-  %.not107 = icmp eq ptr %66, %70
-  br i1 %.not107, label %71, label %82
+  %.not106 = icmp eq ptr %66, %70
+  br i1 %.not106, label %71, label %82
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv118
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv117
   %73 = load i8, ptr %72, align 1, !tbaa !5
   %.not84 = icmp eq i8 %73, 0
   br i1 %.not84, label %74, label %75
 
 74:                                               ; preds = %71
   call void @addReplySetLen(ptr noundef %0, i64 noundef 0) #16
-  call void @zfree(ptr noundef %.066104) #16
+  call void @zfree(ptr noundef %.066103) #16
   br label %123
 
 75:                                               ; preds = %71
-  %.not87 = icmp eq i32 %.065105, 0
-  br i1 %.not87, label %76, label %97
+  %.not86 = icmp eq i32 %.065104, 0
+  br i1 %.not86, label %76, label %97
 
 76:                                               ; preds = %75
-  %77 = trunc i64 %indvars.iv118 to i16
-  %78 = getelementptr inbounds nuw i8, ptr %.066104, i64 4
-  %79 = load i32, ptr %.066104, align 4, !tbaa !44
+  %77 = trunc i64 %indvars.iv117 to i16
+  %78 = getelementptr inbounds nuw i8, ptr %.066103, i64 4
+  %79 = load i32, ptr %.066103, align 4, !tbaa !44
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds %struct.SlotRange, ptr %78, i64 %80
   store i16 %77, ptr %81, align 4, !tbaa !147
   br label %97
 
 82:                                               ; preds = %68
-  %.not82 = icmp eq i32 %.065105, 0
+  %.not82 = icmp eq i32 %.065104, 0
   br i1 %.not82, label %97, label %83
 
 83:                                               ; preds = %82
-  %84 = trunc i64 %indvars.iv118 to i16
+  %84 = trunc i64 %indvars.iv117 to i16
   %85 = add nsw i16 %84, -1
-  %86 = load i32, ptr %.066104, align 4, !tbaa !44
+  %86 = load i32, ptr %.066103, align 4, !tbaa !44
   %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %.066104, align 4, !tbaa !44
+  store i32 %87, ptr %.066103, align 4, !tbaa !44
   %88 = sext i32 %86 to i64
-  %.idx = shl nsw i64 %88, 2
-  %89 = getelementptr i8, ptr %.066104, i64 6
-  %90 = getelementptr i8, ptr %89, i64 %.idx
+  %89 = getelementptr %struct.SlotRange, ptr %.066103, i64 %88
+  %90 = getelementptr i8, ptr %89, i64 6
   store i16 %85, ptr %90, align 2, !tbaa !149
-  %.not83 = icmp slt i32 %87, %.068103
+  %.not83 = icmp slt i32 %87, %.068102
   br i1 %.not83, label %97, label %91
 
 91:                                               ; preds = %83
-  %92 = shl nsw i32 %.068103, 1
+  %92 = shl nsw i32 %.068102, 1
   %93 = sext i32 %92 to i64
   %94 = shl nsw i64 %93, 2
   %95 = or disjoint i64 %94, 4
-  %96 = call ptr @zrealloc(ptr noundef nonnull %.066104, i64 noundef %95) #20
+  %96 = call ptr @zrealloc(ptr noundef nonnull %.066103, i64 noundef %95) #20
   br label %97
 
 97:                                               ; preds = %76, %75, %83, %91, %82
-  %.169 = phi i32 [ %.068103, %75 ], [ %.068103, %76 ], [ %92, %91 ], [ %.068103, %83 ], [ %.068103, %82 ]
-  %.167 = phi ptr [ %.066104, %75 ], [ %.066104, %76 ], [ %96, %91 ], [ %.066104, %83 ], [ %.066104, %82 ]
+  %.169 = phi i32 [ %.068102, %75 ], [ %.068102, %76 ], [ %92, %91 ], [ %.068102, %83 ], [ %.068102, %82 ]
+  %.167 = phi ptr [ %.066103, %75 ], [ %.066103, %76 ], [ %96, %91 ], [ %.066103, %83 ], [ %.066103, %82 ]
   %.1 = phi i32 [ 1, %75 ], [ 1, %76 ], [ 0, %91 ], [ 0, %83 ], [ 0, %82 ]
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %exitcond = icmp eq i64 %indvars.iv.next119, 16384
-  br i1 %exitcond, label %.critedge91, label %68, !llvm.loop !154
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %exitcond = icmp eq i64 %indvars.iv.next118, 16384
+  br i1 %exitcond, label %.critedge90, label %68, !llvm.loop !154
 
-.critedge91:                                      ; preds = %97
-  br i1 %.not107, label %98, label %104
+.critedge90:                                      ; preds = %97
+  br i1 %.not106, label %98, label %104
 
-98:                                               ; preds = %.critedge91
+98:                                               ; preds = %.critedge90
   %99 = load i32, ptr %.167, align 4, !tbaa !44
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %.167, align 4, !tbaa !44
   %101 = sext i32 %99 to i64
-  %.idx86 = shl nsw i64 %101, 2
-  %102 = getelementptr i8, ptr %.167, i64 6
-  %103 = getelementptr i8, ptr %102, i64 %.idx86
+  %102 = getelementptr %struct.SlotRange, ptr %.167, i64 %101
+  %103 = getelementptr i8, ptr %102, i64 6
   store i16 16383, ptr %103, align 2, !tbaa !149
   br label %104
 
-104:                                              ; preds = %98, %.critedge91
+104:                                              ; preds = %98, %.critedge90
   %105 = call i32 @flushCommandCommon(ptr noundef %0, i32 noundef 2, i32 noundef %.070, ptr noundef %.167) #16
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %123

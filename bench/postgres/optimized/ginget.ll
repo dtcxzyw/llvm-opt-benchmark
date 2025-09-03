@@ -2984,18 +2984,18 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   br label %.loopexit94
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %58, i64 10
-  %71 = zext nneg i32 %60 to i64
-  %72 = getelementptr i16, ptr %70, i64 %71
-  %73 = getelementptr i8, ptr %72, i64 -2
-  %74 = load i16, ptr %73, align 2
-  %.not72 = icmp ugt i16 %74, %.sroa.11.0.extract.trunc
+  %70 = zext nneg i32 %60 to i64
+  %71 = getelementptr i16, ptr %58, i64 %70
+  %72 = getelementptr i8, ptr %71, i64 8
+  %73 = load i16, ptr %72, align 2
+  %.not72 = icmp ugt i16 %73, %.sroa.11.0.extract.trunc
   br i1 %.not72, label %.preheader93, label %78
 
 .preheader93:                                     ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 10
   %.promoted = load i16, ptr %13, align 4
   %75 = zext i16 %.promoted to i64
-  %76 = getelementptr inbounds nuw i16, ptr %70, i64 %75
+  %76 = getelementptr inbounds nuw i16, ptr %74, i64 %75
   %77 = load i16, ptr %76, align 2
   %.not73113 = icmp ugt i16 %77, %.sroa.11.0.extract.trunc
   br i1 %.not73113, label %.loopexit94, label %.lr.ph
@@ -3013,7 +3013,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   %81 = add i16 %80, 1
   store i16 %81, ptr %13, align 4
   %82 = zext i16 %81 to i64
-  %83 = getelementptr inbounds nuw i16, ptr %70, i64 %82
+  %83 = getelementptr inbounds nuw i16, ptr %74, i64 %82
   %84 = load i16, ptr %83, align 2
   %.not73 = icmp ugt i16 %84, %.sroa.11.0.extract.trunc
   br i1 %.not73, label %.loopexit94.loopexit, label %.lr.ph, !llvm.loop !36

@@ -174881,467 +174881,466 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay14touch_interi
   %16 = load i64, ptr %15, align 8, !tbaa !24
   store i64 %16, ptr %2, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  br label %19
+  br label %18
 
-19:                                               ; preds = %28, %7
-  %.v.i = phi i64 [ 24, %7 ], [ 36, %28 ]
-  %20 = phi i1 [ true, %7 ], [ false, %28 ]
-  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %28 ]
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
-  %22 = load i32, ptr %21, align 4, !tbaa !263
-  switch i32 %22, label %25 [
+18:                                               ; preds = %30, %7
+  %.v.i = phi i64 [ 24, %7 ], [ 36, %30 ]
+  %19 = phi i1 [ true, %7 ], [ false, %30 ]
+  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %30 ]
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
+  %21 = load i32, ptr %20, align 4, !tbaa !263
+  switch i32 %21, label %26 [
     i32 1, label %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
     i32 -1, label %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i
   ]
 
-_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i: ; preds = %19
-  %.idx26.i = shl nuw nsw i64 %indvars.iv.i, 6
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx26.i
+_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i: ; preds = %18
+  %22 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %2, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   store float 1.000000e+00, ptr %23, align 8, !tbaa !2375
-  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 84
   store float 1.000000e+00, ptr %.sroa.524.0..sroa_idx.i, align 4, !tbaa !2375
-  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 88
   store float 1.000000e+06, ptr %.sroa.725.0..sroa_idx.i, align 8, !tbaa !2375
-  br label %28
+  br label %30
 
-_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i: ; preds = %19
-  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 6
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
-  store float 0.000000e+00, ptr %24, align 8, !tbaa !2375
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 4
+_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i: ; preds = %18
+  %24 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %2, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  store float 0.000000e+00, ptr %25, align 8, !tbaa !2375
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 84
   store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !2375
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 88
   store float 0.000000e+00, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !2375
-  br label %28
+  br label %30
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
-  %.idx27.i = shl nuw nsw i64 %indvars.iv.i, 6
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx27.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !2662
-  br label %28
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
+  %28 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %2, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !2662
+  br label %30
 
-28:                                               ; preds = %25, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
-  br i1 %20, label %19, label %29, !llvm.loop !2682
+30:                                               ; preds = %26, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
+  br i1 %19, label %18, label %31, !llvm.loop !2682
 
-29:                                               ; preds = %28
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %31 = load i32, ptr %30, align 4, !tbaa !2663
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !2683
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %.0.i.i.i = load ptr, ptr %34, align 8, !tbaa !174
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %.0.i.i1.i = load ptr, ptr %35, align 8, !tbaa !174
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !2686
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %39 = load i8, ptr %38, align 8, !tbaa !2630, !range !17, !noundef !18
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %75, label %41
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %33 = load i32, ptr %32, align 4, !tbaa !2663
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !2683
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %.0.i.i.i = load ptr, ptr %36, align 8, !tbaa !174
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %.0.i.i1.i = load ptr, ptr %37, align 8, !tbaa !174
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !2686
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  %41 = load i8, ptr %40, align 8, !tbaa !2630, !range !17, !noundef !18
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %77, label %43
 
-41:                                               ; preds = %29
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !2687
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 32
+43:                                               ; preds = %31
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %45 = load ptr, ptr %44, align 8, !tbaa !2687
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %46 = load float, ptr %45, align 4, !tbaa !2375
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store float %46, ptr %47, align 4, !tbaa !2375
-  %48 = load float, ptr %43, align 4, !tbaa !2375
-  store float %48, ptr %12, align 4, !tbaa !2375
-  %49 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %storemerge.in6.i.i.i.i.i = load ptr, ptr %44, align 8, !tbaa !2688
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %48 = load float, ptr %47, align 4, !tbaa !2375
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store float %48, ptr %49, align 4, !tbaa !2375
+  %50 = load float, ptr %45, align 4, !tbaa !2375
+  store float %50, ptr %12, align 4, !tbaa !2375
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %storemerge.in6.i.i.i.i.i = load ptr, ptr %46, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i, i64 4
   %storemerge58.i.i.i.i.i = load float, ptr %storemerge5.in7.i.i.i.i.i, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i, ptr %49, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i, ptr %51, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i = load float, ptr %storemerge.in6.i.i.i.i.i, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i, ptr %13, align 4, !tbaa !2375
-  %50 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+  %52 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
+  br i1 %52, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %41
-  %51 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  %52 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %53 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  br label %54
+.lr.ph.i.i.i.i.i:                                 ; preds = %43
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 56
+  br label %56
 
-54:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %60, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
-  %55 = load ptr, ptr %37, align 8, !tbaa !2689
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 72
-  %57 = load i64, ptr %56, align 8, !tbaa !2501
-  %58 = icmp ult i64 %.010.i.i.i.i.i, %57
-  br i1 %58, label %59, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+56:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %62, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
+  %57 = load ptr, ptr %39, align 8, !tbaa !2689
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 72
+  %59 = load i64, ptr %58, align 8, !tbaa !2501
+  %60 = icmp ult i64 %.010.i.i.i.i.i, %59
+  br i1 %60, label %61, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-59:                                               ; preds = %54
-  %60 = add nuw i64 %.010.i.i.i.i.i, 1
-  %61 = load ptr, ptr %44, align 8, !tbaa !2688, !noalias !2690
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %62, ptr %44, align 8, !tbaa !2688, !noalias !2690
-  %63 = load ptr, ptr %51, align 8, !tbaa !174, !noalias !2690
-  %64 = icmp eq ptr %62, %63
-  br i1 %64, label %65, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+61:                                               ; preds = %56
+  %62 = add nuw i64 %.010.i.i.i.i.i, 1
+  %63 = load ptr, ptr %46, align 8, !tbaa !2688, !noalias !2690
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store ptr %64, ptr %46, align 8, !tbaa !2688, !noalias !2690
+  %65 = load ptr, ptr %53, align 8, !tbaa !174, !noalias !2690
+  %66 = icmp eq ptr %64, %65
+  br i1 %66, label %67, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-65:                                               ; preds = %59
-  %66 = load i64, ptr %52, align 8, !tbaa !174, !noalias !2690
-  store i64 %66, ptr %44, align 8, !tbaa !174, !noalias !2690
-  %67 = load i8, ptr %53, align 8, !tbaa !2693, !range !17, !noalias !2690, !noundef !18
-  %68 = trunc nuw i8 %67 to i1
-  %69 = inttoptr i64 %66 to ptr
-  br i1 %68, label %70, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+67:                                               ; preds = %61
+  %68 = load i64, ptr %54, align 8, !tbaa !174, !noalias !2690
+  store i64 %68, ptr %46, align 8, !tbaa !174, !noalias !2690
+  %69 = load i8, ptr %55, align 8, !tbaa !2693, !range !17, !noalias !2690, !noundef !18
+  %70 = trunc nuw i8 %69 to i1
+  %71 = inttoptr i64 %68 to ptr
+  br i1 %70, label %72, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr %71, ptr %44, align 8, !tbaa !2688, !noalias !2690
-  %72 = icmp eq ptr %61, %69
-  br i1 %72, label %73, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store ptr %73, ptr %46, align 8, !tbaa !2688, !noalias !2690
+  %74 = icmp eq ptr %63, %71
+  br i1 %74, label %75, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-73:                                               ; preds = %70
-  store i64 %66, ptr %44, align 8, !tbaa !174, !noalias !2690
+75:                                               ; preds = %72
+  store i64 %68, ptr %46, align 8, !tbaa !174, !noalias !2690
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %73, %70, %65, %59
-  %storemerge.in.i.i.i.i.i = phi ptr [ %62, %59 ], [ %69, %65 ], [ %71, %70 ], [ %69, %73 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %75, %72, %67, %61
+  %storemerge.in.i.i.i.i.i = phi ptr [ %64, %61 ], [ %71, %67 ], [ %73, %72 ], [ %71, %75 ]
   %storemerge5.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i, i64 4
   %storemerge5.i.i.i.i.i = load float, ptr %storemerge5.in.i.i.i.i.i, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i, ptr %49, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i, ptr %51, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i = load float, ptr %storemerge.in.i.i.i.i.i, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i, ptr %13, align 4, !tbaa !2375
-  %74 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  br i1 %74, label %54, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !2694
+  %76 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
+  br i1 %76, label %56, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %54, %41
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %56, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  store i8 1, ptr %38, align 8, !tbaa !2630
-  br label %75
+  store i8 1, ptr %40, align 8, !tbaa !2630
+  br label %77
 
-75:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, %29
-  %76 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %.0.i.i2.i = load ptr, ptr %76, align 8, !tbaa !174
-  %77 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i)
-  %78 = sub nsw i32 0, %77
-  %79 = icmp eq i32 %31, %78
-  br i1 %79, label %80, label %87
+77:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, %31
+  %78 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %.0.i.i2.i = load ptr, ptr %78, align 8, !tbaa !174
+  %79 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i)
+  %80 = sub nsw i32 0, %79
+  %81 = icmp eq i32 %33, %80
+  br i1 %81, label %82, label %89
 
-80:                                               ; preds = %75
-  %81 = icmp ne i32 %77, -1
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %83 = zext i1 %81 to i64
-  %84 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %82, i64 %83
-  store i32 1, ptr %84, align 8, !tbaa !2639
-  %not.83 = xor i1 %81, true
-  %85 = zext i1 %not.83 to i64
-  %86 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %82, i64 %85
-  store i32 2, ptr %86, align 8, !tbaa !2639
-  br label %228
+82:                                               ; preds = %77
+  %83 = icmp ne i32 %79, -1
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %85 = zext i1 %83 to i64
+  %86 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %84, i64 %85
+  store i32 1, ptr %86, align 8, !tbaa !2639
+  %not.83 = xor i1 %83, true
+  %87 = zext i1 %not.83 to i64
+  %88 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %84, i64 %87
+  store i32 2, ptr %88, align 8, !tbaa !2639
+  br label %230
 
-87:                                               ; preds = %75
-  %88 = load ptr, ptr %36, align 8, !tbaa !2686
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %.0.i.i.i85 = load ptr, ptr %89, align 8, !tbaa !174
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %.0.i.i1.i86 = load ptr, ptr %90, align 8, !tbaa !174
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 64
-  %92 = load i8, ptr %91, align 8, !tbaa !2630, !range !17, !noundef !18
-  %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %126, label %94
+89:                                               ; preds = %77
+  %90 = load ptr, ptr %38, align 8, !tbaa !2686
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %.0.i.i.i85 = load ptr, ptr %91, align 8, !tbaa !174
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  %.0.i.i1.i86 = load ptr, ptr %92, align 8, !tbaa !174
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 64
+  %94 = load i8, ptr %93, align 8, !tbaa !2630, !range !17, !noundef !18
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %128, label %96
 
-94:                                               ; preds = %87
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 32
+96:                                               ; preds = %89
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i86, i64 4
-  %97 = load float, ptr %96, align 4, !tbaa !2375
-  %98 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store float %97, ptr %98, align 4, !tbaa !2375
-  %99 = load float, ptr %.0.i.i1.i86, align 4, !tbaa !2375
-  store float %99, ptr %10, align 4, !tbaa !2375
-  %100 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %storemerge.in6.i.i.i.i.i87 = load ptr, ptr %95, align 8, !tbaa !2688
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i86, i64 4
+  %99 = load float, ptr %98, align 4, !tbaa !2375
+  %100 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store float %99, ptr %100, align 4, !tbaa !2375
+  %101 = load float, ptr %.0.i.i1.i86, align 4, !tbaa !2375
+  store float %101, ptr %10, align 4, !tbaa !2375
+  %102 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %storemerge.in6.i.i.i.i.i87 = load ptr, ptr %97, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i88 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i87, i64 4
   %storemerge58.i.i.i.i.i89 = load float, ptr %storemerge5.in7.i.i.i.i.i88, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i89, ptr %100, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i89, ptr %102, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i90 = load float, ptr %storemerge.in6.i.i.i.i.i87, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i90, ptr %11, align 4, !tbaa !2375
-  %101 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  br i1 %101, label %.lr.ph.i.i.i.i.i93, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
+  %103 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
+  br i1 %103, label %.lr.ph.i.i.i.i.i93, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
 
-.lr.ph.i.i.i.i.i93:                               ; preds = %94
-  %102 = getelementptr inbounds nuw i8, ptr %88, i64 48
-  %103 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  %104 = getelementptr inbounds nuw i8, ptr %88, i64 56
-  br label %105
+.lr.ph.i.i.i.i.i93:                               ; preds = %96
+  %104 = getelementptr inbounds nuw i8, ptr %90, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %90, i64 56
+  br label %107
 
-105:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95, %.lr.ph.i.i.i.i.i93
-  %.010.i.i.i.i.i94 = phi i64 [ 0, %.lr.ph.i.i.i.i.i93 ], [ %111, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95 ]
-  %106 = load ptr, ptr %88, align 8, !tbaa !2689
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 72
-  %108 = load i64, ptr %107, align 8, !tbaa !2501
-  %109 = icmp ult i64 %.010.i.i.i.i.i94, %108
-  br i1 %109, label %110, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
+107:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95, %.lr.ph.i.i.i.i.i93
+  %.010.i.i.i.i.i94 = phi i64 [ 0, %.lr.ph.i.i.i.i.i93 ], [ %113, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95 ]
+  %108 = load ptr, ptr %90, align 8, !tbaa !2689
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 72
+  %110 = load i64, ptr %109, align 8, !tbaa !2501
+  %111 = icmp ult i64 %.010.i.i.i.i.i94, %110
+  br i1 %111, label %112, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
 
-110:                                              ; preds = %105
-  %111 = add nuw i64 %.010.i.i.i.i.i94, 1
-  %112 = load ptr, ptr %95, align 8, !tbaa !2688, !noalias !2695
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store ptr %113, ptr %95, align 8, !tbaa !2688, !noalias !2695
-  %114 = load ptr, ptr %102, align 8, !tbaa !174, !noalias !2695
-  %115 = icmp eq ptr %113, %114
-  br i1 %115, label %116, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
+112:                                              ; preds = %107
+  %113 = add nuw i64 %.010.i.i.i.i.i94, 1
+  %114 = load ptr, ptr %97, align 8, !tbaa !2688, !noalias !2695
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store ptr %115, ptr %97, align 8, !tbaa !2688, !noalias !2695
+  %116 = load ptr, ptr %104, align 8, !tbaa !174, !noalias !2695
+  %117 = icmp eq ptr %115, %116
+  br i1 %117, label %118, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
 
-116:                                              ; preds = %110
-  %117 = load i64, ptr %103, align 8, !tbaa !174, !noalias !2695
-  store i64 %117, ptr %95, align 8, !tbaa !174, !noalias !2695
-  %118 = load i8, ptr %104, align 8, !tbaa !2693, !range !17, !noalias !2695, !noundef !18
-  %119 = trunc nuw i8 %118 to i1
-  %120 = inttoptr i64 %117 to ptr
-  br i1 %119, label %121, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
+118:                                              ; preds = %112
+  %119 = load i64, ptr %105, align 8, !tbaa !174, !noalias !2695
+  store i64 %119, ptr %97, align 8, !tbaa !174, !noalias !2695
+  %120 = load i8, ptr %106, align 8, !tbaa !2693, !range !17, !noalias !2695, !noundef !18
+  %121 = trunc nuw i8 %120 to i1
+  %122 = inttoptr i64 %119 to ptr
+  br i1 %121, label %123, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
 
-121:                                              ; preds = %116
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store ptr %122, ptr %95, align 8, !tbaa !2688, !noalias !2695
-  %123 = icmp eq ptr %112, %120
-  br i1 %123, label %124, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
+123:                                              ; preds = %118
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  store ptr %124, ptr %97, align 8, !tbaa !2688, !noalias !2695
+  %125 = icmp eq ptr %114, %122
+  br i1 %125, label %126, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
 
-124:                                              ; preds = %121
-  store i64 %117, ptr %95, align 8, !tbaa !174, !noalias !2695
+126:                                              ; preds = %123
+  store i64 %119, ptr %97, align 8, !tbaa !174, !noalias !2695
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95: ; preds = %124, %121, %116, %110
-  %storemerge.in.i.i.i.i.i96 = phi ptr [ %113, %110 ], [ %120, %116 ], [ %122, %121 ], [ %120, %124 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95: ; preds = %126, %123, %118, %112
+  %storemerge.in.i.i.i.i.i96 = phi ptr [ %115, %112 ], [ %122, %118 ], [ %124, %123 ], [ %122, %126 ]
   %storemerge5.in.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i96, i64 4
   %storemerge5.i.i.i.i.i98 = load float, ptr %storemerge5.in.i.i.i.i.i97, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i98, ptr %100, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i98, ptr %102, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i99 = load float, ptr %storemerge.in.i.i.i.i.i96, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i99, ptr %11, align 4, !tbaa !2375
-  %125 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  br i1 %125, label %105, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91, !llvm.loop !2694
+  %127 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
+  br i1 %127, label %107, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95, %105, %94
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95, %107, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i8 1, ptr %91, align 8, !tbaa !2630
-  br label %126
+  store i8 1, ptr %93, align 8, !tbaa !2630
+  br label %128
 
-126:                                              ; preds = %87, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
-  %127 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  %.0.i.i2.i92 = load ptr, ptr %127, align 8, !tbaa !174
-  %128 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i85, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i86, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i92)
-  %129 = load ptr, ptr %36, align 8, !tbaa !2686
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %.0.i.i.i100 = load ptr, ptr %130, align 8, !tbaa !174
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 64
-  %132 = load i8, ptr %131, align 8, !tbaa !2630, !range !17, !noundef !18
-  %133 = trunc nuw i8 %132 to i1
-  br i1 %133, label %166, label %134
+128:                                              ; preds = %89, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
+  %129 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  %.0.i.i2.i92 = load ptr, ptr %129, align 8, !tbaa !174
+  %130 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i85, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i86, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i92)
+  %131 = load ptr, ptr %38, align 8, !tbaa !2686
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %.0.i.i.i100 = load ptr, ptr %132, align 8, !tbaa !174
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 64
+  %134 = load i8, ptr %133, align 8, !tbaa !2630, !range !17, !noundef !18
+  %135 = trunc nuw i8 %134 to i1
+  br i1 %135, label %168, label %136
 
-134:                                              ; preds = %126
-  %135 = getelementptr inbounds nuw i8, ptr %129, i64 32
+136:                                              ; preds = %128
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i100, i64 4
-  %137 = load float, ptr %136, align 4, !tbaa !2375
-  %138 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float %137, ptr %138, align 4, !tbaa !2375
-  %139 = load float, ptr %.0.i.i.i100, align 4, !tbaa !2375
-  store float %139, ptr %8, align 4, !tbaa !2375
-  %140 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %storemerge.in6.i.i.i.i.i101 = load ptr, ptr %135, align 8, !tbaa !2688
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i.i.i100, i64 4
+  %139 = load float, ptr %138, align 4, !tbaa !2375
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store float %139, ptr %140, align 4, !tbaa !2375
+  %141 = load float, ptr %.0.i.i.i100, align 4, !tbaa !2375
+  store float %141, ptr %8, align 4, !tbaa !2375
+  %142 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %storemerge.in6.i.i.i.i.i101 = load ptr, ptr %137, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i101, i64 4
   %storemerge58.i.i.i.i.i103 = load float, ptr %storemerge5.in7.i.i.i.i.i102, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i103, ptr %140, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i103, ptr %142, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i104 = load float, ptr %storemerge.in6.i.i.i.i.i101, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i104, ptr %9, align 4, !tbaa !2375
-  %141 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  br i1 %141, label %.lr.ph.i.i.i.i.i108, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105
+  %143 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  br i1 %143, label %.lr.ph.i.i.i.i.i108, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105
 
-.lr.ph.i.i.i.i.i108:                              ; preds = %134
-  %142 = getelementptr inbounds nuw i8, ptr %129, i64 48
-  %143 = getelementptr inbounds nuw i8, ptr %129, i64 40
-  %144 = getelementptr inbounds nuw i8, ptr %129, i64 56
-  br label %145
+.lr.ph.i.i.i.i.i108:                              ; preds = %136
+  %144 = getelementptr inbounds nuw i8, ptr %131, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %131, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %131, i64 56
+  br label %147
 
-145:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110, %.lr.ph.i.i.i.i.i108
-  %.010.i.i.i.i.i109 = phi i64 [ 0, %.lr.ph.i.i.i.i.i108 ], [ %151, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110 ]
-  %146 = load ptr, ptr %129, align 8, !tbaa !2689
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 72
-  %148 = load i64, ptr %147, align 8, !tbaa !2501
-  %149 = icmp ult i64 %.010.i.i.i.i.i109, %148
-  br i1 %149, label %150, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105
+147:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110, %.lr.ph.i.i.i.i.i108
+  %.010.i.i.i.i.i109 = phi i64 [ 0, %.lr.ph.i.i.i.i.i108 ], [ %153, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110 ]
+  %148 = load ptr, ptr %131, align 8, !tbaa !2689
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 72
+  %150 = load i64, ptr %149, align 8, !tbaa !2501
+  %151 = icmp ult i64 %.010.i.i.i.i.i109, %150
+  br i1 %151, label %152, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105
 
-150:                                              ; preds = %145
-  %151 = add nuw i64 %.010.i.i.i.i.i109, 1
-  %152 = load ptr, ptr %135, align 8, !tbaa !2688, !noalias !2698
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store ptr %153, ptr %135, align 8, !tbaa !2688, !noalias !2698
-  %154 = load ptr, ptr %142, align 8, !tbaa !174, !noalias !2698
-  %155 = icmp eq ptr %153, %154
-  br i1 %155, label %156, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
+152:                                              ; preds = %147
+  %153 = add nuw i64 %.010.i.i.i.i.i109, 1
+  %154 = load ptr, ptr %137, align 8, !tbaa !2688, !noalias !2698
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  store ptr %155, ptr %137, align 8, !tbaa !2688, !noalias !2698
+  %156 = load ptr, ptr %144, align 8, !tbaa !174, !noalias !2698
+  %157 = icmp eq ptr %155, %156
+  br i1 %157, label %158, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
 
-156:                                              ; preds = %150
-  %157 = load i64, ptr %143, align 8, !tbaa !174, !noalias !2698
-  store i64 %157, ptr %135, align 8, !tbaa !174, !noalias !2698
-  %158 = load i8, ptr %144, align 8, !tbaa !2693, !range !17, !noalias !2698, !noundef !18
-  %159 = trunc nuw i8 %158 to i1
-  %160 = inttoptr i64 %157 to ptr
-  br i1 %159, label %161, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
+158:                                              ; preds = %152
+  %159 = load i64, ptr %145, align 8, !tbaa !174, !noalias !2698
+  store i64 %159, ptr %137, align 8, !tbaa !174, !noalias !2698
+  %160 = load i8, ptr %146, align 8, !tbaa !2693, !range !17, !noalias !2698, !noundef !18
+  %161 = trunc nuw i8 %160 to i1
+  %162 = inttoptr i64 %159 to ptr
+  br i1 %161, label %163, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
 
-161:                                              ; preds = %156
-  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  store ptr %162, ptr %135, align 8, !tbaa !2688, !noalias !2698
-  %163 = icmp eq ptr %152, %160
-  br i1 %163, label %164, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
+163:                                              ; preds = %158
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  store ptr %164, ptr %137, align 8, !tbaa !2688, !noalias !2698
+  %165 = icmp eq ptr %154, %162
+  br i1 %165, label %166, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
 
-164:                                              ; preds = %161
-  store i64 %157, ptr %135, align 8, !tbaa !174, !noalias !2698
+166:                                              ; preds = %163
+  store i64 %159, ptr %137, align 8, !tbaa !174, !noalias !2698
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110: ; preds = %164, %161, %156, %150
-  %storemerge.in.i.i.i.i.i111 = phi ptr [ %153, %150 ], [ %160, %156 ], [ %162, %161 ], [ %160, %164 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110: ; preds = %166, %163, %158, %152
+  %storemerge.in.i.i.i.i.i111 = phi ptr [ %155, %152 ], [ %162, %158 ], [ %164, %163 ], [ %162, %166 ]
   %storemerge5.in.i.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i111, i64 4
   %storemerge5.i.i.i.i.i113 = load float, ptr %storemerge5.in.i.i.i.i.i112, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i113, ptr %140, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i113, ptr %142, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i114 = load float, ptr %storemerge.in.i.i.i.i.i111, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i114, ptr %9, align 4, !tbaa !2375
-  %165 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  br i1 %165, label %145, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105, !llvm.loop !2694
+  %167 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  br i1 %167, label %147, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110, %145, %134
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110, %147, %136
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  store i8 1, ptr %131, align 8, !tbaa !2630
-  br label %166
+  store i8 1, ptr %133, align 8, !tbaa !2630
+  br label %168
 
-166:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105, %126
-  %167 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  %.0.i.i1.i106 = load ptr, ptr %167, align 8, !tbaa !174
-  %168 = load ptr, ptr %32, align 8, !tbaa !2683
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  %.0.i.i2.i107 = load ptr, ptr %169, align 8, !tbaa !174
-  %170 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i100, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i106, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i107)
-  %171 = and i32 %77, %31
-  %or.cond = icmp eq i32 %171, -1
-  %172 = icmp eq i32 %128, 1
-  %or.cond3 = and i1 %or.cond, %172
-  br i1 %or.cond3, label %173, label %177
+168:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105, %128
+  %169 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %.0.i.i1.i106 = load ptr, ptr %169, align 8, !tbaa !174
+  %170 = load ptr, ptr %34, align 8, !tbaa !2683
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  %.0.i.i2.i107 = load ptr, ptr %171, align 8, !tbaa !174
+  %172 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i100, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i106, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i107)
+  %173 = and i32 %79, %33
+  %or.cond = icmp eq i32 %173, -1
+  %174 = icmp eq i32 %130, 1
+  %or.cond3 = and i1 %or.cond, %174
+  br i1 %or.cond3, label %175, label %179
 
-173:                                              ; preds = %166
-  %174 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 2, ptr %174, align 8, !tbaa !2639
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 2, ptr %175, align 8, !tbaa !2639
-  %176 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %176, align 4, !tbaa !2635
-  br label %228
+175:                                              ; preds = %168
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 2, ptr %176, align 8, !tbaa !2639
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 2, ptr %177, align 8, !tbaa !2639
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %178, align 4, !tbaa !2635
+  br label %230
 
-177:                                              ; preds = %166
-  %178 = icmp eq i32 %31, 1
-  %179 = icmp eq i32 %77, 1
-  %or.cond5 = and i1 %178, %179
-  %180 = icmp eq i32 %128, -1
-  %or.cond7 = and i1 %or.cond5, %180
-  br i1 %or.cond7, label %181, label %185
+179:                                              ; preds = %168
+  %180 = icmp eq i32 %33, 1
+  %181 = icmp eq i32 %79, 1
+  %or.cond5 = and i1 %180, %181
+  %182 = icmp eq i32 %130, -1
+  %or.cond7 = and i1 %or.cond5, %182
+  br i1 %or.cond7, label %183, label %187
 
-181:                                              ; preds = %177
-  %.not121 = icmp eq i32 %170, -1
+183:                                              ; preds = %179
+  %.not121 = icmp eq i32 %172, -1
   %spec.select129 = select i1 %.not121, i32 1, i32 3
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 1, ptr %182, align 8, !tbaa !2639
-  %183 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 %spec.select129, ptr %183, align 8, !tbaa !2639
-  %184 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %184, align 4, !tbaa !2635
-  br label %228
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 1, ptr %184, align 8, !tbaa !2639
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 %spec.select129, ptr %185, align 8, !tbaa !2639
+  %186 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %186, align 4, !tbaa !2635
+  br label %230
 
-185:                                              ; preds = %177
-  %186 = icmp eq i32 %31, %77
-  %187 = icmp eq i32 %31, %128
-  %or.cond84 = and i1 %186, %187
-  br i1 %or.cond84, label %188, label %219
+187:                                              ; preds = %179
+  %188 = icmp eq i32 %33, %79
+  %189 = icmp eq i32 %33, %130
+  %or.cond84 = and i1 %188, %189
+  br i1 %or.cond84, label %190, label %221
 
-188:                                              ; preds = %185
-  %.not = icmp eq i32 %170, 0
-  %spec.select = xor i1 %172, %.not
+190:                                              ; preds = %187
+  %.not = icmp eq i32 %172, 0
+  %spec.select = xor i1 %174, %.not
   %.0 = zext i1 %spec.select to i32
-  %189 = mul nsw i32 %170, %31
-  %190 = icmp eq i32 %189, -1
-  br i1 %190, label %191, label %211
+  %191 = mul nsw i32 %172, %33
+  %192 = icmp eq i32 %191, -1
+  br i1 %192, label %193, label %213
 
-191:                                              ; preds = %188
-  %192 = load ptr, ptr %32, align 8, !tbaa !2683
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  %.0.i.i.i115 = load ptr, ptr %193, align 8, !tbaa !174
-  %194 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  %.0.i.i1.i116 = load ptr, ptr %194, align 8, !tbaa !174
-  %195 = load ptr, ptr %36, align 8, !tbaa !2686
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
-  %.0.i.i2.i117 = load ptr, ptr %196, align 8, !tbaa !174
-  %197 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i115, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i116, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i117)
-  %198 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qj_wrt_p2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %199 = mul nsw i32 %198, %197
-  %200 = icmp eq i32 %199, 1
-  br i1 %200, label %201, label %211
+193:                                              ; preds = %190
+  %194 = load ptr, ptr %34, align 8, !tbaa !2683
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
+  %.0.i.i.i115 = load ptr, ptr %195, align 8, !tbaa !174
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  %.0.i.i1.i116 = load ptr, ptr %196, align 8, !tbaa !174
+  %197 = load ptr, ptr %38, align 8, !tbaa !2686
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
+  %.0.i.i2.i117 = load ptr, ptr %198, align 8, !tbaa !174
+  %199 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i115, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i116, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i117)
+  %200 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qj_wrt_p2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %201 = mul nsw i32 %200, %199
+  %202 = icmp eq i32 %201, 1
+  br i1 %202, label %203, label %213
 
-201:                                              ; preds = %191
-  %202 = load ptr, ptr %36, align 8, !tbaa !2686
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %.0.i.i.i118 = load ptr, ptr %203, align 8, !tbaa !174
-  %204 = getelementptr inbounds nuw i8, ptr %202, i64 24
-  %.0.i.i1.i119 = load ptr, ptr %204, align 8, !tbaa !174
-  %205 = load ptr, ptr %32, align 8, !tbaa !2683
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
-  %.0.i.i2.i120 = load ptr, ptr %206, align 8, !tbaa !174
-  %207 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i118, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i119, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i120)
-  %208 = mul nsw i32 %207, %170
-  %209 = icmp eq i32 %208, -1
+203:                                              ; preds = %193
+  %204 = load ptr, ptr %38, align 8, !tbaa !2686
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %.0.i.i.i118 = load ptr, ptr %205, align 8, !tbaa !174
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %.0.i.i1.i119 = load ptr, ptr %206, align 8, !tbaa !174
+  %207 = load ptr, ptr %34, align 8, !tbaa !2683
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
+  %.0.i.i2.i120 = load ptr, ptr %208, align 8, !tbaa !174
+  %209 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i118, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i119, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i120)
+  %210 = mul nsw i32 %209, %172
+  %211 = icmp eq i32 %210, -1
   %not..0.in = xor i1 %spec.select, true
-  %210 = zext i1 %not..0.in to i32
-  %.3 = select i1 %209, i32 %210, i32 %.0
-  br label %211
+  %212 = zext i1 %not..0.in to i32
+  %.3 = select i1 %211, i32 %212, i32 %.0
+  br label %213
 
-211:                                              ; preds = %191, %201, %188
-  %.1 = phi i32 [ %.0, %188 ], [ %.3, %201 ], [ %.0, %191 ]
-  %212 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %213 = zext nneg i32 %.1 to i64
-  %214 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %212, i64 %213
-  store i32 1, ptr %214, align 8, !tbaa !2639
-  %215 = sub nuw nsw i32 1, %.1
-  %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %212, i64 %216
-  store i32 2, ptr %217, align 8, !tbaa !2639
-  %218 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %218, align 4, !tbaa !2635
-  br label %228
+213:                                              ; preds = %193, %203, %190
+  %.1 = phi i32 [ %.0, %190 ], [ %.3, %203 ], [ %.0, %193 ]
+  %214 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %215 = zext nneg i32 %.1 to i64
+  %216 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %214, i64 %215
+  store i32 1, ptr %216, align 8, !tbaa !2639
+  %217 = sub nuw nsw i32 1, %.1
+  %218 = zext nneg i32 %217 to i64
+  %219 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %214, i64 %218
+  store i32 2, ptr %219, align 8, !tbaa !2639
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %220, align 4, !tbaa !2635
+  br label %230
 
-219:                                              ; preds = %185
-  %220 = icmp eq i32 %77, 0
-  br i1 %220, label %221, label %227
-
-221:                                              ; preds = %219
-  br i1 %187, label %222, label %223
-
-222:                                              ; preds = %221
-  call void @_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE17set_both_verifiedILm0ELm1ENS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_NS2_9turn_infoISH_NS0_13segment_ratioIfEENS2_14turn_operationISH_S12_EESt5arrayIS14_Lm2EEEEEEvRKT1_RKT2_RKT3_mmRT4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(160) %2)
-  br label %228
+221:                                              ; preds = %187
+  %222 = icmp eq i32 %79, 0
+  br i1 %222, label %223, label %229
 
 223:                                              ; preds = %221
-  %224 = select i1 %172, i32 2, i32 1
-  %225 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %224, ptr %225, align 8, !tbaa !2639
-  %226 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 3, ptr %226, align 8, !tbaa !2639
-  br label %228
+  br i1 %189, label %224, label %225
 
-227:                                              ; preds = %219
+224:                                              ; preds = %223
+  call void @_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE17set_both_verifiedILm0ELm1ENS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_NS2_9turn_infoISH_NS0_13segment_ratioIfEENS2_14turn_operationISH_S12_EESt5arrayIS14_Lm2EEEEEEvRKT1_RKT2_RKT3_mmRT4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  br label %230
+
+225:                                              ; preds = %223
+  %226 = select i1 %174, i32 2, i32 1
+  %227 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 %226, ptr %227, align 8, !tbaa !2639
+  %228 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 3, ptr %228, align 8, !tbaa !2639
+  br label %230
+
+229:                                              ; preds = %221
   store i32 8, ptr %14, align 8, !tbaa !2632
-  br label %228
+  br label %230
 
-228:                                              ; preds = %173, %211, %222, %223, %227, %181, %80
+230:                                              ; preds = %175, %213, %224, %225, %229, %183, %82
   ret void
 }
 
@@ -175359,467 +175358,466 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay14touch_interi
   %16 = load i64, ptr %15, align 8, !tbaa !24
   store i64 %16, ptr %2, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  br label %19
+  br label %18
 
-19:                                               ; preds = %28, %7
-  %.v.i = phi i64 [ 24, %7 ], [ 36, %28 ]
-  %20 = phi i1 [ true, %7 ], [ false, %28 ]
-  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %28 ]
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
-  %22 = load i32, ptr %21, align 4, !tbaa !263
-  switch i32 %22, label %25 [
+18:                                               ; preds = %30, %7
+  %.v.i = phi i64 [ 24, %7 ], [ 36, %30 ]
+  %19 = phi i1 [ true, %7 ], [ false, %30 ]
+  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %30 ]
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
+  %21 = load i32, ptr %20, align 4, !tbaa !263
+  switch i32 %21, label %26 [
     i32 1, label %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
     i32 -1, label %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i
   ]
 
-_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i: ; preds = %19
-  %.idx26.i = shl nuw nsw i64 %indvars.iv.i, 6
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx26.i
+_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i: ; preds = %18
+  %22 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %2, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   store float 1.000000e+00, ptr %23, align 8, !tbaa !2375
-  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 84
   store float 1.000000e+00, ptr %.sroa.524.0..sroa_idx.i, align 4, !tbaa !2375
-  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 88
   store float 1.000000e+06, ptr %.sroa.725.0..sroa_idx.i, align 8, !tbaa !2375
-  br label %28
+  br label %30
 
-_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i: ; preds = %19
-  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 6
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
-  store float 0.000000e+00, ptr %24, align 8, !tbaa !2375
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 4
+_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i: ; preds = %18
+  %24 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %2, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  store float 0.000000e+00, ptr %25, align 8, !tbaa !2375
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 84
   store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !2375
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 88
   store float 0.000000e+00, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !2375
-  br label %28
+  br label %30
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
-  %.idx27.i = shl nuw nsw i64 %indvars.iv.i, 6
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx27.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !2662
-  br label %28
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
+  %28 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %2, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !2662
+  br label %30
 
-28:                                               ; preds = %25, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
-  br i1 %20, label %19, label %29, !llvm.loop !2682
+30:                                               ; preds = %26, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
+  br i1 %19, label %18, label %31, !llvm.loop !2682
 
-29:                                               ; preds = %28
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %31 = load i32, ptr %30, align 4, !tbaa !2663
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !2683
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %.0.i.i.i = load ptr, ptr %34, align 8, !tbaa !174
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %.0.i.i1.i = load ptr, ptr %35, align 8, !tbaa !174
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !2686
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %39 = load i8, ptr %38, align 8, !tbaa !2630, !range !17, !noundef !18
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %75, label %41
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %33 = load i32, ptr %32, align 4, !tbaa !2663
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !2683
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %.0.i.i.i = load ptr, ptr %36, align 8, !tbaa !174
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %.0.i.i1.i = load ptr, ptr %37, align 8, !tbaa !174
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !2686
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  %41 = load i8, ptr %40, align 8, !tbaa !2630, !range !17, !noundef !18
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %77, label %43
 
-41:                                               ; preds = %29
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !2687
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 32
+43:                                               ; preds = %31
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %45 = load ptr, ptr %44, align 8, !tbaa !2687
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %46 = load float, ptr %45, align 4, !tbaa !2375
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store float %46, ptr %47, align 4, !tbaa !2375
-  %48 = load float, ptr %43, align 4, !tbaa !2375
-  store float %48, ptr %12, align 4, !tbaa !2375
-  %49 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %storemerge.in6.i.i.i.i.i = load ptr, ptr %44, align 8, !tbaa !2688
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %48 = load float, ptr %47, align 4, !tbaa !2375
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store float %48, ptr %49, align 4, !tbaa !2375
+  %50 = load float, ptr %45, align 4, !tbaa !2375
+  store float %50, ptr %12, align 4, !tbaa !2375
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %storemerge.in6.i.i.i.i.i = load ptr, ptr %46, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i, i64 4
   %storemerge58.i.i.i.i.i = load float, ptr %storemerge5.in7.i.i.i.i.i, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i, ptr %49, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i, ptr %51, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i = load float, ptr %storemerge.in6.i.i.i.i.i, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i, ptr %13, align 4, !tbaa !2375
-  %50 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+  %52 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
+  br i1 %52, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %41
-  %51 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  %52 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %53 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  br label %54
+.lr.ph.i.i.i.i.i:                                 ; preds = %43
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 56
+  br label %56
 
-54:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %60, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
-  %55 = load ptr, ptr %37, align 8, !tbaa !2689
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 72
-  %57 = load i64, ptr %56, align 8, !tbaa !2501
-  %58 = icmp ult i64 %.010.i.i.i.i.i, %57
-  br i1 %58, label %59, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+56:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %62, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
+  %57 = load ptr, ptr %39, align 8, !tbaa !2689
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 72
+  %59 = load i64, ptr %58, align 8, !tbaa !2501
+  %60 = icmp ult i64 %.010.i.i.i.i.i, %59
+  br i1 %60, label %61, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-59:                                               ; preds = %54
-  %60 = add nuw i64 %.010.i.i.i.i.i, 1
-  %61 = load ptr, ptr %44, align 8, !tbaa !2688, !noalias !2701
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %62, ptr %44, align 8, !tbaa !2688, !noalias !2701
-  %63 = load ptr, ptr %51, align 8, !tbaa !174, !noalias !2701
-  %64 = icmp eq ptr %62, %63
-  br i1 %64, label %65, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+61:                                               ; preds = %56
+  %62 = add nuw i64 %.010.i.i.i.i.i, 1
+  %63 = load ptr, ptr %46, align 8, !tbaa !2688, !noalias !2701
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store ptr %64, ptr %46, align 8, !tbaa !2688, !noalias !2701
+  %65 = load ptr, ptr %53, align 8, !tbaa !174, !noalias !2701
+  %66 = icmp eq ptr %64, %65
+  br i1 %66, label %67, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-65:                                               ; preds = %59
-  %66 = load i64, ptr %52, align 8, !tbaa !174, !noalias !2701
-  store i64 %66, ptr %44, align 8, !tbaa !174, !noalias !2701
-  %67 = load i8, ptr %53, align 8, !tbaa !2693, !range !17, !noalias !2701, !noundef !18
-  %68 = trunc nuw i8 %67 to i1
-  %69 = inttoptr i64 %66 to ptr
-  br i1 %68, label %70, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+67:                                               ; preds = %61
+  %68 = load i64, ptr %54, align 8, !tbaa !174, !noalias !2701
+  store i64 %68, ptr %46, align 8, !tbaa !174, !noalias !2701
+  %69 = load i8, ptr %55, align 8, !tbaa !2693, !range !17, !noalias !2701, !noundef !18
+  %70 = trunc nuw i8 %69 to i1
+  %71 = inttoptr i64 %68 to ptr
+  br i1 %70, label %72, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr %71, ptr %44, align 8, !tbaa !2688, !noalias !2701
-  %72 = icmp eq ptr %61, %69
-  br i1 %72, label %73, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store ptr %73, ptr %46, align 8, !tbaa !2688, !noalias !2701
+  %74 = icmp eq ptr %63, %71
+  br i1 %74, label %75, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-73:                                               ; preds = %70
-  store i64 %66, ptr %44, align 8, !tbaa !174, !noalias !2701
+75:                                               ; preds = %72
+  store i64 %68, ptr %46, align 8, !tbaa !174, !noalias !2701
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %73, %70, %65, %59
-  %storemerge.in.i.i.i.i.i = phi ptr [ %62, %59 ], [ %69, %65 ], [ %71, %70 ], [ %69, %73 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %75, %72, %67, %61
+  %storemerge.in.i.i.i.i.i = phi ptr [ %64, %61 ], [ %71, %67 ], [ %73, %72 ], [ %71, %75 ]
   %storemerge5.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i, i64 4
   %storemerge5.i.i.i.i.i = load float, ptr %storemerge5.in.i.i.i.i.i, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i, ptr %49, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i, ptr %51, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i = load float, ptr %storemerge.in.i.i.i.i.i, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i, ptr %13, align 4, !tbaa !2375
-  %74 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  br i1 %74, label %54, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !2694
+  %76 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
+  br i1 %76, label %56, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %54, %41
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %56, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  store i8 1, ptr %38, align 8, !tbaa !2630
-  br label %75
+  store i8 1, ptr %40, align 8, !tbaa !2630
+  br label %77
 
-75:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, %29
-  %76 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %.0.i.i2.i = load ptr, ptr %76, align 8, !tbaa !174
-  %77 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i)
-  %78 = sub nsw i32 0, %77
-  %79 = icmp eq i32 %31, %78
-  br i1 %79, label %80, label %87
+77:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, %31
+  %78 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %.0.i.i2.i = load ptr, ptr %78, align 8, !tbaa !174
+  %79 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i)
+  %80 = sub nsw i32 0, %79
+  %81 = icmp eq i32 %33, %80
+  br i1 %81, label %82, label %89
 
-80:                                               ; preds = %75
-  %81 = icmp eq i32 %77, -1
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %83 = zext i1 %81 to i64
-  %84 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %82, i64 %83
-  store i32 1, ptr %84, align 8, !tbaa !2639
-  %not.82 = xor i1 %81, true
-  %85 = zext i1 %not.82 to i64
-  %86 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %82, i64 %85
-  store i32 2, ptr %86, align 8, !tbaa !2639
-  br label %228
+82:                                               ; preds = %77
+  %83 = icmp eq i32 %79, -1
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %85 = zext i1 %83 to i64
+  %86 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %84, i64 %85
+  store i32 1, ptr %86, align 8, !tbaa !2639
+  %not.82 = xor i1 %83, true
+  %87 = zext i1 %not.82 to i64
+  %88 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %84, i64 %87
+  store i32 2, ptr %88, align 8, !tbaa !2639
+  br label %230
 
-87:                                               ; preds = %75
-  %88 = load ptr, ptr %36, align 8, !tbaa !2686
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %.0.i.i.i84 = load ptr, ptr %89, align 8, !tbaa !174
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %.0.i.i1.i85 = load ptr, ptr %90, align 8, !tbaa !174
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 64
-  %92 = load i8, ptr %91, align 8, !tbaa !2630, !range !17, !noundef !18
-  %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %126, label %94
+89:                                               ; preds = %77
+  %90 = load ptr, ptr %38, align 8, !tbaa !2686
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %.0.i.i.i84 = load ptr, ptr %91, align 8, !tbaa !174
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  %.0.i.i1.i85 = load ptr, ptr %92, align 8, !tbaa !174
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 64
+  %94 = load i8, ptr %93, align 8, !tbaa !2630, !range !17, !noundef !18
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %128, label %96
 
-94:                                               ; preds = %87
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 32
+96:                                               ; preds = %89
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i85, i64 4
-  %97 = load float, ptr %96, align 4, !tbaa !2375
-  %98 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store float %97, ptr %98, align 4, !tbaa !2375
-  %99 = load float, ptr %.0.i.i1.i85, align 4, !tbaa !2375
-  store float %99, ptr %10, align 4, !tbaa !2375
-  %100 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %storemerge.in6.i.i.i.i.i86 = load ptr, ptr %95, align 8, !tbaa !2688
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i85, i64 4
+  %99 = load float, ptr %98, align 4, !tbaa !2375
+  %100 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store float %99, ptr %100, align 4, !tbaa !2375
+  %101 = load float, ptr %.0.i.i1.i85, align 4, !tbaa !2375
+  store float %101, ptr %10, align 4, !tbaa !2375
+  %102 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %storemerge.in6.i.i.i.i.i86 = load ptr, ptr %97, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i86, i64 4
   %storemerge58.i.i.i.i.i88 = load float, ptr %storemerge5.in7.i.i.i.i.i87, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i88, ptr %100, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i88, ptr %102, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i89 = load float, ptr %storemerge.in6.i.i.i.i.i86, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i89, ptr %11, align 4, !tbaa !2375
-  %101 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  br i1 %101, label %.lr.ph.i.i.i.i.i92, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
+  %103 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
+  br i1 %103, label %.lr.ph.i.i.i.i.i92, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
 
-.lr.ph.i.i.i.i.i92:                               ; preds = %94
-  %102 = getelementptr inbounds nuw i8, ptr %88, i64 48
-  %103 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  %104 = getelementptr inbounds nuw i8, ptr %88, i64 56
-  br label %105
+.lr.ph.i.i.i.i.i92:                               ; preds = %96
+  %104 = getelementptr inbounds nuw i8, ptr %90, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %90, i64 56
+  br label %107
 
-105:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94, %.lr.ph.i.i.i.i.i92
-  %.010.i.i.i.i.i93 = phi i64 [ 0, %.lr.ph.i.i.i.i.i92 ], [ %111, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94 ]
-  %106 = load ptr, ptr %88, align 8, !tbaa !2689
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 72
-  %108 = load i64, ptr %107, align 8, !tbaa !2501
-  %109 = icmp ult i64 %.010.i.i.i.i.i93, %108
-  br i1 %109, label %110, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
+107:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94, %.lr.ph.i.i.i.i.i92
+  %.010.i.i.i.i.i93 = phi i64 [ 0, %.lr.ph.i.i.i.i.i92 ], [ %113, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94 ]
+  %108 = load ptr, ptr %90, align 8, !tbaa !2689
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 72
+  %110 = load i64, ptr %109, align 8, !tbaa !2501
+  %111 = icmp ult i64 %.010.i.i.i.i.i93, %110
+  br i1 %111, label %112, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
 
-110:                                              ; preds = %105
-  %111 = add nuw i64 %.010.i.i.i.i.i93, 1
-  %112 = load ptr, ptr %95, align 8, !tbaa !2688, !noalias !2704
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store ptr %113, ptr %95, align 8, !tbaa !2688, !noalias !2704
-  %114 = load ptr, ptr %102, align 8, !tbaa !174, !noalias !2704
-  %115 = icmp eq ptr %113, %114
-  br i1 %115, label %116, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
+112:                                              ; preds = %107
+  %113 = add nuw i64 %.010.i.i.i.i.i93, 1
+  %114 = load ptr, ptr %97, align 8, !tbaa !2688, !noalias !2704
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store ptr %115, ptr %97, align 8, !tbaa !2688, !noalias !2704
+  %116 = load ptr, ptr %104, align 8, !tbaa !174, !noalias !2704
+  %117 = icmp eq ptr %115, %116
+  br i1 %117, label %118, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
 
-116:                                              ; preds = %110
-  %117 = load i64, ptr %103, align 8, !tbaa !174, !noalias !2704
-  store i64 %117, ptr %95, align 8, !tbaa !174, !noalias !2704
-  %118 = load i8, ptr %104, align 8, !tbaa !2693, !range !17, !noalias !2704, !noundef !18
-  %119 = trunc nuw i8 %118 to i1
-  %120 = inttoptr i64 %117 to ptr
-  br i1 %119, label %121, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
+118:                                              ; preds = %112
+  %119 = load i64, ptr %105, align 8, !tbaa !174, !noalias !2704
+  store i64 %119, ptr %97, align 8, !tbaa !174, !noalias !2704
+  %120 = load i8, ptr %106, align 8, !tbaa !2693, !range !17, !noalias !2704, !noundef !18
+  %121 = trunc nuw i8 %120 to i1
+  %122 = inttoptr i64 %119 to ptr
+  br i1 %121, label %123, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
 
-121:                                              ; preds = %116
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store ptr %122, ptr %95, align 8, !tbaa !2688, !noalias !2704
-  %123 = icmp eq ptr %112, %120
-  br i1 %123, label %124, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
+123:                                              ; preds = %118
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  store ptr %124, ptr %97, align 8, !tbaa !2688, !noalias !2704
+  %125 = icmp eq ptr %114, %122
+  br i1 %125, label %126, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
 
-124:                                              ; preds = %121
-  store i64 %117, ptr %95, align 8, !tbaa !174, !noalias !2704
+126:                                              ; preds = %123
+  store i64 %119, ptr %97, align 8, !tbaa !174, !noalias !2704
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94: ; preds = %124, %121, %116, %110
-  %storemerge.in.i.i.i.i.i95 = phi ptr [ %113, %110 ], [ %120, %116 ], [ %122, %121 ], [ %120, %124 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94: ; preds = %126, %123, %118, %112
+  %storemerge.in.i.i.i.i.i95 = phi ptr [ %115, %112 ], [ %122, %118 ], [ %124, %123 ], [ %122, %126 ]
   %storemerge5.in.i.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i95, i64 4
   %storemerge5.i.i.i.i.i97 = load float, ptr %storemerge5.in.i.i.i.i.i96, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i97, ptr %100, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i97, ptr %102, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i98 = load float, ptr %storemerge.in.i.i.i.i.i95, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i98, ptr %11, align 4, !tbaa !2375
-  %125 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  br i1 %125, label %105, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90, !llvm.loop !2694
+  %127 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
+  br i1 %127, label %107, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94, %105, %94
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94, %107, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i8 1, ptr %91, align 8, !tbaa !2630
-  br label %126
+  store i8 1, ptr %93, align 8, !tbaa !2630
+  br label %128
 
-126:                                              ; preds = %87, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
-  %127 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  %.0.i.i2.i91 = load ptr, ptr %127, align 8, !tbaa !174
-  %128 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i84, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i85, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i91)
-  %129 = load ptr, ptr %36, align 8, !tbaa !2686
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %.0.i.i.i99 = load ptr, ptr %130, align 8, !tbaa !174
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 64
-  %132 = load i8, ptr %131, align 8, !tbaa !2630, !range !17, !noundef !18
-  %133 = trunc nuw i8 %132 to i1
-  br i1 %133, label %166, label %134
+128:                                              ; preds = %89, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
+  %129 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  %.0.i.i2.i91 = load ptr, ptr %129, align 8, !tbaa !174
+  %130 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i84, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i85, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i91)
+  %131 = load ptr, ptr %38, align 8, !tbaa !2686
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %.0.i.i.i99 = load ptr, ptr %132, align 8, !tbaa !174
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 64
+  %134 = load i8, ptr %133, align 8, !tbaa !2630, !range !17, !noundef !18
+  %135 = trunc nuw i8 %134 to i1
+  br i1 %135, label %168, label %136
 
-134:                                              ; preds = %126
-  %135 = getelementptr inbounds nuw i8, ptr %129, i64 32
+136:                                              ; preds = %128
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i99, i64 4
-  %137 = load float, ptr %136, align 4, !tbaa !2375
-  %138 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float %137, ptr %138, align 4, !tbaa !2375
-  %139 = load float, ptr %.0.i.i.i99, align 4, !tbaa !2375
-  store float %139, ptr %8, align 4, !tbaa !2375
-  %140 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %storemerge.in6.i.i.i.i.i100 = load ptr, ptr %135, align 8, !tbaa !2688
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i.i.i99, i64 4
+  %139 = load float, ptr %138, align 4, !tbaa !2375
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store float %139, ptr %140, align 4, !tbaa !2375
+  %141 = load float, ptr %.0.i.i.i99, align 4, !tbaa !2375
+  store float %141, ptr %8, align 4, !tbaa !2375
+  %142 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %storemerge.in6.i.i.i.i.i100 = load ptr, ptr %137, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i101 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i100, i64 4
   %storemerge58.i.i.i.i.i102 = load float, ptr %storemerge5.in7.i.i.i.i.i101, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i102, ptr %140, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i102, ptr %142, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i103 = load float, ptr %storemerge.in6.i.i.i.i.i100, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i103, ptr %9, align 4, !tbaa !2375
-  %141 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  br i1 %141, label %.lr.ph.i.i.i.i.i107, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104
+  %143 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  br i1 %143, label %.lr.ph.i.i.i.i.i107, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104
 
-.lr.ph.i.i.i.i.i107:                              ; preds = %134
-  %142 = getelementptr inbounds nuw i8, ptr %129, i64 48
-  %143 = getelementptr inbounds nuw i8, ptr %129, i64 40
-  %144 = getelementptr inbounds nuw i8, ptr %129, i64 56
-  br label %145
+.lr.ph.i.i.i.i.i107:                              ; preds = %136
+  %144 = getelementptr inbounds nuw i8, ptr %131, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %131, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %131, i64 56
+  br label %147
 
-145:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109, %.lr.ph.i.i.i.i.i107
-  %.010.i.i.i.i.i108 = phi i64 [ 0, %.lr.ph.i.i.i.i.i107 ], [ %151, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109 ]
-  %146 = load ptr, ptr %129, align 8, !tbaa !2689
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 72
-  %148 = load i64, ptr %147, align 8, !tbaa !2501
-  %149 = icmp ult i64 %.010.i.i.i.i.i108, %148
-  br i1 %149, label %150, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104
+147:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109, %.lr.ph.i.i.i.i.i107
+  %.010.i.i.i.i.i108 = phi i64 [ 0, %.lr.ph.i.i.i.i.i107 ], [ %153, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109 ]
+  %148 = load ptr, ptr %131, align 8, !tbaa !2689
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 72
+  %150 = load i64, ptr %149, align 8, !tbaa !2501
+  %151 = icmp ult i64 %.010.i.i.i.i.i108, %150
+  br i1 %151, label %152, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104
 
-150:                                              ; preds = %145
-  %151 = add nuw i64 %.010.i.i.i.i.i108, 1
-  %152 = load ptr, ptr %135, align 8, !tbaa !2688, !noalias !2707
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store ptr %153, ptr %135, align 8, !tbaa !2688, !noalias !2707
-  %154 = load ptr, ptr %142, align 8, !tbaa !174, !noalias !2707
-  %155 = icmp eq ptr %153, %154
-  br i1 %155, label %156, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
+152:                                              ; preds = %147
+  %153 = add nuw i64 %.010.i.i.i.i.i108, 1
+  %154 = load ptr, ptr %137, align 8, !tbaa !2688, !noalias !2707
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  store ptr %155, ptr %137, align 8, !tbaa !2688, !noalias !2707
+  %156 = load ptr, ptr %144, align 8, !tbaa !174, !noalias !2707
+  %157 = icmp eq ptr %155, %156
+  br i1 %157, label %158, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
 
-156:                                              ; preds = %150
-  %157 = load i64, ptr %143, align 8, !tbaa !174, !noalias !2707
-  store i64 %157, ptr %135, align 8, !tbaa !174, !noalias !2707
-  %158 = load i8, ptr %144, align 8, !tbaa !2693, !range !17, !noalias !2707, !noundef !18
-  %159 = trunc nuw i8 %158 to i1
-  %160 = inttoptr i64 %157 to ptr
-  br i1 %159, label %161, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
+158:                                              ; preds = %152
+  %159 = load i64, ptr %145, align 8, !tbaa !174, !noalias !2707
+  store i64 %159, ptr %137, align 8, !tbaa !174, !noalias !2707
+  %160 = load i8, ptr %146, align 8, !tbaa !2693, !range !17, !noalias !2707, !noundef !18
+  %161 = trunc nuw i8 %160 to i1
+  %162 = inttoptr i64 %159 to ptr
+  br i1 %161, label %163, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
 
-161:                                              ; preds = %156
-  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  store ptr %162, ptr %135, align 8, !tbaa !2688, !noalias !2707
-  %163 = icmp eq ptr %152, %160
-  br i1 %163, label %164, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
+163:                                              ; preds = %158
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  store ptr %164, ptr %137, align 8, !tbaa !2688, !noalias !2707
+  %165 = icmp eq ptr %154, %162
+  br i1 %165, label %166, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
 
-164:                                              ; preds = %161
-  store i64 %157, ptr %135, align 8, !tbaa !174, !noalias !2707
+166:                                              ; preds = %163
+  store i64 %159, ptr %137, align 8, !tbaa !174, !noalias !2707
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109: ; preds = %164, %161, %156, %150
-  %storemerge.in.i.i.i.i.i110 = phi ptr [ %153, %150 ], [ %160, %156 ], [ %162, %161 ], [ %160, %164 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109: ; preds = %166, %163, %158, %152
+  %storemerge.in.i.i.i.i.i110 = phi ptr [ %155, %152 ], [ %162, %158 ], [ %164, %163 ], [ %162, %166 ]
   %storemerge5.in.i.i.i.i.i111 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i110, i64 4
   %storemerge5.i.i.i.i.i112 = load float, ptr %storemerge5.in.i.i.i.i.i111, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i112, ptr %140, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i112, ptr %142, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i113 = load float, ptr %storemerge.in.i.i.i.i.i110, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i113, ptr %9, align 4, !tbaa !2375
-  %165 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  br i1 %165, label %145, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104, !llvm.loop !2694
+  %167 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  br i1 %167, label %147, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109, %145, %134
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109, %147, %136
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  store i8 1, ptr %131, align 8, !tbaa !2630
-  br label %166
+  store i8 1, ptr %133, align 8, !tbaa !2630
+  br label %168
 
-166:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104, %126
-  %167 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  %.0.i.i1.i105 = load ptr, ptr %167, align 8, !tbaa !174
-  %168 = load ptr, ptr %32, align 8, !tbaa !2683
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  %.0.i.i2.i106 = load ptr, ptr %169, align 8, !tbaa !174
-  %170 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i99, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i105, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i106)
-  %171 = and i32 %77, %31
-  %or.cond = icmp eq i32 %171, -1
-  %172 = icmp eq i32 %128, 1
-  %or.cond3 = and i1 %or.cond, %172
-  br i1 %or.cond3, label %173, label %177
+168:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104, %128
+  %169 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %.0.i.i1.i105 = load ptr, ptr %169, align 8, !tbaa !174
+  %170 = load ptr, ptr %34, align 8, !tbaa !2683
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  %.0.i.i2.i106 = load ptr, ptr %171, align 8, !tbaa !174
+  %172 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i99, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i105, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i106)
+  %173 = and i32 %79, %33
+  %or.cond = icmp eq i32 %173, -1
+  %174 = icmp eq i32 %130, 1
+  %or.cond3 = and i1 %or.cond, %174
+  br i1 %or.cond3, label %175, label %179
 
-173:                                              ; preds = %166
-  %174 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 2, ptr %174, align 8, !tbaa !2639
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 2, ptr %175, align 8, !tbaa !2639
-  %176 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %176, align 4, !tbaa !2635
-  br label %228
+175:                                              ; preds = %168
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 2, ptr %176, align 8, !tbaa !2639
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 2, ptr %177, align 8, !tbaa !2639
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %178, align 4, !tbaa !2635
+  br label %230
 
-177:                                              ; preds = %166
-  %178 = icmp eq i32 %31, 1
-  %179 = icmp eq i32 %77, 1
-  %or.cond5 = and i1 %178, %179
-  %180 = icmp eq i32 %128, -1
-  %or.cond7 = and i1 %or.cond5, %180
-  br i1 %or.cond7, label %181, label %185
+179:                                              ; preds = %168
+  %180 = icmp eq i32 %33, 1
+  %181 = icmp eq i32 %79, 1
+  %or.cond5 = and i1 %180, %181
+  %182 = icmp eq i32 %130, -1
+  %or.cond7 = and i1 %or.cond5, %182
+  br i1 %or.cond7, label %183, label %187
 
-181:                                              ; preds = %177
-  %.not120 = icmp eq i32 %170, -1
+183:                                              ; preds = %179
+  %.not120 = icmp eq i32 %172, -1
   %spec.select128 = select i1 %.not120, i32 1, i32 3
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %spec.select128, ptr %182, align 8, !tbaa !2639
-  %183 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 1, ptr %183, align 8, !tbaa !2639
-  %184 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %184, align 4, !tbaa !2635
-  br label %228
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 %spec.select128, ptr %184, align 8, !tbaa !2639
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 1, ptr %185, align 8, !tbaa !2639
+  %186 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %186, align 4, !tbaa !2635
+  br label %230
 
-185:                                              ; preds = %177
-  %186 = icmp eq i32 %31, %77
-  %187 = icmp eq i32 %31, %128
-  %or.cond83 = and i1 %186, %187
-  br i1 %or.cond83, label %188, label %219
+187:                                              ; preds = %179
+  %188 = icmp eq i32 %33, %79
+  %189 = icmp eq i32 %33, %130
+  %or.cond83 = and i1 %188, %189
+  br i1 %or.cond83, label %190, label %221
 
-188:                                              ; preds = %185
-  %.not = icmp ne i32 %170, 0
-  %spec.select = xor i1 %172, %.not
+190:                                              ; preds = %187
+  %.not = icmp ne i32 %172, 0
+  %spec.select = xor i1 %174, %.not
   %.0 = zext i1 %spec.select to i32
-  %189 = mul nsw i32 %170, %31
-  %190 = icmp eq i32 %189, -1
-  br i1 %190, label %191, label %211
+  %191 = mul nsw i32 %172, %33
+  %192 = icmp eq i32 %191, -1
+  br i1 %192, label %193, label %213
 
-191:                                              ; preds = %188
-  %192 = load ptr, ptr %32, align 8, !tbaa !2683
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  %.0.i.i.i114 = load ptr, ptr %193, align 8, !tbaa !174
-  %194 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  %.0.i.i1.i115 = load ptr, ptr %194, align 8, !tbaa !174
-  %195 = load ptr, ptr %36, align 8, !tbaa !2686
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
-  %.0.i.i2.i116 = load ptr, ptr %196, align 8, !tbaa !174
-  %197 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i114, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i115, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i116)
-  %198 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qj_wrt_p2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %199 = mul nsw i32 %198, %197
-  %200 = icmp eq i32 %199, 1
-  br i1 %200, label %201, label %211
+193:                                              ; preds = %190
+  %194 = load ptr, ptr %34, align 8, !tbaa !2683
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
+  %.0.i.i.i114 = load ptr, ptr %195, align 8, !tbaa !174
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  %.0.i.i1.i115 = load ptr, ptr %196, align 8, !tbaa !174
+  %197 = load ptr, ptr %38, align 8, !tbaa !2686
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
+  %.0.i.i2.i116 = load ptr, ptr %198, align 8, !tbaa !174
+  %199 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i114, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i115, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i116)
+  %200 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qj_wrt_p2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %201 = mul nsw i32 %200, %199
+  %202 = icmp eq i32 %201, 1
+  br i1 %202, label %203, label %213
 
-201:                                              ; preds = %191
-  %202 = load ptr, ptr %36, align 8, !tbaa !2686
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %.0.i.i.i117 = load ptr, ptr %203, align 8, !tbaa !174
-  %204 = getelementptr inbounds nuw i8, ptr %202, i64 24
-  %.0.i.i1.i118 = load ptr, ptr %204, align 8, !tbaa !174
-  %205 = load ptr, ptr %32, align 8, !tbaa !2683
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
-  %.0.i.i2.i119 = load ptr, ptr %206, align 8, !tbaa !174
-  %207 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i117, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i118, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i119)
-  %208 = mul nsw i32 %207, %170
-  %209 = icmp eq i32 %208, -1
+203:                                              ; preds = %193
+  %204 = load ptr, ptr %38, align 8, !tbaa !2686
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %.0.i.i.i117 = load ptr, ptr %205, align 8, !tbaa !174
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %.0.i.i1.i118 = load ptr, ptr %206, align 8, !tbaa !174
+  %207 = load ptr, ptr %34, align 8, !tbaa !2683
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
+  %.0.i.i2.i119 = load ptr, ptr %208, align 8, !tbaa !174
+  %209 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i117, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i118, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i119)
+  %210 = mul nsw i32 %209, %172
+  %211 = icmp eq i32 %210, -1
   %not..0.in = xor i1 %spec.select, true
-  %210 = zext i1 %not..0.in to i32
-  %.3 = select i1 %209, i32 %210, i32 %.0
-  br label %211
+  %212 = zext i1 %not..0.in to i32
+  %.3 = select i1 %211, i32 %212, i32 %.0
+  br label %213
 
-211:                                              ; preds = %191, %201, %188
-  %.1 = phi i32 [ %.0, %188 ], [ %.3, %201 ], [ %.0, %191 ]
-  %212 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %213 = zext nneg i32 %.1 to i64
-  %214 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %212, i64 %213
-  store i32 1, ptr %214, align 8, !tbaa !2639
-  %215 = sub nuw nsw i32 1, %.1
-  %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %212, i64 %216
-  store i32 2, ptr %217, align 8, !tbaa !2639
-  %218 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %218, align 4, !tbaa !2635
-  br label %228
+213:                                              ; preds = %193, %203, %190
+  %.1 = phi i32 [ %.0, %190 ], [ %.3, %203 ], [ %.0, %193 ]
+  %214 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %215 = zext nneg i32 %.1 to i64
+  %216 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %214, i64 %215
+  store i32 1, ptr %216, align 8, !tbaa !2639
+  %217 = sub nuw nsw i32 1, %.1
+  %218 = zext nneg i32 %217 to i64
+  %219 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %214, i64 %218
+  store i32 2, ptr %219, align 8, !tbaa !2639
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %220, align 4, !tbaa !2635
+  br label %230
 
-219:                                              ; preds = %185
-  %220 = icmp eq i32 %77, 0
-  br i1 %220, label %221, label %227
-
-221:                                              ; preds = %219
-  br i1 %187, label %222, label %223
-
-222:                                              ; preds = %221
-  call void @_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE17set_both_verifiedILm1ELm0ENS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_NS2_9turn_infoISH_NS0_13segment_ratioIfEENS2_14turn_operationISH_S12_EESt5arrayIS14_Lm2EEEEEEvRKT1_RKT2_RKT3_mmRT4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(160) %2)
-  br label %228
+221:                                              ; preds = %187
+  %222 = icmp eq i32 %79, 0
+  br i1 %222, label %223, label %229
 
 223:                                              ; preds = %221
-  %224 = select i1 %172, i32 2, i32 1
-  %225 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %226 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 %224, ptr %226, align 8, !tbaa !2639
-  store i32 3, ptr %225, align 8, !tbaa !2639
-  br label %228
+  br i1 %189, label %224, label %225
 
-227:                                              ; preds = %219
+224:                                              ; preds = %223
+  call void @_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE17set_both_verifiedILm1ELm0ENS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_NS2_9turn_infoISH_NS0_13segment_ratioIfEENS2_14turn_operationISH_S12_EESt5arrayIS14_Lm2EEEEEEvRKT1_RKT2_RKT3_mmRT4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  br label %230
+
+225:                                              ; preds = %223
+  %226 = select i1 %174, i32 2, i32 1
+  %227 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %228 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 %226, ptr %228, align 8, !tbaa !2639
+  store i32 3, ptr %227, align 8, !tbaa !2639
+  br label %230
+
+229:                                              ; preds = %221
   store i32 8, ptr %14, align 8, !tbaa !2632
-  br label %228
+  br label %230
 
-228:                                              ; preds = %173, %211, %222, %223, %227, %181, %80
+230:                                              ; preds = %175, %213, %224, %225, %229, %183, %82
   ret void
 }
 
@@ -175845,894 +175843,893 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay5touchINS2_9tu
   %24 = load i64, ptr %23, align 8, !tbaa !24
   store i64 %24, ptr %2, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  br label %27
+  br label %26
 
-27:                                               ; preds = %36, %7
-  %.v.i = phi i64 [ 24, %7 ], [ 36, %36 ]
-  %28 = phi i1 [ true, %7 ], [ false, %36 ]
-  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %36 ]
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
-  %30 = load i32, ptr %29, align 4, !tbaa !263
-  switch i32 %30, label %33 [
+26:                                               ; preds = %38, %7
+  %.v.i = phi i64 [ 24, %7 ], [ 36, %38 ]
+  %27 = phi i1 [ true, %7 ], [ false, %38 ]
+  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %38 ]
+  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
+  %29 = load i32, ptr %28, align 4, !tbaa !263
+  switch i32 %29, label %34 [
     i32 1, label %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
     i32 -1, label %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i
   ]
 
-_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i: ; preds = %27
-  %.idx26.i = shl nuw nsw i64 %indvars.iv.i, 6
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx26.i
+_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i: ; preds = %26
+  %30 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %2, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   store float 1.000000e+00, ptr %31, align 8, !tbaa !2375
-  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 84
   store float 1.000000e+00, ptr %.sroa.524.0..sroa_idx.i, align 4, !tbaa !2375
-  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 88
   store float 1.000000e+06, ptr %.sroa.725.0..sroa_idx.i, align 8, !tbaa !2375
-  br label %36
+  br label %38
 
-_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i: ; preds = %27
-  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 6
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
-  store float 0.000000e+00, ptr %32, align 8, !tbaa !2375
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 4
+_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i: ; preds = %26
+  %32 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %2, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
+  store float 0.000000e+00, ptr %33, align 8, !tbaa !2375
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 84
   store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !2375
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 88
   store float 0.000000e+00, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !2375
-  br label %36
+  br label %38
 
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
-  %.idx27.i = shl nuw nsw i64 %indvars.iv.i, 6
-  %35 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx27.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 4 dereferenceable(12) %34, i64 12, i1 false), !tbaa.struct !2662
-  br label %36
+34:                                               ; preds = %26
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
+  %36 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation", ptr %2, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %37, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false), !tbaa.struct !2662
+  br label %38
 
-36:                                               ; preds = %33, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
-  br i1 %28, label %27, label %_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit, !llvm.loop !2682
+38:                                               ; preds = %34, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
+  br i1 %27, label %26, label %_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit, !llvm.loop !2682
 
-_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit: ; preds = %36
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !2686
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %.0.i.i.i = load ptr, ptr %39, align 8, !tbaa !174
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %.0.i.i1.i = load ptr, ptr %40, align 8, !tbaa !174
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !2683
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %44 = load i8, ptr %43, align 8, !tbaa !2630, !range !17, !noundef !18
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit, label %46
+_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit: ; preds = %38
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !2686
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %.0.i.i.i = load ptr, ptr %41, align 8, !tbaa !174
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %.0.i.i1.i = load ptr, ptr %42, align 8, !tbaa !174
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !2683
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
+  %46 = load i8, ptr %45, align 8, !tbaa !2630, !range !17, !noundef !18
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit, label %48
 
-46:                                               ; preds = %_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !2687
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 32
+48:                                               ; preds = %_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %50 = load ptr, ptr %49, align 8, !tbaa !2687
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %51 = load float, ptr %50, align 4, !tbaa !2375
-  %52 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store float %51, ptr %52, align 4, !tbaa !2375
-  %53 = load float, ptr %48, align 4, !tbaa !2375
-  store float %53, ptr %20, align 4, !tbaa !2375
-  %54 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %storemerge.in6.i.i.i.i.i = load ptr, ptr %49, align 8, !tbaa !2688
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %53 = load float, ptr %52, align 4, !tbaa !2375
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store float %53, ptr %54, align 4, !tbaa !2375
+  %55 = load float, ptr %50, align 4, !tbaa !2375
+  store float %55, ptr %20, align 4, !tbaa !2375
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %storemerge.in6.i.i.i.i.i = load ptr, ptr %51, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i, i64 4
   %storemerge58.i.i.i.i.i = load float, ptr %storemerge5.in7.i.i.i.i.i, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i, ptr %54, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i, ptr %56, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i = load float, ptr %storemerge.in6.i.i.i.i.i, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i, ptr %21, align 4, !tbaa !2375
-  %55 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(8) %21)
-  br i1 %55, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+  %57 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(8) %21)
+  br i1 %57, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %46
-  %56 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %57 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %58 = getelementptr inbounds nuw i8, ptr %42, i64 56
-  br label %59
+.lr.ph.i.i.i.i.i:                                 ; preds = %48
+  %58 = getelementptr inbounds nuw i8, ptr %44, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 56
+  br label %61
 
-59:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %65, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
-  %60 = load ptr, ptr %42, align 8, !tbaa !2689
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
-  %62 = load i64, ptr %61, align 8, !tbaa !2501
-  %63 = icmp ult i64 %.010.i.i.i.i.i, %62
-  br i1 %63, label %64, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+61:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %67, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
+  %62 = load ptr, ptr %44, align 8, !tbaa !2689
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 72
+  %64 = load i64, ptr %63, align 8, !tbaa !2501
+  %65 = icmp ult i64 %.010.i.i.i.i.i, %64
+  br i1 %65, label %66, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-64:                                               ; preds = %59
-  %65 = add nuw i64 %.010.i.i.i.i.i, 1
-  %66 = load ptr, ptr %49, align 8, !tbaa !2688, !noalias !2710
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr %67, ptr %49, align 8, !tbaa !2688, !noalias !2710
-  %68 = load ptr, ptr %56, align 8, !tbaa !174, !noalias !2710
-  %69 = icmp eq ptr %67, %68
-  br i1 %69, label %70, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+66:                                               ; preds = %61
+  %67 = add nuw i64 %.010.i.i.i.i.i, 1
+  %68 = load ptr, ptr %51, align 8, !tbaa !2688, !noalias !2710
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store ptr %69, ptr %51, align 8, !tbaa !2688, !noalias !2710
+  %70 = load ptr, ptr %58, align 8, !tbaa !174, !noalias !2710
+  %71 = icmp eq ptr %69, %70
+  br i1 %71, label %72, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-70:                                               ; preds = %64
-  %71 = load i64, ptr %57, align 8, !tbaa !174, !noalias !2710
-  store i64 %71, ptr %49, align 8, !tbaa !174, !noalias !2710
-  %72 = load i8, ptr %58, align 8, !tbaa !2693, !range !17, !noalias !2710, !noundef !18
-  %73 = trunc nuw i8 %72 to i1
-  %74 = inttoptr i64 %71 to ptr
-  br i1 %73, label %75, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+72:                                               ; preds = %66
+  %73 = load i64, ptr %59, align 8, !tbaa !174, !noalias !2710
+  store i64 %73, ptr %51, align 8, !tbaa !174, !noalias !2710
+  %74 = load i8, ptr %60, align 8, !tbaa !2693, !range !17, !noalias !2710, !noundef !18
+  %75 = trunc nuw i8 %74 to i1
+  %76 = inttoptr i64 %73 to ptr
+  br i1 %75, label %77, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-75:                                               ; preds = %70
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr %76, ptr %49, align 8, !tbaa !2688, !noalias !2710
-  %77 = icmp eq ptr %66, %74
-  br i1 %77, label %78, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store ptr %78, ptr %51, align 8, !tbaa !2688, !noalias !2710
+  %79 = icmp eq ptr %68, %76
+  br i1 %79, label %80, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-78:                                               ; preds = %75
-  store i64 %71, ptr %49, align 8, !tbaa !174, !noalias !2710
+80:                                               ; preds = %77
+  store i64 %73, ptr %51, align 8, !tbaa !174, !noalias !2710
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %78, %75, %70, %64
-  %storemerge.in.i.i.i.i.i = phi ptr [ %67, %64 ], [ %74, %70 ], [ %76, %75 ], [ %74, %78 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %80, %77, %72, %66
+  %storemerge.in.i.i.i.i.i = phi ptr [ %69, %66 ], [ %76, %72 ], [ %78, %77 ], [ %76, %80 ]
   %storemerge5.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i, i64 4
   %storemerge5.i.i.i.i.i = load float, ptr %storemerge5.in.i.i.i.i.i, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i, ptr %54, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i, ptr %56, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i = load float, ptr %storemerge.in.i.i.i.i.i, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i, ptr %21, align 4, !tbaa !2375
-  %79 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(8) %21)
-  br i1 %79, label %59, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !2694
+  %81 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(8) %21)
+  br i1 %81, label %61, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %59, %46
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %61, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  store i8 1, ptr %43, align 8, !tbaa !2630
+  store i8 1, ptr %45, align 8, !tbaa !2630
   br label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit
 
 _ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, %_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit
-  %80 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %.0.i.i2.i = load ptr, ptr %80, align 8, !tbaa !174
-  %81 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i)
-  %82 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %83 = load i32, ptr %82, align 4, !tbaa !2663
-  %84 = load ptr, ptr %41, align 8, !tbaa !2683
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %.0.i.i.i136 = load ptr, ptr %85, align 8, !tbaa !174
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %.0.i.i1.i137 = load ptr, ptr %86, align 8, !tbaa !174
-  %87 = load ptr, ptr %37, align 8, !tbaa !2686
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  %89 = load i8, ptr %88, align 8, !tbaa !2630, !range !17, !noundef !18
-  %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit, label %91
+  %82 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %.0.i.i2.i = load ptr, ptr %82, align 8, !tbaa !174
+  %83 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i)
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %85 = load i32, ptr %84, align 4, !tbaa !2663
+  %86 = load ptr, ptr %43, align 8, !tbaa !2683
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %.0.i.i.i136 = load ptr, ptr %87, align 8, !tbaa !174
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %.0.i.i1.i137 = load ptr, ptr %88, align 8, !tbaa !174
+  %89 = load ptr, ptr %39, align 8, !tbaa !2686
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 64
+  %91 = load i8, ptr %90, align 8, !tbaa !2630, !range !17, !noundef !18
+  %92 = trunc nuw i8 %91 to i1
+  br i1 %92, label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit, label %93
 
-91:                                               ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit
-  %92 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %93 = load ptr, ptr %92, align 8, !tbaa !2687
-  %94 = getelementptr inbounds nuw i8, ptr %87, i64 32
+93:                                               ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %95 = load ptr, ptr %94, align 8, !tbaa !2687
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %96 = load float, ptr %95, align 4, !tbaa !2375
-  %97 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store float %96, ptr %97, align 4, !tbaa !2375
-  %98 = load float, ptr %93, align 4, !tbaa !2375
-  store float %98, ptr %18, align 4, !tbaa !2375
-  %99 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %storemerge.in6.i.i.i.i.i138 = load ptr, ptr %94, align 8, !tbaa !2688
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  %98 = load float, ptr %97, align 4, !tbaa !2375
+  %99 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store float %98, ptr %99, align 4, !tbaa !2375
+  %100 = load float, ptr %95, align 4, !tbaa !2375
+  store float %100, ptr %18, align 4, !tbaa !2375
+  %101 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %storemerge.in6.i.i.i.i.i138 = load ptr, ptr %96, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i139 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i138, i64 4
   %storemerge58.i.i.i.i.i140 = load float, ptr %storemerge5.in7.i.i.i.i.i139, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i140, ptr %99, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i140, ptr %101, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i141 = load float, ptr %storemerge.in6.i.i.i.i.i138, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i141, ptr %19, align 4, !tbaa !2375
-  %100 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %19)
-  br i1 %100, label %.lr.ph.i.i.i.i.i144, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142
+  %102 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %19)
+  br i1 %102, label %.lr.ph.i.i.i.i.i144, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142
 
-.lr.ph.i.i.i.i.i144:                              ; preds = %91
-  %101 = getelementptr inbounds nuw i8, ptr %87, i64 48
-  %102 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %103 = getelementptr inbounds nuw i8, ptr %87, i64 56
-  br label %104
+.lr.ph.i.i.i.i.i144:                              ; preds = %93
+  %103 = getelementptr inbounds nuw i8, ptr %89, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %89, i64 56
+  br label %106
 
-104:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146, %.lr.ph.i.i.i.i.i144
-  %.010.i.i.i.i.i145 = phi i64 [ 0, %.lr.ph.i.i.i.i.i144 ], [ %110, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146 ]
-  %105 = load ptr, ptr %87, align 8, !tbaa !2689
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 72
-  %107 = load i64, ptr %106, align 8, !tbaa !2501
-  %108 = icmp ult i64 %.010.i.i.i.i.i145, %107
-  br i1 %108, label %109, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142
+106:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146, %.lr.ph.i.i.i.i.i144
+  %.010.i.i.i.i.i145 = phi i64 [ 0, %.lr.ph.i.i.i.i.i144 ], [ %112, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146 ]
+  %107 = load ptr, ptr %89, align 8, !tbaa !2689
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 72
+  %109 = load i64, ptr %108, align 8, !tbaa !2501
+  %110 = icmp ult i64 %.010.i.i.i.i.i145, %109
+  br i1 %110, label %111, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142
 
-109:                                              ; preds = %104
-  %110 = add nuw i64 %.010.i.i.i.i.i145, 1
-  %111 = load ptr, ptr %94, align 8, !tbaa !2688, !noalias !2713
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store ptr %112, ptr %94, align 8, !tbaa !2688, !noalias !2713
-  %113 = load ptr, ptr %101, align 8, !tbaa !174, !noalias !2713
-  %114 = icmp eq ptr %112, %113
-  br i1 %114, label %115, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
+111:                                              ; preds = %106
+  %112 = add nuw i64 %.010.i.i.i.i.i145, 1
+  %113 = load ptr, ptr %96, align 8, !tbaa !2688, !noalias !2713
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  store ptr %114, ptr %96, align 8, !tbaa !2688, !noalias !2713
+  %115 = load ptr, ptr %103, align 8, !tbaa !174, !noalias !2713
+  %116 = icmp eq ptr %114, %115
+  br i1 %116, label %117, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
 
-115:                                              ; preds = %109
-  %116 = load i64, ptr %102, align 8, !tbaa !174, !noalias !2713
-  store i64 %116, ptr %94, align 8, !tbaa !174, !noalias !2713
-  %117 = load i8, ptr %103, align 8, !tbaa !2693, !range !17, !noalias !2713, !noundef !18
-  %118 = trunc nuw i8 %117 to i1
-  %119 = inttoptr i64 %116 to ptr
-  br i1 %118, label %120, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
+117:                                              ; preds = %111
+  %118 = load i64, ptr %104, align 8, !tbaa !174, !noalias !2713
+  store i64 %118, ptr %96, align 8, !tbaa !174, !noalias !2713
+  %119 = load i8, ptr %105, align 8, !tbaa !2693, !range !17, !noalias !2713, !noundef !18
+  %120 = trunc nuw i8 %119 to i1
+  %121 = inttoptr i64 %118 to ptr
+  br i1 %120, label %122, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
 
-120:                                              ; preds = %115
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store ptr %121, ptr %94, align 8, !tbaa !2688, !noalias !2713
-  %122 = icmp eq ptr %111, %119
-  br i1 %122, label %123, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
+122:                                              ; preds = %117
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  store ptr %123, ptr %96, align 8, !tbaa !2688, !noalias !2713
+  %124 = icmp eq ptr %113, %121
+  br i1 %124, label %125, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
 
-123:                                              ; preds = %120
-  store i64 %116, ptr %94, align 8, !tbaa !174, !noalias !2713
+125:                                              ; preds = %122
+  store i64 %118, ptr %96, align 8, !tbaa !174, !noalias !2713
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146: ; preds = %123, %120, %115, %109
-  %storemerge.in.i.i.i.i.i147 = phi ptr [ %112, %109 ], [ %119, %115 ], [ %121, %120 ], [ %119, %123 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146: ; preds = %125, %122, %117, %111
+  %storemerge.in.i.i.i.i.i147 = phi ptr [ %114, %111 ], [ %121, %117 ], [ %123, %122 ], [ %121, %125 ]
   %storemerge5.in.i.i.i.i.i148 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i147, i64 4
   %storemerge5.i.i.i.i.i149 = load float, ptr %storemerge5.in.i.i.i.i.i148, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i149, ptr %99, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i149, ptr %101, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i150 = load float, ptr %storemerge.in.i.i.i.i.i147, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i150, ptr %19, align 4, !tbaa !2375
-  %124 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %19)
-  br i1 %124, label %104, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142, !llvm.loop !2694
+  %126 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %19)
+  br i1 %126, label %106, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146, %104, %91
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146, %106, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  store i8 1, ptr %88, align 8, !tbaa !2630
+  store i8 1, ptr %90, align 8, !tbaa !2630
   br label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit
 
 _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit: ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142
-  %125 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %.0.i.i2.i143 = load ptr, ptr %125, align 8, !tbaa !174
-  %126 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i136, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i137, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i143)
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %128, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
+  %127 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %.0.i.i2.i143 = load ptr, ptr %127, align 8, !tbaa !174
+  %128 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i136, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i137, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i143)
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
 
-128:                                              ; preds = %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %130 = load i8, ptr %129, align 8, !tbaa !2630, !range !17, !noundef !18
-  %131 = trunc nuw i8 %130 to i1
-  br i1 %131, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152, label %132
+130:                                              ; preds = %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %132 = load i8, ptr %131, align 8, !tbaa !2630, !range !17, !noundef !18
+  %133 = trunc nuw i8 %132 to i1
+  br i1 %133, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152, label %134
 
-132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %134 = load ptr, ptr %133, align 8, !tbaa !2687
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 32
+134:                                              ; preds = %130
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %136 = load ptr, ptr %135, align 8, !tbaa !2687
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 4
-  %137 = load float, ptr %136, align 4, !tbaa !2375
-  %138 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store float %137, ptr %138, align 4, !tbaa !2375
-  %139 = load float, ptr %134, align 4, !tbaa !2375
-  store float %139, ptr %16, align 4, !tbaa !2375
-  %140 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %storemerge.in6.i.i.i32.i = load ptr, ptr %135, align 8, !tbaa !2688
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 4
+  %139 = load float, ptr %138, align 4, !tbaa !2375
+  %140 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store float %139, ptr %140, align 4, !tbaa !2375
+  %141 = load float, ptr %136, align 4, !tbaa !2375
+  store float %141, ptr %16, align 4, !tbaa !2375
+  %142 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %storemerge.in6.i.i.i32.i = load ptr, ptr %137, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i33.i = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i32.i, i64 4
   %storemerge58.i.i.i34.i = load float, ptr %storemerge5.in7.i.i.i33.i, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i34.i, ptr %140, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i34.i, ptr %142, align 4, !tbaa !2375
   %storemerge9.i.i.i35.i = load float, ptr %storemerge.in6.i.i.i32.i, align 4, !tbaa !2375
   store float %storemerge9.i.i.i35.i, ptr %17, align 4, !tbaa !2375
-  %141 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %17)
-  br i1 %141, label %.lr.ph.i.i.i37.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i
+  %143 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %17)
+  br i1 %143, label %.lr.ph.i.i.i37.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i
 
-.lr.ph.i.i.i37.i:                                 ; preds = %132
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  br label %145
+.lr.ph.i.i.i37.i:                                 ; preds = %134
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  br label %147
 
-145:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i, %.lr.ph.i.i.i37.i
-  %.010.i.i.i38.i = phi i64 [ 0, %.lr.ph.i.i.i37.i ], [ %151, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i ]
-  %146 = load ptr, ptr %1, align 8, !tbaa !2689
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 72
-  %148 = load i64, ptr %147, align 8, !tbaa !2501
-  %149 = icmp ult i64 %.010.i.i.i38.i, %148
-  br i1 %149, label %150, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i
+147:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i, %.lr.ph.i.i.i37.i
+  %.010.i.i.i38.i = phi i64 [ 0, %.lr.ph.i.i.i37.i ], [ %153, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i ]
+  %148 = load ptr, ptr %1, align 8, !tbaa !2689
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 72
+  %150 = load i64, ptr %149, align 8, !tbaa !2501
+  %151 = icmp ult i64 %.010.i.i.i38.i, %150
+  br i1 %151, label %152, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i
 
-150:                                              ; preds = %145
-  %151 = add nuw i64 %.010.i.i.i38.i, 1
-  %152 = load ptr, ptr %135, align 8, !tbaa !2688, !noalias !2716
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store ptr %153, ptr %135, align 8, !tbaa !2688, !noalias !2716
-  %154 = load ptr, ptr %142, align 8, !tbaa !174, !noalias !2716
-  %155 = icmp eq ptr %153, %154
-  br i1 %155, label %156, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
+152:                                              ; preds = %147
+  %153 = add nuw i64 %.010.i.i.i38.i, 1
+  %154 = load ptr, ptr %137, align 8, !tbaa !2688, !noalias !2716
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  store ptr %155, ptr %137, align 8, !tbaa !2688, !noalias !2716
+  %156 = load ptr, ptr %144, align 8, !tbaa !174, !noalias !2716
+  %157 = icmp eq ptr %155, %156
+  br i1 %157, label %158, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
 
-156:                                              ; preds = %150
-  %157 = load i64, ptr %143, align 8, !tbaa !174, !noalias !2716
-  store i64 %157, ptr %135, align 8, !tbaa !174, !noalias !2716
-  %158 = load i8, ptr %144, align 8, !tbaa !2693, !range !17, !noalias !2716, !noundef !18
-  %159 = trunc nuw i8 %158 to i1
-  %160 = inttoptr i64 %157 to ptr
-  br i1 %159, label %161, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
+158:                                              ; preds = %152
+  %159 = load i64, ptr %145, align 8, !tbaa !174, !noalias !2716
+  store i64 %159, ptr %137, align 8, !tbaa !174, !noalias !2716
+  %160 = load i8, ptr %146, align 8, !tbaa !2693, !range !17, !noalias !2716, !noundef !18
+  %161 = trunc nuw i8 %160 to i1
+  %162 = inttoptr i64 %159 to ptr
+  br i1 %161, label %163, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
 
-161:                                              ; preds = %156
-  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  store ptr %162, ptr %135, align 8, !tbaa !2688, !noalias !2716
-  %163 = icmp eq ptr %152, %160
-  br i1 %163, label %164, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
+163:                                              ; preds = %158
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  store ptr %164, ptr %137, align 8, !tbaa !2688, !noalias !2716
+  %165 = icmp eq ptr %154, %162
+  br i1 %165, label %166, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
 
-164:                                              ; preds = %161
-  store i64 %157, ptr %135, align 8, !tbaa !174, !noalias !2716
+166:                                              ; preds = %163
+  store i64 %159, ptr %137, align 8, !tbaa !174, !noalias !2716
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i: ; preds = %164, %161, %156, %150
-  %storemerge.in.i.i.i40.i = phi ptr [ %153, %150 ], [ %160, %156 ], [ %162, %161 ], [ %160, %164 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i: ; preds = %166, %163, %158, %152
+  %storemerge.in.i.i.i40.i = phi ptr [ %155, %152 ], [ %162, %158 ], [ %164, %163 ], [ %162, %166 ]
   %storemerge5.in.i.i.i41.i = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i40.i, i64 4
   %storemerge5.i.i.i42.i = load float, ptr %storemerge5.in.i.i.i41.i, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i42.i, ptr %140, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i42.i, ptr %142, align 4, !tbaa !2375
   %storemerge.i.i.i43.i = load float, ptr %storemerge.in.i.i.i40.i, align 4, !tbaa !2375
   store float %storemerge.i.i.i43.i, ptr %17, align 4, !tbaa !2375
-  %165 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %17)
-  br i1 %165, label %145, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i, !llvm.loop !2694
+  %167 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %17)
+  br i1 %167, label %147, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i, %145, %132
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i, %147, %134
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  store i8 1, ptr %129, align 8, !tbaa !2630
+  store i8 1, ptr %131, align 8, !tbaa !2630
   br label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
 
-_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i, %128, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit
-  %.0.i151 = phi i32 [ %126, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit ], [ 0, %128 ], [ 0, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i ]
-  %166 = mul nsw i32 %.0.i151, %83
-  %167 = icmp eq i32 %166, -1
-  br i1 %167, label %314, label %168
+_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i, %130, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit
+  %.0.i151 = phi i32 [ %128, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit ], [ 0, %130 ], [ 0, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i ]
+  %168 = mul nsw i32 %.0.i151, %85
+  %169 = icmp eq i32 %168, -1
+  br i1 %169, label %316, label %170
 
-168:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
-  %169 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_q2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %170 = load ptr, ptr %41, align 8, !tbaa !2683
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %.0.i.i.i153 = load ptr, ptr %171, align 8, !tbaa !174
-  %172 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  %.0.i.i1.i154 = load ptr, ptr %172, align 8, !tbaa !174
-  %173 = getelementptr inbounds nuw i8, ptr %170, i64 64
-  %174 = load i8, ptr %173, align 8, !tbaa !2630, !range !17, !noundef !18
-  %175 = trunc nuw i8 %174 to i1
-  br i1 %175, label %208, label %176
+170:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
+  %171 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_q2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %172 = load ptr, ptr %43, align 8, !tbaa !2683
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
+  %.0.i.i.i153 = load ptr, ptr %173, align 8, !tbaa !174
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 24
+  %.0.i.i1.i154 = load ptr, ptr %174, align 8, !tbaa !174
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 64
+  %176 = load i8, ptr %175, align 8, !tbaa !2630, !range !17, !noundef !18
+  %177 = trunc nuw i8 %176 to i1
+  br i1 %177, label %210, label %178
 
-176:                                              ; preds = %168
-  %177 = getelementptr inbounds nuw i8, ptr %170, i64 32
+178:                                              ; preds = %170
+  %179 = getelementptr inbounds nuw i8, ptr %172, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %178 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i154, i64 4
-  %179 = load float, ptr %178, align 4, !tbaa !2375
-  %180 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store float %179, ptr %180, align 4, !tbaa !2375
-  %181 = load float, ptr %.0.i.i1.i154, align 4, !tbaa !2375
-  store float %181, ptr %14, align 4, !tbaa !2375
-  %182 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %storemerge.in6.i.i.i.i.i155 = load ptr, ptr %177, align 8, !tbaa !2688
+  %180 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i154, i64 4
+  %181 = load float, ptr %180, align 4, !tbaa !2375
+  %182 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store float %181, ptr %182, align 4, !tbaa !2375
+  %183 = load float, ptr %.0.i.i1.i154, align 4, !tbaa !2375
+  store float %183, ptr %14, align 4, !tbaa !2375
+  %184 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %storemerge.in6.i.i.i.i.i155 = load ptr, ptr %179, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i155, i64 4
   %storemerge58.i.i.i.i.i157 = load float, ptr %storemerge5.in7.i.i.i.i.i156, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i157, ptr %182, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i157, ptr %184, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i158 = load float, ptr %storemerge.in6.i.i.i.i.i155, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i158, ptr %15, align 4, !tbaa !2375
-  %183 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %15)
-  br i1 %183, label %.lr.ph.i.i.i.i.i161, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
+  %185 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %15)
+  br i1 %185, label %.lr.ph.i.i.i.i.i161, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
 
-.lr.ph.i.i.i.i.i161:                              ; preds = %176
-  %184 = getelementptr inbounds nuw i8, ptr %170, i64 48
-  %185 = getelementptr inbounds nuw i8, ptr %170, i64 40
-  %186 = getelementptr inbounds nuw i8, ptr %170, i64 56
-  br label %187
+.lr.ph.i.i.i.i.i161:                              ; preds = %178
+  %186 = getelementptr inbounds nuw i8, ptr %172, i64 48
+  %187 = getelementptr inbounds nuw i8, ptr %172, i64 40
+  %188 = getelementptr inbounds nuw i8, ptr %172, i64 56
+  br label %189
 
-187:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163, %.lr.ph.i.i.i.i.i161
-  %.010.i.i.i.i.i162 = phi i64 [ 0, %.lr.ph.i.i.i.i.i161 ], [ %193, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163 ]
-  %188 = load ptr, ptr %170, align 8, !tbaa !2689
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 72
-  %190 = load i64, ptr %189, align 8, !tbaa !2501
-  %191 = icmp ult i64 %.010.i.i.i.i.i162, %190
-  br i1 %191, label %192, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
+189:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163, %.lr.ph.i.i.i.i.i161
+  %.010.i.i.i.i.i162 = phi i64 [ 0, %.lr.ph.i.i.i.i.i161 ], [ %195, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163 ]
+  %190 = load ptr, ptr %172, align 8, !tbaa !2689
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 72
+  %192 = load i64, ptr %191, align 8, !tbaa !2501
+  %193 = icmp ult i64 %.010.i.i.i.i.i162, %192
+  br i1 %193, label %194, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
 
-192:                                              ; preds = %187
-  %193 = add nuw i64 %.010.i.i.i.i.i162, 1
-  %194 = load ptr, ptr %177, align 8, !tbaa !2688, !noalias !2719
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  store ptr %195, ptr %177, align 8, !tbaa !2688, !noalias !2719
-  %196 = load ptr, ptr %184, align 8, !tbaa !174, !noalias !2719
-  %197 = icmp eq ptr %195, %196
-  br i1 %197, label %198, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
+194:                                              ; preds = %189
+  %195 = add nuw i64 %.010.i.i.i.i.i162, 1
+  %196 = load ptr, ptr %179, align 8, !tbaa !2688, !noalias !2719
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  store ptr %197, ptr %179, align 8, !tbaa !2688, !noalias !2719
+  %198 = load ptr, ptr %186, align 8, !tbaa !174, !noalias !2719
+  %199 = icmp eq ptr %197, %198
+  br i1 %199, label %200, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
 
-198:                                              ; preds = %192
-  %199 = load i64, ptr %185, align 8, !tbaa !174, !noalias !2719
-  store i64 %199, ptr %177, align 8, !tbaa !174, !noalias !2719
-  %200 = load i8, ptr %186, align 8, !tbaa !2693, !range !17, !noalias !2719, !noundef !18
-  %201 = trunc nuw i8 %200 to i1
-  %202 = inttoptr i64 %199 to ptr
-  br i1 %201, label %203, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
+200:                                              ; preds = %194
+  %201 = load i64, ptr %187, align 8, !tbaa !174, !noalias !2719
+  store i64 %201, ptr %179, align 8, !tbaa !174, !noalias !2719
+  %202 = load i8, ptr %188, align 8, !tbaa !2693, !range !17, !noalias !2719, !noundef !18
+  %203 = trunc nuw i8 %202 to i1
+  %204 = inttoptr i64 %201 to ptr
+  br i1 %203, label %205, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
 
-203:                                              ; preds = %198
-  %204 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  store ptr %204, ptr %177, align 8, !tbaa !2688, !noalias !2719
-  %205 = icmp eq ptr %194, %202
-  br i1 %205, label %206, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
+205:                                              ; preds = %200
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 8
+  store ptr %206, ptr %179, align 8, !tbaa !2688, !noalias !2719
+  %207 = icmp eq ptr %196, %204
+  br i1 %207, label %208, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
 
-206:                                              ; preds = %203
-  store i64 %199, ptr %177, align 8, !tbaa !174, !noalias !2719
+208:                                              ; preds = %205
+  store i64 %201, ptr %179, align 8, !tbaa !174, !noalias !2719
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163: ; preds = %206, %203, %198, %192
-  %storemerge.in.i.i.i.i.i164 = phi ptr [ %195, %192 ], [ %202, %198 ], [ %204, %203 ], [ %202, %206 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163: ; preds = %208, %205, %200, %194
+  %storemerge.in.i.i.i.i.i164 = phi ptr [ %197, %194 ], [ %204, %200 ], [ %206, %205 ], [ %204, %208 ]
   %storemerge5.in.i.i.i.i.i165 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i164, i64 4
   %storemerge5.i.i.i.i.i166 = load float, ptr %storemerge5.in.i.i.i.i.i165, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i166, ptr %182, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i166, ptr %184, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i167 = load float, ptr %storemerge.in.i.i.i.i.i164, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i167, ptr %15, align 4, !tbaa !2375
-  %207 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %15)
-  br i1 %207, label %187, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159, !llvm.loop !2694
+  %209 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %15)
+  br i1 %209, label %189, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163, %187, %176
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163, %189, %178
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  store i8 1, ptr %173, align 8, !tbaa !2630
-  br label %208
+  store i8 1, ptr %175, align 8, !tbaa !2630
+  br label %210
 
-208:                                              ; preds = %168, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
-  %209 = getelementptr inbounds nuw i8, ptr %170, i64 32
-  %.0.i.i2.i160 = load ptr, ptr %209, align 8, !tbaa !174
-  %210 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i153, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i154, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i160)
-  %211 = load ptr, ptr %37, align 8, !tbaa !2686
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  %.0.i.i.i168 = load ptr, ptr %212, align 8, !tbaa !174
-  %213 = getelementptr inbounds nuw i8, ptr %211, i64 24
-  %.0.i.i1.i169 = load ptr, ptr %213, align 8, !tbaa !174
-  %214 = getelementptr inbounds nuw i8, ptr %211, i64 64
-  %215 = load i8, ptr %214, align 8, !tbaa !2630, !range !17, !noundef !18
-  %216 = trunc nuw i8 %215 to i1
-  br i1 %216, label %249, label %217
+210:                                              ; preds = %170, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
+  %211 = getelementptr inbounds nuw i8, ptr %172, i64 32
+  %.0.i.i2.i160 = load ptr, ptr %211, align 8, !tbaa !174
+  %212 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i153, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i154, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i160)
+  %213 = load ptr, ptr %39, align 8, !tbaa !2686
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
+  %.0.i.i.i168 = load ptr, ptr %214, align 8, !tbaa !174
+  %215 = getelementptr inbounds nuw i8, ptr %213, i64 24
+  %.0.i.i1.i169 = load ptr, ptr %215, align 8, !tbaa !174
+  %216 = getelementptr inbounds nuw i8, ptr %213, i64 64
+  %217 = load i8, ptr %216, align 8, !tbaa !2630, !range !17, !noundef !18
+  %218 = trunc nuw i8 %217 to i1
+  br i1 %218, label %251, label %219
 
-217:                                              ; preds = %208
-  %218 = getelementptr inbounds nuw i8, ptr %211, i64 32
+219:                                              ; preds = %210
+  %220 = getelementptr inbounds nuw i8, ptr %213, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %219 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i169, i64 4
-  %220 = load float, ptr %219, align 4, !tbaa !2375
-  %221 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store float %220, ptr %221, align 4, !tbaa !2375
-  %222 = load float, ptr %.0.i.i1.i169, align 4, !tbaa !2375
-  store float %222, ptr %12, align 4, !tbaa !2375
-  %223 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %storemerge.in6.i.i.i.i.i170 = load ptr, ptr %218, align 8, !tbaa !2688
+  %221 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i169, i64 4
+  %222 = load float, ptr %221, align 4, !tbaa !2375
+  %223 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store float %222, ptr %223, align 4, !tbaa !2375
+  %224 = load float, ptr %.0.i.i1.i169, align 4, !tbaa !2375
+  store float %224, ptr %12, align 4, !tbaa !2375
+  %225 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %storemerge.in6.i.i.i.i.i170 = load ptr, ptr %220, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i171 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i170, i64 4
   %storemerge58.i.i.i.i.i172 = load float, ptr %storemerge5.in7.i.i.i.i.i171, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i172, ptr %223, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i172, ptr %225, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i173 = load float, ptr %storemerge.in6.i.i.i.i.i170, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i173, ptr %13, align 4, !tbaa !2375
-  %224 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  br i1 %224, label %.lr.ph.i.i.i.i.i176, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174
+  %226 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
+  br i1 %226, label %.lr.ph.i.i.i.i.i176, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174
 
-.lr.ph.i.i.i.i.i176:                              ; preds = %217
-  %225 = getelementptr inbounds nuw i8, ptr %211, i64 48
-  %226 = getelementptr inbounds nuw i8, ptr %211, i64 40
-  %227 = getelementptr inbounds nuw i8, ptr %211, i64 56
-  br label %228
+.lr.ph.i.i.i.i.i176:                              ; preds = %219
+  %227 = getelementptr inbounds nuw i8, ptr %213, i64 48
+  %228 = getelementptr inbounds nuw i8, ptr %213, i64 40
+  %229 = getelementptr inbounds nuw i8, ptr %213, i64 56
+  br label %230
 
-228:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178, %.lr.ph.i.i.i.i.i176
-  %.010.i.i.i.i.i177 = phi i64 [ 0, %.lr.ph.i.i.i.i.i176 ], [ %234, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178 ]
-  %229 = load ptr, ptr %211, align 8, !tbaa !2689
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
-  %231 = load i64, ptr %230, align 8, !tbaa !2501
-  %232 = icmp ult i64 %.010.i.i.i.i.i177, %231
-  br i1 %232, label %233, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174
+230:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178, %.lr.ph.i.i.i.i.i176
+  %.010.i.i.i.i.i177 = phi i64 [ 0, %.lr.ph.i.i.i.i.i176 ], [ %236, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178 ]
+  %231 = load ptr, ptr %213, align 8, !tbaa !2689
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 72
+  %233 = load i64, ptr %232, align 8, !tbaa !2501
+  %234 = icmp ult i64 %.010.i.i.i.i.i177, %233
+  br i1 %234, label %235, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174
 
-233:                                              ; preds = %228
-  %234 = add nuw i64 %.010.i.i.i.i.i177, 1
-  %235 = load ptr, ptr %218, align 8, !tbaa !2688, !noalias !2722
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store ptr %236, ptr %218, align 8, !tbaa !2688, !noalias !2722
-  %237 = load ptr, ptr %225, align 8, !tbaa !174, !noalias !2722
-  %238 = icmp eq ptr %236, %237
-  br i1 %238, label %239, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
+235:                                              ; preds = %230
+  %236 = add nuw i64 %.010.i.i.i.i.i177, 1
+  %237 = load ptr, ptr %220, align 8, !tbaa !2688, !noalias !2722
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
+  store ptr %238, ptr %220, align 8, !tbaa !2688, !noalias !2722
+  %239 = load ptr, ptr %227, align 8, !tbaa !174, !noalias !2722
+  %240 = icmp eq ptr %238, %239
+  br i1 %240, label %241, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
 
-239:                                              ; preds = %233
-  %240 = load i64, ptr %226, align 8, !tbaa !174, !noalias !2722
-  store i64 %240, ptr %218, align 8, !tbaa !174, !noalias !2722
-  %241 = load i8, ptr %227, align 8, !tbaa !2693, !range !17, !noalias !2722, !noundef !18
-  %242 = trunc nuw i8 %241 to i1
-  %243 = inttoptr i64 %240 to ptr
-  br i1 %242, label %244, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
+241:                                              ; preds = %235
+  %242 = load i64, ptr %228, align 8, !tbaa !174, !noalias !2722
+  store i64 %242, ptr %220, align 8, !tbaa !174, !noalias !2722
+  %243 = load i8, ptr %229, align 8, !tbaa !2693, !range !17, !noalias !2722, !noundef !18
+  %244 = trunc nuw i8 %243 to i1
+  %245 = inttoptr i64 %242 to ptr
+  br i1 %244, label %246, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
 
-244:                                              ; preds = %239
-  %245 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  store ptr %245, ptr %218, align 8, !tbaa !2688, !noalias !2722
-  %246 = icmp eq ptr %235, %243
-  br i1 %246, label %247, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
+246:                                              ; preds = %241
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
+  store ptr %247, ptr %220, align 8, !tbaa !2688, !noalias !2722
+  %248 = icmp eq ptr %237, %245
+  br i1 %248, label %249, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
 
-247:                                              ; preds = %244
-  store i64 %240, ptr %218, align 8, !tbaa !174, !noalias !2722
+249:                                              ; preds = %246
+  store i64 %242, ptr %220, align 8, !tbaa !174, !noalias !2722
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178: ; preds = %247, %244, %239, %233
-  %storemerge.in.i.i.i.i.i179 = phi ptr [ %236, %233 ], [ %243, %239 ], [ %245, %244 ], [ %243, %247 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178: ; preds = %249, %246, %241, %235
+  %storemerge.in.i.i.i.i.i179 = phi ptr [ %238, %235 ], [ %245, %241 ], [ %247, %246 ], [ %245, %249 ]
   %storemerge5.in.i.i.i.i.i180 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i179, i64 4
   %storemerge5.i.i.i.i.i181 = load float, ptr %storemerge5.in.i.i.i.i.i180, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i181, ptr %223, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i181, ptr %225, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i182 = load float, ptr %storemerge.in.i.i.i.i.i179, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i182, ptr %13, align 4, !tbaa !2375
-  %248 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  br i1 %248, label %228, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174, !llvm.loop !2694
+  %250 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %13)
+  br i1 %250, label %230, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178, %228, %217
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178, %230, %219
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  store i8 1, ptr %214, align 8, !tbaa !2630
-  br label %249
+  store i8 1, ptr %216, align 8, !tbaa !2630
+  br label %251
 
-249:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174, %208
-  %250 = getelementptr inbounds nuw i8, ptr %211, i64 32
-  %.0.i.i2.i175 = load ptr, ptr %250, align 8, !tbaa !174
-  %251 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i168, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i169, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i175)
-  %.not = icmp eq i32 %251, 1
-  %252 = icmp eq i32 %.0.i151, 0
-  %253 = mul nsw i32 %251, %83
-  %254 = icmp ne i32 %253, 1
-  %255 = select i1 %252, i1 %254, i1 false
-  %256 = icmp eq i32 %210, %83
-  %257 = icmp eq i32 %210, %.0.i151
-  %or.cond = or i1 %256, %257
-  br i1 %or.cond, label %261, label %258
+251:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174, %210
+  %252 = getelementptr inbounds nuw i8, ptr %213, i64 32
+  %.0.i.i2.i175 = load ptr, ptr %252, align 8, !tbaa !174
+  %253 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i168, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i169, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i175)
+  %.not = icmp eq i32 %253, 1
+  %254 = icmp eq i32 %.0.i151, 0
+  %255 = mul nsw i32 %253, %85
+  %256 = icmp ne i32 %255, 1
+  %257 = select i1 %254, i1 %256, i1 false
+  %258 = icmp eq i32 %212, %85
+  %259 = icmp eq i32 %212, %.0.i151
+  %or.cond = or i1 %258, %259
+  br i1 %or.cond, label %263, label %260
 
-258:                                              ; preds = %249
-  %259 = or i32 %.0.i151, %83
-  %or.cond4 = icmp eq i32 %259, 0
-  %260 = icmp ne i32 %210, -1
-  %or.cond6 = and i1 %or.cond4, %260
-  br i1 %or.cond6, label %261, label %303
+260:                                              ; preds = %251
+  %261 = or i32 %.0.i151, %85
+  %or.cond4 = icmp eq i32 %261, 0
+  %262 = icmp ne i32 %212, -1
+  %or.cond6 = and i1 %or.cond4, %262
+  br i1 %or.cond6, label %263, label %305
 
-261:                                              ; preds = %258, %249
-  %262 = icmp eq i32 %81, 0
-  %263 = or i32 %.0.i151, %81
-  %or.cond8.not = icmp eq i32 %263, 0
-  br i1 %or.cond8.not, label %264, label %266
+263:                                              ; preds = %260, %251
+  %264 = icmp eq i32 %83, 0
+  %265 = or i32 %.0.i151, %83
+  %or.cond8.not = icmp eq i32 %265, 0
+  br i1 %or.cond8.not, label %266, label %268
 
-264:                                              ; preds = %261
-  %265 = call noundef zeroext i1 @_ZN5boost8geometry6detail7overlay5touchINS2_9turn_infoINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEENS2_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEENS2_17policy_verify_allEE22handle_imperfect_touchINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS5_3boxISB_EELm2EEESB_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSB_St6vectorISB_SaISB_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEES17_S15_EEbRKT_RKT0_iRKT1_RSI_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, i32 noundef %169, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(160) %2)
-  br i1 %265, label %.critedge, label %266
+266:                                              ; preds = %263
+  %267 = call noundef zeroext i1 @_ZN5boost8geometry6detail7overlay5touchINS2_9turn_infoINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEENS2_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEENS2_17policy_verify_allEE22handle_imperfect_touchINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS5_3boxISB_EELm2EEESB_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSB_St6vectorISB_SaISB_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEES17_S15_EEbRKT_RKT0_iRKT1_RSI_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, i32 noundef %171, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  br i1 %267, label %.critedge, label %268
 
-266:                                              ; preds = %264, %261
-  %267 = icmp ne i32 %169, 0
-  %or.cond14 = or i1 %267, %255
-  br i1 %or.cond14, label %269, label %268
+268:                                              ; preds = %266, %263
+  %269 = icmp ne i32 %171, 0
+  %or.cond14 = or i1 %269, %257
+  br i1 %or.cond14, label %271, label %270
 
-268:                                              ; preds = %266
+270:                                              ; preds = %268
   call void @_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE17set_both_verifiedILm0ELm1ENS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_NS2_9turn_infoISH_NS0_13segment_ratioIfEENS2_14turn_operationISH_S12_EESt5arrayIS14_Lm2EEEEEEvRKT1_RKT2_RKT3_mmRT4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 2, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(160) %2)
   br label %.critedge
 
-269:                                              ; preds = %266
-  br i1 %262, label %270, label %275
+271:                                              ; preds = %268
+  br i1 %264, label %272, label %277
 
-270:                                              ; preds = %269
-  %271 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 3, ptr %271, align 8, !tbaa !2639
-  %272 = select i1 %.not, i32 2, i32 1
-  %273 = select i1 %255, i32 3, i32 %272
-  %274 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 %273, ptr %274, align 8, !tbaa !2639
+272:                                              ; preds = %271
+  %273 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 3, ptr %273, align 8, !tbaa !2639
+  %274 = select i1 %.not, i32 2, i32 1
+  %275 = select i1 %257, i32 3, i32 %274
+  %276 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 %275, ptr %276, align 8, !tbaa !2639
   br label %.critedge
 
-275:                                              ; preds = %269
-  %276 = icmp eq i32 %81, %169
-  %277 = mul nsw i32 %251, %81
-  %278 = icmp ne i32 %277, -1
-  %279 = select i1 %276, i1 %278, i1 false
-  br i1 %279, label %280, label %285
+277:                                              ; preds = %271
+  %278 = icmp eq i32 %83, %171
+  %279 = mul nsw i32 %253, %83
+  %280 = icmp ne i32 %279, -1
+  %281 = select i1 %278, i1 %280, i1 false
+  br i1 %281, label %282, label %287
 
-280:                                              ; preds = %275
-  %281 = select i1 %.not, i32 1, i32 2
-  %282 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %281, ptr %282, align 8, !tbaa !2639
-  %283 = select i1 %.not, i32 2, i32 1
-  %284 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %spec.store.select = select i1 %255, i32 3, i32 %283
-  store i32 %spec.store.select, ptr %284, align 8
+282:                                              ; preds = %277
+  %283 = select i1 %.not, i32 1, i32 2
+  %284 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 %283, ptr %284, align 8, !tbaa !2639
+  %285 = select i1 %.not, i32 2, i32 1
+  %286 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %spec.store.select = select i1 %257, i32 3, i32 %285
+  store i32 %spec.store.select, ptr %286, align 8
   br label %.critedge
 
-285:                                              ; preds = %275
-  %286 = sub nsw i32 0, %251
-  %287 = icmp eq i32 %169, %286
-  br i1 %287, label %288, label %294
+287:                                              ; preds = %277
+  %288 = sub nsw i32 0, %253
+  %289 = icmp eq i32 %171, %288
+  br i1 %289, label %290, label %296
 
-288:                                              ; preds = %285
-  %289 = select i1 %.not, i32 2, i32 1
-  %290 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %289, ptr %290, align 8, !tbaa !2639
-  %291 = select i1 %.not, i32 1, i32 2
-  %292 = getelementptr inbounds nuw i8, ptr %2, i64 96
+290:                                              ; preds = %287
+  %291 = select i1 %.not, i32 2, i32 1
+  %292 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %291, ptr %292, align 8, !tbaa !2639
-  %293 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %293, align 4, !tbaa !2635
+  %293 = select i1 %.not, i32 1, i32 2
+  %294 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 %293, ptr %294, align 8, !tbaa !2639
+  %295 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %295, align 4, !tbaa !2635
   br label %.critedge
 
-294:                                              ; preds = %285
-  %295 = icmp eq i32 %81, %286
-  br i1 %295, label %296, label %.critedge
+296:                                              ; preds = %287
+  %297 = icmp eq i32 %83, %288
+  br i1 %297, label %298, label %.critedge
 
-296:                                              ; preds = %294
-  %297 = select i1 %.not, i32 2, i32 1
-  %298 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %297, ptr %298, align 8, !tbaa !2639
-  %299 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 %297, ptr %299, align 8, !tbaa !2639
-  br i1 %255, label %300, label %301
+298:                                              ; preds = %296
+  %299 = select i1 %.not, i32 2, i32 1
+  %300 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 %299, ptr %300, align 8, !tbaa !2639
+  %301 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 %299, ptr %301, align 8, !tbaa !2639
+  br i1 %257, label %302, label %303
 
-300:                                              ; preds = %296
-  store i32 3, ptr %299, align 8, !tbaa !2639
+302:                                              ; preds = %298
+  store i32 3, ptr %301, align 8, !tbaa !2639
   br label %.critedge
 
-301:                                              ; preds = %296
-  %302 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %302, align 4, !tbaa !2635
+303:                                              ; preds = %298
+  %304 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %304, align 4, !tbaa !2635
   br label %.critedge
 
-303:                                              ; preds = %258
-  %304 = select i1 %.not, i32 2, i32 1
-  %305 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %304, ptr %305, align 8, !tbaa !2639
-  %306 = icmp eq i32 %83, 1
-  %307 = icmp eq i32 %.0.i151, 1
-  %308 = or i1 %306, %307
-  %309 = select i1 %308, i32 1, i32 2
-  %310 = select i1 %255, i32 3, i32 %309
-  %311 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 %310, ptr %311, align 8, !tbaa !2639
-  br i1 %255, label %.critedge, label %312
+305:                                              ; preds = %260
+  %306 = select i1 %.not, i32 2, i32 1
+  %307 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 %306, ptr %307, align 8, !tbaa !2639
+  %308 = icmp eq i32 %85, 1
+  %309 = icmp eq i32 %.0.i151, 1
+  %310 = or i1 %308, %309
+  %311 = select i1 %310, i32 1, i32 2
+  %312 = select i1 %257, i32 3, i32 %311
+  %313 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 %312, ptr %313, align 8, !tbaa !2639
+  br i1 %257, label %.critedge, label %314
 
-312:                                              ; preds = %303
-  %313 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %313, align 4, !tbaa !2635
+314:                                              ; preds = %305
+  %315 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %315, align 4, !tbaa !2635
   br label %.critedge
 
-314:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
-  %315 = load ptr, ptr %41, align 8, !tbaa !2683
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 16
-  %.0.i.i.i183 = load ptr, ptr %316, align 8, !tbaa !174
-  %317 = getelementptr inbounds nuw i8, ptr %315, i64 24
-  %.0.i.i1.i184 = load ptr, ptr %317, align 8, !tbaa !174
-  %318 = getelementptr inbounds nuw i8, ptr %315, i64 64
-  %319 = load i8, ptr %318, align 8, !tbaa !2630, !range !17, !noundef !18
-  %320 = trunc nuw i8 %319 to i1
-  br i1 %320, label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198, label %321
+316:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
+  %317 = load ptr, ptr %43, align 8, !tbaa !2683
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 16
+  %.0.i.i.i183 = load ptr, ptr %318, align 8, !tbaa !174
+  %319 = getelementptr inbounds nuw i8, ptr %317, i64 24
+  %.0.i.i1.i184 = load ptr, ptr %319, align 8, !tbaa !174
+  %320 = getelementptr inbounds nuw i8, ptr %317, i64 64
+  %321 = load i8, ptr %320, align 8, !tbaa !2630, !range !17, !noundef !18
+  %322 = trunc nuw i8 %321 to i1
+  br i1 %322, label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198, label %323
 
-321:                                              ; preds = %314
-  %322 = getelementptr inbounds nuw i8, ptr %315, i64 32
+323:                                              ; preds = %316
+  %324 = getelementptr inbounds nuw i8, ptr %317, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %323 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i184, i64 4
-  %324 = load float, ptr %323, align 4, !tbaa !2375
-  %325 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store float %324, ptr %325, align 4, !tbaa !2375
-  %326 = load float, ptr %.0.i.i1.i184, align 4, !tbaa !2375
-  store float %326, ptr %10, align 4, !tbaa !2375
-  %327 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %storemerge.in6.i.i.i.i.i185 = load ptr, ptr %322, align 8, !tbaa !2688
+  %325 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i184, i64 4
+  %326 = load float, ptr %325, align 4, !tbaa !2375
+  %327 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store float %326, ptr %327, align 4, !tbaa !2375
+  %328 = load float, ptr %.0.i.i1.i184, align 4, !tbaa !2375
+  store float %328, ptr %10, align 4, !tbaa !2375
+  %329 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %storemerge.in6.i.i.i.i.i185 = load ptr, ptr %324, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i185, i64 4
   %storemerge58.i.i.i.i.i187 = load float, ptr %storemerge5.in7.i.i.i.i.i186, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i.i.i187, ptr %327, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i.i.i187, ptr %329, align 4, !tbaa !2375
   %storemerge9.i.i.i.i.i188 = load float, ptr %storemerge.in6.i.i.i.i.i185, align 4, !tbaa !2375
   store float %storemerge9.i.i.i.i.i188, ptr %11, align 4, !tbaa !2375
-  %328 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  br i1 %328, label %.lr.ph.i.i.i.i.i191, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
+  %330 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
+  br i1 %330, label %.lr.ph.i.i.i.i.i191, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
 
-.lr.ph.i.i.i.i.i191:                              ; preds = %321
-  %329 = getelementptr inbounds nuw i8, ptr %315, i64 48
-  %330 = getelementptr inbounds nuw i8, ptr %315, i64 40
-  %331 = getelementptr inbounds nuw i8, ptr %315, i64 56
-  br label %332
+.lr.ph.i.i.i.i.i191:                              ; preds = %323
+  %331 = getelementptr inbounds nuw i8, ptr %317, i64 48
+  %332 = getelementptr inbounds nuw i8, ptr %317, i64 40
+  %333 = getelementptr inbounds nuw i8, ptr %317, i64 56
+  br label %334
 
-332:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193, %.lr.ph.i.i.i.i.i191
-  %.010.i.i.i.i.i192 = phi i64 [ 0, %.lr.ph.i.i.i.i.i191 ], [ %338, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193 ]
-  %333 = load ptr, ptr %315, align 8, !tbaa !2689
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 72
-  %335 = load i64, ptr %334, align 8, !tbaa !2501
-  %336 = icmp ult i64 %.010.i.i.i.i.i192, %335
-  br i1 %336, label %337, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
+334:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193, %.lr.ph.i.i.i.i.i191
+  %.010.i.i.i.i.i192 = phi i64 [ 0, %.lr.ph.i.i.i.i.i191 ], [ %340, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193 ]
+  %335 = load ptr, ptr %317, align 8, !tbaa !2689
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 72
+  %337 = load i64, ptr %336, align 8, !tbaa !2501
+  %338 = icmp ult i64 %.010.i.i.i.i.i192, %337
+  br i1 %338, label %339, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
 
-337:                                              ; preds = %332
-  %338 = add nuw i64 %.010.i.i.i.i.i192, 1
-  %339 = load ptr, ptr %322, align 8, !tbaa !2688, !noalias !2725
-  %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
-  store ptr %340, ptr %322, align 8, !tbaa !2688, !noalias !2725
-  %341 = load ptr, ptr %329, align 8, !tbaa !174, !noalias !2725
-  %342 = icmp eq ptr %340, %341
-  br i1 %342, label %343, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
+339:                                              ; preds = %334
+  %340 = add nuw i64 %.010.i.i.i.i.i192, 1
+  %341 = load ptr, ptr %324, align 8, !tbaa !2688, !noalias !2725
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
+  store ptr %342, ptr %324, align 8, !tbaa !2688, !noalias !2725
+  %343 = load ptr, ptr %331, align 8, !tbaa !174, !noalias !2725
+  %344 = icmp eq ptr %342, %343
+  br i1 %344, label %345, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
 
-343:                                              ; preds = %337
-  %344 = load i64, ptr %330, align 8, !tbaa !174, !noalias !2725
-  store i64 %344, ptr %322, align 8, !tbaa !174, !noalias !2725
-  %345 = load i8, ptr %331, align 8, !tbaa !2693, !range !17, !noalias !2725, !noundef !18
-  %346 = trunc nuw i8 %345 to i1
-  %347 = inttoptr i64 %344 to ptr
-  br i1 %346, label %348, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
+345:                                              ; preds = %339
+  %346 = load i64, ptr %332, align 8, !tbaa !174, !noalias !2725
+  store i64 %346, ptr %324, align 8, !tbaa !174, !noalias !2725
+  %347 = load i8, ptr %333, align 8, !tbaa !2693, !range !17, !noalias !2725, !noundef !18
+  %348 = trunc nuw i8 %347 to i1
+  %349 = inttoptr i64 %346 to ptr
+  br i1 %348, label %350, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
 
-348:                                              ; preds = %343
-  %349 = getelementptr inbounds nuw i8, ptr %347, i64 8
-  store ptr %349, ptr %322, align 8, !tbaa !2688, !noalias !2725
-  %350 = icmp eq ptr %339, %347
-  br i1 %350, label %351, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
+350:                                              ; preds = %345
+  %351 = getelementptr inbounds nuw i8, ptr %349, i64 8
+  store ptr %351, ptr %324, align 8, !tbaa !2688, !noalias !2725
+  %352 = icmp eq ptr %341, %349
+  br i1 %352, label %353, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
 
-351:                                              ; preds = %348
-  store i64 %344, ptr %322, align 8, !tbaa !174, !noalias !2725
+353:                                              ; preds = %350
+  store i64 %346, ptr %324, align 8, !tbaa !174, !noalias !2725
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193: ; preds = %351, %348, %343, %337
-  %storemerge.in.i.i.i.i.i194 = phi ptr [ %340, %337 ], [ %347, %343 ], [ %349, %348 ], [ %347, %351 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193: ; preds = %353, %350, %345, %339
+  %storemerge.in.i.i.i.i.i194 = phi ptr [ %342, %339 ], [ %349, %345 ], [ %351, %350 ], [ %349, %353 ]
   %storemerge5.in.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i194, i64 4
   %storemerge5.i.i.i.i.i196 = load float, ptr %storemerge5.in.i.i.i.i.i195, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i.i.i196, ptr %327, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i.i.i196, ptr %329, align 4, !tbaa !2375
   %storemerge.i.i.i.i.i197 = load float, ptr %storemerge.in.i.i.i.i.i194, align 4, !tbaa !2375
   store float %storemerge.i.i.i.i.i197, ptr %11, align 4, !tbaa !2375
-  %352 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  br i1 %352, label %332, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189, !llvm.loop !2694
+  %354 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
+  br i1 %354, label %334, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193, %332, %321
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193, %334, %323
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i8 1, ptr %318, align 8, !tbaa !2630
+  store i8 1, ptr %320, align 8, !tbaa !2630
   br label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198
 
-_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198: ; preds = %314, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
-  %353 = getelementptr inbounds nuw i8, ptr %315, i64 32
-  %.0.i.i2.i190 = load ptr, ptr %353, align 8, !tbaa !174
-  %354 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i183, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i184, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i190)
-  %355 = icmp eq i32 %354, 0
-  br i1 %355, label %356, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
+_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198: ; preds = %316, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
+  %355 = getelementptr inbounds nuw i8, ptr %317, i64 32
+  %.0.i.i2.i190 = load ptr, ptr %355, align 8, !tbaa !174
+  %356 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i183, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i1.i184, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i2.i190)
+  %357 = icmp eq i32 %356, 0
+  br i1 %357, label %358, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
 
-356:                                              ; preds = %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198
-  %357 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %358 = load i8, ptr %357, align 8, !tbaa !2630, !range !17, !noundef !18
-  %359 = trunc nuw i8 %358 to i1
-  br i1 %359, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212, label %360
+358:                                              ; preds = %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %360 = load i8, ptr %359, align 8, !tbaa !2630, !range !17, !noundef !18
+  %361 = trunc nuw i8 %360 to i1
+  br i1 %361, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212, label %362
 
-360:                                              ; preds = %356
-  %361 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %362 = load ptr, ptr %361, align 8, !tbaa !2687
-  %363 = getelementptr inbounds nuw i8, ptr %0, i64 32
+362:                                              ; preds = %358
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %364 = load ptr, ptr %363, align 8, !tbaa !2687
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %364 = getelementptr inbounds nuw i8, ptr %362, i64 4
-  %365 = load float, ptr %364, align 4, !tbaa !2375
-  %366 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float %365, ptr %366, align 4, !tbaa !2375
-  %367 = load float, ptr %362, align 4, !tbaa !2375
-  store float %367, ptr %8, align 4, !tbaa !2375
-  %368 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %storemerge.in6.i.i.i32.i200 = load ptr, ptr %363, align 8, !tbaa !2688
+  %366 = getelementptr inbounds nuw i8, ptr %364, i64 4
+  %367 = load float, ptr %366, align 4, !tbaa !2375
+  %368 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store float %367, ptr %368, align 4, !tbaa !2375
+  %369 = load float, ptr %364, align 4, !tbaa !2375
+  store float %369, ptr %8, align 4, !tbaa !2375
+  %370 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %storemerge.in6.i.i.i32.i200 = load ptr, ptr %365, align 8, !tbaa !2688
   %storemerge5.in7.i.i.i33.i201 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i32.i200, i64 4
   %storemerge58.i.i.i34.i202 = load float, ptr %storemerge5.in7.i.i.i33.i201, align 4, !tbaa !2375
-  store float %storemerge58.i.i.i34.i202, ptr %368, align 4, !tbaa !2375
+  store float %storemerge58.i.i.i34.i202, ptr %370, align 4, !tbaa !2375
   %storemerge9.i.i.i35.i203 = load float, ptr %storemerge.in6.i.i.i32.i200, align 4, !tbaa !2375
   store float %storemerge9.i.i.i35.i203, ptr %9, align 4, !tbaa !2375
-  %369 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  br i1 %369, label %.lr.ph.i.i.i37.i205, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204
+  %371 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  br i1 %371, label %.lr.ph.i.i.i37.i205, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204
 
-.lr.ph.i.i.i37.i205:                              ; preds = %360
-  %370 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %371 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %372 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br label %373
+.lr.ph.i.i.i37.i205:                              ; preds = %362
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %373 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  br label %375
 
-373:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207, %.lr.ph.i.i.i37.i205
-  %.010.i.i.i38.i206 = phi i64 [ 0, %.lr.ph.i.i.i37.i205 ], [ %379, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207 ]
-  %374 = load ptr, ptr %0, align 8, !tbaa !2689
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 72
-  %376 = load i64, ptr %375, align 8, !tbaa !2501
-  %377 = icmp ult i64 %.010.i.i.i38.i206, %376
-  br i1 %377, label %378, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204
+375:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207, %.lr.ph.i.i.i37.i205
+  %.010.i.i.i38.i206 = phi i64 [ 0, %.lr.ph.i.i.i37.i205 ], [ %381, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207 ]
+  %376 = load ptr, ptr %0, align 8, !tbaa !2689
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 72
+  %378 = load i64, ptr %377, align 8, !tbaa !2501
+  %379 = icmp ult i64 %.010.i.i.i38.i206, %378
+  br i1 %379, label %380, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204
 
-378:                                              ; preds = %373
-  %379 = add nuw i64 %.010.i.i.i38.i206, 1
-  %380 = load ptr, ptr %363, align 8, !tbaa !2688, !noalias !2728
-  %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
-  store ptr %381, ptr %363, align 8, !tbaa !2688, !noalias !2728
-  %382 = load ptr, ptr %370, align 8, !tbaa !174, !noalias !2728
-  %383 = icmp eq ptr %381, %382
-  br i1 %383, label %384, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
+380:                                              ; preds = %375
+  %381 = add nuw i64 %.010.i.i.i38.i206, 1
+  %382 = load ptr, ptr %365, align 8, !tbaa !2688, !noalias !2728
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
+  store ptr %383, ptr %365, align 8, !tbaa !2688, !noalias !2728
+  %384 = load ptr, ptr %372, align 8, !tbaa !174, !noalias !2728
+  %385 = icmp eq ptr %383, %384
+  br i1 %385, label %386, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
 
-384:                                              ; preds = %378
-  %385 = load i64, ptr %371, align 8, !tbaa !174, !noalias !2728
-  store i64 %385, ptr %363, align 8, !tbaa !174, !noalias !2728
-  %386 = load i8, ptr %372, align 8, !tbaa !2693, !range !17, !noalias !2728, !noundef !18
-  %387 = trunc nuw i8 %386 to i1
-  %388 = inttoptr i64 %385 to ptr
-  br i1 %387, label %389, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
+386:                                              ; preds = %380
+  %387 = load i64, ptr %373, align 8, !tbaa !174, !noalias !2728
+  store i64 %387, ptr %365, align 8, !tbaa !174, !noalias !2728
+  %388 = load i8, ptr %374, align 8, !tbaa !2693, !range !17, !noalias !2728, !noundef !18
+  %389 = trunc nuw i8 %388 to i1
+  %390 = inttoptr i64 %387 to ptr
+  br i1 %389, label %391, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
 
-389:                                              ; preds = %384
-  %390 = getelementptr inbounds nuw i8, ptr %388, i64 8
-  store ptr %390, ptr %363, align 8, !tbaa !2688, !noalias !2728
-  %391 = icmp eq ptr %380, %388
-  br i1 %391, label %392, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
+391:                                              ; preds = %386
+  %392 = getelementptr inbounds nuw i8, ptr %390, i64 8
+  store ptr %392, ptr %365, align 8, !tbaa !2688, !noalias !2728
+  %393 = icmp eq ptr %382, %390
+  br i1 %393, label %394, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
 
-392:                                              ; preds = %389
-  store i64 %385, ptr %363, align 8, !tbaa !174, !noalias !2728
+394:                                              ; preds = %391
+  store i64 %387, ptr %365, align 8, !tbaa !174, !noalias !2728
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207: ; preds = %392, %389, %384, %378
-  %storemerge.in.i.i.i40.i208 = phi ptr [ %381, %378 ], [ %388, %384 ], [ %390, %389 ], [ %388, %392 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207: ; preds = %394, %391, %386, %380
+  %storemerge.in.i.i.i40.i208 = phi ptr [ %383, %380 ], [ %390, %386 ], [ %392, %391 ], [ %390, %394 ]
   %storemerge5.in.i.i.i41.i209 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i40.i208, i64 4
   %storemerge5.i.i.i42.i210 = load float, ptr %storemerge5.in.i.i.i41.i209, align 4, !tbaa !2375
-  store float %storemerge5.i.i.i42.i210, ptr %368, align 4, !tbaa !2375
+  store float %storemerge5.i.i.i42.i210, ptr %370, align 4, !tbaa !2375
   %storemerge.i.i.i43.i211 = load float, ptr %storemerge.in.i.i.i40.i208, align 4, !tbaa !2375
   store float %storemerge.i.i.i43.i211, ptr %9, align 4, !tbaa !2375
-  %393 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  br i1 %393, label %373, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204, !llvm.loop !2694
+  %395 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  br i1 %395, label %375, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204, !llvm.loop !2694
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207, %373, %360
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIfLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207, %375, %362
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  store i8 1, ptr %357, align 8, !tbaa !2630
+  store i8 1, ptr %359, align 8, !tbaa !2630
   br label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
 
-_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204, %356, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198
-  %.0.i199 = phi i32 [ %354, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198 ], [ 0, %356 ], [ 0, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204 ]
+_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204, %358, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198
+  %.0.i199 = phi i32 [ %356, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198 ], [ 0, %358 ], [ 0, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204 ]
   %.not213 = icmp eq i32 %.0.i151, 1
-  %394 = icmp eq i32 %.0.i199, %83
-  br i1 %394, label %395, label %408
+  %396 = icmp eq i32 %.0.i199, %85
+  br i1 %396, label %397, label %410
 
-395:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
-  %396 = icmp eq i32 %81, 0
-  br i1 %396, label %397, label %401
+397:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
+  %398 = icmp eq i32 %83, 0
+  br i1 %398, label %399, label %403
 
-397:                                              ; preds = %395
-  %398 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 3, ptr %398, align 8, !tbaa !2639
-  %399 = select i1 %.not213, i32 1, i32 2
-  %400 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 %399, ptr %400, align 8, !tbaa !2639
+399:                                              ; preds = %397
+  %400 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 3, ptr %400, align 8, !tbaa !2639
+  %401 = select i1 %.not213, i32 1, i32 2
+  %402 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 %401, ptr %402, align 8, !tbaa !2639
   br label %.critedge
 
-401:                                              ; preds = %395
-  %402 = icmp eq i32 %81, %.0.i151
-  br i1 %402, label %403, label %408
+403:                                              ; preds = %397
+  %404 = icmp eq i32 %83, %.0.i151
+  br i1 %404, label %405, label %410
 
-403:                                              ; preds = %401
-  %404 = select i1 %.not213, i32 1, i32 2
-  %405 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %404, ptr %405, align 8, !tbaa !2639
-  %406 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 %404, ptr %406, align 8, !tbaa !2639
-  %407 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %407, align 4, !tbaa !2635
+405:                                              ; preds = %403
+  %406 = select i1 %.not213, i32 1, i32 2
+  %407 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 %406, ptr %407, align 8, !tbaa !2639
+  %408 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 %406, ptr %408, align 8, !tbaa !2639
+  %409 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %409, align 4, !tbaa !2635
   br label %.critedge
 
-408:                                              ; preds = %401, %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
-  %409 = icmp eq i32 %.0.i199, %.0.i151
-  br i1 %409, label %410, label %424
+410:                                              ; preds = %403, %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
+  %411 = icmp eq i32 %.0.i199, %.0.i151
+  br i1 %411, label %412, label %426
 
-410:                                              ; preds = %408
-  %411 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_q2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %412 = icmp eq i32 %411, 0
-  br i1 %412, label %413, label %416
+412:                                              ; preds = %410
+  %413 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_q2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %414 = icmp eq i32 %413, 0
+  br i1 %414, label %415, label %418
 
-413:                                              ; preds = %410
-  %414 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 4, ptr %414, align 8, !tbaa !2639
-  %415 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i32 4, ptr %415, align 8, !tbaa !2639
+415:                                              ; preds = %412
+  %416 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 4, ptr %416, align 8, !tbaa !2639
+  %417 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 4, ptr %417, align 8, !tbaa !2639
   br label %.critedge
 
-416:                                              ; preds = %410
-  %417 = icmp eq i32 %411, %.0.i151
-  br i1 %417, label %418, label %424
+418:                                              ; preds = %412
+  %419 = icmp eq i32 %413, %.0.i151
+  br i1 %419, label %420, label %426
 
-418:                                              ; preds = %416
-  %419 = select i1 %.not213, i32 1, i32 2
-  %420 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %419, ptr %420, align 8, !tbaa !2639
-  %421 = select i1 %.not213, i32 2, i32 1
-  %422 = getelementptr inbounds nuw i8, ptr %2, i64 96
+420:                                              ; preds = %418
+  %421 = select i1 %.not213, i32 1, i32 2
+  %422 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %421, ptr %422, align 8, !tbaa !2639
-  %423 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 1, ptr %423, align 4, !tbaa !2635
+  %423 = select i1 %.not213, i32 2, i32 1
+  %424 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 %423, ptr %424, align 8, !tbaa !2639
+  %425 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 1, ptr %425, align 4, !tbaa !2635
   br label %.critedge
 
-424:                                              ; preds = %416, %408
-  %425 = select i1 %.not213, i32 2, i32 1
-  %426 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %425, ptr %426, align 8, !tbaa !2639
-  %427 = select i1 %.not213, i32 1, i32 2
-  %428 = getelementptr inbounds nuw i8, ptr %2, i64 96
+426:                                              ; preds = %418, %410
+  %427 = select i1 %.not213, i32 2, i32 1
+  %428 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %427, ptr %428, align 8, !tbaa !2639
+  %429 = select i1 %.not213, i32 1, i32 2
+  %430 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i32 %429, ptr %430, align 8, !tbaa !2639
   br label %.critedge
 
-.critedge:                                        ; preds = %280, %397, %403, %424, %418, %413, %268, %270, %288, %264, %301, %300, %312, %303, %294
+.critedge:                                        ; preds = %282, %399, %405, %426, %420, %415, %270, %272, %290, %266, %303, %302, %314, %305, %296
   ret void
 }
 
@@ -197345,467 +197342,466 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay14touch_interi
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !1701
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  br label %18
+  br label %17
 
-18:                                               ; preds = %27, %7
-  %.v.i = phi i64 [ 40, %7 ], [ 64, %27 ]
-  %19 = phi i1 [ true, %7 ], [ false, %27 ]
-  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %27 ]
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
-  %21 = load i32, ptr %20, align 4, !tbaa !263
-  switch i32 %21, label %24 [
+17:                                               ; preds = %29, %7
+  %.v.i = phi i64 [ 40, %7 ], [ 64, %29 ]
+  %18 = phi i1 [ true, %7 ], [ false, %29 ]
+  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %29 ]
+  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
+  %20 = load i32, ptr %19, align 4, !tbaa !263
+  switch i32 %20, label %25 [
     i32 1, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
     i32 -1, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i
   ]
 
-_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i: ; preds = %18
-  %.idx26.i = mul nuw nsw i64 %indvars.iv.i, 80
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx26.i
+_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i: ; preds = %17
+  %21 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %2, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
   store double 1.000000e+00, ptr %22, align 8, !tbaa !3067
-  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 96
   store double 1.000000e+00, ptr %.sroa.524.0..sroa_idx.i, align 8, !tbaa !3067
-  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 104
   store double 1.000000e+06, ptr %.sroa.725.0..sroa_idx.i, align 8, !tbaa !3067
-  br label %27
+  br label %29
 
-_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i: ; preds = %18
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 80
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
-  store double 0.000000e+00, ptr %23, align 8, !tbaa !3067
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
+_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i: ; preds = %17
+  %23 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %2, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 88
+  store double 0.000000e+00, ptr %24, align 8, !tbaa !3067
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 96
   store double 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !3067
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 104
   store double 0.000000e+00, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !3067
-  br label %27
+  br label %29
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
-  %.idx27.i = mul nuw nsw i64 %indvars.iv.i, 80
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx27.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !tbaa.struct !3336
-  br label %27
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
+  %27 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %2, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !tbaa.struct !3336
+  br label %29
 
-27:                                               ; preds = %24, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
-  br i1 %19, label %18, label %28, !llvm.loop !3353
+29:                                               ; preds = %25, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
+  br i1 %18, label %17, label %30, !llvm.loop !3353
 
-28:                                               ; preds = %27
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %30 = load i32, ptr %29, align 4, !tbaa !2663
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !3354
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %.0.i.i.i = load ptr, ptr %33, align 8, !tbaa !174
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %.0.i.i1.i = load ptr, ptr %34, align 8, !tbaa !174
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !3356
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  %38 = load i8, ptr %37, align 8, !tbaa !3311, !range !17, !noundef !18
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %74, label %40
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %32 = load i32, ptr %31, align 4, !tbaa !2663
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !3354
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %.0.i.i.i = load ptr, ptr %35, align 8, !tbaa !174
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %.0.i.i1.i = load ptr, ptr %36, align 8, !tbaa !174
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !3356
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %40 = load i8, ptr %39, align 8, !tbaa !3311, !range !17, !noundef !18
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %76, label %42
 
-40:                                               ; preds = %28
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !3357
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 32
+42:                                               ; preds = %30
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %44 = load ptr, ptr %43, align 8, !tbaa !3357
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %45 = load double, ptr %44, align 8, !tbaa !3067
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %45, ptr %46, align 8, !tbaa !3067
-  %47 = load double, ptr %42, align 8, !tbaa !3067
-  store double %47, ptr %12, align 8, !tbaa !3067
-  %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %storemerge.in6.i.i.i.i.i = load ptr, ptr %43, align 8, !tbaa !3358
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %47 = load double, ptr %46, align 8, !tbaa !3067
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store double %47, ptr %48, align 8, !tbaa !3067
+  %49 = load double, ptr %44, align 8, !tbaa !3067
+  store double %49, ptr %12, align 8, !tbaa !3067
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %storemerge.in6.i.i.i.i.i = load ptr, ptr %45, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i, i64 8
   %storemerge58.i.i.i.i.i = load double, ptr %storemerge5.in7.i.i.i.i.i, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i, ptr %48, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i, ptr %50, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i = load double, ptr %storemerge.in6.i.i.i.i.i, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i, ptr %13, align 8, !tbaa !3067
-  %49 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br i1 %49, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+  %51 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  br i1 %51, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %51 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %52 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  br label %53
+.lr.ph.i.i.i.i.i:                                 ; preds = %42
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  br label %55
 
-53:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %59, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
-  %54 = load ptr, ptr %36, align 8, !tbaa !3359
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 88
-  %56 = load i64, ptr %55, align 8, !tbaa !3163
-  %57 = icmp ult i64 %.010.i.i.i.i.i, %56
-  br i1 %57, label %58, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+55:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %61, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
+  %56 = load ptr, ptr %38, align 8, !tbaa !3359
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 88
+  %58 = load i64, ptr %57, align 8, !tbaa !3163
+  %59 = icmp ult i64 %.010.i.i.i.i.i, %58
+  br i1 %59, label %60, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-58:                                               ; preds = %53
-  %59 = add nuw i64 %.010.i.i.i.i.i, 1
-  %60 = load ptr, ptr %43, align 8, !tbaa !3358, !noalias !3360
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store ptr %61, ptr %43, align 8, !tbaa !3358, !noalias !3360
-  %62 = load ptr, ptr %50, align 8, !tbaa !174, !noalias !3360
-  %63 = icmp eq ptr %61, %62
-  br i1 %63, label %64, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+60:                                               ; preds = %55
+  %61 = add nuw i64 %.010.i.i.i.i.i, 1
+  %62 = load ptr, ptr %45, align 8, !tbaa !3358, !noalias !3360
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  store ptr %63, ptr %45, align 8, !tbaa !3358, !noalias !3360
+  %64 = load ptr, ptr %52, align 8, !tbaa !174, !noalias !3360
+  %65 = icmp eq ptr %63, %64
+  br i1 %65, label %66, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-64:                                               ; preds = %58
-  %65 = load i64, ptr %51, align 8, !tbaa !174, !noalias !3360
-  store i64 %65, ptr %43, align 8, !tbaa !174, !noalias !3360
-  %66 = load i8, ptr %52, align 8, !tbaa !3363, !range !17, !noalias !3360, !noundef !18
-  %67 = trunc nuw i8 %66 to i1
-  %68 = inttoptr i64 %65 to ptr
-  br i1 %67, label %69, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+66:                                               ; preds = %60
+  %67 = load i64, ptr %53, align 8, !tbaa !174, !noalias !3360
+  store i64 %67, ptr %45, align 8, !tbaa !174, !noalias !3360
+  %68 = load i8, ptr %54, align 8, !tbaa !3363, !range !17, !noalias !3360, !noundef !18
+  %69 = trunc nuw i8 %68 to i1
+  %70 = inttoptr i64 %67 to ptr
+  br i1 %69, label %71, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store ptr %70, ptr %43, align 8, !tbaa !3358, !noalias !3360
-  %71 = icmp eq ptr %60, %68
-  br i1 %71, label %72, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  store ptr %72, ptr %45, align 8, !tbaa !3358, !noalias !3360
+  %73 = icmp eq ptr %62, %70
+  br i1 %73, label %74, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-72:                                               ; preds = %69
-  store i64 %65, ptr %43, align 8, !tbaa !174, !noalias !3360
+74:                                               ; preds = %71
+  store i64 %67, ptr %45, align 8, !tbaa !174, !noalias !3360
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %72, %69, %64, %58
-  %storemerge.in.i.i.i.i.i = phi ptr [ %61, %58 ], [ %68, %64 ], [ %70, %69 ], [ %68, %72 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %74, %71, %66, %60
+  %storemerge.in.i.i.i.i.i = phi ptr [ %63, %60 ], [ %70, %66 ], [ %72, %71 ], [ %70, %74 ]
   %storemerge5.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i, i64 8
   %storemerge5.i.i.i.i.i = load double, ptr %storemerge5.in.i.i.i.i.i, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i, ptr %48, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i, ptr %50, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i = load double, ptr %storemerge.in.i.i.i.i.i, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i, ptr %13, align 8, !tbaa !3067
-  %73 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br i1 %73, label %53, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !3364
+  %75 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  br i1 %75, label %55, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %53, %40
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %55, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  store i8 1, ptr %37, align 8, !tbaa !3311
-  br label %74
+  store i8 1, ptr %39, align 8, !tbaa !3311
+  br label %76
 
-74:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, %28
-  %75 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %.0.i.i2.i = load ptr, ptr %75, align 8, !tbaa !174
-  %76 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i)
-  %77 = sub nsw i32 0, %76
-  %78 = icmp eq i32 %30, %77
-  br i1 %78, label %79, label %86
+76:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, %30
+  %77 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %.0.i.i2.i = load ptr, ptr %77, align 8, !tbaa !174
+  %78 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i)
+  %79 = sub nsw i32 0, %78
+  %80 = icmp eq i32 %32, %79
+  br i1 %80, label %81, label %88
 
-79:                                               ; preds = %74
-  %80 = icmp ne i32 %76, -1
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %82 = zext i1 %80 to i64
-  %83 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %81, i64 %82
-  store i32 1, ptr %83, align 8, !tbaa !3320
-  %not.83 = xor i1 %80, true
-  %84 = zext i1 %not.83 to i64
-  %85 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %81, i64 %84
-  store i32 2, ptr %85, align 8, !tbaa !3320
-  br label %227
+81:                                               ; preds = %76
+  %82 = icmp ne i32 %78, -1
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %84 = zext i1 %82 to i64
+  %85 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %83, i64 %84
+  store i32 1, ptr %85, align 8, !tbaa !3320
+  %not.83 = xor i1 %82, true
+  %86 = zext i1 %not.83 to i64
+  %87 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %83, i64 %86
+  store i32 2, ptr %87, align 8, !tbaa !3320
+  br label %229
 
-86:                                               ; preds = %74
-  %87 = load ptr, ptr %35, align 8, !tbaa !3356
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %.0.i.i.i85 = load ptr, ptr %88, align 8, !tbaa !174
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %.0.i.i1.i86 = load ptr, ptr %89, align 8, !tbaa !174
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  %91 = load i8, ptr %90, align 8, !tbaa !3311, !range !17, !noundef !18
-  %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %125, label %93
+88:                                               ; preds = %76
+  %89 = load ptr, ptr %37, align 8, !tbaa !3356
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %.0.i.i.i85 = load ptr, ptr %90, align 8, !tbaa !174
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %.0.i.i1.i86 = load ptr, ptr %91, align 8, !tbaa !174
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 64
+  %93 = load i8, ptr %92, align 8, !tbaa !3311, !range !17, !noundef !18
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %127, label %95
 
-93:                                               ; preds = %86
-  %94 = getelementptr inbounds nuw i8, ptr %87, i64 32
+95:                                               ; preds = %88
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i86, i64 8
-  %96 = load double, ptr %95, align 8, !tbaa !3067
-  %97 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %96, ptr %97, align 8, !tbaa !3067
-  %98 = load double, ptr %.0.i.i1.i86, align 8, !tbaa !3067
-  store double %98, ptr %10, align 8, !tbaa !3067
-  %99 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %storemerge.in6.i.i.i.i.i87 = load ptr, ptr %94, align 8, !tbaa !3358
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i86, i64 8
+  %98 = load double, ptr %97, align 8, !tbaa !3067
+  %99 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store double %98, ptr %99, align 8, !tbaa !3067
+  %100 = load double, ptr %.0.i.i1.i86, align 8, !tbaa !3067
+  store double %100, ptr %10, align 8, !tbaa !3067
+  %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %storemerge.in6.i.i.i.i.i87 = load ptr, ptr %96, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i88 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i87, i64 8
   %storemerge58.i.i.i.i.i89 = load double, ptr %storemerge5.in7.i.i.i.i.i88, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i89, ptr %99, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i89, ptr %101, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i90 = load double, ptr %storemerge.in6.i.i.i.i.i87, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i90, ptr %11, align 8, !tbaa !3067
-  %100 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  br i1 %100, label %.lr.ph.i.i.i.i.i93, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
+  %102 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  br i1 %102, label %.lr.ph.i.i.i.i.i93, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
 
-.lr.ph.i.i.i.i.i93:                               ; preds = %93
-  %101 = getelementptr inbounds nuw i8, ptr %87, i64 48
-  %102 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %103 = getelementptr inbounds nuw i8, ptr %87, i64 56
-  br label %104
+.lr.ph.i.i.i.i.i93:                               ; preds = %95
+  %103 = getelementptr inbounds nuw i8, ptr %89, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %89, i64 56
+  br label %106
 
-104:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95, %.lr.ph.i.i.i.i.i93
-  %.010.i.i.i.i.i94 = phi i64 [ 0, %.lr.ph.i.i.i.i.i93 ], [ %110, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95 ]
-  %105 = load ptr, ptr %87, align 8, !tbaa !3359
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 88
-  %107 = load i64, ptr %106, align 8, !tbaa !3163
-  %108 = icmp ult i64 %.010.i.i.i.i.i94, %107
-  br i1 %108, label %109, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
+106:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95, %.lr.ph.i.i.i.i.i93
+  %.010.i.i.i.i.i94 = phi i64 [ 0, %.lr.ph.i.i.i.i.i93 ], [ %112, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95 ]
+  %107 = load ptr, ptr %89, align 8, !tbaa !3359
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 88
+  %109 = load i64, ptr %108, align 8, !tbaa !3163
+  %110 = icmp ult i64 %.010.i.i.i.i.i94, %109
+  br i1 %110, label %111, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
 
-109:                                              ; preds = %104
-  %110 = add nuw i64 %.010.i.i.i.i.i94, 1
-  %111 = load ptr, ptr %94, align 8, !tbaa !3358, !noalias !3365
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store ptr %112, ptr %94, align 8, !tbaa !3358, !noalias !3365
-  %113 = load ptr, ptr %101, align 8, !tbaa !174, !noalias !3365
-  %114 = icmp eq ptr %112, %113
-  br i1 %114, label %115, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
+111:                                              ; preds = %106
+  %112 = add nuw i64 %.010.i.i.i.i.i94, 1
+  %113 = load ptr, ptr %96, align 8, !tbaa !3358, !noalias !3365
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  store ptr %114, ptr %96, align 8, !tbaa !3358, !noalias !3365
+  %115 = load ptr, ptr %103, align 8, !tbaa !174, !noalias !3365
+  %116 = icmp eq ptr %114, %115
+  br i1 %116, label %117, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
 
-115:                                              ; preds = %109
-  %116 = load i64, ptr %102, align 8, !tbaa !174, !noalias !3365
-  store i64 %116, ptr %94, align 8, !tbaa !174, !noalias !3365
-  %117 = load i8, ptr %103, align 8, !tbaa !3363, !range !17, !noalias !3365, !noundef !18
-  %118 = trunc nuw i8 %117 to i1
-  %119 = inttoptr i64 %116 to ptr
-  br i1 %118, label %120, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
+117:                                              ; preds = %111
+  %118 = load i64, ptr %104, align 8, !tbaa !174, !noalias !3365
+  store i64 %118, ptr %96, align 8, !tbaa !174, !noalias !3365
+  %119 = load i8, ptr %105, align 8, !tbaa !3363, !range !17, !noalias !3365, !noundef !18
+  %120 = trunc nuw i8 %119 to i1
+  %121 = inttoptr i64 %118 to ptr
+  br i1 %120, label %122, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
 
-120:                                              ; preds = %115
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store ptr %121, ptr %94, align 8, !tbaa !3358, !noalias !3365
-  %122 = icmp eq ptr %111, %119
-  br i1 %122, label %123, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
+122:                                              ; preds = %117
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  store ptr %123, ptr %96, align 8, !tbaa !3358, !noalias !3365
+  %124 = icmp eq ptr %113, %121
+  br i1 %124, label %125, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
 
-123:                                              ; preds = %120
-  store i64 %116, ptr %94, align 8, !tbaa !174, !noalias !3365
+125:                                              ; preds = %122
+  store i64 %118, ptr %96, align 8, !tbaa !174, !noalias !3365
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95: ; preds = %123, %120, %115, %109
-  %storemerge.in.i.i.i.i.i96 = phi ptr [ %112, %109 ], [ %119, %115 ], [ %121, %120 ], [ %119, %123 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95: ; preds = %125, %122, %117, %111
+  %storemerge.in.i.i.i.i.i96 = phi ptr [ %114, %111 ], [ %121, %117 ], [ %123, %122 ], [ %121, %125 ]
   %storemerge5.in.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i96, i64 8
   %storemerge5.i.i.i.i.i98 = load double, ptr %storemerge5.in.i.i.i.i.i97, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i98, ptr %99, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i98, ptr %101, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i99 = load double, ptr %storemerge.in.i.i.i.i.i96, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i99, ptr %11, align 8, !tbaa !3067
-  %124 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  br i1 %124, label %104, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91, !llvm.loop !3364
+  %126 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  br i1 %126, label %106, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95, %104, %93
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i95, %106, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i8 1, ptr %90, align 8, !tbaa !3311
-  br label %125
+  store i8 1, ptr %92, align 8, !tbaa !3311
+  br label %127
 
-125:                                              ; preds = %86, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
-  %126 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %.0.i.i2.i92 = load ptr, ptr %126, align 8, !tbaa !174
-  %127 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i85, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i86, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i92)
-  %128 = load ptr, ptr %35, align 8, !tbaa !3356
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %.0.i.i.i100 = load ptr, ptr %129, align 8, !tbaa !174
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 64
-  %131 = load i8, ptr %130, align 8, !tbaa !3311, !range !17, !noundef !18
-  %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %165, label %133
+127:                                              ; preds = %88, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i91
+  %128 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %.0.i.i2.i92 = load ptr, ptr %128, align 8, !tbaa !174
+  %129 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i85, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i86, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i92)
+  %130 = load ptr, ptr %37, align 8, !tbaa !3356
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
+  %.0.i.i.i100 = load ptr, ptr %131, align 8, !tbaa !174
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 64
+  %133 = load i8, ptr %132, align 8, !tbaa !3311, !range !17, !noundef !18
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %167, label %135
 
-133:                                              ; preds = %125
-  %134 = getelementptr inbounds nuw i8, ptr %128, i64 32
+135:                                              ; preds = %127
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %135 = getelementptr inbounds nuw i8, ptr %.0.i.i.i100, i64 8
-  %136 = load double, ptr %135, align 8, !tbaa !3067
-  %137 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %136, ptr %137, align 8, !tbaa !3067
-  %138 = load double, ptr %.0.i.i.i100, align 8, !tbaa !3067
-  store double %138, ptr %8, align 8, !tbaa !3067
-  %139 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %storemerge.in6.i.i.i.i.i101 = load ptr, ptr %134, align 8, !tbaa !3358
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i.i100, i64 8
+  %138 = load double, ptr %137, align 8, !tbaa !3067
+  %139 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %138, ptr %139, align 8, !tbaa !3067
+  %140 = load double, ptr %.0.i.i.i100, align 8, !tbaa !3067
+  store double %140, ptr %8, align 8, !tbaa !3067
+  %141 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %storemerge.in6.i.i.i.i.i101 = load ptr, ptr %136, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i101, i64 8
   %storemerge58.i.i.i.i.i103 = load double, ptr %storemerge5.in7.i.i.i.i.i102, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i103, ptr %139, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i103, ptr %141, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i104 = load double, ptr %storemerge.in6.i.i.i.i.i101, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i104, ptr %9, align 8, !tbaa !3067
-  %140 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  br i1 %140, label %.lr.ph.i.i.i.i.i108, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105
+  %142 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  br i1 %142, label %.lr.ph.i.i.i.i.i108, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105
 
-.lr.ph.i.i.i.i.i108:                              ; preds = %133
-  %141 = getelementptr inbounds nuw i8, ptr %128, i64 48
-  %142 = getelementptr inbounds nuw i8, ptr %128, i64 40
-  %143 = getelementptr inbounds nuw i8, ptr %128, i64 56
-  br label %144
+.lr.ph.i.i.i.i.i108:                              ; preds = %135
+  %143 = getelementptr inbounds nuw i8, ptr %130, i64 48
+  %144 = getelementptr inbounds nuw i8, ptr %130, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %130, i64 56
+  br label %146
 
-144:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110, %.lr.ph.i.i.i.i.i108
-  %.010.i.i.i.i.i109 = phi i64 [ 0, %.lr.ph.i.i.i.i.i108 ], [ %150, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110 ]
-  %145 = load ptr, ptr %128, align 8, !tbaa !3359
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 88
-  %147 = load i64, ptr %146, align 8, !tbaa !3163
-  %148 = icmp ult i64 %.010.i.i.i.i.i109, %147
-  br i1 %148, label %149, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105
+146:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110, %.lr.ph.i.i.i.i.i108
+  %.010.i.i.i.i.i109 = phi i64 [ 0, %.lr.ph.i.i.i.i.i108 ], [ %152, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110 ]
+  %147 = load ptr, ptr %130, align 8, !tbaa !3359
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 88
+  %149 = load i64, ptr %148, align 8, !tbaa !3163
+  %150 = icmp ult i64 %.010.i.i.i.i.i109, %149
+  br i1 %150, label %151, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105
 
-149:                                              ; preds = %144
-  %150 = add nuw i64 %.010.i.i.i.i.i109, 1
-  %151 = load ptr, ptr %134, align 8, !tbaa !3358, !noalias !3368
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store ptr %152, ptr %134, align 8, !tbaa !3358, !noalias !3368
-  %153 = load ptr, ptr %141, align 8, !tbaa !174, !noalias !3368
-  %154 = icmp eq ptr %152, %153
-  br i1 %154, label %155, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
+151:                                              ; preds = %146
+  %152 = add nuw i64 %.010.i.i.i.i.i109, 1
+  %153 = load ptr, ptr %136, align 8, !tbaa !3358, !noalias !3368
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  store ptr %154, ptr %136, align 8, !tbaa !3358, !noalias !3368
+  %155 = load ptr, ptr %143, align 8, !tbaa !174, !noalias !3368
+  %156 = icmp eq ptr %154, %155
+  br i1 %156, label %157, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
 
-155:                                              ; preds = %149
-  %156 = load i64, ptr %142, align 8, !tbaa !174, !noalias !3368
-  store i64 %156, ptr %134, align 8, !tbaa !174, !noalias !3368
-  %157 = load i8, ptr %143, align 8, !tbaa !3363, !range !17, !noalias !3368, !noundef !18
-  %158 = trunc nuw i8 %157 to i1
-  %159 = inttoptr i64 %156 to ptr
-  br i1 %158, label %160, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
+157:                                              ; preds = %151
+  %158 = load i64, ptr %144, align 8, !tbaa !174, !noalias !3368
+  store i64 %158, ptr %136, align 8, !tbaa !174, !noalias !3368
+  %159 = load i8, ptr %145, align 8, !tbaa !3363, !range !17, !noalias !3368, !noundef !18
+  %160 = trunc nuw i8 %159 to i1
+  %161 = inttoptr i64 %158 to ptr
+  br i1 %160, label %162, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
 
-160:                                              ; preds = %155
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  store ptr %161, ptr %134, align 8, !tbaa !3358, !noalias !3368
-  %162 = icmp eq ptr %151, %159
-  br i1 %162, label %163, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
+162:                                              ; preds = %157
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  store ptr %163, ptr %136, align 8, !tbaa !3358, !noalias !3368
+  %164 = icmp eq ptr %153, %161
+  br i1 %164, label %165, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
 
-163:                                              ; preds = %160
-  store i64 %156, ptr %134, align 8, !tbaa !174, !noalias !3368
+165:                                              ; preds = %162
+  store i64 %158, ptr %136, align 8, !tbaa !174, !noalias !3368
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110: ; preds = %163, %160, %155, %149
-  %storemerge.in.i.i.i.i.i111 = phi ptr [ %152, %149 ], [ %159, %155 ], [ %161, %160 ], [ %159, %163 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110: ; preds = %165, %162, %157, %151
+  %storemerge.in.i.i.i.i.i111 = phi ptr [ %154, %151 ], [ %161, %157 ], [ %163, %162 ], [ %161, %165 ]
   %storemerge5.in.i.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i111, i64 8
   %storemerge5.i.i.i.i.i113 = load double, ptr %storemerge5.in.i.i.i.i.i112, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i113, ptr %139, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i113, ptr %141, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i114 = load double, ptr %storemerge.in.i.i.i.i.i111, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i114, ptr %9, align 8, !tbaa !3067
-  %164 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  br i1 %164, label %144, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105, !llvm.loop !3364
+  %166 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  br i1 %166, label %146, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110, %144, %133
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i110, %146, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  store i8 1, ptr %130, align 8, !tbaa !3311
-  br label %165
+  store i8 1, ptr %132, align 8, !tbaa !3311
+  br label %167
 
-165:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105, %125
-  %166 = getelementptr inbounds nuw i8, ptr %128, i64 32
-  %.0.i.i1.i106 = load ptr, ptr %166, align 8, !tbaa !174
-  %167 = load ptr, ptr %31, align 8, !tbaa !3354
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  %.0.i.i2.i107 = load ptr, ptr %168, align 8, !tbaa !174
-  %169 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i100, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i106, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i107)
-  %170 = and i32 %76, %30
-  %or.cond = icmp eq i32 %170, -1
-  %171 = icmp eq i32 %127, 1
-  %or.cond3 = and i1 %or.cond, %171
-  br i1 %or.cond3, label %172, label %176
+167:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i105, %127
+  %168 = getelementptr inbounds nuw i8, ptr %130, i64 32
+  %.0.i.i1.i106 = load ptr, ptr %168, align 8, !tbaa !174
+  %169 = load ptr, ptr %33, align 8, !tbaa !3354
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  %.0.i.i2.i107 = load ptr, ptr %170, align 8, !tbaa !174
+  %171 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i100, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i106, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i107)
+  %172 = and i32 %78, %32
+  %or.cond = icmp eq i32 %172, -1
+  %173 = icmp eq i32 %129, 1
+  %or.cond3 = and i1 %or.cond, %173
+  br i1 %or.cond3, label %174, label %178
 
-172:                                              ; preds = %165
-  %173 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 2, ptr %173, align 8, !tbaa !3320
-  %174 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 2, ptr %174, align 8, !tbaa !3320
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %175, align 4, !tbaa !3316
-  br label %227
+174:                                              ; preds = %167
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 2, ptr %175, align 8, !tbaa !3320
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 2, ptr %176, align 8, !tbaa !3320
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %177, align 4, !tbaa !3316
+  br label %229
 
-176:                                              ; preds = %165
-  %177 = icmp eq i32 %30, 1
-  %178 = icmp eq i32 %76, 1
-  %or.cond5 = and i1 %177, %178
-  %179 = icmp eq i32 %127, -1
-  %or.cond7 = and i1 %or.cond5, %179
-  br i1 %or.cond7, label %180, label %184
+178:                                              ; preds = %167
+  %179 = icmp eq i32 %32, 1
+  %180 = icmp eq i32 %78, 1
+  %or.cond5 = and i1 %179, %180
+  %181 = icmp eq i32 %129, -1
+  %or.cond7 = and i1 %or.cond5, %181
+  br i1 %or.cond7, label %182, label %186
 
-180:                                              ; preds = %176
-  %.not121 = icmp eq i32 %169, -1
+182:                                              ; preds = %178
+  %.not121 = icmp eq i32 %171, -1
   %spec.select129 = select i1 %.not121, i32 1, i32 3
-  %181 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 1, ptr %181, align 8, !tbaa !3320
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 %spec.select129, ptr %182, align 8, !tbaa !3320
-  %183 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %183, align 4, !tbaa !3316
-  br label %227
+  %183 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 1, ptr %183, align 8, !tbaa !3320
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 %spec.select129, ptr %184, align 8, !tbaa !3320
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %185, align 4, !tbaa !3316
+  br label %229
 
-184:                                              ; preds = %176
-  %185 = icmp eq i32 %30, %76
-  %186 = icmp eq i32 %30, %127
-  %or.cond84 = and i1 %185, %186
-  br i1 %or.cond84, label %187, label %218
+186:                                              ; preds = %178
+  %187 = icmp eq i32 %32, %78
+  %188 = icmp eq i32 %32, %129
+  %or.cond84 = and i1 %187, %188
+  br i1 %or.cond84, label %189, label %220
 
-187:                                              ; preds = %184
-  %.not = icmp eq i32 %169, 0
-  %spec.select = xor i1 %171, %.not
+189:                                              ; preds = %186
+  %.not = icmp eq i32 %171, 0
+  %spec.select = xor i1 %173, %.not
   %.0 = zext i1 %spec.select to i32
-  %188 = mul nsw i32 %169, %30
-  %189 = icmp eq i32 %188, -1
-  br i1 %189, label %190, label %210
+  %190 = mul nsw i32 %171, %32
+  %191 = icmp eq i32 %190, -1
+  br i1 %191, label %192, label %212
 
-190:                                              ; preds = %187
-  %191 = load ptr, ptr %31, align 8, !tbaa !3354
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  %.0.i.i.i115 = load ptr, ptr %192, align 8, !tbaa !174
-  %193 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %.0.i.i1.i116 = load ptr, ptr %193, align 8, !tbaa !174
-  %194 = load ptr, ptr %35, align 8, !tbaa !3356
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  %.0.i.i2.i117 = load ptr, ptr %195, align 8, !tbaa !174
-  %196 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i115, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i116, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i117)
-  %197 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qj_wrt_p2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %198 = mul nsw i32 %197, %196
-  %199 = icmp eq i32 %198, 1
-  br i1 %199, label %200, label %210
+192:                                              ; preds = %189
+  %193 = load ptr, ptr %33, align 8, !tbaa !3354
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
+  %.0.i.i.i115 = load ptr, ptr %194, align 8, !tbaa !174
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 24
+  %.0.i.i1.i116 = load ptr, ptr %195, align 8, !tbaa !174
+  %196 = load ptr, ptr %37, align 8, !tbaa !3356
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
+  %.0.i.i2.i117 = load ptr, ptr %197, align 8, !tbaa !174
+  %198 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i115, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i116, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i117)
+  %199 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qj_wrt_p2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %200 = mul nsw i32 %199, %198
+  %201 = icmp eq i32 %200, 1
+  br i1 %201, label %202, label %212
 
-200:                                              ; preds = %190
-  %201 = load ptr, ptr %35, align 8, !tbaa !3356
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  %.0.i.i.i118 = load ptr, ptr %202, align 8, !tbaa !174
-  %203 = getelementptr inbounds nuw i8, ptr %201, i64 24
-  %.0.i.i1.i119 = load ptr, ptr %203, align 8, !tbaa !174
-  %204 = load ptr, ptr %31, align 8, !tbaa !3354
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %.0.i.i2.i120 = load ptr, ptr %205, align 8, !tbaa !174
-  %206 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i118, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i119, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i120)
-  %207 = mul nsw i32 %206, %169
-  %208 = icmp eq i32 %207, -1
+202:                                              ; preds = %192
+  %203 = load ptr, ptr %37, align 8, !tbaa !3356
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
+  %.0.i.i.i118 = load ptr, ptr %204, align 8, !tbaa !174
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 24
+  %.0.i.i1.i119 = load ptr, ptr %205, align 8, !tbaa !174
+  %206 = load ptr, ptr %33, align 8, !tbaa !3354
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 24
+  %.0.i.i2.i120 = load ptr, ptr %207, align 8, !tbaa !174
+  %208 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i118, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i119, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i120)
+  %209 = mul nsw i32 %208, %171
+  %210 = icmp eq i32 %209, -1
   %not..0.in = xor i1 %spec.select, true
-  %209 = zext i1 %not..0.in to i32
-  %.3 = select i1 %208, i32 %209, i32 %.0
-  br label %210
+  %211 = zext i1 %not..0.in to i32
+  %.3 = select i1 %210, i32 %211, i32 %.0
+  br label %212
 
-210:                                              ; preds = %190, %200, %187
-  %.1 = phi i32 [ %.0, %187 ], [ %.3, %200 ], [ %.0, %190 ]
-  %211 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %212 = zext nneg i32 %.1 to i64
-  %213 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %211, i64 %212
-  store i32 1, ptr %213, align 8, !tbaa !3320
-  %214 = sub nuw nsw i32 1, %.1
-  %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %211, i64 %215
-  store i32 2, ptr %216, align 8, !tbaa !3320
-  %217 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %217, align 4, !tbaa !3316
-  br label %227
+212:                                              ; preds = %192, %202, %189
+  %.1 = phi i32 [ %.0, %189 ], [ %.3, %202 ], [ %.0, %192 ]
+  %213 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %214 = zext nneg i32 %.1 to i64
+  %215 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %213, i64 %214
+  store i32 1, ptr %215, align 8, !tbaa !3320
+  %216 = sub nuw nsw i32 1, %.1
+  %217 = zext nneg i32 %216 to i64
+  %218 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %213, i64 %217
+  store i32 2, ptr %218, align 8, !tbaa !3320
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %219, align 4, !tbaa !3316
+  br label %229
 
-218:                                              ; preds = %184
-  %219 = icmp eq i32 %76, 0
-  br i1 %219, label %220, label %226
-
-220:                                              ; preds = %218
-  br i1 %186, label %221, label %222
-
-221:                                              ; preds = %220
-  call void @_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE17set_both_verifiedILm0ELm1ENS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_NS2_9turn_infoISH_NS0_13segment_ratioIdEENS2_14turn_operationISH_S12_EESt5arrayIS14_Lm2EEEEEEvRKT1_RKT2_RKT3_mmRT4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(200) %2)
-  br label %227
+220:                                              ; preds = %186
+  %221 = icmp eq i32 %78, 0
+  br i1 %221, label %222, label %228
 
 222:                                              ; preds = %220
-  %223 = select i1 %171, i32 2, i32 1
-  %224 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %223, ptr %224, align 8, !tbaa !3320
-  %225 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 3, ptr %225, align 8, !tbaa !3320
-  br label %227
+  br i1 %188, label %223, label %224
 
-226:                                              ; preds = %218
+223:                                              ; preds = %222
+  call void @_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE17set_both_verifiedILm0ELm1ENS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_NS2_9turn_infoISH_NS0_13segment_ratioIdEENS2_14turn_operationISH_S12_EESt5arrayIS14_Lm2EEEEEEvRKT1_RKT2_RKT3_mmRT4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(200) %2)
+  br label %229
+
+224:                                              ; preds = %222
+  %225 = select i1 %173, i32 2, i32 1
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %225, ptr %226, align 8, !tbaa !3320
+  %227 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 3, ptr %227, align 8, !tbaa !3320
+  br label %229
+
+228:                                              ; preds = %220
   store i32 8, ptr %14, align 8, !tbaa !3313
-  br label %227
+  br label %229
 
-227:                                              ; preds = %172, %210, %221, %222, %226, %180, %79
+229:                                              ; preds = %174, %212, %223, %224, %228, %182, %81
   ret void
 }
 
@@ -197822,467 +197818,466 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay14touch_interi
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !1701
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  br label %18
+  br label %17
 
-18:                                               ; preds = %27, %7
-  %.v.i = phi i64 [ 40, %7 ], [ 64, %27 ]
-  %19 = phi i1 [ true, %7 ], [ false, %27 ]
-  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %27 ]
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
-  %21 = load i32, ptr %20, align 4, !tbaa !263
-  switch i32 %21, label %24 [
+17:                                               ; preds = %29, %7
+  %.v.i = phi i64 [ 40, %7 ], [ 64, %29 ]
+  %18 = phi i1 [ true, %7 ], [ false, %29 ]
+  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %29 ]
+  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
+  %20 = load i32, ptr %19, align 4, !tbaa !263
+  switch i32 %20, label %25 [
     i32 1, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
     i32 -1, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i
   ]
 
-_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i: ; preds = %18
-  %.idx26.i = mul nuw nsw i64 %indvars.iv.i, 80
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx26.i
+_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i: ; preds = %17
+  %21 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %2, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
   store double 1.000000e+00, ptr %22, align 8, !tbaa !3067
-  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 96
   store double 1.000000e+00, ptr %.sroa.524.0..sroa_idx.i, align 8, !tbaa !3067
-  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 104
   store double 1.000000e+06, ptr %.sroa.725.0..sroa_idx.i, align 8, !tbaa !3067
-  br label %27
+  br label %29
 
-_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i: ; preds = %18
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 80
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
-  store double 0.000000e+00, ptr %23, align 8, !tbaa !3067
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
+_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i: ; preds = %17
+  %23 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %2, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 88
+  store double 0.000000e+00, ptr %24, align 8, !tbaa !3067
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 96
   store double 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !3067
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 104
   store double 0.000000e+00, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !3067
-  br label %27
+  br label %29
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
-  %.idx27.i = mul nuw nsw i64 %indvars.iv.i, 80
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx27.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !tbaa.struct !3336
-  br label %27
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
+  %27 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %2, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !tbaa.struct !3336
+  br label %29
 
-27:                                               ; preds = %24, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
-  br i1 %19, label %18, label %28, !llvm.loop !3353
+29:                                               ; preds = %25, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
+  br i1 %18, label %17, label %30, !llvm.loop !3353
 
-28:                                               ; preds = %27
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %30 = load i32, ptr %29, align 4, !tbaa !2663
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !3354
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %.0.i.i.i = load ptr, ptr %33, align 8, !tbaa !174
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %.0.i.i1.i = load ptr, ptr %34, align 8, !tbaa !174
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !3356
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  %38 = load i8, ptr %37, align 8, !tbaa !3311, !range !17, !noundef !18
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %74, label %40
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %32 = load i32, ptr %31, align 4, !tbaa !2663
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !3354
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %.0.i.i.i = load ptr, ptr %35, align 8, !tbaa !174
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %.0.i.i1.i = load ptr, ptr %36, align 8, !tbaa !174
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !3356
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %40 = load i8, ptr %39, align 8, !tbaa !3311, !range !17, !noundef !18
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %76, label %42
 
-40:                                               ; preds = %28
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !3357
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 32
+42:                                               ; preds = %30
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %44 = load ptr, ptr %43, align 8, !tbaa !3357
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %45 = load double, ptr %44, align 8, !tbaa !3067
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %45, ptr %46, align 8, !tbaa !3067
-  %47 = load double, ptr %42, align 8, !tbaa !3067
-  store double %47, ptr %12, align 8, !tbaa !3067
-  %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %storemerge.in6.i.i.i.i.i = load ptr, ptr %43, align 8, !tbaa !3358
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %47 = load double, ptr %46, align 8, !tbaa !3067
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store double %47, ptr %48, align 8, !tbaa !3067
+  %49 = load double, ptr %44, align 8, !tbaa !3067
+  store double %49, ptr %12, align 8, !tbaa !3067
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %storemerge.in6.i.i.i.i.i = load ptr, ptr %45, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i, i64 8
   %storemerge58.i.i.i.i.i = load double, ptr %storemerge5.in7.i.i.i.i.i, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i, ptr %48, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i, ptr %50, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i = load double, ptr %storemerge.in6.i.i.i.i.i, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i, ptr %13, align 8, !tbaa !3067
-  %49 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br i1 %49, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+  %51 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  br i1 %51, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %51 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %52 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  br label %53
+.lr.ph.i.i.i.i.i:                                 ; preds = %42
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  br label %55
 
-53:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %59, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
-  %54 = load ptr, ptr %36, align 8, !tbaa !3359
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 88
-  %56 = load i64, ptr %55, align 8, !tbaa !3163
-  %57 = icmp ult i64 %.010.i.i.i.i.i, %56
-  br i1 %57, label %58, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+55:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %61, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
+  %56 = load ptr, ptr %38, align 8, !tbaa !3359
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 88
+  %58 = load i64, ptr %57, align 8, !tbaa !3163
+  %59 = icmp ult i64 %.010.i.i.i.i.i, %58
+  br i1 %59, label %60, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-58:                                               ; preds = %53
-  %59 = add nuw i64 %.010.i.i.i.i.i, 1
-  %60 = load ptr, ptr %43, align 8, !tbaa !3358, !noalias !3371
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store ptr %61, ptr %43, align 8, !tbaa !3358, !noalias !3371
-  %62 = load ptr, ptr %50, align 8, !tbaa !174, !noalias !3371
-  %63 = icmp eq ptr %61, %62
-  br i1 %63, label %64, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+60:                                               ; preds = %55
+  %61 = add nuw i64 %.010.i.i.i.i.i, 1
+  %62 = load ptr, ptr %45, align 8, !tbaa !3358, !noalias !3371
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  store ptr %63, ptr %45, align 8, !tbaa !3358, !noalias !3371
+  %64 = load ptr, ptr %52, align 8, !tbaa !174, !noalias !3371
+  %65 = icmp eq ptr %63, %64
+  br i1 %65, label %66, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-64:                                               ; preds = %58
-  %65 = load i64, ptr %51, align 8, !tbaa !174, !noalias !3371
-  store i64 %65, ptr %43, align 8, !tbaa !174, !noalias !3371
-  %66 = load i8, ptr %52, align 8, !tbaa !3363, !range !17, !noalias !3371, !noundef !18
-  %67 = trunc nuw i8 %66 to i1
-  %68 = inttoptr i64 %65 to ptr
-  br i1 %67, label %69, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+66:                                               ; preds = %60
+  %67 = load i64, ptr %53, align 8, !tbaa !174, !noalias !3371
+  store i64 %67, ptr %45, align 8, !tbaa !174, !noalias !3371
+  %68 = load i8, ptr %54, align 8, !tbaa !3363, !range !17, !noalias !3371, !noundef !18
+  %69 = trunc nuw i8 %68 to i1
+  %70 = inttoptr i64 %67 to ptr
+  br i1 %69, label %71, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store ptr %70, ptr %43, align 8, !tbaa !3358, !noalias !3371
-  %71 = icmp eq ptr %60, %68
-  br i1 %71, label %72, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  store ptr %72, ptr %45, align 8, !tbaa !3358, !noalias !3371
+  %73 = icmp eq ptr %62, %70
+  br i1 %73, label %74, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-72:                                               ; preds = %69
-  store i64 %65, ptr %43, align 8, !tbaa !174, !noalias !3371
+74:                                               ; preds = %71
+  store i64 %67, ptr %45, align 8, !tbaa !174, !noalias !3371
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %72, %69, %64, %58
-  %storemerge.in.i.i.i.i.i = phi ptr [ %61, %58 ], [ %68, %64 ], [ %70, %69 ], [ %68, %72 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %74, %71, %66, %60
+  %storemerge.in.i.i.i.i.i = phi ptr [ %63, %60 ], [ %70, %66 ], [ %72, %71 ], [ %70, %74 ]
   %storemerge5.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i, i64 8
   %storemerge5.i.i.i.i.i = load double, ptr %storemerge5.in.i.i.i.i.i, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i, ptr %48, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i, ptr %50, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i = load double, ptr %storemerge.in.i.i.i.i.i, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i, ptr %13, align 8, !tbaa !3067
-  %73 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br i1 %73, label %53, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !3364
+  %75 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  br i1 %75, label %55, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %53, %40
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %55, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  store i8 1, ptr %37, align 8, !tbaa !3311
-  br label %74
+  store i8 1, ptr %39, align 8, !tbaa !3311
+  br label %76
 
-74:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, %28
-  %75 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %.0.i.i2.i = load ptr, ptr %75, align 8, !tbaa !174
-  %76 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i)
-  %77 = sub nsw i32 0, %76
-  %78 = icmp eq i32 %30, %77
-  br i1 %78, label %79, label %86
+76:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, %30
+  %77 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %.0.i.i2.i = load ptr, ptr %77, align 8, !tbaa !174
+  %78 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i)
+  %79 = sub nsw i32 0, %78
+  %80 = icmp eq i32 %32, %79
+  br i1 %80, label %81, label %88
 
-79:                                               ; preds = %74
-  %80 = icmp eq i32 %76, -1
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %82 = zext i1 %80 to i64
-  %83 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %81, i64 %82
-  store i32 1, ptr %83, align 8, !tbaa !3320
-  %not.82 = xor i1 %80, true
-  %84 = zext i1 %not.82 to i64
-  %85 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %81, i64 %84
-  store i32 2, ptr %85, align 8, !tbaa !3320
-  br label %227
+81:                                               ; preds = %76
+  %82 = icmp eq i32 %78, -1
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %84 = zext i1 %82 to i64
+  %85 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %83, i64 %84
+  store i32 1, ptr %85, align 8, !tbaa !3320
+  %not.82 = xor i1 %82, true
+  %86 = zext i1 %not.82 to i64
+  %87 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %83, i64 %86
+  store i32 2, ptr %87, align 8, !tbaa !3320
+  br label %229
 
-86:                                               ; preds = %74
-  %87 = load ptr, ptr %35, align 8, !tbaa !3356
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %.0.i.i.i84 = load ptr, ptr %88, align 8, !tbaa !174
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %.0.i.i1.i85 = load ptr, ptr %89, align 8, !tbaa !174
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  %91 = load i8, ptr %90, align 8, !tbaa !3311, !range !17, !noundef !18
-  %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %125, label %93
+88:                                               ; preds = %76
+  %89 = load ptr, ptr %37, align 8, !tbaa !3356
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %.0.i.i.i84 = load ptr, ptr %90, align 8, !tbaa !174
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %.0.i.i1.i85 = load ptr, ptr %91, align 8, !tbaa !174
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 64
+  %93 = load i8, ptr %92, align 8, !tbaa !3311, !range !17, !noundef !18
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %127, label %95
 
-93:                                               ; preds = %86
-  %94 = getelementptr inbounds nuw i8, ptr %87, i64 32
+95:                                               ; preds = %88
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i85, i64 8
-  %96 = load double, ptr %95, align 8, !tbaa !3067
-  %97 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %96, ptr %97, align 8, !tbaa !3067
-  %98 = load double, ptr %.0.i.i1.i85, align 8, !tbaa !3067
-  store double %98, ptr %10, align 8, !tbaa !3067
-  %99 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %storemerge.in6.i.i.i.i.i86 = load ptr, ptr %94, align 8, !tbaa !3358
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i85, i64 8
+  %98 = load double, ptr %97, align 8, !tbaa !3067
+  %99 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store double %98, ptr %99, align 8, !tbaa !3067
+  %100 = load double, ptr %.0.i.i1.i85, align 8, !tbaa !3067
+  store double %100, ptr %10, align 8, !tbaa !3067
+  %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %storemerge.in6.i.i.i.i.i86 = load ptr, ptr %96, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i86, i64 8
   %storemerge58.i.i.i.i.i88 = load double, ptr %storemerge5.in7.i.i.i.i.i87, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i88, ptr %99, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i88, ptr %101, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i89 = load double, ptr %storemerge.in6.i.i.i.i.i86, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i89, ptr %11, align 8, !tbaa !3067
-  %100 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  br i1 %100, label %.lr.ph.i.i.i.i.i92, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
+  %102 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  br i1 %102, label %.lr.ph.i.i.i.i.i92, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
 
-.lr.ph.i.i.i.i.i92:                               ; preds = %93
-  %101 = getelementptr inbounds nuw i8, ptr %87, i64 48
-  %102 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %103 = getelementptr inbounds nuw i8, ptr %87, i64 56
-  br label %104
+.lr.ph.i.i.i.i.i92:                               ; preds = %95
+  %103 = getelementptr inbounds nuw i8, ptr %89, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %89, i64 56
+  br label %106
 
-104:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94, %.lr.ph.i.i.i.i.i92
-  %.010.i.i.i.i.i93 = phi i64 [ 0, %.lr.ph.i.i.i.i.i92 ], [ %110, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94 ]
-  %105 = load ptr, ptr %87, align 8, !tbaa !3359
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 88
-  %107 = load i64, ptr %106, align 8, !tbaa !3163
-  %108 = icmp ult i64 %.010.i.i.i.i.i93, %107
-  br i1 %108, label %109, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
+106:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94, %.lr.ph.i.i.i.i.i92
+  %.010.i.i.i.i.i93 = phi i64 [ 0, %.lr.ph.i.i.i.i.i92 ], [ %112, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94 ]
+  %107 = load ptr, ptr %89, align 8, !tbaa !3359
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 88
+  %109 = load i64, ptr %108, align 8, !tbaa !3163
+  %110 = icmp ult i64 %.010.i.i.i.i.i93, %109
+  br i1 %110, label %111, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
 
-109:                                              ; preds = %104
-  %110 = add nuw i64 %.010.i.i.i.i.i93, 1
-  %111 = load ptr, ptr %94, align 8, !tbaa !3358, !noalias !3374
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store ptr %112, ptr %94, align 8, !tbaa !3358, !noalias !3374
-  %113 = load ptr, ptr %101, align 8, !tbaa !174, !noalias !3374
-  %114 = icmp eq ptr %112, %113
-  br i1 %114, label %115, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
+111:                                              ; preds = %106
+  %112 = add nuw i64 %.010.i.i.i.i.i93, 1
+  %113 = load ptr, ptr %96, align 8, !tbaa !3358, !noalias !3374
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  store ptr %114, ptr %96, align 8, !tbaa !3358, !noalias !3374
+  %115 = load ptr, ptr %103, align 8, !tbaa !174, !noalias !3374
+  %116 = icmp eq ptr %114, %115
+  br i1 %116, label %117, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
 
-115:                                              ; preds = %109
-  %116 = load i64, ptr %102, align 8, !tbaa !174, !noalias !3374
-  store i64 %116, ptr %94, align 8, !tbaa !174, !noalias !3374
-  %117 = load i8, ptr %103, align 8, !tbaa !3363, !range !17, !noalias !3374, !noundef !18
-  %118 = trunc nuw i8 %117 to i1
-  %119 = inttoptr i64 %116 to ptr
-  br i1 %118, label %120, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
+117:                                              ; preds = %111
+  %118 = load i64, ptr %104, align 8, !tbaa !174, !noalias !3374
+  store i64 %118, ptr %96, align 8, !tbaa !174, !noalias !3374
+  %119 = load i8, ptr %105, align 8, !tbaa !3363, !range !17, !noalias !3374, !noundef !18
+  %120 = trunc nuw i8 %119 to i1
+  %121 = inttoptr i64 %118 to ptr
+  br i1 %120, label %122, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
 
-120:                                              ; preds = %115
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store ptr %121, ptr %94, align 8, !tbaa !3358, !noalias !3374
-  %122 = icmp eq ptr %111, %119
-  br i1 %122, label %123, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
+122:                                              ; preds = %117
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  store ptr %123, ptr %96, align 8, !tbaa !3358, !noalias !3374
+  %124 = icmp eq ptr %113, %121
+  br i1 %124, label %125, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
 
-123:                                              ; preds = %120
-  store i64 %116, ptr %94, align 8, !tbaa !174, !noalias !3374
+125:                                              ; preds = %122
+  store i64 %118, ptr %96, align 8, !tbaa !174, !noalias !3374
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94: ; preds = %123, %120, %115, %109
-  %storemerge.in.i.i.i.i.i95 = phi ptr [ %112, %109 ], [ %119, %115 ], [ %121, %120 ], [ %119, %123 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94: ; preds = %125, %122, %117, %111
+  %storemerge.in.i.i.i.i.i95 = phi ptr [ %114, %111 ], [ %121, %117 ], [ %123, %122 ], [ %121, %125 ]
   %storemerge5.in.i.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i95, i64 8
   %storemerge5.i.i.i.i.i97 = load double, ptr %storemerge5.in.i.i.i.i.i96, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i97, ptr %99, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i97, ptr %101, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i98 = load double, ptr %storemerge.in.i.i.i.i.i95, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i98, ptr %11, align 8, !tbaa !3067
-  %124 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  br i1 %124, label %104, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90, !llvm.loop !3364
+  %126 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  br i1 %126, label %106, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94, %104, %93
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i94, %106, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i8 1, ptr %90, align 8, !tbaa !3311
-  br label %125
+  store i8 1, ptr %92, align 8, !tbaa !3311
+  br label %127
 
-125:                                              ; preds = %86, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
-  %126 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %.0.i.i2.i91 = load ptr, ptr %126, align 8, !tbaa !174
-  %127 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i85, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i91)
-  %128 = load ptr, ptr %35, align 8, !tbaa !3356
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %.0.i.i.i99 = load ptr, ptr %129, align 8, !tbaa !174
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 64
-  %131 = load i8, ptr %130, align 8, !tbaa !3311, !range !17, !noundef !18
-  %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %165, label %133
+127:                                              ; preds = %88, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i90
+  %128 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %.0.i.i2.i91 = load ptr, ptr %128, align 8, !tbaa !174
+  %129 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i84, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i85, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i91)
+  %130 = load ptr, ptr %37, align 8, !tbaa !3356
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
+  %.0.i.i.i99 = load ptr, ptr %131, align 8, !tbaa !174
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 64
+  %133 = load i8, ptr %132, align 8, !tbaa !3311, !range !17, !noundef !18
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %167, label %135
 
-133:                                              ; preds = %125
-  %134 = getelementptr inbounds nuw i8, ptr %128, i64 32
+135:                                              ; preds = %127
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %135 = getelementptr inbounds nuw i8, ptr %.0.i.i.i99, i64 8
-  %136 = load double, ptr %135, align 8, !tbaa !3067
-  %137 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %136, ptr %137, align 8, !tbaa !3067
-  %138 = load double, ptr %.0.i.i.i99, align 8, !tbaa !3067
-  store double %138, ptr %8, align 8, !tbaa !3067
-  %139 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %storemerge.in6.i.i.i.i.i100 = load ptr, ptr %134, align 8, !tbaa !3358
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i.i99, i64 8
+  %138 = load double, ptr %137, align 8, !tbaa !3067
+  %139 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %138, ptr %139, align 8, !tbaa !3067
+  %140 = load double, ptr %.0.i.i.i99, align 8, !tbaa !3067
+  store double %140, ptr %8, align 8, !tbaa !3067
+  %141 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %storemerge.in6.i.i.i.i.i100 = load ptr, ptr %136, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i101 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i100, i64 8
   %storemerge58.i.i.i.i.i102 = load double, ptr %storemerge5.in7.i.i.i.i.i101, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i102, ptr %139, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i102, ptr %141, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i103 = load double, ptr %storemerge.in6.i.i.i.i.i100, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i103, ptr %9, align 8, !tbaa !3067
-  %140 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  br i1 %140, label %.lr.ph.i.i.i.i.i107, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104
+  %142 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  br i1 %142, label %.lr.ph.i.i.i.i.i107, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104
 
-.lr.ph.i.i.i.i.i107:                              ; preds = %133
-  %141 = getelementptr inbounds nuw i8, ptr %128, i64 48
-  %142 = getelementptr inbounds nuw i8, ptr %128, i64 40
-  %143 = getelementptr inbounds nuw i8, ptr %128, i64 56
-  br label %144
+.lr.ph.i.i.i.i.i107:                              ; preds = %135
+  %143 = getelementptr inbounds nuw i8, ptr %130, i64 48
+  %144 = getelementptr inbounds nuw i8, ptr %130, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %130, i64 56
+  br label %146
 
-144:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109, %.lr.ph.i.i.i.i.i107
-  %.010.i.i.i.i.i108 = phi i64 [ 0, %.lr.ph.i.i.i.i.i107 ], [ %150, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109 ]
-  %145 = load ptr, ptr %128, align 8, !tbaa !3359
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 88
-  %147 = load i64, ptr %146, align 8, !tbaa !3163
-  %148 = icmp ult i64 %.010.i.i.i.i.i108, %147
-  br i1 %148, label %149, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104
+146:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109, %.lr.ph.i.i.i.i.i107
+  %.010.i.i.i.i.i108 = phi i64 [ 0, %.lr.ph.i.i.i.i.i107 ], [ %152, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109 ]
+  %147 = load ptr, ptr %130, align 8, !tbaa !3359
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 88
+  %149 = load i64, ptr %148, align 8, !tbaa !3163
+  %150 = icmp ult i64 %.010.i.i.i.i.i108, %149
+  br i1 %150, label %151, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104
 
-149:                                              ; preds = %144
-  %150 = add nuw i64 %.010.i.i.i.i.i108, 1
-  %151 = load ptr, ptr %134, align 8, !tbaa !3358, !noalias !3377
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store ptr %152, ptr %134, align 8, !tbaa !3358, !noalias !3377
-  %153 = load ptr, ptr %141, align 8, !tbaa !174, !noalias !3377
-  %154 = icmp eq ptr %152, %153
-  br i1 %154, label %155, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
+151:                                              ; preds = %146
+  %152 = add nuw i64 %.010.i.i.i.i.i108, 1
+  %153 = load ptr, ptr %136, align 8, !tbaa !3358, !noalias !3377
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  store ptr %154, ptr %136, align 8, !tbaa !3358, !noalias !3377
+  %155 = load ptr, ptr %143, align 8, !tbaa !174, !noalias !3377
+  %156 = icmp eq ptr %154, %155
+  br i1 %156, label %157, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
 
-155:                                              ; preds = %149
-  %156 = load i64, ptr %142, align 8, !tbaa !174, !noalias !3377
-  store i64 %156, ptr %134, align 8, !tbaa !174, !noalias !3377
-  %157 = load i8, ptr %143, align 8, !tbaa !3363, !range !17, !noalias !3377, !noundef !18
-  %158 = trunc nuw i8 %157 to i1
-  %159 = inttoptr i64 %156 to ptr
-  br i1 %158, label %160, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
+157:                                              ; preds = %151
+  %158 = load i64, ptr %144, align 8, !tbaa !174, !noalias !3377
+  store i64 %158, ptr %136, align 8, !tbaa !174, !noalias !3377
+  %159 = load i8, ptr %145, align 8, !tbaa !3363, !range !17, !noalias !3377, !noundef !18
+  %160 = trunc nuw i8 %159 to i1
+  %161 = inttoptr i64 %158 to ptr
+  br i1 %160, label %162, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
 
-160:                                              ; preds = %155
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  store ptr %161, ptr %134, align 8, !tbaa !3358, !noalias !3377
-  %162 = icmp eq ptr %151, %159
-  br i1 %162, label %163, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
+162:                                              ; preds = %157
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  store ptr %163, ptr %136, align 8, !tbaa !3358, !noalias !3377
+  %164 = icmp eq ptr %153, %161
+  br i1 %164, label %165, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
 
-163:                                              ; preds = %160
-  store i64 %156, ptr %134, align 8, !tbaa !174, !noalias !3377
+165:                                              ; preds = %162
+  store i64 %158, ptr %136, align 8, !tbaa !174, !noalias !3377
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109: ; preds = %163, %160, %155, %149
-  %storemerge.in.i.i.i.i.i110 = phi ptr [ %152, %149 ], [ %159, %155 ], [ %161, %160 ], [ %159, %163 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109: ; preds = %165, %162, %157, %151
+  %storemerge.in.i.i.i.i.i110 = phi ptr [ %154, %151 ], [ %161, %157 ], [ %163, %162 ], [ %161, %165 ]
   %storemerge5.in.i.i.i.i.i111 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i110, i64 8
   %storemerge5.i.i.i.i.i112 = load double, ptr %storemerge5.in.i.i.i.i.i111, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i112, ptr %139, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i112, ptr %141, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i113 = load double, ptr %storemerge.in.i.i.i.i.i110, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i113, ptr %9, align 8, !tbaa !3067
-  %164 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  br i1 %164, label %144, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104, !llvm.loop !3364
+  %166 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  br i1 %166, label %146, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109, %144, %133
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i109, %146, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  store i8 1, ptr %130, align 8, !tbaa !3311
-  br label %165
+  store i8 1, ptr %132, align 8, !tbaa !3311
+  br label %167
 
-165:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104, %125
-  %166 = getelementptr inbounds nuw i8, ptr %128, i64 32
-  %.0.i.i1.i105 = load ptr, ptr %166, align 8, !tbaa !174
-  %167 = load ptr, ptr %31, align 8, !tbaa !3354
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  %.0.i.i2.i106 = load ptr, ptr %168, align 8, !tbaa !174
-  %169 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i99, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i105, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i106)
-  %170 = and i32 %76, %30
-  %or.cond = icmp eq i32 %170, -1
-  %171 = icmp eq i32 %127, 1
-  %or.cond3 = and i1 %or.cond, %171
-  br i1 %or.cond3, label %172, label %176
+167:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i104, %127
+  %168 = getelementptr inbounds nuw i8, ptr %130, i64 32
+  %.0.i.i1.i105 = load ptr, ptr %168, align 8, !tbaa !174
+  %169 = load ptr, ptr %33, align 8, !tbaa !3354
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  %.0.i.i2.i106 = load ptr, ptr %170, align 8, !tbaa !174
+  %171 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i99, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i105, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i106)
+  %172 = and i32 %78, %32
+  %or.cond = icmp eq i32 %172, -1
+  %173 = icmp eq i32 %129, 1
+  %or.cond3 = and i1 %or.cond, %173
+  br i1 %or.cond3, label %174, label %178
 
-172:                                              ; preds = %165
-  %173 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 2, ptr %173, align 8, !tbaa !3320
-  %174 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 2, ptr %174, align 8, !tbaa !3320
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %175, align 4, !tbaa !3316
-  br label %227
+174:                                              ; preds = %167
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 2, ptr %175, align 8, !tbaa !3320
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 2, ptr %176, align 8, !tbaa !3320
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %177, align 4, !tbaa !3316
+  br label %229
 
-176:                                              ; preds = %165
-  %177 = icmp eq i32 %30, 1
-  %178 = icmp eq i32 %76, 1
-  %or.cond5 = and i1 %177, %178
-  %179 = icmp eq i32 %127, -1
-  %or.cond7 = and i1 %or.cond5, %179
-  br i1 %or.cond7, label %180, label %184
+178:                                              ; preds = %167
+  %179 = icmp eq i32 %32, 1
+  %180 = icmp eq i32 %78, 1
+  %or.cond5 = and i1 %179, %180
+  %181 = icmp eq i32 %129, -1
+  %or.cond7 = and i1 %or.cond5, %181
+  br i1 %or.cond7, label %182, label %186
 
-180:                                              ; preds = %176
-  %.not120 = icmp eq i32 %169, -1
+182:                                              ; preds = %178
+  %.not120 = icmp eq i32 %171, -1
   %spec.select128 = select i1 %.not120, i32 1, i32 3
-  %181 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %spec.select128, ptr %181, align 8, !tbaa !3320
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 1, ptr %182, align 8, !tbaa !3320
-  %183 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %183, align 4, !tbaa !3316
-  br label %227
+  %183 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %spec.select128, ptr %183, align 8, !tbaa !3320
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 1, ptr %184, align 8, !tbaa !3320
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %185, align 4, !tbaa !3316
+  br label %229
 
-184:                                              ; preds = %176
-  %185 = icmp eq i32 %30, %76
-  %186 = icmp eq i32 %30, %127
-  %or.cond83 = and i1 %185, %186
-  br i1 %or.cond83, label %187, label %218
+186:                                              ; preds = %178
+  %187 = icmp eq i32 %32, %78
+  %188 = icmp eq i32 %32, %129
+  %or.cond83 = and i1 %187, %188
+  br i1 %or.cond83, label %189, label %220
 
-187:                                              ; preds = %184
-  %.not = icmp ne i32 %169, 0
-  %spec.select = xor i1 %171, %.not
+189:                                              ; preds = %186
+  %.not = icmp ne i32 %171, 0
+  %spec.select = xor i1 %173, %.not
   %.0 = zext i1 %spec.select to i32
-  %188 = mul nsw i32 %169, %30
-  %189 = icmp eq i32 %188, -1
-  br i1 %189, label %190, label %210
+  %190 = mul nsw i32 %171, %32
+  %191 = icmp eq i32 %190, -1
+  br i1 %191, label %192, label %212
 
-190:                                              ; preds = %187
-  %191 = load ptr, ptr %31, align 8, !tbaa !3354
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  %.0.i.i.i114 = load ptr, ptr %192, align 8, !tbaa !174
-  %193 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %.0.i.i1.i115 = load ptr, ptr %193, align 8, !tbaa !174
-  %194 = load ptr, ptr %35, align 8, !tbaa !3356
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  %.0.i.i2.i116 = load ptr, ptr %195, align 8, !tbaa !174
-  %196 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i114, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i115, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i116)
-  %197 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qj_wrt_p2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %198 = mul nsw i32 %197, %196
-  %199 = icmp eq i32 %198, 1
-  br i1 %199, label %200, label %210
+192:                                              ; preds = %189
+  %193 = load ptr, ptr %33, align 8, !tbaa !3354
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
+  %.0.i.i.i114 = load ptr, ptr %194, align 8, !tbaa !174
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 24
+  %.0.i.i1.i115 = load ptr, ptr %195, align 8, !tbaa !174
+  %196 = load ptr, ptr %37, align 8, !tbaa !3356
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
+  %.0.i.i2.i116 = load ptr, ptr %197, align 8, !tbaa !174
+  %198 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i114, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i115, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i116)
+  %199 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qj_wrt_p2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %200 = mul nsw i32 %199, %198
+  %201 = icmp eq i32 %200, 1
+  br i1 %201, label %202, label %212
 
-200:                                              ; preds = %190
-  %201 = load ptr, ptr %35, align 8, !tbaa !3356
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  %.0.i.i.i117 = load ptr, ptr %202, align 8, !tbaa !174
-  %203 = getelementptr inbounds nuw i8, ptr %201, i64 24
-  %.0.i.i1.i118 = load ptr, ptr %203, align 8, !tbaa !174
-  %204 = load ptr, ptr %31, align 8, !tbaa !3354
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %.0.i.i2.i119 = load ptr, ptr %205, align 8, !tbaa !174
-  %206 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i117, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i118, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i119)
-  %207 = mul nsw i32 %206, %169
-  %208 = icmp eq i32 %207, -1
+202:                                              ; preds = %192
+  %203 = load ptr, ptr %37, align 8, !tbaa !3356
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
+  %.0.i.i.i117 = load ptr, ptr %204, align 8, !tbaa !174
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 24
+  %.0.i.i1.i118 = load ptr, ptr %205, align 8, !tbaa !174
+  %206 = load ptr, ptr %33, align 8, !tbaa !3354
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 24
+  %.0.i.i2.i119 = load ptr, ptr %207, align 8, !tbaa !174
+  %208 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i117, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i118, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i119)
+  %209 = mul nsw i32 %208, %171
+  %210 = icmp eq i32 %209, -1
   %not..0.in = xor i1 %spec.select, true
-  %209 = zext i1 %not..0.in to i32
-  %.3 = select i1 %208, i32 %209, i32 %.0
-  br label %210
+  %211 = zext i1 %not..0.in to i32
+  %.3 = select i1 %210, i32 %211, i32 %.0
+  br label %212
 
-210:                                              ; preds = %190, %200, %187
-  %.1 = phi i32 [ %.0, %187 ], [ %.3, %200 ], [ %.0, %190 ]
-  %211 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %212 = zext nneg i32 %.1 to i64
-  %213 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %211, i64 %212
-  store i32 1, ptr %213, align 8, !tbaa !3320
-  %214 = sub nuw nsw i32 1, %.1
-  %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %211, i64 %215
-  store i32 2, ptr %216, align 8, !tbaa !3320
-  %217 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %217, align 4, !tbaa !3316
-  br label %227
+212:                                              ; preds = %192, %202, %189
+  %.1 = phi i32 [ %.0, %189 ], [ %.3, %202 ], [ %.0, %192 ]
+  %213 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %214 = zext nneg i32 %.1 to i64
+  %215 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %213, i64 %214
+  store i32 1, ptr %215, align 8, !tbaa !3320
+  %216 = sub nuw nsw i32 1, %.1
+  %217 = zext nneg i32 %216 to i64
+  %218 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %213, i64 %217
+  store i32 2, ptr %218, align 8, !tbaa !3320
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %219, align 4, !tbaa !3316
+  br label %229
 
-218:                                              ; preds = %184
-  %219 = icmp eq i32 %76, 0
-  br i1 %219, label %220, label %226
-
-220:                                              ; preds = %218
-  br i1 %186, label %221, label %222
-
-221:                                              ; preds = %220
-  call void @_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE17set_both_verifiedILm1ELm0ENS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_NS2_9turn_infoISH_NS0_13segment_ratioIdEENS2_14turn_operationISH_S12_EESt5arrayIS14_Lm2EEEEEEvRKT1_RKT2_RKT3_mmRT4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(200) %2)
-  br label %227
+220:                                              ; preds = %186
+  %221 = icmp eq i32 %78, 0
+  br i1 %221, label %222, label %228
 
 222:                                              ; preds = %220
-  %223 = select i1 %171, i32 2, i32 1
-  %224 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %225 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 %223, ptr %225, align 8, !tbaa !3320
-  store i32 3, ptr %224, align 8, !tbaa !3320
-  br label %227
+  br i1 %188, label %223, label %224
 
-226:                                              ; preds = %218
+223:                                              ; preds = %222
+  call void @_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE17set_both_verifiedILm1ELm0ENS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_NS2_9turn_infoISH_NS0_13segment_ratioIdEENS2_14turn_operationISH_S12_EESt5arrayIS14_Lm2EEEEEEvRKT1_RKT2_RKT3_mmRT4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(200) %2)
+  br label %229
+
+224:                                              ; preds = %222
+  %225 = select i1 %173, i32 2, i32 1
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %227 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 %225, ptr %227, align 8, !tbaa !3320
+  store i32 3, ptr %226, align 8, !tbaa !3320
+  br label %229
+
+228:                                              ; preds = %220
   store i32 8, ptr %14, align 8, !tbaa !3313
-  br label %227
+  br label %229
 
-227:                                              ; preds = %172, %210, %221, %222, %226, %180, %79
+229:                                              ; preds = %174, %212, %223, %224, %228, %182, %81
   ret void
 }
 
@@ -198307,894 +198302,893 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay5touchINS2_9tu
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !1701
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  br label %26
+  br label %25
 
-26:                                               ; preds = %35, %7
-  %.v.i = phi i64 [ 40, %7 ], [ 64, %35 ]
-  %27 = phi i1 [ true, %7 ], [ false, %35 ]
-  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %35 ]
-  %28 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
-  %29 = load i32, ptr %28, align 4, !tbaa !263
-  switch i32 %29, label %32 [
+25:                                               ; preds = %37, %7
+  %.v.i = phi i64 [ 40, %7 ], [ 64, %37 ]
+  %26 = phi i1 [ true, %7 ], [ false, %37 ]
+  %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %37 ]
+  %27 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
+  %28 = load i32, ptr %27, align 4, !tbaa !263
+  switch i32 %28, label %33 [
     i32 1, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
     i32 -1, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i
   ]
 
-_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i: ; preds = %26
-  %.idx26.i = mul nuw nsw i64 %indvars.iv.i, 80
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx26.i
+_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i: ; preds = %25
+  %29 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %2, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   store double 1.000000e+00, ptr %30, align 8, !tbaa !3067
-  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 96
   store double 1.000000e+00, ptr %.sroa.524.0..sroa_idx.i, align 8, !tbaa !3067
-  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 104
   store double 1.000000e+06, ptr %.sroa.725.0..sroa_idx.i, align 8, !tbaa !3067
-  br label %35
+  br label %37
 
-_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i: ; preds = %26
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 80
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
-  store double 0.000000e+00, ptr %31, align 8, !tbaa !3067
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
+_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i: ; preds = %25
+  %31 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %2, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
+  store double 0.000000e+00, ptr %32, align 8, !tbaa !3067
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 96
   store double 1.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !3067
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 104
   store double 0.000000e+00, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !3067
-  br label %35
+  br label %37
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
-  %.idx27.i = mul nuw nsw i64 %indvars.iv.i, 80
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx27.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false), !tbaa.struct !3336
-  br label %35
+33:                                               ; preds = %25
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i
+  %35 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::turn_operation.1253", ptr %2, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !tbaa.struct !3336
+  br label %37
 
-35:                                               ; preds = %32, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
-  br i1 %27, label %26, label %_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit, !llvm.loop !3353
+37:                                               ; preds = %33, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit19.i, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
+  br i1 %26, label %25, label %_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit, !llvm.loop !3353
 
-_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit: ; preds = %35
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !3356
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %.0.i.i.i = load ptr, ptr %38, align 8, !tbaa !174
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %.0.i.i1.i = load ptr, ptr %39, align 8, !tbaa !174
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !3354
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  %43 = load i8, ptr %42, align 8, !tbaa !3311, !range !17, !noundef !18
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit, label %45
+_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit: ; preds = %37
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !3356
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %.0.i.i.i = load ptr, ptr %40, align 8, !tbaa !174
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %.0.i.i1.i = load ptr, ptr %41, align 8, !tbaa !174
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !3354
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %45 = load i8, ptr %44, align 8, !tbaa !3311, !range !17, !noundef !18
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit, label %47
 
-45:                                               ; preds = %_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !3357
-  %48 = getelementptr inbounds nuw i8, ptr %41, i64 32
+47:                                               ; preds = %_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !3357
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %50 = load double, ptr %49, align 8, !tbaa !3067
-  %51 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store double %50, ptr %51, align 8, !tbaa !3067
-  %52 = load double, ptr %47, align 8, !tbaa !3067
-  store double %52, ptr %20, align 8, !tbaa !3067
-  %53 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %storemerge.in6.i.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !3358
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %52 = load double, ptr %51, align 8, !tbaa !3067
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store double %52, ptr %53, align 8, !tbaa !3067
+  %54 = load double, ptr %49, align 8, !tbaa !3067
+  store double %54, ptr %20, align 8, !tbaa !3067
+  %55 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %storemerge.in6.i.i.i.i.i = load ptr, ptr %50, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i, i64 8
   %storemerge58.i.i.i.i.i = load double, ptr %storemerge5.in7.i.i.i.i.i, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i, ptr %53, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i, ptr %55, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i = load double, ptr %storemerge.in6.i.i.i.i.i, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i, ptr %21, align 8, !tbaa !3067
-  %54 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  br i1 %54, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+  %56 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  br i1 %56, label %.lr.ph.i.i.i.i.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %45
-  %55 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %56 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %57 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  br label %58
+.lr.ph.i.i.i.i.i:                                 ; preds = %47
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  br label %60
 
-58:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %64, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
-  %59 = load ptr, ptr %41, align 8, !tbaa !3359
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 88
-  %61 = load i64, ptr %60, align 8, !tbaa !3163
-  %62 = icmp ult i64 %.010.i.i.i.i.i, %61
-  br i1 %62, label %63, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
+60:                                               ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %66, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i ]
+  %61 = load ptr, ptr %43, align 8, !tbaa !3359
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 88
+  %63 = load i64, ptr %62, align 8, !tbaa !3163
+  %64 = icmp ult i64 %.010.i.i.i.i.i, %63
+  br i1 %64, label %65, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i
 
-63:                                               ; preds = %58
-  %64 = add nuw i64 %.010.i.i.i.i.i, 1
-  %65 = load ptr, ptr %48, align 8, !tbaa !3358, !noalias !3380
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %66, ptr %48, align 8, !tbaa !3358, !noalias !3380
-  %67 = load ptr, ptr %55, align 8, !tbaa !174, !noalias !3380
-  %68 = icmp eq ptr %66, %67
-  br i1 %68, label %69, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+65:                                               ; preds = %60
+  %66 = add nuw i64 %.010.i.i.i.i.i, 1
+  %67 = load ptr, ptr %50, align 8, !tbaa !3358, !noalias !3380
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store ptr %68, ptr %50, align 8, !tbaa !3358, !noalias !3380
+  %69 = load ptr, ptr %57, align 8, !tbaa !174, !noalias !3380
+  %70 = icmp eq ptr %68, %69
+  br i1 %70, label %71, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-69:                                               ; preds = %63
-  %70 = load i64, ptr %56, align 8, !tbaa !174, !noalias !3380
-  store i64 %70, ptr %48, align 8, !tbaa !174, !noalias !3380
-  %71 = load i8, ptr %57, align 8, !tbaa !3363, !range !17, !noalias !3380, !noundef !18
-  %72 = trunc nuw i8 %71 to i1
-  %73 = inttoptr i64 %70 to ptr
-  br i1 %72, label %74, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+71:                                               ; preds = %65
+  %72 = load i64, ptr %58, align 8, !tbaa !174, !noalias !3380
+  store i64 %72, ptr %50, align 8, !tbaa !174, !noalias !3380
+  %73 = load i8, ptr %59, align 8, !tbaa !3363, !range !17, !noalias !3380, !noundef !18
+  %74 = trunc nuw i8 %73 to i1
+  %75 = inttoptr i64 %72 to ptr
+  br i1 %74, label %76, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store ptr %75, ptr %48, align 8, !tbaa !3358, !noalias !3380
-  %76 = icmp eq ptr %65, %73
-  br i1 %76, label %77, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
+76:                                               ; preds = %71
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  store ptr %77, ptr %50, align 8, !tbaa !3358, !noalias !3380
+  %78 = icmp eq ptr %67, %75
+  br i1 %78, label %79, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-77:                                               ; preds = %74
-  store i64 %70, ptr %48, align 8, !tbaa !174, !noalias !3380
+79:                                               ; preds = %76
+  store i64 %72, ptr %50, align 8, !tbaa !174, !noalias !3380
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %77, %74, %69, %63
-  %storemerge.in.i.i.i.i.i = phi ptr [ %66, %63 ], [ %73, %69 ], [ %75, %74 ], [ %73, %77 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i: ; preds = %79, %76, %71, %65
+  %storemerge.in.i.i.i.i.i = phi ptr [ %68, %65 ], [ %75, %71 ], [ %77, %76 ], [ %75, %79 ]
   %storemerge5.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i, i64 8
   %storemerge5.i.i.i.i.i = load double, ptr %storemerge5.in.i.i.i.i.i, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i, ptr %53, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i, ptr %55, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i = load double, ptr %storemerge.in.i.i.i.i.i, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i, ptr %21, align 8, !tbaa !3067
-  %78 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  br i1 %78, label %58, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !3364
+  %80 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  br i1 %80, label %60, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %58, %45
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i, %60, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  store i8 1, ptr %42, align 8, !tbaa !3311
+  store i8 1, ptr %44, align 8, !tbaa !3311
   br label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit
 
 _ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i, %_ZN5boost8geometry6detail7overlay17base_turn_handler24assign_point_and_correctINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEENS2_14turn_operationISC_SE_EESt5arrayISG_Lm2EEEENS0_27segment_intersection_pointsISC_SE_EENS0_8policies6relate14direction_typeEEEvRT_NS2_11method_typeERKT0_RKT1_.exit
-  %79 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %.0.i.i2.i = load ptr, ptr %79, align 8, !tbaa !174
-  %80 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i)
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %82 = load i32, ptr %81, align 4, !tbaa !2663
-  %83 = load ptr, ptr %40, align 8, !tbaa !3354
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %.0.i.i.i136 = load ptr, ptr %84, align 8, !tbaa !174
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %.0.i.i1.i137 = load ptr, ptr %85, align 8, !tbaa !174
-  %86 = load ptr, ptr %36, align 8, !tbaa !3356
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 64
-  %88 = load i8, ptr %87, align 8, !tbaa !3311, !range !17, !noundef !18
-  %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit, label %90
+  %81 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %.0.i.i2.i = load ptr, ptr %81, align 8, !tbaa !174
+  %82 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i)
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %84 = load i32, ptr %83, align 4, !tbaa !2663
+  %85 = load ptr, ptr %42, align 8, !tbaa !3354
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %.0.i.i.i136 = load ptr, ptr %86, align 8, !tbaa !174
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %.0.i.i1.i137 = load ptr, ptr %87, align 8, !tbaa !174
+  %88 = load ptr, ptr %38, align 8, !tbaa !3356
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 64
+  %90 = load i8, ptr %89, align 8, !tbaa !3311, !range !17, !noundef !18
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit, label %92
 
-90:                                               ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit
-  %91 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %92 = load ptr, ptr %91, align 8, !tbaa !3357
-  %93 = getelementptr inbounds nuw i8, ptr %86, i64 32
+92:                                               ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  %94 = load ptr, ptr %93, align 8, !tbaa !3357
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %95 = load double, ptr %94, align 8, !tbaa !3067
-  %96 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store double %95, ptr %96, align 8, !tbaa !3067
-  %97 = load double, ptr %92, align 8, !tbaa !3067
-  store double %97, ptr %18, align 8, !tbaa !3067
-  %98 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %storemerge.in6.i.i.i.i.i138 = load ptr, ptr %93, align 8, !tbaa !3358
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %97 = load double, ptr %96, align 8, !tbaa !3067
+  %98 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store double %97, ptr %98, align 8, !tbaa !3067
+  %99 = load double, ptr %94, align 8, !tbaa !3067
+  store double %99, ptr %18, align 8, !tbaa !3067
+  %100 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %storemerge.in6.i.i.i.i.i138 = load ptr, ptr %95, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i139 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i138, i64 8
   %storemerge58.i.i.i.i.i140 = load double, ptr %storemerge5.in7.i.i.i.i.i139, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i140, ptr %98, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i140, ptr %100, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i141 = load double, ptr %storemerge.in6.i.i.i.i.i138, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i141, ptr %19, align 8, !tbaa !3067
-  %99 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19)
-  br i1 %99, label %.lr.ph.i.i.i.i.i144, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142
+  %101 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19)
+  br i1 %101, label %.lr.ph.i.i.i.i.i144, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142
 
-.lr.ph.i.i.i.i.i144:                              ; preds = %90
-  %100 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %101 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  %102 = getelementptr inbounds nuw i8, ptr %86, i64 56
-  br label %103
+.lr.ph.i.i.i.i.i144:                              ; preds = %92
+  %102 = getelementptr inbounds nuw i8, ptr %88, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %88, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %88, i64 56
+  br label %105
 
-103:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146, %.lr.ph.i.i.i.i.i144
-  %.010.i.i.i.i.i145 = phi i64 [ 0, %.lr.ph.i.i.i.i.i144 ], [ %109, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146 ]
-  %104 = load ptr, ptr %86, align 8, !tbaa !3359
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 88
-  %106 = load i64, ptr %105, align 8, !tbaa !3163
-  %107 = icmp ult i64 %.010.i.i.i.i.i145, %106
-  br i1 %107, label %108, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142
+105:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146, %.lr.ph.i.i.i.i.i144
+  %.010.i.i.i.i.i145 = phi i64 [ 0, %.lr.ph.i.i.i.i.i144 ], [ %111, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146 ]
+  %106 = load ptr, ptr %88, align 8, !tbaa !3359
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 88
+  %108 = load i64, ptr %107, align 8, !tbaa !3163
+  %109 = icmp ult i64 %.010.i.i.i.i.i145, %108
+  br i1 %109, label %110, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142
 
-108:                                              ; preds = %103
-  %109 = add nuw i64 %.010.i.i.i.i.i145, 1
-  %110 = load ptr, ptr %93, align 8, !tbaa !3358, !noalias !3383
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store ptr %111, ptr %93, align 8, !tbaa !3358, !noalias !3383
-  %112 = load ptr, ptr %100, align 8, !tbaa !174, !noalias !3383
-  %113 = icmp eq ptr %111, %112
-  br i1 %113, label %114, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
+110:                                              ; preds = %105
+  %111 = add nuw i64 %.010.i.i.i.i.i145, 1
+  %112 = load ptr, ptr %95, align 8, !tbaa !3358, !noalias !3383
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  store ptr %113, ptr %95, align 8, !tbaa !3358, !noalias !3383
+  %114 = load ptr, ptr %102, align 8, !tbaa !174, !noalias !3383
+  %115 = icmp eq ptr %113, %114
+  br i1 %115, label %116, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
 
-114:                                              ; preds = %108
-  %115 = load i64, ptr %101, align 8, !tbaa !174, !noalias !3383
-  store i64 %115, ptr %93, align 8, !tbaa !174, !noalias !3383
-  %116 = load i8, ptr %102, align 8, !tbaa !3363, !range !17, !noalias !3383, !noundef !18
-  %117 = trunc nuw i8 %116 to i1
-  %118 = inttoptr i64 %115 to ptr
-  br i1 %117, label %119, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
+116:                                              ; preds = %110
+  %117 = load i64, ptr %103, align 8, !tbaa !174, !noalias !3383
+  store i64 %117, ptr %95, align 8, !tbaa !174, !noalias !3383
+  %118 = load i8, ptr %104, align 8, !tbaa !3363, !range !17, !noalias !3383, !noundef !18
+  %119 = trunc nuw i8 %118 to i1
+  %120 = inttoptr i64 %117 to ptr
+  br i1 %119, label %121, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
 
-119:                                              ; preds = %114
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store ptr %120, ptr %93, align 8, !tbaa !3358, !noalias !3383
-  %121 = icmp eq ptr %110, %118
-  br i1 %121, label %122, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
+121:                                              ; preds = %116
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  store ptr %122, ptr %95, align 8, !tbaa !3358, !noalias !3383
+  %123 = icmp eq ptr %112, %120
+  br i1 %123, label %124, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
 
-122:                                              ; preds = %119
-  store i64 %115, ptr %93, align 8, !tbaa !174, !noalias !3383
+124:                                              ; preds = %121
+  store i64 %117, ptr %95, align 8, !tbaa !174, !noalias !3383
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146: ; preds = %122, %119, %114, %108
-  %storemerge.in.i.i.i.i.i147 = phi ptr [ %111, %108 ], [ %118, %114 ], [ %120, %119 ], [ %118, %122 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146: ; preds = %124, %121, %116, %110
+  %storemerge.in.i.i.i.i.i147 = phi ptr [ %113, %110 ], [ %120, %116 ], [ %122, %121 ], [ %120, %124 ]
   %storemerge5.in.i.i.i.i.i148 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i147, i64 8
   %storemerge5.i.i.i.i.i149 = load double, ptr %storemerge5.in.i.i.i.i.i148, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i149, ptr %98, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i149, ptr %100, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i150 = load double, ptr %storemerge.in.i.i.i.i.i147, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i150, ptr %19, align 8, !tbaa !3067
-  %123 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19)
-  br i1 %123, label %103, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142, !llvm.loop !3364
+  %125 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19)
+  br i1 %125, label %105, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146, %103, %90
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i146, %105, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  store i8 1, ptr %87, align 8, !tbaa !3311
+  store i8 1, ptr %89, align 8, !tbaa !3311
   br label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit
 
 _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit: ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i142
-  %124 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %.0.i.i2.i143 = load ptr, ptr %124, align 8, !tbaa !174
-  %125 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i136, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i137, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i143)
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
+  %126 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %.0.i.i2.i143 = load ptr, ptr %126, align 8, !tbaa !174
+  %127 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i136, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i137, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i143)
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
 
-127:                                              ; preds = %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %129 = load i8, ptr %128, align 8, !tbaa !3311, !range !17, !noundef !18
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152, label %131
+129:                                              ; preds = %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %131 = load i8, ptr %130, align 8, !tbaa !3311, !range !17, !noundef !18
+  %132 = trunc nuw i8 %131 to i1
+  br i1 %132, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152, label %133
 
-131:                                              ; preds = %127
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %133 = load ptr, ptr %132, align 8, !tbaa !3357
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 32
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %135 = load ptr, ptr %134, align 8, !tbaa !3357
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %136 = load double, ptr %135, align 8, !tbaa !3067
-  %137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store double %136, ptr %137, align 8, !tbaa !3067
-  %138 = load double, ptr %133, align 8, !tbaa !3067
-  store double %138, ptr %16, align 8, !tbaa !3067
-  %139 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %storemerge.in6.i.i.i32.i = load ptr, ptr %134, align 8, !tbaa !3358
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %138 = load double, ptr %137, align 8, !tbaa !3067
+  %139 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store double %138, ptr %139, align 8, !tbaa !3067
+  %140 = load double, ptr %135, align 8, !tbaa !3067
+  store double %140, ptr %16, align 8, !tbaa !3067
+  %141 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %storemerge.in6.i.i.i32.i = load ptr, ptr %136, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i33.i = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i32.i, i64 8
   %storemerge58.i.i.i34.i = load double, ptr %storemerge5.in7.i.i.i33.i, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i34.i, ptr %139, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i34.i, ptr %141, align 8, !tbaa !3067
   %storemerge9.i.i.i35.i = load double, ptr %storemerge.in6.i.i.i32.i, align 8, !tbaa !3067
   store double %storemerge9.i.i.i35.i, ptr %17, align 8, !tbaa !3067
-  %140 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
-  br i1 %140, label %.lr.ph.i.i.i37.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i
+  %142 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
+  br i1 %142, label %.lr.ph.i.i.i37.i, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i
 
-.lr.ph.i.i.i37.i:                                 ; preds = %131
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  br label %144
+.lr.ph.i.i.i37.i:                                 ; preds = %133
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  br label %146
 
-144:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i, %.lr.ph.i.i.i37.i
-  %.010.i.i.i38.i = phi i64 [ 0, %.lr.ph.i.i.i37.i ], [ %150, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i ]
-  %145 = load ptr, ptr %1, align 8, !tbaa !3359
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 88
-  %147 = load i64, ptr %146, align 8, !tbaa !3163
-  %148 = icmp ult i64 %.010.i.i.i38.i, %147
-  br i1 %148, label %149, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i
+146:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i, %.lr.ph.i.i.i37.i
+  %.010.i.i.i38.i = phi i64 [ 0, %.lr.ph.i.i.i37.i ], [ %152, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i ]
+  %147 = load ptr, ptr %1, align 8, !tbaa !3359
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 88
+  %149 = load i64, ptr %148, align 8, !tbaa !3163
+  %150 = icmp ult i64 %.010.i.i.i38.i, %149
+  br i1 %150, label %151, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i
 
-149:                                              ; preds = %144
-  %150 = add nuw i64 %.010.i.i.i38.i, 1
-  %151 = load ptr, ptr %134, align 8, !tbaa !3358, !noalias !3386
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store ptr %152, ptr %134, align 8, !tbaa !3358, !noalias !3386
-  %153 = load ptr, ptr %141, align 8, !tbaa !174, !noalias !3386
-  %154 = icmp eq ptr %152, %153
-  br i1 %154, label %155, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
+151:                                              ; preds = %146
+  %152 = add nuw i64 %.010.i.i.i38.i, 1
+  %153 = load ptr, ptr %136, align 8, !tbaa !3358, !noalias !3386
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  store ptr %154, ptr %136, align 8, !tbaa !3358, !noalias !3386
+  %155 = load ptr, ptr %143, align 8, !tbaa !174, !noalias !3386
+  %156 = icmp eq ptr %154, %155
+  br i1 %156, label %157, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
 
-155:                                              ; preds = %149
-  %156 = load i64, ptr %142, align 8, !tbaa !174, !noalias !3386
-  store i64 %156, ptr %134, align 8, !tbaa !174, !noalias !3386
-  %157 = load i8, ptr %143, align 8, !tbaa !3363, !range !17, !noalias !3386, !noundef !18
-  %158 = trunc nuw i8 %157 to i1
-  %159 = inttoptr i64 %156 to ptr
-  br i1 %158, label %160, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
+157:                                              ; preds = %151
+  %158 = load i64, ptr %144, align 8, !tbaa !174, !noalias !3386
+  store i64 %158, ptr %136, align 8, !tbaa !174, !noalias !3386
+  %159 = load i8, ptr %145, align 8, !tbaa !3363, !range !17, !noalias !3386, !noundef !18
+  %160 = trunc nuw i8 %159 to i1
+  %161 = inttoptr i64 %158 to ptr
+  br i1 %160, label %162, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
 
-160:                                              ; preds = %155
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  store ptr %161, ptr %134, align 8, !tbaa !3358, !noalias !3386
-  %162 = icmp eq ptr %151, %159
-  br i1 %162, label %163, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
+162:                                              ; preds = %157
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  store ptr %163, ptr %136, align 8, !tbaa !3358, !noalias !3386
+  %164 = icmp eq ptr %153, %161
+  br i1 %164, label %165, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
 
-163:                                              ; preds = %160
-  store i64 %156, ptr %134, align 8, !tbaa !174, !noalias !3386
+165:                                              ; preds = %162
+  store i64 %158, ptr %136, align 8, !tbaa !174, !noalias !3386
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i: ; preds = %163, %160, %155, %149
-  %storemerge.in.i.i.i40.i = phi ptr [ %152, %149 ], [ %159, %155 ], [ %161, %160 ], [ %159, %163 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i: ; preds = %165, %162, %157, %151
+  %storemerge.in.i.i.i40.i = phi ptr [ %154, %151 ], [ %161, %157 ], [ %163, %162 ], [ %161, %165 ]
   %storemerge5.in.i.i.i41.i = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i40.i, i64 8
   %storemerge5.i.i.i42.i = load double, ptr %storemerge5.in.i.i.i41.i, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i42.i, ptr %139, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i42.i, ptr %141, align 8, !tbaa !3067
   %storemerge.i.i.i43.i = load double, ptr %storemerge.in.i.i.i40.i, align 8, !tbaa !3067
   store double %storemerge.i.i.i43.i, ptr %17, align 8, !tbaa !3067
-  %164 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
-  br i1 %164, label %144, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i, !llvm.loop !3364
+  %166 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
+  br i1 %166, label %146, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i, %144, %131
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i, %146, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  store i8 1, ptr %128, align 8, !tbaa !3311
+  store i8 1, ptr %130, align 8, !tbaa !3311
   br label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
 
-_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i, %127, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit
-  %.0.i151 = phi i32 [ %125, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit ], [ 0, %127 ], [ 0, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i ]
-  %165 = mul nsw i32 %.0.i151, %82
-  %166 = icmp eq i32 %165, -1
-  br i1 %166, label %313, label %167
+_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i, %129, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit
+  %.0.i151 = phi i32 [ %127, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9qk_wrt_p1Ev.exit ], [ 0, %129 ], [ 0, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i ]
+  %167 = mul nsw i32 %.0.i151, %84
+  %168 = icmp eq i32 %167, -1
+  br i1 %168, label %315, label %169
 
-167:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
-  %168 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_q2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %169 = load ptr, ptr %40, align 8, !tbaa !3354
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  %.0.i.i.i153 = load ptr, ptr %170, align 8, !tbaa !174
-  %171 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  %.0.i.i1.i154 = load ptr, ptr %171, align 8, !tbaa !174
-  %172 = getelementptr inbounds nuw i8, ptr %169, i64 64
-  %173 = load i8, ptr %172, align 8, !tbaa !3311, !range !17, !noundef !18
-  %174 = trunc nuw i8 %173 to i1
-  br i1 %174, label %207, label %175
+169:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
+  %170 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_q2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %171 = load ptr, ptr %42, align 8, !tbaa !3354
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  %.0.i.i.i153 = load ptr, ptr %172, align 8, !tbaa !174
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 24
+  %.0.i.i1.i154 = load ptr, ptr %173, align 8, !tbaa !174
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 64
+  %175 = load i8, ptr %174, align 8, !tbaa !3311, !range !17, !noundef !18
+  %176 = trunc nuw i8 %175 to i1
+  br i1 %176, label %209, label %177
 
-175:                                              ; preds = %167
-  %176 = getelementptr inbounds nuw i8, ptr %169, i64 32
+177:                                              ; preds = %169
+  %178 = getelementptr inbounds nuw i8, ptr %171, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %177 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i154, i64 8
-  %178 = load double, ptr %177, align 8, !tbaa !3067
-  %179 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store double %178, ptr %179, align 8, !tbaa !3067
-  %180 = load double, ptr %.0.i.i1.i154, align 8, !tbaa !3067
-  store double %180, ptr %14, align 8, !tbaa !3067
-  %181 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %storemerge.in6.i.i.i.i.i155 = load ptr, ptr %176, align 8, !tbaa !3358
+  %179 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i154, i64 8
+  %180 = load double, ptr %179, align 8, !tbaa !3067
+  %181 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store double %180, ptr %181, align 8, !tbaa !3067
+  %182 = load double, ptr %.0.i.i1.i154, align 8, !tbaa !3067
+  store double %182, ptr %14, align 8, !tbaa !3067
+  %183 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %storemerge.in6.i.i.i.i.i155 = load ptr, ptr %178, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i155, i64 8
   %storemerge58.i.i.i.i.i157 = load double, ptr %storemerge5.in7.i.i.i.i.i156, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i157, ptr %181, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i157, ptr %183, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i158 = load double, ptr %storemerge.in6.i.i.i.i.i155, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i158, ptr %15, align 8, !tbaa !3067
-  %182 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  br i1 %182, label %.lr.ph.i.i.i.i.i161, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
+  %184 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  br i1 %184, label %.lr.ph.i.i.i.i.i161, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
 
-.lr.ph.i.i.i.i.i161:                              ; preds = %175
-  %183 = getelementptr inbounds nuw i8, ptr %169, i64 48
-  %184 = getelementptr inbounds nuw i8, ptr %169, i64 40
-  %185 = getelementptr inbounds nuw i8, ptr %169, i64 56
-  br label %186
+.lr.ph.i.i.i.i.i161:                              ; preds = %177
+  %185 = getelementptr inbounds nuw i8, ptr %171, i64 48
+  %186 = getelementptr inbounds nuw i8, ptr %171, i64 40
+  %187 = getelementptr inbounds nuw i8, ptr %171, i64 56
+  br label %188
 
-186:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163, %.lr.ph.i.i.i.i.i161
-  %.010.i.i.i.i.i162 = phi i64 [ 0, %.lr.ph.i.i.i.i.i161 ], [ %192, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163 ]
-  %187 = load ptr, ptr %169, align 8, !tbaa !3359
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 88
-  %189 = load i64, ptr %188, align 8, !tbaa !3163
-  %190 = icmp ult i64 %.010.i.i.i.i.i162, %189
-  br i1 %190, label %191, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
+188:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163, %.lr.ph.i.i.i.i.i161
+  %.010.i.i.i.i.i162 = phi i64 [ 0, %.lr.ph.i.i.i.i.i161 ], [ %194, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163 ]
+  %189 = load ptr, ptr %171, align 8, !tbaa !3359
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 88
+  %191 = load i64, ptr %190, align 8, !tbaa !3163
+  %192 = icmp ult i64 %.010.i.i.i.i.i162, %191
+  br i1 %192, label %193, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
 
-191:                                              ; preds = %186
-  %192 = add nuw i64 %.010.i.i.i.i.i162, 1
-  %193 = load ptr, ptr %176, align 8, !tbaa !3358, !noalias !3389
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
-  store ptr %194, ptr %176, align 8, !tbaa !3358, !noalias !3389
-  %195 = load ptr, ptr %183, align 8, !tbaa !174, !noalias !3389
-  %196 = icmp eq ptr %194, %195
-  br i1 %196, label %197, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
+193:                                              ; preds = %188
+  %194 = add nuw i64 %.010.i.i.i.i.i162, 1
+  %195 = load ptr, ptr %178, align 8, !tbaa !3358, !noalias !3389
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  store ptr %196, ptr %178, align 8, !tbaa !3358, !noalias !3389
+  %197 = load ptr, ptr %185, align 8, !tbaa !174, !noalias !3389
+  %198 = icmp eq ptr %196, %197
+  br i1 %198, label %199, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
 
-197:                                              ; preds = %191
-  %198 = load i64, ptr %184, align 8, !tbaa !174, !noalias !3389
-  store i64 %198, ptr %176, align 8, !tbaa !174, !noalias !3389
-  %199 = load i8, ptr %185, align 8, !tbaa !3363, !range !17, !noalias !3389, !noundef !18
-  %200 = trunc nuw i8 %199 to i1
-  %201 = inttoptr i64 %198 to ptr
-  br i1 %200, label %202, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
+199:                                              ; preds = %193
+  %200 = load i64, ptr %186, align 8, !tbaa !174, !noalias !3389
+  store i64 %200, ptr %178, align 8, !tbaa !174, !noalias !3389
+  %201 = load i8, ptr %187, align 8, !tbaa !3363, !range !17, !noalias !3389, !noundef !18
+  %202 = trunc nuw i8 %201 to i1
+  %203 = inttoptr i64 %200 to ptr
+  br i1 %202, label %204, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
 
-202:                                              ; preds = %197
-  %203 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  store ptr %203, ptr %176, align 8, !tbaa !3358, !noalias !3389
-  %204 = icmp eq ptr %193, %201
-  br i1 %204, label %205, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
+204:                                              ; preds = %199
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 16
+  store ptr %205, ptr %178, align 8, !tbaa !3358, !noalias !3389
+  %206 = icmp eq ptr %195, %203
+  br i1 %206, label %207, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
 
-205:                                              ; preds = %202
-  store i64 %198, ptr %176, align 8, !tbaa !174, !noalias !3389
+207:                                              ; preds = %204
+  store i64 %200, ptr %178, align 8, !tbaa !174, !noalias !3389
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163: ; preds = %205, %202, %197, %191
-  %storemerge.in.i.i.i.i.i164 = phi ptr [ %194, %191 ], [ %201, %197 ], [ %203, %202 ], [ %201, %205 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163: ; preds = %207, %204, %199, %193
+  %storemerge.in.i.i.i.i.i164 = phi ptr [ %196, %193 ], [ %203, %199 ], [ %205, %204 ], [ %203, %207 ]
   %storemerge5.in.i.i.i.i.i165 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i164, i64 8
   %storemerge5.i.i.i.i.i166 = load double, ptr %storemerge5.in.i.i.i.i.i165, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i166, ptr %181, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i166, ptr %183, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i167 = load double, ptr %storemerge.in.i.i.i.i.i164, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i167, ptr %15, align 8, !tbaa !3067
-  %206 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  br i1 %206, label %186, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159, !llvm.loop !3364
+  %208 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  br i1 %208, label %188, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163, %186, %175
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i163, %188, %177
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  store i8 1, ptr %172, align 8, !tbaa !3311
-  br label %207
+  store i8 1, ptr %174, align 8, !tbaa !3311
+  br label %209
 
-207:                                              ; preds = %167, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
-  %208 = getelementptr inbounds nuw i8, ptr %169, i64 32
-  %.0.i.i2.i160 = load ptr, ptr %208, align 8, !tbaa !174
-  %209 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i153, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i154, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i160)
-  %210 = load ptr, ptr %36, align 8, !tbaa !3356
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
-  %.0.i.i.i168 = load ptr, ptr %211, align 8, !tbaa !174
-  %212 = getelementptr inbounds nuw i8, ptr %210, i64 24
-  %.0.i.i1.i169 = load ptr, ptr %212, align 8, !tbaa !174
-  %213 = getelementptr inbounds nuw i8, ptr %210, i64 64
-  %214 = load i8, ptr %213, align 8, !tbaa !3311, !range !17, !noundef !18
-  %215 = trunc nuw i8 %214 to i1
-  br i1 %215, label %248, label %216
+209:                                              ; preds = %169, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i159
+  %210 = getelementptr inbounds nuw i8, ptr %171, i64 32
+  %.0.i.i2.i160 = load ptr, ptr %210, align 8, !tbaa !174
+  %211 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i153, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i154, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i160)
+  %212 = load ptr, ptr %38, align 8, !tbaa !3356
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
+  %.0.i.i.i168 = load ptr, ptr %213, align 8, !tbaa !174
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 24
+  %.0.i.i1.i169 = load ptr, ptr %214, align 8, !tbaa !174
+  %215 = getelementptr inbounds nuw i8, ptr %212, i64 64
+  %216 = load i8, ptr %215, align 8, !tbaa !3311, !range !17, !noundef !18
+  %217 = trunc nuw i8 %216 to i1
+  br i1 %217, label %250, label %218
 
-216:                                              ; preds = %207
-  %217 = getelementptr inbounds nuw i8, ptr %210, i64 32
+218:                                              ; preds = %209
+  %219 = getelementptr inbounds nuw i8, ptr %212, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %218 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i169, i64 8
-  %219 = load double, ptr %218, align 8, !tbaa !3067
-  %220 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %219, ptr %220, align 8, !tbaa !3067
-  %221 = load double, ptr %.0.i.i1.i169, align 8, !tbaa !3067
-  store double %221, ptr %12, align 8, !tbaa !3067
-  %222 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %storemerge.in6.i.i.i.i.i170 = load ptr, ptr %217, align 8, !tbaa !3358
+  %220 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i169, i64 8
+  %221 = load double, ptr %220, align 8, !tbaa !3067
+  %222 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store double %221, ptr %222, align 8, !tbaa !3067
+  %223 = load double, ptr %.0.i.i1.i169, align 8, !tbaa !3067
+  store double %223, ptr %12, align 8, !tbaa !3067
+  %224 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %storemerge.in6.i.i.i.i.i170 = load ptr, ptr %219, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i171 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i170, i64 8
   %storemerge58.i.i.i.i.i172 = load double, ptr %storemerge5.in7.i.i.i.i.i171, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i172, ptr %222, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i172, ptr %224, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i173 = load double, ptr %storemerge.in6.i.i.i.i.i170, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i173, ptr %13, align 8, !tbaa !3067
-  %223 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br i1 %223, label %.lr.ph.i.i.i.i.i176, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174
+  %225 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  br i1 %225, label %.lr.ph.i.i.i.i.i176, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174
 
-.lr.ph.i.i.i.i.i176:                              ; preds = %216
-  %224 = getelementptr inbounds nuw i8, ptr %210, i64 48
-  %225 = getelementptr inbounds nuw i8, ptr %210, i64 40
-  %226 = getelementptr inbounds nuw i8, ptr %210, i64 56
-  br label %227
+.lr.ph.i.i.i.i.i176:                              ; preds = %218
+  %226 = getelementptr inbounds nuw i8, ptr %212, i64 48
+  %227 = getelementptr inbounds nuw i8, ptr %212, i64 40
+  %228 = getelementptr inbounds nuw i8, ptr %212, i64 56
+  br label %229
 
-227:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178, %.lr.ph.i.i.i.i.i176
-  %.010.i.i.i.i.i177 = phi i64 [ 0, %.lr.ph.i.i.i.i.i176 ], [ %233, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178 ]
-  %228 = load ptr, ptr %210, align 8, !tbaa !3359
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 88
-  %230 = load i64, ptr %229, align 8, !tbaa !3163
-  %231 = icmp ult i64 %.010.i.i.i.i.i177, %230
-  br i1 %231, label %232, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174
+229:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178, %.lr.ph.i.i.i.i.i176
+  %.010.i.i.i.i.i177 = phi i64 [ 0, %.lr.ph.i.i.i.i.i176 ], [ %235, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178 ]
+  %230 = load ptr, ptr %212, align 8, !tbaa !3359
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 88
+  %232 = load i64, ptr %231, align 8, !tbaa !3163
+  %233 = icmp ult i64 %.010.i.i.i.i.i177, %232
+  br i1 %233, label %234, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174
 
-232:                                              ; preds = %227
-  %233 = add nuw i64 %.010.i.i.i.i.i177, 1
-  %234 = load ptr, ptr %217, align 8, !tbaa !3358, !noalias !3392
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  store ptr %235, ptr %217, align 8, !tbaa !3358, !noalias !3392
-  %236 = load ptr, ptr %224, align 8, !tbaa !174, !noalias !3392
-  %237 = icmp eq ptr %235, %236
-  br i1 %237, label %238, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
+234:                                              ; preds = %229
+  %235 = add nuw i64 %.010.i.i.i.i.i177, 1
+  %236 = load ptr, ptr %219, align 8, !tbaa !3358, !noalias !3392
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  store ptr %237, ptr %219, align 8, !tbaa !3358, !noalias !3392
+  %238 = load ptr, ptr %226, align 8, !tbaa !174, !noalias !3392
+  %239 = icmp eq ptr %237, %238
+  br i1 %239, label %240, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
 
-238:                                              ; preds = %232
-  %239 = load i64, ptr %225, align 8, !tbaa !174, !noalias !3392
-  store i64 %239, ptr %217, align 8, !tbaa !174, !noalias !3392
-  %240 = load i8, ptr %226, align 8, !tbaa !3363, !range !17, !noalias !3392, !noundef !18
-  %241 = trunc nuw i8 %240 to i1
-  %242 = inttoptr i64 %239 to ptr
-  br i1 %241, label %243, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
+240:                                              ; preds = %234
+  %241 = load i64, ptr %227, align 8, !tbaa !174, !noalias !3392
+  store i64 %241, ptr %219, align 8, !tbaa !174, !noalias !3392
+  %242 = load i8, ptr %228, align 8, !tbaa !3363, !range !17, !noalias !3392, !noundef !18
+  %243 = trunc nuw i8 %242 to i1
+  %244 = inttoptr i64 %241 to ptr
+  br i1 %243, label %245, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
 
-243:                                              ; preds = %238
-  %244 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  store ptr %244, ptr %217, align 8, !tbaa !3358, !noalias !3392
-  %245 = icmp eq ptr %234, %242
-  br i1 %245, label %246, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
+245:                                              ; preds = %240
+  %246 = getelementptr inbounds nuw i8, ptr %244, i64 16
+  store ptr %246, ptr %219, align 8, !tbaa !3358, !noalias !3392
+  %247 = icmp eq ptr %236, %244
+  br i1 %247, label %248, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
 
-246:                                              ; preds = %243
-  store i64 %239, ptr %217, align 8, !tbaa !174, !noalias !3392
+248:                                              ; preds = %245
+  store i64 %241, ptr %219, align 8, !tbaa !174, !noalias !3392
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178: ; preds = %246, %243, %238, %232
-  %storemerge.in.i.i.i.i.i179 = phi ptr [ %235, %232 ], [ %242, %238 ], [ %244, %243 ], [ %242, %246 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178: ; preds = %248, %245, %240, %234
+  %storemerge.in.i.i.i.i.i179 = phi ptr [ %237, %234 ], [ %244, %240 ], [ %246, %245 ], [ %244, %248 ]
   %storemerge5.in.i.i.i.i.i180 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i179, i64 8
   %storemerge5.i.i.i.i.i181 = load double, ptr %storemerge5.in.i.i.i.i.i180, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i181, ptr %222, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i181, ptr %224, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i182 = load double, ptr %storemerge.in.i.i.i.i.i179, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i182, ptr %13, align 8, !tbaa !3067
-  %247 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  br i1 %247, label %227, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174, !llvm.loop !3364
+  %249 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  br i1 %249, label %229, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178, %227, %216
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i178, %229, %218
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  store i8 1, ptr %213, align 8, !tbaa !3311
-  br label %248
+  store i8 1, ptr %215, align 8, !tbaa !3311
+  br label %250
 
-248:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174, %207
-  %249 = getelementptr inbounds nuw i8, ptr %210, i64 32
-  %.0.i.i2.i175 = load ptr, ptr %249, align 8, !tbaa !174
-  %250 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i168, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i169, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i175)
-  %.not = icmp eq i32 %250, 1
-  %251 = icmp eq i32 %.0.i151, 0
-  %252 = mul nsw i32 %250, %82
-  %253 = icmp ne i32 %252, 1
-  %254 = select i1 %251, i1 %253, i1 false
-  %255 = icmp eq i32 %209, %82
-  %256 = icmp eq i32 %209, %.0.i151
-  %or.cond = or i1 %255, %256
-  br i1 %or.cond, label %260, label %257
+250:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i174, %209
+  %251 = getelementptr inbounds nuw i8, ptr %212, i64 32
+  %.0.i.i2.i175 = load ptr, ptr %251, align 8, !tbaa !174
+  %252 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i168, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i169, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i175)
+  %.not = icmp eq i32 %252, 1
+  %253 = icmp eq i32 %.0.i151, 0
+  %254 = mul nsw i32 %252, %84
+  %255 = icmp ne i32 %254, 1
+  %256 = select i1 %253, i1 %255, i1 false
+  %257 = icmp eq i32 %211, %84
+  %258 = icmp eq i32 %211, %.0.i151
+  %or.cond = or i1 %257, %258
+  br i1 %or.cond, label %262, label %259
 
-257:                                              ; preds = %248
-  %258 = or i32 %.0.i151, %82
-  %or.cond4 = icmp eq i32 %258, 0
-  %259 = icmp ne i32 %209, -1
-  %or.cond6 = and i1 %or.cond4, %259
-  br i1 %or.cond6, label %260, label %302
+259:                                              ; preds = %250
+  %260 = or i32 %.0.i151, %84
+  %or.cond4 = icmp eq i32 %260, 0
+  %261 = icmp ne i32 %211, -1
+  %or.cond6 = and i1 %or.cond4, %261
+  br i1 %or.cond6, label %262, label %304
 
-260:                                              ; preds = %257, %248
-  %261 = icmp eq i32 %80, 0
-  %262 = or i32 %.0.i151, %80
-  %or.cond8.not = icmp eq i32 %262, 0
-  br i1 %or.cond8.not, label %263, label %265
+262:                                              ; preds = %259, %250
+  %263 = icmp eq i32 %82, 0
+  %264 = or i32 %.0.i151, %82
+  %or.cond8.not = icmp eq i32 %264, 0
+  br i1 %or.cond8.not, label %265, label %267
 
-263:                                              ; preds = %260
-  %264 = call noundef zeroext i1 @_ZN5boost8geometry6detail7overlay5touchINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEENS2_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEENS2_17policy_verify_allEE22handle_imperfect_touchINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS5_3boxISB_EELm2EEESB_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSB_St6vectorISB_SaISB_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEES17_S15_EEbRKT_RKT0_iRKT1_RSI_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, i32 noundef %168, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(200) %2)
-  br i1 %264, label %.critedge, label %265
+265:                                              ; preds = %262
+  %266 = call noundef zeroext i1 @_ZN5boost8geometry6detail7overlay5touchINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEENS2_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEENS2_17policy_verify_allEE22handle_imperfect_touchINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS5_3boxISB_EELm2EEESB_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSB_St6vectorISB_SaISB_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEES17_S15_EEbRKT_RKT0_iRKT1_RSI_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, i32 noundef %170, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(200) %2)
+  br i1 %266, label %.critedge, label %267
 
-265:                                              ; preds = %263, %260
-  %266 = icmp ne i32 %168, 0
-  %or.cond14 = or i1 %266, %254
-  br i1 %or.cond14, label %268, label %267
+267:                                              ; preds = %265, %262
+  %268 = icmp ne i32 %170, 0
+  %or.cond14 = or i1 %268, %256
+  br i1 %or.cond14, label %270, label %269
 
-267:                                              ; preds = %265
+269:                                              ; preds = %267
   call void @_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE17set_both_verifiedILm0ELm1ENS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_NS2_9turn_infoISH_NS0_13segment_ratioIdEENS2_14turn_operationISH_S12_EESt5arrayIS14_Lm2EEEEEEvRKT1_RKT2_RKT3_mmRT4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 2, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(200) %2)
   br label %.critedge
 
-268:                                              ; preds = %265
-  br i1 %261, label %269, label %274
+270:                                              ; preds = %267
+  br i1 %263, label %271, label %276
 
-269:                                              ; preds = %268
-  %270 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 3, ptr %270, align 8, !tbaa !3320
-  %271 = select i1 %.not, i32 2, i32 1
-  %272 = select i1 %254, i32 3, i32 %271
-  %273 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 %272, ptr %273, align 8, !tbaa !3320
+271:                                              ; preds = %270
+  %272 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 3, ptr %272, align 8, !tbaa !3320
+  %273 = select i1 %.not, i32 2, i32 1
+  %274 = select i1 %256, i32 3, i32 %273
+  %275 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 %274, ptr %275, align 8, !tbaa !3320
   br label %.critedge
 
-274:                                              ; preds = %268
-  %275 = icmp eq i32 %80, %168
-  %276 = mul nsw i32 %250, %80
-  %277 = icmp ne i32 %276, -1
-  %278 = select i1 %275, i1 %277, i1 false
-  br i1 %278, label %279, label %284
+276:                                              ; preds = %270
+  %277 = icmp eq i32 %82, %170
+  %278 = mul nsw i32 %252, %82
+  %279 = icmp ne i32 %278, -1
+  %280 = select i1 %277, i1 %279, i1 false
+  br i1 %280, label %281, label %286
 
-279:                                              ; preds = %274
-  %280 = select i1 %.not, i32 1, i32 2
-  %281 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %280, ptr %281, align 8, !tbaa !3320
-  %282 = select i1 %.not, i32 2, i32 1
-  %283 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %spec.store.select = select i1 %254, i32 3, i32 %282
-  store i32 %spec.store.select, ptr %283, align 8
+281:                                              ; preds = %276
+  %282 = select i1 %.not, i32 1, i32 2
+  %283 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %282, ptr %283, align 8, !tbaa !3320
+  %284 = select i1 %.not, i32 2, i32 1
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %spec.store.select = select i1 %256, i32 3, i32 %284
+  store i32 %spec.store.select, ptr %285, align 8
   br label %.critedge
 
-284:                                              ; preds = %274
-  %285 = sub nsw i32 0, %250
-  %286 = icmp eq i32 %168, %285
-  br i1 %286, label %287, label %293
+286:                                              ; preds = %276
+  %287 = sub nsw i32 0, %252
+  %288 = icmp eq i32 %170, %287
+  br i1 %288, label %289, label %295
 
-287:                                              ; preds = %284
-  %288 = select i1 %.not, i32 2, i32 1
-  %289 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %288, ptr %289, align 8, !tbaa !3320
-  %290 = select i1 %.not, i32 1, i32 2
-  %291 = getelementptr inbounds nuw i8, ptr %2, i64 120
+289:                                              ; preds = %286
+  %290 = select i1 %.not, i32 2, i32 1
+  %291 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %290, ptr %291, align 8, !tbaa !3320
-  %292 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %292, align 4, !tbaa !3316
+  %292 = select i1 %.not, i32 1, i32 2
+  %293 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 %292, ptr %293, align 8, !tbaa !3320
+  %294 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %294, align 4, !tbaa !3316
   br label %.critedge
 
-293:                                              ; preds = %284
-  %294 = icmp eq i32 %80, %285
-  br i1 %294, label %295, label %.critedge
+295:                                              ; preds = %286
+  %296 = icmp eq i32 %82, %287
+  br i1 %296, label %297, label %.critedge
 
-295:                                              ; preds = %293
-  %296 = select i1 %.not, i32 2, i32 1
-  %297 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %296, ptr %297, align 8, !tbaa !3320
-  %298 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 %296, ptr %298, align 8, !tbaa !3320
-  br i1 %254, label %299, label %300
+297:                                              ; preds = %295
+  %298 = select i1 %.not, i32 2, i32 1
+  %299 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %298, ptr %299, align 8, !tbaa !3320
+  %300 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 %298, ptr %300, align 8, !tbaa !3320
+  br i1 %256, label %301, label %302
 
-299:                                              ; preds = %295
-  store i32 3, ptr %298, align 8, !tbaa !3320
+301:                                              ; preds = %297
+  store i32 3, ptr %300, align 8, !tbaa !3320
   br label %.critedge
 
-300:                                              ; preds = %295
-  %301 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %301, align 4, !tbaa !3316
+302:                                              ; preds = %297
+  %303 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %303, align 4, !tbaa !3316
   br label %.critedge
 
-302:                                              ; preds = %257
-  %303 = select i1 %.not, i32 2, i32 1
-  %304 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %303, ptr %304, align 8, !tbaa !3320
-  %305 = icmp eq i32 %82, 1
-  %306 = icmp eq i32 %.0.i151, 1
-  %307 = or i1 %305, %306
-  %308 = select i1 %307, i32 1, i32 2
-  %309 = select i1 %254, i32 3, i32 %308
-  %310 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 %309, ptr %310, align 8, !tbaa !3320
-  br i1 %254, label %.critedge, label %311
+304:                                              ; preds = %259
+  %305 = select i1 %.not, i32 2, i32 1
+  %306 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %305, ptr %306, align 8, !tbaa !3320
+  %307 = icmp eq i32 %84, 1
+  %308 = icmp eq i32 %.0.i151, 1
+  %309 = or i1 %307, %308
+  %310 = select i1 %309, i32 1, i32 2
+  %311 = select i1 %256, i32 3, i32 %310
+  %312 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 %311, ptr %312, align 8, !tbaa !3320
+  br i1 %256, label %.critedge, label %313
 
-311:                                              ; preds = %302
-  %312 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %312, align 4, !tbaa !3316
+313:                                              ; preds = %304
+  %314 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %314, align 4, !tbaa !3316
   br label %.critedge
 
-313:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
-  %314 = load ptr, ptr %40, align 8, !tbaa !3354
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 16
-  %.0.i.i.i183 = load ptr, ptr %315, align 8, !tbaa !174
-  %316 = getelementptr inbounds nuw i8, ptr %314, i64 24
-  %.0.i.i1.i184 = load ptr, ptr %316, align 8, !tbaa !174
-  %317 = getelementptr inbounds nuw i8, ptr %314, i64 64
-  %318 = load i8, ptr %317, align 8, !tbaa !3311, !range !17, !noundef !18
-  %319 = trunc nuw i8 %318 to i1
-  br i1 %319, label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198, label %320
+315:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit152
+  %316 = load ptr, ptr %42, align 8, !tbaa !3354
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
+  %.0.i.i.i183 = load ptr, ptr %317, align 8, !tbaa !174
+  %318 = getelementptr inbounds nuw i8, ptr %316, i64 24
+  %.0.i.i1.i184 = load ptr, ptr %318, align 8, !tbaa !174
+  %319 = getelementptr inbounds nuw i8, ptr %316, i64 64
+  %320 = load i8, ptr %319, align 8, !tbaa !3311, !range !17, !noundef !18
+  %321 = trunc nuw i8 %320 to i1
+  br i1 %321, label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198, label %322
 
-320:                                              ; preds = %313
-  %321 = getelementptr inbounds nuw i8, ptr %314, i64 32
+322:                                              ; preds = %315
+  %323 = getelementptr inbounds nuw i8, ptr %316, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %322 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i184, i64 8
-  %323 = load double, ptr %322, align 8, !tbaa !3067
-  %324 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %323, ptr %324, align 8, !tbaa !3067
-  %325 = load double, ptr %.0.i.i1.i184, align 8, !tbaa !3067
-  store double %325, ptr %10, align 8, !tbaa !3067
-  %326 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %storemerge.in6.i.i.i.i.i185 = load ptr, ptr %321, align 8, !tbaa !3358
+  %324 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i184, i64 8
+  %325 = load double, ptr %324, align 8, !tbaa !3067
+  %326 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store double %325, ptr %326, align 8, !tbaa !3067
+  %327 = load double, ptr %.0.i.i1.i184, align 8, !tbaa !3067
+  store double %327, ptr %10, align 8, !tbaa !3067
+  %328 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %storemerge.in6.i.i.i.i.i185 = load ptr, ptr %323, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i.i.i185, i64 8
   %storemerge58.i.i.i.i.i187 = load double, ptr %storemerge5.in7.i.i.i.i.i186, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i.i.i187, ptr %326, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i.i.i187, ptr %328, align 8, !tbaa !3067
   %storemerge9.i.i.i.i.i188 = load double, ptr %storemerge.in6.i.i.i.i.i185, align 8, !tbaa !3067
   store double %storemerge9.i.i.i.i.i188, ptr %11, align 8, !tbaa !3067
-  %327 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  br i1 %327, label %.lr.ph.i.i.i.i.i191, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
+  %329 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  br i1 %329, label %.lr.ph.i.i.i.i.i191, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
 
-.lr.ph.i.i.i.i.i191:                              ; preds = %320
-  %328 = getelementptr inbounds nuw i8, ptr %314, i64 48
-  %329 = getelementptr inbounds nuw i8, ptr %314, i64 40
-  %330 = getelementptr inbounds nuw i8, ptr %314, i64 56
-  br label %331
+.lr.ph.i.i.i.i.i191:                              ; preds = %322
+  %330 = getelementptr inbounds nuw i8, ptr %316, i64 48
+  %331 = getelementptr inbounds nuw i8, ptr %316, i64 40
+  %332 = getelementptr inbounds nuw i8, ptr %316, i64 56
+  br label %333
 
-331:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193, %.lr.ph.i.i.i.i.i191
-  %.010.i.i.i.i.i192 = phi i64 [ 0, %.lr.ph.i.i.i.i.i191 ], [ %337, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193 ]
-  %332 = load ptr, ptr %314, align 8, !tbaa !3359
-  %333 = getelementptr inbounds nuw i8, ptr %332, i64 88
-  %334 = load i64, ptr %333, align 8, !tbaa !3163
-  %335 = icmp ult i64 %.010.i.i.i.i.i192, %334
-  br i1 %335, label %336, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
+333:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193, %.lr.ph.i.i.i.i.i191
+  %.010.i.i.i.i.i192 = phi i64 [ 0, %.lr.ph.i.i.i.i.i191 ], [ %339, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193 ]
+  %334 = load ptr, ptr %316, align 8, !tbaa !3359
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 88
+  %336 = load i64, ptr %335, align 8, !tbaa !3163
+  %337 = icmp ult i64 %.010.i.i.i.i.i192, %336
+  br i1 %337, label %338, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
 
-336:                                              ; preds = %331
-  %337 = add nuw i64 %.010.i.i.i.i.i192, 1
-  %338 = load ptr, ptr %321, align 8, !tbaa !3358, !noalias !3395
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 16
-  store ptr %339, ptr %321, align 8, !tbaa !3358, !noalias !3395
-  %340 = load ptr, ptr %328, align 8, !tbaa !174, !noalias !3395
-  %341 = icmp eq ptr %339, %340
-  br i1 %341, label %342, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
+338:                                              ; preds = %333
+  %339 = add nuw i64 %.010.i.i.i.i.i192, 1
+  %340 = load ptr, ptr %323, align 8, !tbaa !3358, !noalias !3395
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 16
+  store ptr %341, ptr %323, align 8, !tbaa !3358, !noalias !3395
+  %342 = load ptr, ptr %330, align 8, !tbaa !174, !noalias !3395
+  %343 = icmp eq ptr %341, %342
+  br i1 %343, label %344, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
 
-342:                                              ; preds = %336
-  %343 = load i64, ptr %329, align 8, !tbaa !174, !noalias !3395
-  store i64 %343, ptr %321, align 8, !tbaa !174, !noalias !3395
-  %344 = load i8, ptr %330, align 8, !tbaa !3363, !range !17, !noalias !3395, !noundef !18
-  %345 = trunc nuw i8 %344 to i1
-  %346 = inttoptr i64 %343 to ptr
-  br i1 %345, label %347, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
+344:                                              ; preds = %338
+  %345 = load i64, ptr %331, align 8, !tbaa !174, !noalias !3395
+  store i64 %345, ptr %323, align 8, !tbaa !174, !noalias !3395
+  %346 = load i8, ptr %332, align 8, !tbaa !3363, !range !17, !noalias !3395, !noundef !18
+  %347 = trunc nuw i8 %346 to i1
+  %348 = inttoptr i64 %345 to ptr
+  br i1 %347, label %349, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
 
-347:                                              ; preds = %342
-  %348 = getelementptr inbounds nuw i8, ptr %346, i64 16
-  store ptr %348, ptr %321, align 8, !tbaa !3358, !noalias !3395
-  %349 = icmp eq ptr %338, %346
-  br i1 %349, label %350, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
+349:                                              ; preds = %344
+  %350 = getelementptr inbounds nuw i8, ptr %348, i64 16
+  store ptr %350, ptr %323, align 8, !tbaa !3358, !noalias !3395
+  %351 = icmp eq ptr %340, %348
+  br i1 %351, label %352, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
 
-350:                                              ; preds = %347
-  store i64 %343, ptr %321, align 8, !tbaa !174, !noalias !3395
+352:                                              ; preds = %349
+  store i64 %345, ptr %323, align 8, !tbaa !174, !noalias !3395
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193: ; preds = %350, %347, %342, %336
-  %storemerge.in.i.i.i.i.i194 = phi ptr [ %339, %336 ], [ %346, %342 ], [ %348, %347 ], [ %346, %350 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193: ; preds = %352, %349, %344, %338
+  %storemerge.in.i.i.i.i.i194 = phi ptr [ %341, %338 ], [ %348, %344 ], [ %350, %349 ], [ %348, %352 ]
   %storemerge5.in.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i.i.i194, i64 8
   %storemerge5.i.i.i.i.i196 = load double, ptr %storemerge5.in.i.i.i.i.i195, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i.i.i196, ptr %326, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i.i.i196, ptr %328, align 8, !tbaa !3067
   %storemerge.i.i.i.i.i197 = load double, ptr %storemerge.in.i.i.i.i.i194, align 8, !tbaa !3067
   store double %storemerge.i.i.i.i.i197, ptr %11, align 8, !tbaa !3067
-  %351 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  br i1 %351, label %331, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189, !llvm.loop !3364
+  %353 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  br i1 %353, label %333, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193, %331, %320
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i.i.i193, %333, %322
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i8 1, ptr %317, align 8, !tbaa !3311
+  store i8 1, ptr %319, align 8, !tbaa !3311
   br label %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198
 
-_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198: ; preds = %313, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
-  %352 = getelementptr inbounds nuw i8, ptr %314, i64 32
-  %.0.i.i2.i190 = load ptr, ptr %352, align 8, !tbaa !174
-  %353 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i183, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i184, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i190)
-  %354 = icmp eq i32 %353, 0
-  br i1 %354, label %355, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
+_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198: ; preds = %315, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i.i.i189
+  %354 = getelementptr inbounds nuw i8, ptr %316, i64 32
+  %.0.i.i2.i190 = load ptr, ptr %354, align 8, !tbaa !174
+  %355 = call noundef i32 @_ZN5boost8geometry8strategy4side22spherical_side_formulaIvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESC_SC_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i183, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i1.i184, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i2.i190)
+  %356 = icmp eq i32 %355, 0
+  br i1 %356, label %357, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
 
-355:                                              ; preds = %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198
-  %356 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %357 = load i8, ptr %356, align 8, !tbaa !3311, !range !17, !noundef !18
-  %358 = trunc nuw i8 %357 to i1
-  br i1 %358, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212, label %359
+357:                                              ; preds = %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %359 = load i8, ptr %358, align 8, !tbaa !3311, !range !17, !noundef !18
+  %360 = trunc nuw i8 %359 to i1
+  br i1 %360, label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212, label %361
 
-359:                                              ; preds = %355
-  %360 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %361 = load ptr, ptr %360, align 8, !tbaa !3357
-  %362 = getelementptr inbounds nuw i8, ptr %0, i64 32
+361:                                              ; preds = %357
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %363 = load ptr, ptr %362, align 8, !tbaa !3357
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %363 = getelementptr inbounds nuw i8, ptr %361, i64 8
-  %364 = load double, ptr %363, align 8, !tbaa !3067
-  %365 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %364, ptr %365, align 8, !tbaa !3067
-  %366 = load double, ptr %361, align 8, !tbaa !3067
-  store double %366, ptr %8, align 8, !tbaa !3067
-  %367 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %storemerge.in6.i.i.i32.i200 = load ptr, ptr %362, align 8, !tbaa !3358
+  %365 = getelementptr inbounds nuw i8, ptr %363, i64 8
+  %366 = load double, ptr %365, align 8, !tbaa !3067
+  %367 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %366, ptr %367, align 8, !tbaa !3067
+  %368 = load double, ptr %363, align 8, !tbaa !3067
+  store double %368, ptr %8, align 8, !tbaa !3067
+  %369 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %storemerge.in6.i.i.i32.i200 = load ptr, ptr %364, align 8, !tbaa !3358
   %storemerge5.in7.i.i.i33.i201 = getelementptr inbounds nuw i8, ptr %storemerge.in6.i.i.i32.i200, i64 8
   %storemerge58.i.i.i34.i202 = load double, ptr %storemerge5.in7.i.i.i33.i201, align 8, !tbaa !3067
-  store double %storemerge58.i.i.i34.i202, ptr %367, align 8, !tbaa !3067
+  store double %storemerge58.i.i.i34.i202, ptr %369, align 8, !tbaa !3067
   %storemerge9.i.i.i35.i203 = load double, ptr %storemerge.in6.i.i.i32.i200, align 8, !tbaa !3067
   store double %storemerge9.i.i.i35.i203, ptr %9, align 8, !tbaa !3067
-  %368 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  br i1 %368, label %.lr.ph.i.i.i37.i205, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204
+  %370 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  br i1 %370, label %.lr.ph.i.i.i37.i205, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204
 
-.lr.ph.i.i.i37.i205:                              ; preds = %359
-  %369 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %370 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %371 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br label %372
+.lr.ph.i.i.i37.i205:                              ; preds = %361
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %373 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  br label %374
 
-372:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207, %.lr.ph.i.i.i37.i205
-  %.010.i.i.i38.i206 = phi i64 [ 0, %.lr.ph.i.i.i37.i205 ], [ %378, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207 ]
-  %373 = load ptr, ptr %0, align 8, !tbaa !3359
-  %374 = getelementptr inbounds nuw i8, ptr %373, i64 88
-  %375 = load i64, ptr %374, align 8, !tbaa !3163
-  %376 = icmp ult i64 %.010.i.i.i38.i206, %375
-  br i1 %376, label %377, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204
+374:                                              ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207, %.lr.ph.i.i.i37.i205
+  %.010.i.i.i38.i206 = phi i64 [ 0, %.lr.ph.i.i.i37.i205 ], [ %380, %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207 ]
+  %375 = load ptr, ptr %0, align 8, !tbaa !3359
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 88
+  %377 = load i64, ptr %376, align 8, !tbaa !3163
+  %378 = icmp ult i64 %.010.i.i.i38.i206, %377
+  br i1 %378, label %379, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204
 
-377:                                              ; preds = %372
-  %378 = add nuw i64 %.010.i.i.i38.i206, 1
-  %379 = load ptr, ptr %362, align 8, !tbaa !3358, !noalias !3398
-  %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
-  store ptr %380, ptr %362, align 8, !tbaa !3358, !noalias !3398
-  %381 = load ptr, ptr %369, align 8, !tbaa !174, !noalias !3398
-  %382 = icmp eq ptr %380, %381
-  br i1 %382, label %383, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
+379:                                              ; preds = %374
+  %380 = add nuw i64 %.010.i.i.i38.i206, 1
+  %381 = load ptr, ptr %364, align 8, !tbaa !3358, !noalias !3398
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 16
+  store ptr %382, ptr %364, align 8, !tbaa !3358, !noalias !3398
+  %383 = load ptr, ptr %371, align 8, !tbaa !174, !noalias !3398
+  %384 = icmp eq ptr %382, %383
+  br i1 %384, label %385, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
 
-383:                                              ; preds = %377
-  %384 = load i64, ptr %370, align 8, !tbaa !174, !noalias !3398
-  store i64 %384, ptr %362, align 8, !tbaa !174, !noalias !3398
-  %385 = load i8, ptr %371, align 8, !tbaa !3363, !range !17, !noalias !3398, !noundef !18
-  %386 = trunc nuw i8 %385 to i1
-  %387 = inttoptr i64 %384 to ptr
-  br i1 %386, label %388, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
+385:                                              ; preds = %379
+  %386 = load i64, ptr %372, align 8, !tbaa !174, !noalias !3398
+  store i64 %386, ptr %364, align 8, !tbaa !174, !noalias !3398
+  %387 = load i8, ptr %373, align 8, !tbaa !3363, !range !17, !noalias !3398, !noundef !18
+  %388 = trunc nuw i8 %387 to i1
+  %389 = inttoptr i64 %386 to ptr
+  br i1 %388, label %390, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
 
-388:                                              ; preds = %383
-  %389 = getelementptr inbounds nuw i8, ptr %387, i64 16
-  store ptr %389, ptr %362, align 8, !tbaa !3358, !noalias !3398
-  %390 = icmp eq ptr %379, %387
-  br i1 %390, label %391, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
+390:                                              ; preds = %385
+  %391 = getelementptr inbounds nuw i8, ptr %389, i64 16
+  store ptr %391, ptr %364, align 8, !tbaa !3358, !noalias !3398
+  %392 = icmp eq ptr %381, %389
+  br i1 %392, label %393, label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
 
-391:                                              ; preds = %388
-  store i64 %384, ptr %362, align 8, !tbaa !174, !noalias !3398
+393:                                              ; preds = %390
+  store i64 %386, ptr %364, align 8, !tbaa !174, !noalias !3398
   br label %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207
 
-_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207: ; preds = %391, %388, %383, %377
-  %storemerge.in.i.i.i40.i208 = phi ptr [ %380, %377 ], [ %387, %383 ], [ %389, %388 ], [ %387, %391 ]
+_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207: ; preds = %393, %390, %385, %379
+  %storemerge.in.i.i.i40.i208 = phi ptr [ %382, %379 ], [ %389, %385 ], [ %391, %390 ], [ %389, %393 ]
   %storemerge5.in.i.i.i41.i209 = getelementptr inbounds nuw i8, ptr %storemerge.in.i.i.i40.i208, i64 8
   %storemerge5.i.i.i42.i210 = load double, ptr %storemerge5.in.i.i.i41.i209, align 8, !tbaa !3067
-  store double %storemerge5.i.i.i42.i210, ptr %367, align 8, !tbaa !3067
+  store double %storemerge5.i.i.i42.i210, ptr %369, align 8, !tbaa !3067
   %storemerge.i.i.i43.i211 = load double, ptr %storemerge.in.i.i.i40.i208, align 8, !tbaa !3067
   store double %storemerge.i.i.i43.i211, ptr %9, align 8, !tbaa !3067
-  %392 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  br i1 %392, label %372, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204, !llvm.loop !3364
+  %394 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  br i1 %394, label %374, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204, !llvm.loop !3364
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207, %372, %359
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204: ; preds = %_ZN5boost9iteratorsppINS_8geometry22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS2_5model5pointIdLm2ENS2_2cs20spherical_equatorialINS2_6degreeEEEEESt6vectorISC_SaISC_EEEEEESC_NS0_27bidirectional_traversal_tagERSD_lEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISO_SP_SR_SQ_T3_EEi.exit.i.i.i39.i207, %374, %361
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  store i8 1, ptr %356, align 8, !tbaa !3311
+  store i8 1, ptr %358, align 8, !tbaa !3311
   br label %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
 
-_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204, %355, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198
-  %.0.i199 = phi i32 [ %353, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198 ], [ 0, %355 ], [ 0, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204 ]
+_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204, %357, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198
+  %.0.i199 = phi i32 [ %355, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_p1Ev.exit198 ], [ 0, %357 ], [ 0, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSI_RSO_.exit.i.i36.i204 ]
   %.not213 = icmp eq i32 %.0.i151, 1
-  %393 = icmp eq i32 %.0.i199, %82
-  br i1 %393, label %394, label %407
+  %395 = icmp eq i32 %.0.i199, %84
+  br i1 %395, label %396, label %409
 
-394:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
-  %395 = icmp eq i32 %80, 0
-  br i1 %395, label %396, label %400
+396:                                              ; preds = %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
+  %397 = icmp eq i32 %82, 0
+  br i1 %397, label %398, label %402
 
-396:                                              ; preds = %394
-  %397 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 3, ptr %397, align 8, !tbaa !3320
-  %398 = select i1 %.not213, i32 1, i32 2
-  %399 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 %398, ptr %399, align 8, !tbaa !3320
+398:                                              ; preds = %396
+  %399 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 3, ptr %399, align 8, !tbaa !3320
+  %400 = select i1 %.not213, i32 1, i32 2
+  %401 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 %400, ptr %401, align 8, !tbaa !3320
   br label %.critedge
 
-400:                                              ; preds = %394
-  %401 = icmp eq i32 %80, %.0.i151
-  br i1 %401, label %402, label %407
+402:                                              ; preds = %396
+  %403 = icmp eq i32 %82, %.0.i151
+  br i1 %403, label %404, label %409
 
-402:                                              ; preds = %400
-  %403 = select i1 %.not213, i32 1, i32 2
-  %404 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %403, ptr %404, align 8, !tbaa !3320
-  %405 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 %403, ptr %405, align 8, !tbaa !3320
-  %406 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %406, align 4, !tbaa !3316
+404:                                              ; preds = %402
+  %405 = select i1 %.not213, i32 1, i32 2
+  %406 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %405, ptr %406, align 8, !tbaa !3320
+  %407 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 %405, ptr %407, align 8, !tbaa !3320
+  %408 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %408, align 4, !tbaa !3316
   br label %.critedge
 
-407:                                              ; preds = %400, %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
-  %408 = icmp eq i32 %.0.i199, %.0.i151
-  br i1 %408, label %409, label %423
+409:                                              ; preds = %402, %_ZN5boost8geometry6detail7overlay32turn_info_verification_functionsINS2_17policy_verify_allEE13verified_sideINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINSA_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESH_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSH_St6vectorISH_SaISH_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESZ_SX_EEiiRKT_RKT0_RKT1_ii.exit212
+  %410 = icmp eq i32 %.0.i199, %.0.i151
+  br i1 %410, label %411, label %425
 
-409:                                              ; preds = %407
-  %410 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_q2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %411 = icmp eq i32 %410, 0
-  br i1 %411, label %412, label %415
+411:                                              ; preds = %409
+  %412 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEESW_SU_E9pk_wrt_q2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %413 = icmp eq i32 %412, 0
+  br i1 %413, label %414, label %417
 
-412:                                              ; preds = %409
-  %413 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 4, ptr %413, align 8, !tbaa !3320
-  %414 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i32 4, ptr %414, align 8, !tbaa !3320
+414:                                              ; preds = %411
+  %415 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 4, ptr %415, align 8, !tbaa !3320
+  %416 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 4, ptr %416, align 8, !tbaa !3320
   br label %.critedge
 
-415:                                              ; preds = %409
-  %416 = icmp eq i32 %410, %.0.i151
-  br i1 %416, label %417, label %423
+417:                                              ; preds = %411
+  %418 = icmp eq i32 %412, %.0.i151
+  br i1 %418, label %419, label %425
 
-417:                                              ; preds = %415
-  %418 = select i1 %.not213, i32 1, i32 2
-  %419 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %418, ptr %419, align 8, !tbaa !3320
-  %420 = select i1 %.not213, i32 2, i32 1
-  %421 = getelementptr inbounds nuw i8, ptr %2, i64 120
+419:                                              ; preds = %417
+  %420 = select i1 %.not213, i32 1, i32 2
+  %421 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %420, ptr %421, align 8, !tbaa !3320
-  %422 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i8 1, ptr %422, align 4, !tbaa !3316
+  %422 = select i1 %.not213, i32 2, i32 1
+  %423 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 %422, ptr %423, align 8, !tbaa !3320
+  %424 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i8 1, ptr %424, align 4, !tbaa !3316
   br label %.critedge
 
-423:                                              ; preds = %415, %407
-  %424 = select i1 %.not213, i32 2, i32 1
-  %425 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %424, ptr %425, align 8, !tbaa !3320
-  %426 = select i1 %.not213, i32 1, i32 2
-  %427 = getelementptr inbounds nuw i8, ptr %2, i64 120
+425:                                              ; preds = %417, %409
+  %426 = select i1 %.not213, i32 2, i32 1
+  %427 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %426, ptr %427, align 8, !tbaa !3320
+  %428 = select i1 %.not213, i32 1, i32 2
+  %429 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  store i32 %428, ptr %429, align 8, !tbaa !3320
   br label %.critedge
 
-.critedge:                                        ; preds = %279, %396, %402, %423, %417, %412, %267, %269, %287, %263, %300, %299, %311, %302, %293
+.critedge:                                        ; preds = %281, %398, %404, %425, %419, %414, %269, %271, %289, %265, %302, %301, %313, %304, %295
   ret void
 }
 

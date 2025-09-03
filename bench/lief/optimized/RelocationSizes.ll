@@ -330,7 +330,6 @@ define linkonce_odr hidden noundef ptr @_ZNK6frozen3mapIN4LIEF3ELF10Relocation4T
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_iELm11EEET_SH_St17integral_constantImXT0_EESI_IbLb0EE.exit.i.i.i.i.i.i.i, label %20
 
 _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_iELm11EEET_SH_St17integral_constantImXT0_EESI_IbLb0EE.exit.i.i.i.i.i.i.i: ; preds = %9
-  %.ptr23.i = getelementptr inbounds nuw i8, ptr %0, i64 900
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 956
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %.not.i.i.i.i.i.i.i.i = icmp ult i32 %13, %5
@@ -338,8 +337,8 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4
   %15 = load i32, ptr %14, align 4
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %15, %5
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 32, i64 0
-  %16 = getelementptr inbounds nuw i8, ptr %.ptr23.i, i64 %.idx.i.i.i.i.i.i.i.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i.i.i.i.i.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 908
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 972
   %.sink.in.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, ptr %18, ptr %17
   %19 = or disjoint i64 %.idx.i.i.i.i.i.i.i.i.i, 900

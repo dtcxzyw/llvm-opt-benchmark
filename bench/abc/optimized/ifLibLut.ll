@@ -1097,26 +1097,39 @@ define float @If_LibLutFastestPinDelay(ptr noundef readonly captures(address_is_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @If_LibLutSlowestPinDelay(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %13, label %2
+  br i1 %.not, label %20, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !21
   %.not7 = icmp eq i32 %4, 0
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  br i1 %.not7, label %12, label %5
+
+5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !15
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [33 x float], ptr %5, i64 %8
+  %9 = getelementptr [33 x float], ptr %0, i64 %8
   %10 = getelementptr float, ptr %9, i64 %8
-  %11 = getelementptr i8, ptr %10, i64 -4
-  %.in = select i1 %.not7, ptr %9, ptr %11
-  %12 = load float, ptr %.in, align 4, !tbaa !18
-  br label %13
+  %11 = getelementptr i8, ptr %10, i64 144
+  br label %18
 
-13:                                               ; preds = %1, %2
-  %14 = phi float [ %12, %2 ], [ 1.000000e+00, %1 ]
-  ret float %14
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load i32, ptr %14, align 8, !tbaa !15
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds [33 x float], ptr %13, i64 %16
+  br label %18
+
+18:                                               ; preds = %12, %5
+  %.in = phi ptr [ %11, %5 ], [ %17, %12 ]
+  %19 = load float, ptr %.in, align 4, !tbaa !18
+  br label %20
+
+20:                                               ; preds = %1, %18
+  %21 = phi float [ %19, %18 ], [ 1.000000e+00, %1 ]
+  ret float %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

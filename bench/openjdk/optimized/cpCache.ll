@@ -2501,9 +2501,8 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %6, %_ZN10Handl
 
 31:                                               ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
   %32 = load ptr, ptr %25, align 8
-  %.idx = shl nsw i64 %28, 4
-  %33 = getelementptr i8, ptr %32, i64 23
-  %34 = getelementptr i8, ptr %33, i64 %.idx
+  %33 = getelementptr %class.ResolvedIndyEntry, ptr %32, i64 %28
+  %34 = getelementptr i8, ptr %33, i64 23
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 1
   %.not22 = icmp eq i8 %36, 0
@@ -2555,8 +2554,8 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %54, %64
   %69 = add nsw i32 %3, 1000000
   call void @_ZN16SystemDictionary20add_resolution_errorERK18constantPoolHandleiP6SymbolPKcS4_S6_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %69, ptr noundef %67, ptr noundef %68, ptr noundef null, ptr noundef null) #12
   %70 = load ptr, ptr %25, align 8
-  %71 = getelementptr i8, ptr %70, i64 23
-  %72 = getelementptr i8, ptr %71, i64 %.idx
+  %71 = getelementptr %class.ResolvedIndyEntry, ptr %70, i64 %28
+  %72 = getelementptr i8, ptr %71, i64 23
   %73 = load i8, ptr %72, align 1
   %74 = or i8 %73, 1
   store i8 %74, ptr %72, align 1
@@ -2697,9 +2696,8 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %_ZN26GrowableA
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8
-  %.idx.i = shl nsw i64 %61, 4
-  %71 = getelementptr i8, ptr %70, i64 16
-  %72 = getelementptr i8, ptr %71, i64 %.idx.i
+  %71 = getelementptr %class.ResolvedIndyEntry, ptr %70, i64 %61
+  %72 = getelementptr i8, ptr %71, i64 16
   %73 = load i16, ptr %72, align 8
   %74 = load i8, ptr @UseCompressedOops, align 1
   %75 = trunc i8 %74 to i1
@@ -2717,9 +2715,8 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %_ZN26GrowableA
 
 84:                                               ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
   %85 = load ptr, ptr %58, align 8
-  %.idx = shl nsw i64 %61, 4
-  %86 = getelementptr i8, ptr %85, i64 23
-  %87 = getelementptr i8, ptr %86, i64 %.idx
+  %86 = getelementptr %class.ResolvedIndyEntry, ptr %85, i64 %61
+  %87 = getelementptr i8, ptr %86, i64 23
   %88 = load i8, ptr %87, align 1
   %89 = and i8 %88, 1
   %.not57 = icmp eq i8 %89, 0
@@ -2821,8 +2818,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %130, %128, %96
 
 _ZNK6HandleclEv.exit35:                           ; preds = %_ZN12ResourceMarkD2Ev.exit
   %131 = load ptr, ptr %58, align 8
-  %132 = getelementptr i8, ptr %131, i64 16
-  %133 = getelementptr i8, ptr %132, i64 %.idx
+  %132 = getelementptr %class.ResolvedIndyEntry, ptr %131, i64 %61
+  %133 = getelementptr i8, ptr %132, i64 16
   %134 = load i16, ptr %133, align 8
   %135 = load ptr, ptr %storemerge.i.i, align 8
   %136 = load ptr, ptr %.sroa.0.0.copyload.i, align 8
@@ -3032,9 +3029,9 @@ define hidden void @_ZNK17ConstantPoolCache29print_resolved_method_entriesEP12ou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %35
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %9 = phi ptr [ %4, %.lr.ph ], [ %36, %35 ]
+8:                                                ; preds = %.lr.ph, %34
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
+  %9 = phi ptr [ %4, %.lr.ph ], [ %35, %34 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = getelementptr inbounds nuw %class.ResolvedMethodEntry, ptr %10, i64 %indvars.iv
   tail call void @_ZNK19ResolvedMethodEntry8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %1) #12
@@ -3042,7 +3039,7 @@ define hidden void @_ZNK17ConstantPoolCache29print_resolved_method_entriesEP12ou
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 8
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %35, label %15
+  br i1 %.not, label %34, label %15
 
 15:                                               ; preds = %8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.23) #12
@@ -3052,34 +3049,32 @@ define hidden void @_ZNK17ConstantPoolCache29print_resolved_method_entriesEP12ou
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
-  %.idx.i = mul nuw nsw i64 %indvars.iv, 24
-  %22 = getelementptr i8, ptr %21, i64 16
-  %23 = getelementptr i8, ptr %22, i64 %.idx.i
-  %24 = load i16, ptr %23, align 8
-  %25 = load i8, ptr @UseCompressedOops, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = load i8, ptr @UseCompressedClassPointers, align 1
-  %28 = trunc i8 %27 to i1
-  %29 = zext i16 %24 to i64
-  %..i.i = select i1 %26, i64 20, i64 24
-  %.7.i.i = select i1 %26, i64 2, i64 3
-  %30 = select i1 %28, i64 16, i64 %..i.i
-  %31 = shl nuw nsw i64 %29, %.7.i.i
-  %32 = add nuw nsw i64 %30, %31
-  %33 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %32) #12
-  tail call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %1) #12
-  br label %35
+  %22 = getelementptr %class.ResolvedMethodEntry, ptr %21, i64 %indvars.iv, i32 2
+  %23 = load i16, ptr %22, align 8
+  %24 = load i8, ptr @UseCompressedOops, align 1
+  %25 = trunc i8 %24 to i1
+  %26 = load i8, ptr @UseCompressedClassPointers, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = zext i16 %23 to i64
+  %..i.i = select i1 %25, i64 20, i64 24
+  %.7.i.i = select i1 %25, i64 2, i64 3
+  %29 = select i1 %27, i64 16, i64 %..i.i
+  %30 = shl nuw nsw i64 %28, %.7.i.i
+  %31 = add nuw nsw i64 %29, %30
+  %32 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %31) #12
+  tail call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %1) #12
+  br label %34
 
-35:                                               ; preds = %8, %15
+34:                                               ; preds = %8, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load ptr, ptr %3, align 8
-  %37 = load i32, ptr %36, align 8
-  %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %8, label %._crit_edge, !llvm.loop !20
+  %35 = load ptr, ptr %3, align 8
+  %36 = load i32, ptr %35, align 8
+  %37 = sext i32 %36 to i64
+  %38 = icmp slt i64 %indvars.iv.next, %37
+  br i1 %38, label %8, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %35, %2
+._crit_edge:                                      ; preds = %34, %2
   ret void
 }
 
@@ -3115,9 +3110,8 @@ define hidden void @_ZNK17ConstantPoolCache27print_resolved_indy_entriesEP12outp
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
-  %.idx.i = shl nuw nsw i64 %indvars.iv, 4
-  %22 = getelementptr i8, ptr %21, i64 16
-  %23 = getelementptr i8, ptr %22, i64 %.idx.i
+  %22 = getelementptr %class.ResolvedIndyEntry, ptr %21, i64 %indvars.iv
+  %23 = getelementptr i8, ptr %22, i64 16
   %24 = load i16, ptr %23, align 8
   %25 = load i8, ptr @UseCompressedOops, align 1
   %26 = trunc i8 %25 to i1

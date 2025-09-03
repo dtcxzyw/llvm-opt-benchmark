@@ -1222,20 +1222,19 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
   %.0.i.i.i.i.i.ph = phi ptr [ %14, %_ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEEmS7_ET_S9_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc20 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i.ph, ptr %16, align 8, !tbaa !166
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %19
+  br label %18
 
-19:                                               ; preds = %.lr.ph, %25
+18:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
+  %19 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 148
   %21 = load i32, ptr %20, align 4, !tbaa !167
   %.not = icmp ult i32 %21, 4
   br i1 %.not, label %25, label %22
 
-22:                                               ; preds = %19
+22:                                               ; preds = %18
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed20AbstractLJpegDecoder21getPrefixCodeDecodersEi, i32 noundef %21, i32 noundef %23, i32 noundef 4) #15
           to label %24 unwind label %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit
@@ -1243,15 +1242,15 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 24:                                               ; preds = %22
   unreachable
 
-25:                                               ; preds = %19
+25:                                               ; preds = %18
   %26 = zext nneg i32 %21 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %18, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !150
   %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !168
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !168
 
 ._crit_edge:                                      ; preds = %25, %15
   ret void
@@ -1259,8 +1258,8 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 _ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit: ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  %.idx33 = shl nuw nsw i64 %4, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %.idx33) #24
+  %.idx = shl nuw nsw i64 %4, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %.idx) #24
   resume { ptr, i32 } %30
 }
 

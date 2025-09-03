@@ -1464,60 +1464,59 @@ define internal fastcc void @_process_image(ptr noundef %0, i32 noundef range(i3
   %.not = icmp eq i32 %33, %19
   br i1 %.not, label %_get_slot_for_image.exit.thread36, label %.preheader
 
-.preheader:                                       ; preds = %2, %39
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 0, %2 ]
-  %34 = mul nuw nsw i64 %indvars.iv.i, 40
-  %35 = getelementptr inbounds nuw i8, ptr %15, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 28
-  %37 = load i32, ptr %36, align 4, !tbaa !74
-  %38 = icmp eq i32 %37, %19
-  br i1 %38, label %_get_slot_for_image.exit, label %39
+.preheader:                                       ; preds = %2, %38
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %2 ]
+  %34 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 52
+  %36 = load i32, ptr %35, align 4, !tbaa !74
+  %37 = icmp eq i32 %36, %19
+  br i1 %37, label %_get_slot_for_image.exit, label %38
 
-39:                                               ; preds = %.preheader
+38:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %_get_slot_for_image.exit.thread, label %.preheader
 
 _get_slot_for_image.exit:                         ; preds = %.preheader
-  %40 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_get_slot_for_image.exit.thread36
 
 _get_slot_for_image.exit.thread36:                ; preds = %_get_slot_for_image.exit, %2
-  %.039 = phi i32 [ %40, %_get_slot_for_image.exit ], [ %1, %2 ]
-  %41 = load i64, ptr %11, align 8, !tbaa !69
-  %42 = icmp eq i64 %41, %12
-  br i1 %42, label %43, label %_get_slot_for_image.exit.thread
+  %.039 = phi i32 [ %39, %_get_slot_for_image.exit ], [ %1, %2 ]
+  %40 = load i64, ptr %11, align 8, !tbaa !69
+  %41 = icmp eq i64 %40, %12
+  br i1 %41, label %42, label %_get_slot_for_image.exit.thread
 
-43:                                               ; preds = %_get_slot_for_image.exit.thread36
-  %44 = load i64, ptr %13, align 8, !tbaa !71
-  %45 = icmp eq i64 %44, %14
-  br i1 %45, label %46, label %_get_slot_for_image.exit.thread
+42:                                               ; preds = %_get_slot_for_image.exit.thread36
+  %43 = load i64, ptr %13, align 8, !tbaa !71
+  %44 = icmp eq i64 %43, %14
+  br i1 %44, label %45, label %_get_slot_for_image.exit.thread
 
-46:                                               ; preds = %43
-  %47 = load i64, ptr %3, align 8, !tbaa !99
-  %48 = zext i32 %.039 to i64
-  %49 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %15, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %47, ptr %50, align 8, !tbaa !87
-  %51 = load i64, ptr %4, align 8, !tbaa !99
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i64 %51, ptr %52, align 8, !tbaa !88
-  %53 = load ptr, ptr %5, align 8, !tbaa !98
-  store ptr %53, ptr %49, align 8, !tbaa !86
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i32 0, ptr %54, align 8, !tbaa !75
-  br label %56
+45:                                               ; preds = %42
+  %46 = load i64, ptr %3, align 8, !tbaa !99
+  %47 = zext i32 %.039 to i64
+  %48 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %15, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i64 %46, ptr %49, align 8, !tbaa !87
+  %50 = load i64, ptr %4, align 8, !tbaa !99
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store i64 %50, ptr %51, align 8, !tbaa !88
+  %52 = load ptr, ptr %5, align 8, !tbaa !98
+  store ptr %52, ptr %48, align 8, !tbaa !86
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  store i32 0, ptr %53, align 8, !tbaa !75
+  br label %55
 
-_get_slot_for_image.exit.thread:                  ; preds = %39, %43, %_get_slot_for_image.exit.thread36
-  %55 = load ptr, ptr %5, align 8, !tbaa !98
-  call void @free(ptr noundef %55) #12
-  br label %56
+_get_slot_for_image.exit.thread:                  ; preds = %38, %42, %_get_slot_for_image.exit.thread36
+  %54 = load ptr, ptr %5, align 8, !tbaa !98
+  call void @free(ptr noundef %54) #12
+  br label %55
 
-56:                                               ; preds = %_get_slot_for_image.exit.thread, %46
-  %57 = load i32, ptr %8, align 4, !tbaa !56
-  %58 = add nsw i32 %57, -1
-  store i32 %58, ptr %8, align 4, !tbaa !56
-  %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #12
+55:                                               ; preds = %_get_slot_for_image.exit.thread, %45
+  %56 = load i32, ptr %8, align 4, !tbaa !56
+  %57 = add nsw i32 %56, -1
+  store i32 %57, ptr %8, align 4, !tbaa !56
+  %58 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

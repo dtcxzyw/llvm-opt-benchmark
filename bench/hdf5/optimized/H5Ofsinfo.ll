@@ -255,8 +255,8 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   br label %.thread
 
 124:                                              ; preds = %111, %.preheader
-  %125 = getelementptr i64, ptr %19, i64 %indvars.iv194
-  %126 = getelementptr i8, ptr %125, i64 -8
+  %125 = getelementptr i64, ptr %17, i64 %indvars.iv194
+  %126 = getelementptr i8, ptr %125, i64 40
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %126) #6
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next195, 7

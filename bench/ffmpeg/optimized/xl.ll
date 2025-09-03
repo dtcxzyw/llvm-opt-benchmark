@@ -33,7 +33,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 12:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #4
-  br label %122
+  br label %120
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -44,12 +44,12 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 18:                                               ; preds = %13
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #4
-  br label %122
+  br label %120
 
 19:                                               ; preds = %13
   %20 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #4
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %122, label %22
+  br i1 %21, label %120, label %22
 
 22:                                               ; preds = %19
   %23 = load i32, ptr %14, align 4, !tbaa !31
@@ -79,11 +79,11 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %.0118 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %.lr.ph120.split.preheader ]
   %.078117 = phi i32 [ %.179.lcssa, %._crit_edge ], [ 0, %.lr.ph120.split.preheader ]
   %.081116 = phi i32 [ %.182.lcssa, %._crit_edge ], [ 0, %.lr.ph120.split.preheader ]
-  %.084115 = phi ptr [ %110, %._crit_edge ], [ %6, %.lr.ph120.split.preheader ]
-  %.087114 = phi ptr [ %113, %._crit_edge ], [ %31, %.lr.ph120.split.preheader ]
-  %.088113 = phi ptr [ %116, %._crit_edge ], [ %33, %.lr.ph120.split.preheader ]
-  %.090112 = phi i32 [ %120, %._crit_edge ], [ 0, %.lr.ph120.split.preheader ]
-  %.091111 = phi ptr [ %119, %._crit_edge ], [ %35, %.lr.ph120.split.preheader ]
+  %.084115 = phi ptr [ %108, %._crit_edge ], [ %6, %.lr.ph120.split.preheader ]
+  %.087114 = phi ptr [ %111, %._crit_edge ], [ %31, %.lr.ph120.split.preheader ]
+  %.088113 = phi ptr [ %114, %._crit_edge ], [ %33, %.lr.ph120.split.preheader ]
+  %.090112 = phi i32 [ %118, %._crit_edge ], [ 0, %.lr.ph120.split.preheader ]
+  %.091111 = phi ptr [ %117, %._crit_edge ], [ %35, %.lr.ph120.split.preheader ]
   %38 = getelementptr i8, ptr %.084115, i64 %26
   %39 = icmp sgt i32 %37, 0
   br i1 %39, label %.lr.ph, label %.lr.ph120.split.._crit_edge_crit_edge
@@ -207,27 +207,25 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %.179.lcssa = phi i32 [ %.078117, %.lr.ph120.split.._crit_edge_crit_edge ], [ %.28099, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.0118, %.lr.ph120.split.._crit_edge_crit_edge ], [ %.2, %._crit_edge.loopexit ]
   %107 = phi ptr [ %38, %.lr.ph120.split.._crit_edge_crit_edge ], [ %.185106, %._crit_edge.loopexit ]
-  %108 = getelementptr i8, ptr %107, i64 -4
-  %109 = getelementptr i8, ptr %108, i64 %.pre-phi
-  %110 = getelementptr i8, ptr %109, i64 4
-  %111 = load i32, ptr %27, align 8, !tbaa !34
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr %.087114, i64 %112
-  %114 = load i32, ptr %28, align 4, !tbaa !34
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i8, ptr %.088113, i64 %115
-  %117 = load i32, ptr %29, align 8, !tbaa !34
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr %.091111, i64 %118
-  %120 = add nuw nsw i32 %.090112, 1
-  %121 = icmp slt i32 %120, %105
-  br i1 %121, label %.lr.ph120.split, label %._crit_edge121, !llvm.loop !37
+  %108 = getelementptr i8, ptr %107, i64 %.pre-phi
+  %109 = load i32, ptr %27, align 8, !tbaa !34
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr %.087114, i64 %110
+  %112 = load i32, ptr %28, align 4, !tbaa !34
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %.088113, i64 %113
+  %115 = load i32, ptr %29, align 8, !tbaa !34
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i8, ptr %.091111, i64 %116
+  %118 = add nuw nsw i32 %.090112, 1
+  %119 = icmp slt i32 %118, %105
+  br i1 %119, label %.lr.ph120.split, label %._crit_edge121, !llvm.loop !37
 
 ._crit_edge121:                                   ; preds = %._crit_edge, %.lr.ph120, %22
   store i32 1, ptr %2, align 4, !tbaa !34
-  br label %122
+  br label %120
 
-122:                                              ; preds = %19, %._crit_edge121, %18, %12
+120:                                              ; preds = %19, %._crit_edge121, %18, %12
   %.083 = phi i32 [ -1094995529, %12 ], [ -1094995529, %18 ], [ %8, %._crit_edge121 ], [ %20, %19 ]
   ret i32 %.083
 }

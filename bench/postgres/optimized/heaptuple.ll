@@ -684,62 +684,61 @@ define dso_local zeroext i1 @heap_attisnull(ptr noundef readonly captures(none) 
   %8 = and i16 %7, 2047
   %9 = zext nneg i16 %8 to i32
   %10 = icmp sgt i32 %1, %9
-  br i1 %10, label %11, label %20
+  br i1 %10, label %11, label %19
 
 11:                                               ; preds = %3
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %19, label %12
+  br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr %struct.CompactAttribute, ptr %13, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 -8
-  %17 = load i8, ptr %16, align 4, !range !4, !noundef !5
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %40, label %19
+  %13 = zext nneg i32 %1 to i64
+  %14 = getelementptr %struct.CompactAttribute, ptr %2, i64 %13, i32 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load i8, ptr %15, align 4, !range !4, !noundef !5
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %39, label %18
 
-19:                                               ; preds = %12, %11
-  br label %40
+18:                                               ; preds = %12, %11
+  br label %39
 
-20:                                               ; preds = %3
-  %21 = icmp sgt i32 %1, 0
-  br i1 %21, label %22, label %36
+19:                                               ; preds = %3
+  %20 = icmp sgt i32 %1, 0
+  br i1 %20, label %21, label %35
 
-22:                                               ; preds = %20
-  %23 = getelementptr i8, ptr %5, i64 20
-  %.val.val = load i16, ptr %23, align 4
-  %24 = and i16 %.val.val, 1
-  %.not.i = icmp eq i16 %24, 0
-  br i1 %.not.i, label %40, label %25
+21:                                               ; preds = %19
+  %22 = getelementptr i8, ptr %5, i64 20
+  %.val.val = load i16, ptr %22, align 4
+  %23 = and i16 %.val.val, 1
+  %.not.i = icmp eq i16 %23, 0
+  br i1 %.not.i, label %39, label %24
 
-25:                                               ; preds = %22
-  %26 = add nsw i32 %1, -1
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 23
-  %28 = lshr i32 %26, 3
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = and i32 %26, 7
-  %34 = shl nuw nsw i32 1, %33
-  %35 = and i32 %34, %32
-  %.not.i13 = icmp eq i32 %35, 0
-  br label %40
+24:                                               ; preds = %21
+  %25 = add nsw i32 %1, -1
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 23
+  %27 = lshr i32 %25, 3
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = and i32 %25, 7
+  %33 = shl nuw nsw i32 1, %32
+  %34 = and i32 %33, %31
+  %.not.i13 = icmp eq i32 %34, 0
+  br label %39
 
-36:                                               ; preds = %20
+35:                                               ; preds = %19
   %switch = icmp ugt i32 %1, -7
-  br i1 %switch, label %40, label %37
+  br i1 %switch, label %39, label %36
 
-37:                                               ; preds = %36
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #12
+36:                                               ; preds = %35
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %37)
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 491, ptr noundef nonnull @__func__.heap_attisnull) #12
   unreachable
 
-40:                                               ; preds = %36, %22, %12, %25, %19
-  %.0 = phi i1 [ true, %19 ], [ %.not.i13, %25 ], [ false, %12 ], [ false, %22 ], [ false, %36 ]
+39:                                               ; preds = %35, %21, %12, %24, %18
+  %.0 = phi i1 [ true, %18 ], [ %.not.i13, %24 ], [ false, %12 ], [ false, %21 ], [ false, %35 ]
   ret i1 %.0
 }
 

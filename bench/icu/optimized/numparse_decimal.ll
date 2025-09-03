@@ -70,7 +70,7 @@ define void @_ZN6icu_778numparse4impl14DecimalMatcherC2ERKNS_20DecimalFormatSymb
 17:                                               ; preds = %.invoke, %19, %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %154
 
 19:                                               ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -114,18 +114,18 @@ define void @_ZN6icu_778numparse4impl14DecimalMatcherC2ERKNS_20DecimalFormatSymb
 38:                                               ; preds = %24
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %154
 
 40:                                               ; preds = %70, %66, %36, %28
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %154
 
 42:                                               ; preds = %30
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #9
-  br label %155
+  br label %154
 
 44:                                               ; preds = %34
   %45 = load i16, ptr %9, align 8, !tbaa !6
@@ -173,12 +173,12 @@ _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit: ; preds = %
   %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %48) #9
-  br label %155
+  br label %154
 
 64:                                               ; preds = %55, %53, %51
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %154
 
 66:                                               ; preds = %44
   %67 = invoke noundef ptr @_ZN6icu_777unisets3getENS0_3KeyE(i32 noundef 0)
@@ -241,12 +241,12 @@ _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96: ; preds =
   %94 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %77) #9
-  br label %155
+  br label %154
 
 95:                                               ; preds = %86, %82, %79
   %96 = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %154
 
 97:                                               ; preds = %70, %_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96
   %.sink107 = phi ptr [ null, %_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96 ], [ %75, %70 ]
@@ -259,7 +259,7 @@ _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96: ; preds =
 
 102:                                              ; preds = %97
   %103 = invoke signext i8 @u_isdigit_77(i32 noundef %100)
-          to label %104 unwind label %128
+          to label %104 unwind label %127
 
 104:                                              ; preds = %102
   %.not77 = icmp eq i8 %103, 0
@@ -267,7 +267,7 @@ _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96: ; preds =
 
 105:                                              ; preds = %104
   %106 = invoke i32 @u_digit_77(i32 noundef %100, i8 noundef signext 10)
-          to label %107 unwind label %128
+          to label %107 unwind label %127
 
 107:                                              ; preds = %105
   %.not78 = icmp eq i32 %106, 0
@@ -327,64 +327,63 @@ _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96: ; preds =
 _ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit: ; preds = %.loopexit97, %.loopexit.i
   store ptr %115, ptr %12, align 8, !tbaa !34
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %130
+  br label %129
 
-128:                                              ; preds = %150, %.loopexit, %105, %102
-  %129 = landingpad { ptr, i32 }
+127:                                              ; preds = %149, %.loopexit, %105, %102
+  %128 = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %154
 
-130:                                              ; preds = %_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit, %136
-  %indvars.iv = phi i64 [ 0, %_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit ], [ %indvars.iv.next, %136 ]
-  %131 = icmp eq i64 %indvars.iv, 0
-  %132 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %127, i64 %indvars.iv
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 1088
-  %.0.i = select i1 %131, ptr %126, ptr %133
-  %134 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %115, i64 %indvars.iv
-  %135 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %134, ptr noundef nonnull align 8 dereferenceable(64) %.0.i)
-          to label %136 unwind label %137
+129:                                              ; preds = %_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit, %135
+  %indvars.iv = phi i64 [ 0, %_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit ], [ %indvars.iv.next, %135 ]
+  %130 = icmp eq i64 %indvars.iv, 0
+  %131 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 1096
+  %.0.i = select i1 %130, ptr %126, ptr %132
+  %133 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %115, i64 %indvars.iv
+  %134 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %133, ptr noundef nonnull align 8 dereferenceable(64) %.0.i)
+          to label %135 unwind label %136
 
-136:                                              ; preds = %130
+135:                                              ; preds = %129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.loopexit, label %130, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %129, !llvm.loop !35
 
-137:                                              ; preds = %130
-  %138 = landingpad { ptr, i32 }
+136:                                              ; preds = %129
+  %137 = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %154
 
-.loopexit:                                        ; preds = %136, %107
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %140 = trunc i32 %3 to i8
-  %141 = lshr i8 %140, 3
-  %142 = and i8 %141, 1
-  store i8 %142, ptr %139, align 8, !tbaa !37
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %144 = lshr i8 %140, 5
-  %145 = and i8 %144, 1
-  store i8 %145, ptr %143, align 1, !tbaa !38
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %147 = lshr i8 %140, 4
-  %148 = and i8 %147, 1
-  store i8 %148, ptr %146, align 2, !tbaa !39
-  %149 = invoke noundef signext i16 @_ZNK6icu_776number4impl7Grouper10getPrimaryEv(ptr noundef nonnull align 4 dereferenceable(12) %2)
-          to label %150 unwind label %128
+.loopexit:                                        ; preds = %135, %107
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %139 = trunc i32 %3 to i8
+  %140 = lshr i8 %139, 3
+  %141 = and i8 %140, 1
+  store i8 %141, ptr %138, align 8, !tbaa !37
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %143 = lshr i8 %139, 5
+  %144 = and i8 %143, 1
+  store i8 %144, ptr %142, align 1, !tbaa !38
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %146 = lshr i8 %139, 4
+  %147 = and i8 %146, 1
+  store i8 %147, ptr %145, align 2, !tbaa !39
+  %148 = invoke noundef signext i16 @_ZNK6icu_776number4impl7Grouper10getPrimaryEv(ptr noundef nonnull align 4 dereferenceable(12) %2)
+          to label %149 unwind label %127
 
-150:                                              ; preds = %.loopexit
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %149, ptr %151, align 4, !tbaa !40
-  %152 = invoke noundef signext i16 @_ZNK6icu_776number4impl7Grouper12getSecondaryEv(ptr noundef nonnull align 4 dereferenceable(12) %2)
-          to label %153 unwind label %128
+149:                                              ; preds = %.loopexit
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i16 %148, ptr %150, align 4, !tbaa !40
+  %151 = invoke noundef signext i16 @_ZNK6icu_776number4impl7Grouper12getSecondaryEv(ptr noundef nonnull align 4 dereferenceable(12) %2)
+          to label %152 unwind label %127
 
-153:                                              ; preds = %150
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %152, ptr %154, align 2, !tbaa !41
+152:                                              ; preds = %149
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i16 %151, ptr %153, align 2, !tbaa !41
   ret void
 
-155:                                              ; preds = %38, %128, %137, %95, %93, %64, %62, %42, %40, %17
-  %.pn85.pn.pn.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %65, %64 ], [ %63, %62 ], [ %96, %95 ], [ %94, %93 ], [ %129, %128 ], [ %138, %137 ]
+154:                                              ; preds = %38, %127, %136, %95, %93, %64, %62, %42, %40, %17
+  %.pn85.pn.pn.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %65, %64 ], [ %63, %62 ], [ %96, %95 ], [ %94, %93 ], [ %128, %127 ], [ %137, %136 ]
   call void @_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
   call void @_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
   call void @_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #9

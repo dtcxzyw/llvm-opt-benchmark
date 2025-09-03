@@ -2113,17 +2113,17 @@ define void @_Z9done_idefP6t_idef(ptr noundef captures(none) %0) local_unnamed_a
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !95
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.49, i32 noundef 532, ptr noundef %9)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %16
 
-11:                                               ; preds = %16
+10:                                               ; preds = %16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %12
 
-12:                                               ; preds = %12, %11
-  %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw %struct.t_ilist, ptr %10, i64 %indvars.iv.i
+12:                                               ; preds = %12, %10
+  %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %12 ]
+  %13 = getelementptr inbounds nuw %struct.t_ilist, ptr %11, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %14, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2138,14 +2138,13 @@ _Z9init_idefP6t_idef.exit:                        ; preds = %12
 
 16:                                               ; preds = %1, %16
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %17 = mul nuw nsw i64 %indvars.iv, 24
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !52
-  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.49, i32 noundef 535, ptr noundef %20)
+  %17 = getelementptr inbounds nuw %struct.t_ilist, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %19 = load ptr, ptr %18, align 8, !tbaa !52
+  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.49, i32 noundef 535, ptr noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 95
-  br i1 %exitcond.not, label %11, label %16, !llvm.loop !96
+  br i1 %exitcond.not, label %10, label %16, !llvm.loop !96
 }
 
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

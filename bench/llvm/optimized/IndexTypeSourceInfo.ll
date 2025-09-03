@@ -18429,12 +18429,12 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef %12, ptr noundef %15, ptr noundef %17) #14
   %18 = load i32, ptr %4, align 4, !tbaa !730
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %3, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %19
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %19
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %19
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %19
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %26 = load ptr, ptr %25, align 8, !tbaa !203
   %27 = load ptr, ptr %0, align 8, !tbaa !42
   %28 = load ptr, ptr %14, align 8, !tbaa !12

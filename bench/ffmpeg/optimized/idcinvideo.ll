@@ -99,63 +99,63 @@ define internal i32 @idcin_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 .preheader.lr.ph.i:                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 2097172
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 20
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge68.i, %.preheader.lr.ph.i
-  %25 = phi ptr [ %18, %.preheader.lr.ph.i ], [ %62, %._crit_edge68.i ]
-  %26 = phi i32 [ %17, %.preheader.lr.ph.i ], [ %63, %._crit_edge68.i ]
+  %24 = phi ptr [ %18, %.preheader.lr.ph.i ], [ %62, %._crit_edge68.i ]
+  %25 = phi i32 [ %17, %.preheader.lr.ph.i ], [ %63, %._crit_edge68.i ]
   %.077.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.1.lcssa.i, %._crit_edge68.i ]
   %.03176.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.132.lcssa.i, %._crit_edge68.i ]
   %.03575.i = phi i8 [ 0, %.preheader.lr.ph.i ], [ %.136.lcssa.i, %._crit_edge68.i ]
   %.03974.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.140.lcssa.i, %._crit_edge68.i ]
   %.04173.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %65, %._crit_edge68.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 112
-  %28 = load i32, ptr %27, align 8, !tbaa !46
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph67.i, label %._crit_edge68.i
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 112
+  %27 = load i32, ptr %26, align 8, !tbaa !46
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %.lr.ph67.i, label %._crit_edge68.i
 
 .lr.ph67.i:                                       ; preds = %.preheader.i, %._crit_edge.i
-  %30 = phi ptr [ %56, %._crit_edge.i ], [ %25, %.preheader.i ]
+  %29 = phi ptr [ %56, %._crit_edge.i ], [ %24, %.preheader.i ]
   %.166.i = phi i32 [ %.2.lcssa.i, %._crit_edge.i ], [ %.077.i, %.preheader.i ]
   %.13265.i = phi i32 [ %.233.lcssa.i, %._crit_edge.i ], [ %.03176.i, %.preheader.i ]
   %.13664.i = phi i8 [ %.237.lcssa.i, %._crit_edge.i ], [ %.03575.i, %.preheader.i ]
   %.14063.i = phi i32 [ %.030.lcssa.i, %._crit_edge.i ], [ %.03974.i, %.preheader.i ]
   %.04262.i = phi i64 [ %55, %._crit_edge.i ], [ %.04173.i, %.preheader.i ]
-  %31 = sext i32 %.14063.i to i64
-  %32 = getelementptr inbounds i32, ptr %23, i64 %31
-  %33 = getelementptr inbounds [512 x %struct.hnode], ptr %24, i64 %31
-  %.03054.i = load i32, ptr %32, align 4, !tbaa !44
-  %34 = icmp sgt i32 %.03054.i, 255
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.i
+  %30 = sext i32 %.14063.i to i64
+  %31 = getelementptr inbounds i32, ptr %23, i64 %30
+  %32 = getelementptr [512 x %struct.hnode], ptr %10, i64 %30
+  %.03054.i = load i32, ptr %31, align 4, !tbaa !44
+  %33 = icmp sgt i32 %.03054.i, 255
+  br i1 %33, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph67.i, %43
-  %.03058.i = phi i32 [ %.030.i, %43 ], [ %.03054.i, %.lr.ph67.i ]
-  %.257.i = phi i32 [ %.3.i, %43 ], [ %.166.i, %.lr.ph67.i ]
-  %.23356.i = phi i32 [ %50, %43 ], [ %.13265.i, %.lr.ph67.i ]
-  %.23755.i = phi i8 [ %49, %43 ], [ %.13664.i, %.lr.ph67.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph67.i, %42
+  %.03058.i = phi i32 [ %.030.i, %42 ], [ %.03054.i, %.lr.ph67.i ]
+  %.257.i = phi i32 [ %.3.i, %42 ], [ %.166.i, %.lr.ph67.i ]
+  %.23356.i = phi i32 [ %50, %42 ], [ %.13265.i, %.lr.ph67.i ]
+  %.23755.i = phi i8 [ %49, %42 ], [ %.13664.i, %.lr.ph67.i ]
   %.not.i = icmp eq i32 %.23356.i, 0
-  br i1 %.not.i, label %35, label %43
+  br i1 %.not.i, label %34, label %42
 
-35:                                               ; preds = %.lr.ph.i
-  %36 = load i32, ptr %12, align 8, !tbaa !43
-  %.not44.i = icmp slt i32 %.257.i, %36
-  br i1 %.not44.i, label %37, label %idcin_decode_vlcs.exit
+34:                                               ; preds = %.lr.ph.i
+  %35 = load i32, ptr %12, align 8, !tbaa !43
+  %.not44.i = icmp slt i32 %.257.i, %35
+  br i1 %.not44.i, label %36, label %idcin_decode_vlcs.exit
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %11, align 8, !tbaa !42
-  %39 = add nsw i32 %.257.i, 1
-  %40 = sext i32 %.257.i to i64
-  %41 = getelementptr inbounds i8, ptr %38, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !33
-  br label %43
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %11, align 8, !tbaa !42
+  %38 = add nsw i32 %.257.i, 1
+  %39 = sext i32 %.257.i to i64
+  %40 = getelementptr inbounds i8, ptr %37, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !33
+  br label %42
 
-43:                                               ; preds = %37, %.lr.ph.i
-  %.338.i = phi i8 [ %.23755.i, %.lr.ph.i ], [ %42, %37 ]
-  %.334.i = phi i32 [ %.23356.i, %.lr.ph.i ], [ 8, %37 ]
-  %.3.i = phi i32 [ %.257.i, %.lr.ph.i ], [ %39, %37 ]
-  %44 = zext nneg i32 %.03058.i to i64
-  %45 = getelementptr inbounds nuw %struct.hnode, ptr %33, i64 %44, i32 2
+42:                                               ; preds = %36, %.lr.ph.i
+  %.338.i = phi i8 [ %.23755.i, %.lr.ph.i ], [ %41, %36 ]
+  %.334.i = phi i32 [ %.23356.i, %.lr.ph.i ], [ 8, %36 ]
+  %.3.i = phi i32 [ %.257.i, %.lr.ph.i ], [ %38, %36 ]
+  %43 = zext nneg i32 %.03058.i to i64
+  %44 = getelementptr %struct.hnode, ptr %32, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 28
   %46 = and i8 %.338.i, 1
   %47 = zext nneg i8 %46 to i64
   %48 = getelementptr inbounds nuw i32, ptr %45, i64 %47
@@ -165,11 +165,11 @@ define internal i32 @idcin_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %51 = icmp sgt i32 %.030.i, 255
   br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !47
 
-._crit_edge.i:                                    ; preds = %43, %.lr.ph67.i
-  %.237.lcssa.i = phi i8 [ %.13664.i, %.lr.ph67.i ], [ %49, %43 ]
-  %.233.lcssa.i = phi i32 [ %.13265.i, %.lr.ph67.i ], [ %50, %43 ]
-  %.2.lcssa.i = phi i32 [ %.166.i, %.lr.ph67.i ], [ %.3.i, %43 ]
-  %.030.lcssa.i = phi i32 [ %.03054.i, %.lr.ph67.i ], [ %.030.i, %43 ]
+._crit_edge.i:                                    ; preds = %42, %.lr.ph67.i
+  %.237.lcssa.i = phi i8 [ %.13664.i, %.lr.ph67.i ], [ %49, %42 ]
+  %.233.lcssa.i = phi i32 [ %.13265.i, %.lr.ph67.i ], [ %50, %42 ]
+  %.2.lcssa.i = phi i32 [ %.166.i, %.lr.ph67.i ], [ %.3.i, %42 ]
+  %.030.lcssa.i = phi i32 [ %.03054.i, %.lr.ph67.i ], [ %.030.i, %42 ]
   %52 = trunc i32 %.030.lcssa.i to i8
   %53 = load ptr, ptr %1, align 8, !tbaa !48
   %54 = getelementptr inbounds i8, ptr %53, i64 %.04262.i
@@ -188,8 +188,8 @@ define internal i32 @idcin_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br label %._crit_edge68.i
 
 ._crit_edge68.i:                                  ; preds = %._crit_edge68.loopexit.i, %.preheader.i
-  %62 = phi ptr [ %25, %.preheader.i ], [ %56, %._crit_edge68.loopexit.i ]
-  %63 = phi i32 [ %26, %.preheader.i ], [ %.pre.i, %._crit_edge68.loopexit.i ]
+  %62 = phi ptr [ %24, %.preheader.i ], [ %56, %._crit_edge68.loopexit.i ]
+  %63 = phi i32 [ %25, %.preheader.i ], [ %.pre.i, %._crit_edge68.loopexit.i ]
   %.140.lcssa.i = phi i32 [ %.03974.i, %.preheader.i ], [ %.030.lcssa.i, %._crit_edge68.loopexit.i ]
   %.136.lcssa.i = phi i8 [ %.03575.i, %.preheader.i ], [ %.237.lcssa.i, %._crit_edge68.loopexit.i ]
   %.132.lcssa.i = phi i32 [ %.03176.i, %.preheader.i ], [ %.233.lcssa.i, %._crit_edge68.loopexit.i ]
@@ -203,8 +203,8 @@ define internal i32 @idcin_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %70 = icmp slt i64 %65, %69
   br i1 %70, label %.preheader.i, label %.loopexit, !llvm.loop !50
 
-idcin_decode_vlcs.exit:                           ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %30, i32 noundef 16, ptr noundef nonnull @.str.5) #6
+idcin_decode_vlcs.exit:                           ; preds = %34
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %29, i32 noundef 16, ptr noundef nonnull @.str.5) #6
   br label %75
 
 .loopexit:                                        ; preds = %._crit_edge68.i, %15

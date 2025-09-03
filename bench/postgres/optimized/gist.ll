@@ -278,177 +278,164 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 1576
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 3112
-  %33 = getelementptr inbounds nuw i8, ptr %15, i64 3120
-  %34 = getelementptr inbounds nuw i8, ptr %15, i64 4648
-  %35 = getelementptr inbounds nuw i8, ptr %15, i64 4656
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 6184
-  %37 = getelementptr inbounds nuw i8, ptr %15, i64 7720
-  %38 = getelementptr inbounds nuw i8, ptr %15, i64 9256
-  %39 = getelementptr inbounds nuw i8, ptr %15, i64 10792
-  %40 = getelementptr inbounds nuw i8, ptr %15, i64 10800
-  %41 = getelementptr inbounds nuw i8, ptr %15, i64 12328
-  %42 = getelementptr inbounds nuw i8, ptr %15, i64 12336
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %44 = getelementptr inbounds nuw i8, ptr %15, i64 13864
-  br label %60
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 4648
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 6184
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 7720
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 9256
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 10792
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 12328
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 13864
+  br label %47
 
-.preheader.loopexit:                              ; preds = %99
-  %45 = trunc nuw nsw i64 %indvars.iv.next to i32
+.preheader.loopexit:                              ; preds = %90
+  %41 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %11
-  %.0.lcssa = phi i32 [ 0, %11 ], [ %45, %.preheader.loopexit ]
-  %46 = load ptr, ptr %2, align 8
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp slt i32 %.0.lcssa, %47
-  br i1 %48, label %.lr.ph127, label %._crit_edge
+  %.0.lcssa = phi i32 [ 0, %11 ], [ %41, %.preheader.loopexit ]
+  %42 = load ptr, ptr %2, align 8
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp slt i32 %.0.lcssa, %43
+  br i1 %44, label %.lr.ph115, label %._crit_edge
 
-.lr.ph127:                                        ; preds = %.preheader
-  %49 = getelementptr i8, ptr %15, i64 48
-  %50 = getelementptr i8, ptr %15, i64 1584
-  %51 = getelementptr i8, ptr %15, i64 3120
-  %52 = getelementptr i8, ptr %15, i64 4656
-  %53 = getelementptr i8, ptr %15, i64 6192
-  %54 = getelementptr i8, ptr %15, i64 7728
-  %55 = getelementptr i8, ptr %15, i64 9264
-  %56 = getelementptr i8, ptr %15, i64 10800
-  %57 = getelementptr i8, ptr %15, i64 12336
-  %58 = getelementptr inbounds nuw i8, ptr %15, i64 13864
-  %59 = zext nneg i32 %.0.lcssa to i64
-  br label %109
+.lr.ph115:                                        ; preds = %.preheader
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 13864
+  %46 = zext nneg i32 %.0.lcssa to i64
+  br label %100
 
-60:                                               ; preds = %.lr.ph, %99
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %99 ]
-  %61 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %30, i64 %indvars.iv
+47:                                               ; preds = %.lr.ph, %90
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
+  %48 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %30, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = trunc nuw nsw i64 %indvars.iv.next to i16
-  %63 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 1) #8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %61, ptr noundef %63, ptr noundef %13) #8
-  %64 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %31, i64 %indvars.iv
-  %65 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 2) #8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %64, ptr noundef %65, ptr noundef %13) #8
-  %66 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 3) #8
-  %.not = icmp eq i32 %66, 0
-  br i1 %.not, label %70, label %67
+  %49 = trunc nuw nsw i64 %indvars.iv.next to i16
+  %50 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 1) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %48, ptr noundef %50, ptr noundef %13) #8
+  %51 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %31, i64 %indvars.iv
+  %52 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 2) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %51, ptr noundef %52, ptr noundef %13) #8
+  %53 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 3) #8
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %57, label %54
 
-67:                                               ; preds = %60
-  %68 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %32, i64 %indvars.iv
-  %69 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 3) #8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %68, ptr noundef %69, ptr noundef %13) #8
-  br label %72
+54:                                               ; preds = %47
+  %55 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %32, i64 %indvars.iv
+  %56 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 3) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %55, ptr noundef %56, ptr noundef %13) #8
+  br label %60
 
-70:                                               ; preds = %60
-  %.idx117 = mul nuw nsw i64 %indvars.iv, 48
-  %71 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx117
-  store i32 0, ptr %71, align 8
-  br label %72
+57:                                               ; preds = %47
+  %58 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %15, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 3120
+  store i32 0, ptr %59, align 8
+  br label %60
 
-72:                                               ; preds = %70, %67
-  %73 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 4) #8
-  %.not118 = icmp eq i32 %73, 0
-  br i1 %.not118, label %77, label %74
+60:                                               ; preds = %57, %54
+  %61 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 4) #8
+  %.not109 = icmp eq i32 %61, 0
+  br i1 %.not109, label %65, label %62
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %34, i64 %indvars.iv
-  %76 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 4) #8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %75, ptr noundef %76, ptr noundef %13) #8
-  br label %79
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %33, i64 %indvars.iv
+  %64 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 4) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %63, ptr noundef %64, ptr noundef %13) #8
+  br label %68
 
-77:                                               ; preds = %72
-  %.idx119 = mul nuw nsw i64 %indvars.iv, 48
-  %78 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx119
-  store i32 0, ptr %78, align 8
-  br label %79
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %15, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4656
+  store i32 0, ptr %67, align 8
+  br label %68
 
-79:                                               ; preds = %77, %74
-  %80 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %36, i64 %indvars.iv
-  %81 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 5) #8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %80, ptr noundef %81, ptr noundef %13) #8
-  %82 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %37, i64 %indvars.iv
-  %83 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 6) #8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %82, ptr noundef %83, ptr noundef %13) #8
-  %84 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %38, i64 %indvars.iv
-  %85 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 7) #8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %84, ptr noundef %85, ptr noundef %13) #8
-  %86 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 8) #8
-  %.not120 = icmp eq i32 %86, 0
-  br i1 %.not120, label %90, label %87
+68:                                               ; preds = %65, %62
+  %69 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %34, i64 %indvars.iv
+  %70 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 5) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %69, ptr noundef %70, ptr noundef %13) #8
+  %71 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %35, i64 %indvars.iv
+  %72 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 6) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %71, ptr noundef %72, ptr noundef %13) #8
+  %73 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %36, i64 %indvars.iv
+  %74 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 7) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %73, ptr noundef %74, ptr noundef %13) #8
+  %75 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 8) #8
+  %.not110 = icmp eq i32 %75, 0
+  br i1 %.not110, label %79, label %76
 
-87:                                               ; preds = %79
-  %88 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %39, i64 %indvars.iv
-  %89 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 8) #8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %88, ptr noundef %89, ptr noundef %13) #8
-  br label %92
+76:                                               ; preds = %68
+  %77 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %37, i64 %indvars.iv
+  %78 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 8) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %77, ptr noundef %78, ptr noundef %13) #8
+  br label %82
 
-90:                                               ; preds = %79
-  %.idx121 = mul nuw nsw i64 %indvars.iv, 48
-  %91 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx121
-  store i32 0, ptr %91, align 8
-  br label %92
+79:                                               ; preds = %68
+  %80 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %15, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 10800
+  store i32 0, ptr %81, align 8
+  br label %82
 
-92:                                               ; preds = %90, %87
-  %93 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 9) #8
-  %.not122 = icmp eq i32 %93, 0
-  br i1 %.not122, label %97, label %94
+82:                                               ; preds = %79, %76
+  %83 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 9) #8
+  %.not111 = icmp eq i32 %83, 0
+  br i1 %.not111, label %87, label %84
 
-94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %41, i64 %indvars.iv
-  %96 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 9) #8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %95, ptr noundef %96, ptr noundef %13) #8
-  br label %99
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %38, i64 %indvars.iv
+  %86 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 9) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %85, ptr noundef %86, ptr noundef %13) #8
+  br label %90
 
-97:                                               ; preds = %92
-  %.idx123 = mul nuw nsw i64 %indvars.iv, 48
-  %98 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx123
-  store i32 0, ptr %98, align 8
-  br label %99
+87:                                               ; preds = %82
+  %88 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %15, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 12336
+  store i32 0, ptr %89, align 8
+  br label %90
 
-99:                                               ; preds = %97, %94
-  %100 = load ptr, ptr %43, align 8
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv
-  %102 = load i32, ptr %101, align 4
-  %.not124 = icmp eq i32 %102, 0
-  %103 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
-  %. = select i1 %.not124, i32 100, i32 %102
-  store i32 %., ptr %103, align 4
-  %104 = load ptr, ptr %19, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 10
-  %106 = load i16, ptr %105, align 2
-  %107 = sext i16 %106 to i64
-  %108 = icmp slt i64 %indvars.iv.next, %107
-  br i1 %108, label %60, label %.preheader.loopexit, !llvm.loop !4
+90:                                               ; preds = %87, %84
+  %91 = load ptr, ptr %39, align 8
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv
+  %93 = load i32, ptr %92, align 4
+  %.not112 = icmp eq i32 %93, 0
+  %94 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %. = select i1 %.not112, i32 100, i32 %93
+  store i32 %., ptr %94, align 4
+  %95 = load ptr, ptr %19, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 10
+  %97 = load i16, ptr %96, align 2
+  %98 = sext i16 %97 to i64
+  %99 = icmp slt i64 %indvars.iv.next, %98
+  br i1 %99, label %47, label %.preheader.loopexit, !llvm.loop !4
 
-109:                                              ; preds = %.lr.ph127, %109
-  %indvars.iv129 = phi i64 [ %59, %.lr.ph127 ], [ %indvars.iv.next130, %109 ]
-  %.idx = mul nuw nsw i64 %indvars.iv129, 48
-  %110 = getelementptr i8, ptr %49, i64 %.idx
+100:                                              ; preds = %.lr.ph115, %100
+  %indvars.iv117 = phi i64 [ %46, %.lr.ph115 ], [ %indvars.iv.next118, %100 ]
+  %101 = getelementptr %struct.FmgrInfo, ptr %15, i64 %indvars.iv117
+  %102 = getelementptr i8, ptr %101, i64 48
+  store i32 0, ptr %102, align 8
+  %103 = getelementptr i8, ptr %101, i64 1584
+  store i32 0, ptr %103, align 8
+  %104 = getelementptr i8, ptr %101, i64 3120
+  store i32 0, ptr %104, align 8
+  %105 = getelementptr i8, ptr %101, i64 4656
+  store i32 0, ptr %105, align 8
+  %106 = getelementptr i8, ptr %101, i64 6192
+  store i32 0, ptr %106, align 8
+  %107 = getelementptr i8, ptr %101, i64 7728
+  store i32 0, ptr %107, align 8
+  %108 = getelementptr i8, ptr %101, i64 9264
+  store i32 0, ptr %108, align 8
+  %109 = getelementptr i8, ptr %101, i64 10800
+  store i32 0, ptr %109, align 8
+  %110 = getelementptr i8, ptr %101, i64 12336
   store i32 0, ptr %110, align 8
-  %111 = getelementptr i8, ptr %50, i64 %.idx
-  store i32 0, ptr %111, align 8
-  %112 = getelementptr i8, ptr %51, i64 %.idx
-  store i32 0, ptr %112, align 8
-  %113 = getelementptr i8, ptr %52, i64 %.idx
-  store i32 0, ptr %113, align 8
-  %114 = getelementptr i8, ptr %53, i64 %.idx
-  store i32 0, ptr %114, align 8
-  %115 = getelementptr i8, ptr %54, i64 %.idx
-  store i32 0, ptr %115, align 8
-  %116 = getelementptr i8, ptr %55, i64 %.idx
-  store i32 0, ptr %116, align 8
-  %117 = getelementptr i8, ptr %56, i64 %.idx
-  store i32 0, ptr %117, align 8
-  %118 = getelementptr i8, ptr %57, i64 %.idx
-  store i32 0, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv129
-  store i32 0, ptr %119, align 4
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %120 = load ptr, ptr %2, align 8
-  %121 = load i32, ptr %120, align 8
-  %122 = sext i32 %121 to i64
-  %123 = icmp slt i64 %indvars.iv.next130, %122
-  br i1 %123, label %109, label %._crit_edge, !llvm.loop !6
+  %111 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv117
+  store i32 0, ptr %111, align 4
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %112 = load ptr, ptr %2, align 8
+  %113 = load i32, ptr %112, align 8
+  %114 = sext i32 %113 to i64
+  %115 = icmp slt i64 %indvars.iv.next118, %114
+  br i1 %115, label %100, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %109, %.preheader
+._crit_edge:                                      ; preds = %100, %.preheader
   store ptr %14, ptr @CurrentMemoryContext, align 8
   ret ptr %15
 }

@@ -12147,11 +12147,11 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i:      ; preds = %1053, %1047
 1078:                                             ; preds = %1076
   %1079 = load i32, ptr %1016, align 4, !tbaa !184
   %1080 = zext i32 %1079 to i64
-  %1081 = getelementptr inbounds nuw ptr, ptr %1068, i64 %1080
-  %1082 = getelementptr inbounds nuw %class.symbol, ptr %1081, i64 %1080
+  %1081 = getelementptr ptr, ptr %322, i64 %1080
+  %1082 = getelementptr %class.symbol, ptr %1081, i64 %1080
   %1083 = zext nneg i32 %1072 to i64
   %1084 = getelementptr ptr, ptr %1082, i64 %1083
-  %1085 = getelementptr i8, ptr %1084, i64 -8
+  %1085 = getelementptr i8, ptr %1084, i64 72
   br label %_ZNK10quantifier9get_childEj.exit.i.i.i
 
 1086:                                             ; preds = %1076
@@ -15421,11 +15421,11 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i77:    ; preds = %2491, %2485
 2516:                                             ; preds = %2514
   %2517 = load i32, ptr %2454, align 4, !tbaa !184
   %2518 = zext i32 %2517 to i64
-  %2519 = getelementptr inbounds nuw ptr, ptr %2506, i64 %2518
-  %2520 = getelementptr inbounds nuw %class.symbol, ptr %2519, i64 %2518
+  %2519 = getelementptr ptr, ptr %1839, i64 %2518
+  %2520 = getelementptr %class.symbol, ptr %2519, i64 %2518
   %2521 = zext nneg i32 %2510 to i64
   %2522 = getelementptr ptr, ptr %2520, i64 %2521
-  %2523 = getelementptr i8, ptr %2522, i64 -8
+  %2523 = getelementptr i8, ptr %2522, i64 72
   br label %_ZNK10quantifier9get_childEj.exit.i.i.i72
 
 2524:                                             ; preds = %2514

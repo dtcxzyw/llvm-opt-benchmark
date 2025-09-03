@@ -811,10 +811,9 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit:    ; preds = %3, %5
   %.pre-phi = phi i64 [ %7, %5 ], [ -1, %3 ]
   %10 = phi i64 [ %9, %5 ], [ 0, %3 ]
   %11 = add i64 %10, %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = getelementptr i64, ptr %12, i64 %.pre-phi
-  %14 = getelementptr i8, ptr %13, i64 8
-  store i64 %11, ptr %14, align 8, !tbaa !13
+  %12 = getelementptr i64, ptr %0, i64 %.pre-phi
+  %13 = getelementptr i8, ptr %12, i64 16
+  store i64 %11, ptr %13, align 8, !tbaa !13
   ret void
 }
 

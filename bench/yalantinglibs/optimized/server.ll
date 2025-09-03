@@ -38944,7 +38944,6 @@ _ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7pre
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %buffers_4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %total_consumed_.i3 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %8 = load i64, ptr %total_consumed_.i3, align 8
   %add.i = add i64 %8, %bytes_transferred
@@ -38967,8 +38966,8 @@ while.body.i16:                                   ; preds = %if.end.i21, %while.
   %size.addr.017.i = phi i64 [ %bytes_transferred, %while.body.lr.ph.i ], [ %sub.i22, %if.end.i21 ]
   %next.0.idx16.i = phi i64 [ %add.ptr.i.i5.idx.i, %while.body.lr.ph.i ], [ %next.0.add.i24, %if.end.i21 ]
   %inc1215.i = phi i64 [ %9, %while.body.lr.ph.i ], [ %inc.i23, %if.end.i21 ]
-  %next.0.ptr.i17 = getelementptr inbounds i8, ptr %buffers_4, i64 %next.0.idx16.i
-  %ref.tmp.sroa.2.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %next.0.ptr.i17, i64 8
+  %next.0.ptr.i17 = getelementptr i8, ptr %this, i64 %next.0.idx16.i
+  %ref.tmp.sroa.2.0..sroa_idx.i18 = getelementptr i8, ptr %next.0.ptr.i17, i64 16
   %ref.tmp.sroa.2.0.copyload.i19 = load i64, ptr %ref.tmp.sroa.2.0..sroa_idx.i18, align 8
   %sub.i.i20 = tail call i64 @llvm.usub.sat.i64(i64 %ref.tmp.sroa.2.0.copyload.i19, i64 %11)
   %cmp7.i = icmp ult i64 %size.addr.017.i, %sub.i.i20

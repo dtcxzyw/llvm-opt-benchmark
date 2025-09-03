@@ -1854,7 +1854,7 @@ get_dist_slot.exit:                               ; preds = %85, %92, %99
 rc_bittree.exit:                                  ; preds = %111
   store i64 %120, ptr %16, align 8, !tbaa !26
   %123 = icmp samesign ugt i32 %.0.i, 3
-  br i1 %123, label %124, label %180
+  br i1 %123, label %124, label %179
 
 124:                                              ; preds = %rc_bittree.exit
   %125 = lshr i32 %.0.i, 1
@@ -1864,109 +1864,108 @@ rc_bittree.exit:                                  ; preds = %111
   %129 = shl i32 %128, %126
   %130 = sub i32 %2, %129
   %131 = icmp samesign ult i32 %.0.i, 14
-  br i1 %131, label %132, label %152
+  br i1 %131, label %132, label %151
 
 132:                                              ; preds = %124
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 28900
-  %134 = zext i32 %129 to i64
-  %135 = getelementptr inbounds nuw i16, ptr %133, i64 %134
-  %136 = zext nneg i32 %.0.i to i64
-  %137 = sub nsw i64 0, %136
-  %138 = getelementptr inbounds i16, ptr %135, i64 %137
-  %139 = getelementptr inbounds i8, ptr %138, i64 -2
-  br label %140
+  %133 = zext i32 %129 to i64
+  %134 = getelementptr i16, ptr %0, i64 %133
+  %135 = zext nneg i32 %.0.i to i64
+  %136 = sub nsw i64 0, %135
+  %137 = getelementptr i16, ptr %134, i64 %136
+  %138 = getelementptr i8, ptr %137, i64 28898
+  br label %139
 
-140:                                              ; preds = %140, %132
-  %141 = phi i64 [ %120, %132 ], [ %148, %140 ]
-  %.09.i = phi i32 [ %130, %132 ], [ %143, %140 ]
-  %.08.i44 = phi i32 [ 1, %132 ], [ %150, %140 ]
-  %.0.i45 = phi i32 [ %126, %132 ], [ %151, %140 ]
-  %142 = and i32 %.09.i, 1
-  %143 = lshr i32 %.09.i, 1
-  %144 = zext i32 %.08.i44 to i64
-  %145 = getelementptr inbounds nuw i16, ptr %139, i64 %144
-  %146 = getelementptr inbounds nuw i32, ptr %15, i64 %141
-  store i32 %142, ptr %146, align 4, !tbaa !27
-  %147 = getelementptr inbounds nuw ptr, ptr %19, i64 %141
-  store ptr %145, ptr %147, align 8, !tbaa !28
-  %148 = add i64 %141, 1
-  %149 = shl i32 %.08.i44, 1
-  %150 = or disjoint i32 %149, %142
-  %151 = add nsw i32 %.0.i45, -1
-  %.not.i46 = icmp eq i32 %151, 0
-  br i1 %.not.i46, label %rc_bittree_reverse.exit, label %140, !llvm.loop !106
+139:                                              ; preds = %139, %132
+  %140 = phi i64 [ %120, %132 ], [ %147, %139 ]
+  %.09.i = phi i32 [ %130, %132 ], [ %142, %139 ]
+  %.08.i44 = phi i32 [ 1, %132 ], [ %149, %139 ]
+  %.0.i45 = phi i32 [ %126, %132 ], [ %150, %139 ]
+  %141 = and i32 %.09.i, 1
+  %142 = lshr i32 %.09.i, 1
+  %143 = zext i32 %.08.i44 to i64
+  %144 = getelementptr inbounds nuw i16, ptr %138, i64 %143
+  %145 = getelementptr inbounds nuw i32, ptr %15, i64 %140
+  store i32 %141, ptr %145, align 4, !tbaa !27
+  %146 = getelementptr inbounds nuw ptr, ptr %19, i64 %140
+  store ptr %144, ptr %146, align 8, !tbaa !28
+  %147 = add i64 %140, 1
+  %148 = shl i32 %.08.i44, 1
+  %149 = or disjoint i32 %148, %141
+  %150 = add nsw i32 %.0.i45, -1
+  %.not.i46 = icmp eq i32 %150, 0
+  br i1 %.not.i46, label %rc_bittree_reverse.exit, label %139, !llvm.loop !106
 
-rc_bittree_reverse.exit:                          ; preds = %140
-  store i64 %148, ptr %16, align 8, !tbaa !26
-  br label %180
+rc_bittree_reverse.exit:                          ; preds = %139
+  store i64 %147, ptr %16, align 8, !tbaa !26
+  br label %179
 
-152:                                              ; preds = %124
-  %153 = lshr i32 %130, 4
-  %154 = add nsw i32 %125, -5
-  br label %155
+151:                                              ; preds = %124
+  %152 = lshr i32 %130, 4
+  %153 = add nsw i32 %125, -5
+  br label %154
 
-155:                                              ; preds = %155, %152
-  %156 = phi i64 [ %120, %152 ], [ %161, %155 ]
-  %.0.i48 = phi i32 [ %154, %152 ], [ %157, %155 ]
-  %157 = add nsw i32 %.0.i48, -1
-  %158 = lshr i32 %153, %157
-  %159 = and i32 %158, 1
-  %160 = or disjoint i32 %159, 2
-  %161 = add i64 %156, 1
-  %162 = getelementptr inbounds nuw i32, ptr %15, i64 %156
-  store i32 %160, ptr %162, align 4, !tbaa !27
-  %.not.i49 = icmp eq i32 %157, 0
-  br i1 %.not.i49, label %rc_direct.exit, label %155, !llvm.loop !107
+154:                                              ; preds = %154, %151
+  %155 = phi i64 [ %120, %151 ], [ %160, %154 ]
+  %.0.i48 = phi i32 [ %153, %151 ], [ %156, %154 ]
+  %156 = add nsw i32 %.0.i48, -1
+  %157 = lshr i32 %152, %156
+  %158 = and i32 %157, 1
+  %159 = or disjoint i32 %158, 2
+  %160 = add i64 %155, 1
+  %161 = getelementptr inbounds nuw i32, ptr %15, i64 %155
+  store i32 %159, ptr %161, align 4, !tbaa !27
+  %.not.i49 = icmp eq i32 %156, 0
+  br i1 %.not.i49, label %rc_direct.exit, label %154, !llvm.loop !107
 
-rc_direct.exit:                                   ; preds = %155
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 29128
-  %164 = and i32 %130, 15
-  br label %165
+rc_direct.exit:                                   ; preds = %154
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 29128
+  %163 = and i32 %130, 15
+  br label %164
 
-165:                                              ; preds = %165, %rc_direct.exit
-  %166 = phi i64 [ %161, %rc_direct.exit ], [ %173, %165 ]
-  %.09.i51 = phi i32 [ %164, %rc_direct.exit ], [ %168, %165 ]
-  %.08.i52 = phi i32 [ 1, %rc_direct.exit ], [ %175, %165 ]
-  %.0.i53 = phi i32 [ 4, %rc_direct.exit ], [ %176, %165 ]
-  %167 = and i32 %.09.i51, 1
-  %168 = lshr i32 %.09.i51, 1
-  %169 = zext i32 %.08.i52 to i64
-  %170 = getelementptr inbounds nuw i16, ptr %163, i64 %169
-  %171 = getelementptr inbounds nuw i32, ptr %15, i64 %166
-  store i32 %167, ptr %171, align 4, !tbaa !27
-  %172 = getelementptr inbounds nuw ptr, ptr %19, i64 %166
-  store ptr %170, ptr %172, align 8, !tbaa !28
-  %173 = add i64 %166, 1
-  %174 = shl i32 %.08.i52, 1
-  %175 = or disjoint i32 %174, %167
-  %176 = add nsw i32 %.0.i53, -1
-  %.not.i54 = icmp eq i32 %176, 0
-  br i1 %.not.i54, label %rc_bittree_reverse.exit55, label %165, !llvm.loop !106
+164:                                              ; preds = %164, %rc_direct.exit
+  %165 = phi i64 [ %160, %rc_direct.exit ], [ %172, %164 ]
+  %.09.i51 = phi i32 [ %163, %rc_direct.exit ], [ %167, %164 ]
+  %.08.i52 = phi i32 [ 1, %rc_direct.exit ], [ %174, %164 ]
+  %.0.i53 = phi i32 [ 4, %rc_direct.exit ], [ %175, %164 ]
+  %166 = and i32 %.09.i51, 1
+  %167 = lshr i32 %.09.i51, 1
+  %168 = zext i32 %.08.i52 to i64
+  %169 = getelementptr inbounds nuw i16, ptr %162, i64 %168
+  %170 = getelementptr inbounds nuw i32, ptr %15, i64 %165
+  store i32 %166, ptr %170, align 4, !tbaa !27
+  %171 = getelementptr inbounds nuw ptr, ptr %19, i64 %165
+  store ptr %169, ptr %171, align 8, !tbaa !28
+  %172 = add i64 %165, 1
+  %173 = shl i32 %.08.i52, 1
+  %174 = or disjoint i32 %173, %166
+  %175 = add nsw i32 %.0.i53, -1
+  %.not.i54 = icmp eq i32 %175, 0
+  br i1 %.not.i54, label %rc_bittree_reverse.exit55, label %164, !llvm.loop !106
 
-rc_bittree_reverse.exit55:                        ; preds = %165
-  store i64 %173, ptr %16, align 8, !tbaa !26
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 69312
-  %178 = load i32, ptr %177, align 8, !tbaa !78
-  %179 = add i32 %178, 1
-  store i32 %179, ptr %177, align 8, !tbaa !78
-  br label %180
+rc_bittree_reverse.exit55:                        ; preds = %164
+  store i64 %172, ptr %16, align 8, !tbaa !26
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 69312
+  %177 = load i32, ptr %176, align 8, !tbaa !78
+  %178 = add i32 %177, 1
+  store i32 %178, ptr %176, align 8, !tbaa !78
+  br label %179
 
-180:                                              ; preds = %rc_bittree_reverse.exit, %rc_bittree_reverse.exit55, %rc_bittree.exit
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 716
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  %183 = load i32, ptr %182, align 4, !tbaa !27
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  store i32 %183, ptr %184, align 4, !tbaa !27
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %186 = load i32, ptr %185, align 4, !tbaa !27
-  store i32 %186, ptr %182, align 4, !tbaa !27
-  %187 = load i32, ptr %181, align 4, !tbaa !27
-  store i32 %187, ptr %185, align 4, !tbaa !27
-  store i32 %2, ptr %181, align 4, !tbaa !27
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 69244
-  %189 = load i32, ptr %188, align 4, !tbaa !77
-  %190 = add i32 %189, 1
-  store i32 %190, ptr %188, align 4, !tbaa !77
+179:                                              ; preds = %rc_bittree_reverse.exit, %rc_bittree_reverse.exit55, %rc_bittree.exit
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 716
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 724
+  %182 = load i32, ptr %181, align 4, !tbaa !27
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  store i32 %182, ptr %183, align 4, !tbaa !27
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %185 = load i32, ptr %184, align 4, !tbaa !27
+  store i32 %185, ptr %181, align 4, !tbaa !27
+  %186 = load i32, ptr %180, align 4, !tbaa !27
+  store i32 %186, ptr %184, align 4, !tbaa !27
+  store i32 %2, ptr %180, align 4, !tbaa !27
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 69244
+  %188 = load i32, ptr %187, align 4, !tbaa !77
+  %189 = add i32 %188, 1
+  store i32 %189, ptr %187, align 4, !tbaa !77
   ret void
 }
 

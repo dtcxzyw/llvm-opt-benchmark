@@ -3668,8 +3668,8 @@ CreateDecodeTables.exit.i:                        ; preds = %.lr.ph85.i.i, %.pre
 
 1758:                                             ; preds = %1758, %1757
   %indvars.iv1841.i = phi i64 [ 1, %1757 ], [ %indvars.iv.next1842.i, %1758 ]
-  %1759 = getelementptr i32, ptr %37, i64 %indvars.iv1841.i
-  %1760 = getelementptr i8, ptr %1759, i64 -4
+  %1759 = getelementptr i32, ptr %6, i64 %indvars.iv1841.i
+  %1760 = getelementptr i8, ptr %1759, i64 64
   %1761 = load i32, ptr %1760, align 4, !tbaa !38
   %1762 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv1841.i
   store i32 %1761, ptr %1762, align 4, !tbaa !38

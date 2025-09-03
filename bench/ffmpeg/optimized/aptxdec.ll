@@ -241,21 +241,20 @@ aptx_check_parity.exit.i:                         ; preds = %116
   %indvars.iv52.i = phi i64 [ 0, %aptx_check_parity.exit.i ], [ 1, %aptx_decode_channel.exit.i ]
   %125 = getelementptr inbounds nuw %struct.Channel, ptr %29, i64 %indvars.iv52.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 1220
-  br label %127
+  br label %126
 
-127:                                              ; preds = %127, %123
-  %indvars.iv.i.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i.i, %127 ]
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 320
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i
+126:                                              ; preds = %126, %123
+  %indvars.iv.i.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i.i, %126 ]
+  %127 = getelementptr inbounds nuw %struct.Prediction, ptr %125, i64 %indvars.iv.i.i
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1220
   %129 = load i32, ptr %128, align 4, !tbaa !50
   %130 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i.i
   store i32 %129, ptr %130, align 4, !tbaa !49
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %131, label %127, !llvm.loop !52
+  br i1 %exitcond.not.i.i, label %131, label %126, !llvm.loop !52
 
-131:                                              ; preds = %127
+131:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 288
   br label %134

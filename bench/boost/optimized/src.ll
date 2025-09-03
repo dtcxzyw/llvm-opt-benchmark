@@ -5390,10 +5390,9 @@ define void @_ZN5boost4json5array8pop_backEv(ptr noundef nonnull readonly align 
   br i1 %8, label %_ZN5boost4json5array7destroyEPNS0_5valueES3_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = zext i32 %5 to i64
-  %11 = getelementptr inbounds nuw %"class.boost::json::value", ptr %9, i64 %10
-  tail call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #48
+  %9 = zext i32 %5 to i64
+  %10 = getelementptr inbounds nuw %"class.boost::json::value", ptr %3, i64 %9, i32 0, i32 0, i32 1
+  tail call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #48
   %.pre = load ptr, ptr %2, align 8, !tbaa !35
   %.pre3 = load i32, ptr %.pre, align 8, !tbaa !40
   %.pre4 = add i32 %.pre3, -1
@@ -5401,8 +5400,8 @@ define void @_ZN5boost4json5array8pop_backEv(ptr noundef nonnull readonly align 
 
 _ZN5boost4json5array7destroyEPNS0_5valueES3_.exit: ; preds = %.lr.ph.i.preheader, %1
   %.pre-phi = phi i32 [ %.pre4, %.lr.ph.i.preheader ], [ %5, %1 ]
-  %12 = phi ptr [ %.pre, %.lr.ph.i.preheader ], [ %3, %1 ]
-  store i32 %.pre-phi, ptr %12, align 8, !tbaa !40
+  %11 = phi ptr [ %.pre, %.lr.ph.i.preheader ], [ %3, %1 ]
+  store i32 %.pre-phi, ptr %11, align 8, !tbaa !40
   ret void
 }
 

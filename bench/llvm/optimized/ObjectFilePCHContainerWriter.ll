@@ -26030,112 +26030,114 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugType
   %56 = load i32, ptr %1, align 8
   %57 = and i32 %56, 4194304
   %.not.i.i.i = icmp eq i32 %57, 0
-  br i1 %.not.i.i.i, label %._crit_edge, label %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i25
+  br i1 %.not.i.i.i, label %._crit_edge, label %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i
 
-_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i25: ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %59 = lshr i32 %56, 20
-  %.lobit.i.i.i.i.i.i.i.i = and i32 %59, 1
-  %60 = zext nneg i32 %.lobit.i.i.i.i.i.i.i.i to i64
-  %61 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %58, i64 %60
-  %62 = lshr i32 %56, 21
-  %.lobit.i.i.i.i.i.i.i = and i32 %62, 1
-  %63 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
-  %64 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %61, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load i32, ptr %64, align 8, !tbaa !12
-  %.not.i28 = icmp eq i32 %66, 0
+_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %55
+  %58 = lshr i32 %56, 20
+  %.lobit.i.i.i.i.i.i.i.i = and i32 %58, 1
+  %59 = zext nneg i32 %.lobit.i.i.i.i.i.i.i.i to i64
+  %60 = lshr i32 %56, 21
+  %.lobit.i.i.i.i.i.i.i = and i32 %60, 1
+  %61 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
+  %62 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %1, i64 %59
+  %63 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %62, i64 %61
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %66 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %65, i64 %59
+  %67 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %66, i64 %61
+  %68 = load i32, ptr %67, align 8, !tbaa !12
+  %.not.i28 = icmp eq i32 %68, 0
   br i1 %.not.i28, label %._crit_edge, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
 
-_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i25
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %68 = load i32, ptr %67, align 4, !tbaa !1400
-  %.not = icmp eq i32 %68, 0
+_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 60
+  %70 = load i32, ptr %69, align 4, !tbaa !1400
+  %.not = icmp eq i32 %70, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
-  %wide.trip.count = zext i32 %68 to i64
+  %wide.trip.count = zext i32 %70 to i64
   br label %.lr.ph
 
-69:                                               ; preds = %.lr.ph
+71:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1005
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
-  %70 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %65, i64 %indvars.iv
-  %71 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %70)
-  br i1 %71, label %69, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %71
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
+  %72 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %64, i64 %indvars.iv
+  %73 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %72)
+  br i1 %73, label %71, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
-._crit_edge:                                      ; preds = %69, %55, %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i25, %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
+._crit_edge:                                      ; preds = %71, %55, %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i, %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 24, i1 false)
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.0.0.copyload = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.0.0.copyload = load ptr, ptr %74, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %74 = load ptr, ptr %7, align 8, !tbaa !11
-  %75 = icmp ne ptr %74, %.sroa.0.0.copyload
-  %76 = load i64, ptr %73, align 8
-  %77 = icmp ne i64 %76, %.sroa.5.0.copyload
-  %.not3.i39 = select i1 %75, i1 true, i1 %77
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %76 = load ptr, ptr %7, align 8, !tbaa !11
+  %77 = icmp ne ptr %76, %.sroa.0.0.copyload
+  %78 = load i64, ptr %75, align 8
+  %79 = icmp ne i64 %78, %.sroa.5.0.copyload
+  %.not3.i39 = select i1 %77, i1 true, i1 %79
   br i1 %.not3.i39, label %.lr.ph41, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split
 
 .lr.ph41:                                         ; preds = %._crit_edge, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
-  %78 = phi i64 [ %99, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %76, %._crit_edge ]
-  %79 = phi ptr [ %97, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %74, %._crit_edge ]
-  %80 = and i64 %78, 3
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, label %82
+  %80 = phi i64 [ %101, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %78, %._crit_edge ]
+  %81 = phi ptr [ %99, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %76, %._crit_edge ]
+  %82 = and i64 %80, 3
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, label %84
 
-82:                                               ; preds = %.lr.ph41
-  %83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
+84:                                               ; preds = %.lr.ph41
+  %85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   br label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = %.lr.ph41, %82
-  %84 = phi ptr [ %83, %82 ], [ %79, %.lr.ph41 ]
-  %85 = load ptr, ptr %84, align 8, !tbaa !1274
-  %86 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %85, ptr noundef %2)
-  br i1 %86, label %87, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split
+_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = %.lr.ph41, %84
+  %86 = phi ptr [ %85, %84 ], [ %81, %.lr.ph41 ]
+  %87 = load ptr, ptr %86, align 8, !tbaa !1274
+  %88 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %87, ptr noundef %2)
+  br i1 %88, label %89, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split
 
-87:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
-  %88 = load i64, ptr %73, align 8, !tbaa !1358
-  %89 = and i64 %88, 3
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %91, label %94
+89:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
+  %90 = load i64, ptr %75, align 8, !tbaa !1358
+  %91 = and i64 %90, 3
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %93, label %96
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %7, align 8, !tbaa !11
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store ptr %93, ptr %7, align 8, !tbaa !11
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %7, align 8, !tbaa !11
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store ptr %95, ptr %7, align 8, !tbaa !11
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-94:                                               ; preds = %87
-  %.not.i32 = icmp ult i64 %88, 4
-  br i1 %.not.i32, label %96, label %95
+96:                                               ; preds = %89
+  %.not.i31 = icmp ult i64 %90, 4
+  br i1 %.not.i31, label %98, label %97
 
-95:                                               ; preds = %94
+97:                                               ; preds = %96
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-96:                                               ; preds = %94
+98:                                               ; preds = %96
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %7, i1 noundef zeroext true) #21
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %91, %95, %96
-  %97 = load ptr, ptr %7, align 8, !tbaa !11
-  %98 = icmp ne ptr %97, %.sroa.0.0.copyload
-  %99 = load i64, ptr %73, align 8
-  %100 = icmp ne i64 %99, %.sroa.5.0.copyload
-  %.not3.i = select i1 %98, i1 true, i1 %100
+_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %93, %97, %98
+  %99 = load ptr, ptr %7, align 8, !tbaa !11
+  %100 = icmp ne ptr %99, %.sroa.0.0.copyload
+  %101 = load i64, ptr %75, align 8
+  %102 = icmp ne i64 %101, %.sroa.5.0.copyload
+  %.not3.i = select i1 %100, i1 true, i1 %102
   br i1 %.not3.i, label %.lr.ph41, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split: ; preds = %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, %._crit_edge
-  %.0.ph = phi i1 [ true, %._crit_edge ], [ %86, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit ], [ %86, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ]
+  %.0.ph = phi i1 [ true, %._crit_edge ], [ %88, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit ], [ %88, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
@@ -28384,112 +28386,114 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugType
   %56 = load i32, ptr %1, align 8
   %57 = and i32 %56, 1048576
   %.not.i.i.i = icmp eq i32 %57, 0
-  br i1 %.not.i.i.i, label %._crit_edge, label %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i25
+  br i1 %.not.i.i.i, label %._crit_edge, label %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i
 
-_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i25: ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %59 = lshr i32 %56, 19
-  %.lobit.i.i.i.i.i.i.i.i = and i32 %59, 1
-  %60 = zext nneg i32 %.lobit.i.i.i.i.i.i.i.i to i64
-  %61 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %58, i64 %60
-  %62 = lshr i32 %56, 21
-  %.lobit.i.i.i.i.i.i.i = and i32 %62, 1
-  %63 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load i32, ptr %64, align 8, !tbaa !12
-  %.not.i28 = icmp eq i32 %66, 0
+_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %55
+  %58 = lshr i32 %56, 19
+  %.lobit.i.i.i.i.i.i.i.i = and i32 %58, 1
+  %59 = zext nneg i32 %.lobit.i.i.i.i.i.i.i.i to i64
+  %60 = lshr i32 %56, 21
+  %.lobit.i.i.i.i.i.i.i = and i32 %60, 1
+  %61 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
+  %62 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %1, i64 %59
+  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %66 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %65, i64 %59
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %61
+  %68 = load i32, ptr %67, align 8, !tbaa !12
+  %.not.i28 = icmp eq i32 %68, 0
   br i1 %.not.i28, label %._crit_edge, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
 
-_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i25
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %68 = load i32, ptr %67, align 4, !tbaa !1400
-  %.not = icmp eq i32 %68, 0
+_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 44
+  %70 = load i32, ptr %69, align 4, !tbaa !1400
+  %.not = icmp eq i32 %70, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
-  %wide.trip.count = zext i32 %68 to i64
+  %wide.trip.count = zext i32 %70 to i64
   br label %.lr.ph
 
-69:                                               ; preds = %.lr.ph
+71:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1005
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
-  %70 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %65, i64 %indvars.iv
-  %71 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %70)
-  br i1 %71, label %69, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %71
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
+  %72 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %64, i64 %indvars.iv
+  %73 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %72)
+  br i1 %73, label %71, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
-._crit_edge:                                      ; preds = %69, %55, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i25, %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
+._crit_edge:                                      ; preds = %71, %55, %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i, %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 24, i1 false)
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.0.0.copyload = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.0.0.copyload = load ptr, ptr %74, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %74 = load ptr, ptr %7, align 8, !tbaa !11
-  %75 = icmp ne ptr %74, %.sroa.0.0.copyload
-  %76 = load i64, ptr %73, align 8
-  %77 = icmp ne i64 %76, %.sroa.5.0.copyload
-  %.not3.i39 = select i1 %75, i1 true, i1 %77
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %76 = load ptr, ptr %7, align 8, !tbaa !11
+  %77 = icmp ne ptr %76, %.sroa.0.0.copyload
+  %78 = load i64, ptr %75, align 8
+  %79 = icmp ne i64 %78, %.sroa.5.0.copyload
+  %.not3.i39 = select i1 %77, i1 true, i1 %79
   br i1 %.not3.i39, label %.lr.ph41, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split
 
 .lr.ph41:                                         ; preds = %._crit_edge, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
-  %78 = phi i64 [ %99, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %76, %._crit_edge ]
-  %79 = phi ptr [ %97, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %74, %._crit_edge ]
-  %80 = and i64 %78, 3
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, label %82
+  %80 = phi i64 [ %101, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %78, %._crit_edge ]
+  %81 = phi ptr [ %99, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %76, %._crit_edge ]
+  %82 = and i64 %80, 3
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, label %84
 
-82:                                               ; preds = %.lr.ph41
-  %83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
+84:                                               ; preds = %.lr.ph41
+  %85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   br label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = %.lr.ph41, %82
-  %84 = phi ptr [ %83, %82 ], [ %79, %.lr.ph41 ]
-  %85 = load ptr, ptr %84, align 8, !tbaa !1274
-  %86 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %85, ptr noundef %2)
-  br i1 %86, label %87, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split
+_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = %.lr.ph41, %84
+  %86 = phi ptr [ %85, %84 ], [ %81, %.lr.ph41 ]
+  %87 = load ptr, ptr %86, align 8, !tbaa !1274
+  %88 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %87, ptr noundef %2)
+  br i1 %88, label %89, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split
 
-87:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
-  %88 = load i64, ptr %73, align 8, !tbaa !1358
-  %89 = and i64 %88, 3
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %91, label %94
+89:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
+  %90 = load i64, ptr %75, align 8, !tbaa !1358
+  %91 = and i64 %90, 3
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %93, label %96
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %7, align 8, !tbaa !11
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store ptr %93, ptr %7, align 8, !tbaa !11
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %7, align 8, !tbaa !11
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store ptr %95, ptr %7, align 8, !tbaa !11
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-94:                                               ; preds = %87
-  %.not.i32 = icmp ult i64 %88, 4
-  br i1 %.not.i32, label %96, label %95
+96:                                               ; preds = %89
+  %.not.i31 = icmp ult i64 %90, 4
+  br i1 %.not.i31, label %98, label %97
 
-95:                                               ; preds = %94
+97:                                               ; preds = %96
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-96:                                               ; preds = %94
+98:                                               ; preds = %96
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %7, i1 noundef zeroext true) #21
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %91, %95, %96
-  %97 = load ptr, ptr %7, align 8, !tbaa !11
-  %98 = icmp ne ptr %97, %.sroa.0.0.copyload
-  %99 = load i64, ptr %73, align 8
-  %100 = icmp ne i64 %99, %.sroa.5.0.copyload
-  %.not3.i = select i1 %98, i1 true, i1 %100
+_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %93, %97, %98
+  %99 = load ptr, ptr %7, align 8, !tbaa !11
+  %100 = icmp ne ptr %99, %.sroa.0.0.copyload
+  %101 = load i64, ptr %75, align 8
+  %102 = icmp ne i64 %101, %.sroa.5.0.copyload
+  %.not3.i = select i1 %100, i1 true, i1 %102
   br i1 %.not3.i, label %.lr.ph41, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.sink.split: ; preds = %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, %._crit_edge
-  %.0.ph = phi i1 [ true, %._crit_edge ], [ %86, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit ], [ %86, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ]
+  %.0.ph = phi i1 [ true, %._crit_edge ], [ %88, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit ], [ %88, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
@@ -46560,12 +46564,12 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 14:                                               ; preds = %2
   %15 = load i32, ptr %4, align 4, !tbaa !1598
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %16
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %16
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %16
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8, !tbaa !1026
   %24 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23, ptr noundef null)
   br i1 %24, label %25, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread

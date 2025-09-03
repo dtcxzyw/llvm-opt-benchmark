@@ -118,67 +118,66 @@ define hidden void @_ZN19AbstractInterpreter17layout_activationEP6MethodiiiiiiP5
   tail call void @_ZN5frame28interpreter_frame_set_methodEP6Method(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %0) #7
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %16
-  %25 = getelementptr inbounds i8, ptr %24, i64 -8
-  tail call void @_ZN5frame28interpreter_frame_set_localsEPl(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %25) #7
-  %26 = tail call noundef ptr @_ZNK5frame31interpreter_frame_monitor_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #7
-  %27 = sext i32 %3 to i64
-  %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds %class.BasicObjectLock, ptr %26, i64 %28
-  tail call void @_ZN5frame33interpreter_frame_set_monitor_endEP15BasicObjectLock(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %29) #7
-  %30 = sext i32 %1 to i64
-  %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds i64, ptr %29, i64 %31
-  %33 = sext i32 %2 to i64
-  %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds i64, ptr %32, i64 %34
-  tail call void @_ZN5frame29interpreter_frame_set_last_spEPl(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %35) #7
+  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  tail call void @_ZN5frame28interpreter_frame_set_localsEPl(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %24) #7
+  %25 = tail call noundef ptr @_ZNK5frame31interpreter_frame_monitor_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #7
+  %26 = sext i32 %3 to i64
+  %27 = sub nsw i64 0, %26
+  %28 = getelementptr inbounds %class.BasicObjectLock, ptr %25, i64 %27
+  tail call void @_ZN5frame33interpreter_frame_set_monitor_endEP15BasicObjectLock(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %28) #7
+  %29 = sext i32 %1 to i64
+  %30 = sub nsw i64 0, %29
+  %31 = getelementptr inbounds i64, ptr %28, i64 %30
+  %32 = sext i32 %2 to i64
+  %33 = sub nsw i64 0, %32
+  %34 = getelementptr inbounds i64, ptr %31, i64 %33
+  tail call void @_ZN5frame29interpreter_frame_set_last_spEPl(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %34) #7
   %.not = icmp eq i16 %15, %18
-  br i1 %.not, label %44, label %36
+  br i1 %.not, label %43, label %35
 
-36:                                               ; preds = %11
-  %37 = load ptr, ptr %21, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = tail call noundef ptr @_ZNK5frame27interpreter_frame_sender_spEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #7
-  %40 = icmp eq ptr %38, %39
-  br i1 %40, label %41, label %44
+35:                                               ; preds = %11
+  %36 = load ptr, ptr %21, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = tail call noundef ptr @_ZNK5frame27interpreter_frame_sender_spEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #7
+  %39 = icmp eq ptr %37, %38
+  br i1 %39, label %40, label %43
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds i64, ptr %42, i64 %20
-  tail call void @_ZN5frame31set_interpreter_frame_sender_spEPl(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %43) #7
-  br label %44
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %7, align 8
+  %42 = getelementptr inbounds i64, ptr %41, i64 %20
+  tail call void @_ZN5frame31set_interpreter_frame_sender_spEPl(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %42) #7
+  br label %43
 
-44:                                               ; preds = %41, %36, %11
-  %45 = load ptr, ptr %12, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %21, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 -48
-  store ptr %49, ptr %51, align 8
-  %52 = load ptr, ptr %12, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 112
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %_ZNK5Klass11java_mirrorEv.exit, label %60
+43:                                               ; preds = %40, %35, %11
+  %44 = load ptr, ptr %12, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %21, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 -48
+  store ptr %48, ptr %50, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 112
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %_ZNK5Klass11java_mirrorEv.exit, label %59
 
-60:                                               ; preds = %44
-  %61 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %62 = tail call noundef ptr %61(ptr noundef nonnull %58) #7
+59:                                               ; preds = %43
+  %60 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %61 = tail call noundef ptr %60(ptr noundef nonnull %57) #7
   br label %_ZNK5Klass11java_mirrorEv.exit
 
-_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %44, %60
-  %63 = phi ptr [ %62, %60 ], [ null, %44 ]
-  %64 = load ptr, ptr %21, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 -32
-  store ptr %63, ptr %65, align 8
+_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %43, %59
+  %62 = phi ptr [ %61, %59 ], [ null, %43 ]
+  %63 = load ptr, ptr %21, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 -32
+  store ptr %62, ptr %64, align 8
   ret void
 }
 

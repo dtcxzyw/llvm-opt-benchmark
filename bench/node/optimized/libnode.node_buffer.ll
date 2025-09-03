@@ -15425,9 +15425,8 @@ entry:
   %1 = load i64, ptr %length_.i29, align 8
   %start_ = getelementptr inbounds nuw i8, ptr %this, i64 3064
   %2 = load i64, ptr %start_, align 8
-  %good_suffix_shift_table_ = getelementptr inbounds nuw i8, ptr %this, i64 1024
   %idx.neg = sub i64 0, %2
-  %add.ptr = getelementptr inbounds i32, ptr %good_suffix_shift_table_, i64 %idx.neg
+  %add.ptr = getelementptr i32, ptr %this, i64 %idx.neg
   %sub = add i64 %1, -1
   %3 = load ptr, ptr %pattern_, align 8
   %is_forward_.i = getelementptr inbounds nuw i8, ptr %this, i64 3048
@@ -15588,7 +15587,7 @@ if.then38:                                        ; preds = %while.end36
 
 if.else:                                          ; preds = %while.end36
   %29 = getelementptr i32, ptr %add.ptr, i64 %j.0.lcssa
-  %arrayidx = getelementptr i8, ptr %29, i64 4
+  %arrayidx = getelementptr i8, ptr %29, i64 1028
   %30 = load i32, ptr %arrayidx, align 4
   %31 = and i16 %.lcssa67, 255
   %idxprom.i59 = zext nneg i16 %31 to i64
@@ -16601,9 +16600,8 @@ entry:
   %1 = load i64, ptr %length_.i29, align 8
   %start_ = getelementptr inbounds nuw i8, ptr %this, i64 3064
   %2 = load i64, ptr %start_, align 8
-  %good_suffix_shift_table_ = getelementptr inbounds nuw i8, ptr %this, i64 1024
   %idx.neg = sub i64 0, %2
-  %add.ptr = getelementptr inbounds i32, ptr %good_suffix_shift_table_, i64 %idx.neg
+  %add.ptr = getelementptr i32, ptr %this, i64 %idx.neg
   %sub = add i64 %1, -1
   %3 = load ptr, ptr %pattern_, align 8
   %is_forward_.i = getelementptr inbounds nuw i8, ptr %this, i64 3048
@@ -16761,7 +16759,7 @@ if.then38:                                        ; preds = %while.end36
 
 if.else:                                          ; preds = %while.end36
   %26 = getelementptr i32, ptr %add.ptr, i64 %j.0.lcssa
-  %arrayidx = getelementptr i8, ptr %26, i64 4
+  %arrayidx = getelementptr i8, ptr %26, i64 1028
   %27 = load i32, ptr %arrayidx, align 4
   %idxprom.i59 = zext i8 %.lcssa67 to i64
   %arrayidx.i60 = getelementptr inbounds nuw i32, ptr %this, i64 %idxprom.i59

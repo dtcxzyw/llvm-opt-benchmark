@@ -654,7 +654,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %88 = load i32, ptr %87, align 4
   %89 = tail call fastcc zeroext i8 @peek_old_byte(ptr noundef %0, i32 noundef %88) #12
   %90 = tail call fastcc noundef i32 @write_byte(ptr noundef %0, i8 noundef zeroext %89) #12, !range !15
-  br label %331
+  br label %330
 
 91:                                               ; preds = %60
   %92 = load i32, ptr %12, align 4
@@ -877,7 +877,7 @@ rc_bit_tree_decode.exit:                          ; preds = %227
 rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.exit
   %.phi.trans.insert7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.pre8 = load i32, ptr %.phi.trans.insert7, align 4
-  br label %326
+  br label %325
 
 241:                                              ; preds = %rc_bit_tree_decode.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -906,7 +906,7 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
   %258 = add i32 %257, -64
   store i32 %258, ptr %8, align 4
   %259 = icmp sgt i32 %258, 3
-  br i1 %259, label %260, label %308
+  br i1 %259, label %260, label %307
 
 260:                                              ; preds = %256
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -916,124 +916,123 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
   %264 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %263, ptr %264, align 4
   %265 = icmp samesign ult i32 %258, 14
-  br i1 %265, label %266, label %276
+  br i1 %265, label %266, label %275
 
 266:                                              ; preds = %260
   %267 = add nsw i32 %261, -1
   %268 = shl i32 %263, %267
   store i32 %268, ptr %264, align 4
-  %269 = getelementptr i8, ptr %3, i64 1376
-  %270 = zext i32 %268 to i64
-  %271 = getelementptr i16, ptr %269, i64 %270
-  %272 = zext nneg i32 %258 to i64
-  %273 = sub nsw i64 0, %272
-  %274 = getelementptr i16, ptr %271, i64 %273
-  %275 = getelementptr i8, ptr %274, i64 -2
-  br label %289
+  %269 = zext i32 %268 to i64
+  %270 = getelementptr i16, ptr %3, i64 %269
+  %271 = zext nneg i32 %258 to i64
+  %272 = sub nsw i64 0, %271
+  %273 = getelementptr i16, ptr %270, i64 %272
+  %274 = getelementptr i8, ptr %273, i64 1374
+  br label %288
 
-276:                                              ; preds = %260
-  %277 = add nsw i32 %261, -5
-  %278 = icmp eq i32 %277, 0
-  br i1 %278, label %.loopexit, label %.preheader
+275:                                              ; preds = %260
+  %276 = add nsw i32 %261, -5
+  %277 = icmp eq i32 %276, 0
+  br i1 %277, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %276, %.preheader
-  %279 = phi i32 [ %284, %.preheader ], [ %263, %276 ]
-  %280 = phi i32 [ %281, %.preheader ], [ %277, %276 ]
-  %281 = add nsw i32 %280, -1
-  %282 = shl i32 %279, 1
-  %283 = tail call fastcc i32 @rc_direct_bit(ptr noundef %1) #12, !range !12
-  %284 = or disjoint i32 %282, %283
-  store i32 %284, ptr %264, align 4
-  %285 = icmp eq i32 %281, 0
-  br i1 %285, label %.loopexit, label %.preheader, !llvm.loop !17
+.preheader:                                       ; preds = %275, %.preheader
+  %278 = phi i32 [ %283, %.preheader ], [ %263, %275 ]
+  %279 = phi i32 [ %280, %.preheader ], [ %276, %275 ]
+  %280 = add nsw i32 %279, -1
+  %281 = shl i32 %278, 1
+  %282 = tail call fastcc i32 @rc_direct_bit(ptr noundef %1) #12, !range !12
+  %283 = or disjoint i32 %281, %282
+  store i32 %283, ptr %264, align 4
+  %284 = icmp eq i32 %280, 0
+  br i1 %284, label %.loopexit, label %.preheader, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.preheader, %276
-  %286 = phi i32 [ %263, %276 ], [ %284, %.preheader ]
-  %287 = getelementptr i8, ptr %3, i64 1604
-  %288 = shl i32 %286, 4
-  store i32 %288, ptr %264, align 4
-  br label %289
+.loopexit:                                        ; preds = %.preheader, %275
+  %285 = phi i32 [ %263, %275 ], [ %283, %.preheader ]
+  %286 = getelementptr i8, ptr %3, i64 1604
+  %287 = shl i32 %285, 4
+  store i32 %287, ptr %264, align 4
+  br label %288
 
-289:                                              ; preds = %.loopexit, %266
-  %290 = phi ptr [ %275, %266 ], [ %287, %.loopexit ]
-  %291 = phi i32 [ %267, %266 ], [ 4, %.loopexit ]
+288:                                              ; preds = %.loopexit, %266
+  %289 = phi ptr [ %274, %266 ], [ %286, %.loopexit ]
+  %290 = phi i32 [ %267, %266 ], [ 4, %.loopexit ]
   store i32 1, ptr %9, align 4
-  br label %292
+  br label %291
 
-292:                                              ; preds = %289, %304
-  %293 = phi i32 [ %295, %304 ], [ %291, %289 ]
-  %294 = phi i32 [ %305, %304 ], [ 1, %289 ]
-  %295 = add nsw i32 %293, -1
-  %296 = load i32, ptr %9, align 4
-  %297 = sext i32 %296 to i64
-  %298 = getelementptr i16, ptr %290, i64 %297
-  %299 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %298, ptr noundef nonnull %9) #12, !range !12
-  %300 = icmp eq i32 %299, 0
-  br i1 %300, label %304, label %301
+291:                                              ; preds = %288, %303
+  %292 = phi i32 [ %294, %303 ], [ %290, %288 ]
+  %293 = phi i32 [ %304, %303 ], [ 1, %288 ]
+  %294 = add nsw i32 %292, -1
+  %295 = load i32, ptr %9, align 4
+  %296 = sext i32 %295 to i64
+  %297 = getelementptr i16, ptr %289, i64 %296
+  %298 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %297, ptr noundef nonnull %9) #12, !range !12
+  %299 = icmp eq i32 %298, 0
+  br i1 %299, label %303, label %300
 
-301:                                              ; preds = %292
-  %302 = load i32, ptr %264, align 4
-  %303 = or i32 %302, %294
-  store i32 %303, ptr %264, align 4
-  br label %304
+300:                                              ; preds = %291
+  %301 = load i32, ptr %264, align 4
+  %302 = or i32 %301, %293
+  store i32 %302, ptr %264, align 4
+  br label %303
 
-304:                                              ; preds = %301, %292
-  %305 = shl i32 %294, 1
-  %306 = icmp eq i32 %295, 0
-  br i1 %306, label %307, label %292, !llvm.loop !18
+303:                                              ; preds = %300, %291
+  %304 = shl i32 %293, 1
+  %305 = icmp eq i32 %294, 0
+  br i1 %305, label %306, label %291, !llvm.loop !18
 
-307:                                              ; preds = %304
+306:                                              ; preds = %303
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre = load i32, ptr %264, align 4
-  br label %308
+  br label %307
 
-308:                                              ; preds = %256, %307
-  %309 = phi i32 [ %.pre, %307 ], [ %258, %256 ]
-  %310 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %311 = add i32 %309, 1
-  store i32 %311, ptr %310, align 4
-  %312 = icmp eq i32 %311, 0
-  br i1 %312, label %.thread, label %313
+307:                                              ; preds = %256, %306
+  %308 = phi i32 [ %.pre, %306 ], [ %258, %256 ]
+  %309 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %310 = add i32 %308, 1
+  store i32 %310, ptr %309, align 4
+  %311 = icmp eq i32 %310, 0
+  br i1 %311, label %.thread, label %312
 
-313:                                              ; preds = %308
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 1
-  %317 = load i32, ptr %316, align 1
-  %318 = icmp ugt i32 %311, %317
-  br i1 %318, label %.thread, label %319
+312:                                              ; preds = %307
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %314 = load ptr, ptr %313, align 8
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 1
+  %316 = load i32, ptr %315, align 1
+  %317 = icmp ugt i32 %310, %316
+  br i1 %317, label %.thread, label %318
 
-.thread:                                          ; preds = %308, %313
-  %.ph = phi i32 [ -1, %313 ], [ 0, %308 ]
+.thread:                                          ; preds = %307, %312
+  %.ph = phi i32 [ -1, %312 ], [ 0, %307 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %331
+  br label %330
 
-319:                                              ; preds = %313
-  %320 = zext i32 %311 to i64
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %322 = load i64, ptr %321, align 8
-  %323 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %324 = load i64, ptr %323, align 8
-  %325 = add i64 %324, %322
-  %.not = icmp ult i64 %325, %320
+318:                                              ; preds = %312
+  %319 = zext i32 %310 to i64
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %321 = load i64, ptr %320, align 8
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %323 = load i64, ptr %322, align 8
+  %324 = add i64 %323, %321
+  %.not = icmp ult i64 %324, %319
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not, label %331, label %._crit_edge
+  br i1 %.not, label %330, label %._crit_edge
 
-._crit_edge:                                      ; preds = %319
+._crit_edge:                                      ; preds = %318
   %.pre6 = load i32, ptr %7, align 4
-  br label %326
+  br label %325
 
-326:                                              ; preds = %rc_bit_tree_decode.exit._crit_edge, %._crit_edge
-  %327 = phi i32 [ %311, %._crit_edge ], [ %.pre8, %rc_bit_tree_decode.exit._crit_edge ]
-  %328 = phi i32 [ %.pre6, %._crit_edge ], [ %238, %rc_bit_tree_decode.exit._crit_edge ]
-  %329 = add i32 %328, 2
-  %330 = tail call fastcc i32 @copy_bytes(ptr noundef %0, i32 noundef %327, i32 noundef %329) #12
-  br label %331
+325:                                              ; preds = %rc_bit_tree_decode.exit._crit_edge, %._crit_edge
+  %326 = phi i32 [ %310, %._crit_edge ], [ %.pre8, %rc_bit_tree_decode.exit._crit_edge ]
+  %327 = phi i32 [ %.pre6, %._crit_edge ], [ %238, %rc_bit_tree_decode.exit._crit_edge ]
+  %328 = add i32 %327, 2
+  %329 = tail call fastcc i32 @copy_bytes(ptr noundef %0, i32 noundef %326, i32 noundef %328) #12
+  br label %330
 
-331:                                              ; preds = %.thread, %326, %319, %77
-  %332 = phi i32 [ %330, %326 ], [ -1, %319 ], [ %90, %77 ], [ %.ph, %.thread ]
+330:                                              ; preds = %.thread, %325, %318, %77
+  %331 = phi i32 [ %329, %325 ], [ -1, %318 ], [ %90, %77 ], [ %.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %332
+  ret i32 %331
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -3742,9 +3742,8 @@ define void @_ZN10open_spiel9cursor_go13CursorGoState13DoApplyActionEl(ptr nound
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8108
   %68 = load i8, ptr %67, align 4
   %69 = zext i8 %68 to i64
-  %.idx21 = shl nuw nsw i64 %69, 3
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8124
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx21
+  %70 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %0, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8124
   %72 = load i32, ptr %71, align 4
   %73 = add nsw i32 %72, -1
   store i32 %73, ptr %71, align 4
@@ -3754,9 +3753,8 @@ define void @_ZN10open_spiel9cursor_go13CursorGoState13DoApplyActionEl(ptr nound
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8108
   %76 = load i8, ptr %75, align 4
   %77 = zext i8 %76 to i64
-  %.idx = shl nuw nsw i64 %77, 3
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8124
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx
+  %78 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %0, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8124
   %80 = load i32, ptr %79, align 4
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %79, align 4

@@ -10783,9 +10783,8 @@ define hidden noundef zeroext i1 @_ZN3sat6solver15memory_pressureEv(ptr noundef 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %3 = load i8, ptr %2, align 8, !tbaa !164, !range !224, !noundef !225
   %4 = zext nneg i8 %3 to i64
-  %.idx = mul nuw nsw i64 %4, 568
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %5 = getelementptr inbounds nuw %"class.sat::clause_allocator", ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1224
   %7 = load i64, ptr %6, align 8, !tbaa !319
   %8 = mul i64 %7, 3
   %9 = lshr i64 %8, 1
@@ -10833,9 +10832,8 @@ define hidden void @_ZN3sat6solver14defrag_clausesEv(ptr noundef nonnull align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %8 = load i8, ptr %7, align 8, !tbaa !164, !range !224, !noundef !225
   %9 = zext nneg i8 %8 to i64
-  %.idx.i = mul nuw nsw i64 %9, 568
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %10 = getelementptr inbounds nuw %"class.sat::clause_allocator", ptr %0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1224
   %12 = load i64, ptr %11, align 8, !tbaa !319
   %13 = mul i64 %12, 3
   %14 = lshr i64 %13, 1

@@ -3201,7 +3201,7 @@ DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %11, %13
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._slider_move, ptr noundef nonnull @.str.9) #14
-  br label %142
+  br label %140
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread124:          ; preds = %13, %DTGTK_IS_GRADIENT_SLIDER.exit
   %17 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
@@ -3225,197 +3225,195 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %25 = load i32, ptr %24, align 4, !tbaa !41
   switch i32 %25, label %.loopexit [
     i32 1, label %26
-    i32 2, label %72
+    i32 2, label %70
   ]
 
 26:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit
   %27 = icmp eq i32 %1, 0
-  br i1 %27, label %34, label %28
+  br i1 %27, label %33, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %30 = sext i32 %1 to i64
-  %31 = getelementptr double, ptr %29, i64 %30
-  %32 = getelementptr i8, ptr %31, i64 -8
-  %33 = load double, ptr %32, align 8, !tbaa !37
-  br label %34
+  %29 = sext i32 %1 to i64
+  %30 = getelementptr double, ptr %23, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 56
+  %32 = load double, ptr %31, align 8, !tbaa !37
+  br label %33
 
-34:                                               ; preds = %26, %28
-  %35 = phi reassoc nsz arcp contract afn double [ %33, %28 ], [ 0.000000e+00, %26 ]
-  %36 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %37 = load i32, ptr %36, align 8, !tbaa !16
-  %38 = add nsw i32 %37, -1
-  %39 = icmp eq i32 %1, %38
-  br i1 %39, label %46, label %40
+33:                                               ; preds = %26, %28
+  %34 = phi reassoc nsz arcp contract afn double [ %32, %28 ], [ 0.000000e+00, %26 ]
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %36 = load i32, ptr %35, align 8, !tbaa !16
+  %37 = add nsw i32 %36, -1
+  %38 = icmp eq i32 %1, %37
+  br i1 %38, label %44, label %39
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %42 = sext i32 %1 to i64
-  %43 = getelementptr double, ptr %41, i64 %42
-  %44 = getelementptr i8, ptr %43, i64 8
-  %45 = load double, ptr %44, align 8, !tbaa !37
-  br label %46
+39:                                               ; preds = %33
+  %40 = sext i32 %1 to i64
+  %41 = getelementptr double, ptr %23, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 72
+  %43 = load double, ptr %42, align 8, !tbaa !37
+  br label %44
 
-46:                                               ; preds = %34, %40
-  %47 = phi reassoc nsz arcp contract afn double [ %45, %40 ], [ 1.000000e+00, %34 ]
-  %48 = getelementptr inbounds nuw i8, ptr %23, i64 272
-  %49 = load double, ptr %48, align 8, !tbaa !43
+44:                                               ; preds = %33, %39
+  %45 = phi reassoc nsz arcp contract afn double [ %43, %39 ], [ 1.000000e+00, %33 ]
+  %46 = getelementptr inbounds nuw i8, ptr %23, i64 272
+  %47 = load double, ptr %46, align 8, !tbaa !43
   %trunc = trunc nuw i32 %3 to i1
-  br i1 %trunc, label %61, label %50
+  br i1 %trunc, label %59, label %48
 
-50:                                               ; preds = %46
-  %51 = fadd reassoc nsz arcp contract afn double %49, %35
-  %52 = fcmp reassoc nsz arcp contract afn olt double %2, %51
-  br i1 %52, label %53, label %.loopexit
+48:                                               ; preds = %44
+  %49 = fadd reassoc nsz arcp contract afn double %47, %34
+  %50 = fcmp reassoc nsz arcp contract afn olt double %2, %49
+  br i1 %50, label %51, label %.loopexit
 
-53:                                               ; preds = %50
-  br i1 %27, label %54, label %56
+51:                                               ; preds = %48
+  br i1 %27, label %52, label %54
 
-54:                                               ; preds = %53
-  %55 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %2, double 0.000000e+00)
+52:                                               ; preds = %51
+  %53 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %2, double 0.000000e+00)
   br label %.loopexit
 
-56:                                               ; preds = %53
-  %57 = add nsw i32 %1, -1
-  %58 = fsub reassoc nsz arcp contract afn double %2, %49
-  %59 = tail call reassoc nsz arcp contract afn fastcc double @_slider_move(ptr noundef nonnull %0, i32 noundef %57, double noundef %58, i32 noundef 0)
-  %60 = fadd reassoc nsz arcp contract afn double %59, %49
+54:                                               ; preds = %51
+  %55 = add nsw i32 %1, -1
+  %56 = fsub reassoc nsz arcp contract afn double %2, %47
+  %57 = tail call reassoc nsz arcp contract afn fastcc double @_slider_move(ptr noundef nonnull %0, i32 noundef %55, double noundef %56, i32 noundef 0)
+  %58 = fadd reassoc nsz arcp contract afn double %57, %47
   br label %.loopexit
 
-61:                                               ; preds = %46
-  %62 = fsub reassoc nsz arcp contract afn double %47, %49
-  %63 = fcmp reassoc nsz arcp contract afn ogt double %2, %62
-  br i1 %63, label %64, label %.loopexit
+59:                                               ; preds = %44
+  %60 = fsub reassoc nsz arcp contract afn double %45, %47
+  %61 = fcmp reassoc nsz arcp contract afn ogt double %2, %60
+  br i1 %61, label %62, label %.loopexit
 
-64:                                               ; preds = %61
-  br i1 %39, label %65, label %67
+62:                                               ; preds = %59
+  br i1 %38, label %63, label %65
 
-65:                                               ; preds = %64
-  %66 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %2, double 1.000000e+00)
+63:                                               ; preds = %62
+  %64 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %2, double 1.000000e+00)
   br label %.loopexit
 
-67:                                               ; preds = %64
-  %68 = add nsw i32 %1, 1
-  %69 = fadd reassoc nsz arcp contract afn double %49, %2
-  %70 = tail call reassoc nsz arcp contract afn fastcc double @_slider_move(ptr noundef nonnull %0, i32 noundef %68, double noundef %69, i32 noundef 1)
-  %71 = fsub reassoc nsz arcp contract afn double %70, %49
+65:                                               ; preds = %62
+  %66 = add nsw i32 %1, 1
+  %67 = fadd reassoc nsz arcp contract afn double %47, %2
+  %68 = tail call reassoc nsz arcp contract afn fastcc double @_slider_move(ptr noundef nonnull %0, i32 noundef %66, double noundef %67, i32 noundef 1)
+  %69 = fsub reassoc nsz arcp contract afn double %68, %47
   br label %.loopexit
 
-72:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit
-  %73 = getelementptr inbounds nuw i8, ptr %23, i64 272
-  %74 = load double, ptr %73, align 8, !tbaa !43
-  %75 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %74, double 0x3EB0C6F7A0B5ED8D)
-  %76 = icmp eq i32 %1, 0
-  br i1 %76, label %80, label %77
+70:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit
+  %71 = getelementptr inbounds nuw i8, ptr %23, i64 272
+  %72 = load double, ptr %71, align 8, !tbaa !43
+  %73 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %72, double 0x3EB0C6F7A0B5ED8D)
+  %74 = icmp eq i32 %1, 0
+  br i1 %74, label %78, label %75
 
-77:                                               ; preds = %72
-  %78 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %79 = load double, ptr %78, align 8, !tbaa !37
-  br label %80
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %77 = load double, ptr %76, align 8, !tbaa !37
+  br label %78
 
-80:                                               ; preds = %72, %77
-  %81 = phi reassoc nsz arcp contract afn double [ %79, %77 ], [ 0.000000e+00, %72 ]
-  %82 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %83 = load i32, ptr %82, align 8, !tbaa !16
-  %84 = add nsw i32 %83, -1
-  %85 = icmp eq i32 %1, %84
-  br i1 %85, label %91, label %86
+78:                                               ; preds = %70, %75
+  %79 = phi reassoc nsz arcp contract afn double [ %77, %75 ], [ 0.000000e+00, %70 ]
+  %80 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %81 = load i32, ptr %80, align 8, !tbaa !16
+  %82 = add nsw i32 %81, -1
+  %83 = icmp eq i32 %1, %82
+  br i1 %83, label %89, label %84
 
-86:                                               ; preds = %80
-  %87 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %88 = sext i32 %84 to i64
-  %89 = getelementptr inbounds double, ptr %87, i64 %88
-  %90 = load double, ptr %89, align 8, !tbaa !37
-  br label %91
+84:                                               ; preds = %78
+  %85 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %86 = sext i32 %82 to i64
+  %87 = getelementptr inbounds double, ptr %85, i64 %86
+  %88 = load double, ptr %87, align 8, !tbaa !37
+  br label %89
 
-91:                                               ; preds = %80, %86
-  %92 = phi reassoc nsz arcp contract afn double [ %90, %86 ], [ 1.000000e+00, %80 ]
-  %93 = xor i32 %1, -1
-  %94 = add i32 %83, %93
-  %95 = sitofp i32 %94 to double
-  %96 = fmul reassoc nsz arcp contract afn double %75, %95
-  %97 = fsub reassoc nsz arcp contract afn double %92, %96
-  %98 = fcmp reassoc nsz arcp contract afn ogt double %2, %97
-  br i1 %98, label %104, label %99
+89:                                               ; preds = %78, %84
+  %90 = phi reassoc nsz arcp contract afn double [ %88, %84 ], [ 1.000000e+00, %78 ]
+  %91 = xor i32 %1, -1
+  %92 = add i32 %81, %91
+  %93 = sitofp i32 %92 to double
+  %94 = fmul reassoc nsz arcp contract afn double %73, %93
+  %95 = fsub reassoc nsz arcp contract afn double %90, %94
+  %96 = fcmp reassoc nsz arcp contract afn ogt double %2, %95
+  br i1 %96, label %102, label %97
 
-99:                                               ; preds = %91
-  %100 = sitofp i32 %1 to double
-  %101 = fmul reassoc nsz arcp contract afn double %75, %100
-  %102 = fadd reassoc nsz arcp contract afn double %81, %101
-  %103 = fcmp reassoc nsz arcp contract afn olt double %2, %102
-  %. = select reassoc nsz arcp contract afn i1 %103, double %102, double %2
-  br label %104
+97:                                               ; preds = %89
+  %98 = sitofp i32 %1 to double
+  %99 = fmul reassoc nsz arcp contract afn double %73, %98
+  %100 = fadd reassoc nsz arcp contract afn double %79, %99
+  %101 = fcmp reassoc nsz arcp contract afn olt double %2, %100
+  %. = select reassoc nsz arcp contract afn i1 %101, double %100, double %2
+  br label %102
 
-104:                                              ; preds = %99, %91
-  %105 = phi reassoc nsz arcp contract afn double [ %97, %91 ], [ %., %99 ]
-  %106 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %107 = sext i32 %1 to i64
-  %108 = getelementptr inbounds double, ptr %106, i64 %107
-  %109 = load double, ptr %108, align 8, !tbaa !37
-  %110 = sext i32 %83 to i64
-  %111 = getelementptr double, ptr %106, i64 %110
-  %112 = getelementptr i8, ptr %111, i64 -8
-  %113 = load double, ptr %112, align 8, !tbaa !37
-  %114 = fsub reassoc nsz arcp contract afn double %113, %105
-  %115 = fsub reassoc nsz arcp contract afn double %113, %109
-  %116 = icmp sgt i32 %1, 1
-  br i1 %116, label %.lr.ph, label %.preheader
+102:                                              ; preds = %97, %89
+  %103 = phi reassoc nsz arcp contract afn double [ %95, %89 ], [ %., %97 ]
+  %104 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %105 = sext i32 %1 to i64
+  %106 = getelementptr inbounds double, ptr %104, i64 %105
+  %107 = load double, ptr %106, align 8, !tbaa !37
+  %108 = sext i32 %81 to i64
+  %109 = getelementptr double, ptr %104, i64 %108
+  %110 = getelementptr i8, ptr %109, i64 -8
+  %111 = load double, ptr %110, align 8, !tbaa !37
+  %112 = fsub reassoc nsz arcp contract afn double %111, %103
+  %113 = fsub reassoc nsz arcp contract afn double %111, %107
+  %114 = icmp sgt i32 %1, 1
+  br i1 %114, label %.lr.ph, label %.preheader
 
-.lr.ph:                                           ; preds = %104
-  %117 = load double, ptr %106, align 8, !tbaa !37
-  %118 = fsub reassoc nsz arcp contract afn double %109, %117
-  %119 = fsub reassoc nsz arcp contract afn double %105, %117
+.lr.ph:                                           ; preds = %102
+  %115 = load double, ptr %104, align 8, !tbaa !37
+  %116 = fsub reassoc nsz arcp contract afn double %107, %115
+  %117 = fsub reassoc nsz arcp contract afn double %103, %115
   %wide.trip.count = zext nneg i32 %1 to i64
-  %120 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %118
-  br label %124
+  %118 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %116
+  br label %122
 
-.preheader:                                       ; preds = %124, %104
+.preheader:                                       ; preds = %122, %102
   %.0128 = add nsw i32 %1, 1
-  %121 = icmp slt i32 %.0128, %83
-  br i1 %121, label %.lr.ph130, label %.loopexit
+  %119 = icmp slt i32 %.0128, %81
+  br i1 %119, label %.lr.ph130, label %.loopexit
 
 .lr.ph130:                                        ; preds = %.preheader
-  %122 = sext i32 %.0128 to i64
-  %123 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %115
-  br label %131
+  %120 = sext i32 %.0128 to i64
+  %121 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %113
+  br label %129
 
-124:                                              ; preds = %.lr.ph, %124
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %124 ]
-  %125 = getelementptr inbounds nuw double, ptr %106, i64 %indvars.iv
-  %126 = load double, ptr %125, align 8, !tbaa !37
-  %127 = fsub reassoc nsz arcp contract afn double %126, %117
-  %128 = fmul reassoc nsz arcp contract afn double %119, %127
-  %129 = fmul reassoc nsz arcp contract afn double %128, %120
-  %130 = fadd reassoc nsz arcp contract afn double %129, %117
-  store double %130, ptr %125, align 8, !tbaa !37
+122:                                              ; preds = %.lr.ph, %122
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %122 ]
+  %123 = getelementptr inbounds nuw double, ptr %104, i64 %indvars.iv
+  %124 = load double, ptr %123, align 8, !tbaa !37
+  %125 = fsub reassoc nsz arcp contract afn double %124, %115
+  %126 = fmul reassoc nsz arcp contract afn double %117, %125
+  %127 = fmul reassoc nsz arcp contract afn double %126, %118
+  %128 = fadd reassoc nsz arcp contract afn double %127, %115
+  store double %128, ptr %123, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %124
+  br i1 %exitcond.not, label %.preheader, label %122
 
-131:                                              ; preds = %.lr.ph130, %131
-  %indvars.iv134 = phi i64 [ %122, %.lr.ph130 ], [ %indvars.iv.next135, %131 ]
-  %132 = load double, ptr %112, align 8, !tbaa !37
-  %133 = getelementptr inbounds double, ptr %106, i64 %indvars.iv134
-  %134 = load double, ptr %133, align 8, !tbaa !37
-  %135 = fsub reassoc nsz arcp contract afn double %132, %134
-  %136 = fmul reassoc nsz arcp contract afn double %114, %135
-  %137 = fmul reassoc nsz arcp contract afn double %136, %123
-  %138 = fsub reassoc nsz arcp contract afn double %132, %137
-  store double %138, ptr %133, align 8, !tbaa !37
+129:                                              ; preds = %.lr.ph130, %129
+  %indvars.iv134 = phi i64 [ %120, %.lr.ph130 ], [ %indvars.iv.next135, %129 ]
+  %130 = load double, ptr %110, align 8, !tbaa !37
+  %131 = getelementptr inbounds double, ptr %104, i64 %indvars.iv134
+  %132 = load double, ptr %131, align 8, !tbaa !37
+  %133 = fsub reassoc nsz arcp contract afn double %130, %132
+  %134 = fmul reassoc nsz arcp contract afn double %112, %133
+  %135 = fmul reassoc nsz arcp contract afn double %134, %121
+  %136 = fsub reassoc nsz arcp contract afn double %130, %135
+  store double %136, ptr %131, align 8, !tbaa !37
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next135 to i32
-  %exitcond137.not = icmp eq i32 %83, %lftr.wideiv
-  br i1 %exitcond137.not, label %.loopexit, label %131
+  %exitcond137.not = icmp eq i32 %81, %lftr.wideiv
+  br i1 %exitcond137.not, label %.loopexit, label %129
 
-.loopexit:                                        ; preds = %131, %.preheader, %65, %67, %54, %56, %50, %61, %DTGTK_GRADIENT_SLIDER.exit
-  %.0105 = phi nsz double [ %2, %DTGTK_GRADIENT_SLIDER.exit ], [ %2, %50 ], [ %2, %61 ], [ %55, %54 ], [ %60, %56 ], [ %66, %65 ], [ %71, %67 ], [ %105, %.preheader ], [ %105, %131 ]
-  %139 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %140 = sext i32 %1 to i64
-  %141 = getelementptr inbounds double, ptr %139, i64 %140
-  store double %.0105, ptr %141, align 8, !tbaa !37
-  br label %142
+.loopexit:                                        ; preds = %129, %.preheader, %63, %65, %52, %54, %48, %59, %DTGTK_GRADIENT_SLIDER.exit
+  %.0105 = phi nsz double [ %2, %DTGTK_GRADIENT_SLIDER.exit ], [ %2, %48 ], [ %2, %59 ], [ %53, %52 ], [ %58, %54 ], [ %64, %63 ], [ %69, %65 ], [ %103, %.preheader ], [ %103, %129 ]
+  %137 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %138 = sext i32 %1 to i64
+  %139 = getelementptr inbounds double, ptr %137, i64 %138
+  store double %.0105, ptr %139, align 8, !tbaa !37
+  br label %140
 
-142:                                              ; preds = %.loopexit, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
+140:                                              ; preds = %.loopexit, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
   %.0103 = phi nsz double [ %.0105, %.loopexit ], [ %2, %DTGTK_IS_GRADIENT_SLIDER.exit.thread ]
   ret double %.0103
 }
@@ -3688,7 +3686,7 @@ DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %11, %13
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_add_delta_internal, ptr noundef nonnull @.str.9) #14
-  br label %51
+  br label %53
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread25:           ; preds = %13, %DTGTK_IS_GRADIENT_SLIDER.exit
   %17 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
@@ -3717,39 +3715,41 @@ DTGTK_IS_GRADIENT_SLIDER.exit.thread25:           ; preds = %13, %DTGTK_IS_GRADI
   %31 = load double, ptr %30, align 8, !tbaa !37
   %32 = fadd reassoc nsz arcp contract afn double %27, %31
   %33 = icmp eq i32 %3, 0
-  br i1 %33, label %37, label %34
+  br i1 %33, label %38, label %34
 
 34:                                               ; preds = %22
-  %35 = getelementptr i8, ptr %30, i64 -8
-  %36 = load double, ptr %35, align 8, !tbaa !37
-  br label %37
+  %35 = getelementptr double, ptr %24, i64 %29
+  %36 = getelementptr i8, ptr %35, i64 56
+  %37 = load double, ptr %36, align 8, !tbaa !37
+  br label %38
 
-37:                                               ; preds = %34, %22
-  %38 = phi reassoc nsz arcp contract afn double [ %36, %34 ], [ 0.000000e+00, %22 ]
-  %39 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %40 = load i32, ptr %39, align 8, !tbaa !16
-  %41 = add nsw i32 %40, -1
-  %42 = icmp eq i32 %3, %41
-  br i1 %42, label %_clamp_marker.exit, label %43
+38:                                               ; preds = %34, %22
+  %39 = phi reassoc nsz arcp contract afn double [ %37, %34 ], [ 0.000000e+00, %22 ]
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %41 = load i32, ptr %40, align 8, !tbaa !16
+  %42 = add nsw i32 %41, -1
+  %43 = icmp eq i32 %3, %42
+  br i1 %43, label %_clamp_marker.exit, label %44
 
-43:                                               ; preds = %37
-  %44 = getelementptr i8, ptr %30, i64 8
-  %45 = load double, ptr %44, align 8, !tbaa !37
+44:                                               ; preds = %38
+  %45 = getelementptr double, ptr %24, i64 %29
+  %46 = getelementptr i8, ptr %45, i64 72
+  %47 = load double, ptr %46, align 8, !tbaa !37
   br label %_clamp_marker.exit
 
-_clamp_marker.exit:                               ; preds = %43, %37
-  %46 = phi reassoc nsz arcp contract afn double [ %45, %43 ], [ 1.000000e+00, %37 ]
-  %47 = fcmp reassoc nsz arcp contract afn ogt double %32, %46
-  %48 = fcmp reassoc nsz arcp contract afn olt double %32, %38
-  %..i = select reassoc nsz arcp contract afn i1 %48, double %38, double %32
-  %49 = select reassoc nsz arcp contract afn i1 %47, double %46, double %..i
-  store double %49, ptr %30, align 8, !tbaa !37
+_clamp_marker.exit:                               ; preds = %38, %44
+  %48 = phi reassoc nsz arcp contract afn double [ %47, %44 ], [ 1.000000e+00, %38 ]
+  %49 = fcmp reassoc nsz arcp contract afn ogt double %32, %48
+  %50 = fcmp reassoc nsz arcp contract afn olt double %32, %39
+  %..i = select reassoc nsz arcp contract afn i1 %50, double %39, double %32
+  %51 = select reassoc nsz arcp contract afn i1 %49, double %48, double %..i
+  store double %51, ptr %30, align 8, !tbaa !37
   tail call void @gtk_widget_queue_draw(ptr noundef nonnull %0) #14
-  %50 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef 80) #14
-  tail call void (ptr, ptr, ...) @g_signal_emit_by_name(ptr noundef %50, ptr noundef nonnull @.str.2) #14
-  br label %51
+  %52 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef 80) #14
+  tail call void (ptr, ptr, ...) @g_signal_emit_by_name(ptr noundef %52, ptr noundef nonnull @.str.2) #14
+  br label %53
 
-51:                                               ; preds = %_clamp_marker.exit, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
+53:                                               ; preds = %_clamp_marker.exit, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
   ret void
 }
 

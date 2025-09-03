@@ -5638,9 +5638,8 @@ define void @_ZN10open_spiel5twixt5Board14SetPegAndLinksEi8Position(ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %19 = sext i32 %1 to i64
-  %.idx = shl nsw i64 %19, 1
-  %20 = getelementptr i8, ptr %15, i64 77
-  %21 = getelementptr i8, ptr %20, i64 %.idx
+  %20 = getelementptr [2 x i8], ptr %15, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 77
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 76
   %23 = getelementptr inbounds [2 x i8], ptr %22, i64 %19
   br label %24

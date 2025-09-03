@@ -2380,17 +2380,15 @@ define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull re
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !154
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %scevgep = getelementptr i8, ptr %.1, i64 1
   %67 = zext nneg i32 %56 to i64
-  %68 = getelementptr i8, ptr %scevgep, i64 %67
-  %scevgep64 = getelementptr i8, ptr %68, i64 -1
+  %68 = getelementptr i8, ptr %.1, i64 %67
   %.cmp = icmp samesign ugt i32 %64, 9999999
   %69 = zext i1 %.cmp to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.048.lcssa = phi i32 [ 0, %.preheader ], [ %69, %._crit_edge.loopexit ]
-  %.2.lcssa = phi ptr [ %.1, %.preheader ], [ %scevgep64, %._crit_edge.loopexit ]
+  %.2.lcssa = phi ptr [ %.1, %.preheader ], [ %68, %._crit_edge.loopexit ]
   %70 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %6) #19
   %71 = load i32, ptr %70, align 8, !tbaa !112
   %72 = add i32 %71, %.048.lcssa

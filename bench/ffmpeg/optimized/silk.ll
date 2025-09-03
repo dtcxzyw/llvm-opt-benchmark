@@ -326,10 +326,10 @@ silk_flush_frame.exit120:                         ; preds = %.critedge.thread185
   %102 = getelementptr inbounds float, ptr %98, i64 %101
   %103 = sext i32 %99 to i64
   %104 = sub nsw i64 0, %103
-  %105 = getelementptr inbounds float, ptr %75, i64 %104
-  %106 = getelementptr inbounds i8, ptr %105, i64 -8
+  %105 = getelementptr float, ptr %0, i64 %104
+  %106 = getelementptr i8, ptr %105, i64 1424
   %107 = shl nsw i64 %103, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %102, ptr nonnull align 4 %106, i64 %107, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %102, ptr align 4 %106, i64 %107, i1 false)
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %108 = load i32, ptr %73, align 8, !tbaa !26
   %109 = sext i32 %108 to i64

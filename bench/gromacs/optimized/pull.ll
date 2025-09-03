@@ -762,7 +762,7 @@ define internal fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_
   %38 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv71.i.i
   %39 = load float, ptr %38, align 4, !tbaa !79
   %40 = fmul float %39, %39
-  %invariant.gep.i.i = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv71.i.i
+  %invariant.gep.i.i = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv71.i.i
   %41 = icmp samesign ult i64 %indvars.iv71.i.i, 2
   br i1 %41, label %.lr.ph58.i.i, label %._crit_edge59.i.i
 
@@ -776,7 +776,7 @@ define internal fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_
   %indvars.iv73.i.i = phi i64 [ 1, %.lr.ph58.i.i ], [ %indvars.iv71.i.i, %36 ]
   %storemerge55.i.i = phi float [ %46, %.lr.ph58.i.i ], [ %40, %36 ]
   %43 = getelementptr inbounds nuw [3 x float], ptr %invariant.gep.i.i, i64 %indvars.iv73.i.i
-  %gep.i.i = getelementptr inbounds nuw i8, ptr %43, i64 12
+  %gep.i.i = getelementptr inbounds nuw i8, ptr %43, i64 28
   %44 = load float, ptr %gep.i.i, align 4, !tbaa !79
   %45 = fmul float %44, %44
   %46 = fsub float %storemerge55.i.i, %45

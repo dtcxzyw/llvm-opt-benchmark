@@ -2418,9 +2418,8 @@ define nonnull ptr @ossl_ackm_get_ack_frame(ptr noundef %0, i32 noundef %1) loca
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = tail call i64 %7(ptr noundef %9) #12
-  %.idx.i = shl nsw i64 %4, 5
-  %11 = getelementptr i8, ptr %0, i64 152
-  %12 = getelementptr i8, ptr %11, i64 %.idx.i
+  %11 = getelementptr %struct.rx_pkt_history_st, ptr %0, i64 %4
+  %12 = getelementptr i8, ptr %11, i64 152
   %.01920.i = load ptr, ptr %12, align 8, !tbaa !110
   %.not.i = icmp eq ptr %.01920.i, null
   br i1 %.not.i, label %ackm_fill_rx_ack_ranges.exit, label %.lr.ph.i

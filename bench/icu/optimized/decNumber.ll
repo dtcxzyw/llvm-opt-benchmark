@@ -14645,41 +14645,41 @@ define noundef ptr @uprv_decNumberGetBCD_77(ptr noundef readonly captures(none) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef ptr @uprv_decNumberSetBCD_77(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %5 = load i32, ptr %0, align 4, !tbaa !9
-  %6 = icmp slt i32 %5, 50
-  br i1 %6, label %7, label %12
+  %4 = load i32, ptr %0, align 4, !tbaa !9
+  %5 = icmp slt i32 %4, 50
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %3
-  %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds i8, ptr @_ZL8d2utable, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !10
-  %11 = zext i8 %10 to i32
-  br label %12
+6:                                                ; preds = %3
+  %7 = sext i32 %4 to i64
+  %8 = getelementptr inbounds i8, ptr @_ZL8d2utable, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !10
+  %10 = zext i8 %9 to i32
+  br label %11
 
-12:                                               ; preds = %3, %7
-  %13 = phi i32 [ %11, %7 ], [ %5, %3 ]
-  %14 = zext i32 %2 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
+11:                                               ; preds = %3, %6
+  %12 = phi i32 [ %10, %6 ], [ %4, %3 ]
+  %13 = zext i32 %2 to i64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %12
-  %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %16
+.lr.ph.preheader:                                 ; preds = %11
+  %15 = zext nneg i32 %12 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.017 = phi ptr [ %19, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.pn16 = phi ptr [ %.014, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %.014 = getelementptr inbounds i8, ptr %.pn16, i64 -1
+  %.01416 = phi ptr [ %20, %.lr.ph ], [ %17, %.lr.ph.preheader ]
   %18 = load i8, ptr %.017, align 1, !tbaa !10
-  store i8 %18, ptr %.014, align 1, !tbaa !10
+  store i8 %18, ptr %.01416, align 1, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %.017, i64 1
-  %20 = icmp ult ptr %19, %15
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !96
+  %20 = getelementptr inbounds i8, ptr %.01416, i64 -1
+  %21 = icmp ult ptr %19, %14
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !96
 
-._crit_edge:                                      ; preds = %.lr.ph, %12
+._crit_edge:                                      ; preds = %.lr.ph, %11
   store i32 %2, ptr %0, align 4, !tbaa !9
   ret ptr %0
 }

@@ -713,24 +713,24 @@ define dso_local void @_ZN4llvm18ScheduleDAGSDNodes23ClusterNeighboringLoadsEPNS
   %50 = load i16, ptr %45, align 8, !tbaa !308
   %51 = zext i16 %50 to i64
   %52 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %45, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %54 = load i16, ptr %48, align 4, !tbaa !309
-  %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %53, i64 %55
-  br label %57
+  %53 = load i16, ptr %48, align 4, !tbaa !309
+  %54 = zext i16 %53 to i64
+  %55 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %52, i64 %54
+  br label %56
 
-57:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %.lr.ph.i
+56:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i ]
-  %58 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %56, i64 %indvars.iv.i, i32 3
+  %57 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %55, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %59 = load i16, ptr %58, align 2, !tbaa !310
   %60 = and i16 %59, 1
   %.not.i.not.i = icmp eq i16 %60, 0
   br i1 %.not.i.not.i, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, label %"_ZZN4llvm18ScheduleDAGSDNodes23ClusterNeighboringLoadsEPNS_6SDNodeEENK3$_0clEPKS1_.exit"
 
-_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i: ; preds = %57
+_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i: ; preds = %56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.not.i = icmp eq i64 %indvars.iv.next.i, %49
-  br i1 %.not.not.i, label %.loopexit131, label %57, !llvm.loop !312
+  br i1 %.not.not.i, label %.loopexit131, label %56, !llvm.loop !312
 
 .loopexit131:                                     ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %30
   %61 = getelementptr inbounds nuw i8, ptr %23, i64 56
@@ -842,24 +842,24 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %109 = load i16, ptr %104, align 8, !tbaa !308
   %110 = zext i16 %109 to i64
   %111 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %104, i64 %110
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  %113 = load i16, ptr %107, align 4, !tbaa !309
-  %114 = zext i16 %113 to i64
-  %115 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %112, i64 %114
-  br label %116
+  %112 = load i16, ptr %107, align 4, !tbaa !309
+  %113 = zext i16 %112 to i64
+  %114 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %111, i64 %113
+  br label %115
 
-116:                                              ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i67, %.lr.ph.i63
+115:                                              ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i67, %.lr.ph.i63
   %indvars.iv.i64 = phi i64 [ 0, %.lr.ph.i63 ], [ %indvars.iv.next.i68, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i67 ]
-  %117 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %115, i64 %indvars.iv.i64, i32 3
+  %116 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %114, i64 %indvars.iv.i64
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 36
   %118 = load i16, ptr %117, align 2, !tbaa !310
   %119 = and i16 %118, 1
   %.not.i.not.i65 = icmp eq i16 %119, 0
   br i1 %.not.i.not.i65, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i67, label %"_ZZN4llvm18ScheduleDAGSDNodes23ClusterNeighboringLoadsEPNS_6SDNodeEENK3$_0clEPKS1_.exit70"
 
-_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i67: ; preds = %116
+_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i67: ; preds = %115
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i64, 1
   %.not.not.i69 = icmp eq i64 %indvars.iv.next.i68, %108
-  br i1 %.not.not.i69, label %.loopexit130, label %116, !llvm.loop !312
+  br i1 %.not.not.i69, label %.loopexit130, label %115, !llvm.loop !312
 
 .loopexit130:                                     ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i67, %98
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -935,10 +935,10 @@ _ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit76: ; preds = %135, %14
   %spec.select = select i1 %151, ptr %70, ptr %.0134
   br label %"_ZZN4llvm18ScheduleDAGSDNodes23ClusterNeighboringLoadsEPNS_6SDNodeEENK3$_0clEPKS1_.exit70"
 
-"_ZZN4llvm18ScheduleDAGSDNodes23ClusterNeighboringLoadsEPNS_6SDNodeEENK3$_0clEPKS1_.exit70": ; preds = %116, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit76, %88, %94
-  %.3119 = phi ptr [ %.0134, %94 ], [ %.0134, %88 ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit76 ], [ %.0134, %116 ]
-  %.348 = phi i32 [ %.045135, %94 ], [ %.045135, %88 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit76 ], [ %.045135, %116 ]
-  %.3 = phi i1 [ %.044136, %94 ], [ %.044136, %88 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit76 ], [ %.044136, %116 ]
+"_ZZN4llvm18ScheduleDAGSDNodes23ClusterNeighboringLoadsEPNS_6SDNodeEENK3$_0clEPKS1_.exit70": ; preds = %115, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit76, %88, %94
+  %.3119 = phi ptr [ %.0134, %94 ], [ %.0134, %88 ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit76 ], [ %.0134, %115 ]
+  %.348 = phi i32 [ %.045135, %94 ], [ %.045135, %88 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit76 ], [ %.045135, %115 ]
+  %.3 = phi i1 [ %.044136, %94 ], [ %.044136, %88 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit76 ], [ %.044136, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
@@ -1151,7 +1151,7 @@ _ZN4llvm11SmallVectorIPNS_6SDNodeELj4EED2Ev.exit: ; preds = %.loopexit, %250
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %"_ZZN4llvm18ScheduleDAGSDNodes23ClusterNeighboringLoadsEPNS_6SDNodeEENK3$_0clEPKS1_.exit"
 
-"_ZZN4llvm18ScheduleDAGSDNodes23ClusterNeighboringLoadsEPNS_6SDNodeEENK3$_0clEPKS1_.exit": ; preds = %57, %.loopexit131, %_ZN4llvm11SmallVectorIPNS_6SDNodeELj4EED2Ev.exit, %._crit_edge
+"_ZZN4llvm18ScheduleDAGSDNodes23ClusterNeighboringLoadsEPNS_6SDNodeEENK3$_0clEPKS1_.exit": ; preds = %56, %.loopexit131, %_ZN4llvm11SmallVectorIPNS_6SDNodeELj4EED2Ev.exit, %._crit_edge
   %251 = load ptr, ptr %5, align 8, !tbaa !336
   %252 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %253 = load i32, ptr %252, align 8, !tbaa !338
@@ -2354,31 +2354,31 @@ define dso_local void @_ZN4llvm18ScheduleDAGSDNodes13AddSchedEdgesEv(ptr noundef
   %39 = load i16, ptr %34, align 8, !tbaa !308
   %40 = zext i16 %39 to i64
   %41 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %34, i64 %40
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %43 = load i16, ptr %37, align 4, !tbaa !309
-  %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %42, i64 %44
-  br label %46
+  %42 = load i16, ptr %37, align 4, !tbaa !309
+  %43 = zext i16 %42 to i64
+  %44 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %41, i64 %43
+  br label %45
 
-46:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread, %.lr.ph
+45:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread ]
-  %47 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %45, i64 %indvars.iv, i32 3
+  %46 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %44, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
   %48 = load i16, ptr %47, align 2, !tbaa !310
   %49 = and i16 %48, 1
   %.not.i = icmp eq i16 %49, 0
   br i1 %.not.i, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit
 
-_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit: ; preds = %46
+_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit: ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.091.0119, i64 248
   %51 = load i16, ptr %50, align 8
   %52 = or i16 %51, 8
   store i16 %52, ptr %50, align 8
   br label %.loopexit
 
-_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread: ; preds = %46
+_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread: ; preds = %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %38
-  br i1 %.not, label %.loopexit, label %46, !llvm.loop !372
+  br i1 %.not, label %.loopexit, label %45, !llvm.loop !372
 
 .loopexit:                                        ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread, %27, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit
   %53 = getelementptr inbounds nuw i8, ptr %34, i64 16

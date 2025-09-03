@@ -1909,9 +1909,8 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %10 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %5
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
-  %.idx.i.i = mul nuw nsw i64 %12, 12
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2654
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
+  %13 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %0, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2654
   %15 = load i16, ptr %14, align 2
   %.not = icmp eq i16 %15, 0
   %16 = zext i16 %15 to i32
@@ -1926,23 +1925,22 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %19 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %18, i32 2
   %20 = load i8, ptr %19, align 2
   %21 = icmp eq i8 %20, %2
-  br i1 %21, label %22, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
+  br i1 %21, label %22, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit7.i"
 
 22:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i"
   %23 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %18
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
-  %.idx.i7.i = mul nuw nsw i64 %25, 12
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2654
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i7.i
+  %26 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %0, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 2654
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
   %30 = icmp samesign ult i32 %.0, %29
   %spec.select74 = select i1 %30, i16 %24, i16 %.059
   %spec.select75 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %29)
-  br label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
+  br label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit7.i"
 
-"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i": ; preds = %22, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i"
+"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit7.i": ; preds = %22, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i"
   %.160 = phi i16 [ %.059, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select74, %22 ]
   %.1 = phi i32 [ %.0, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select75, %22 ]
   %31 = add i16 %1, -1
@@ -1950,25 +1948,24 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %33 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %32, i32 2
   %34 = load i8, ptr %33, align 2
   %35 = icmp eq i8 %34, %2
-  br i1 %35, label %36, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i"
+  br i1 %35, label %36, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
 
-36:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
+36:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit7.i"
   %37 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %32
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
-  %.idx.i9.i = mul nuw nsw i64 %39, 12
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2654
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i9.i
+  %40 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %0, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2654
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   %44 = icmp samesign ult i32 %.1, %43
   %spec.select76 = select i1 %44, i16 %38, i16 %.160
   %spec.select77 = tail call i32 @llvm.umax.i32(i32 %.1, i32 %43)
-  br label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i"
+  br label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
 
-"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i": ; preds = %36, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
-  %.261 = phi i16 [ %.160, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i" ], [ %spec.select76, %36 ]
-  %.2 = phi i32 [ %.1, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i" ], [ %spec.select77, %36 ]
+"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i": ; preds = %36, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit7.i"
+  %.261 = phi i16 [ %.160, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit7.i" ], [ %spec.select76, %36 ]
+  %.2 = phi i32 [ %.1, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit7.i" ], [ %spec.select77, %36 ]
   %45 = add i16 %1, -21
   %46 = zext i16 %45 to i64
   %47 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %46, i32 2
@@ -1976,19 +1973,18 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %49 = icmp eq i8 %48, %2
   br i1 %49, label %50, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit"
 
-50:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i"
+50:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
   %51 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %46
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i64
-  %.idx.i11.i = mul nuw nsw i64 %53, 12
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2654
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i11.i
+  %54 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %0, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 2654
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   %58 = icmp samesign ult i32 %.2, %57
   br i1 %58, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit.thread", label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit"
 
-"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i", %50
+"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i", %50
   %59 = icmp eq i32 %.2, 0
   br i1 %59, label %60, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit.thread"
 

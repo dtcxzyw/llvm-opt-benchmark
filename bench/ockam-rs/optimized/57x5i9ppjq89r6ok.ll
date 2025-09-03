@@ -5791,9 +5791,8 @@ define hidden void @"_ZN5alloc11collections5btree3map27ExtractIfInner$LT$K$C$V$G
   %.sroa.10.0.ph = phi i64 [ %.sroa.5.sroa.4.0.copyload60, %15 ], [ %23, %22 ]
   %.sroa.818.0.ph = phi i64 [ %.sroa.5.sroa.0.0.copyload59, %15 ], [ %24, %22 ]
   %.sroa.0.037.ph = phi ptr [ %.sroa.03.0.copyload58, %15 ], [ %20, %22 ]
-  %.idx = mul nuw nsw i64 %.sroa.10.0.ph, 24
-  %29 = getelementptr i8, ptr %.sroa.0.037.ph, i64 288
-  %30 = getelementptr i8, ptr %29, i64 %.idx
+  %29 = getelementptr { [3 x i64] }, ptr %.sroa.0.037.ph, i64 %.sroa.10.0.ph
+  %30 = getelementptr i8, ptr %29, i64 288
   %.val = load i64, ptr %30, align 8, !noundef !4
   %.not.i = icmp eq i64 %.val, 0
   br i1 %.not.i, label %43, label %32
@@ -6121,9 +6120,8 @@ define hidden void @"_ZN5alloc11collections5btree3map27ExtractIfInner$LT$K$C$V$G
   %.sroa.10.0.ph = phi i64 [ %.sroa.5.sroa.4.0.copyload60, %15 ], [ %23, %22 ]
   %.sroa.818.0.ph = phi i64 [ %.sroa.5.sroa.0.0.copyload59, %15 ], [ %24, %22 ]
   %.sroa.0.037.ph = phi ptr [ %.sroa.03.0.copyload58, %15 ], [ %20, %22 ]
-  %.idx = mul nuw nsw i64 %.sroa.10.0.ph, 24
-  %29 = getelementptr i8, ptr %.sroa.0.037.ph, i64 288
-  %30 = getelementptr i8, ptr %29, i64 %.idx
+  %29 = getelementptr { [3 x i64] }, ptr %.sroa.0.037.ph, i64 %.sroa.10.0.ph
+  %30 = getelementptr i8, ptr %29, i64 288
   %.val = load i64, ptr %30, align 8, !noundef !4
   %.not.i = icmp eq i64 %.val, 0
   br i1 %.not.i, label %43, label %32

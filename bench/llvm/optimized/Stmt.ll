@@ -1698,12 +1698,16 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit: ; pred
   %15 = getelementptr inbounds nuw i8, ptr %.242, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !57
   %.not21 = icmp eq i32 %16, 1
-  br i1 %.not21, label %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtENS1_4StmtEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
+  br i1 %.not21, label %17, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtENS1_4StmtEEEDaPT0_.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit, %.lr.ph
-  %.sink = phi i64 [ 8, %.lr.ph ], [ 16, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit ]
-  %17 = getelementptr i8, ptr %.242, i64 %.sink
-  %.5 = load ptr, ptr %17, align 8, !tbaa !55
+17:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit
+  %18 = getelementptr i8, ptr %.242, i64 8
+  br label %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtENS1_4StmtEEEDaPT0_.exit
+
+_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtENS1_4StmtEEEDaPT0_.exit: ; preds = %.lr.ph, %17
+  %.2.pn = phi ptr [ %18, %17 ], [ %.242, %.lr.ph ]
+  %.5.in = getelementptr i8, ptr %.2.pn, i64 8
+  %.5 = load ptr, ptr %.5.in, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %.5, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread, label %.lr.ph
 
@@ -1730,41 +1734,40 @@ define dso_local noundef ptr @_ZNK5clang4Stmt24stripLabelLikeStatementsEv(ptr no
 7:                                                ; preds = %2
   %8 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i16 %8, 134
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %9, label %18
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %9, label %17
 
 9:                                                ; preds = %7
   %.not.i.i = icmp eq i16 %4, 135
-  br i1 %.not.i.i, label %10, label %16
+  br i1 %.not.i.i, label %10, label %15
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %.019, i64 24
-  %12 = lshr i16 %3, 9
-  %.lobit.i.i.i.i.i = and i16 %12, 1
-  %13 = zext nneg i16 %.lobit.i.i.i.i.i to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %11 = lshr i16 %3, 9
+  %.lobit.i.i.i.i.i = and i16 %11, 1
+  %12 = zext nneg i16 %.lobit.i.i.i.i.i to i64
+  %13 = getelementptr inbounds nuw ptr, ptr %.019, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %.backedge
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   %.not11.i.i = icmp eq i16 %4, 134
   tail call void @llvm.assume(i1 %.not11.i.i)
-  %17 = getelementptr inbounds nuw i8, ptr %.019, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   br label %.backedge
 
-18:                                               ; preds = %7
+17:                                               ; preds = %7
   %.not40 = icmp eq i16 %4, 132
-  br i1 %.not40, label %19, label %.thread
+  br i1 %.not40, label %18, label %.thread
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %.019, i64 8
+18:                                               ; preds = %17
+  %19 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   br label %.backedge
 
-.backedge:                                        ; preds = %16, %10, %19, %5
-  %.019.be.in = phi ptr [ %20, %19 ], [ %6, %5 ], [ %15, %10 ], [ %17, %16 ]
+.backedge:                                        ; preds = %15, %10, %18, %5
+  %.019.be.in = phi ptr [ %19, %18 ], [ %6, %5 ], [ %14, %10 ], [ %16, %15 ]
   %.019.be = load ptr, ptr %.019.be.in, align 8, !tbaa !55
   br label %2, !llvm.loop !58
 
-.thread:                                          ; preds = %18
+.thread:                                          ; preds = %17
   ret ptr %.019
 }
 
@@ -7511,2175 +7514,2174 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr = phi ptr [ %0, %1 ], [ %.tr.be, %tailrecurse.backedge ]
   %2 = load i16, ptr %.tr, align 8
   %3 = and i16 %2, 511
-  switch i16 %3, label %695 [
-    i16 256, label %692
+  switch i16 %3, label %694 [
+    i16 256, label %691
     i16 1, label %4
-    i16 2, label %13
-    i16 3, label %17
-    i16 4, label %19
-    i16 5, label %21
-    i16 6, label %23
-    i16 7, label %25
-    i16 8, label %27
-    i16 9, label %29
-    i16 10, label %31
-    i16 11, label %38
-    i16 12, label %40
-    i16 13, label %42
-    i16 14, label %45
-    i16 15, label %47
-    i16 16, label %50
-    i16 17, label %52
-    i16 18, label %55
-    i16 19, label %57
-    i16 20, label %61
-    i16 21, label %63
-    i16 22, label %65
-    i16 23, label %67
-    i16 24, label %71
-    i16 25, label %75
-    i16 26, label %77
-    i16 27, label %79
-    i16 28, label %81
-    i16 29, label %87
-    i16 30, label %89
-    i16 31, label %93
-    i16 32, label %97
-    i16 33, label %99
-    i16 34, label %102
-    i16 35, label %113
-    i16 36, label %115
-    i16 37, label %125
-    i16 38, label %129
-    i16 39, label %133
-    i16 40, label %135
-    i16 41, label %137
-    i16 42, label %139
-    i16 43, label %141
-    i16 44, label %143
-    i16 45, label %145
-    i16 46, label %148
+    i16 2, label %12
+    i16 3, label %16
+    i16 4, label %18
+    i16 5, label %20
+    i16 6, label %22
+    i16 7, label %24
+    i16 8, label %26
+    i16 9, label %28
+    i16 10, label %30
+    i16 11, label %37
+    i16 12, label %39
+    i16 13, label %41
+    i16 14, label %44
+    i16 15, label %46
+    i16 16, label %49
+    i16 17, label %51
+    i16 18, label %54
+    i16 19, label %56
+    i16 20, label %60
+    i16 21, label %62
+    i16 22, label %64
+    i16 23, label %66
+    i16 24, label %70
+    i16 25, label %74
+    i16 26, label %76
+    i16 27, label %78
+    i16 28, label %80
+    i16 29, label %86
+    i16 30, label %88
+    i16 31, label %92
+    i16 32, label %96
+    i16 33, label %98
+    i16 34, label %101
+    i16 35, label %112
+    i16 36, label %114
+    i16 37, label %124
+    i16 38, label %128
+    i16 39, label %132
+    i16 40, label %134
+    i16 41, label %136
+    i16 42, label %138
+    i16 43, label %140
+    i16 44, label %142
+    i16 45, label %144
+    i16 46, label %147
     i16 47, label %.loopexit
-    i16 48, label %157
-    i16 49, label %160
-    i16 50, label %164
-    i16 51, label %167
-    i16 52, label %171
-    i16 53, label %173
-    i16 54, label %176
-    i16 55, label %178
+    i16 48, label %156
+    i16 49, label %159
+    i16 50, label %163
+    i16 51, label %166
+    i16 52, label %170
+    i16 53, label %172
+    i16 54, label %175
+    i16 55, label %177
     i16 56, label %.loopexit
-    i16 57, label %181
-    i16 58, label %185
-    i16 59, label %189
-    i16 60, label %192
-    i16 61, label %194
-    i16 62, label %196
-    i16 63, label %200
-    i16 64, label %204
-    i16 65, label %206
-    i16 66, label %208
-    i16 67, label %212
-    i16 68, label %214
-    i16 69, label %216
-    i16 70, label %219
-    i16 71, label %222
-    i16 72, label %224
-    i16 73, label %228
-    i16 74, label %231
-    i16 75, label %235
-    i16 76, label %239
-    i16 77, label %241
-    i16 78, label %244
-    i16 79, label %246
-    i16 80, label %248
-    i16 81, label %250
-    i16 82, label %254
-    i16 83, label %258
-    i16 84, label %260
-    i16 85, label %262
-    i16 86, label %264
-    i16 87, label %266
-    i16 88, label %268
-    i16 89, label %271
-    i16 90, label %275
-    i16 91, label %277
-    i16 92, label %280
-    i16 93, label %282
-    i16 94, label %284
-    i16 95, label %287
-    i16 96, label %290
-    i16 97, label %292
-    i16 98, label %294
-    i16 99, label %296
-    i16 100, label %301
-    i16 101, label %303
-    i16 102, label %305
-    i16 103, label %308
-    i16 104, label %310
-    i16 105, label %315
-    i16 106, label %317
-    i16 107, label %319
-    i16 108, label %321
-    i16 109, label %323
-    i16 110, label %325
-    i16 111, label %327
-    i16 112, label %329
-    i16 113, label %333
+    i16 57, label %180
+    i16 58, label %184
+    i16 59, label %188
+    i16 60, label %191
+    i16 61, label %193
+    i16 62, label %195
+    i16 63, label %199
+    i16 64, label %203
+    i16 65, label %205
+    i16 66, label %207
+    i16 67, label %211
+    i16 68, label %213
+    i16 69, label %215
+    i16 70, label %218
+    i16 71, label %221
+    i16 72, label %223
+    i16 73, label %227
+    i16 74, label %230
+    i16 75, label %234
+    i16 76, label %238
+    i16 77, label %240
+    i16 78, label %243
+    i16 79, label %245
+    i16 80, label %247
+    i16 81, label %249
+    i16 82, label %253
+    i16 83, label %257
+    i16 84, label %259
+    i16 85, label %261
+    i16 86, label %263
+    i16 87, label %265
+    i16 88, label %267
+    i16 89, label %270
+    i16 90, label %274
+    i16 91, label %276
+    i16 92, label %279
+    i16 93, label %281
+    i16 94, label %283
+    i16 95, label %286
+    i16 96, label %289
+    i16 97, label %291
+    i16 98, label %293
+    i16 99, label %295
+    i16 100, label %300
+    i16 101, label %302
+    i16 102, label %304
+    i16 103, label %307
+    i16 104, label %309
+    i16 105, label %314
+    i16 106, label %316
+    i16 107, label %318
+    i16 108, label %320
+    i16 109, label %322
+    i16 110, label %324
+    i16 111, label %326
+    i16 112, label %328
+    i16 113, label %332
     i16 114, label %.loopexit
-    i16 115, label %335
-    i16 116, label %338
-    i16 117, label %341
-    i16 118, label %343
-    i16 119, label %347
-    i16 120, label %349
-    i16 121, label %354
-    i16 122, label %359
-    i16 123, label %361
-    i16 124, label %363
-    i16 125, label %365
-    i16 126, label %369
-    i16 127, label %373
+    i16 115, label %334
+    i16 116, label %337
+    i16 117, label %340
+    i16 118, label %342
+    i16 119, label %346
+    i16 120, label %348
+    i16 121, label %353
+    i16 122, label %358
+    i16 123, label %360
+    i16 124, label %362
+    i16 125, label %364
+    i16 126, label %368
+    i16 127, label %372
     i16 128, label %.loopexit
-    i16 129, label %376
-    i16 130, label %378
-    i16 131, label %383
-    i16 132, label %388
-    i16 133, label %392
-    i16 134, label %394
-    i16 135, label %398
-    i16 136, label %400
-    i16 137, label %402
-    i16 138, label %406
-    i16 139, label %408
-    i16 140, label %412
-    i16 141, label %416
-    i16 142, label %421
-    i16 143, label %423
-    i16 144, label %425
-    i16 145, label %427
-    i16 146, label %429
-    i16 147, label %431
-    i16 148, label %433
-    i16 149, label %435
-    i16 150, label %437
-    i16 151, label %439
-    i16 152, label %441
-    i16 153, label %443
-    i16 154, label %445
-    i16 155, label %447
-    i16 156, label %451
-    i16 157, label %455
-    i16 158, label %458
-    i16 159, label %463
-    i16 160, label %467
-    i16 161, label %471
-    i16 162, label %475
-    i16 163, label %477
-    i16 164, label %479
-    i16 165, label %481
-    i16 166, label %483
-    i16 167, label %485
-    i16 168, label %487
-    i16 169, label %489
-    i16 170, label %491
-    i16 171, label %493
-    i16 172, label %495
-    i16 173, label %497
-    i16 174, label %499
-    i16 175, label %501
-    i16 176, label %503
-    i16 177, label %505
-    i16 178, label %507
-    i16 179, label %509
-    i16 180, label %511
-    i16 181, label %513
-    i16 182, label %515
-    i16 183, label %517
-    i16 184, label %519
-    i16 185, label %521
-    i16 186, label %523
-    i16 187, label %525
-    i16 188, label %527
-    i16 189, label %529
-    i16 190, label %531
-    i16 191, label %533
-    i16 192, label %535
-    i16 193, label %537
-    i16 194, label %539
-    i16 195, label %541
-    i16 196, label %543
-    i16 197, label %545
-    i16 198, label %547
-    i16 199, label %549
-    i16 200, label %551
-    i16 201, label %553
-    i16 202, label %555
-    i16 203, label %557
-    i16 204, label %559
-    i16 205, label %561
-    i16 206, label %563
-    i16 207, label %565
-    i16 208, label %567
-    i16 209, label %569
-    i16 210, label %571
-    i16 211, label %573
-    i16 212, label %575
-    i16 213, label %577
-    i16 214, label %579
-    i16 215, label %581
-    i16 216, label %583
-    i16 217, label %585
-    i16 218, label %587
-    i16 219, label %589
-    i16 220, label %591
-    i16 221, label %593
-    i16 222, label %595
-    i16 223, label %597
-    i16 224, label %599
-    i16 225, label %601
-    i16 226, label %603
-    i16 227, label %605
-    i16 228, label %607
-    i16 229, label %609
-    i16 230, label %611
-    i16 231, label %613
-    i16 232, label %615
-    i16 233, label %617
-    i16 234, label %619
-    i16 235, label %621
-    i16 236, label %623
-    i16 237, label %625
-    i16 238, label %629
-    i16 239, label %631
-    i16 240, label %635
-    i16 241, label %639
-    i16 242, label %641
-    i16 243, label %644
-    i16 244, label %648
-    i16 245, label %651
-    i16 246, label %653
-    i16 247, label %655
-    i16 248, label %660
-    i16 249, label %662
-    i16 250, label %664
-    i16 251, label %670
-    i16 252, label %679
-    i16 253, label %683
-    i16 254, label %687
-    i16 255, label %689
+    i16 129, label %375
+    i16 130, label %377
+    i16 131, label %382
+    i16 132, label %387
+    i16 133, label %391
+    i16 134, label %393
+    i16 135, label %397
+    i16 136, label %399
+    i16 137, label %401
+    i16 138, label %405
+    i16 139, label %407
+    i16 140, label %411
+    i16 141, label %415
+    i16 142, label %420
+    i16 143, label %422
+    i16 144, label %424
+    i16 145, label %426
+    i16 146, label %428
+    i16 147, label %430
+    i16 148, label %432
+    i16 149, label %434
+    i16 150, label %436
+    i16 151, label %438
+    i16 152, label %440
+    i16 153, label %442
+    i16 154, label %444
+    i16 155, label %446
+    i16 156, label %450
+    i16 157, label %454
+    i16 158, label %457
+    i16 159, label %462
+    i16 160, label %466
+    i16 161, label %470
+    i16 162, label %474
+    i16 163, label %476
+    i16 164, label %478
+    i16 165, label %480
+    i16 166, label %482
+    i16 167, label %484
+    i16 168, label %486
+    i16 169, label %488
+    i16 170, label %490
+    i16 171, label %492
+    i16 172, label %494
+    i16 173, label %496
+    i16 174, label %498
+    i16 175, label %500
+    i16 176, label %502
+    i16 177, label %504
+    i16 178, label %506
+    i16 179, label %508
+    i16 180, label %510
+    i16 181, label %512
+    i16 182, label %514
+    i16 183, label %516
+    i16 184, label %518
+    i16 185, label %520
+    i16 186, label %522
+    i16 187, label %524
+    i16 188, label %526
+    i16 189, label %528
+    i16 190, label %530
+    i16 191, label %532
+    i16 192, label %534
+    i16 193, label %536
+    i16 194, label %538
+    i16 195, label %540
+    i16 196, label %542
+    i16 197, label %544
+    i16 198, label %546
+    i16 199, label %548
+    i16 200, label %550
+    i16 201, label %552
+    i16 202, label %554
+    i16 203, label %556
+    i16 204, label %558
+    i16 205, label %560
+    i16 206, label %562
+    i16 207, label %564
+    i16 208, label %566
+    i16 209, label %568
+    i16 210, label %570
+    i16 211, label %572
+    i16 212, label %574
+    i16 213, label %576
+    i16 214, label %578
+    i16 215, label %580
+    i16 216, label %582
+    i16 217, label %584
+    i16 218, label %586
+    i16 219, label %588
+    i16 220, label %590
+    i16 221, label %592
+    i16 222, label %594
+    i16 223, label %596
+    i16 224, label %598
+    i16 225, label %600
+    i16 226, label %602
+    i16 227, label %604
+    i16 228, label %606
+    i16 229, label %608
+    i16 230, label %610
+    i16 231, label %612
+    i16 232, label %614
+    i16 233, label %616
+    i16 234, label %618
+    i16 235, label %620
+    i16 236, label %622
+    i16 237, label %624
+    i16 238, label %628
+    i16 239, label %630
+    i16 240, label %634
+    i16 241, label %638
+    i16 242, label %640
+    i16 243, label %643
+    i16 244, label %647
+    i16 245, label %650
+    i16 246, label %652
+    i16 247, label %654
+    i16 248, label %659
+    i16 249, label %661
+    i16 250, label %663
+    i16 251, label %669
+    i16 252, label %678
+    i16 253, label %682
+    i16 254, label %686
+    i16 255, label %688
   ]
 
 4:                                                ; preds = %tailrecurse
   %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %5, align 4, !tbaa !1055
-  %6 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %7 = lshr i16 %2, 9
-  %.lobit.i.i.i.i.i = and i16 %7, 1
-  %8 = zext nneg i16 %.lobit.i.i.i.i.i to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !55
-  %12 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #33
-  %.sroa.2.0.insert.ext.i = zext i32 %12 to i64
+  %6 = lshr i16 %2, 9
+  %.lobit.i.i.i.i.i = and i16 %6, 1
+  %7 = zext nneg i16 %.lobit.i.i.i.i.i to i64
+  %8 = getelementptr inbounds nuw ptr, ptr %.tr, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !55
+  %11 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #33
+  %.sroa.2.0.insert.ext.i = zext i32 %11 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.0.copyload.i.i.i to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   br label %.loopexit
 
-13:                                               ; preds = %tailrecurse
-  %14 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val = load i32, ptr %14, align 4, !tbaa !1055
-  %15 = getelementptr i8, ptr %.tr, i64 16
-  %.val512 = load ptr, ptr %15, align 8, !tbaa !1056
-  %16 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val512) #33
-  %.sroa.2.0.insert.ext.i892 = zext i32 %16 to i64
+12:                                               ; preds = %tailrecurse
+  %13 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val = load i32, ptr %13, align 4, !tbaa !1055
+  %14 = getelementptr i8, ptr %.tr, i64 16
+  %.val512 = load ptr, ptr %14, align 8, !tbaa !1056
+  %15 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val512) #33
+  %.sroa.2.0.insert.ext.i892 = zext i32 %15 to i64
   %.sroa.2.0.insert.shift.i893 = shl nuw i64 %.sroa.2.0.insert.ext.i892, 32
   %.sroa.0.0.insert.ext.i894 = zext i32 %.val to i64
   %.sroa.0.0.insert.insert.i895 = or disjoint i64 %.sroa.2.0.insert.shift.i893, %.sroa.0.0.insert.ext.i894
   br label %.loopexit
 
-17:                                               ; preds = %tailrecurse
-  %18 = getelementptr i8, ptr %.tr, i64 32
-  %.val513 = load i64, ptr %18, align 8
+16:                                               ; preds = %tailrecurse
+  %17 = getelementptr i8, ptr %.tr, i64 32
+  %.val513 = load i64, ptr %17, align 8
   br label %.loopexit
 
-19:                                               ; preds = %tailrecurse
-  %20 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang13UnaryOperatorEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+18:                                               ; preds = %tailrecurse
+  %19 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang13UnaryOperatorEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-21:                                               ; preds = %tailrecurse
-  %22 = getelementptr i8, ptr %.tr, i64 24
-  %.val515 = load i64, ptr %22, align 8
+20:                                               ; preds = %tailrecurse
+  %21 = getelementptr i8, ptr %.tr, i64 24
+  %.val515 = load i64, ptr %21, align 8
   br label %.loopexit
 
-23:                                               ; preds = %tailrecurse
-  %24 = getelementptr i8, ptr %.tr, i64 16
-  %.val517 = load i32, ptr %24, align 8, !tbaa !1055
+22:                                               ; preds = %tailrecurse
+  %23 = getelementptr i8, ptr %.tr, i64 16
+  %.val517 = load i32, ptr %23, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i904 = zext i32 %.val517 to i64
   %.sroa.0.0.insert.insert.i905 = mul nuw i64 %.sroa.2.0.insert.ext.i904, 4294967297
   br label %.loopexit
 
-25:                                               ; preds = %tailrecurse
-  %26 = getelementptr i8, ptr %.tr, i64 16
-  %.val518 = load i64, ptr %26, align 8
+24:                                               ; preds = %tailrecurse
+  %25 = getelementptr i8, ptr %.tr, i64 16
+  %.val518 = load i64, ptr %25, align 8
   br label %.loopexit
 
-27:                                               ; preds = %tailrecurse
-  %28 = getelementptr i8, ptr %.tr, i64 36
-  %.val520 = load i32, ptr %28, align 4, !tbaa !1055
+26:                                               ; preds = %tailrecurse
+  %27 = getelementptr i8, ptr %.tr, i64 36
+  %.val520 = load i32, ptr %27, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i910 = zext i32 %.val520 to i64
   %.sroa.0.0.insert.insert.i911 = mul nuw i64 %.sroa.2.0.insert.ext.i910, 4294967297
   br label %.loopexit
 
-29:                                               ; preds = %tailrecurse
-  %30 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val521 = load i32, ptr %30, align 4, !tbaa !1055
+28:                                               ; preds = %tailrecurse
+  %29 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val521 = load i32, ptr %29, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i912 = zext i32 %.val521 to i64
   %.sroa.0.0.insert.insert.i913 = mul nuw i64 %.sroa.2.0.insert.ext.i912, 4294967297
   br label %.loopexit
 
-31:                                               ; preds = %tailrecurse
-  %32 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i.i = load i32, ptr %32, align 4, !tbaa !1055
-  %33 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !57
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %32, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 -4
-  %.sroa.0.0.copyload.i5.i = load i32, ptr %37, align 4, !tbaa !1055
+30:                                               ; preds = %tailrecurse
+  %31 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i.i = load i32, ptr %31, align 4, !tbaa !1055
+  %32 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !57
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %.tr, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %.sroa.0.0.copyload.i5.i = load i32, ptr %36, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i914 = zext i32 %.sroa.0.0.copyload.i5.i to i64
   %.sroa.2.0.insert.shift.i915 = shl nuw i64 %.sroa.2.0.insert.ext.i914, 32
   %.sroa.0.0.insert.ext.i916 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %.sroa.0.0.insert.insert.i917 = or disjoint i64 %.sroa.2.0.insert.shift.i915, %.sroa.0.0.insert.ext.i916
   br label %.loopexit
 
-38:                                               ; preds = %tailrecurse
-  %39 = getelementptr i8, ptr %.tr, i64 24
-  %.val522 = load i64, ptr %39, align 8
+37:                                               ; preds = %tailrecurse
+  %38 = getelementptr i8, ptr %.tr, i64 24
+  %.val522 = load i64, ptr %38, align 8
   br label %.loopexit
 
-40:                                               ; preds = %tailrecurse
-  %41 = getelementptr i8, ptr %.tr, i64 16
-  %.val524 = load i64, ptr %41, align 8
+39:                                               ; preds = %tailrecurse
+  %40 = getelementptr i8, ptr %.tr, i64 16
+  %.val524 = load i64, ptr %40, align 8
   br label %.loopexit
 
-42:                                               ; preds = %tailrecurse
-  %43 = getelementptr i8, ptr %.tr, i64 16
-  %.val526 = load i32, ptr %43, align 8, !tbaa !1055
-  %44 = getelementptr i8, ptr %.tr, i64 24
-  %.val527 = load i32, ptr %44, align 8, !tbaa !1055
+41:                                               ; preds = %tailrecurse
+  %42 = getelementptr i8, ptr %.tr, i64 16
+  %.val526 = load i32, ptr %42, align 8, !tbaa !1055
+  %43 = getelementptr i8, ptr %.tr, i64 24
+  %.val527 = load i32, ptr %43, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i926 = zext i32 %.val527 to i64
   %.sroa.2.0.insert.shift.i927 = shl nuw i64 %.sroa.2.0.insert.ext.i926, 32
   %.sroa.0.0.insert.ext.i928 = zext i32 %.val526 to i64
   %.sroa.0.0.insert.insert.i929 = or disjoint i64 %.sroa.2.0.insert.shift.i927, %.sroa.0.0.insert.ext.i928
   br label %.loopexit
 
-45:                                               ; preds = %tailrecurse
-  %46 = getelementptr i8, ptr %.tr, i64 16
-  %.val528 = load i64, ptr %46, align 8
+44:                                               ; preds = %tailrecurse
+  %45 = getelementptr i8, ptr %.tr, i64 16
+  %.val528 = load i64, ptr %45, align 8
   br label %.loopexit
 
-47:                                               ; preds = %tailrecurse
-  %48 = getelementptr i8, ptr %.tr, i64 16
-  %.val530 = load i32, ptr %48, align 8, !tbaa !1055
-  %49 = getelementptr i8, ptr %.tr, i64 24
-  %.val531 = load i32, ptr %49, align 8, !tbaa !1055
+46:                                               ; preds = %tailrecurse
+  %47 = getelementptr i8, ptr %.tr, i64 16
+  %.val530 = load i32, ptr %47, align 8, !tbaa !1055
+  %48 = getelementptr i8, ptr %.tr, i64 24
+  %.val531 = load i32, ptr %48, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i934 = zext i32 %.val531 to i64
   %.sroa.2.0.insert.shift.i935 = shl nuw i64 %.sroa.2.0.insert.ext.i934, 32
   %.sroa.0.0.insert.ext.i936 = zext i32 %.val530 to i64
   %.sroa.0.0.insert.insert.i937 = or disjoint i64 %.sroa.2.0.insert.shift.i935, %.sroa.0.0.insert.ext.i936
   br label %.loopexit
 
-50:                                               ; preds = %tailrecurse
-  %51 = getelementptr i8, ptr %.tr, i64 16
-  %.val532 = load i32, ptr %51, align 8, !tbaa !1055
+49:                                               ; preds = %tailrecurse
+  %50 = getelementptr i8, ptr %.tr, i64 16
+  %.val532 = load i32, ptr %50, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i938 = zext i32 %.val532 to i64
   %.sroa.0.0.insert.insert.i939 = mul nuw i64 %.sroa.2.0.insert.ext.i938, 4294967297
   br label %.loopexit
 
-52:                                               ; preds = %tailrecurse
-  %53 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val533 = load i32, ptr %53, align 4, !tbaa !1055
-  %54 = getelementptr i8, ptr %.tr, i64 40
-  %.val534 = load i32, ptr %54, align 8, !tbaa !1055
+51:                                               ; preds = %tailrecurse
+  %52 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val533 = load i32, ptr %52, align 4, !tbaa !1055
+  %53 = getelementptr i8, ptr %.tr, i64 40
+  %.val534 = load i32, ptr %53, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i940 = zext i32 %.val534 to i64
   %.sroa.2.0.insert.shift.i941 = shl nuw i64 %.sroa.2.0.insert.ext.i940, 32
   %.sroa.0.0.insert.ext.i942 = zext i32 %.val533 to i64
   %.sroa.0.0.insert.insert.i943 = or disjoint i64 %.sroa.2.0.insert.shift.i941, %.sroa.0.0.insert.ext.i942
   br label %.loopexit
 
-55:                                               ; preds = %tailrecurse
-  %56 = getelementptr i8, ptr %.tr, i64 16
-  %.val535 = load i64, ptr %56, align 8
+54:                                               ; preds = %tailrecurse
+  %55 = getelementptr i8, ptr %.tr, i64 16
+  %.val535 = load i64, ptr %55, align 8
   br label %.loopexit
 
-57:                                               ; preds = %tailrecurse
-  %58 = getelementptr i8, ptr %.tr, i64 16
-  %.val537 = load ptr, ptr %58, align 8, !tbaa !1059
-  %59 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val537) #33
-  %60 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val537) #33
-  %.sroa.2.0.insert.ext.i948 = zext i32 %60 to i64
+56:                                               ; preds = %tailrecurse
+  %57 = getelementptr i8, ptr %.tr, i64 16
+  %.val537 = load ptr, ptr %57, align 8, !tbaa !1059
+  %58 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val537) #33
+  %59 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val537) #33
+  %.sroa.2.0.insert.ext.i948 = zext i32 %59 to i64
   %.sroa.2.0.insert.shift.i949 = shl nuw i64 %.sroa.2.0.insert.ext.i948, 32
-  %.sroa.0.0.insert.ext.i950 = zext i32 %59 to i64
+  %.sroa.0.0.insert.ext.i950 = zext i32 %58 to i64
   %.sroa.0.0.insert.insert.i951 = or disjoint i64 %.sroa.2.0.insert.shift.i949, %.sroa.0.0.insert.ext.i950
   br label %.loopexit
 
-61:                                               ; preds = %tailrecurse
-  %62 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val538 = load i32, ptr %62, align 4, !tbaa !1055
+60:                                               ; preds = %tailrecurse
+  %61 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val538 = load i32, ptr %61, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i952 = zext i32 %.val538 to i64
   %.sroa.0.0.insert.insert.i953 = mul nuw i64 %.sroa.2.0.insert.ext.i952, 4294967297
   br label %.loopexit
 
-63:                                               ; preds = %tailrecurse
-  %64 = getelementptr i8, ptr %.tr, i64 16
-  %.val539 = load i64, ptr %64, align 8
+62:                                               ; preds = %tailrecurse
+  %63 = getelementptr i8, ptr %.tr, i64 16
+  %.val539 = load i64, ptr %63, align 8
   br label %.loopexit
 
-65:                                               ; preds = %tailrecurse
-  %66 = getelementptr i8, ptr %.tr, i64 16
-  %.val541 = load i64, ptr %66, align 8
+64:                                               ; preds = %tailrecurse
+  %65 = getelementptr i8, ptr %.tr, i64 16
+  %.val541 = load i64, ptr %65, align 8
   br label %.loopexit
 
-67:                                               ; preds = %tailrecurse
-  %68 = getelementptr i8, ptr %.tr, i64 20
-  %.val543 = load i32, ptr %68, align 4, !tbaa !1055
-  %69 = getelementptr i8, ptr %.tr, i64 24
-  %.val544 = load ptr, ptr %69, align 8, !tbaa !55
-  %70 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val544) #33
+66:                                               ; preds = %tailrecurse
+  %67 = getelementptr i8, ptr %.tr, i64 20
+  %.val543 = load i32, ptr %67, align 4, !tbaa !1055
+  %68 = getelementptr i8, ptr %.tr, i64 24
+  %.val544 = load ptr, ptr %68, align 8, !tbaa !55
+  %69 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val544) #33
   %.sroa.2.0.insert.ext.i962 = zext i32 %.val543 to i64
   %.sroa.2.0.insert.shift.i963 = shl nuw i64 %.sroa.2.0.insert.ext.i962, 32
-  %.sroa.0.0.insert.ext.i964 = zext i32 %70 to i64
+  %.sroa.0.0.insert.ext.i964 = zext i32 %69 to i64
   %.sroa.0.0.insert.insert.i965 = or disjoint i64 %.sroa.2.0.insert.shift.i963, %.sroa.0.0.insert.ext.i964
   br label %.loopexit
 
-71:                                               ; preds = %tailrecurse
-  %72 = getelementptr i8, ptr %.tr, i64 16
-  %.val545 = load i32, ptr %72, align 8, !tbaa !1055
-  %73 = getelementptr i8, ptr %.tr, i64 24
-  %.val546 = load ptr, ptr %73, align 8, !tbaa !1061
-  %74 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val546) #33
+70:                                               ; preds = %tailrecurse
+  %71 = getelementptr i8, ptr %.tr, i64 16
+  %.val545 = load i32, ptr %71, align 8, !tbaa !1055
+  %72 = getelementptr i8, ptr %.tr, i64 24
+  %.val546 = load ptr, ptr %72, align 8, !tbaa !1061
+  %73 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val546) #33
   %.sroa.2.0.insert.ext.i966 = zext i32 %.val545 to i64
   %.sroa.2.0.insert.shift.i967 = shl nuw i64 %.sroa.2.0.insert.ext.i966, 32
-  %.sroa.0.0.insert.ext.i968 = zext i32 %74 to i64
+  %.sroa.0.0.insert.ext.i968 = zext i32 %73 to i64
   %.sroa.0.0.insert.insert.i969 = or disjoint i64 %.sroa.2.0.insert.shift.i967, %.sroa.0.0.insert.ext.i968
   br label %.loopexit
 
-75:                                               ; preds = %tailrecurse
-  %76 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang20UnresolvedMemberExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+74:                                               ; preds = %tailrecurse
+  %75 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang20UnresolvedMemberExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-77:                                               ; preds = %tailrecurse
-  %78 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang20UnresolvedLookupExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+76:                                               ; preds = %tailrecurse
+  %77 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang20UnresolvedLookupExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-79:                                               ; preds = %tailrecurse
-  %80 = getelementptr i8, ptr %.tr, i64 16
-  %.val547 = load i32, ptr %80, align 8, !tbaa !1055
+78:                                               ; preds = %tailrecurse
+  %79 = getelementptr i8, ptr %.tr, i64 16
+  %.val547 = load i32, ptr %79, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i970 = zext i32 %.val547 to i64
   %.sroa.0.0.insert.insert.i971 = mul nuw i64 %.sroa.2.0.insert.ext.i970, 4294967297
   br label %.loopexit
 
-81:                                               ; preds = %tailrecurse
-  %82 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val548 = load i32, ptr %82, align 4
-  %83 = getelementptr i8, ptr %.tr, i64 16
-  %.val549 = load ptr, ptr %83, align 8, !tbaa !1063
+80:                                               ; preds = %tailrecurse
+  %81 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val548 = load i32, ptr %81, align 4
+  %82 = getelementptr i8, ptr %.tr, i64 16
+  %.val549 = load ptr, ptr %82, align 8, !tbaa !1063
   %.not.i.i = icmp eq ptr %.val549, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15OpaqueValueExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, label %84
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15OpaqueValueExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, label %83
 
-84:                                               ; preds = %81
-  %85 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val549) #33
-  %86 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val549) #33
+83:                                               ; preds = %80
+  %84 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val549) #33
+  %85 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val549) #33
   br label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15OpaqueValueExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit
 
-_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15OpaqueValueExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %81, %84
-  %.sroa.0.0.i2.i = phi i32 [ %85, %84 ], [ %.val548, %81 ]
-  %.sroa.0.0.i6.i = phi i32 [ %86, %84 ], [ %.val548, %81 ]
+_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15OpaqueValueExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %80, %83
+  %.sroa.0.0.i2.i = phi i32 [ %84, %83 ], [ %.val548, %80 ]
+  %.sroa.0.0.i6.i = phi i32 [ %85, %83 ], [ %.val548, %80 ]
   %.sroa.2.0.insert.ext.i972 = zext i32 %.sroa.0.0.i6.i to i64
   %.sroa.2.0.insert.shift.i973 = shl nuw i64 %.sroa.2.0.insert.ext.i972, 32
   %.sroa.0.0.insert.ext.i974 = zext i32 %.sroa.0.0.i2.i to i64
   %.sroa.0.0.insert.insert.i975 = or disjoint i64 %.sroa.2.0.insert.shift.i973, %.sroa.0.0.insert.ext.i974
   br label %.loopexit
 
-87:                                               ; preds = %tailrecurse
-  %88 = getelementptr i8, ptr %.tr, i64 16
-  %.val550 = load i64, ptr %88, align 8
+86:                                               ; preds = %tailrecurse
+  %87 = getelementptr i8, ptr %.tr, i64 16
+  %.val550 = load i64, ptr %87, align 8
   br label %.loopexit
 
-89:                                               ; preds = %tailrecurse
-  %90 = getelementptr i8, ptr %.tr, i64 16
-  %.val552 = load i32, ptr %90, align 8, !tbaa !1055
-  %91 = getelementptr i8, ptr %.tr, i64 24
-  %.val553 = load ptr, ptr %91, align 8, !tbaa !55
-  %92 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val553) #33
+88:                                               ; preds = %tailrecurse
+  %89 = getelementptr i8, ptr %.tr, i64 16
+  %.val552 = load i32, ptr %89, align 8, !tbaa !1055
+  %90 = getelementptr i8, ptr %.tr, i64 24
+  %.val553 = load ptr, ptr %90, align 8, !tbaa !55
+  %91 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val553) #33
   %.sroa.2.0.insert.ext.i980 = zext i32 %.val552 to i64
   %.sroa.2.0.insert.shift.i981 = shl nuw i64 %.sroa.2.0.insert.ext.i980, 32
-  %.sroa.0.0.insert.ext.i982 = zext i32 %92 to i64
+  %.sroa.0.0.insert.ext.i982 = zext i32 %91 to i64
   %.sroa.0.0.insert.insert.i983 = or disjoint i64 %.sroa.2.0.insert.shift.i981, %.sroa.0.0.insert.ext.i982
   br label %.loopexit
 
-93:                                               ; preds = %tailrecurse
-  %94 = getelementptr i8, ptr %.tr, i64 16
-  %.val554 = load ptr, ptr %94, align 8, !tbaa !1065
-  %95 = getelementptr i8, ptr %.tr, i64 24
-  %.val555 = load i32, ptr %95, align 8, !tbaa !1055
-  %96 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val554) #33
-  %.sroa.2.0.insert.ext.i984 = zext i32 %96 to i64
+92:                                               ; preds = %tailrecurse
+  %93 = getelementptr i8, ptr %.tr, i64 16
+  %.val554 = load ptr, ptr %93, align 8, !tbaa !1065
+  %94 = getelementptr i8, ptr %.tr, i64 24
+  %.val555 = load i32, ptr %94, align 8, !tbaa !1055
+  %95 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val554) #33
+  %.sroa.2.0.insert.ext.i984 = zext i32 %95 to i64
   %.sroa.2.0.insert.shift.i985 = shl nuw i64 %.sroa.2.0.insert.ext.i984, 32
   %.sroa.0.0.insert.ext.i986 = zext i32 %.val555 to i64
   %.sroa.0.0.insert.insert.i987 = or disjoint i64 %.sroa.2.0.insert.shift.i985, %.sroa.0.0.insert.ext.i986
   br label %.loopexit
 
-97:                                               ; preds = %tailrecurse
-  %98 = getelementptr i8, ptr %.tr, i64 24
-  %.val556 = load i64, ptr %98, align 8
+96:                                               ; preds = %tailrecurse
+  %97 = getelementptr i8, ptr %.tr, i64 24
+  %.val556 = load i64, ptr %97, align 8
   br label %.loopexit
 
-99:                                               ; preds = %tailrecurse
-  %100 = getelementptr i8, ptr %.tr, i64 24
-  %.val558 = load i32, ptr %100, align 8, !tbaa !1055
-  %101 = getelementptr i8, ptr %.tr, i64 32
-  %.val559 = load i32, ptr %101, align 8, !tbaa !1055
+98:                                               ; preds = %tailrecurse
+  %99 = getelementptr i8, ptr %.tr, i64 24
+  %.val558 = load i32, ptr %99, align 8, !tbaa !1055
+  %100 = getelementptr i8, ptr %.tr, i64 32
+  %.val559 = load i32, ptr %100, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i992 = zext i32 %.val559 to i64
   %.sroa.2.0.insert.shift.i993 = shl nuw i64 %.sroa.2.0.insert.ext.i992, 32
   %.sroa.0.0.insert.ext.i994 = zext i32 %.val558 to i64
   %.sroa.0.0.insert.insert.i995 = or disjoint i64 %.sroa.2.0.insert.shift.i993, %.sroa.0.0.insert.ext.i994
   br label %.loopexit
 
-102:                                              ; preds = %tailrecurse
-  %103 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %103, align 8
-  %104 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 6
-  %105 = icmp eq i64 %104, 0
-  br i1 %105, label %106, label %110
+101:                                              ; preds = %tailrecurse
+  %102 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %102, align 8
+  %103 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 6
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %105, label %109
 
-106:                                              ; preds = %102
-  %107 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
-  %108 = inttoptr i64 %107 to ptr
-  %109 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %108) #33
+105:                                              ; preds = %101
+  %106 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
+  %107 = inttoptr i64 %106 to ptr
+  %108 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %107) #33
   br label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19ObjCPropertyRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit
 
-110:                                              ; preds = %102
-  %111 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i.i.i996 = load i32, ptr %111, align 4, !tbaa !1055
+109:                                              ; preds = %101
+  %110 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
+  %.sroa.0.0.copyload.i.i.i996 = load i32, ptr %110, align 4, !tbaa !1055
   br label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19ObjCPropertyRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit
 
-_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19ObjCPropertyRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %106, %110
-  %.sroa.0.0.i.i = phi i32 [ %109, %106 ], [ %.sroa.0.0.copyload.i.i.i996, %110 ]
-  %112 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %.sroa.0.0.copyload.i.i997 = load i32, ptr %112, align 8, !tbaa !1055
+_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19ObjCPropertyRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %105, %109
+  %.sroa.0.0.i.i = phi i32 [ %108, %105 ], [ %.sroa.0.0.copyload.i.i.i996, %109 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %.sroa.0.0.copyload.i.i997 = load i32, ptr %111, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i998 = zext i32 %.sroa.0.0.copyload.i.i997 to i64
   %.sroa.2.0.insert.shift.i999 = shl nuw i64 %.sroa.2.0.insert.ext.i998, 32
   %.sroa.0.0.insert.ext.i1000 = zext i32 %.sroa.0.0.i.i to i64
   %.sroa.0.0.insert.insert.i1001 = or disjoint i64 %.sroa.2.0.insert.shift.i999, %.sroa.0.0.insert.ext.i1000
   br label %.loopexit
 
-113:                                              ; preds = %tailrecurse
-  %114 = getelementptr i8, ptr %.tr, i64 32
-  %.val560 = load i64, ptr %114, align 8
+112:                                              ; preds = %tailrecurse
+  %113 = getelementptr i8, ptr %.tr, i64 32
+  %.val560 = load i64, ptr %113, align 8
   br label %.loopexit
 
-115:                                              ; preds = %tailrecurse
-  %116 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %117 = load i8, ptr %116, align 8
-  %118 = and i8 %117, 2
-  %.not.i.i1006 = icmp eq i8 %118, 0
-  br i1 %.not.i.i1006, label %121, label %119
+114:                                              ; preds = %tailrecurse
+  %115 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
+  %116 = load i8, ptr %115, align 8
+  %117 = and i8 %116, 2
+  %.not.i.i1006 = icmp eq i8 %117, 0
+  br i1 %.not.i.i1006, label %120, label %118
 
-119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %.sroa.0.0.copyload.i.i1007 = load i32, ptr %120, align 8, !tbaa !1055
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %.sroa.0.0.copyload.i.i1007 = load i32, ptr %119, align 8, !tbaa !1055
   br label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit
 
-121:                                              ; preds = %115
-  %122 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %123 = load ptr, ptr %122, align 8, !tbaa !1067
-  %124 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %123) #33
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %122 = load ptr, ptr %121, align 8, !tbaa !1067
+  %123 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %122) #33
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %.sroa.0.0.copyload.i5.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !1055
   br label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit
 
-_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %119, %121
-  %.sroa.0.0.copyload.i5.i1008 = phi i32 [ %.sroa.0.0.copyload.i.i1007, %119 ], [ %.sroa.0.0.copyload.i5.pre.i, %121 ]
-  %.sroa.0.0.i.i1009 = phi i32 [ %.sroa.0.0.copyload.i.i1007, %119 ], [ %124, %121 ]
+_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %118, %120
+  %.sroa.0.0.copyload.i5.i1008 = phi i32 [ %.sroa.0.0.copyload.i.i1007, %118 ], [ %.sroa.0.0.copyload.i5.pre.i, %120 ]
+  %.sroa.0.0.i.i1009 = phi i32 [ %.sroa.0.0.copyload.i.i1007, %118 ], [ %123, %120 ]
   %.sroa.2.0.insert.ext.i1010 = zext i32 %.sroa.0.0.copyload.i5.i1008 to i64
   %.sroa.2.0.insert.shift.i1011 = shl nuw i64 %.sroa.2.0.insert.ext.i1010, 32
   %.sroa.0.0.insert.ext.i1012 = zext i32 %.sroa.0.0.i.i1009 to i64
   %.sroa.0.0.insert.insert.i1013 = or disjoint i64 %.sroa.2.0.insert.shift.i1011, %.sroa.0.0.insert.ext.i1012
   br label %.loopexit
 
-125:                                              ; preds = %tailrecurse
-  %126 = getelementptr i8, ptr %.tr, i64 16
-  %.val562 = load ptr, ptr %126, align 8, !tbaa !1070
-  %127 = getelementptr i8, ptr %.tr, i64 24
-  %.val563 = load i32, ptr %127, align 8, !tbaa !1055
-  %128 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val562) #33
+124:                                              ; preds = %tailrecurse
+  %125 = getelementptr i8, ptr %.tr, i64 16
+  %.val562 = load ptr, ptr %125, align 8, !tbaa !1070
+  %126 = getelementptr i8, ptr %.tr, i64 24
+  %.val563 = load i32, ptr %126, align 8, !tbaa !1055
+  %127 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val562) #33
   %.sroa.2.0.insert.ext.i1014 = zext i32 %.val563 to i64
   %.sroa.2.0.insert.shift.i1015 = shl nuw i64 %.sroa.2.0.insert.ext.i1014, 32
-  %.sroa.0.0.insert.ext.i1016 = zext i32 %128 to i64
+  %.sroa.0.0.insert.ext.i1016 = zext i32 %127 to i64
   %.sroa.0.0.insert.insert.i1017 = or disjoint i64 %.sroa.2.0.insert.shift.i1015, %.sroa.0.0.insert.ext.i1016
   br label %.loopexit
 
-129:                                              ; preds = %tailrecurse
-  %130 = getelementptr i8, ptr %.tr, i64 16
-  %.val564 = load ptr, ptr %130, align 8, !tbaa !1072
-  %131 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val564) #33
-  %132 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val564) #33
-  %.sroa.2.0.insert.ext.i1018 = zext i32 %132 to i64
+128:                                              ; preds = %tailrecurse
+  %129 = getelementptr i8, ptr %.tr, i64 16
+  %.val564 = load ptr, ptr %129, align 8, !tbaa !1072
+  %130 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val564) #33
+  %131 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val564) #33
+  %.sroa.2.0.insert.ext.i1018 = zext i32 %131 to i64
   %.sroa.2.0.insert.shift.i1019 = shl nuw i64 %.sroa.2.0.insert.ext.i1018, 32
-  %.sroa.0.0.insert.ext.i1020 = zext i32 %131 to i64
+  %.sroa.0.0.insert.ext.i1020 = zext i32 %130 to i64
   %.sroa.0.0.insert.insert.i1021 = or disjoint i64 %.sroa.2.0.insert.shift.i1019, %.sroa.0.0.insert.ext.i1020
   br label %.loopexit
 
-133:                                              ; preds = %tailrecurse
-  %134 = getelementptr i8, ptr %.tr, i64 24
-  %.val565 = load i64, ptr %134, align 8
+132:                                              ; preds = %tailrecurse
+  %133 = getelementptr i8, ptr %.tr, i64 24
+  %.val565 = load i64, ptr %133, align 8
   br label %.loopexit
 
-135:                                              ; preds = %tailrecurse
-  %136 = getelementptr i8, ptr %.tr, i64 20
-  %.val567 = load i64, ptr %136, align 4
+134:                                              ; preds = %tailrecurse
+  %135 = getelementptr i8, ptr %.tr, i64 20
+  %.val567 = load i64, ptr %135, align 4
   br label %.loopexit
 
-137:                                              ; preds = %tailrecurse
-  %138 = getelementptr i8, ptr %.tr, i64 32
-  %.val568 = load i64, ptr %138, align 8
+136:                                              ; preds = %tailrecurse
+  %137 = getelementptr i8, ptr %.tr, i64 32
+  %.val568 = load i64, ptr %137, align 8
   br label %.loopexit
 
-139:                                              ; preds = %tailrecurse
-  %140 = getelementptr i8, ptr %.tr, i64 20
-  %.val569 = load i32, ptr %140, align 4, !tbaa !1055
+138:                                              ; preds = %tailrecurse
+  %139 = getelementptr i8, ptr %.tr, i64 20
+  %.val569 = load i32, ptr %139, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1026 = zext i32 %.val569 to i64
   %.sroa.0.0.insert.insert.i1027 = mul nuw i64 %.sroa.2.0.insert.ext.i1026, 4294967297
   br label %.loopexit
 
-141:                                              ; preds = %tailrecurse
-  %142 = getelementptr i8, ptr %.tr, i64 32
-  %.val570 = load i64, ptr %142, align 8
+140:                                              ; preds = %tailrecurse
+  %141 = getelementptr i8, ptr %.tr, i64 32
+  %.val570 = load i64, ptr %141, align 8
   br label %.loopexit
 
-143:                                              ; preds = %tailrecurse
-  %144 = getelementptr i8, ptr %.tr, i64 20
-  %.val571 = load i64, ptr %144, align 4
+142:                                              ; preds = %tailrecurse
+  %143 = getelementptr i8, ptr %.tr, i64 20
+  %.val571 = load i64, ptr %143, align 4
   br label %.loopexit
 
-145:                                              ; preds = %tailrecurse
-  %146 = getelementptr i8, ptr %.tr, i64 16
-  %.val572 = load i32, ptr %146, align 8, !tbaa !1055
-  %147 = getelementptr i8, ptr %.tr, i64 24
-  %.val573 = load i32, ptr %147, align 8, !tbaa !1055
+144:                                              ; preds = %tailrecurse
+  %145 = getelementptr i8, ptr %.tr, i64 16
+  %.val572 = load i32, ptr %145, align 8, !tbaa !1055
+  %146 = getelementptr i8, ptr %.tr, i64 24
+  %.val573 = load i32, ptr %146, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i1028 = zext i32 %.val573 to i64
   %.sroa.2.0.insert.shift.i1029 = shl nuw i64 %.sroa.2.0.insert.ext.i1028, 32
   %.sroa.0.0.insert.ext.i1030 = zext i32 %.val572 to i64
   %.sroa.0.0.insert.insert.i1031 = or disjoint i64 %.sroa.2.0.insert.shift.i1029, %.sroa.0.0.insert.ext.i1030
   br label %.loopexit
 
-148:                                              ; preds = %tailrecurse
-  %149 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i1032 = load i32, ptr %149, align 8, !tbaa !1055
-  %150 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %151 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %152 = load i32, ptr %151, align 8, !tbaa !170
-  %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %150, i64 %153
-  %155 = load ptr, ptr %154, align 8, !tbaa !1059
-  %156 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %155) #33
-  %.sroa.2.0.insert.ext.i1033 = zext i32 %156 to i64
+147:                                              ; preds = %tailrecurse
+  %148 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i.i1032 = load i32, ptr %148, align 8, !tbaa !1055
+  %149 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %151 = load i32, ptr %150, align 8, !tbaa !170
+  %152 = zext i32 %151 to i64
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
+  %154 = load ptr, ptr %153, align 8, !tbaa !1059
+  %155 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %154) #33
+  %.sroa.2.0.insert.ext.i1033 = zext i32 %155 to i64
   %.sroa.2.0.insert.shift.i1034 = shl nuw i64 %.sroa.2.0.insert.ext.i1033, 32
   %.sroa.0.0.insert.ext.i1035 = zext i32 %.sroa.0.0.copyload.i.i1032 to i64
   %.sroa.0.0.insert.insert.i1036 = or disjoint i64 %.sroa.2.0.insert.shift.i1034, %.sroa.0.0.insert.ext.i1035
   br label %.loopexit
 
-157:                                              ; preds = %tailrecurse
-  %158 = tail call i32 @_ZNK5clang10MemberExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
-  %159 = tail call i32 @_ZNK5clang10MemberExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
-  %.sroa.2.0.insert.ext.i1037 = zext i32 %159 to i64
+156:                                              ; preds = %tailrecurse
+  %157 = tail call i32 @_ZNK5clang10MemberExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
+  %158 = tail call i32 @_ZNK5clang10MemberExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
+  %.sroa.2.0.insert.ext.i1037 = zext i32 %158 to i64
   %.sroa.2.0.insert.shift.i1038 = shl nuw i64 %.sroa.2.0.insert.ext.i1037, 32
-  %.sroa.0.0.insert.ext.i1039 = zext i32 %158 to i64
+  %.sroa.0.0.insert.ext.i1039 = zext i32 %157 to i64
   %.sroa.0.0.insert.insert.i1040 = or disjoint i64 %.sroa.2.0.insert.shift.i1038, %.sroa.0.0.insert.ext.i1039
   br label %.loopexit
 
-160:                                              ; preds = %tailrecurse
-  %161 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val574 = load i32, ptr %161, align 4, !tbaa !1055
-  %162 = getelementptr i8, ptr %.tr, i64 16
-  %.val575 = load ptr, ptr %162, align 8, !tbaa !55
-  %163 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val575) #33
+159:                                              ; preds = %tailrecurse
+  %160 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val574 = load i32, ptr %160, align 4, !tbaa !1055
+  %161 = getelementptr i8, ptr %.tr, i64 16
+  %.val575 = load ptr, ptr %161, align 8, !tbaa !55
+  %162 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val575) #33
   %.sroa.2.0.insert.ext.i1041 = zext i32 %.val574 to i64
   %.sroa.2.0.insert.shift.i1042 = shl nuw i64 %.sroa.2.0.insert.ext.i1041, 32
-  %.sroa.0.0.insert.ext.i1043 = zext i32 %163 to i64
+  %.sroa.0.0.insert.ext.i1043 = zext i32 %162 to i64
   %.sroa.0.0.insert.insert.i1044 = or disjoint i64 %.sroa.2.0.insert.shift.i1042, %.sroa.0.0.insert.ext.i1043
   br label %.loopexit
 
-164:                                              ; preds = %tailrecurse
-  %165 = getelementptr i8, ptr %.tr, i64 16
-  %.val576 = load i64, ptr %165, align 8
-  %166 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang24MaterializeTemporaryExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(i64 %.val576)
+163:                                              ; preds = %tailrecurse
+  %164 = getelementptr i8, ptr %.tr, i64 16
+  %.val576 = load i64, ptr %164, align 8
+  %165 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang24MaterializeTemporaryExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(i64 %.val576)
   br label %.loopexit
 
-167:                                              ; preds = %tailrecurse
-  %168 = getelementptr i8, ptr %.tr, i64 16
-  %.val577 = load ptr, ptr %168, align 8, !tbaa !55
-  %169 = getelementptr i8, ptr %.tr, i64 32
-  %.val578 = load i32, ptr %169, align 8, !tbaa !1055
-  %170 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val577) #33
+166:                                              ; preds = %tailrecurse
+  %167 = getelementptr i8, ptr %.tr, i64 16
+  %.val577 = load ptr, ptr %167, align 8, !tbaa !55
+  %168 = getelementptr i8, ptr %.tr, i64 32
+  %.val578 = load i32, ptr %168, align 8, !tbaa !1055
+  %169 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val577) #33
   %.sroa.2.0.insert.ext.i1045 = zext i32 %.val578 to i64
   %.sroa.2.0.insert.shift.i1046 = shl nuw i64 %.sroa.2.0.insert.ext.i1045, 32
-  %.sroa.0.0.insert.ext.i1047 = zext i32 %170 to i64
+  %.sroa.0.0.insert.ext.i1047 = zext i32 %169 to i64
   %.sroa.0.0.insert.insert.i1048 = or disjoint i64 %.sroa.2.0.insert.shift.i1046, %.sroa.0.0.insert.ext.i1047
   br label %.loopexit
 
-171:                                              ; preds = %tailrecurse
-  %172 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17MSPropertyRefExprES2_EENS1_11SourceRangeEPKNS1_4StmtEMT0_KFS3_vE(ptr noundef %.tr)
+170:                                              ; preds = %tailrecurse
+  %171 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17MSPropertyRefExprES2_EENS1_11SourceRangeEPKNS1_4StmtEMT0_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-173:                                              ; preds = %tailrecurse
-  %174 = getelementptr i8, ptr %.tr, i64 16
-  %.val579 = load i32, ptr %174, align 4, !tbaa !1055
-  %175 = getelementptr i8, ptr %.tr, i64 28
-  %.val580 = load i32, ptr %175, align 4, !tbaa !1055
+172:                                              ; preds = %tailrecurse
+  %173 = getelementptr i8, ptr %.tr, i64 16
+  %.val579 = load i32, ptr %173, align 4, !tbaa !1055
+  %174 = getelementptr i8, ptr %.tr, i64 28
+  %.val580 = load i32, ptr %174, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1049 = zext i32 %.val580 to i64
   %.sroa.2.0.insert.shift.i1050 = shl nuw i64 %.sroa.2.0.insert.ext.i1049, 32
   %.sroa.0.0.insert.ext.i1051 = zext i32 %.val579 to i64
   %.sroa.0.0.insert.insert.i1052 = or disjoint i64 %.sroa.2.0.insert.shift.i1050, %.sroa.0.0.insert.ext.i1051
   br label %.loopexit
 
-176:                                              ; preds = %tailrecurse
-  %177 = getelementptr i8, ptr %.tr, i64 28
-  %.val581 = load i32, ptr %177, align 4, !tbaa !1055
+175:                                              ; preds = %tailrecurse
+  %176 = getelementptr i8, ptr %.tr, i64 28
+  %.val581 = load i32, ptr %176, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1053 = zext i32 %.val581 to i64
   %.sroa.0.0.insert.insert.i1054 = mul nuw i64 %.sroa.2.0.insert.ext.i1053, 4294967297
   br label %.loopexit
 
-178:                                              ; preds = %tailrecurse
-  %179 = tail call i32 @_ZNK5clang12InitListExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(64) %.tr) #33
-  %180 = tail call i32 @_ZNK5clang12InitListExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(64) %.tr) #33
-  %.sroa.2.0.insert.ext.i1055 = zext i32 %180 to i64
+177:                                              ; preds = %tailrecurse
+  %178 = tail call i32 @_ZNK5clang12InitListExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(64) %.tr) #33
+  %179 = tail call i32 @_ZNK5clang12InitListExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(64) %.tr) #33
+  %.sroa.2.0.insert.ext.i1055 = zext i32 %179 to i64
   %.sroa.2.0.insert.shift.i1056 = shl nuw i64 %.sroa.2.0.insert.ext.i1055, 32
-  %.sroa.0.0.insert.ext.i1057 = zext i32 %179 to i64
+  %.sroa.0.0.insert.ext.i1057 = zext i32 %178 to i64
   %.sroa.0.0.insert.insert.i1058 = or disjoint i64 %.sroa.2.0.insert.shift.i1056, %.sroa.0.0.insert.ext.i1057
   br label %.loopexit
 
-181:                                              ; preds = %tailrecurse
-  %182 = getelementptr i8, ptr %.tr, i64 16
-  %.val582 = load ptr, ptr %182, align 8, !tbaa !1074
-  %183 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val582) #33
-  %184 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val582) #33
-  %.sroa.2.0.insert.ext.i1059 = zext i32 %184 to i64
+180:                                              ; preds = %tailrecurse
+  %181 = getelementptr i8, ptr %.tr, i64 16
+  %.val582 = load ptr, ptr %181, align 8, !tbaa !1074
+  %182 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val582) #33
+  %183 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val582) #33
+  %.sroa.2.0.insert.ext.i1059 = zext i32 %183 to i64
   %.sroa.2.0.insert.shift.i1060 = shl nuw i64 %.sroa.2.0.insert.ext.i1059, 32
-  %.sroa.0.0.insert.ext.i1061 = zext i32 %183 to i64
+  %.sroa.0.0.insert.ext.i1061 = zext i32 %182 to i64
   %.sroa.0.0.insert.insert.i1062 = or disjoint i64 %.sroa.2.0.insert.shift.i1060, %.sroa.0.0.insert.ext.i1061
   br label %.loopexit
 
-185:                                              ; preds = %tailrecurse
-  %186 = getelementptr i8, ptr %.tr, i64 16
-  %.val583 = load ptr, ptr %186, align 8, !tbaa !55
-  %187 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val583) #33
-  %188 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val583) #33
-  %.sroa.2.0.insert.ext.i1063 = zext i32 %188 to i64
+184:                                              ; preds = %tailrecurse
+  %185 = getelementptr i8, ptr %.tr, i64 16
+  %.val583 = load ptr, ptr %185, align 8, !tbaa !55
+  %186 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val583) #33
+  %187 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val583) #33
+  %.sroa.2.0.insert.ext.i1063 = zext i32 %187 to i64
   %.sroa.2.0.insert.shift.i1064 = shl nuw i64 %.sroa.2.0.insert.ext.i1063, 32
-  %.sroa.0.0.insert.ext.i1065 = zext i32 %187 to i64
+  %.sroa.0.0.insert.ext.i1065 = zext i32 %186 to i64
   %.sroa.0.0.insert.insert.i1066 = or disjoint i64 %.sroa.2.0.insert.shift.i1064, %.sroa.0.0.insert.ext.i1065
   br label %.loopexit
 
-189:                                              ; preds = %tailrecurse
-  %190 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val584 = load i32, ptr %190, align 4, !tbaa !1055
-  %191 = getelementptr i8, ptr %.tr, i64 24
-  %.val585 = load i32, ptr %191, align 8, !tbaa !1055
+188:                                              ; preds = %tailrecurse
+  %189 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val584 = load i32, ptr %189, align 4, !tbaa !1055
+  %190 = getelementptr i8, ptr %.tr, i64 24
+  %.val585 = load i32, ptr %190, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i1067 = zext i32 %.val585 to i64
   %.sroa.2.0.insert.shift.i1068 = shl nuw i64 %.sroa.2.0.insert.ext.i1067, 32
   %.sroa.0.0.insert.ext.i1069 = zext i32 %.val584 to i64
   %.sroa.0.0.insert.insert.i1070 = or disjoint i64 %.sroa.2.0.insert.shift.i1068, %.sroa.0.0.insert.ext.i1069
   br label %.loopexit
 
-192:                                              ; preds = %tailrecurse
-  %193 = getelementptr i8, ptr %.tr, i64 16
-  %.val586 = load i32, ptr %193, align 8, !tbaa !1055
+191:                                              ; preds = %tailrecurse
+  %192 = getelementptr i8, ptr %.tr, i64 16
+  %.val586 = load i32, ptr %192, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i1071 = zext i32 %.val586 to i64
   %.sroa.0.0.insert.insert.i1072 = mul nuw i64 %.sroa.2.0.insert.ext.i1071, 4294967297
   br label %.loopexit
 
-194:                                              ; preds = %tailrecurse
-  %195 = getelementptr i8, ptr %.tr, i64 24
-  %.val587 = load i32, ptr %195, align 8, !tbaa !1055
+193:                                              ; preds = %tailrecurse
+  %194 = getelementptr i8, ptr %.tr, i64 24
+  %.val587 = load i32, ptr %194, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i1073 = zext i32 %.val587 to i64
   %.sroa.0.0.insert.insert.i1074 = mul nuw i64 %.sroa.2.0.insert.ext.i1073, 4294967297
   br label %.loopexit
 
-196:                                              ; preds = %tailrecurse
-  %197 = getelementptr i8, ptr %.tr, i64 16
-  %.val588 = load ptr, ptr %197, align 8, !tbaa !1076
-  %198 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val588) #33
-  %199 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val588) #33
-  %.sroa.2.0.insert.ext.i1075 = zext i32 %199 to i64
+195:                                              ; preds = %tailrecurse
+  %196 = getelementptr i8, ptr %.tr, i64 16
+  %.val588 = load ptr, ptr %196, align 8, !tbaa !1076
+  %197 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val588) #33
+  %198 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val588) #33
+  %.sroa.2.0.insert.ext.i1075 = zext i32 %198 to i64
   %.sroa.2.0.insert.shift.i1076 = shl nuw i64 %.sroa.2.0.insert.ext.i1075, 32
-  %.sroa.0.0.insert.ext.i1077 = zext i32 %198 to i64
+  %.sroa.0.0.insert.ext.i1077 = zext i32 %197 to i64
   %.sroa.0.0.insert.insert.i1078 = or disjoint i64 %.sroa.2.0.insert.shift.i1076, %.sroa.0.0.insert.ext.i1077
   br label %.loopexit
 
-200:                                              ; preds = %tailrecurse
-  %201 = getelementptr i8, ptr %.tr, i64 16
-  %.val589 = load ptr, ptr %201, align 8, !tbaa !1076
-  %202 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val589) #33
-  %203 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val589) #33
-  %.sroa.2.0.insert.ext.i1079 = zext i32 %203 to i64
+199:                                              ; preds = %tailrecurse
+  %200 = getelementptr i8, ptr %.tr, i64 16
+  %.val589 = load ptr, ptr %200, align 8, !tbaa !1076
+  %201 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val589) #33
+  %202 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val589) #33
+  %.sroa.2.0.insert.ext.i1079 = zext i32 %202 to i64
   %.sroa.2.0.insert.shift.i1080 = shl nuw i64 %.sroa.2.0.insert.ext.i1079, 32
-  %.sroa.0.0.insert.ext.i1081 = zext i32 %202 to i64
+  %.sroa.0.0.insert.ext.i1081 = zext i32 %201 to i64
   %.sroa.0.0.insert.insert.i1082 = or disjoint i64 %.sroa.2.0.insert.shift.i1080, %.sroa.0.0.insert.ext.i1081
   br label %.loopexit
 
-204:                                              ; preds = %tailrecurse
-  %205 = getelementptr i8, ptr %.tr, i64 28
-  %.val590 = load i32, ptr %205, align 4, !tbaa !1055
+203:                                              ; preds = %tailrecurse
+  %204 = getelementptr i8, ptr %.tr, i64 28
+  %.val590 = load i32, ptr %204, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1083 = zext i32 %.val590 to i64
   %.sroa.0.0.insert.insert.i1084 = mul nuw i64 %.sroa.2.0.insert.ext.i1083, 4294967297
   br label %.loopexit
 
-206:                                              ; preds = %tailrecurse
-  %207 = getelementptr i8, ptr %.tr, i64 28
-  %.val591 = load i32, ptr %207, align 4, !tbaa !1055
+205:                                              ; preds = %tailrecurse
+  %206 = getelementptr i8, ptr %.tr, i64 28
+  %.val591 = load i32, ptr %206, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1085 = zext i32 %.val591 to i64
   %.sroa.0.0.insert.insert.i1086 = mul nuw i64 %.sroa.2.0.insert.ext.i1085, 4294967297
   br label %.loopexit
 
-208:                                              ; preds = %tailrecurse
-  %209 = getelementptr i8, ptr %.tr, i64 16
-  %.val592 = load ptr, ptr %209, align 8, !tbaa !1078
-  %210 = getelementptr i8, ptr %.tr, i64 32
-  %.val593 = load i32, ptr %210, align 8, !tbaa !1055
-  %211 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val592) #33
+207:                                              ; preds = %tailrecurse
+  %208 = getelementptr i8, ptr %.tr, i64 16
+  %.val592 = load ptr, ptr %208, align 8, !tbaa !1078
+  %209 = getelementptr i8, ptr %.tr, i64 32
+  %.val593 = load i32, ptr %209, align 8, !tbaa !1055
+  %210 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val592) #33
   %.sroa.2.0.insert.ext.i1087 = zext i32 %.val593 to i64
   %.sroa.2.0.insert.shift.i1088 = shl nuw i64 %.sroa.2.0.insert.ext.i1087, 32
-  %.sroa.0.0.insert.ext.i1089 = zext i32 %211 to i64
+  %.sroa.0.0.insert.ext.i1089 = zext i32 %210 to i64
   %.sroa.0.0.insert.insert.i1090 = or disjoint i64 %.sroa.2.0.insert.shift.i1088, %.sroa.0.0.insert.ext.i1089
   br label %.loopexit
 
-212:                                              ; preds = %tailrecurse
-  %213 = getelementptr i8, ptr %.tr, i64 20
-  %.val594 = load i64, ptr %213, align 4
+211:                                              ; preds = %tailrecurse
+  %212 = getelementptr i8, ptr %.tr, i64 20
+  %.val594 = load i64, ptr %212, align 4
   br label %.loopexit
 
-214:                                              ; preds = %tailrecurse
-  %215 = getelementptr i8, ptr %.tr, i64 16
-  %.val596 = load i32, ptr %215, align 8, !tbaa !1055
+213:                                              ; preds = %tailrecurse
+  %214 = getelementptr i8, ptr %.tr, i64 16
+  %.val596 = load i32, ptr %214, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i1095 = zext i32 %.val596 to i64
   %.sroa.0.0.insert.insert.i1096 = mul nuw i64 %.sroa.2.0.insert.ext.i1095, 4294967297
   br label %.loopexit
 
-216:                                              ; preds = %tailrecurse
-  %217 = tail call i32 @_ZNK5clang24DesignatedInitUpdateExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
-  %218 = tail call i32 @_ZNK5clang24DesignatedInitUpdateExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
-  %.sroa.2.0.insert.ext.i1097 = zext i32 %218 to i64
+215:                                              ; preds = %tailrecurse
+  %216 = tail call i32 @_ZNK5clang24DesignatedInitUpdateExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
+  %217 = tail call i32 @_ZNK5clang24DesignatedInitUpdateExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
+  %.sroa.2.0.insert.ext.i1097 = zext i32 %217 to i64
   %.sroa.2.0.insert.shift.i1098 = shl nuw i64 %.sroa.2.0.insert.ext.i1097, 32
-  %.sroa.0.0.insert.ext.i1099 = zext i32 %217 to i64
+  %.sroa.0.0.insert.ext.i1099 = zext i32 %216 to i64
   %.sroa.0.0.insert.insert.i1100 = or disjoint i64 %.sroa.2.0.insert.shift.i1098, %.sroa.0.0.insert.ext.i1099
   br label %.loopexit
 
-219:                                              ; preds = %tailrecurse
-  %220 = tail call i32 @_ZNK5clang18DesignatedInitExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
-  %221 = tail call i32 @_ZNK5clang18DesignatedInitExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
-  %.sroa.2.0.insert.ext.i1101 = zext i32 %221 to i64
+218:                                              ; preds = %tailrecurse
+  %219 = tail call i32 @_ZNK5clang18DesignatedInitExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
+  %220 = tail call i32 @_ZNK5clang18DesignatedInitExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
+  %.sroa.2.0.insert.ext.i1101 = zext i32 %220 to i64
   %.sroa.2.0.insert.shift.i1102 = shl nuw i64 %.sroa.2.0.insert.ext.i1101, 32
-  %.sroa.0.0.insert.ext.i1103 = zext i32 %220 to i64
+  %.sroa.0.0.insert.ext.i1103 = zext i32 %219 to i64
   %.sroa.0.0.insert.insert.i1104 = or disjoint i64 %.sroa.2.0.insert.shift.i1102, %.sroa.0.0.insert.ext.i1103
   br label %.loopexit
 
-222:                                              ; preds = %tailrecurse
-  %223 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang25DependentScopeDeclRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+221:                                              ; preds = %tailrecurse
+  %222 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang25DependentScopeDeclRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-224:                                              ; preds = %tailrecurse
-  %225 = getelementptr i8, ptr %.tr, i64 16
-  %.val597 = load i32, ptr %225, align 8, !tbaa !1055
-  %226 = getelementptr i8, ptr %.tr, i64 24
-  %.val598 = load ptr, ptr %226, align 8, !tbaa !55
-  %227 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val598) #33
-  %.sroa.2.0.insert.ext.i1105 = zext i32 %227 to i64
+223:                                              ; preds = %tailrecurse
+  %224 = getelementptr i8, ptr %.tr, i64 16
+  %.val597 = load i32, ptr %224, align 8, !tbaa !1055
+  %225 = getelementptr i8, ptr %.tr, i64 24
+  %.val598 = load ptr, ptr %225, align 8, !tbaa !55
+  %226 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val598) #33
+  %.sroa.2.0.insert.ext.i1105 = zext i32 %226 to i64
   %.sroa.2.0.insert.shift.i1106 = shl nuw i64 %.sroa.2.0.insert.ext.i1105, 32
   %.sroa.0.0.insert.ext.i1107 = zext i32 %.val597 to i64
   %.sroa.0.0.insert.insert.i1108 = or disjoint i64 %.sroa.2.0.insert.shift.i1106, %.sroa.0.0.insert.ext.i1107
   br label %.loopexit
 
-228:                                              ; preds = %tailrecurse
-  %229 = tail call i32 @_ZNK5clang11DeclRefExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
-  %230 = tail call i32 @_ZNK5clang11DeclRefExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
-  %.sroa.2.0.insert.ext.i1109 = zext i32 %230 to i64
+227:                                              ; preds = %tailrecurse
+  %228 = tail call i32 @_ZNK5clang11DeclRefExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
+  %229 = tail call i32 @_ZNK5clang11DeclRefExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
+  %.sroa.2.0.insert.ext.i1109 = zext i32 %229 to i64
   %.sroa.2.0.insert.shift.i1110 = shl nuw i64 %.sroa.2.0.insert.ext.i1109, 32
-  %.sroa.0.0.insert.ext.i1111 = zext i32 %229 to i64
+  %.sroa.0.0.insert.ext.i1111 = zext i32 %228 to i64
   %.sroa.0.0.insert.insert.i1112 = or disjoint i64 %.sroa.2.0.insert.shift.i1110, %.sroa.0.0.insert.ext.i1111
   br label %.loopexit
 
-231:                                              ; preds = %tailrecurse
-  %232 = getelementptr i8, ptr %.tr, i64 16
-  %.val599 = load i32, ptr %232, align 8, !tbaa !1055
-  %233 = getelementptr i8, ptr %.tr, i64 24
-  %.val600 = load ptr, ptr %233, align 8, !tbaa !55
-  %234 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val600) #33
-  %.sroa.2.0.insert.ext.i1113 = zext i32 %234 to i64
+230:                                              ; preds = %tailrecurse
+  %231 = getelementptr i8, ptr %.tr, i64 16
+  %.val599 = load i32, ptr %231, align 8, !tbaa !1055
+  %232 = getelementptr i8, ptr %.tr, i64 24
+  %.val600 = load ptr, ptr %232, align 8, !tbaa !55
+  %233 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val600) #33
+  %.sroa.2.0.insert.ext.i1113 = zext i32 %233 to i64
   %.sroa.2.0.insert.shift.i1114 = shl nuw i64 %.sroa.2.0.insert.ext.i1113, 32
   %.sroa.0.0.insert.ext.i1115 = zext i32 %.val599 to i64
   %.sroa.0.0.insert.insert.i1116 = or disjoint i64 %.sroa.2.0.insert.shift.i1114, %.sroa.0.0.insert.ext.i1115
   br label %.loopexit
 
-235:                                              ; preds = %tailrecurse
-  %236 = getelementptr i8, ptr %.tr, i64 16
-  %.val601 = load i32, ptr %236, align 8, !tbaa !1055
-  %237 = getelementptr i8, ptr %.tr, i64 24
-  %.val602 = load ptr, ptr %237, align 8, !tbaa !55
-  %238 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val602) #33
-  %.sroa.2.0.insert.ext.i1117 = zext i32 %238 to i64
+234:                                              ; preds = %tailrecurse
+  %235 = getelementptr i8, ptr %.tr, i64 16
+  %.val601 = load i32, ptr %235, align 8, !tbaa !1055
+  %236 = getelementptr i8, ptr %.tr, i64 24
+  %.val602 = load ptr, ptr %236, align 8, !tbaa !55
+  %237 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val602) #33
+  %.sroa.2.0.insert.ext.i1117 = zext i32 %237 to i64
   %.sroa.2.0.insert.shift.i1118 = shl nuw i64 %.sroa.2.0.insert.ext.i1117, 32
   %.sroa.0.0.insert.ext.i1119 = zext i32 %.val601 to i64
   %.sroa.0.0.insert.insert.i1120 = or disjoint i64 %.sroa.2.0.insert.shift.i1118, %.sroa.0.0.insert.ext.i1119
   br label %.loopexit
 
-239:                                              ; preds = %tailrecurse
-  %240 = getelementptr i8, ptr %.tr, i64 32
-  %.val603 = load i64, ptr %240, align 8
+238:                                              ; preds = %tailrecurse
+  %239 = getelementptr i8, ptr %.tr, i64 32
+  %.val603 = load i64, ptr %239, align 8
   br label %.loopexit
 
-241:                                              ; preds = %tailrecurse
-  %242 = getelementptr i8, ptr %.tr, i64 16
-  %.val605 = load ptr, ptr %242, align 8, !tbaa !1081
-  %243 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang25ConceptSpecializationExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr %.val605)
+240:                                              ; preds = %tailrecurse
+  %241 = getelementptr i8, ptr %.tr, i64 16
+  %.val605 = load ptr, ptr %241, align 8, !tbaa !1081
+  %242 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang25ConceptSpecializationExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr %.val605)
   br label %.loopexit
 
-244:                                              ; preds = %tailrecurse
-  %245 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19CompoundLiteralExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+243:                                              ; preds = %tailrecurse
+  %244 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19CompoundLiteralExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-246:                                              ; preds = %tailrecurse
-  %247 = getelementptr i8, ptr %.tr, i64 40
-  %.val606 = load i64, ptr %247, align 8
+245:                                              ; preds = %tailrecurse
+  %246 = getelementptr i8, ptr %.tr, i64 40
+  %.val606 = load i64, ptr %246, align 8
   br label %.loopexit
 
-248:                                              ; preds = %tailrecurse
-  %249 = getelementptr i8, ptr %.tr, i64 20
-  %.val608 = load i32, ptr %249, align 4, !tbaa !1055
+247:                                              ; preds = %tailrecurse
+  %248 = getelementptr i8, ptr %.tr, i64 20
+  %.val608 = load i32, ptr %248, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1129 = zext i32 %.val608 to i64
   %.sroa.0.0.insert.insert.i1130 = mul nuw i64 %.sroa.2.0.insert.ext.i1129, 4294967297
   br label %.loopexit
 
-250:                                              ; preds = %tailrecurse
-  %251 = getelementptr i8, ptr %.tr, i64 16
-  %.val609 = load ptr, ptr %251, align 8, !tbaa !1086
-  %252 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val609) #33
-  %253 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val609) #33
-  %.sroa.2.0.insert.ext.i1131 = zext i32 %253 to i64
+249:                                              ; preds = %tailrecurse
+  %250 = getelementptr i8, ptr %.tr, i64 16
+  %.val609 = load ptr, ptr %250, align 8, !tbaa !1086
+  %251 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val609) #33
+  %252 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val609) #33
+  %.sroa.2.0.insert.ext.i1131 = zext i32 %252 to i64
   %.sroa.2.0.insert.shift.i1132 = shl nuw i64 %.sroa.2.0.insert.ext.i1131, 32
-  %.sroa.0.0.insert.ext.i1133 = zext i32 %252 to i64
+  %.sroa.0.0.insert.ext.i1133 = zext i32 %251 to i64
   %.sroa.0.0.insert.insert.i1134 = or disjoint i64 %.sroa.2.0.insert.shift.i1132, %.sroa.0.0.insert.ext.i1133
   br label %.loopexit
 
-254:                                              ; preds = %tailrecurse
-  %255 = getelementptr i8, ptr %.tr, i64 16
-  %.val610 = load ptr, ptr %255, align 8, !tbaa !1086
-  %256 = getelementptr i8, ptr %.tr, i64 32
-  %.val611 = load i32, ptr %256, align 8, !tbaa !1055
-  %257 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val610) #33
-  %.sroa.2.0.insert.ext.i1135 = zext i32 %257 to i64
+253:                                              ; preds = %tailrecurse
+  %254 = getelementptr i8, ptr %.tr, i64 16
+  %.val610 = load ptr, ptr %254, align 8, !tbaa !1086
+  %255 = getelementptr i8, ptr %.tr, i64 32
+  %.val611 = load i32, ptr %255, align 8, !tbaa !1055
+  %256 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val610) #33
+  %.sroa.2.0.insert.ext.i1135 = zext i32 %256 to i64
   %.sroa.2.0.insert.shift.i1136 = shl nuw i64 %.sroa.2.0.insert.ext.i1135, 32
   %.sroa.0.0.insert.ext.i1137 = zext i32 %.val611 to i64
   %.sroa.0.0.insert.insert.i1138 = or disjoint i64 %.sroa.2.0.insert.shift.i1136, %.sroa.0.0.insert.ext.i1137
   br label %.loopexit
 
-258:                                              ; preds = %tailrecurse
-  %259 = getelementptr i8, ptr %.tr, i64 32
-  %.val612 = load i64, ptr %259, align 8
+257:                                              ; preds = %tailrecurse
+  %258 = getelementptr i8, ptr %.tr, i64 32
+  %.val612 = load i64, ptr %258, align 8
   br label %.loopexit
 
-260:                                              ; preds = %tailrecurse
-  %261 = getelementptr i8, ptr %.tr, i64 32
-  %.val614 = load i64, ptr %261, align 8
+259:                                              ; preds = %tailrecurse
+  %260 = getelementptr i8, ptr %.tr, i64 32
+  %.val614 = load i64, ptr %260, align 8
   br label %.loopexit
 
-262:                                              ; preds = %tailrecurse
-  %263 = getelementptr i8, ptr %.tr, i64 32
-  %.val616 = load i64, ptr %263, align 8
+261:                                              ; preds = %tailrecurse
+  %262 = getelementptr i8, ptr %.tr, i64 32
+  %.val616 = load i64, ptr %262, align 8
   br label %.loopexit
 
-264:                                              ; preds = %tailrecurse
-  %265 = getelementptr i8, ptr %.tr, i64 32
-  %.val618 = load i64, ptr %265, align 8
+263:                                              ; preds = %tailrecurse
+  %264 = getelementptr i8, ptr %.tr, i64 32
+  %.val618 = load i64, ptr %264, align 8
   br label %.loopexit
 
-266:                                              ; preds = %tailrecurse
-  %267 = getelementptr i8, ptr %.tr, i64 32
-  %.val620 = load i64, ptr %267, align 8
+265:                                              ; preds = %tailrecurse
+  %266 = getelementptr i8, ptr %.tr, i64 32
+  %.val620 = load i64, ptr %266, align 8
   br label %.loopexit
 
-268:                                              ; preds = %tailrecurse
-  %269 = tail call i32 @_ZNK5clang21CXXFunctionalCastExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr) #33
-  %270 = tail call i32 @_ZNK5clang21CXXFunctionalCastExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr) #33
-  %.sroa.2.0.insert.ext.i1159 = zext i32 %270 to i64
+267:                                              ; preds = %tailrecurse
+  %268 = tail call i32 @_ZNK5clang21CXXFunctionalCastExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr) #33
+  %269 = tail call i32 @_ZNK5clang21CXXFunctionalCastExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr) #33
+  %.sroa.2.0.insert.ext.i1159 = zext i32 %269 to i64
   %.sroa.2.0.insert.shift.i1160 = shl nuw i64 %.sroa.2.0.insert.ext.i1159, 32
-  %.sroa.0.0.insert.ext.i1161 = zext i32 %269 to i64
+  %.sroa.0.0.insert.ext.i1161 = zext i32 %268 to i64
   %.sroa.0.0.insert.insert.i1162 = or disjoint i64 %.sroa.2.0.insert.shift.i1160, %.sroa.0.0.insert.ext.i1161
   br label %.loopexit
 
-271:                                              ; preds = %tailrecurse
-  %272 = getelementptr i8, ptr %.tr, i64 16
-  %.val622 = load ptr, ptr %272, align 8, !tbaa !1086
-  %273 = getelementptr i8, ptr %.tr, i64 32
-  %.val623 = load i32, ptr %273, align 8, !tbaa !1055
-  %274 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val622) #33
-  %.sroa.2.0.insert.ext.i1163 = zext i32 %274 to i64
+270:                                              ; preds = %tailrecurse
+  %271 = getelementptr i8, ptr %.tr, i64 16
+  %.val622 = load ptr, ptr %271, align 8, !tbaa !1086
+  %272 = getelementptr i8, ptr %.tr, i64 32
+  %.val623 = load i32, ptr %272, align 8, !tbaa !1055
+  %273 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val622) #33
+  %.sroa.2.0.insert.ext.i1163 = zext i32 %273 to i64
   %.sroa.2.0.insert.shift.i1164 = shl nuw i64 %.sroa.2.0.insert.ext.i1163, 32
   %.sroa.0.0.insert.ext.i1165 = zext i32 %.val623 to i64
   %.sroa.0.0.insert.insert.i1166 = or disjoint i64 %.sroa.2.0.insert.shift.i1164, %.sroa.0.0.insert.ext.i1165
   br label %.loopexit
 
-275:                                              ; preds = %tailrecurse
-  %276 = getelementptr i8, ptr %.tr, i64 32
-  %.val624 = load i64, ptr %276, align 8
+274:                                              ; preds = %tailrecurse
+  %275 = getelementptr i8, ptr %.tr, i64 32
+  %.val624 = load i64, ptr %275, align 8
   br label %.loopexit
 
-277:                                              ; preds = %tailrecurse
-  %278 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
-  %279 = tail call i32 @_ZNK5clang8CallExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
-  %.sroa.2.0.insert.ext.i1171 = zext i32 %279 to i64
+276:                                              ; preds = %tailrecurse
+  %277 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %278 = tail call i32 @_ZNK5clang8CallExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %.sroa.2.0.insert.ext.i1171 = zext i32 %278 to i64
   %.sroa.2.0.insert.shift.i1172 = shl nuw i64 %.sroa.2.0.insert.ext.i1171, 32
-  %.sroa.0.0.insert.ext.i1173 = zext i32 %278 to i64
+  %.sroa.0.0.insert.ext.i1173 = zext i32 %277 to i64
   %.sroa.0.0.insert.insert.i1174 = or disjoint i64 %.sroa.2.0.insert.shift.i1172, %.sroa.0.0.insert.ext.i1173
   br label %.loopexit
 
-280:                                              ; preds = %tailrecurse
-  %281 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang18UserDefinedLiteralEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+279:                                              ; preds = %tailrecurse
+  %280 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang18UserDefinedLiteralEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-282:                                              ; preds = %tailrecurse
-  %283 = getelementptr i8, ptr %.tr, i64 24
-  %.val626 = load i64, ptr %283, align 8
+281:                                              ; preds = %tailrecurse
+  %282 = getelementptr i8, ptr %.tr, i64 24
+  %.val626 = load i64, ptr %282, align 8
   br label %.loopexit
 
-284:                                              ; preds = %tailrecurse
-  %285 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
-  %286 = tail call i32 @_ZNK5clang8CallExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
-  %.sroa.2.0.insert.ext.i1175 = zext i32 %286 to i64
+283:                                              ; preds = %tailrecurse
+  %284 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %285 = tail call i32 @_ZNK5clang8CallExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %.sroa.2.0.insert.ext.i1175 = zext i32 %285 to i64
   %.sroa.2.0.insert.shift.i1176 = shl nuw i64 %.sroa.2.0.insert.ext.i1175, 32
-  %.sroa.0.0.insert.ext.i1177 = zext i32 %285 to i64
+  %.sroa.0.0.insert.ext.i1177 = zext i32 %284 to i64
   %.sroa.0.0.insert.insert.i1178 = or disjoint i64 %.sroa.2.0.insert.shift.i1176, %.sroa.0.0.insert.ext.i1177
   br label %.loopexit
 
-287:                                              ; preds = %tailrecurse
-  %288 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
-  %289 = tail call i32 @_ZNK5clang8CallExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
-  %.sroa.2.0.insert.ext.i1179 = zext i32 %289 to i64
+286:                                              ; preds = %tailrecurse
+  %287 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %288 = tail call i32 @_ZNK5clang8CallExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %.sroa.2.0.insert.ext.i1179 = zext i32 %288 to i64
   %.sroa.2.0.insert.shift.i1180 = shl nuw i64 %.sroa.2.0.insert.ext.i1179, 32
-  %.sroa.0.0.insert.ext.i1181 = zext i32 %288 to i64
+  %.sroa.0.0.insert.ext.i1181 = zext i32 %287 to i64
   %.sroa.0.0.insert.insert.i1182 = or disjoint i64 %.sroa.2.0.insert.shift.i1180, %.sroa.0.0.insert.ext.i1181
   br label %.loopexit
 
-290:                                              ; preds = %tailrecurse
-  %291 = getelementptr i8, ptr %.tr, i64 32
-  %.val627 = load i64, ptr %291, align 8
+289:                                              ; preds = %tailrecurse
+  %290 = getelementptr i8, ptr %.tr, i64 32
+  %.val627 = load i64, ptr %290, align 8
   br label %.loopexit
 
-292:                                              ; preds = %tailrecurse
-  %293 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang26CXXUnresolvedConstructExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+291:                                              ; preds = %tailrecurse
+  %292 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang26CXXUnresolvedConstructExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-294:                                              ; preds = %tailrecurse
-  %295 = getelementptr i8, ptr %.tr, i64 24
-  %.val628 = load i64, ptr %295, align 8
+293:                                              ; preds = %tailrecurse
+  %294 = getelementptr i8, ptr %.tr, i64 24
+  %.val628 = load i64, ptr %294, align 8
   br label %.loopexit
 
-296:                                              ; preds = %tailrecurse
-  %297 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val629 = load i32, ptr %297, align 4, !tbaa !1055
-  %298 = getelementptr i8, ptr %.tr, i64 16
-  %.val630 = load ptr, ptr %298, align 8, !tbaa !299
+295:                                              ; preds = %tailrecurse
+  %296 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val629 = load i32, ptr %296, align 4, !tbaa !1055
+  %297 = getelementptr i8, ptr %.tr, i64 16
+  %.val630 = load ptr, ptr %297, align 8, !tbaa !299
   %.not.i.i1183 = icmp eq ptr %.val630, null
-  br i1 %.not.i.i1183, label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CXXThrowExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, label %299
+  br i1 %.not.i.i1183, label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CXXThrowExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, label %298
 
-299:                                              ; preds = %296
-  %300 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val630) #33
+298:                                              ; preds = %295
+  %299 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val630) #33
   br label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CXXThrowExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit
 
-_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CXXThrowExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %296, %299
-  %.sroa.0.0.i.i1184 = phi i32 [ %300, %299 ], [ %.val629, %296 ]
+_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CXXThrowExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %295, %298
+  %.sroa.0.0.i.i1184 = phi i32 [ %299, %298 ], [ %.val629, %295 ]
   %.sroa.2.0.insert.ext.i1185 = zext i32 %.sroa.0.0.i.i1184 to i64
   %.sroa.2.0.insert.shift.i1186 = shl nuw i64 %.sroa.2.0.insert.ext.i1185, 32
   %.sroa.0.0.insert.ext.i1187 = zext i32 %.val629 to i64
   %.sroa.0.0.insert.insert.i1188 = or disjoint i64 %.sroa.2.0.insert.shift.i1186, %.sroa.0.0.insert.ext.i1187
   br label %.loopexit
 
-301:                                              ; preds = %tailrecurse
-  %302 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val631 = load i32, ptr %302, align 4, !tbaa !1055
+300:                                              ; preds = %tailrecurse
+  %301 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val631 = load i32, ptr %301, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1189 = zext i32 %.val631 to i64
   %.sroa.0.0.insert.insert.i1190 = mul nuw i64 %.sroa.2.0.insert.ext.i1189, 4294967297
   br label %.loopexit
 
-303:                                              ; preds = %tailrecurse
-  %304 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+302:                                              ; preds = %tailrecurse
+  %303 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %303, %400, %664
-  %.tr.be.in = phi ptr [ %304, %303 ], [ %401, %400 ], [ %669, %664 ]
+tailrecurse.backedge:                             ; preds = %302, %399, %663
+  %.tr.be.in = phi ptr [ %303, %302 ], [ %400, %399 ], [ %668, %663 ]
   %.tr.be = load ptr, ptr %.tr.be.in, align 8, !tbaa !55
   br label %tailrecurse
 
-305:                                              ; preds = %tailrecurse
-  %306 = tail call i32 @_ZNK5clang22CXXScalarValueInitExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
-  %307 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i.i1191 = load i32, ptr %307, align 4, !tbaa !1055
+304:                                              ; preds = %tailrecurse
+  %305 = tail call i32 @_ZNK5clang22CXXScalarValueInitExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %306 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i.i1191 = load i32, ptr %306, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1192 = zext i32 %.sroa.0.0.copyload.i.i.i1191 to i64
   %.sroa.2.0.insert.shift.i1193 = shl nuw i64 %.sroa.2.0.insert.ext.i1192, 32
-  %.sroa.0.0.insert.ext.i1194 = zext i32 %306 to i64
+  %.sroa.0.0.insert.ext.i1194 = zext i32 %305 to i64
   %.sroa.0.0.insert.insert.i1195 = or disjoint i64 %.sroa.2.0.insert.shift.i1193, %.sroa.0.0.insert.ext.i1194
   br label %.loopexit
 
-308:                                              ; preds = %tailrecurse
-  %309 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang26CXXRewrittenBinaryOperatorES2_EENS1_11SourceRangeEPKNS1_4StmtEMT0_KFS3_vE(ptr noundef %.tr)
+307:                                              ; preds = %tailrecurse
+  %308 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang26CXXRewrittenBinaryOperatorES2_EENS1_11SourceRangeEPKNS1_4StmtEMT0_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-310:                                              ; preds = %tailrecurse
-  %311 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %312 = load ptr, ptr %311, align 8, !tbaa !1088
-  %313 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %312) #33
-  %314 = tail call i32 @_ZNK5clang23CXXPseudoDestructorExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(80) %.tr) #33
-  %.sroa.2.0.insert.ext.i1196 = zext i32 %314 to i64
+309:                                              ; preds = %tailrecurse
+  %310 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %311 = load ptr, ptr %310, align 8, !tbaa !1088
+  %312 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %311) #33
+  %313 = tail call i32 @_ZNK5clang23CXXPseudoDestructorExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(80) %.tr) #33
+  %.sroa.2.0.insert.ext.i1196 = zext i32 %313 to i64
   %.sroa.2.0.insert.shift.i1197 = shl nuw i64 %.sroa.2.0.insert.ext.i1196, 32
-  %.sroa.0.0.insert.ext.i1198 = zext i32 %313 to i64
+  %.sroa.0.0.insert.ext.i1198 = zext i32 %312 to i64
   %.sroa.0.0.insert.insert.i1199 = or disjoint i64 %.sroa.2.0.insert.shift.i1197, %.sroa.0.0.insert.ext.i1198
   br label %.loopexit
 
-315:                                              ; preds = %tailrecurse
-  %316 = getelementptr i8, ptr %.tr, i64 28
-  %.val632 = load i64, ptr %316, align 4
+314:                                              ; preds = %tailrecurse
+  %315 = getelementptr i8, ptr %.tr, i64 28
+  %.val632 = load i64, ptr %315, align 4
   br label %.loopexit
 
-317:                                              ; preds = %tailrecurse
-  %318 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val633 = load i32, ptr %318, align 4, !tbaa !1055
+316:                                              ; preds = %tailrecurse
+  %317 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val633 = load i32, ptr %317, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1200 = zext i32 %.val633 to i64
   %.sroa.0.0.insert.insert.i1201 = mul nuw i64 %.sroa.2.0.insert.ext.i1200, 4294967297
   br label %.loopexit
 
-319:                                              ; preds = %tailrecurse
-  %320 = getelementptr i8, ptr %.tr, i64 24
-  %.val634 = load i64, ptr %320, align 8
+318:                                              ; preds = %tailrecurse
+  %319 = getelementptr i8, ptr %.tr, i64 24
+  %.val634 = load i64, ptr %319, align 8
   br label %.loopexit
 
-321:                                              ; preds = %tailrecurse
-  %322 = getelementptr i8, ptr %.tr, i64 40
-  %.val635 = load i64, ptr %322, align 8
+320:                                              ; preds = %tailrecurse
+  %321 = getelementptr i8, ptr %.tr, i64 40
+  %.val635 = load i64, ptr %321, align 8
   br label %.loopexit
 
-323:                                              ; preds = %tailrecurse
-  %324 = getelementptr i8, ptr %.tr, i64 24
-  %.val636 = load i32, ptr %324, align 8, !tbaa !1055
+322:                                              ; preds = %tailrecurse
+  %323 = getelementptr i8, ptr %.tr, i64 24
+  %.val636 = load i32, ptr %323, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i1202 = zext i32 %.val636 to i64
   %.sroa.0.0.insert.insert.i1203 = mul nuw i64 %.sroa.2.0.insert.ext.i1202, 4294967297
   br label %.loopexit
 
-325:                                              ; preds = %tailrecurse
-  %326 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang11CXXFoldExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+324:                                              ; preds = %tailrecurse
+  %325 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang11CXXFoldExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-327:                                              ; preds = %tailrecurse
-  %328 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang27CXXDependentScopeMemberExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+326:                                              ; preds = %tailrecurse
+  %327 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang27CXXDependentScopeMemberExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-329:                                              ; preds = %tailrecurse
-  %330 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val637 = load i32, ptr %330, align 4, !tbaa !1055
-  %331 = getelementptr i8, ptr %.tr, i64 24
-  %.val638 = load ptr, ptr %331, align 8, !tbaa !1096
-  %332 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val638) #33
-  %.sroa.2.0.insert.ext.i1204 = zext i32 %332 to i64
+328:                                              ; preds = %tailrecurse
+  %329 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val637 = load i32, ptr %329, align 4, !tbaa !1055
+  %330 = getelementptr i8, ptr %.tr, i64 24
+  %.val638 = load ptr, ptr %330, align 8, !tbaa !1096
+  %331 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val638) #33
+  %.sroa.2.0.insert.ext.i1204 = zext i32 %331 to i64
   %.sroa.2.0.insert.shift.i1205 = shl nuw i64 %.sroa.2.0.insert.ext.i1204, 32
   %.sroa.0.0.insert.ext.i1206 = zext i32 %.val637 to i64
   %.sroa.0.0.insert.insert.i1207 = or disjoint i64 %.sroa.2.0.insert.shift.i1205, %.sroa.0.0.insert.ext.i1206
   br label %.loopexit
 
-333:                                              ; preds = %tailrecurse
-  %334 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val639 = load i32, ptr %334, align 4, !tbaa !1055
+332:                                              ; preds = %tailrecurse
+  %333 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val639 = load i32, ptr %333, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1208 = zext i32 %.val639 to i64
   %.sroa.0.0.insert.insert.i1209 = mul nuw i64 %.sroa.2.0.insert.ext.i1208, 4294967297
   br label %.loopexit
 
-335:                                              ; preds = %tailrecurse
-  %336 = tail call i32 @_ZNK5clang16CXXConstructExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(36) %.tr) #33
-  %337 = tail call i32 @_ZNK5clang16CXXConstructExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(36) %.tr) #33
-  %.sroa.2.0.insert.ext.i1210 = zext i32 %337 to i64
+334:                                              ; preds = %tailrecurse
+  %335 = tail call i32 @_ZNK5clang16CXXConstructExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(36) %.tr) #33
+  %336 = tail call i32 @_ZNK5clang16CXXConstructExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(36) %.tr) #33
+  %.sroa.2.0.insert.ext.i1210 = zext i32 %336 to i64
   %.sroa.2.0.insert.shift.i1211 = shl nuw i64 %.sroa.2.0.insert.ext.i1210, 32
-  %.sroa.0.0.insert.ext.i1212 = zext i32 %336 to i64
+  %.sroa.0.0.insert.ext.i1212 = zext i32 %335 to i64
   %.sroa.0.0.insert.insert.i1213 = or disjoint i64 %.sroa.2.0.insert.shift.i1211, %.sroa.0.0.insert.ext.i1212
   br label %.loopexit
 
-338:                                              ; preds = %tailrecurse
-  %339 = tail call i32 @_ZNK5clang22CXXTemporaryObjectExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
-  %340 = tail call i32 @_ZNK5clang22CXXTemporaryObjectExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
-  %.sroa.2.0.insert.ext.i1214 = zext i32 %340 to i64
+337:                                              ; preds = %tailrecurse
+  %338 = tail call i32 @_ZNK5clang22CXXTemporaryObjectExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
+  %339 = tail call i32 @_ZNK5clang22CXXTemporaryObjectExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
+  %.sroa.2.0.insert.ext.i1214 = zext i32 %339 to i64
   %.sroa.2.0.insert.shift.i1215 = shl nuw i64 %.sroa.2.0.insert.ext.i1214, 32
-  %.sroa.0.0.insert.ext.i1216 = zext i32 %339 to i64
+  %.sroa.0.0.insert.ext.i1216 = zext i32 %338 to i64
   %.sroa.0.0.insert.insert.i1217 = or disjoint i64 %.sroa.2.0.insert.shift.i1215, %.sroa.0.0.insert.ext.i1216
   br label %.loopexit
 
-341:                                              ; preds = %tailrecurse
-  %342 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val640 = load i32, ptr %342, align 4, !tbaa !1055
+340:                                              ; preds = %tailrecurse
+  %341 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val640 = load i32, ptr %341, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1218 = zext i32 %.val640 to i64
   %.sroa.0.0.insert.insert.i1219 = mul nuw i64 %.sroa.2.0.insert.ext.i1218, 4294967297
   br label %.loopexit
 
-343:                                              ; preds = %tailrecurse
-  %344 = getelementptr i8, ptr %.tr, i64 24
-  %.val641 = load ptr, ptr %344, align 8, !tbaa !1099
-  %345 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val641) #33
-  %346 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val641) #33
-  %.sroa.2.0.insert.ext.i1220 = zext i32 %346 to i64
+342:                                              ; preds = %tailrecurse
+  %343 = getelementptr i8, ptr %.tr, i64 24
+  %.val641 = load ptr, ptr %343, align 8, !tbaa !1099
+  %344 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val641) #33
+  %345 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val641) #33
+  %.sroa.2.0.insert.ext.i1220 = zext i32 %345 to i64
   %.sroa.2.0.insert.shift.i1221 = shl nuw i64 %.sroa.2.0.insert.ext.i1220, 32
-  %.sroa.0.0.insert.ext.i1222 = zext i32 %345 to i64
+  %.sroa.0.0.insert.ext.i1222 = zext i32 %344 to i64
   %.sroa.0.0.insert.insert.i1223 = or disjoint i64 %.sroa.2.0.insert.shift.i1221, %.sroa.0.0.insert.ext.i1222
   br label %.loopexit
 
-347:                                              ; preds = %tailrecurse
-  %348 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang9BlockExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+346:                                              ; preds = %tailrecurse
+  %347 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang9BlockExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-349:                                              ; preds = %tailrecurse
-  %350 = getelementptr i8, ptr %.tr, i64 16
-  %.val642 = load ptr, ptr %350, align 8, !tbaa !55
-  %351 = getelementptr i8, ptr %.tr, i64 24
-  %.val643 = load ptr, ptr %351, align 8, !tbaa !55
-  %352 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val642) #33
-  %353 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val643) #33
-  %.sroa.2.0.insert.ext.i1224 = zext i32 %353 to i64
+348:                                              ; preds = %tailrecurse
+  %349 = getelementptr i8, ptr %.tr, i64 16
+  %.val642 = load ptr, ptr %349, align 8, !tbaa !55
+  %350 = getelementptr i8, ptr %.tr, i64 24
+  %.val643 = load ptr, ptr %350, align 8, !tbaa !55
+  %351 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val642) #33
+  %352 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val643) #33
+  %.sroa.2.0.insert.ext.i1224 = zext i32 %352 to i64
   %.sroa.2.0.insert.shift.i1225 = shl nuw i64 %.sroa.2.0.insert.ext.i1224, 32
-  %.sroa.0.0.insert.ext.i1226 = zext i32 %352 to i64
+  %.sroa.0.0.insert.ext.i1226 = zext i32 %351 to i64
   %.sroa.0.0.insert.insert.i1227 = or disjoint i64 %.sroa.2.0.insert.shift.i1225, %.sroa.0.0.insert.ext.i1226
   br label %.loopexit
 
-354:                                              ; preds = %tailrecurse
-  %355 = getelementptr i8, ptr %.tr, i64 16
-  %.val644 = load ptr, ptr %355, align 8, !tbaa !55
-  %356 = getelementptr i8, ptr %.tr, i64 24
-  %.val645 = load ptr, ptr %356, align 8, !tbaa !55
-  %357 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val644) #33
-  %358 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val645) #33
-  %.sroa.2.0.insert.ext.i1228 = zext i32 %358 to i64
+353:                                              ; preds = %tailrecurse
+  %354 = getelementptr i8, ptr %.tr, i64 16
+  %.val644 = load ptr, ptr %354, align 8, !tbaa !55
+  %355 = getelementptr i8, ptr %.tr, i64 24
+  %.val645 = load ptr, ptr %355, align 8, !tbaa !55
+  %356 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val644) #33
+  %357 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val645) #33
+  %.sroa.2.0.insert.ext.i1228 = zext i32 %357 to i64
   %.sroa.2.0.insert.shift.i1229 = shl nuw i64 %.sroa.2.0.insert.ext.i1228, 32
-  %.sroa.0.0.insert.ext.i1230 = zext i32 %357 to i64
+  %.sroa.0.0.insert.ext.i1230 = zext i32 %356 to i64
   %.sroa.0.0.insert.insert.i1231 = or disjoint i64 %.sroa.2.0.insert.shift.i1229, %.sroa.0.0.insert.ext.i1230
   br label %.loopexit
 
-359:                                              ; preds = %tailrecurse
-  %360 = getelementptr i8, ptr %.tr, i64 76
-  %.val646 = load i64, ptr %360, align 4
+358:                                              ; preds = %tailrecurse
+  %359 = getelementptr i8, ptr %.tr, i64 76
+  %.val646 = load i64, ptr %359, align 4
   br label %.loopexit
 
-361:                                              ; preds = %tailrecurse
-  %362 = getelementptr i8, ptr %.tr, i64 24
-  %.val648 = load i64, ptr %362, align 8
+360:                                              ; preds = %tailrecurse
+  %361 = getelementptr i8, ptr %.tr, i64 24
+  %.val648 = load i64, ptr %361, align 8
   br label %.loopexit
 
-363:                                              ; preds = %tailrecurse
-  %364 = getelementptr i8, ptr %.tr, i64 40
-  %.val650 = load i64, ptr %364, align 8
+362:                                              ; preds = %tailrecurse
+  %363 = getelementptr i8, ptr %.tr, i64 40
+  %.val650 = load i64, ptr %363, align 8
   br label %.loopexit
 
-365:                                              ; preds = %tailrecurse
-  %366 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val652 = load i32, ptr %366, align 4, !tbaa !1055
-  %367 = getelementptr i8, ptr %.tr, i64 16
-  %.val653 = load ptr, ptr %367, align 8, !tbaa !55
-  %368 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val653) #33
+364:                                              ; preds = %tailrecurse
+  %365 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val652 = load i32, ptr %365, align 4, !tbaa !1055
+  %366 = getelementptr i8, ptr %.tr, i64 16
+  %.val653 = load ptr, ptr %366, align 8, !tbaa !55
+  %367 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val653) #33
   %.sroa.2.0.insert.ext.i1244 = zext i32 %.val652 to i64
   %.sroa.2.0.insert.shift.i1245 = shl nuw i64 %.sroa.2.0.insert.ext.i1244, 32
-  %.sroa.0.0.insert.ext.i1246 = zext i32 %368 to i64
+  %.sroa.0.0.insert.ext.i1246 = zext i32 %367 to i64
   %.sroa.0.0.insert.insert.i1247 = or disjoint i64 %.sroa.2.0.insert.shift.i1245, %.sroa.0.0.insert.ext.i1246
   br label %.loopexit
 
-369:                                              ; preds = %tailrecurse
-  %370 = getelementptr i8, ptr %.tr, i64 24
-  %.val654 = load ptr, ptr %370, align 8, !tbaa !55
-  %371 = getelementptr i8, ptr %.tr, i64 64
-  %.val655 = load i32, ptr %371, align 8, !tbaa !1055
-  %372 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val654) #33
+368:                                              ; preds = %tailrecurse
+  %369 = getelementptr i8, ptr %.tr, i64 24
+  %.val654 = load ptr, ptr %369, align 8, !tbaa !55
+  %370 = getelementptr i8, ptr %.tr, i64 64
+  %.val655 = load i32, ptr %370, align 8, !tbaa !1055
+  %371 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val654) #33
   %.sroa.2.0.insert.ext.i1248 = zext i32 %.val655 to i64
   %.sroa.2.0.insert.shift.i1249 = shl nuw i64 %.sroa.2.0.insert.ext.i1248, 32
-  %.sroa.0.0.insert.ext.i1250 = zext i32 %372 to i64
+  %.sroa.0.0.insert.ext.i1250 = zext i32 %371 to i64
   %.sroa.0.0.insert.insert.i1251 = or disjoint i64 %.sroa.2.0.insert.shift.i1249, %.sroa.0.0.insert.ext.i1250
   br label %.loopexit
 
-373:                                              ; preds = %tailrecurse
-  %374 = getelementptr i8, ptr %.tr, i64 16
-  %.val656 = load ptr, ptr %374, align 8, !tbaa !55
-  %375 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17ArrayInitLoopExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr %.val656)
+372:                                              ; preds = %tailrecurse
+  %373 = getelementptr i8, ptr %.tr, i64 16
+  %.val656 = load ptr, ptr %373, align 8, !tbaa !55
+  %374 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17ArrayInitLoopExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr %.val656)
   br label %.loopexit
 
-376:                                              ; preds = %tailrecurse
-  %377 = getelementptr i8, ptr %.tr, i64 16
-  %.val657 = load i64, ptr %377, align 8
+375:                                              ; preds = %tailrecurse
+  %376 = getelementptr i8, ptr %.tr, i64 16
+  %.val657 = load i64, ptr %376, align 8
   br label %.loopexit
 
-378:                                              ; preds = %tailrecurse
-  %379 = getelementptr i8, ptr %.tr, i64 24
-  %.val659 = load ptr, ptr %379, align 8, !tbaa !55
-  %380 = getelementptr i8, ptr %.tr, i64 40
-  %.val660 = load ptr, ptr %380, align 8, !tbaa !55
-  %381 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val659) #33
-  %382 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val660) #33
-  %.sroa.2.0.insert.ext.i1256 = zext i32 %382 to i64
+377:                                              ; preds = %tailrecurse
+  %378 = getelementptr i8, ptr %.tr, i64 24
+  %.val659 = load ptr, ptr %378, align 8, !tbaa !55
+  %379 = getelementptr i8, ptr %.tr, i64 40
+  %.val660 = load ptr, ptr %379, align 8, !tbaa !55
+  %380 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val659) #33
+  %381 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val660) #33
+  %.sroa.2.0.insert.ext.i1256 = zext i32 %381 to i64
   %.sroa.2.0.insert.shift.i1257 = shl nuw i64 %.sroa.2.0.insert.ext.i1256, 32
-  %.sroa.0.0.insert.ext.i1258 = zext i32 %381 to i64
+  %.sroa.0.0.insert.ext.i1258 = zext i32 %380 to i64
   %.sroa.0.0.insert.insert.i1259 = or disjoint i64 %.sroa.2.0.insert.shift.i1257, %.sroa.0.0.insert.ext.i1258
   br label %.loopexit
 
-383:                                              ; preds = %tailrecurse
-  %384 = getelementptr i8, ptr %.tr, i64 24
-  %.val661 = load ptr, ptr %384, align 8, !tbaa !55
-  %385 = getelementptr i8, ptr %.tr, i64 48
-  %.val662 = load ptr, ptr %385, align 8, !tbaa !55
-  %386 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val661) #33
-  %387 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val662) #33
-  %.sroa.2.0.insert.ext.i1260 = zext i32 %387 to i64
+382:                                              ; preds = %tailrecurse
+  %383 = getelementptr i8, ptr %.tr, i64 24
+  %.val661 = load ptr, ptr %383, align 8, !tbaa !55
+  %384 = getelementptr i8, ptr %.tr, i64 48
+  %.val662 = load ptr, ptr %384, align 8, !tbaa !55
+  %385 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val661) #33
+  %386 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val662) #33
+  %.sroa.2.0.insert.ext.i1260 = zext i32 %386 to i64
   %.sroa.2.0.insert.shift.i1261 = shl nuw i64 %.sroa.2.0.insert.ext.i1260, 32
-  %.sroa.0.0.insert.ext.i1262 = zext i32 %386 to i64
+  %.sroa.0.0.insert.ext.i1262 = zext i32 %385 to i64
   %.sroa.0.0.insert.insert.i1263 = or disjoint i64 %.sroa.2.0.insert.shift.i1261, %.sroa.0.0.insert.ext.i1262
   br label %.loopexit
 
-388:                                              ; preds = %tailrecurse
-  %389 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val663 = load i32, ptr %389, align 4, !tbaa !1055
-  %390 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val664 = load ptr, ptr %390, align 8, !tbaa !1102
-  %391 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val664) #33
-  %.sroa.2.0.insert.ext.i1264 = zext i32 %391 to i64
+387:                                              ; preds = %tailrecurse
+  %388 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val663 = load i32, ptr %388, align 4, !tbaa !1055
+  %389 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val664 = load ptr, ptr %389, align 8, !tbaa !1102
+  %390 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val664) #33
+  %.sroa.2.0.insert.ext.i1264 = zext i32 %390 to i64
   %.sroa.2.0.insert.shift.i1265 = shl nuw i64 %.sroa.2.0.insert.ext.i1264, 32
   %.sroa.0.0.insert.ext.i1266 = zext i32 %.val663 to i64
   %.sroa.0.0.insert.insert.i1267 = or disjoint i64 %.sroa.2.0.insert.shift.i1265, %.sroa.0.0.insert.ext.i1266
   br label %.loopexit
 
-392:                                              ; preds = %tailrecurse
-  %393 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10SwitchStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+391:                                              ; preds = %tailrecurse
+  %392 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10SwitchStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-394:                                              ; preds = %tailrecurse
-  %395 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val665 = load i32, ptr %395, align 4, !tbaa !1055
-  %396 = getelementptr i8, ptr %.tr, i64 24
-  %.val666 = load ptr, ptr %396, align 8, !tbaa !1104
-  %397 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val666) #33
-  %.sroa.2.0.insert.ext.i1268 = zext i32 %397 to i64
+393:                                              ; preds = %tailrecurse
+  %394 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val665 = load i32, ptr %394, align 4, !tbaa !1055
+  %395 = getelementptr i8, ptr %.tr, i64 24
+  %.val666 = load ptr, ptr %395, align 8, !tbaa !1104
+  %396 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val666) #33
+  %.sroa.2.0.insert.ext.i1268 = zext i32 %396 to i64
   %.sroa.2.0.insert.shift.i1269 = shl nuw i64 %.sroa.2.0.insert.ext.i1268, 32
   %.sroa.0.0.insert.ext.i1270 = zext i32 %.val665 to i64
   %.sroa.0.0.insert.insert.i1271 = or disjoint i64 %.sroa.2.0.insert.shift.i1269, %.sroa.0.0.insert.ext.i1270
   br label %.loopexit
 
-398:                                              ; preds = %tailrecurse
-  %399 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang8CaseStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+397:                                              ; preds = %tailrecurse
+  %398 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang8CaseStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-400:                                              ; preds = %tailrecurse
-  %401 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+399:                                              ; preds = %tailrecurse
+  %400 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   br label %tailrecurse.backedge
 
-402:                                              ; preds = %tailrecurse
-  %403 = getelementptr i8, ptr %.tr, i64 12
-  %.val667 = load i32, ptr %403, align 4, !tbaa !1055
-  %404 = getelementptr i8, ptr %.tr, i64 24
-  %.val668 = load ptr, ptr %404, align 8, !tbaa !55
-  %405 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val668) #33
-  %.sroa.2.0.insert.ext.i1272 = zext i32 %405 to i64
+401:                                              ; preds = %tailrecurse
+  %402 = getelementptr i8, ptr %.tr, i64 12
+  %.val667 = load i32, ptr %402, align 4, !tbaa !1055
+  %403 = getelementptr i8, ptr %.tr, i64 24
+  %.val668 = load ptr, ptr %403, align 8, !tbaa !55
+  %404 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val668) #33
+  %.sroa.2.0.insert.ext.i1272 = zext i32 %404 to i64
   %.sroa.2.0.insert.shift.i1273 = shl nuw i64 %.sroa.2.0.insert.ext.i1272, 32
   %.sroa.0.0.insert.ext.i1274 = zext i32 %.val667 to i64
   %.sroa.0.0.insert.insert.i1275 = or disjoint i64 %.sroa.2.0.insert.shift.i1273, %.sroa.0.0.insert.ext.i1274
   br label %.loopexit
 
-406:                                              ; preds = %tailrecurse
-  %407 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val669 = load i32, ptr %407, align 8, !tbaa !1055
+405:                                              ; preds = %tailrecurse
+  %406 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val669 = load i32, ptr %406, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i1276 = zext i32 %.val669 to i64
   %.sroa.0.0.insert.insert.i1277 = mul nuw i64 %.sroa.2.0.insert.ext.i1276, 4294967297
   br label %.loopexit
 
-408:                                              ; preds = %tailrecurse
-  %409 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val670 = load i32, ptr %409, align 8, !tbaa !1055
-  %410 = getelementptr i8, ptr %.tr, i64 16
-  %.val671 = load ptr, ptr %410, align 8, !tbaa !1108
-  %411 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val671) #33
-  %.sroa.2.0.insert.ext.i1278 = zext i32 %411 to i64
+407:                                              ; preds = %tailrecurse
+  %408 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val670 = load i32, ptr %408, align 8, !tbaa !1055
+  %409 = getelementptr i8, ptr %.tr, i64 16
+  %.val671 = load ptr, ptr %409, align 8, !tbaa !1108
+  %410 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val671) #33
+  %.sroa.2.0.insert.ext.i1278 = zext i32 %410 to i64
   %.sroa.2.0.insert.shift.i1279 = shl nuw i64 %.sroa.2.0.insert.ext.i1278, 32
   %.sroa.0.0.insert.ext.i1280 = zext i32 %.val670 to i64
   %.sroa.0.0.insert.insert.i1281 = or disjoint i64 %.sroa.2.0.insert.shift.i1279, %.sroa.0.0.insert.ext.i1280
   br label %.loopexit
 
-412:                                              ; preds = %tailrecurse
-  %413 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val672 = load i32, ptr %413, align 8, !tbaa !1055
-  %414 = getelementptr i8, ptr %.tr, i64 24
-  %.val673 = load ptr, ptr %414, align 8, !tbaa !55
-  %415 = getelementptr i8, ptr %.val673, i64 12
-  %.val673.val = load i32, ptr %415, align 4, !tbaa !1055
+411:                                              ; preds = %tailrecurse
+  %412 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val672 = load i32, ptr %412, align 8, !tbaa !1055
+  %413 = getelementptr i8, ptr %.tr, i64 24
+  %.val673 = load ptr, ptr %413, align 8, !tbaa !55
+  %414 = getelementptr i8, ptr %.val673, i64 12
+  %.val673.val = load i32, ptr %414, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1282 = zext i32 %.val673.val to i64
   %.sroa.2.0.insert.shift.i1283 = shl nuw i64 %.sroa.2.0.insert.ext.i1282, 32
   %.sroa.0.0.insert.ext.i1284 = zext i32 %.val672 to i64
   %.sroa.0.0.insert.insert.i1285 = or disjoint i64 %.sroa.2.0.insert.shift.i1283, %.sroa.0.0.insert.ext.i1284
   br label %.loopexit
 
-416:                                              ; preds = %tailrecurse
-  %417 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val674 = load i32, ptr %417, align 4, !tbaa !1055
-  %418 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val675 = load ptr, ptr %418, align 8, !tbaa !405
+415:                                              ; preds = %tailrecurse
+  %416 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val674 = load i32, ptr %416, align 4, !tbaa !1055
+  %417 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val675 = load ptr, ptr %417, align 8, !tbaa !405
   %.not.i.i1286 = icmp eq ptr %.val675, null
-  br i1 %.not.i.i1286, label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10ReturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, label %419
+  br i1 %.not.i.i1286, label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10ReturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, label %418
 
-419:                                              ; preds = %416
-  %420 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val675) #33
+418:                                              ; preds = %415
+  %419 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val675) #33
   br label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10ReturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit
 
-_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10ReturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %416, %419
-  %.sroa.0.0.i.i1287 = phi i32 [ %420, %419 ], [ %.val674, %416 ]
+_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10ReturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %415, %418
+  %.sroa.0.0.i.i1287 = phi i32 [ %419, %418 ], [ %.val674, %415 ]
   %.sroa.2.0.insert.ext.i1288 = zext i32 %.sroa.0.0.i.i1287 to i64
   %.sroa.2.0.insert.shift.i1289 = shl nuw i64 %.sroa.2.0.insert.ext.i1288, 32
   %.sroa.0.0.insert.ext.i1290 = zext i32 %.val674 to i64
   %.sroa.0.0.insert.insert.i1291 = or disjoint i64 %.sroa.2.0.insert.shift.i1289, %.sroa.0.0.insert.ext.i1290
   br label %.loopexit
 
-421:                                              ; preds = %tailrecurse
-  %422 = getelementptr i8, ptr %.tr, i64 12
-  %.val676 = load i64, ptr %422, align 4
+420:                                              ; preds = %tailrecurse
+  %421 = getelementptr i8, ptr %.tr, i64 12
+  %.val676 = load i64, ptr %421, align 4
   br label %.loopexit
 
-423:                                              ; preds = %tailrecurse
-  %424 = getelementptr i8, ptr %.tr, i64 12
-  %.val678 = load i64, ptr %424, align 4
+422:                                              ; preds = %tailrecurse
+  %423 = getelementptr i8, ptr %.tr, i64 12
+  %.val678 = load i64, ptr %423, align 4
   br label %.loopexit
 
-425:                                              ; preds = %tailrecurse
-  %426 = getelementptr i8, ptr %.tr, i64 12
-  %.val680 = load i64, ptr %426, align 4
+424:                                              ; preds = %tailrecurse
+  %425 = getelementptr i8, ptr %.tr, i64 12
+  %.val680 = load i64, ptr %425, align 4
   br label %.loopexit
 
-427:                                              ; preds = %tailrecurse
-  %428 = getelementptr i8, ptr %.tr, i64 12
-  %.val682 = load i64, ptr %428, align 4
+426:                                              ; preds = %tailrecurse
+  %427 = getelementptr i8, ptr %.tr, i64 12
+  %.val682 = load i64, ptr %427, align 4
   br label %.loopexit
 
-429:                                              ; preds = %tailrecurse
-  %430 = getelementptr i8, ptr %.tr, i64 12
-  %.val684 = load i64, ptr %430, align 4
+428:                                              ; preds = %tailrecurse
+  %429 = getelementptr i8, ptr %.tr, i64 12
+  %.val684 = load i64, ptr %429, align 4
   br label %.loopexit
 
-431:                                              ; preds = %tailrecurse
-  %432 = getelementptr i8, ptr %.tr, i64 12
-  %.val686 = load i64, ptr %432, align 4
+430:                                              ; preds = %tailrecurse
+  %431 = getelementptr i8, ptr %.tr, i64 12
+  %.val686 = load i64, ptr %431, align 4
   br label %.loopexit
 
-433:                                              ; preds = %tailrecurse
-  %434 = getelementptr i8, ptr %.tr, i64 12
-  %.val688 = load i64, ptr %434, align 4
+432:                                              ; preds = %tailrecurse
+  %433 = getelementptr i8, ptr %.tr, i64 12
+  %.val688 = load i64, ptr %433, align 4
   br label %.loopexit
 
-435:                                              ; preds = %tailrecurse
-  %436 = getelementptr i8, ptr %.tr, i64 12
-  %.val690 = load i64, ptr %436, align 4
+434:                                              ; preds = %tailrecurse
+  %435 = getelementptr i8, ptr %.tr, i64 12
+  %.val690 = load i64, ptr %435, align 4
   br label %.loopexit
 
-437:                                              ; preds = %tailrecurse
-  %438 = getelementptr i8, ptr %.tr, i64 12
-  %.val692 = load i64, ptr %438, align 4
+436:                                              ; preds = %tailrecurse
+  %437 = getelementptr i8, ptr %.tr, i64 12
+  %.val692 = load i64, ptr %437, align 4
   br label %.loopexit
 
-439:                                              ; preds = %tailrecurse
-  %440 = getelementptr i8, ptr %.tr, i64 12
-  %.val694 = load i64, ptr %440, align 4
+438:                                              ; preds = %tailrecurse
+  %439 = getelementptr i8, ptr %.tr, i64 12
+  %.val694 = load i64, ptr %439, align 4
   br label %.loopexit
 
-441:                                              ; preds = %tailrecurse
-  %442 = getelementptr i8, ptr %.tr, i64 12
-  %.val696 = load i64, ptr %442, align 4
+440:                                              ; preds = %tailrecurse
+  %441 = getelementptr i8, ptr %.tr, i64 12
+  %.val696 = load i64, ptr %441, align 4
   br label %.loopexit
 
-443:                                              ; preds = %tailrecurse
-  %444 = getelementptr i8, ptr %.tr, i64 12
-  %.val698 = load i64, ptr %444, align 4
+442:                                              ; preds = %tailrecurse
+  %443 = getelementptr i8, ptr %.tr, i64 12
+  %.val698 = load i64, ptr %443, align 4
   br label %.loopexit
 
-445:                                              ; preds = %tailrecurse
-  %446 = getelementptr i8, ptr %.tr, i64 12
-  %.val700 = load i64, ptr %446, align 4
+444:                                              ; preds = %tailrecurse
+  %445 = getelementptr i8, ptr %.tr, i64 12
+  %.val700 = load i64, ptr %445, align 4
   br label %.loopexit
 
-447:                                              ; preds = %tailrecurse
-  %448 = getelementptr i8, ptr %.tr, i64 24
-  %.val702 = load ptr, ptr %448, align 8, !tbaa !55
-  %449 = getelementptr i8, ptr %.tr, i64 32
-  %.val703 = load i32, ptr %449, align 8, !tbaa !1055
-  %450 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val702) #33
-  %.sroa.2.0.insert.ext.i1344 = zext i32 %450 to i64
+446:                                              ; preds = %tailrecurse
+  %447 = getelementptr i8, ptr %.tr, i64 24
+  %.val702 = load ptr, ptr %447, align 8, !tbaa !55
+  %448 = getelementptr i8, ptr %.tr, i64 32
+  %.val703 = load i32, ptr %448, align 8, !tbaa !1055
+  %449 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val702) #33
+  %.sroa.2.0.insert.ext.i1344 = zext i32 %449 to i64
   %.sroa.2.0.insert.shift.i1345 = shl nuw i64 %.sroa.2.0.insert.ext.i1344, 32
   %.sroa.0.0.insert.ext.i1346 = zext i32 %.val703 to i64
   %.sroa.0.0.insert.insert.i1347 = or disjoint i64 %.sroa.2.0.insert.shift.i1345, %.sroa.0.0.insert.ext.i1346
   br label %.loopexit
 
-451:                                              ; preds = %tailrecurse
-  %452 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val704 = load i32, ptr %452, align 8, !tbaa !1055
-  %453 = getelementptr i8, ptr %.tr, i64 16
-  %.val705 = load ptr, ptr %453, align 8, !tbaa !1110
-  %454 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val705) #33
-  %.sroa.2.0.insert.ext.i1348 = zext i32 %454 to i64
+450:                                              ; preds = %tailrecurse
+  %451 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val704 = load i32, ptr %451, align 8, !tbaa !1055
+  %452 = getelementptr i8, ptr %.tr, i64 16
+  %.val705 = load ptr, ptr %452, align 8, !tbaa !1110
+  %453 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val705) #33
+  %.sroa.2.0.insert.ext.i1348 = zext i32 %453 to i64
   %.sroa.2.0.insert.shift.i1349 = shl nuw i64 %.sroa.2.0.insert.ext.i1348, 32
   %.sroa.0.0.insert.ext.i1350 = zext i32 %.val704 to i64
   %.sroa.0.0.insert.insert.i1351 = or disjoint i64 %.sroa.2.0.insert.shift.i1349, %.sroa.0.0.insert.ext.i1350
   br label %.loopexit
 
-455:                                              ; preds = %tailrecurse
-  %456 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.sroa.0.0.copyload.i.i1352 = load i32, ptr %456, align 8, !tbaa !1055
-  %457 = tail call i32 @_ZNK5clang13ObjCAtTryStmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr) #33
-  %.sroa.2.0.insert.ext.i1353 = zext i32 %457 to i64
+454:                                              ; preds = %tailrecurse
+  %455 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.sroa.0.0.copyload.i.i1352 = load i32, ptr %455, align 8, !tbaa !1055
+  %456 = tail call i32 @_ZNK5clang13ObjCAtTryStmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr) #33
+  %.sroa.2.0.insert.ext.i1353 = zext i32 %456 to i64
   %.sroa.2.0.insert.shift.i1354 = shl nuw i64 %.sroa.2.0.insert.ext.i1353, 32
   %.sroa.0.0.insert.ext.i1355 = zext i32 %.sroa.0.0.copyload.i.i1352 to i64
   %.sroa.0.0.insert.insert.i1356 = or disjoint i64 %.sroa.2.0.insert.shift.i1354, %.sroa.0.0.insert.ext.i1355
   br label %.loopexit
 
-458:                                              ; preds = %tailrecurse
-  %459 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val706 = load i32, ptr %459, align 8, !tbaa !1055
-  %460 = getelementptr i8, ptr %.tr, i64 16
-  %.val707 = load ptr, ptr %460, align 8, !tbaa !1112
+457:                                              ; preds = %tailrecurse
+  %458 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val706 = load i32, ptr %458, align 8, !tbaa !1055
+  %459 = getelementptr i8, ptr %.tr, i64 16
+  %.val707 = load ptr, ptr %459, align 8, !tbaa !1112
   %.not.i.i1357 = icmp eq ptr %.val707, null
-  br i1 %.not.i.i1357, label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, label %461
+  br i1 %.not.i.i1357, label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, label %460
 
-461:                                              ; preds = %458
-  %462 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val707) #33
+460:                                              ; preds = %457
+  %461 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val707) #33
   br label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit
 
-_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %458, %461
-  %.sroa.0.0.i.i1358 = phi i32 [ %462, %461 ], [ %.val706, %458 ]
+_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %457, %460
+  %.sroa.0.0.i.i1358 = phi i32 [ %461, %460 ], [ %.val706, %457 ]
   %.sroa.2.0.insert.ext.i1359 = zext i32 %.sroa.0.0.i.i1358 to i64
   %.sroa.2.0.insert.shift.i1360 = shl nuw i64 %.sroa.2.0.insert.ext.i1359, 32
   %.sroa.0.0.insert.ext.i1361 = zext i32 %.val706 to i64
   %.sroa.0.0.insert.insert.i1362 = or disjoint i64 %.sroa.2.0.insert.shift.i1360, %.sroa.0.0.insert.ext.i1361
   br label %.loopexit
 
-463:                                              ; preds = %tailrecurse
-  %464 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val708 = load i32, ptr %464, align 8, !tbaa !1055
-  %465 = getelementptr i8, ptr %.tr, i64 24
-  %.val709 = load ptr, ptr %465, align 8, !tbaa !55
-  %466 = getelementptr i8, ptr %.val709, i64 12
-  %.val709.val = load i32, ptr %466, align 4, !tbaa !1055
+462:                                              ; preds = %tailrecurse
+  %463 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val708 = load i32, ptr %463, align 8, !tbaa !1055
+  %464 = getelementptr i8, ptr %.tr, i64 24
+  %.val709 = load ptr, ptr %464, align 8, !tbaa !55
+  %465 = getelementptr i8, ptr %.val709, i64 12
+  %.val709.val = load i32, ptr %465, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1363 = zext i32 %.val709.val to i64
   %.sroa.2.0.insert.shift.i1364 = shl nuw i64 %.sroa.2.0.insert.ext.i1363, 32
   %.sroa.0.0.insert.ext.i1365 = zext i32 %.val708 to i64
   %.sroa.0.0.insert.insert.i1366 = or disjoint i64 %.sroa.2.0.insert.shift.i1364, %.sroa.0.0.insert.ext.i1365
   br label %.loopexit
 
-467:                                              ; preds = %tailrecurse
-  %468 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val710 = load i32, ptr %468, align 8, !tbaa !1055
-  %469 = getelementptr i8, ptr %.tr, i64 16
-  %.val711 = load ptr, ptr %469, align 8, !tbaa !1114
-  %470 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val711) #33
-  %.sroa.2.0.insert.ext.i1367 = zext i32 %470 to i64
+466:                                              ; preds = %tailrecurse
+  %467 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val710 = load i32, ptr %467, align 8, !tbaa !1055
+  %468 = getelementptr i8, ptr %.tr, i64 16
+  %.val711 = load ptr, ptr %468, align 8, !tbaa !1114
+  %469 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val711) #33
+  %.sroa.2.0.insert.ext.i1367 = zext i32 %469 to i64
   %.sroa.2.0.insert.shift.i1368 = shl nuw i64 %.sroa.2.0.insert.ext.i1367, 32
   %.sroa.0.0.insert.ext.i1369 = zext i32 %.val710 to i64
   %.sroa.0.0.insert.insert.i1370 = or disjoint i64 %.sroa.2.0.insert.shift.i1368, %.sroa.0.0.insert.ext.i1369
   br label %.loopexit
 
-471:                                              ; preds = %tailrecurse
-  %472 = getelementptr i8, ptr %.tr, i64 16
-  %.val712 = load ptr, ptr %472, align 8, !tbaa !1116
-  %473 = getelementptr i8, ptr %.tr, i64 24
-  %.val713 = load i32, ptr %473, align 8, !tbaa !1055
-  %474 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val712) #33
-  %.sroa.2.0.insert.ext.i1371 = zext i32 %474 to i64
+470:                                              ; preds = %tailrecurse
+  %471 = getelementptr i8, ptr %.tr, i64 16
+  %.val712 = load ptr, ptr %471, align 8, !tbaa !1116
+  %472 = getelementptr i8, ptr %.tr, i64 24
+  %.val713 = load i32, ptr %472, align 8, !tbaa !1055
+  %473 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val712) #33
+  %.sroa.2.0.insert.ext.i1371 = zext i32 %473 to i64
   %.sroa.2.0.insert.shift.i1372 = shl nuw i64 %.sroa.2.0.insert.ext.i1371, 32
   %.sroa.0.0.insert.ext.i1373 = zext i32 %.val713 to i64
   %.sroa.0.0.insert.insert.i1374 = or disjoint i64 %.sroa.2.0.insert.shift.i1372, %.sroa.0.0.insert.ext.i1373
   br label %.loopexit
 
-475:                                              ; preds = %tailrecurse
-  %476 = getelementptr i8, ptr %.tr, i64 12
-  %.val714 = load i64, ptr %476, align 4
+474:                                              ; preds = %tailrecurse
+  %475 = getelementptr i8, ptr %.tr, i64 12
+  %.val714 = load i64, ptr %475, align 4
   br label %.loopexit
 
-477:                                              ; preds = %tailrecurse
-  %478 = getelementptr i8, ptr %.tr, i64 12
-  %.val716 = load i64, ptr %478, align 4
+476:                                              ; preds = %tailrecurse
+  %477 = getelementptr i8, ptr %.tr, i64 12
+  %.val716 = load i64, ptr %477, align 4
   br label %.loopexit
 
-479:                                              ; preds = %tailrecurse
-  %480 = getelementptr i8, ptr %.tr, i64 12
-  %.val718 = load i64, ptr %480, align 4
+478:                                              ; preds = %tailrecurse
+  %479 = getelementptr i8, ptr %.tr, i64 12
+  %.val718 = load i64, ptr %479, align 4
   br label %.loopexit
 
-481:                                              ; preds = %tailrecurse
-  %482 = getelementptr i8, ptr %.tr, i64 12
-  %.val720 = load i64, ptr %482, align 4
+480:                                              ; preds = %tailrecurse
+  %481 = getelementptr i8, ptr %.tr, i64 12
+  %.val720 = load i64, ptr %481, align 4
   br label %.loopexit
 
-483:                                              ; preds = %tailrecurse
-  %484 = getelementptr i8, ptr %.tr, i64 12
-  %.val722 = load i64, ptr %484, align 4
+482:                                              ; preds = %tailrecurse
+  %483 = getelementptr i8, ptr %.tr, i64 12
+  %.val722 = load i64, ptr %483, align 4
   br label %.loopexit
 
-485:                                              ; preds = %tailrecurse
-  %486 = getelementptr i8, ptr %.tr, i64 12
-  %.val724 = load i64, ptr %486, align 4
+484:                                              ; preds = %tailrecurse
+  %485 = getelementptr i8, ptr %.tr, i64 12
+  %.val724 = load i64, ptr %485, align 4
   br label %.loopexit
 
-487:                                              ; preds = %tailrecurse
-  %488 = getelementptr i8, ptr %.tr, i64 12
-  %.val726 = load i64, ptr %488, align 4
+486:                                              ; preds = %tailrecurse
+  %487 = getelementptr i8, ptr %.tr, i64 12
+  %.val726 = load i64, ptr %487, align 4
   br label %.loopexit
 
-489:                                              ; preds = %tailrecurse
-  %490 = getelementptr i8, ptr %.tr, i64 12
-  %.val728 = load i64, ptr %490, align 4
+488:                                              ; preds = %tailrecurse
+  %489 = getelementptr i8, ptr %.tr, i64 12
+  %.val728 = load i64, ptr %489, align 4
   br label %.loopexit
 
-491:                                              ; preds = %tailrecurse
-  %492 = getelementptr i8, ptr %.tr, i64 12
-  %.val730 = load i64, ptr %492, align 4
+490:                                              ; preds = %tailrecurse
+  %491 = getelementptr i8, ptr %.tr, i64 12
+  %.val730 = load i64, ptr %491, align 4
   br label %.loopexit
 
-493:                                              ; preds = %tailrecurse
-  %494 = getelementptr i8, ptr %.tr, i64 12
-  %.val732 = load i64, ptr %494, align 4
+492:                                              ; preds = %tailrecurse
+  %493 = getelementptr i8, ptr %.tr, i64 12
+  %.val732 = load i64, ptr %493, align 4
   br label %.loopexit
 
-495:                                              ; preds = %tailrecurse
-  %496 = getelementptr i8, ptr %.tr, i64 12
-  %.val734 = load i64, ptr %496, align 4
+494:                                              ; preds = %tailrecurse
+  %495 = getelementptr i8, ptr %.tr, i64 12
+  %.val734 = load i64, ptr %495, align 4
   br label %.loopexit
 
-497:                                              ; preds = %tailrecurse
-  %498 = getelementptr i8, ptr %.tr, i64 12
-  %.val736 = load i64, ptr %498, align 4
+496:                                              ; preds = %tailrecurse
+  %497 = getelementptr i8, ptr %.tr, i64 12
+  %.val736 = load i64, ptr %497, align 4
   br label %.loopexit
 
-499:                                              ; preds = %tailrecurse
-  %500 = getelementptr i8, ptr %.tr, i64 12
-  %.val738 = load i64, ptr %500, align 4
+498:                                              ; preds = %tailrecurse
+  %499 = getelementptr i8, ptr %.tr, i64 12
+  %.val738 = load i64, ptr %499, align 4
   br label %.loopexit
 
-501:                                              ; preds = %tailrecurse
-  %502 = getelementptr i8, ptr %.tr, i64 12
-  %.val740 = load i64, ptr %502, align 4
+500:                                              ; preds = %tailrecurse
+  %501 = getelementptr i8, ptr %.tr, i64 12
+  %.val740 = load i64, ptr %501, align 4
   br label %.loopexit
 
-503:                                              ; preds = %tailrecurse
-  %504 = getelementptr i8, ptr %.tr, i64 12
-  %.val742 = load i64, ptr %504, align 4
+502:                                              ; preds = %tailrecurse
+  %503 = getelementptr i8, ptr %.tr, i64 12
+  %.val742 = load i64, ptr %503, align 4
   br label %.loopexit
 
-505:                                              ; preds = %tailrecurse
-  %506 = getelementptr i8, ptr %.tr, i64 12
-  %.val744 = load i64, ptr %506, align 4
+504:                                              ; preds = %tailrecurse
+  %505 = getelementptr i8, ptr %.tr, i64 12
+  %.val744 = load i64, ptr %505, align 4
   br label %.loopexit
 
-507:                                              ; preds = %tailrecurse
-  %508 = getelementptr i8, ptr %.tr, i64 12
-  %.val746 = load i64, ptr %508, align 4
+506:                                              ; preds = %tailrecurse
+  %507 = getelementptr i8, ptr %.tr, i64 12
+  %.val746 = load i64, ptr %507, align 4
   br label %.loopexit
 
-509:                                              ; preds = %tailrecurse
-  %510 = getelementptr i8, ptr %.tr, i64 12
-  %.val748 = load i64, ptr %510, align 4
+508:                                              ; preds = %tailrecurse
+  %509 = getelementptr i8, ptr %.tr, i64 12
+  %.val748 = load i64, ptr %509, align 4
   br label %.loopexit
 
-511:                                              ; preds = %tailrecurse
-  %512 = getelementptr i8, ptr %.tr, i64 12
-  %.val750 = load i64, ptr %512, align 4
+510:                                              ; preds = %tailrecurse
+  %511 = getelementptr i8, ptr %.tr, i64 12
+  %.val750 = load i64, ptr %511, align 4
   br label %.loopexit
 
-513:                                              ; preds = %tailrecurse
-  %514 = getelementptr i8, ptr %.tr, i64 12
-  %.val752 = load i64, ptr %514, align 4
+512:                                              ; preds = %tailrecurse
+  %513 = getelementptr i8, ptr %.tr, i64 12
+  %.val752 = load i64, ptr %513, align 4
   br label %.loopexit
 
-515:                                              ; preds = %tailrecurse
-  %516 = getelementptr i8, ptr %.tr, i64 12
-  %.val754 = load i64, ptr %516, align 4
+514:                                              ; preds = %tailrecurse
+  %515 = getelementptr i8, ptr %.tr, i64 12
+  %.val754 = load i64, ptr %515, align 4
   br label %.loopexit
 
-517:                                              ; preds = %tailrecurse
-  %518 = getelementptr i8, ptr %.tr, i64 12
-  %.val756 = load i64, ptr %518, align 4
+516:                                              ; preds = %tailrecurse
+  %517 = getelementptr i8, ptr %.tr, i64 12
+  %.val756 = load i64, ptr %517, align 4
   br label %.loopexit
 
-519:                                              ; preds = %tailrecurse
-  %520 = getelementptr i8, ptr %.tr, i64 12
-  %.val758 = load i64, ptr %520, align 4
+518:                                              ; preds = %tailrecurse
+  %519 = getelementptr i8, ptr %.tr, i64 12
+  %.val758 = load i64, ptr %519, align 4
   br label %.loopexit
 
-521:                                              ; preds = %tailrecurse
-  %522 = getelementptr i8, ptr %.tr, i64 12
-  %.val760 = load i64, ptr %522, align 4
+520:                                              ; preds = %tailrecurse
+  %521 = getelementptr i8, ptr %.tr, i64 12
+  %.val760 = load i64, ptr %521, align 4
   br label %.loopexit
 
-523:                                              ; preds = %tailrecurse
-  %524 = getelementptr i8, ptr %.tr, i64 12
-  %.val762 = load i64, ptr %524, align 4
+522:                                              ; preds = %tailrecurse
+  %523 = getelementptr i8, ptr %.tr, i64 12
+  %.val762 = load i64, ptr %523, align 4
   br label %.loopexit
 
-525:                                              ; preds = %tailrecurse
-  %526 = getelementptr i8, ptr %.tr, i64 12
-  %.val764 = load i64, ptr %526, align 4
+524:                                              ; preds = %tailrecurse
+  %525 = getelementptr i8, ptr %.tr, i64 12
+  %.val764 = load i64, ptr %525, align 4
   br label %.loopexit
 
-527:                                              ; preds = %tailrecurse
-  %528 = getelementptr i8, ptr %.tr, i64 12
-  %.val766 = load i64, ptr %528, align 4
+526:                                              ; preds = %tailrecurse
+  %527 = getelementptr i8, ptr %.tr, i64 12
+  %.val766 = load i64, ptr %527, align 4
   br label %.loopexit
 
-529:                                              ; preds = %tailrecurse
-  %530 = getelementptr i8, ptr %.tr, i64 12
-  %.val768 = load i64, ptr %530, align 4
+528:                                              ; preds = %tailrecurse
+  %529 = getelementptr i8, ptr %.tr, i64 12
+  %.val768 = load i64, ptr %529, align 4
   br label %.loopexit
 
-531:                                              ; preds = %tailrecurse
-  %532 = getelementptr i8, ptr %.tr, i64 12
-  %.val770 = load i64, ptr %532, align 4
+530:                                              ; preds = %tailrecurse
+  %531 = getelementptr i8, ptr %.tr, i64 12
+  %.val770 = load i64, ptr %531, align 4
   br label %.loopexit
 
-533:                                              ; preds = %tailrecurse
-  %534 = getelementptr i8, ptr %.tr, i64 12
-  %.val772 = load i64, ptr %534, align 4
+532:                                              ; preds = %tailrecurse
+  %533 = getelementptr i8, ptr %.tr, i64 12
+  %.val772 = load i64, ptr %533, align 4
   br label %.loopexit
 
-535:                                              ; preds = %tailrecurse
-  %536 = getelementptr i8, ptr %.tr, i64 12
-  %.val774 = load i64, ptr %536, align 4
+534:                                              ; preds = %tailrecurse
+  %535 = getelementptr i8, ptr %.tr, i64 12
+  %.val774 = load i64, ptr %535, align 4
   br label %.loopexit
 
-537:                                              ; preds = %tailrecurse
-  %538 = getelementptr i8, ptr %.tr, i64 12
-  %.val776 = load i64, ptr %538, align 4
+536:                                              ; preds = %tailrecurse
+  %537 = getelementptr i8, ptr %.tr, i64 12
+  %.val776 = load i64, ptr %537, align 4
   br label %.loopexit
 
-539:                                              ; preds = %tailrecurse
-  %540 = getelementptr i8, ptr %.tr, i64 12
-  %.val778 = load i64, ptr %540, align 4
+538:                                              ; preds = %tailrecurse
+  %539 = getelementptr i8, ptr %.tr, i64 12
+  %.val778 = load i64, ptr %539, align 4
   br label %.loopexit
 
-541:                                              ; preds = %tailrecurse
-  %542 = getelementptr i8, ptr %.tr, i64 12
-  %.val780 = load i64, ptr %542, align 4
+540:                                              ; preds = %tailrecurse
+  %541 = getelementptr i8, ptr %.tr, i64 12
+  %.val780 = load i64, ptr %541, align 4
   br label %.loopexit
 
-543:                                              ; preds = %tailrecurse
-  %544 = getelementptr i8, ptr %.tr, i64 12
-  %.val782 = load i64, ptr %544, align 4
+542:                                              ; preds = %tailrecurse
+  %543 = getelementptr i8, ptr %.tr, i64 12
+  %.val782 = load i64, ptr %543, align 4
   br label %.loopexit
 
-545:                                              ; preds = %tailrecurse
-  %546 = getelementptr i8, ptr %.tr, i64 12
-  %.val784 = load i64, ptr %546, align 4
+544:                                              ; preds = %tailrecurse
+  %545 = getelementptr i8, ptr %.tr, i64 12
+  %.val784 = load i64, ptr %545, align 4
   br label %.loopexit
 
-547:                                              ; preds = %tailrecurse
-  %548 = getelementptr i8, ptr %.tr, i64 12
-  %.val786 = load i64, ptr %548, align 4
+546:                                              ; preds = %tailrecurse
+  %547 = getelementptr i8, ptr %.tr, i64 12
+  %.val786 = load i64, ptr %547, align 4
   br label %.loopexit
 
-549:                                              ; preds = %tailrecurse
-  %550 = getelementptr i8, ptr %.tr, i64 12
-  %.val788 = load i64, ptr %550, align 4
+548:                                              ; preds = %tailrecurse
+  %549 = getelementptr i8, ptr %.tr, i64 12
+  %.val788 = load i64, ptr %549, align 4
   br label %.loopexit
 
-551:                                              ; preds = %tailrecurse
-  %552 = getelementptr i8, ptr %.tr, i64 12
-  %.val790 = load i64, ptr %552, align 4
+550:                                              ; preds = %tailrecurse
+  %551 = getelementptr i8, ptr %.tr, i64 12
+  %.val790 = load i64, ptr %551, align 4
   br label %.loopexit
 
-553:                                              ; preds = %tailrecurse
-  %554 = getelementptr i8, ptr %.tr, i64 12
-  %.val792 = load i64, ptr %554, align 4
+552:                                              ; preds = %tailrecurse
+  %553 = getelementptr i8, ptr %.tr, i64 12
+  %.val792 = load i64, ptr %553, align 4
   br label %.loopexit
 
-555:                                              ; preds = %tailrecurse
-  %556 = getelementptr i8, ptr %.tr, i64 12
-  %.val794 = load i64, ptr %556, align 4
+554:                                              ; preds = %tailrecurse
+  %555 = getelementptr i8, ptr %.tr, i64 12
+  %.val794 = load i64, ptr %555, align 4
   br label %.loopexit
 
-557:                                              ; preds = %tailrecurse
-  %558 = getelementptr i8, ptr %.tr, i64 12
-  %.val796 = load i64, ptr %558, align 4
+556:                                              ; preds = %tailrecurse
+  %557 = getelementptr i8, ptr %.tr, i64 12
+  %.val796 = load i64, ptr %557, align 4
   br label %.loopexit
 
-559:                                              ; preds = %tailrecurse
-  %560 = getelementptr i8, ptr %.tr, i64 12
-  %.val798 = load i64, ptr %560, align 4
+558:                                              ; preds = %tailrecurse
+  %559 = getelementptr i8, ptr %.tr, i64 12
+  %.val798 = load i64, ptr %559, align 4
   br label %.loopexit
 
-561:                                              ; preds = %tailrecurse
-  %562 = getelementptr i8, ptr %.tr, i64 12
-  %.val800 = load i64, ptr %562, align 4
+560:                                              ; preds = %tailrecurse
+  %561 = getelementptr i8, ptr %.tr, i64 12
+  %.val800 = load i64, ptr %561, align 4
   br label %.loopexit
 
-563:                                              ; preds = %tailrecurse
-  %564 = getelementptr i8, ptr %.tr, i64 12
-  %.val802 = load i64, ptr %564, align 4
+562:                                              ; preds = %tailrecurse
+  %563 = getelementptr i8, ptr %.tr, i64 12
+  %.val802 = load i64, ptr %563, align 4
   br label %.loopexit
 
-565:                                              ; preds = %tailrecurse
-  %566 = getelementptr i8, ptr %.tr, i64 12
-  %.val804 = load i64, ptr %566, align 4
+564:                                              ; preds = %tailrecurse
+  %565 = getelementptr i8, ptr %.tr, i64 12
+  %.val804 = load i64, ptr %565, align 4
   br label %.loopexit
 
-567:                                              ; preds = %tailrecurse
-  %568 = getelementptr i8, ptr %.tr, i64 12
-  %.val806 = load i64, ptr %568, align 4
+566:                                              ; preds = %tailrecurse
+  %567 = getelementptr i8, ptr %.tr, i64 12
+  %.val806 = load i64, ptr %567, align 4
   br label %.loopexit
 
-569:                                              ; preds = %tailrecurse
-  %570 = getelementptr i8, ptr %.tr, i64 12
-  %.val808 = load i64, ptr %570, align 4
+568:                                              ; preds = %tailrecurse
+  %569 = getelementptr i8, ptr %.tr, i64 12
+  %.val808 = load i64, ptr %569, align 4
   br label %.loopexit
 
-571:                                              ; preds = %tailrecurse
-  %572 = getelementptr i8, ptr %.tr, i64 12
-  %.val810 = load i64, ptr %572, align 4
+570:                                              ; preds = %tailrecurse
+  %571 = getelementptr i8, ptr %.tr, i64 12
+  %.val810 = load i64, ptr %571, align 4
   br label %.loopexit
 
-573:                                              ; preds = %tailrecurse
-  %574 = getelementptr i8, ptr %.tr, i64 12
-  %.val812 = load i64, ptr %574, align 4
+572:                                              ; preds = %tailrecurse
+  %573 = getelementptr i8, ptr %.tr, i64 12
+  %.val812 = load i64, ptr %573, align 4
   br label %.loopexit
 
-575:                                              ; preds = %tailrecurse
-  %576 = getelementptr i8, ptr %.tr, i64 12
-  %.val814 = load i64, ptr %576, align 4
+574:                                              ; preds = %tailrecurse
+  %575 = getelementptr i8, ptr %.tr, i64 12
+  %.val814 = load i64, ptr %575, align 4
   br label %.loopexit
 
-577:                                              ; preds = %tailrecurse
-  %578 = getelementptr i8, ptr %.tr, i64 12
-  %.val816 = load i64, ptr %578, align 4
+576:                                              ; preds = %tailrecurse
+  %577 = getelementptr i8, ptr %.tr, i64 12
+  %.val816 = load i64, ptr %577, align 4
   br label %.loopexit
 
-579:                                              ; preds = %tailrecurse
-  %580 = getelementptr i8, ptr %.tr, i64 12
-  %.val818 = load i64, ptr %580, align 4
+578:                                              ; preds = %tailrecurse
+  %579 = getelementptr i8, ptr %.tr, i64 12
+  %.val818 = load i64, ptr %579, align 4
   br label %.loopexit
 
-581:                                              ; preds = %tailrecurse
-  %582 = getelementptr i8, ptr %.tr, i64 12
-  %.val820 = load i64, ptr %582, align 4
+580:                                              ; preds = %tailrecurse
+  %581 = getelementptr i8, ptr %.tr, i64 12
+  %.val820 = load i64, ptr %581, align 4
   br label %.loopexit
 
-583:                                              ; preds = %tailrecurse
-  %584 = getelementptr i8, ptr %.tr, i64 12
-  %.val822 = load i64, ptr %584, align 4
+582:                                              ; preds = %tailrecurse
+  %583 = getelementptr i8, ptr %.tr, i64 12
+  %.val822 = load i64, ptr %583, align 4
   br label %.loopexit
 
-585:                                              ; preds = %tailrecurse
-  %586 = getelementptr i8, ptr %.tr, i64 12
-  %.val824 = load i64, ptr %586, align 4
+584:                                              ; preds = %tailrecurse
+  %585 = getelementptr i8, ptr %.tr, i64 12
+  %.val824 = load i64, ptr %585, align 4
   br label %.loopexit
 
-587:                                              ; preds = %tailrecurse
-  %588 = getelementptr i8, ptr %.tr, i64 12
-  %.val826 = load i64, ptr %588, align 4
+586:                                              ; preds = %tailrecurse
+  %587 = getelementptr i8, ptr %.tr, i64 12
+  %.val826 = load i64, ptr %587, align 4
   br label %.loopexit
 
-589:                                              ; preds = %tailrecurse
-  %590 = getelementptr i8, ptr %.tr, i64 12
-  %.val828 = load i64, ptr %590, align 4
+588:                                              ; preds = %tailrecurse
+  %589 = getelementptr i8, ptr %.tr, i64 12
+  %.val828 = load i64, ptr %589, align 4
   br label %.loopexit
 
-591:                                              ; preds = %tailrecurse
-  %592 = getelementptr i8, ptr %.tr, i64 12
-  %.val830 = load i64, ptr %592, align 4
+590:                                              ; preds = %tailrecurse
+  %591 = getelementptr i8, ptr %.tr, i64 12
+  %.val830 = load i64, ptr %591, align 4
   br label %.loopexit
 
-593:                                              ; preds = %tailrecurse
-  %594 = getelementptr i8, ptr %.tr, i64 12
-  %.val832 = load i64, ptr %594, align 4
+592:                                              ; preds = %tailrecurse
+  %593 = getelementptr i8, ptr %.tr, i64 12
+  %.val832 = load i64, ptr %593, align 4
   br label %.loopexit
 
-595:                                              ; preds = %tailrecurse
-  %596 = getelementptr i8, ptr %.tr, i64 12
-  %.val834 = load i64, ptr %596, align 4
+594:                                              ; preds = %tailrecurse
+  %595 = getelementptr i8, ptr %.tr, i64 12
+  %.val834 = load i64, ptr %595, align 4
   br label %.loopexit
 
-597:                                              ; preds = %tailrecurse
-  %598 = getelementptr i8, ptr %.tr, i64 12
-  %.val836 = load i64, ptr %598, align 4
+596:                                              ; preds = %tailrecurse
+  %597 = getelementptr i8, ptr %.tr, i64 12
+  %.val836 = load i64, ptr %597, align 4
   br label %.loopexit
 
-599:                                              ; preds = %tailrecurse
-  %600 = getelementptr i8, ptr %.tr, i64 12
-  %.val838 = load i64, ptr %600, align 4
+598:                                              ; preds = %tailrecurse
+  %599 = getelementptr i8, ptr %.tr, i64 12
+  %.val838 = load i64, ptr %599, align 4
   br label %.loopexit
 
-601:                                              ; preds = %tailrecurse
-  %602 = getelementptr i8, ptr %.tr, i64 12
-  %.val840 = load i64, ptr %602, align 4
+600:                                              ; preds = %tailrecurse
+  %601 = getelementptr i8, ptr %.tr, i64 12
+  %.val840 = load i64, ptr %601, align 4
   br label %.loopexit
 
-603:                                              ; preds = %tailrecurse
-  %604 = getelementptr i8, ptr %.tr, i64 12
-  %.val842 = load i64, ptr %604, align 4
+602:                                              ; preds = %tailrecurse
+  %603 = getelementptr i8, ptr %.tr, i64 12
+  %.val842 = load i64, ptr %603, align 4
   br label %.loopexit
 
-605:                                              ; preds = %tailrecurse
-  %606 = getelementptr i8, ptr %.tr, i64 12
-  %.val844 = load i64, ptr %606, align 4
+604:                                              ; preds = %tailrecurse
+  %605 = getelementptr i8, ptr %.tr, i64 12
+  %.val844 = load i64, ptr %605, align 4
   br label %.loopexit
 
-607:                                              ; preds = %tailrecurse
-  %608 = getelementptr i8, ptr %.tr, i64 12
-  %.val846 = load i64, ptr %608, align 4
+606:                                              ; preds = %tailrecurse
+  %607 = getelementptr i8, ptr %.tr, i64 12
+  %.val846 = load i64, ptr %607, align 4
   br label %.loopexit
 
-609:                                              ; preds = %tailrecurse
-  %610 = getelementptr i8, ptr %.tr, i64 12
-  %.val848 = load i64, ptr %610, align 4
+608:                                              ; preds = %tailrecurse
+  %609 = getelementptr i8, ptr %.tr, i64 12
+  %.val848 = load i64, ptr %609, align 4
   br label %.loopexit
 
-611:                                              ; preds = %tailrecurse
-  %612 = getelementptr i8, ptr %.tr, i64 12
-  %.val850 = load i64, ptr %612, align 4
+610:                                              ; preds = %tailrecurse
+  %611 = getelementptr i8, ptr %.tr, i64 12
+  %.val850 = load i64, ptr %611, align 4
   br label %.loopexit
 
-613:                                              ; preds = %tailrecurse
-  %614 = getelementptr i8, ptr %.tr, i64 12
-  %.val852 = load i64, ptr %614, align 4
+612:                                              ; preds = %tailrecurse
+  %613 = getelementptr i8, ptr %.tr, i64 12
+  %.val852 = load i64, ptr %613, align 4
   br label %.loopexit
 
-615:                                              ; preds = %tailrecurse
-  %616 = getelementptr i8, ptr %.tr, i64 12
-  %.val854 = load i64, ptr %616, align 4
+614:                                              ; preds = %tailrecurse
+  %615 = getelementptr i8, ptr %.tr, i64 12
+  %.val854 = load i64, ptr %615, align 4
   br label %.loopexit
 
-617:                                              ; preds = %tailrecurse
-  %618 = getelementptr i8, ptr %.tr, i64 12
-  %.val856 = load i64, ptr %618, align 4
+616:                                              ; preds = %tailrecurse
+  %617 = getelementptr i8, ptr %.tr, i64 12
+  %.val856 = load i64, ptr %617, align 4
   br label %.loopexit
 
-619:                                              ; preds = %tailrecurse
-  %620 = getelementptr i8, ptr %.tr, i64 12
-  %.val858 = load i64, ptr %620, align 4
+618:                                              ; preds = %tailrecurse
+  %619 = getelementptr i8, ptr %.tr, i64 12
+  %.val858 = load i64, ptr %619, align 4
   br label %.loopexit
 
-621:                                              ; preds = %tailrecurse
-  %622 = getelementptr i8, ptr %.tr, i64 12
-  %.val860 = load i64, ptr %622, align 4
+620:                                              ; preds = %tailrecurse
+  %621 = getelementptr i8, ptr %.tr, i64 12
+  %.val860 = load i64, ptr %621, align 4
   br label %.loopexit
 
-623:                                              ; preds = %tailrecurse
-  %624 = getelementptr i8, ptr %.tr, i64 12
-  %.val862 = load i64, ptr %624, align 4
+622:                                              ; preds = %tailrecurse
+  %623 = getelementptr i8, ptr %.tr, i64 12
+  %.val862 = load i64, ptr %623, align 4
   br label %.loopexit
 
-625:                                              ; preds = %tailrecurse
-  %626 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val864 = load ptr, ptr %626, align 8, !tbaa !55
-  %627 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val864) #33
-  %628 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val864) #33
-  %.sroa.2.0.insert.ext.i1675 = zext i32 %628 to i64
+624:                                              ; preds = %tailrecurse
+  %625 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val864 = load ptr, ptr %625, align 8, !tbaa !55
+  %626 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val864) #33
+  %627 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val864) #33
+  %.sroa.2.0.insert.ext.i1675 = zext i32 %627 to i64
   %.sroa.2.0.insert.shift.i1676 = shl nuw i64 %.sroa.2.0.insert.ext.i1675, 32
-  %.sroa.0.0.insert.ext.i1677 = zext i32 %627 to i64
+  %.sroa.0.0.insert.ext.i1677 = zext i32 %626 to i64
   %.sroa.0.0.insert.insert.i1678 = or disjoint i64 %.sroa.2.0.insert.shift.i1676, %.sroa.0.0.insert.ext.i1677
   br label %.loopexit
 
-629:                                              ; preds = %tailrecurse
-  %630 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val865 = load i32, ptr %630, align 4, !tbaa !1055
+628:                                              ; preds = %tailrecurse
+  %629 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val865 = load i32, ptr %629, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1679 = zext i32 %.val865 to i64
   %.sroa.0.0.insert.insert.i1680 = mul nuw i64 %.sroa.2.0.insert.ext.i1679, 4294967297
   br label %.loopexit
 
-631:                                              ; preds = %tailrecurse
-  %632 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val866 = load i32, ptr %632, align 8, !tbaa !1055
-  %633 = getelementptr i8, ptr %.tr, i64 56
-  %.val867 = load ptr, ptr %633, align 8, !tbaa !1119
-  %634 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val867) #33
-  %.sroa.2.0.insert.ext.i1681 = zext i32 %634 to i64
+630:                                              ; preds = %tailrecurse
+  %631 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val866 = load i32, ptr %631, align 8, !tbaa !1055
+  %632 = getelementptr i8, ptr %.tr, i64 56
+  %.val867 = load ptr, ptr %632, align 8, !tbaa !1119
+  %633 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val867) #33
+  %.sroa.2.0.insert.ext.i1681 = zext i32 %633 to i64
   %.sroa.2.0.insert.shift.i1682 = shl nuw i64 %.sroa.2.0.insert.ext.i1681, 32
   %.sroa.0.0.insert.ext.i1683 = zext i32 %.val866 to i64
   %.sroa.0.0.insert.insert.i1684 = or disjoint i64 %.sroa.2.0.insert.shift.i1682, %.sroa.0.0.insert.ext.i1683
   br label %.loopexit
 
-635:                                              ; preds = %tailrecurse
-  %636 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val868 = load i32, ptr %636, align 4, !tbaa !1055
-  %637 = getelementptr i8, ptr %.tr, i64 16
-  %.val869 = load ptr, ptr %637, align 8, !tbaa !1121
-  %638 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val869) #33
-  %.sroa.2.0.insert.ext.i1685 = zext i32 %638 to i64
+634:                                              ; preds = %tailrecurse
+  %635 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val868 = load i32, ptr %635, align 4, !tbaa !1055
+  %636 = getelementptr i8, ptr %.tr, i64 16
+  %.val869 = load ptr, ptr %636, align 8, !tbaa !1121
+  %637 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val869) #33
+  %.sroa.2.0.insert.ext.i1685 = zext i32 %637 to i64
   %.sroa.2.0.insert.shift.i1686 = shl nuw i64 %.sroa.2.0.insert.ext.i1685, 32
   %.sroa.0.0.insert.ext.i1687 = zext i32 %.val868 to i64
   %.sroa.0.0.insert.insert.i1688 = or disjoint i64 %.sroa.2.0.insert.shift.i1686, %.sroa.0.0.insert.ext.i1687
   br label %.loopexit
 
-639:                                              ; preds = %tailrecurse
-  %640 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang6IfStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+638:                                              ; preds = %tailrecurse
+  %639 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang6IfStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-641:                                              ; preds = %tailrecurse
-  %642 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val870 = load i32, ptr %642, align 4, !tbaa !1055
-  %643 = getelementptr i8, ptr %.tr, i64 16
-  %.val871 = load i32, ptr %643, align 8, !tbaa !1055
+640:                                              ; preds = %tailrecurse
+  %641 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val870 = load i32, ptr %641, align 4, !tbaa !1055
+  %642 = getelementptr i8, ptr %.tr, i64 16
+  %.val871 = load i32, ptr %642, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i1689 = zext i32 %.val871 to i64
   %.sroa.2.0.insert.shift.i1690 = shl nuw i64 %.sroa.2.0.insert.ext.i1689, 32
   %.sroa.0.0.insert.ext.i1691 = zext i32 %.val870 to i64
   %.sroa.0.0.insert.insert.i1692 = or disjoint i64 %.sroa.2.0.insert.shift.i1690, %.sroa.0.0.insert.ext.i1691
   br label %.loopexit
 
-644:                                              ; preds = %tailrecurse
-  %645 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val872 = load i32, ptr %645, align 4, !tbaa !1055
-  %646 = getelementptr i8, ptr %.tr, i64 40
-  %.val873 = load ptr, ptr %646, align 8, !tbaa !55
-  %647 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val873) #33
-  %.sroa.2.0.insert.ext.i1693 = zext i32 %647 to i64
+643:                                              ; preds = %tailrecurse
+  %644 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val872 = load i32, ptr %644, align 4, !tbaa !1055
+  %645 = getelementptr i8, ptr %.tr, i64 40
+  %.val873 = load ptr, ptr %645, align 8, !tbaa !55
+  %646 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val873) #33
+  %.sroa.2.0.insert.ext.i1693 = zext i32 %646 to i64
   %.sroa.2.0.insert.shift.i1694 = shl nuw i64 %.sroa.2.0.insert.ext.i1693, 32
   %.sroa.0.0.insert.ext.i1695 = zext i32 %.val872 to i64
   %.sroa.0.0.insert.insert.i1696 = or disjoint i64 %.sroa.2.0.insert.shift.i1694, %.sroa.0.0.insert.ext.i1695
   br label %.loopexit
 
-648:                                              ; preds = %tailrecurse
-  %649 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val874 = load i32, ptr %649, align 4, !tbaa !1055
-  %650 = getelementptr i8, ptr %.tr, i64 28
-  %.val875 = load i32, ptr %650, align 4, !tbaa !1055
+647:                                              ; preds = %tailrecurse
+  %648 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val874 = load i32, ptr %648, align 4, !tbaa !1055
+  %649 = getelementptr i8, ptr %.tr, i64 28
+  %.val875 = load i32, ptr %649, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1697 = zext i32 %.val875 to i64
   %.sroa.2.0.insert.shift.i1698 = shl nuw i64 %.sroa.2.0.insert.ext.i1697, 32
   %.sroa.0.0.insert.ext.i1699 = zext i32 %.val874 to i64
   %.sroa.0.0.insert.insert.i1700 = or disjoint i64 %.sroa.2.0.insert.shift.i1698, %.sroa.0.0.insert.ext.i1699
   br label %.loopexit
 
-651:                                              ; preds = %tailrecurse
-  %652 = getelementptr i8, ptr %.tr, i64 16
-  %.val876 = load i64, ptr %652, align 8
+650:                                              ; preds = %tailrecurse
+  %651 = getelementptr i8, ptr %.tr, i64 16
+  %.val876 = load i64, ptr %651, align 8
   br label %.loopexit
 
-653:                                              ; preds = %tailrecurse
-  %654 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17CoroutineBodyStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
+652:                                              ; preds = %tailrecurse
+  %653 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17CoroutineBodyStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
-655:                                              ; preds = %tailrecurse
-  %656 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val878 = load i32, ptr %656, align 8, !tbaa !1055
-  %657 = getelementptr i8, ptr %.tr, i64 16
-  %.val879 = load ptr, ptr %657, align 8, !tbaa !55
+654:                                              ; preds = %tailrecurse
+  %655 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val878 = load i32, ptr %655, align 8, !tbaa !1055
+  %656 = getelementptr i8, ptr %.tr, i64 16
+  %.val879 = load ptr, ptr %656, align 8, !tbaa !55
   %.not.i.i1705 = icmp eq ptr %.val879, null
-  br i1 %.not.i.i1705, label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CoreturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, label %658
+  br i1 %.not.i.i1705, label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CoreturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, label %657
 
-658:                                              ; preds = %655
-  %659 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val879) #33
+657:                                              ; preds = %654
+  %658 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val879) #33
   br label %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CoreturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit
 
-_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CoreturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %655, %658
-  %.sroa.0.0.i.i1706 = phi i32 [ %659, %658 ], [ %.val878, %655 ]
+_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CoreturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit: ; preds = %654, %657
+  %.sroa.0.0.i.i1706 = phi i32 [ %658, %657 ], [ %.val878, %654 ]
   %.sroa.2.0.insert.ext.i1707 = zext i32 %.sroa.0.0.i.i1706 to i64
   %.sroa.2.0.insert.shift.i1708 = shl nuw i64 %.sroa.2.0.insert.ext.i1707, 32
   %.sroa.0.0.insert.ext.i1709 = zext i32 %.val878 to i64
   %.sroa.0.0.insert.insert.i1710 = or disjoint i64 %.sroa.2.0.insert.shift.i1708, %.sroa.0.0.insert.ext.i1709
   br label %.loopexit
 
-660:                                              ; preds = %tailrecurse
-  %661 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val880 = load i32, ptr %661, align 4, !tbaa !1055
+659:                                              ; preds = %tailrecurse
+  %660 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val880 = load i32, ptr %660, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1711 = zext i32 %.val880 to i64
   %.sroa.0.0.insert.insert.i1712 = mul nuw i64 %.sroa.2.0.insert.ext.i1711, 4294967297
   br label %.loopexit
 
-662:                                              ; preds = %tailrecurse
-  %663 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val881 = load i64, ptr %663, align 8
+661:                                              ; preds = %tailrecurse
+  %662 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val881 = load i64, ptr %662, align 8
   br label %.loopexit
 
-664:                                              ; preds = %tailrecurse
-  %665 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %666 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %667 = load i32, ptr %666, align 8, !tbaa !49
-  %668 = zext i32 %667 to i64
-  %669 = getelementptr inbounds nuw ptr, ptr %665, i64 %668
+663:                                              ; preds = %tailrecurse
+  %664 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %665 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %666 = load i32, ptr %665, align 8, !tbaa !49
+  %667 = zext i32 %666 to i64
+  %668 = getelementptr inbounds nuw ptr, ptr %664, i64 %667
   br label %tailrecurse.backedge
 
-670:                                              ; preds = %tailrecurse
-  %671 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.sroa.0.0.copyload.i.i.i1717 = load i32, ptr %671, align 8, !tbaa !1055
-  %672 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %673 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
-  %674 = load i32, ptr %673, align 4, !tbaa !1025
-  %675 = zext i32 %674 to i64
-  %676 = getelementptr inbounds nuw ptr, ptr %672, i64 %675
-  %677 = load ptr, ptr %676, align 8, !tbaa !55
-  %678 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %677) #33
-  %.sroa.2.0.insert.ext.i1718 = zext i32 %678 to i64
+669:                                              ; preds = %tailrecurse
+  %670 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.sroa.0.0.copyload.i.i.i1717 = load i32, ptr %670, align 8, !tbaa !1055
+  %671 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %672 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
+  %673 = load i32, ptr %672, align 4, !tbaa !1025
+  %674 = zext i32 %673 to i64
+  %675 = getelementptr inbounds nuw ptr, ptr %671, i64 %674
+  %676 = load ptr, ptr %675, align 8, !tbaa !55
+  %677 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %676) #33
+  %.sroa.2.0.insert.ext.i1718 = zext i32 %677 to i64
   %.sroa.2.0.insert.shift.i1719 = shl nuw i64 %.sroa.2.0.insert.ext.i1718, 32
   %.sroa.0.0.insert.ext.i1720 = zext i32 %.sroa.0.0.copyload.i.i.i1717 to i64
   %.sroa.0.0.insert.insert.i1721 = or disjoint i64 %.sroa.2.0.insert.shift.i1719, %.sroa.0.0.insert.ext.i1720
   br label %.loopexit
 
-679:                                              ; preds = %tailrecurse
-  %680 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val883 = load i32, ptr %680, align 8, !tbaa !1055
-  %681 = getelementptr i8, ptr %.tr, i64 72
-  %.val884 = load ptr, ptr %681, align 8, !tbaa !55
-  %682 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val884) #33
-  %.sroa.2.0.insert.ext.i1722 = zext i32 %682 to i64
+678:                                              ; preds = %tailrecurse
+  %679 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val883 = load i32, ptr %679, align 8, !tbaa !1055
+  %680 = getelementptr i8, ptr %.tr, i64 72
+  %.val884 = load ptr, ptr %680, align 8, !tbaa !55
+  %681 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val884) #33
+  %.sroa.2.0.insert.ext.i1722 = zext i32 %681 to i64
   %.sroa.2.0.insert.shift.i1723 = shl nuw i64 %.sroa.2.0.insert.ext.i1722, 32
   %.sroa.0.0.insert.ext.i1724 = zext i32 %.val883 to i64
   %.sroa.0.0.insert.insert.i1725 = or disjoint i64 %.sroa.2.0.insert.shift.i1723, %.sroa.0.0.insert.ext.i1724
   br label %.loopexit
 
-683:                                              ; preds = %tailrecurse
-  %684 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val885 = load i32, ptr %684, align 8, !tbaa !1055
-  %685 = getelementptr i8, ptr %.tr, i64 24
-  %.val886 = load ptr, ptr %685, align 8, !tbaa !1123
-  %686 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val886) #33
-  %.sroa.2.0.insert.ext.i1726 = zext i32 %686 to i64
+682:                                              ; preds = %tailrecurse
+  %683 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val885 = load i32, ptr %683, align 8, !tbaa !1055
+  %684 = getelementptr i8, ptr %.tr, i64 24
+  %.val886 = load ptr, ptr %684, align 8, !tbaa !1123
+  %685 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val886) #33
+  %.sroa.2.0.insert.ext.i1726 = zext i32 %685 to i64
   %.sroa.2.0.insert.shift.i1727 = shl nuw i64 %.sroa.2.0.insert.ext.i1726, 32
   %.sroa.0.0.insert.ext.i1728 = zext i32 %.val885 to i64
   %.sroa.0.0.insert.insert.i1729 = or disjoint i64 %.sroa.2.0.insert.shift.i1727, %.sroa.0.0.insert.ext.i1728
   br label %.loopexit
 
-687:                                              ; preds = %tailrecurse
-  %688 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val887 = load i32, ptr %688, align 4, !tbaa !1055
+686:                                              ; preds = %tailrecurse
+  %687 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val887 = load i32, ptr %687, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1730 = zext i32 %.val887 to i64
   %.sroa.0.0.insert.insert.i1731 = mul nuw i64 %.sroa.2.0.insert.ext.i1730, 4294967297
   br label %.loopexit
 
-689:                                              ; preds = %tailrecurse
-  %690 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val888 = load i32, ptr %690, align 8, !tbaa !1055
-  %691 = getelementptr i8, ptr %.tr, i64 44
-  %.val889 = load i32, ptr %691, align 4, !tbaa !1055
+688:                                              ; preds = %tailrecurse
+  %689 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val888 = load i32, ptr %689, align 8, !tbaa !1055
+  %690 = getelementptr i8, ptr %.tr, i64 44
+  %.val889 = load i32, ptr %690, align 4, !tbaa !1055
   %.sroa.2.0.insert.ext.i1732 = zext i32 %.val889 to i64
   %.sroa.2.0.insert.shift.i1733 = shl nuw i64 %.sroa.2.0.insert.ext.i1732, 32
   %.sroa.0.0.insert.ext.i1734 = zext i32 %.val888 to i64
   %.sroa.0.0.insert.insert.i1735 = or disjoint i64 %.sroa.2.0.insert.shift.i1733, %.sroa.0.0.insert.ext.i1734
   br label %.loopexit
 
-692:                                              ; preds = %tailrecurse
-  %693 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.val890 = load i32, ptr %693, align 8, !tbaa !1055
-  %694 = getelementptr i8, ptr %.tr, i64 40
-  %.val891 = load i32, ptr %694, align 8, !tbaa !1055
+691:                                              ; preds = %tailrecurse
+  %692 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.val890 = load i32, ptr %692, align 8, !tbaa !1055
+  %693 = getelementptr i8, ptr %.tr, i64 40
+  %.val891 = load i32, ptr %693, align 8, !tbaa !1055
   %.sroa.2.0.insert.ext.i1736 = zext i32 %.val891 to i64
   %.sroa.2.0.insert.shift.i1737 = shl nuw i64 %.sroa.2.0.insert.ext.i1736, 32
   %.sroa.0.0.insert.ext.i1738 = zext i32 %.val890 to i64
   %.sroa.0.0.insert.insert.i1739 = or disjoint i64 %.sroa.2.0.insert.shift.i1737, %.sroa.0.0.insert.ext.i1738
   br label %.loopexit
 
-695:                                              ; preds = %tailrecurse
+694:                                              ; preds = %tailrecurse
   unreachable
 
-.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %692, %689, %687, %683, %679, %670, %662, %660, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CoreturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %653, %651, %648, %644, %641, %639, %635, %631, %629, %625, %623, %621, %619, %617, %615, %613, %611, %609, %607, %605, %603, %601, %599, %597, %595, %593, %591, %589, %587, %585, %583, %581, %579, %577, %575, %573, %571, %569, %567, %565, %563, %561, %559, %557, %555, %553, %551, %549, %547, %545, %543, %541, %539, %537, %535, %533, %531, %529, %527, %525, %523, %521, %519, %517, %515, %513, %511, %509, %507, %505, %503, %501, %499, %497, %495, %493, %491, %489, %487, %485, %483, %481, %479, %477, %475, %471, %467, %463, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %455, %451, %447, %445, %443, %441, %439, %437, %435, %433, %431, %429, %427, %425, %423, %421, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10ReturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %412, %408, %406, %402, %398, %394, %392, %388, %383, %378, %376, %373, %369, %365, %363, %361, %359, %354, %349, %347, %343, %341, %338, %335, %333, %329, %327, %325, %323, %321, %319, %317, %315, %310, %308, %305, %301, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CXXThrowExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %294, %292, %290, %287, %284, %282, %280, %277, %275, %271, %268, %266, %264, %262, %260, %258, %254, %250, %248, %246, %244, %241, %239, %235, %231, %228, %224, %222, %219, %216, %214, %212, %208, %206, %204, %200, %196, %194, %192, %189, %185, %181, %178, %176, %173, %171, %167, %164, %160, %157, %148, %145, %143, %141, %139, %137, %135, %133, %129, %125, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %113, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19ObjCPropertyRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %99, %97, %93, %89, %87, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15OpaqueValueExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %79, %77, %75, %71, %67, %65, %63, %61, %57, %55, %52, %50, %47, %45, %42, %40, %38, %31, %29, %27, %25, %23, %21, %19, %17, %13, %4
-  %.sroa.0511.0 = phi i64 [ %.sroa.0.0.insert.insert.i1739, %692 ], [ %.sroa.0.0.insert.insert.i, %4 ], [ %.sroa.0.0.insert.insert.i895, %13 ], [ %.val513, %17 ], [ %20, %19 ], [ %.val515, %21 ], [ %.sroa.0.0.insert.insert.i905, %23 ], [ %.val518, %25 ], [ %.sroa.0.0.insert.insert.i911, %27 ], [ %.sroa.0.0.insert.insert.i913, %29 ], [ %.sroa.0.0.insert.insert.i917, %31 ], [ %.val522, %38 ], [ %.val524, %40 ], [ %.sroa.0.0.insert.insert.i929, %42 ], [ %.val528, %45 ], [ %.sroa.0.0.insert.insert.i937, %47 ], [ %.sroa.0.0.insert.insert.i939, %50 ], [ %.sroa.0.0.insert.insert.i943, %52 ], [ %.val535, %55 ], [ %.sroa.0.0.insert.insert.i951, %57 ], [ %.sroa.0.0.insert.insert.i953, %61 ], [ %.val539, %63 ], [ %.val541, %65 ], [ %.sroa.0.0.insert.insert.i965, %67 ], [ %.sroa.0.0.insert.insert.i969, %71 ], [ %76, %75 ], [ %78, %77 ], [ %.sroa.0.0.insert.insert.i971, %79 ], [ %.sroa.0.0.insert.insert.i975, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15OpaqueValueExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.val550, %87 ], [ %.sroa.0.0.insert.insert.i983, %89 ], [ %.sroa.0.0.insert.insert.i987, %93 ], [ %.val556, %97 ], [ %.sroa.0.0.insert.insert.i995, %99 ], [ %.sroa.0.0.insert.insert.i1001, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19ObjCPropertyRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.val560, %113 ], [ %.sroa.0.0.insert.insert.i1013, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.sroa.0.0.insert.insert.i1017, %125 ], [ %.sroa.0.0.insert.insert.i1021, %129 ], [ %.val565, %133 ], [ %.val567, %135 ], [ %.val568, %137 ], [ %.sroa.0.0.insert.insert.i1027, %139 ], [ %.val570, %141 ], [ %.val571, %143 ], [ %.sroa.0.0.insert.insert.i1031, %145 ], [ %.sroa.0.0.insert.insert.i1036, %148 ], [ %.sroa.0.0.insert.insert.i1040, %157 ], [ %.sroa.0.0.insert.insert.i1044, %160 ], [ %166, %164 ], [ %.sroa.0.0.insert.insert.i1048, %167 ], [ %172, %171 ], [ %.sroa.0.0.insert.insert.i1052, %173 ], [ %.sroa.0.0.insert.insert.i1054, %176 ], [ %.sroa.0.0.insert.insert.i1058, %178 ], [ %.sroa.0.0.insert.insert.i1062, %181 ], [ %.sroa.0.0.insert.insert.i1066, %185 ], [ %.sroa.0.0.insert.insert.i1070, %189 ], [ %.sroa.0.0.insert.insert.i1072, %192 ], [ %.sroa.0.0.insert.insert.i1074, %194 ], [ %.sroa.0.0.insert.insert.i1078, %196 ], [ %.sroa.0.0.insert.insert.i1082, %200 ], [ %.sroa.0.0.insert.insert.i1084, %204 ], [ %.sroa.0.0.insert.insert.i1086, %206 ], [ %.sroa.0.0.insert.insert.i1090, %208 ], [ %.val594, %212 ], [ %.sroa.0.0.insert.insert.i1096, %214 ], [ %.sroa.0.0.insert.insert.i1100, %216 ], [ %.sroa.0.0.insert.insert.i1104, %219 ], [ %223, %222 ], [ %.sroa.0.0.insert.insert.i1108, %224 ], [ %.sroa.0.0.insert.insert.i1112, %228 ], [ %.sroa.0.0.insert.insert.i1116, %231 ], [ %.sroa.0.0.insert.insert.i1120, %235 ], [ %.val603, %239 ], [ %243, %241 ], [ %245, %244 ], [ %.val606, %246 ], [ %.sroa.0.0.insert.insert.i1130, %248 ], [ %.sroa.0.0.insert.insert.i1134, %250 ], [ %.sroa.0.0.insert.insert.i1138, %254 ], [ %.val612, %258 ], [ %.val614, %260 ], [ %.val616, %262 ], [ %.val618, %264 ], [ %.val620, %266 ], [ %.sroa.0.0.insert.insert.i1162, %268 ], [ %.sroa.0.0.insert.insert.i1166, %271 ], [ %.val624, %275 ], [ %.sroa.0.0.insert.insert.i1174, %277 ], [ %281, %280 ], [ %.val626, %282 ], [ %.sroa.0.0.insert.insert.i1178, %284 ], [ %.sroa.0.0.insert.insert.i1182, %287 ], [ %.val627, %290 ], [ %293, %292 ], [ %.val628, %294 ], [ %.sroa.0.0.insert.insert.i1188, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CXXThrowExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.sroa.0.0.insert.insert.i1190, %301 ], [ %.sroa.0.0.insert.insert.i1195, %305 ], [ %309, %308 ], [ %.sroa.0.0.insert.insert.i1199, %310 ], [ %.val632, %315 ], [ %.sroa.0.0.insert.insert.i1201, %317 ], [ %.val634, %319 ], [ %.val635, %321 ], [ %.sroa.0.0.insert.insert.i1203, %323 ], [ %326, %325 ], [ %328, %327 ], [ %.sroa.0.0.insert.insert.i1207, %329 ], [ %.sroa.0.0.insert.insert.i1209, %333 ], [ %.sroa.0.0.insert.insert.i1213, %335 ], [ %.sroa.0.0.insert.insert.i1217, %338 ], [ %.sroa.0.0.insert.insert.i1219, %341 ], [ %.sroa.0.0.insert.insert.i1223, %343 ], [ %348, %347 ], [ %.sroa.0.0.insert.insert.i1227, %349 ], [ %.sroa.0.0.insert.insert.i1231, %354 ], [ %.val646, %359 ], [ %.val648, %361 ], [ %.val650, %363 ], [ %.sroa.0.0.insert.insert.i1247, %365 ], [ %.sroa.0.0.insert.insert.i1251, %369 ], [ %375, %373 ], [ %.val657, %376 ], [ %.sroa.0.0.insert.insert.i1259, %378 ], [ %.sroa.0.0.insert.insert.i1263, %383 ], [ %.sroa.0.0.insert.insert.i1267, %388 ], [ %393, %392 ], [ %.sroa.0.0.insert.insert.i1271, %394 ], [ %399, %398 ], [ %.sroa.0.0.insert.insert.i1275, %402 ], [ %.sroa.0.0.insert.insert.i1277, %406 ], [ %.sroa.0.0.insert.insert.i1281, %408 ], [ %.sroa.0.0.insert.insert.i1285, %412 ], [ %.sroa.0.0.insert.insert.i1291, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10ReturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.val676, %421 ], [ %.val678, %423 ], [ %.val680, %425 ], [ %.val682, %427 ], [ %.val684, %429 ], [ %.val686, %431 ], [ %.val688, %433 ], [ %.val690, %435 ], [ %.val692, %437 ], [ %.val694, %439 ], [ %.val696, %441 ], [ %.val698, %443 ], [ %.val700, %445 ], [ %.sroa.0.0.insert.insert.i1347, %447 ], [ %.sroa.0.0.insert.insert.i1351, %451 ], [ %.sroa.0.0.insert.insert.i1356, %455 ], [ %.sroa.0.0.insert.insert.i1362, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.sroa.0.0.insert.insert.i1366, %463 ], [ %.sroa.0.0.insert.insert.i1370, %467 ], [ %.sroa.0.0.insert.insert.i1374, %471 ], [ %.val714, %475 ], [ %.val716, %477 ], [ %.val718, %479 ], [ %.val720, %481 ], [ %.val722, %483 ], [ %.val724, %485 ], [ %.val726, %487 ], [ %.val728, %489 ], [ %.val730, %491 ], [ %.val732, %493 ], [ %.val734, %495 ], [ %.val736, %497 ], [ %.val738, %499 ], [ %.val740, %501 ], [ %.val742, %503 ], [ %.val744, %505 ], [ %.val746, %507 ], [ %.val748, %509 ], [ %.val750, %511 ], [ %.val752, %513 ], [ %.val754, %515 ], [ %.val756, %517 ], [ %.val758, %519 ], [ %.val760, %521 ], [ %.val762, %523 ], [ %.val764, %525 ], [ %.val766, %527 ], [ %.val768, %529 ], [ %.val770, %531 ], [ %.val772, %533 ], [ %.val774, %535 ], [ %.val776, %537 ], [ %.val778, %539 ], [ %.val780, %541 ], [ %.val782, %543 ], [ %.val784, %545 ], [ %.val786, %547 ], [ %.val788, %549 ], [ %.val790, %551 ], [ %.val792, %553 ], [ %.val794, %555 ], [ %.val796, %557 ], [ %.val798, %559 ], [ %.val800, %561 ], [ %.val802, %563 ], [ %.val804, %565 ], [ %.val806, %567 ], [ %.val808, %569 ], [ %.val810, %571 ], [ %.val812, %573 ], [ %.val814, %575 ], [ %.val816, %577 ], [ %.val818, %579 ], [ %.val820, %581 ], [ %.val822, %583 ], [ %.val824, %585 ], [ %.val826, %587 ], [ %.val828, %589 ], [ %.val830, %591 ], [ %.val832, %593 ], [ %.val834, %595 ], [ %.val836, %597 ], [ %.val838, %599 ], [ %.val840, %601 ], [ %.val842, %603 ], [ %.val844, %605 ], [ %.val846, %607 ], [ %.val848, %609 ], [ %.val850, %611 ], [ %.val852, %613 ], [ %.val854, %615 ], [ %.val856, %617 ], [ %.val858, %619 ], [ %.val860, %621 ], [ %.val862, %623 ], [ %.sroa.0.0.insert.insert.i1678, %625 ], [ %.sroa.0.0.insert.insert.i1680, %629 ], [ %.sroa.0.0.insert.insert.i1684, %631 ], [ %.sroa.0.0.insert.insert.i1688, %635 ], [ %640, %639 ], [ %.sroa.0.0.insert.insert.i1692, %641 ], [ %.sroa.0.0.insert.insert.i1696, %644 ], [ %.sroa.0.0.insert.insert.i1700, %648 ], [ %.val876, %651 ], [ %654, %653 ], [ %.sroa.0.0.insert.insert.i1710, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CoreturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.sroa.0.0.insert.insert.i1712, %660 ], [ %.val881, %662 ], [ %.sroa.0.0.insert.insert.i1721, %670 ], [ %.sroa.0.0.insert.insert.i1725, %679 ], [ %.sroa.0.0.insert.insert.i1729, %683 ], [ %.sroa.0.0.insert.insert.i1731, %687 ], [ %.sroa.0.0.insert.insert.i1735, %689 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
+.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %691, %688, %686, %682, %678, %669, %661, %659, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CoreturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %652, %650, %647, %643, %640, %638, %634, %630, %628, %624, %622, %620, %618, %616, %614, %612, %610, %608, %606, %604, %602, %600, %598, %596, %594, %592, %590, %588, %586, %584, %582, %580, %578, %576, %574, %572, %570, %568, %566, %564, %562, %560, %558, %556, %554, %552, %550, %548, %546, %544, %542, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %506, %504, %502, %500, %498, %496, %494, %492, %490, %488, %486, %484, %482, %480, %478, %476, %474, %470, %466, %462, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %454, %450, %446, %444, %442, %440, %438, %436, %434, %432, %430, %428, %426, %424, %422, %420, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10ReturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %411, %407, %405, %401, %397, %393, %391, %387, %382, %377, %375, %372, %368, %364, %362, %360, %358, %353, %348, %346, %342, %340, %337, %334, %332, %328, %326, %324, %322, %320, %318, %316, %314, %309, %307, %304, %300, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CXXThrowExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %293, %291, %289, %286, %283, %281, %279, %276, %274, %270, %267, %265, %263, %261, %259, %257, %253, %249, %247, %245, %243, %240, %238, %234, %230, %227, %223, %221, %218, %215, %213, %211, %207, %205, %203, %199, %195, %193, %191, %188, %184, %180, %177, %175, %172, %170, %166, %163, %159, %156, %147, %144, %142, %140, %138, %136, %134, %132, %128, %124, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %112, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19ObjCPropertyRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %98, %96, %92, %88, %86, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15OpaqueValueExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit, %78, %76, %74, %70, %66, %64, %62, %60, %56, %54, %51, %49, %46, %44, %41, %39, %37, %30, %28, %26, %24, %22, %20, %18, %16, %12, %4
+  %.sroa.0511.0 = phi i64 [ %.sroa.0.0.insert.insert.i1739, %691 ], [ %.sroa.0.0.insert.insert.i, %4 ], [ %.sroa.0.0.insert.insert.i895, %12 ], [ %.val513, %16 ], [ %19, %18 ], [ %.val515, %20 ], [ %.sroa.0.0.insert.insert.i905, %22 ], [ %.val518, %24 ], [ %.sroa.0.0.insert.insert.i911, %26 ], [ %.sroa.0.0.insert.insert.i913, %28 ], [ %.sroa.0.0.insert.insert.i917, %30 ], [ %.val522, %37 ], [ %.val524, %39 ], [ %.sroa.0.0.insert.insert.i929, %41 ], [ %.val528, %44 ], [ %.sroa.0.0.insert.insert.i937, %46 ], [ %.sroa.0.0.insert.insert.i939, %49 ], [ %.sroa.0.0.insert.insert.i943, %51 ], [ %.val535, %54 ], [ %.sroa.0.0.insert.insert.i951, %56 ], [ %.sroa.0.0.insert.insert.i953, %60 ], [ %.val539, %62 ], [ %.val541, %64 ], [ %.sroa.0.0.insert.insert.i965, %66 ], [ %.sroa.0.0.insert.insert.i969, %70 ], [ %75, %74 ], [ %77, %76 ], [ %.sroa.0.0.insert.insert.i971, %78 ], [ %.sroa.0.0.insert.insert.i975, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15OpaqueValueExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.val550, %86 ], [ %.sroa.0.0.insert.insert.i983, %88 ], [ %.sroa.0.0.insert.insert.i987, %92 ], [ %.val556, %96 ], [ %.sroa.0.0.insert.insert.i995, %98 ], [ %.sroa.0.0.insert.insert.i1001, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19ObjCPropertyRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.val560, %112 ], [ %.sroa.0.0.insert.insert.i1013, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.sroa.0.0.insert.insert.i1017, %124 ], [ %.sroa.0.0.insert.insert.i1021, %128 ], [ %.val565, %132 ], [ %.val567, %134 ], [ %.val568, %136 ], [ %.sroa.0.0.insert.insert.i1027, %138 ], [ %.val570, %140 ], [ %.val571, %142 ], [ %.sroa.0.0.insert.insert.i1031, %144 ], [ %.sroa.0.0.insert.insert.i1036, %147 ], [ %.sroa.0.0.insert.insert.i1040, %156 ], [ %.sroa.0.0.insert.insert.i1044, %159 ], [ %165, %163 ], [ %.sroa.0.0.insert.insert.i1048, %166 ], [ %171, %170 ], [ %.sroa.0.0.insert.insert.i1052, %172 ], [ %.sroa.0.0.insert.insert.i1054, %175 ], [ %.sroa.0.0.insert.insert.i1058, %177 ], [ %.sroa.0.0.insert.insert.i1062, %180 ], [ %.sroa.0.0.insert.insert.i1066, %184 ], [ %.sroa.0.0.insert.insert.i1070, %188 ], [ %.sroa.0.0.insert.insert.i1072, %191 ], [ %.sroa.0.0.insert.insert.i1074, %193 ], [ %.sroa.0.0.insert.insert.i1078, %195 ], [ %.sroa.0.0.insert.insert.i1082, %199 ], [ %.sroa.0.0.insert.insert.i1084, %203 ], [ %.sroa.0.0.insert.insert.i1086, %205 ], [ %.sroa.0.0.insert.insert.i1090, %207 ], [ %.val594, %211 ], [ %.sroa.0.0.insert.insert.i1096, %213 ], [ %.sroa.0.0.insert.insert.i1100, %215 ], [ %.sroa.0.0.insert.insert.i1104, %218 ], [ %222, %221 ], [ %.sroa.0.0.insert.insert.i1108, %223 ], [ %.sroa.0.0.insert.insert.i1112, %227 ], [ %.sroa.0.0.insert.insert.i1116, %230 ], [ %.sroa.0.0.insert.insert.i1120, %234 ], [ %.val603, %238 ], [ %242, %240 ], [ %244, %243 ], [ %.val606, %245 ], [ %.sroa.0.0.insert.insert.i1130, %247 ], [ %.sroa.0.0.insert.insert.i1134, %249 ], [ %.sroa.0.0.insert.insert.i1138, %253 ], [ %.val612, %257 ], [ %.val614, %259 ], [ %.val616, %261 ], [ %.val618, %263 ], [ %.val620, %265 ], [ %.sroa.0.0.insert.insert.i1162, %267 ], [ %.sroa.0.0.insert.insert.i1166, %270 ], [ %.val624, %274 ], [ %.sroa.0.0.insert.insert.i1174, %276 ], [ %280, %279 ], [ %.val626, %281 ], [ %.sroa.0.0.insert.insert.i1178, %283 ], [ %.sroa.0.0.insert.insert.i1182, %286 ], [ %.val627, %289 ], [ %292, %291 ], [ %.val628, %293 ], [ %.sroa.0.0.insert.insert.i1188, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CXXThrowExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.sroa.0.0.insert.insert.i1190, %300 ], [ %.sroa.0.0.insert.insert.i1195, %304 ], [ %308, %307 ], [ %.sroa.0.0.insert.insert.i1199, %309 ], [ %.val632, %314 ], [ %.sroa.0.0.insert.insert.i1201, %316 ], [ %.val634, %318 ], [ %.val635, %320 ], [ %.sroa.0.0.insert.insert.i1203, %322 ], [ %325, %324 ], [ %327, %326 ], [ %.sroa.0.0.insert.insert.i1207, %328 ], [ %.sroa.0.0.insert.insert.i1209, %332 ], [ %.sroa.0.0.insert.insert.i1213, %334 ], [ %.sroa.0.0.insert.insert.i1217, %337 ], [ %.sroa.0.0.insert.insert.i1219, %340 ], [ %.sroa.0.0.insert.insert.i1223, %342 ], [ %347, %346 ], [ %.sroa.0.0.insert.insert.i1227, %348 ], [ %.sroa.0.0.insert.insert.i1231, %353 ], [ %.val646, %358 ], [ %.val648, %360 ], [ %.val650, %362 ], [ %.sroa.0.0.insert.insert.i1247, %364 ], [ %.sroa.0.0.insert.insert.i1251, %368 ], [ %374, %372 ], [ %.val657, %375 ], [ %.sroa.0.0.insert.insert.i1259, %377 ], [ %.sroa.0.0.insert.insert.i1263, %382 ], [ %.sroa.0.0.insert.insert.i1267, %387 ], [ %392, %391 ], [ %.sroa.0.0.insert.insert.i1271, %393 ], [ %398, %397 ], [ %.sroa.0.0.insert.insert.i1275, %401 ], [ %.sroa.0.0.insert.insert.i1277, %405 ], [ %.sroa.0.0.insert.insert.i1281, %407 ], [ %.sroa.0.0.insert.insert.i1285, %411 ], [ %.sroa.0.0.insert.insert.i1291, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10ReturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.val676, %420 ], [ %.val678, %422 ], [ %.val680, %424 ], [ %.val682, %426 ], [ %.val684, %428 ], [ %.val686, %430 ], [ %.val688, %432 ], [ %.val690, %434 ], [ %.val692, %436 ], [ %.val694, %438 ], [ %.val696, %440 ], [ %.val698, %442 ], [ %.val700, %444 ], [ %.sroa.0.0.insert.insert.i1347, %446 ], [ %.sroa.0.0.insert.insert.i1351, %450 ], [ %.sroa.0.0.insert.insert.i1356, %454 ], [ %.sroa.0.0.insert.insert.i1362, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.sroa.0.0.insert.insert.i1366, %462 ], [ %.sroa.0.0.insert.insert.i1370, %466 ], [ %.sroa.0.0.insert.insert.i1374, %470 ], [ %.val714, %474 ], [ %.val716, %476 ], [ %.val718, %478 ], [ %.val720, %480 ], [ %.val722, %482 ], [ %.val724, %484 ], [ %.val726, %486 ], [ %.val728, %488 ], [ %.val730, %490 ], [ %.val732, %492 ], [ %.val734, %494 ], [ %.val736, %496 ], [ %.val738, %498 ], [ %.val740, %500 ], [ %.val742, %502 ], [ %.val744, %504 ], [ %.val746, %506 ], [ %.val748, %508 ], [ %.val750, %510 ], [ %.val752, %512 ], [ %.val754, %514 ], [ %.val756, %516 ], [ %.val758, %518 ], [ %.val760, %520 ], [ %.val762, %522 ], [ %.val764, %524 ], [ %.val766, %526 ], [ %.val768, %528 ], [ %.val770, %530 ], [ %.val772, %532 ], [ %.val774, %534 ], [ %.val776, %536 ], [ %.val778, %538 ], [ %.val780, %540 ], [ %.val782, %542 ], [ %.val784, %544 ], [ %.val786, %546 ], [ %.val788, %548 ], [ %.val790, %550 ], [ %.val792, %552 ], [ %.val794, %554 ], [ %.val796, %556 ], [ %.val798, %558 ], [ %.val800, %560 ], [ %.val802, %562 ], [ %.val804, %564 ], [ %.val806, %566 ], [ %.val808, %568 ], [ %.val810, %570 ], [ %.val812, %572 ], [ %.val814, %574 ], [ %.val816, %576 ], [ %.val818, %578 ], [ %.val820, %580 ], [ %.val822, %582 ], [ %.val824, %584 ], [ %.val826, %586 ], [ %.val828, %588 ], [ %.val830, %590 ], [ %.val832, %592 ], [ %.val834, %594 ], [ %.val836, %596 ], [ %.val838, %598 ], [ %.val840, %600 ], [ %.val842, %602 ], [ %.val844, %604 ], [ %.val846, %606 ], [ %.val848, %608 ], [ %.val850, %610 ], [ %.val852, %612 ], [ %.val854, %614 ], [ %.val856, %616 ], [ %.val858, %618 ], [ %.val860, %620 ], [ %.val862, %622 ], [ %.sroa.0.0.insert.insert.i1678, %624 ], [ %.sroa.0.0.insert.insert.i1680, %628 ], [ %.sroa.0.0.insert.insert.i1684, %630 ], [ %.sroa.0.0.insert.insert.i1688, %634 ], [ %639, %638 ], [ %.sroa.0.0.insert.insert.i1692, %640 ], [ %.sroa.0.0.insert.insert.i1696, %643 ], [ %.sroa.0.0.insert.insert.i1700, %647 ], [ %.val876, %650 ], [ %653, %652 ], [ %.sroa.0.0.insert.insert.i1710, %_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CoreturnStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE.exit ], [ %.sroa.0.0.insert.insert.i1712, %659 ], [ %.val881, %661 ], [ %.sroa.0.0.insert.insert.i1721, %669 ], [ %.sroa.0.0.insert.insert.i1725, %678 ], [ %.sroa.0.0.insert.insert.i1729, %682 ], [ %.sroa.0.0.insert.insert.i1731, %686 ], [ %.sroa.0.0.insert.insert.i1735, %688 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
   ret i64 %.sroa.0511.0
 }
 
@@ -10349,23 +10351,22 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang8CaseSt
   br label %3
 
 3:                                                ; preds = %3, %1
-  %4 = phi i16 [ %.pre, %1 ], [ %11, %3 ]
-  %.05.i = phi ptr [ %0, %1 ], [ %10, %3 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.05.i, i64 24
-  %6 = lshr i16 %4, 9
-  %.lobit.i.i.i.i = and i16 %6, 1
-  %7 = zext nneg i16 %.lobit.i.i.i.i to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !55
-  %11 = load i16, ptr %10, align 8
-  %12 = and i16 %11, 511
-  %.not.i = icmp eq i16 %12, 135
+  %4 = phi i16 [ %.pre, %1 ], [ %10, %3 ]
+  %.05.i = phi ptr [ %0, %1 ], [ %9, %3 ]
+  %5 = lshr i16 %4, 9
+  %.lobit.i.i.i.i = and i16 %5, 1
+  %6 = zext nneg i16 %.lobit.i.i.i.i to i64
+  %7 = getelementptr inbounds nuw ptr, ptr %.05.i, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %10 = load i16, ptr %9, align 8
+  %11 = and i16 %10, 511
+  %.not.i = icmp eq i16 %11, 135
   br i1 %.not.i, label %3, label %_ZNK5clang8CaseStmt9getEndLocEv.exit
 
 _ZNK5clang8CaseStmt9getEndLocEv.exit:             ; preds = %3
-  %13 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #34
-  %.sroa.2.0.insert.ext = zext i32 %13 to i64
+  %12 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #34
+  %.sroa.2.0.insert.ext = zext i32 %12 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.copyload.i.i to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
@@ -12352,769 +12353,771 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr = phi ptr [ %0, %1 ], [ %.tr.be, %tailrecurse.backedge ]
   %2 = load i16, ptr %.tr, align 8
   %3 = and i16 %2, 511
-  switch i16 %3, label %635 [
-    i16 256, label %633
+  switch i16 %3, label %633 [
+    i16 256, label %631
     i16 1, label %4
-    i16 2, label %11
-    i16 3, label %14
-    i16 4, label %16
-    i16 5, label %25
-    i16 6, label %27
-    i16 7, label %29
-    i16 8, label %31
-    i16 9, label %33
-    i16 10, label %35
-    i16 11, label %42
-    i16 12, label %44
-    i16 13, label %46
-    i16 14, label %48
-    i16 15, label %50
-    i16 16, label %52
-    i16 17, label %54
-    i16 18, label %56
-    i16 19, label %58
-    i16 20, label %61
-    i16 21, label %63
-    i16 22, label %65
-    i16 23, label %67
-    i16 24, label %69
-    i16 25, label %71
-    i16 26, label %73
-    i16 27, label %75
-    i16 28, label %77
-    i16 29, label %82
-    i16 30, label %84
-    i16 31, label %86
-    i16 32, label %89
-    i16 33, label %91
-    i16 34, label %93
-    i16 35, label %95
-    i16 36, label %97
-    i16 37, label %99
-    i16 38, label %101
-    i16 39, label %104
-    i16 40, label %106
-    i16 41, label %108
-    i16 42, label %110
-    i16 43, label %112
-    i16 44, label %114
-    i16 45, label %116
-    i16 46, label %118
+    i16 2, label %10
+    i16 3, label %13
+    i16 4, label %15
+    i16 5, label %24
+    i16 6, label %26
+    i16 7, label %28
+    i16 8, label %30
+    i16 9, label %32
+    i16 10, label %34
+    i16 11, label %40
+    i16 12, label %42
+    i16 13, label %44
+    i16 14, label %46
+    i16 15, label %48
+    i16 16, label %50
+    i16 17, label %52
+    i16 18, label %54
+    i16 19, label %56
+    i16 20, label %59
+    i16 21, label %61
+    i16 22, label %63
+    i16 23, label %65
+    i16 24, label %67
+    i16 25, label %69
+    i16 26, label %71
+    i16 27, label %73
+    i16 28, label %75
+    i16 29, label %80
+    i16 30, label %82
+    i16 31, label %84
+    i16 32, label %87
+    i16 33, label %89
+    i16 34, label %91
+    i16 35, label %93
+    i16 36, label %95
+    i16 37, label %97
+    i16 38, label %99
+    i16 39, label %102
+    i16 40, label %104
+    i16 41, label %106
+    i16 42, label %108
+    i16 43, label %110
+    i16 44, label %112
+    i16 45, label %114
+    i16 46, label %116
     i16 47, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-    i16 48, label %125
-    i16 49, label %127
-    i16 50, label %129
-    i16 51, label %138
-    i16 52, label %140
-    i16 53, label %142
-    i16 54, label %144
-    i16 55, label %146
+    i16 48, label %123
+    i16 49, label %125
+    i16 50, label %127
+    i16 51, label %136
+    i16 52, label %138
+    i16 53, label %140
+    i16 54, label %142
+    i16 55, label %144
     i16 56, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-    i16 57, label %148
-    i16 58, label %151
-    i16 59, label %154
-    i16 60, label %156
-    i16 61, label %158
-    i16 62, label %160
-    i16 63, label %163
-    i16 64, label %166
-    i16 65, label %168
-    i16 66, label %170
-    i16 67, label %172
-    i16 68, label %174
-    i16 69, label %176
-    i16 70, label %178
-    i16 71, label %180
-    i16 72, label %186
-    i16 73, label %189
-    i16 74, label %191
-    i16 75, label %194
-    i16 76, label %197
-    i16 77, label %199
-    i16 78, label %201
-    i16 79, label %204
-    i16 80, label %206
-    i16 81, label %208
-    i16 82, label %211
-    i16 83, label %214
-    i16 84, label %216
-    i16 85, label %218
-    i16 86, label %220
-    i16 87, label %222
-    i16 88, label %224
-    i16 89, label %226
-    i16 90, label %229
-    i16 91, label %231
-    i16 92, label %233
-    i16 93, label %235
-    i16 94, label %237
-    i16 95, label %239
-    i16 96, label %241
-    i16 97, label %243
-    i16 98, label %255
-    i16 99, label %257
-    i16 100, label %262
-    i16 101, label %264
-    i16 102, label %267
-    i16 103, label %269
-    i16 104, label %271
-    i16 105, label %273
-    i16 106, label %275
-    i16 107, label %277
-    i16 108, label %279
-    i16 109, label %281
-    i16 110, label %283
-    i16 111, label %285
-    i16 112, label %287
-    i16 113, label %290
+    i16 57, label %146
+    i16 58, label %149
+    i16 59, label %152
+    i16 60, label %154
+    i16 61, label %156
+    i16 62, label %158
+    i16 63, label %161
+    i16 64, label %164
+    i16 65, label %166
+    i16 66, label %168
+    i16 67, label %170
+    i16 68, label %172
+    i16 69, label %174
+    i16 70, label %176
+    i16 71, label %178
+    i16 72, label %184
+    i16 73, label %187
+    i16 74, label %189
+    i16 75, label %192
+    i16 76, label %195
+    i16 77, label %197
+    i16 78, label %199
+    i16 79, label %202
+    i16 80, label %204
+    i16 81, label %206
+    i16 82, label %209
+    i16 83, label %212
+    i16 84, label %214
+    i16 85, label %216
+    i16 86, label %218
+    i16 87, label %220
+    i16 88, label %222
+    i16 89, label %224
+    i16 90, label %227
+    i16 91, label %229
+    i16 92, label %231
+    i16 93, label %233
+    i16 94, label %235
+    i16 95, label %237
+    i16 96, label %239
+    i16 97, label %241
+    i16 98, label %253
+    i16 99, label %255
+    i16 100, label %260
+    i16 101, label %262
+    i16 102, label %265
+    i16 103, label %267
+    i16 104, label %269
+    i16 105, label %271
+    i16 106, label %273
+    i16 107, label %275
+    i16 108, label %277
+    i16 109, label %279
+    i16 110, label %281
+    i16 111, label %283
+    i16 112, label %285
+    i16 113, label %288
     i16 114, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-    i16 115, label %292
-    i16 116, label %294
-    i16 117, label %296
-    i16 118, label %298
-    i16 119, label %301
-    i16 120, label %303
-    i16 121, label %306
-    i16 122, label %309
-    i16 123, label %311
-    i16 124, label %313
-    i16 125, label %315
-    i16 126, label %317
-    i16 127, label %319
+    i16 115, label %290
+    i16 116, label %292
+    i16 117, label %294
+    i16 118, label %296
+    i16 119, label %299
+    i16 120, label %301
+    i16 121, label %304
+    i16 122, label %307
+    i16 123, label %309
+    i16 124, label %311
+    i16 125, label %313
+    i16 126, label %315
+    i16 127, label %317
     i16 128, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-    i16 129, label %326
-    i16 130, label %328
-    i16 131, label %331
-    i16 132, label %334
-    i16 133, label %337
-    i16 134, label %339
-    i16 135, label %342
-    i16 136, label %344
-    i16 137, label %348
-    i16 138, label %351
-    i16 139, label %353
-    i16 140, label %356
-    i16 141, label %360
-    i16 142, label %365
-    i16 143, label %367
-    i16 144, label %369
-    i16 145, label %371
-    i16 146, label %373
-    i16 147, label %375
-    i16 148, label %377
-    i16 149, label %379
-    i16 150, label %381
-    i16 151, label %383
-    i16 152, label %385
-    i16 153, label %387
-    i16 154, label %389
-    i16 155, label %391
-    i16 156, label %394
-    i16 157, label %397
-    i16 158, label %399
-    i16 159, label %404
-    i16 160, label %408
-    i16 161, label %411
-    i16 162, label %414
-    i16 163, label %416
-    i16 164, label %418
-    i16 165, label %420
-    i16 166, label %422
-    i16 167, label %424
-    i16 168, label %426
-    i16 169, label %428
-    i16 170, label %430
-    i16 171, label %432
-    i16 172, label %434
-    i16 173, label %436
-    i16 174, label %438
-    i16 175, label %440
-    i16 176, label %442
-    i16 177, label %444
-    i16 178, label %446
-    i16 179, label %448
-    i16 180, label %450
-    i16 181, label %452
-    i16 182, label %454
-    i16 183, label %456
-    i16 184, label %458
-    i16 185, label %460
-    i16 186, label %462
-    i16 187, label %464
-    i16 188, label %466
-    i16 189, label %468
-    i16 190, label %470
-    i16 191, label %472
-    i16 192, label %474
-    i16 193, label %476
-    i16 194, label %478
-    i16 195, label %480
-    i16 196, label %482
-    i16 197, label %484
-    i16 198, label %486
-    i16 199, label %488
-    i16 200, label %490
-    i16 201, label %492
-    i16 202, label %494
-    i16 203, label %496
-    i16 204, label %498
-    i16 205, label %500
-    i16 206, label %502
-    i16 207, label %504
-    i16 208, label %506
-    i16 209, label %508
-    i16 210, label %510
-    i16 211, label %512
-    i16 212, label %514
-    i16 213, label %516
-    i16 214, label %518
-    i16 215, label %520
-    i16 216, label %522
-    i16 217, label %524
-    i16 218, label %526
-    i16 219, label %528
-    i16 220, label %530
-    i16 221, label %532
-    i16 222, label %534
-    i16 223, label %536
-    i16 224, label %538
-    i16 225, label %540
-    i16 226, label %542
-    i16 227, label %544
-    i16 228, label %546
-    i16 229, label %548
-    i16 230, label %550
-    i16 231, label %552
-    i16 232, label %554
-    i16 233, label %556
-    i16 234, label %558
-    i16 235, label %560
-    i16 236, label %562
-    i16 237, label %564
-    i16 238, label %567
-    i16 239, label %569
-    i16 240, label %572
-    i16 241, label %575
-    i16 242, label %577
-    i16 243, label %579
-    i16 244, label %582
-    i16 245, label %584
-    i16 246, label %586
-    i16 247, label %600
-    i16 248, label %605
-    i16 249, label %607
-    i16 250, label %609
-    i16 251, label %616
-    i16 252, label %623
-    i16 253, label %626
-    i16 254, label %629
-    i16 255, label %631
+    i16 129, label %324
+    i16 130, label %326
+    i16 131, label %329
+    i16 132, label %332
+    i16 133, label %335
+    i16 134, label %337
+    i16 135, label %340
+    i16 136, label %342
+    i16 137, label %346
+    i16 138, label %349
+    i16 139, label %351
+    i16 140, label %354
+    i16 141, label %358
+    i16 142, label %363
+    i16 143, label %365
+    i16 144, label %367
+    i16 145, label %369
+    i16 146, label %371
+    i16 147, label %373
+    i16 148, label %375
+    i16 149, label %377
+    i16 150, label %379
+    i16 151, label %381
+    i16 152, label %383
+    i16 153, label %385
+    i16 154, label %387
+    i16 155, label %389
+    i16 156, label %392
+    i16 157, label %395
+    i16 158, label %397
+    i16 159, label %402
+    i16 160, label %406
+    i16 161, label %409
+    i16 162, label %412
+    i16 163, label %414
+    i16 164, label %416
+    i16 165, label %418
+    i16 166, label %420
+    i16 167, label %422
+    i16 168, label %424
+    i16 169, label %426
+    i16 170, label %428
+    i16 171, label %430
+    i16 172, label %432
+    i16 173, label %434
+    i16 174, label %436
+    i16 175, label %438
+    i16 176, label %440
+    i16 177, label %442
+    i16 178, label %444
+    i16 179, label %446
+    i16 180, label %448
+    i16 181, label %450
+    i16 182, label %452
+    i16 183, label %454
+    i16 184, label %456
+    i16 185, label %458
+    i16 186, label %460
+    i16 187, label %462
+    i16 188, label %464
+    i16 189, label %466
+    i16 190, label %468
+    i16 191, label %470
+    i16 192, label %472
+    i16 193, label %474
+    i16 194, label %476
+    i16 195, label %478
+    i16 196, label %480
+    i16 197, label %482
+    i16 198, label %484
+    i16 199, label %486
+    i16 200, label %488
+    i16 201, label %490
+    i16 202, label %492
+    i16 203, label %494
+    i16 204, label %496
+    i16 205, label %498
+    i16 206, label %500
+    i16 207, label %502
+    i16 208, label %504
+    i16 209, label %506
+    i16 210, label %508
+    i16 211, label %510
+    i16 212, label %512
+    i16 213, label %514
+    i16 214, label %516
+    i16 215, label %518
+    i16 216, label %520
+    i16 217, label %522
+    i16 218, label %524
+    i16 219, label %526
+    i16 220, label %528
+    i16 221, label %530
+    i16 222, label %532
+    i16 223, label %534
+    i16 224, label %536
+    i16 225, label %538
+    i16 226, label %540
+    i16 227, label %542
+    i16 228, label %544
+    i16 229, label %546
+    i16 230, label %548
+    i16 231, label %550
+    i16 232, label %552
+    i16 233, label %554
+    i16 234, label %556
+    i16 235, label %558
+    i16 236, label %560
+    i16 237, label %562
+    i16 238, label %565
+    i16 239, label %567
+    i16 240, label %570
+    i16 241, label %573
+    i16 242, label %575
+    i16 243, label %577
+    i16 244, label %580
+    i16 245, label %582
+    i16 246, label %584
+    i16 247, label %598
+    i16 248, label %603
+    i16 249, label %605
+    i16 250, label %607
+    i16 251, label %614
+    i16 252, label %621
+    i16 253, label %624
+    i16 254, label %627
+    i16 255, label %629
   ]
 
 4:                                                ; preds = %tailrecurse
-  %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %6 = lshr i16 %2, 9
-  %.lobit.i.i.i.i = and i16 %6, 1
-  %7 = zext nneg i16 %.lobit.i.i.i.i to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !55
+  %5 = lshr i16 %2, 9
+  %.lobit.i.i.i.i = and i16 %5, 1
+  %6 = zext nneg i16 %.lobit.i.i.i.i to i64
+  %7 = getelementptr inbounds nuw ptr, ptr %.tr, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
   br label %tailrecurse.backedge
 
-11:                                               ; preds = %tailrecurse
-  %12 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !1056
+10:                                               ; preds = %tailrecurse
+  %11 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !1056
   br label %tailrecurse.backedge
 
-14:                                               ; preds = %tailrecurse
-  %15 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i = load i32, ptr %15, align 4, !tbaa !1055
+13:                                               ; preds = %tailrecurse
+  %14 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
+  %.sroa.0.0.copyload.i = load i32, ptr %14, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-16:                                               ; preds = %tailrecurse
-  %17 = load i32, ptr %.tr, align 8
-  %18 = and i32 %17, 15728640
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %22
+15:                                               ; preds = %tailrecurse
+  %16 = load i32, ptr %.tr, align 8
+  %17 = and i32 %16, 15728640
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %21
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i829 = load i32, ptr %21, align 4, !tbaa !1055
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i829 = load i32, ptr %20, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !1125
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !1125
   br label %tailrecurse.backedge
 
-25:                                               ; preds = %tailrecurse
-  %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i1 = load i32, ptr %26, align 4, !tbaa !1055
+24:                                               ; preds = %tailrecurse
+  %25 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i1 = load i32, ptr %25, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-27:                                               ; preds = %tailrecurse
-  %28 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i2 = load i32, ptr %28, align 8, !tbaa !1055
+26:                                               ; preds = %tailrecurse
+  %27 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i2 = load i32, ptr %27, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-29:                                               ; preds = %tailrecurse
-  %30 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i3 = load i32, ptr %30, align 4, !tbaa !1055
+28:                                               ; preds = %tailrecurse
+  %29 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i3 = load i32, ptr %29, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-31:                                               ; preds = %tailrecurse
-  %32 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i4 = load i32, ptr %32, align 4, !tbaa !1055
+30:                                               ; preds = %tailrecurse
+  %31 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
+  %.sroa.0.0.copyload.i4 = load i32, ptr %31, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-33:                                               ; preds = %tailrecurse
-  %34 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i = load i32, ptr %34, align 4, !tbaa !1055
+32:                                               ; preds = %tailrecurse
+  %33 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i = load i32, ptr %33, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-35:                                               ; preds = %tailrecurse
-  %36 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %37 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %38 = load i32, ptr %37, align 4, !tbaa !57
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 -4
-  %.sroa.0.0.copyload.i5 = load i32, ptr %41, align 4, !tbaa !1055
+34:                                               ; preds = %tailrecurse
+  %35 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %36 = load i32, ptr %35, align 4, !tbaa !57
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %.tr, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %.sroa.0.0.copyload.i5 = load i32, ptr %39, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
+40:                                               ; preds = %tailrecurse
+  %41 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i6 = load i32, ptr %41, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 42:                                               ; preds = %tailrecurse
-  %43 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i6 = load i32, ptr %43, align 4, !tbaa !1055
+  %43 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i7 = load i32, ptr %43, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 44:                                               ; preds = %tailrecurse
-  %45 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i7 = load i32, ptr %45, align 4, !tbaa !1055
+  %45 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.sroa.0.0.copyload.i8 = load i32, ptr %45, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 46:                                               ; preds = %tailrecurse
-  %47 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.sroa.0.0.copyload.i8 = load i32, ptr %47, align 8, !tbaa !1055
+  %47 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i9 = load i32, ptr %47, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 48:                                               ; preds = %tailrecurse
-  %49 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i9 = load i32, ptr %49, align 4, !tbaa !1055
+  %49 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.sroa.0.0.copyload.i10 = load i32, ptr %49, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 50:                                               ; preds = %tailrecurse
-  %51 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.sroa.0.0.copyload.i10 = load i32, ptr %51, align 8, !tbaa !1055
+  %51 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i11 = load i32, ptr %51, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 52:                                               ; preds = %tailrecurse
-  %53 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i11 = load i32, ptr %53, align 8, !tbaa !1055
+  %53 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
+  %.sroa.0.0.copyload.i12 = load i32, ptr %53, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 54:                                               ; preds = %tailrecurse
-  %55 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %.sroa.0.0.copyload.i12 = load i32, ptr %55, align 8, !tbaa !1055
+  %55 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i13 = load i32, ptr %55, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 56:                                               ; preds = %tailrecurse
-  %57 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i13 = load i32, ptr %57, align 4, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-58:                                               ; preds = %tailrecurse
-  %59 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !1059
+  %57 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %58 = load ptr, ptr %57, align 8, !tbaa !1059
   br label %tailrecurse.backedge
 
+59:                                               ; preds = %tailrecurse
+  %60 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i14 = load i32, ptr %60, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
 61:                                               ; preds = %tailrecurse
-  %62 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i14 = load i32, ptr %62, align 4, !tbaa !1055
+  %62 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i.i15 = load i32, ptr %62, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 63:                                               ; preds = %tailrecurse
   %64 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i.i15 = load i32, ptr %64, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i16 = load i32, ptr %64, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 65:                                               ; preds = %tailrecurse
   %66 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i16 = load i32, ptr %66, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i17 = load i32, ptr %66, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 67:                                               ; preds = %tailrecurse
-  %68 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i17 = load i32, ptr %68, align 4, !tbaa !1055
+  %68 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i18 = load i32, ptr %68, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 69:                                               ; preds = %tailrecurse
-  %70 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i18 = load i32, ptr %70, align 8, !tbaa !1055
+  %70 = tail call i32 @_ZNK5clang20UnresolvedMemberExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(80) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 71:                                               ; preds = %tailrecurse
-  %72 = tail call i32 @_ZNK5clang20UnresolvedMemberExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(80) %.tr) #33
+  %72 = tail call i32 @_ZNK5clang20UnresolvedLookupExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(64) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 73:                                               ; preds = %tailrecurse
-  %74 = tail call i32 @_ZNK5clang20UnresolvedLookupExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(64) %.tr) #33
+  %74 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i19 = load i32, ptr %74, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 75:                                               ; preds = %tailrecurse
   %76 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i19 = load i32, ptr %76, align 8, !tbaa !1055
+  %77 = load ptr, ptr %76, align 8, !tbaa !1063
+  %.not.i830 = icmp eq ptr %77, null
+  br i1 %.not.i830, label %78, label %tailrecurse.backedge
+
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i832 = load i32, ptr %79, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-77:                                               ; preds = %tailrecurse
-  %78 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !1063
-  %.not.i830 = icmp eq ptr %79, null
-  br i1 %.not.i830, label %80, label %tailrecurse.backedge
-
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i832 = load i32, ptr %81, align 4, !tbaa !1055
+80:                                               ; preds = %tailrecurse
+  %81 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i20 = load i32, ptr %81, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 82:                                               ; preds = %tailrecurse
-  %83 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i20 = load i32, ptr %83, align 4, !tbaa !1055
+  %83 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i21 = load i32, ptr %83, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 84:                                               ; preds = %tailrecurse
   %85 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i21 = load i32, ptr %85, align 8, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-86:                                               ; preds = %tailrecurse
-  %87 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %88 = load ptr, ptr %87, align 8, !tbaa !1065
+  %86 = load ptr, ptr %85, align 8, !tbaa !1065
   br label %tailrecurse.backedge
 
+87:                                               ; preds = %tailrecurse
+  %88 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i22 = load i32, ptr %88, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
 89:                                               ; preds = %tailrecurse
-  %90 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i22 = load i32, ptr %90, align 4, !tbaa !1055
+  %90 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %.sroa.0.0.copyload.i23 = load i32, ptr %90, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 91:                                               ; preds = %tailrecurse
   %92 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %.sroa.0.0.copyload.i23 = load i32, ptr %92, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i24 = load i32, ptr %92, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 93:                                               ; preds = %tailrecurse
-  %94 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %.sroa.0.0.copyload.i24 = load i32, ptr %94, align 8, !tbaa !1055
+  %94 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
+  %.sroa.0.0.copyload.i25 = load i32, ptr %94, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 95:                                               ; preds = %tailrecurse
-  %96 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i25 = load i32, ptr %96, align 4, !tbaa !1055
+  %96 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %.sroa.0.0.copyload.i26 = load i32, ptr %96, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 97:                                               ; preds = %tailrecurse
-  %98 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %.sroa.0.0.copyload.i26 = load i32, ptr %98, align 8, !tbaa !1055
+  %98 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.sroa.0.0.copyload.i27 = load i32, ptr %98, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 99:                                               ; preds = %tailrecurse
-  %100 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.sroa.0.0.copyload.i27 = load i32, ptr %100, align 8, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-101:                                              ; preds = %tailrecurse
-  %102 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !1072
+  %100 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %101 = load ptr, ptr %100, align 8, !tbaa !1072
   br label %tailrecurse.backedge
 
+102:                                              ; preds = %tailrecurse
+  %103 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i28 = load i32, ptr %103, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
 104:                                              ; preds = %tailrecurse
-  %105 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i28 = load i32, ptr %105, align 4, !tbaa !1055
+  %105 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.sroa.0.0.copyload.i.i29 = load i32, ptr %105, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 106:                                              ; preds = %tailrecurse
-  %107 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.sroa.0.0.copyload.i.i29 = load i32, ptr %107, align 4, !tbaa !1055
+  %107 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
+  %.sroa.0.0.copyload.i.i30 = load i32, ptr %107, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 108:                                              ; preds = %tailrecurse
-  %109 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i.i30 = load i32, ptr %109, align 4, !tbaa !1055
+  %109 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i31 = load i32, ptr %109, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 110:                                              ; preds = %tailrecurse
-  %111 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i31 = load i32, ptr %111, align 4, !tbaa !1055
+  %111 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
+  %.sroa.0.0.copyload.i32 = load i32, ptr %111, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 112:                                              ; preds = %tailrecurse
-  %113 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i32 = load i32, ptr %113, align 4, !tbaa !1055
+  %113 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.sroa.0.0.copyload.i.i33 = load i32, ptr %113, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 114:                                              ; preds = %tailrecurse
   %115 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.sroa.0.0.copyload.i.i33 = load i32, ptr %115, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i34 = load i32, ptr %115, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 116:                                              ; preds = %tailrecurse
-  %117 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.sroa.0.0.copyload.i34 = load i32, ptr %117, align 8, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-118:                                              ; preds = %tailrecurse
-  %119 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %120 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %121 = load i32, ptr %120, align 8, !tbaa !170
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw ptr, ptr %119, i64 %122
-  %124 = load ptr, ptr %123, align 8, !tbaa !1059
+  %117 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %119 = load i32, ptr %118, align 8, !tbaa !170
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr inbounds nuw ptr, ptr %117, i64 %120
+  %122 = load ptr, ptr %121, align 8, !tbaa !1059
   br label %tailrecurse.backedge
 
+123:                                              ; preds = %tailrecurse
+  %124 = tail call i32 @_ZNK5clang10MemberExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
 125:                                              ; preds = %tailrecurse
-  %126 = tail call i32 @_ZNK5clang10MemberExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
+  %126 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i35 = load i32, ptr %126, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 127:                                              ; preds = %tailrecurse
-  %128 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i35 = load i32, ptr %128, align 4, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+  %128 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %128, align 8
+  %129 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
+  %130 = icmp eq i64 %129, 0
+  %131 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %132 = inttoptr i64 %131 to ptr
+  br i1 %130, label %tailrecurse.backedge, label %133
 
-129:                                              ; preds = %tailrecurse
-  %130 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %130, align 8
-  %131 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
-  %132 = icmp eq i64 %131, 0
-  %133 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %134 = inttoptr i64 %133 to ptr
-  br i1 %132, label %tailrecurse.backedge, label %135
-
-135:                                              ; preds = %129
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 40
-  %137 = load ptr, ptr %136, align 8, !tbaa !1132
+133:                                              ; preds = %127
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 40
+  %135 = load ptr, ptr %134, align 8, !tbaa !1132
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %135, %129, %4, %11, %58, %86, %101, %118, %148, %151, %160, %163, %186, %191, %194, %208, %211, %226, %264, %287, %298, %301, %303, %306, %328, %331, %334, %339, %348, %353, %391, %394, %408, %411, %564, %569, %572, %579, %609, %623, %626, %319, %399, %22, %249, %616, %77, %201, %257, %360, %600
-  %.tr.be = phi ptr [ %10, %4 ], [ %13, %11 ], [ %60, %58 ], [ %88, %86 ], [ %103, %101 ], [ %124, %118 ], [ %150, %148 ], [ %153, %151 ], [ %162, %160 ], [ %165, %163 ], [ %188, %186 ], [ %193, %191 ], [ %196, %194 ], [ %210, %208 ], [ %213, %211 ], [ %228, %226 ], [ %266, %264 ], [ %289, %287 ], [ %300, %298 ], [ %302, %301 ], [ %305, %303 ], [ %308, %306 ], [ %330, %328 ], [ %333, %331 ], [ %336, %334 ], [ %341, %339 ], [ %350, %348 ], [ %355, %353 ], [ %393, %391 ], [ %396, %394 ], [ %410, %408 ], [ %413, %411 ], [ %566, %564 ], [ %571, %569 ], [ %574, %572 ], [ %581, %579 ], [ %615, %609 ], [ %625, %623 ], [ %628, %626 ], [ %323, %319 ], [ %401, %399 ], [ %137, %135 ], [ %134, %129 ], [ %24, %22 ], [ %254, %249 ], [ %622, %616 ], [ %79, %77 ], [ %203, %201 ], [ %259, %257 ], [ %362, %360 ], [ %602, %600 ]
+tailrecurse.backedge:                             ; preds = %133, %127, %4, %10, %56, %84, %99, %116, %146, %149, %158, %161, %184, %189, %192, %206, %209, %224, %262, %285, %296, %299, %301, %304, %326, %329, %332, %337, %346, %351, %389, %392, %406, %409, %562, %567, %570, %577, %607, %621, %624, %317, %397, %21, %247, %614, %75, %199, %255, %358, %598
+  %.tr.be = phi ptr [ %9, %4 ], [ %12, %10 ], [ %58, %56 ], [ %86, %84 ], [ %101, %99 ], [ %122, %116 ], [ %148, %146 ], [ %151, %149 ], [ %160, %158 ], [ %163, %161 ], [ %186, %184 ], [ %191, %189 ], [ %194, %192 ], [ %208, %206 ], [ %211, %209 ], [ %226, %224 ], [ %264, %262 ], [ %287, %285 ], [ %298, %296 ], [ %300, %299 ], [ %303, %301 ], [ %306, %304 ], [ %328, %326 ], [ %331, %329 ], [ %334, %332 ], [ %339, %337 ], [ %348, %346 ], [ %353, %351 ], [ %391, %389 ], [ %394, %392 ], [ %408, %406 ], [ %411, %409 ], [ %564, %562 ], [ %569, %567 ], [ %572, %570 ], [ %579, %577 ], [ %613, %607 ], [ %623, %621 ], [ %626, %624 ], [ %321, %317 ], [ %399, %397 ], [ %135, %133 ], [ %132, %127 ], [ %23, %21 ], [ %252, %247 ], [ %620, %614 ], [ %77, %75 ], [ %201, %199 ], [ %257, %255 ], [ %360, %358 ], [ %600, %598 ]
   br label %tailrecurse
+
+136:                                              ; preds = %tailrecurse
+  %137 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %.sroa.0.0.copyload.i36 = load i32, ptr %137, align 8, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 138:                                              ; preds = %tailrecurse
   %139 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %.sroa.0.0.copyload.i36 = load i32, ptr %139, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i.i37 = load i32, ptr %139, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 140:                                              ; preds = %tailrecurse
-  %141 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %.sroa.0.0.copyload.i.i37 = load i32, ptr %141, align 8, !tbaa !1055
+  %141 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i38 = load i32, ptr %141, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 142:                                              ; preds = %tailrecurse
   %143 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i38 = load i32, ptr %143, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i39 = load i32, ptr %143, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 144:                                              ; preds = %tailrecurse
-  %145 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i39 = load i32, ptr %145, align 4, !tbaa !1055
+  %145 = tail call i32 @_ZNK5clang12InitListExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(64) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 146:                                              ; preds = %tailrecurse
-  %147 = tail call i32 @_ZNK5clang12InitListExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(64) %.tr) #33
+  %147 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %148 = load ptr, ptr %147, align 8, !tbaa !1074
+  br label %tailrecurse.backedge
+
+149:                                              ; preds = %tailrecurse
+  %150 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %151 = load ptr, ptr %150, align 8, !tbaa !55
+  br label %tailrecurse.backedge
+
+152:                                              ; preds = %tailrecurse
+  %153 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.sroa.0.0.copyload.i.i40 = load i32, ptr %153, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-148:                                              ; preds = %tailrecurse
-  %149 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %150 = load ptr, ptr %149, align 8, !tbaa !1074
-  br label %tailrecurse.backedge
-
-151:                                              ; preds = %tailrecurse
-  %152 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %153 = load ptr, ptr %152, align 8, !tbaa !55
-  br label %tailrecurse.backedge
-
 154:                                              ; preds = %tailrecurse
-  %155 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.sroa.0.0.copyload.i.i40 = load i32, ptr %155, align 8, !tbaa !1055
+  %155 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i41 = load i32, ptr %155, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 156:                                              ; preds = %tailrecurse
-  %157 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i41 = load i32, ptr %157, align 8, !tbaa !1055
+  %157 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.sroa.0.0.copyload.i42 = load i32, ptr %157, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 158:                                              ; preds = %tailrecurse
-  %159 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.sroa.0.0.copyload.i42 = load i32, ptr %159, align 8, !tbaa !1055
+  %159 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %160 = load ptr, ptr %159, align 8, !tbaa !1076
+  br label %tailrecurse.backedge
+
+161:                                              ; preds = %tailrecurse
+  %162 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %163 = load ptr, ptr %162, align 8, !tbaa !1076
+  br label %tailrecurse.backedge
+
+164:                                              ; preds = %tailrecurse
+  %165 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i43 = load i32, ptr %165, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-160:                                              ; preds = %tailrecurse
-  %161 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %162 = load ptr, ptr %161, align 8, !tbaa !1076
-  br label %tailrecurse.backedge
-
-163:                                              ; preds = %tailrecurse
-  %164 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %165 = load ptr, ptr %164, align 8, !tbaa !1076
-  br label %tailrecurse.backedge
 
 166:                                              ; preds = %tailrecurse
   %167 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i43 = load i32, ptr %167, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i44 = load i32, ptr %167, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 168:                                              ; preds = %tailrecurse
-  %169 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i44 = load i32, ptr %169, align 4, !tbaa !1055
+  %169 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %.sroa.0.0.copyload.i45 = load i32, ptr %169, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 170:                                              ; preds = %tailrecurse
-  %171 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %.sroa.0.0.copyload.i45 = load i32, ptr %171, align 8, !tbaa !1055
+  %171 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.sroa.0.0.copyload.i46 = load i32, ptr %171, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 172:                                              ; preds = %tailrecurse
-  %173 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.sroa.0.0.copyload.i46 = load i32, ptr %173, align 8, !tbaa !1055
+  %173 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i47 = load i32, ptr %173, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 174:                                              ; preds = %tailrecurse
-  %175 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i47 = load i32, ptr %175, align 8, !tbaa !1055
+  %175 = tail call i32 @_ZNK5clang24DesignatedInitUpdateExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 176:                                              ; preds = %tailrecurse
-  %177 = tail call i32 @_ZNK5clang24DesignatedInitUpdateExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
+  %177 = tail call i32 @_ZNK5clang18DesignatedInitExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 178:                                              ; preds = %tailrecurse
-  %179 = tail call i32 @_ZNK5clang18DesignatedInitExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-180:                                              ; preds = %tailrecurse
-  %181 = load i24, ptr %.tr, align 8
-  %182 = and i24 %181, 524288
-  %.not.i.i.i = icmp eq i24 %182, 0
+  %179 = load i24, ptr %.tr, align 8
+  %180 = and i24 %179, 524288
+  %.not.i.i.i = icmp eq i24 %180, 0
   br i1 %.not.i.i.i, label %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.thread.i, label %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i
 
-_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %180
-  %183 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %184 = load i32, ptr %183, align 8, !tbaa !1055
-  %.not.i = icmp eq i32 %184, 0
+_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %178
+  %181 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %182 = load i32, ptr %181, align 8, !tbaa !1055
+  %.not.i = icmp eq i32 %182, 0
   br i1 %.not.i, label %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.thread.i, label %_ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit
 
-_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.thread.i: ; preds = %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i, %180
+_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.thread.i: ; preds = %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i, %178
   br label %_ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit
 
 _ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit: ; preds = %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i, %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.thread.i
   %.sink.i = phi i64 [ 40, %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.thread.i ], [ 60, %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.i ]
-  %185 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink.i
-  %.sroa.0.0.i = load i32, ptr %185, align 4, !tbaa !1055
+  %183 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink.i
+  %.sroa.0.0.i = load i32, ptr %183, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-186:                                              ; preds = %tailrecurse
-  %187 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %188 = load ptr, ptr %187, align 8, !tbaa !55
+184:                                              ; preds = %tailrecurse
+  %185 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %186 = load ptr, ptr %185, align 8, !tbaa !55
   br label %tailrecurse.backedge
+
+187:                                              ; preds = %tailrecurse
+  %188 = tail call i32 @_ZNK5clang11DeclRefExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 189:                                              ; preds = %tailrecurse
-  %190 = tail call i32 @_ZNK5clang11DeclRefExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #33
+  %190 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %191 = load ptr, ptr %190, align 8, !tbaa !55
+  br label %tailrecurse.backedge
+
+192:                                              ; preds = %tailrecurse
+  %193 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %194 = load ptr, ptr %193, align 8, !tbaa !55
+  br label %tailrecurse.backedge
+
+195:                                              ; preds = %tailrecurse
+  %196 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
+  %.sroa.0.0.copyload.i48 = load i32, ptr %196, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-191:                                              ; preds = %tailrecurse
-  %192 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %193 = load ptr, ptr %192, align 8, !tbaa !55
-  br label %tailrecurse.backedge
-
-194:                                              ; preds = %tailrecurse
-  %195 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %196 = load ptr, ptr %195, align 8, !tbaa !55
-  br label %tailrecurse.backedge
-
 197:                                              ; preds = %tailrecurse
-  %198 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i48 = load i32, ptr %198, align 4, !tbaa !1055
+  %198 = tail call i32 @_ZNK5clang25ConceptSpecializationExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 199:                                              ; preds = %tailrecurse
-  %200 = tail call i32 @_ZNK5clang25ConceptSpecializationExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr) #33
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-201:                                              ; preds = %tailrecurse
-  %202 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %203 = load ptr, ptr %202, align 8, !tbaa !1154
-  %.not.i834 = icmp eq ptr %203, null
+  %200 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %201 = load ptr, ptr %200, align 8, !tbaa !1154
+  %.not.i834 = icmp eq ptr %201, null
   br i1 %.not.i834, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit, label %tailrecurse.backedge
 
+202:                                              ; preds = %tailrecurse
+  %203 = getelementptr inbounds nuw i8, ptr %.tr, i64 44
+  %.sroa.0.0.copyload.i49 = load i32, ptr %203, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
 204:                                              ; preds = %tailrecurse
-  %205 = getelementptr inbounds nuw i8, ptr %.tr, i64 44
-  %.sroa.0.0.copyload.i49 = load i32, ptr %205, align 4, !tbaa !1055
+  %205 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i50 = load i32, ptr %205, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 206:                                              ; preds = %tailrecurse
-  %207 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i50 = load i32, ptr %207, align 4, !tbaa !1055
+  %207 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %208 = load ptr, ptr %207, align 8, !tbaa !1086
+  br label %tailrecurse.backedge
+
+209:                                              ; preds = %tailrecurse
+  %210 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %211 = load ptr, ptr %210, align 8, !tbaa !1086
+  br label %tailrecurse.backedge
+
+212:                                              ; preds = %tailrecurse
+  %213 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
+  %.sroa.0.0.copyload.i51 = load i32, ptr %213, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-208:                                              ; preds = %tailrecurse
-  %209 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %210 = load ptr, ptr %209, align 8, !tbaa !1086
-  br label %tailrecurse.backedge
-
-211:                                              ; preds = %tailrecurse
-  %212 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %213 = load ptr, ptr %212, align 8, !tbaa !1086
-  br label %tailrecurse.backedge
 
 214:                                              ; preds = %tailrecurse
   %215 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i51 = load i32, ptr %215, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i52 = load i32, ptr %215, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 216:                                              ; preds = %tailrecurse
   %217 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i52 = load i32, ptr %217, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i53 = load i32, ptr %217, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 218:                                              ; preds = %tailrecurse
   %219 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i53 = load i32, ptr %219, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i54 = load i32, ptr %219, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 220:                                              ; preds = %tailrecurse
   %221 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i54 = load i32, ptr %221, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i55 = load i32, ptr %221, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 222:                                              ; preds = %tailrecurse
-  %223 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i55 = load i32, ptr %223, align 4, !tbaa !1055
+  %223 = tail call i32 @_ZNK5clang21CXXFunctionalCastExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 224:                                              ; preds = %tailrecurse
-  %225 = tail call i32 @_ZNK5clang21CXXFunctionalCastExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr) #33
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-226:                                              ; preds = %tailrecurse
-  %227 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %228 = load ptr, ptr %227, align 8, !tbaa !1086
+  %225 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %226 = load ptr, ptr %225, align 8, !tbaa !1086
   br label %tailrecurse.backedge
 
+227:                                              ; preds = %tailrecurse
+  %228 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
+  %.sroa.0.0.copyload.i56 = load i32, ptr %228, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
 229:                                              ; preds = %tailrecurse
-  %230 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i56 = load i32, ptr %230, align 4, !tbaa !1055
+  %230 = tail call i32 @_ZNK5clang8CallExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 231:                                              ; preds = %tailrecurse
-  %232 = tail call i32 @_ZNK5clang8CallExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %232 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i.i57 = load i32, ptr %232, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 233:                                              ; preds = %tailrecurse
-  %234 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i.i57 = load i32, ptr %234, align 4, !tbaa !1055
+  %234 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i.i58 = load i32, ptr %234, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 235:                                              ; preds = %tailrecurse
-  %236 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i.i58 = load i32, ptr %236, align 4, !tbaa !1055
+  %236 = tail call i32 @_ZNK5clang8CallExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 237:                                              ; preds = %tailrecurse
@@ -13122,878 +13125,874 @@ _ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit: ; preds = %_ZNK5clang25D
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 239:                                              ; preds = %tailrecurse
-  %240 = tail call i32 @_ZNK5clang8CallExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %240 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
+  %.sroa.0.0.copyload.i.i59 = load i32, ptr %240, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 241:                                              ; preds = %tailrecurse
-  %242 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i.i59 = load i32, ptr %242, align 4, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+  %242 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %243 = load i32, ptr %242, align 4, !tbaa !1158
+  %.not1.i = icmp eq i32 %243, 0
+  br i1 %.not1.i, label %244, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-243:                                              ; preds = %tailrecurse
-  %244 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %245 = load i32, ptr %244, align 4, !tbaa !1158
-  %.not1.i = icmp eq i32 %245, 0
-  br i1 %.not1.i, label %246, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+244:                                              ; preds = %241
+  %245 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %246 = load i32, ptr %245, align 4, !tbaa !57
+  %.not.i837 = icmp eq i32 %246, 0
+  br i1 %.not.i837, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit, label %247
 
-246:                                              ; preds = %243
-  %247 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %248 = load i32, ptr %247, align 4, !tbaa !57
-  %.not.i837 = icmp eq i32 %248, 0
-  br i1 %.not.i837, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit, label %249
-
-249:                                              ; preds = %246
-  %250 = add i32 %248, -1
-  %251 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %252 = zext i32 %250 to i64
-  %253 = getelementptr inbounds nuw ptr, ptr %251, i64 %252
-  %254 = load ptr, ptr %253, align 8, !tbaa !1059
+247:                                              ; preds = %244
+  %248 = add i32 %246, -1
+  %249 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %250 = zext i32 %248 to i64
+  %251 = getelementptr inbounds nuw ptr, ptr %249, i64 %250
+  %252 = load ptr, ptr %251, align 8, !tbaa !1059
   br label %tailrecurse.backedge
 
-255:                                              ; preds = %tailrecurse
-  %256 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i.i60 = load i32, ptr %256, align 4, !tbaa !1055
+253:                                              ; preds = %tailrecurse
+  %254 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i.i60 = load i32, ptr %254, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-257:                                              ; preds = %tailrecurse
-  %258 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %259 = load ptr, ptr %258, align 8, !tbaa !299
-  %.not.i838 = icmp eq ptr %259, null
-  br i1 %.not.i838, label %260, label %tailrecurse.backedge
+255:                                              ; preds = %tailrecurse
+  %256 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %257 = load ptr, ptr %256, align 8, !tbaa !299
+  %.not.i838 = icmp eq ptr %257, null
+  br i1 %.not.i838, label %258, label %tailrecurse.backedge
 
-260:                                              ; preds = %257
+258:                                              ; preds = %255
+  %259 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i840 = load i32, ptr %259, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
+260:                                              ; preds = %tailrecurse
   %261 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i840 = load i32, ptr %261, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i61 = load i32, ptr %261, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 262:                                              ; preds = %tailrecurse
-  %263 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i61 = load i32, ptr %263, align 4, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-264:                                              ; preds = %tailrecurse
-  %265 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %266 = load ptr, ptr %265, align 8, !tbaa !1165
+  %263 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %264 = load ptr, ptr %263, align 8, !tbaa !1165
   br label %tailrecurse.backedge
 
+265:                                              ; preds = %tailrecurse
+  %266 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i62 = load i32, ptr %266, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
 267:                                              ; preds = %tailrecurse
-  %268 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i62 = load i32, ptr %268, align 4, !tbaa !1055
+  %268 = tail call i32 @_ZNK5clang26CXXRewrittenBinaryOperator9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 269:                                              ; preds = %tailrecurse
-  %270 = tail call i32 @_ZNK5clang26CXXRewrittenBinaryOperator9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %270 = tail call i32 @_ZNK5clang23CXXPseudoDestructorExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(80) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 271:                                              ; preds = %tailrecurse
-  %272 = tail call i32 @_ZNK5clang23CXXPseudoDestructorExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(80) %.tr) #33
+  %272 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %.sroa.0.0.copyload.i63 = load i32, ptr %272, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 273:                                              ; preds = %tailrecurse
-  %274 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %.sroa.0.0.copyload.i63 = load i32, ptr %274, align 8, !tbaa !1055
+  %274 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i64 = load i32, ptr %274, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 275:                                              ; preds = %tailrecurse
-  %276 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i64 = load i32, ptr %276, align 4, !tbaa !1055
+  %276 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i.i65 = load i32, ptr %276, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 277:                                              ; preds = %tailrecurse
-  %278 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i.i65 = load i32, ptr %278, align 4, !tbaa !1055
+  %278 = getelementptr inbounds nuw i8, ptr %.tr, i64 44
+  %.sroa.0.0.copyload.i.i66 = load i32, ptr %278, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 279:                                              ; preds = %tailrecurse
-  %280 = getelementptr inbounds nuw i8, ptr %.tr, i64 44
-  %.sroa.0.0.copyload.i.i66 = load i32, ptr %280, align 4, !tbaa !1055
+  %280 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %.sroa.0.0.copyload.i67 = load i32, ptr %280, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 281:                                              ; preds = %tailrecurse
-  %282 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.sroa.0.0.copyload.i67 = load i32, ptr %282, align 8, !tbaa !1055
+  %282 = tail call i32 @_ZNK5clang11CXXFoldExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(60) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 283:                                              ; preds = %tailrecurse
-  %284 = tail call i32 @_ZNK5clang11CXXFoldExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(60) %.tr) #33
+  %284 = tail call i32 @_ZNK5clang27CXXDependentScopeMemberExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(72) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 285:                                              ; preds = %tailrecurse
-  %286 = tail call i32 @_ZNK5clang27CXXDependentScopeMemberExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(72) %.tr) #33
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-287:                                              ; preds = %tailrecurse
-  %288 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %289 = load ptr, ptr %288, align 8, !tbaa !1096
+  %286 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %287 = load ptr, ptr %286, align 8, !tbaa !1096
   br label %tailrecurse.backedge
 
+288:                                              ; preds = %tailrecurse
+  %289 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i68 = load i32, ptr %289, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
 290:                                              ; preds = %tailrecurse
-  %291 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i68 = load i32, ptr %291, align 4, !tbaa !1055
+  %291 = tail call i32 @_ZNK5clang16CXXConstructExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(36) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 292:                                              ; preds = %tailrecurse
-  %293 = tail call i32 @_ZNK5clang16CXXConstructExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(36) %.tr) #33
+  %293 = tail call i32 @_ZNK5clang22CXXTemporaryObjectExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 294:                                              ; preds = %tailrecurse
-  %295 = tail call i32 @_ZNK5clang22CXXTemporaryObjectExpr9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr) #33
+  %295 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i69 = load i32, ptr %295, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 296:                                              ; preds = %tailrecurse
-  %297 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i69 = load i32, ptr %297, align 4, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+  %297 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %298 = load ptr, ptr %297, align 8, !tbaa !1099
+  br label %tailrecurse.backedge
 
-298:                                              ; preds = %tailrecurse
-  %299 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %300 = load ptr, ptr %299, align 8, !tbaa !1099
+299:                                              ; preds = %tailrecurse
+  %300 = tail call noundef ptr @_ZNK5clang9BlockExpr7getBodyEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #32
   br label %tailrecurse.backedge
 
 301:                                              ; preds = %tailrecurse
-  %302 = tail call noundef ptr @_ZNK5clang9BlockExpr7getBodyEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #32
+  %302 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %303 = load ptr, ptr %302, align 8, !tbaa !55
   br label %tailrecurse.backedge
 
-303:                                              ; preds = %tailrecurse
-  %304 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %305 = load ptr, ptr %304, align 8, !tbaa !55
+304:                                              ; preds = %tailrecurse
+  %305 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %306 = load ptr, ptr %305, align 8, !tbaa !55
   br label %tailrecurse.backedge
 
-306:                                              ; preds = %tailrecurse
-  %307 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %308 = load ptr, ptr %307, align 8, !tbaa !55
-  br label %tailrecurse.backedge
+307:                                              ; preds = %tailrecurse
+  %308 = getelementptr inbounds nuw i8, ptr %.tr, i64 80
+  %.sroa.0.0.copyload.i70 = load i32, ptr %308, align 8, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 309:                                              ; preds = %tailrecurse
-  %310 = getelementptr inbounds nuw i8, ptr %.tr, i64 80
-  %.sroa.0.0.copyload.i70 = load i32, ptr %310, align 8, !tbaa !1055
+  %310 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i71 = load i32, ptr %310, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 311:                                              ; preds = %tailrecurse
-  %312 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i71 = load i32, ptr %312, align 4, !tbaa !1055
+  %312 = getelementptr inbounds nuw i8, ptr %.tr, i64 44
+  %.sroa.0.0.copyload.i72 = load i32, ptr %312, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 313:                                              ; preds = %tailrecurse
-  %314 = getelementptr inbounds nuw i8, ptr %.tr, i64 44
-  %.sroa.0.0.copyload.i72 = load i32, ptr %314, align 4, !tbaa !1055
+  %314 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i73 = load i32, ptr %314, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 315:                                              ; preds = %tailrecurse
-  %316 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i73 = load i32, ptr %316, align 4, !tbaa !1055
+  %316 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
+  %.sroa.0.0.copyload.i74 = load i32, ptr %316, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 317:                                              ; preds = %tailrecurse
-  %318 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %.sroa.0.0.copyload.i74 = load i32, ptr %318, align 8, !tbaa !1055
+  %318 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %319 = load ptr, ptr %318, align 8, !tbaa !55
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 16
+  %321 = load ptr, ptr %320, align 8, !tbaa !1063
+  %.not.i183 = icmp eq ptr %321, null
+  br i1 %.not.i183, label %322, label %tailrecurse.backedge
+
+322:                                              ; preds = %317
+  %323 = getelementptr inbounds nuw i8, ptr %319, i64 4
+  %.sroa.0.0.copyload.i.i185 = load i32, ptr %323, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-319:                                              ; preds = %tailrecurse
-  %320 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %321 = load ptr, ptr %320, align 8, !tbaa !55
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 16
-  %323 = load ptr, ptr %322, align 8, !tbaa !1063
-  %.not.i183 = icmp eq ptr %323, null
-  br i1 %.not.i183, label %324, label %tailrecurse.backedge
-
-324:                                              ; preds = %319
-  %325 = getelementptr inbounds nuw i8, ptr %321, i64 4
-  %.sroa.0.0.copyload.i.i185 = load i32, ptr %325, align 4, !tbaa !1055
+324:                                              ; preds = %tailrecurse
+  %325 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i75 = load i32, ptr %325, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 326:                                              ; preds = %tailrecurse
-  %327 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i75 = load i32, ptr %327, align 4, !tbaa !1055
+  %327 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
+  %328 = load ptr, ptr %327, align 8, !tbaa !55
+  br label %tailrecurse.backedge
+
+329:                                              ; preds = %tailrecurse
+  %330 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
+  %331 = load ptr, ptr %330, align 8, !tbaa !55
+  br label %tailrecurse.backedge
+
+332:                                              ; preds = %tailrecurse
+  %333 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %334 = load ptr, ptr %333, align 8, !tbaa !1102
+  br label %tailrecurse.backedge
+
+335:                                              ; preds = %tailrecurse
+  %336 = tail call i32 @_ZNK5clang10SwitchStmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-328:                                              ; preds = %tailrecurse
-  %329 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %330 = load ptr, ptr %329, align 8, !tbaa !55
-  br label %tailrecurse.backedge
-
-331:                                              ; preds = %tailrecurse
-  %332 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %333 = load ptr, ptr %332, align 8, !tbaa !55
-  br label %tailrecurse.backedge
-
-334:                                              ; preds = %tailrecurse
-  %335 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %336 = load ptr, ptr %335, align 8, !tbaa !1102
-  br label %tailrecurse.backedge
 
 337:                                              ; preds = %tailrecurse
-  %338 = tail call i32 @_ZNK5clang10SwitchStmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-339:                                              ; preds = %tailrecurse
-  %340 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %341 = load ptr, ptr %340, align 8, !tbaa !1104
+  %338 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %339 = load ptr, ptr %338, align 8, !tbaa !1104
   br label %tailrecurse.backedge
+
+340:                                              ; preds = %tailrecurse
+  %341 = tail call i32 @_ZNK5clang8CaseStmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 342:                                              ; preds = %tailrecurse
-  %343 = tail call i32 @_ZNK5clang8CaseStmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #33
+  %343 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %344 = load ptr, ptr %343, align 8, !tbaa !1167
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 12
+  %.sroa.0.0.copyload.i.i76 = load i32, ptr %345, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-344:                                              ; preds = %tailrecurse
-  %345 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %346 = load ptr, ptr %345, align 8, !tbaa !1167
-  %347 = getelementptr inbounds nuw i8, ptr %346, i64 12
-  %.sroa.0.0.copyload.i.i76 = load i32, ptr %347, align 4, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-348:                                              ; preds = %tailrecurse
-  %349 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %350 = load ptr, ptr %349, align 8, !tbaa !55
+346:                                              ; preds = %tailrecurse
+  %347 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %348 = load ptr, ptr %347, align 8, !tbaa !55
   br label %tailrecurse.backedge
+
+349:                                              ; preds = %tailrecurse
+  %350 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.sroa.0.0.copyload.i77 = load i32, ptr %350, align 8, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 351:                                              ; preds = %tailrecurse
-  %352 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.sroa.0.0.copyload.i77 = load i32, ptr %352, align 8, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-353:                                              ; preds = %tailrecurse
-  %354 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %355 = load ptr, ptr %354, align 8, !tbaa !1108
+  %352 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %353 = load ptr, ptr %352, align 8, !tbaa !1108
   br label %tailrecurse.backedge
 
-356:                                              ; preds = %tailrecurse
-  %357 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %358 = load ptr, ptr %357, align 8, !tbaa !55
-  %359 = getelementptr inbounds nuw i8, ptr %358, i64 12
-  %.sroa.0.0.copyload.i.i78 = load i32, ptr %359, align 4, !tbaa !1055
+354:                                              ; preds = %tailrecurse
+  %355 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %356 = load ptr, ptr %355, align 8, !tbaa !55
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 12
+  %.sroa.0.0.copyload.i.i78 = load i32, ptr %357, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-360:                                              ; preds = %tailrecurse
-  %361 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %362 = load ptr, ptr %361, align 8, !tbaa !405
-  %.not.i841 = icmp eq ptr %362, null
-  br i1 %.not.i841, label %363, label %tailrecurse.backedge
+358:                                              ; preds = %tailrecurse
+  %359 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %360 = load ptr, ptr %359, align 8, !tbaa !405
+  %.not.i841 = icmp eq ptr %360, null
+  br i1 %.not.i841, label %361, label %tailrecurse.backedge
 
-363:                                              ; preds = %360
-  %364 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i843 = load i32, ptr %364, align 4, !tbaa !1055
+361:                                              ; preds = %358
+  %362 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i843 = load i32, ptr %362, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
+363:                                              ; preds = %tailrecurse
+  %364 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i.i79 = load i32, ptr %364, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 365:                                              ; preds = %tailrecurse
   %366 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i79 = load i32, ptr %366, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i80 = load i32, ptr %366, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 367:                                              ; preds = %tailrecurse
   %368 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i80 = load i32, ptr %368, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i81 = load i32, ptr %368, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 369:                                              ; preds = %tailrecurse
   %370 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i81 = load i32, ptr %370, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i82 = load i32, ptr %370, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 371:                                              ; preds = %tailrecurse
   %372 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i82 = load i32, ptr %372, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i83 = load i32, ptr %372, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 373:                                              ; preds = %tailrecurse
   %374 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i83 = load i32, ptr %374, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i84 = load i32, ptr %374, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 375:                                              ; preds = %tailrecurse
   %376 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i84 = load i32, ptr %376, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i85 = load i32, ptr %376, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 377:                                              ; preds = %tailrecurse
   %378 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i85 = load i32, ptr %378, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i86 = load i32, ptr %378, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 379:                                              ; preds = %tailrecurse
   %380 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i86 = load i32, ptr %380, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i87 = load i32, ptr %380, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 381:                                              ; preds = %tailrecurse
   %382 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i87 = load i32, ptr %382, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i88 = load i32, ptr %382, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 383:                                              ; preds = %tailrecurse
   %384 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i88 = load i32, ptr %384, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i89 = load i32, ptr %384, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 385:                                              ; preds = %tailrecurse
   %386 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i89 = load i32, ptr %386, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i90 = load i32, ptr %386, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 387:                                              ; preds = %tailrecurse
   %388 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i90 = load i32, ptr %388, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i91 = load i32, ptr %388, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 389:                                              ; preds = %tailrecurse
-  %390 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i91 = load i32, ptr %390, align 4, !tbaa !1055
+  %390 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %391 = load ptr, ptr %390, align 8, !tbaa !55
+  br label %tailrecurse.backedge
+
+392:                                              ; preds = %tailrecurse
+  %393 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %394 = load ptr, ptr %393, align 8, !tbaa !1110
+  br label %tailrecurse.backedge
+
+395:                                              ; preds = %tailrecurse
+  %396 = tail call i32 @_ZNK5clang13ObjCAtTryStmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-391:                                              ; preds = %tailrecurse
-  %392 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %393 = load ptr, ptr %392, align 8, !tbaa !55
-  br label %tailrecurse.backedge
-
-394:                                              ; preds = %tailrecurse
-  %395 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %396 = load ptr, ptr %395, align 8, !tbaa !1110
-  br label %tailrecurse.backedge
 
 397:                                              ; preds = %tailrecurse
-  %398 = tail call i32 @_ZNK5clang13ObjCAtTryStmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr) #33
+  %398 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %399 = load ptr, ptr %398, align 8, !tbaa !1112
+  %.not.i92 = icmp eq ptr %399, null
+  br i1 %.not.i92, label %400, label %tailrecurse.backedge
+
+400:                                              ; preds = %397
+  %401 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.sroa.0.0.copyload.i94 = load i32, ptr %401, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-399:                                              ; preds = %tailrecurse
-  %400 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %401 = load ptr, ptr %400, align 8, !tbaa !1112
-  %.not.i92 = icmp eq ptr %401, null
-  br i1 %.not.i92, label %402, label %tailrecurse.backedge
-
-402:                                              ; preds = %399
-  %403 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.sroa.0.0.copyload.i94 = load i32, ptr %403, align 8, !tbaa !1055
+402:                                              ; preds = %tailrecurse
+  %403 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %404 = load ptr, ptr %403, align 8, !tbaa !55
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 12
+  %.sroa.0.0.copyload.i.i95 = load i32, ptr %405, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-404:                                              ; preds = %tailrecurse
-  %405 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %406 = load ptr, ptr %405, align 8, !tbaa !55
-  %407 = getelementptr inbounds nuw i8, ptr %406, i64 12
-  %.sroa.0.0.copyload.i.i95 = load i32, ptr %407, align 4, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-408:                                              ; preds = %tailrecurse
-  %409 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %410 = load ptr, ptr %409, align 8, !tbaa !1114
+406:                                              ; preds = %tailrecurse
+  %407 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %408 = load ptr, ptr %407, align 8, !tbaa !1114
   br label %tailrecurse.backedge
 
-411:                                              ; preds = %tailrecurse
-  %412 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %413 = load ptr, ptr %412, align 8, !tbaa !1116
+409:                                              ; preds = %tailrecurse
+  %410 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %411 = load ptr, ptr %410, align 8, !tbaa !1116
   br label %tailrecurse.backedge
+
+412:                                              ; preds = %tailrecurse
+  %413 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i96 = load i32, ptr %413, align 8, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 414:                                              ; preds = %tailrecurse
   %415 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i96 = load i32, ptr %415, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i97 = load i32, ptr %415, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 416:                                              ; preds = %tailrecurse
   %417 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i97 = load i32, ptr %417, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i98 = load i32, ptr %417, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 418:                                              ; preds = %tailrecurse
   %419 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i98 = load i32, ptr %419, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i99 = load i32, ptr %419, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 420:                                              ; preds = %tailrecurse
   %421 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i99 = load i32, ptr %421, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i100 = load i32, ptr %421, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 422:                                              ; preds = %tailrecurse
   %423 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i100 = load i32, ptr %423, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i101 = load i32, ptr %423, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 424:                                              ; preds = %tailrecurse
   %425 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i101 = load i32, ptr %425, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i102 = load i32, ptr %425, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 426:                                              ; preds = %tailrecurse
   %427 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i102 = load i32, ptr %427, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i103 = load i32, ptr %427, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 428:                                              ; preds = %tailrecurse
   %429 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i103 = load i32, ptr %429, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i104 = load i32, ptr %429, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 430:                                              ; preds = %tailrecurse
   %431 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i104 = load i32, ptr %431, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i105 = load i32, ptr %431, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 432:                                              ; preds = %tailrecurse
   %433 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i105 = load i32, ptr %433, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i106 = load i32, ptr %433, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 434:                                              ; preds = %tailrecurse
   %435 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i106 = load i32, ptr %435, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i107 = load i32, ptr %435, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 436:                                              ; preds = %tailrecurse
   %437 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i107 = load i32, ptr %437, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i108 = load i32, ptr %437, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 438:                                              ; preds = %tailrecurse
   %439 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i108 = load i32, ptr %439, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i109 = load i32, ptr %439, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 440:                                              ; preds = %tailrecurse
   %441 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i109 = load i32, ptr %441, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i110 = load i32, ptr %441, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 442:                                              ; preds = %tailrecurse
   %443 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i110 = load i32, ptr %443, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i111 = load i32, ptr %443, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 444:                                              ; preds = %tailrecurse
   %445 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i111 = load i32, ptr %445, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i112 = load i32, ptr %445, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 446:                                              ; preds = %tailrecurse
   %447 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i112 = load i32, ptr %447, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i113 = load i32, ptr %447, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 448:                                              ; preds = %tailrecurse
   %449 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i113 = load i32, ptr %449, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i114 = load i32, ptr %449, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 450:                                              ; preds = %tailrecurse
   %451 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i114 = load i32, ptr %451, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i115 = load i32, ptr %451, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 452:                                              ; preds = %tailrecurse
   %453 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i115 = load i32, ptr %453, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i116 = load i32, ptr %453, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 454:                                              ; preds = %tailrecurse
   %455 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i116 = load i32, ptr %455, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i117 = load i32, ptr %455, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 456:                                              ; preds = %tailrecurse
   %457 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i117 = load i32, ptr %457, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i118 = load i32, ptr %457, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 458:                                              ; preds = %tailrecurse
   %459 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i118 = load i32, ptr %459, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i119 = load i32, ptr %459, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 460:                                              ; preds = %tailrecurse
   %461 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i119 = load i32, ptr %461, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i120 = load i32, ptr %461, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 462:                                              ; preds = %tailrecurse
   %463 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i120 = load i32, ptr %463, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i121 = load i32, ptr %463, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 464:                                              ; preds = %tailrecurse
   %465 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i121 = load i32, ptr %465, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i122 = load i32, ptr %465, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 466:                                              ; preds = %tailrecurse
   %467 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i122 = load i32, ptr %467, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i123 = load i32, ptr %467, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 468:                                              ; preds = %tailrecurse
   %469 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i123 = load i32, ptr %469, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i124 = load i32, ptr %469, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 470:                                              ; preds = %tailrecurse
   %471 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i124 = load i32, ptr %471, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i125 = load i32, ptr %471, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 472:                                              ; preds = %tailrecurse
   %473 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i125 = load i32, ptr %473, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i126 = load i32, ptr %473, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 474:                                              ; preds = %tailrecurse
   %475 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i126 = load i32, ptr %475, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i127 = load i32, ptr %475, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 476:                                              ; preds = %tailrecurse
   %477 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i127 = load i32, ptr %477, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i128 = load i32, ptr %477, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 478:                                              ; preds = %tailrecurse
   %479 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i128 = load i32, ptr %479, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i129 = load i32, ptr %479, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 480:                                              ; preds = %tailrecurse
   %481 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i129 = load i32, ptr %481, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i130 = load i32, ptr %481, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 482:                                              ; preds = %tailrecurse
   %483 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i130 = load i32, ptr %483, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i131 = load i32, ptr %483, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 484:                                              ; preds = %tailrecurse
   %485 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i131 = load i32, ptr %485, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i132 = load i32, ptr %485, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 486:                                              ; preds = %tailrecurse
   %487 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i132 = load i32, ptr %487, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i133 = load i32, ptr %487, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 488:                                              ; preds = %tailrecurse
   %489 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i133 = load i32, ptr %489, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i134 = load i32, ptr %489, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 490:                                              ; preds = %tailrecurse
   %491 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i134 = load i32, ptr %491, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i135 = load i32, ptr %491, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 492:                                              ; preds = %tailrecurse
   %493 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i135 = load i32, ptr %493, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i136 = load i32, ptr %493, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 494:                                              ; preds = %tailrecurse
   %495 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i136 = load i32, ptr %495, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i137 = load i32, ptr %495, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 496:                                              ; preds = %tailrecurse
   %497 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i137 = load i32, ptr %497, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i138 = load i32, ptr %497, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 498:                                              ; preds = %tailrecurse
   %499 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i138 = load i32, ptr %499, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i139 = load i32, ptr %499, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 500:                                              ; preds = %tailrecurse
   %501 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i139 = load i32, ptr %501, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i140 = load i32, ptr %501, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 502:                                              ; preds = %tailrecurse
   %503 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i140 = load i32, ptr %503, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i141 = load i32, ptr %503, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 504:                                              ; preds = %tailrecurse
   %505 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i141 = load i32, ptr %505, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i142 = load i32, ptr %505, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 506:                                              ; preds = %tailrecurse
   %507 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i142 = load i32, ptr %507, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i143 = load i32, ptr %507, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 508:                                              ; preds = %tailrecurse
   %509 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i143 = load i32, ptr %509, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i144 = load i32, ptr %509, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 510:                                              ; preds = %tailrecurse
   %511 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i144 = load i32, ptr %511, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i145 = load i32, ptr %511, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 512:                                              ; preds = %tailrecurse
   %513 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i145 = load i32, ptr %513, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i146 = load i32, ptr %513, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 514:                                              ; preds = %tailrecurse
   %515 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i146 = load i32, ptr %515, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i147 = load i32, ptr %515, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 516:                                              ; preds = %tailrecurse
   %517 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i147 = load i32, ptr %517, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i148 = load i32, ptr %517, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 518:                                              ; preds = %tailrecurse
   %519 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i148 = load i32, ptr %519, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i149 = load i32, ptr %519, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 520:                                              ; preds = %tailrecurse
   %521 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i149 = load i32, ptr %521, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i150 = load i32, ptr %521, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 522:                                              ; preds = %tailrecurse
   %523 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i150 = load i32, ptr %523, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i151 = load i32, ptr %523, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 524:                                              ; preds = %tailrecurse
   %525 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i151 = load i32, ptr %525, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i152 = load i32, ptr %525, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 526:                                              ; preds = %tailrecurse
   %527 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i152 = load i32, ptr %527, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i153 = load i32, ptr %527, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 528:                                              ; preds = %tailrecurse
   %529 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i153 = load i32, ptr %529, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i154 = load i32, ptr %529, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 530:                                              ; preds = %tailrecurse
   %531 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i154 = load i32, ptr %531, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i155 = load i32, ptr %531, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 532:                                              ; preds = %tailrecurse
   %533 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i155 = load i32, ptr %533, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i156 = load i32, ptr %533, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 534:                                              ; preds = %tailrecurse
   %535 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i156 = load i32, ptr %535, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i157 = load i32, ptr %535, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 536:                                              ; preds = %tailrecurse
   %537 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i157 = load i32, ptr %537, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i158 = load i32, ptr %537, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 538:                                              ; preds = %tailrecurse
   %539 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i158 = load i32, ptr %539, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i159 = load i32, ptr %539, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 540:                                              ; preds = %tailrecurse
   %541 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i159 = load i32, ptr %541, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i160 = load i32, ptr %541, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 542:                                              ; preds = %tailrecurse
   %543 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i160 = load i32, ptr %543, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i161 = load i32, ptr %543, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 544:                                              ; preds = %tailrecurse
   %545 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i161 = load i32, ptr %545, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i162 = load i32, ptr %545, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 546:                                              ; preds = %tailrecurse
   %547 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i162 = load i32, ptr %547, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i163 = load i32, ptr %547, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 548:                                              ; preds = %tailrecurse
   %549 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i163 = load i32, ptr %549, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i164 = load i32, ptr %549, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 550:                                              ; preds = %tailrecurse
   %551 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i164 = load i32, ptr %551, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i165 = load i32, ptr %551, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 552:                                              ; preds = %tailrecurse
   %553 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i165 = load i32, ptr %553, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i166 = load i32, ptr %553, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 554:                                              ; preds = %tailrecurse
   %555 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i166 = load i32, ptr %555, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i167 = load i32, ptr %555, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 556:                                              ; preds = %tailrecurse
   %557 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i167 = load i32, ptr %557, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i168 = load i32, ptr %557, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 558:                                              ; preds = %tailrecurse
   %559 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i168 = load i32, ptr %559, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i169 = load i32, ptr %559, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 560:                                              ; preds = %tailrecurse
   %561 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i169 = load i32, ptr %561, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i170 = load i32, ptr %561, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 562:                                              ; preds = %tailrecurse
-  %563 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i170 = load i32, ptr %563, align 8, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-564:                                              ; preds = %tailrecurse
-  %565 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %566 = load ptr, ptr %565, align 8, !tbaa !55
+  %563 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %564 = load ptr, ptr %563, align 8, !tbaa !55
   br label %tailrecurse.backedge
+
+565:                                              ; preds = %tailrecurse
+  %566 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i171 = load i32, ptr %566, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 567:                                              ; preds = %tailrecurse
-  %568 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i171 = load i32, ptr %568, align 4, !tbaa !1055
+  %568 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %569 = load ptr, ptr %568, align 8, !tbaa !1119
+  br label %tailrecurse.backedge
+
+570:                                              ; preds = %tailrecurse
+  %571 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %572 = load ptr, ptr %571, align 8, !tbaa !1121
+  br label %tailrecurse.backedge
+
+573:                                              ; preds = %tailrecurse
+  %574 = tail call i32 @_ZNK5clang6IfStmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr) #33
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-569:                                              ; preds = %tailrecurse
-  %570 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %571 = load ptr, ptr %570, align 8, !tbaa !1119
-  br label %tailrecurse.backedge
-
-572:                                              ; preds = %tailrecurse
-  %573 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %574 = load ptr, ptr %573, align 8, !tbaa !1121
-  br label %tailrecurse.backedge
-
 575:                                              ; preds = %tailrecurse
-  %576 = tail call i32 @_ZNK5clang6IfStmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr) #33
+  %576 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.sroa.0.0.copyload.i.i172 = load i32, ptr %576, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 577:                                              ; preds = %tailrecurse
-  %578 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.sroa.0.0.copyload.i.i172 = load i32, ptr %578, align 8, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-579:                                              ; preds = %tailrecurse
-  %580 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %581 = load ptr, ptr %580, align 8, !tbaa !55
+  %578 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
+  %579 = load ptr, ptr %578, align 8, !tbaa !55
   br label %tailrecurse.backedge
 
+580:                                              ; preds = %tailrecurse
+  %581 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %.sroa.0.0.copyload.i.i173 = load i32, ptr %581, align 4, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
 582:                                              ; preds = %tailrecurse
-  %583 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %.sroa.0.0.copyload.i.i173 = load i32, ptr %583, align 4, !tbaa !1055
+  %583 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
+  %.sroa.0.0.copyload.i174 = load i32, ptr %583, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 584:                                              ; preds = %tailrecurse
-  %585 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
-  %.sroa.0.0.copyload.i174 = load i32, ptr %585, align 4, !tbaa !1055
+  %585 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %586 = load ptr, ptr %585, align 8, !tbaa !55
+  %.not.i175 = icmp eq ptr %586, null
+  br i1 %.not.i175, label %589, label %587
+
+587:                                              ; preds = %584
+  %588 = getelementptr inbounds nuw i8, ptr %586, i64 12
+  %.sroa.0.0.copyload.i.i176 = load i32, ptr %588, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-586:                                              ; preds = %tailrecurse
-  %587 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %588 = load ptr, ptr %587, align 8, !tbaa !55
-  %.not.i175 = icmp eq ptr %588, null
-  br i1 %.not.i175, label %591, label %589
-
-589:                                              ; preds = %586
-  %590 = getelementptr inbounds nuw i8, ptr %588, i64 12
-  %.sroa.0.0.copyload.i.i176 = load i32, ptr %590, align 4, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-591:                                              ; preds = %586
-  %592 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %593 = load ptr, ptr %592, align 8, !tbaa !55
-  %594 = getelementptr inbounds nuw i8, ptr %593, i64 8
-  %595 = load ptr, ptr %594, align 8, !tbaa !1050
-  %596 = load ptr, ptr %595, align 8, !tbaa !1163
-  %597 = getelementptr inbounds nuw i8, ptr %596, i64 16
-  %598 = load ptr, ptr %597, align 8
-  %599 = tail call i64 %598(ptr noundef nonnull align 8 dereferenceable(33) %595) #33
-  %.sroa.3.0.extract.shift.i.i = lshr i64 %599, 32
+589:                                              ; preds = %584
+  %590 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %591 = load ptr, ptr %590, align 8, !tbaa !55
+  %592 = getelementptr inbounds nuw i8, ptr %591, i64 8
+  %593 = load ptr, ptr %592, align 8, !tbaa !1050
+  %594 = load ptr, ptr %593, align 8, !tbaa !1163
+  %595 = getelementptr inbounds nuw i8, ptr %594, i64 16
+  %596 = load ptr, ptr %595, align 8
+  %597 = tail call i64 %596(ptr noundef nonnull align 8 dereferenceable(33) %593) #33
+  %.sroa.3.0.extract.shift.i.i = lshr i64 %597, 32
   %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-600:                                              ; preds = %tailrecurse
-  %601 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %602 = load ptr, ptr %601, align 8, !tbaa !55
-  %.not.i844 = icmp eq ptr %602, null
-  br i1 %.not.i844, label %603, label %tailrecurse.backedge
+598:                                              ; preds = %tailrecurse
+  %599 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %600 = load ptr, ptr %599, align 8, !tbaa !55
+  %.not.i844 = icmp eq ptr %600, null
+  br i1 %.not.i844, label %601, label %tailrecurse.backedge
 
-603:                                              ; preds = %600
-  %604 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.sroa.0.0.copyload.i.i846 = load i32, ptr %604, align 8, !tbaa !1055
+601:                                              ; preds = %598
+  %602 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %.sroa.0.0.copyload.i.i846 = load i32, ptr %602, align 8, !tbaa !1055
+  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
+
+603:                                              ; preds = %tailrecurse
+  %604 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i178 = load i32, ptr %604, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 605:                                              ; preds = %tailrecurse
-  %606 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i178 = load i32, ptr %606, align 4, !tbaa !1055
+  %606 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
+  %.sroa.0.0.copyload.i179 = load i32, ptr %606, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 607:                                              ; preds = %tailrecurse
-  %608 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
-  %.sroa.0.0.copyload.i179 = load i32, ptr %608, align 4, !tbaa !1055
+  %608 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %609 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %610 = load i32, ptr %609, align 8, !tbaa !49
+  %611 = zext i32 %610 to i64
+  %612 = getelementptr inbounds nuw ptr, ptr %608, i64 %611
+  %613 = load ptr, ptr %612, align 8, !tbaa !55
+  br label %tailrecurse.backedge
+
+614:                                              ; preds = %tailrecurse
+  %615 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %616 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
+  %617 = load i32, ptr %616, align 4, !tbaa !1025
+  %618 = zext i32 %617 to i64
+  %619 = getelementptr inbounds nuw ptr, ptr %615, i64 %618
+  %620 = load ptr, ptr %619, align 8, !tbaa !55
+  br label %tailrecurse.backedge
+
+621:                                              ; preds = %tailrecurse
+  %622 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
+  %623 = load ptr, ptr %622, align 8, !tbaa !55
+  br label %tailrecurse.backedge
+
+624:                                              ; preds = %tailrecurse
+  %625 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %626 = load ptr, ptr %625, align 8, !tbaa !1123
+  br label %tailrecurse.backedge
+
+627:                                              ; preds = %tailrecurse
+  %628 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.sroa.0.0.copyload.i.i180 = load i32, ptr %628, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
-609:                                              ; preds = %tailrecurse
-  %610 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %611 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %612 = load i32, ptr %611, align 8, !tbaa !49
-  %613 = zext i32 %612 to i64
-  %614 = getelementptr inbounds nuw ptr, ptr %610, i64 %613
-  %615 = load ptr, ptr %614, align 8, !tbaa !55
-  br label %tailrecurse.backedge
-
-616:                                              ; preds = %tailrecurse
-  %617 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %618 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
-  %619 = load i32, ptr %618, align 4, !tbaa !1025
-  %620 = zext i32 %619 to i64
-  %621 = getelementptr inbounds nuw ptr, ptr %617, i64 %620
-  %622 = load ptr, ptr %621, align 8, !tbaa !55
-  br label %tailrecurse.backedge
-
-623:                                              ; preds = %tailrecurse
-  %624 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
-  %625 = load ptr, ptr %624, align 8, !tbaa !55
-  br label %tailrecurse.backedge
-
-626:                                              ; preds = %tailrecurse
-  %627 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %628 = load ptr, ptr %627, align 8, !tbaa !1123
-  br label %tailrecurse.backedge
-
 629:                                              ; preds = %tailrecurse
-  %630 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i180 = load i32, ptr %630, align 4, !tbaa !1055
+  %630 = getelementptr inbounds nuw i8, ptr %.tr, i64 44
+  %.sroa.0.0.copyload.i181 = load i32, ptr %630, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 631:                                              ; preds = %tailrecurse
-  %632 = getelementptr inbounds nuw i8, ptr %.tr, i64 44
-  %.sroa.0.0.copyload.i181 = load i32, ptr %632, align 4, !tbaa !1055
+  %632 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
+  %.sroa.0.0.copyload.i182 = load i32, ptr %632, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 633:                                              ; preds = %tailrecurse
-  %634 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %.sroa.0.0.copyload.i182 = load i32, ptr %634, align 8, !tbaa !1055
-  br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
-
-635:                                              ; preds = %tailrecurse
   unreachable
 
-_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit:     ; preds = %246, %243, %201, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %603, %363, %260, %80, %20, %591, %589, %402, %324, %633, %631, %629, %607, %605, %584, %582, %577, %575, %567, %562, %560, %558, %556, %554, %552, %550, %548, %546, %544, %542, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %506, %504, %502, %500, %498, %496, %494, %492, %490, %488, %486, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %464, %462, %460, %458, %456, %454, %452, %450, %448, %446, %444, %442, %440, %438, %436, %434, %432, %430, %428, %426, %424, %422, %420, %418, %416, %414, %404, %397, %389, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %356, %351, %344, %342, %337, %326, %317, %315, %313, %311, %309, %296, %294, %292, %290, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %262, %255, %241, %239, %237, %235, %233, %231, %229, %224, %222, %220, %218, %216, %214, %206, %204, %199, %197, %189, %_ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit, %178, %176, %174, %172, %170, %168, %166, %158, %156, %154, %146, %144, %142, %140, %138, %127, %125, %116, %114, %112, %110, %108, %106, %104, %99, %97, %95, %93, %91, %89, %84, %82, %75, %73, %71, %69, %67, %65, %63, %61, %56, %54, %52, %50, %48, %46, %44, %42, %35, %33, %31, %29, %27, %25, %14
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i182, %633 ], [ %.sroa.0.0.copyload.i, %14 ], [ %.sroa.0.0.copyload.i1, %25 ], [ %.sroa.0.0.copyload.i2, %27 ], [ %.sroa.0.0.copyload.i3, %29 ], [ %.sroa.0.0.copyload.i4, %31 ], [ %.sroa.0.0.copyload.i.i, %33 ], [ %.sroa.0.0.copyload.i5, %35 ], [ %.sroa.0.0.copyload.i6, %42 ], [ %.sroa.0.0.copyload.i7, %44 ], [ %.sroa.0.0.copyload.i8, %46 ], [ %.sroa.0.0.copyload.i9, %48 ], [ %.sroa.0.0.copyload.i10, %50 ], [ %.sroa.0.0.copyload.i11, %52 ], [ %.sroa.0.0.copyload.i12, %54 ], [ %.sroa.0.0.copyload.i13, %56 ], [ %.sroa.0.0.copyload.i.i14, %61 ], [ %.sroa.0.0.copyload.i.i15, %63 ], [ %.sroa.0.0.copyload.i16, %65 ], [ %.sroa.0.0.copyload.i17, %67 ], [ %.sroa.0.0.copyload.i18, %69 ], [ %72, %71 ], [ %74, %73 ], [ %.sroa.0.0.copyload.i19, %75 ], [ %.sroa.0.0.copyload.i20, %82 ], [ %.sroa.0.0.copyload.i21, %84 ], [ %.sroa.0.0.copyload.i22, %89 ], [ %.sroa.0.0.copyload.i23, %91 ], [ %.sroa.0.0.copyload.i24, %93 ], [ %.sroa.0.0.copyload.i25, %95 ], [ %.sroa.0.0.copyload.i26, %97 ], [ %.sroa.0.0.copyload.i27, %99 ], [ %.sroa.0.0.copyload.i28, %104 ], [ %.sroa.0.0.copyload.i.i29, %106 ], [ %.sroa.0.0.copyload.i.i30, %108 ], [ %.sroa.0.0.copyload.i31, %110 ], [ %.sroa.0.0.copyload.i32, %112 ], [ %.sroa.0.0.copyload.i.i33, %114 ], [ %.sroa.0.0.copyload.i34, %116 ], [ %126, %125 ], [ %.sroa.0.0.copyload.i.i35, %127 ], [ %.sroa.0.0.copyload.i36, %138 ], [ %.sroa.0.0.copyload.i.i37, %140 ], [ %.sroa.0.0.copyload.i38, %142 ], [ %.sroa.0.0.copyload.i39, %144 ], [ %147, %146 ], [ %.sroa.0.0.copyload.i.i40, %154 ], [ %.sroa.0.0.copyload.i41, %156 ], [ %.sroa.0.0.copyload.i42, %158 ], [ %.sroa.0.0.copyload.i43, %166 ], [ %.sroa.0.0.copyload.i44, %168 ], [ %.sroa.0.0.copyload.i45, %170 ], [ %.sroa.0.0.copyload.i46, %172 ], [ %.sroa.0.0.copyload.i47, %174 ], [ %177, %176 ], [ %179, %178 ], [ %.sroa.0.0.i, %_ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit ], [ %190, %189 ], [ %.sroa.0.0.copyload.i48, %197 ], [ %200, %199 ], [ %.sroa.0.0.copyload.i49, %204 ], [ %.sroa.0.0.copyload.i50, %206 ], [ %.sroa.0.0.copyload.i51, %214 ], [ %.sroa.0.0.copyload.i52, %216 ], [ %.sroa.0.0.copyload.i53, %218 ], [ %.sroa.0.0.copyload.i54, %220 ], [ %.sroa.0.0.copyload.i55, %222 ], [ %225, %224 ], [ %.sroa.0.0.copyload.i56, %229 ], [ %232, %231 ], [ %.sroa.0.0.copyload.i.i57, %233 ], [ %.sroa.0.0.copyload.i.i58, %235 ], [ %238, %237 ], [ %240, %239 ], [ %.sroa.0.0.copyload.i.i59, %241 ], [ %.sroa.0.0.copyload.i.i60, %255 ], [ %.sroa.0.0.copyload.i.i61, %262 ], [ %.sroa.0.0.copyload.i.i62, %267 ], [ %270, %269 ], [ %272, %271 ], [ %.sroa.0.0.copyload.i63, %273 ], [ %.sroa.0.0.copyload.i.i64, %275 ], [ %.sroa.0.0.copyload.i.i65, %277 ], [ %.sroa.0.0.copyload.i.i66, %279 ], [ %.sroa.0.0.copyload.i67, %281 ], [ %284, %283 ], [ %286, %285 ], [ %.sroa.0.0.copyload.i68, %290 ], [ %293, %292 ], [ %295, %294 ], [ %.sroa.0.0.copyload.i.i69, %296 ], [ %.sroa.0.0.copyload.i70, %309 ], [ %.sroa.0.0.copyload.i71, %311 ], [ %.sroa.0.0.copyload.i72, %313 ], [ %.sroa.0.0.copyload.i.i73, %315 ], [ %.sroa.0.0.copyload.i74, %317 ], [ %.sroa.0.0.copyload.i75, %326 ], [ %338, %337 ], [ %343, %342 ], [ %.sroa.0.0.copyload.i.i76, %344 ], [ %.sroa.0.0.copyload.i77, %351 ], [ %.sroa.0.0.copyload.i.i78, %356 ], [ %.sroa.0.0.copyload.i.i79, %365 ], [ %.sroa.0.0.copyload.i.i80, %367 ], [ %.sroa.0.0.copyload.i.i81, %369 ], [ %.sroa.0.0.copyload.i.i82, %371 ], [ %.sroa.0.0.copyload.i.i83, %373 ], [ %.sroa.0.0.copyload.i.i84, %375 ], [ %.sroa.0.0.copyload.i.i85, %377 ], [ %.sroa.0.0.copyload.i.i86, %379 ], [ %.sroa.0.0.copyload.i.i87, %381 ], [ %.sroa.0.0.copyload.i.i88, %383 ], [ %.sroa.0.0.copyload.i.i89, %385 ], [ %.sroa.0.0.copyload.i.i90, %387 ], [ %.sroa.0.0.copyload.i.i91, %389 ], [ %398, %397 ], [ %.sroa.0.0.copyload.i.i95, %404 ], [ %.sroa.0.0.copyload.i96, %414 ], [ %.sroa.0.0.copyload.i97, %416 ], [ %.sroa.0.0.copyload.i98, %418 ], [ %.sroa.0.0.copyload.i99, %420 ], [ %.sroa.0.0.copyload.i100, %422 ], [ %.sroa.0.0.copyload.i101, %424 ], [ %.sroa.0.0.copyload.i102, %426 ], [ %.sroa.0.0.copyload.i103, %428 ], [ %.sroa.0.0.copyload.i104, %430 ], [ %.sroa.0.0.copyload.i105, %432 ], [ %.sroa.0.0.copyload.i106, %434 ], [ %.sroa.0.0.copyload.i107, %436 ], [ %.sroa.0.0.copyload.i108, %438 ], [ %.sroa.0.0.copyload.i109, %440 ], [ %.sroa.0.0.copyload.i110, %442 ], [ %.sroa.0.0.copyload.i111, %444 ], [ %.sroa.0.0.copyload.i112, %446 ], [ %.sroa.0.0.copyload.i113, %448 ], [ %.sroa.0.0.copyload.i114, %450 ], [ %.sroa.0.0.copyload.i115, %452 ], [ %.sroa.0.0.copyload.i116, %454 ], [ %.sroa.0.0.copyload.i117, %456 ], [ %.sroa.0.0.copyload.i118, %458 ], [ %.sroa.0.0.copyload.i119, %460 ], [ %.sroa.0.0.copyload.i120, %462 ], [ %.sroa.0.0.copyload.i121, %464 ], [ %.sroa.0.0.copyload.i122, %466 ], [ %.sroa.0.0.copyload.i123, %468 ], [ %.sroa.0.0.copyload.i124, %470 ], [ %.sroa.0.0.copyload.i125, %472 ], [ %.sroa.0.0.copyload.i126, %474 ], [ %.sroa.0.0.copyload.i127, %476 ], [ %.sroa.0.0.copyload.i128, %478 ], [ %.sroa.0.0.copyload.i129, %480 ], [ %.sroa.0.0.copyload.i130, %482 ], [ %.sroa.0.0.copyload.i131, %484 ], [ %.sroa.0.0.copyload.i132, %486 ], [ %.sroa.0.0.copyload.i133, %488 ], [ %.sroa.0.0.copyload.i134, %490 ], [ %.sroa.0.0.copyload.i135, %492 ], [ %.sroa.0.0.copyload.i136, %494 ], [ %.sroa.0.0.copyload.i137, %496 ], [ %.sroa.0.0.copyload.i138, %498 ], [ %.sroa.0.0.copyload.i139, %500 ], [ %.sroa.0.0.copyload.i140, %502 ], [ %.sroa.0.0.copyload.i141, %504 ], [ %.sroa.0.0.copyload.i142, %506 ], [ %.sroa.0.0.copyload.i143, %508 ], [ %.sroa.0.0.copyload.i144, %510 ], [ %.sroa.0.0.copyload.i145, %512 ], [ %.sroa.0.0.copyload.i146, %514 ], [ %.sroa.0.0.copyload.i147, %516 ], [ %.sroa.0.0.copyload.i148, %518 ], [ %.sroa.0.0.copyload.i149, %520 ], [ %.sroa.0.0.copyload.i150, %522 ], [ %.sroa.0.0.copyload.i151, %524 ], [ %.sroa.0.0.copyload.i152, %526 ], [ %.sroa.0.0.copyload.i153, %528 ], [ %.sroa.0.0.copyload.i154, %530 ], [ %.sroa.0.0.copyload.i155, %532 ], [ %.sroa.0.0.copyload.i156, %534 ], [ %.sroa.0.0.copyload.i157, %536 ], [ %.sroa.0.0.copyload.i158, %538 ], [ %.sroa.0.0.copyload.i159, %540 ], [ %.sroa.0.0.copyload.i160, %542 ], [ %.sroa.0.0.copyload.i161, %544 ], [ %.sroa.0.0.copyload.i162, %546 ], [ %.sroa.0.0.copyload.i163, %548 ], [ %.sroa.0.0.copyload.i164, %550 ], [ %.sroa.0.0.copyload.i165, %552 ], [ %.sroa.0.0.copyload.i166, %554 ], [ %.sroa.0.0.copyload.i167, %556 ], [ %.sroa.0.0.copyload.i168, %558 ], [ %.sroa.0.0.copyload.i169, %560 ], [ %.sroa.0.0.copyload.i170, %562 ], [ %.sroa.0.0.copyload.i.i171, %567 ], [ %576, %575 ], [ %.sroa.0.0.copyload.i.i172, %577 ], [ %.sroa.0.0.copyload.i.i173, %582 ], [ %.sroa.0.0.copyload.i174, %584 ], [ %.sroa.0.0.copyload.i.i178, %605 ], [ %.sroa.0.0.copyload.i179, %607 ], [ %.sroa.0.0.copyload.i.i180, %629 ], [ %.sroa.0.0.copyload.i181, %631 ], [ %.sroa.0.0.copyload.i.i185, %324 ], [ %.sroa.0.0.copyload.i94, %402 ], [ %.sroa.0.0.copyload.i.i176, %589 ], [ %.sroa.3.0.extract.trunc.i.i, %591 ], [ %.sroa.0.0.copyload.i.i829, %20 ], [ %.sroa.0.0.copyload.i.i832, %80 ], [ %.sroa.0.0.copyload.i.i840, %260 ], [ %.sroa.0.0.copyload.i.i843, %363 ], [ %.sroa.0.0.copyload.i.i846, %603 ], [ %245, %243 ], [ 0, %246 ], [ 0, %201 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
+_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit:     ; preds = %244, %241, %199, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %601, %361, %258, %78, %19, %589, %587, %400, %322, %631, %629, %627, %605, %603, %582, %580, %575, %573, %565, %560, %558, %556, %554, %552, %550, %548, %546, %544, %542, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %506, %504, %502, %500, %498, %496, %494, %492, %490, %488, %486, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %464, %462, %460, %458, %456, %454, %452, %450, %448, %446, %444, %442, %440, %438, %436, %434, %432, %430, %428, %426, %424, %422, %420, %418, %416, %414, %412, %402, %395, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %354, %349, %342, %340, %335, %324, %315, %313, %311, %309, %307, %294, %292, %290, %288, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %260, %253, %239, %237, %235, %233, %231, %229, %227, %222, %220, %218, %216, %214, %212, %204, %202, %197, %195, %187, %_ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit, %176, %174, %172, %170, %168, %166, %164, %156, %154, %152, %144, %142, %140, %138, %136, %125, %123, %114, %112, %110, %108, %106, %104, %102, %97, %95, %93, %91, %89, %87, %82, %80, %73, %71, %69, %67, %65, %63, %61, %59, %54, %52, %50, %48, %46, %44, %42, %40, %34, %32, %30, %28, %26, %24, %13
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i182, %631 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload.i1, %24 ], [ %.sroa.0.0.copyload.i2, %26 ], [ %.sroa.0.0.copyload.i3, %28 ], [ %.sroa.0.0.copyload.i4, %30 ], [ %.sroa.0.0.copyload.i.i, %32 ], [ %.sroa.0.0.copyload.i5, %34 ], [ %.sroa.0.0.copyload.i6, %40 ], [ %.sroa.0.0.copyload.i7, %42 ], [ %.sroa.0.0.copyload.i8, %44 ], [ %.sroa.0.0.copyload.i9, %46 ], [ %.sroa.0.0.copyload.i10, %48 ], [ %.sroa.0.0.copyload.i11, %50 ], [ %.sroa.0.0.copyload.i12, %52 ], [ %.sroa.0.0.copyload.i13, %54 ], [ %.sroa.0.0.copyload.i.i14, %59 ], [ %.sroa.0.0.copyload.i.i15, %61 ], [ %.sroa.0.0.copyload.i16, %63 ], [ %.sroa.0.0.copyload.i17, %65 ], [ %.sroa.0.0.copyload.i18, %67 ], [ %70, %69 ], [ %72, %71 ], [ %.sroa.0.0.copyload.i19, %73 ], [ %.sroa.0.0.copyload.i20, %80 ], [ %.sroa.0.0.copyload.i21, %82 ], [ %.sroa.0.0.copyload.i22, %87 ], [ %.sroa.0.0.copyload.i23, %89 ], [ %.sroa.0.0.copyload.i24, %91 ], [ %.sroa.0.0.copyload.i25, %93 ], [ %.sroa.0.0.copyload.i26, %95 ], [ %.sroa.0.0.copyload.i27, %97 ], [ %.sroa.0.0.copyload.i28, %102 ], [ %.sroa.0.0.copyload.i.i29, %104 ], [ %.sroa.0.0.copyload.i.i30, %106 ], [ %.sroa.0.0.copyload.i31, %108 ], [ %.sroa.0.0.copyload.i32, %110 ], [ %.sroa.0.0.copyload.i.i33, %112 ], [ %.sroa.0.0.copyload.i34, %114 ], [ %124, %123 ], [ %.sroa.0.0.copyload.i.i35, %125 ], [ %.sroa.0.0.copyload.i36, %136 ], [ %.sroa.0.0.copyload.i.i37, %138 ], [ %.sroa.0.0.copyload.i38, %140 ], [ %.sroa.0.0.copyload.i39, %142 ], [ %145, %144 ], [ %.sroa.0.0.copyload.i.i40, %152 ], [ %.sroa.0.0.copyload.i41, %154 ], [ %.sroa.0.0.copyload.i42, %156 ], [ %.sroa.0.0.copyload.i43, %164 ], [ %.sroa.0.0.copyload.i44, %166 ], [ %.sroa.0.0.copyload.i45, %168 ], [ %.sroa.0.0.copyload.i46, %170 ], [ %.sroa.0.0.copyload.i47, %172 ], [ %175, %174 ], [ %177, %176 ], [ %.sroa.0.0.i, %_ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit ], [ %188, %187 ], [ %.sroa.0.0.copyload.i48, %195 ], [ %198, %197 ], [ %.sroa.0.0.copyload.i49, %202 ], [ %.sroa.0.0.copyload.i50, %204 ], [ %.sroa.0.0.copyload.i51, %212 ], [ %.sroa.0.0.copyload.i52, %214 ], [ %.sroa.0.0.copyload.i53, %216 ], [ %.sroa.0.0.copyload.i54, %218 ], [ %.sroa.0.0.copyload.i55, %220 ], [ %223, %222 ], [ %.sroa.0.0.copyload.i56, %227 ], [ %230, %229 ], [ %.sroa.0.0.copyload.i.i57, %231 ], [ %.sroa.0.0.copyload.i.i58, %233 ], [ %236, %235 ], [ %238, %237 ], [ %.sroa.0.0.copyload.i.i59, %239 ], [ %.sroa.0.0.copyload.i.i60, %253 ], [ %.sroa.0.0.copyload.i.i61, %260 ], [ %.sroa.0.0.copyload.i.i62, %265 ], [ %268, %267 ], [ %270, %269 ], [ %.sroa.0.0.copyload.i63, %271 ], [ %.sroa.0.0.copyload.i.i64, %273 ], [ %.sroa.0.0.copyload.i.i65, %275 ], [ %.sroa.0.0.copyload.i.i66, %277 ], [ %.sroa.0.0.copyload.i67, %279 ], [ %282, %281 ], [ %284, %283 ], [ %.sroa.0.0.copyload.i68, %288 ], [ %291, %290 ], [ %293, %292 ], [ %.sroa.0.0.copyload.i.i69, %294 ], [ %.sroa.0.0.copyload.i70, %307 ], [ %.sroa.0.0.copyload.i71, %309 ], [ %.sroa.0.0.copyload.i72, %311 ], [ %.sroa.0.0.copyload.i.i73, %313 ], [ %.sroa.0.0.copyload.i74, %315 ], [ %.sroa.0.0.copyload.i75, %324 ], [ %336, %335 ], [ %341, %340 ], [ %.sroa.0.0.copyload.i.i76, %342 ], [ %.sroa.0.0.copyload.i77, %349 ], [ %.sroa.0.0.copyload.i.i78, %354 ], [ %.sroa.0.0.copyload.i.i79, %363 ], [ %.sroa.0.0.copyload.i.i80, %365 ], [ %.sroa.0.0.copyload.i.i81, %367 ], [ %.sroa.0.0.copyload.i.i82, %369 ], [ %.sroa.0.0.copyload.i.i83, %371 ], [ %.sroa.0.0.copyload.i.i84, %373 ], [ %.sroa.0.0.copyload.i.i85, %375 ], [ %.sroa.0.0.copyload.i.i86, %377 ], [ %.sroa.0.0.copyload.i.i87, %379 ], [ %.sroa.0.0.copyload.i.i88, %381 ], [ %.sroa.0.0.copyload.i.i89, %383 ], [ %.sroa.0.0.copyload.i.i90, %385 ], [ %.sroa.0.0.copyload.i.i91, %387 ], [ %396, %395 ], [ %.sroa.0.0.copyload.i.i95, %402 ], [ %.sroa.0.0.copyload.i96, %412 ], [ %.sroa.0.0.copyload.i97, %414 ], [ %.sroa.0.0.copyload.i98, %416 ], [ %.sroa.0.0.copyload.i99, %418 ], [ %.sroa.0.0.copyload.i100, %420 ], [ %.sroa.0.0.copyload.i101, %422 ], [ %.sroa.0.0.copyload.i102, %424 ], [ %.sroa.0.0.copyload.i103, %426 ], [ %.sroa.0.0.copyload.i104, %428 ], [ %.sroa.0.0.copyload.i105, %430 ], [ %.sroa.0.0.copyload.i106, %432 ], [ %.sroa.0.0.copyload.i107, %434 ], [ %.sroa.0.0.copyload.i108, %436 ], [ %.sroa.0.0.copyload.i109, %438 ], [ %.sroa.0.0.copyload.i110, %440 ], [ %.sroa.0.0.copyload.i111, %442 ], [ %.sroa.0.0.copyload.i112, %444 ], [ %.sroa.0.0.copyload.i113, %446 ], [ %.sroa.0.0.copyload.i114, %448 ], [ %.sroa.0.0.copyload.i115, %450 ], [ %.sroa.0.0.copyload.i116, %452 ], [ %.sroa.0.0.copyload.i117, %454 ], [ %.sroa.0.0.copyload.i118, %456 ], [ %.sroa.0.0.copyload.i119, %458 ], [ %.sroa.0.0.copyload.i120, %460 ], [ %.sroa.0.0.copyload.i121, %462 ], [ %.sroa.0.0.copyload.i122, %464 ], [ %.sroa.0.0.copyload.i123, %466 ], [ %.sroa.0.0.copyload.i124, %468 ], [ %.sroa.0.0.copyload.i125, %470 ], [ %.sroa.0.0.copyload.i126, %472 ], [ %.sroa.0.0.copyload.i127, %474 ], [ %.sroa.0.0.copyload.i128, %476 ], [ %.sroa.0.0.copyload.i129, %478 ], [ %.sroa.0.0.copyload.i130, %480 ], [ %.sroa.0.0.copyload.i131, %482 ], [ %.sroa.0.0.copyload.i132, %484 ], [ %.sroa.0.0.copyload.i133, %486 ], [ %.sroa.0.0.copyload.i134, %488 ], [ %.sroa.0.0.copyload.i135, %490 ], [ %.sroa.0.0.copyload.i136, %492 ], [ %.sroa.0.0.copyload.i137, %494 ], [ %.sroa.0.0.copyload.i138, %496 ], [ %.sroa.0.0.copyload.i139, %498 ], [ %.sroa.0.0.copyload.i140, %500 ], [ %.sroa.0.0.copyload.i141, %502 ], [ %.sroa.0.0.copyload.i142, %504 ], [ %.sroa.0.0.copyload.i143, %506 ], [ %.sroa.0.0.copyload.i144, %508 ], [ %.sroa.0.0.copyload.i145, %510 ], [ %.sroa.0.0.copyload.i146, %512 ], [ %.sroa.0.0.copyload.i147, %514 ], [ %.sroa.0.0.copyload.i148, %516 ], [ %.sroa.0.0.copyload.i149, %518 ], [ %.sroa.0.0.copyload.i150, %520 ], [ %.sroa.0.0.copyload.i151, %522 ], [ %.sroa.0.0.copyload.i152, %524 ], [ %.sroa.0.0.copyload.i153, %526 ], [ %.sroa.0.0.copyload.i154, %528 ], [ %.sroa.0.0.copyload.i155, %530 ], [ %.sroa.0.0.copyload.i156, %532 ], [ %.sroa.0.0.copyload.i157, %534 ], [ %.sroa.0.0.copyload.i158, %536 ], [ %.sroa.0.0.copyload.i159, %538 ], [ %.sroa.0.0.copyload.i160, %540 ], [ %.sroa.0.0.copyload.i161, %542 ], [ %.sroa.0.0.copyload.i162, %544 ], [ %.sroa.0.0.copyload.i163, %546 ], [ %.sroa.0.0.copyload.i164, %548 ], [ %.sroa.0.0.copyload.i165, %550 ], [ %.sroa.0.0.copyload.i166, %552 ], [ %.sroa.0.0.copyload.i167, %554 ], [ %.sroa.0.0.copyload.i168, %556 ], [ %.sroa.0.0.copyload.i169, %558 ], [ %.sroa.0.0.copyload.i170, %560 ], [ %.sroa.0.0.copyload.i.i171, %565 ], [ %574, %573 ], [ %.sroa.0.0.copyload.i.i172, %575 ], [ %.sroa.0.0.copyload.i.i173, %580 ], [ %.sroa.0.0.copyload.i174, %582 ], [ %.sroa.0.0.copyload.i.i178, %603 ], [ %.sroa.0.0.copyload.i179, %605 ], [ %.sroa.0.0.copyload.i.i180, %627 ], [ %.sroa.0.0.copyload.i181, %629 ], [ %.sroa.0.0.copyload.i.i185, %322 ], [ %.sroa.0.0.copyload.i94, %400 ], [ %.sroa.0.0.copyload.i.i176, %587 ], [ %.sroa.3.0.extract.trunc.i.i, %589 ], [ %.sroa.0.0.copyload.i.i829, %19 ], [ %.sroa.0.0.copyload.i.i832, %78 ], [ %.sroa.0.0.copyload.i.i840, %258 ], [ %.sroa.0.0.copyload.i.i843, %361 ], [ %.sroa.0.0.copyload.i.i846, %601 ], [ %243, %241 ], [ 0, %244 ], [ 0, %199 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
   ret i32 %.sroa.0.0
 }
 
@@ -14244,23 +14243,22 @@ define linkonce_odr hidden i32 @_ZNK5clang8CaseStmt9getEndLocEv(ptr noundef nonn
   br label %2
 
 2:                                                ; preds = %2, %1
-  %.05 = phi ptr [ %0, %1 ], [ %9, %2 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.05, i64 24
-  %4 = load i16, ptr %.05, align 8
-  %5 = lshr i16 %4, 9
-  %.lobit.i.i.i = and i16 %5, 1
-  %6 = zext nneg i16 %.lobit.i.i.i to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
-  %10 = load i16, ptr %9, align 8
-  %11 = and i16 %10, 511
-  %.not = icmp eq i16 %11, 135
-  br i1 %.not, label %2, label %12
+  %.05 = phi ptr [ %0, %1 ], [ %8, %2 ]
+  %3 = load i16, ptr %.05, align 8
+  %4 = lshr i16 %3, 9
+  %.lobit.i.i.i = and i16 %4, 1
+  %5 = zext nneg i16 %.lobit.i.i.i to i64
+  %6 = getelementptr inbounds nuw ptr, ptr %.05, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %9 = load i16, ptr %8, align 8
+  %10 = and i16 %9, 511
+  %.not = icmp eq i16 %10, 135
+  br i1 %.not, label %2, label %11
 
-12:                                               ; preds = %2
-  %13 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #33
-  ret i32 %13
+11:                                               ; preds = %2
+  %12 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #33
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -20256,72 +20254,73 @@ _ZN5clang4StmtC2ENS0_9StmtClassE.exit:            ; preds = %8, %14
   %27 = zext nneg i16 %26 to i64
   %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
   store ptr %3, ptr %28, align 8, !tbaa !55
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %4, ptr %29, align 8, !tbaa !55
-  br i1 %.not, label %66, label %30
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  store ptr %4, ptr %30, align 8, !tbaa !55
+  br i1 %.not, label %67, label %31
 
-30:                                               ; preds = %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
-  %31 = load ptr, ptr %2, align 8, !tbaa !1163
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call i64 %33(ptr noundef nonnull align 8 dereferenceable(100) %2) #33
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 2192
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 2272
-  %37 = load i64, ptr %36, align 8, !tbaa !3
-  %38 = add i64 %37, 24
-  store i64 %38, ptr %36, align 8, !tbaa !3
-  %39 = load ptr, ptr %35, align 8, !tbaa !21
-  %40 = ptrtoint ptr %39 to i64
-  %41 = add i64 %40, 7
-  %42 = and i64 %41, -8
-  %43 = add i64 %42, 24
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 2200
-  %45 = load ptr, ptr %44, align 8, !tbaa !22
-  %46 = ptrtoint ptr %45 to i64
-  %.not.i.i.i.i.i.i = icmp ule i64 %43, %46
-  %47 = icmp ne ptr %39, null
-  %48 = and i1 %47, %.not.i.i.i.i.i.i
-  br i1 %48, label %49, label %52, !prof !23
+31:                                               ; preds = %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
+  %32 = load ptr, ptr %2, align 8, !tbaa !1163
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call i64 %34(ptr noundef nonnull align 8 dereferenceable(100) %2) #33
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 2192
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 2272
+  %38 = load i64, ptr %37, align 8, !tbaa !3
+  %39 = add i64 %38, 24
+  store i64 %39, ptr %37, align 8, !tbaa !3
+  %40 = load ptr, ptr %36, align 8, !tbaa !21
+  %41 = ptrtoint ptr %40 to i64
+  %42 = add i64 %41, 7
+  %43 = and i64 %42, -8
+  %44 = add i64 %43, 24
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 2200
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
+  %47 = ptrtoint ptr %46 to i64
+  %.not.i.i.i.i.i.i = icmp ule i64 %44, %47
+  %48 = icmp ne ptr %40, null
+  %49 = and i1 %48, %.not.i.i.i.i.i.i
+  br i1 %49, label %50, label %53, !prof !23
 
-49:                                               ; preds = %30
-  %50 = inttoptr i64 %43 to ptr
-  store ptr %50, ptr %35, align 8, !tbaa !21
-  %51 = inttoptr i64 %42 to ptr
+50:                                               ; preds = %31
+  %51 = inttoptr i64 %44 to ptr
+  store ptr %51, ptr %36, align 8, !tbaa !21
+  %52 = inttoptr i64 %43 to ptr
   br label %_ZN5clang4StmtnwEmRKNS_10ASTContextEj.exit.i
 
-52:                                               ; preds = %30
-  %53 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %35, i64 noundef 24, i64 noundef 24, i8 3)
+53:                                               ; preds = %31
+  %54 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %36, i64 noundef 24, i64 noundef 24, i8 3)
   br label %_ZN5clang4StmtnwEmRKNS_10ASTContextEj.exit.i
 
-_ZN5clang4StmtnwEmRKNS_10ASTContextEj.exit.i:     ; preds = %52, %49
-  %.0.i.i.i.i.i.i = phi ptr [ %51, %49 ], [ %53, %52 ]
-  %54 = load i16, ptr %.0.i.i.i.i.i.i, align 8
-  %55 = and i16 %54, -512
-  %56 = or disjoint i16 %55, 245
-  store i16 %56, ptr %.0.i.i.i.i.i.i, align 8
-  %57 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !37, !range !470, !noundef !472
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %59, label %_ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit
+_ZN5clang4StmtnwEmRKNS_10ASTContextEj.exit.i:     ; preds = %53, %50
+  %.0.i.i.i.i.i.i = phi ptr [ %52, %50 ], [ %54, %53 ]
+  %55 = load i16, ptr %.0.i.i.i.i.i.i, align 8
+  %56 = and i16 %55, -512
+  %57 = or disjoint i16 %56, 245
+  store i16 %57, ptr %.0.i.i.i.i.i.i, align 8
+  %58 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !37, !range !470, !noundef !472
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %60, label %_ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit
 
-59:                                               ; preds = %_ZN5clang4StmtnwEmRKNS_10ASTContextEj.exit.i
-  %60 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassE(i32 noundef 245)
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load i32, ptr %61, align 8, !tbaa !33
-  %63 = add i32 %62, 1
-  store i32 %63, ptr %61, align 8, !tbaa !33
+60:                                               ; preds = %_ZN5clang4StmtnwEmRKNS_10ASTContextEj.exit.i
+  %61 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassE(i32 noundef 245)
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load i32, ptr %62, align 8, !tbaa !33
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %62, align 8, !tbaa !33
   br label %_ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit
 
-_ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit: ; preds = %_ZN5clang4StmtnwEmRKNS_10ASTContextEj.exit.i, %59
-  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
-  store ptr %2, ptr %64, align 8, !tbaa !1675
-  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
-  store i64 %34, ptr %65, align 8
+_ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit: ; preds = %_ZN5clang4StmtnwEmRKNS_10ASTContextEj.exit.i, %60
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
+  store ptr %2, ptr %65, align 8, !tbaa !1675
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
+  store i64 %35, ptr %66, align 8
   store ptr %.0.i.i.i.i.i.i, ptr %25, align 8, !tbaa !55
-  br label %66
+  br label %67
 
-66:                                               ; preds = %_ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit, %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %5, ptr %67, align 4, !tbaa !1055
+67:                                               ; preds = %_ZN5clang9WhileStmt20setConditionVariableERKNS_10ASTContextEPNS_7VarDeclE.exit, %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %5, ptr %68, align 4, !tbaa !1055
   store i32 %6, ptr %20, align 8, !tbaa !1055
   store i32 %7, ptr %21, align 4, !tbaa !1055
   ret void
@@ -20782,20 +20781,21 @@ _ZN5clang10SwitchCaseC2ENS_4Stmt9StmtClassENS_14SourceLocationES3_.exit.i: ; pre
   store ptr %1, ptr %44, align 8, !tbaa !55
   %45 = lshr exact i16 %41, 9
   %46 = zext nneg i16 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %47 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i12, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr null, ptr %48, align 8, !tbaa !55
   br i1 %.not, label %_ZN5clang8CaseStmtC2EPNS_4ExprES2_NS_14SourceLocationES3_S3_.exit, label %49
 
 49:                                               ; preds = %_ZN5clang10SwitchCaseC2ENS_4Stmt9StmtClassENS_14SourceLocationES3_.exit.i
-  store ptr %2, ptr %47, align 8, !tbaa !55
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 48
-  store i32 %4, ptr %50, align 4, !tbaa !1055
+  %50 = getelementptr inbounds nuw ptr, ptr %44, i64 %46
+  store ptr %2, ptr %50, align 8, !tbaa !55
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i12, i64 48
+  store i32 %4, ptr %51, align 4, !tbaa !1055
   br label %_ZN5clang8CaseStmtC2EPNS_4ExprES2_NS_14SourceLocationES3_S3_.exit
 
 _ZN5clang8CaseStmtC2EPNS_4ExprES2_NS_14SourceLocationES3_S3_.exit: ; preds = %49, %_ZN5clang10SwitchCaseC2ENS_4Stmt9StmtClassENS_14SourceLocationES3_.exit.i, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %51 = phi ptr [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ], [ %.0.i.i.i12, %_ZN5clang10SwitchCaseC2ENS_4Stmt9StmtClassENS_14SourceLocationES3_.exit.i ], [ %.0.i.i.i12, %49 ]
-  ret ptr %51
+  %52 = phi ptr [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ], [ %.0.i.i.i12, %_ZN5clang10SwitchCaseC2ENS_4Stmt9StmtClassENS_14SourceLocationES3_.exit.i ], [ %.0.i.i.i12, %49 ]
+  ret ptr %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

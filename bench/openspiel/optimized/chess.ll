@@ -3678,9 +3678,8 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %95 = ashr exact i32 %sext1.i.i, 24
   %96 = add nsw i32 %94, %95
   %97 = sext i32 %96 to i64
-  %.idx = shl nsw i64 %97, 1
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %99 = getelementptr i8, ptr %98, i64 %.idx
+  %98 = getelementptr %"struct.open_spiel::chess::Piece", ptr %1, i64 %97
+  %99 = getelementptr i8, ptr %98, i64 7
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 6
   %or.cond = select i1 %66, i1 %101, i1 false

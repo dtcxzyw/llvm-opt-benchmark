@@ -729,12 +729,12 @@ _ZN4llvm15MachineFunction22deallocateOperandArrayENS_13ArrayRecyclerINS_14Machin
   %140 = load i16, ptr %134, align 8, !tbaa !27
   %141 = zext i16 %140 to i64
   %142 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %134, i64 %141
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  %144 = getelementptr inbounds nuw i8, ptr %134, i64 12
-  %145 = load i16, ptr %144, align 4, !tbaa !217
-  %146 = zext i16 %145 to i64
-  %147 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %143, i64 %146
-  %148 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %147, i64 %119, i32 3
+  %143 = getelementptr inbounds nuw i8, ptr %134, i64 12
+  %144 = load i16, ptr %143, align 4, !tbaa !217
+  %145 = zext i16 %144 to i64
+  %146 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %142, i64 %145
+  %147 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %146, i64 %119
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 36
   %149 = load i16, ptr %148, align 2, !tbaa !218
   %150 = zext i16 %149 to i32
   %151 = and i32 %150, 1
@@ -792,12 +792,12 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.
   %178 = load i16, ptr %172, align 8, !tbaa !27
   %179 = zext i16 %178 to i64
   %180 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %172, i64 %179
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 32
-  %182 = getelementptr inbounds nuw i8, ptr %172, i64 12
-  %183 = load i16, ptr %182, align 4, !tbaa !217
-  %184 = zext i16 %183 to i64
-  %185 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %181, i64 %184
-  %186 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %185, i64 %119, i32 3
+  %181 = getelementptr inbounds nuw i8, ptr %172, i64 12
+  %182 = load i16, ptr %181, align 4, !tbaa !217
+  %183 = zext i16 %182 to i64
+  %184 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %180, i64 %183
+  %185 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %184, i64 %119
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 36
   %187 = load i16, ptr %186, align 2, !tbaa !218
   %188 = and i16 %187, 2
   %.not.i77 = icmp eq i16 %188, 0
@@ -7666,29 +7666,29 @@ define dso_local noundef i32 @_ZNK4llvm12MachineInstr23findFirstPredOperandIdxEv
   %11 = load i16, ptr %3, align 8, !tbaa !27
   %12 = zext i16 %11 to i64
   %13 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %3, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %16 = load i16, ptr %15, align 4, !tbaa !217
-  %17 = zext i16 %16 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %14, i64 %17
-  br label %19
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %15 = load i16, ptr %14, align 4, !tbaa !217
+  %16 = zext i16 %15 to i64
+  %17 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %13, i64 %16
+  br label %18
 
-19:                                               ; preds = %.lr.ph, %24
+18:                                               ; preds = %.lr.ph, %24
   %.01014 = phi i32 [ 0, %.lr.ph ], [ %25, %24 ]
-  %20 = zext nneg i32 %.01014 to i64
-  %21 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %18, i64 %20, i32 1
+  %19 = zext nneg i32 %.01014 to i64
+  %20 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 34
   %22 = load i8, ptr %21, align 2, !tbaa !312
   %23 = and i8 %22, 2
   %.not12 = icmp eq i8 %23, 0
   br i1 %.not12, label %24, label %.critedge
 
-24:                                               ; preds = %19
+24:                                               ; preds = %18
   %25 = add nuw nsw i32 %.01014, 1
   %.not = icmp eq i32 %25, %10
-  br i1 %.not, label %.critedge, label %19, !llvm.loop !313
+  br i1 %.not, label %.critedge, label %18, !llvm.loop !313
 
-.critedge:                                        ; preds = %19, %24, %7, %1
-  %.1 = phi i32 [ -1, %1 ], [ -1, %7 ], [ %.01014, %19 ], [ -1, %24 ]
+.critedge:                                        ; preds = %18, %24, %7, %1
+  %.1 = phi i32 [ -1, %1 ], [ -1, %7 ], [ %.01014, %18 ], [ -1, %24 ]
   ret i32 %.1
 }
 
@@ -10701,11 +10701,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12MachineInstr22hasComplexRegister
   %22 = load i16, ptr %3, align 8, !tbaa !27
   %23 = zext i16 %22 to i64
   %24 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %3, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load i16, ptr %11, align 4, !tbaa !217
-  %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %25, i64 %27
-  %29 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %28, i64 %indvars.iv, i32 3
+  %25 = load i16, ptr %11, align 4, !tbaa !217
+  %26 = zext i16 %25 to i64
+  %27 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %24, i64 %26
+  %28 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %30 = load i16, ptr %29, align 2, !tbaa !218
   %31 = zext i16 %30 to i32
   %32 = and i32 %31, 1
@@ -10795,12 +10795,12 @@ _ZNK4llvm12MachineInstr22getNumExplicitOperandsEv.exit: ; preds = %12
   %37 = load i16, ptr %14, align 8, !tbaa !27
   %38 = zext i16 %37 to i64
   %39 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %14, i64 %38
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %41 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %42 = load i16, ptr %41, align 4, !tbaa !217
-  %43 = zext i16 %42 to i64
-  %44 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %40, i64 %43
-  %45 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %44, i64 %7, i32 2
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %41 = load i16, ptr %40, align 4, !tbaa !217
+  %42 = zext i16 %41 to i64
+  %43 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %39, i64 %42
+  %44 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %43, i64 %7
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 35
   %46 = load i8, ptr %45, align 1, !tbaa !401
   %47 = add i8 %46, -6
   %spec.select.i = icmp ult i8 %47, 6
@@ -11075,11 +11075,11 @@ _ZL18tryToGetTargetInfoRKN4llvm12MachineInstrERPKNS_18TargetRegisterInfoERPKNS_1
   %56 = load i16, ptr %37, align 8, !tbaa !27
   %57 = zext i16 %56 to i64
   %58 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %37, i64 %57
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %60 = load i16, ptr %45, align 4, !tbaa !217
-  %61 = zext i16 %60 to i64
-  %62 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %59, i64 %61
-  %63 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %62, i64 %indvars.iv.i, i32 3
+  %59 = load i16, ptr %45, align 4, !tbaa !217
+  %60 = zext i16 %59 to i64
+  %61 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %58, i64 %60
+  %62 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %61, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 36
   %64 = load i16, ptr %63, align 2, !tbaa !218
   %65 = zext i16 %64 to i32
   %66 = and i32 %65, 1

@@ -2484,9 +2484,9 @@ _Z23collect_uninterp_constsP4exprR13obj_hashtableI3appE.exit29: ; preds = %101, 
   %112 = load i32, ptr %74, align 8, !tbaa !62
   %113 = zext i32 %112 to i64
   %.idx44 = shl nuw nsw i64 %113, 3
-  %114 = getelementptr i8, ptr %77, i64 %.idx44
-  %115 = getelementptr i8, ptr %114, i64 -8
-  %.not41 = icmp eq i32 %112, 2
+  %114 = add nuw nsw i64 %.idx44, 24
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 %114
+  %.not41 = icmp samesign eq i64 %114, 40
   br i1 %.not41, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %111

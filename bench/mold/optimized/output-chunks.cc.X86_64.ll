@@ -44649,105 +44649,104 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d122dynamic_grainsize_modeINS
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !1559
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  br label %29
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  br label %28
 
-29:                                               ; preds = %98, %20
-  %30 = load i8, ptr %11, align 4, !tbaa !1201
-  call void @_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE13split_to_fillEh(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 noundef zeroext %30)
-  %31 = load ptr, ptr %25, align 32, !tbaa !1560
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load atomic i8, ptr %32 monotonic, align 1
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge
+28:                                               ; preds = %98, %20
+  %29 = load i8, ptr %11, align 4, !tbaa !1201
+  call void @_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE13split_to_fillEh(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 noundef zeroext %29)
+  %30 = load ptr, ptr %25, align 32, !tbaa !1560
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %32 = load atomic i8, ptr %31 monotonic, align 1
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge
 
-._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge: ; preds = %29
+._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge: ; preds = %28
   %.pre = load i8, ptr %6, align 8, !tbaa !1564
   %.pre16 = zext i8 %.pre to i64
   br label %_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit
 
-35:                                               ; preds = %29
-  %36 = load i8, ptr %11, align 4, !tbaa !1201
-  %37 = add i8 %36, 1
-  store i8 %37, ptr %11, align 4, !tbaa !1201
-  %38 = load i8, ptr %22, align 2, !tbaa !1568
-  %39 = icmp ugt i8 %38, 1
-  br i1 %39, label %40, label %71
+34:                                               ; preds = %28
+  %35 = load i8, ptr %11, align 4, !tbaa !1201
+  %36 = add i8 %35, 1
+  store i8 %36, ptr %11, align 4, !tbaa !1201
+  %37 = load i8, ptr %22, align 2, !tbaa !1568
+  %38 = icmp ugt i8 %37, 1
+  br i1 %38, label %39, label %70
 
-40:                                               ; preds = %35
-  %41 = load i8, ptr %21, align 1, !tbaa !1567
-  %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %24, i64 %42
-  %44 = getelementptr inbounds nuw i8, ptr %23, i64 %42
-  %45 = load i8, ptr %44, align 1, !tbaa !264
+39:                                               ; preds = %34
+  %40 = load i8, ptr %21, align 1, !tbaa !1567
+  %41 = zext i8 %40 to i64
+  %42 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %24, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 %41
+  %44 = load i8, ptr %43, align 1, !tbaa !264
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !1194
-  %46 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EENS1_15quick_sort_bodyISC_SF_EEKNS1_16auto_partitionerEEE, i64 16), ptr %46, align 64, !tbaa !11
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false), !tbaa.struct !1559
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 96
-  store ptr null, ptr %49, align 32, !tbaa !1560
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 104
-  %51 = load i64, ptr %27, align 8, !tbaa !1202
-  %52 = lshr i64 %51, 1
-  store i64 %52, ptr %27, align 8, !tbaa !1202
-  store i64 %52, ptr %50, align 8, !tbaa !1202
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 112
-  store i32 2, ptr %53, align 16, !tbaa !1197
-  %54 = getelementptr inbounds nuw i8, ptr %46, i64 116
-  %55 = load i8, ptr %28, align 4, !tbaa !1201
-  %56 = getelementptr inbounds nuw i8, ptr %46, i64 120
-  %57 = load i64, ptr %5, align 8, !tbaa !1203
-  store i64 %57, ptr %56, align 8, !tbaa !1203
-  %58 = sub i8 %55, %45
-  store i8 %58, ptr %54, align 4, !tbaa !1201
-  %59 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  %60 = load ptr, ptr %25, align 32, !tbaa !1223
-  store ptr %60, ptr %59, align 8, !tbaa !1204
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 2, ptr %61, align 8, !tbaa !1207
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %63 = load i64, ptr %5, align 8, !tbaa !1203
-  store i64 %63, ptr %62, align 8, !tbaa !1203
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i8 0, ptr %64, align 8, !tbaa !754
-  store ptr %59, ptr %25, align 32, !tbaa !1560
-  store ptr %59, ptr %49, align 32, !tbaa !1560
-  %65 = load ptr, ptr %3, align 8, !tbaa !1224
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %46, ptr noundef nonnull align 8 dereferenceable(128) %65) #15
+  %45 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %46, i8 0, i64 56, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EENS1_15quick_sort_bodyISC_SF_EEKNS1_16auto_partitionerEEE, i64 16), ptr %45, align 64, !tbaa !11
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !tbaa.struct !1559
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 96
+  store ptr null, ptr %48, align 32, !tbaa !1560
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 104
+  %50 = load i64, ptr %26, align 8, !tbaa !1202
+  %51 = lshr i64 %50, 1
+  store i64 %51, ptr %26, align 8, !tbaa !1202
+  store i64 %51, ptr %49, align 8, !tbaa !1202
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 112
+  store i32 2, ptr %52, align 16, !tbaa !1197
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 116
+  %54 = load i8, ptr %27, align 4, !tbaa !1201
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 120
+  %56 = load i64, ptr %5, align 8, !tbaa !1203
+  store i64 %56, ptr %55, align 8, !tbaa !1203
+  %57 = sub i8 %54, %44
+  store i8 %57, ptr %53, align 4, !tbaa !1201
+  %58 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
+  %59 = load ptr, ptr %25, align 32, !tbaa !1223
+  store ptr %59, ptr %58, align 8, !tbaa !1204
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store i32 2, ptr %60, align 8, !tbaa !1207
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %62 = load i64, ptr %5, align 8, !tbaa !1203
+  store i64 %62, ptr %61, align 8, !tbaa !1203
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  store i8 0, ptr %63, align 8, !tbaa !754
+  store ptr %58, ptr %25, align 32, !tbaa !1560
+  store ptr %58, ptr %48, align 32, !tbaa !1560
+  %64 = load ptr, ptr %3, align 8, !tbaa !1224
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %45, ptr noundef nonnull align 8 dereferenceable(128) %64) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %66 = load i8, ptr %22, align 2, !tbaa !1568
-  %67 = add i8 %66, -1
-  store i8 %67, ptr %22, align 2, !tbaa !1568
-  %68 = load i8, ptr %21, align 1, !tbaa !1567
-  %69 = add i8 %68, 1
-  %70 = and i8 %69, 7
-  store i8 %70, ptr %21, align 1, !tbaa !1567
+  %65 = load i8, ptr %22, align 2, !tbaa !1568
+  %66 = add i8 %65, -1
+  store i8 %66, ptr %22, align 2, !tbaa !1568
+  %67 = load i8, ptr %21, align 1, !tbaa !1567
+  %68 = add i8 %67, 1
+  %69 = and i8 %68, 7
+  store i8 %69, ptr %21, align 1, !tbaa !1567
   br label %thread-pre-split
 
-71:                                               ; preds = %35
-  %72 = load i8, ptr %6, align 8, !tbaa !1564
-  %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw i8, ptr %23, i64 %73
-  %75 = load i8, ptr %74, align 1, !tbaa !264
-  %76 = icmp ult i8 %75, %37
-  br i1 %76, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit, label %_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit
+70:                                               ; preds = %34
+  %71 = load i8, ptr %6, align 8, !tbaa !1564
+  %72 = zext i8 %71 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %23, i64 %72
+  %74 = load i8, ptr %73, align 1, !tbaa !264
+  %75 = icmp ult i8 %74, %36
+  br i1 %75, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit, label %_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit
 
-_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit: ; preds = %71
-  %.idx.i = mul nuw nsw i64 %73, 24
-  %77 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
+_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit: ; preds = %70
+  %76 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %6, i64 %72
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load i64, ptr %77, align 8, !tbaa !1541
   %79 = icmp ugt i64 %78, 499
   br i1 %79, label %thread-pre-split, label %_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit
 
-_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit: ; preds = %._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge, %71, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit
-  %.pre-phi = phi i64 [ %.pre16, %._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge ], [ %73, %71 ], [ %73, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit ]
-  %80 = phi i8 [ %.pre, %._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge ], [ %72, %71 ], [ %72, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit ]
+_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit: ; preds = %._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge, %70, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit
+  %.pre-phi = phi i64 [ %.pre16, %._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge ], [ %72, %70 ], [ %72, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit ]
+  %80 = phi i8 [ %.pre, %._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS6_6X86_64EE8copy_bufERNS6_7ContextIS8_EEE8HdrEntryZNS9_8copy_bufESC_EUlRKSD_SG_E_EENS1_15quick_sort_bodyISE_SH_EEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge ], [ %71, %70 ], [ %71, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit ]
   %81 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %24, i64 %.pre-phi
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !1541
@@ -44777,8 +44776,8 @@ _ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_
   store i8 %95, ptr %6, align 8, !tbaa !1564
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit, %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EENS1_15quick_sort_bodyISC_SF_EEKNS1_16auto_partitionerEE8run_bodyERSG_.exit12, %40
-  %96 = phi i8 [ %93, %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EENS1_15quick_sort_bodyISC_SF_EEKNS1_16auto_partitionerEE8run_bodyERSG_.exit12 ], [ %67, %40 ], [ %38, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit ]
+thread-pre-split:                                 ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit, %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EENS1_15quick_sort_bodyISC_SF_EEKNS1_16auto_partitionerEE8run_bodyERSG_.exit12, %39
+  %96 = phi i8 [ %93, %_ZN3tbb6detail2d19start_forINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EENS1_15quick_sort_bodyISC_SF_EEKNS1_16auto_partitionerEE8run_bodyERSG_.exit12 ], [ %66, %39 ], [ %37, %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit ]
   %97 = icmp eq i8 %96, 0
   br i1 %97, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EED2Ev.exit, label %98
 
@@ -44791,7 +44790,7 @@ thread-pre-split:                                 ; preds = %_ZN3tbb6detail2d112
   %104 = load ptr, ptr %103, align 8
   %.0.i.i = select i1 %102, ptr %104, ptr %99
   %105 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i) #15
-  br i1 %105, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EED2Ev.exit, label %29, !llvm.loop !1569
+  br i1 %105, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EED2Ev.exit, label %28, !llvm.loop !1569
 
 _ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EED2Ev.exit: ; preds = %98, %thread-pre-split
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -45054,36 +45053,35 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d112range_vectorINS1_16quick_
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i8, ptr %0, align 8, !tbaa !1564
   %.phi.trans.insert = zext i8 %.pre to i64
   %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %4, i64 %.phi.trans.insert
   %.pre25 = load i8, ptr %.phi.trans.insert24, align 1, !tbaa !264
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.lr.ph, %_ZN3tbb6detail2d116quick_sort_rangeIPZN4mold14EhFrameSectionINS3_6X86_64EE8copy_bufERNS3_7ContextIS5_EEE8HdrEntryZNS6_8copy_bufES9_EUlRKSA_SD_E_EC2ERSF_NS0_2d05splitE.exit
-  %11 = phi i8 [ %.pre25, %.lr.ph ], [ %69, %_ZN3tbb6detail2d116quick_sort_rangeIPZN4mold14EhFrameSectionINS3_6X86_64EE8copy_bufERNS3_7ContextIS5_EEE8HdrEntryZNS6_8copy_bufES9_EUlRKSA_SD_E_EC2ERSF_NS0_2d05splitE.exit ]
-  %12 = phi i8 [ %.pre, %.lr.ph ], [ %70, %_ZN3tbb6detail2d116quick_sort_rangeIPZN4mold14EhFrameSectionINS3_6X86_64EE8copy_bufERNS3_7ContextIS5_EEE8HdrEntryZNS6_8copy_bufES9_EUlRKSA_SD_E_EC2ERSF_NS0_2d05splitE.exit ]
-  %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %13
-  %15 = icmp ult i8 %11, %1
-  br i1 %15, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit, label %.critedge
+9:                                                ; preds = %.lr.ph, %_ZN3tbb6detail2d116quick_sort_rangeIPZN4mold14EhFrameSectionINS3_6X86_64EE8copy_bufERNS3_7ContextIS5_EEE8HdrEntryZNS6_8copy_bufES9_EUlRKSA_SD_E_EC2ERSF_NS0_2d05splitE.exit
+  %10 = phi i8 [ %.pre25, %.lr.ph ], [ %69, %_ZN3tbb6detail2d116quick_sort_rangeIPZN4mold14EhFrameSectionINS3_6X86_64EE8copy_bufERNS3_7ContextIS5_EEE8HdrEntryZNS6_8copy_bufES9_EUlRKSA_SD_E_EC2ERSF_NS0_2d05splitE.exit ]
+  %11 = phi i8 [ %.pre, %.lr.ph ], [ %70, %_ZN3tbb6detail2d116quick_sort_rangeIPZN4mold14EhFrameSectionINS3_6X86_64EE8copy_bufERNS3_7ContextIS5_EEE8HdrEntryZNS6_8copy_bufES9_EUlRKSA_SD_E_EC2ERSF_NS0_2d05splitE.exit ]
+  %12 = zext i8 %11 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %12
+  %14 = icmp ult i8 %10, %1
+  br i1 %14, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit, label %.critedge
 
-_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit: ; preds = %10
-  %.idx.i = mul nuw nsw i64 %13, 24
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit: ; preds = %9
+  %15 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %0, i64 %12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8, !tbaa !1541
   %18 = icmp ugt i64 %17, 499
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit
-  %20 = add i8 %12, 1
+  %20 = add i8 %11, 1
   %21 = and i8 %20, 7
   store i8 %21, ptr %0, align 8, !tbaa !1564
   %22 = zext nneg i8 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %9, i64 %22
-  %24 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %9, i64 %13
+  %23 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %8, i64 %22
+  %24 = getelementptr inbounds nuw %"class.tbb::detail::d1::quick_sort_range", ptr %8, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !tbaa.struct !1559
   %25 = load ptr, ptr %23, align 8, !tbaa !1570
   store ptr %25, ptr %24, align 8, !tbaa !434
@@ -45169,9 +45167,9 @@ _ZN3tbb6detail2d116quick_sort_rangeIPZN4mold14EhFrameSectionINS3_6X86_64EE8copy_
   %66 = getelementptr inbounds nuw %struct.HdrEntry, ptr %64, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %67, ptr %63, align 8, !tbaa !1543
-  %68 = load i8, ptr %14, align 1, !tbaa !264
+  %68 = load i8, ptr %13, align 1, !tbaa !264
   %69 = add i8 %68, 1
-  store i8 %69, ptr %14, align 1, !tbaa !264
+  store i8 %69, ptr %13, align 1, !tbaa !264
   %70 = load i8, ptr %0, align 8, !tbaa !1564
   %71 = zext i8 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 %71
@@ -45180,9 +45178,9 @@ _ZN3tbb6detail2d116quick_sort_rangeIPZN4mold14EhFrameSectionINS3_6X86_64EE8copy_
   %74 = add i8 %73, 1
   store i8 %74, ptr %5, align 2, !tbaa !1568
   %75 = icmp ult i8 %74, 8
-  br i1 %75, label %10, label %.critedge, !llvm.loop !1574
+  br i1 %75, label %9, label %.critedge, !llvm.loop !1574
 
-.critedge:                                        ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit, %_ZN3tbb6detail2d116quick_sort_rangeIPZN4mold14EhFrameSectionINS3_6X86_64EE8copy_bufERNS3_7ContextIS5_EEE8HdrEntryZNS6_8copy_bufES9_EUlRKSA_SD_E_EC2ERSF_NS0_2d05splitE.exit, %10, %2
+.critedge:                                        ; preds = %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIPZN4mold14EhFrameSectionINS4_6X86_64EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_EELh8EE12is_divisibleEh.exit, %_ZN3tbb6detail2d116quick_sort_rangeIPZN4mold14EhFrameSectionINS3_6X86_64EE8copy_bufERNS3_7ContextIS5_EEE8HdrEntryZNS6_8copy_bufES9_EUlRKSA_SD_E_EC2ERSF_NS0_2d05splitE.exit, %9, %2
   ret void
 }
 

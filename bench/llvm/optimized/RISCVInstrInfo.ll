@@ -20192,13 +20192,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %17
   %43 = load i16, ptr %31, align 8, !tbaa !818
   %44 = zext i16 %43 to i64
   %45 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %31, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %47 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %48 = load i16, ptr %47, align 4, !tbaa !819
-  %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %46, i64 %49
-  %51 = zext nneg i32 %4 to i64
-  %52 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %50, i64 %51, i32 2
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %47 = load i16, ptr %46, align 4, !tbaa !819
+  %48 = zext i16 %47 to i64
+  %49 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %45, i64 %48
+  %50 = zext nneg i32 %4 to i64
+  %51 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 35
   %53 = load i8, ptr %52, align 1, !tbaa !820
   switch i8 %53, label %_ZN4llvm11raw_ostreamlsEPKc.exit32 [
     i8 53, label %54

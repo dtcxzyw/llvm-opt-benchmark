@@ -842,9 +842,8 @@ _ZN4llvm9RopePieceD2Ev.exit.i:                    ; preds = %_ZN4llvm9RopePieceD
 
 80:                                               ; preds = %78
   %81 = zext i32 %.041.lcssa.i to i64
-  %.idx.i = shl nuw nsw i64 %81, 4
-  %82 = getelementptr inbounds nuw i8, ptr %.tr.lcssa42, i64 16
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i
+  %82 = getelementptr inbounds nuw %"struct.llvm::RopePiece", ptr %.tr.lcssa42, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load i32, ptr %83, align 8, !tbaa !43
   %85 = add i32 %84, %.0.i
   store i32 %85, ptr %83, align 8, !tbaa !43

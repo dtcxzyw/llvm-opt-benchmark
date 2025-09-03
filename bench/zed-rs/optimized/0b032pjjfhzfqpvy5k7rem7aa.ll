@@ -9369,16 +9369,15 @@ define hidden void @_ZN4text14BufferSnapshot18summary_for_anchor17h7fb917d8c8519
   unreachable
 
 362:                                              ; preds = %356
-  %363 = load i64, ptr %183, align 8, !noundef !7
-  %.idx = mul nuw nsw i64 %350, 152
-  %364 = getelementptr inbounds nuw i8, ptr %345, i64 376
-  %365 = getelementptr inbounds nuw i8, ptr %364, i64 %.idx
+  %363 = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }, ptr %345, i64 %350
+  %364 = load i64, ptr %183, align 8, !noundef !7
+  %365 = getelementptr inbounds nuw i8, ptr %363, i64 376
   %366 = load i8, ptr %365, align 8, !range !42, !noundef !7
   %367 = trunc nuw i8 %366 to i1
   br i1 %367, label %372, label %.noexc80
 
 .noexc80:                                         ; preds = %372, %362
-  %.sroa.010.0 = phi i64 [ %376, %372 ], [ %363, %362 ]
+  %.sroa.010.0 = phi i64 [ %376, %372 ], [ %364, %362 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !noalias !2697
   %368 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -9399,7 +9398,7 @@ define hidden void @_ZN4text14BufferSnapshot18summary_for_anchor17h7fb917d8c8519
 372:                                              ; preds = %362
   %373 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %374 = load i64, ptr %373, align 8, !noundef !7
-  %375 = add i64 %63, %363
+  %375 = add i64 %63, %364
   %376 = sub i64 %375, %374
   br label %.noexc80
 
@@ -24271,18 +24270,18 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   %5 = alloca [16 x i8], align 8
   %6 = load i32, ptr %0, align 8, !noundef !7
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %.lr.ph36
+  br i1 %7, label %8, label %.lr.ph35
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 273
   %10 = load i8, ptr %9, align 1, !range !42, !noundef !7
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %.thread60, label %13
+  br i1 %11, label %.thread59, label %13
 
-.thread60:                                        ; preds = %8
+.thread59:                                        ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i8 1, ptr %12, align 8
-  br label %._crit_edge37
+  br label %._crit_edge36
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -24294,28 +24293,28 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   store i32 1, ptr %0, align 8, !alias.scope !5565, !noalias !5562
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i8 1, ptr %18, align 8
-  br label %.lr.ph36
+  br label %.lr.ph35
 
-.lr.ph36:                                         ; preds = %4, %13
-  %.promoted3158 = phi i32 [ 1, %13 ], [ %6, %4 ]
+.lr.ph35:                                         ; preds = %4, %13
+  %.promoted3057 = phi i32 [ 1, %13 ], [ %6, %4 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %21
 
-._crit_edge37:                                    ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit, %.thread60
+._crit_edge36:                                    ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit, %.thread59
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 273
   store i8 1, ptr %20, align 1
   br label %.loopexit
 
-21:                                               ; preds = %.lr.ph36, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit
-  %.sroa.04.234 = phi i1 [ %7, %.lr.ph36 ], [ %.sroa.04.3, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit ]
-  %storemerge3233 = phi i32 [ %.promoted3158, %.lr.ph36 ], [ %78, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit ]
-  %22 = zext i32 %storemerge3233 to i64
+21:                                               ; preds = %.lr.ph35, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit
+  %.sroa.04.233 = phi i1 [ %7, %.lr.ph35 ], [ %.sroa.04.3, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit ]
+  %storemerge3132 = phi i32 [ %.promoted3057, %.lr.ph35 ], [ %76, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit ]
+  %22 = zext i32 %storemerge3132 to i64
   %23 = getelementptr { ptr, i64, {} }, ptr %19, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -16
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
 
-.loopexit:                                        ; preds = %64, %._crit_edge37
+.loopexit:                                        ; preds = %.lr.ph, %._crit_edge36
   ret void
 
 26:                                               ; preds = %21
@@ -24331,129 +24330,121 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %27
-  %.phi.trans.insert46 = getelementptr i8, ptr %23, i64 -8
-  %.promoted27.pre = load i64, ptr %.phi.trans.insert46, align 8
-  br i1 %.sroa.04.234, label %.preheader, label %35
+  %.phi.trans.insert45 = getelementptr i8, ptr %23, i64 -8
+  %.promoted26.pre = load i64, ptr %.phi.trans.insert45, align 8
+  br i1 %.sroa.04.233, label %.preheader, label %35
 
 34:                                               ; preds = %27
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %29, i64 1344
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %.sroa.04.234, label %..preheader22_crit_edge, label %54
+  br i1 %.sroa.04.233, label %..preheader21_crit_edge, label %53
 
-..preheader22_crit_edge:                          ; preds = %34
-  %.phi.trans.insert44 = getelementptr i8, ptr %23, i64 -8
-  %.promoted.pre = load i64, ptr %.phi.trans.insert44, align 8
-  %.pre48 = zext i32 %.pre to i64
-  br label %.preheader22
+..preheader21_crit_edge:                          ; preds = %34
+  %.phi.trans.insert43 = getelementptr i8, ptr %23, i64 -8
+  %.promoted.pre = load i64, ptr %.phi.trans.insert43, align 8
+  %.pre47 = zext i32 %.pre to i64
+  br label %.preheader21
 
 35:                                               ; preds = %33
-  %36 = add i64 %.promoted27.pre, 1
-  store i64 %36, ptr %.phi.trans.insert46, align 8
+  %36 = add i64 %.promoted26.pre, 1
+  store i64 %36, ptr %.phi.trans.insert45, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %33, %35
-  %.promoted27 = phi i64 [ %36, %35 ], [ %.promoted27.pre, %33 ]
+  %.promoted26 = phi i64 [ %36, %35 ], [ %.promoted26.pre, %33 ]
   %37 = getelementptr i8, ptr %23, i64 -8
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 192
   %39 = load i32, ptr %38, align 8, !noundef !7
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %.promoted27, %40
-  br i1 %41, label %.lr.ph28, label %._crit_edge
+  %41 = icmp ult i64 %.promoted26, %40
+  br i1 %41, label %.lr.ph27, label %._crit_edge
 
-.lr.ph28:                                         ; preds = %.preheader
-  %42 = getelementptr inbounds nuw i8, ptr %29, i64 360
-  br label %47
+._crit_edge:                                      ; preds = %51, %.lr.ph27, %.preheader
+  %.lcssa = phi i64 [ %.promoted26, %.preheader ], [ %46, %.lr.ph27 ], [ %40, %51 ]
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 2216
+  %43 = load i32, ptr %42, align 8, !noundef !7
+  %44 = zext i32 %43 to i64
+  %45 = icmp ult i64 %.lcssa, %44
+  br i1 %45, label %69, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit
 
-._crit_edge:                                      ; preds = %52, %47, %.preheader
-  %.lcssa = phi i64 [ %.promoted27, %.preheader ], [ %48, %47 ], [ %40, %52 ]
-  %43 = getelementptr inbounds nuw i8, ptr %29, i64 2216
-  %44 = load i32, ptr %43, align 8, !noundef !7
-  %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %.lcssa, %45
-  br i1 %46, label %71, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit
+.lr.ph27:                                         ; preds = %.preheader, %51
+  %46 = phi i64 [ %52, %51 ], [ %.promoted26, %.preheader ]
+  %47 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr %29, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 360
+  %49 = load i8, ptr %48, align 8, !range !42, !alias.scope !5568, !noundef !7
+  %50 = trunc nuw i8 %49 to i1
+  br i1 %50, label %._crit_edge, label %51
 
-47:                                               ; preds = %.lr.ph28, %52
-  %48 = phi i64 [ %.promoted27, %.lr.ph28 ], [ %53, %52 ]
-  %.idx21 = mul nuw nsw i64 %48, 168
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx21
-  %50 = load i8, ptr %49, align 8, !range !42, !alias.scope !5568, !noundef !7
-  %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %._crit_edge, label %52
+51:                                               ; preds = %.lr.ph27
+  %52 = add i64 %46, 1
+  store i64 %52, ptr %37, align 8
+  %exitcond40.not = icmp eq i64 %52, %40
+  br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph27
 
-52:                                               ; preds = %47
-  %53 = add i64 %48, 1
-  store i64 %53, ptr %37, align 8
-  %exitcond41.not = icmp eq i64 %53, %40
-  br i1 %exitcond41.not, label %._crit_edge, label %47
+53:                                               ; preds = %34
+  %54 = zext i32 %.pre to i64
+  %55 = getelementptr i8, ptr %23, i64 -8
+  %56 = load i64, ptr %55, align 8, !noundef !7
+  %57 = icmp ult i64 %56, %54
+  br i1 %57, label %58, label %61
 
-54:                                               ; preds = %34
-  %55 = zext i32 %.pre to i64
-  %56 = getelementptr i8, ptr %23, i64 -8
-  %57 = load i64, ptr %56, align 8, !noundef !7
-  %58 = icmp ult i64 %57, %55
-  br i1 %58, label %59, label %63
+58:                                               ; preds = %53
+  %59 = add nuw nsw i64 %56, 1
+  store i64 %59, ptr %55, align 8
+  br label %.preheader21
 
-59:                                               ; preds = %54
-  %60 = add nuw nsw i64 %57, 1
-  store i64 %60, ptr %56, align 8
-  br label %.preheader22
+.preheader21:                                     ; preds = %..preheader21_crit_edge, %58
+  %.pre-phi = phi i64 [ %.pre47, %..preheader21_crit_edge ], [ %54, %58 ]
+  %.promoted = phi i64 [ %.promoted.pre, %..preheader21_crit_edge ], [ %59, %58 ]
+  %60 = getelementptr i8, ptr %23, i64 -8
+  %.not25 = icmp ult i64 %.promoted, %.pre-phi
+  br i1 %.not25, label %.lr.ph, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit
 
-.preheader22:                                     ; preds = %..preheader22_crit_edge, %59
-  %.pre-phi = phi i64 [ %.pre48, %..preheader22_crit_edge ], [ %55, %59 ]
-  %.promoted = phi i64 [ %.promoted.pre, %..preheader22_crit_edge ], [ %60, %59 ]
-  %61 = getelementptr i8, ptr %23, i64 -8
-  %.not26 = icmp ult i64 %.promoted, %.pre-phi
-  br i1 %.not26, label %.lr.ph, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit
-
-.lr.ph:                                           ; preds = %.preheader22
-  %62 = getelementptr inbounds nuw i8, ptr %29, i64 1512
-  br label %64
-
-63:                                               ; preds = %54
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %57, i64 noundef %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #48
+61:                                               ; preds = %53
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %56, i64 noundef %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #48
   unreachable
 
-64:                                               ; preds = %.lr.ph, %69
-  %65 = phi i64 [ %.promoted, %.lr.ph ], [ %70, %69 ]
-  %.idx = mul nuw nsw i64 %65, 168
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
-  %67 = load i8, ptr %66, align 8, !range !42, !alias.scope !5573, !noundef !7
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %.loopexit, label %69
+.lr.ph:                                           ; preds = %.preheader21, %67
+  %62 = phi i64 [ %68, %67 ], [ %.promoted, %.preheader21 ]
+  %63 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr %29, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1512
+  %65 = load i8, ptr %64, align 8, !range !42, !alias.scope !5573, !noundef !7
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %.loopexit, label %67
 
-69:                                               ; preds = %64
-  %70 = add nuw nsw i64 %65, 1
-  store i64 %70, ptr %61, align 8
-  %exitcond.not = icmp eq i64 %70, %.pre-phi
-  br i1 %exitcond.not, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit, label %64
+67:                                               ; preds = %.lr.ph
+  %68 = add nuw nsw i64 %62, 1
+  store i64 %68, ptr %60, align 8
+  %exitcond.not = icmp eq i64 %68, %.pre-phi
+  br i1 %exitcond.not, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit, label %.lr.ph
 
-71:                                               ; preds = %._crit_edge
-  %72 = getelementptr inbounds nuw i8, ptr %29, i64 2224
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.lcssa
-  %74 = icmp ult i32 %storemerge3233, 16
-  br i1 %74, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h52a5351ca51312bbE.exit15", label %75
+69:                                               ; preds = %._crit_edge
+  %70 = getelementptr inbounds nuw i8, ptr %29, i64 2224
+  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %.lcssa
+  %72 = icmp ult i32 %storemerge3132, 16
+  br i1 %72, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h52a5351ca51312bbE.exit15", label %73
 
-75:                                               ; preds = %71
+73:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5578
-  store ptr %73, ptr %5, align 8, !noalias !5578
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %76, align 8, !noalias !5578
+  store ptr %71, ptr %5, align 8, !noalias !5578
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 0, ptr %74, align 8, !noalias !5578
   call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.10a477dd623ba0dce7cdd943b5a0b771.38, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.10a477dd623ba0dce7cdd943b5a0b771.45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #48
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h52a5351ca51312bbE.exit15": ; preds = %71
-  store ptr %73, ptr %23, align 8, !alias.scope !5582, !noalias !5587
-  %77 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 0, ptr %77, align 8, !alias.scope !5582, !noalias !5587
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h52a5351ca51312bbE.exit15": ; preds = %69
+  store ptr %71, ptr %23, align 8, !alias.scope !5582, !noalias !5587
+  %75 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i64 0, ptr %75, align 8, !alias.scope !5582, !noalias !5587
   br label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit
 
-_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit: ; preds = %69, %._crit_edge, %.preheader22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h52a5351ca51312bbE.exit15"
-  %.sink = phi i32 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h52a5351ca51312bbE.exit15" ], [ -1, %.preheader22 ], [ -1, %._crit_edge ], [ -1, %69 ]
-  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h52a5351ca51312bbE.exit15" ], [ false, %.preheader22 ], [ false, %._crit_edge ], [ false, %69 ]
-  %78 = add i32 %storemerge3233, %.sink
-  store i32 %78, ptr %0, align 8
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %._crit_edge37, label %21
+_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85a52cc5b1885375E.exit: ; preds = %67, %._crit_edge, %.preheader21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h52a5351ca51312bbE.exit15"
+  %.sink = phi i32 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h52a5351ca51312bbE.exit15" ], [ -1, %.preheader21 ], [ -1, %._crit_edge ], [ -1, %67 ]
+  %.sroa.04.3 = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h52a5351ca51312bbE.exit15" ], [ false, %.preheader21 ], [ false, %._crit_edge ], [ false, %67 ]
+  %76 = add i32 %storemerge3132, %.sink
+  store i32 %76, ptr %0, align 8
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %._crit_edge36, label %21
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26610,8 +26601,8 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_b
 
 44:                                               ; preds = %.backedge
   %45 = zext i32 %42 to i64
-  %46 = getelementptr inbounds nuw { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }, ptr %17, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 -48
+  %46 = getelementptr inbounds nuw { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }, ptr %0, i64 %45
+  %47 = getelementptr inbounds i8, ptr %46, i64 -24
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
   br label %49
 

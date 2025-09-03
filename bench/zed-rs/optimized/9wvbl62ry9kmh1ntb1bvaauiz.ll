@@ -112052,9 +112052,8 @@ define hidden noundef ptr @"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$6remove17
           to label %92 unwind label %38
 
 86:                                               ; preds = %82
-  %.idx = shl nuw nsw i64 %76, 5
-  %87 = getelementptr inbounds nuw i8, ptr %70, i64 72
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx
+  %87 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr }, ptr %70, i64 %76
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 72
   %.val = load ptr, ptr %88, align 8, !nonnull !11, !noundef !11
   %89 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %90 = icmp slt i64 %89, 0

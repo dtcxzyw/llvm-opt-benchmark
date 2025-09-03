@@ -531,7 +531,7 @@ define void @avtext_print_section_footer(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %3) #12
-  br label %37
+  br label %35
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4904
@@ -550,41 +550,39 @@ define void @avtext_print_section_footer(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = getelementptr i32, ptr %17, i64 %7
-  %19 = getelementptr i8, ptr %18, i64 -4
-  %20 = load i32, ptr %19, align 4, !tbaa !59
-  %21 = add i32 %20, 1
-  store i32 %21, ptr %19, align 4, !tbaa !59
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %23 = getelementptr [100 x i32], ptr %22, i64 %7
-  %24 = getelementptr i8, ptr %23, i64 -400
-  %25 = sext i32 %10 to i64
-  %26 = getelementptr inbounds i32, ptr %24, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !59
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %26, align 4, !tbaa !59
+  %17 = getelementptr i32, ptr %0, i64 %7
+  %18 = getelementptr i8, ptr %17, i64 52
+  %19 = load i32, ptr %18, align 4, !tbaa !59
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %18, align 4, !tbaa !59
+  %21 = getelementptr [100 x i32], ptr %0, i64 %7
+  %22 = getelementptr i8, ptr %21, i64 -296
+  %23 = sext i32 %10 to i64
+  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %25 = load i32, ptr %24, align 4, !tbaa !59
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %24, align 4, !tbaa !59
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %16, %11
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !9
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !64
-  %.not20 = icmp eq ptr %32, null
-  br i1 %.not20, label %34, label %33
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  %30 = load ptr, ptr %29, align 8, !tbaa !64
+  %.not20 = icmp eq ptr %30, null
+  br i1 %.not20, label %32, label %31
 
-33:                                               ; preds = %.critedge
-  tail call void %32(ptr noundef nonnull %0) #12
-  br label %34
+31:                                               ; preds = %.critedge
+  tail call void %30(ptr noundef nonnull %0) #12
+  br label %32
 
-34:                                               ; preds = %33, %.critedge
-  %35 = load i32, ptr %2, align 4, !tbaa !38
-  %36 = add nsw i32 %35, -1
-  store i32 %36, ptr %2, align 4, !tbaa !38
-  br label %37
+32:                                               ; preds = %31, %.critedge
+  %33 = load i32, ptr %2, align 4, !tbaa !38
+  %34 = add nsw i32 %33, -1
+  store i32 %34, ptr %2, align 4, !tbaa !38
+  br label %35
 
-37:                                               ; preds = %34, %4
+35:                                               ; preds = %32, %4
   ret void
 }
 

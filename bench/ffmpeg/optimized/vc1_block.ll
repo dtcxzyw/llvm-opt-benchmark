@@ -16504,8 +16504,8 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
   br i1 %204, label %244, label %250
 
 244:                                              ; preds = %242
-  %245 = getelementptr ptr, ptr %195, i64 %indvars.iv236
-  %246 = getelementptr i8, ptr %245, i64 -24
+  %245 = getelementptr ptr, ptr %0, i64 %indvars.iv236
+  %246 = getelementptr i8, ptr %245, i64 3392
   %247 = load ptr, ptr %246, align 8, !tbaa !59
   %248 = getelementptr inbounds i8, ptr %247, i64 -8
   %249 = load i64, ptr %201, align 8, !tbaa !76
@@ -16526,8 +16526,8 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
   br i1 %204, label %257, label %263
 
 257:                                              ; preds = %255
-  %258 = getelementptr ptr, ptr %195, i64 %indvars.iv236
-  %259 = getelementptr i8, ptr %258, i64 -24
+  %258 = getelementptr ptr, ptr %0, i64 %indvars.iv236
+  %259 = getelementptr i8, ptr %258, i64 3392
   %260 = load ptr, ptr %259, align 8, !tbaa !59
   %261 = getelementptr inbounds i8, ptr %260, i64 -8
   %262 = load i64, ptr %201, align 8, !tbaa !76
@@ -16649,8 +16649,8 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
   br i1 %333, label %336, label %341
 
 336:                                              ; preds = %334
-  %337 = getelementptr ptr, ptr %293, i64 %indvars.iv240
-  %338 = getelementptr i8, ptr %337, i64 -24
+  %337 = getelementptr ptr, ptr %0, i64 %indvars.iv240
+  %338 = getelementptr i8, ptr %337, i64 3392
   %339 = load ptr, ptr %338, align 8, !tbaa !59
   %340 = load i64, ptr %299, align 8, !tbaa !76
   br label %343
@@ -16670,8 +16670,8 @@ define internal fastcc void @vc1_put_blocks_clamped(ptr noundef readonly %0, i32
   br i1 %333, label %348, label %353
 
 348:                                              ; preds = %346
-  %349 = getelementptr ptr, ptr %293, i64 %indvars.iv240
-  %350 = getelementptr i8, ptr %349, i64 -24
+  %349 = getelementptr ptr, ptr %0, i64 %indvars.iv240
+  %350 = getelementptr i8, ptr %349, i64 3392
   %351 = load ptr, ptr %350, align 8, !tbaa !59
   %352 = load i64, ptr %299, align 8, !tbaa !76
   br label %355

@@ -852,9 +852,8 @@ _bt_form_posting.exit:                            ; preds = %58, %74
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %81 = load i32, ptr %80, align 8
   %82 = sext i32 %81 to i64
-  %.idx = shl nsw i64 %82, 2
-  %83 = getelementptr i8, ptr %1, i64 70
-  %84 = getelementptr i8, ptr %83, i64 %.idx
+  %83 = getelementptr %struct.BTDedupInterval, ptr %1, i64 %82
+  %84 = getelementptr i8, ptr %83, i64 70
   store i16 %79, ptr %84, align 2
   %85 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %0, ptr noundef nonnull %51, i64 noundef %77, i16 noundef zeroext %10, i32 noundef 0) #10
   %86 = icmp eq i16 %85, 0
@@ -1553,9 +1552,8 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %14, %BTreeTupleIsPo
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %161 = load i32, ptr %160, align 8
   %162 = sext i32 %161 to i64
-  %.idx = shl nsw i64 %162, 2
-  %163 = getelementptr i8, ptr %1, i64 70
-  %164 = getelementptr i8, ptr %163, i64 %.idx
+  %163 = getelementptr %struct.BTDedupInterval, ptr %1, i64 %162
+  %164 = getelementptr i8, ptr %163, i64 70
   store i16 %159, ptr %164, align 2
   %165 = load i32, ptr %160, align 8
   %166 = add i32 %165, 1

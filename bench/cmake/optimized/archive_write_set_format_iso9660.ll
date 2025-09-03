@@ -7545,17 +7545,17 @@ wb_consume.exit:                                  ; preds = %25, %26, %29
 define internal fastcc i32 @write_VD_terminator(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %2, align 8, !tbaa !69
-  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 732
-  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 66272
-  %5 = load i64, ptr %4, align 8, !tbaa !50
-  %6 = sub i64 65536, %5
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 66272
+  %4 = load i64, ptr %3, align 8, !tbaa !50
+  %5 = sub i64 65536, %4
+  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 732
   store i8 -1, ptr %7, align 1, !tbaa !68
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 733
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) @.str.85, i64 5, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 738
   store i8 1, ptr %9, align 1, !tbaa !68
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 7
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 739
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2041) %10, i8 0, i64 2041, i1 false)
   %11 = load ptr, ptr %2, align 8, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 66272
@@ -13256,7 +13256,7 @@ define internal fastcc ptr @extra_next_record(ptr noundef nonnull captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !359
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %38, label %7
+  br i1 %.not, label %37, label %7
 
 7:                                                ; preds = %2
   %8 = sext i32 %4 to i64
@@ -13300,86 +13300,85 @@ extra_get_record.exit:                            ; preds = %7, %23
   %32 = load i32, ptr %.0.i, align 8, !tbaa !274
   store i32 %32, ptr %16, align 4, !tbaa !101
   store ptr %.0.i, ptr %18, align 8, !tbaa !97
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %34 = load i32, ptr %27, align 4, !tbaa !275
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %33, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 -1
-  store ptr %37, ptr %5, align 8, !tbaa !359
+  %33 = load i32, ptr %27, align 4, !tbaa !275
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr i8, ptr %.0.i, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 7
+  store ptr %36, ptr %5, align 8, !tbaa !359
   br label %extra_get_record.exit26
 
-38:                                               ; preds = %2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !362
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %42 = getelementptr i8, ptr %40, i64 32
-  %.val22 = load ptr, ptr %42, align 8, !tbaa !57
-  %43 = getelementptr inbounds nuw i8, ptr %.val22, i64 208
-  %44 = load ptr, ptr %43, align 8, !tbaa !95
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %extra_last_record.exit.thread.i, label %46
+37:                                               ; preds = %2
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !362
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %41 = getelementptr i8, ptr %39, i64 32
+  %.val22 = load ptr, ptr %41, align 8, !tbaa !57
+  %42 = getelementptr inbounds nuw i8, ptr %.val22, i64 208
+  %43 = load ptr, ptr %42, align 8, !tbaa !95
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %extra_last_record.exit.thread.i, label %45
 
-46:                                               ; preds = %38
-  %47 = getelementptr inbounds nuw i8, ptr %.val22, i64 216
-  %48 = load ptr, ptr %47, align 8, !tbaa !96
-  %49 = getelementptr inbounds i8, ptr %48, i64 -2052
-  %50 = load i32, ptr %49, align 4, !tbaa !275
-  %51 = icmp sgt i32 %50, 2020
-  br i1 %51, label %extra_last_record.exit.thread.i, label %._crit_edge
+45:                                               ; preds = %37
+  %46 = getelementptr inbounds nuw i8, ptr %.val22, i64 216
+  %47 = load ptr, ptr %46, align 8, !tbaa !96
+  %48 = getelementptr inbounds i8, ptr %47, i64 -2052
+  %49 = load i32, ptr %48, align 4, !tbaa !275
+  %50 = icmp sgt i32 %49, 2020
+  br i1 %50, label %extra_last_record.exit.thread.i, label %._crit_edge
 
-._crit_edge:                                      ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %48, i64 -2056
-  br label %61
+._crit_edge:                                      ; preds = %45
+  %51 = getelementptr inbounds i8, ptr %47, i64 -2056
+  br label %60
 
-extra_last_record.exit.thread.i:                  ; preds = %46, %38
-  %53 = tail call noalias dereferenceable_or_null(2064) ptr @malloc(i64 noundef 2064) #27
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %extra_last_record.exit.thread.i.extra_get_record.exit26_crit_edge, label %55
+extra_last_record.exit.thread.i:                  ; preds = %45, %37
+  %52 = tail call noalias dereferenceable_or_null(2064) ptr @malloc(i64 noundef 2064) #27
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %extra_last_record.exit.thread.i.extra_get_record.exit26_crit_edge, label %54
 
 extra_last_record.exit.thread.i.extra_get_record.exit26_crit_edge: ; preds = %extra_last_record.exit.thread.i
-  %.pre30 = load i32, ptr %41, align 8, !tbaa !366
+  %.pre30 = load i32, ptr %40, align 8, !tbaa !366
   br label %extra_get_record.exit26
 
-55:                                               ; preds = %extra_last_record.exit.thread.i
-  store i32 0, ptr %53, align 8, !tbaa !274
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 0, ptr %56, align 4, !tbaa !275
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 2056
-  store ptr null, ptr %57, align 8, !tbaa !238
-  %58 = getelementptr inbounds nuw i8, ptr %.val22, i64 216
-  %59 = load ptr, ptr %58, align 8, !tbaa !96
-  %60 = icmp eq ptr %59, null
-  %spec.select6.i = select i1 %60, ptr %43, ptr %59
-  store ptr %53, ptr %spec.select6.i, align 8, !tbaa !292
-  store ptr %57, ptr %58, align 8, !tbaa !96
-  br label %61
+54:                                               ; preds = %extra_last_record.exit.thread.i
+  store i32 0, ptr %52, align 8, !tbaa !274
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  store i32 0, ptr %55, align 4, !tbaa !275
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 2056
+  store ptr null, ptr %56, align 8, !tbaa !238
+  %57 = getelementptr inbounds nuw i8, ptr %.val22, i64 216
+  %58 = load ptr, ptr %57, align 8, !tbaa !96
+  %59 = icmp eq ptr %58, null
+  %spec.select6.i = select i1 %59, ptr %42, ptr %58
+  store ptr %52, ptr %spec.select6.i, align 8, !tbaa !292
+  store ptr %56, ptr %57, align 8, !tbaa !96
+  br label %60
 
-61:                                               ; preds = %._crit_edge, %55
-  %62 = phi i32 [ 0, %55 ], [ %50, %._crit_edge ]
-  %.0.i23 = phi ptr [ %53, %55 ], [ %52, %._crit_edge ]
-  %63 = sub i32 2020, %62
-  %64 = and i32 %63, 1
-  %.not39.i24 = icmp eq i32 %64, 0
-  %65 = sub i32 2019, %62
-  %spec.select.i25 = select i1 %.not39.i24, i32 %63, i32 %65
-  store i32 %spec.select.i25, ptr %41, align 4, !tbaa !101
-  %66 = getelementptr inbounds nuw i8, ptr %.val22, i64 224
-  store ptr %.0.i23, ptr %66, align 8, !tbaa !97
+60:                                               ; preds = %._crit_edge, %54
+  %61 = phi i32 [ 0, %54 ], [ %49, %._crit_edge ]
+  %.0.i23 = phi ptr [ %52, %54 ], [ %51, %._crit_edge ]
+  %62 = sub i32 2020, %61
+  %63 = and i32 %62, 1
+  %.not39.i24 = icmp eq i32 %63, 0
+  %64 = sub i32 2019, %61
+  %spec.select.i25 = select i1 %.not39.i24, i32 %62, i32 %64
+  store i32 %spec.select.i25, ptr %40, align 4, !tbaa !101
+  %65 = getelementptr inbounds nuw i8, ptr %.val22, i64 224
+  store ptr %.0.i23, ptr %65, align 8, !tbaa !97
   br label %extra_get_record.exit26
 
-extra_get_record.exit26:                          ; preds = %extra_last_record.exit.thread.i.extra_get_record.exit26_crit_edge, %61, %extra_get_record.exit
-  %67 = phi ptr [ null, %extra_last_record.exit.thread.i.extra_get_record.exit26_crit_edge ], [ null, %61 ], [ %37, %extra_get_record.exit ]
-  %68 = phi i32 [ %.pre30, %extra_last_record.exit.thread.i.extra_get_record.exit26_crit_edge ], [ %spec.select.i25, %61 ], [ %spec.select.i, %extra_get_record.exit ]
+extra_get_record.exit26:                          ; preds = %extra_last_record.exit.thread.i.extra_get_record.exit26_crit_edge, %60, %extra_get_record.exit
+  %66 = phi ptr [ null, %extra_last_record.exit.thread.i.extra_get_record.exit26_crit_edge ], [ null, %60 ], [ %36, %extra_get_record.exit ]
+  %67 = phi i32 [ %.pre30, %extra_last_record.exit.thread.i.extra_get_record.exit26_crit_edge ], [ %spec.select.i25, %60 ], [ %spec.select.i, %extra_get_record.exit ]
   store i32 0, ptr %3, align 8, !tbaa !365
-  %69 = icmp slt i32 %68, %1
-  br i1 %69, label %70, label %common.ret
+  %68 = icmp slt i32 %67, %1
+  br i1 %68, label %69, label %common.ret
 
-common.ret:                                       ; preds = %extra_get_record.exit26, %70
-  %common.ret.op = phi ptr [ %.pre31, %70 ], [ %67, %extra_get_record.exit26 ]
+common.ret:                                       ; preds = %extra_get_record.exit26, %69
+  %common.ret.op = phi ptr [ %.pre31, %69 ], [ %66, %extra_get_record.exit26 ]
   ret ptr %common.ret.op
 
-70:                                               ; preds = %extra_get_record.exit26
-  %71 = tail call fastcc ptr @extra_next_record(ptr noundef %0, i32 noundef %1)
+69:                                               ; preds = %extra_get_record.exit26
+  %70 = tail call fastcc ptr @extra_next_record(ptr noundef %0, i32 noundef %1)
   %.pre31 = load ptr, ptr %5, align 8, !tbaa !359
   br label %common.ret
 }

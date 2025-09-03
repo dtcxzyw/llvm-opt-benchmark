@@ -5739,9 +5739,8 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %2
   br i1 %.not.i, label %_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE12haveFastSqrtEPNS_4TypeE.exit, label %_ZNK4llvm3EVTeqES0_.exit.thread.i.i
 
 _ZNK4llvm3EVTeqES0_.exit.thread.i.i:              ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
-  %.idx.i = mul nuw nsw i64 %10, 496
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 5732
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
+  %13 = getelementptr inbounds nuw [496 x i8], ptr %4, i64 %10
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 5732
   %15 = load i8, ptr %14, align 1, !tbaa !715
   %16 = and i8 %15, -5
   %spec.select.i.i = icmp eq i8 %16, 0
@@ -5789,9 +5788,8 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i: ; preds = %2
 
 _ZNK4llvm3EVTeqES0_.exit.thread.i.i:              ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i, %2
   %.pre-phi.i = phi i64 [ %10, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i ], [ 1, %2 ]
-  %.idx.i = mul nuw nsw i64 %.pre-phi.i, 496
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 5582
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
+  %13 = getelementptr inbounds nuw [496 x i8], ptr %4, i64 %.pre-phi.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 5582
   %15 = load i8, ptr %14, align 1, !tbaa !715
   %16 = icmp ult i8 %15, 5
   br i1 %16, label %switch.lookup, label %_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE11getFPOpCostEPNS_4TypeE.exit

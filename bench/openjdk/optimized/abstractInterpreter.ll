@@ -15,6 +15,8 @@ target triple = "x86_64-pc-linux-gnu"
 %class.Bytecode_member_ref = type { %class.Bytecode.base, ptr }
 %class.Bytecode.base = type <{ ptr, i32 }>
 %class.Bytecode_loadconstant = type { %class.Bytecode.base, ptr }
+%class.ResolvedMethodEntry = type { ptr, %union.anon.0, i16, i16, i8, i8, i8, i8 }
+%union.anon.0 = type { ptr }
 
 $_ZN14BytecodeStream4nextEv = comdat any
 
@@ -834,11 +836,10 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %_ZN12methodHandleC2
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
   %85 = load ptr, ptr %84, align 8
   %86 = zext i16 %.0.i.i to i64
-  %87 = trunc i32 %2 to i16
-  %.idx79 = mul nuw nsw i64 %86, 24
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 26
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx79
-  store i16 %87, ptr %89, align 2
+  %87 = getelementptr inbounds nuw %class.ResolvedMethodEntry, ptr %85, i64 %86
+  %88 = trunc i32 %2 to i16
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 26
+  store i16 %88, ptr %89, align 2
   br label %90
 
 90:                                               ; preds = %76, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
@@ -943,9 +944,8 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit44:  ; preds = %_ZN12methodHandleC2
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
   %148 = load ptr, ptr %147, align 8
   %149 = sext i32 %.0.i.i45 to i64
-  %.idx = shl nsw i64 %149, 4
-  %150 = getelementptr i8, ptr %148, i64 20
-  %151 = getelementptr i8, ptr %150, i64 %.idx
+  %150 = getelementptr %class.ResolvedIndyEntry, ptr %148, i64 %149
+  %151 = getelementptr i8, ptr %150, i64 20
   %152 = trunc i32 %2 to i16
   store volatile i16 %152, ptr %151, align 2
   %153 = icmp ult i32 %2, 65536
@@ -1094,16 +1094,16 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %216, %switch.lookup
   br label %222
 
 219:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
-  br i1 %215, label %switch.lookup91, label %_Z11as_TosState9BasicType.exit59
+  br i1 %215, label %switch.lookup90, label %_Z11as_TosState9BasicType.exit59
 
-switch.lookup91:                                  ; preds = %219
+switch.lookup90:                                  ; preds = %219
   %220 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep92 = getelementptr inbounds nuw i32, ptr @switch.table._ZN19AbstractInterpreter26deopt_continue_after_entryEP6MethodPhib.1, i64 %220
-  %switch.load93 = load i32, ptr %switch.gep92, align 4
+  %switch.gep91 = getelementptr inbounds nuw i32, ptr @switch.table._ZN19AbstractInterpreter26deopt_continue_after_entryEP6MethodPhib.1, i64 %220
+  %switch.load92 = load i32, ptr %switch.gep91, align 4
   br label %_Z11as_TosState9BasicType.exit59
 
-_Z11as_TosState9BasicType.exit59:                 ; preds = %219, %switch.lookup91
-  %.0.i58 = phi i32 [ %switch.load93, %switch.lookup91 ], [ 11, %219 ]
+_Z11as_TosState9BasicType.exit59:                 ; preds = %219, %switch.lookup90
+  %.0.i58 = phi i32 [ %switch.load92, %switch.lookup90 ], [ 11, %219 ]
   %221 = call noundef ptr @_ZN19TemplateInterpreter12return_entryE8TosStateiN9Bytecodes4CodeE(i32 noundef %.0.i58, i32 noundef %32, i32 noundef %18) #11
   br label %222
 

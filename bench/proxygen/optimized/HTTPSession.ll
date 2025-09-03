@@ -23654,10 +23654,9 @@ if.then6.i.i.i244:                                ; preds = %while.body.i.i.i.i2
           to label %call.i427.noexc unwind label %terminate.lpad
 
 call.i427.noexc:                                  ; preds = %while.end.i.i.i.i247, %if.end20.i.i.i.i249, %if.then6.i.i.i244, %invoke.cont202
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.i325.sroa.0.0, i64 -16
   %mul.neg.i.i.i = mul nsw i64 %retval.i325.sroa.3.0, -8
-  %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %mul.neg.i.i.i
-  %control_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr1.i.i.i, i64 14
+  %add.ptr1.i.i.i = getelementptr i8, ptr %retval.i325.sroa.0.0, i64 %mul.neg.i.i.i
+  %control_.i.i = getelementptr i8, ptr %add.ptr1.i.i.i, i64 -2
   %82 = load i8, ptr %control_.i.i, align 2
   %cmp.not.i = icmp ult i8 %82, 16
   br i1 %cmp.not.i, label %if.end.i267, label %if.then.i256

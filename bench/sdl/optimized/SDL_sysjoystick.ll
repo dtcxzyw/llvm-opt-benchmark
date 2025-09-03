@@ -3996,7 +3996,7 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
 37:                                               ; preds = %33
   %38 = load ptr, ptr %29, align 8
   %39 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.19, ptr noundef %38) #18
-  br label %486
+  br label %484
 
 .thread:                                          ; preds = %3, %33
   %.03238 = phi i32 [ %35, %33 ], [ %31, %3 ]
@@ -4029,11 +4029,11 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
 
 55:                                               ; preds = %43
   %56 = tail call i32 @close(i32 noundef %.03238) #18
-  br i1 %54, label %57, label %486
+  br i1 %54, label %57, label %484
 
 57:                                               ; preds = %55
   %58 = tail call i32 @close(i32 noundef %.0) #18
-  br label %486
+  br label %484
 
 59:                                               ; preds = %43
   %60 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %.03238, i32 noundef 4, i32 noundef 2048) #18
@@ -4070,33 +4070,33 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
 72:                                               ; preds = %69
   %73 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03238, i64 noundef 2148025634, ptr noundef nonnull %6) #18
   %74 = icmp sgt i32 %73, -1
-  br i1 %74, label %.preheader263.i, label %273
+  br i1 %74, label %.preheader260.i, label %273
 
-.preheader263.i:                                  ; preds = %72
+.preheader260.i:                                  ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %76
 
-76:                                               ; preds = %94, %.preheader263.i
-  %indvars.iv282.i = phi i64 [ 288, %.preheader263.i ], [ %indvars.iv.next283.i, %94 ]
-  %77 = lshr i64 %indvars.iv282.i, 6
+76:                                               ; preds = %94, %.preheader260.i
+  %indvars.iv279.i = phi i64 [ 288, %.preheader260.i ], [ %indvars.iv.next280.i, %94 ]
+  %77 = lshr i64 %indvars.iv279.i, 6
   %78 = getelementptr inbounds nuw i64, ptr %4, i64 %77
   %79 = load i64, ptr %78, align 8
-  %80 = and i64 %indvars.iv282.i, 63
+  %80 = and i64 %indvars.iv279.i, 63
   %81 = shl nuw i64 1, %80
   %82 = and i64 %81, %79
-  %.not210.i = icmp eq i64 %82, 0
-  br i1 %.not210.i, label %94, label %83
+  %.not207.i = icmp eq i64 %82, 0
+  br i1 %.not207.i, label %94, label %83
 
 83:                                               ; preds = %76
   %84 = load i32, ptr %75, align 8
   %85 = trunc i32 %84 to i8
   %86 = load ptr, ptr %15, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 128
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %indvars.iv282.i
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %indvars.iv279.i
   store i8 %85, ptr %88, align 1
   %89 = load ptr, ptr %15, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 958
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %indvars.iv282.i
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %indvars.iv279.i
   store i8 1, ptr %91, align 1
   %92 = load i32, ptr %75, align 8
   %93 = add nsw i32 %92, 1
@@ -4104,55 +4104,55 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
   br label %94
 
 94:                                               ; preds = %83, %76
-  %indvars.iv.next283.i = add nuw nsw i64 %indvars.iv282.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next283.i, 767
-  br i1 %exitcond.not.i, label %.preheader262.i, label %76, !llvm.loop !29
+  %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next280.i, 767
+  br i1 %exitcond.not.i, label %.preheader259.i, label %76, !llvm.loop !29
 
-.preheader261.i:                                  ; preds = %113
-  %.sroa.gep232.i = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.sroa.gep234.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+.preheader258.i:                                  ; preds = %113
+  %.sroa.gep229.i = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sroa.gep231.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %.sroa.gep225.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.gep227.i = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %.sroa.gep228.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.gep230.i = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %.sroa.gep219.i = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %.sroa.gep221.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sroa.gep223.i = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %.sroa.gep222.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.gep224.i = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %.sroa.gep225.i = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.gep227.i = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %.sroa.gep216.i = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %.sroa.gep218.i = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.gep220.i = getelementptr inbounds nuw i8, ptr %11, i64 20
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %118
 
-.preheader262.i:                                  ; preds = %94, %113
-  %indvars.iv285.i = phi i64 [ %indvars.iv.next286.i, %113 ], [ 0, %94 ]
-  %96 = lshr i64 %indvars.iv285.i, 6
+.preheader259.i:                                  ; preds = %94, %113
+  %indvars.iv282.i = phi i64 [ %indvars.iv.next283.i, %113 ], [ 0, %94 ]
+  %96 = lshr i64 %indvars.iv282.i, 6
   %97 = getelementptr inbounds nuw i64, ptr %4, i64 %96
   %98 = load i64, ptr %97, align 8
-  %99 = and i64 %indvars.iv285.i, 63
+  %99 = and i64 %indvars.iv282.i, 63
   %100 = shl nuw i64 1, %99
   %101 = and i64 %100, %98
-  %.not209.i = icmp eq i64 %101, 0
-  br i1 %.not209.i, label %113, label %102
+  %.not206.i = icmp eq i64 %101, 0
+  br i1 %.not206.i, label %113, label %102
 
-102:                                              ; preds = %.preheader262.i
+102:                                              ; preds = %.preheader259.i
   %103 = load i32, ptr %75, align 8
   %104 = trunc i32 %103 to i8
   %105 = load ptr, ptr %15, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 128
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv285.i
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv282.i
   store i8 %104, ptr %107, align 1
   %108 = load ptr, ptr %15, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 958
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 %indvars.iv285.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 %indvars.iv282.i
   store i8 1, ptr %110, align 1
   %111 = load i32, ptr %75, align 8
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %75, align 8
   br label %113
 
-113:                                              ; preds = %102, %.preheader262.i
-  %indvars.iv.next286.i = add nuw nsw i64 %indvars.iv285.i, 1
-  %exitcond288.not.i = icmp eq i64 %indvars.iv.next286.i, 288
-  br i1 %exitcond288.not.i, label %.preheader261.i, label %.preheader262.i, !llvm.loop !30
+113:                                              ; preds = %102, %.preheader259.i
+  %indvars.iv.next283.i = add nuw nsw i64 %indvars.iv282.i, 1
+  %exitcond285.not.i = icmp eq i64 %indvars.iv.next283.i, 288
+  br i1 %exitcond285.not.i, label %.preheader258.i, label %.preheader259.i, !llvm.loop !30
 
 .preheader.i:                                     ; preds = %GuessIfAxesAreDigitalHat.exit.i
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -4161,96 +4161,96 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
   %117 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %194
 
-118:                                              ; preds = %GuessIfAxesAreDigitalHat.exit.i, %.preheader261.i
-  %indvars.iv289.i = phi i64 [ 16, %.preheader261.i ], [ %indvars.iv.next290.i, %GuessIfAxesAreDigitalHat.exit.i ]
+118:                                              ; preds = %GuessIfAxesAreDigitalHat.exit.i, %.preheader258.i
+  %indvars.iv286.i = phi i64 [ 16, %.preheader258.i ], [ %indvars.iv.next287.i, %GuessIfAxesAreDigitalHat.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %119 = load i64, ptr %5, align 8
-  %120 = shl nuw nsw i64 1, %indvars.iv289.i
+  %120 = shl nuw nsw i64 1, %indvars.iv286.i
   %121 = and i64 %119, %120
-  %.not207.i = icmp eq i64 %121, 0
-  br i1 %.not207.i, label %126, label %122
+  %.not204.i = icmp eq i64 %121, 0
+  br i1 %.not204.i, label %126, label %122
 
 122:                                              ; preds = %118
-  %123 = or disjoint i64 %indvars.iv289.i, 2149074240
+  %123 = or disjoint i64 %indvars.iv286.i, 2149074240
   %124 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03238, i64 noundef %123, ptr noundef nonnull %10) #18
   %125 = icmp slt i32 %124, 0
-  %.pre309.i = load i64, ptr %5, align 8
+  %.pre306.i = load i64, ptr %5, align 8
   br label %126
 
 126:                                              ; preds = %122, %118
-  %127 = phi i64 [ %.pre309.i, %122 ], [ %119, %118 ]
+  %127 = phi i64 [ %.pre306.i, %122 ], [ %119, %118 ]
   %.0179.i = phi i1 [ %125, %122 ], [ true, %118 ]
-  %128 = shl nuw nsw i64 2, %indvars.iv289.i
+  %128 = shl nuw nsw i64 2, %indvars.iv286.i
   %129 = and i64 %127, %128
-  %.not208.i = icmp eq i64 %129, 0
-  br i1 %.not208.i, label %.thread.i, label %130
+  %.not205.i = icmp eq i64 %129, 0
+  br i1 %.not205.i, label %.thread.i, label %130
 
 130:                                              ; preds = %126
-  %131 = or disjoint i64 %indvars.iv289.i, 2149074241
+  %131 = or disjoint i64 %indvars.iv286.i, 2149074241
   %132 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03238, i64 noundef %131, ptr noundef nonnull %11) #18
   %.fr.i = freeze i32 %132
   %133 = icmp slt i32 %.fr.i, 0
   br i1 %133, label %.thread.i, label %134
 
 .thread.i:                                        ; preds = %130, %126
-  br i1 %.0179.i, label %GuessIfAxesAreDigitalHat.exit.i, label %.thread317.i
+  br i1 %.0179.i, label %GuessIfAxesAreDigitalHat.exit.i, label %.thread314.i
 
 134:                                              ; preds = %130
   %135 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.22, i1 noundef zeroext false) #18
   br i1 %135, label %.thread58, label %137
 
-.thread317.i:                                     ; preds = %.thread.i
+.thread314.i:                                     ; preds = %.thread.i
   %136 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.22, i1 noundef zeroext false) #18
-  br i1 %136, label %.thread58, label %.thread322.i.thread
+  br i1 %136, label %.thread58, label %.thread319.i.thread
 
 137:                                              ; preds = %134
-  br i1 %.0179.i, label %.thread327.i.thread, label %.thread322.i
+  br i1 %.0179.i, label %.thread324.i.thread, label %.thread319.i
 
-.thread322.i:                                     ; preds = %137
-  %138 = load i32, ptr %.sroa.gep232.i, align 4
+.thread319.i:                                     ; preds = %137
+  %138 = load i32, ptr %.sroa.gep229.i, align 4
   %139 = icmp eq i32 %138, -1
-  %140 = load i32, ptr %.sroa.gep234.i, align 4
+  %140 = load i32, ptr %.sroa.gep231.i, align 4
   %141 = icmp eq i32 %140, 1
   %or.cond = select i1 %139, i1 %141, i1 false
-  br i1 %or.cond, label %.thread327.i.thread, label %.thread.i.i
+  br i1 %or.cond, label %.thread324.i.thread, label %.thread.i.i
 
-.thread322.i.thread:                              ; preds = %.thread317.i
-  %142 = load i32, ptr %.sroa.gep232.i, align 4
+.thread319.i.thread:                              ; preds = %.thread314.i
+  %142 = load i32, ptr %.sroa.gep229.i, align 4
   %143 = icmp eq i32 %142, -1
-  %144 = load i32, ptr %.sroa.gep234.i, align 4
+  %144 = load i32, ptr %.sroa.gep231.i, align 4
   %145 = icmp eq i32 %144, 1
   %or.cond56 = select i1 %143, i1 %145, i1 false
   br i1 %or.cond56, label %.thread58, label %.thread.i.i
 
-.thread327.i.thread:                              ; preds = %.thread322.i, %137
+.thread324.i.thread:                              ; preds = %.thread319.i, %137
   %146 = load i32, ptr %.sroa.gep.i, align 4
   %147 = icmp eq i32 %146, -1
-  %148 = load i32, ptr %.sroa.gep225.i, align 4
+  %148 = load i32, ptr %.sroa.gep222.i, align 4
   %149 = icmp eq i32 %148, 1
   %or.cond61 = select i1 %147, i1 %149, i1 false
   br i1 %or.cond61, label %.thread58, label %150
 
-150:                                              ; preds = %.thread327.i.thread
+150:                                              ; preds = %.thread324.i.thread
   br i1 %.0179.i, label %.thread26.i.i, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.thread322.i.thread, %150, %.thread322.i
-  %151 = phi i1 [ true, %150 ], [ true, %.thread322.i ], [ false, %.thread322.i.thread ]
-  %.0180239248319326.i = phi i1 [ false, %150 ], [ false, %.thread322.i ], [ true, %.thread322.i.thread ]
-  %..sroa.sel.i = select i1 %.0179.i, ptr inttoptr (i64 12 to ptr), ptr %.sroa.gep227.i
+.thread.i.i:                                      ; preds = %.thread319.i.thread, %150, %.thread319.i
+  %151 = phi i1 [ true, %150 ], [ true, %.thread319.i ], [ false, %.thread319.i.thread ]
+  %.0180236245316323.i = phi i1 [ false, %150 ], [ false, %.thread319.i ], [ true, %.thread319.i.thread ]
+  %..sroa.sel.i = select i1 %.0179.i, ptr inttoptr (i64 12 to ptr), ptr %.sroa.gep224.i
   %152 = load i32, ptr %..sroa.sel.i, align 4
   %.not.i.i = icmp eq i32 %152, 0
   br i1 %.not.i.i, label %153, label %GuessIfAxesAreDigitalHat.exit.i
 
 153:                                              ; preds = %.thread.i.i
-  %..sroa.sel229.i = select i1 %.0179.i, ptr inttoptr (i64 16 to ptr), ptr %.sroa.gep228.i
-  %154 = load i32, ptr %..sroa.sel229.i, align 4
+  %..sroa.sel226.i = select i1 %.0179.i, ptr inttoptr (i64 16 to ptr), ptr %.sroa.gep225.i
+  %154 = load i32, ptr %..sroa.sel226.i, align 4
   %.not21.i.i = icmp eq i32 %154, 0
   br i1 %.not21.i.i, label %155, label %GuessIfAxesAreDigitalHat.exit.i
 
 155:                                              ; preds = %153
-  %..sroa.sel231.i = select i1 %.0179.i, ptr inttoptr (i64 20 to ptr), ptr %.sroa.gep230.i
-  %156 = load i32, ptr %..sroa.sel231.i, align 4
+  %..sroa.sel228.i = select i1 %.0179.i, ptr inttoptr (i64 20 to ptr), ptr %.sroa.gep227.i
+  %156 = load i32, ptr %..sroa.sel228.i, align 4
   %.not22.i.i = icmp eq i32 %156, 0
   br i1 %.not22.i.i, label %157, label %GuessIfAxesAreDigitalHat.exit.i
 
@@ -4258,27 +4258,27 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
   br i1 %151, label %.thread26.i.i, label %.thread58
 
 .thread26.i.i:                                    ; preds = %157, %150
-  %.0180239248320.i = phi i1 [ %.0180239248319326.i, %157 ], [ false, %150 ]
-  %.sroa.sel220.i = select i1 %.0180239248320.i, ptr inttoptr (i64 12 to ptr), ptr %.sroa.gep219.i
-  %158 = load i32, ptr %.sroa.sel220.i, align 4
+  %.0180236245317.i = phi i1 [ %.0180236245316323.i, %157 ], [ false, %150 ]
+  %.sroa.sel217.i = select i1 %.0180236245317.i, ptr inttoptr (i64 12 to ptr), ptr %.sroa.gep216.i
+  %158 = load i32, ptr %.sroa.sel217.i, align 4
   %.not23.i.i = icmp eq i32 %158, 0
   br i1 %.not23.i.i, label %159, label %GuessIfAxesAreDigitalHat.exit.i
 
 159:                                              ; preds = %.thread26.i.i
-  %.sroa.sel222.i = select i1 %.0180239248320.i, ptr inttoptr (i64 16 to ptr), ptr %.sroa.gep221.i
-  %160 = load i32, ptr %.sroa.sel222.i, align 4
+  %.sroa.sel219.i = select i1 %.0180236245317.i, ptr inttoptr (i64 16 to ptr), ptr %.sroa.gep218.i
+  %160 = load i32, ptr %.sroa.sel219.i, align 4
   %.not24.i.i = icmp eq i32 %160, 0
   br i1 %.not24.i.i, label %161, label %GuessIfAxesAreDigitalHat.exit.i
 
 161:                                              ; preds = %159
-  %.sroa.sel224.i = select i1 %.0180239248320.i, ptr inttoptr (i64 20 to ptr), ptr %.sroa.gep223.i
-  %162 = load i32, ptr %.sroa.sel224.i, align 4
+  %.sroa.sel221.i = select i1 %.0180236245317.i, ptr inttoptr (i64 20 to ptr), ptr %.sroa.gep220.i
+  %162 = load i32, ptr %.sroa.sel221.i, align 4
   %.not25.i.i = icmp eq i32 %162, 0
   br i1 %.not25.i.i, label %.thread58, label %GuessIfAxesAreDigitalHat.exit.i
 
-.thread58:                                        ; preds = %.thread327.i.thread, %.thread322.i.thread, %161, %157, %.thread317.i, %134
-  %.0180239248321.i = phi i1 [ true, %.thread317.i ], [ false, %134 ], [ %.0180239248320.i, %161 ], [ %.0180239248319326.i, %157 ], [ true, %.thread322.i.thread ], [ false, %.thread327.i.thread ]
-  %163 = trunc nuw nsw i64 %indvars.iv289.i to i32
+.thread58:                                        ; preds = %.thread324.i.thread, %.thread319.i.thread, %161, %157, %.thread314.i, %134
+  %.0180236245318.i = phi i1 [ true, %.thread314.i ], [ false, %134 ], [ %.0180236245317.i, %161 ], [ %.0180236245316323.i, %157 ], [ true, %.thread319.i.thread ], [ false, %.thread324.i.thread ]
+  %163 = trunc nuw nsw i64 %indvars.iv286.i to i32
   %164 = add nsw i32 %163, -16
   %165 = ashr exact i32 %164, 1
   %166 = load ptr, ptr %15, align 8
@@ -4294,21 +4294,21 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
   %175 = getelementptr inbounds i8, ptr %174, i64 %168
   store i8 1, ptr %175, align 1
   store i8 %66, ptr %169, align 4
-  %176 = load i32, ptr %.sroa.gep232.i, align 4
+  %176 = load i32, ptr %.sroa.gep229.i, align 4
   %177 = select i1 %.0179.i, i32 -1, i32 %176
   %178 = getelementptr inbounds nuw i8, ptr %169, i64 4
   store i32 %177, ptr %178, align 4
-  %179 = load i32, ptr %.sroa.gep234.i, align 4
+  %179 = load i32, ptr %.sroa.gep231.i, align 4
   %180 = select i1 %.0179.i, i32 1, i32 %179
   %181 = getelementptr inbounds nuw i8, ptr %169, i64 12
   store i32 %180, ptr %181, align 4
-  br i1 %.0180239248321.i, label %186, label %182
+  br i1 %.0180236245318.i, label %186, label %182
 
 182:                                              ; preds = %.thread58
   %183 = load i32, ptr %.sroa.gep.i, align 4
   %184 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store i32 %183, ptr %184, align 4
-  %185 = load i32, ptr %.sroa.gep225.i, align 4
+  %185 = load i32, ptr %.sroa.gep222.i, align 4
   br label %188
 
 186:                                              ; preds = %.thread58
@@ -4328,20 +4328,20 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
 GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.thread26.i.i, %155, %153, %.thread.i.i, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %indvars.iv.next290.i = add nuw nsw i64 %indvars.iv289.i, 2
-  %193 = icmp samesign ult i64 %indvars.iv289.i, 22
+  %indvars.iv.next287.i = add nuw nsw i64 %indvars.iv286.i, 2
+  %193 = icmp samesign ult i64 %indvars.iv286.i, 22
   br i1 %193, label %118, label %.preheader.i, !llvm.loop !31
 
 194:                                              ; preds = %265, %.preheader.i
-  %indvars.iv292.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next293.i, %265 ]
-  %195 = and i64 %indvars.iv292.i, 56
+  %indvars.iv289.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next290.i, %265 ]
+  %195 = and i64 %indvars.iv289.i, 56
   %or.cond.i = icmp eq i64 %195, 16
   br i1 %or.cond.i, label %196, label %205
 
 196:                                              ; preds = %194
   %197 = load ptr, ptr %15, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 3660
-  %199 = add nuw nsw i64 %indvars.iv292.i, 4294967280
+  %199 = add nuw nsw i64 %indvars.iv289.i, 4294967280
   %200 = lshr i64 %199, 1
   %201 = and i64 %200, 2147483619
   %202 = getelementptr inbounds nuw i8, ptr %198, i64 %201
@@ -4351,17 +4351,17 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
 
 205:                                              ; preds = %196, %194
   %206 = load i64, ptr %5, align 8
-  %207 = shl nuw nsw i64 1, %indvars.iv292.i
+  %207 = shl nuw nsw i64 1, %indvars.iv289.i
   %208 = and i64 %206, %207
-  %.not204.i = icmp eq i64 %208, 0
-  br i1 %.not204.i, label %265, label %209
+  %.not201.i = icmp eq i64 %208, 0
+  br i1 %.not201.i, label %265, label %209
 
 209:                                              ; preds = %205
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %210 = load ptr, ptr %15, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 1808
-  %212 = getelementptr inbounds nuw %struct.axis_correct, ptr %211, i64 %indvars.iv292.i
-  %213 = or disjoint i64 %indvars.iv292.i, 2149074240
+  %212 = getelementptr inbounds nuw %struct.axis_correct, ptr %211, i64 %indvars.iv289.i
+  %213 = or disjoint i64 %indvars.iv289.i, 2149074240
   %214 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03238, i64 noundef %213, ptr noundef nonnull %12) #18
   %215 = icmp slt i32 %214, 0
   br i1 %215, label %264, label %216
@@ -4371,11 +4371,11 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %218 = trunc i32 %217 to i8
   %219 = load ptr, ptr %15, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 895
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %indvars.iv292.i
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %indvars.iv289.i
   store i8 %218, ptr %221, align 1
   %222 = load ptr, ptr %15, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 1725
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 %indvars.iv292.i
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 %indvars.iv289.i
   store i8 1, ptr %224, align 1
   %225 = load i32, ptr %115, align 4
   %226 = getelementptr inbounds nuw i8, ptr %212, i64 16
@@ -4383,8 +4383,8 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %227 = load i32, ptr %116, align 4
   %228 = getelementptr inbounds nuw i8, ptr %212, i64 20
   store i32 %227, ptr %228, align 4
-  %.not205.i = icmp eq i32 %225, %227
-  br i1 %.not205.i, label %261, label %229
+  %.not202.i = icmp eq i32 %225, %227
+  br i1 %.not202.i, label %261, label %229
 
 229:                                              ; preds = %216
   br i1 %64, label %230, label %256
@@ -4412,8 +4412,8 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %247 = load i32, ptr %117, align 4
   %248 = shl nsw i32 %247, 2
   %249 = add i32 %248, %246
-  %.not206.i = icmp eq i32 %245, %249
-  br i1 %.not206.i, label %254, label %250
+  %.not203.i = icmp eq i32 %245, %249
+  br i1 %.not203.i, label %254, label %250
 
 250:                                              ; preds = %230
   %251 = sub i32 %245, %249
@@ -4446,32 +4446,32 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   br label %265
 
 265:                                              ; preds = %264, %205, %196
-  %indvars.iv.next293.i = add nuw nsw i64 %indvars.iv292.i, 1
-  %exitcond295.not.i = icmp eq i64 %indvars.iv.next293.i, 63
-  br i1 %exitcond295.not.i, label %266, label %194, !llvm.loop !32
+  %indvars.iv.next290.i = add nuw nsw i64 %indvars.iv289.i, 1
+  %exitcond292.not.i = icmp eq i64 %indvars.iv.next290.i, 63
+  br i1 %exitcond292.not.i, label %266, label %194, !llvm.loop !32
 
 266:                                              ; preds = %265
   %267 = load i64, ptr %6, align 8
   %268 = and i64 %267, 3
-  %or.cond211.i = icmp eq i64 %268, 0
-  br i1 %or.cond211.i, label %.loopexit264.i, label %269
+  %or.cond208.i = icmp eq i64 %268, 0
+  br i1 %or.cond208.i, label %.loopexit261.i, label %269
 
 269:                                              ; preds = %266
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %271 = load i32, ptr %270, align 8
   %272 = add nsw i32 %271, 1
   store i32 %272, ptr %270, align 8
-  br label %.loopexit264.i
+  br label %.loopexit261.i
 
 273:                                              ; preds = %72, %69, %63
   %274 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03238, i64 noundef 2147576338, ptr noundef nonnull %8, i64 noundef 1) #18
   %275 = icmp sgt i32 %274, -1
-  br i1 %275, label %276, label %.loopexit264.i
+  br i1 %275, label %276, label %.loopexit261.i
 
 276:                                              ; preds = %273
   %277 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03238, i64 noundef 2147576337, ptr noundef nonnull %9, i64 noundef 1) #18
   %278 = icmp sgt i32 %277, -1
-  br i1 %278, label %279, label %.loopexit264.i
+  br i1 %278, label %279, label %.loopexit261.i
 
 279:                                              ; preds = %276
   %280 = load ptr, ptr %15, align 8
@@ -4509,11 +4509,11 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
 
 .lr.ph.i:                                         ; preds = %297
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.pre306.i = load i32, ptr %299, align 8
+  %.pre303.i = load i32, ptr %299, align 8
   br label %300
 
 300:                                              ; preds = %300, %.lr.ph.i
-  %301 = phi i32 [ %.pre306.i, %.lr.ph.i ], [ %315, %300 ]
+  %301 = phi i32 [ %.pre303.i, %.lr.ph.i ], [ %315, %300 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %300 ]
   %302 = load ptr, ptr %15, align 8
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 1792
@@ -4567,32 +4567,32 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 1800
   store ptr null, ptr %333, align 8
   store i8 0, ptr %9, align 1
-  br label %.loopexit264.i
+  br label %.loopexit261.i
 
 334:                                              ; preds = %._crit_edge.i
   store i8 0, ptr %9, align 1
-  br label %.loopexit264.i
+  br label %.loopexit261.i
 
 335:                                              ; preds = %325
-  %.pre308.i = load i8, ptr %9, align 1
-  %336 = icmp eq i8 %.pre308.i, 0
-  br i1 %336, label %.loopexit264.i, label %.lr.ph268.i
+  %.pre305.i = load i8, ptr %9, align 1
+  %336 = icmp eq i8 %.pre305.i, 0
+  br i1 %336, label %.loopexit261.i, label %.lr.ph265.i
 
-.lr.ph268.i:                                      ; preds = %335
+.lr.ph265.i:                                      ; preds = %335
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %339
 
-339:                                              ; preds = %387, %.lr.ph268.i
-  %indvars.iv279.i = phi i64 [ 0, %.lr.ph268.i ], [ %indvars.iv.next280.i, %387 ]
+339:                                              ; preds = %385, %.lr.ph265.i
+  %indvars.iv276.i = phi i64 [ 0, %.lr.ph265.i ], [ %indvars.iv.next277.i, %385 ]
   %340 = load ptr, ptr %15, align 8
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 1800
   %342 = load ptr, ptr %341, align 8
-  %343 = getelementptr inbounds nuw i8, ptr %342, i64 %indvars.iv279.i
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 %indvars.iv276.i
   %344 = load i8, ptr %343, align 1
   %345 = and i8 %344, -8
   %or.cond4.i = icmp eq i8 %345, 16
-  br i1 %or.cond4.i, label %346, label %376
+  br i1 %or.cond4.i, label %346, label %374
 
 346:                                              ; preds = %339
   %347 = lshr i8 %344, 1
@@ -4602,7 +4602,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %351 = getelementptr inbounds nuw i8, ptr %348, i64 %350
   %352 = load i8, ptr %351, align 1, !range !5, !noundef !6
   %353 = trunc nuw i8 %352 to i1
-  br i1 %353, label %387, label %354
+  br i1 %353, label %385, label %354
 
 354:                                              ; preds = %346
   %355 = load i32, ptr %338, align 8
@@ -4616,246 +4616,243 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 %350
   store i8 1, ptr %361, align 1
   %362 = load ptr, ptr %15, align 8
-  %.idx.i = mul nuw nsw i64 %350, 20
-  %363 = getelementptr inbounds nuw i8, ptr %362, i64 3668
-  %364 = getelementptr inbounds nuw i8, ptr %363, i64 %.idx.i
+  %363 = getelementptr inbounds nuw %struct.hat_axis_correct, ptr %362, i64 %350
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 3668
   store i32 -1, ptr %364, align 4
   %365 = load ptr, ptr %15, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 3676
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 %.idx.i
+  %366 = getelementptr inbounds nuw %struct.hat_axis_correct, ptr %365, i64 %350
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 3676
   store i32 1, ptr %367, align 4
   %368 = load ptr, ptr %15, align 8
-  %369 = getelementptr inbounds nuw i8, ptr %368, i64 3668
-  %370 = getelementptr inbounds nuw i8, ptr %369, i64 %.idx.i
-  %371 = getelementptr inbounds nuw i8, ptr %370, i64 4
-  store i32 -1, ptr %371, align 4
-  %372 = load ptr, ptr %15, align 8
-  %373 = getelementptr inbounds nuw i8, ptr %372, i64 3676
-  %374 = getelementptr inbounds nuw i8, ptr %373, i64 %.idx.i
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 4
-  store i32 1, ptr %375, align 4
-  br label %387
+  %369 = getelementptr inbounds nuw %struct.hat_axis_correct, ptr %368, i64 %350
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 3672
+  store i32 -1, ptr %370, align 4
+  %371 = load ptr, ptr %15, align 8
+  %372 = getelementptr inbounds nuw %struct.hat_axis_correct, ptr %371, i64 %350
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 3680
+  store i32 1, ptr %373, align 4
+  br label %385
 
-376:                                              ; preds = %339
-  %377 = load i32, ptr %337, align 4
-  %378 = trunc i32 %377 to i8
-  %379 = getelementptr inbounds nuw i8, ptr %340, i64 895
-  %380 = zext i8 %344 to i64
-  %381 = getelementptr inbounds nuw i8, ptr %379, i64 %380
-  store i8 %378, ptr %381, align 1
-  %382 = load ptr, ptr %15, align 8
-  %383 = getelementptr inbounds nuw i8, ptr %382, i64 1725
-  %384 = getelementptr inbounds nuw i8, ptr %383, i64 %380
-  store i8 1, ptr %384, align 1
-  %385 = load i32, ptr %337, align 4
-  %386 = add nsw i32 %385, 1
-  store i32 %386, ptr %337, align 4
-  br label %387
+374:                                              ; preds = %339
+  %375 = load i32, ptr %337, align 4
+  %376 = trunc i32 %375 to i8
+  %377 = getelementptr inbounds nuw i8, ptr %340, i64 895
+  %378 = zext i8 %344 to i64
+  %379 = getelementptr inbounds nuw i8, ptr %377, i64 %378
+  store i8 %376, ptr %379, align 1
+  %380 = load ptr, ptr %15, align 8
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 1725
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 %378
+  store i8 1, ptr %382, align 1
+  %383 = load i32, ptr %337, align 4
+  %384 = add nsw i32 %383, 1
+  store i32 %384, ptr %337, align 4
+  br label %385
 
-387:                                              ; preds = %376, %354, %346
-  %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
-  %388 = load i8, ptr %9, align 1
-  %389 = zext i8 %388 to i64
-  %390 = icmp samesign ult i64 %indvars.iv.next280.i, %389
-  br i1 %390, label %339, label %.loopexit264.i, !llvm.loop !34
+385:                                              ; preds = %374, %354, %346
+  %indvars.iv.next277.i = add nuw nsw i64 %indvars.iv276.i, 1
+  %386 = load i8, ptr %9, align 1
+  %387 = zext i8 %386 to i64
+  %388 = icmp samesign ult i64 %indvars.iv.next277.i, %387
+  br i1 %388, label %339, label %.loopexit261.i, !llvm.loop !34
 
-.loopexit264.i:                                   ; preds = %387, %335, %334, %328, %276, %273, %269, %266
-  br i1 %54, label %391, label %.loopexit.i
+.loopexit261.i:                                   ; preds = %385, %335, %334, %328, %276, %273, %269, %266
+  br i1 %54, label %389, label %.loopexit.i
 
-391:                                              ; preds = %.loopexit264.i
-  %392 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.0, i64 noundef 2148025635, ptr noundef nonnull %5) #18
-  %393 = icmp sgt i32 %392, -1
-  br i1 %393, label %394, label %.loopexit.i
+389:                                              ; preds = %.loopexit261.i
+  %390 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.0, i64 noundef 2148025635, ptr noundef nonnull %5) #18
+  %391 = icmp sgt i32 %390, -1
+  br i1 %391, label %392, label %.loopexit.i
 
-394:                                              ; preds = %391
-  %395 = load i64, ptr %5, align 8
-  %396 = and i64 %395, 7
-  %or.cond213.not.i = icmp eq i64 %396, 7
-  br i1 %or.cond213.not.i, label %397, label %.loopexit260.i
+392:                                              ; preds = %389
+  %393 = load i64, ptr %5, align 8
+  %394 = and i64 %393, 7
+  %or.cond210.not.i = icmp eq i64 %394, 7
+  br i1 %or.cond210.not.i, label %395, label %.loopexit257.i
 
-397:                                              ; preds = %394
-  %398 = load ptr, ptr %15, align 8
-  %399 = getelementptr inbounds nuw i8, ptr %398, i64 1788
-  store i8 1, ptr %399, align 4
-  %400 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  br label %401
+395:                                              ; preds = %392
+  %396 = load ptr, ptr %15, align 8
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 1788
+  store i8 1, ptr %397, align 4
+  %398 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  br label %399
 
-401:                                              ; preds = %408, %397
-  %indvars.iv296.i = phi i64 [ 0, %397 ], [ %indvars.iv.next297.i, %408 ]
+399:                                              ; preds = %406, %395
+  %indvars.iv293.i = phi i64 [ 0, %395 ], [ %indvars.iv.next294.i, %406 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %402 = or disjoint i64 %indvars.iv296.i, 2149074240
-  %403 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.0, i64 noundef %402, ptr noundef nonnull %13) #18
-  %404 = icmp slt i32 %403, 0
-  br i1 %404, label %405, label %408
+  %400 = or disjoint i64 %indvars.iv293.i, 2149074240
+  %401 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.0, i64 noundef %400, ptr noundef nonnull %13) #18
+  %402 = icmp slt i32 %401, 0
+  br i1 %402, label %403, label %406
 
-405:                                              ; preds = %401
-  %406 = load ptr, ptr %15, align 8
-  %407 = getelementptr inbounds nuw i8, ptr %406, i64 1788
-  store i8 0, ptr %407, align 4
+403:                                              ; preds = %399
+  %404 = load ptr, ptr %15, align 8
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 1788
+  store i8 0, ptr %405, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.loopexit260.i
+  br label %.loopexit257.i
 
-408:                                              ; preds = %401
-  %409 = load i32, ptr %400, align 4
-  %410 = sitofp i32 %409 to float
-  %411 = load ptr, ptr %15, align 8
-  %412 = getelementptr inbounds nuw i8, ptr %411, i64 3572
-  %413 = getelementptr inbounds nuw float, ptr %412, i64 %indvars.iv296.i
-  store float %410, ptr %413, align 4
+406:                                              ; preds = %399
+  %407 = load i32, ptr %398, align 4
+  %408 = sitofp i32 %407 to float
+  %409 = load ptr, ptr %15, align 8
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 3572
+  %411 = getelementptr inbounds nuw float, ptr %410, i64 %indvars.iv293.i
+  store float %408, ptr %411, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %indvars.iv.next297.i = add nuw nsw i64 %indvars.iv296.i, 1
-  %exitcond299.not.i = icmp eq i64 %indvars.iv.next297.i, 3
-  br i1 %exitcond299.not.i, label %.loopexit260.i, label %401, !llvm.loop !35
+  %indvars.iv.next294.i = add nuw nsw i64 %indvars.iv293.i, 1
+  %exitcond296.not.i = icmp eq i64 %indvars.iv.next294.i, 3
+  br i1 %exitcond296.not.i, label %.loopexit257.i, label %399, !llvm.loop !35
 
-.loopexit260.i:                                   ; preds = %408, %405, %394
-  %414 = load i64, ptr %5, align 8
-  %415 = and i64 %414, 56
-  %or.cond215.not.i = icmp eq i64 %415, 56
-  br i1 %or.cond215.not.i, label %416, label %.loopexit.i
+.loopexit257.i:                                   ; preds = %406, %403, %392
+  %412 = load i64, ptr %5, align 8
+  %413 = and i64 %412, 56
+  %or.cond212.not.i = icmp eq i64 %413, 56
+  br i1 %or.cond212.not.i, label %414, label %.loopexit.i
 
-416:                                              ; preds = %.loopexit260.i
-  %417 = load ptr, ptr %15, align 8
-  %418 = getelementptr inbounds nuw i8, ptr %417, i64 1789
-  store i8 1, ptr %418, align 1
-  %419 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  br label %420
+414:                                              ; preds = %.loopexit257.i
+  %415 = load ptr, ptr %15, align 8
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 1789
+  store i8 1, ptr %416, align 1
+  %417 = getelementptr inbounds nuw i8, ptr %14, i64 20
+  br label %418
 
-420:                                              ; preds = %427, %416
-  %indvars.iv300.i = phi i64 [ 0, %416 ], [ %indvars.iv.next301.i, %427 ]
+418:                                              ; preds = %425, %414
+  %indvars.iv297.i = phi i64 [ 0, %414 ], [ %indvars.iv.next298.i, %425 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %421 = add nuw nsw i64 %indvars.iv300.i, 2149074243
-  %422 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.0, i64 noundef %421, ptr noundef nonnull %14) #18
-  %423 = icmp slt i32 %422, 0
-  br i1 %423, label %424, label %427
+  %419 = add nuw nsw i64 %indvars.iv297.i, 2149074243
+  %420 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.0, i64 noundef %419, ptr noundef nonnull %14) #18
+  %421 = icmp slt i32 %420, 0
+  br i1 %421, label %422, label %425
 
-424:                                              ; preds = %420
-  %425 = load ptr, ptr %15, align 8
-  %426 = getelementptr inbounds nuw i8, ptr %425, i64 1789
-  store i8 0, ptr %426, align 1
+422:                                              ; preds = %418
+  %423 = load ptr, ptr %15, align 8
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 1789
+  store i8 0, ptr %424, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit.i
 
-427:                                              ; preds = %420
-  %428 = load i32, ptr %419, align 4
-  %429 = sitofp i32 %428 to float
-  %430 = load ptr, ptr %15, align 8
-  %431 = getelementptr inbounds nuw i8, ptr %430, i64 3584
-  %432 = getelementptr inbounds nuw float, ptr %431, i64 %indvars.iv300.i
-  store float %429, ptr %432, align 4
+425:                                              ; preds = %418
+  %426 = load i32, ptr %417, align 4
+  %427 = sitofp i32 %426 to float
+  %428 = load ptr, ptr %15, align 8
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 3584
+  %430 = getelementptr inbounds nuw float, ptr %429, i64 %indvars.iv297.i
+  store float %427, ptr %430, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %indvars.iv.next301.i = add nuw nsw i64 %indvars.iv300.i, 1
-  %exitcond304.not.i = icmp eq i64 %indvars.iv.next301.i, 3
-  br i1 %exitcond304.not.i, label %.loopexit.i, label %420, !llvm.loop !36
+  %indvars.iv.next298.i = add nuw nsw i64 %indvars.iv297.i, 1
+  %exitcond301.not.i = icmp eq i64 %indvars.iv.next298.i, 3
+  br i1 %exitcond301.not.i, label %.loopexit.i, label %418, !llvm.loop !36
 
-.loopexit.i:                                      ; preds = %427, %424, %.loopexit260.i, %391, %.loopexit264.i
-  %433 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %434 = load i32, ptr %433, align 8
-  %435 = icmp sgt i32 %434, 0
-  br i1 %435, label %436, label %445
+.loopexit.i:                                      ; preds = %425, %422, %.loopexit257.i, %389, %.loopexit261.i
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %432 = load i32, ptr %431, align 8
+  %433 = icmp sgt i32 %432, 0
+  br i1 %433, label %434, label %443
 
-436:                                              ; preds = %.loopexit.i
-  %437 = zext nneg i32 %434 to i64
-  %438 = call noalias ptr @SDL_calloc_REAL(i64 noundef %437, i64 noundef 8) #21
+434:                                              ; preds = %.loopexit.i
+  %435 = zext nneg i32 %432 to i64
+  %436 = call noalias ptr @SDL_calloc_REAL(i64 noundef %435, i64 noundef 8) #21
+  %437 = load ptr, ptr %15, align 8
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 112
+  store ptr %436, ptr %438, align 8
   %439 = load ptr, ptr %15, align 8
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 112
-  store ptr %438, ptr %440, align 8
-  %441 = load ptr, ptr %15, align 8
-  %442 = getelementptr inbounds nuw i8, ptr %441, i64 112
-  %443 = load ptr, ptr %442, align 8
-  %.not258.i = icmp eq ptr %443, null
-  br i1 %.not258.i, label %444, label %445
+  %441 = load ptr, ptr %440, align 8
+  %.not255.i = icmp eq ptr %441, null
+  br i1 %.not255.i, label %442, label %443
 
-444:                                              ; preds = %436
-  store i32 0, ptr %433, align 8
-  br label %445
+442:                                              ; preds = %434
+  store i32 0, ptr %431, align 8
+  br label %443
 
-445:                                              ; preds = %444, %436, %.loopexit.i
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %447 = load i32, ptr %446, align 8
-  %448 = icmp sgt i32 %447, 0
-  br i1 %448, label %449, label %allocate_hatdata.exit.thread.i
+443:                                              ; preds = %442, %434, %.loopexit.i
+  %444 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %445 = load i32, ptr %444, align 8
+  %446 = icmp sgt i32 %445, 0
+  br i1 %446, label %447, label %allocate_hatdata.exit.thread.i
 
-449:                                              ; preds = %445
+447:                                              ; preds = %443
   call void @SDL_AssertJoysticksLocked() #18
-  %450 = load i32, ptr %446, align 8
-  %451 = sext i32 %450 to i64
-  %452 = shl nsw i64 %451, 3
-  %453 = call noalias ptr @SDL_malloc_REAL(i64 noundef %452) #18
+  %448 = load i32, ptr %444, align 8
+  %449 = sext i32 %448 to i64
+  %450 = shl nsw i64 %449, 3
+  %451 = call noalias ptr @SDL_malloc_REAL(i64 noundef %450) #18
+  %452 = load ptr, ptr %15, align 8
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 120
+  store ptr %451, ptr %453, align 8
   %454 = load ptr, ptr %15, align 8
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 120
-  store ptr %453, ptr %455, align 8
-  %456 = load ptr, ptr %15, align 8
-  %457 = getelementptr inbounds nuw i8, ptr %456, i64 120
-  %458 = load ptr, ptr %457, align 8
-  %.not.i218.not.i = icmp eq ptr %458, null
-  br i1 %.not.i218.not.i, label %allocate_hatdata.exit.i, label %.preheader.i.i
+  %456 = load ptr, ptr %455, align 8
+  %.not.i215.not.i = icmp eq ptr %456, null
+  br i1 %.not.i215.not.i, label %allocate_hatdata.exit.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %449
-  %459 = load i32, ptr %446, align 8
-  %460 = icmp sgt i32 %459, 0
-  br i1 %460, label %.lr.ph.i.i, label %allocate_hatdata.exit.thread.i
+.preheader.i.i:                                   ; preds = %447
+  %457 = load i32, ptr %444, align 8
+  %458 = icmp sgt i32 %457, 0
+  br i1 %458, label %.lr.ph.i.i, label %allocate_hatdata.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %461 = load ptr, ptr %15, align 8
-  %462 = getelementptr inbounds nuw i8, ptr %461, i64 120
-  %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds nuw %struct.hwdata_hat, ptr %463, i64 %indvars.iv.i.i
-  store i32 1, ptr %464, align 4
-  %465 = load ptr, ptr %15, align 8
-  %466 = getelementptr inbounds nuw i8, ptr %465, i64 120
-  %467 = load ptr, ptr %466, align 8
-  %468 = getelementptr inbounds nuw %struct.hwdata_hat, ptr %467, i64 %indvars.iv.i.i, i32 0, i64 1
-  store i32 1, ptr %468, align 4
+  %459 = load ptr, ptr %15, align 8
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 120
+  %461 = load ptr, ptr %460, align 8
+  %462 = getelementptr inbounds nuw %struct.hwdata_hat, ptr %461, i64 %indvars.iv.i.i
+  store i32 1, ptr %462, align 4
+  %463 = load ptr, ptr %15, align 8
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 120
+  %465 = load ptr, ptr %464, align 8
+  %466 = getelementptr inbounds nuw %struct.hwdata_hat, ptr %465, i64 %indvars.iv.i.i, i32 0, i64 1
+  store i32 1, ptr %466, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %469 = load i32, ptr %446, align 8
-  %470 = sext i32 %469 to i64
-  %471 = icmp slt i64 %indvars.iv.next.i.i, %470
-  br i1 %471, label %.lr.ph.i.i, label %allocate_hatdata.exit.thread.i, !llvm.loop !37
+  %467 = load i32, ptr %444, align 8
+  %468 = sext i32 %467 to i64
+  %469 = icmp slt i64 %indvars.iv.next.i.i, %468
+  br i1 %469, label %.lr.ph.i.i, label %allocate_hatdata.exit.thread.i, !llvm.loop !37
 
-allocate_hatdata.exit.i:                          ; preds = %449
-  store i32 0, ptr %446, align 8
+allocate_hatdata.exit.i:                          ; preds = %447
+  store i32 0, ptr %444, align 8
   br label %allocate_hatdata.exit.thread.i
 
-allocate_hatdata.exit.thread.i:                   ; preds = %.lr.ph.i.i, %allocate_hatdata.exit.i, %.preheader.i.i, %445
-  %472 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03238, i64 noundef 2148549941, ptr noundef nonnull %7) #18
-  %473 = icmp sgt i32 %472, -1
-  br i1 %473, label %474, label %ConfigJoystick.exit
+allocate_hatdata.exit.thread.i:                   ; preds = %.lr.ph.i.i, %allocate_hatdata.exit.i, %.preheader.i.i, %443
+  %470 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03238, i64 noundef 2148549941, ptr noundef nonnull %7) #18
+  %471 = icmp sgt i32 %470, -1
+  br i1 %471, label %472, label %ConfigJoystick.exit
 
-474:                                              ; preds = %allocate_hatdata.exit.thread.i
-  %475 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %476 = load i64, ptr %475, align 8
-  %477 = and i64 %476, 65536
-  %.not202.i = icmp eq i64 %477, 0
-  br i1 %.not202.i, label %481, label %478
+472:                                              ; preds = %allocate_hatdata.exit.thread.i
+  %473 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %474 = load i64, ptr %473, align 8
+  %475 = and i64 %474, 65536
+  %.not199.i = icmp eq i64 %475, 0
+  br i1 %.not199.i, label %479, label %476
 
-478:                                              ; preds = %474
-  %479 = load ptr, ptr %15, align 8
-  %480 = getelementptr inbounds nuw i8, ptr %479, i64 48
-  store i8 1, ptr %480, align 8
-  br label %481
+476:                                              ; preds = %472
+  %477 = load ptr, ptr %15, align 8
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 48
+  store i8 1, ptr %478, align 8
+  br label %479
 
-481:                                              ; preds = %478, %474
-  %482 = and i64 %476, 67108864
-  %.not203.i = icmp eq i64 %482, 0
-  br i1 %.not203.i, label %ConfigJoystick.exit, label %483
+479:                                              ; preds = %476, %472
+  %480 = and i64 %474, 67108864
+  %.not200.i = icmp eq i64 %480, 0
+  br i1 %.not200.i, label %ConfigJoystick.exit, label %481
 
-483:                                              ; preds = %481
-  %484 = load ptr, ptr %15, align 8
-  %485 = getelementptr inbounds nuw i8, ptr %484, i64 49
-  store i8 1, ptr %485, align 1
+481:                                              ; preds = %479
+  %482 = load ptr, ptr %15, align 8
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 49
+  store i8 1, ptr %483, align 1
   br label %ConfigJoystick.exit
 
-ConfigJoystick.exit:                              ; preds = %allocate_hatdata.exit.thread.i, %481, %483
+ConfigJoystick.exit:                              ; preds = %allocate_hatdata.exit.thread.i, %479, %481
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %486
+  br label %484
 
-486:                                              ; preds = %55, %57, %ConfigJoystick.exit, %37
+484:                                              ; preds = %55, %57, %ConfigJoystick.exit, %37
   %.033 = phi i1 [ %39, %37 ], [ true, %ConfigJoystick.exit ], [ false, %57 ], [ false, %55 ]
   ret i1 %.033
 }

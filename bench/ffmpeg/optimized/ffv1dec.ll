@@ -11,6 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.2 = type { [256 x [2 x i64]], [8 x ptr] }
 %struct.ProgressFrame = type { ptr, ptr }
 %struct.PlaneContext = type { i32, i32, ptr, ptr }
+%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
 %struct.VlcState = type { i32, i16, i8, i8 }
 
@@ -1261,34 +1262,33 @@ slice_set_damaged.exit.i:                         ; preds = %526, %521, %498
   br i1 %.not163.i, label %._crit_edge158.i, label %.lr.ph157.i
 
 .lr.ph157.i:                                      ; preds = %562
-  %567 = getelementptr inbounds nuw i8, ptr %564, i64 40
-  %568 = getelementptr inbounds nuw i8, ptr %557, i64 28
-  %569 = load i32, ptr %568, align 4, !tbaa !62
-  %570 = getelementptr inbounds nuw i8, ptr %557, i64 24
-  %571 = load i32, ptr %570, align 8, !tbaa !61
-  %572 = getelementptr inbounds nuw i8, ptr %.pre172.i, i64 64
+  %567 = getelementptr inbounds nuw i8, ptr %557, i64 28
+  %568 = load i32, ptr %567, align 4, !tbaa !62
+  %569 = getelementptr inbounds nuw i8, ptr %557, i64 24
+  %570 = load i32, ptr %569, align 8, !tbaa !61
+  %571 = getelementptr inbounds nuw i8, ptr %.pre172.i, i64 64
   %wide.trip.count.i = zext i8 %566 to i64
-  br label %581
+  br label %580
 
 ._crit_edge158.i:                                 ; preds = %591, %562
-  %573 = getelementptr inbounds nuw i8, ptr %.pre172.i, i64 64
-  %574 = load i32, ptr %549, align 4, !tbaa !43
-  %575 = getelementptr inbounds nuw i8, ptr %557, i64 16
-  %576 = load i32, ptr %575, align 8, !tbaa !63
-  %577 = getelementptr inbounds nuw i8, ptr %557, i64 20
-  %578 = load i32, ptr %577, align 4, !tbaa !64
-  call void @av_image_copy(ptr noundef nonnull %6, ptr noundef nonnull %552, ptr noundef nonnull %5, ptr noundef nonnull %573, i32 noundef %574, i32 noundef %576, i32 noundef %578) #11
-  %579 = load ptr, ptr %553, align 8, !tbaa !53
-  %580 = getelementptr inbounds nuw i8, ptr %579, i64 %indvars.iv.next170.i
-  store i8 1, ptr %580, align 1, !tbaa !81
+  %572 = getelementptr inbounds nuw i8, ptr %.pre172.i, i64 64
+  %573 = load i32, ptr %549, align 4, !tbaa !43
+  %574 = getelementptr inbounds nuw i8, ptr %557, i64 16
+  %575 = load i32, ptr %574, align 8, !tbaa !63
+  %576 = getelementptr inbounds nuw i8, ptr %557, i64 20
+  %577 = load i32, ptr %576, align 4, !tbaa !64
+  call void @av_image_copy(ptr noundef nonnull %6, ptr noundef nonnull %552, ptr noundef nonnull %5, ptr noundef nonnull %572, i32 noundef %573, i32 noundef %575, i32 noundef %577) #11
+  %578 = load ptr, ptr %553, align 8, !tbaa !53
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 %indvars.iv.next170.i
+  store i8 1, ptr %579, align 1, !tbaa !81
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %616
 
-581:                                              ; preds = %591, %.lr.ph157.i
+580:                                              ; preds = %591, %.lr.ph157.i
   %indvars.iv166.i = phi i64 [ 0, %.lr.ph157.i ], [ %indvars.iv.next167.i, %591 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv166.i, 20
-  %582 = getelementptr inbounds nuw i8, ptr %567, i64 %.idx.i
+  %581 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %564, i64 %indvars.iv166.i
+  %582 = getelementptr inbounds nuw i8, ptr %581, i64 40
   %583 = load i32, ptr %582, align 4, !tbaa !134
   %584 = icmp sgt i32 %583, 8
   %585 = zext i1 %584 to i32
@@ -1297,23 +1297,23 @@ slice_set_damaged.exit.i:                         ; preds = %526, %521, %498
   %or.cond.i = icmp ult i32 %587, 2
   br i1 %or.cond.i, label %588, label %591
 
-588:                                              ; preds = %581
+588:                                              ; preds = %580
   %589 = load i32, ptr %550, align 8, !tbaa !37
   %590 = load i32, ptr %551, align 4, !tbaa !38
   br label %591
 
-591:                                              ; preds = %588, %581
-  %592 = phi i32 [ %589, %588 ], [ 0, %581 ]
-  %593 = phi i32 [ %590, %588 ], [ 0, %581 ]
+591:                                              ; preds = %588, %580
+  %592 = phi i32 [ %589, %588 ], [ 0, %580 ]
+  %593 = phi i32 [ %590, %588 ], [ 0, %580 ]
   %594 = getelementptr inbounds nuw ptr, ptr %439, i64 %indvars.iv166.i
   %595 = load ptr, ptr %594, align 8, !tbaa !129
   %596 = getelementptr inbounds nuw i32, ptr %552, i64 %indvars.iv166.i
   %597 = load i32, ptr %596, align 4, !tbaa !84
-  %598 = ashr i32 %569, %593
+  %598 = ashr i32 %568, %593
   %599 = mul nsw i32 %597, %598
   %600 = sext i32 %599 to i64
   %601 = getelementptr inbounds i8, ptr %595, i64 %600
-  %602 = ashr i32 %571, %592
+  %602 = ashr i32 %570, %592
   %603 = shl i32 %602, %585
   %604 = sext i32 %603 to i64
   %605 = getelementptr inbounds i8, ptr %601, i64 %604
@@ -1321,7 +1321,7 @@ slice_set_damaged.exit.i:                         ; preds = %526, %521, %498
   store ptr %605, ptr %606, align 8, !tbaa !129
   %607 = getelementptr inbounds nuw ptr, ptr %.pre172.i, i64 %indvars.iv166.i
   %608 = load ptr, ptr %607, align 8, !tbaa !129
-  %609 = getelementptr inbounds nuw i32, ptr %572, i64 %indvars.iv166.i
+  %609 = getelementptr inbounds nuw i32, ptr %571, i64 %indvars.iv166.i
   %610 = load i32, ptr %609, align 4, !tbaa !84
   %611 = mul nsw i32 %610, %598
   %612 = sext i32 %611 to i64
@@ -1331,7 +1331,7 @@ slice_set_damaged.exit.i:                         ; preds = %526, %521, %498
   store ptr %614, ptr %615, align 8, !tbaa !129
   %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv166.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next167.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge158.i, label %581, !llvm.loop !136
+  br i1 %exitcond.not.i, label %._crit_edge158.i, label %580, !llvm.loop !136
 
 616:                                              ; preds = %._crit_edge158.i, %560, %555
   %617 = icmp sgt i64 %indvars.iv169.i, 1

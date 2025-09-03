@@ -452,10 +452,9 @@ _ZNSt14_Optional_baseIN4llvm3sys7unicode19LooseMatchingResultELb0ELb0EED2Ev.exit
   br i1 %.not44, label %144, label %134, !llvm.loop !34
 
 144:                                              ; preds = %134
-  %scevgep = getelementptr i8, ptr %.085, i64 5
   %145 = zext nneg i32 %. to i64
-  %146 = getelementptr i8, ptr %scevgep, i64 %145
-  %scevgep95 = getelementptr i8, ptr %146, i64 -4
+  %146 = getelementptr i8, ptr %.085, i64 %145
+  %scevgep95 = getelementptr i8, ptr %146, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !17

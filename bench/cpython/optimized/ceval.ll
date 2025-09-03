@@ -5196,23 +5196,23 @@ _Py_NewRef.exit10602:                             ; preds = %1365, %1369
   store i64 ptrtoint (ptr @_Py_InitCleanup to i64), ptr %1386, align 8, !tbaa !113
   %1390 = getelementptr inbounds nuw i8, ptr %1386, i64 40
   store ptr null, ptr %1390, align 8, !tbaa !173
-  %1391 = getelementptr inbounds nuw i8, ptr %1386, i64 80
-  %1392 = getelementptr %union._PyStackRef, ptr %1391, i64 %10253
-  %1393 = getelementptr i8, ptr %1392, i64 8
-  %1394 = getelementptr inbounds nuw i8, ptr %1386, i64 64
-  store ptr %1393, ptr %1394, align 8, !tbaa !136
-  %1395 = getelementptr inbounds nuw i8, ptr %1386, i64 48
-  store ptr null, ptr %1395, align 8, !tbaa !175
-  %1396 = getelementptr inbounds nuw i8, ptr %1386, i64 56
-  store ptr getelementptr inbounds nuw (i8, ptr @_Py_InitCleanup, i64 208), ptr %1396, align 8, !tbaa !133
-  %1397 = getelementptr inbounds nuw i8, ptr %1386, i64 74
-  store i8 0, ptr %1397, align 2, !tbaa !137
-  %1398 = getelementptr inbounds nuw i8, ptr %1386, i64 75
-  store i8 0, ptr %1398, align 1, !tbaa !138
-  %1399 = getelementptr inbounds nuw i8, ptr %1386, i64 72
-  store i16 0, ptr %1399, align 8, !tbaa !139
-  %1400 = load ptr, ptr %1361, align 8, !tbaa !136
+  %1391 = getelementptr %union._PyStackRef, ptr %1386, i64 %10253
+  %1392 = getelementptr i8, ptr %1391, i64 88
+  %1393 = getelementptr inbounds nuw i8, ptr %1386, i64 64
+  store ptr %1392, ptr %1393, align 8, !tbaa !136
+  %1394 = getelementptr inbounds nuw i8, ptr %1386, i64 48
+  store ptr null, ptr %1394, align 8, !tbaa !175
+  %1395 = getelementptr inbounds nuw i8, ptr %1386, i64 56
+  store ptr getelementptr inbounds nuw (i8, ptr @_Py_InitCleanup, i64 208), ptr %1395, align 8, !tbaa !133
+  %1396 = getelementptr inbounds nuw i8, ptr %1386, i64 74
+  store i8 0, ptr %1396, align 2, !tbaa !137
+  %1397 = getelementptr inbounds nuw i8, ptr %1386, i64 75
+  store i8 0, ptr %1397, align 1, !tbaa !138
+  %1398 = getelementptr inbounds nuw i8, ptr %1386, i64 72
+  store i16 0, ptr %1398, align 8, !tbaa !139
+  %1399 = load ptr, ptr %1361, align 8, !tbaa !136
   store ptr null, ptr %1361, align 8, !tbaa !136
+  %1400 = getelementptr inbounds nuw i8, ptr %1386, i64 80
   %1401 = load i64, ptr %1384, align 8, !tbaa !113
   %1402 = inttoptr i64 %1401 to ptr
   %1403 = load i32, ptr %1402, align 8, !tbaa !113
@@ -5225,8 +5225,8 @@ _Py_NewRef.exit10602:                             ; preds = %1365, %1369
   br label %_Py_NewRef.exit10603
 
 _Py_NewRef.exit10603:                             ; preds = %1381, %1405
-  store i64 %1401, ptr %1391, align 8, !tbaa !113
-  store ptr %1400, ptr %1361, align 8, !tbaa !136
+  store i64 %1401, ptr %1400, align 8, !tbaa !113
+  store ptr %1399, ptr %1361, align 8, !tbaa !136
   %1407 = getelementptr i8, ptr %1383, i64 -8
   %1408 = add i32 %.08890, 1
   %1409 = sext i32 %1408 to i64

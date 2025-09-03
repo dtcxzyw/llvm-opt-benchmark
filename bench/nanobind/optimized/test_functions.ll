@@ -1065,7 +1065,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
 265:                                              ; preds = %0
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %233) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %233)
-  %.sroa.0.0.copyload.i232.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i230.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %203)
   store ptr null, ptr %203, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %204)
@@ -1081,7 +1081,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %271 = getelementptr inbounds nuw i8, ptr %204, i64 62
   store i16 0, ptr %271, align 2, !tbaa !31
   %272 = getelementptr inbounds nuw i8, ptr %204, i64 80
-  store ptr %.sroa.0.0.copyload.i232.i, ptr %272, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i230.i, ptr %272, align 8, !tbaa !32
   %273 = getelementptr inbounds nuw i8, ptr %204, i64 64
   store ptr @.str.2, ptr %273, align 8, !tbaa !33
   store i32 48, ptr %266, align 8, !tbaa !34
@@ -1099,12 +1099,12 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
 
 .noexc:                                           ; preds = %265
   store ptr @.str.4, ptr %235, align 8, !tbaa !40
-  %.sroa.5676.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store ptr null, ptr %.sroa.5676.0..sroa_idx.i, align 8, !tbaa !40
-  %.sroa.6677.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %235, i64 16
-  store i8 1, ptr %.sroa.6677.0..sroa_idx.i, align 8, !tbaa !41
-  %.sroa.7678.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %235, i64 17
-  store i8 0, ptr %.sroa.7678.0..sroa_idx.i, align 1, !tbaa !42
+  %.sroa.5674.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %235, i64 8
+  store ptr null, ptr %.sroa.5674.0..sroa_idx.i, align 8, !tbaa !40
+  %.sroa.6675.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %235, i64 16
+  store i8 1, ptr %.sroa.6675.0..sroa_idx.i, align 8, !tbaa !41
+  %.sroa.7676.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %235, i64 17
+  store i8 0, ptr %.sroa.7676.0..sroa_idx.i, align 1, !tbaa !42
   %275 = getelementptr inbounds nuw i8, ptr %235, i64 24
   %276 = load i64, ptr %232, align 8
   store i64 %276, ptr %275, align 8
@@ -1120,12 +1120,12 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
 
 278:                                              ; preds = %.noexc
   store ptr @.str.5, ptr %237, align 8, !tbaa !40
-  %.sroa.5671.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store ptr null, ptr %.sroa.5671.0..sroa_idx.i, align 8, !tbaa !40
-  %.sroa.6672.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %237, i64 16
-  store i8 1, ptr %.sroa.6672.0..sroa_idx.i, align 8, !tbaa !41
-  %.sroa.7673.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %237, i64 17
-  store i8 0, ptr %.sroa.7673.0..sroa_idx.i, align 1, !tbaa !42
+  %.sroa.5669.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %237, i64 8
+  store ptr null, ptr %.sroa.5669.0..sroa_idx.i, align 8, !tbaa !40
+  %.sroa.6670.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %237, i64 16
+  store i8 1, ptr %.sroa.6670.0..sroa_idx.i, align 8, !tbaa !41
+  %.sroa.7671.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %237, i64 17
+  store i8 0, ptr %.sroa.7671.0..sroa_idx.i, align 1, !tbaa !42
   %279 = getelementptr inbounds nuw i8, ptr %237, i64 24
   %280 = load i64, ptr %231, align 8
   store i64 %280, ptr %279, align 8
@@ -1143,7 +1143,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   call void @llvm.lifetime.end.p0(ptr nonnull %236)
   call void @llvm.lifetime.end.p0(ptr nonnull %235)
   call void @llvm.lifetime.end.p0(ptr nonnull %234)
-  %.sroa.0.0.copyload.i233.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i231.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %201)
   store ptr null, ptr %201, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %202)
@@ -1160,14 +1160,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %291 = getelementptr inbounds nuw i8, ptr %202, i64 62
   store i16 2, ptr %291, align 2, !tbaa !31
   %292 = getelementptr inbounds nuw i8, ptr %202, i64 80
-  store ptr %.sroa.0.0.copyload.i233.i, ptr %292, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i231.i, ptr %292, align 8, !tbaa !32
   %293 = getelementptr inbounds nuw i8, ptr %202, i64 64
   store ptr @.str.6, ptr %293, align 8, !tbaa !33
   store i32 48, ptr %286, align 8, !tbaa !34
   %294 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %202) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %202)
   call void @llvm.lifetime.end.p0(ptr nonnull %201)
-  %.sroa.0.0.copyload.i234.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i232.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %199)
   store ptr null, ptr %199, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %200)
@@ -1179,12 +1179,12 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i64 10, ptr %295, align 16, !tbaa !49
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %295, i64 8
   store i64 11, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !49
-  %.sroa.5666.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %295, i64 16
-  store i64 12, ptr %.sroa.5666.0..sroa_idx.i, align 16, !tbaa !49
-  %.sroa.6667.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %295, i64 24
-  store i64 13, ptr %.sroa.6667.0..sroa_idx.i, align 8, !tbaa !49
-  %.sroa.7668.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %295, i64 32
-  store i64 14, ptr %.sroa.7668.0..sroa_idx.i, align 16, !tbaa !49
+  %.sroa.5664.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %295, i64 16
+  store i64 12, ptr %.sroa.5664.0..sroa_idx.i, align 16, !tbaa !49
+  %.sroa.6665.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %295, i64 24
+  store i64 13, ptr %.sroa.6665.0..sroa_idx.i, align 8, !tbaa !49
+  %.sroa.7666.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %295, i64 32
+  store i64 14, ptr %.sroa.7666.0..sroa_idx.i, align 16, !tbaa !49
   store ptr %295, ptr %200, align 8, !tbaa !35
   %297 = getelementptr inbounds nuw i8, ptr %200, i64 24
   store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE3$_5iJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvE_8__invokeESM_", ptr %297, align 8, !tbaa !51
@@ -1199,14 +1199,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %302 = getelementptr inbounds nuw i8, ptr %200, i64 62
   store i16 0, ptr %302, align 2, !tbaa !31
   %303 = getelementptr inbounds nuw i8, ptr %200, i64 80
-  store ptr %.sroa.0.0.copyload.i234.i, ptr %303, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i232.i, ptr %303, align 8, !tbaa !32
   %304 = getelementptr inbounds nuw i8, ptr %200, i64 64
   store ptr @.str.7, ptr %304, align 8, !tbaa !33
   store i32 16432, ptr %296, align 8, !tbaa !34
   %305 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %200) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %200)
   call void @llvm.lifetime.end.p0(ptr nonnull %199)
-  %.sroa.0.0.copyload.i235.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i233.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %197)
   store ptr null, ptr %197, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %198)
@@ -1222,7 +1222,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %311 = getelementptr inbounds nuw i8, ptr %198, i64 62
   store i16 1, ptr %311, align 2, !tbaa !31
   %312 = getelementptr inbounds nuw i8, ptr %198, i64 80
-  store ptr %.sroa.0.0.copyload.i235.i, ptr %312, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i233.i, ptr %312, align 8, !tbaa !32
   %313 = getelementptr inbounds nuw i8, ptr %198, i64 64
   store ptr @.str.8, ptr %313, align 8, !tbaa !33
   %314 = getelementptr inbounds nuw i8, ptr %198, i64 72
@@ -1234,32 +1234,32 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   call void @llvm.lifetime.start.p0(ptr nonnull %239)
   call void @llvm.lifetime.start.p0(ptr nonnull %240)
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %.sroa.0.0.copyload.i236.i = load ptr, ptr %260, align 8, !noalias !53
-  store ptr %.sroa.0.0.copyload.i236.i, ptr %240, align 8, !tbaa !11, !alias.scope !53
+  %.sroa.0.0.copyload.i234.i = load ptr, ptr %260, align 8, !noalias !53
+  store ptr %.sroa.0.0.copyload.i234.i, ptr %240, align 8, !tbaa !11, !alias.scope !53
   %316 = getelementptr inbounds nuw i8, ptr %240, i64 8
   store ptr null, ptr %316, align 8, !tbaa !18, !alias.scope !53
   %317 = getelementptr inbounds nuw i8, ptr %240, i64 16
   store ptr @.str.8, ptr %317, align 8, !tbaa !19, !alias.scope !53
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %.sroa.0.0.copyload.i236.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %316) #28
-          to label %.noexc237.i unwind label %347
+  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %.sroa.0.0.copyload.i234.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %316) #28
+          to label %.noexc235.i unwind label %347
 
-.noexc237.i:                                      ; preds = %.noexc12
+.noexc235.i:                                      ; preds = %.noexc12
   %318 = load ptr, ptr %316, align 8, !tbaa !18, !noalias !56
   store ptr %318, ptr %239, align 8, !alias.scope !56
   %.not.i.i.i.i.i = icmp eq ptr %318, null
   br i1 %.not.i.i.i.i.i, label %322, label %319
 
-319:                                              ; preds = %.noexc237.i
+319:                                              ; preds = %.noexc235.i
   %320 = load i64, ptr %318, align 8, !tbaa !59, !noalias !56
   %321 = add nsw i64 %320, 1
   store i64 %321, ptr %318, align 8, !tbaa !59, !noalias !56
   br label %322
 
-322:                                              ; preds = %319, %.noexc237.i
+322:                                              ; preds = %319, %.noexc235.i
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %240) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %240)
-  %.sroa.0.0.copyload.i238.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i236.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %195)
   store ptr null, ptr %195, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %196)
@@ -1275,7 +1275,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %328 = getelementptr inbounds nuw i8, ptr %196, i64 62
   store i16 1, ptr %328, align 2, !tbaa !31
   %329 = getelementptr inbounds nuw i8, ptr %196, i64 80
-  store ptr %.sroa.0.0.copyload.i238.i, ptr %329, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i236.i, ptr %329, align 8, !tbaa !32
   %330 = getelementptr inbounds nuw i8, ptr %196, i64 64
   store ptr @.str.8, ptr %330, align 8, !tbaa !33
   %331 = getelementptr inbounds nuw i8, ptr %196, i64 72
@@ -1353,7 +1353,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
 353:                                              ; preds = %322
   %354 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %239) #31
   store ptr null, ptr %239, align 8, !tbaa !44
-  %.sroa.0.0.copyload.i239.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i237.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %193)
   store ptr null, ptr %193, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %194)
@@ -1369,7 +1369,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %360 = getelementptr inbounds nuw i8, ptr %194, i64 62
   store i16 1, ptr %360, align 2, !tbaa !31
   %361 = getelementptr inbounds nuw i8, ptr %194, i64 80
-  store ptr %.sroa.0.0.copyload.i239.i, ptr %361, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i237.i, ptr %361, align 8, !tbaa !32
   %362 = getelementptr inbounds nuw i8, ptr %194, i64 64
   store ptr @.str.12, ptr %362, align 8, !tbaa !33
   %363 = getelementptr inbounds nuw i8, ptr %194, i64 72
@@ -1378,7 +1378,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %364 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %194) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %194)
   call void @llvm.lifetime.end.p0(ptr nonnull %193)
-  %.sroa.0.0.copyload.i240.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i238.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %191)
   store ptr null, ptr %191, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %192)
@@ -1394,7 +1394,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %370 = getelementptr inbounds nuw i8, ptr %192, i64 62
   store i16 1, ptr %370, align 2, !tbaa !31
   %371 = getelementptr inbounds nuw i8, ptr %192, i64 80
-  store ptr %.sroa.0.0.copyload.i240.i, ptr %371, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i238.i, ptr %371, align 8, !tbaa !32
   %372 = getelementptr inbounds nuw i8, ptr %192, i64 64
   store ptr @.str.12, ptr %372, align 8, !tbaa !33
   %373 = getelementptr inbounds nuw i8, ptr %192, i64 72
@@ -1403,7 +1403,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %374 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %192) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %192)
   call void @llvm.lifetime.end.p0(ptr nonnull %191)
-  %.sroa.0.0.copyload.i241.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i239.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %189)
   store ptr null, ptr %189, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %190)
@@ -1419,7 +1419,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %380 = getelementptr inbounds nuw i8, ptr %190, i64 62
   store i16 1, ptr %380, align 2, !tbaa !31
   %381 = getelementptr inbounds nuw i8, ptr %190, i64 80
-  store ptr %.sroa.0.0.copyload.i241.i, ptr %381, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i239.i, ptr %381, align 8, !tbaa !32
   %382 = getelementptr inbounds nuw i8, ptr %190, i64 64
   store ptr @.str.13, ptr %382, align 8, !tbaa !33
   %383 = getelementptr inbounds nuw i8, ptr %190, i64 72
@@ -1428,7 +1428,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %384 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %190) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %190)
   call void @llvm.lifetime.end.p0(ptr nonnull %189)
-  %.sroa.0.0.copyload.i242.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i240.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %187)
   store ptr null, ptr %187, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %188)
@@ -1444,7 +1444,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %390 = getelementptr inbounds nuw i8, ptr %188, i64 62
   store i16 1, ptr %390, align 2, !tbaa !31
   %391 = getelementptr inbounds nuw i8, ptr %188, i64 80
-  store ptr %.sroa.0.0.copyload.i242.i, ptr %391, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i240.i, ptr %391, align 8, !tbaa !32
   %392 = getelementptr inbounds nuw i8, ptr %188, i64 64
   store ptr @.str.13, ptr %392, align 8, !tbaa !33
   %393 = getelementptr inbounds nuw i8, ptr %188, i64 72
@@ -1453,7 +1453,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %394 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %188) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %188)
   call void @llvm.lifetime.end.p0(ptr nonnull %187)
-  %.sroa.0.0.copyload.i243.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i241.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %185)
   store ptr null, ptr %185, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %186)
@@ -1469,14 +1469,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %400 = getelementptr inbounds nuw i8, ptr %186, i64 62
   store i16 0, ptr %400, align 2, !tbaa !31
   %401 = getelementptr inbounds nuw i8, ptr %186, i64 80
-  store ptr %.sroa.0.0.copyload.i243.i, ptr %401, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i241.i, ptr %401, align 8, !tbaa !32
   %402 = getelementptr inbounds nuw i8, ptr %186, i64 64
   store ptr @.str.15, ptr %402, align 8, !tbaa !33
   store i32 48, ptr %395, align 8, !tbaa !34
   %403 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %186) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %186)
   call void @llvm.lifetime.end.p0(ptr nonnull %185)
-  %.sroa.0.0.copyload.i244.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i242.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %183)
   store ptr null, ptr %183, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %184)
@@ -1492,14 +1492,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %409 = getelementptr inbounds nuw i8, ptr %184, i64 62
   store i16 2, ptr %409, align 2, !tbaa !31
   %410 = getelementptr inbounds nuw i8, ptr %184, i64 80
-  store ptr %.sroa.0.0.copyload.i244.i, ptr %410, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i242.i, ptr %410, align 8, !tbaa !32
   %411 = getelementptr inbounds nuw i8, ptr %184, i64 64
   store ptr @.str.16, ptr %411, align 8, !tbaa !33
   store i32 816, ptr %404, align 8, !tbaa !34
   %412 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %184) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %184)
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
-  %.sroa.0.0.copyload.i245.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i243.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %181)
   store ptr null, ptr %181, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %182)
@@ -1515,7 +1515,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %418 = getelementptr inbounds nuw i8, ptr %182, i64 62
   store i16 2, ptr %418, align 2, !tbaa !67
   %419 = getelementptr inbounds nuw i8, ptr %182, i64 80
-  store ptr %.sroa.0.0.copyload.i245.i, ptr %419, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i243.i, ptr %419, align 8, !tbaa !68
   %420 = getelementptr inbounds nuw i8, ptr %182, i64 64
   store ptr @.str.16, ptr %420, align 8, !tbaa !69
   store i32 944, ptr %413, align 8, !tbaa !70
@@ -1554,7 +1554,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %437 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %182) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %182)
   call void @llvm.lifetime.end.p0(ptr nonnull %181)
-  %.sroa.0.0.copyload.i249.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i247.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %179)
   store ptr null, ptr %179, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %180)
@@ -1570,14 +1570,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %443 = getelementptr inbounds nuw i8, ptr %180, i64 62
   store i16 0, ptr %443, align 2, !tbaa !31
   %444 = getelementptr inbounds nuw i8, ptr %180, i64 80
-  store ptr %.sroa.0.0.copyload.i249.i, ptr %444, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i247.i, ptr %444, align 8, !tbaa !32
   %445 = getelementptr inbounds nuw i8, ptr %180, i64 64
   store ptr @.str.21, ptr %445, align 8, !tbaa !33
   store i32 48, ptr %438, align 8, !tbaa !34
   %446 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %180) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %180)
   call void @llvm.lifetime.end.p0(ptr nonnull %179)
-  %.sroa.0.0.copyload.i250.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i248.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %177)
   store ptr null, ptr %177, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %178)
@@ -1593,14 +1593,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %452 = getelementptr inbounds nuw i8, ptr %178, i64 62
   store i16 0, ptr %452, align 2, !tbaa !31
   %453 = getelementptr inbounds nuw i8, ptr %178, i64 80
-  store ptr %.sroa.0.0.copyload.i250.i, ptr %453, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i248.i, ptr %453, align 8, !tbaa !32
   %454 = getelementptr inbounds nuw i8, ptr %178, i64 64
   store ptr @.str.22, ptr %454, align 8, !tbaa !33
   store i32 48, ptr %447, align 8, !tbaa !34
   %455 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %178) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %178)
   call void @llvm.lifetime.end.p0(ptr nonnull %177)
-  %.sroa.0.0.copyload.i251.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i249.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %175)
   store ptr null, ptr %175, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %176)
@@ -1616,14 +1616,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %461 = getelementptr inbounds nuw i8, ptr %176, i64 62
   store i16 1, ptr %461, align 2, !tbaa !31
   %462 = getelementptr inbounds nuw i8, ptr %176, i64 80
-  store ptr %.sroa.0.0.copyload.i251.i, ptr %462, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i249.i, ptr %462, align 8, !tbaa !32
   %463 = getelementptr inbounds nuw i8, ptr %176, i64 64
   store ptr @.str.23, ptr %463, align 8, !tbaa !33
   store i32 48, ptr %456, align 8, !tbaa !34
   %464 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %176) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %176)
   call void @llvm.lifetime.end.p0(ptr nonnull %175)
-  %.sroa.0.0.copyload.i252.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i250.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %173)
   store ptr null, ptr %173, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %174)
@@ -1639,14 +1639,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %470 = getelementptr inbounds nuw i8, ptr %174, i64 62
   store i16 1, ptr %470, align 2, !tbaa !31
   %471 = getelementptr inbounds nuw i8, ptr %174, i64 80
-  store ptr %.sroa.0.0.copyload.i252.i, ptr %471, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i250.i, ptr %471, align 8, !tbaa !32
   %472 = getelementptr inbounds nuw i8, ptr %174, i64 64
   store ptr @.str.24, ptr %472, align 8, !tbaa !33
   store i32 48, ptr %465, align 8, !tbaa !34
   %473 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %174) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %174)
   call void @llvm.lifetime.end.p0(ptr nonnull %173)
-  %.sroa.0.0.copyload.i253.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i251.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %171)
   store ptr null, ptr %171, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %172)
@@ -1662,14 +1662,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %479 = getelementptr inbounds nuw i8, ptr %172, i64 62
   store i16 1, ptr %479, align 2, !tbaa !31
   %480 = getelementptr inbounds nuw i8, ptr %172, i64 80
-  store ptr %.sroa.0.0.copyload.i253.i, ptr %480, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i251.i, ptr %480, align 8, !tbaa !32
   %481 = getelementptr inbounds nuw i8, ptr %172, i64 64
   store ptr @.str.25, ptr %481, align 8, !tbaa !33
   store i32 816, ptr %474, align 8, !tbaa !34
   %482 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %172) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %172)
   call void @llvm.lifetime.end.p0(ptr nonnull %171)
-  %.sroa.0.0.copyload.i254.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i252.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %169)
   store ptr null, ptr %169, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %170)
@@ -1685,14 +1685,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %488 = getelementptr inbounds nuw i8, ptr %170, i64 62
   store i16 1, ptr %488, align 2, !tbaa !31
   %489 = getelementptr inbounds nuw i8, ptr %170, i64 80
-  store ptr %.sroa.0.0.copyload.i254.i, ptr %489, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i252.i, ptr %489, align 8, !tbaa !32
   %490 = getelementptr inbounds nuw i8, ptr %170, i64 64
   store ptr @.str.26, ptr %490, align 8, !tbaa !33
   store i32 48, ptr %483, align 8, !tbaa !34
   %491 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %170) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %170)
   call void @llvm.lifetime.end.p0(ptr nonnull %169)
-  %.sroa.0.0.copyload.i255.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i253.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %167)
   store ptr null, ptr %167, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %168)
@@ -1708,14 +1708,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %497 = getelementptr inbounds nuw i8, ptr %168, i64 62
   store i16 1, ptr %497, align 2, !tbaa !31
   %498 = getelementptr inbounds nuw i8, ptr %168, i64 80
-  store ptr %.sroa.0.0.copyload.i255.i, ptr %498, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i253.i, ptr %498, align 8, !tbaa !32
   %499 = getelementptr inbounds nuw i8, ptr %168, i64 64
   store ptr @.str.21, ptr %499, align 8, !tbaa !33
   store i32 48, ptr %492, align 8, !tbaa !34
   %500 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %168) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %168)
   call void @llvm.lifetime.end.p0(ptr nonnull %167)
-  %.sroa.0.0.copyload.i256.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i254.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %165)
   store ptr null, ptr %165, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %166)
@@ -1731,14 +1731,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %506 = getelementptr inbounds nuw i8, ptr %166, i64 62
   store i16 1, ptr %506, align 2, !tbaa !31
   %507 = getelementptr inbounds nuw i8, ptr %166, i64 80
-  store ptr %.sroa.0.0.copyload.i256.i, ptr %507, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i254.i, ptr %507, align 8, !tbaa !32
   %508 = getelementptr inbounds nuw i8, ptr %166, i64 64
   store ptr @.str.27, ptr %508, align 8, !tbaa !33
   store i32 48, ptr %501, align 8, !tbaa !34
   %509 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %166) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %166)
   call void @llvm.lifetime.end.p0(ptr nonnull %165)
-  %.sroa.0.0.copyload.i257.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i255.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %163)
   store ptr null, ptr %163, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
@@ -1754,14 +1754,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %515 = getelementptr inbounds nuw i8, ptr %164, i64 62
   store i16 0, ptr %515, align 2, !tbaa !31
   %516 = getelementptr inbounds nuw i8, ptr %164, i64 80
-  store ptr %.sroa.0.0.copyload.i257.i, ptr %516, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i255.i, ptr %516, align 8, !tbaa !32
   %517 = getelementptr inbounds nuw i8, ptr %164, i64 64
   store ptr @.str.28, ptr %517, align 8, !tbaa !33
   store i32 48, ptr %510, align 8, !tbaa !34
   %518 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %164) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %164)
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
-  %.sroa.0.0.copyload.i258.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i256.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %161)
   store ptr null, ptr %161, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %162)
@@ -1777,14 +1777,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %524 = getelementptr inbounds nuw i8, ptr %162, i64 62
   store i16 0, ptr %524, align 2, !tbaa !31
   %525 = getelementptr inbounds nuw i8, ptr %162, i64 80
-  store ptr %.sroa.0.0.copyload.i258.i, ptr %525, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i256.i, ptr %525, align 8, !tbaa !32
   %526 = getelementptr inbounds nuw i8, ptr %162, i64 64
   store ptr @.str.29, ptr %526, align 8, !tbaa !33
   store i32 48, ptr %519, align 8, !tbaa !34
   %527 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %162) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %162)
   call void @llvm.lifetime.end.p0(ptr nonnull %161)
-  %.sroa.0.0.copyload.i259.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i257.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %159)
   store ptr null, ptr %159, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %160)
@@ -1800,14 +1800,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %533 = getelementptr inbounds nuw i8, ptr %160, i64 62
   store i16 0, ptr %533, align 2, !tbaa !31
   %534 = getelementptr inbounds nuw i8, ptr %160, i64 80
-  store ptr %.sroa.0.0.copyload.i259.i, ptr %534, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i257.i, ptr %534, align 8, !tbaa !32
   %535 = getelementptr inbounds nuw i8, ptr %160, i64 64
   store ptr @.str.30, ptr %535, align 8, !tbaa !33
   store i32 48, ptr %528, align 8, !tbaa !34
   %536 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %160) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %160)
   call void @llvm.lifetime.end.p0(ptr nonnull %159)
-  %.sroa.0.0.copyload.i260.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i258.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   store ptr null, ptr %157, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %158)
@@ -1823,14 +1823,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %542 = getelementptr inbounds nuw i8, ptr %158, i64 62
   store i16 0, ptr %542, align 2, !tbaa !31
   %543 = getelementptr inbounds nuw i8, ptr %158, i64 80
-  store ptr %.sroa.0.0.copyload.i260.i, ptr %543, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i258.i, ptr %543, align 8, !tbaa !32
   %544 = getelementptr inbounds nuw i8, ptr %158, i64 64
   store ptr @.str.31, ptr %544, align 8, !tbaa !33
   store i32 48, ptr %537, align 8, !tbaa !34
   %545 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %158) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %158)
   call void @llvm.lifetime.end.p0(ptr nonnull %157)
-  %.sroa.0.0.copyload.i261.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i259.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %155)
   store ptr null, ptr %155, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
@@ -1846,14 +1846,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %551 = getelementptr inbounds nuw i8, ptr %156, i64 62
   store i16 1, ptr %551, align 2, !tbaa !31
   %552 = getelementptr inbounds nuw i8, ptr %156, i64 80
-  store ptr %.sroa.0.0.copyload.i261.i, ptr %552, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i259.i, ptr %552, align 8, !tbaa !32
   %553 = getelementptr inbounds nuw i8, ptr %156, i64 64
   store ptr @.str.32, ptr %553, align 8, !tbaa !33
   store i32 48, ptr %546, align 8, !tbaa !34
   %554 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %156) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
   call void @llvm.lifetime.end.p0(ptr nonnull %155)
-  %.sroa.0.0.copyload.i262.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i260.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %153)
   store ptr null, ptr %153, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %154)
@@ -1869,14 +1869,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %560 = getelementptr inbounds nuw i8, ptr %154, i64 62
   store i16 1, ptr %560, align 2, !tbaa !31
   %561 = getelementptr inbounds nuw i8, ptr %154, i64 80
-  store ptr %.sroa.0.0.copyload.i262.i, ptr %561, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i260.i, ptr %561, align 8, !tbaa !32
   %562 = getelementptr inbounds nuw i8, ptr %154, i64 64
   store ptr @.str.33, ptr %562, align 8, !tbaa !33
   store i32 48, ptr %555, align 8, !tbaa !34
   %563 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %154) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %154)
   call void @llvm.lifetime.end.p0(ptr nonnull %153)
-  %.sroa.0.0.copyload.i263.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i261.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %151)
   store ptr null, ptr %151, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %152)
@@ -1892,14 +1892,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %569 = getelementptr inbounds nuw i8, ptr %152, i64 62
   store i16 1, ptr %569, align 2, !tbaa !31
   %570 = getelementptr inbounds nuw i8, ptr %152, i64 80
-  store ptr %.sroa.0.0.copyload.i263.i, ptr %570, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i261.i, ptr %570, align 8, !tbaa !32
   %571 = getelementptr inbounds nuw i8, ptr %152, i64 64
   store ptr @.str.34, ptr %571, align 8, !tbaa !33
   store i32 48, ptr %564, align 8, !tbaa !34
   %572 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %152) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %152)
   call void @llvm.lifetime.end.p0(ptr nonnull %151)
-  %.sroa.0.0.copyload.i264.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i262.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
   store ptr null, ptr %149, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
@@ -1915,7 +1915,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %578 = getelementptr inbounds nuw i8, ptr %150, i64 62
   store i16 1, ptr %578, align 2, !tbaa !31
   %579 = getelementptr inbounds nuw i8, ptr %150, i64 80
-  store ptr %.sroa.0.0.copyload.i264.i, ptr %579, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i262.i, ptr %579, align 8, !tbaa !32
   %580 = getelementptr inbounds nuw i8, ptr %150, i64 64
   store ptr @.str.35, ptr %580, align 8, !tbaa !33
   %581 = getelementptr inbounds nuw i8, ptr %150, i64 72
@@ -1924,7 +1924,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %582 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %150) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %150)
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
-  %.sroa.0.0.copyload.i265.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i263.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %147)
   store ptr null, ptr %147, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %148)
@@ -1940,7 +1940,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %588 = getelementptr inbounds nuw i8, ptr %148, i64 62
   store i16 1, ptr %588, align 2, !tbaa !31
   %589 = getelementptr inbounds nuw i8, ptr %148, i64 80
-  store ptr %.sroa.0.0.copyload.i265.i, ptr %589, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i263.i, ptr %589, align 8, !tbaa !32
   %590 = getelementptr inbounds nuw i8, ptr %148, i64 64
   store ptr @.str.37, ptr %590, align 8, !tbaa !33
   %591 = getelementptr inbounds nuw i8, ptr %148, i64 72
@@ -1949,7 +1949,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %592 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %148) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %148)
   call void @llvm.lifetime.end.p0(ptr nonnull %147)
-  %.sroa.0.0.copyload.i266.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i264.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %145)
   store ptr null, ptr %145, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %146)
@@ -1965,14 +1965,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %598 = getelementptr inbounds nuw i8, ptr %146, i64 62
   store i16 1, ptr %598, align 2, !tbaa !31
   %599 = getelementptr inbounds nuw i8, ptr %146, i64 80
-  store ptr %.sroa.0.0.copyload.i266.i, ptr %599, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i264.i, ptr %599, align 8, !tbaa !32
   %600 = getelementptr inbounds nuw i8, ptr %146, i64 64
   store ptr @.str.39, ptr %600, align 8, !tbaa !33
   store i32 48, ptr %593, align 8, !tbaa !34
   %601 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %146) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %146)
   call void @llvm.lifetime.end.p0(ptr nonnull %145)
-  %.sroa.0.0.copyload.i267.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i265.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   store ptr null, ptr %143, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %144)
@@ -1988,14 +1988,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %607 = getelementptr inbounds nuw i8, ptr %144, i64 62
   store i16 1, ptr %607, align 2, !tbaa !31
   %608 = getelementptr inbounds nuw i8, ptr %144, i64 80
-  store ptr %.sroa.0.0.copyload.i267.i, ptr %608, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i265.i, ptr %608, align 8, !tbaa !32
   %609 = getelementptr inbounds nuw i8, ptr %144, i64 64
   store ptr @.str.40, ptr %609, align 8, !tbaa !33
   store i32 48, ptr %602, align 8, !tbaa !34
   %610 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %144) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
   call void @llvm.lifetime.end.p0(ptr nonnull %143)
-  %.sroa.0.0.copyload.i268.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i266.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %141)
   store ptr null, ptr %141, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
@@ -2011,14 +2011,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %616 = getelementptr inbounds nuw i8, ptr %142, i64 62
   store i16 1, ptr %616, align 2, !tbaa !31
   %617 = getelementptr inbounds nuw i8, ptr %142, i64 80
-  store ptr %.sroa.0.0.copyload.i268.i, ptr %617, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i266.i, ptr %617, align 8, !tbaa !32
   %618 = getelementptr inbounds nuw i8, ptr %142, i64 64
   store ptr @.str.41, ptr %618, align 8, !tbaa !33
   store i32 48, ptr %611, align 8, !tbaa !34
   %619 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %142) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
   call void @llvm.lifetime.end.p0(ptr nonnull %141)
-  %.sroa.0.0.copyload.i269.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i267.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %139)
   store ptr null, ptr %139, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %140)
@@ -2034,14 +2034,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %625 = getelementptr inbounds nuw i8, ptr %140, i64 62
   store i16 1, ptr %625, align 2, !tbaa !31
   %626 = getelementptr inbounds nuw i8, ptr %140, i64 80
-  store ptr %.sroa.0.0.copyload.i269.i, ptr %626, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i267.i, ptr %626, align 8, !tbaa !32
   %627 = getelementptr inbounds nuw i8, ptr %140, i64 64
   store ptr @.str.42, ptr %627, align 8, !tbaa !33
   store i32 48, ptr %620, align 8, !tbaa !34
   %628 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %140) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %140)
   call void @llvm.lifetime.end.p0(ptr nonnull %139)
-  %.sroa.0.0.copyload.i270.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i268.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
   store ptr null, ptr %137, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %138)
@@ -2057,14 +2057,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %634 = getelementptr inbounds nuw i8, ptr %138, i64 62
   store i16 1, ptr %634, align 2, !tbaa !31
   %635 = getelementptr inbounds nuw i8, ptr %138, i64 80
-  store ptr %.sroa.0.0.copyload.i270.i, ptr %635, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i268.i, ptr %635, align 8, !tbaa !32
   %636 = getelementptr inbounds nuw i8, ptr %138, i64 64
   store ptr @.str.43, ptr %636, align 8, !tbaa !33
   store i32 48, ptr %629, align 8, !tbaa !34
   %637 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %138) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %138)
   call void @llvm.lifetime.end.p0(ptr nonnull %137)
-  %.sroa.0.0.copyload.i271.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i269.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
   store ptr null, ptr %135, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
@@ -2080,14 +2080,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %643 = getelementptr inbounds nuw i8, ptr %136, i64 62
   store i16 1, ptr %643, align 2, !tbaa !31
   %644 = getelementptr inbounds nuw i8, ptr %136, i64 80
-  store ptr %.sroa.0.0.copyload.i271.i, ptr %644, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i269.i, ptr %644, align 8, !tbaa !32
   %645 = getelementptr inbounds nuw i8, ptr %136, i64 64
   store ptr @.str.44, ptr %645, align 8, !tbaa !33
   store i32 48, ptr %638, align 8, !tbaa !34
   %646 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %136) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %136)
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
-  %.sroa.0.0.copyload.i272.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i270.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %133)
   store ptr null, ptr %133, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %134)
@@ -2103,14 +2103,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %652 = getelementptr inbounds nuw i8, ptr %134, i64 62
   store i16 1, ptr %652, align 2, !tbaa !31
   %653 = getelementptr inbounds nuw i8, ptr %134, i64 80
-  store ptr %.sroa.0.0.copyload.i272.i, ptr %653, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i270.i, ptr %653, align 8, !tbaa !32
   %654 = getelementptr inbounds nuw i8, ptr %134, i64 64
   store ptr @.str.45, ptr %654, align 8, !tbaa !33
   store i32 48, ptr %647, align 8, !tbaa !34
   %655 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %134) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %134)
   call void @llvm.lifetime.end.p0(ptr nonnull %133)
-  %.sroa.0.0.copyload.i273.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i271.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %131)
   store ptr null, ptr %131, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %132)
@@ -2126,14 +2126,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %661 = getelementptr inbounds nuw i8, ptr %132, i64 62
   store i16 1, ptr %661, align 2, !tbaa !31
   %662 = getelementptr inbounds nuw i8, ptr %132, i64 80
-  store ptr %.sroa.0.0.copyload.i273.i, ptr %662, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i271.i, ptr %662, align 8, !tbaa !32
   %663 = getelementptr inbounds nuw i8, ptr %132, i64 64
   store ptr @.str.46, ptr %663, align 8, !tbaa !33
   store i32 48, ptr %656, align 8, !tbaa !34
   %664 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %132) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %132)
   call void @llvm.lifetime.end.p0(ptr nonnull %131)
-  %.sroa.0.0.copyload.i274.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i272.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   store ptr null, ptr %129, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %130)
@@ -2149,14 +2149,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %670 = getelementptr inbounds nuw i8, ptr %130, i64 62
   store i16 0, ptr %670, align 2, !tbaa !31
   %671 = getelementptr inbounds nuw i8, ptr %130, i64 80
-  store ptr %.sroa.0.0.copyload.i274.i, ptr %671, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i272.i, ptr %671, align 8, !tbaa !32
   %672 = getelementptr inbounds nuw i8, ptr %130, i64 64
   store ptr @.str.47, ptr %672, align 8, !tbaa !33
   store i32 48, ptr %665, align 8, !tbaa !34
   %673 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %130) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %130)
   call void @llvm.lifetime.end.p0(ptr nonnull %129)
-  %.sroa.0.0.copyload.i275.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i273.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %127)
   store ptr null, ptr %127, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
@@ -2172,14 +2172,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %679 = getelementptr inbounds nuw i8, ptr %128, i64 62
   store i16 1, ptr %679, align 2, !tbaa !31
   %680 = getelementptr inbounds nuw i8, ptr %128, i64 80
-  store ptr %.sroa.0.0.copyload.i275.i, ptr %680, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i273.i, ptr %680, align 8, !tbaa !32
   %681 = getelementptr inbounds nuw i8, ptr %128, i64 64
   store ptr @.str.48, ptr %681, align 8, !tbaa !33
   store i32 48, ptr %674, align 8, !tbaa !34
   %682 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %128) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   call void @llvm.lifetime.end.p0(ptr nonnull %127)
-  %.sroa.0.0.copyload.i276.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i274.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
   store ptr null, ptr %125, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %126)
@@ -2195,14 +2195,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %688 = getelementptr inbounds nuw i8, ptr %126, i64 62
   store i16 1, ptr %688, align 2, !tbaa !31
   %689 = getelementptr inbounds nuw i8, ptr %126, i64 80
-  store ptr %.sroa.0.0.copyload.i276.i, ptr %689, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i274.i, ptr %689, align 8, !tbaa !32
   %690 = getelementptr inbounds nuw i8, ptr %126, i64 64
   store ptr @.str.49, ptr %690, align 8, !tbaa !33
   store i32 48, ptr %683, align 8, !tbaa !34
   %691 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %126) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %126)
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
-  %.sroa.0.0.copyload.i277.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i275.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %123)
   store ptr null, ptr %123, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
@@ -2218,14 +2218,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %697 = getelementptr inbounds nuw i8, ptr %124, i64 62
   store i16 1, ptr %697, align 2, !tbaa !31
   %698 = getelementptr inbounds nuw i8, ptr %124, i64 80
-  store ptr %.sroa.0.0.copyload.i277.i, ptr %698, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i275.i, ptr %698, align 8, !tbaa !32
   %699 = getelementptr inbounds nuw i8, ptr %124, i64 64
   store ptr @.str.50, ptr %699, align 8, !tbaa !33
   store i32 48, ptr %692, align 8, !tbaa !34
   %700 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %124) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
-  %.sroa.0.0.copyload.i278.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i276.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
   store ptr null, ptr %121, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
@@ -2241,14 +2241,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %706 = getelementptr inbounds nuw i8, ptr %122, i64 62
   store i16 1, ptr %706, align 2, !tbaa !31
   %707 = getelementptr inbounds nuw i8, ptr %122, i64 80
-  store ptr %.sroa.0.0.copyload.i278.i, ptr %707, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i276.i, ptr %707, align 8, !tbaa !32
   %708 = getelementptr inbounds nuw i8, ptr %122, i64 64
   store ptr @.str.51, ptr %708, align 8, !tbaa !33
   store i32 48, ptr %701, align 8, !tbaa !34
   %709 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %122) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
-  %.sroa.0.0.copyload.i279.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i277.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %119)
   store ptr null, ptr %119, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %120)
@@ -2264,14 +2264,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %715 = getelementptr inbounds nuw i8, ptr %120, i64 62
   store i16 1, ptr %715, align 2, !tbaa !31
   %716 = getelementptr inbounds nuw i8, ptr %120, i64 80
-  store ptr %.sroa.0.0.copyload.i279.i, ptr %716, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i277.i, ptr %716, align 8, !tbaa !32
   %717 = getelementptr inbounds nuw i8, ptr %120, i64 64
   store ptr @.str.52, ptr %717, align 8, !tbaa !33
   store i32 48, ptr %710, align 8, !tbaa !34
   %718 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %120) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   call void @llvm.lifetime.end.p0(ptr nonnull %119)
-  %.sroa.0.0.copyload.i280.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i278.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
   store ptr null, ptr %117, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
@@ -2287,14 +2287,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %724 = getelementptr inbounds nuw i8, ptr %118, i64 62
   store i16 2, ptr %724, align 2, !tbaa !31
   %725 = getelementptr inbounds nuw i8, ptr %118, i64 80
-  store ptr %.sroa.0.0.copyload.i280.i, ptr %725, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i278.i, ptr %725, align 8, !tbaa !32
   %726 = getelementptr inbounds nuw i8, ptr %118, i64 64
   store ptr @.str.53, ptr %726, align 8, !tbaa !33
   store i32 48, ptr %719, align 8, !tbaa !34
   %727 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %118) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %118)
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
-  %.sroa.0.0.copyload.i281.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i279.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   store ptr null, ptr %115, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
@@ -2310,14 +2310,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %733 = getelementptr inbounds nuw i8, ptr %116, i64 62
   store i16 1, ptr %733, align 2, !tbaa !31
   %734 = getelementptr inbounds nuw i8, ptr %116, i64 80
-  store ptr %.sroa.0.0.copyload.i281.i, ptr %734, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i279.i, ptr %734, align 8, !tbaa !32
   %735 = getelementptr inbounds nuw i8, ptr %116, i64 64
   store ptr @.str.54, ptr %735, align 8, !tbaa !33
   store i32 48, ptr %728, align 8, !tbaa !34
   %736 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %116) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
   call void @llvm.lifetime.end.p0(ptr nonnull %115)
-  %.sroa.0.0.copyload.i282.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i280.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %113)
   store ptr null, ptr %113, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
@@ -2333,14 +2333,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %742 = getelementptr inbounds nuw i8, ptr %114, i64 62
   store i16 1, ptr %742, align 2, !tbaa !31
   %743 = getelementptr inbounds nuw i8, ptr %114, i64 80
-  store ptr %.sroa.0.0.copyload.i282.i, ptr %743, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i280.i, ptr %743, align 8, !tbaa !32
   %744 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr @.str.55, ptr %744, align 8, !tbaa !33
   store i32 48, ptr %737, align 8, !tbaa !34
   %745 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %114) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
-  %.sroa.0.0.copyload.i283.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i281.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %111)
   store ptr null, ptr %111, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %112)
@@ -2356,14 +2356,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %751 = getelementptr inbounds nuw i8, ptr %112, i64 62
   store i16 1, ptr %751, align 2, !tbaa !31
   %752 = getelementptr inbounds nuw i8, ptr %112, i64 80
-  store ptr %.sroa.0.0.copyload.i283.i, ptr %752, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i281.i, ptr %752, align 8, !tbaa !32
   %753 = getelementptr inbounds nuw i8, ptr %112, i64 64
   store ptr @.str.56, ptr %753, align 8, !tbaa !33
   store i32 48, ptr %746, align 8, !tbaa !34
   %754 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %112) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
   call void @llvm.lifetime.end.p0(ptr nonnull %111)
-  %.sroa.0.0.copyload.i284.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i282.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %109)
   store ptr null, ptr %109, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %110)
@@ -2379,14 +2379,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %760 = getelementptr inbounds nuw i8, ptr %110, i64 62
   store i16 1, ptr %760, align 2, !tbaa !31
   %761 = getelementptr inbounds nuw i8, ptr %110, i64 80
-  store ptr %.sroa.0.0.copyload.i284.i, ptr %761, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i282.i, ptr %761, align 8, !tbaa !32
   %762 = getelementptr inbounds nuw i8, ptr %110, i64 64
   store ptr @.str.57, ptr %762, align 8, !tbaa !33
   store i32 48, ptr %755, align 8, !tbaa !34
   %763 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %110) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
-  %.sroa.0.0.copyload.i285.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i283.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
   store ptr null, ptr %107, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
@@ -2402,14 +2402,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %769 = getelementptr inbounds nuw i8, ptr %108, i64 62
   store i16 0, ptr %769, align 2, !tbaa !31
   %770 = getelementptr inbounds nuw i8, ptr %108, i64 80
-  store ptr %.sroa.0.0.copyload.i285.i, ptr %770, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i283.i, ptr %770, align 8, !tbaa !32
   %771 = getelementptr inbounds nuw i8, ptr %108, i64 64
   store ptr @.str.58, ptr %771, align 8, !tbaa !33
   store i32 48, ptr %764, align 8, !tbaa !34
   %772 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %108) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
-  %.sroa.0.0.copyload.i286.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i284.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %105)
   store ptr null, ptr %105, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
@@ -2425,14 +2425,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %778 = getelementptr inbounds nuw i8, ptr %106, i64 62
   store i16 0, ptr %778, align 2, !tbaa !31
   %779 = getelementptr inbounds nuw i8, ptr %106, i64 80
-  store ptr %.sroa.0.0.copyload.i286.i, ptr %779, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i284.i, ptr %779, align 8, !tbaa !32
   %780 = getelementptr inbounds nuw i8, ptr %106, i64 64
   store ptr @.str.59, ptr %780, align 8, !tbaa !33
   store i32 48, ptr %773, align 8, !tbaa !34
   %781 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %106) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
-  %.sroa.0.0.copyload.i287.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i285.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   store ptr null, ptr %103, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
@@ -2448,7 +2448,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %787 = getelementptr inbounds nuw i8, ptr %104, i64 62
   store i16 1, ptr %787, align 2, !tbaa !81
   %788 = getelementptr inbounds nuw i8, ptr %104, i64 80
-  store ptr %.sroa.0.0.copyload.i287.i, ptr %788, align 8, !tbaa !82
+  store ptr %.sroa.0.0.copyload.i285.i, ptr %788, align 8, !tbaa !82
   %789 = getelementptr inbounds nuw i8, ptr %104, i64 64
   store ptr @.str.60, ptr %789, align 8, !tbaa !83
   store i32 176, ptr %782, align 8, !tbaa !84
@@ -2461,7 +2461,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %793 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %104) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
-  %.sroa.0.0.copyload.i291.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i289.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   store ptr null, ptr %101, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
@@ -2477,7 +2477,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %799 = getelementptr inbounds nuw i8, ptr %102, i64 62
   store i16 1, ptr %799, align 2, !tbaa !81
   %800 = getelementptr inbounds nuw i8, ptr %102, i64 80
-  store ptr %.sroa.0.0.copyload.i291.i, ptr %800, align 8, !tbaa !82
+  store ptr %.sroa.0.0.copyload.i289.i, ptr %800, align 8, !tbaa !82
   %801 = getelementptr inbounds nuw i8, ptr %102, i64 64
   store ptr @.str.61, ptr %801, align 8, !tbaa !83
   store i32 176, ptr %794, align 8, !tbaa !84
@@ -2490,7 +2490,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %805 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %102) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
-  %.sroa.0.0.copyload.i292.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i290.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
   store ptr null, ptr %99, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
@@ -2506,14 +2506,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %811 = getelementptr inbounds nuw i8, ptr %100, i64 62
   store i16 0, ptr %811, align 2, !tbaa !31
   %812 = getelementptr inbounds nuw i8, ptr %100, i64 80
-  store ptr %.sroa.0.0.copyload.i292.i, ptr %812, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i290.i, ptr %812, align 8, !tbaa !32
   %813 = getelementptr inbounds nuw i8, ptr %100, i64 64
   store ptr @.str.62, ptr %813, align 8, !tbaa !33
   store i32 48, ptr %806, align 8, !tbaa !34
   %814 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %100) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
-  %.sroa.0.0.copyload.i293.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i291.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
   store ptr null, ptr %97, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %98)
@@ -2529,14 +2529,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %820 = getelementptr inbounds nuw i8, ptr %98, i64 62
   store i16 0, ptr %820, align 2, !tbaa !31
   %821 = getelementptr inbounds nuw i8, ptr %98, i64 80
-  store ptr %.sroa.0.0.copyload.i293.i, ptr %821, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i291.i, ptr %821, align 8, !tbaa !32
   %822 = getelementptr inbounds nuw i8, ptr %98, i64 64
   store ptr @.str.63, ptr %822, align 8, !tbaa !33
   store i32 48, ptr %815, align 8, !tbaa !34
   %823 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %98) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
-  %.sroa.0.0.copyload.i294.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i292.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
   store ptr null, ptr %95, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
@@ -2552,7 +2552,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %829 = getelementptr inbounds nuw i8, ptr %96, i64 62
   store i16 1, ptr %829, align 2, !tbaa !81
   %830 = getelementptr inbounds nuw i8, ptr %96, i64 80
-  store ptr %.sroa.0.0.copyload.i294.i, ptr %830, align 8, !tbaa !82
+  store ptr %.sroa.0.0.copyload.i292.i, ptr %830, align 8, !tbaa !82
   %831 = getelementptr inbounds nuw i8, ptr %96, i64 64
   store ptr @.str.64, ptr %831, align 8, !tbaa !83
   store i32 176, ptr %824, align 8, !tbaa !84
@@ -2567,7 +2567,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %836 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %96) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
-  %.sroa.0.0.copyload.i298.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i296.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
   store ptr null, ptr %93, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
@@ -2583,14 +2583,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %842 = getelementptr inbounds nuw i8, ptr %94, i64 62
   store i16 1, ptr %842, align 2, !tbaa !31
   %843 = getelementptr inbounds nuw i8, ptr %94, i64 80
-  store ptr %.sroa.0.0.copyload.i298.i, ptr %843, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i296.i, ptr %843, align 8, !tbaa !32
   %844 = getelementptr inbounds nuw i8, ptr %94, i64 64
   store ptr @.str.66, ptr %844, align 8, !tbaa !33
   store i32 48, ptr %837, align 8, !tbaa !34
   %845 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %94) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
-  %.sroa.0.0.copyload.i299.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i297.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
   store ptr null, ptr %91, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
@@ -2606,14 +2606,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %851 = getelementptr inbounds nuw i8, ptr %92, i64 62
   store i16 0, ptr %851, align 2, !tbaa !31
   %852 = getelementptr inbounds nuw i8, ptr %92, i64 80
-  store ptr %.sroa.0.0.copyload.i299.i, ptr %852, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i297.i, ptr %852, align 8, !tbaa !32
   %853 = getelementptr inbounds nuw i8, ptr %92, i64 64
   store ptr @.str.67, ptr %853, align 8, !tbaa !33
   store i32 48, ptr %846, align 8, !tbaa !34
   %854 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %92) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
-  %.sroa.0.0.copyload.i300.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i298.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %89)
   store ptr null, ptr %89, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
@@ -2629,14 +2629,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %860 = getelementptr inbounds nuw i8, ptr %90, i64 62
   store i16 0, ptr %860, align 2, !tbaa !31
   %861 = getelementptr inbounds nuw i8, ptr %90, i64 80
-  store ptr %.sroa.0.0.copyload.i300.i, ptr %861, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i298.i, ptr %861, align 8, !tbaa !32
   %862 = getelementptr inbounds nuw i8, ptr %90, i64 64
   store ptr @.str.68, ptr %862, align 8, !tbaa !33
   store i32 48, ptr %855, align 8, !tbaa !34
   %863 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %90) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
-  %.sroa.0.0.copyload.i301.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i299.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
   store ptr null, ptr %87, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
@@ -2652,14 +2652,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %869 = getelementptr inbounds nuw i8, ptr %88, i64 62
   store i16 0, ptr %869, align 2, !tbaa !31
   %870 = getelementptr inbounds nuw i8, ptr %88, i64 80
-  store ptr %.sroa.0.0.copyload.i301.i, ptr %870, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i299.i, ptr %870, align 8, !tbaa !32
   %871 = getelementptr inbounds nuw i8, ptr %88, i64 64
   store ptr @.str.69, ptr %871, align 8, !tbaa !33
   store i32 48, ptr %864, align 8, !tbaa !34
   %872 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %88) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
-  %.sroa.0.0.copyload.i302.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i300.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
   store ptr null, ptr %85, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %86)
@@ -2675,14 +2675,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %878 = getelementptr inbounds nuw i8, ptr %86, i64 62
   store i16 1, ptr %878, align 2, !tbaa !31
   %879 = getelementptr inbounds nuw i8, ptr %86, i64 80
-  store ptr %.sroa.0.0.copyload.i302.i, ptr %879, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i300.i, ptr %879, align 8, !tbaa !32
   %880 = getelementptr inbounds nuw i8, ptr %86, i64 64
   store ptr @.str.70, ptr %880, align 8, !tbaa !33
   store i32 48, ptr %873, align 8, !tbaa !34
   %881 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %86) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %86)
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
-  %.sroa.0.0.copyload.i303.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i301.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
   store ptr null, ptr %83, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
@@ -2698,14 +2698,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %887 = getelementptr inbounds nuw i8, ptr %84, i64 62
   store i16 1, ptr %887, align 2, !tbaa !31
   %888 = getelementptr inbounds nuw i8, ptr %84, i64 80
-  store ptr %.sroa.0.0.copyload.i303.i, ptr %888, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i301.i, ptr %888, align 8, !tbaa !32
   %889 = getelementptr inbounds nuw i8, ptr %84, i64 64
   store ptr @.str.71, ptr %889, align 8, !tbaa !33
   store i32 48, ptr %882, align 8, !tbaa !34
   %890 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %84) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
-  %.sroa.0.0.copyload.i304.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i302.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store ptr null, ptr %81, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -2722,14 +2722,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %896 = getelementptr inbounds nuw i8, ptr %82, i64 62
   store i16 1, ptr %896, align 2, !tbaa !31
   %897 = getelementptr inbounds nuw i8, ptr %82, i64 80
-  store ptr %.sroa.0.0.copyload.i304.i, ptr %897, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i302.i, ptr %897, align 8, !tbaa !32
   %898 = getelementptr inbounds nuw i8, ptr %82, i64 64
   store ptr @.str.72, ptr %898, align 8, !tbaa !33
   store i32 48, ptr %891, align 8, !tbaa !34
   %899 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %82) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
-  %.sroa.0.0.copyload.i305.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i303.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
   store ptr null, ptr %79, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
@@ -2745,14 +2745,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %905 = getelementptr inbounds nuw i8, ptr %80, i64 62
   store i16 1, ptr %905, align 2, !tbaa !31
   %906 = getelementptr inbounds nuw i8, ptr %80, i64 80
-  store ptr %.sroa.0.0.copyload.i305.i, ptr %906, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i303.i, ptr %906, align 8, !tbaa !32
   %907 = getelementptr inbounds nuw i8, ptr %80, i64 64
   store ptr @.str.73, ptr %907, align 8, !tbaa !33
   store i32 48, ptr %900, align 8, !tbaa !34
   %908 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %80) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
-  %.sroa.0.0.copyload.i306.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i304.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store ptr null, ptr %77, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
@@ -2768,14 +2768,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %914 = getelementptr inbounds nuw i8, ptr %78, i64 62
   store i16 1, ptr %914, align 2, !tbaa !31
   %915 = getelementptr inbounds nuw i8, ptr %78, i64 80
-  store ptr %.sroa.0.0.copyload.i306.i, ptr %915, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i304.i, ptr %915, align 8, !tbaa !32
   %916 = getelementptr inbounds nuw i8, ptr %78, i64 64
   store ptr @.str.74, ptr %916, align 8, !tbaa !33
   store i32 48, ptr %909, align 8, !tbaa !34
   %917 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %78) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
-  %.sroa.0.0.copyload.i307.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i305.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store ptr null, ptr %75, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
@@ -2791,14 +2791,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %923 = getelementptr inbounds nuw i8, ptr %76, i64 62
   store i16 1, ptr %923, align 2, !tbaa !31
   %924 = getelementptr inbounds nuw i8, ptr %76, i64 80
-  store ptr %.sroa.0.0.copyload.i307.i, ptr %924, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i305.i, ptr %924, align 8, !tbaa !32
   %925 = getelementptr inbounds nuw i8, ptr %76, i64 64
   store ptr @.str.75, ptr %925, align 8, !tbaa !33
   store i32 48, ptr %918, align 8, !tbaa !34
   %926 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %76) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
-  %.sroa.0.0.copyload.i308.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i306.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store ptr null, ptr %73, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
@@ -2814,14 +2814,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %932 = getelementptr inbounds nuw i8, ptr %74, i64 62
   store i16 1, ptr %932, align 2, !tbaa !31
   %933 = getelementptr inbounds nuw i8, ptr %74, i64 80
-  store ptr %.sroa.0.0.copyload.i308.i, ptr %933, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i306.i, ptr %933, align 8, !tbaa !32
   %934 = getelementptr inbounds nuw i8, ptr %74, i64 64
   store ptr @.str.76, ptr %934, align 8, !tbaa !33
   store i32 48, ptr %927, align 8, !tbaa !34
   %935 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %74) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
-  %.sroa.0.0.copyload.i309.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i307.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store ptr null, ptr %71, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -2837,14 +2837,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %941 = getelementptr inbounds nuw i8, ptr %72, i64 62
   store i16 1, ptr %941, align 2, !tbaa !31
   %942 = getelementptr inbounds nuw i8, ptr %72, i64 80
-  store ptr %.sroa.0.0.copyload.i309.i, ptr %942, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i307.i, ptr %942, align 8, !tbaa !32
   %943 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr @.str.77, ptr %943, align 8, !tbaa !33
   store i32 48, ptr %936, align 8, !tbaa !34
   %944 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %72) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
-  %.sroa.0.0.copyload.i310.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i308.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store ptr null, ptr %69, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
@@ -2860,14 +2860,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %950 = getelementptr inbounds nuw i8, ptr %70, i64 62
   store i16 1, ptr %950, align 2, !tbaa !31
   %951 = getelementptr inbounds nuw i8, ptr %70, i64 80
-  store ptr %.sroa.0.0.copyload.i310.i, ptr %951, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i308.i, ptr %951, align 8, !tbaa !32
   %952 = getelementptr inbounds nuw i8, ptr %70, i64 64
   store ptr @.str.78, ptr %952, align 8, !tbaa !33
   store i32 48, ptr %945, align 8, !tbaa !34
   %953 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %70) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  %.sroa.0.0.copyload.i311.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i309.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store ptr null, ptr %67, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
@@ -2883,14 +2883,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %959 = getelementptr inbounds nuw i8, ptr %68, i64 62
   store i16 1, ptr %959, align 2, !tbaa !31
   %960 = getelementptr inbounds nuw i8, ptr %68, i64 80
-  store ptr %.sroa.0.0.copyload.i311.i, ptr %960, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i309.i, ptr %960, align 8, !tbaa !32
   %961 = getelementptr inbounds nuw i8, ptr %68, i64 64
   store ptr @.str.79, ptr %961, align 8, !tbaa !33
   store i32 48, ptr %954, align 8, !tbaa !34
   %962 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %68) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  %.sroa.0.0.copyload.i312.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i310.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store ptr null, ptr %65, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
@@ -2906,14 +2906,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %968 = getelementptr inbounds nuw i8, ptr %66, i64 62
   store i16 1, ptr %968, align 2, !tbaa !31
   %969 = getelementptr inbounds nuw i8, ptr %66, i64 80
-  store ptr %.sroa.0.0.copyload.i312.i, ptr %969, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i310.i, ptr %969, align 8, !tbaa !32
   %970 = getelementptr inbounds nuw i8, ptr %66, i64 64
   store ptr @.str.80, ptr %970, align 8, !tbaa !33
   store i32 48, ptr %963, align 8, !tbaa !34
   %971 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %66) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  %.sroa.0.0.copyload.i313.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i311.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   store ptr null, ptr %63, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
@@ -2929,7 +2929,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %977 = getelementptr inbounds nuw i8, ptr %64, i64 62
   store i16 1, ptr %977, align 2, !tbaa !31
   %978 = getelementptr inbounds nuw i8, ptr %64, i64 80
-  store ptr %.sroa.0.0.copyload.i313.i, ptr %978, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i311.i, ptr %978, align 8, !tbaa !32
   %979 = getelementptr inbounds nuw i8, ptr %64, i64 64
   store ptr @.str.81, ptr %979, align 8, !tbaa !33
   store i32 48, ptr %972, align 8, !tbaa !34
@@ -2958,8 +2958,8 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store ptr %987, ptr %241, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %242)
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %.sroa.0.0.copyload.i314.i = load ptr, ptr %260, align 8, !noalias !87
-  store ptr %.sroa.0.0.copyload.i314.i, ptr %242, align 8, !tbaa !11, !alias.scope !87
+  %.sroa.0.0.copyload.i312.i = load ptr, ptr %260, align 8, !noalias !87
+  store ptr %.sroa.0.0.copyload.i312.i, ptr %242, align 8, !tbaa !11, !alias.scope !87
   %988 = getelementptr inbounds nuw i8, ptr %242, i64 8
   store ptr null, ptr %988, align 8, !tbaa !18, !alias.scope !87
   %989 = getelementptr inbounds nuw i8, ptr %242, i64 16
@@ -3002,8 +3002,8 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store ptr %1003, ptr %243, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %244)
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  %.sroa.0.0.copyload.i315.i = load ptr, ptr %260, align 8, !noalias !90
-  store ptr %.sroa.0.0.copyload.i315.i, ptr %244, align 8, !tbaa !11, !alias.scope !90
+  %.sroa.0.0.copyload.i313.i = load ptr, ptr %260, align 8, !noalias !90
+  store ptr %.sroa.0.0.copyload.i313.i, ptr %244, align 8, !tbaa !11, !alias.scope !90
   %1004 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store ptr null, ptr %1004, align 8, !tbaa !18, !alias.scope !90
   %1005 = getelementptr inbounds nuw i8, ptr %244, i64 16
@@ -3016,7 +3016,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   call void @llvm.lifetime.end.p0(ptr nonnull %244)
   %1008 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %243) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %243)
-  %.sroa.0.0.copyload.i316.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i314.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store ptr null, ptr %61, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
@@ -3032,14 +3032,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1014 = getelementptr inbounds nuw i8, ptr %62, i64 62
   store i16 0, ptr %1014, align 2, !tbaa !31
   %1015 = getelementptr inbounds nuw i8, ptr %62, i64 80
-  store ptr %.sroa.0.0.copyload.i316.i, ptr %1015, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i314.i, ptr %1015, align 8, !tbaa !32
   %1016 = getelementptr inbounds nuw i8, ptr %62, i64 64
   store ptr @.str.85, ptr %1016, align 8, !tbaa !33
   store i32 48, ptr %1009, align 8, !tbaa !34
   %1017 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %62) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
-  %.sroa.0.0.copyload.i317.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i315.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store ptr null, ptr %59, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
@@ -3055,14 +3055,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1023 = getelementptr inbounds nuw i8, ptr %60, i64 62
   store i16 1, ptr %1023, align 2, !tbaa !31
   %1024 = getelementptr inbounds nuw i8, ptr %60, i64 80
-  store ptr %.sroa.0.0.copyload.i317.i, ptr %1024, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i315.i, ptr %1024, align 8, !tbaa !32
   %1025 = getelementptr inbounds nuw i8, ptr %60, i64 64
   store ptr @.str.86, ptr %1025, align 8, !tbaa !33
   store i32 48, ptr %1018, align 8, !tbaa !34
   %1026 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %60) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  %.sroa.0.0.copyload.i318.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i316.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store ptr null, ptr %57, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
@@ -3078,14 +3078,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1032 = getelementptr inbounds nuw i8, ptr %58, i64 62
   store i16 1, ptr %1032, align 2, !tbaa !31
   %1033 = getelementptr inbounds nuw i8, ptr %58, i64 80
-  store ptr %.sroa.0.0.copyload.i318.i, ptr %1033, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i316.i, ptr %1033, align 8, !tbaa !32
   %1034 = getelementptr inbounds nuw i8, ptr %58, i64 64
   store ptr @.str.87, ptr %1034, align 8, !tbaa !33
   store i32 48, ptr %1027, align 8, !tbaa !34
   %1035 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %58) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  %.sroa.0.0.copyload.i319.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i317.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store ptr null, ptr %55, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
@@ -3101,14 +3101,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1041 = getelementptr inbounds nuw i8, ptr %56, i64 62
   store i16 0, ptr %1041, align 2, !tbaa !31
   %1042 = getelementptr inbounds nuw i8, ptr %56, i64 80
-  store ptr %.sroa.0.0.copyload.i319.i, ptr %1042, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i317.i, ptr %1042, align 8, !tbaa !32
   %1043 = getelementptr inbounds nuw i8, ptr %56, i64 64
   store ptr @.str.88, ptr %1043, align 8, !tbaa !33
   store i32 48, ptr %1036, align 8, !tbaa !34
   %1044 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %56) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  %.sroa.0.0.copyload.i320.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i318.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store ptr null, ptr %53, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -3124,14 +3124,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1050 = getelementptr inbounds nuw i8, ptr %54, i64 62
   store i16 2, ptr %1050, align 2, !tbaa !31
   %1051 = getelementptr inbounds nuw i8, ptr %54, i64 80
-  store ptr %.sroa.0.0.copyload.i320.i, ptr %1051, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i318.i, ptr %1051, align 8, !tbaa !32
   %1052 = getelementptr inbounds nuw i8, ptr %54, i64 64
   store ptr @.str.89, ptr %1052, align 8, !tbaa !33
   store i32 48, ptr %1045, align 8, !tbaa !34
   %1053 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %54) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  %.sroa.0.0.copyload.i321.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i319.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store ptr null, ptr %51, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
@@ -3147,14 +3147,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1059 = getelementptr inbounds nuw i8, ptr %52, i64 62
   store i16 1, ptr %1059, align 2, !tbaa !31
   %1060 = getelementptr inbounds nuw i8, ptr %52, i64 80
-  store ptr %.sroa.0.0.copyload.i321.i, ptr %1060, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i319.i, ptr %1060, align 8, !tbaa !32
   %1061 = getelementptr inbounds nuw i8, ptr %52, i64 64
   store ptr @.str.90, ptr %1061, align 8, !tbaa !33
   store i32 48, ptr %1054, align 8, !tbaa !34
   %1062 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %52) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  %.sroa.0.0.copyload.i322.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i320.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store ptr null, ptr %49, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
@@ -3170,14 +3170,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1068 = getelementptr inbounds nuw i8, ptr %50, i64 62
   store i16 1, ptr %1068, align 2, !tbaa !31
   %1069 = getelementptr inbounds nuw i8, ptr %50, i64 80
-  store ptr %.sroa.0.0.copyload.i322.i, ptr %1069, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i320.i, ptr %1069, align 8, !tbaa !32
   %1070 = getelementptr inbounds nuw i8, ptr %50, i64 64
   store ptr @.str.91, ptr %1070, align 8, !tbaa !33
   store i32 48, ptr %1063, align 8, !tbaa !34
   %1071 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %50) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  %.sroa.0.0.copyload.i323.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i321.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store ptr null, ptr %47, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
@@ -3193,14 +3193,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1077 = getelementptr inbounds nuw i8, ptr %48, i64 62
   store i16 0, ptr %1077, align 2, !tbaa !31
   %1078 = getelementptr inbounds nuw i8, ptr %48, i64 80
-  store ptr %.sroa.0.0.copyload.i323.i, ptr %1078, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i321.i, ptr %1078, align 8, !tbaa !32
   %1079 = getelementptr inbounds nuw i8, ptr %48, i64 64
   store ptr @.str.92, ptr %1079, align 8, !tbaa !33
   store i32 48, ptr %1072, align 8, !tbaa !34
   %1080 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %48) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  %.sroa.0.0.copyload.i324.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i322.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store ptr null, ptr %45, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
@@ -3216,7 +3216,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1086 = getelementptr inbounds nuw i8, ptr %46, i64 62
   store i16 2, ptr %1086, align 2, !tbaa !67
   %1087 = getelementptr inbounds nuw i8, ptr %46, i64 80
-  store ptr %.sroa.0.0.copyload.i324.i, ptr %1087, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i322.i, ptr %1087, align 8, !tbaa !68
   %1088 = getelementptr inbounds nuw i8, ptr %46, i64 64
   store ptr @.str.93, ptr %1088, align 8, !tbaa !69
   store i32 432, ptr %1081, align 8, !tbaa !70
@@ -3255,7 +3255,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1105 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %46) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  %.sroa.0.0.copyload.i328.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i326.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr null, ptr %43, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
@@ -3271,7 +3271,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1111 = getelementptr inbounds nuw i8, ptr %44, i64 62
   store i16 2, ptr %1111, align 2, !tbaa !98
   %1112 = getelementptr inbounds nuw i8, ptr %44, i64 80
-  store ptr %.sroa.0.0.copyload.i328.i, ptr %1112, align 8, !tbaa !99
+  store ptr %.sroa.0.0.copyload.i326.i, ptr %1112, align 8, !tbaa !99
   %1113 = getelementptr inbounds nuw i8, ptr %44, i64 64
   store ptr @.str.98, ptr %1113, align 8, !tbaa !100
   store i32 944, ptr %1106, align 8, !tbaa !101
@@ -3318,7 +3318,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1134 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %44) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  %.sroa.0.0.copyload.i332.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i330.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr null, ptr %41, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
@@ -3334,7 +3334,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1140 = getelementptr inbounds nuw i8, ptr %42, i64 62
   store i16 1, ptr %1140, align 2, !tbaa !107
   %1141 = getelementptr inbounds nuw i8, ptr %42, i64 80
-  store ptr %.sroa.0.0.copyload.i332.i, ptr %1141, align 8, !tbaa !108
+  store ptr %.sroa.0.0.copyload.i330.i, ptr %1141, align 8, !tbaa !108
   %1142 = getelementptr inbounds nuw i8, ptr %42, i64 64
   store ptr @.str.100, ptr %1142, align 8, !tbaa !109
   store i32 688, ptr %1135, align 8, !tbaa !110
@@ -3365,7 +3365,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1155 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %42) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  %.sroa.0.0.copyload.i342.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i340.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr null, ptr %39, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -3381,7 +3381,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1161 = getelementptr inbounds nuw i8, ptr %40, i64 62
   store i16 0, ptr %1161, align 2, !tbaa !116
   %1162 = getelementptr inbounds nuw i8, ptr %40, i64 80
-  store ptr %.sroa.0.0.copyload.i342.i, ptr %1162, align 8, !tbaa !117
+  store ptr %.sroa.0.0.copyload.i340.i, ptr %1162, align 8, !tbaa !117
   %1163 = getelementptr inbounds nuw i8, ptr %40, i64 64
   store ptr @.str.101, ptr %1163, align 8, !tbaa !118
   store i32 176, ptr %1156, align 8, !tbaa !119
@@ -3404,7 +3404,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1172 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %40) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  %.sroa.0.0.copyload.i346.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i344.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr null, ptr %37, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
@@ -3420,7 +3420,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1178 = getelementptr inbounds nuw i8, ptr %38, i64 62
   store i16 1, ptr %1178, align 2, !tbaa !107
   %1179 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  store ptr %.sroa.0.0.copyload.i346.i, ptr %1179, align 8, !tbaa !108
+  store ptr %.sroa.0.0.copyload.i344.i, ptr %1179, align 8, !tbaa !108
   %1180 = getelementptr inbounds nuw i8, ptr %38, i64 64
   store ptr @.str.102, ptr %1180, align 8, !tbaa !109
   store i32 176, ptr %1173, align 8, !tbaa !110
@@ -3457,12 +3457,12 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
           to label %1193 unwind label %1347
 
 1193:                                             ; preds = %1007
-  %.sroa.5445.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %245, i64 8
-  %.sroa.6446.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %245, i64 16
+  %.sroa.5443.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %245, i64 8
+  %.sroa.6444.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %245, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %245, i8 0, i64 16, i1 false)
-  store i8 1, ptr %.sroa.6446.0..sroa_idx.i, align 8, !tbaa !41
-  %.sroa.7447.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %245, i64 17
-  store i8 0, ptr %.sroa.7447.0..sroa_idx.i, align 1, !tbaa !42
+  store i8 1, ptr %.sroa.6444.0..sroa_idx.i, align 8, !tbaa !41
+  %.sroa.7445.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %245, i64 17
+  store i8 0, ptr %.sroa.7445.0..sroa_idx.i, align 1, !tbaa !42
   %1194 = getelementptr inbounds nuw i8, ptr %245, i64 24
   %1195 = load i64, ptr %230, align 8
   store i64 %1195, ptr %1194, align 8
@@ -3478,12 +3478,12 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
 
 1197:                                             ; preds = %1193
   store ptr @.str.95, ptr %247, align 8, !tbaa !40
-  %.sroa.5440.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %247, i64 8
-  store ptr null, ptr %.sroa.5440.0..sroa_idx.i, align 8, !tbaa !40
-  %.sroa.6441.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %247, i64 16
-  store i8 1, ptr %.sroa.6441.0..sroa_idx.i, align 8, !tbaa !41
-  %.sroa.7442.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %247, i64 17
-  store i8 0, ptr %.sroa.7442.0..sroa_idx.i, align 1, !tbaa !42
+  %.sroa.5438.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %247, i64 8
+  store ptr null, ptr %.sroa.5438.0..sroa_idx.i, align 8, !tbaa !40
+  %.sroa.6439.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %247, i64 16
+  store i8 1, ptr %.sroa.6439.0..sroa_idx.i, align 8, !tbaa !41
+  %.sroa.7440.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %247, i64 17
+  store i8 0, ptr %.sroa.7440.0..sroa_idx.i, align 1, !tbaa !42
   %1198 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %1199 = load i64, ptr %229, align 8
   store i64 %1199, ptr %1198, align 8
@@ -3499,19 +3499,19 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
 
 1201:                                             ; preds = %1197
   store ptr @.str.103, ptr %249, align 8, !tbaa !40
-  %.sroa.5434.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %249, i64 8
-  store ptr null, ptr %.sroa.5434.0..sroa_idx.i, align 8, !tbaa !40
-  %.sroa.6435.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %249, i64 16
-  store i8 1, ptr %.sroa.6435.0..sroa_idx.i, align 8, !tbaa !41
-  %.sroa.7436.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %249, i64 17
-  store i8 0, ptr %.sroa.7436.0..sroa_idx.i, align 1, !tbaa !42
+  %.sroa.5432.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %249, i64 8
+  store ptr null, ptr %.sroa.5432.0..sroa_idx.i, align 8, !tbaa !40
+  %.sroa.6433.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %249, i64 16
+  store i8 1, ptr %.sroa.6433.0..sroa_idx.i, align 8, !tbaa !41
+  %.sroa.7434.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %249, i64 17
+  store i8 0, ptr %.sroa.7434.0..sroa_idx.i, align 1, !tbaa !42
   %1202 = getelementptr inbounds nuw i8, ptr %249, i64 24
   %1203 = load i64, ptr %228, align 8
   store i64 %1203, ptr %1202, align 8
   store ptr null, ptr %228, align 8, !tbaa !44
   %1204 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %228) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %228), !noalias !126
-  %.sroa.0.0.copyload.i350.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i348.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store ptr null, ptr %35, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -3527,30 +3527,30 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1210 = getelementptr inbounds nuw i8, ptr %36, i64 62
   store i16 2, ptr %1210, align 2, !tbaa !67
   %1211 = getelementptr inbounds nuw i8, ptr %36, i64 80
-  store ptr %.sroa.0.0.copyload.i350.i, ptr %1211, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i348.i, ptr %1211, align 8, !tbaa !68
   %1212 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store ptr @.str.104, ptr %1212, align 8, !tbaa !69
   store i32 176, ptr %1205, align 8, !tbaa !70
-  %1213 = load i8, ptr %.sroa.7447.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
-  %spec.select.i.i15.i.i = shl nuw nsw i8 %1213, 2
-  %1214 = load i8, ptr %.sroa.6446.0..sroa_idx.i, align 8, !tbaa !133
-  %.not.i.i16.i.i = icmp ne i8 %1214, 0
-  %1215 = zext i1 %.not.i.i16.i.i to i8
-  %.1.i.i17.i.i = or disjoint i8 %spec.select.i.i15.i.i, %1215
+  %1213 = load i8, ptr %.sroa.7445.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
+  %spec.select.i.i14.i.i = shl nuw nsw i8 %1213, 2
+  %1214 = load i8, ptr %.sroa.6444.0..sroa_idx.i, align 8, !tbaa !133
+  %.not.i.i15.i.i = icmp ne i8 %1214, 0
+  %1215 = zext i1 %.not.i.i15.i.i to i8
+  %.1.i.i16.i.i = or disjoint i8 %spec.select.i.i14.i.i, %1215
   %1216 = getelementptr inbounds nuw i8, ptr %36, i64 88
   %1217 = getelementptr inbounds nuw i8, ptr %36, i64 120
-  store i8 %.1.i.i17.i.i, ptr %1217, align 8, !tbaa !71
+  store i8 %.1.i.i16.i.i, ptr %1217, align 8, !tbaa !71
   %1218 = load ptr, ptr %245, align 8, !tbaa !134
   store ptr %1218, ptr %1216, align 8, !tbaa !73
-  %1219 = load ptr, ptr %.sroa.5445.0..sroa_idx.i, align 8, !tbaa !135
+  %1219 = load ptr, ptr %.sroa.5443.0..sroa_idx.i, align 8, !tbaa !135
   %1220 = getelementptr inbounds nuw i8, ptr %36, i64 96
   store ptr %1219, ptr %1220, align 8, !tbaa !74
   %1221 = getelementptr inbounds nuw i8, ptr %36, i64 112
   %1222 = load ptr, ptr %1194, align 8, !tbaa !44
   store ptr %1222, ptr %1221, align 8, !tbaa !75
-  %1223 = load i8, ptr %.sroa.7442.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
+  %1223 = load i8, ptr %.sroa.7440.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
   %spec.select.i.i11.i.i = shl nuw nsw i8 %1223, 2
-  %1224 = load i8, ptr %.sroa.6441.0..sroa_idx.i, align 8, !tbaa !133
+  %1224 = load i8, ptr %.sroa.6439.0..sroa_idx.i, align 8, !tbaa !133
   %.not.i.i12.i.i = icmp ne i8 %1224, 0
   %1225 = zext i1 %.not.i.i12.i.i to i8
   %.1.i.i13.i.i = or disjoint i8 %spec.select.i.i11.i.i, %1225
@@ -3559,7 +3559,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i8 %.1.i.i13.i.i, ptr %1227, align 8, !tbaa !71
   %1228 = load ptr, ptr %247, align 8, !tbaa !134
   store ptr %1228, ptr %1226, align 8, !tbaa !73
-  %1229 = load ptr, ptr %.sroa.5440.0..sroa_idx.i, align 8, !tbaa !135
+  %1229 = load ptr, ptr %.sroa.5438.0..sroa_idx.i, align 8, !tbaa !135
   %1230 = getelementptr inbounds nuw i8, ptr %36, i64 136
   store ptr %1229, ptr %1230, align 8, !tbaa !74
   %1231 = getelementptr inbounds nuw i8, ptr %36, i64 152
@@ -3594,7 +3594,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1245 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1194) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %246)
   call void @llvm.lifetime.end.p0(ptr nonnull %245)
-  %.sroa.0.0.copyload.i354.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i352.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr null, ptr %33, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -3610,7 +3610,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1251 = getelementptr inbounds nuw i8, ptr %34, i64 62
   store i16 1, ptr %1251, align 2, !tbaa !116
   %1252 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  store ptr %.sroa.0.0.copyload.i354.i, ptr %1252, align 8, !tbaa !117
+  store ptr %.sroa.0.0.copyload.i352.i, ptr %1252, align 8, !tbaa !117
   %1253 = getelementptr inbounds nuw i8, ptr %34, i64 64
   store ptr @.str.105, ptr %1253, align 8, !tbaa !118
   store i32 176, ptr %1246, align 8, !tbaa !119
@@ -3756,12 +3756,12 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
 
 1304:                                             ; preds = %1201
   store ptr @.str.94, ptr %252, align 8, !tbaa !40
-  %.sroa.5405.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %252, i64 8
-  store ptr null, ptr %.sroa.5405.0..sroa_idx.i, align 8, !tbaa !40
-  %.sroa.6406.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %252, i64 16
-  store i8 1, ptr %.sroa.6406.0..sroa_idx.i, align 8, !tbaa !41
-  %.sroa.7407.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %252, i64 17
-  store i8 0, ptr %.sroa.7407.0..sroa_idx.i, align 1, !tbaa !42
+  %.sroa.5403.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %252, i64 8
+  store ptr null, ptr %.sroa.5403.0..sroa_idx.i, align 8, !tbaa !40
+  %.sroa.6404.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %252, i64 16
+  store i8 1, ptr %.sroa.6404.0..sroa_idx.i, align 8, !tbaa !41
+  %.sroa.7405.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %252, i64 17
+  store i8 0, ptr %.sroa.7405.0..sroa_idx.i, align 1, !tbaa !42
   %1305 = getelementptr inbounds nuw i8, ptr %252, i64 24
   %1306 = load i64, ptr %227, align 8
   store i64 %1306, ptr %1305, align 8
@@ -3777,12 +3777,12 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
 
 1308:                                             ; preds = %1304
   store ptr @.str.95, ptr %254, align 8, !tbaa !40
-  %.sroa.5400.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %254, i64 8
-  store ptr null, ptr %.sroa.5400.0..sroa_idx.i, align 8, !tbaa !40
-  %.sroa.6401.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %254, i64 16
-  store i8 1, ptr %.sroa.6401.0..sroa_idx.i, align 8, !tbaa !41
-  %.sroa.7402.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %254, i64 17
-  store i8 0, ptr %.sroa.7402.0..sroa_idx.i, align 1, !tbaa !42
+  %.sroa.5398.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %254, i64 8
+  store ptr null, ptr %.sroa.5398.0..sroa_idx.i, align 8, !tbaa !40
+  %.sroa.6399.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %254, i64 16
+  store i8 1, ptr %.sroa.6399.0..sroa_idx.i, align 8, !tbaa !41
+  %.sroa.7400.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %254, i64 17
+  store i8 0, ptr %.sroa.7400.0..sroa_idx.i, align 1, !tbaa !42
   %1309 = getelementptr inbounds nuw i8, ptr %254, i64 24
   %1310 = load i64, ptr %226, align 8
   store i64 %1310, ptr %1309, align 8
@@ -3811,9 +3811,9 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1320 = getelementptr inbounds nuw i8, ptr %208, i64 64
   store ptr @.str.108, ptr %1320, align 8, !tbaa !118
   store i32 1200, ptr %1313, align 8, !tbaa !119
-  %1321 = load i8, ptr %.sroa.7407.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
+  %1321 = load i8, ptr %.sroa.7405.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
   %spec.select.i.i218.i = shl nuw nsw i8 %1321, 2
-  %1322 = load i8, ptr %.sroa.6406.0..sroa_idx.i, align 8, !tbaa !133
+  %1322 = load i8, ptr %.sroa.6404.0..sroa_idx.i, align 8, !tbaa !133
   %.not.i.i219.i = icmp ne i8 %1322, 0
   %1323 = zext i1 %.not.i.i219.i to i8
   %.1.i.i220.i = or disjoint i8 %spec.select.i.i218.i, %1323
@@ -3822,7 +3822,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i8 %.1.i.i220.i, ptr %1325, align 8, !tbaa !71
   %1326 = load ptr, ptr %252, align 8, !tbaa !134
   store ptr %1326, ptr %1324, align 8, !tbaa !73
-  %1327 = load ptr, ptr %.sroa.5405.0..sroa_idx.i, align 8, !tbaa !135
+  %1327 = load ptr, ptr %.sroa.5403.0..sroa_idx.i, align 8, !tbaa !135
   %1328 = getelementptr inbounds nuw i8, ptr %208, i64 96
   store ptr %1327, ptr %1328, align 8, !tbaa !74
   %1329 = getelementptr inbounds nuw i8, ptr %208, i64 112
@@ -3849,12 +3849,12 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
 
 1337:                                             ; preds = %1308
   store ptr @.str.94, ptr %256, align 8, !tbaa !40
-  %.sroa.5394.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %256, i64 8
-  store ptr null, ptr %.sroa.5394.0..sroa_idx.i, align 8, !tbaa !40
-  %.sroa.6395.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %256, i64 16
-  store i8 1, ptr %.sroa.6395.0..sroa_idx.i, align 8, !tbaa !41
-  %.sroa.7396.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %256, i64 17
-  store i8 0, ptr %.sroa.7396.0..sroa_idx.i, align 1, !tbaa !42
+  %.sroa.5392.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %256, i64 8
+  store ptr null, ptr %.sroa.5392.0..sroa_idx.i, align 8, !tbaa !40
+  %.sroa.6393.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %256, i64 16
+  store i8 1, ptr %.sroa.6393.0..sroa_idx.i, align 8, !tbaa !41
+  %.sroa.7394.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %256, i64 17
+  store i8 0, ptr %.sroa.7394.0..sroa_idx.i, align 1, !tbaa !42
   %1338 = getelementptr inbounds nuw i8, ptr %256, i64 24
   %1339 = load i64, ptr %225, align 8
   store i64 %1339, ptr %1338, align 8
@@ -4020,9 +4020,9 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1388 = getelementptr inbounds nuw i8, ptr %206, i64 64
   store ptr @.str.109, ptr %1388, align 8, !tbaa !118
   store i32 1200, ptr %1381, align 8, !tbaa !119
-  %1389 = load i8, ptr %.sroa.7396.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
+  %1389 = load i8, ptr %.sroa.7394.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
   %spec.select.i.i222.i = shl nuw nsw i8 %1389, 2
-  %1390 = load i8, ptr %.sroa.6395.0..sroa_idx.i, align 8, !tbaa !133
+  %1390 = load i8, ptr %.sroa.6393.0..sroa_idx.i, align 8, !tbaa !133
   %.not.i.i223.i = icmp ne i8 %1390, 0
   %1391 = zext i1 %.not.i.i223.i to i8
   %.1.i.i224.i = or disjoint i8 %spec.select.i.i222.i, %1391
@@ -4031,7 +4031,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i8 %.1.i.i224.i, ptr %1393, align 8, !tbaa !71
   %1394 = load ptr, ptr %256, align 8, !tbaa !134
   store ptr %1394, ptr %1392, align 8, !tbaa !73
-  %1395 = load ptr, ptr %.sroa.5394.0..sroa_idx.i, align 8, !tbaa !135
+  %1395 = load ptr, ptr %.sroa.5392.0..sroa_idx.i, align 8, !tbaa !135
   %1396 = getelementptr inbounds nuw i8, ptr %206, i64 96
   store ptr %1395, ptr %1396, align 8, !tbaa !74
   %1397 = getelementptr inbounds nuw i8, ptr %206, i64 112
@@ -4063,7 +4063,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   call void @llvm.lifetime.end.p0(ptr nonnull %252)
   %1409 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %251) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %251)
-  %.sroa.0.0.copyload.i361.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i359.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr null, ptr %29, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -4079,14 +4079,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1415 = getelementptr inbounds nuw i8, ptr %30, i64 62
   store i16 1, ptr %1415, align 2, !tbaa !31
   %1416 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  store ptr %.sroa.0.0.copyload.i361.i, ptr %1416, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i359.i, ptr %1416, align 8, !tbaa !32
   %1417 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store ptr @.str.110, ptr %1417, align 8, !tbaa !33
   store i32 48, ptr %1410, align 8, !tbaa !34
   %1418 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %30) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  %.sroa.0.0.copyload.i362.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i360.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr null, ptr %27, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -4102,14 +4102,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1424 = getelementptr inbounds nuw i8, ptr %28, i64 62
   store i16 0, ptr %1424, align 2, !tbaa !31
   %1425 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  store ptr %.sroa.0.0.copyload.i362.i, ptr %1425, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i360.i, ptr %1425, align 8, !tbaa !32
   %1426 = getelementptr inbounds nuw i8, ptr %28, i64 64
   store ptr @.str.111, ptr %1426, align 8, !tbaa !33
   store i32 48, ptr %1419, align 8, !tbaa !34
   %1427 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %28) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %.sroa.0.0.copyload.i363.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i361.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr null, ptr %25, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -4125,14 +4125,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1433 = getelementptr inbounds nuw i8, ptr %26, i64 62
   store i16 0, ptr %1433, align 2, !tbaa !31
   %1434 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  store ptr %.sroa.0.0.copyload.i363.i, ptr %1434, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i361.i, ptr %1434, align 8, !tbaa !32
   %1435 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store ptr @.str.112, ptr %1435, align 8, !tbaa !33
   store i32 48, ptr %1428, align 8, !tbaa !34
   %1436 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %26) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %.sroa.0.0.copyload.i364.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i362.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr null, ptr %23, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -4148,14 +4148,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1442 = getelementptr inbounds nuw i8, ptr %24, i64 62
   store i16 0, ptr %1442, align 2, !tbaa !31
   %1443 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  store ptr %.sroa.0.0.copyload.i364.i, ptr %1443, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i362.i, ptr %1443, align 8, !tbaa !32
   %1444 = getelementptr inbounds nuw i8, ptr %24, i64 64
   store ptr @.str.113, ptr %1444, align 8, !tbaa !33
   store i32 48, ptr %1437, align 8, !tbaa !34
   %1445 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %24) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %.sroa.0.0.copyload.i365.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i363.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr null, ptr %21, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -4171,14 +4171,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1451 = getelementptr inbounds nuw i8, ptr %22, i64 62
   store i16 1, ptr %1451, align 2, !tbaa !31
   %1452 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  store ptr %.sroa.0.0.copyload.i365.i, ptr %1452, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i363.i, ptr %1452, align 8, !tbaa !32
   %1453 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store ptr @.str.114, ptr %1453, align 8, !tbaa !33
   store i32 48, ptr %1446, align 8, !tbaa !34
   %1454 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %22) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %.sroa.0.0.copyload.i366.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i364.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr null, ptr %19, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -4194,14 +4194,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1460 = getelementptr inbounds nuw i8, ptr %20, i64 62
   store i16 2, ptr %1460, align 2, !tbaa !31
   %1461 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  store ptr %.sroa.0.0.copyload.i366.i, ptr %1461, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i364.i, ptr %1461, align 8, !tbaa !32
   %1462 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store ptr @.str.115, ptr %1462, align 8, !tbaa !33
   store i32 48, ptr %1455, align 8, !tbaa !34
   %1463 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %20) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %.sroa.0.0.copyload.i367.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i365.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -4217,14 +4217,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1469 = getelementptr inbounds nuw i8, ptr %18, i64 62
   store i16 0, ptr %1469, align 2, !tbaa !31
   %1470 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store ptr %.sroa.0.0.copyload.i367.i, ptr %1470, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i365.i, ptr %1470, align 8, !tbaa !32
   %1471 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr @.str.116, ptr %1471, align 8, !tbaa !33
   store i32 48, ptr %1464, align 8, !tbaa !34
   %1472 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %18) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.sroa.0.0.copyload.i368.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i366.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -4240,14 +4240,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1478 = getelementptr inbounds nuw i8, ptr %16, i64 62
   store i16 2, ptr %1478, align 2, !tbaa !31
   %1479 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store ptr %.sroa.0.0.copyload.i368.i, ptr %1479, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i366.i, ptr %1479, align 8, !tbaa !32
   %1480 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store ptr @.str.116, ptr %1480, align 8, !tbaa !33
   store i32 48, ptr %1473, align 8, !tbaa !34
   %1481 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %16) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.sroa.0.0.copyload.i369.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i367.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -4263,14 +4263,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1487 = getelementptr inbounds nuw i8, ptr %14, i64 62
   store i16 1, ptr %1487, align 2, !tbaa !31
   %1488 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  store ptr %.sroa.0.0.copyload.i369.i, ptr %1488, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i367.i, ptr %1488, align 8, !tbaa !32
   %1489 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr @.str.117, ptr %1489, align 8, !tbaa !33
   store i32 48, ptr %1482, align 8, !tbaa !34
   %1490 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %14) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.sroa.0.0.copyload.i370.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i368.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -4286,14 +4286,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1496 = getelementptr inbounds nuw i8, ptr %12, i64 62
   store i16 1, ptr %1496, align 2, !tbaa !31
   %1497 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store ptr %.sroa.0.0.copyload.i370.i, ptr %1497, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i368.i, ptr %1497, align 8, !tbaa !32
   %1498 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr @.str.118, ptr %1498, align 8, !tbaa !33
   store i32 48, ptr %1491, align 8, !tbaa !34
   %1499 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %12) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.sroa.0.0.copyload.i371.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i369.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -4309,14 +4309,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1505 = getelementptr inbounds nuw i8, ptr %10, i64 62
   store i16 1, ptr %1505, align 2, !tbaa !31
   %1506 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store ptr %.sroa.0.0.copyload.i371.i, ptr %1506, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i369.i, ptr %1506, align 8, !tbaa !32
   %1507 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr @.str.119, ptr %1507, align 8, !tbaa !33
   store i32 48, ptr %1500, align 8, !tbaa !34
   %1508 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %10) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.sroa.0.0.copyload.i372.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i370.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4332,14 +4332,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1514 = getelementptr inbounds nuw i8, ptr %8, i64 62
   store i16 2, ptr %1514, align 2, !tbaa !31
   %1515 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store ptr %.sroa.0.0.copyload.i372.i, ptr %1515, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i370.i, ptr %1515, align 8, !tbaa !32
   %1516 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr @.str.120, ptr %1516, align 8, !tbaa !33
   store i32 48, ptr %1509, align 8, !tbaa !34
   %1517 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %8) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.sroa.0.0.copyload.i373.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i371.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4355,14 +4355,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1523 = getelementptr inbounds nuw i8, ptr %6, i64 62
   store i16 2, ptr %1523, align 2, !tbaa !31
   %1524 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store ptr %.sroa.0.0.copyload.i373.i, ptr %1524, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i371.i, ptr %1524, align 8, !tbaa !32
   %1525 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr @.str.121, ptr %1525, align 8, !tbaa !33
   store i32 131120, ptr %1518, align 8, !tbaa !34
   %1526 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %6) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.sroa.0.0.copyload.i374.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i372.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4378,14 +4378,14 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1532 = getelementptr inbounds nuw i8, ptr %4, i64 62
   store i16 0, ptr %1532, align 2, !tbaa !31
   %1533 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %.sroa.0.0.copyload.i374.i, ptr %1533, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i372.i, ptr %1533, align 8, !tbaa !32
   %1534 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr @.str.122, ptr %1534, align 8, !tbaa !33
   store i32 48, ptr %1527, align 8, !tbaa !34
   %1535 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %4) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.sroa.0.0.copyload.i375.i = load ptr, ptr %260, align 8
+  %.sroa.0.0.copyload.i373.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -4401,7 +4401,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1541 = getelementptr inbounds nuw i8, ptr %2, i64 62
   store i16 0, ptr %1541, align 2, !tbaa !31
   %1542 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %.sroa.0.0.copyload.i375.i, ptr %1542, align 8, !tbaa !32
+  store ptr %.sroa.0.0.copyload.i373.i, ptr %1542, align 8, !tbaa !32
   %1543 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr @.str.123, ptr %1543, align 8, !tbaa !33
   store i32 48, ptr %1536, align 8, !tbaa !34
@@ -4635,15 +4635,15 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8n
   store ptr %30, ptr %28, align 8, !tbaa !75
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %32 = load i8, ptr %31, align 1, !tbaa !129, !range !131, !noundef !132
-  %spec.select.i6 = shl nuw nsw i8 %32, 2
+  %spec.select.i5 = shl nuw nsw i8 %32, 2
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %34 = load i8, ptr %33, align 8, !tbaa !133
-  %.not.i7 = icmp ne i8 %34, 0
-  %35 = zext i1 %.not.i7 to i8
-  %.1.i8 = or disjoint i8 %spec.select.i6, %35
+  %.not.i6 = icmp ne i8 %34, 0
+  %35 = zext i1 %.not.i6 to i8
+  %.1.i7 = or disjoint i8 %spec.select.i5, %35
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  store i8 %.1.i8, ptr %37, align 8, !tbaa !71
+  store i8 %.1.i7, ptr %37, align 8, !tbaa !71
   %38 = load ptr, ptr %4, align 8, !tbaa !134
   store ptr %38, ptr %36, align 8, !tbaa !73
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8

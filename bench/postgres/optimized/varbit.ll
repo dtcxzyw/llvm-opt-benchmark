@@ -1779,7 +1779,7 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly captures(a
   store i32 32, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 0, ptr %29, align 4
-  br label %93
+  br label %92
 
 30:                                               ; preds = %25
   %31 = sub nsw i32 %.058, %7
@@ -1868,20 +1868,19 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly captures(a
   %82 = shl i32 %.tr, 3
   %83 = sub i32 %82, %76
   %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %85, label %93
+  br i1 %84, label %85, label %92
 
 85:                                               ; preds = %.loopexit
   %86 = shl i32 255, %83
-  %87 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %81
-  %89 = getelementptr inbounds i8, ptr %88, i64 -1
-  %90 = load i8, ptr %89, align 1
-  %91 = trunc i32 %86 to i8
-  %92 = and i8 %90, %91
-  store i8 %92, ptr %89, align 1
-  br label %93
+  %87 = getelementptr inbounds nuw i8, ptr %35, i64 %81
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 7
+  %89 = load i8, ptr %88, align 1
+  %90 = trunc i32 %86 to i8
+  %91 = and i8 %89, %90
+  store i8 %91, ptr %88, align 1
+  br label %92
 
-93:                                               ; preds = %.loopexit, %85, %27
+92:                                               ; preds = %.loopexit, %85, %27
   %.0 = phi ptr [ %28, %27 ], [ %35, %85 ], [ %35, %.loopexit ]
   ret ptr %.0
 }

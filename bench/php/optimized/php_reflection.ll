@@ -31893,9 +31893,8 @@ smart_str_alloc.exit44:                           ; preds = %92, %101
 
 108:                                              ; preds = %smart_str_alloc.exit44, %.lr.ph
   %109 = phi ptr [ %.pre91, %smart_str_alloc.exit44 ], [ %77, %.lr.ph ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 24
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx
+  %110 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %109, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
   call fastcc void @format_default_value(ptr noundef %3, ptr noundef nonnull %111)
   %112 = load ptr, ptr %3, align 8, !tbaa !78
   %.not.i45 = icmp eq ptr %112, null

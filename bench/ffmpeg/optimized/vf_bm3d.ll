@@ -1024,8 +1024,8 @@ search_boundary.exit93.i.i.us:                    ; preds = %151, %.loopexit.loo
 
 206:                                              ; preds = %203
   %207 = sext i32 %.056.i.i.i.us to i64
-  %208 = getelementptr %struct.PosPairCode, ptr %67, i64 %207
-  %209 = getelementptr i8, ptr %208, i64 -16
+  %208 = getelementptr %struct.PosPairCode, ptr %10, i64 %207
+  %209 = getelementptr i8, ptr %208, i64 136
   %210 = load double, ptr %209, align 8, !tbaa !100
   %211 = fcmp nsz ult double %204, %210
   br i1 %211, label %212, label %222

@@ -1285,10 +1285,9 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %504, label %.lr.ph4079.preheader, label %._crit_edge4080
 
 .lr.ph4079.preheader:                             ; preds = %.preheader3536
-  %scevgep4503 = getelementptr i8, ptr %.02204, i64 9
   %505 = zext nneg i32 %498 to i64
-  %506 = getelementptr i8, ptr %scevgep4503, i64 %505
-  %scevgep4504 = getelementptr i8, ptr %506, i64 -1
+  %506 = getelementptr i8, ptr %.02204, i64 %505
+  %scevgep4504 = getelementptr i8, ptr %506, i64 8
   br label %.lr.ph4079
 
 .lr.ph4079:                                       ; preds = %.lr.ph4079.preheader, %510

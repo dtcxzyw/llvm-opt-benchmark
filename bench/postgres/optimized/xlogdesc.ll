@@ -542,9 +542,8 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 
 .sink.split87:                                    ; preds = %119, %118
   %125 = phi ptr [ %.pre, %119 ], [ %111, %118 ]
-  %.idx = shl nsw i64 %113, 6
-  %126 = getelementptr i8, ptr %125, i64 118
-  %127 = getelementptr i8, ptr %126, i64 %.idx
+  %126 = getelementptr %struct.DecodedBkpBlock, ptr %125, i64 %113
+  %127 = getelementptr i8, ptr %126, i64 118
   %128 = load i8, ptr %127, align 2, !range !4, !noundef !5
   %129 = trunc nuw i8 %128 to i1
   %.str.43..str.44 = select i1 %129, ptr @.str.43, ptr @.str.44

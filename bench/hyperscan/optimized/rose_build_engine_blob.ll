@@ -841,7 +841,7 @@ define linkonce_odr hidden noundef i32 @_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx1
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i: ; preds = %16, %15
   %.ph.i = phi ptr [ %10, %16 ], [ %9, %15 ]
-  %17 = getelementptr inbounds i8, ptr %.ph.i, i64 -1
+  %17 = getelementptr i8, ptr %.ph.i, i64 -1
   %18 = load i8, ptr %1, align 1
   store i8 %18, ptr %17, align 1
   br label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit
@@ -849,7 +849,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i: ; pred
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i: ; preds = %6
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1)
   %.pre8.i.i = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %.pre8.i.i, i64 -1
+  %19 = getelementptr i8, ptr %.pre8.i.i, i64 -1
   %20 = load i8, ptr %1, align 1
   store i8 %20, ptr %19, align 1
   %.not.i.i6.i.i = icmp ult i64 %14, 4294967296
@@ -902,7 +902,7 @@ _ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit:        ; preds = %_ZNSt6vectorIcN3ue2
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9: ; preds = %34, %33
   %.ph.i10 = phi ptr [ %29, %34 ], [ %28, %33 ]
-  %35 = getelementptr inbounds i8, ptr %.ph.i10, i64 -1
+  %35 = getelementptr i8, ptr %.ph.i10, i64 -1
   %36 = load i8, ptr %.sroa.0.019, align 1
   store i8 %36, ptr %35, align 1
   br label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit11
@@ -911,7 +911,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5: ; preds = %.
   %37 = add i64 %32, 512
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1)
   %.pre8.i.i6 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %.pre8.i.i6, i64 -1
+  %38 = getelementptr i8, ptr %.pre8.i.i6, i64 -1
   %39 = load i8, ptr %.sroa.0.019, align 1
   store i8 %39, ptr %38, align 1
   %.not.i.i6.i.i7 = icmp ult i64 %37, 4294967296
@@ -3478,7 +3478,7 @@ define linkonce_odr hidden noundef i32 @_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx1
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i: ; preds = %16, %15
   %.ph.i = phi ptr [ %10, %16 ], [ %9, %15 ]
-  %17 = getelementptr inbounds i8, ptr %.ph.i, i64 -1
+  %17 = getelementptr i8, ptr %.ph.i, i64 -1
   %18 = load i8, ptr %1, align 1
   store i8 %18, ptr %17, align 1
   br label %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit
@@ -3486,7 +3486,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i: ; pred
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i: ; preds = %6
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1)
   %.pre8.i.i = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %.pre8.i.i, i64 -1
+  %19 = getelementptr i8, ptr %.pre8.i.i, i64 -1
   %20 = load i8, ptr %1, align 1
   store i8 %20, ptr %19, align 1
   %.not.i.i6.i.i = icmp ult i64 %14, 4294967296
@@ -3539,7 +3539,7 @@ _ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit:        ; preds = %_ZNSt6vectorIcN3ue2
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9: ; preds = %34, %33
   %.ph.i10 = phi ptr [ %29, %34 ], [ %28, %33 ]
-  %35 = getelementptr inbounds i8, ptr %.ph.i10, i64 -1
+  %35 = getelementptr i8, ptr %.ph.i10, i64 -1
   %36 = load i8, ptr %.sroa.0.019, align 1
   store i8 %36, ptr %35, align 1
   br label %_ZN3ue214RoseEngineBlob3addIaEEjRKT_.exit11
@@ -3548,7 +3548,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5: ; preds = %.
   %37 = add i64 %32, 512
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1)
   %.pre8.i.i6 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %.pre8.i.i6, i64 -1
+  %38 = getelementptr i8, ptr %.pre8.i.i6, i64 -1
   %39 = load i8, ptr %.sroa.0.019, align 1
   store i8 %39, ptr %38, align 1
   %.not.i.i6.i.i7 = icmp ult i64 %37, 4294967296

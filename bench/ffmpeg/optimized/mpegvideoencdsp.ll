@@ -494,9 +494,9 @@ define internal i32 @pix_sum_c(ptr noundef readonly captures(none) %0, i64 nound
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %37
-  %.02332 = phi i32 [ 0, %2 ], [ %40, %37 ]
+  %.02332 = phi i32 [ 0, %2 ], [ %39, %37 ]
   %.02431 = phi i32 [ 0, %2 ], [ %35, %37 ]
-  %.02530 = phi ptr [ %0, %2 ], [ %39, %37 ]
+  %.02530 = phi ptr [ %0, %2 ], [ %38, %37 ]
   br label %3
 
 3:                                                ; preds = %.preheader, %3
@@ -538,14 +538,12 @@ define internal i32 @pix_sum_c(ptr noundef readonly captures(none) %0, i64 nound
   br i1 %4, label %3, label %37, !llvm.loop !28
 
 37:                                               ; preds = %3
-  %scevgep = getelementptr i8, ptr %.02530, i64 16
-  %38 = getelementptr i8, ptr %scevgep, i64 %1
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %40 = add nuw nsw i32 %.02332, 1
-  %exitcond.not = icmp eq i32 %40, 16
-  br i1 %exitcond.not, label %41, label %.preheader, !llvm.loop !29
+  %38 = getelementptr i8, ptr %.02530, i64 %1
+  %39 = add nuw nsw i32 %.02332, 1
+  %exitcond.not = icmp eq i32 %39, 16
+  br i1 %exitcond.not, label %40, label %.preheader, !llvm.loop !29
 
-41:                                               ; preds = %37
+40:                                               ; preds = %37
   ret i32 %35
 }
 
@@ -554,9 +552,9 @@ define internal i32 @pix_norm1_c(ptr noundef readonly captures(none) %0, i64 nou
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %53
-  %.042 = phi ptr [ %0, %2 ], [ %55, %53 ]
+  %.042 = phi ptr [ %0, %2 ], [ %54, %53 ]
   %.03341 = phi i32 [ 0, %2 ], [ %51, %53 ]
-  %.03640 = phi i32 [ 0, %2 ], [ %56, %53 ]
+  %.03640 = phi i32 [ 0, %2 ], [ %55, %53 ]
   br label %3
 
 3:                                                ; preds = %.preheader, %3
@@ -614,14 +612,12 @@ define internal i32 @pix_norm1_c(ptr noundef readonly captures(none) %0, i64 nou
   br i1 %4, label %3, label %53, !llvm.loop !32
 
 53:                                               ; preds = %3
-  %scevgep = getelementptr i8, ptr %.042, i64 16
-  %54 = getelementptr i8, ptr %scevgep, i64 %1
-  %55 = getelementptr i8, ptr %54, i64 -16
-  %56 = add nuw nsw i32 %.03640, 1
-  %exitcond.not = icmp eq i32 %56, 16
-  br i1 %exitcond.not, label %57, label %.preheader, !llvm.loop !33
+  %54 = getelementptr i8, ptr %.042, i64 %1
+  %55 = add nuw nsw i32 %.03640, 1
+  %exitcond.not = icmp eq i32 %55, 16
+  br i1 %exitcond.not, label %56, label %.preheader, !llvm.loop !33
 
-57:                                               ; preds = %53
+56:                                               ; preds = %53
   ret i32 %51
 }
 

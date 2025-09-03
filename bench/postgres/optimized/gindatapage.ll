@@ -279,18 +279,18 @@ define dso_local void @GinPageDeletePostingItem(ptr noundef captures(none) %0, i
 9:                                                ; preds = %2
   %10 = zext i16 %8 to i32
   %11 = zext i16 %1 to i32
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = mul nuw nsw i32 %11, 10
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 -10
+  %12 = mul nuw nsw i32 %11, 10
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr i8, ptr %0, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 22
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = zext i16 %1 to i64
   %18 = mul nuw nsw i64 %17, 10
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
   %20 = sub nsw i32 %10, %11
   %narrow = mul nsw i32 %20, 10
   %21 = sext i32 %narrow to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %16, ptr nonnull align 2 %19, i64 %21, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %15, ptr nonnull align 2 %19, i64 %21, i1 false)
   %.pre = load i16, ptr %3, align 4
   %.pre18 = zext i16 %.pre to i64
   br label %22
@@ -1426,7 +1426,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %34(ptr noundef nonnull %0, ptr noundef %.0.i.i) #11
-  br label %96
+  br label %95
 
 36:                                               ; preds = %BufferGetPage.exit
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
@@ -1501,7 +1501,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %77 = shl nuw i32 %76, 16
   %78 = zext i16 %.045.val54 to i32
   %79 = or disjoint i32 %77, %78
-  br label %96
+  br label %95
 
 .thread:                                          ; preds = %53
   %80 = icmp ugt i64 %64, %73
@@ -1521,21 +1521,20 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %85 = zext i16 %.046.lcssa to i64
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 %.046.lcssa, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
-  %88 = mul nuw nsw i64 %85, 10
-  %89 = getelementptr i8, ptr %87, i64 %88
-  %90 = getelementptr i8, ptr %89, i64 -10
-  %.val = load i16, ptr %90, align 2
-  %91 = getelementptr i8, ptr %89, i64 -8
-  %.val53 = load i16, ptr %91, align 2
-  %92 = zext i16 %.val to i32
-  %93 = shl nuw i32 %92, 16
-  %94 = zext i16 %.val53 to i32
-  %95 = or disjoint i32 %93, %94
-  br label %96
+  %87 = mul nuw nsw i64 %85, 10
+  %88 = getelementptr i8, ptr %.0.i.i, i64 %87
+  %89 = getelementptr i8, ptr %88, i64 22
+  %.val = load i16, ptr %89, align 2
+  %90 = getelementptr i8, ptr %88, i64 24
+  %.val53 = load i16, ptr %90, align 2
+  %91 = zext i16 %.val to i32
+  %92 = shl nuw i32 %91, 16
+  %93 = zext i16 %.val53 to i32
+  %94 = or disjoint i32 %92, %93
+  br label %95
 
-96:                                               ; preds = %.thread61, %._crit_edge, %21
-  %.0 = phi i32 [ %35, %21 ], [ %95, %._crit_edge ], [ %79, %.thread61 ]
+95:                                               ; preds = %.thread61, %._crit_edge, %21
+  %.0 = phi i32 [ %35, %21 ], [ %94, %._crit_edge ], [ %79, %.thread61 ]
   ret i32 %.0
 }
 
@@ -3022,8 +3021,8 @@ dataSplitPageInternal.exit.i:                     ; preds = %666, %655
   store i16 %694, ptr %695, align 4
   %696 = mul nuw nsw i32 %669, 10
   %697 = zext nneg i32 %696 to i64
-  %698 = getelementptr i8, ptr %672, i64 %697
-  %699 = getelementptr i8, ptr %698, i64 -6
+  %698 = getelementptr i8, ptr %671, i64 %697
+  %699 = getelementptr i8, ptr %698, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %671, ptr noundef nonnull align 2 dereferenceable(6) %699, i64 6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %680, ptr noundef nonnull align 2 dereferenceable(6) %9, i64 6, i1 false)
   store ptr %616, ptr %6, align 8

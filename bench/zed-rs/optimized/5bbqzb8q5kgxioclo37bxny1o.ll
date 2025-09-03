@@ -2705,12 +2705,12 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h624ba57fdd1d2861E.exit.i: ;
 
 268:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2452b2bef0109e86E.exit.i"
   %269 = zext i32 %267 to i64
-  %270 = getelementptr inbounds nuw { { i64, { i64, [1 x i64] } }, ptr, i64 }, ptr %86, i64 %269
-  %271 = getelementptr inbounds i8, ptr %270, i64 -80
+  %270 = getelementptr inbounds nuw { { i64, { i64, [1 x i64] } }, ptr, i64 }, ptr %21, i64 %269
+  %271 = getelementptr inbounds i8, ptr %270, i64 -40
   %272 = load i64, ptr %271, align 8, !alias.scope !824, !noalias !829, !noundef !4
-  %273 = getelementptr inbounds i8, ptr %270, i64 -72
+  %273 = getelementptr inbounds i8, ptr %270, i64 -32
   %.val.i.i = load i64, ptr %273, align 8, !range !222, !alias.scope !831, !noalias !829, !noundef !4
-  %274 = getelementptr inbounds i8, ptr %270, i64 -64
+  %274 = getelementptr inbounds i8, ptr %270, i64 -24
   %.val1.i.i = load i64, ptr %274, align 8, !alias.scope !831, !noalias !829
   %trunc.i.i.i = trunc nuw i64 %.val.i.i to i1
   %spec.select.i.i.i = select i1 %trunc.i.i.i, i64 %.val1.i.i, i64 undef

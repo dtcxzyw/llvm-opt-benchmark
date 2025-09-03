@@ -4724,8 +4724,8 @@ define internal void @_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRN
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 12
   br label %44
 
-44:                                               ; preds = %.lr.ph, %418
-  %.039 = phi i32 [ 0, %.lr.ph ], [ %419, %418 ]
+44:                                               ; preds = %.lr.ph, %415
+  %.039 = phi i32 [ 0, %.lr.ph ], [ %416, %415 ]
   %45 = load ptr, ptr %2, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
@@ -4779,8 +4779,8 @@ _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i: ; 
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 noundef signext 1, ptr noundef nonnull %27, i32 noundef %72)
           to label %_ZNK6icu_7713ResourceValue21getAliasUnicodeStringER10UErrorCode.exit.i unwind label %73
 
-common.resume:                                    ; preds = %234, %240, %300, %326, %334, %.body.i.i.i, %73, %114
-  %common.resume.op = phi { ptr, i32 } [ %74, %73 ], [ %.pn.i, %114 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %235, %234 ], [ %241, %240 ], [ %301, %300 ], [ %327, %326 ], [ %.pn.i.i, %334 ]
+common.resume:                                    ; preds = %233, %239, %297, %323, %331, %.body.i.i.i, %73, %114
+  %common.resume.op = phi { ptr, i32 } [ %74, %73 ], [ %.pn.i, %114 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %234, %233 ], [ %240, %239 ], [ %298, %297 ], [ %324, %323 ], [ %.pn.i.i, %331 ]
   resume { ptr, i32 } %common.resume.op
 
 73:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink15styleFromStringEPKc.exit.i
@@ -4898,7 +4898,7 @@ _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink12consumeAliasEPKcRKNS_13Resourc
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %28) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %418
+  br label %415
 
 115:                                              ; preds = %44
   %116 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #23
@@ -5080,7 +5080,7 @@ sub_159.i:                                        ; preds = %sub_0.i
 
 _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit: ; preds = %sub_134.i, %sub_144.i, %.tail42.i, %.tail32.i, %.thread, %sub_0.i, %sub_1.i, %.tail.i, %sub_139.i, %.tail37.i, %sub_149.i, %.tail47.i, %.tail52.i, %sub_159.i, %.tail57.i, %.tail62.i, %178, %181, %187, %190
   store i32 -1, ptr %39, align 8, !tbaa !129
-  br label %418
+  br label %415
 
 193:                                              ; preds = %.tail.i, %.tail32.i, %.tail37.i, %.tail42.i, %.tail47.i, %.tail52.i, %.tail57.i, %.tail62.i, %172, %175, %178, %181, %184, %187, %190
   %.0.i14.ph = phi i32 [ 6, %190 ], [ 0, %187 ], [ 1, %184 ], [ 5, %181 ], [ 7, %178 ], [ 4, %175 ], [ 2, %172 ], [ 14, %.tail62.i ], [ 13, %.tail57.i ], [ 12, %.tail52.i ], [ 11, %.tail47.i ], [ 10, %.tail42.i ], [ 9, %.tail37.i ], [ 8, %.tail32.i ], [ 3, %.tail.i ]
@@ -5101,8 +5101,8 @@ _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.
   %.not1426.i = icmp eq i8 %199, 0
   br i1 %.not1426.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink15consumeTimeUnitEPKcRNS_13ResourceValueER10UErrorCode.exit, label %sub_0.i15
 
-sub_0.i15:                                        ; preds = %.preheader.i, %415
-  %.027.i = phi i32 [ %416, %415 ], [ 0, %.preheader.i ]
+sub_0.i15:                                        ; preds = %.preheader.i, %412
+  %.027.i = phi i32 [ %413, %412 ], [ 0, %.preheader.i ]
   %200 = load ptr, ptr %24, align 8, !tbaa !121
   %201 = load i8, ptr %200, align 1
   %.not.i = icmp eq i8 %201, 100
@@ -5142,511 +5142,507 @@ switch.lookup:                                    ; preds = %215
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 %218
   %switch.load = load i64, ptr %switch.gep, align 8
   %219 = load ptr, ptr %40, align 8, !tbaa !125
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 24
-  %221 = load i32, ptr %38, align 4, !tbaa !128
-  %222 = zext i32 %221 to i64
-  %223 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %220, i64 %222
-  %224 = getelementptr inbounds nuw [6 x %"class.icu_77::UnicodeString"], ptr %223, i64 %switch.load, i64 5
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  %226 = load i16, ptr %225, align 8, !tbaa !32
-  %227 = icmp ugt i16 %226, 31
-  br i1 %227, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i, label %228
+  %220 = load i32, ptr %38, align 4, !tbaa !128
+  %221 = zext i32 %220 to i64
+  %222 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %219, i64 %221
+  %223 = getelementptr inbounds nuw [6 x %"class.icu_77::UnicodeString"], ptr %222, i64 %switch.load, i64 5, i32 1, i32 0, i32 3
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %225 = load i16, ptr %224, align 8, !tbaa !32
+  %226 = icmp ugt i16 %225, 31
+  br i1 %226, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i, label %227
 
-228:                                              ; preds = %switch.lookup
+227:                                              ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !130
   store i32 0, ptr %21, align 4, !tbaa !12, !noalias !130
-  %229 = load ptr, ptr %2, align 8, !tbaa !15, !noalias !130
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 32
-  %231 = load ptr, ptr %230, align 8, !noalias !130
-  %232 = call noundef ptr %231(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !130
-  store ptr %232, ptr %22, align 8, !tbaa !51, !noalias !130
-  %233 = load i32, ptr %21, align 4, !tbaa !12, !noalias !130
-  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 noundef signext 1, ptr noundef nonnull %22, i32 noundef %233)
-          to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i unwind label %234
+  %228 = load ptr, ptr %2, align 8, !tbaa !15, !noalias !130
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 32
+  %230 = load ptr, ptr %229, align 8, !noalias !130
+  %231 = call noundef ptr %230(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !130
+  store ptr %231, ptr %22, align 8, !tbaa !51, !noalias !130
+  %232 = load i32, ptr %21, align 4, !tbaa !12, !noalias !130
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 noundef signext 1, ptr noundef nonnull %22, i32 noundef %232)
+          to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i unwind label %233
 
-234:                                              ; preds = %228
-  %235 = landingpad { ptr, i32 }
+233:                                              ; preds = %227
+  %234 = landingpad { ptr, i32 }
           cleanup
-  %236 = load ptr, ptr %22, align 8, !tbaa !51, !noalias !130
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %236) #20, !srcloc !54
+  %235 = load ptr, ptr %22, align 8, !tbaa !51, !noalias !130
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %235) #20, !srcloc !54
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !130
   br label %common.resume
 
-_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i: ; preds = %228
-  %237 = load ptr, ptr %22, align 8, !tbaa !51, !noalias !130
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %237) #20, !srcloc !54
+_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i: ; preds = %227
+  %236 = load ptr, ptr %22, align 8, !tbaa !51, !noalias !130
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %236) #20, !srcloc !54
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !130
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %238 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %224, ptr noundef nonnull align 8 dereferenceable(64) %23)
-          to label %239 unwind label %240
+  %237 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %223, ptr noundef nonnull align 8 dereferenceable(64) %23)
+          to label %238 unwind label %239
 
-239:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i
+238:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %23) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i
 
-240:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i
-  %241 = landingpad { ptr, i32 }
+239:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i.i
+  %240 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %23) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %common.resume
 
-_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i: ; preds = %215, %239, %switch.lookup, %207, %.tail.i20, %sub_1.i19, %sub_0.i15
-  %242 = load ptr, ptr %2, align 8, !tbaa !15
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
-  %244 = load ptr, ptr %243, align 8
-  %245 = call noundef i32 %244(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %246 = icmp eq i32 %245, 2
-  br i1 %246, label %247, label %415
+_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i: ; preds = %215, %238, %switch.lookup, %207, %.tail.i20, %sub_1.i19, %sub_0.i15
+  %241 = load ptr, ptr %2, align 8, !tbaa !15
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %243 = load ptr, ptr %242, align 8
+  %244 = call noundef i32 %243(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %245 = icmp eq i32 %244, 2
+  br i1 %245, label %246, label %412
 
-247:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i
-  %248 = load ptr, ptr %24, align 8, !tbaa !121
-  %249 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %248, ptr noundef nonnull dereferenceable(9) @.str.19) #23
-  %250 = icmp eq i32 %249, 0
-  br i1 %250, label %251, label %337
+246:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i
+  %247 = load ptr, ptr %24, align 8, !tbaa !121
+  %248 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %247, ptr noundef nonnull dereferenceable(9) @.str.19) #23
+  %249 = icmp eq i32 %248, 0
+  br i1 %249, label %250, label %334
 
-251:                                              ; preds = %247
+250:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store ptr %248, ptr %17, align 8, !tbaa !121
+  store ptr %247, ptr %17, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %252 = load ptr, ptr %2, align 8, !tbaa !15
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 88
-  %254 = load ptr, ptr %253, align 8
-  call void %254(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::ResourceTable") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %255 = load i32, ptr %4, align 4, !tbaa !13
-  %256 = icmp slt i32 %255, 1
-  br i1 %256, label %.preheader.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
+  %251 = load ptr, ptr %2, align 8, !tbaa !15
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 88
+  %253 = load ptr, ptr %252, align 8
+  call void %253(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::ResourceTable") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %254 = load i32, ptr %4, align 4, !tbaa !13
+  %255 = icmp slt i32 %254, 1
+  br i1 %255, label %.preheader.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
 
-.preheader.i.i:                                   ; preds = %251
-  %257 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %18, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not2439.i.i = icmp eq i8 %257, 0
-  br i1 %.not2439.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, label %.lr.ph.i.i
+.preheader.i.i:                                   ; preds = %250
+  %256 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %18, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %.not2438.i.i = icmp eq i8 %256, 0
+  br i1 %.not2438.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
-  %.02140.i.i = phi i32 [ %335, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i ], [ 0, %.preheader.i.i ]
-  %258 = load ptr, ptr %2, align 8, !tbaa !15
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
-  %260 = load ptr, ptr %259, align 8
-  %261 = call noundef i32 %260(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %262 = icmp eq i32 %261, 0
-  br i1 %262, label %263, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
+  %.02139.i.i = phi i32 [ %332, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i ], [ 0, %.preheader.i.i ]
+  %257 = load ptr, ptr %2, align 8, !tbaa !15
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 24
+  %259 = load ptr, ptr %258, align 8
+  %260 = call noundef i32 %259(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %261 = icmp eq i32 %260, 0
+  br i1 %261, label %262, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
 
-263:                                              ; preds = %.lr.ph.i.i
-  %264 = load ptr, ptr %17, align 8, !tbaa !121
-  %265 = load i8, ptr %264, align 1
-  switch i8 %265, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i [
+262:                                              ; preds = %.lr.ph.i.i
+  %263 = load ptr, ptr %17, align 8, !tbaa !121
+  %264 = load i8, ptr %263, align 1
+  switch i8 %264, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i [
     i8 45, label %sub_1.i.i.i
     i8 48, label %.tail10.i.i.i
     i8 49, label %.tail14.i.i.i
     i8 50, label %sub_120.i.i.i
   ]
 
-sub_1.i.i.i:                                      ; preds = %263
-  %266 = getelementptr inbounds nuw i8, ptr %264, i64 1
-  %267 = load i8, ptr %266, align 1
-  switch i8 %267, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i [
+sub_1.i.i.i:                                      ; preds = %262
+  %265 = getelementptr inbounds nuw i8, ptr %263, i64 1
+  %266 = load i8, ptr %265, align 1
+  switch i8 %266, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i [
     i8 50, label %.tail.i.i.i
     i8 49, label %.tail5.i.i.i
   ]
 
 .tail.i.i.i:                                      ; preds = %sub_1.i.i.i
-  %268 = getelementptr inbounds nuw i8, ptr %264, i64 2
-  %269 = load i8, ptr %268, align 1
-  %270 = icmp eq i8 %269, 0
-  br i1 %270, label %select.unfold.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
+  %267 = getelementptr inbounds nuw i8, ptr %263, i64 2
+  %268 = load i8, ptr %267, align 1
+  %269 = icmp eq i8 %268, 0
+  br i1 %269, label %select.unfold.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
 
 .tail5.i.i.i:                                     ; preds = %sub_1.i.i.i
-  %271 = getelementptr inbounds nuw i8, ptr %264, i64 2
-  %272 = load i8, ptr %271, align 1
-  %273 = icmp eq i8 %272, 0
-  br i1 %273, label %select.unfold.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
+  %270 = getelementptr inbounds nuw i8, ptr %263, i64 2
+  %271 = load i8, ptr %270, align 1
+  %272 = icmp eq i8 %271, 0
+  br i1 %272, label %select.unfold.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
 
-.tail10.i.i.i:                                    ; preds = %263
-  %274 = getelementptr inbounds nuw i8, ptr %264, i64 1
-  %275 = load i8, ptr %274, align 1
-  %276 = icmp eq i8 %275, 0
-  br i1 %276, label %select.unfold.thread.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
+.tail10.i.i.i:                                    ; preds = %262
+  %273 = getelementptr inbounds nuw i8, ptr %263, i64 1
+  %274 = load i8, ptr %273, align 1
+  %275 = icmp eq i8 %274, 0
+  br i1 %275, label %select.unfold.thread.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
 
-.tail14.i.i.i:                                    ; preds = %263
-  %277 = getelementptr inbounds nuw i8, ptr %264, i64 1
-  %278 = load i8, ptr %277, align 1
-  %279 = icmp eq i8 %278, 0
-  br i1 %279, label %select.unfold.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
+.tail14.i.i.i:                                    ; preds = %262
+  %276 = getelementptr inbounds nuw i8, ptr %263, i64 1
+  %277 = load i8, ptr %276, align 1
+  %278 = icmp eq i8 %277, 0
+  br i1 %278, label %select.unfold.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
 
-sub_120.i.i.i:                                    ; preds = %263
-  %280 = getelementptr inbounds nuw i8, ptr %264, i64 1
-  %281 = load i8, ptr %280, align 1
-  %282 = icmp eq i8 %281, 0
-  br i1 %282, label %select.unfold.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
+sub_120.i.i.i:                                    ; preds = %262
+  %279 = getelementptr inbounds nuw i8, ptr %263, i64 1
+  %280 = load i8, ptr %279, align 1
+  %281 = icmp eq i8 %280, 0
+  br i1 %281, label %select.unfold.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
 
 select.unfold.i.i:                                ; preds = %sub_120.i.i.i, %.tail14.i.i.i, %.tail5.i.i.i, %.tail.i.i.i
-  %.not56.i.i = phi i1 [ true, %.tail5.i.i.i ], [ true, %.tail.i.i.i ], [ false, %sub_120.i.i.i ], [ false, %.tail14.i.i.i ]
+  %.not55.i.i = phi i1 [ true, %.tail5.i.i.i ], [ true, %.tail.i.i.i ], [ false, %sub_120.i.i.i ], [ false, %.tail14.i.i.i ]
   %.0.i.ph.i15.i = phi i64 [ 1, %.tail5.i.i.i ], [ 0, %.tail.i.i.i ], [ 4, %sub_120.i.i.i ], [ 3, %.tail14.i.i.i ]
-  %283 = load i32, ptr %39, align 8, !tbaa !129
-  %cond.i.i = icmp eq i32 %283, 0
+  %282 = load i32, ptr %39, align 8, !tbaa !129
+  %cond.i.i = icmp eq i32 %282, 0
   br i1 %cond.i.i, label %sub_0.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i
 
 select.unfold.thread.i.i:                         ; preds = %.tail10.i.i.i
-  %284 = load i32, ptr %39, align 8, !tbaa !129
-  %cond43.i.i = icmp eq i32 %284, 0
-  br i1 %cond43.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i
+  %283 = load i32, ptr %39, align 8, !tbaa !129
+  %cond42.i.i = icmp eq i32 %283, 0
+  br i1 %cond42.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i
 
 sub_0.i.i:                                        ; preds = %select.unfold.i.i
-  %.not.i.i18 = icmp ne i8 %265, 48
-  %brmerge.i.i = or i1 %.not.i.i18, %.not56.i.i
+  %.not.i.i18 = icmp ne i8 %264, 48
+  %brmerge.i.i = or i1 %.not.i.i18, %.not55.i.i
   br i1 %brmerge.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i
 
 _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i: ; preds = %sub_0.i.i, %select.unfold.thread.i.i
-  %.0.i.ph454851.i.i = phi i64 [ 2, %select.unfold.thread.i.i ], [ %.0.i.ph.i15.i, %sub_0.i.i ]
-  %285 = load ptr, ptr %40, align 8, !tbaa !125
-  %286 = load i32, ptr %38, align 4, !tbaa !128
-  %287 = zext i32 %286 to i64
-  %.idx.i.i = mul nuw nsw i64 %287, 5760
-  %288 = getelementptr inbounds nuw i8, ptr %285, i64 4248
-  %289 = getelementptr inbounds nuw i8, ptr %288, i64 %.idx.i.i
-  %290 = getelementptr inbounds nuw i8, ptr %289, i64 320
-  %291 = getelementptr inbounds nuw i8, ptr %289, i64 328
-  %292 = load i16, ptr %291, align 8, !tbaa !32
-  %293 = icmp ugt i16 %292, 31
-  br i1 %293, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i, label %294
+  %.0.i.ph444750.i.i = phi i64 [ 2, %select.unfold.thread.i.i ], [ %.0.i.ph.i15.i, %sub_0.i.i ]
+  %284 = load ptr, ptr %40, align 8, !tbaa !125
+  %285 = load i32, ptr %38, align 4, !tbaa !128
+  %286 = zext i32 %285 to i64
+  %287 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %284, i64 %286, i64 11, i64 5, i32 1, i32 0, i32 3
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
+  %289 = load i16, ptr %288, align 8, !tbaa !32
+  %290 = icmp ugt i16 %289, 31
+  br i1 %290, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i, label %291
 
-294:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i
+291:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !133
   store i32 0, ptr %15, align 4, !tbaa !12, !noalias !133
-  %295 = load ptr, ptr %2, align 8, !tbaa !15, !noalias !133
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 32
-  %297 = load ptr, ptr %296, align 8, !noalias !133
-  %298 = call noundef ptr %297(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !133
-  store ptr %298, ptr %16, align 8, !tbaa !51, !noalias !133
-  %299 = load i32, ptr %15, align 4, !tbaa !12, !noalias !133
-  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %19, i8 noundef signext 1, ptr noundef nonnull %16, i32 noundef %299)
-          to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i18.i unwind label %300
+  %292 = load ptr, ptr %2, align 8, !tbaa !15, !noalias !133
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 32
+  %294 = load ptr, ptr %293, align 8, !noalias !133
+  %295 = call noundef ptr %294(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !133
+  store ptr %295, ptr %16, align 8, !tbaa !51, !noalias !133
+  %296 = load i32, ptr %15, align 4, !tbaa !12, !noalias !133
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %19, i8 noundef signext 1, ptr noundef nonnull %16, i32 noundef %296)
+          to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i18.i unwind label %297
 
-300:                                              ; preds = %294
-  %301 = landingpad { ptr, i32 }
+297:                                              ; preds = %291
+  %298 = landingpad { ptr, i32 }
           cleanup
-  %302 = load ptr, ptr %16, align 8, !tbaa !51, !noalias !133
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %302) #20, !srcloc !54
+  %299 = load ptr, ptr %16, align 8, !tbaa !51, !noalias !133
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %299) #20, !srcloc !54
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !133
   br label %common.resume
 
-_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i18.i: ; preds = %294
-  %303 = load ptr, ptr %16, align 8, !tbaa !51, !noalias !133
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %303) #20, !srcloc !54
+_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i18.i: ; preds = %291
+  %300 = load ptr, ptr %16, align 8, !tbaa !51, !noalias !133
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %300) #20, !srcloc !54
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !133
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %304 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %290, ptr noundef nonnull align 8 dereferenceable(64) %19)
-          to label %305 unwind label %306
+  %301 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %287, ptr noundef nonnull align 8 dereferenceable(64) %19)
+          to label %302 unwind label %303
 
-305:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i18.i
+302:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i18.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.pr.pr.pre.i.i = load i32, ptr %39, align 8, !tbaa !129
   br label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i
 
-306:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i18.i
-  %307 = landingpad { ptr, i32 }
+303:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i18.i
+  %304 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %334
+  br label %331
 
-_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i: ; preds = %305, %select.unfold.thread.i.i, %select.unfold.i.i
-  %.0.i.ph44.i.i = phi i64 [ %.0.i.ph.i15.i, %select.unfold.i.i ], [ 2, %select.unfold.thread.i.i ], [ %.0.i.ph454851.i.i, %305 ]
-  %.pr.i.i = phi i32 [ %283, %select.unfold.i.i ], [ %284, %select.unfold.thread.i.i ], [ %.pr.pr.pre.i.i, %305 ]
+_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i: ; preds = %302, %select.unfold.thread.i.i, %select.unfold.i.i
+  %.0.i.ph43.i.i = phi i64 [ %.0.i.ph.i15.i, %select.unfold.i.i ], [ 2, %select.unfold.thread.i.i ], [ %.0.i.ph444750.i.i, %302 ]
+  %.pr.i.i = phi i32 [ %282, %select.unfold.i.i ], [ %283, %select.unfold.thread.i.i ], [ %.pr.pr.pre.i.i, %302 ]
   %switch.tableidx53 = add i32 %.pr.i.i, -1
-  %308 = icmp ult i32 %switch.tableidx53, 14
-  br i1 %308, label %switch.lookup54, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
+  %305 = icmp ult i32 %switch.tableidx53, 14
+  br i1 %305, label %switch.lookup54, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
 
 switch.lookup54:                                  ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i
-  %309 = zext nneg i32 %switch.tableidx53 to i64
-  %switch.gep55 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 %309
+  %306 = zext nneg i32 %switch.tableidx53 to i64
+  %switch.gep55 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 %306
   %switch.load56 = load i64, ptr %switch.gep55, align 8
-  %310 = load ptr, ptr %40, align 8, !tbaa !125
-  %311 = getelementptr inbounds nuw i8, ptr %310, i64 24
-  %312 = load i32, ptr %38, align 4, !tbaa !128
-  %313 = zext i32 %312 to i64
-  %314 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %311, i64 %313
-  %315 = getelementptr inbounds nuw [6 x %"class.icu_77::UnicodeString"], ptr %314, i64 %switch.load56
-  %316 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %315, i64 %.0.i.ph44.i.i
-  %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
-  %318 = load i16, ptr %317, align 8, !tbaa !32
-  %319 = icmp ugt i16 %318, 31
-  br i1 %319, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i, label %320
+  %307 = load ptr, ptr %40, align 8, !tbaa !125
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 24
+  %309 = load i32, ptr %38, align 4, !tbaa !128
+  %310 = zext i32 %309 to i64
+  %311 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %308, i64 %310
+  %312 = getelementptr inbounds nuw [6 x %"class.icu_77::UnicodeString"], ptr %311, i64 %switch.load56
+  %313 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %312, i64 %.0.i.ph43.i.i
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  %315 = load i16, ptr %314, align 8, !tbaa !32
+  %316 = icmp ugt i16 %315, 31
+  br i1 %316, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i, label %317
 
-320:                                              ; preds = %switch.lookup54
+317:                                              ; preds = %switch.lookup54
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !136
   store i32 0, ptr %13, align 4, !tbaa !12, !noalias !136
-  %321 = load ptr, ptr %2, align 8, !tbaa !15, !noalias !136
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 32
-  %323 = load ptr, ptr %322, align 8, !noalias !136
-  %324 = call noundef ptr %323(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !136
-  store ptr %324, ptr %14, align 8, !tbaa !51, !noalias !136
-  %325 = load i32, ptr %13, align 4, !tbaa !12, !noalias !136
-  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 noundef signext 1, ptr noundef nonnull %14, i32 noundef %325)
-          to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit31.i.i unwind label %326
+  %318 = load ptr, ptr %2, align 8, !tbaa !15, !noalias !136
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 32
+  %320 = load ptr, ptr %319, align 8, !noalias !136
+  %321 = call noundef ptr %320(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !136
+  store ptr %321, ptr %14, align 8, !tbaa !51, !noalias !136
+  %322 = load i32, ptr %13, align 4, !tbaa !12, !noalias !136
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 noundef signext 1, ptr noundef nonnull %14, i32 noundef %322)
+          to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit30.i.i unwind label %323
 
-326:                                              ; preds = %320
-  %327 = landingpad { ptr, i32 }
+323:                                              ; preds = %317
+  %324 = landingpad { ptr, i32 }
           cleanup
-  %328 = load ptr, ptr %14, align 8, !tbaa !51, !noalias !136
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %328) #20, !srcloc !54
+  %325 = load ptr, ptr %14, align 8, !tbaa !51, !noalias !136
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %325) #20, !srcloc !54
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !136
   br label %common.resume
 
-_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit31.i.i: ; preds = %320
-  %329 = load ptr, ptr %14, align 8, !tbaa !51, !noalias !136
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %329) #20, !srcloc !54
+_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit30.i.i: ; preds = %317
+  %326 = load ptr, ptr %14, align 8, !tbaa !51, !noalias !136
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %326) #20, !srcloc !54
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !136
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %330 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %316, ptr noundef nonnull align 8 dereferenceable(64) %20)
-          to label %331 unwind label %332
+  %327 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %313, ptr noundef nonnull align 8 dereferenceable(64) %20)
+          to label %328 unwind label %329
 
-331:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit31.i.i
+328:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit30.i.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
 
-332:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit31.i.i
-  %333 = landingpad { ptr, i32 }
+329:                                              ; preds = %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit30.i.i
+  %330 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %334
+  br label %331
 
-334:                                              ; preds = %332, %306
-  %.pn.i.i = phi { ptr, i32 } [ %333, %332 ], [ %307, %306 ]
+331:                                              ; preds = %329, %303
+  %.pn.i.i = phi { ptr, i32 } [ %330, %329 ], [ %304, %303 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
-_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i, %331, %switch.lookup54, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i, %sub_0.i.i, %sub_120.i.i.i, %.tail14.i.i.i, %.tail10.i.i.i, %.tail5.i.i.i, %.tail.i.i.i, %sub_1.i.i.i, %263, %.lr.ph.i.i
-  %335 = add nuw nsw i32 %.02140.i.i, 1
-  %336 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %18, i32 noundef %335, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not24.i.i = icmp eq i8 %336, 0
+_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i, %328, %switch.lookup54, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i, %sub_0.i.i, %sub_120.i.i.i, %.tail14.i.i.i, %.tail10.i.i.i, %.tail5.i.i.i, %.tail.i.i.i, %sub_1.i.i.i, %262, %.lr.ph.i.i
+  %332 = add nuw nsw i32 %.02139.i.i, 1
+  %333 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %18, i32 noundef %332, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %.not24.i.i = icmp eq i8 %333, 0
   br i1 %.not24.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, label %.lr.ph.i.i, !llvm.loop !139
 
-_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13ResourceValueER10UErrorCode.exit.i: ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i, %.preheader.i.i, %251
+_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13ResourceValueER10UErrorCode.exit.i: ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i, %.preheader.i.i, %250
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %415
+  br label %412
 
-337:                                              ; preds = %247
-  %338 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %248, ptr noundef nonnull dereferenceable(13) @.str.20) #23
-  %339 = icmp eq i32 %338, 0
-  br i1 %339, label %340, label %415
+334:                                              ; preds = %246
+  %335 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %247, ptr noundef nonnull dereferenceable(13) @.str.20) #23
+  %336 = icmp eq i32 %335, 0
+  br i1 %336, label %337, label %412
 
-340:                                              ; preds = %337
+337:                                              ; preds = %334
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store ptr %248, ptr %11, align 8, !tbaa !121
+  store ptr %247, ptr %11, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %341 = load ptr, ptr %2, align 8, !tbaa !15
-  %342 = getelementptr inbounds nuw i8, ptr %341, i64 88
-  %343 = load ptr, ptr %342, align 8
-  call void %343(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::ResourceTable") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %344 = load i32, ptr %4, align 4, !tbaa !13
-  %345 = icmp slt i32 %344, 1
-  br i1 %345, label %346, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
+  %338 = load ptr, ptr %2, align 8, !tbaa !15
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 88
+  %340 = load ptr, ptr %339, align 8
+  call void %340(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::ResourceTable") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %341 = load i32, ptr %4, align 4, !tbaa !13
+  %342 = icmp slt i32 %341, 1
+  br i1 %342, label %343, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
 
-346:                                              ; preds = %340
-  %347 = load i32, ptr %39, align 8, !tbaa !129
-  %348 = icmp ult i32 %347, 15
-  br i1 %348, label %switch.lookup57, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
+343:                                              ; preds = %337
+  %344 = load i32, ptr %39, align 8, !tbaa !129
+  %345 = icmp ult i32 %344, 15
+  br i1 %345, label %switch.lookup57, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
 
-switch.lookup57:                                  ; preds = %346
-  %349 = zext nneg i32 %347 to i64
-  %switch.gep58 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.2, i64 %349
+switch.lookup57:                                  ; preds = %343
+  %346 = zext nneg i32 %344 to i64
+  %switch.gep58 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.2, i64 %346
   %switch.load59 = load i64, ptr %switch.gep58, align 8
-  %350 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %12, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not1117.i.i = icmp eq i8 %350, 0
+  %347 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %12, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %.not1117.i.i = icmp eq i8 %347, 0
   br i1 %.not1117.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, label %.lr.ph.i20.i
 
-.lr.ph.i20.i:                                     ; preds = %switch.lookup57, %412
-  %.018.i.i = phi i32 [ %413, %412 ], [ 0, %switch.lookup57 ]
-  %351 = load ptr, ptr %11, align 8, !tbaa !121
-  %352 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %351, ptr noundef nonnull dereferenceable(5) @.str.26) #23
+.lr.ph.i20.i:                                     ; preds = %switch.lookup57, %409
+  %.018.i.i = phi i32 [ %410, %409 ], [ 0, %switch.lookup57 ]
+  %348 = load ptr, ptr %11, align 8, !tbaa !121
+  %349 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %348, ptr noundef nonnull dereferenceable(5) @.str.26) #23
+  %350 = icmp eq i32 %349, 0
+  br i1 %350, label %354, label %351
+
+351:                                              ; preds = %.lr.ph.i20.i
+  %352 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %348, ptr noundef nonnull dereferenceable(7) @.str.27) #23
   %353 = icmp eq i32 %352, 0
-  br i1 %353, label %357, label %354
+  br i1 %353, label %354, label %409
 
-354:                                              ; preds = %.lr.ph.i20.i
-  %355 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %351, ptr noundef nonnull dereferenceable(7) @.str.27) #23
-  %356 = icmp eq i32 %355, 0
-  br i1 %356, label %357, label %412
-
-357:                                              ; preds = %354, %.lr.ph.i20.i
-  %storemerge.i.i = phi i32 [ 0, %.lr.ph.i20.i ], [ 1, %354 ]
+354:                                              ; preds = %351, %.lr.ph.i20.i
+  %storemerge.i.i = phi i32 [ 0, %.lr.ph.i20.i ], [ 1, %351 ]
   store i32 %storemerge.i.i, ptr %41, align 8, !tbaa !140
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %351, ptr %8, align 8, !tbaa !121
+  store ptr %348, ptr %8, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %358 = load ptr, ptr %2, align 8, !tbaa !15
-  %359 = getelementptr inbounds nuw i8, ptr %358, i64 88
-  %360 = load ptr, ptr %359, align 8
-  call void %360(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::ResourceTable") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %361 = load i32, ptr %4, align 4, !tbaa !13
-  %362 = icmp slt i32 %361, 1
-  br i1 %362, label %.preheader.i.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink17consumeTimeDetailEiPKcRNS_13ResourceValueER10UErrorCode.exit.i.i
+  %355 = load ptr, ptr %2, align 8, !tbaa !15
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 88
+  %357 = load ptr, ptr %356, align 8
+  call void %357(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::ResourceTable") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %358 = load i32, ptr %4, align 4, !tbaa !13
+  %359 = icmp slt i32 %358, 1
+  br i1 %359, label %.preheader.i.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink17consumeTimeDetailEiPKcRNS_13ResourceValueER10UErrorCode.exit.i.i
 
-.preheader.i.i.i:                                 ; preds = %357
-  %363 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %9, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not3344.i.i.i = icmp eq i8 %363, 0
+.preheader.i.i.i:                                 ; preds = %354
+  %360 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %9, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %.not3344.i.i.i = icmp eq i8 %360, 0
   br i1 %.not3344.i.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink17consumeTimeDetailEiPKcRNS_13ResourceValueER10UErrorCode.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %409
-  %.03045.i.i.i = phi i32 [ %410, %409 ], [ 0, %.preheader.i.i.i ]
-  %364 = load ptr, ptr %2, align 8, !tbaa !15
-  %365 = getelementptr inbounds nuw i8, ptr %364, i64 24
-  %366 = load ptr, ptr %365, align 8
-  %367 = call noundef i32 %366(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %368 = icmp eq i32 %367, 0
-  br i1 %368, label %369, label %409
+.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %406
+  %.03045.i.i.i = phi i32 [ %407, %406 ], [ 0, %.preheader.i.i.i ]
+  %361 = load ptr, ptr %2, align 8, !tbaa !15
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 24
+  %363 = load ptr, ptr %362, align 8
+  %364 = call noundef i32 %363(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %365 = icmp eq i32 %364, 0
+  br i1 %365, label %366, label %406
 
-369:                                              ; preds = %.lr.ph.i.i.i
-  %370 = load ptr, ptr %8, align 8, !tbaa !121
-  %371 = call noundef i32 @_ZN6icu_7714StandardPlural25indexOrNegativeFromStringEPKc(ptr noundef %370)
-  %372 = icmp sgt i32 %371, -1
-  br i1 %372, label %373, label %409
+366:                                              ; preds = %.lr.ph.i.i.i
+  %367 = load ptr, ptr %8, align 8, !tbaa !121
+  %368 = call noundef i32 @_ZN6icu_7714StandardPlural25indexOrNegativeFromStringEPKc(ptr noundef %367)
+  %369 = icmp sgt i32 %368, -1
+  br i1 %369, label %370, label %406
 
-373:                                              ; preds = %369
-  %374 = load ptr, ptr %40, align 8, !tbaa !125
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 17304
-  %376 = load i32, ptr %38, align 4, !tbaa !128
-  %377 = zext i32 %376 to i64
-  %378 = getelementptr inbounds nuw [15 x [2 x [8 x ptr]]], ptr %375, i64 %377
-  %379 = getelementptr inbounds nuw [2 x [8 x ptr]], ptr %378, i64 %switch.load59
-  %380 = load i32, ptr %41, align 8, !tbaa !140
-  %381 = sext i32 %380 to i64
-  %382 = getelementptr inbounds [8 x ptr], ptr %379, i64 %381
-  %383 = zext nneg i32 %371 to i64
-  %384 = getelementptr inbounds nuw ptr, ptr %382, i64 %383
-  %385 = load ptr, ptr %384, align 8, !tbaa !30
-  %386 = icmp eq ptr %385, null
-  br i1 %386, label %387, label %409
+370:                                              ; preds = %366
+  %371 = load ptr, ptr %40, align 8, !tbaa !125
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 17304
+  %373 = load i32, ptr %38, align 4, !tbaa !128
+  %374 = zext i32 %373 to i64
+  %375 = getelementptr inbounds nuw [15 x [2 x [8 x ptr]]], ptr %372, i64 %374
+  %376 = getelementptr inbounds nuw [2 x [8 x ptr]], ptr %375, i64 %switch.load59
+  %377 = load i32, ptr %41, align 8, !tbaa !140
+  %378 = sext i32 %377 to i64
+  %379 = getelementptr inbounds [8 x ptr], ptr %376, i64 %378
+  %380 = zext nneg i32 %368 to i64
+  %381 = getelementptr inbounds nuw ptr, ptr %379, i64 %380
+  %382 = load ptr, ptr %381, align 8, !tbaa !30
+  %383 = icmp eq ptr %382, null
+  br i1 %383, label %384, label %406
 
-387:                                              ; preds = %373
-  %388 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 72) #20
-  %.not35.i.i.i = icmp eq ptr %388, null
-  br i1 %.not35.i.i.i, label %.critedge37.thread.i.i.i, label %389
+384:                                              ; preds = %370
+  %385 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 72) #20
+  %.not35.i.i.i = icmp eq ptr %385, null
+  br i1 %.not35.i.i.i, label %.critedge37.thread.i.i.i, label %386
 
-389:                                              ; preds = %387
+386:                                              ; preds = %384
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !141
   store i32 0, ptr %6, align 4, !tbaa !12, !noalias !141
-  %390 = load ptr, ptr %2, align 8, !tbaa !15, !noalias !141
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 32
-  %392 = load ptr, ptr %391, align 8, !noalias !141
-  %393 = invoke noundef ptr %392(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %.noexc.i.i.i unwind label %407
+  %387 = load ptr, ptr %2, align 8, !tbaa !15, !noalias !141
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 32
+  %389 = load ptr, ptr %388, align 8, !noalias !141
+  %390 = invoke noundef ptr %389(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %.noexc.i.i.i unwind label %404
 
-.noexc.i.i.i:                                     ; preds = %389
-  store ptr %393, ptr %7, align 8, !tbaa !51, !noalias !141
-  %394 = load i32, ptr %6, align 4, !tbaa !12, !noalias !141
-  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef %394)
-          to label %398 unwind label %395
+.noexc.i.i.i:                                     ; preds = %386
+  store ptr %390, ptr %7, align 8, !tbaa !51, !noalias !141
+  %391 = load i32, ptr %6, align 4, !tbaa !12, !noalias !141
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef %391)
+          to label %395 unwind label %392
+
+392:                                              ; preds = %.noexc.i.i.i
+  %393 = landingpad { ptr, i32 }
+          cleanup
+  %394 = load ptr, ptr %7, align 8, !tbaa !51, !noalias !141
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %394) #20, !srcloc !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !141
+  br label %.body.i.i.i
 
 395:                                              ; preds = %.noexc.i.i.i
-  %396 = landingpad { ptr, i32 }
-          cleanup
-  %397 = load ptr, ptr %7, align 8, !tbaa !51, !noalias !141
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %397) #20, !srcloc !54
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !141
-  br label %.body.i.i.i
-
-398:                                              ; preds = %.noexc.i.i.i
-  %399 = load ptr, ptr %7, align 8, !tbaa !51, !noalias !141
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %399) #20, !srcloc !54
+  %396 = load ptr, ptr %7, align 8, !tbaa !51, !noalias !141
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %396) #20, !srcloc !54
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !141
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %400 = getelementptr inbounds nuw i8, ptr %388, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %400, align 8, !tbaa !15
-  %401 = getelementptr inbounds nuw i8, ptr %388, i64 16
-  store i16 2, ptr %401, align 8, !tbaa !32
-  %402 = invoke noundef signext i8 @_ZN6icu_7715SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %388, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %397 = getelementptr inbounds nuw i8, ptr %385, i64 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %397, align 8, !tbaa !15
+  %398 = getelementptr inbounds nuw i8, ptr %385, i64 16
+  store i16 2, ptr %398, align 8, !tbaa !32
+  %399 = invoke noundef signext i8 @_ZN6icu_7715SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %385, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %.critedge37.i.i.i unwind label %.body38.i.i.i
 
-.body38.i.i.i:                                    ; preds = %398
-  %403 = landingpad { ptr, i32 }
+.body38.i.i.i:                                    ; preds = %395
+  %400 = landingpad { ptr, i32 }
           cleanup
-  %404 = getelementptr inbounds nuw i8, ptr %388, i64 8
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %404) #20
+  %401 = getelementptr inbounds nuw i8, ptr %385, i64 8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %401) #20
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #20
   br label %.body.i.i.i
 
-.critedge37.thread.i.i.i:                         ; preds = %387
-  store ptr null, ptr %384, align 8, !tbaa !30
+.critedge37.thread.i.i.i:                         ; preds = %384
+  store ptr null, ptr %381, align 8, !tbaa !30
+  br label %403
+
+.critedge37.i.i.i:                                ; preds = %395
+  store ptr %385, ptr %381, align 8, !tbaa !30
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  %.pr.i.i.i = load ptr, ptr %381, align 8, !tbaa !30
+  %402 = icmp eq ptr %.pr.i.i.i, null
+  br i1 %402, label %403, label %406
+
+403:                                              ; preds = %.critedge37.i.i.i, %.critedge37.thread.i.i.i
+  store i32 7, ptr %4, align 4, !tbaa !13
   br label %406
 
-.critedge37.i.i.i:                                ; preds = %398
-  store ptr %388, ptr %384, align 8, !tbaa !30
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #20
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.pr.i.i.i = load ptr, ptr %384, align 8, !tbaa !30
-  %405 = icmp eq ptr %.pr.i.i.i, null
-  br i1 %405, label %406, label %409
-
-406:                                              ; preds = %.critedge37.i.i.i, %.critedge37.thread.i.i.i
-  store i32 7, ptr %4, align 4, !tbaa !13
-  br label %409
-
-407:                                              ; preds = %389
-  %408 = landingpad { ptr, i32 }
+404:                                              ; preds = %386
+  %405 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
 
-.body.i.i.i:                                      ; preds = %407, %.body38.i.i.i, %395
-  %.pn.i.i.i = phi { ptr, i32 } [ %403, %.body38.i.i.i ], [ %408, %407 ], [ %396, %395 ]
+.body.i.i.i:                                      ; preds = %404, %.body38.i.i.i, %392
+  %.pn.i.i.i = phi { ptr, i32 } [ %400, %.body38.i.i.i ], [ %405, %404 ], [ %393, %392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %388) #20
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %385) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
-409:                                              ; preds = %406, %.critedge37.i.i.i, %373, %369, %.lr.ph.i.i.i
-  %410 = add nuw nsw i32 %.03045.i.i.i, 1
-  %411 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %9, i32 noundef %410, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not33.i.i.i = icmp eq i8 %411, 0
+406:                                              ; preds = %403, %.critedge37.i.i.i, %370, %366, %.lr.ph.i.i.i
+  %407 = add nuw nsw i32 %.03045.i.i.i, 1
+  %408 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %9, i32 noundef %407, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %.not33.i.i.i = icmp eq i8 %408, 0
   br i1 %.not33.i.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink17consumeTimeDetailEiPKcRNS_13ResourceValueER10UErrorCode.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !144
 
-_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink17consumeTimeDetailEiPKcRNS_13ResourceValueER10UErrorCode.exit.i.i: ; preds = %409, %.preheader.i.i.i, %357
+_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink17consumeTimeDetailEiPKcRNS_13ResourceValueER10UErrorCode.exit.i.i: ; preds = %406, %.preheader.i.i.i, %354
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %412
+  br label %409
 
-412:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink17consumeTimeDetailEiPKcRNS_13ResourceValueER10UErrorCode.exit.i.i, %354
-  %413 = add nuw nsw i32 %.018.i.i, 1
-  %414 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %12, i32 noundef %413, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not11.i.i = icmp eq i8 %414, 0
+409:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink17consumeTimeDetailEiPKcRNS_13ResourceValueER10UErrorCode.exit.i.i, %351
+  %410 = add nuw nsw i32 %.018.i.i, 1
+  %411 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %12, i32 noundef %410, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %.not11.i.i = icmp eq i8 %411, 0
   br i1 %.not11.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, label %.lr.ph.i20.i, !llvm.loop !145
 
-_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i: ; preds = %412, %346, %switch.lookup57, %340
+_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i: ; preds = %409, %343, %switch.lookup57, %337
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %415
+  br label %412
 
-415:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, %337, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i
-  %416 = add nuw nsw i32 %.027.i, 1
-  %417 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %25, i32 noundef %416, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not14.i = icmp eq i8 %417, 0
+412:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, %334, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20handlePlainDirectionERNS_13ResourceValueER10UErrorCode.exit.i
+  %413 = add nuw nsw i32 %.027.i, 1
+  %414 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %25, i32 noundef %413, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %.not14.i = icmp eq i8 %414, 0
   br i1 %.not14.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink15consumeTimeUnitEPKcRNS_13ResourceValueER10UErrorCode.exit, label %sub_0.i15, !llvm.loop !146
 
-_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink15consumeTimeUnitEPKcRNS_13ResourceValueER10UErrorCode.exit: ; preds = %415, %193, %.preheader.i
+_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink15consumeTimeUnitEPKcRNS_13ResourceValueER10UErrorCode.exit: ; preds = %412, %193, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %418
+  br label %415
 
-418:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink15consumeTimeUnitEPKcRNS_13ResourceValueER10UErrorCode.exit, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink12consumeAliasEPKcRKNS_13ResourceValueER10UErrorCode.exit
-  %419 = add nuw nsw i32 %.039, 1
-  %420 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %31, i32 noundef %419, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not12 = icmp eq i8 %420, 0
+415:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24unitOrNegativeFromStringEPKci.exit, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink15consumeTimeUnitEPKcRNS_13ResourceValueER10UErrorCode.exit, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink12consumeAliasEPKcRKNS_13ResourceValueER10UErrorCode.exit
+  %416 = add nuw nsw i32 %.039, 1
+  %417 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %31, i32 noundef %416, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %.not12 = icmp eq i8 %417, 0
   br i1 %.not12, label %.loopexit, label %44, !llvm.loop !147
 
-.loopexit:                                        ; preds = %418, %.preheader, %5
+.loopexit:                                        ; preds = %415, %.preheader, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   ret void
 }

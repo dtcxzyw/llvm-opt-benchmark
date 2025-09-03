@@ -576,10 +576,10 @@ sha256_update.exit461:                            ; preds = %266, %267
   %284 = getelementptr inbounds nuw i8, ptr %159, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %159, i8 0, i64 32, i1 false)
   %285 = load i32, ptr %10, align 4, !tbaa !14
-  %.not515 = icmp eq i64 %.0377, 0
-  br i1 %.not515, label %._crit_edge504, label %.lr.ph503
+  %.not514 = icmp eq i64 %.0377, 0
+  br i1 %.not514, label %._crit_edge503, label %.lr.ph502
 
-.lr.ph503:                                        ; preds = %272
+.lr.ph502:                                        ; preds = %272
   %286 = add i64 %.0386, 7
   %287 = getelementptr inbounds nuw i8, ptr %6, i64 568
   %288 = getelementptr inbounds nuw i8, ptr %6, i64 472
@@ -591,32 +591,32 @@ sha256_update.exit461:                            ; preds = %266, %267
   %294 = getelementptr inbounds nuw i8, ptr %6, i64 496
   br label %295
 
-295:                                              ; preds = %.lr.ph503, %354
-  %.0387501 = phi i64 [ 0, %.lr.ph503 ], [ %355, %354 ]
-  %.0392500 = phi i32 [ %285, %.lr.ph503 ], [ %.1393, %354 ]
-  %296 = getelementptr inbounds nuw i8, ptr %.0376, i64 %.0387501
+295:                                              ; preds = %.lr.ph502, %354
+  %.0387500 = phi i64 [ 0, %.lr.ph502 ], [ %355, %354 ]
+  %.0392499 = phi i32 [ %285, %.lr.ph502 ], [ %.1393, %354 ]
+  %296 = getelementptr inbounds nuw i8, ptr %.0376, i64 %.0387500
   %297 = load i8, ptr %296, align 1, !tbaa !8
   %298 = zext i8 %297 to i64
-  %299 = sub i64 %.0387501, %.0386
+  %299 = sub i64 %.0387500, %.0386
   %300 = lshr i64 %299, 56
   %301 = and i64 %300, %298
   %302 = and i64 %300, 128
   %303 = xor i64 %302, 128
-  %304 = sub i64 %.0386, %.0387501
+  %304 = sub i64 %.0386, %.0387500
   %305 = lshr i64 %304, 56
   %306 = xor i64 %305, -1
   %307 = and i64 %303, %306
   %308 = or i64 %301, %307
   %309 = trunc nuw i64 %308 to i8
-  %310 = add i32 %.0392500, 1
-  %311 = zext i32 %.0392500 to i64
+  %310 = add i32 %.0392499, 1
+  %311 = zext i32 %.0392499 to i64
   %312 = getelementptr inbounds nuw i8, ptr %162, i64 %311
   store i8 %309, ptr %312, align 1, !tbaa !8
   %.not414 = icmp eq i32 %310, 64
   br i1 %.not414, label %313, label %354
 
 313:                                              ; preds = %295
-  %314 = sub i64 %286, %.0387501
+  %314 = sub i64 %286, %.0387500
   %.neg415 = ashr i64 %314, 63
   %315 = load i32, ptr %287, align 4, !tbaa !8
   %316 = trunc nsw i64 %.neg415 to i32
@@ -672,30 +672,30 @@ sha256_update.exit461:                            ; preds = %266, %267
 
 354:                                              ; preds = %295, %313
   %.1393 = phi i32 [ 0, %313 ], [ %310, %295 ]
-  %355 = add nuw i64 %.0387501, 1
+  %355 = add nuw i64 %.0387500, 1
   %exitcond.not = icmp eq i64 %355, %.0377
-  br i1 %exitcond.not, label %._crit_edge504, label %295, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge503, label %295, !llvm.loop !22
 
-._crit_edge504:                                   ; preds = %354, %272
+._crit_edge503:                                   ; preds = %354, %272
   %.0392.lcssa = phi i32 [ %285, %272 ], [ %.1393, %354 ]
   %356 = icmp ult i32 %.0392.lcssa, 64
-  br i1 %356, label %._crit_edge510, label %._crit_edge510.thread
+  br i1 %356, label %._crit_edge509, label %._crit_edge509.thread
 
-._crit_edge510:                                   ; preds = %._crit_edge504
+._crit_edge509:                                   ; preds = %._crit_edge503
   %357 = zext nneg i32 %.0392.lcssa to i64
   %358 = getelementptr i8, ptr %6, i64 %357
-  %scevgep520 = getelementptr i8, ptr %358, i64 508
+  %scevgep519 = getelementptr i8, ptr %358, i64 508
   %359 = sub nuw nsw i64 64, %357
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep520, i8 0, i64 %359, i1 false), !tbaa !8
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep519, i8 0, i64 %359, i1 false), !tbaa !8
   %360 = add i64 %.0377, 64
   %361 = sub i64 %360, %357
   %362 = icmp samesign ugt i32 %.0392.lcssa, 56
-  br i1 %362, label %._crit_edge510.thread, label %413
+  br i1 %362, label %._crit_edge509.thread, label %413
 
-._crit_edge510.thread:                            ; preds = %._crit_edge504, %._crit_edge510
-  %.1388.lcssa552 = phi i64 [ %361, %._crit_edge510 ], [ %.0377, %._crit_edge504 ]
+._crit_edge509.thread:                            ; preds = %._crit_edge503, %._crit_edge509
+  %.1388.lcssa551 = phi i64 [ %361, %._crit_edge509 ], [ %.0377, %._crit_edge503 ]
   %363 = add i64 %.0386, 8
-  %364 = sub i64 %363, %.1388.lcssa552
+  %364 = sub i64 %363, %.1388.lcssa551
   %.neg = ashr i64 %364, 63
   %365 = getelementptr inbounds nuw i8, ptr %6, i64 568
   %366 = load i32, ptr %365, align 4, !tbaa !8
@@ -704,8 +704,8 @@ sha256_update.exit461:                            ; preds = %266, %267
   %369 = or i32 %366, %368
   store i32 %369, ptr %365, align 4, !tbaa !8
   call void @sha256_block_data_order(ptr noundef nonnull %9, ptr noundef nonnull %162, i64 noundef 1) #6
-  %reass.sub516 = sub i64 %.1388.lcssa552, %.0386
-  %370 = add i64 %reass.sub516, -73
+  %reass.sub515 = sub i64 %.1388.lcssa551, %.0386
+  %370 = add i64 %reass.sub515, -73
   %.neg410 = and i64 %364, %370
   %371 = ashr i64 %.neg410, 63
   %372 = load i32, ptr %9, align 4, !tbaa !3
@@ -757,16 +757,16 @@ sha256_update.exit461:                            ; preds = %266, %267
   %411 = or i32 %410, %409
   store i32 %411, ptr %284, align 4, !tbaa !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %162, i8 0, i64 60, i1 false)
-  %412 = add i64 %.1388.lcssa552, 64
+  %412 = add i64 %.1388.lcssa551, 64
   br label %413
 
-413:                                              ; preds = %._crit_edge510.thread, %._crit_edge510
-  %.2389 = phi i64 [ %412, %._crit_edge510.thread ], [ %361, %._crit_edge510 ]
+413:                                              ; preds = %._crit_edge509.thread, %._crit_edge509
+  %.2389 = phi i64 [ %412, %._crit_edge509.thread ], [ %361, %._crit_edge509 ]
   %414 = getelementptr inbounds nuw i8, ptr %6, i64 568
   store i32 %277, ptr %414, align 4, !tbaa !8
   call void @sha256_block_data_order(ptr noundef nonnull %9, ptr noundef nonnull %162, i64 noundef 1) #6
-  %reass.sub517 = sub i64 %.2389, %.0386
-  %415 = add i64 %reass.sub517, -73
+  %reass.sub516 = sub i64 %.2389, %.0386
+  %415 = add i64 %reass.sub516, -73
   %.neg411 = ashr i64 %415, 63
   %416 = load i32, ptr %9, align 4, !tbaa !3
   %417 = load i32, ptr %159, align 64, !tbaa !8
@@ -865,36 +865,36 @@ sha256_update.exit470:                            ; preds = %466, %.thread491
   br label %481
 
 481:                                              ; preds = %sha256_update.exit470, %481
-  %.3514 = phi i64 [ 0, %sha256_update.exit470 ], [ %504, %481 ]
-  %.1391513 = phi i64 [ 0, %sha256_update.exit470 ], [ %503, %481 ]
-  %.2394512 = phi i32 [ 0, %sha256_update.exit470 ], [ %500, %481 ]
-  %482 = getelementptr inbounds nuw i8, ptr %478, i64 %.3514
+  %.3513 = phi i64 [ 0, %sha256_update.exit470 ], [ %504, %481 ]
+  %.1391512 = phi i64 [ 0, %sha256_update.exit470 ], [ %503, %481 ]
+  %.2394511 = phi i32 [ 0, %sha256_update.exit470 ], [ %500, %481 ]
+  %482 = getelementptr inbounds nuw i8, ptr %478, i64 %.3513
   %483 = load i8, ptr %482, align 1, !tbaa !8
   %484 = zext i8 %483 to i32
-  %485 = sub i64 %.3514, %gepdiff
+  %485 = sub i64 %.3513, %gepdiff
   %486 = trunc i64 %485 to i32
   %487 = add i32 %486, -32
   %488 = xor i32 %195, %484
   %isneg = icmp slt i32 %487, 0
   %489 = select i1 %isneg, i32 0, i32 %488
-  %490 = xor i64 %.3514, -1
+  %490 = xor i64 %.3513, -1
   %491 = add i64 %gepdiff, %490
   %492 = trunc i64 %491 to i32
   %493 = and i32 %487, %492
-  %494 = getelementptr inbounds nuw i8, ptr %159, i64 %.1391513
+  %494 = getelementptr inbounds nuw i8, ptr %159, i64 %.1391512
   %495 = load i8, ptr %494, align 1, !tbaa !8
   %496 = xor i8 %495, %483
   %497 = zext i8 %496 to i32
   %isneg413 = icmp slt i32 %493, 0
   %498 = select i1 %isneg413, i32 %497, i32 0
-  %499 = or i32 %489, %.2394512
+  %499 = or i32 %489, %.2394511
   %500 = or i32 %499, %498
   %501 = lshr i32 %493, 31
   %502 = zext nneg i32 %501 to i64
-  %503 = add i64 %.1391513, %502
-  %504 = add nuw nsw i64 %.3514, 1
-  %exitcond521.not = icmp eq i64 %504, %480
-  br i1 %exitcond521.not, label %sha256_update.exit479, label %481, !llvm.loop !32
+  %503 = add i64 %.1391512, %502
+  %504 = add nuw nsw i64 %.3513, 1
+  %exitcond520.not = icmp eq i64 %504, %480
+  br i1 %exitcond520.not, label %sha256_update.exit479, label %481, !llvm.loop !32
 
 505:                                              ; preds = %155
   %506 = load i32, ptr %10, align 4, !tbaa !15

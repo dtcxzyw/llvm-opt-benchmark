@@ -3153,56 +3153,55 @@ define dso_local i32 @_bt_keep_natts_fast(ptr noundef readonly captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %11 = load i16, ptr %10, align 2
   %.not26 = icmp slt i16 %11, 1
-  br i1 %.not26, label %.loopexit, label %.lr.ph
+  br i1 %.not26, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
+.lr.ph.preheader:                                 ; preds = %3
   %narrow = add nuw i16 %11, 1
-  %13 = zext i16 %narrow to i32
+  %12 = zext i16 %narrow to i32
   %wide.trip.count = zext i16 %narrow to i64
-  br label %14
+  br label %.lr.ph
 
-14:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %30 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
   %indvars30 = trunc i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef %indvars30, ptr noundef %7, ptr noundef %4)
-  %16 = call fastcc i64 @index_getattr(ptr noundef %2, i32 noundef %indvars30, ptr noundef %7, ptr noundef %5)
-  %17 = getelementptr %struct.CompactAttribute, ptr %12, i64 %indvars.iv
-  %18 = load i8, ptr %4, align 1, !range !4, !noundef !7
-  %19 = load i8, ptr %5, align 1, !range !4, !noundef !7
-  %.not21 = icmp eq i8 %18, %19
-  br i1 %.not21, label %20, label %.thread
+  %13 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef %indvars30, ptr noundef %7, ptr noundef %4)
+  %14 = call fastcc i64 @index_getattr(ptr noundef %2, i32 noundef %indvars30, ptr noundef %7, ptr noundef %5)
+  %15 = getelementptr %struct.CompactAttribute, ptr %7, i64 %indvars.iv, i32 4
+  %16 = load i8, ptr %4, align 1, !range !4, !noundef !7
+  %17 = load i8, ptr %5, align 1, !range !4, !noundef !7
+  %.not21 = icmp eq i8 %16, %17
+  br i1 %.not21, label %18, label %.thread
 
-20:                                               ; preds = %14
-  %21 = trunc nuw i8 %18 to i1
-  br i1 %21, label %30, label %22
+18:                                               ; preds = %.lr.ph
+  %19 = trunc nuw i8 %16 to i1
+  br i1 %19, label %28, label %20
 
-22:                                               ; preds = %20
-  %23 = getelementptr i8, ptr %17, i64 -10
-  %24 = load i8, ptr %23, align 2, !range !4, !noundef !7
-  %25 = trunc nuw i8 %24 to i1
-  %26 = getelementptr i8, ptr %17, i64 -12
-  %27 = load i16, ptr %26, align 4
-  %28 = sext i16 %27 to i32
-  %29 = tail call zeroext i1 @datum_image_eq(i64 noundef %15, i64 noundef %16, i1 noundef zeroext %25, i32 noundef %28) #14
-  br i1 %29, label %30, label %.thread
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 6
+  %22 = load i8, ptr %21, align 2, !range !4, !noundef !7
+  %23 = trunc nuw i8 %22 to i1
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %25 = load i16, ptr %24, align 4
+  %26 = sext i16 %25 to i32
+  %27 = tail call zeroext i1 @datum_image_eq(i64 noundef %13, i64 noundef %14, i1 noundef zeroext %23, i32 noundef %26) #14
+  br i1 %27, label %28, label %.thread
 
-.thread:                                          ; preds = %14, %22
+.thread:                                          ; preds = %.lr.ph, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-30:                                               ; preds = %22, %20
+28:                                               ; preds = %20, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
-.loopexit:                                        ; preds = %30, %3, %.thread
-  %.025 = phi i32 [ %indvars30, %.thread ], [ 1, %3 ], [ %13, %30 ]
+.loopexit:                                        ; preds = %28, %3, %.thread
+  %.025 = phi i32 [ %indvars30, %.thread ], [ 1, %3 ], [ %12, %28 ]
   ret i32 %.025
 }
 

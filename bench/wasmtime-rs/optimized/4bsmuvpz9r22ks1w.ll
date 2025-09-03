@@ -38158,11 +38158,10 @@ _ZN17cranelift_codegen2ir8constant12ConstantPool3get17h8c1015d6bdb907d9E.exit: ;
   %.sroa.27.0.copyload.i6.i = load i64, ptr %.sroa.27.0..sroa_idx.i5.i, align 8, !noalias !4133
   %41 = icmp ult i64 %.sroa.27.0.copyload.i6.i, 11
   call void @llvm.assume(i1 %41)
+  %42 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.0.0.copyload.i4.i, i64 %.sroa.27.0.copyload.i6.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !4133
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.idx = mul nuw nsw i64 %.sroa.27.0.copyload.i6.i, 24
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i4.i, i64 24
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i64, ptr %43, align 8, !alias.scope !4138, !noundef !4
   store i64 %44, ptr %11, align 8
   %.not = icmp ne i64 %28, %44

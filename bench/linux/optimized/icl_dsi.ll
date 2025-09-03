@@ -5003,9 +5003,9 @@ define internal i64 @gen11_dsi_host_transfer(ptr noundef readonly captures(none)
   br label %42
 
 42:                                               ; preds = %60, %35
-  %43 = phi i32 [ %25, %35 ], [ %68, %60 ]
-  %44 = phi ptr [ %37, %35 ], [ %65, %60 ]
-  %45 = phi i32 [ 0, %35 ], [ %66, %60 ]
+  %43 = phi i32 [ %25, %35 ], [ %66, %60 ]
+  %44 = phi ptr [ %37, %35 ], [ %63, %60 ]
+  %45 = phi i32 [ 0, %35 ], [ %64, %60 ]
   %46 = call i32 @llvm.umax.i32(i32 %43, i32 1)
   %47 = call i32 @llvm.umin.i32(i32 %46, i32 4)
   %48 = call fastcc zeroext i1 @wait_for_payload_credits(ptr noundef %18, i32 noundef %22, i32 noundef 1)
@@ -5026,74 +5026,72 @@ define internal i64 @gen11_dsi_host_transfer(ptr noundef readonly captures(none)
   br i1 %59, label %60, label %.preheader, !llvm.loop !147
 
 60:                                               ; preds = %.preheader
-  %61 = getelementptr i8, ptr %44, i64 1
-  %62 = load ptr, ptr %41, align 8
-  call void %62(ptr noundef nonnull %40, i32 %39, i32 noundef %57, i1 noundef zeroext true) #11
-  %63 = zext nneg i32 %47 to i64
-  %64 = getelementptr i8, ptr %61, i64 %63
-  %65 = getelementptr i8, ptr %64, i64 -1
-  %66 = add nuw nsw i32 %45, 4
-  %67 = icmp ult i32 %66, %25
-  %68 = add i32 %43, -4
-  br i1 %67, label %42, label %.thread6, !llvm.loop !148
+  %61 = load ptr, ptr %41, align 8
+  call void %61(ptr noundef nonnull %40, i32 %39, i32 noundef %57, i1 noundef zeroext true) #11
+  %62 = zext nneg i32 %47 to i64
+  %63 = getelementptr i8, ptr %44, i64 %62
+  %64 = add nuw nsw i32 %45, 4
+  %65 = icmp ult i32 %64, %25
+  %66 = add i32 %43, -4
+  br i1 %65, label %42, label %.thread6, !llvm.loop !148
 
 .thread6:                                         ; preds = %60, %33, %8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp eq i32 %73, 0
-  %75 = select i1 %74, i32 5, i32 6
-  %76 = call fastcc zeroext i1 @wait_for_header_credits(ptr noundef %71, i32 noundef %75, i32 noundef 1)
-  br i1 %76, label %77, label %.thread7
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  %73 = select i1 %72, i32 5, i32 6
+  %74 = call fastcc zeroext i1 @wait_for_header_credits(ptr noundef %69, i32 noundef %73, i32 noundef 1)
+  br i1 %74, label %75, label %.thread7
 
-77:                                               ; preds = %.thread6
-  %78 = shl nuw nsw i32 %75, 11
-  %79 = add nuw nsw i32 %78, 428288
-  %80 = getelementptr inbounds nuw i8, ptr %71, i64 7368
-  %81 = getelementptr inbounds nuw i8, ptr %71, i64 7512
-  %82 = load ptr, ptr %81, align 8
-  %83 = call i32 %82(ptr noundef nonnull %80, i32 %79, i1 noundef zeroext true) #11
-  %84 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  %87 = and i32 %83, 520093696
-  %88 = select i1 %86, i32 0, i32 -2147483648
-  %89 = or disjoint i32 %87, %88
-  %90 = zext nneg i16 %11 to i32
-  %91 = shl nuw nsw i32 %90, 29
-  %92 = or disjoint i32 %89, %91
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %94 = load i8, ptr %93, align 8
-  %95 = zext i8 %94 to i32
-  %96 = shl nuw nsw i32 %95, 6
-  %97 = and i32 %96, 12288
-  %98 = and i32 %95, 63
-  %99 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %100 = load i8, ptr %99, align 1
-  %101 = zext i8 %100 to i32
-  %102 = shl nuw nsw i32 %101, 8
-  %103 = or disjoint i32 %97, %98
-  %104 = or i32 %103, %102
-  %105 = or disjoint i32 %104, %92
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %107 = load i8, ptr %106, align 2
-  %108 = zext i8 %107 to i32
-  %109 = shl nuw nsw i32 %108, 16
-  %110 = or disjoint i32 %105, %109
-  %111 = getelementptr inbounds nuw i8, ptr %71, i64 7544
-  %112 = load ptr, ptr %111, align 8
-  call void %112(ptr noundef nonnull %80, i32 %79, i32 noundef %110, i1 noundef zeroext true) #11
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %114 = load i64, ptr %113, align 8
-  %115 = add i64 %114, 4
+75:                                               ; preds = %.thread6
+  %76 = shl nuw nsw i32 %73, 11
+  %77 = add nuw nsw i32 %76, 428288
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 7368
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 7512
+  %80 = load ptr, ptr %79, align 8
+  %81 = call i32 %80(ptr noundef nonnull %78, i32 %77, i1 noundef zeroext true) #11
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, null
+  %85 = and i32 %81, 520093696
+  %86 = select i1 %84, i32 0, i32 -2147483648
+  %87 = or disjoint i32 %85, %86
+  %88 = zext nneg i16 %11 to i32
+  %89 = shl nuw nsw i32 %88, 29
+  %90 = or disjoint i32 %87, %89
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %92 = load i8, ptr %91, align 8
+  %93 = zext i8 %92 to i32
+  %94 = shl nuw nsw i32 %93, 6
+  %95 = and i32 %94, 12288
+  %96 = and i32 %93, 63
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %98 = load i8, ptr %97, align 1
+  %99 = zext i8 %98 to i32
+  %100 = shl nuw nsw i32 %99, 8
+  %101 = or disjoint i32 %95, %96
+  %102 = or i32 %101, %100
+  %103 = or disjoint i32 %102, %90
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %105 = load i8, ptr %104, align 2
+  %106 = zext i8 %105 to i32
+  %107 = shl nuw nsw i32 %106, 16
+  %108 = or disjoint i32 %103, %107
+  %109 = getelementptr inbounds nuw i8, ptr %69, i64 7544
+  %110 = load ptr, ptr %109, align 8
+  call void %110(ptr noundef nonnull %78, i32 %77, i32 noundef %108, i1 noundef zeroext true) #11
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %112 = load i64, ptr %111, align 8
+  %113 = add i64 %112, 4
   br label %.thread7
 
-.thread7:                                         ; preds = %42, %.thread6, %.thread, %77, %6
-  %116 = phi i64 [ %7, %6 ], [ %115, %77 ], [ -22, %.thread ], [ -16, %.thread6 ], [ -16, %42 ]
+.thread7:                                         ; preds = %42, %.thread6, %.thread, %75, %6
+  %114 = phi i64 [ %7, %6 ], [ %113, %75 ], [ -22, %.thread ], [ -16, %.thread6 ], [ -16, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i64 %116
+  ret i64 %114
 }
 
 ; Function Attrs: null_pointer_is_valid

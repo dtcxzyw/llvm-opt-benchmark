@@ -4242,135 +4242,131 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   %24 = load i32, ptr %23, align 4
   br label %25
 
-25:                                               ; preds = %22, %41
-  %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %41 ]
+25:                                               ; preds = %22, %40
+  %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %40 ]
   %26 = getelementptr ptr, ptr @g_ran_function_name_table, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef %27) #11
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %41
+  br i1 %29, label %30, label %40
 
 30:                                               ; preds = %25
   %31 = trunc nuw nsw i64 %indvars.iv to i32
-  %.idx = shl nuw nsw i64 %indvars.iv, 10
-  %32 = getelementptr i8, ptr %14, i64 16
-  %33 = getelementptr i8, ptr %32, i64 %.idx
-  %34 = load i32, ptr %33, align 8
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr %struct.ran_function_available_dissectors_t, ptr @g_ran_functions_available_dissectors, i64 %35
-  %37 = load i32, ptr %36, align 8
-  %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %42, label %38
+  %32 = getelementptr %struct.ran_function_id_mapping_t, ptr %14, i64 %indvars.iv, i32 3, i64 4
+  %33 = load i32, ptr %32, align 8
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr %struct.ran_function_available_dissectors_t, ptr @g_ran_functions_available_dissectors, i64 %34
+  %36 = load i32, ptr %35, align 8
+  %.not = icmp eq i32 %36, 0
+  br i1 %.not, label %41, label %37
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %40 = load ptr, ptr %39, align 8
-  br label %42
+37:                                               ; preds = %30
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %39 = load ptr, ptr %38, align 8
+  br label %41
 
-41:                                               ; preds = %25
+40:                                               ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.thread, label %25, !llvm.loop !6
 
-42:                                               ; preds = %30, %38
-  %.062 = phi ptr [ %40, %38 ], [ null, %30 ]
-  %.not7083.not = icmp eq i32 %18, 0
-  br i1 %.not7083.not, label %.critedge, label %.lr.ph
+41:                                               ; preds = %30, %37
+  %.062 = phi ptr [ %39, %37 ], [ null, %30 ]
+  %.not6981.not = icmp eq i32 %18, 0
+  br i1 %.not6981.not, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %42
-  %43 = getelementptr i8, ptr %14, i64 12
+.lr.ph.preheader:                                 ; preds = %41
   %wide.trip.count = zext i32 %18 to i64
-  br label %45
+  br label %.lr.ph
 
-44:                                               ; preds = %45
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond98.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count
-  br i1 %exitcond98.not, label %.critedge, label %45, !llvm.loop !8
+42:                                               ; preds = %.lr.ph
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
+  br i1 %exitcond96.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
-45:                                               ; preds = %.lr.ph, %44
-  %indvars.iv95 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next96, %44 ]
-  %.idx69 = shl nuw nsw i64 %indvars.iv95, 10
-  %46 = getelementptr i8, ptr %43, i64 %.idx69
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp eq i32 %47, %24
-  br i1 %48, label %.thread, label %44
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next94, %42 ]
+  %43 = getelementptr %struct.ran_function_id_mapping_t, ptr %14, i64 %indvars.iv93, i32 3
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %44, %24
+  br i1 %45, label %.thread, label %42
 
-.critedge:                                        ; preds = %44, %42
-  %.pre-phi = phi i64 [ 0, %42 ], [ %wide.trip.count, %44 ]
-  %49 = add i32 %18, 1
-  store i32 %49, ptr %14, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %53 = getelementptr %struct.ran_function_id_mapping_t, ptr %52, i64 %.pre-phi
-  store i32 %51, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 %24, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 %31, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 1016
-  store ptr %.062, ptr %56, align 8
-  br i1 %.not7083.not, label %57, label %.thread
+.critedge:                                        ; preds = %42, %41
+  %.pre-phi = phi i64 [ 0, %41 ], [ %wide.trip.count, %42 ]
+  %46 = add i32 %18, 1
+  store i32 %46, ptr %14, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %48 = load i32, ptr %47, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %50 = getelementptr %struct.ran_function_id_mapping_t, ptr %49, i64 %.pre-phi
+  store i32 %48, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store i32 %24, ptr %51, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i32 %31, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 1016
+  store ptr %.062, ptr %53, align 8
+  br i1 %.not6981.not, label %54, label %.thread
 
-57:                                               ; preds = %.critedge
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
-  %61 = load i32, ptr @s_gnb_ran_functions_table, align 8
-  %.not87 = icmp eq i32 %61, 0
-  br i1 %.not87, label %.critedge73.thread, label %.lr.ph86
+54:                                               ; preds = %.critedge
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %56 = load i32, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
+  %58 = load i32, ptr @s_gnb_ran_functions_table, align 8
+  %.not85 = icmp eq i32 %58, 0
+  br i1 %.not85, label %.critedge72.thread, label %.lr.ph84
 
-.lr.ph86:                                         ; preds = %57
-  %.not71 = icmp eq i32 %59, 0
-  %62 = zext i32 %59 to i64
-  %wide.trip.count107 = zext i32 %61 to i64
-  br i1 %.not71, label %.lr.ph86.split.us, label %.lr.ph86.split
+.lr.ph84:                                         ; preds = %54
+  %.not70 = icmp eq i32 %56, 0
+  %59 = zext i32 %56 to i64
+  %wide.trip.count105 = zext i32 %58 to i64
+  br i1 %.not70, label %.lr.ph84.split.us, label %.lr.ph84.split
 
-.lr.ph86.split.us:                                ; preds = %.lr.ph86, %.lr.ph86.split.us
-  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.lr.ph86.split.us ], [ 0, %.lr.ph86 ]
-  %.idx88 = mul nuw nsw i64 %indvars.iv104, 24
-  %63 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %.idx88
-  %64 = getelementptr i8, ptr %63, i64 8
-  store i32 0, ptr %64, align 8
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.critedge73, label %.lr.ph86.split.us, !llvm.loop !9
+.lr.ph84.split.us:                                ; preds = %.lr.ph84, %.lr.ph84.split.us
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.lr.ph84.split.us ], [ 0, %.lr.ph84 ]
+  %.idx86 = mul nuw nsw i64 %indvars.iv102, 24
+  %60 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %.idx86
+  %61 = getelementptr i8, ptr %60, i64 8
+  store i32 0, ptr %61, align 8
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
+  br i1 %exitcond106.not, label %.critedge72, label %.lr.ph84.split.us, !llvm.loop !9
 
-.lr.ph86.split:                                   ; preds = %.lr.ph86, %68
-  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %68 ], [ 0, %.lr.ph86 ]
-  %65 = getelementptr %struct.anon.0, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %indvars.iv99
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i32 %59, ptr %66, align 8
-  %bcmp = tail call i32 @bcmp(ptr %65, ptr nonnull %60, i64 %62)
-  %67 = icmp eq i32 %bcmp, 0
-  br i1 %67, label %.thread, label %68
+.lr.ph84.split:                                   ; preds = %.lr.ph84, %65
+  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %65 ], [ 0, %.lr.ph84 ]
+  %62 = getelementptr %struct.anon.0, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %indvars.iv97
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store i32 %56, ptr %63, align 8
+  %bcmp = tail call i32 @bcmp(ptr %62, ptr nonnull %57, i64 %59)
+  %64 = icmp eq i32 %bcmp, 0
+  br i1 %64, label %.thread, label %65
 
-68:                                               ; preds = %.lr.ph86.split
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count107
-  br i1 %exitcond103.not, label %.critedge73, label %.lr.ph86.split, !llvm.loop !9
+65:                                               ; preds = %.lr.ph84.split
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count105
+  br i1 %exitcond101.not, label %.critedge72, label %.lr.ph84.split, !llvm.loop !9
 
-.critedge73:                                      ; preds = %68, %.lr.ph86.split.us
-  %69 = icmp ult i32 %61, 5
-  br i1 %69, label %.critedge73.thread, label %.thread
+.critedge72:                                      ; preds = %65, %.lr.ph84.split.us
+  %66 = icmp ult i32 %58, 5
+  br i1 %66, label %.critedge72.thread, label %.thread
 
-.critedge73.thread:                               ; preds = %57, %.critedge73
-  %70 = zext nneg i32 %61 to i64
-  %.idx76.neg = mul nsw i64 %70, -24
-  %71 = getelementptr %struct.anon.0, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i32 %59, ptr %72, align 8
-  %73 = zext i32 %59 to i64
-  %74 = add nsw i64 %.idx76.neg, 144
-  %75 = tail call ptr @__memcpy_chk(ptr noundef %71, ptr noundef nonnull %60, i64 noundef range(i64 0, 4294967296) %73, i64 noundef %74) #12, !alias.scope !10
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store ptr %14, ptr %76, align 8
-  %77 = load i32, ptr @s_gnb_ran_functions_table, align 8
-  %78 = add i32 %77, 1
-  store i32 %78, ptr @s_gnb_ran_functions_table, align 8
+.critedge72.thread:                               ; preds = %54, %.critedge72
+  %67 = zext nneg i32 %58 to i64
+  %.idx.neg = mul nsw i64 %67, -24
+  %68 = getelementptr %struct.anon.0, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store i32 %56, ptr %69, align 8
+  %70 = zext i32 %56 to i64
+  %71 = add nsw i64 %.idx.neg, 144
+  %72 = tail call ptr @__memcpy_chk(ptr noundef %68, ptr noundef nonnull %57, i64 noundef range(i64 0, 4294967296) %70, i64 noundef %71) #12, !alias.scope !10
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  store ptr %14, ptr %73, align 8
+  %74 = load i32, ptr @s_gnb_ran_functions_table, align 8
+  %75 = add i32 %74, 1
+  store i32 %75, ptr @s_gnb_ran_functions_table, align 8
   br label %.thread
 
-.thread:                                          ; preds = %41, %45, %.lr.ph86.split, %.critedge73.thread, %.critedge73, %.critedge, %e2ap_get_private_data.exit, %20
+.thread:                                          ; preds = %40, %.lr.ph, %.lr.ph84.split, %.critedge72.thread, %.critedge72, %.critedge, %e2ap_get_private_data.exit, %20
   ret void
 }
 

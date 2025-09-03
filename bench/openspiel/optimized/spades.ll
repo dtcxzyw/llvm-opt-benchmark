@@ -4537,28 +4537,28 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, 0
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br i1 %54, label %.preheader105, label %.preheader107
+  br i1 %54, label %.preheader103, label %.preheader105
 
-.preheader:                                       ; preds = %.preheader105
+.preheader:                                       ; preds = %.preheader103
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 424
   br label %62
 
-.preheader105:                                    ; preds = %47, %.preheader105
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.preheader105 ], [ 0, %47 ]
-  %.074113 = phi ptr [ %61, %.preheader105 ], [ %51, %47 ]
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv137
+.preheader103:                                    ; preds = %47, %.preheader103
+  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %.preheader103 ], [ 0, %47 ]
+  %.074111 = phi ptr [ %61, %.preheader103 ], [ %51, %47 ]
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv135
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds float, ptr %.074113, i64 %59
+  %60 = getelementptr inbounds float, ptr %.074111, i64 %59
   store float 1.000000e+00, ptr %60, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %.074113, i64 56
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %exitcond140.not = icmp eq i64 %indvars.iv.next138, 4
-  br i1 %exitcond140.not, label %.preheader, label %.preheader105, !llvm.loop !45
+  %61 = getelementptr inbounds nuw i8, ptr %.074111, i64 56
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
+  %exitcond138.not = icmp eq i64 %indvars.iv.next136, 4
+  br i1 %exitcond138.not, label %.preheader, label %.preheader103, !llvm.loop !45
 
 62:                                               ; preds = %.preheader, %72
-  %indvars.iv141 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next142, %72 ]
-  %63 = getelementptr inbounds nuw %"class.absl::debian2::optional", ptr %56, i64 %indvars.iv141
+  %indvars.iv139 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next140, %72 ]
+  %63 = getelementptr inbounds nuw %"class.absl::debian2::optional", ptr %56, i64 %indvars.iv139
   %64 = load i8, ptr %63, align 8
   %65 = trunc i8 %64 to i1
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -4568,17 +4568,17 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv141
+  %71 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv139
   store float 1.000000e+00, ptr %71, align 4
   br label %72
 
 72:                                               ; preds = %62, %70
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next142, 52
-  br i1 %exitcond144.not, label %73, label %62, !llvm.loop !46
+  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
+  %exitcond142.not = icmp eq i64 %indvars.iv.next140, 52
+  br i1 %exitcond142.not, label %73, label %62, !llvm.loop !46
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds nuw i8, ptr %.074113, i64 264
+  %74 = getelementptr inbounds nuw i8, ptr %.074111, i64 264
   %75 = load i32, ptr %52, align 4
   %76 = sdiv i32 %75, 4
   %77 = srem i32 %75, 4
@@ -4599,10 +4599,9 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %73
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %91 = sext i32 %76 to i64
-  %.idx102 = mul nsw i64 %91, 20
-  %92 = getelementptr i8, ptr %90, i64 %.idx102
+  %90 = sext i32 %76 to i64
+  %91 = getelementptr %"class.open_spiel::spades::Trick", ptr %0, i64 %90
+  %92 = getelementptr i8, ptr %91, i64 148
   %93 = load i32, ptr %92, align 4
   %reass.sub = sub i32 %93, %1
   %94 = add i32 %reass.sub, 4
@@ -4611,13 +4610,13 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   br label %96
 
 96:                                               ; preds = %.lr.ph, %96
-  %indvars.iv145 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next146, %96 ]
-  %97 = add nsw i64 %indvars.iv145, %95
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next144, %96 ]
+  %97 = add nsw i64 %indvars.iv143, %95
   %98 = load ptr, ptr %78, align 8
   %99 = getelementptr inbounds %"struct.open_spiel::State::PlayerAction", ptr %98, i64 %97, i32 1
   %100 = load i64, ptr %99, align 8
   %101 = trunc i64 %100 to i32
-  %102 = trunc nuw nsw i64 %indvars.iv145 to i32
+  %102 = trunc nuw nsw i64 %indvars.iv143 to i32
   %103 = add i32 %94, %102
   %104 = srem i32 %103, 4
   %105 = mul nsw i32 %104, 52
@@ -4625,69 +4624,68 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds float, ptr %74, i64 %107
   store float 1.000000e+00, ptr %108, align 4
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %exitcond148.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count
-  br i1 %exitcond148.not, label %.loopexit, label %96, !llvm.loop !47
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond146.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count
+  br i1 %exitcond146.not, label %.loopexit, label %96, !llvm.loop !47
 
 .loopexit:                                        ; preds = %96, %73
-  %109 = getelementptr inbounds nuw i8, ptr %.074113, i64 1096
+  %109 = getelementptr inbounds nuw i8, ptr %.074111, i64 1096
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %111 = load i32, ptr %110, align 4
   %112 = sub nsw i32 %76, %111
   %113 = tail call i32 @llvm.smax.i32(i32 %112, i32 -1)
-  %.sroa.speculated118 = add nsw i32 %113, 1
-  %.not82.not119 = icmp sgt i32 %76, %.sroa.speculated118
-  br i1 %.not82.not119, label %.lr.ph122, label %._crit_edge
+  %.sroa.speculated116 = add nsw i32 %113, 1
+  %.not82.not117 = icmp sgt i32 %76, %.sroa.speculated116
+  br i1 %.not82.not117, label %.lr.ph120, label %._crit_edge
 
-.lr.ph122:                                        ; preds = %.loopexit
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %115 = zext nneg i32 %76 to i64
-  br label %116
+.lr.ph120:                                        ; preds = %.loopexit
+  %114 = zext nneg i32 %76 to i64
+  br label %115
 
-116:                                              ; preds = %.lr.ph122, %136
-  %indvars.iv153 = phi i64 [ %115, %.lr.ph122 ], [ %indvars.iv.next154, %136 ]
-  %.1120 = phi ptr [ %109, %.lr.ph122 ], [ %137, %136 ]
-  %indvars.iv.next154 = add nsw i64 %indvars.iv153, -1
-  %.idx103 = mul nuw nsw i64 %indvars.iv.next154, 20
-  %117 = getelementptr inbounds nuw i8, ptr %114, i64 %.idx103
+115:                                              ; preds = %.lr.ph120, %136
+  %indvars.iv151 = phi i64 [ %114, %.lr.ph120 ], [ %indvars.iv.next152, %136 ]
+  %.1118 = phi ptr [ %109, %.lr.ph120 ], [ %137, %136 ]
+  %indvars.iv.next152 = add nsw i64 %indvars.iv151, -1
+  %116 = getelementptr inbounds nuw %"class.open_spiel::spades::Trick", ptr %0, i64 %indvars.iv.next152
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 148
   %118 = load i32, ptr %117, align 4
-  %119 = trunc nuw nsw i64 %indvars.iv.next154 to i32
+  %119 = trunc nuw nsw i64 %indvars.iv.next152 to i32
   %.neg = sub nsw i32 %119, %76
   %.neg85 = shl nsw i32 %.neg, 2
   %120 = add i32 %.neg85, %87
-  %reass.sub126 = sub i32 %118, %1
-  %121 = add i32 %reass.sub126, 4
+  %reass.sub124 = sub i32 %118, %1
+  %121 = add i32 %reass.sub124, 4
   %122 = sext i32 %120 to i64
   br label %123
 
-123:                                              ; preds = %116, %123
-  %indvars.iv149 = phi i64 [ 0, %116 ], [ %indvars.iv.next150, %123 ]
-  %124 = add nsw i64 %indvars.iv149, %122
+123:                                              ; preds = %115, %123
+  %indvars.iv147 = phi i64 [ 0, %115 ], [ %indvars.iv.next148, %123 ]
+  %124 = add nsw i64 %indvars.iv147, %122
   %125 = load ptr, ptr %78, align 8
   %126 = getelementptr inbounds %"struct.open_spiel::State::PlayerAction", ptr %125, i64 %124, i32 1
   %127 = load i64, ptr %126, align 8
   %128 = trunc i64 %127 to i32
-  %129 = trunc nuw nsw i64 %indvars.iv149 to i32
+  %129 = trunc nuw nsw i64 %indvars.iv147 to i32
   %130 = add i32 %121, %129
   %131 = srem i32 %130, 4
   %132 = mul nsw i32 %131, 52
   %133 = add nsw i32 %132, %128
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds float, ptr %.1120, i64 %134
+  %135 = getelementptr inbounds float, ptr %.1118, i64 %134
   store float 1.000000e+00, ptr %135, align 4
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %exitcond152.not = icmp eq i64 %indvars.iv.next150, 4
-  br i1 %exitcond152.not, label %136, label %123, !llvm.loop !48
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %exitcond150.not = icmp eq i64 %indvars.iv.next148, 4
+  br i1 %exitcond150.not, label %136, label %123, !llvm.loop !48
 
 136:                                              ; preds = %123
-  %137 = getelementptr inbounds nuw i8, ptr %.1120, i64 832
+  %137 = getelementptr inbounds nuw i8, ptr %.1118, i64 832
   %138 = load i32, ptr %110, align 4
   %139 = sub nsw i32 %76, %138
   %140 = tail call i32 @llvm.smax.i32(i32 %139, i32 -1)
   %.sroa.speculated = add nsw i32 %140, 1
   %141 = zext nneg i32 %.sroa.speculated to i64
-  %.not82.not = icmp samesign ugt i64 %indvars.iv.next154, %141
-  br i1 %.not82.not, label %116, label %._crit_edge, !llvm.loop !49
+  %.not82.not = icmp samesign ugt i64 %indvars.iv.next152, %141
+  br i1 %.not82.not, label %115, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %136, %.loopexit
   %.1.lcssa = phi ptr [ %109, %.loopexit ], [ %137, %136 ]
@@ -4704,17 +4702,17 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   br label %148
 
 148:                                              ; preds = %._crit_edge, %148
-  %indvars.iv156 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next157, %148 ]
-  %.3124 = phi ptr [ %.2, %._crit_edge ], [ %153, %148 ]
-  %149 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv156
+  %indvars.iv154 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next155, %148 ]
+  %.3122 = phi ptr [ %.2, %._crit_edge ], [ %153, %148 ]
+  %149 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv154
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds float, ptr %.3124, i64 %151
+  %152 = getelementptr inbounds float, ptr %.3122, i64 %151
   store float 1.000000e+00, ptr %152, align 4
-  %153 = getelementptr inbounds nuw i8, ptr %.3124, i64 52
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %exitcond159.not = icmp eq i64 %indvars.iv.next157, 4
-  br i1 %exitcond159.not, label %154, label %148, !llvm.loop !50
+  %153 = getelementptr inbounds nuw i8, ptr %.3122, i64 52
+  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
+  %exitcond157.not = icmp eq i64 %indvars.iv.next155, 4
+  br i1 %exitcond157.not, label %154, label %148, !llvm.loop !50
 
 154:                                              ; preds = %148
   %155 = load i32, ptr %110, align 4
@@ -4764,33 +4762,33 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
           cleanup
   br label %210
 
-.preheader106:                                    ; preds = %180
+.preheader104:                                    ; preds = %180
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 424
   br label %182
 
-.preheader107:                                    ; preds = %47, %180
+.preheader105:                                    ; preds = %47, %180
   %indvars.iv = phi i64 [ %indvars.iv.next, %180 ], [ 0, %47 ]
-  %.4109 = phi ptr [ %181, %180 ], [ %51, %47 ]
+  %.4107 = phi ptr [ %181, %180 ], [ %51, %47 ]
   %174 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %175 = load i32, ptr %174, align 4
   %176 = icmp sgt i32 %175, -1
   br i1 %176, label %177, label %180
 
-177:                                              ; preds = %.preheader107
+177:                                              ; preds = %.preheader105
   %178 = zext nneg i32 %175 to i64
-  %179 = getelementptr inbounds nuw float, ptr %.4109, i64 %178
+  %179 = getelementptr inbounds nuw float, ptr %.4107, i64 %178
   store float 1.000000e+00, ptr %179, align 4
   br label %180
 
-180:                                              ; preds = %177, %.preheader107
-  %181 = getelementptr inbounds nuw i8, ptr %.4109, i64 56
+180:                                              ; preds = %177, %.preheader105
+  %181 = getelementptr inbounds nuw i8, ptr %.4107, i64 56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader106, label %.preheader107, !llvm.loop !51
+  br i1 %exitcond.not, label %.preheader104, label %.preheader105, !llvm.loop !51
 
-182:                                              ; preds = %.preheader106, %192
-  %indvars.iv133 = phi i64 [ 0, %.preheader106 ], [ %indvars.iv.next134, %192 ]
-  %183 = getelementptr inbounds nuw %"class.absl::debian2::optional", ptr %173, i64 %indvars.iv133
+182:                                              ; preds = %.preheader104, %192
+  %indvars.iv131 = phi i64 [ 0, %.preheader104 ], [ %indvars.iv.next132, %192 ]
+  %183 = getelementptr inbounds nuw %"class.absl::debian2::optional", ptr %173, i64 %indvars.iv131
   %184 = load i8, ptr %183, align 8
   %185 = trunc i8 %184 to i1
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 4
@@ -4800,17 +4798,17 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %182
-  %191 = getelementptr inbounds nuw float, ptr %181, i64 %indvars.iv133
+  %191 = getelementptr inbounds nuw float, ptr %181, i64 %indvars.iv131
   store float 1.000000e+00, ptr %191, align 4
   br label %192
 
 192:                                              ; preds = %182, %190
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next134, 52
-  br i1 %exitcond136.not, label %193, label %182, !llvm.loop !52
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond134.not = icmp eq i64 %indvars.iv.next132, 52
+  br i1 %exitcond134.not, label %193, label %182, !llvm.loop !52
 
 193:                                              ; preds = %192
-  %194 = getelementptr inbounds nuw i8, ptr %.4109, i64 264
+  %194 = getelementptr inbounds nuw i8, ptr %.4107, i64 264
   %195 = ptrtoint ptr %194 to i64
   %196 = ptrtoint ptr %2 to i64
   %197 = sub i64 %195, %196
@@ -6542,9 +6540,8 @@ define void @_ZN10open_spiel6spades11SpadesState15ApplyPlayActionEi(ptr noundef 
 _ZN10open_spiel6spades5Trick4PlayEii.exit:        ; preds = %.sink.split.i, %49, %44, %26
   %.pre-phi10 = phi i64 [ %36, %.sink.split.i ], [ %36, %49 ], [ %36, %44 ], [ %.pre9, %26 ]
   %55 = phi i32 [ %23, %.sink.split.i ], [ %23, %49 ], [ %23, %44 ], [ %.pre, %26 ]
-  %.idx = mul nsw i64 %.pre-phi10, 20
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %57 = getelementptr i8, ptr %56, i64 %.idx
+  %56 = getelementptr %"class.open_spiel::spades::Trick", ptr %0, i64 %.pre-phi10
+  %57 = getelementptr i8, ptr %56, i64 152
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i32 %55, 1
   store i32 %59, ptr %22, align 4

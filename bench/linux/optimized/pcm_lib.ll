@@ -3321,37 +3321,36 @@ define dso_local void @_snd_pcm_hw_param_setempty(ptr noundef captures(none) %0,
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr %struct.snd_mask, ptr %5, i64 %6
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  br label %18
+  br label %17
 
 8:                                                ; preds = %2
   %9 = add i32 %1, -8
   %10 = icmp ugt i32 %9, 11
-  br i1 %10, label %26, label %11
+  br i1 %10, label %25, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %narrow = mul nuw nsw i32 %9, 12
-  %13 = zext nneg i32 %narrow to i64
-  %14 = getelementptr i8, ptr %12, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 8
-  %16 = load i8, ptr %15, align 4
-  %17 = or i8 %16, 8
-  store i8 %17, ptr %15, align 4
-  br label %18
+  %12 = zext nneg i32 %narrow to i64
+  %13 = getelementptr i8, ptr %0, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 268
+  %15 = load i8, ptr %14, align 4
+  %16 = or i8 %15, 8
+  store i8 %16, ptr %14, align 4
+  br label %17
 
-18:                                               ; preds = %11, %4
-  %19 = shl nuw nsw i32 1, %1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  %21 = load i32, ptr %20, align 4
-  %22 = or i32 %21, %19
-  store i32 %22, ptr %20, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %24 = load i32, ptr %23, align 8
-  %25 = or i32 %24, %19
-  store i32 %25, ptr %23, align 8
-  br label %26
+17:                                               ; preds = %11, %4
+  %18 = shl nuw nsw i32 1, %1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 516
+  %20 = load i32, ptr %19, align 4
+  %21 = or i32 %20, %18
+  store i32 %21, ptr %19, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %23 = load i32, ptr %22, align 8
+  %24 = or i32 %23, %18
+  store i32 %24, ptr %22, align 8
+  br label %25
 
-26:                                               ; preds = %18, %8
+25:                                               ; preds = %17, %8
   ret void
 }
 

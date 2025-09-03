@@ -8851,8 +8851,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 592:                                              ; preds = %585
   %593 = zext nneg i32 %583 to i64
-  %594 = getelementptr ptr, ptr %175, i64 %593
-  %595 = getelementptr i8, ptr %594, i64 -8
+  %594 = getelementptr ptr, ptr %3, i64 %593
+  %595 = getelementptr i8, ptr %594, i64 72
   %596 = load ptr, ptr %595, align 8
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 12
   %598 = load i32, ptr %597, align 4

@@ -1735,586 +1735,586 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit: ; preds = %266, %252, %256
   call void @free(ptr noundef %267) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %cond, label %268, label %725
+  br i1 %cond, label %268, label %722
 
 268:                                              ; preds = %4, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit
-  switch i32 %2, label %725 [
+  switch i32 %2, label %722 [
     i32 4689, label %269
     i32 4690, label %274
     i32 4504, label %279
     i32 4505, label %321
-    i32 4628, label %364
-    i32 4630, label %364
-    i32 4629, label %364
-    i32 4638, label %364
-    i32 4642, label %387
-    i32 4641, label %387
-    i32 4627, label %404
-    i32 4637, label %404
-    i32 4619, label %421
-    i32 4645, label %421
-    i32 4621, label %421
-    i32 4647, label %421
-    i32 4623, label %421
-    i32 4649, label %421
-    i32 4625, label %421
-    i32 4651, label %421
-    i32 4653, label %421
-    i32 4639, label %421
-    i32 4710, label %421
-    i32 4620, label %421
-    i32 4646, label %421
-    i32 4622, label %421
-    i32 4648, label %421
-    i32 4624, label %421
-    i32 4650, label %421
-    i32 4626, label %421
-    i32 4652, label %421
-    i32 4654, label %421
-    i32 4640, label %421
-    i32 4711, label %421
-    i32 4631, label %441
-    i32 4633, label %441
-    i32 4635, label %441
-    i32 4632, label %441
-    i32 4634, label %441
-    i32 4636, label %441
-    i32 4734, label %497
-    i32 4736, label %511
-    i32 4744, label %520
-    i32 4745, label %520
-    i32 4748, label %529
-    i32 4749, label %529
-    i32 4740, label %535
-    i32 4763, label %535
-    i32 4756, label %535
-    i32 4768, label %535
-    i32 4757, label %535
-    i32 4769, label %535
-    i32 4733, label %541
-    i32 4735, label %552
-    i32 4737, label %552
-    i32 4732, label %552
-    i32 4743, label %552
-    i32 4741, label %558
-    i32 4739, label %558
-    i32 4764, label %558
-    i32 4762, label %558
-    i32 4746, label %558
-    i32 4750, label %558
-    i32 4747, label %558
-    i32 4751, label %558
-    i32 4754, label %558
-    i32 4758, label %558
-    i32 4766, label %558
-    i32 4770, label %558
-    i32 4755, label %558
-    i32 4759, label %558
-    i32 4767, label %558
-    i32 4771, label %558
-    i32 4738, label %561
-    i32 4742, label %567
-    i32 4765, label %567
-    i32 4760, label %567
-    i32 4772, label %567
-    i32 4761, label %567
-    i32 4773, label %567
-    i32 4752, label %567
-    i32 4753, label %567
-    i32 4814, label %570
-    i32 4815, label %570
-    i32 4816, label %570
-    i32 4817, label %570
-    i32 4874, label %570
-    i32 4873, label %570
-    i32 4823, label %573
-    i32 3346, label %576
-    i32 3352, label %576
-    i32 3358, label %576
-    i32 3364, label %576
-    i32 3370, label %576
-    i32 3376, label %576
-    i32 3382, label %576
-    i32 3388, label %576
-    i32 3394, label %576
-    i32 3400, label %576
-    i32 3418, label %576
-    i32 3424, label %576
-    i32 3406, label %576
-    i32 3412, label %576
-    i32 3442, label %576
-    i32 3448, label %576
-    i32 3430, label %576
-    i32 3436, label %576
-    i32 3347, label %579
-    i32 3353, label %579
-    i32 3359, label %579
-    i32 3365, label %579
-    i32 3371, label %579
-    i32 3377, label %579
-    i32 3383, label %579
-    i32 3389, label %579
-    i32 3395, label %579
-    i32 3401, label %579
-    i32 3419, label %579
-    i32 3425, label %579
-    i32 3407, label %579
-    i32 3413, label %579
-    i32 3443, label %579
-    i32 3449, label %579
-    i32 3431, label %579
-    i32 3437, label %579
-    i32 3348, label %579
-    i32 3354, label %579
-    i32 3360, label %579
-    i32 3366, label %579
-    i32 3372, label %579
-    i32 3378, label %579
-    i32 3384, label %579
-    i32 3390, label %579
-    i32 3396, label %579
-    i32 3402, label %579
-    i32 3420, label %579
-    i32 3426, label %579
-    i32 3408, label %579
-    i32 3414, label %579
-    i32 3444, label %579
-    i32 3450, label %579
-    i32 3432, label %579
-    i32 3438, label %579
-    i32 3349, label %582
-    i32 3350, label %582
-    i32 3351, label %582
-    i32 3355, label %582
-    i32 3356, label %582
-    i32 3357, label %582
-    i32 3361, label %582
-    i32 3362, label %582
-    i32 3363, label %582
-    i32 3367, label %582
-    i32 3368, label %582
-    i32 3369, label %582
-    i32 3373, label %582
-    i32 3374, label %582
-    i32 3375, label %582
-    i32 3379, label %582
-    i32 3380, label %582
-    i32 3381, label %582
-    i32 3385, label %582
-    i32 3386, label %582
-    i32 3387, label %582
-    i32 3391, label %582
-    i32 3392, label %582
-    i32 3393, label %582
-    i32 3399, label %582
-    i32 3405, label %582
-    i32 3423, label %582
-    i32 3429, label %582
-    i32 3411, label %582
-    i32 3417, label %582
-    i32 3447, label %582
-    i32 3453, label %582
-    i32 3435, label %582
-    i32 3441, label %582
-    i32 3397, label %582
-    i32 3403, label %582
-    i32 3421, label %582
-    i32 3427, label %582
-    i32 3409, label %582
-    i32 3415, label %582
-    i32 3445, label %582
-    i32 3451, label %582
-    i32 3433, label %582
-    i32 3439, label %582
-    i32 3398, label %582
-    i32 3404, label %582
-    i32 3422, label %582
-    i32 3428, label %582
-    i32 3410, label %582
-    i32 3416, label %582
-    i32 3446, label %582
-    i32 3452, label %582
-    i32 3434, label %582
-    i32 3440, label %582
-    i32 4006, label %585
-    i32 4012, label %585
-    i32 4202, label %585
-    i32 4208, label %585
-    i32 4214, label %585
-    i32 4220, label %585
-    i32 4226, label %585
-    i32 4232, label %585
-    i32 4238, label %585
-    i32 4244, label %585
-    i32 4250, label %585
-    i32 4256, label %585
-    i32 4262, label %585
-    i32 3454, label %588
-    i32 3460, label %588
-    i32 3466, label %588
-    i32 3472, label %588
-    i32 3478, label %588
-    i32 3622, label %588
-    i32 3628, label %588
-    i32 3634, label %588
-    i32 3640, label %588
-    i32 3484, label %588
-    i32 3490, label %588
-    i32 3496, label %588
-    i32 3502, label %588
-    i32 3508, label %588
-    i32 3514, label %588
-    i32 3520, label %588
-    i32 3526, label %588
-    i32 3532, label %588
-    i32 3646, label %588
-    i32 3652, label %588
-    i32 4398, label %588
-    i32 4394, label %588
-    i32 4406, label %588
-    i32 4402, label %588
-    i32 4007, label %588
-    i32 4013, label %588
-    i32 4203, label %588
-    i32 4209, label %588
-    i32 4215, label %588
-    i32 4221, label %588
-    i32 4227, label %588
-    i32 4233, label %588
-    i32 4239, label %588
-    i32 4245, label %588
-    i32 4251, label %588
-    i32 4257, label %588
-    i32 4263, label %588
-    i32 4008, label %588
-    i32 4014, label %588
-    i32 4204, label %588
-    i32 4210, label %588
-    i32 4216, label %588
-    i32 4222, label %588
-    i32 4228, label %588
-    i32 4234, label %588
-    i32 4240, label %588
-    i32 4246, label %588
-    i32 4252, label %588
-    i32 4258, label %588
-    i32 4264, label %588
-    i32 3455, label %591
-    i32 3461, label %591
-    i32 3467, label %591
-    i32 3473, label %591
-    i32 3479, label %591
-    i32 3623, label %591
-    i32 3629, label %591
-    i32 3635, label %591
-    i32 3641, label %591
-    i32 3485, label %591
-    i32 3491, label %591
-    i32 3497, label %591
-    i32 3503, label %591
-    i32 3509, label %591
-    i32 3515, label %591
-    i32 3521, label %591
-    i32 3527, label %591
-    i32 3533, label %591
-    i32 3647, label %591
-    i32 3653, label %591
-    i32 4399, label %591
-    i32 4395, label %591
-    i32 4407, label %591
-    i32 4403, label %591
-    i32 3694, label %591
-    i32 3700, label %591
-    i32 3706, label %591
-    i32 3712, label %591
-    i32 3718, label %591
-    i32 3724, label %591
-    i32 3730, label %591
-    i32 3736, label %591
-    i32 3742, label %591
-    i32 3748, label %591
-    i32 3754, label %591
-    i32 3760, label %591
-    i32 3766, label %591
-    i32 3772, label %591
-    i32 3778, label %591
-    i32 3784, label %591
-    i32 3886, label %591
-    i32 3892, label %591
-    i32 3898, label %591
-    i32 3904, label %591
-    i32 3910, label %591
-    i32 3916, label %591
-    i32 3922, label %591
-    i32 3928, label %591
-    i32 3695, label %591
-    i32 3701, label %591
-    i32 3707, label %591
-    i32 3713, label %591
-    i32 3719, label %591
-    i32 3725, label %591
-    i32 3731, label %591
-    i32 3737, label %591
-    i32 3743, label %591
-    i32 3749, label %591
-    i32 3755, label %591
-    i32 3761, label %591
-    i32 3767, label %591
-    i32 3773, label %591
-    i32 3779, label %591
-    i32 3785, label %591
-    i32 3887, label %591
-    i32 3893, label %591
-    i32 3899, label %591
-    i32 3905, label %591
-    i32 3911, label %591
-    i32 3917, label %591
-    i32 3923, label %591
-    i32 3929, label %591
-    i32 3456, label %591
-    i32 3462, label %591
-    i32 3468, label %591
-    i32 3474, label %591
-    i32 3480, label %591
-    i32 3624, label %591
-    i32 3630, label %591
-    i32 3636, label %591
-    i32 3642, label %591
-    i32 3486, label %591
-    i32 3492, label %591
-    i32 3498, label %591
-    i32 3504, label %591
-    i32 3510, label %591
-    i32 3516, label %591
-    i32 3522, label %591
-    i32 3528, label %591
-    i32 3534, label %591
-    i32 3648, label %591
-    i32 3654, label %591
-    i32 4400, label %591
-    i32 4396, label %591
-    i32 4408, label %591
-    i32 4404, label %591
-    i32 4009, label %591
-    i32 4015, label %591
-    i32 4205, label %591
-    i32 4211, label %591
-    i32 4217, label %591
-    i32 4223, label %591
-    i32 4229, label %591
-    i32 4235, label %591
-    i32 4241, label %591
-    i32 4247, label %591
-    i32 4253, label %591
-    i32 4259, label %591
-    i32 4265, label %591
-    i32 4010, label %591
-    i32 4016, label %591
-    i32 4206, label %591
-    i32 4212, label %591
-    i32 4218, label %591
-    i32 4224, label %591
-    i32 4230, label %591
-    i32 4236, label %591
-    i32 4242, label %591
-    i32 4248, label %591
-    i32 4254, label %591
-    i32 4260, label %591
-    i32 4266, label %591
-    i32 4011, label %591
-    i32 4017, label %591
-    i32 4207, label %591
-    i32 4213, label %591
-    i32 4219, label %591
-    i32 4225, label %591
-    i32 4231, label %591
-    i32 4237, label %591
-    i32 4243, label %591
-    i32 4249, label %591
-    i32 4255, label %591
-    i32 4261, label %591
-    i32 4267, label %591
-    i32 3696, label %594
-    i32 3702, label %594
-    i32 3708, label %594
-    i32 3714, label %594
-    i32 3720, label %594
-    i32 3726, label %594
-    i32 3732, label %594
-    i32 3738, label %594
-    i32 3744, label %594
-    i32 3750, label %594
-    i32 3756, label %594
-    i32 3762, label %594
-    i32 3768, label %594
-    i32 3774, label %594
-    i32 3780, label %594
-    i32 3786, label %594
-    i32 3888, label %594
-    i32 3894, label %594
-    i32 3900, label %594
-    i32 3906, label %594
-    i32 3912, label %594
-    i32 3918, label %594
-    i32 3924, label %594
-    i32 3930, label %594
-    i32 3457, label %594
-    i32 3463, label %594
-    i32 3469, label %594
-    i32 3475, label %594
-    i32 3481, label %594
-    i32 3625, label %594
-    i32 3631, label %594
-    i32 3637, label %594
-    i32 3643, label %594
-    i32 3487, label %594
-    i32 3493, label %594
-    i32 3499, label %594
-    i32 3505, label %594
-    i32 3511, label %594
-    i32 3517, label %594
-    i32 3523, label %594
-    i32 3529, label %594
-    i32 3535, label %594
-    i32 3649, label %594
-    i32 3655, label %594
-    i32 3697, label %594
-    i32 3703, label %594
-    i32 3709, label %594
-    i32 3715, label %594
-    i32 3721, label %594
-    i32 3727, label %594
-    i32 3733, label %594
-    i32 3739, label %594
-    i32 3745, label %594
-    i32 3751, label %594
-    i32 3757, label %594
-    i32 3763, label %594
-    i32 3769, label %594
-    i32 3775, label %594
-    i32 3781, label %594
-    i32 3787, label %594
-    i32 3889, label %594
-    i32 3895, label %594
-    i32 3901, label %594
-    i32 3907, label %594
-    i32 3913, label %594
-    i32 3919, label %594
-    i32 3925, label %594
-    i32 3931, label %594
-    i32 4401, label %594
-    i32 4397, label %594
-    i32 4409, label %594
-    i32 4405, label %594
-    i32 3458, label %594
-    i32 3464, label %594
-    i32 3470, label %594
-    i32 3476, label %594
-    i32 3482, label %594
-    i32 3626, label %594
-    i32 3632, label %594
-    i32 3638, label %594
-    i32 3644, label %594
-    i32 3488, label %594
-    i32 3494, label %594
-    i32 3500, label %594
-    i32 3506, label %594
-    i32 3512, label %594
-    i32 3518, label %594
-    i32 3524, label %594
-    i32 3530, label %594
-    i32 3536, label %594
-    i32 3650, label %594
-    i32 3656, label %594
-    i32 3698, label %594
-    i32 3704, label %594
-    i32 3710, label %594
-    i32 3716, label %594
-    i32 3722, label %594
-    i32 3728, label %594
-    i32 3734, label %594
-    i32 3740, label %594
-    i32 3746, label %594
-    i32 3752, label %594
-    i32 3758, label %594
-    i32 3764, label %594
-    i32 3770, label %594
-    i32 3776, label %594
-    i32 3782, label %594
-    i32 3788, label %594
-    i32 3890, label %594
-    i32 3896, label %594
-    i32 3902, label %594
-    i32 3908, label %594
-    i32 3914, label %594
-    i32 3920, label %594
-    i32 3926, label %594
-    i32 3932, label %594
-    i32 3459, label %594
-    i32 3465, label %594
-    i32 3471, label %594
-    i32 3477, label %594
-    i32 3483, label %594
-    i32 3627, label %594
-    i32 3633, label %594
-    i32 3639, label %594
-    i32 3645, label %594
-    i32 3489, label %594
-    i32 3495, label %594
-    i32 3501, label %594
-    i32 3507, label %594
-    i32 3513, label %594
-    i32 3519, label %594
-    i32 3525, label %594
-    i32 3531, label %594
-    i32 3537, label %594
-    i32 3651, label %594
-    i32 3657, label %594
-    i32 3699, label %594
-    i32 3705, label %594
-    i32 3711, label %594
-    i32 3717, label %594
-    i32 3723, label %594
-    i32 3729, label %594
-    i32 3735, label %594
-    i32 3741, label %594
-    i32 3747, label %594
-    i32 3753, label %594
-    i32 3759, label %594
-    i32 3765, label %594
-    i32 3771, label %594
-    i32 3777, label %594
-    i32 3783, label %594
-    i32 3789, label %594
-    i32 3891, label %594
-    i32 3897, label %594
-    i32 3903, label %594
-    i32 3909, label %594
-    i32 3915, label %594
-    i32 3921, label %594
-    i32 3927, label %594
-    i32 3933, label %594
-    i32 4853, label %597
-    i32 4854, label %597
+    i32 4628, label %363
+    i32 4630, label %363
+    i32 4629, label %363
+    i32 4638, label %363
+    i32 4642, label %386
+    i32 4641, label %386
+    i32 4627, label %403
+    i32 4637, label %403
+    i32 4619, label %420
+    i32 4645, label %420
+    i32 4621, label %420
+    i32 4647, label %420
+    i32 4623, label %420
+    i32 4649, label %420
+    i32 4625, label %420
+    i32 4651, label %420
+    i32 4653, label %420
+    i32 4639, label %420
+    i32 4710, label %420
+    i32 4620, label %420
+    i32 4646, label %420
+    i32 4622, label %420
+    i32 4648, label %420
+    i32 4624, label %420
+    i32 4650, label %420
+    i32 4626, label %420
+    i32 4652, label %420
+    i32 4654, label %420
+    i32 4640, label %420
+    i32 4711, label %420
+    i32 4631, label %440
+    i32 4633, label %440
+    i32 4635, label %440
+    i32 4632, label %440
+    i32 4634, label %440
+    i32 4636, label %440
+    i32 4734, label %496
+    i32 4736, label %510
+    i32 4744, label %519
+    i32 4745, label %519
+    i32 4748, label %528
+    i32 4749, label %528
+    i32 4740, label %534
+    i32 4763, label %534
+    i32 4756, label %534
+    i32 4768, label %534
+    i32 4757, label %534
+    i32 4769, label %534
+    i32 4733, label %540
+    i32 4735, label %551
+    i32 4737, label %551
+    i32 4732, label %551
+    i32 4743, label %551
+    i32 4741, label %557
+    i32 4739, label %557
+    i32 4764, label %557
+    i32 4762, label %557
+    i32 4746, label %557
+    i32 4750, label %557
+    i32 4747, label %557
+    i32 4751, label %557
+    i32 4754, label %557
+    i32 4758, label %557
+    i32 4766, label %557
+    i32 4770, label %557
+    i32 4755, label %557
+    i32 4759, label %557
+    i32 4767, label %557
+    i32 4771, label %557
+    i32 4738, label %560
+    i32 4742, label %566
+    i32 4765, label %566
+    i32 4760, label %566
+    i32 4772, label %566
+    i32 4761, label %566
+    i32 4773, label %566
+    i32 4752, label %566
+    i32 4753, label %566
+    i32 4814, label %569
+    i32 4815, label %569
+    i32 4816, label %569
+    i32 4817, label %569
+    i32 4874, label %569
+    i32 4873, label %569
+    i32 4823, label %572
+    i32 3346, label %575
+    i32 3352, label %575
+    i32 3358, label %575
+    i32 3364, label %575
+    i32 3370, label %575
+    i32 3376, label %575
+    i32 3382, label %575
+    i32 3388, label %575
+    i32 3394, label %575
+    i32 3400, label %575
+    i32 3418, label %575
+    i32 3424, label %575
+    i32 3406, label %575
+    i32 3412, label %575
+    i32 3442, label %575
+    i32 3448, label %575
+    i32 3430, label %575
+    i32 3436, label %575
+    i32 3347, label %578
+    i32 3353, label %578
+    i32 3359, label %578
+    i32 3365, label %578
+    i32 3371, label %578
+    i32 3377, label %578
+    i32 3383, label %578
+    i32 3389, label %578
+    i32 3395, label %578
+    i32 3401, label %578
+    i32 3419, label %578
+    i32 3425, label %578
+    i32 3407, label %578
+    i32 3413, label %578
+    i32 3443, label %578
+    i32 3449, label %578
+    i32 3431, label %578
+    i32 3437, label %578
+    i32 3348, label %578
+    i32 3354, label %578
+    i32 3360, label %578
+    i32 3366, label %578
+    i32 3372, label %578
+    i32 3378, label %578
+    i32 3384, label %578
+    i32 3390, label %578
+    i32 3396, label %578
+    i32 3402, label %578
+    i32 3420, label %578
+    i32 3426, label %578
+    i32 3408, label %578
+    i32 3414, label %578
+    i32 3444, label %578
+    i32 3450, label %578
+    i32 3432, label %578
+    i32 3438, label %578
+    i32 3349, label %581
+    i32 3350, label %581
+    i32 3351, label %581
+    i32 3355, label %581
+    i32 3356, label %581
+    i32 3357, label %581
+    i32 3361, label %581
+    i32 3362, label %581
+    i32 3363, label %581
+    i32 3367, label %581
+    i32 3368, label %581
+    i32 3369, label %581
+    i32 3373, label %581
+    i32 3374, label %581
+    i32 3375, label %581
+    i32 3379, label %581
+    i32 3380, label %581
+    i32 3381, label %581
+    i32 3385, label %581
+    i32 3386, label %581
+    i32 3387, label %581
+    i32 3391, label %581
+    i32 3392, label %581
+    i32 3393, label %581
+    i32 3399, label %581
+    i32 3405, label %581
+    i32 3423, label %581
+    i32 3429, label %581
+    i32 3411, label %581
+    i32 3417, label %581
+    i32 3447, label %581
+    i32 3453, label %581
+    i32 3435, label %581
+    i32 3441, label %581
+    i32 3397, label %581
+    i32 3403, label %581
+    i32 3421, label %581
+    i32 3427, label %581
+    i32 3409, label %581
+    i32 3415, label %581
+    i32 3445, label %581
+    i32 3451, label %581
+    i32 3433, label %581
+    i32 3439, label %581
+    i32 3398, label %581
+    i32 3404, label %581
+    i32 3422, label %581
+    i32 3428, label %581
+    i32 3410, label %581
+    i32 3416, label %581
+    i32 3446, label %581
+    i32 3452, label %581
+    i32 3434, label %581
+    i32 3440, label %581
+    i32 4006, label %584
+    i32 4012, label %584
+    i32 4202, label %584
+    i32 4208, label %584
+    i32 4214, label %584
+    i32 4220, label %584
+    i32 4226, label %584
+    i32 4232, label %584
+    i32 4238, label %584
+    i32 4244, label %584
+    i32 4250, label %584
+    i32 4256, label %584
+    i32 4262, label %584
+    i32 3454, label %587
+    i32 3460, label %587
+    i32 3466, label %587
+    i32 3472, label %587
+    i32 3478, label %587
+    i32 3622, label %587
+    i32 3628, label %587
+    i32 3634, label %587
+    i32 3640, label %587
+    i32 3484, label %587
+    i32 3490, label %587
+    i32 3496, label %587
+    i32 3502, label %587
+    i32 3508, label %587
+    i32 3514, label %587
+    i32 3520, label %587
+    i32 3526, label %587
+    i32 3532, label %587
+    i32 3646, label %587
+    i32 3652, label %587
+    i32 4398, label %587
+    i32 4394, label %587
+    i32 4406, label %587
+    i32 4402, label %587
+    i32 4007, label %587
+    i32 4013, label %587
+    i32 4203, label %587
+    i32 4209, label %587
+    i32 4215, label %587
+    i32 4221, label %587
+    i32 4227, label %587
+    i32 4233, label %587
+    i32 4239, label %587
+    i32 4245, label %587
+    i32 4251, label %587
+    i32 4257, label %587
+    i32 4263, label %587
+    i32 4008, label %587
+    i32 4014, label %587
+    i32 4204, label %587
+    i32 4210, label %587
+    i32 4216, label %587
+    i32 4222, label %587
+    i32 4228, label %587
+    i32 4234, label %587
+    i32 4240, label %587
+    i32 4246, label %587
+    i32 4252, label %587
+    i32 4258, label %587
+    i32 4264, label %587
+    i32 3455, label %590
+    i32 3461, label %590
+    i32 3467, label %590
+    i32 3473, label %590
+    i32 3479, label %590
+    i32 3623, label %590
+    i32 3629, label %590
+    i32 3635, label %590
+    i32 3641, label %590
+    i32 3485, label %590
+    i32 3491, label %590
+    i32 3497, label %590
+    i32 3503, label %590
+    i32 3509, label %590
+    i32 3515, label %590
+    i32 3521, label %590
+    i32 3527, label %590
+    i32 3533, label %590
+    i32 3647, label %590
+    i32 3653, label %590
+    i32 4399, label %590
+    i32 4395, label %590
+    i32 4407, label %590
+    i32 4403, label %590
+    i32 3694, label %590
+    i32 3700, label %590
+    i32 3706, label %590
+    i32 3712, label %590
+    i32 3718, label %590
+    i32 3724, label %590
+    i32 3730, label %590
+    i32 3736, label %590
+    i32 3742, label %590
+    i32 3748, label %590
+    i32 3754, label %590
+    i32 3760, label %590
+    i32 3766, label %590
+    i32 3772, label %590
+    i32 3778, label %590
+    i32 3784, label %590
+    i32 3886, label %590
+    i32 3892, label %590
+    i32 3898, label %590
+    i32 3904, label %590
+    i32 3910, label %590
+    i32 3916, label %590
+    i32 3922, label %590
+    i32 3928, label %590
+    i32 3695, label %590
+    i32 3701, label %590
+    i32 3707, label %590
+    i32 3713, label %590
+    i32 3719, label %590
+    i32 3725, label %590
+    i32 3731, label %590
+    i32 3737, label %590
+    i32 3743, label %590
+    i32 3749, label %590
+    i32 3755, label %590
+    i32 3761, label %590
+    i32 3767, label %590
+    i32 3773, label %590
+    i32 3779, label %590
+    i32 3785, label %590
+    i32 3887, label %590
+    i32 3893, label %590
+    i32 3899, label %590
+    i32 3905, label %590
+    i32 3911, label %590
+    i32 3917, label %590
+    i32 3923, label %590
+    i32 3929, label %590
+    i32 3456, label %590
+    i32 3462, label %590
+    i32 3468, label %590
+    i32 3474, label %590
+    i32 3480, label %590
+    i32 3624, label %590
+    i32 3630, label %590
+    i32 3636, label %590
+    i32 3642, label %590
+    i32 3486, label %590
+    i32 3492, label %590
+    i32 3498, label %590
+    i32 3504, label %590
+    i32 3510, label %590
+    i32 3516, label %590
+    i32 3522, label %590
+    i32 3528, label %590
+    i32 3534, label %590
+    i32 3648, label %590
+    i32 3654, label %590
+    i32 4400, label %590
+    i32 4396, label %590
+    i32 4408, label %590
+    i32 4404, label %590
+    i32 4009, label %590
+    i32 4015, label %590
+    i32 4205, label %590
+    i32 4211, label %590
+    i32 4217, label %590
+    i32 4223, label %590
+    i32 4229, label %590
+    i32 4235, label %590
+    i32 4241, label %590
+    i32 4247, label %590
+    i32 4253, label %590
+    i32 4259, label %590
+    i32 4265, label %590
+    i32 4010, label %590
+    i32 4016, label %590
+    i32 4206, label %590
+    i32 4212, label %590
+    i32 4218, label %590
+    i32 4224, label %590
+    i32 4230, label %590
+    i32 4236, label %590
+    i32 4242, label %590
+    i32 4248, label %590
+    i32 4254, label %590
+    i32 4260, label %590
+    i32 4266, label %590
+    i32 4011, label %590
+    i32 4017, label %590
+    i32 4207, label %590
+    i32 4213, label %590
+    i32 4219, label %590
+    i32 4225, label %590
+    i32 4231, label %590
+    i32 4237, label %590
+    i32 4243, label %590
+    i32 4249, label %590
+    i32 4255, label %590
+    i32 4261, label %590
+    i32 4267, label %590
+    i32 3696, label %593
+    i32 3702, label %593
+    i32 3708, label %593
+    i32 3714, label %593
+    i32 3720, label %593
+    i32 3726, label %593
+    i32 3732, label %593
+    i32 3738, label %593
+    i32 3744, label %593
+    i32 3750, label %593
+    i32 3756, label %593
+    i32 3762, label %593
+    i32 3768, label %593
+    i32 3774, label %593
+    i32 3780, label %593
+    i32 3786, label %593
+    i32 3888, label %593
+    i32 3894, label %593
+    i32 3900, label %593
+    i32 3906, label %593
+    i32 3912, label %593
+    i32 3918, label %593
+    i32 3924, label %593
+    i32 3930, label %593
+    i32 3457, label %593
+    i32 3463, label %593
+    i32 3469, label %593
+    i32 3475, label %593
+    i32 3481, label %593
+    i32 3625, label %593
+    i32 3631, label %593
+    i32 3637, label %593
+    i32 3643, label %593
+    i32 3487, label %593
+    i32 3493, label %593
+    i32 3499, label %593
+    i32 3505, label %593
+    i32 3511, label %593
+    i32 3517, label %593
+    i32 3523, label %593
+    i32 3529, label %593
+    i32 3535, label %593
+    i32 3649, label %593
+    i32 3655, label %593
+    i32 3697, label %593
+    i32 3703, label %593
+    i32 3709, label %593
+    i32 3715, label %593
+    i32 3721, label %593
+    i32 3727, label %593
+    i32 3733, label %593
+    i32 3739, label %593
+    i32 3745, label %593
+    i32 3751, label %593
+    i32 3757, label %593
+    i32 3763, label %593
+    i32 3769, label %593
+    i32 3775, label %593
+    i32 3781, label %593
+    i32 3787, label %593
+    i32 3889, label %593
+    i32 3895, label %593
+    i32 3901, label %593
+    i32 3907, label %593
+    i32 3913, label %593
+    i32 3919, label %593
+    i32 3925, label %593
+    i32 3931, label %593
+    i32 4401, label %593
+    i32 4397, label %593
+    i32 4409, label %593
+    i32 4405, label %593
+    i32 3458, label %593
+    i32 3464, label %593
+    i32 3470, label %593
+    i32 3476, label %593
+    i32 3482, label %593
+    i32 3626, label %593
+    i32 3632, label %593
+    i32 3638, label %593
+    i32 3644, label %593
+    i32 3488, label %593
+    i32 3494, label %593
+    i32 3500, label %593
+    i32 3506, label %593
+    i32 3512, label %593
+    i32 3518, label %593
+    i32 3524, label %593
+    i32 3530, label %593
+    i32 3536, label %593
+    i32 3650, label %593
+    i32 3656, label %593
+    i32 3698, label %593
+    i32 3704, label %593
+    i32 3710, label %593
+    i32 3716, label %593
+    i32 3722, label %593
+    i32 3728, label %593
+    i32 3734, label %593
+    i32 3740, label %593
+    i32 3746, label %593
+    i32 3752, label %593
+    i32 3758, label %593
+    i32 3764, label %593
+    i32 3770, label %593
+    i32 3776, label %593
+    i32 3782, label %593
+    i32 3788, label %593
+    i32 3890, label %593
+    i32 3896, label %593
+    i32 3902, label %593
+    i32 3908, label %593
+    i32 3914, label %593
+    i32 3920, label %593
+    i32 3926, label %593
+    i32 3932, label %593
+    i32 3459, label %593
+    i32 3465, label %593
+    i32 3471, label %593
+    i32 3477, label %593
+    i32 3483, label %593
+    i32 3627, label %593
+    i32 3633, label %593
+    i32 3639, label %593
+    i32 3645, label %593
+    i32 3489, label %593
+    i32 3495, label %593
+    i32 3501, label %593
+    i32 3507, label %593
+    i32 3513, label %593
+    i32 3519, label %593
+    i32 3525, label %593
+    i32 3531, label %593
+    i32 3537, label %593
+    i32 3651, label %593
+    i32 3657, label %593
+    i32 3699, label %593
+    i32 3705, label %593
+    i32 3711, label %593
+    i32 3717, label %593
+    i32 3723, label %593
+    i32 3729, label %593
+    i32 3735, label %593
+    i32 3741, label %593
+    i32 3747, label %593
+    i32 3753, label %593
+    i32 3759, label %593
+    i32 3765, label %593
+    i32 3771, label %593
+    i32 3777, label %593
+    i32 3783, label %593
+    i32 3789, label %593
+    i32 3891, label %593
+    i32 3897, label %593
+    i32 3903, label %593
+    i32 3909, label %593
+    i32 3915, label %593
+    i32 3921, label %593
+    i32 3927, label %593
+    i32 3933, label %593
+    i32 4853, label %596
+    i32 4854, label %596
   ]
 
 269:                                              ; preds = %268
   %270 = load ptr, ptr %0, align 8, !tbaa !730
   %271 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %270, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br i1 %271, label %725, label %272
+  br i1 %271, label %722, label %272
 
 272:                                              ; preds = %269
   %273 = call noundef zeroext i1 @_ZN5clang9SemaRISCV9CheckLMULEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %3, i32 noundef 2)
-  br label %725
+  br label %722
 
 274:                                              ; preds = %268
   %275 = load ptr, ptr %0, align 8, !tbaa !730
   %276 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %275, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br i1 %276, label %725, label %277
+  br i1 %276, label %722, label %277
 
 277:                                              ; preds = %274
   %278 = call noundef zeroext i1 @_ZN5clang9SemaRISCV9CheckLMULEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %3, i32 noundef 1)
-  br label %725
+  br label %722
 
 279:                                              ; preds = %268
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -2372,7 +2372,7 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit: ; preds = %266, %252, %256
   %320 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %318, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef %319, i1 noundef zeroext true) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %725
+  br label %722
 
 321:                                              ; preds = %268
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -2391,627 +2391,624 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit: ; preds = %266, %252, %256
   %331 = lshr i32 %330, 24
   %332 = zext nneg i32 %331 to i64
   %333 = getelementptr inbounds nuw i8, ptr %3, i64 %332
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
-  %335 = lshr i32 %330, 19
-  %336 = and i32 %335, 1
-  %337 = zext nneg i32 %336 to i64
-  %338 = getelementptr inbounds nuw ptr, ptr %334, i64 %337
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 16
-  %340 = load ptr, ptr %339, align 8, !tbaa !728
-  %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
-  %.sroa.0.0.copyload.i179 = load i64, ptr %341, align 8, !tbaa !725
-  %342 = and i64 %.sroa.0.0.copyload.i179, -16
-  %343 = inttoptr i64 %342 to ptr
-  %344 = getelementptr inbounds nuw i8, ptr %343, i64 8
-  %345 = load i64, ptr %344, align 8, !tbaa !725
-  %346 = and i64 %345, -16
-  %347 = inttoptr i64 %346 to ptr
-  %348 = load ptr, ptr %347, align 16, !tbaa !754
-  call void @_ZNK5clang10ASTContext24getBuiltinVectorTypeInfoEPKNS_11BuiltinTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::ASTContext::BuiltinVectorTypeInfo") align 8 %16, ptr noundef nonnull align 8 dereferenceable(23216) %28, ptr noundef %348) #21
-  %349 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %350 = load i32, ptr %349, align 8, !tbaa !795
-  %.not164 = icmp eq i32 %350, 1
-  br i1 %.not164, label %351, label %360
+  %334 = lshr i32 %330, 19
+  %335 = and i32 %334, 1
+  %336 = zext nneg i32 %335 to i64
+  %337 = getelementptr inbounds nuw ptr, ptr %333, i64 %336
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 24
+  %339 = load ptr, ptr %338, align 8, !tbaa !728
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
+  %.sroa.0.0.copyload.i179 = load i64, ptr %340, align 8, !tbaa !725
+  %341 = and i64 %.sroa.0.0.copyload.i179, -16
+  %342 = inttoptr i64 %341 to ptr
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
+  %344 = load i64, ptr %343, align 8, !tbaa !725
+  %345 = and i64 %344, -16
+  %346 = inttoptr i64 %345 to ptr
+  %347 = load ptr, ptr %346, align 16, !tbaa !754
+  call void @_ZNK5clang10ASTContext24getBuiltinVectorTypeInfoEPKNS_11BuiltinTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::ASTContext::BuiltinVectorTypeInfo") align 8 %16, ptr noundef nonnull align 8 dereferenceable(23216) %28, ptr noundef %347) #21
+  %348 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %349 = load i32, ptr %348, align 8, !tbaa !795
+  %.not164 = icmp eq i32 %349, 1
+  br i1 %.not164, label %350, label %359
 
-351:                                              ; preds = %321
-  %352 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %353 = load i32, ptr %352, align 8, !tbaa !799
-  %354 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %355 = load i32, ptr %354, align 8, !tbaa !799
-  %356 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %357 = load i32, ptr %356, align 8, !tbaa !795
-  %358 = mul i32 %357, %355
-  %359 = udiv i32 %353, %358
-  br label %360
+350:                                              ; preds = %321
+  %351 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %352 = load i32, ptr %351, align 8, !tbaa !799
+  %353 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %354 = load i32, ptr %353, align 8, !tbaa !799
+  %355 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %356 = load i32, ptr %355, align 8, !tbaa !795
+  %357 = mul i32 %356, %354
+  %358 = udiv i32 %352, %357
+  br label %359
 
-360:                                              ; preds = %321, %351
-  %.0160 = phi i32 [ %359, %351 ], [ %350, %321 ]
-  %361 = load ptr, ptr %0, align 8, !tbaa !730
-  %362 = add i32 %.0160, -1
-  %363 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %361, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef %362, i1 noundef zeroext true) #21
+359:                                              ; preds = %321, %350
+  %.0160 = phi i32 [ %358, %350 ], [ %349, %321 ]
+  %360 = load ptr, ptr %0, align 8, !tbaa !730
+  %361 = add i32 %.0160, -1
+  %362 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %360, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef %361, i1 noundef zeroext true) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %725
+  br label %722
 
-364:                                              ; preds = %268, %268, %268, %268
-  %365 = load i32, ptr %3, align 8
-  %366 = lshr i32 %365, 24
-  %367 = zext nneg i32 %366 to i64
-  %368 = getelementptr inbounds nuw i8, ptr %3, i64 %367
-  %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
-  %370 = lshr i32 %365, 19
-  %371 = and i32 %370, 1
-  %372 = zext nneg i32 %371 to i64
-  %373 = getelementptr inbounds nuw ptr, ptr %369, i64 %372
-  %374 = load ptr, ptr %373, align 8, !tbaa !728
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
-  %.sroa.0.0.copyload.i182 = load i64, ptr %375, align 8, !tbaa !725
-  %376 = getelementptr inbounds nuw i8, ptr %373, i64 8
-  %377 = load ptr, ptr %376, align 8, !tbaa !728
-  %378 = getelementptr inbounds nuw i8, ptr %377, i64 8
-  %.sroa.0.0.copyload.i183 = load i64, ptr %378, align 8, !tbaa !725
-  %379 = load ptr, ptr %0, align 8, !tbaa !730
-  %380 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %379, i64 %.sroa.0.0.copyload.i182, i32 noundef 128)
-  br i1 %380, label %725, label %381
+363:                                              ; preds = %268, %268, %268, %268
+  %364 = load i32, ptr %3, align 8
+  %365 = lshr i32 %364, 24
+  %366 = zext nneg i32 %365 to i64
+  %367 = getelementptr inbounds nuw i8, ptr %3, i64 %366
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
+  %369 = lshr i32 %364, 19
+  %370 = and i32 %369, 1
+  %371 = zext nneg i32 %370 to i64
+  %372 = getelementptr inbounds nuw ptr, ptr %368, i64 %371
+  %373 = load ptr, ptr %372, align 8, !tbaa !728
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
+  %.sroa.0.0.copyload.i182 = load i64, ptr %374, align 8, !tbaa !725
+  %375 = getelementptr inbounds nuw i8, ptr %372, i64 8
+  %376 = load ptr, ptr %375, align 8, !tbaa !728
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 8
+  %.sroa.0.0.copyload.i183 = load i64, ptr %377, align 8, !tbaa !725
+  %378 = load ptr, ptr %0, align 8, !tbaa !730
+  %379 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %378, i64 %.sroa.0.0.copyload.i182, i32 noundef 128)
+  br i1 %379, label %722, label %380
 
-381:                                              ; preds = %364
-  %382 = load ptr, ptr %0, align 8, !tbaa !730
-  %383 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %382, i64 %.sroa.0.0.copyload.i183, i32 noundef 128)
-  br i1 %383, label %725, label %384
+380:                                              ; preds = %363
+  %381 = load ptr, ptr %0, align 8, !tbaa !730
+  %382 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %381, i64 %.sroa.0.0.copyload.i183, i32 noundef 128)
+  br i1 %382, label %722, label %383
 
-384:                                              ; preds = %381
-  %385 = load ptr, ptr %0, align 8, !tbaa !730
-  %386 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %385, ptr noundef nonnull %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br label %725
+383:                                              ; preds = %380
+  %384 = load ptr, ptr %0, align 8, !tbaa !730
+  %385 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %384, ptr noundef nonnull %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br label %722
 
-387:                                              ; preds = %268, %268
-  %388 = load i32, ptr %3, align 8
-  %389 = lshr i32 %388, 24
-  %390 = zext nneg i32 %389 to i64
-  %391 = getelementptr inbounds nuw i8, ptr %3, i64 %390
-  %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
-  %393 = lshr i32 %388, 19
-  %394 = and i32 %393, 1
-  %395 = zext nneg i32 %394 to i64
-  %396 = getelementptr inbounds nuw ptr, ptr %392, i64 %395
-  %397 = load ptr, ptr %396, align 8, !tbaa !728
-  %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
-  %.sroa.0.0.copyload.i184 = load i64, ptr %398, align 8, !tbaa !725
-  %399 = load ptr, ptr %0, align 8, !tbaa !730
-  %400 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %399, i64 %.sroa.0.0.copyload.i184, i32 noundef 256)
-  br i1 %400, label %725, label %401
+386:                                              ; preds = %268, %268
+  %387 = load i32, ptr %3, align 8
+  %388 = lshr i32 %387, 24
+  %389 = zext nneg i32 %388 to i64
+  %390 = getelementptr inbounds nuw i8, ptr %3, i64 %389
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 8
+  %392 = lshr i32 %387, 19
+  %393 = and i32 %392, 1
+  %394 = zext nneg i32 %393 to i64
+  %395 = getelementptr inbounds nuw ptr, ptr %391, i64 %394
+  %396 = load ptr, ptr %395, align 8, !tbaa !728
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
+  %.sroa.0.0.copyload.i184 = load i64, ptr %397, align 8, !tbaa !725
+  %398 = load ptr, ptr %0, align 8, !tbaa !730
+  %399 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %398, i64 %.sroa.0.0.copyload.i184, i32 noundef 256)
+  br i1 %399, label %722, label %400
 
-401:                                              ; preds = %387
-  %402 = load ptr, ptr %0, align 8, !tbaa !730
-  %403 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %402, ptr noundef nonnull %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br label %725
+400:                                              ; preds = %386
+  %401 = load ptr, ptr %0, align 8, !tbaa !730
+  %402 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %401, ptr noundef nonnull %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br label %722
 
-404:                                              ; preds = %268, %268
-  %405 = load i32, ptr %3, align 8
-  %406 = lshr i32 %405, 24
-  %407 = zext nneg i32 %406 to i64
-  %408 = getelementptr inbounds nuw i8, ptr %3, i64 %407
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
-  %410 = lshr i32 %405, 19
-  %411 = and i32 %410, 1
-  %412 = zext nneg i32 %411 to i64
-  %413 = getelementptr inbounds nuw ptr, ptr %409, i64 %412
-  %414 = load ptr, ptr %413, align 8, !tbaa !728
-  %415 = getelementptr inbounds nuw i8, ptr %414, i64 8
-  %.sroa.0.0.copyload.i185 = load i64, ptr %415, align 8, !tbaa !725
-  %416 = load ptr, ptr %0, align 8, !tbaa !730
-  %417 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %416, i64 %.sroa.0.0.copyload.i185, i32 noundef 128)
-  br i1 %417, label %725, label %418
+403:                                              ; preds = %268, %268
+  %404 = load i32, ptr %3, align 8
+  %405 = lshr i32 %404, 24
+  %406 = zext nneg i32 %405 to i64
+  %407 = getelementptr inbounds nuw i8, ptr %3, i64 %406
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 8
+  %409 = lshr i32 %404, 19
+  %410 = and i32 %409, 1
+  %411 = zext nneg i32 %410 to i64
+  %412 = getelementptr inbounds nuw ptr, ptr %408, i64 %411
+  %413 = load ptr, ptr %412, align 8, !tbaa !728
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 8
+  %.sroa.0.0.copyload.i185 = load i64, ptr %414, align 8, !tbaa !725
+  %415 = load ptr, ptr %0, align 8, !tbaa !730
+  %416 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %415, i64 %.sroa.0.0.copyload.i185, i32 noundef 128)
+  br i1 %416, label %722, label %417
 
-418:                                              ; preds = %404
-  %419 = load ptr, ptr %0, align 8, !tbaa !730
-  %420 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %419, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br label %725
+417:                                              ; preds = %403
+  %418 = load ptr, ptr %0, align 8, !tbaa !730
+  %419 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %418, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br label %722
 
-421:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
-  %422 = load i32, ptr %3, align 8
-  %423 = lshr i32 %422, 24
-  %424 = zext nneg i32 %423 to i64
-  %425 = getelementptr inbounds nuw i8, ptr %3, i64 %424
-  %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
-  %427 = lshr i32 %422, 19
-  %428 = and i32 %427, 1
-  %429 = zext nneg i32 %428 to i64
-  %430 = getelementptr inbounds nuw ptr, ptr %426, i64 %429
-  %431 = load ptr, ptr %430, align 8, !tbaa !728
-  %432 = getelementptr inbounds nuw i8, ptr %431, i64 8
-  %.sroa.0.0.copyload.i186 = load i64, ptr %432, align 8, !tbaa !725
-  %433 = getelementptr inbounds nuw i8, ptr %430, i64 8
-  %434 = load ptr, ptr %433, align 8, !tbaa !728
-  %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  %.sroa.0.0.copyload.i187 = load i64, ptr %435, align 8, !tbaa !725
-  %436 = load ptr, ptr %0, align 8, !tbaa !730
-  %437 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %436, i64 %.sroa.0.0.copyload.i186, i32 noundef 128)
-  br i1 %437, label %725, label %438
+420:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
+  %421 = load i32, ptr %3, align 8
+  %422 = lshr i32 %421, 24
+  %423 = zext nneg i32 %422 to i64
+  %424 = getelementptr inbounds nuw i8, ptr %3, i64 %423
+  %425 = getelementptr inbounds nuw i8, ptr %424, i64 8
+  %426 = lshr i32 %421, 19
+  %427 = and i32 %426, 1
+  %428 = zext nneg i32 %427 to i64
+  %429 = getelementptr inbounds nuw ptr, ptr %425, i64 %428
+  %430 = load ptr, ptr %429, align 8, !tbaa !728
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
+  %.sroa.0.0.copyload.i186 = load i64, ptr %431, align 8, !tbaa !725
+  %432 = getelementptr inbounds nuw i8, ptr %429, i64 8
+  %433 = load ptr, ptr %432, align 8, !tbaa !728
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
+  %.sroa.0.0.copyload.i187 = load i64, ptr %434, align 8, !tbaa !725
+  %435 = load ptr, ptr %0, align 8, !tbaa !730
+  %436 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %435, i64 %.sroa.0.0.copyload.i186, i32 noundef 128)
+  br i1 %436, label %722, label %437
 
-438:                                              ; preds = %421
-  %439 = load ptr, ptr %0, align 8, !tbaa !730
-  %440 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %439, i64 %.sroa.0.0.copyload.i187, i32 noundef 128)
-  br label %725
+437:                                              ; preds = %420
+  %438 = load ptr, ptr %0, align 8, !tbaa !730
+  %439 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %438, i64 %.sroa.0.0.copyload.i187, i32 noundef 128)
+  br label %722
 
-441:                                              ; preds = %268, %268, %268, %268, %268, %268
-  %442 = load i32, ptr %3, align 8
-  %443 = lshr i32 %442, 24
-  %444 = zext nneg i32 %443 to i64
-  %445 = getelementptr inbounds nuw i8, ptr %3, i64 %444
-  %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
-  %447 = lshr i32 %442, 19
-  %448 = and i32 %447, 1
-  %449 = zext nneg i32 %448 to i64
-  %450 = getelementptr inbounds nuw ptr, ptr %446, i64 %449
-  %451 = load ptr, ptr %450, align 8, !tbaa !728
-  %452 = getelementptr inbounds nuw i8, ptr %451, i64 8
-  %.sroa.0.0.copyload.i188 = load i64, ptr %452, align 8, !tbaa !725
-  %453 = getelementptr inbounds nuw i8, ptr %450, i64 8
-  %454 = load ptr, ptr %453, align 8, !tbaa !728
-  %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
-  %.sroa.0.0.copyload.i189 = load i64, ptr %455, align 8, !tbaa !725
-  %456 = getelementptr inbounds nuw i8, ptr %450, i64 16
-  %457 = load ptr, ptr %456, align 8, !tbaa !728
-  %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
-  %.sroa.0.0.copyload.i190 = load i64, ptr %458, align 8, !tbaa !725
+440:                                              ; preds = %268, %268, %268, %268, %268, %268
+  %441 = load i32, ptr %3, align 8
+  %442 = lshr i32 %441, 24
+  %443 = zext nneg i32 %442 to i64
+  %444 = getelementptr inbounds nuw i8, ptr %3, i64 %443
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 8
+  %446 = lshr i32 %441, 19
+  %447 = and i32 %446, 1
+  %448 = zext nneg i32 %447 to i64
+  %449 = getelementptr inbounds nuw ptr, ptr %445, i64 %448
+  %450 = load ptr, ptr %449, align 8, !tbaa !728
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 8
+  %.sroa.0.0.copyload.i188 = load i64, ptr %451, align 8, !tbaa !725
+  %452 = getelementptr inbounds nuw i8, ptr %449, i64 8
+  %453 = load ptr, ptr %452, align 8, !tbaa !728
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
+  %.sroa.0.0.copyload.i189 = load i64, ptr %454, align 8, !tbaa !725
+  %455 = getelementptr inbounds nuw i8, ptr %449, i64 16
+  %456 = load ptr, ptr %455, align 8, !tbaa !728
+  %457 = getelementptr inbounds nuw i8, ptr %456, i64 8
+  %.sroa.0.0.copyload.i190 = load i64, ptr %457, align 8, !tbaa !725
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %459 = and i64 %.sroa.0.0.copyload.i188, -16
-  %460 = inttoptr i64 %459 to ptr
-  %461 = load ptr, ptr %460, align 16, !tbaa !754
-  %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
-  %.sroa.0.0.copyload.i.i.i.i192 = load i64, ptr %462, align 8, !tbaa !725
-  %463 = and i64 %.sroa.0.0.copyload.i.i.i.i192, -16
-  %464 = inttoptr i64 %463 to ptr
-  %465 = load ptr, ptr %464, align 16, !tbaa !754
-  call void @_ZNK5clang10ASTContext24getBuiltinVectorTypeInfoEPKNS_11BuiltinTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::ASTContext::BuiltinVectorTypeInfo") align 8 %17, ptr noundef nonnull align 8 dereferenceable(23216) %28, ptr noundef %465) #21
+  %458 = and i64 %.sroa.0.0.copyload.i188, -16
+  %459 = inttoptr i64 %458 to ptr
+  %460 = load ptr, ptr %459, align 16, !tbaa !754
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 8
+  %.sroa.0.0.copyload.i.i.i.i192 = load i64, ptr %461, align 8, !tbaa !725
+  %462 = and i64 %.sroa.0.0.copyload.i.i.i.i192, -16
+  %463 = inttoptr i64 %462 to ptr
+  %464 = load ptr, ptr %463, align 16, !tbaa !754
+  call void @_ZNK5clang10ASTContext24getBuiltinVectorTypeInfoEPKNS_11BuiltinTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::ASTContext::BuiltinVectorTypeInfo") align 8 %17, ptr noundef nonnull align 8 dereferenceable(23216) %28, ptr noundef %464) #21
   %.sroa.026.0.copyload = load i64, ptr %17, align 8, !tbaa !725
-  %466 = and i64 %.sroa.026.0.copyload, -16
-  %467 = inttoptr i64 %466 to ptr
-  %468 = load ptr, ptr %467, align 16, !tbaa !754
-  %469 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %28, ptr noundef %468) #21
-  %470 = extractvalue { i64, i64 } %469, 0
-  %471 = icmp eq i64 %470, 64
-  br i1 %471, label %472, label %486
+  %465 = and i64 %.sroa.026.0.copyload, -16
+  %466 = inttoptr i64 %465 to ptr
+  %467 = load ptr, ptr %466, align 16, !tbaa !754
+  %468 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %28, ptr noundef %467) #21
+  %469 = extractvalue { i64, i64 } %468, 0
+  %470 = icmp eq i64 %469, 64
+  br i1 %470, label %471, label %485
 
-472:                                              ; preds = %441
-  %473 = load ptr, ptr %1, align 8, !tbaa !6
-  %474 = getelementptr inbounds nuw i8, ptr %473, i64 584
-  %475 = load ptr, ptr %474, align 8
-  %476 = call noundef zeroext i1 %475(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr nonnull @.str.1, i64 6) #21
-  br i1 %476, label %486, label %477
+471:                                              ; preds = %440
+  %472 = load ptr, ptr %1, align 8, !tbaa !6
+  %473 = getelementptr inbounds nuw i8, ptr %472, i64 584
+  %474 = load ptr, ptr %473, align 8
+  %475 = call noundef zeroext i1 %474(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr nonnull @.str.1, i64 6) #21
+  br i1 %475, label %485, label %476
 
-477:                                              ; preds = %472
+476:                                              ; preds = %471
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %478 = call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #22
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %478, i32 noundef 4656, i1 noundef zeroext false) #21
+  %477 = call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #22
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %477, i32 noundef 4656, i1 noundef zeroext false) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 1, ptr %19, align 1, !tbaa !800
-  %479 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %18, ptr noundef nonnull align 1 dereferenceable(1) %19)
+  %478 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %18, ptr noundef nonnull align 1 dereferenceable(1) %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %480 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
-  store i64 %480, ptr %20, align 8
-  %481 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %479, ptr noundef nonnull align 4 dereferenceable(8) %20)
-  %482 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsIA7_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %481, ptr noundef nonnull align 1 dereferenceable(7) @.str.1)
-  %483 = getelementptr inbounds nuw i8, ptr %482, i64 120
-  %484 = load i8, ptr %483, align 8, !tbaa !732, !range !734, !noundef !735
-  %485 = trunc nuw i8 %484 to i1
+  %479 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
+  store i64 %479, ptr %20, align 8
+  %480 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %478, ptr noundef nonnull align 4 dereferenceable(8) %20)
+  %481 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsIA7_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %480, ptr noundef nonnull align 1 dereferenceable(7) @.str.1)
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 120
+  %483 = load i8, ptr %482, align 8, !tbaa !732, !range !734, !noundef !735
+  %484 = trunc nuw i8 %483 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %18) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %496
+  br label %495
 
-486:                                              ; preds = %472, %441
-  %487 = load ptr, ptr %0, align 8, !tbaa !730
-  %.tr = trunc i64 %470 to i32
-  %488 = shl i32 %.tr, 2
-  %489 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %487, i64 %.sroa.0.0.copyload.i188, i32 noundef %488)
-  br i1 %489, label %496, label %490
+485:                                              ; preds = %471, %440
+  %486 = load ptr, ptr %0, align 8, !tbaa !730
+  %.tr = trunc i64 %469 to i32
+  %487 = shl i32 %.tr, 2
+  %488 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %486, i64 %.sroa.0.0.copyload.i188, i32 noundef %487)
+  br i1 %488, label %495, label %489
 
-490:                                              ; preds = %486
-  %491 = load ptr, ptr %0, align 8, !tbaa !730
-  %492 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %491, i64 %.sroa.0.0.copyload.i189, i32 noundef %488)
-  br i1 %492, label %496, label %493
+489:                                              ; preds = %485
+  %490 = load ptr, ptr %0, align 8, !tbaa !730
+  %491 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %490, i64 %.sroa.0.0.copyload.i189, i32 noundef %487)
+  br i1 %491, label %495, label %492
 
-493:                                              ; preds = %490
-  %494 = load ptr, ptr %0, align 8, !tbaa !730
-  %495 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %494, i64 %.sroa.0.0.copyload.i190, i32 noundef %488)
-  br label %496
+492:                                              ; preds = %489
+  %493 = load ptr, ptr %0, align 8, !tbaa !730
+  %494 = call fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULERKNS_10TargetInfoEPNS_8CallExprERNS_4SemaENS_8QualTypeEi(ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(17504) %493, i64 %.sroa.0.0.copyload.i190, i32 noundef %487)
+  br label %495
 
-496:                                              ; preds = %486, %490, %493, %477
-  %.2 = phi i1 [ %485, %477 ], [ true, %490 ], [ true, %486 ], [ %495, %493 ]
+495:                                              ; preds = %485, %489, %492, %476
+  %.2 = phi i1 [ %484, %476 ], [ true, %489 ], [ true, %485 ], [ %494, %492 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %725
+  br label %722
 
-497:                                              ; preds = %268
-  %498 = load ptr, ptr %0, align 8, !tbaa !730
-  %499 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %498, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br i1 %499, label %725, label %500
+496:                                              ; preds = %268
+  %497 = load ptr, ptr %0, align 8, !tbaa !730
+  %498 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %497, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br i1 %498, label %722, label %499
 
-500:                                              ; preds = %497
-  %501 = load ptr, ptr %0, align 8, !tbaa !730
-  %502 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %501, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br i1 %502, label %725, label %503
+499:                                              ; preds = %496
+  %500 = load ptr, ptr %0, align 8, !tbaa !730
+  %501 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %500, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br i1 %501, label %722, label %502
 
-503:                                              ; preds = %500
-  %504 = load ptr, ptr %0, align 8, !tbaa !730
-  %505 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %504, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br i1 %505, label %725, label %506
+502:                                              ; preds = %499
+  %503 = load ptr, ptr %0, align 8, !tbaa !730
+  %504 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %503, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br i1 %504, label %722, label %505
 
-506:                                              ; preds = %503
-  %507 = load ptr, ptr %0, align 8, !tbaa !730
-  %508 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %507, ptr noundef %3, i32 noundef 3, i32 noundef -16, i32 noundef 15, i1 noundef zeroext true) #21
-  br i1 %508, label %725, label %509
+505:                                              ; preds = %502
+  %506 = load ptr, ptr %0, align 8, !tbaa !730
+  %507 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %506, ptr noundef %3, i32 noundef 3, i32 noundef -16, i32 noundef 15, i1 noundef zeroext true) #21
+  br i1 %507, label %722, label %508
 
-509:                                              ; preds = %506
-  %510 = call noundef zeroext i1 @_ZN5clang9SemaRISCV9CheckLMULEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %3, i32 noundef 5)
-  br label %725
+508:                                              ; preds = %505
+  %509 = call noundef zeroext i1 @_ZN5clang9SemaRISCV9CheckLMULEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %3, i32 noundef 5)
+  br label %722
 
-511:                                              ; preds = %268
-  %512 = load ptr, ptr %0, align 8, !tbaa !730
-  %513 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %512, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br i1 %513, label %725, label %514
+510:                                              ; preds = %268
+  %511 = load ptr, ptr %0, align 8, !tbaa !730
+  %512 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %511, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br i1 %512, label %722, label %513
 
-514:                                              ; preds = %511
-  %515 = load ptr, ptr %0, align 8, !tbaa !730
-  %516 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %515, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br i1 %516, label %725, label %517
+513:                                              ; preds = %510
+  %514 = load ptr, ptr %0, align 8, !tbaa !730
+  %515 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %514, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br i1 %515, label %722, label %516
 
-517:                                              ; preds = %514
-  %518 = load ptr, ptr %0, align 8, !tbaa !730
-  %519 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %518, ptr noundef %3, i32 noundef 3, i32 noundef -16, i32 noundef 15, i1 noundef zeroext true) #21
-  br label %725
+516:                                              ; preds = %513
+  %517 = load ptr, ptr %0, align 8, !tbaa !730
+  %518 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %517, ptr noundef %3, i32 noundef 3, i32 noundef -16, i32 noundef 15, i1 noundef zeroext true) #21
+  br label %722
 
-520:                                              ; preds = %268, %268
-  %521 = load ptr, ptr %0, align 8, !tbaa !730
-  %522 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %521, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br i1 %522, label %725, label %523
+519:                                              ; preds = %268, %268
+  %520 = load ptr, ptr %0, align 8, !tbaa !730
+  %521 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %520, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br i1 %521, label %722, label %522
 
-523:                                              ; preds = %520
-  %524 = load ptr, ptr %0, align 8, !tbaa !730
-  %525 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %524, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br i1 %525, label %725, label %526
+522:                                              ; preds = %519
+  %523 = load ptr, ptr %0, align 8, !tbaa !730
+  %524 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %523, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br i1 %524, label %722, label %525
 
-526:                                              ; preds = %523
-  %527 = load ptr, ptr %0, align 8, !tbaa !730
-  %528 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %527, ptr noundef %3, i32 noundef 2, i32 noundef -16, i32 noundef 15, i1 noundef zeroext true) #21
-  br label %725
+525:                                              ; preds = %522
+  %526 = load ptr, ptr %0, align 8, !tbaa !730
+  %527 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %526, ptr noundef %3, i32 noundef 2, i32 noundef -16, i32 noundef 15, i1 noundef zeroext true) #21
+  br label %722
 
-529:                                              ; preds = %268, %268
-  %530 = load ptr, ptr %0, align 8, !tbaa !730
-  %531 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %530, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br i1 %531, label %725, label %532
+528:                                              ; preds = %268, %268
+  %529 = load ptr, ptr %0, align 8, !tbaa !730
+  %530 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %529, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br i1 %530, label %722, label %531
 
-532:                                              ; preds = %529
-  %533 = load ptr, ptr %0, align 8, !tbaa !730
-  %534 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %533, ptr noundef %3, i32 noundef 2, i32 noundef -16, i32 noundef 15, i1 noundef zeroext true) #21
-  br label %725
+531:                                              ; preds = %528
+  %532 = load ptr, ptr %0, align 8, !tbaa !730
+  %533 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %532, ptr noundef %3, i32 noundef 2, i32 noundef -16, i32 noundef 15, i1 noundef zeroext true) #21
+  br label %722
 
-535:                                              ; preds = %268, %268, %268, %268, %268, %268
-  %536 = load ptr, ptr %0, align 8, !tbaa !730
-  %537 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %536, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br i1 %537, label %725, label %538
+534:                                              ; preds = %268, %268, %268, %268, %268, %268
+  %535 = load ptr, ptr %0, align 8, !tbaa !730
+  %536 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %535, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br i1 %536, label %722, label %537
 
-538:                                              ; preds = %535
-  %539 = load ptr, ptr %0, align 8, !tbaa !730
-  %540 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %539, ptr noundef %3, i32 noundef 3, i32 noundef -16, i32 noundef 15, i1 noundef zeroext true) #21
-  br label %725
+537:                                              ; preds = %534
+  %538 = load ptr, ptr %0, align 8, !tbaa !730
+  %539 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %538, ptr noundef %3, i32 noundef 3, i32 noundef -16, i32 noundef 15, i1 noundef zeroext true) #21
+  br label %722
 
-541:                                              ; preds = %268
-  %542 = load ptr, ptr %0, align 8, !tbaa !730
-  %543 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %542, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br i1 %543, label %725, label %544
+540:                                              ; preds = %268
+  %541 = load ptr, ptr %0, align 8, !tbaa !730
+  %542 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %541, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br i1 %542, label %722, label %543
 
-544:                                              ; preds = %541
-  %545 = load ptr, ptr %0, align 8, !tbaa !730
-  %546 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %545, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br i1 %546, label %725, label %547
+543:                                              ; preds = %540
+  %544 = load ptr, ptr %0, align 8, !tbaa !730
+  %545 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %544, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br i1 %545, label %722, label %546
 
-547:                                              ; preds = %544
-  %548 = load ptr, ptr %0, align 8, !tbaa !730
-  %549 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %548, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br i1 %549, label %725, label %550
+546:                                              ; preds = %543
+  %547 = load ptr, ptr %0, align 8, !tbaa !730
+  %548 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %547, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br i1 %548, label %722, label %549
 
-550:                                              ; preds = %547
-  %551 = call noundef zeroext i1 @_ZN5clang9SemaRISCV9CheckLMULEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %3, i32 noundef 5)
-  br label %725
+549:                                              ; preds = %546
+  %550 = call noundef zeroext i1 @_ZN5clang9SemaRISCV9CheckLMULEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %3, i32 noundef 5)
+  br label %722
 
-552:                                              ; preds = %268, %268, %268, %268
-  %553 = load ptr, ptr %0, align 8, !tbaa !730
-  %554 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %553, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br i1 %554, label %725, label %555
+551:                                              ; preds = %268, %268, %268, %268
+  %552 = load ptr, ptr %0, align 8, !tbaa !730
+  %553 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %552, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br i1 %553, label %722, label %554
 
-555:                                              ; preds = %552
-  %556 = load ptr, ptr %0, align 8, !tbaa !730
-  %557 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %556, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br label %725
+554:                                              ; preds = %551
+  %555 = load ptr, ptr %0, align 8, !tbaa !730
+  %556 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %555, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br label %722
 
-558:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
-  %559 = load ptr, ptr %0, align 8, !tbaa !730
-  %560 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %559, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br label %725
+557:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
+  %558 = load ptr, ptr %0, align 8, !tbaa !730
+  %559 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %558, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br label %722
 
-561:                                              ; preds = %268
-  %562 = load ptr, ptr %0, align 8, !tbaa !730
-  %563 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %562, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #21
-  br i1 %563, label %725, label %564
+560:                                              ; preds = %268
+  %561 = load ptr, ptr %0, align 8, !tbaa !730
+  %562 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %561, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #21
+  br i1 %562, label %722, label %563
 
-564:                                              ; preds = %561
-  %565 = load ptr, ptr %0, align 8, !tbaa !730
-  %566 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %565, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
-  br label %725
+563:                                              ; preds = %560
+  %564 = load ptr, ptr %0, align 8, !tbaa !730
+  %565 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %564, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #21
+  br label %722
 
-567:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268
-  %568 = load ptr, ptr %0, align 8, !tbaa !730
-  %569 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %568, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #21
-  br label %725
+566:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268
+  %567 = load ptr, ptr %0, align 8, !tbaa !730
+  %568 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %567, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #21
+  br label %722
 
-570:                                              ; preds = %268, %268, %268, %268, %268, %268
-  %571 = load ptr, ptr %0, align 8, !tbaa !730
-  %572 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %571, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br label %725
+569:                                              ; preds = %268, %268, %268, %268, %268, %268
+  %570 = load ptr, ptr %0, align 8, !tbaa !730
+  %571 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %570, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br label %722
 
-573:                                              ; preds = %268
-  %574 = load ptr, ptr %0, align 8, !tbaa !730
-  %575 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %574, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 10, i1 noundef zeroext true) #21
-  br label %725
+572:                                              ; preds = %268
+  %573 = load ptr, ptr %0, align 8, !tbaa !730
+  %574 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %573, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 10, i1 noundef zeroext true) #21
+  br label %722
 
-576:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
-  %577 = load ptr, ptr %0, align 8, !tbaa !730
-  %578 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %577, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br label %725
+575:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
+  %576 = load ptr, ptr %0, align 8, !tbaa !730
+  %577 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %576, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br label %722
 
-579:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
-  %580 = load ptr, ptr %0, align 8, !tbaa !730
-  %581 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %580, ptr noundef %3, i32 noundef 3, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br label %725
+578:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
+  %579 = load ptr, ptr %0, align 8, !tbaa !730
+  %580 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %579, ptr noundef %3, i32 noundef 3, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br label %722
 
-582:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
-  %583 = load ptr, ptr %0, align 8, !tbaa !730
-  %584 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %583, ptr noundef %3, i32 noundef 4, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
-  br label %725
+581:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
+  %582 = load ptr, ptr %0, align 8, !tbaa !730
+  %583 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %582, ptr noundef %3, i32 noundef 4, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #21
+  br label %722
 
-585:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
-  %586 = load ptr, ptr %0, align 8, !tbaa !730
-  %587 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %586, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 4, i1 noundef zeroext true) #21
-  br label %725
+584:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
+  %585 = load ptr, ptr %0, align 8, !tbaa !730
+  %586 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %585, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 4, i1 noundef zeroext true) #21
+  br label %722
 
-588:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
-  %589 = load ptr, ptr %0, align 8, !tbaa !730
-  %590 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %589, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 4, i1 noundef zeroext true) #21
-  br label %725
+587:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
+  %588 = load ptr, ptr %0, align 8, !tbaa !730
+  %589 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %588, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 4, i1 noundef zeroext true) #21
+  br label %722
 
-591:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
-  %592 = load ptr, ptr %0, align 8, !tbaa !730
-  %593 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %592, ptr noundef %3, i32 noundef 3, i32 noundef 0, i32 noundef 4, i1 noundef zeroext true) #21
-  br label %725
+590:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
+  %591 = load ptr, ptr %0, align 8, !tbaa !730
+  %592 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %591, ptr noundef %3, i32 noundef 3, i32 noundef 0, i32 noundef 4, i1 noundef zeroext true) #21
+  br label %722
 
-594:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
-  %595 = load ptr, ptr %0, align 8, !tbaa !730
-  %596 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %595, ptr noundef %3, i32 noundef 4, i32 noundef 0, i32 noundef 4, i1 noundef zeroext true) #21
-  br label %725
+593:                                              ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
+  %594 = load ptr, ptr %0, align 8, !tbaa !730
+  %595 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %594, ptr noundef %3, i32 noundef 4, i32 noundef 0, i32 noundef 4, i1 noundef zeroext true) #21
+  br label %722
 
-597:                                              ; preds = %268, %268
-  %598 = load i32, ptr %3, align 8
-  %599 = lshr i32 %598, 24
-  %600 = zext nneg i32 %599 to i64
-  %601 = getelementptr inbounds nuw i8, ptr %3, i64 %600
-  %602 = load ptr, ptr %601, align 8, !tbaa !801
-  %603 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %602) #22
-  %604 = icmp eq i32 %2, 4854
-  %605 = select i1 %604, i32 3, i32 2
-  %606 = load ptr, ptr %0, align 8, !tbaa !730
-  %607 = add nsw i32 %605, -1
-  %608 = call noundef zeroext i1 @_ZN5clang4Sema20checkArgCountAtLeastEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %606, ptr noundef nonnull %3, i32 noundef %607) #21
-  br i1 %608, label %725, label %609
+596:                                              ; preds = %268, %268
+  %597 = load i32, ptr %3, align 8
+  %598 = lshr i32 %597, 24
+  %599 = zext nneg i32 %598 to i64
+  %600 = getelementptr inbounds nuw i8, ptr %3, i64 %599
+  %601 = load ptr, ptr %600, align 8, !tbaa !801
+  %602 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %601) #22
+  %603 = icmp eq i32 %2, 4854
+  %604 = select i1 %603, i32 3, i32 2
+  %605 = load ptr, ptr %0, align 8, !tbaa !730
+  %606 = add nsw i32 %604, -1
+  %607 = call noundef zeroext i1 @_ZN5clang4Sema20checkArgCountAtLeastEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %605, ptr noundef nonnull %3, i32 noundef %606) #21
+  br i1 %607, label %722, label %608
 
-609:                                              ; preds = %597
-  %610 = load ptr, ptr %0, align 8, !tbaa !730
-  %611 = call noundef zeroext i1 @_ZN5clang4Sema19checkArgCountAtMostEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %610, ptr noundef nonnull %3, i32 noundef %605) #21
-  br i1 %611, label %725, label %612
+608:                                              ; preds = %596
+  %609 = load ptr, ptr %0, align 8, !tbaa !730
+  %610 = call noundef zeroext i1 @_ZN5clang4Sema19checkArgCountAtMostEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %609, ptr noundef nonnull %3, i32 noundef %604) #21
+  br i1 %610, label %722, label %611
 
-612:                                              ; preds = %609
-  %613 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %614 = load i32, ptr %613, align 8, !tbaa !803
-  %615 = icmp eq i32 %614, %605
-  br i1 %615, label %616, label %619
+611:                                              ; preds = %608
+  %612 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %613 = load i32, ptr %612, align 8, !tbaa !803
+  %614 = icmp eq i32 %613, %604
+  br i1 %614, label %615, label %618
 
-616:                                              ; preds = %612
-  %617 = load ptr, ptr %0, align 8, !tbaa !730
-  %618 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %617, ptr noundef nonnull %3, i32 noundef %607, i32 noundef 2, i32 noundef 5, i1 noundef zeroext true) #21
-  br i1 %618, label %725, label %619
+615:                                              ; preds = %611
+  %616 = load ptr, ptr %0, align 8, !tbaa !730
+  %617 = call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %616, ptr noundef nonnull %3, i32 noundef %606, i32 noundef 2, i32 noundef 5, i1 noundef zeroext true) #21
+  br i1 %617, label %722, label %618
 
-619:                                              ; preds = %616, %612
-  %620 = load i32, ptr %3, align 8
-  %621 = lshr i32 %620, 24
-  %622 = zext nneg i32 %621 to i64
-  %623 = getelementptr inbounds nuw i8, ptr %3, i64 %622
-  %624 = getelementptr inbounds nuw i8, ptr %623, i64 8
-  %625 = lshr i32 %620, 19
-  %626 = and i32 %625, 1
-  %627 = zext nneg i32 %626 to i64
-  %628 = getelementptr inbounds nuw ptr, ptr %624, i64 %627
-  %629 = load ptr, ptr %628, align 8, !tbaa !728
-  %630 = load ptr, ptr %0, align 8, !tbaa !730
-  %631 = call i64 @_ZN5clang4Sema36DefaultFunctionArrayLvalueConversionEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(17504) %630, ptr noundef %629, i1 noundef zeroext true) #21
-  %632 = icmp eq i64 %631, 1
-  br i1 %632, label %725, label %633
+618:                                              ; preds = %615, %611
+  %619 = load i32, ptr %3, align 8
+  %620 = lshr i32 %619, 24
+  %621 = zext nneg i32 %620 to i64
+  %622 = getelementptr inbounds nuw i8, ptr %3, i64 %621
+  %623 = getelementptr inbounds nuw i8, ptr %622, i64 8
+  %624 = lshr i32 %619, 19
+  %625 = and i32 %624, 1
+  %626 = zext nneg i32 %625 to i64
+  %627 = getelementptr inbounds nuw ptr, ptr %623, i64 %626
+  %628 = load ptr, ptr %627, align 8, !tbaa !728
+  %629 = load ptr, ptr %0, align 8, !tbaa !730
+  %630 = call i64 @_ZN5clang4Sema36DefaultFunctionArrayLvalueConversionEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(17504) %629, ptr noundef %628, i1 noundef zeroext true) #21
+  %631 = icmp eq i64 %630, 1
+  br i1 %631, label %722, label %632
 
-633:                                              ; preds = %619
-  %634 = and i64 %631, -2
-  %635 = inttoptr i64 %634 to ptr
-  %636 = getelementptr inbounds nuw i8, ptr %635, i64 8
-  %.sroa.0.0.copyload.i193 = load i64, ptr %636, align 8, !tbaa !725
-  %637 = and i64 %.sroa.0.0.copyload.i193, -16
-  %638 = inttoptr i64 %637 to ptr
-  %639 = load ptr, ptr %638, align 16, !tbaa !754
-  %640 = call noundef ptr @_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %639)
-  %.not = icmp eq ptr %640, null
-  br i1 %.not, label %641, label %646
+632:                                              ; preds = %618
+  %633 = and i64 %630, -2
+  %634 = inttoptr i64 %633 to ptr
+  %635 = getelementptr inbounds nuw i8, ptr %634, i64 8
+  %.sroa.0.0.copyload.i193 = load i64, ptr %635, align 8, !tbaa !725
+  %636 = and i64 %.sroa.0.0.copyload.i193, -16
+  %637 = inttoptr i64 %636 to ptr
+  %638 = load ptr, ptr %637, align 16, !tbaa !754
+  %639 = call noundef ptr @_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %638)
+  %.not = icmp eq ptr %639, null
+  br i1 %.not, label %640, label %645
 
-641:                                              ; preds = %633
+640:                                              ; preds = %632
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %642 = call i32 @_ZNK5clang11DeclRefExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(32) %603) #22
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %642, i32 noundef 4027, i1 noundef zeroext false) #21
+  %641 = call i32 @_ZNK5clang11DeclRefExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(32) %602) #22
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %641, i32 noundef 4027, i1 noundef zeroext false) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %.sroa.0.0.copyload.i195 = load i64, ptr %636, align 8, !tbaa !725
+  %.sroa.0.0.copyload.i195 = load i64, ptr %635, align 8, !tbaa !725
   store i64 %.sroa.0.0.copyload.i195, ptr %22, align 8
-  %643 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %642 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %644 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %635) #22
-  store i64 %644, ptr %23, align 8
-  %645 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %643, ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %643 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %634) #22
+  store i64 %643, ptr %23, align 8
+  %644 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %642, ptr noundef nonnull align 4 dereferenceable(8) %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %21) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %725
+  br label %722
 
-646:                                              ; preds = %633
-  %647 = getelementptr inbounds nuw i8, ptr %640, i64 32
-  %.sroa.0.0.copyload.i196 = load i64, ptr %647, align 16, !tbaa !725
-  %648 = and i64 %.sroa.0.0.copyload.i196, -16
-  %649 = inttoptr i64 %648 to ptr
-  %650 = load ptr, ptr %649, align 16, !tbaa !754
-  %651 = getelementptr inbounds nuw i8, ptr %650, i64 8
-  %.sroa.0.0.copyload.i.i198 = load i64, ptr %651, align 8, !tbaa !725
-  %652 = and i64 %.sroa.0.0.copyload.i.i198, 15
-  %.not.i199 = icmp eq i64 %652, 0
-  br i1 %.not.i199, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, label %653
+645:                                              ; preds = %632
+  %646 = getelementptr inbounds nuw i8, ptr %639, i64 32
+  %.sroa.0.0.copyload.i196 = load i64, ptr %646, align 16, !tbaa !725
+  %647 = and i64 %.sroa.0.0.copyload.i196, -16
+  %648 = inttoptr i64 %647 to ptr
+  %649 = load ptr, ptr %648, align 16, !tbaa !754
+  %650 = getelementptr inbounds nuw i8, ptr %649, i64 8
+  %.sroa.0.0.copyload.i.i198 = load i64, ptr %650, align 8, !tbaa !725
+  %651 = and i64 %.sroa.0.0.copyload.i.i198, 15
+  %.not.i199 = icmp eq i64 %651, 0
+  br i1 %.not.i199, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, label %652
 
-653:                                              ; preds = %646
-  %654 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i196) #21
-  %655 = extractvalue { ptr, i64 } %654, 0
+652:                                              ; preds = %645
+  %653 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i196) #21
+  %654 = extractvalue { ptr, i64 } %653, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %646, %653
-  %.sroa.03.0.in.in.i = phi ptr [ %655, %653 ], [ %650, %646 ]
+_ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %645, %652
+  %.sroa.03.0.in.in.i = phi ptr [ %654, %652 ], [ %649, %645 ]
   %.sroa.03.0.in.i = ptrtoint ptr %.sroa.03.0.in.in.i to i64
   %.sroa.03.0.i = and i64 %.sroa.03.0.in.i, -16
-  %656 = inttoptr i64 %.sroa.03.0.i to ptr
-  %657 = load ptr, ptr %656, align 16, !tbaa !754
-  %658 = call noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %657)
-  br i1 %658, label %685, label %659
+  %655 = inttoptr i64 %.sroa.03.0.i to ptr
+  %656 = load ptr, ptr %655, align 16, !tbaa !754
+  %657 = call noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %656)
+  br i1 %657, label %684, label %658
 
-659:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
-  %660 = load ptr, ptr %656, align 16, !tbaa !754
-  %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %661, align 8, !tbaa !725
-  %662 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
-  %663 = inttoptr i64 %662 to ptr
-  %664 = load ptr, ptr %663, align 16, !tbaa !754
-  %665 = getelementptr inbounds nuw i8, ptr %664, i64 16
-  %666 = load i8, ptr %665, align 16
-  switch i8 %666, label %667 [
-    i8 41, label %685
-    i8 33, label %685
-    i8 11, label %685
+658:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
+  %659 = load ptr, ptr %655, align 16, !tbaa !754
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %660, align 8, !tbaa !725
+  %661 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
+  %662 = inttoptr i64 %661 to ptr
+  %663 = load ptr, ptr %662, align 16, !tbaa !754
+  %664 = getelementptr inbounds nuw i8, ptr %663, i64 16
+  %665 = load i8, ptr %664, align 16
+  switch i8 %665, label %666 [
+    i8 41, label %684
+    i8 33, label %684
+    i8 11, label %684
   ]
 
-667:                                              ; preds = %659
-  %668 = call noundef zeroext i1 @_ZNK5clang4Type14isFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %660) #21
-  br i1 %668, label %685, label %669
+666:                                              ; preds = %658
+  %667 = call noundef zeroext i1 @_ZNK5clang4Type14isFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %659) #21
+  br i1 %667, label %684, label %668
 
-669:                                              ; preds = %667
-  %670 = load ptr, ptr %656, align 16, !tbaa !754
-  %671 = getelementptr inbounds nuw i8, ptr %670, i64 8
-  %.sroa.0.0.copyload.i.i.i.i206 = load i64, ptr %671, align 8, !tbaa !725
-  %672 = and i64 %.sroa.0.0.copyload.i.i.i.i206, -16
-  %673 = inttoptr i64 %672 to ptr
-  %674 = load ptr, ptr %673, align 16, !tbaa !754
-  %675 = getelementptr inbounds nuw i8, ptr %674, i64 16
-  %676 = load i8, ptr %675, align 16
-  %677 = and i8 %676, -2
-  %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %677, 56
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %685, label %678
+668:                                              ; preds = %666
+  %669 = load ptr, ptr %655, align 16, !tbaa !754
+  %670 = getelementptr inbounds nuw i8, ptr %669, i64 8
+  %.sroa.0.0.copyload.i.i.i.i206 = load i64, ptr %670, align 8, !tbaa !725
+  %671 = and i64 %.sroa.0.0.copyload.i.i.i.i206, -16
+  %672 = inttoptr i64 %671 to ptr
+  %673 = load ptr, ptr %672, align 16, !tbaa !754
+  %674 = getelementptr inbounds nuw i8, ptr %673, i64 16
+  %675 = load i8, ptr %674, align 16
+  %676 = and i8 %675, -2
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %676, 56
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %684, label %677
 
-678:                                              ; preds = %669
-  %679 = call noundef zeroext i1 @_ZNK5clang4Type24isRVVSizelessBuiltinTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %670) #21
-  br i1 %679, label %685, label %680
+677:                                              ; preds = %668
+  %678 = call noundef zeroext i1 @_ZNK5clang4Type24isRVVSizelessBuiltinTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %669) #21
+  br i1 %678, label %684, label %679
 
-680:                                              ; preds = %678
+679:                                              ; preds = %677
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %681 = call i32 @_ZNK5clang11DeclRefExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(32) %603) #22
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %681, i32 noundef 4028, i1 noundef zeroext false) #21
+  %680 = call i32 @_ZNK5clang11DeclRefExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(32) %602) #22
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %680, i32 noundef 4028, i1 noundef zeroext false) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %.sroa.0.0.copyload.i208 = load i64, ptr %636, align 8, !tbaa !725
+  %.sroa.0.0.copyload.i208 = load i64, ptr %635, align 8, !tbaa !725
   store i64 %.sroa.0.0.copyload.i208, ptr %25, align 8
-  %682 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %24, ptr noundef nonnull align 8 dereferenceable(8) %25)
+  %681 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %24, ptr noundef nonnull align 8 dereferenceable(8) %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %683 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %635) #22
-  store i64 %683, ptr %26, align 8
-  %684 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %682, ptr noundef nonnull align 4 dereferenceable(8) %26)
+  %682 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %634) #22
+  store i64 %682, ptr %26, align 8
+  %683 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %681, ptr noundef nonnull align 4 dereferenceable(8) %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %24) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %725
+  br label %722
 
-685:                                              ; preds = %659, %659, %659, %678, %669, %667, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
-  br i1 %604, label %688, label %686
+684:                                              ; preds = %658, %658, %658, %677, %668, %666, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
+  br i1 %603, label %687, label %685
 
-686:                                              ; preds = %685
-  %687 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.sroa.03.0.i, ptr %687, align 8, !tbaa !725
-  br label %725
+685:                                              ; preds = %684
+  %686 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %.sroa.03.0.i, ptr %686, align 8, !tbaa !725
+  br label %722
 
-688:                                              ; preds = %685
-  %689 = load i32, ptr %3, align 8
-  %690 = lshr i32 %689, 24
-  %691 = zext nneg i32 %690 to i64
-  %692 = getelementptr inbounds nuw i8, ptr %3, i64 %691
-  %693 = getelementptr inbounds nuw i8, ptr %692, i64 8
-  %694 = lshr i32 %689, 19
-  %695 = and i32 %694, 1
-  %696 = zext nneg i32 %695 to i64
-  %697 = getelementptr inbounds nuw ptr, ptr %693, i64 %696
-  %698 = getelementptr inbounds nuw i8, ptr %697, i64 8
-  %699 = load ptr, ptr %698, align 8, !tbaa !728
-  %700 = ptrtoint ptr %699 to i64
+687:                                              ; preds = %684
+  %688 = load i32, ptr %3, align 8
+  %689 = lshr i32 %688, 24
+  %690 = zext nneg i32 %689 to i64
+  %691 = getelementptr inbounds nuw i8, ptr %3, i64 %690
+  %692 = lshr i32 %688, 19
+  %693 = and i32 %692, 1
+  %694 = zext nneg i32 %693 to i64
+  %695 = getelementptr inbounds nuw ptr, ptr %691, i64 %694
+  %696 = getelementptr inbounds nuw i8, ptr %695, i64 16
+  %697 = load ptr, ptr %696, align 8, !tbaa !728
+  %698 = ptrtoint ptr %697 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !808)
-  %701 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %702 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i32 0, ptr %702, align 8, !alias.scope !808
+  %699 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %700 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store i32 0, ptr %700, align 8, !alias.scope !808
   store i32 1, ptr %27, align 8, !tbaa !811, !alias.scope !808
-  %703 = call i64 @_ZNK5clang10ASTContext27getVariableArrayDecayedTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %28, i64 %.sroa.03.0.i) #21, !noalias !808
-  %704 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 %703, ptr %704, align 8, !tbaa !725, !alias.scope !808
-  store ptr null, ptr %701, align 8, !tbaa !815, !alias.scope !808
-  %705 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i64 0, ptr %705, align 8, !tbaa !725, !alias.scope !808
-  %706 = load ptr, ptr %0, align 8, !tbaa !730
-  %707 = call i64 @_ZN5clang4Sema25PerformCopyInitializationERKNS_17InitializedEntityENS_14SourceLocationENS_12ActionResultIPNS_4ExprELb1EEEbb(ptr noundef nonnull align 8 dereferenceable(17504) %706, ptr noundef nonnull align 8 dereferenceable(48) %27, i32 0, i64 %700, i1 noundef zeroext false, i1 noundef zeroext false) #21
-  %708 = icmp eq i64 %707, 1
-  br i1 %708, label %724, label %709
+  %701 = call i64 @_ZNK5clang10ASTContext27getVariableArrayDecayedTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %28, i64 %.sroa.03.0.i) #21, !noalias !808
+  %702 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i64 %701, ptr %702, align 8, !tbaa !725, !alias.scope !808
+  store ptr null, ptr %699, align 8, !tbaa !815, !alias.scope !808
+  %703 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store i64 0, ptr %703, align 8, !tbaa !725, !alias.scope !808
+  %704 = load ptr, ptr %0, align 8, !tbaa !730
+  %705 = call i64 @_ZN5clang4Sema25PerformCopyInitializationERKNS_17InitializedEntityENS_14SourceLocationENS_12ActionResultIPNS_4ExprELb1EEEbb(ptr noundef nonnull align 8 dereferenceable(17504) %704, ptr noundef nonnull align 8 dereferenceable(48) %27, i32 0, i64 %698, i1 noundef zeroext false, i1 noundef zeroext false) #21
+  %706 = icmp eq i64 %705, 1
+  br i1 %706, label %721, label %707
 
-709:                                              ; preds = %688
-  %710 = and i64 %707, -2
-  %711 = inttoptr i64 %710 to ptr
-  %712 = load i32, ptr %3, align 8
-  %713 = lshr i32 %712, 24
-  %714 = zext nneg i32 %713 to i64
-  %715 = getelementptr inbounds nuw i8, ptr %3, i64 %714
-  %716 = getelementptr inbounds nuw i8, ptr %715, i64 8
-  %717 = lshr i32 %712, 19
-  %718 = and i32 %717, 1
-  %719 = zext nneg i32 %718 to i64
-  %720 = getelementptr inbounds nuw ptr, ptr %716, i64 %719
-  %721 = getelementptr inbounds nuw i8, ptr %720, i64 8
-  store ptr %711, ptr %721, align 8, !tbaa !728
-  %722 = getelementptr inbounds nuw i8, ptr %28, i64 18472
-  %.sroa.0.0.copyload.i209 = load i64, ptr %722, align 8, !tbaa !725
-  %723 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.sroa.0.0.copyload.i209, ptr %723, align 8, !tbaa !725
-  br label %724
+707:                                              ; preds = %687
+  %708 = and i64 %705, -2
+  %709 = inttoptr i64 %708 to ptr
+  %710 = load i32, ptr %3, align 8
+  %711 = lshr i32 %710, 24
+  %712 = zext nneg i32 %711 to i64
+  %713 = getelementptr inbounds nuw i8, ptr %3, i64 %712
+  %714 = lshr i32 %710, 19
+  %715 = and i32 %714, 1
+  %716 = zext nneg i32 %715 to i64
+  %717 = getelementptr inbounds nuw ptr, ptr %713, i64 %716
+  %718 = getelementptr inbounds nuw i8, ptr %717, i64 16
+  store ptr %709, ptr %718, align 8, !tbaa !728
+  %719 = getelementptr inbounds nuw i8, ptr %28, i64 18472
+  %.sroa.0.0.copyload.i209 = load i64, ptr %719, align 8, !tbaa !725
+  %720 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %.sroa.0.0.copyload.i209, ptr %720, align 8, !tbaa !725
+  br label %721
 
-724:                                              ; preds = %688, %709
+721:                                              ; preds = %687, %707
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %725
+  br label %722
 
-725:                                              ; preds = %619, %641, %724, %686, %680, %268, %597, %609, %616, %561, %564, %552, %555, %541, %544, %547, %550, %535, %538, %529, %532, %520, %523, %526, %511, %514, %517, %497, %500, %503, %506, %509, %421, %438, %404, %418, %387, %401, %364, %381, %384, %274, %277, %269, %272, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit, %594, %591, %588, %585, %582, %579, %576, %573, %570, %567, %558, %496, %360, %317
-  %.1 = phi i1 [ %320, %317 ], [ %363, %360 ], [ %.2, %496 ], [ %560, %558 ], [ %569, %567 ], [ %572, %570 ], [ %575, %573 ], [ %578, %576 ], [ %581, %579 ], [ %584, %582 ], [ %587, %585 ], [ %590, %588 ], [ %593, %591 ], [ %596, %594 ], [ %.0, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit ], [ true, %269 ], [ %273, %272 ], [ true, %274 ], [ %278, %277 ], [ true, %381 ], [ true, %364 ], [ %386, %384 ], [ true, %387 ], [ %403, %401 ], [ true, %404 ], [ %420, %418 ], [ true, %421 ], [ %440, %438 ], [ true, %506 ], [ true, %503 ], [ true, %500 ], [ true, %497 ], [ %510, %509 ], [ true, %514 ], [ true, %511 ], [ %519, %517 ], [ true, %523 ], [ true, %520 ], [ %528, %526 ], [ true, %529 ], [ %534, %532 ], [ true, %535 ], [ %540, %538 ], [ true, %547 ], [ true, %544 ], [ true, %541 ], [ %551, %550 ], [ true, %552 ], [ %557, %555 ], [ true, %561 ], [ %566, %564 ], [ true, %597 ], [ true, %609 ], [ true, %616 ], [ false, %268 ], [ true, %619 ], [ true, %641 ], [ %708, %724 ], [ false, %686 ], [ true, %680 ]
+722:                                              ; preds = %618, %640, %721, %685, %679, %268, %596, %608, %615, %560, %563, %551, %554, %540, %543, %546, %549, %534, %537, %528, %531, %519, %522, %525, %510, %513, %516, %496, %499, %502, %505, %508, %420, %437, %403, %417, %386, %400, %363, %380, %383, %274, %277, %269, %272, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit, %593, %590, %587, %584, %581, %578, %575, %572, %569, %566, %557, %495, %359, %317
+  %.1 = phi i1 [ %320, %317 ], [ %362, %359 ], [ %.2, %495 ], [ %559, %557 ], [ %568, %566 ], [ %571, %569 ], [ %574, %572 ], [ %577, %575 ], [ %580, %578 ], [ %583, %581 ], [ %586, %584 ], [ %589, %587 ], [ %592, %590 ], [ %595, %593 ], [ %.0, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit ], [ true, %269 ], [ %273, %272 ], [ true, %274 ], [ %278, %277 ], [ true, %380 ], [ true, %363 ], [ %385, %383 ], [ true, %386 ], [ %402, %400 ], [ true, %403 ], [ %419, %417 ], [ true, %420 ], [ %439, %437 ], [ true, %505 ], [ true, %502 ], [ true, %499 ], [ true, %496 ], [ %509, %508 ], [ true, %513 ], [ true, %510 ], [ %518, %516 ], [ true, %522 ], [ true, %519 ], [ %527, %525 ], [ true, %528 ], [ %533, %531 ], [ true, %534 ], [ %539, %537 ], [ true, %546 ], [ true, %543 ], [ true, %540 ], [ %550, %549 ], [ true, %551 ], [ %556, %554 ], [ true, %560 ], [ %565, %563 ], [ true, %596 ], [ true, %608 ], [ true, %615 ], [ false, %268 ], [ true, %618 ], [ true, %640 ], [ %706, %721 ], [ false, %685 ], [ true, %679 ]
   ret i1 %.1
 }
 

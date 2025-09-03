@@ -859,44 +859,43 @@ read32.exit375:                                   ; preds = %409, %411
 
 .lr.ph410:                                        ; preds = %420
   %429 = add nsw i64 %.0266, 16
-  %430 = getelementptr inbounds nuw i8, ptr %3, i64 8236
-  %431 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %430 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br i1 %.not, label %.lr.ph410.split.us, label %.lr.ph410.split
 
-.lr.ph410.split.us:                               ; preds = %.lr.ph410, %436
-  %indvars.iv435 = phi i64 [ %indvars.iv.next436, %436 ], [ 0, %.lr.ph410 ]
-  %432 = load ptr, ptr %12, align 8, !tbaa !41
-  %433 = shl nsw i64 %indvars.iv435, 5
-  %434 = getelementptr inbounds nuw i8, ptr %431, i64 %433
-  %435 = tail call i32 @avio_read(ptr noundef %432, ptr noundef nonnull %434, i32 noundef 32) #10
-  %.not297.us = icmp eq i32 %435, 32
-  br i1 %.not297.us, label %436, label %.critedge303
+.lr.ph410.split.us:                               ; preds = %.lr.ph410, %435
+  %indvars.iv435 = phi i64 [ %indvars.iv.next436, %435 ], [ 0, %.lr.ph410 ]
+  %431 = load ptr, ptr %12, align 8, !tbaa !41
+  %432 = shl nsw i64 %indvars.iv435, 5
+  %433 = getelementptr inbounds nuw i8, ptr %430, i64 %432
+  %434 = tail call i32 @avio_read(ptr noundef %431, ptr noundef nonnull %433, i32 noundef 32) #10
+  %.not297.us = icmp eq i32 %434, 32
+  br i1 %.not297.us, label %435, label %.critedge303
 
-436:                                              ; preds = %.lr.ph410.split.us
-  %437 = load ptr, ptr %12, align 8, !tbaa !41
-  %438 = tail call i64 @avio_skip(ptr noundef %437, i64 noundef 14) #10
+435:                                              ; preds = %.lr.ph410.split.us
+  %436 = load ptr, ptr %12, align 8, !tbaa !41
+  %437 = tail call i64 @avio_skip(ptr noundef %436, i64 noundef 14) #10
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
-  %439 = load ptr, ptr %10, align 8, !tbaa !31
-  %440 = getelementptr inbounds nuw i8, ptr %439, i64 132
-  %441 = load i32, ptr %440, align 4, !tbaa !47
-  %442 = sext i32 %441 to i64
-  %443 = icmp slt i64 %indvars.iv.next436, %442
-  br i1 %443, label %.lr.ph410.split.us, label %.loopexit393, !llvm.loop !62
+  %438 = load ptr, ptr %10, align 8, !tbaa !31
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 132
+  %440 = load i32, ptr %439, align 4, !tbaa !47
+  %441 = sext i32 %440 to i64
+  %442 = icmp slt i64 %indvars.iv.next436, %441
+  br i1 %442, label %.lr.ph410.split.us, label %.loopexit393, !llvm.loop !62
 
 .lr.ph410.split:                                  ; preds = %.lr.ph410, %456
   %indvars.iv432 = phi i64 [ %indvars.iv.next433, %456 ], [ 0, %.lr.ph410 ]
-  %444 = load ptr, ptr %12, align 8, !tbaa !41
-  %.idx = shl nuw nsw i64 %indvars.iv432, 3
-  %445 = getelementptr inbounds nuw i8, ptr %430, i64 %.idx
+  %443 = load ptr, ptr %12, align 8, !tbaa !41
+  %444 = getelementptr inbounds nuw %struct.BRSTMCoeffOffset, ptr %3, i64 %indvars.iv432
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 8236
   %446 = load i32, ptr %445, align 4, !tbaa !60
   %447 = zext i32 %446 to i64
   %448 = add nsw i64 %429, %447
-  %449 = tail call i64 @avio_seek(ptr noundef %444, i64 noundef 0, i32 noundef 1) #10
+  %449 = tail call i64 @avio_seek(ptr noundef %443, i64 noundef 0, i32 noundef 1) #10
   %450 = sub i64 %448, %449
-  %451 = tail call i64 @avio_skip(ptr noundef %444, i64 noundef %450) #10
+  %451 = tail call i64 @avio_skip(ptr noundef %443, i64 noundef %450) #10
   %452 = load ptr, ptr %12, align 8, !tbaa !41
   %453 = shl nsw i64 %indvars.iv432, 5
-  %454 = getelementptr inbounds nuw i8, ptr %431, i64 %453
+  %454 = getelementptr inbounds nuw i8, ptr %430, i64 %453
   %455 = tail call i32 @avio_read(ptr noundef %452, ptr noundef nonnull %454, i32 noundef 32) #10
   %.not297 = icmp eq i32 %455, 32
   br i1 %.not297, label %456, label %.critedge303
@@ -910,7 +909,7 @@ read32.exit375:                                   ; preds = %409, %411
   %461 = icmp slt i64 %indvars.iv.next433, %460
   br i1 %461, label %.lr.ph410.split, label %.loopexit393, !llvm.loop !62
 
-.loopexit393:                                     ; preds = %456, %436, %420, %349
+.loopexit393:                                     ; preds = %456, %435, %420, %349
   %462 = load ptr, ptr %12, align 8, !tbaa !41
   %463 = tail call i64 @avio_seek(ptr noundef %462, i64 noundef 0, i32 noundef 1) #10
   %464 = sub nsw i64 %463, %.0266

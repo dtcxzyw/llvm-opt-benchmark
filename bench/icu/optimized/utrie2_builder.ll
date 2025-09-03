@@ -109,97 +109,97 @@ define noundef ptr @utrie2_open_77(i32 noundef %0, i32 noundef %1, ptr noundef c
   store i32 0, ptr %40, align 4, !tbaa !26
   br label %41
 
-.preheader108:                                    ; preds = %41
-  %scevgep165 = getelementptr nuw i8, ptr %8, i64 10496
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2304) %scevgep165, i8 -1, i64 2304, i1 false), !tbaa !26
-  br label %43
-
 41:                                               ; preds = %.preheader109, %41
   %indvars.iv161 = phi i64 [ 4, %.preheader109 ], [ %indvars.iv.next162, %41 ]
   %42 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv161
   store i32 192, ptr %42, align 4, !tbaa !26
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 2080
-  br i1 %exitcond164.not, label %.preheader108, label %41, !llvm.loop !34
+  br i1 %exitcond164.not, label %.preheader108.preheader, label %41, !llvm.loop !34
 
-43:                                               ; preds = %.preheader108, %43
-  %indvars.iv169 = phi i64 [ 0, %.preheader108 ], [ %indvars.iv.next170, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv169
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 10624
-  store i32 192, ptr %45, align 4, !tbaa !26
+.preheader108.preheader:                          ; preds = %41
+  %scevgep165 = getelementptr nuw i8, ptr %8, i64 10496
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2304) %scevgep165, i8 -1, i64 2304, i1 false), !tbaa !26
+  br label %.preheader107
+
+.preheader107:                                    ; preds = %.preheader108.preheader, %.preheader107
+  %indvars.iv169 = phi i64 [ 0, %.preheader108.preheader ], [ %indvars.iv.next170, %.preheader107 ]
+  %43 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv169
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 12800
+  store i32 192, ptr %44, align 4, !tbaa !26
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 64
-  br i1 %exitcond172.not, label %46, label %43, !llvm.loop !35
+  br i1 %exitcond172.not, label %45, label %.preheader107, !llvm.loop !35
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 144160
-  store i32 2656, ptr %47, align 8, !tbaa !36
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 144144
-  store i32 2720, ptr %48, align 8, !tbaa !37
-  br label %49
+45:                                               ; preds = %.preheader107
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 144160
+  store i32 2656, ptr %46, align 8, !tbaa !36
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 144144
+  store i32 2720, ptr %47, align 8, !tbaa !37
+  br label %48
 
-49:                                               ; preds = %46, %49
-  %indvars.iv173 = phi i64 [ 0, %46 ], [ %indvars.iv.next174, %49 ]
-  %.3130 = phi i32 [ 0, %46 ], [ %51, %49 ]
-  %50 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv173
-  store i32 %.3130, ptr %50, align 4, !tbaa !26
+48:                                               ; preds = %45, %48
+  %indvars.iv173 = phi i64 [ 0, %45 ], [ %indvars.iv.next174, %48 ]
+  %.3130 = phi i32 [ 0, %45 ], [ %50, %48 ]
+  %49 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv173
+  store i32 %.3130, ptr %49, align 4, !tbaa !26
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %51 = add nuw nsw i32 %.3130, 64
+  %50 = add nuw nsw i32 %.3130, 64
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, 32
-  br i1 %exitcond176.not, label %.lr.ph132, label %49, !llvm.loop !38
+  br i1 %exitcond176.not, label %.lr.ph132, label %48, !llvm.loop !38
 
 .preheader:                                       ; preds = %.lr.ph132
-  %52 = load i32, ptr %2, align 4, !tbaa !3
-  %53 = icmp slt i32 %52, 1
-  br i1 %53, label %.preheader.split, label %.loopexit
+  %51 = load i32, ptr %2, align 4, !tbaa !3
+  %52 = icmp slt i32 %51, 1
+  br i1 %52, label %.preheader.split, label %.loopexit
 
-.lr.ph132:                                        ; preds = %49, %.lr.ph132
-  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph132 ], [ 32, %49 ]
-  %54 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv177
-  store i32 2656, ptr %54, align 4, !tbaa !26
+.lr.ph132:                                        ; preds = %48, %.lr.ph132
+  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph132 ], [ 32, %48 ]
+  %53 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv177
+  store i32 2656, ptr %53, align 4, !tbaa !26
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 544
   br i1 %exitcond180.not, label %.preheader, label %.lr.ph132, !llvm.loop !39
 
 .preheader.splitthread-pre-split:                 ; preds = %utrie2_set32_77.exit
-  %55 = add nuw nsw i32 %.11133, 32
+  %54 = add nuw nsw i32 %.11133, 32
   %.pr = load i32, ptr %2, align 4, !tbaa !3
   br label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.splitthread-pre-split
-  %56 = phi i32 [ %.pr, %.preheader.splitthread-pre-split ], [ %52, %.preheader ]
-  %.11133 = phi i32 [ %55, %.preheader.splitthread-pre-split ], [ 128, %.preheader ]
-  %57 = icmp slt i32 %56, 1
-  br i1 %57, label %58, label %utrie2_set32_77.exit
+  %55 = phi i32 [ %.pr, %.preheader.splitthread-pre-split ], [ %51, %.preheader ]
+  %.11133 = phi i32 [ %54, %.preheader.splitthread-pre-split ], [ 128, %.preheader ]
+  %56 = icmp slt i32 %55, 1
+  br i1 %56, label %57, label %utrie2_set32_77.exit
 
-58:                                               ; preds = %.preheader.split
-  %59 = load i8, ptr %25, align 4, !tbaa !25
-  %.not.i.i = icmp eq i8 %59, 0
-  br i1 %.not.i.i, label %61, label %60
+57:                                               ; preds = %.preheader.split
+  %58 = load i8, ptr %25, align 4, !tbaa !25
+  %.not.i.i = icmp eq i8 %58, 0
+  br i1 %.not.i.i, label %60, label %59
 
-60:                                               ; preds = %58
+59:                                               ; preds = %57
   store i32 30, ptr %2, align 4, !tbaa !3
   br label %utrie2_set32_77.exit
 
-61:                                               ; preds = %58
-  %62 = tail call fastcc noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %8, i32 noundef %.11133, i8 noundef signext 1)
-  %63 = icmp slt i32 %62, 0
-  br i1 %63, label %64, label %65
+60:                                               ; preds = %57
+  %61 = tail call fastcc noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %8, i32 noundef %.11133, i8 noundef signext 1)
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %64
 
-64:                                               ; preds = %61
+63:                                               ; preds = %60
   store i32 7, ptr %2, align 4, !tbaa !3
   br label %utrie2_set32_77.exit
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %19, align 8, !tbaa !18
-  %67 = zext nneg i32 %62 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
-  store i32 %0, ptr %68, align 4, !tbaa !26
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %19, align 8, !tbaa !18
+  %66 = zext nneg i32 %61 to i64
+  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  store i32 %0, ptr %67, align 4, !tbaa !26
   br label %utrie2_set32_77.exit
 
-utrie2_set32_77.exit:                             ; preds = %.preheader.split, %60, %64, %65
-  %69 = icmp samesign ult i32 %.11133, 2016
-  br i1 %69, label %.preheader.splitthread-pre-split, label %.loopexit, !llvm.loop !40
+utrie2_set32_77.exit:                             ; preds = %.preheader.split, %59, %63, %64
+  %68 = icmp samesign ult i32 %.11133, 2016
+  br i1 %68, label %.preheader.splitthread-pre-split, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %utrie2_set32_77.exit, %.preheader, %3, %13
   %.0102 = phi ptr [ null, %13 ], [ null, %3 ], [ %7, %.preheader ], [ %7, %utrie2_set32_77.exit ]

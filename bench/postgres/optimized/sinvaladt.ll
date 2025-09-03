@@ -64,7 +64,7 @@ define dso_local void @SharedInvalShmemInit() local_unnamed_addr #0 {
   store ptr %12, ptr @shmInvalBuffer, align 8
   %13 = load i8, ptr %1, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %45, label %15
+  br i1 %14, label %38, label %15
 
 15:                                               ; preds = %0
   store i32 0, ptr %12, align 8
@@ -83,50 +83,39 @@ define dso_local void @SharedInvalShmemInit() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 65568
-  %24 = getelementptr i8, ptr %18, i64 65572
-  %25 = getelementptr i8, ptr %18, i64 65576
-  %26 = getelementptr i8, ptr %18, i64 65577
-  %27 = getelementptr i8, ptr %18, i64 65578
-  %28 = getelementptr i8, ptr %18, i64 65580
-  br label %29
+  br label %24
 
-29:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw %struct.ProcState, ptr %23, i64 %indvars.iv
-  store i32 0, ptr %30, align 8
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %31 = getelementptr i8, ptr %24, i64 %.idx
-  store i32 0, ptr %31, align 4
-  %32 = getelementptr i8, ptr %25, i64 %.idx
-  store i8 0, ptr %32, align 8
-  %33 = getelementptr i8, ptr %26, i64 %.idx
-  store i8 0, ptr %33, align 1
-  %34 = getelementptr i8, ptr %27, i64 %.idx
-  store i8 0, ptr %34, align 2
-  %35 = getelementptr i8, ptr %28, i64 %.idx
-  store i32 0, ptr %35, align 4
+24:                                               ; preds = %.lr.ph, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+  %25 = getelementptr inbounds nuw %struct.ProcState, ptr %23, i64 %indvars.iv
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr %struct.ProcState, ptr %18, i64 %indvars.iv
+  %27 = getelementptr i8, ptr %26, i64 65572
+  %28 = getelementptr i8, ptr %26, i64 65580
+  store i32 0, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr @MaxBackends, align 4
-  %37 = add i32 %36, 6
-  %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %29, label %._crit_edge.loopexit, !llvm.loop !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %27, i8 0, i64 7, i1 false)
+  %29 = load i32, ptr @MaxBackends, align 4
+  %30 = add i32 %29, 6
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %24, label %._crit_edge.loopexit, !llvm.loop !7
 
-._crit_edge.loopexit:                             ; preds = %29
-  %40 = and i64 %indvars.iv.next, 4294967295
+._crit_edge.loopexit:                             ; preds = %24
+  %33 = and i64 %indvars.iv.next, 4294967295
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %15
-  %.0.lcssa = phi i64 [ 0, %15 ], [ %40, %._crit_edge.loopexit ]
-  %41 = getelementptr inbounds nuw i8, ptr %18, i64 65552
-  store i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %18, i64 65568
-  %43 = getelementptr inbounds nuw %struct.ProcState, ptr %42, i64 %.0.lcssa
-  %44 = getelementptr inbounds nuw i8, ptr %18, i64 65560
-  store ptr %43, ptr %44, align 8
-  br label %45
+  %.0.lcssa = phi i64 [ 0, %15 ], [ %33, %._crit_edge.loopexit ]
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 65552
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 65568
+  %36 = getelementptr inbounds nuw %struct.ProcState, ptr %35, i64 %.0.lcssa
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 65560
+  store ptr %36, ptr %37, align 8
+  br label %38
 
-45:                                               ; preds = %0, %._crit_edge
+38:                                               ; preds = %0, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
@@ -319,90 +308,89 @@ define dso_local void @SIInsertDataEntries(ptr noundef readonly captures(none) %
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 65552
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 65560
-  %11 = getelementptr i8, ptr %3, i64 65578
-  br label %12
+  br label %11
 
-12:                                               ; preds = %.lr.ph42, %._crit_edge
-  %.040 = phi ptr [ %0, %.lr.ph42 ], [ %30, %._crit_edge ]
-  %.03139 = phi i32 [ %1, %.lr.ph42 ], [ %34, %._crit_edge ]
-  %13 = tail call i32 @llvm.umin.i32(i32 %.03139, i32 64)
-  %14 = load ptr, ptr @MainLWLockArray, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 768
-  %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %15, i32 noundef 0) #9
-  br label %17
+11:                                               ; preds = %.lr.ph42, %._crit_edge
+  %.040 = phi ptr [ %0, %.lr.ph42 ], [ %29, %._crit_edge ]
+  %.03139 = phi i32 [ %1, %.lr.ph42 ], [ %33, %._crit_edge ]
+  %12 = tail call i32 @llvm.umin.i32(i32 %.03139, i32 64)
+  %13 = load ptr, ptr @MainLWLockArray, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 768
+  %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %14, i32 noundef 0) #9
+  br label %16
 
-17:                                               ; preds = %25, %12
-  %18 = load i32, ptr %6, align 4
-  %19 = load i32, ptr %3, align 8
-  %20 = sub i32 %18, %19
-  %21 = add i32 %20, %13
-  %22 = icmp sgt i32 %21, 4096
-  br i1 %22, label %25, label %23
+16:                                               ; preds = %24, %11
+  %17 = load i32, ptr %6, align 4
+  %18 = load i32, ptr %3, align 8
+  %19 = sub i32 %17, %18
+  %20 = add i32 %19, %12
+  %21 = icmp sgt i32 %20, 4096
+  br i1 %21, label %24, label %22
 
-23:                                               ; preds = %17
-  %24 = load i32, ptr %5, align 8
-  %.not = icmp slt i32 %20, %24
-  br i1 %.not, label %.preheader, label %25
+22:                                               ; preds = %16
+  %23 = load i32, ptr %5, align 8
+  %.not = icmp slt i32 %19, %23
+  br i1 %.not, label %.preheader, label %24
 
-25:                                               ; preds = %23, %17
-  tail call void @SICleanupQueue(i1 noundef zeroext true, i32 noundef %13)
-  br label %17
+24:                                               ; preds = %22, %16
+  tail call void @SICleanupQueue(i1 noundef zeroext true, i32 noundef %12)
+  br label %16
 
-.preheader:                                       ; preds = %23, %.preheader
-  %.137 = phi ptr [ %30, %.preheader ], [ %.040, %23 ]
-  %.03036 = phi i32 [ %31, %.preheader ], [ %18, %23 ]
-  %.03235 = phi i32 [ %26, %.preheader ], [ %13, %23 ]
-  %26 = add nsw i32 %.03235, -1
-  %27 = srem i32 %.03036, 4096
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %7, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %.137, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %.137, i64 16, i1 false)
-  %31 = add i32 %.03036, 1
-  %32 = icmp sgt i32 %.03235, 1
-  br i1 %32, label %.preheader, label %33, !llvm.loop !10
+.preheader:                                       ; preds = %22, %.preheader
+  %.137 = phi ptr [ %29, %.preheader ], [ %.040, %22 ]
+  %.03036 = phi i32 [ %30, %.preheader ], [ %17, %22 ]
+  %.03235 = phi i32 [ %25, %.preheader ], [ %12, %22 ]
+  %25 = add nsw i32 %.03235, -1
+  %26 = srem i32 %.03036, 4096
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %7, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %.137, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 4 dereferenceable(16) %.137, i64 16, i1 false)
+  %30 = add i32 %.03036, 1
+  %31 = icmp sgt i32 %.03235, 1
+  br i1 %31, label %.preheader, label %32, !llvm.loop !10
 
-33:                                               ; preds = %.preheader
-  %34 = sub nsw i32 %.03139, %13
-  %35 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #9, !srcloc !11
-  %.not33 = icmp eq i8 %35, 0
-  br i1 %.not33, label %38, label %36
+32:                                               ; preds = %.preheader
+  %33 = sub nsw i32 %.03139, %12
+  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #9, !srcloc !11
+  %.not33 = icmp eq i8 %34, 0
+  br i1 %.not33, label %37, label %35
 
-36:                                               ; preds = %33
-  %37 = tail call i32 @s_lock(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, i32 noundef 421, ptr noundef nonnull @__func__.SIInsertDataEntries) #9
-  br label %38
+35:                                               ; preds = %32
+  %36 = tail call i32 @s_lock(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, i32 noundef 421, ptr noundef nonnull @__func__.SIInsertDataEntries) #9
+  br label %37
 
-38:                                               ; preds = %33, %36
-  store i32 %31, ptr %6, align 4
+37:                                               ; preds = %32, %35
+  store i32 %30, ptr %6, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   store i8 0, ptr %8, align 4
-  %39 = load i32, ptr %9, align 8
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph.preheader, label %._crit_edge
+  %38 = load i32, ptr %9, align 8
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %38
-  %41 = zext nneg i32 %39 to i64
+.lr.ph.preheader:                                 ; preds = %37
+  %40 = zext nneg i32 %38 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
-  %44 = load i32, ptr %43, align 4
-  %45 = sext i32 %44 to i64
-  %.idx = shl nsw i64 %45, 4
-  %46 = getelementptr i8, ptr %11, i64 %.idx
+  %41 = load ptr, ptr %10, align 8
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
+  %43 = load i32, ptr %42, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr %struct.ProcState, ptr %3, i64 %44
+  %46 = getelementptr i8, ptr %45, i64 65578
   store i8 1, ptr %46, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = icmp samesign ult i64 %indvars.iv.next, %41
+  %47 = icmp samesign ult i64 %indvars.iv.next, %40
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph, %38
+._crit_edge:                                      ; preds = %.lr.ph, %37
   %48 = load ptr, ptr @MainLWLockArray, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 768
   tail call void @LWLockRelease(ptr noundef nonnull %49) #9
-  %50 = icmp sgt i32 %34, 0
-  br i1 %50, label %12, label %._crit_edge43, !llvm.loop !14
+  %50 = icmp sgt i32 %33, 0
+  br i1 %50, label %11, label %._crit_edge43, !llvm.loop !14
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %2
   ret void
@@ -514,26 +502,25 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   %54 = add i32 %13, -1073741824
   store i32 %54, ptr %12, align 4
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 65560
-  %56 = getelementptr i8, ptr %3, i64 65572
   %.pre = load ptr, ptr %55, align 8
-  %57 = zext nneg i32 %17 to i64
-  br label %58
+  %56 = zext nneg i32 %17 to i64
+  br label %57
 
-58:                                               ; preds = %.lr.ph70, %58
-  %indvars.iv72 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next73, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv72
-  %60 = load i32, ptr %59, align 4
-  %61 = sext i32 %60 to i64
-  %.idx = shl nsw i64 %61, 4
-  %62 = getelementptr i8, ptr %56, i64 %.idx
+57:                                               ; preds = %.lr.ph70, %57
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next73, %57 ]
+  %58 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv72
+  %59 = load i32, ptr %58, align 4
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr %struct.ProcState, ptr %3, i64 %60
+  %62 = getelementptr i8, ptr %61, i64 65572
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, -1073741824
   store i32 %64, ptr %62, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %65 = icmp samesign ult i64 %indvars.iv.next73, %57
-  br i1 %65, label %58, label %.loopexit.loopexit, !llvm.loop !16
+  %65 = icmp samesign ult i64 %indvars.iv.next73, %56
+  br i1 %65, label %57, label %.loopexit.loopexit, !llvm.loop !16
 
-.loopexit.loopexit:                               ; preds = %58
+.loopexit.loopexit:                               ; preds = %57
   %.pre75 = load i32, ptr %12, align 4
   br label %.loopexit
 

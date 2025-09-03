@@ -10,6 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ThreadData = type { ptr, ptr, i32, i32, i32 }
 %struct.FFDrawColor = type { [4 x i8], [4 x %union.anon.2] }
 %union.anon.2 = type { [4 x i32] }
+%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 %struct.PixelValues = type { [4 x i16] }
 
 @.str = private unnamed_addr constant [10 x i8] c"datascope\00", align 1
@@ -1522,9 +1523,8 @@ define internal void @reverse_color16(ptr noundef readonly captures(none) %0, pt
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !99
-  %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
+  %11 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load i32, ptr %12, align 4, !tbaa !74
   %14 = shl nuw i32 1, %13
   %15 = lshr i32 %14, 1
@@ -3330,9 +3330,8 @@ define internal void @draw_trace8(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv125.i = phi i64 [ %indvars.iv.next126.i, %.loopexit.i ], [ 0, %.preheader111.i ]
   %94 = phi i32 [ %182, %.loopexit.i ], [ %93, %.preheader111.i ]
   %95 = load ptr, ptr %12, align 8, !tbaa !99
-  %.idx.i = mul nuw nsw i64 %indvars.iv125.i, 20
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx.i
+  %96 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %95, i64 %indvars.iv125.i
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %98 = load i32, ptr %97, align 4, !tbaa !74
   %99 = icmp eq i32 %98, 8
   %100 = icmp eq i32 %94, 1
@@ -3636,9 +3635,8 @@ define internal void @draw_trace16(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv125.i = phi i64 [ %indvars.iv.next126.i, %.loopexit.i ], [ 0, %.preheader111.i ]
   %98 = phi i32 [ %186, %.loopexit.i ], [ %97, %.preheader111.i ]
   %99 = load ptr, ptr %13, align 8, !tbaa !99
-  %.idx.i = mul nuw nsw i64 %indvars.iv125.i, 20
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx.i
+  %100 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %99, i64 %indvars.iv125.i
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %102 = load i32, ptr %101, align 4, !tbaa !74
   %103 = icmp eq i32 %102, 8
   %104 = icmp eq i32 %98, 1

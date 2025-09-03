@@ -24233,7 +24233,7 @@ _ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetE
 define internal fastcc void @_ZN12_GLOBAL__N_112BuildLockset13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 511
-  switch i16 %4, label %138 [
+  switch i16 %4, label %137 [
     i16 94, label %5
     i16 93, label %50
   ]
@@ -24304,7 +24304,7 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit:      ; preds = %24, %31
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %48
   tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset16examineArgumentsEPKN5clang12FunctionDeclENS1_4Stmt12CastIteratorINS1_4ExprEKPKS7_KPKS5_EESE_b(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %.0.i.i.i, ptr nonnull %45, ptr nonnull %49, i1 noundef zeroext false)
-  br label %164
+  br label %163
 
 50:                                               ; preds = %2
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -24322,12 +24322,12 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit:      ; preds = %24, %31
     i8 25, label %54
     i8 28, label %54
     i8 29, label %54
-    i8 37, label %68
-    i8 38, label %68
-    i8 7, label %81
-    i8 40, label %85
-    i8 41, label %85
-    i8 43, label %85
+    i8 37, label %67
+    i8 38, label %67
+    i8 7, label %80
+    i8 40, label %84
+    i8 41, label %84
+    i8 43, label %84
   ]
 
 54:                                               ; preds = %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50
@@ -24335,164 +24335,163 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit:      ; preds = %24, %31
   %56 = lshr i32 %55, 24
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 %57
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = lshr i32 %55, 19
-  %61 = and i32 %60, 1
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %59, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !92
-  %66 = load ptr, ptr %0, align 8, !tbaa !545
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11checkAccessERKNS_7FactSetEPKN5clang4ExprENS4_12threadSafety10AccessKindENS8_22ProtectedOperationKindE(ptr noundef nonnull align 8 dereferenceable(600) %66, ptr noundef nonnull readonly align 8 dereferenceable(32) %67, ptr noundef nonnull %65, i32 noundef 0, i32 noundef 1)
-  br label %68
+  %59 = lshr i32 %55, 19
+  %60 = and i32 %59, 1
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr inbounds nuw ptr, ptr %58, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8, !tbaa !92
+  %65 = load ptr, ptr %0, align 8, !tbaa !545
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11checkAccessERKNS_7FactSetEPKN5clang4ExprENS4_12threadSafety10AccessKindENS8_22ProtectedOperationKindE(ptr noundef nonnull align 8 dereferenceable(600) %65, ptr noundef nonnull readonly align 8 dereferenceable(32) %66, ptr noundef nonnull %64, i32 noundef 0, i32 noundef 1)
+  br label %67
 
-68:                                               ; preds = %50, %50, %54
-  %69 = load i32, ptr %1, align 8
-  %70 = lshr i32 %69, 24
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 %71
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %74 = lshr i32 %69, 19
-  %75 = and i32 %74, 1
-  %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %73, i64 %76
-  %78 = load ptr, ptr %77, align 8, !tbaa !92
-  %79 = load ptr, ptr %0, align 8, !tbaa !545
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11checkAccessERKNS_7FactSetEPKN5clang4ExprENS4_12threadSafety10AccessKindENS8_22ProtectedOperationKindE(ptr noundef nonnull align 8 dereferenceable(600) %79, ptr noundef nonnull readonly align 8 dereferenceable(32) %80, ptr noundef nonnull %78, i32 noundef 1, i32 noundef 1)
-  br label %164
+67:                                               ; preds = %50, %50, %54
+  %68 = load i32, ptr %1, align 8
+  %69 = lshr i32 %68, 24
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = lshr i32 %68, 19
+  %74 = and i32 %73, 1
+  %75 = zext nneg i32 %74 to i64
+  %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %75
+  %77 = load ptr, ptr %76, align 8, !tbaa !92
+  %78 = load ptr, ptr %0, align 8, !tbaa !545
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11checkAccessERKNS_7FactSetEPKN5clang4ExprENS4_12threadSafety10AccessKindENS8_22ProtectedOperationKindE(ptr noundef nonnull align 8 dereferenceable(600) %78, ptr noundef nonnull readonly align 8 dereferenceable(32) %79, ptr noundef nonnull %77, i32 noundef 1, i32 noundef 1)
+  br label %163
 
-81:                                               ; preds = %50
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %83 = load i32, ptr %82, align 8, !tbaa !1001
-  %84 = icmp ugt i32 %83, 1
-  br i1 %84, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit50, label %85
+80:                                               ; preds = %50
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %82 = load i32, ptr %81, align 8, !tbaa !1001
+  %83 = icmp ugt i32 %82, 1
+  br i1 %83, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit50, label %84
 
-85:                                               ; preds = %50, %50, %50, %81
-  %86 = load i32, ptr %1, align 8
-  %87 = lshr i32 %86, 24
-  %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 %88
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = lshr i32 %86, 19
-  %92 = and i32 %91, 1
-  %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %90, i64 %93
-  %95 = load ptr, ptr %94, align 8, !tbaa !92
-  %96 = load ptr, ptr %0, align 8, !tbaa !545
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer13checkPtAccessERKNS_7FactSetEPKN5clang4ExprENS4_12threadSafety10AccessKindENS8_22ProtectedOperationKindE(ptr noundef nonnull align 8 dereferenceable(600) %96, ptr noundef nonnull readonly align 8 dereferenceable(32) %97, ptr noundef %95, i32 noundef 0, i32 noundef 1)
+84:                                               ; preds = %50, %50, %50, %80
+  %85 = load i32, ptr %1, align 8
+  %86 = lshr i32 %85, 24
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = lshr i32 %85, 19
+  %91 = and i32 %90, 1
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr inbounds nuw ptr, ptr %89, i64 %92
+  %94 = load ptr, ptr %93, align 8, !tbaa !92
+  %95 = load ptr, ptr %0, align 8, !tbaa !545
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer13checkPtAccessERKNS_7FactSetEPKN5clang4ExprENS4_12threadSafety10AccessKindENS8_22ProtectedOperationKindE(ptr noundef nonnull align 8 dereferenceable(600) %95, ptr noundef nonnull readonly align 8 dereferenceable(32) %96, ptr noundef %94, i32 noundef 0, i32 noundef 1)
   br label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit50
 
-_ZNK5clang8CallExpr15getDirectCalleeEv.exit50:    ; preds = %50, %81, %85
-  %98 = load i32, ptr %1, align 8
-  %99 = lshr i32 %98, 24
-  %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 %100
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = lshr i32 %98, 19
-  %104 = and i32 %103, 1
-  %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %102, i64 %105
-  %107 = load ptr, ptr %106, align 8, !tbaa !92
-  %108 = load ptr, ptr %0, align 8, !tbaa !545
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11checkAccessERKNS_7FactSetEPKN5clang4ExprENS4_12threadSafety10AccessKindENS8_22ProtectedOperationKindE(ptr noundef nonnull align 8 dereferenceable(600) %108, ptr noundef nonnull readonly align 8 dereferenceable(32) %109, ptr noundef nonnull %107, i32 noundef 0, i32 noundef 1)
-  %110 = load i32, ptr %1, align 8
-  %111 = lshr i32 %110, 24
-  %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 %112
-  %114 = load ptr, ptr %113, align 8, !tbaa !503
-  %115 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %114) #23
-  %.not.i.i.i47 = icmp ne ptr %115, null
+_ZNK5clang8CallExpr15getDirectCalleeEv.exit50:    ; preds = %50, %80, %84
+  %97 = load i32, ptr %1, align 8
+  %98 = lshr i32 %97, 24
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %102 = lshr i32 %97, 19
+  %103 = and i32 %102, 1
+  %104 = zext nneg i32 %103 to i64
+  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %104
+  %106 = load ptr, ptr %105, align 8, !tbaa !92
+  %107 = load ptr, ptr %0, align 8, !tbaa !545
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11checkAccessERKNS_7FactSetEPKN5clang4ExprENS4_12threadSafety10AccessKindENS8_22ProtectedOperationKindE(ptr noundef nonnull align 8 dereferenceable(600) %107, ptr noundef nonnull readonly align 8 dereferenceable(32) %108, ptr noundef nonnull %106, i32 noundef 0, i32 noundef 1)
+  %109 = load i32, ptr %1, align 8
+  %110 = lshr i32 %109, 24
+  %111 = zext nneg i32 %110 to i64
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 %111
+  %113 = load ptr, ptr %112, align 8, !tbaa !503
+  %114 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %113) #23
+  %.not.i.i.i47 = icmp ne ptr %114, null
   tail call void @llvm.assume(i1 %.not.i.i.i47)
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 28
-  %117 = load i32, ptr %116, align 4
-  %118 = and i32 %117, 126
-  %119 = add nsw i32 %118, -32
-  %120 = icmp ult i32 %119, 6
-  %spec.select.i.i.i.i48 = select i1 %120, ptr %115, ptr null
-  %121 = load i32, ptr %1, align 8
-  %122 = lshr i32 %121, 24
-  %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 %123
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = lshr i32 %121, 19
-  %127 = and i32 %126, 1
-  %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw ptr, ptr %125, i64 %128
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %132 = load i32, ptr %131, align 8, !tbaa !1001
-  %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw ptr, ptr %129, i64 %133
-  %135 = and i32 %117, 127
-  %136 = add nsw i32 %135, -37
-  %137 = icmp ult i32 %136, -4
-  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset16examineArgumentsEPKN5clang12FunctionDeclENS1_4Stmt12CastIteratorINS1_4ExprEKPKS7_KPKS5_EESE_b(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %spec.select.i.i.i.i48, ptr nonnull %130, ptr nonnull %134, i1 noundef zeroext %137)
-  br label %164
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 28
+  %116 = load i32, ptr %115, align 4
+  %117 = and i32 %116, 126
+  %118 = add nsw i32 %117, -32
+  %119 = icmp ult i32 %118, 6
+  %spec.select.i.i.i.i48 = select i1 %119, ptr %114, ptr null
+  %120 = load i32, ptr %1, align 8
+  %121 = lshr i32 %120, 24
+  %122 = zext nneg i32 %121 to i64
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = lshr i32 %120, 19
+  %126 = and i32 %125, 1
+  %127 = zext nneg i32 %126 to i64
+  %128 = getelementptr inbounds nuw ptr, ptr %124, i64 %127
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %131 = load i32, ptr %130, align 8, !tbaa !1001
+  %132 = zext i32 %131 to i64
+  %133 = getelementptr inbounds nuw ptr, ptr %128, i64 %132
+  %134 = and i32 %116, 127
+  %135 = add nsw i32 %134, -37
+  %136 = icmp ult i32 %135, -4
+  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset16examineArgumentsEPKN5clang12FunctionDeclENS1_4Stmt12CastIteratorINS1_4ExprEKPKS7_KPKS5_EESE_b(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %spec.select.i.i.i.i48, ptr nonnull %129, ptr nonnull %133, i1 noundef zeroext %136)
+  br label %163
 
-138:                                              ; preds = %2
-  %139 = load i32, ptr %1, align 8
-  %140 = lshr i32 %139, 24
-  %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 %141
-  %143 = load ptr, ptr %142, align 8, !tbaa !503
-  %144 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %143) #23
-  %.not.i.i.i51 = icmp eq ptr %144, null
-  br i1 %.not.i.i.i51, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit54, label %145
+137:                                              ; preds = %2
+  %138 = load i32, ptr %1, align 8
+  %139 = lshr i32 %138, 24
+  %140 = zext nneg i32 %139 to i64
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 %140
+  %142 = load ptr, ptr %141, align 8, !tbaa !503
+  %143 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %142) #23
+  %.not.i.i.i51 = icmp eq ptr %143, null
+  br i1 %.not.i.i.i51, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit54, label %144
 
-145:                                              ; preds = %138
-  %146 = getelementptr inbounds nuw i8, ptr %144, i64 28
-  %147 = load i32, ptr %146, align 4
-  %148 = and i32 %147, 126
-  %149 = add nsw i32 %148, -32
-  %150 = icmp ult i32 %149, 6
-  %spec.select.i.i.i.i52 = select i1 %150, ptr %144, ptr null
+144:                                              ; preds = %137
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 28
+  %146 = load i32, ptr %145, align 4
+  %147 = and i32 %146, 126
+  %148 = add nsw i32 %147, -32
+  %149 = icmp ult i32 %148, 6
+  %spec.select.i.i.i.i52 = select i1 %149, ptr %143, ptr null
   br label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit54
 
-_ZNK5clang8CallExpr15getDirectCalleeEv.exit54:    ; preds = %138, %145
-  %.0.i.i.i53 = phi ptr [ %spec.select.i.i.i.i52, %145 ], [ null, %138 ]
-  %151 = load i32, ptr %1, align 8
-  %152 = lshr i32 %151, 24
-  %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 %153
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %156 = lshr i32 %151, 19
-  %157 = and i32 %156, 1
-  %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw ptr, ptr %155, i64 %158
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %161 = load i32, ptr %160, align 8, !tbaa !1001
-  %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %159, i64 %162
-  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset16examineArgumentsEPKN5clang12FunctionDeclENS1_4Stmt12CastIteratorINS1_4ExprEKPKS7_KPKS5_EESE_b(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %.0.i.i.i53, ptr nonnull %159, ptr nonnull %163, i1 noundef zeroext false)
-  br label %164
+_ZNK5clang8CallExpr15getDirectCalleeEv.exit54:    ; preds = %137, %144
+  %.0.i.i.i53 = phi ptr [ %spec.select.i.i.i.i52, %144 ], [ null, %137 ]
+  %150 = load i32, ptr %1, align 8
+  %151 = lshr i32 %150, 24
+  %152 = zext nneg i32 %151 to i64
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 %152
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %155 = lshr i32 %150, 19
+  %156 = and i32 %155, 1
+  %157 = zext nneg i32 %156 to i64
+  %158 = getelementptr inbounds nuw ptr, ptr %154, i64 %157
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %160 = load i32, ptr %159, align 8, !tbaa !1001
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds nuw ptr, ptr %158, i64 %161
+  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset16examineArgumentsEPKN5clang12FunctionDeclENS1_4Stmt12CastIteratorINS1_4ExprEKPKS7_KPKS5_EESE_b(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %.0.i.i.i53, ptr nonnull %158, ptr nonnull %162, i1 noundef zeroext false)
+  br label %163
 
-164:                                              ; preds = %_ZNK5clang8CallExpr15getDirectCalleeEv.exit54, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit50, %68, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit
-  %165 = load i32, ptr %1, align 8
-  %166 = lshr i32 %165, 24
-  %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 %167
-  %169 = load ptr, ptr %168, align 8, !tbaa !503
-  %170 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %169) #23
-  %.not.i.i = icmp eq ptr %170, null
-  br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %171
+163:                                              ; preds = %_ZNK5clang8CallExpr15getDirectCalleeEv.exit54, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit50, %67, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit
+  %164 = load i32, ptr %1, align 8
+  %165 = lshr i32 %164, 24
+  %166 = zext nneg i32 %165 to i64
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 %166
+  %168 = load ptr, ptr %167, align 8, !tbaa !503
+  %169 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %168) #23
+  %.not.i.i = icmp eq ptr %169, null
+  br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %170
 
-171:                                              ; preds = %164
-  %172 = getelementptr inbounds nuw i8, ptr %170, i64 28
-  %173 = load i32, ptr %172, align 4
-  %174 = and i32 %173, 127
-  %175 = add nsw i32 %174, -16
-  %176 = icmp ult i32 %175, 63
-  br i1 %176, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread
+170:                                              ; preds = %163
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 28
+  %172 = load i32, ptr %171, align 4
+  %173 = and i32 %172, 127
+  %174 = add nsw i32 %173, -16
+  %175 = icmp ult i32 %174, 63
+  br i1 %175, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit: ; preds = %171
-  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset10handleCallEPKN5clang4ExprEPKNS1_9NamedDeclEPNS1_12threadSafety3til10LiteralPtrENS1_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %1, ptr noundef nonnull %170, ptr noundef null, i32 0)
+_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit: ; preds = %170
+  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset10handleCallEPKN5clang4ExprEPKNS1_9NamedDeclEPNS1_12threadSafety3til10LiteralPtrENS1_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %1, ptr noundef nonnull %169, ptr noundef null, i32 0)
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread: ; preds = %164, %171, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit
+_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread: ; preds = %163, %170, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit
   ret void
 }
 

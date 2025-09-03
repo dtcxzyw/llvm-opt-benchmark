@@ -505,23 +505,23 @@ lj_buf_more.exit:                                 ; preds = %2
 .lr.ph.preheader:                                 ; preds = %lj_buf_more.exit.thread, %lj_buf_more.exit
   %18 = phi ptr [ %15, %lj_buf_more.exit.thread ], [ %17, %lj_buf_more.exit ]
   %19 = phi i64 [ %14, %lj_buf_more.exit.thread ], [ %16, %lj_buf_more.exit ]
-  %.0.i20 = phi ptr [ %13, %lj_buf_more.exit.thread ], [ %7, %lj_buf_more.exit ]
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %19
+  %.0.i19 = phi ptr [ %13, %lj_buf_more.exit.thread ], [ %7, %lj_buf_more.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 23
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.pn15 = phi ptr [ %.0, %.lr.ph ], [ %21, %.lr.ph.preheader ]
-  %.01314 = phi ptr [ %23, %.lr.ph ], [ %.0.i20, %.lr.ph.preheader ]
-  %.0 = getelementptr inbounds i8, ptr %.pn15, i64 -1
-  %22 = load i8, ptr %.0, align 1, !tbaa !18
-  %23 = getelementptr inbounds nuw i8, ptr %.01314, i64 1
-  store i8 %22, ptr %.01314, align 1, !tbaa !18
-  %24 = icmp ult ptr %23, %18
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  %.015 = phi ptr [ %22, %.lr.ph ], [ %21, %.lr.ph.preheader ]
+  %.01314 = phi ptr [ %24, %.lr.ph ], [ %.0.i19, %.lr.ph.preheader ]
+  %22 = getelementptr inbounds i8, ptr %.015, i64 -1
+  %23 = load i8, ptr %.015, align 1, !tbaa !18
+  %24 = getelementptr inbounds nuw i8, ptr %.01314, i64 1
+  store i8 %23, ptr %.01314, align 1, !tbaa !18
+  %25 = icmp ult ptr %24, %18
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %lj_buf_more.exit
-  %.013.lcssa = phi ptr [ %7, %lj_buf_more.exit ], [ %23, %.lr.ph ]
+  %.013.lcssa = phi ptr [ %7, %lj_buf_more.exit ], [ %24, %.lr.ph ]
   store ptr %.013.lcssa, ptr %0, align 8, !tbaa !15
   ret ptr %0
 }

@@ -6647,9 +6647,8 @@ _ZNK15Bytecode_invoke16is_invokedynamicEv.exit:   ; preds = %151
   %175 = load ptr, ptr %174, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %177 = load ptr, ptr %176, align 8
-  %.idx = shl nsw i64 %170, 4
-  %178 = getelementptr i8, ptr %177, i64 18
-  %179 = getelementptr i8, ptr %178, i64 %.idx
+  %178 = getelementptr %class.ResolvedIndyEntry, ptr %177, i64 %170
+  %179 = getelementptr i8, ptr %178, i64 18
   br label %191
 
 _ZNK15Bytecode_invoke15is_invokehandleEv.exit.thread: ; preds = %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit, %151
@@ -7229,9 +7228,8 @@ define linkonce_odr hidden noundef ptr @_ZNK12ConstantPool28resolved_reference_f
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %.idx = shl nsw i64 %8, 4
-  %9 = getelementptr i8, ptr %7, i64 16
-  %10 = getelementptr i8, ptr %9, i64 %.idx
+  %9 = getelementptr %class.ResolvedIndyEntry, ptr %7, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 16
   %11 = load i16, ptr %10, align 8
   %12 = load i8, ptr @UseCompressedOops, align 1
   %13 = trunc i8 %12 to i1

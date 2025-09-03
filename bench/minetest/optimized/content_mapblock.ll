@@ -6206,7 +6206,6 @@ entry:
   %TCoords.i.2 = getelementptr inbounds nuw i8, ptr %vertices, i64 100
   %Color.i.3 = getelementptr inbounds nuw i8, ptr %vertices, i64 132
   %TCoords.i.3 = getelementptr inbounds nuw i8, ptr %vertices, i64 136
-  %0 = getelementptr inbounds nuw i8, ptr %this, i64 560
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %cleanup98
@@ -6216,59 +6215,59 @@ for.body:                                         ; preds = %cleanup98, %entry
   %__begin1.0.idx145 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %cleanup98 ]
   %__begin1.0.ptr146 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_117liquid_base_facesE, i64 %__begin1.0.idx145
   %Z = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr146, i64 4
-  %1 = load i16, ptr %Z, align 2, !tbaa !150
-  %conv = sext i16 %1 to i64
-  %2 = load i16, ptr %__begin1.0.ptr146, align 2, !tbaa !152
-  %conv3 = sext i16 %2 to i64
-  %arrayidx6.split = getelementptr [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %0, i64 %conv
-  %3 = getelementptr %"struct.MapblockMeshGenerator::LiquidData::NeighborData", ptr %arrayidx6.split, i64 %conv3
-  %is_same_liquid = getelementptr i8, ptr %3, i64 14
-  %4 = load i8, ptr %is_same_liquid, align 2, !tbaa !147, !range !46, !noundef !47
-  %tobool.not = icmp eq i8 %4, 0
+  %0 = load i16, ptr %Z, align 2, !tbaa !150
+  %conv = sext i16 %0 to i64
+  %1 = load i16, ptr %__begin1.0.ptr146, align 2, !tbaa !152
+  %conv3 = sext i16 %1 to i64
+  %arrayidx6.split = getelementptr [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %this, i64 %conv
+  %2 = getelementptr %"struct.MapblockMeshGenerator::LiquidData::NeighborData", ptr %arrayidx6.split, i64 %conv3
+  %is_same_liquid = getelementptr i8, ptr %2, i64 574
+  %3 = load i8, ptr %is_same_liquid, align 2, !tbaa !147, !range !46, !noundef !47
+  %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %5 = load i8, ptr %cur_liquid, align 8, !tbaa !140, !range !46, !noundef !47
-  %tobool8.not = icmp eq i8 %5, 0
+  %4 = load i8, ptr %cur_liquid, align 8, !tbaa !140, !range !46, !noundef !47
+  %tobool8.not = icmp eq i8 %4, 0
   br i1 %tobool8.not, label %cleanup98, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %top_is_same_liquid10 = getelementptr i8, ptr %3, i64 15
-  %6 = load i8, ptr %top_is_same_liquid10, align 1, !tbaa !148, !range !46, !noundef !47
-  %tobool11.not = icmp eq i8 %6, 0
+  %top_is_same_liquid10 = getelementptr i8, ptr %2, i64 575
+  %5 = load i8, ptr %top_is_same_liquid10, align 1, !tbaa !148, !range !46, !noundef !47
+  %tobool11.not = icmp eq i8 %5, 0
   br i1 %tobool11.not, label %if.end14, label %cleanup98
 
 if.end14:                                         ; preds = %if.end, %for.body
-  %7 = load ptr, ptr %nodedef, align 8, !tbaa !36
-  %content = getelementptr i8, ptr %3, i64 12
-  %8 = load i16, ptr %content, align 4, !tbaa !144
-  %conv.i = zext i16 %8 to i64
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !126
-  %10 = load ptr, ptr %7, align 8, !tbaa !128
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
+  %6 = load ptr, ptr %nodedef, align 8, !tbaa !36
+  %content = getelementptr i8, ptr %2, i64 572
+  %7 = load i16, ptr %content, align 4, !tbaa !144
+  %conv.i = zext i16 %7 to i64
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !126
+  %9 = load ptr, ptr %6, align 8, !tbaa !128
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 3712
   %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
   br i1 %cmp.i, label %land.lhs.true.i, label %cond.false.i
 
 land.lhs.true.i:                                  ; preds = %if.end14
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %10, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %9, i64 %conv.i
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1456
-  %11 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !11
-  %cmp.i.i = icmp eq i64 %11, 0
+  %10 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !11
+  %cmp.i.i = icmp eq i64 %10, 0
   br i1 %cmp.i.i, label %cond.false.i, label %_ZNK14NodeDefManager3getEt.exit
 
 cond.false.i:                                     ; preds = %land.lhs.true.i, %if.end14
-  %add.ptr.i14.i = getelementptr inbounds nuw i8, ptr %10, i64 464000
+  %add.ptr.i14.i = getelementptr inbounds nuw i8, ptr %9, i64 464000
   br label %_ZNK14NodeDefManager3getEt.exit
 
 _ZNK14NodeDefManager3getEt.exit:                  ; preds = %cond.false.i, %land.lhs.true.i
   %cond-lvalue.i = phi ptr [ %add.ptr.i14.i, %cond.false.i ], [ %add.ptr.i.i, %land.lhs.true.i ]
   %solidness = getelementptr inbounds nuw i8, ptr %cond-lvalue.i, i64 1440
-  %12 = load i8, ptr %solidness, align 8, !tbaa !129
-  %cmp16 = icmp eq i8 %12, 2
+  %11 = load i8, ptr %solidness, align 8, !tbaa !129
+  %cmp16 = icmp eq i8 %11, 2
   br i1 %cmp16, label %cleanup98, label %if.end18
 
 if.end18:                                         ; preds = %_ZNK14NodeDefManager3getEt.exit
@@ -6286,69 +6285,69 @@ if.end18:                                         ; preds = %_ZNK14NodeDefManage
   br label %for.body22
 
 for.cond.cleanup21:                               ; preds = %if.end83
-  %13 = load ptr, ptr %collector, align 8, !tbaa !31
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %13, ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  %12 = load ptr, ptr %collector, align 8, !tbaa !31
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %12, ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   call void @llvm.lifetime.end.p0(ptr nonnull %vertices)
   br label %cleanup98
 
 for.body22:                                       ; preds = %if.end83, %if.end18
   %indvars.iv = phi i64 [ 0, %if.end18 ], [ %indvars.iv.next, %if.end83 ]
   %arrayidx24 = getelementptr inbounds nuw %"struct.(anonymous namespace)::UV", ptr @_ZN12_GLOBAL__N_120liquid_base_verticesE, i64 %indvars.iv
-  %14 = load i32, ptr %arrayidx24, align 8, !tbaa !153
-  %idxprom25 = sext i32 %14 to i64
+  %13 = load i32, ptr %arrayidx24, align 8, !tbaa !153
+  %idxprom25 = sext i32 %13 to i64
   %arrayidx26 = getelementptr inbounds %"class.irr::core::vector3d", ptr %p, i64 %idxprom25
   %v27 = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 4
-  %15 = load i32, ptr %v27, align 4, !tbaa !155
-  %conv28 = sitofp i32 %15 to float
-  %16 = load i16, ptr %arrayidx26, align 2, !tbaa !38
-  %conv31 = sitofp i16 %16 to float
+  %14 = load i32, ptr %v27, align 4, !tbaa !155
+  %conv28 = sitofp i32 %14 to float
+  %15 = load i16, ptr %arrayidx26, align 2, !tbaa !38
+  %conv31 = sitofp i16 %15 to float
   %sub = fadd nsz float %conv31, -5.000000e-01
   %mul = fmul nsz float %sub, 1.000000e+01
   %Z33 = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 4
-  %17 = load i16, ptr %Z33, align 2, !tbaa !40
-  %conv35 = sitofp i16 %17 to float
+  %16 = load i16, ptr %Z33, align 2, !tbaa !40
+  %conv35 = sitofp i16 %16 to float
   %sub36 = fadd nsz float %conv35, -5.000000e-01
   %mul37 = fmul nsz float %sub36, 1.000000e+01
-  %tobool40.not = icmp eq i32 %15, 0
+  %tobool40.not = icmp eq i32 %14, 0
   br i1 %tobool40.not, label %if.else, label %if.then41
 
 if.then41:                                        ; preds = %for.body22
-  %18 = load i8, ptr %is_same_liquid, align 2, !tbaa !147, !range !46, !noundef !47
-  %tobool43.not = icmp eq i8 %18, 0
+  %17 = load i8, ptr %is_same_liquid, align 2, !tbaa !147, !range !46, !noundef !47
+  %tobool43.not = icmp eq i8 %17, 0
   br i1 %tobool43.not, label %if.end79, label %cond.true
 
 cond.true:                                        ; preds = %if.then41
-  %idxprom46 = sext i16 %17 to i64
-  %idxprom49 = sext i16 %16 to i64
+  %idxprom46 = sext i16 %16 to i64
+  %idxprom49 = sext i16 %15 to i64
   %arrayidx50.split = getelementptr inbounds [2 x float], ptr %corner_levels, i64 %idxprom46
   %arrayidx50 = getelementptr inbounds float, ptr %arrayidx50.split, i64 %idxprom49
-  %19 = load float, ptr %arrayidx50, align 4, !tbaa !49
-  %20 = fmul nsz float %19, 1.000000e+01
+  %18 = load float, ptr %arrayidx50, align 4, !tbaa !49
+  %19 = fmul nsz float %18, 1.000000e+01
   br label %if.end79
 
 if.else:                                          ; preds = %for.body22
-  %21 = load i8, ptr %cur_liquid, align 8, !tbaa !140, !range !46, !noundef !47
-  %tobool54.not = icmp eq i8 %21, 0
+  %20 = load i8, ptr %cur_liquid, align 8, !tbaa !140, !range !46, !noundef !47
+  %tobool54.not = icmp eq i8 %20, 0
   br i1 %tobool54.not, label %if.else57, label %if.end79
 
 if.else57:                                        ; preds = %if.else
-  %idxprom61 = sext i16 %17 to i64
-  %idxprom64 = sext i16 %16 to i64
+  %idxprom61 = sext i16 %16 to i64
+  %idxprom64 = sext i16 %15 to i64
   %arrayidx65.split = getelementptr inbounds [2 x float], ptr %corner_levels, i64 %idxprom61
   %arrayidx65 = getelementptr inbounds float, ptr %arrayidx65.split, i64 %idxprom64
-  %22 = load float, ptr %arrayidx65, align 4, !tbaa !49
-  %mul66 = fmul nsz float %22, 1.000000e+01
-  %sub76 = fsub nsz float 5.000000e-01, %22
+  %21 = load float, ptr %arrayidx65, align 4, !tbaa !49
+  %mul66 = fmul nsz float %21, 1.000000e+01
+  %sub76 = fsub nsz float 5.000000e-01, %21
   %add77 = fadd nsz float %sub76, %conv28
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then41, %cond.true, %if.else57, %if.else
-  %pos.sroa.8.0 = phi float [ %mul66, %if.else57 ], [ 5.000000e+00, %if.else ], [ %20, %cond.true ], [ -5.000000e+00, %if.then41 ]
+  %pos.sroa.8.0 = phi float [ %mul66, %if.else57 ], [ 5.000000e+00, %if.else ], [ %19, %cond.true ], [ -5.000000e+00, %if.then41 ]
   %v.0 = phi float [ %add77, %if.else57 ], [ %conv28, %if.else ], [ %conv28, %cond.true ], [ %conv28, %if.then41 ]
-  %23 = load ptr, ptr %this, align 8, !tbaa !12
-  %m_smooth_lighting = getelementptr inbounds nuw i8, ptr %23, i64 60
-  %24 = load i8, ptr %m_smooth_lighting, align 4, !tbaa !45, !range !46, !noundef !47
-  %tobool80.not = icmp eq i8 %24, 0
+  %22 = load ptr, ptr %this, align 8, !tbaa !12
+  %m_smooth_lighting = getelementptr inbounds nuw i8, ptr %22, i64 60
+  %23 = load i8, ptr %m_smooth_lighting, align 4, !tbaa !45, !range !46, !noundef !47
+  %tobool80.not = icmp eq i8 %23, 0
   br i1 %tobool80.not, label %if.end79.if.end83_crit_edge, label %if.then81
 
 if.end79.if.end83_crit_edge:                      ; preds = %if.end79
@@ -6359,131 +6358,131 @@ if.end79.if.end83_crit_edge:                      ; preds = %if.end79
 
 if.then81:                                        ; preds = %if.end79
   %.pre.i = load float, ptr %frame.i, align 4, !tbaa !49
-  %25 = load float, ptr %lightsNight.i, align 4, !tbaa !49
-  %26 = load float, ptr %arrayidx41.1.i, align 8
-  %27 = load float, ptr %arrayidx56.1.i, align 8, !tbaa !49
-  %28 = load float, ptr %arrayidx41.2.i, align 4
-  %29 = load float, ptr %arrayidx56.2.i, align 4, !tbaa !49
-  %30 = load float, ptr %arrayidx41.3.i, align 8
-  %31 = load float, ptr %arrayidx56.3.i, align 8, !tbaa !49
-  %32 = load float, ptr %arrayidx41.4.i, align 4
-  %33 = load float, ptr %arrayidx56.4.i, align 4, !tbaa !49
-  %34 = load float, ptr %arrayidx41.5.i, align 8
-  %35 = load float, ptr %arrayidx56.5.i, align 8, !tbaa !49
-  %36 = load float, ptr %arrayidx41.6.i, align 4
-  %37 = load float, ptr %arrayidx56.6.i, align 4, !tbaa !49
-  %38 = load <8 x i8>, ptr %sunlight.i, align 4, !tbaa !64
-  %39 = icmp eq <8 x i8> %38, zeroinitializer
-  %40 = extractelement <8 x i1> %39, i64 0
-  %cond43.i = select nsz i1 %40, float %.pre.i, float 2.550000e+02
-  %41 = extractelement <8 x i1> %39, i64 1
-  %cond43.1.i = select nsz i1 %41, float %26, float 2.550000e+02
-  %42 = extractelement <8 x i1> %39, i64 2
-  %cond43.2.i = select nsz i1 %42, float %28, float 2.550000e+02
-  %43 = extractelement <8 x i1> %39, i64 3
-  %cond43.3.i = select nsz i1 %43, float %30, float 2.550000e+02
-  %44 = extractelement <8 x i1> %39, i64 4
-  %cond43.4.i = select nsz i1 %44, float %32, float 2.550000e+02
-  %45 = extractelement <8 x i1> %39, i64 5
-  %cond43.5.i = select nsz i1 %45, float %34, float 2.550000e+02
-  %46 = extractelement <8 x i1> %39, i64 6
-  %cond43.6.i = select nsz i1 %46, float %36, float 2.550000e+02
-  %47 = load float, ptr %arrayidx41.7.i, align 8
-  %48 = extractelement <8 x i1> %39, i64 7
-  %cond43.7.i = select nsz i1 %48, float %47, float 2.550000e+02
+  %24 = load float, ptr %lightsNight.i, align 4, !tbaa !49
+  %25 = load float, ptr %arrayidx41.1.i, align 8
+  %26 = load float, ptr %arrayidx56.1.i, align 8, !tbaa !49
+  %27 = load float, ptr %arrayidx41.2.i, align 4
+  %28 = load float, ptr %arrayidx56.2.i, align 4, !tbaa !49
+  %29 = load float, ptr %arrayidx41.3.i, align 8
+  %30 = load float, ptr %arrayidx56.3.i, align 8, !tbaa !49
+  %31 = load float, ptr %arrayidx41.4.i, align 4
+  %32 = load float, ptr %arrayidx56.4.i, align 4, !tbaa !49
+  %33 = load float, ptr %arrayidx41.5.i, align 8
+  %34 = load float, ptr %arrayidx56.5.i, align 8, !tbaa !49
+  %35 = load float, ptr %arrayidx41.6.i, align 4
+  %36 = load float, ptr %arrayidx56.6.i, align 4, !tbaa !49
+  %37 = load <8 x i8>, ptr %sunlight.i, align 4, !tbaa !64
+  %38 = icmp eq <8 x i8> %37, zeroinitializer
+  %39 = extractelement <8 x i1> %38, i64 0
+  %cond43.i = select nsz i1 %39, float %.pre.i, float 2.550000e+02
+  %40 = extractelement <8 x i1> %38, i64 1
+  %cond43.1.i = select nsz i1 %40, float %25, float 2.550000e+02
+  %41 = extractelement <8 x i1> %38, i64 2
+  %cond43.2.i = select nsz i1 %41, float %27, float 2.550000e+02
+  %42 = extractelement <8 x i1> %38, i64 3
+  %cond43.3.i = select nsz i1 %42, float %29, float 2.550000e+02
+  %43 = extractelement <8 x i1> %38, i64 4
+  %cond43.4.i = select nsz i1 %43, float %31, float 2.550000e+02
+  %44 = extractelement <8 x i1> %38, i64 5
+  %cond43.5.i = select nsz i1 %44, float %33, float 2.550000e+02
+  %45 = extractelement <8 x i1> %38, i64 6
+  %cond43.6.i = select nsz i1 %45, float %35, float 2.550000e+02
+  %46 = load float, ptr %arrayidx41.7.i, align 8
+  %47 = extractelement <8 x i1> %38, i64 7
+  %cond43.7.i = select nsz i1 %47, float %46, float 2.550000e+02
   %div14.i = fdiv nsz float %mul37, 1.000000e+01
   %conv15.i = fpext float %div14.i to double
   %add16.i = fadd nsz double %conv15.i, 5.000000e-01
   %cmp.i.i87.i = fcmp nsz olt double %add16.i, -1.000000e+00
-  %49 = select i1 %cmp.i.i87.i, double -1.000000e+00, double %add16.i
-  %cmp.i2.i88.i = fcmp nsz olt double %49, 2.000000e+00
-  %50 = select i1 %cmp.i2.i88.i, double %49, double 2.000000e+00
-  %conv20.i = fptrunc double %50 to float
+  %48 = select i1 %cmp.i.i87.i, double -1.000000e+00, double %add16.i
+  %cmp.i2.i88.i = fcmp nsz olt double %48, 2.000000e+00
+  %49 = select i1 %cmp.i2.i88.i, double %48, double 2.000000e+00
+  %conv20.i = fptrunc double %49 to float
   %sub32.i = fsub nsz float 1.000000e+00, %conv20.i
-  %51 = insertelement <2 x float> poison, float %mul, i64 0
-  %52 = insertelement <2 x float> %51, float %pos.sroa.8.0, i64 1
-  %53 = fdiv nsz <2 x float> %52, splat (float 1.000000e+01)
-  %54 = fpext <2 x float> %53 to <2 x double>
-  %55 = fadd nsz <2 x double> %54, splat (double 5.000000e-01)
-  %56 = fcmp nsz olt <2 x double> %55, splat (double -1.000000e+00)
-  %57 = select <2 x i1> %56, <2 x double> splat (double -1.000000e+00), <2 x double> %55
-  %58 = fcmp nsz olt <2 x double> %57, splat (double 2.000000e+00)
-  %59 = select <2 x i1> %58, <2 x double> %57, <2 x double> splat (double 2.000000e+00)
-  %60 = fptrunc <2 x double> %59 to <2 x float>
-  %61 = extractelement <2 x float> %60, i64 0
-  %62 = extractelement <2 x float> %60, i64 1
-  %mul.6.i = fmul nsz float %61, %62
+  %50 = insertelement <2 x float> poison, float %mul, i64 0
+  %51 = insertelement <2 x float> %50, float %pos.sroa.8.0, i64 1
+  %52 = fdiv nsz <2 x float> %51, splat (float 1.000000e+01)
+  %53 = fpext <2 x float> %52 to <2 x double>
+  %54 = fadd nsz <2 x double> %53, splat (double 5.000000e-01)
+  %55 = fcmp nsz olt <2 x double> %54, splat (double -1.000000e+00)
+  %56 = select <2 x i1> %55, <2 x double> splat (double -1.000000e+00), <2 x double> %54
+  %57 = fcmp nsz olt <2 x double> %56, splat (double 2.000000e+00)
+  %58 = select <2 x i1> %57, <2 x double> %56, <2 x double> splat (double 2.000000e+00)
+  %59 = fptrunc <2 x double> %58 to <2 x float>
+  %60 = extractelement <2 x float> %59, i64 0
+  %61 = extractelement <2 x float> %59, i64 1
+  %mul.6.i = fmul nsz float %60, %61
   %mul44.6.i = fmul nsz float %sub32.i, %mul.6.i
-  %sub25.i = fsub nsz float 1.000000e+00, %62
-  %mul.4.i = fmul nsz float %61, %sub25.i
+  %sub25.i = fsub nsz float 1.000000e+00, %61
+  %mul.4.i = fmul nsz float %60, %sub25.i
   %mul44.5.i = fmul nsz float %mul.4.i, %conv20.i
   %mul44.4.i = fmul nsz float %sub32.i, %mul.4.i
-  %sub.i = fsub nsz float 1.000000e+00, %61
-  %mul.2.i = fmul nsz float %62, %sub.i
+  %sub.i = fsub nsz float 1.000000e+00, %60
+  %mul.2.i = fmul nsz float %61, %sub.i
   %mul44.3.i = fmul nsz float %mul.2.i, %conv20.i
   %mul44.2.i = fmul nsz float %sub32.i, %mul.2.i
   %mul.i = fmul nsz float %sub.i, %sub25.i
   %mul44.1.i = fmul nsz float %mul.i, %conv20.i
   %mul44.i = fmul nsz float %sub32.i, %mul.i
-  %63 = fmul nsz float %mul44.i, %cond43.i
-  %64 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %cond43.1.i, float %63)
-  %65 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %cond43.2.i, float %64)
-  %66 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %cond43.3.i, float %65)
-  %67 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %cond43.4.i, float %66)
-  %68 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %cond43.5.i, float %67)
-  %69 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %cond43.6.i, float %68)
-  %70 = fmul nsz float %mul44.i, %25
-  %71 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %27, float %70)
-  %72 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %29, float %71)
-  %73 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %31, float %72)
-  %74 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %33, float %73)
-  %75 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %35, float %74)
-  %76 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %37, float %75)
-  %77 = fmul nsz float %mul44.i, %.pre.i
-  %78 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %26, float %77)
-  %79 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %28, float %78)
-  %80 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %30, float %79)
-  %81 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %32, float %80)
-  %82 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %34, float %81)
-  %83 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %36, float %82)
+  %62 = fmul nsz float %mul44.i, %cond43.i
+  %63 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %cond43.1.i, float %62)
+  %64 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %cond43.2.i, float %63)
+  %65 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %cond43.3.i, float %64)
+  %66 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %cond43.4.i, float %65)
+  %67 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %cond43.5.i, float %66)
+  %68 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %cond43.6.i, float %67)
+  %69 = fmul nsz float %mul44.i, %24
+  %70 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %26, float %69)
+  %71 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %28, float %70)
+  %72 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %30, float %71)
+  %73 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %32, float %72)
+  %74 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %34, float %73)
+  %75 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %36, float %74)
+  %76 = fmul nsz float %mul44.i, %.pre.i
+  %77 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %25, float %76)
+  %78 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %27, float %77)
+  %79 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %29, float %78)
+  %80 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %31, float %79)
+  %81 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %33, float %80)
+  %82 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %35, float %81)
   %mul44.7.i = fmul nsz float %mul.6.i, %conv20.i
-  %84 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %47, float %83)
-  %85 = load float, ptr %arrayidx56.7.i, align 8, !tbaa !49
-  %86 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %85, float %76)
-  %87 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %cond43.7.i, float %69)
-  %mul2.i.i = fmul nsz float %87, 0.000000e+00
-  %88 = fadd nsz float %84, %mul2.i.i
-  %add.i.i.i.i.i = fadd nsz float %88, 5.000000e-01
-  %89 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.i)
-  %conv.i.i.i.i = fptosi float %89 to i32
-  %90 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.i, i32 0)
-  %91 = call i32 @llvm.umin.i32(i32 %90, i32 255)
-  %conv.i.i.i = trunc nuw nsw i32 %91 to i16
-  %add.i.i11.i.i.i = fadd nsz float %86, 5.000000e-01
-  %92 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.i)
-  %conv.i12.i.i.i = fptosi float %92 to i32
-  %93 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.i, i32 0)
-  %94 = call i32 @llvm.umin.i32(i32 %93, i32 255)
-  %conv10.i.i.i = trunc nuw nsw i32 %94 to i16
+  %83 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %46, float %82)
+  %84 = load float, ptr %arrayidx56.7.i, align 8, !tbaa !49
+  %85 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %84, float %75)
+  %86 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %cond43.7.i, float %68)
+  %mul2.i.i = fmul nsz float %86, 0.000000e+00
+  %87 = fadd nsz float %83, %mul2.i.i
+  %add.i.i.i.i.i = fadd nsz float %87, 5.000000e-01
+  %88 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.i)
+  %conv.i.i.i.i = fptosi float %88 to i32
+  %89 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.i, i32 0)
+  %90 = call i32 @llvm.umin.i32(i32 %89, i32 255)
+  %conv.i.i.i = trunc nuw nsw i32 %90 to i16
+  %add.i.i11.i.i.i = fadd nsz float %85, 5.000000e-01
+  %91 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.i)
+  %conv.i12.i.i.i = fptosi float %91 to i32
+  %92 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.i, i32 0)
+  %93 = call i32 @llvm.umin.i32(i32 %92, i32 255)
+  %conv10.i.i.i = trunc nuw nsw i32 %93 to i16
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i16 %conv10.i.i.i, 8
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i16 %retval.sroa.2.0.insert.shift.i.i, %conv.i.i.i
-  %95 = load ptr, ptr %f.i, align 8, !tbaa !62
-  %light_source.i = getelementptr inbounds nuw i8, ptr %95, i64 3041
-  %96 = load i8, ptr %light_source.i, align 1, !tbaa !69
-  %call4.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.i, i8 noundef zeroext %96)
+  %94 = load ptr, ptr %f.i, align 8, !tbaa !62
+  %light_source.i = getelementptr inbounds nuw i8, ptr %94, i64 3041
+  %95 = load i8, ptr %light_source.i, align 1, !tbaa !69
+  %call4.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.i, i8 noundef zeroext %95)
   store i32 %call4.i, ptr %color, align 4, !tbaa !100
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then81, %if.end79.if.end83_crit_edge
-  %.pre-phi2 = phi <2 x float> [ %52, %if.then81 ], [ %.pre1, %if.end79.if.end83_crit_edge ]
+  %.pre-phi2 = phi <2 x float> [ %51, %if.then81 ], [ %.pre1, %if.end79.if.end83_crit_edge ]
   %agg.tmp.sroa.0.0.copyload = phi i32 [ %call4.i, %if.then81 ], [ %agg.tmp.sroa.0.0.copyload.pre, %if.end79.if.end83_crit_edge ]
-  %97 = load float, ptr %Z.i130, align 8, !tbaa !50
-  %add6.i = fadd nsz float %mul37, %97
-  %conv93 = sitofp i32 %14 to float
+  %96 = load float, ptr %Z.i130, align 8, !tbaa !50
+  %add6.i = fadd nsz float %mul37, %96
+  %conv93 = sitofp i32 %13 to float
   %arrayidx96 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %vertices, i64 %indvars.iv
-  %98 = load <2 x float>, ptr %origin, align 8, !tbaa !49
-  %99 = fadd nsz <2 x float> %.pre-phi2, %98
-  store <2 x float> %99, ptr %arrayidx96, align 4, !tbaa !49
+  %97 = load <2 x float>, ptr %origin, align 8, !tbaa !49
+  %98 = fadd nsz <2 x float> %.pre-phi2, %97
+  store <2 x float> %98, ptr %arrayidx96, align 4, !tbaa !49
   %ref.tmp86.sroa.5.0.arrayidx96.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx96, i64 8
   store float %add6.i, ptr %ref.tmp86.sroa.5.0.arrayidx96.sroa_idx, align 4, !tbaa !49
   %ref.tmp86.sroa.6.0.arrayidx96.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx96, i64 12

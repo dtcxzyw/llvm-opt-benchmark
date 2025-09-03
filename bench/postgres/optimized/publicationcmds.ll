@@ -5,6 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
 %struct.rf_context = type { ptr, i8, i32, i32 }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.nameData = type { [64 x i8] }
 %struct.PublicationActions = type { i8, i8, i8, i8 }
 %union.ListCell = type { ptr }
 
@@ -303,11 +305,11 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %5, align 1
   %.not59 = icmp eq i8 %4, 115
-  %.pre80 = load ptr, ptr %11, align 8
+  %.pre79 = load ptr, ptr %11, align 8
   br i1 %.not59, label %41, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %.pre80, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.pre79, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not60 = icmp eq ptr %35, null
   br i1 %.not60, label %41, label %36
@@ -324,7 +326,7 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   br label %41
 
 41:                                               ; preds = %40, %36, %33, %29
-  %42 = phi ptr [ %.pre, %40 ], [ %.pre80, %36 ], [ %.pre80, %33 ], [ %.pre80, %29 ]
+  %42 = phi ptr [ %.pre, %40 ], [ %.pre79, %36 ], [ %.pre79, %33 ], [ %.pre79, %29 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %.not61 = icmp eq ptr %44, null
@@ -348,7 +350,7 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
 53:                                               ; preds = %50
   %54 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %182, label %56
+  br i1 %55, label %178, label %56
 
 56:                                               ; preds = %50, %53, %21
   %57 = call ptr @RelationGetIndexAttrBitmap(ptr noundef nonnull %1, i32 noundef 2) #8
@@ -357,14 +359,14 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   br i1 %59, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %56
-  %.not72 = icmp eq i8 %4, 115
+  %.not71 = icmp eq i8 %4, 115
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not72, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  br i1 %.not71, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %88
-  %60 = phi i32 [ %89, %88 ], [ %58, %.lr.ph.split.us ]
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %87
+  %60 = phi i32 [ %88, %87 ], [ %58, %.lr.ph.split.us ]
   %61 = trunc i32 %60 to i16
   %62 = add i16 %61, -7
   %63 = load ptr, ptr %8, align 8
@@ -383,12 +385,12 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   %74 = or i8 %72, %73
   %.not62.us.us = icmp eq i8 %74, 0
   store i8 %74, ptr %5, align 1
-  br i1 %.not62.us.us, label %88, label %75
+  br i1 %.not62.us.us, label %87, label %75
 
 75:                                               ; preds = %65
   %76 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %.thread, label %88
+  br i1 %77, label %.thread, label %87
 
 78:                                               ; preds = %.lr.ph.split.us.split.us
   %79 = sext i16 %62 to i64
@@ -396,173 +398,165 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   %81 = sext i32 %80 to i64
   %82 = shl nsw i64 %81, 4
   %83 = getelementptr i8, ptr %12, i64 %82
-  %.idx.us.us = mul nsw i64 %79, 100
-  %84 = getelementptr i8, ptr %83, i64 14
-  %85 = getelementptr i8, ptr %84, i64 %.idx.us.us
-  %86 = load i8, ptr %85, align 2
-  %87 = icmp eq i8 %86, 118
-  br i1 %87, label %.thread.sink.split, label %88, !llvm.loop !6
+  %84 = getelementptr %struct.FormData_pg_attribute, ptr %83, i64 %79, i32 1, i32 0, i64 10
+  %85 = load i8, ptr %84, align 2
+  %86 = icmp eq i8 %85, 118
+  br i1 %86, label %.thread.sink.split, label %87, !llvm.loop !6
 
-88:                                               ; preds = %78, %75, %65
-  %89 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %60) #8
-  %90 = icmp sgt i32 %89, -1
-  br i1 %90, label %.lr.ph.split.us.split.us, label %.thread
+87:                                               ; preds = %78, %75, %65
+  %88 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %60) #8
+  %89 = icmp sgt i32 %88, -1
+  br i1 %89, label %.lr.ph.split.us.split.us, label %.thread
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %118
-  %91 = phi i32 [ %119, %118 ], [ %58, %.lr.ph.split.us ]
-  %92 = trunc i32 %91 to i16
-  %93 = add i16 %92, -7
-  %94 = load ptr, ptr %8, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %109, label %96
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %116
+  %90 = phi i32 [ %117, %116 ], [ %58, %.lr.ph.split.us ]
+  %91 = trunc i32 %90 to i16
+  %92 = add i16 %91, -7
+  %93 = load ptr, ptr %8, align 8
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %108, label %95
 
-96:                                               ; preds = %.lr.ph.split.us.split
-  %97 = call ptr @get_attname(i32 noundef %10, i16 noundef signext %93, i1 noundef zeroext false) #8
-  %98 = call signext i16 @get_attnum(i32 noundef %.051, ptr noundef %97) #8
-  %99 = sext i16 %98 to i32
-  %100 = load ptr, ptr %8, align 8
-  %101 = call zeroext i1 @bms_is_member(i32 noundef %99, ptr noundef %100) #8
-  %102 = xor i1 %101, true
-  %103 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %104 = zext i1 %102 to i8
-  %105 = or i8 %103, %104
-  %.not62.us = icmp eq i8 %105, 0
-  store i8 %105, ptr %5, align 1
-  br i1 %.not62.us, label %118, label %106
+95:                                               ; preds = %.lr.ph.split.us.split
+  %96 = call ptr @get_attname(i32 noundef %10, i16 noundef signext %92, i1 noundef zeroext false) #8
+  %97 = call signext i16 @get_attnum(i32 noundef %.051, ptr noundef %96) #8
+  %98 = sext i16 %97 to i32
+  %99 = load ptr, ptr %8, align 8
+  %100 = call zeroext i1 @bms_is_member(i32 noundef %98, ptr noundef %99) #8
+  %101 = xor i1 %100, true
+  %102 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %103 = zext i1 %101 to i8
+  %104 = or i8 %102, %103
+  %.not62.us = icmp eq i8 %104, 0
+  store i8 %104, ptr %5, align 1
+  br i1 %.not62.us, label %116, label %105
 
-106:                                              ; preds = %96
-  %107 = load i8, ptr %6, align 1, !range !4, !noundef !5
-  %108 = trunc nuw i8 %107 to i1
-  br i1 %108, label %.thread, label %118
+105:                                              ; preds = %95
+  %106 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %107 = trunc nuw i8 %106 to i1
+  br i1 %107, label %.thread, label %116
 
-109:                                              ; preds = %.lr.ph.split.us.split
-  %110 = sext i16 %93 to i64
-  %111 = load i32, ptr %12, align 8
-  %112 = sext i32 %111 to i64
-  %113 = shl nsw i64 %112, 4
-  %114 = getelementptr i8, ptr %12, i64 %113
-  %.idx.us = mul nsw i64 %110, 100
-  %115 = getelementptr i8, ptr %114, i64 14
-  %116 = getelementptr i8, ptr %115, i64 %.idx.us
-  %117 = load i8, ptr %116, align 2
-  switch i8 %117, label %118 [
+108:                                              ; preds = %.lr.ph.split.us.split
+  %109 = sext i16 %92 to i64
+  %110 = load i32, ptr %12, align 8
+  %111 = sext i32 %110 to i64
+  %112 = shl nsw i64 %111, 4
+  %113 = getelementptr i8, ptr %12, i64 %112
+  %114 = getelementptr %struct.FormData_pg_attribute, ptr %113, i64 %109, i32 1, i32 0, i64 10
+  %115 = load i8, ptr %114, align 2
+  switch i8 %115, label %116 [
     i8 115, label %.thread.sink.split
     i8 118, label %.thread.sink.split
   ]
 
-118:                                              ; preds = %109, %106, %96
-  %119 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %91) #8
-  %120 = icmp sgt i32 %119, -1
-  br i1 %120, label %.lr.ph.split.us.split, label %.thread
+116:                                              ; preds = %108, %105, %95
+  %117 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %90) #8
+  %118 = icmp sgt i32 %117, -1
+  br i1 %118, label %.lr.ph.split.us.split, label %.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not72, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.not71, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %146
-  %121 = phi i32 [ %147, %146 ], [ %58, %.lr.ph.split ]
-  %122 = trunc i32 %121 to i16
-  %123 = add i16 %122, -7
-  %124 = load ptr, ptr %8, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %136, label %126
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %143
+  %119 = phi i32 [ %144, %143 ], [ %58, %.lr.ph.split ]
+  %120 = trunc i32 %119 to i16
+  %121 = add i16 %120, -7
+  %122 = load ptr, ptr %8, align 8
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %134, label %124
 
-126:                                              ; preds = %.lr.ph.split.split.us
-  %127 = sext i16 %123 to i32
-  %128 = call zeroext i1 @bms_is_member(i32 noundef %127, ptr noundef nonnull %124) #8
-  %129 = xor i1 %128, true
-  %130 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %131 = zext i1 %129 to i8
-  %132 = or i8 %130, %131
-  %.not62.us69 = icmp eq i8 %132, 0
-  store i8 %132, ptr %5, align 1
-  br i1 %.not62.us69, label %146, label %133
+124:                                              ; preds = %.lr.ph.split.split.us
+  %125 = sext i16 %121 to i32
+  %126 = call zeroext i1 @bms_is_member(i32 noundef %125, ptr noundef nonnull %122) #8
+  %127 = xor i1 %126, true
+  %128 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %129 = zext i1 %127 to i8
+  %130 = or i8 %128, %129
+  %.not62.us69 = icmp eq i8 %130, 0
+  store i8 %130, ptr %5, align 1
+  br i1 %.not62.us69, label %143, label %131
 
-133:                                              ; preds = %126
-  %134 = load i8, ptr %6, align 1, !range !4, !noundef !5
-  %135 = trunc nuw i8 %134 to i1
-  br i1 %135, label %.thread, label %146
+131:                                              ; preds = %124
+  %132 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %133 = trunc nuw i8 %132 to i1
+  br i1 %133, label %.thread, label %143
 
-136:                                              ; preds = %.lr.ph.split.split.us
-  %137 = sext i16 %123 to i64
-  %138 = load i32, ptr %12, align 8
-  %139 = sext i32 %138 to i64
-  %140 = shl nsw i64 %139, 4
-  %141 = getelementptr i8, ptr %12, i64 %140
-  %.idx.us70 = mul nsw i64 %137, 100
-  %142 = getelementptr i8, ptr %141, i64 14
-  %143 = getelementptr i8, ptr %142, i64 %.idx.us70
-  %144 = load i8, ptr %143, align 2
-  %145 = icmp eq i8 %144, 118
-  br i1 %145, label %.thread.sink.split, label %146, !llvm.loop !6
+134:                                              ; preds = %.lr.ph.split.split.us
+  %135 = sext i16 %121 to i64
+  %136 = load i32, ptr %12, align 8
+  %137 = sext i32 %136 to i64
+  %138 = shl nsw i64 %137, 4
+  %139 = getelementptr i8, ptr %12, i64 %138
+  %140 = getelementptr %struct.FormData_pg_attribute, ptr %139, i64 %135, i32 1, i32 0, i64 10
+  %141 = load i8, ptr %140, align 2
+  %142 = icmp eq i8 %141, 118
+  br i1 %142, label %.thread.sink.split, label %143, !llvm.loop !6
 
-146:                                              ; preds = %136, %133, %126
-  %147 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %121) #8
-  %148 = icmp sgt i32 %147, -1
-  br i1 %148, label %.lr.ph.split.split.us, label %.thread
+143:                                              ; preds = %134, %131, %124
+  %144 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %119) #8
+  %145 = icmp sgt i32 %144, -1
+  br i1 %145, label %.lr.ph.split.split.us, label %.thread
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %173
-  %149 = phi i32 [ %174, %173 ], [ %58, %.lr.ph.split ]
-  %150 = trunc i32 %149 to i16
-  %151 = add i16 %150, -7
-  %152 = load ptr, ptr %8, align 8
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %154, label %163
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %169
+  %146 = phi i32 [ %170, %169 ], [ %58, %.lr.ph.split ]
+  %147 = trunc i32 %146 to i16
+  %148 = add i16 %147, -7
+  %149 = load ptr, ptr %8, align 8
+  %150 = icmp eq ptr %149, null
+  br i1 %150, label %151, label %159
 
-154:                                              ; preds = %.lr.ph.split.split
-  %155 = sext i16 %151 to i64
-  %156 = load i32, ptr %12, align 8
-  %157 = sext i32 %156 to i64
-  %158 = shl nsw i64 %157, 4
-  %159 = getelementptr i8, ptr %12, i64 %158
-  %.idx = mul nsw i64 %155, 100
-  %160 = getelementptr i8, ptr %159, i64 14
-  %161 = getelementptr i8, ptr %160, i64 %.idx
-  %162 = load i8, ptr %161, align 2
-  switch i8 %162, label %173 [
+151:                                              ; preds = %.lr.ph.split.split
+  %152 = sext i16 %148 to i64
+  %153 = load i32, ptr %12, align 8
+  %154 = sext i32 %153 to i64
+  %155 = shl nsw i64 %154, 4
+  %156 = getelementptr i8, ptr %12, i64 %155
+  %157 = getelementptr %struct.FormData_pg_attribute, ptr %156, i64 %152, i32 1, i32 0, i64 10
+  %158 = load i8, ptr %157, align 2
+  switch i8 %158, label %169 [
     i8 115, label %.thread.sink.split
     i8 118, label %.thread.sink.split
   ]
 
-163:                                              ; preds = %.lr.ph.split.split
-  %164 = sext i16 %151 to i32
-  %165 = call zeroext i1 @bms_is_member(i32 noundef %164, ptr noundef nonnull %152) #8
-  %166 = xor i1 %165, true
-  %167 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %168 = zext i1 %166 to i8
-  %169 = or i8 %167, %168
-  %.not62 = icmp eq i8 %169, 0
-  store i8 %169, ptr %5, align 1
-  br i1 %.not62, label %173, label %170
+159:                                              ; preds = %.lr.ph.split.split
+  %160 = sext i16 %148 to i32
+  %161 = call zeroext i1 @bms_is_member(i32 noundef %160, ptr noundef nonnull %149) #8
+  %162 = xor i1 %161, true
+  %163 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %164 = zext i1 %162 to i8
+  %165 = or i8 %163, %164
+  %.not62 = icmp eq i8 %165, 0
+  store i8 %165, ptr %5, align 1
+  br i1 %.not62, label %169, label %166
 
-170:                                              ; preds = %163
-  %171 = load i8, ptr %6, align 1, !range !4, !noundef !5
-  %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %.thread, label %173
+166:                                              ; preds = %159
+  %167 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %168 = trunc nuw i8 %167 to i1
+  br i1 %168, label %.thread, label %169
 
-173:                                              ; preds = %154, %163, %170
-  %174 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %149) #8
-  %175 = icmp sgt i32 %174, -1
-  br i1 %175, label %.lr.ph.split.split, label %.thread
+169:                                              ; preds = %151, %159, %166
+  %170 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %146) #8
+  %171 = icmp sgt i32 %170, -1
+  br i1 %171, label %.lr.ph.split.split, label %.thread
 
-.thread.sink.split:                               ; preds = %154, %154, %136, %109, %109, %78
+.thread.sink.split:                               ; preds = %151, %151, %134, %108, %108, %78
   store i8 1, ptr %6, align 1
   br label %.thread
 
-.thread:                                          ; preds = %173, %170, %146, %133, %118, %106, %88, %75, %.thread.sink.split, %56
-  %176 = load ptr, ptr %8, align 8
-  call void @bms_free(ptr noundef %176) #8
+.thread:                                          ; preds = %169, %166, %143, %131, %116, %105, %87, %75, %.thread.sink.split, %56
+  %172 = load ptr, ptr %8, align 8
+  call void @bms_free(ptr noundef %172) #8
   call void @bms_free(ptr noundef %57) #8
-  %177 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %178 = trunc nuw i8 %177 to i1
-  br i1 %178, label %182, label %179
+  %173 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %174 = trunc nuw i8 %173 to i1
+  br i1 %174, label %178, label %175
 
-179:                                              ; preds = %.thread
-  %180 = load i8, ptr %6, align 1, !range !4, !noundef !5
-  %181 = trunc nuw i8 %180 to i1
-  br label %182
+175:                                              ; preds = %.thread
+  %176 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %177 = trunc nuw i8 %176 to i1
+  br label %178
 
-182:                                              ; preds = %.thread, %179, %53
-  %.0 = phi i1 [ true, %53 ], [ true, %.thread ], [ %181, %179 ]
+178:                                              ; preds = %.thread, %175, %53
+  %.0 = phi i1 [ true, %53 ], [ true, %.thread ], [ %177, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }

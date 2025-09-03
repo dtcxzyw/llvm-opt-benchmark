@@ -608,13 +608,13 @@ define internal noundef ptr @paramlist_param_ref(ptr noundef readonly captures(n
   %7 = load i32, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %37, label %9
+  br i1 %8, label %36, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %7, %11
-  br i1 %12, label %37, label %13
+  br i1 %12, label %36, label %13
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %5, align 8
@@ -623,45 +623,44 @@ define internal noundef ptr @paramlist_param_ref(ptr noundef readonly captures(n
 
 15:                                               ; preds = %13
   %16 = call ptr %14(ptr noundef nonnull %5, i32 noundef %7, i1 noundef zeroext false, ptr noundef nonnull %3) #7
-  br label %22
+  br label %21
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %19 = zext nneg i32 %7 to i64
-  %20 = getelementptr %struct.ParamExternData, ptr %18, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 -16
-  br label %22
+  %18 = zext nneg i32 %7 to i64
+  %19 = getelementptr %struct.ParamExternData, ptr %5, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 48
+  br label %21
 
-22:                                               ; preds = %17, %15
-  %.023 = phi ptr [ %16, %15 ], [ %21, %17 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.023, i64 12
-  %24 = load i32, ptr %23, align 4
-  %.not26 = icmp eq i32 %24, 0
-  br i1 %.not26, label %37, label %25
+21:                                               ; preds = %17, %15
+  %.023 = phi ptr [ %16, %15 ], [ %20, %17 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.023, i64 12
+  %23 = load i32, ptr %22, align 4
+  %.not26 = icmp eq i32 %23, 0
+  br i1 %.not26, label %36, label %24
 
-25:                                               ; preds = %22
-  %26 = call noundef ptr @palloc0(i64 noundef 28) #7
-  store i32 8, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 %7, ptr %28, align 4
-  %29 = load i32, ptr %23, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i32 -1, ptr %31, align 4
-  %32 = call i32 @get_typcollation(i32 noundef %29) #7
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 20
-  store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store i32 %35, ptr %36, align 4
-  br label %37
+24:                                               ; preds = %21
+  %25 = call noundef ptr @palloc0(i64 noundef 28) #7
+  store i32 8, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i32 %7, ptr %27, align 4
+  %28 = load i32, ptr %22, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  store i32 %28, ptr %29, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store i32 -1, ptr %30, align 4
+  %31 = call i32 @get_typcollation(i32 noundef %28) #7
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  store i32 %31, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i32 %34, ptr %35, align 4
+  br label %36
 
-37:                                               ; preds = %22, %2, %9, %25
-  %.0 = phi ptr [ %26, %25 ], [ null, %9 ], [ null, %2 ], [ null, %22 ]
+36:                                               ; preds = %21, %2, %9, %24
+  %.0 = phi ptr [ %25, %24 ], [ null, %9 ], [ null, %2 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

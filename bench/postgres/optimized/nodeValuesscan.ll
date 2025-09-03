@@ -5,6 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %union.ListCell = type { ptr }
+%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -273,9 +274,8 @@ define internal ptr @ValuesNext(ptr noundef captures(none) %0) #0 {
   br label %78
 
 67:                                               ; preds = %.lr.ph64
-  %.idx = shl nsw i64 %indvars.iv, 4
-  %68 = getelementptr i8, ptr %58, i64 28
-  %69 = getelementptr i8, ptr %68, i64 %.idx
+  %68 = getelementptr %struct.CompactAttribute, ptr %58, i64 %indvars.iv
+  %69 = getelementptr i8, ptr %68, i64 28
   %70 = load i16, ptr %69, align 4
   %.not58 = icmp eq i16 %70, -1
   br i1 %.not58, label %71, label %73

@@ -423,7 +423,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   %53 = load ptr, ptr %52, align 8, !tbaa !16
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %54 = getelementptr i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !18
   %56 = getelementptr i8, ptr %53, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !18
@@ -854,7 +854,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !15
   %67 = load ptr, ptr %66, align 8, !tbaa !16
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %68 = getelementptr i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !18
   %70 = getelementptr i8, ptr %67, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !18

@@ -2031,10 +2031,9 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 .thread:                                          ; preds = %111, %108, %105, %102, %114
   %.2265323 = phi i8 [ 1, %114 ], [ 3, %111 ], [ 7, %108 ], [ 15, %105 ], [ 31, %102 ]
   %.0266321 = phi i32 [ 5, %114 ], [ 4, %111 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ]
-  %scevgep = getelementptr i8, ptr %.0271370, i64 2
   %117 = zext nneg i32 %.0266321 to i64
-  %118 = getelementptr i8, ptr %scevgep, i64 %117
-  %scevgep376 = getelementptr i8, ptr %118, i64 -1
+  %118 = getelementptr i8, ptr %.0271370, i64 %117
+  %scevgep376 = getelementptr i8, ptr %118, i64 1
   %.not300384 = icmp ult ptr %10, %6
   br i1 %.not300384, label %.lr.ph388, label %._crit_edge392
 

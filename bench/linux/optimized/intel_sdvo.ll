@@ -4513,7 +4513,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_sdvo_connector_init(
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 17219
   %7 = icmp eq i16 %6, 0
-  br i1 %7, label %45, label %8
+  br i1 %7, label %44, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 132
@@ -4574,56 +4574,55 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_sdvo_connector_init(
   %37 = phi i32 [ %20, %16 ], [ %35, %28 ]
   %38 = add i32 %37, -4
   %39 = icmp ult i32 %38, -3
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %41 = sext i32 %37 to i64
-  %42 = getelementptr %struct.intel_sdvo_ddc, ptr %40, i64 %41
-  %43 = getelementptr i8, ptr %42, i64 -1040
-  %44 = select i1 %39, ptr null, ptr %43
-  br label %45
+  %40 = sext i32 %37 to i64
+  %41 = getelementptr %struct.intel_sdvo_ddc, ptr %1, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 -640
+  %43 = select i1 %39, ptr null, ptr %42
+  br label %44
 
-45:                                               ; preds = %36, %2
-  %46 = phi ptr [ %44, %36 ], [ null, %2 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %48 = load i32, ptr %47, align 4
-  %49 = tail call i32 @drm_connector_init_with_ddc(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @intel_sdvo_connector_funcs, i32 noundef %48, ptr noundef %46) #13
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %69, label %51
+44:                                               ; preds = %36, %2
+  %45 = phi ptr [ %43, %36 ], [ null, %2 ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %47 = load i32, ptr %46, align 4
+  %48 = tail call i32 @drm_connector_init_with_ddc(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @intel_sdvo_connector_funcs, i32 noundef %47, ptr noundef %45) #13
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %68, label %50
 
-51:                                               ; preds = %45
-  %52 = icmp eq ptr %46, null
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1544
-  store ptr @intel_sdvo_connector_helper_funcs, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  store i32 1, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i8 1, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1992
-  store ptr @intel_sdvo_connector_get_hw_state, ptr %56, align 8
+50:                                               ; preds = %44
+  %51 = icmp eq ptr %45, null
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1544
+  store ptr @intel_sdvo_connector_helper_funcs, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  store i32 1, ptr %53, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i8 1, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1992
+  store ptr @intel_sdvo_connector_get_hw_state, ptr %55, align 8
   tail call void @intel_connector_attach_encoder(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
-  br i1 %52, label %69, label %57
+  br i1 %51, label %68, label %56
 
-57:                                               ; preds = %51
-  %58 = icmp eq ptr %3, null
-  br i1 %58, label %62, label %59
+56:                                               ; preds = %50
+  %57 = icmp eq ptr %3, null
+  br i1 %57, label %61, label %58
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %61 = load ptr, ptr %60, align 8
-  br label %62
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load ptr, ptr %59, align 8
+  br label %61
 
-62:                                               ; preds = %59, %57
-  %63 = phi ptr [ %61, %59 ], [ null, %57 ]
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %65 = load i32, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %46, i64 852
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.159, i32 noundef %65, ptr noundef %67, ptr noundef nonnull %68) #13
-  br label %69
+61:                                               ; preds = %58, %56
+  %62 = phi ptr [ %60, %58 ], [ null, %56 ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %64 = load i32, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %45, i64 852
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %62, i32 noundef 2, ptr noundef nonnull @.str.159, i32 noundef %64, ptr noundef %66, ptr noundef nonnull %67) #13
+  br label %68
 
-69:                                               ; preds = %62, %51, %45
-  %70 = phi i32 [ %49, %45 ], [ 0, %62 ], [ 0, %51 ]
-  ret i32 %70
+68:                                               ; preds = %61, %50, %44
+  %69 = phi i32 [ %48, %44 ], [ 0, %61 ], [ 0, %50 ]
+  ret i32 %69
 }
 
 ; Function Attrs: null_pointer_is_valid

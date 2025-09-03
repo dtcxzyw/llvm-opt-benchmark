@@ -160,46 +160,44 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #2 {
   tail call void @ff_framesync_uninit(ptr noundef nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 320
   tail call void @av_frame_free(ptr noundef nonnull %5) #12
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 328
-  br label %8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 328
+  br label %7
 
-8:                                                ; preds = %1, %21
-  %indvars.iv20 = phi i64 [ 0, %1 ], [ %indvars.iv.next21, %21 ]
-  %9 = mul nuw nsw i64 %indvars.iv20, 40
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !34
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %21, label %.preheader
+7:                                                ; preds = %1, %19
+  %indvars.iv19 = phi i64 [ 0, %1 ], [ %indvars.iv.next20, %19 ]
+  %8 = getelementptr inbounds nuw %struct.FilterParams, ptr %3, i64 %indvars.iv19
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
+  %10 = load ptr, ptr %9, align 8, !tbaa !34
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %19, label %.preheader
 
-.preheader:                                       ; preds = %8
-  %13 = load i32, ptr %7, align 8, !tbaa !32
-  %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %7
+  %11 = load i32, ptr %6, align 8, !tbaa !32
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call void @av_freep(ptr noundef nonnull %11) #12
-  br label %21
+  tail call void @av_freep(ptr noundef nonnull %9) #12
+  br label %19
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %15 = load ptr, ptr %11, align 8, !tbaa !34
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !37
-  tail call void @av_expr_free(ptr noundef %17) #12
+  %13 = load ptr, ptr %9, align 8, !tbaa !34
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
+  tail call void @av_expr_free(ptr noundef %15) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %7, align 8, !tbaa !32
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  %16 = load i32, ptr %6, align 8, !tbaa !32
+  %17 = sext i32 %16 to i64
+  %18 = icmp slt i64 %indvars.iv.next, %17
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
-21:                                               ; preds = %8, %._crit_edge
-  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next21, 4
-  br i1 %exitcond.not, label %22, label %8, !llvm.loop !41
+19:                                               ; preds = %7, %._crit_edge
+  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next20, 4
+  br i1 %exitcond.not, label %20, label %7, !llvm.loop !41
 
-22:                                               ; preds = %21
+20:                                               ; preds = %19
   ret void
 }
 

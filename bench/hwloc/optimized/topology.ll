@@ -2321,24 +2321,23 @@ hwloc_tma_malloc.exit.i.us:                       ; preds = %hwloc_tma_malloc.ex
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %93 = getelementptr inbounds nuw i8, ptr %19, i64 256
   %.not.i.i61 = icmp eq ptr %2, null
-  %94 = getelementptr inbounds nuw i8, ptr %19, i64 264
   br i1 %.not.i.i61, label %.preheader.split.us, label %.preheader.split.preheader
 
 .preheader.split.us:                              ; preds = %.preheader, %101
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %101 ], [ 0, %.preheader ]
-  %95 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %92, i64 %indvars.iv82
-  %96 = load i32, ptr %95, align 8, !tbaa !109
-  %97 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %93, i64 %indvars.iv82
-  store i32 %96, ptr %97, align 8, !tbaa !109
-  %.not60.us = icmp eq i32 %96, 0
+  %94 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %92, i64 %indvars.iv82
+  %95 = load i32, ptr %94, align 8, !tbaa !109
+  %96 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %93, i64 %indvars.iv82
+  store i32 %95, ptr %96, align 8, !tbaa !109
+  %.not60.us = icmp eq i32 %95, 0
   br i1 %.not60.us, label %101, label %hwloc_tma_malloc.exit.i62.us
 
 hwloc_tma_malloc.exit.i62.us:                     ; preds = %.preheader.split.us
-  %98 = zext i32 %96 to i64
-  %99 = shl nuw nsw i64 %98, 3
-  %calloc = tail call ptr @calloc(i64 1, i64 %99)
-  %.idx.us = shl nuw nsw i64 %indvars.iv82, 5
-  %100 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.us
+  %97 = zext i32 %95 to i64
+  %98 = shl nuw nsw i64 %97, 3
+  %calloc = tail call ptr @calloc(i64 1, i64 %98)
+  %99 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %19, i64 %indvars.iv82
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 264
   store ptr %calloc, ptr %100, align 8, !tbaa !111
   br label %101
 
@@ -2379,34 +2378,33 @@ hwloc_tma_calloc.exit:                            ; preds = %hwloc_tma_malloc.ex
 .preheader.split.preheader:                       ; preds = %hwloc_tma_calloc.exit, %.preheader
   %117 = getelementptr inbounds nuw i8, ptr %19, i64 256
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %119 = getelementptr inbounds nuw i8, ptr %19, i64 264
   br label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %129
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %129 ], [ 0, %.preheader.split.preheader ]
-  %120 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %118, i64 %indvars.iv78
-  %121 = load i32, ptr %120, align 8, !tbaa !109
-  %122 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %117, i64 %indvars.iv78
-  store i32 %121, ptr %122, align 8, !tbaa !109
-  %.not60 = icmp eq i32 %121, 0
+  %119 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %118, i64 %indvars.iv78
+  %120 = load i32, ptr %119, align 8, !tbaa !109
+  %121 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %117, i64 %indvars.iv78
+  store i32 %120, ptr %121, align 8, !tbaa !109
+  %.not60 = icmp eq i32 %120, 0
   br i1 %.not60, label %129, label %hwloc_tma_malloc.exit.i62
 
 hwloc_tma_malloc.exit.i62:                        ; preds = %.preheader.split
-  %123 = zext i32 %121 to i64
-  %124 = shl nuw nsw i64 %123, 3
-  %125 = load ptr, ptr %2, align 8, !tbaa !33
-  %126 = tail call ptr %125(ptr noundef nonnull %2, i64 noundef range(i64 0, 68719476721) %124) #34
-  %.not.i64 = icmp eq ptr %126, null
-  br i1 %.not.i64, label %hwloc_tma_calloc.exit65, label %127
+  %122 = zext i32 %120 to i64
+  %123 = shl nuw nsw i64 %122, 3
+  %124 = load ptr, ptr %2, align 8, !tbaa !33
+  %125 = tail call ptr %124(ptr noundef nonnull %2, i64 noundef range(i64 0, 68719476721) %123) #34
+  %.not.i64 = icmp eq ptr %125, null
+  br i1 %.not.i64, label %hwloc_tma_calloc.exit65, label %126
 
-127:                                              ; preds = %hwloc_tma_malloc.exit.i62
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %126, i8 0, i64 range(i64 0, 68719476721) %124, i1 false)
+126:                                              ; preds = %hwloc_tma_malloc.exit.i62
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %125, i8 0, i64 range(i64 0, 68719476721) %123, i1 false)
   br label %hwloc_tma_calloc.exit65
 
-hwloc_tma_calloc.exit65:                          ; preds = %hwloc_tma_malloc.exit.i62, %127
-  %.idx = shl nuw nsw i64 %indvars.iv78, 5
-  %128 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx
-  store ptr %126, ptr %128, align 8, !tbaa !111
+hwloc_tma_calloc.exit65:                          ; preds = %hwloc_tma_malloc.exit.i62, %126
+  %127 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %19, i64 %indvars.iv78
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 264
+  store ptr %125, ptr %128, align 8, !tbaa !111
   br label %129
 
 129:                                              ; preds = %.preheader.split, %hwloc_tma_calloc.exit65
@@ -5396,89 +5394,85 @@ hwloc_compare_levels_structure.exit.thread.i:     ; preds = %342, %.lr.ph.split.
 hwloc_filter_levels_keep_structure.exit:          ; preds = %._crit_edge380.i, %701, %._crit_edge375.i, %250, %248
   %721 = load i64, ptr %6, align 8, !tbaa !60
   %.not12 = icmp eq i64 %721, 0
-  br i1 %.not12, label %hwloc_connect_special_levels.exit, label %722
+  br i1 %.not12, label %hwloc_connect_special_levels.exit, label %.preheader
 
-722:                                              ; preds = %hwloc_filter_levels_keep_structure.exit
-  %723 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  br label %724
-
-724:                                              ; preds = %724, %722
-  %indvars.iv.i25 = phi i64 [ 0, %722 ], [ %indvars.iv.next.i26, %724 ]
-  %725 = shl nuw nsw i64 %indvars.iv.i25, 5
-  %726 = getelementptr inbounds nuw i8, ptr %723, i64 %725
-  %727 = getelementptr inbounds nuw i8, ptr %726, i64 8
-  %728 = load ptr, ptr %727, align 8, !tbaa !111
-  tail call void @free(ptr noundef %728) #34
+.preheader:                                       ; preds = %hwloc_filter_levels_keep_structure.exit, %.preheader
+  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %.preheader ], [ 0, %hwloc_filter_levels_keep_structure.exit ]
+  %722 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %0, i64 %indvars.iv.i25
+  %723 = getelementptr inbounds nuw i8, ptr %722, i64 264
+  %724 = load ptr, ptr %723, align 8, !tbaa !111
+  tail call void @free(ptr noundef %724) #34
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 6
-  br i1 %exitcond.not.i27, label %729, label %724, !llvm.loop !166
+  br i1 %exitcond.not.i27, label %725, label %.preheader, !llvm.loop !166
 
-729:                                              ; preds = %724
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %723, i8 0, i64 192, i1 false)
-  %730 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %731 = load ptr, ptr %730, align 8, !tbaa !48
-  %732 = load ptr, ptr %731, align 8, !tbaa !49
-  %733 = load ptr, ptr %732, align 8, !tbaa !50
-  tail call fastcc void @hwloc_list_special_objects(ptr noundef nonnull %0, ptr noundef %733)
-  br label %734
+725:                                              ; preds = %.preheader
+  %726 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %726, i8 0, i64 192, i1 false)
+  %727 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %728 = load ptr, ptr %727, align 8, !tbaa !48
+  %729 = load ptr, ptr %728, align 8, !tbaa !49
+  %730 = load ptr, ptr %729, align 8, !tbaa !50
+  tail call fastcc void @hwloc_list_special_objects(ptr noundef nonnull %0, ptr noundef %730)
+  br label %731
 
-734:                                              ; preds = %.loopexit.i, %729
-  %indvars.iv16.i = phi i64 [ 0, %729 ], [ %indvars.iv.next17.i, %.loopexit.i ]
-  %735 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %723, i64 %indvars.iv16.i
-  %736 = getelementptr inbounds nuw i8, ptr %735, i64 16
-  %.026.i.i = load ptr, ptr %736, align 8, !tbaa !50
+731:                                              ; preds = %.loopexit.i, %725
+  %indvars.iv16.i = phi i64 [ 0, %725 ], [ %indvars.iv.next17.i, %.loopexit.i ]
+  %732 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %726, i64 %indvars.iv16.i
+  %733 = getelementptr inbounds nuw i8, ptr %732, i64 16
+  %.026.i.i = load ptr, ptr %733, align 8, !tbaa !50
   %.not27.i.i = icmp eq ptr %.026.i.i, null
   br i1 %.not27.i.i, label %.loopexit.i, label %.lr.ph.i.i28
 
-.lr.ph.i.i28:                                     ; preds = %734, %.lr.ph.i.i28
-  %.029.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i28 ], [ %.026.i.i, %734 ]
-  %.02128.i.i = phi i32 [ %737, %.lr.ph.i.i28 ], [ 0, %734 ]
-  %737 = add i32 %.02128.i.i, 1
-  %738 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 56
-  %.0.i.i = load ptr, ptr %738, align 8, !tbaa !50
+.lr.ph.i.i28:                                     ; preds = %731, %.lr.ph.i.i28
+  %.029.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i28 ], [ %.026.i.i, %731 ]
+  %.02128.i.i = phi i32 [ %734, %.lr.ph.i.i28 ], [ 0, %731 ]
+  %734 = add i32 %.02128.i.i, 1
+  %735 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 56
+  %.0.i.i = load ptr, ptr %735, align 8, !tbaa !50
   %.not.i.i29 = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i29, label %._crit_edge.i.i30, label %.lr.ph.i.i28, !llvm.loop !167
 
 ._crit_edge.i.i30:                                ; preds = %.lr.ph.i.i28
-  %.not23.i.i = icmp eq i32 %737, 0
-  br i1 %.not23.i.i, label %.loopexit.i, label %739
+  %.not23.i.i = icmp eq i32 %734, 0
+  br i1 %.not23.i.i, label %.loopexit.i, label %736
 
-739:                                              ; preds = %._crit_edge.i.i30
-  %740 = zext i32 %737 to i64
-  %741 = shl nuw nsw i64 %740, 3
-  %742 = tail call noalias ptr @malloc(i64 noundef %741) #35
-  %743 = getelementptr inbounds nuw i8, ptr %735, i64 8
-  store ptr %742, ptr %743, align 8, !tbaa !111
-  %.not24.i.i = icmp eq ptr %742, null
+736:                                              ; preds = %._crit_edge.i.i30
+  %737 = zext i32 %734 to i64
+  %738 = shl nuw nsw i64 %737, 3
+  %739 = tail call noalias ptr @malloc(i64 noundef %738) #35
+  %740 = getelementptr inbounds nuw i8, ptr %732, i64 8
+  store ptr %739, ptr %740, align 8, !tbaa !111
+  %.not24.i.i = icmp eq ptr %739, null
   br i1 %.not24.i.i, label %hwloc_connect_levels.exit.thread, label %.lr.ph34.i.i
 
-.lr.ph34.i.i:                                     ; preds = %739, %.lr.ph34.i.i
-  %.133.i.i = phi ptr [ %.1.i.i, %.lr.ph34.i.i ], [ %.026.i.i, %739 ]
-  %.12232.i.i = phi i32 [ %747, %.lr.ph34.i.i ], [ 0, %739 ]
-  %744 = getelementptr inbounds nuw i8, ptr %.133.i.i, i64 52
-  store i32 %.12232.i.i, ptr %744, align 4, !tbaa !114
-  %745 = zext i32 %.12232.i.i to i64
-  %746 = getelementptr inbounds nuw ptr, ptr %742, i64 %745
-  store ptr %.133.i.i, ptr %746, align 8, !tbaa !50
-  %747 = add i32 %.12232.i.i, 1
-  %748 = getelementptr inbounds nuw i8, ptr %.133.i.i, i64 56
-  %.1.i.i = load ptr, ptr %748, align 8, !tbaa !50
+.lr.ph34.i.i:                                     ; preds = %736, %.lr.ph34.i.i
+  %.133.i.i = phi ptr [ %.1.i.i, %.lr.ph34.i.i ], [ %.026.i.i, %736 ]
+  %.12232.i.i = phi i32 [ %744, %.lr.ph34.i.i ], [ 0, %736 ]
+  %741 = getelementptr inbounds nuw i8, ptr %.133.i.i, i64 52
+  store i32 %.12232.i.i, ptr %741, align 4, !tbaa !114
+  %742 = zext i32 %.12232.i.i to i64
+  %743 = getelementptr inbounds nuw ptr, ptr %739, i64 %742
+  store ptr %.133.i.i, ptr %743, align 8, !tbaa !50
+  %744 = add i32 %.12232.i.i, 1
+  %745 = getelementptr inbounds nuw i8, ptr %.133.i.i, i64 56
+  %.1.i.i = load ptr, ptr %745, align 8, !tbaa !50
   %.not25.i.i31 = icmp eq ptr %.1.i.i, null
   br i1 %.not25.i.i31, label %.loopexit.i, label %.lr.ph34.i.i, !llvm.loop !168
 
-.loopexit.i:                                      ; preds = %.lr.ph34.i.i, %._crit_edge.i.i30, %734
-  %.021.lcssa38.i.i = phi i32 [ 0, %._crit_edge.i.i30 ], [ 0, %734 ], [ %737, %.lr.ph34.i.i ]
-  store i32 %.021.lcssa38.i.i, ptr %735, align 8, !tbaa !109
+.loopexit.i:                                      ; preds = %.lr.ph34.i.i, %._crit_edge.i.i30, %731
+  %.021.lcssa38.i.i = phi i32 [ 0, %._crit_edge.i.i30 ], [ 0, %731 ], [ %734, %.lr.ph34.i.i ]
+  store i32 %.021.lcssa38.i.i, ptr %732, align 8, !tbaa !109
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 6
-  br i1 %exitcond19.not.i, label %hwloc_connect_special_levels.exit, label %734, !llvm.loop !169
+  br i1 %exitcond19.not.i, label %hwloc_connect_special_levels.exit, label %731, !llvm.loop !169
 
 hwloc_connect_special_levels.exit:                ; preds = %.loopexit.i, %hwloc_filter_levels_keep_structure.exit
   store i64 0, ptr %6, align 8, !tbaa !60
   br label %hwloc_connect_levels.exit.thread
 
-hwloc_connect_levels.exit.thread:                 ; preds = %739, %50, %104, %115, %236, %hwloc_connect_special_levels.exit
-  %.010 = phi i32 [ 0, %hwloc_connect_special_levels.exit ], [ -1, %236 ], [ -1, %115 ], [ -1, %104 ], [ -1, %50 ], [ -1, %739 ]
+hwloc_connect_levels.exit.thread:                 ; preds = %736, %50, %104, %115, %236, %hwloc_connect_special_levels.exit
+  %.010 = phi i32 [ 0, %hwloc_connect_special_levels.exit ], [ -1, %236 ], [ -1, %115 ], [ -1, %104 ], [ -1, %50 ], [ -1, %736 ]
   ret i32 %.010
 }
 
@@ -7596,39 +7590,37 @@ hwloc_free_object_and_children.exit:              ; preds = %1, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !106
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %.preheader, label %.lr.ph
-
-.preheader:                                       ; preds = %.lr.ph, %hwloc_free_object_and_children.exit
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  br label %21
+  br i1 %.not, label %.preheader.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hwloc_free_object_and_children.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %hwloc_free_object_and_children.exit ]
-  %15 = load ptr, ptr %3, align 8, !tbaa !48
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !49
-  tail call void @free(ptr noundef %17) #34
+  %14 = load ptr, ptr %3, align 8, !tbaa !48
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %16 = load ptr, ptr %15, align 8, !tbaa !49
+  tail call void @free(ptr noundef %16) #34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %12, align 4, !tbaa !106
-  %19 = zext i32 %18 to i64
-  %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %.preheader, !llvm.loop !193
+  %17 = load i32, ptr %12, align 4, !tbaa !106
+  %18 = zext i32 %17 to i64
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
+  br i1 %19, label %.lr.ph, label %.preheader.preheader, !llvm.loop !193
 
-21:                                               ; preds = %.preheader, %21
-  %indvars.iv18 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next19, %21 ]
-  %22 = shl nuw nsw i64 %indvars.iv18, 5
-  %23 = getelementptr inbounds nuw i8, ptr %14, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !111
-  tail call void @free(ptr noundef %25) #34
+.preheader.preheader:                             ; preds = %.lr.ph, %hwloc_free_object_and_children.exit
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.preheader ], [ 0, %.preheader.preheader ]
+  %20 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %0, i64 %indvars.iv18
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 264
+  %22 = load ptr, ptr %21, align 8, !tbaa !111
+  tail call void @free(ptr noundef %22) #34
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next19, 6
-  br i1 %exitcond.not, label %26, label %21, !llvm.loop !194
+  br i1 %exitcond.not, label %23, label %.preheader, !llvm.loop !194
 
-26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %28 = load ptr, ptr %27, align 8, !tbaa !189
-  tail call void @free(ptr noundef %28) #34
+23:                                               ; preds = %.preheader
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %25 = load ptr, ptr %24, align 8, !tbaa !189
+  tail call void @free(ptr noundef %25) #34
   ret void
 }
 

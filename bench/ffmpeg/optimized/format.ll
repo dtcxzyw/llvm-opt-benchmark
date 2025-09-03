@@ -9,6 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVPrimaryCoefficients = type { %struct.AVCIExy, %struct.AVCIExy, %struct.AVCIExy }
 %struct.AVCIExy = type { %struct.AVRational, %struct.AVRational }
 %struct.AVRational = type { i32, i32 }
+%struct.AVHDRPlusPercentile = type { i8, %struct.AVRational }
 
 @format_entries = internal unnamed_addr constant [256 x %struct.FormatEntry] [%struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 2 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 2 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }], align 16
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
@@ -427,7 +428,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   %.sroa.019.1 = phi i32 [ %.sroa.019.0, %168 ], [ %.sroa.019.0, %171 ], [ %spec.select, %av_cmp_q.exit143 ]
   %.sroa.12.1 = phi i32 [ %.sroa.12.0, %168 ], [ %.sroa.12.0, %171 ], [ %spec.select175, %av_cmp_q.exit143 ]
   %178 = icmp sgt i32 %.sroa.019.1, 0
-  br i1 %178, label %184, label %.preheader
+  br i1 %178, label %183, label %.preheader
 
 .preheader:                                       ; preds = %av_cmp_q.exit143.thread
   %179 = getelementptr inbounds nuw i8, ptr %116, i64 84
@@ -441,49 +442,48 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %181 = getelementptr inbounds nuw i8, ptr %116, i64 92
-  %182 = getelementptr inbounds nuw i8, ptr %116, i64 76
-  %183 = load i64, ptr %182, align 4
+  %181 = getelementptr inbounds nuw i8, ptr %116, i64 76
+  %182 = load i64, ptr %181, align 4
   %wide.trip.count = zext i8 %180 to i64
-  br label %205
+  br label %204
 
-184:                                              ; preds = %av_cmp_q.exit143.thread
-  %185 = tail call ptr @av_csp_luma_coeffs_from_avcsp(i32 noundef %51) #8
-  %.not133.not = icmp eq ptr %185, null
-  br i1 %.not133.not, label %.thread, label %186
+183:                                              ; preds = %av_cmp_q.exit143.thread
+  %184 = tail call ptr @av_csp_luma_coeffs_from_avcsp(i32 noundef %51) #8
+  %.not133.not = icmp eq ptr %184, null
+  br i1 %.not133.not, label %.thread, label %185
 
-186:                                              ; preds = %184
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %188 = load i64, ptr %185, align 4
-  %189 = load i64, ptr %117, align 4
-  %190 = tail call i64 @av_mul_q(i64 %188, i64 %189) #10
-  %191 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %192 = load i64, ptr %191, align 4
-  %193 = load i64, ptr %125, align 4
-  %194 = tail call i64 @av_mul_q(i64 %192, i64 %193) #10
-  %195 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %196 = load i64, ptr %195, align 4
-  %197 = load i64, ptr %153, align 4
-  %198 = tail call i64 @av_mul_q(i64 %196, i64 %197) #10
-  %199 = tail call i64 @av_add_q(i64 %194, i64 %198) #10
-  %200 = tail call i64 @av_add_q(i64 %190, i64 %199) #10
-  store i64 %200, ptr %187, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %116, i64 76
+185:                                              ; preds = %183
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %187 = load i64, ptr %184, align 4
+  %188 = load i64, ptr %117, align 4
+  %189 = tail call i64 @av_mul_q(i64 %187, i64 %188) #10
+  %190 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %191 = load i64, ptr %190, align 4
+  %192 = load i64, ptr %125, align 4
+  %193 = tail call i64 @av_mul_q(i64 %191, i64 %192) #10
+  %194 = getelementptr inbounds nuw i8, ptr %184, i64 16
+  %195 = load i64, ptr %194, align 4
+  %196 = load i64, ptr %153, align 4
+  %197 = tail call i64 @av_mul_q(i64 %195, i64 %196) #10
+  %198 = tail call i64 @av_add_q(i64 %193, i64 %197) #10
+  %199 = tail call i64 @av_add_q(i64 %189, i64 %198) #10
+  store i64 %199, ptr %186, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %116, i64 76
   %.sroa.12.0.insert.ext46 = zext i32 %.sroa.12.1 to i64
   %.sroa.12.0.insert.shift47 = shl nuw i64 %.sroa.12.0.insert.ext46, 32
   %.sroa.019.0.insert.ext28 = zext nneg i32 %.sroa.019.1 to i64
   %.sroa.019.0.insert.insert30 = or disjoint i64 %.sroa.12.0.insert.shift47, %.sroa.019.0.insert.ext28
-  %202 = tail call i64 @av_div_q(i64 %200, i64 %.sroa.019.0.insert.insert30) #10
-  %203 = load i64, ptr %201, align 4
-  %204 = tail call i64 @av_mul_q(i64 %203, i64 %202) #10
+  %201 = tail call i64 @av_div_q(i64 %199, i64 %.sroa.019.0.insert.insert30) #10
+  %202 = load i64, ptr %200, align 4
+  %203 = tail call i64 @av_mul_q(i64 %202, i64 %201) #10
   br label %.loopexit
 
-205:                                              ; preds = %.lr.ph, %av_cmp_q.exit153
+204:                                              ; preds = %.lr.ph, %av_cmp_q.exit153
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %av_cmp_q.exit153 ]
   %.sroa.12.2159 = phi i32 [ %.sroa.12.1, %.lr.ph ], [ %.sroa.12.3, %av_cmp_q.exit153 ]
   %.sroa.019.2157 = phi i32 [ %.sroa.019.1, %.lr.ph ], [ %.sroa.019.3, %av_cmp_q.exit153 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 12
-  %206 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx
+  %205 = getelementptr inbounds nuw %struct.AVHDRPlusPercentile, ptr %116, i64 %indvars.iv
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 92
   %.sroa.03.0.copyload = load i64, ptr %206, align 4
   %.sroa.011.0.extract.trunc.i144 = trunc i64 %.sroa.03.0.copyload to i32
   %sext.i146 = shl i64 %.sroa.03.0.copyload, 32
@@ -496,7 +496,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   %.not.i148 = icmp eq i64 %209, %212
   br i1 %.not.i148, label %220, label %213
 
-213:                                              ; preds = %205
+213:                                              ; preds = %204
   %214 = sub nsw i64 %209, %212
   %215 = xor i64 %214, %208
   %216 = xor i64 %215, %211
@@ -505,7 +505,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   %219 = or i32 %218, 1
   br label %av_cmp_q.exit153
 
-220:                                              ; preds = %205
+220:                                              ; preds = %204
   %221 = icmp ne i32 %.sroa.12.2159, 0
   %222 = icmp ugt i64 %.sroa.03.0.copyload, 4294967295
   %or.cond.i150 = and i1 %221, %222
@@ -532,7 +532,7 @@ av_cmp_q.exit153:                                 ; preds = %213, %220, %223, %2
   %.sroa.12.3 = select i1 %229, i32 %.sroa.12.0.extract.trunc, i32 %.sroa.12.2159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %205, !llvm.loop !62
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %204, !llvm.loop !62
 
 ..loopexit_crit_edge:                             ; preds = %av_cmp_q.exit153
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -541,8 +541,8 @@ av_cmp_q.exit153:                                 ; preds = %213, %220, %223, %2
   store i32 %.sroa.12.3, ptr %.sroa.12.0..sroa_idx55, align 4, !tbaa !44
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader..loopexit_crit_edge, %..loopexit_crit_edge, %186
-  %231 = phi i64 [ %.pre, %.preheader..loopexit_crit_edge ], [ %183, %..loopexit_crit_edge ], [ %204, %186 ]
+.loopexit:                                        ; preds = %.preheader..loopexit_crit_edge, %..loopexit_crit_edge, %185
+  %231 = phi i64 [ %.pre, %.preheader..loopexit_crit_edge ], [ %182, %..loopexit_crit_edge ], [ %203, %185 ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %233 = load i64, ptr %232, align 8
   %234 = tail call i64 @av_mul_q(i64 4294977296, i64 %233) #10
@@ -552,7 +552,7 @@ av_cmp_q.exit153:                                 ; preds = %213, %220, %223, %2
   store i64 %236, ptr %235, align 8
   br label %.thread
 
-.thread:                                          ; preds = %184, %.loopexit, %120, %114, %112
+.thread:                                          ; preds = %183, %.loopexit, %120, %114, %112
   %237 = icmp eq i32 %53, 16
   br i1 %237, label %238, label %239
 

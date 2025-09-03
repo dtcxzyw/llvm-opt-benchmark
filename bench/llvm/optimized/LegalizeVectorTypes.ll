@@ -16151,9 +16151,8 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %64
 
 _ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %64
   %.pre-phi.i = phi i64 [ %67, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ 1, %64 ]
-  %.idx = mul nuw nsw i64 %.pre-phi.i, 496
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 5657
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
+  %70 = getelementptr inbounds nuw [496 x i8], ptr %65, i64 %.pre-phi.i
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 5657
   %72 = load i8, ptr %71, align 1, !tbaa !307
   %73 = icmp eq i8 %72, 0
   br i1 %73, label %90, label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit._ZNK4llvm18TargetLoweringBase17isOperationCustomEjNS_3EVTE.exit_crit_edge
@@ -16164,9 +16163,8 @@ _ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit._ZNK4llvm18Target
 
 _ZNK4llvm18TargetLoweringBase17isOperationCustomEjNS_3EVTE.exit: ; preds = %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit._ZNK4llvm18TargetLoweringBase17isOperationCustomEjNS_3EVTE.exit_crit_edge, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
   %.pre-phi = phi i64 [ %.pre, %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit._ZNK4llvm18TargetLoweringBase17isOperationCustomEjNS_3EVTE.exit_crit_edge ], [ %67, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ]
-  %.idx244 = mul nuw nsw i64 %.pre-phi, 496
-  %74 = getelementptr inbounds nuw i8, ptr %65, i64 5657
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx244
+  %74 = getelementptr inbounds nuw [496 x i8], ptr %65, i64 %.pre-phi
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 5657
   %76 = load i8, ptr %75, align 1, !tbaa !307
   %77 = icmp eq i8 %76, 4
   br i1 %77, label %90, label %_ZNK4llvm18TargetLoweringBase17isOperationCustomEjNS_3EVTE.exit.thread
@@ -36801,9 +36799,8 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %70
 
 _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit: ; preds = %70, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
   %.pre-phi = phi i64 [ %73, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ 1, %70 ]
-  %.idx = mul nuw nsw i64 %.pre-phi, 496
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 5950
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx
+  %76 = getelementptr inbounds nuw [496 x i8], ptr %71, i64 %.pre-phi
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 5950
   %78 = load i8, ptr %77, align 1, !tbaa !307
   %79 = and i8 %78, -5
   %spec.select.i = icmp ne i8 %79, 0
@@ -57098,9 +57095,8 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %_ZN4llvm3
 
 _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit: ; preds = %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
   %.pre-phi = phi i64 [ %100, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ 1, %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit ]
-  %.idx = mul nuw nsw i64 %.pre-phi, 496
-  %103 = getelementptr inbounds nuw i8, ptr %98, i64 5947
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx
+  %103 = getelementptr inbounds nuw [496 x i8], ptr %98, i64 %.pre-phi
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 5947
   %105 = load i8, ptr %104, align 1, !tbaa !307
   %106 = and i8 %105, -5
   %spec.select.i = icmp ne i8 %106, 0

@@ -39114,7 +39114,7 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit612.thread1738: ; pre
   %.not1920 = icmp eq i32 %2368, 0
   %2369 = and i32 %1, 4
   %.not1921 = icmp eq i32 %2369, 0
-  br i1 %.not29, label %5038, label %2370
+  br i1 %.not29, label %5037, label %2370
 
 2370:                                             ; preds = %2366
   br i1 %.not1920, label %2372, label %2371, !prof !22
@@ -39189,14 +39189,14 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit556.i:  ; preds = %2371, %2372
   %.not.i126031484094 = icmp eq i64 %.0465.i.ph, 0
   br label %2404
 
-2404:                                             ; preds = %.outer2085, %4963
-  %.01668 = phi i64 [ %4965, %4963 ], [ %.01668.ph, %.outer2085 ]
-  %.0489.i = phi ptr [ %.2491.i, %4963 ], [ %.0489.i.ph, %.outer2085 ]
-  %.0478.i = phi ptr [ %.2480.i, %4963 ], [ %.0478.i.ph, %.outer2085 ]
-  %.0467.i = phi i64 [ %.2469.i, %4963 ], [ %.0467.i.ph, %.outer2085 ]
-  %.0451.i = phi ptr [ %.3454.i, %4963 ], [ %.0451.i.ph, %.outer2085 ]
-  %.0450.i = phi ptr [ %.2.i, %4963 ], [ %.0450.i.ph, %.outer2085 ]
-  %.0449.i = phi ptr [ %4964, %4963 ], [ %.0449.i.ph, %.outer2085 ]
+2404:                                             ; preds = %.outer2085, %4962
+  %.01668 = phi i64 [ %4964, %4962 ], [ %.01668.ph, %.outer2085 ]
+  %.0489.i = phi ptr [ %.2491.i, %4962 ], [ %.0489.i.ph, %.outer2085 ]
+  %.0478.i = phi ptr [ %.2480.i, %4962 ], [ %.0478.i.ph, %.outer2085 ]
+  %.0467.i = phi i64 [ %.2469.i, %4962 ], [ %.0467.i.ph, %.outer2085 ]
+  %.0451.i = phi ptr [ %.3454.i, %4962 ], [ %.0451.i.ph, %.outer2085 ]
+  %.0450.i = phi ptr [ %.2.i, %4962 ], [ %.0450.i.ph, %.outer2085 ]
+  %.0449.i = phi ptr [ %4963, %4962 ], [ %.0449.i.ph, %.outer2085 ]
   %2405 = load i64, ptr %.0449.i, align 8, !tbaa !73
   %2406 = trunc i64 %2405 to i8
   %2407 = and i8 %2406, 7
@@ -40714,7 +40714,7 @@ _ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400: ; preds = %.preheader2068
   %3207 = select i1 %.not525.i, i8 10, i8 32
   %3208 = getelementptr inbounds nuw i8, ptr %.7.i309.lcssa.sink5380, i64 3
   store i8 %3207, ptr %3206, align 1, !tbaa !75
-  br label %4963
+  br label %4962
 
 3209:                                             ; preds = %2404
   %3210 = trunc i64 %.01668 to i32
@@ -42928,7 +42928,7 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread: ; preds =
   store i8 44, ptr %.0.i6041812, align 1, !tbaa !75
   %4793 = getelementptr inbounds nuw i8, ptr %.0.i6041812, i64 2
   store i8 10, ptr %4792, align 1, !tbaa !75
-  br label %4963
+  br label %4962
 
 4794:                                             ; preds = %2404
   %4795 = and i8 %2406, 6
@@ -43006,7 +43006,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit:      ; preds = %select.unfold1816, 
   store i8 44, ptr %4831, align 1, !tbaa !75
   %4833 = getelementptr inbounds nuw i8, ptr %.0.i1259.lcssa, i64 4
   store i8 10, ptr %4832, align 1, !tbaa !75
-  br label %4963
+  br label %4962
 
 4834:                                             ; preds = %4797
   %4835 = lshr i64 %2405, 8
@@ -43079,23 +43079,23 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264:  ; preds = %select.unfold1817, 
   %4871 = getelementptr inbounds nuw i8, ptr %.0449.i, i64 16
   br label %.outer2085.backedge
 
-.outer2085.backedge:                              ; preds = %4997, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264
-  %.01669.ph.be = phi i8 [ %4836, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %5002, %4997 ]
-  %.01668.ph.be = phi i64 [ %4864, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %5003, %4997 ]
-  %.0489.i.ph.be = phi ptr [ %.5494.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %.10499.i, %4997 ]
-  %.0478.i.ph.be = phi ptr [ %4859, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %4998, %4997 ]
-  %.0467.i.ph.be = phi i64 [ %.5472.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %.10477.i, %4997 ]
-  %.0465.i.ph.be = phi i64 [ %4867, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %4991, %4997 ]
-  %.0451.i.ph.be = phi ptr [ %4870, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %5005, %4997 ]
-  %.0450.i.ph.be = phi ptr [ %.5.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %.10.i, %4997 ]
-  %.0449.i.ph.be = phi ptr [ %4871, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %4964, %4997 ]
+.outer2085.backedge:                              ; preds = %4996, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264
+  %.01669.ph.be = phi i8 [ %4836, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %5001, %4996 ]
+  %.01668.ph.be = phi i64 [ %4864, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %5002, %4996 ]
+  %.0489.i.ph.be = phi ptr [ %.5494.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %.10499.i, %4996 ]
+  %.0478.i.ph.be = phi ptr [ %4859, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %4997, %4996 ]
+  %.0467.i.ph.be = phi i64 [ %.5472.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %.10477.i, %4996 ]
+  %.0465.i.ph.be = phi i64 [ %4867, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %4990, %4996 ]
+  %.0451.i.ph.be = phi ptr [ %4870, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %5004, %4996 ]
+  %.0450.i.ph.be = phi ptr [ %.5.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %.10.i, %4996 ]
+  %.0449.i.ph.be = phi ptr [ %4871, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264 ], [ %4963, %4996 ]
   br label %.outer2085
 
 4872:                                             ; preds = %4794
-  switch i8 %2407, label %5034 [
+  switch i8 %2407, label %5033 [
     i8 3, label %4873
-    i8 2, label %4906
-    i8 1, label %4934
+    i8 2, label %4905
+    i8 1, label %4933
   ]
 
 4873:                                             ; preds = %4872
@@ -43158,269 +43158,268 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268:  ; preds = %select.unfold1818, 
   %4902 = icmp ne i64 %4901, 0
   %.1962 = select i1 %4902, i64 11185797034612, i64 2863564006908262
   store i64 %.1962, ptr %.0.i1266.lcssa, align 1
-  %4903 = getelementptr inbounds nuw i8, ptr %.0.i1266.lcssa, i64 5
   %.neg.i613 = sext i1 %4902 to i64
-  %4904 = getelementptr inbounds i8, ptr %4903, i64 %.neg.i613
-  %4905 = getelementptr inbounds nuw i8, ptr %4904, i64 2
-  br label %4963
+  %4903 = getelementptr i8, ptr %.0.i1266.lcssa, i64 %.neg.i613
+  %4904 = getelementptr i8, ptr %4903, i64 7
+  br label %4962
 
-4906:                                             ; preds = %4872
-  %4907 = trunc i64 %.01668 to i32
-  %4908 = and i32 %4907, %2400
-  %.not509.i = icmp ne i32 %4908, 0
-  %4909 = select i1 %.not509.i, i64 16, i64 %2403
-  %4910 = getelementptr inbounds nuw i8, ptr %.0451.i, i64 %4909
-  %.not510.i = icmp ult ptr %4910, %.0478.i
-  br i1 %.not510.i, label %4930, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit544.i, !prof !22
+4905:                                             ; preds = %4872
+  %4906 = trunc i64 %.01668 to i32
+  %4907 = and i32 %4906, %2400
+  %.not509.i = icmp ne i32 %4907, 0
+  %4908 = select i1 %.not509.i, i64 16, i64 %2403
+  %4909 = getelementptr inbounds nuw i8, ptr %.0451.i, i64 %4908
+  %.not510.i = icmp ult ptr %4909, %.0478.i
+  br i1 %.not510.i, label %4929, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit544.i, !prof !22
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit544.i:  ; preds = %4906
-  %4911 = lshr i64 %.0467.i, 1
-  %4912 = tail call i64 @llvm.umax.i64(i64 %4911, i64 %4909)
-  %4913 = add i64 %4912, 7
-  %4914 = and i64 %4913, -8
-  %4915 = add i64 %4914, %.0467.i
-  %4916 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0450.i, i64 noundef %.0467.i, i64 noundef %4915)
-  %.not511.i = icmp eq ptr %4916, null
-  br i1 %.not511.i, label %.loopexit2080, label %4917, !prof !3
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit544.i:  ; preds = %4905
+  %4910 = lshr i64 %.0467.i, 1
+  %4911 = tail call i64 @llvm.umax.i64(i64 %4910, i64 %4908)
+  %4912 = add i64 %4911, 7
+  %4913 = and i64 %4912, -8
+  %4914 = add i64 %4913, %.0467.i
+  %4915 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0450.i, i64 noundef %.0467.i, i64 noundef %4914)
+  %.not511.i = icmp eq ptr %4915, null
+  br i1 %.not511.i, label %.loopexit2080, label %4916, !prof !3
 
-4917:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit544.i
-  %4918 = ptrtoint ptr %.0489.i to i64
-  %4919 = ptrtoint ptr %.0478.i to i64
-  %4920 = sub i64 %4918, %4919
-  %4921 = sub i64 %4915, %4920
-  %4922 = getelementptr inbounds nuw i8, ptr %4916, i64 %4921
-  %4923 = ptrtoint ptr %.0450.i to i64
-  %4924 = sub i64 %4919, %4923
-  %4925 = getelementptr inbounds i8, ptr %4916, i64 %4924
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %4922, ptr nonnull align 1 %4925, i64 %4920, i1 false)
-  %4926 = ptrtoint ptr %.0451.i to i64
-  %4927 = sub i64 %4926, %4923
-  %4928 = getelementptr inbounds i8, ptr %4916, i64 %4927
-  %4929 = getelementptr inbounds nuw i8, ptr %4916, i64 %4915
-  br label %4930
+4916:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit544.i
+  %4917 = ptrtoint ptr %.0489.i to i64
+  %4918 = ptrtoint ptr %.0478.i to i64
+  %4919 = sub i64 %4917, %4918
+  %4920 = sub i64 %4914, %4919
+  %4921 = getelementptr inbounds nuw i8, ptr %4915, i64 %4920
+  %4922 = ptrtoint ptr %.0450.i to i64
+  %4923 = sub i64 %4918, %4922
+  %4924 = getelementptr inbounds i8, ptr %4915, i64 %4923
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %4921, ptr nonnull align 1 %4924, i64 %4919, i1 false)
+  %4925 = ptrtoint ptr %.0451.i to i64
+  %4926 = sub i64 %4925, %4922
+  %4927 = getelementptr inbounds i8, ptr %4915, i64 %4926
+  %4928 = getelementptr inbounds nuw i8, ptr %4915, i64 %4914
+  br label %4929
 
-4930:                                             ; preds = %4917, %4906
-  %.7496.i = phi ptr [ %4929, %4917 ], [ %.0489.i, %4906 ]
-  %.7485.i = phi ptr [ %4922, %4917 ], [ %.0478.i, %4906 ]
-  %.7474.i = phi i64 [ %4915, %4917 ], [ %.0467.i, %4906 ]
-  %.8459.i = phi ptr [ %4928, %4917 ], [ %.0451.i, %4906 ]
-  %.7.i = phi ptr [ %4916, %4917 ], [ %.0450.i, %4906 ]
+4929:                                             ; preds = %4916, %4905
+  %.7496.i = phi ptr [ %4928, %4916 ], [ %.0489.i, %4905 ]
+  %.7485.i = phi ptr [ %4921, %4916 ], [ %.0478.i, %4905 ]
+  %.7474.i = phi i64 [ %4914, %4916 ], [ %.0467.i, %4905 ]
+  %.8459.i = phi ptr [ %4927, %4916 ], [ %.0451.i, %4905 ]
+  %.7.i = phi ptr [ %4915, %4916 ], [ %.0450.i, %4905 ]
   %.not.i12713136 = select i1 %.not509.i, i1 true, i1 %.not.i127131364091
   br i1 %.not.i12713136, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272, label %select.unfold1819
 
-select.unfold1819:                                ; preds = %4930, %select.unfold1819
-  %.0.i12703138 = phi ptr [ %4932, %select.unfold1819 ], [ %.8459.i, %4930 ]
-  %.04.i12693137 = phi i64 [ %4931, %select.unfold1819 ], [ %.0465.i.ph, %4930 ]
-  %4931 = add i64 %.04.i12693137, -1
+select.unfold1819:                                ; preds = %4929, %select.unfold1819
+  %.0.i12703138 = phi ptr [ %4931, %select.unfold1819 ], [ %.8459.i, %4929 ]
+  %.04.i12693137 = phi i64 [ %4930, %select.unfold1819 ], [ %.0465.i.ph, %4929 ]
+  %4930 = add i64 %.04.i12693137, -1
   store i32 538976288, ptr %.0.i12703138, align 1
-  %4932 = getelementptr inbounds nuw i8, ptr %.0.i12703138, i64 %2376
-  %.not.i1271 = icmp eq i64 %4931, 0
+  %4931 = getelementptr inbounds nuw i8, ptr %.0.i12703138, i64 %2376
+  %.not.i1271 = icmp eq i64 %4930, 0
   br i1 %.not.i1271, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272, label %select.unfold1819, !llvm.loop !218
 
-_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272:  ; preds = %select.unfold1819, %4930
-  %.0.i1270.lcssa = phi ptr [ %.8459.i, %4930 ], [ %4932, %select.unfold1819 ]
+_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272:  ; preds = %select.unfold1819, %4929
+  %.0.i1270.lcssa = phi ptr [ %.8459.i, %4929 ], [ %4931, %select.unfold1819 ]
   store i64 11185913886062, ptr %.0.i1270.lcssa, align 1
-  %4933 = getelementptr inbounds nuw i8, ptr %.0.i1270.lcssa, i64 6
-  br label %4963
+  %4932 = getelementptr inbounds nuw i8, ptr %.0.i1270.lcssa, i64 6
+  br label %4962
 
-4934:                                             ; preds = %4872
-  %4935 = lshr i64 %2405, 8
-  %4936 = getelementptr inbounds nuw i8, ptr %.0449.i, i64 8
-  %4937 = load ptr, ptr %4936, align 8, !tbaa !75
-  %4938 = add nuw nsw i64 %4935, 3
-  %4939 = getelementptr inbounds nuw i8, ptr %.0451.i, i64 %4938
-  %.not507.i = icmp ult ptr %4939, %.0478.i
-  br i1 %.not507.i, label %4959, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit542.i, !prof !22
+4933:                                             ; preds = %4872
+  %4934 = lshr i64 %2405, 8
+  %4935 = getelementptr inbounds nuw i8, ptr %.0449.i, i64 8
+  %4936 = load ptr, ptr %4935, align 8, !tbaa !75
+  %4937 = add nuw nsw i64 %4934, 3
+  %4938 = getelementptr inbounds nuw i8, ptr %.0451.i, i64 %4937
+  %.not507.i = icmp ult ptr %4938, %.0478.i
+  br i1 %.not507.i, label %4958, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit542.i, !prof !22
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit542.i:  ; preds = %4934
-  %4940 = lshr i64 %.0467.i, 1
-  %4941 = tail call i64 @llvm.umax.i64(i64 %4940, i64 %4938)
-  %4942 = add nuw i64 %4941, 7
-  %4943 = and i64 %4942, -8
-  %4944 = add i64 %4943, %.0467.i
-  %4945 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0450.i, i64 noundef %.0467.i, i64 noundef %4944)
-  %.not508.i = icmp eq ptr %4945, null
-  br i1 %.not508.i, label %.loopexit2080, label %4946, !prof !3
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit542.i:  ; preds = %4933
+  %4939 = lshr i64 %.0467.i, 1
+  %4940 = tail call i64 @llvm.umax.i64(i64 %4939, i64 %4937)
+  %4941 = add nuw i64 %4940, 7
+  %4942 = and i64 %4941, -8
+  %4943 = add i64 %4942, %.0467.i
+  %4944 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0450.i, i64 noundef %.0467.i, i64 noundef %4943)
+  %.not508.i = icmp eq ptr %4944, null
+  br i1 %.not508.i, label %.loopexit2080, label %4945, !prof !3
 
-4946:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit542.i
-  %4947 = ptrtoint ptr %.0489.i to i64
-  %4948 = ptrtoint ptr %.0478.i to i64
-  %4949 = sub i64 %4947, %4948
-  %4950 = sub i64 %4944, %4949
-  %4951 = getelementptr inbounds nuw i8, ptr %4945, i64 %4950
-  %4952 = ptrtoint ptr %.0450.i to i64
-  %4953 = sub i64 %4948, %4952
-  %4954 = getelementptr inbounds i8, ptr %4945, i64 %4953
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %4951, ptr nonnull align 1 %4954, i64 %4949, i1 false)
-  %4955 = ptrtoint ptr %.0451.i to i64
-  %4956 = sub i64 %4955, %4952
-  %4957 = getelementptr inbounds i8, ptr %4945, i64 %4956
-  %4958 = getelementptr inbounds nuw i8, ptr %4945, i64 %4944
-  br label %4959
+4945:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit542.i
+  %4946 = ptrtoint ptr %.0489.i to i64
+  %4947 = ptrtoint ptr %.0478.i to i64
+  %4948 = sub i64 %4946, %4947
+  %4949 = sub i64 %4943, %4948
+  %4950 = getelementptr inbounds nuw i8, ptr %4944, i64 %4949
+  %4951 = ptrtoint ptr %.0450.i to i64
+  %4952 = sub i64 %4947, %4951
+  %4953 = getelementptr inbounds i8, ptr %4944, i64 %4952
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %4950, ptr nonnull align 1 %4953, i64 %4948, i1 false)
+  %4954 = ptrtoint ptr %.0451.i to i64
+  %4955 = sub i64 %4954, %4951
+  %4956 = getelementptr inbounds i8, ptr %4944, i64 %4955
+  %4957 = getelementptr inbounds nuw i8, ptr %4944, i64 %4943
+  br label %4958
 
-4959:                                             ; preds = %4946, %4934
-  %.8497.i = phi ptr [ %4958, %4946 ], [ %.0489.i, %4934 ]
-  %.8486.i = phi ptr [ %4951, %4946 ], [ %.0478.i, %4934 ]
-  %.8475.i = phi i64 [ %4944, %4946 ], [ %.0467.i, %4934 ]
-  %.9460.i = phi ptr [ %4957, %4946 ], [ %.0451.i, %4934 ]
-  %.8.i = phi ptr [ %4945, %4946 ], [ %.0450.i, %4934 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.9460.i, ptr align 1 %4937, i64 range(i64 0, 72057594037927936) %4935, i1 false)
-  %4960 = getelementptr inbounds nuw i8, ptr %.9460.i, i64 %4935
-  %4961 = getelementptr inbounds nuw i8, ptr %4960, i64 1
-  store i8 44, ptr %4960, align 1, !tbaa !75
-  %4962 = getelementptr inbounds nuw i8, ptr %4960, i64 2
-  store i8 10, ptr %4961, align 1, !tbaa !75
-  br label %4963
+4958:                                             ; preds = %4945, %4933
+  %.8497.i = phi ptr [ %4957, %4945 ], [ %.0489.i, %4933 ]
+  %.8486.i = phi ptr [ %4950, %4945 ], [ %.0478.i, %4933 ]
+  %.8475.i = phi i64 [ %4943, %4945 ], [ %.0467.i, %4933 ]
+  %.9460.i = phi ptr [ %4956, %4945 ], [ %.0451.i, %4933 ]
+  %.8.i = phi ptr [ %4944, %4945 ], [ %.0450.i, %4933 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.9460.i, ptr align 1 %4936, i64 range(i64 0, 72057594037927936) %4934, i1 false)
+  %4959 = getelementptr inbounds nuw i8, ptr %.9460.i, i64 %4934
+  %4960 = getelementptr inbounds nuw i8, ptr %4959, i64 1
+  store i8 44, ptr %4959, align 1, !tbaa !75
+  %4961 = getelementptr inbounds nuw i8, ptr %4959, i64 2
+  store i8 10, ptr %4960, align 1, !tbaa !75
+  br label %4962
 
-4963:                                             ; preds = %4959, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400
-  %.2491.i = phi ptr [ %.1490.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400 ], [ %.3492.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread ], [ %.4493.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit ], [ %.6495.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268 ], [ %.7496.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272 ], [ %.8497.i, %4959 ]
-  %.2480.i = phi ptr [ %.1479.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400 ], [ %.3481.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread ], [ %.4482.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit ], [ %.6484.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268 ], [ %.7485.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272 ], [ %.8486.i, %4959 ]
-  %.2469.i = phi i64 [ %.1468.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400 ], [ %.3470.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread ], [ %.4471.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit ], [ %.6473.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268 ], [ %.7474.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272 ], [ %.8475.i, %4959 ]
-  %.3454.i = phi ptr [ %3208, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400 ], [ %4793, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread ], [ %4833, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit ], [ %4905, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268 ], [ %4933, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272 ], [ %4962, %4959 ]
-  %.2.i = phi ptr [ %.1.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400 ], [ %.3.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread ], [ %.4.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit ], [ %.6.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268 ], [ %.7.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272 ], [ %.8.i, %4959 ]
-  %4964 = getelementptr inbounds nuw i8, ptr %.0449.i, i64 16
-  %4965 = add i64 %.01668, -1
-  %4966 = icmp eq i64 %4965, 0
-  br i1 %4966, label %.preheader2079, label %2404, !prof !3
+4962:                                             ; preds = %4958, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400
+  %.2491.i = phi ptr [ %.1490.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400 ], [ %.3492.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread ], [ %.4493.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit ], [ %.6495.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268 ], [ %.7496.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272 ], [ %.8497.i, %4958 ]
+  %.2480.i = phi ptr [ %.1479.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400 ], [ %.3481.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread ], [ %.4482.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit ], [ %.6484.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268 ], [ %.7485.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272 ], [ %.8486.i, %4958 ]
+  %.2469.i = phi i64 [ %.1468.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400 ], [ %.3470.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread ], [ %.4471.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit ], [ %.6473.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268 ], [ %.7474.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272 ], [ %.8475.i, %4958 ]
+  %.3454.i = phi ptr [ %3208, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400 ], [ %4793, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread ], [ %4833, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit ], [ %4904, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268 ], [ %4932, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272 ], [ %4961, %4958 ]
+  %.2.i = phi ptr [ %.1.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400 ], [ %.3.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread ], [ %.4.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit ], [ %.6.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268 ], [ %.7.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272 ], [ %.8.i, %4958 ]
+  %4963 = getelementptr inbounds nuw i8, ptr %.0449.i, i64 16
+  %4964 = add i64 %.01668, -1
+  %4965 = icmp eq i64 %4964, 0
+  br i1 %4965, label %.preheader2079, label %2404, !prof !3
 
-.preheader2079:                                   ; preds = %4963, %4997
-  %.11670 = phi i8 [ %5002, %4997 ], [ %.01669.ph, %4963 ]
-  %.9498.i = phi ptr [ %.10499.i, %4997 ], [ %.2491.i, %4963 ]
-  %.9487.i = phi ptr [ %4998, %4997 ], [ %.2480.i, %4963 ]
-  %.9476.i = phi i64 [ %.10477.i, %4997 ], [ %.2469.i, %4963 ]
-  %.1466.i = phi i64 [ %4991, %4997 ], [ %.0465.i.ph, %4963 ]
-  %.10461.i = phi ptr [ %5005, %4997 ], [ %.3454.i, %4963 ]
-  %.9.i = phi ptr [ %.10.i, %4997 ], [ %.2.i, %4963 ]
-  %4967 = getelementptr inbounds i8, ptr %.10461.i, i64 -2
-  %4968 = getelementptr inbounds i8, ptr %.10461.i, i64 -1
-  store i8 10, ptr %4967, align 1, !tbaa !75
-  %4969 = shl i64 %.1466.i, 2
-  %4970 = getelementptr inbounds nuw i8, ptr %4968, i64 %4969
-  %.not532.i = icmp ult ptr %4970, %.9487.i
-  br i1 %.not532.i, label %4990, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit540.i, !prof !22
+.preheader2079:                                   ; preds = %4962, %4996
+  %.11670 = phi i8 [ %5001, %4996 ], [ %.01669.ph, %4962 ]
+  %.9498.i = phi ptr [ %.10499.i, %4996 ], [ %.2491.i, %4962 ]
+  %.9487.i = phi ptr [ %4997, %4996 ], [ %.2480.i, %4962 ]
+  %.9476.i = phi i64 [ %.10477.i, %4996 ], [ %.2469.i, %4962 ]
+  %.1466.i = phi i64 [ %4990, %4996 ], [ %.0465.i.ph, %4962 ]
+  %.10461.i = phi ptr [ %5004, %4996 ], [ %.3454.i, %4962 ]
+  %.9.i = phi ptr [ %.10.i, %4996 ], [ %.2.i, %4962 ]
+  %4966 = getelementptr inbounds i8, ptr %.10461.i, i64 -2
+  %4967 = getelementptr inbounds i8, ptr %.10461.i, i64 -1
+  store i8 10, ptr %4966, align 1, !tbaa !75
+  %4968 = shl i64 %.1466.i, 2
+  %4969 = getelementptr inbounds nuw i8, ptr %4967, i64 %4968
+  %.not532.i = icmp ult ptr %4969, %.9487.i
+  br i1 %.not532.i, label %4989, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit540.i, !prof !22
 
 _ZN13duckdb_yyjsonL13size_align_upEmm.exit540.i:  ; preds = %.preheader2079
-  %4971 = lshr i64 %.9476.i, 1
-  %4972 = tail call i64 @llvm.umax.i64(i64 %4971, i64 %4969)
-  %4973 = add i64 %4972, 7
-  %4974 = and i64 %4973, -8
-  %4975 = add i64 %4974, %.9476.i
-  %4976 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.9.i, i64 noundef %.9476.i, i64 noundef %4975)
-  %.not533.i = icmp eq ptr %4976, null
-  br i1 %.not533.i, label %.loopexit2080, label %4977, !prof !3
+  %4970 = lshr i64 %.9476.i, 1
+  %4971 = tail call i64 @llvm.umax.i64(i64 %4970, i64 %4968)
+  %4972 = add i64 %4971, 7
+  %4973 = and i64 %4972, -8
+  %4974 = add i64 %4973, %.9476.i
+  %4975 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.9.i, i64 noundef %.9476.i, i64 noundef %4974)
+  %.not533.i = icmp eq ptr %4975, null
+  br i1 %.not533.i, label %.loopexit2080, label %4976, !prof !3
 
-4977:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit540.i
-  %4978 = ptrtoint ptr %.9498.i to i64
-  %4979 = ptrtoint ptr %.9487.i to i64
-  %4980 = sub i64 %4978, %4979
-  %4981 = sub i64 %4975, %4980
-  %4982 = getelementptr inbounds nuw i8, ptr %4976, i64 %4981
-  %4983 = ptrtoint ptr %.9.i to i64
-  %4984 = sub i64 %4979, %4983
-  %4985 = getelementptr inbounds i8, ptr %4976, i64 %4984
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %4982, ptr nonnull align 1 %4985, i64 %4980, i1 false)
-  %4986 = ptrtoint ptr %4968 to i64
-  %4987 = sub i64 %4986, %4983
-  %4988 = getelementptr inbounds i8, ptr %4976, i64 %4987
-  %4989 = getelementptr inbounds nuw i8, ptr %4976, i64 %4975
-  br label %4990
+4976:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit540.i
+  %4977 = ptrtoint ptr %.9498.i to i64
+  %4978 = ptrtoint ptr %.9487.i to i64
+  %4979 = sub i64 %4977, %4978
+  %4980 = sub i64 %4974, %4979
+  %4981 = getelementptr inbounds nuw i8, ptr %4975, i64 %4980
+  %4982 = ptrtoint ptr %.9.i to i64
+  %4983 = sub i64 %4978, %4982
+  %4984 = getelementptr inbounds i8, ptr %4975, i64 %4983
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %4981, ptr nonnull align 1 %4984, i64 %4979, i1 false)
+  %4985 = ptrtoint ptr %4967 to i64
+  %4986 = sub i64 %4985, %4982
+  %4987 = getelementptr inbounds i8, ptr %4975, i64 %4986
+  %4988 = getelementptr inbounds nuw i8, ptr %4975, i64 %4974
+  br label %4989
 
-4990:                                             ; preds = %4977, %.preheader2079
-  %.10499.i = phi ptr [ %4989, %4977 ], [ %.9498.i, %.preheader2079 ]
-  %.10488.i = phi ptr [ %4982, %4977 ], [ %.9487.i, %.preheader2079 ]
-  %.10477.i = phi i64 [ %4975, %4977 ], [ %.9476.i, %.preheader2079 ]
-  %.11462.i = phi ptr [ %4988, %4977 ], [ %4968, %.preheader2079 ]
-  %.10.i = phi ptr [ %4976, %4977 ], [ %.9.i, %.preheader2079 ]
-  %4991 = add i64 %.1466.i, -1
-  %.not.i12793162 = icmp eq i64 %4991, 0
+4989:                                             ; preds = %4976, %.preheader2079
+  %.10499.i = phi ptr [ %4988, %4976 ], [ %.9498.i, %.preheader2079 ]
+  %.10488.i = phi ptr [ %4981, %4976 ], [ %.9487.i, %.preheader2079 ]
+  %.10477.i = phi i64 [ %4974, %4976 ], [ %.9476.i, %.preheader2079 ]
+  %.11462.i = phi ptr [ %4987, %4976 ], [ %4967, %.preheader2079 ]
+  %.10.i = phi ptr [ %4975, %4976 ], [ %.9.i, %.preheader2079 ]
+  %4990 = add i64 %.1466.i, -1
+  %.not.i12793162 = icmp eq i64 %4990, 0
   br i1 %.not.i12793162, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280, label %.lr.ph3166
 
-.lr.ph3166:                                       ; preds = %4990, %.lr.ph3166
-  %.0.i12783164 = phi ptr [ %4993, %.lr.ph3166 ], [ %.11462.i, %4990 ]
-  %.04.i12773163 = phi i64 [ %4992, %.lr.ph3166 ], [ %4991, %4990 ]
-  %4992 = add i64 %.04.i12773163, -1
+.lr.ph3166:                                       ; preds = %4989, %.lr.ph3166
+  %.0.i12783164 = phi ptr [ %4992, %.lr.ph3166 ], [ %.11462.i, %4989 ]
+  %.04.i12773163 = phi i64 [ %4991, %.lr.ph3166 ], [ %4990, %4989 ]
+  %4991 = add i64 %.04.i12773163, -1
   store i32 538976288, ptr %.0.i12783164, align 1
-  %4993 = getelementptr inbounds nuw i8, ptr %.0.i12783164, i64 %2376
-  %.not.i1279 = icmp eq i64 %4992, 0
+  %4992 = getelementptr inbounds nuw i8, ptr %.0.i12783164, i64 %2376
+  %.not.i1279 = icmp eq i64 %4991, 0
   br i1 %.not.i1279, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280, label %.lr.ph3166, !llvm.loop !218
 
-_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280:  ; preds = %.lr.ph3166, %4990
-  %.0.i1278.lcssa = phi ptr [ %.11462.i, %4990 ], [ %4993, %.lr.ph3166 ]
-  %4994 = shl nuw nsw i8 %.11670, 5
-  %4995 = add nuw nsw i8 %4994, 93
-  %4996 = getelementptr inbounds nuw i8, ptr %.0.i1278.lcssa, i64 1
-  store i8 %4995, ptr %.0.i1278.lcssa, align 1, !tbaa !75
+_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280:  ; preds = %.lr.ph3166, %4989
+  %.0.i1278.lcssa = phi ptr [ %.11462.i, %4989 ], [ %4992, %.lr.ph3166 ]
+  %4993 = shl nuw nsw i8 %.11670, 5
+  %4994 = add nuw nsw i8 %4993, 93
+  %4995 = getelementptr inbounds nuw i8, ptr %.0.i1278.lcssa, i64 1
+  store i8 %4994, ptr %.0.i1278.lcssa, align 1, !tbaa !75
   %.not534.i = icmp ult ptr %.10488.i, %.10499.i
-  br i1 %.not534.i, label %4997, label %5006, !prof !22
+  br i1 %.not534.i, label %4996, label %5005, !prof !22
 
-4997:                                             ; preds = %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280
-  %4998 = getelementptr inbounds nuw i8, ptr %.10488.i, i64 8
-  %4999 = load i64, ptr %.10488.i, align 8, !tbaa !219
-  %5000 = lshr i64 %4999, 1
-  %5001 = trunc i64 %4999 to i8
-  %5002 = and i8 %5001, 1
-  %5003 = add nsw i64 %5000, -1
-  %5004 = getelementptr inbounds nuw i8, ptr %.0.i1278.lcssa, i64 2
-  store i8 44, ptr %4996, align 1, !tbaa !75
-  %5005 = getelementptr inbounds nuw i8, ptr %.0.i1278.lcssa, i64 3
-  store i8 10, ptr %5004, align 1, !tbaa !75
-  %.not535.i = icmp eq i64 %5003, 0
+4996:                                             ; preds = %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280
+  %4997 = getelementptr inbounds nuw i8, ptr %.10488.i, i64 8
+  %4998 = load i64, ptr %.10488.i, align 8, !tbaa !219
+  %4999 = lshr i64 %4998, 1
+  %5000 = trunc i64 %4998 to i8
+  %5001 = and i8 %5000, 1
+  %5002 = add nsw i64 %4999, -1
+  %5003 = getelementptr inbounds nuw i8, ptr %.0.i1278.lcssa, i64 2
+  store i8 44, ptr %4995, align 1, !tbaa !75
+  %5004 = getelementptr inbounds nuw i8, ptr %.0.i1278.lcssa, i64 3
+  store i8 10, ptr %5003, align 1, !tbaa !75
+  %.not535.i = icmp eq i64 %5002, 0
   br i1 %.not535.i, label %.preheader2079, label %.outer2085.backedge, !prof !3
 
-5006:                                             ; preds = %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280
-  br i1 %.not1907, label %5029, label %5007
+5005:                                             ; preds = %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280
+  br i1 %.not1907, label %5028, label %5006
 
-5007:                                             ; preds = %5006
-  %5008 = getelementptr inbounds nuw i8, ptr %.0.i1278.lcssa, i64 3
-  %.not536.i = icmp ult ptr %5008, %.10488.i
-  br i1 %.not536.i, label %5027, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i, !prof !22
+5006:                                             ; preds = %5005
+  %5007 = getelementptr inbounds nuw i8, ptr %.0.i1278.lcssa, i64 3
+  %.not536.i = icmp ult ptr %5007, %.10488.i
+  br i1 %.not536.i, label %5026, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i, !prof !22
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i:     ; preds = %5007
-  %5009 = lshr i64 %.10477.i, 1
-  %5010 = tail call i64 @llvm.umax.i64(i64 %5009, i64 2)
-  %5011 = add nuw i64 %5010, 7
-  %5012 = and i64 %5011, -8
-  %5013 = add i64 %5012, %.10477.i
-  %5014 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.10.i, i64 noundef %.10477.i, i64 noundef %5013)
-  %.not537.i = icmp eq ptr %5014, null
-  br i1 %.not537.i, label %.loopexit2080, label %5015, !prof !3
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i:     ; preds = %5006
+  %5008 = lshr i64 %.10477.i, 1
+  %5009 = tail call i64 @llvm.umax.i64(i64 %5008, i64 2)
+  %5010 = add nuw i64 %5009, 7
+  %5011 = and i64 %5010, -8
+  %5012 = add i64 %5011, %.10477.i
+  %5013 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.10.i, i64 noundef %.10477.i, i64 noundef %5012)
+  %.not537.i = icmp eq ptr %5013, null
+  br i1 %.not537.i, label %.loopexit2080, label %5014, !prof !3
 
-5015:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i
-  %5016 = ptrtoint ptr %.10499.i to i64
-  %5017 = ptrtoint ptr %.10488.i to i64
-  %5018 = sub i64 %5016, %5017
-  %5019 = sub i64 %5013, %5018
-  %5020 = getelementptr inbounds nuw i8, ptr %5014, i64 %5019
-  %5021 = ptrtoint ptr %.10.i to i64
-  %5022 = sub i64 %5017, %5021
-  %5023 = getelementptr inbounds i8, ptr %5014, i64 %5022
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5020, ptr nonnull align 1 %5023, i64 %5018, i1 false)
-  %5024 = ptrtoint ptr %4996 to i64
-  %5025 = sub i64 %5024, %5021
-  %5026 = getelementptr inbounds i8, ptr %5014, i64 %5025
-  br label %5027
+5014:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i
+  %5015 = ptrtoint ptr %.10499.i to i64
+  %5016 = ptrtoint ptr %.10488.i to i64
+  %5017 = sub i64 %5015, %5016
+  %5018 = sub i64 %5012, %5017
+  %5019 = getelementptr inbounds nuw i8, ptr %5013, i64 %5018
+  %5020 = ptrtoint ptr %.10.i to i64
+  %5021 = sub i64 %5016, %5020
+  %5022 = getelementptr inbounds i8, ptr %5013, i64 %5021
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5019, ptr nonnull align 1 %5022, i64 %5017, i1 false)
+  %5023 = ptrtoint ptr %4995 to i64
+  %5024 = sub i64 %5023, %5020
+  %5025 = getelementptr inbounds i8, ptr %5013, i64 %5024
+  br label %5026
 
-5027:                                             ; preds = %5015, %5007
-  %.13464.i = phi ptr [ %5026, %5015 ], [ %4996, %5007 ]
-  %.12.i = phi ptr [ %5014, %5015 ], [ %.10.i, %5007 ]
-  %5028 = getelementptr inbounds nuw i8, ptr %.13464.i, i64 1
+5026:                                             ; preds = %5014, %5006
+  %.13464.i = phi ptr [ %5025, %5014 ], [ %4995, %5006 ]
+  %.12.i = phi ptr [ %5013, %5014 ], [ %.10.i, %5006 ]
+  %5027 = getelementptr inbounds nuw i8, ptr %.13464.i, i64 1
   store i8 10, ptr %.13464.i, align 1, !tbaa !75
-  br label %5029
+  br label %5028
 
-5029:                                             ; preds = %5027, %5006
-  %.12463.i = phi ptr [ %5028, %5027 ], [ %4996, %5006 ]
-  %.11.i = phi ptr [ %.12.i, %5027 ], [ %.10.i, %5006 ]
+5028:                                             ; preds = %5026, %5005
+  %.12463.i = phi ptr [ %5027, %5026 ], [ %4995, %5005 ]
+  %.11.i = phi ptr [ %.12.i, %5026 ], [ %.10.i, %5005 ]
   store i8 0, ptr %.12463.i, align 1, !tbaa !75
   br i1 %.not27, label %.cont1309, label %.else1311
 
-.else1311:                                        ; preds = %5029
-  %5030 = ptrtoint ptr %.12463.i to i64
-  %5031 = ptrtoint ptr %.11.i to i64
-  %5032 = sub i64 %5030, %5031
-  store i64 %5032, ptr %3, align 8, !tbaa !85
+.else1311:                                        ; preds = %5028
+  %5029 = ptrtoint ptr %.12463.i to i64
+  %5030 = ptrtoint ptr %.11.i to i64
+  %5031 = sub i64 %5029, %5030
+  store i64 %5031, ptr %3, align 8, !tbaa !85
   br label %.cont1309
 
-.cont1309:                                        ; preds = %5029, %.else1311
+.cont1309:                                        ; preds = %5028, %.else1311
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
@@ -43438,20 +43437,20 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit.i:     ; preds = %5007
   %.sroa.sel1345.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1345.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.28, ptr %.sroa.sel1345.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not538.i = icmp eq ptr %.13.i, null
-  br i1 %.not538.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5033
+  br i1 %.not538.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5032
 
-5033:                                             ; preds = %.cont1306
+5032:                                             ; preds = %.cont1306
   tail call void %.sroa.7.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef nonnull %.13.i)
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-5034:                                             ; preds = %4872
-  br i1 %.not27, label %5035, label %.else1299
+5033:                                             ; preds = %4872
+  br i1 %.not27, label %5034, label %.else1299
 
-.else1299:                                        ; preds = %5034
+.else1299:                                        ; preds = %5033
   store i64 0, ptr %3, align 8, !tbaa !85
-  br label %5035
+  br label %5034
 
-5035:                                             ; preds = %.else1299, %5034
+5034:                                             ; preds = %.else1299, %5033
   store i32 3, ptr %8, align 8, !tbaa !208
   %.sroa.sel1354.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1354.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1354.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -43460,13 +43459,13 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit.i:     ; preds = %5007
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread1813: ; preds = %3249
-  br i1 %.not27, label %5036, label %.else1305
+  br i1 %.not27, label %5035, label %.else1305
 
 .else1305:                                        ; preds = %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread1813
   store i64 0, ptr %3, align 8, !tbaa !85
-  br label %5036
+  br label %5035
 
-5036:                                             ; preds = %.else1305, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread1813
+5035:                                             ; preds = %.else1305, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread1813
   store i32 4, ptr %8, align 8, !tbaa !208
   %.sroa.sel1348.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1348.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1348.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -43475,13 +43474,13 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread1813: ; pre
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 .loopexit2052:                                    ; preds = %.thread1742, %.thread1758, %.thread1774, %.thread1790
-  br i1 %.not27, label %5037, label %.else1302
+  br i1 %.not27, label %5036, label %.else1302
 
 .else1302:                                        ; preds = %.loopexit2052
   store i64 0, ptr %3, align 8, !tbaa !85
-  br label %5037
+  br label %5036
 
-5037:                                             ; preds = %.else1302, %.loopexit2052
+5036:                                             ; preds = %.else1302, %.loopexit2052
   store i32 7, ptr %8, align 8, !tbaa !208
   %.sroa.sel1351.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1351.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1351.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -43489,4084 +43488,4083 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread1813: ; pre
   tail call void %.sroa.7.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef nonnull %.1.i)
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-5038:                                             ; preds = %2366
-  br i1 %.not1920, label %5040, label %5039, !prof !22
+5037:                                             ; preds = %2366
+  br i1 %.not1920, label %5039, label %5038, !prof !22
 
-5039:                                             ; preds = %5038
+5038:                                             ; preds = %5037
   %_ZN13duckdb_yyjsonL19enc_table_esc_slashE._ZN13duckdb_yyjsonL13enc_table_escE.i = select i1 %.not1921, ptr @_ZN13duckdb_yyjsonL13enc_table_escE, ptr @_ZN13duckdb_yyjsonL19enc_table_esc_slashE, !prof !22
   br label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit416.i
 
-5040:                                             ; preds = %5038
+5039:                                             ; preds = %5037
   %_ZN13duckdb_yyjsonL19enc_table_cpy_slashE._ZN13duckdb_yyjsonL13enc_table_cpyE.i = select i1 %.not1921, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, ptr @_ZN13duckdb_yyjsonL19enc_table_cpy_slashE, !prof !22
   br label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit416.i
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit416.i:  ; preds = %5039, %5040
-  %.0.i51 = phi ptr [ %_ZN13duckdb_yyjsonL19enc_table_esc_slashE._ZN13duckdb_yyjsonL13enc_table_escE.i, %5039 ], [ %_ZN13duckdb_yyjsonL19enc_table_cpy_slashE._ZN13duckdb_yyjsonL13enc_table_cpyE.i, %5040 ]
-  %5041 = icmp eq ptr %.0.i51, @_ZN13duckdb_yyjsonL13enc_table_cpyE
-  %5042 = and i32 %1, 32
-  %.not1923 = icmp eq i32 %5042, 0
-  %5043 = and i32 %1, 128
-  %.not1924 = icmp eq i32 %5043, 0
-  %5044 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5045 = load i64, ptr %5044, align 8, !tbaa !75
-  %5046 = lshr i64 %5045, 4
-  %5047 = mul i64 %5046, 18
-  %5048 = add i64 %5047, 71
-  %5049 = and i64 %5048, -8
-  %5050 = tail call noundef ptr %.sroa.01384.0.copyload(ptr noundef %.sroa.8.0.copyload, i64 noundef %5049)
-  %.not.i34 = icmp eq ptr %5050, null
-  br i1 %.not.i34, label %.loopexit2050, label %5051
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit416.i:  ; preds = %5038, %5039
+  %.0.i51 = phi ptr [ %_ZN13duckdb_yyjsonL19enc_table_esc_slashE._ZN13duckdb_yyjsonL13enc_table_escE.i, %5038 ], [ %_ZN13duckdb_yyjsonL19enc_table_cpy_slashE._ZN13duckdb_yyjsonL13enc_table_cpyE.i, %5039 ]
+  %5040 = icmp eq ptr %.0.i51, @_ZN13duckdb_yyjsonL13enc_table_cpyE
+  %5041 = and i32 %1, 32
+  %.not1923 = icmp eq i32 %5041, 0
+  %5042 = and i32 %1, 128
+  %.not1924 = icmp eq i32 %5042, 0
+  %5043 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5044 = load i64, ptr %5043, align 8, !tbaa !75
+  %5045 = lshr i64 %5044, 4
+  %5046 = mul i64 %5045, 18
+  %5047 = add i64 %5046, 71
+  %5048 = and i64 %5047, -8
+  %5049 = tail call noundef ptr %.sroa.01384.0.copyload(ptr noundef %.sroa.8.0.copyload, i64 noundef %5048)
+  %.not.i34 = icmp eq ptr %5049, null
+  br i1 %.not.i34, label %.loopexit2050, label %5050
 
-5051:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit416.i
-  %5052 = getelementptr inbounds nuw i8, ptr %5050, i64 %5049
-  %5053 = load i64, ptr %0, align 8, !tbaa !73
-  %5054 = and i64 %5053, 7
-  %5055 = icmp eq i64 %5054, 7
-  %5056 = zext i1 %5055 to i8
-  %5057 = lshr i64 %5053, 8
-  %5058 = zext i1 %5055 to i64
-  %5059 = shl nuw nsw i64 %5057, %5058
-  %5060 = select i1 %5055, i8 123, i8 91
-  %5061 = getelementptr inbounds nuw i8, ptr %5050, i64 1
-  store i8 %5060, ptr %5050, align 1, !tbaa !75
-  %5062 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5063 = and i32 %1, 16
-  %.not1936 = icmp eq i32 %5063, 0
-  %5064 = and i32 %1, 8
-  %.not1937 = icmp eq i32 %5064, 0
+5050:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit416.i
+  %5051 = getelementptr inbounds nuw i8, ptr %5049, i64 %5048
+  %5052 = load i64, ptr %0, align 8, !tbaa !73
+  %5053 = and i64 %5052, 7
+  %5054 = icmp eq i64 %5053, 7
+  %5055 = zext i1 %5054 to i8
+  %5056 = lshr i64 %5052, 8
+  %5057 = zext i1 %5054 to i64
+  %5058 = shl nuw nsw i64 %5056, %5057
+  %5059 = select i1 %5054, i8 123, i8 91
+  %5060 = getelementptr inbounds nuw i8, ptr %5049, i64 1
+  store i8 %5059, ptr %5049, align 1, !tbaa !75
+  %5061 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5062 = and i32 %1, 16
+  %.not1936 = icmp eq i32 %5062, 0
+  %5063 = and i32 %1, 8
+  %.not1937 = icmp eq i32 %5063, 0
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %5051
-  %.01666.ph = phi i8 [ %5056, %5051 ], [ %.01666.ph.be, %.outer.backedge ]
-  %.01665.ph = phi i64 [ %5059, %5051 ], [ %.01665.ph.be, %.outer.backedge ]
-  %.0365.i.ph = phi ptr [ %5052, %5051 ], [ %.0365.i.ph.be, %.outer.backedge ]
-  %.0356.i.ph = phi ptr [ %5052, %5051 ], [ %.0356.i.ph.be, %.outer.backedge ]
-  %.0348.i.ph = phi i64 [ %5049, %5051 ], [ %.0348.i.ph.be, %.outer.backedge ]
-  %.0337.i.ph = phi ptr [ %5061, %5051 ], [ %.0337.i.ph.be, %.outer.backedge ]
-  %.0336.i.ph = phi ptr [ %5050, %5051 ], [ %.0336.i.ph.be, %.outer.backedge ]
-  %.0335.i.ph = phi ptr [ %5062, %5051 ], [ %.0335.i.ph.be, %.outer.backedge ]
-  %5065 = zext nneg i8 %.01666.ph to i32
-  br label %5066
+.outer:                                           ; preds = %.outer.backedge, %5050
+  %.01666.ph = phi i8 [ %5055, %5050 ], [ %.01666.ph.be, %.outer.backedge ]
+  %.01665.ph = phi i64 [ %5058, %5050 ], [ %.01665.ph.be, %.outer.backedge ]
+  %.0365.i.ph = phi ptr [ %5051, %5050 ], [ %.0365.i.ph.be, %.outer.backedge ]
+  %.0356.i.ph = phi ptr [ %5051, %5050 ], [ %.0356.i.ph.be, %.outer.backedge ]
+  %.0348.i.ph = phi i64 [ %5048, %5050 ], [ %.0348.i.ph.be, %.outer.backedge ]
+  %.0337.i.ph = phi ptr [ %5060, %5050 ], [ %.0337.i.ph.be, %.outer.backedge ]
+  %.0336.i.ph = phi ptr [ %5049, %5050 ], [ %.0336.i.ph.be, %.outer.backedge ]
+  %.0335.i.ph = phi ptr [ %5061, %5050 ], [ %.0335.i.ph.be, %.outer.backedge ]
+  %5064 = zext nneg i8 %.01666.ph to i32
+  br label %5065
 
-5066:                                             ; preds = %.outer, %7569
-  %.01665 = phi i64 [ %7571, %7569 ], [ %.01665.ph, %.outer ]
-  %.0365.i = phi ptr [ %.2367.i, %7569 ], [ %.0365.i.ph, %.outer ]
-  %.0356.i = phi ptr [ %.2358.i, %7569 ], [ %.0356.i.ph, %.outer ]
-  %.0348.i = phi i64 [ %.2350.i, %7569 ], [ %.0348.i.ph, %.outer ]
-  %.0337.i = phi ptr [ %.3340.i, %7569 ], [ %.0337.i.ph, %.outer ]
-  %.0336.i = phi ptr [ %.2.i36, %7569 ], [ %.0336.i.ph, %.outer ]
-  %.0335.i = phi ptr [ %7570, %7569 ], [ %.0335.i.ph, %.outer ]
-  %5067 = load i64, ptr %.0335.i, align 8, !tbaa !73
-  %5068 = trunc i64 %5067 to i8
-  %5069 = and i8 %5068, 7
-  switch i8 %5069, label %7444 [
-    i8 5, label %5070
-    i8 4, label %5865
+5065:                                             ; preds = %.outer, %7567
+  %.01665 = phi i64 [ %7569, %7567 ], [ %.01665.ph, %.outer ]
+  %.0365.i = phi ptr [ %.2367.i, %7567 ], [ %.0365.i.ph, %.outer ]
+  %.0356.i = phi ptr [ %.2358.i, %7567 ], [ %.0356.i.ph, %.outer ]
+  %.0348.i = phi i64 [ %.2350.i, %7567 ], [ %.0348.i.ph, %.outer ]
+  %.0337.i = phi ptr [ %.3340.i, %7567 ], [ %.0337.i.ph, %.outer ]
+  %.0336.i = phi ptr [ %.2.i36, %7567 ], [ %.0336.i.ph, %.outer ]
+  %.0335.i = phi ptr [ %7568, %7567 ], [ %.0335.i.ph, %.outer ]
+  %5066 = load i64, ptr %.0335.i, align 8, !tbaa !73
+  %5067 = trunc i64 %5066 to i8
+  %5068 = and i8 %5067, 7
+  switch i8 %5068, label %7443 [
+    i8 5, label %5069
+    i8 4, label %5864
   ]
 
-5070:                                             ; preds = %5066
-  %5071 = trunc i64 %.01665 to i32
-  %5072 = xor i32 %5071, -1
-  %5073 = and i32 %5072, %5065
-  %.not392.i = icmp eq i32 %5073, 0
-  %5074 = lshr i64 %5067, 8
-  %5075 = getelementptr inbounds nuw i8, ptr %.0335.i, i64 8
-  %5076 = load ptr, ptr %5075, align 8, !tbaa !75
-  %5077 = mul nuw nsw i64 %5074, 6
-  %5078 = add nuw nsw i64 %5077, 16
-  %5079 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 %5078
-  %.not393.i = icmp ult ptr %5079, %.0356.i
-  br i1 %.not393.i, label %5099, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i, !prof !22
+5069:                                             ; preds = %5065
+  %5070 = trunc i64 %.01665 to i32
+  %5071 = xor i32 %5070, -1
+  %5072 = and i32 %5071, %5064
+  %.not392.i = icmp eq i32 %5072, 0
+  %5073 = lshr i64 %5066, 8
+  %5074 = getelementptr inbounds nuw i8, ptr %.0335.i, i64 8
+  %5075 = load ptr, ptr %5074, align 8, !tbaa !75
+  %5076 = mul nuw nsw i64 %5073, 6
+  %5077 = add nuw nsw i64 %5076, 16
+  %5078 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 %5077
+  %.not393.i = icmp ult ptr %5078, %.0356.i
+  br i1 %.not393.i, label %5098, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i, !prof !22
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5070
-  %5080 = lshr i64 %.0348.i, 1
-  %5081 = tail call i64 @llvm.umax.i64(i64 %5080, i64 %5078)
-  %5082 = add nuw i64 %5081, 7
-  %5083 = and i64 %5082, -8
-  %5084 = add i64 %5083, %.0348.i
-  %5085 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %5084)
-  %.not394.i = icmp eq ptr %5085, null
-  br i1 %.not394.i, label %.loopexit2050, label %5086, !prof !3
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
+  %5079 = lshr i64 %.0348.i, 1
+  %5080 = tail call i64 @llvm.umax.i64(i64 %5079, i64 %5077)
+  %5081 = add nuw i64 %5080, 7
+  %5082 = and i64 %5081, -8
+  %5083 = add i64 %5082, %.0348.i
+  %5084 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %5083)
+  %.not394.i = icmp eq ptr %5084, null
+  br i1 %.not394.i, label %.loopexit2050, label %5085, !prof !3
 
-5086:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i
-  %5087 = ptrtoint ptr %.0365.i to i64
-  %5088 = ptrtoint ptr %.0356.i to i64
-  %5089 = sub i64 %5087, %5088
-  %5090 = sub i64 %5084, %5089
-  %5091 = getelementptr inbounds nuw i8, ptr %5085, i64 %5090
-  %5092 = ptrtoint ptr %.0336.i to i64
-  %5093 = sub i64 %5088, %5092
-  %5094 = getelementptr inbounds i8, ptr %5085, i64 %5093
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5091, ptr nonnull align 1 %5094, i64 %5089, i1 false)
-  %5095 = ptrtoint ptr %.0337.i to i64
-  %5096 = sub i64 %5095, %5092
-  %5097 = getelementptr inbounds i8, ptr %5085, i64 %5096
-  %5098 = getelementptr inbounds nuw i8, ptr %5085, i64 %5084
-  br label %5099
+5085:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i
+  %5086 = ptrtoint ptr %.0365.i to i64
+  %5087 = ptrtoint ptr %.0356.i to i64
+  %5088 = sub i64 %5086, %5087
+  %5089 = sub i64 %5083, %5088
+  %5090 = getelementptr inbounds nuw i8, ptr %5084, i64 %5089
+  %5091 = ptrtoint ptr %.0336.i to i64
+  %5092 = sub i64 %5087, %5091
+  %5093 = getelementptr inbounds i8, ptr %5084, i64 %5092
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5090, ptr nonnull align 1 %5093, i64 %5088, i1 false)
+  %5094 = ptrtoint ptr %.0337.i to i64
+  %5095 = sub i64 %5094, %5091
+  %5096 = getelementptr inbounds i8, ptr %5084, i64 %5095
+  %5097 = getelementptr inbounds nuw i8, ptr %5084, i64 %5083
+  br label %5098
 
-5099:                                             ; preds = %5086, %5070
-  %.1366.i = phi ptr [ %5098, %5086 ], [ %.0365.i, %5070 ]
-  %.1357.i = phi ptr [ %5091, %5086 ], [ %.0356.i, %5070 ]
-  %.1349.i = phi i64 [ %5084, %5086 ], [ %.0348.i, %5070 ]
-  %.1338.i = phi ptr [ %5097, %5086 ], [ %.0337.i, %5070 ]
-  %.1.i44 = phi ptr [ %5085, %5086 ], [ %.0336.i, %5070 ]
-  br i1 %5041, label %5471, label %.split.i45, !prof !22
+5098:                                             ; preds = %5085, %5069
+  %.1366.i = phi ptr [ %5097, %5085 ], [ %.0365.i, %5069 ]
+  %.1357.i = phi ptr [ %5090, %5085 ], [ %.0356.i, %5069 ]
+  %.1349.i = phi i64 [ %5083, %5085 ], [ %.0348.i, %5069 ]
+  %.1338.i = phi ptr [ %5096, %5085 ], [ %.0337.i, %5069 ]
+  %.1.i44 = phi ptr [ %5084, %5085 ], [ %.0336.i, %5069 ]
+  br i1 %5040, label %5470, label %.split.i45, !prof !22
 
-.split.i45:                                       ; preds = %5099
-  %5100 = getelementptr inbounds nuw i8, ptr %5076, i64 %5074
+.split.i45:                                       ; preds = %5098
+  %5099 = getelementptr inbounds nuw i8, ptr %5075, i64 %5073
   store i8 34, ptr %.1338.i, align 1, !tbaa !75
-  %5101 = ptrtoint ptr %5100 to i64
-  br label %5102
+  %5100 = ptrtoint ptr %5099 to i64
+  br label %5101
 
-5102:                                             ; preds = %5308, %.split.i45
-  %.0244.i101 = phi ptr [ %5076, %.split.i45 ], [ %5309, %5308 ]
-  %.pn.i102 = phi ptr [ %.1338.i, %.split.i45 ], [ %.8.i115, %5308 ]
+5101:                                             ; preds = %5307, %.split.i45
+  %.0244.i101 = phi ptr [ %5075, %.split.i45 ], [ %5308, %5307 ]
+  %.pn.i102 = phi ptr [ %.1338.i, %.split.i45 ], [ %.8.i115, %5307 ]
   %.0243.i103 = getelementptr inbounds nuw i8, ptr %.pn.i102, i64 1
-  %5103 = ptrtoint ptr %.0244.i101 to i64
-  %5104 = sub i64 %5101, %5103
-  %5105 = icmp sgt i64 %5104, 15
-  br i1 %5105, label %.lr.ph3188, label %.preheader2037
+  %5102 = ptrtoint ptr %.0244.i101 to i64
+  %5103 = sub i64 %5100, %5102
+  %5104 = icmp sgt i64 %5103, 15
+  br i1 %5104, label %.lr.ph3188, label %.preheader2037
 
-.preheader2037:                                   ; preds = %5201, %5102
-  %.pre-phi3929 = phi i64 [ %5104, %5102 ], [ %5205, %5201 ]
-  %.1245.i104.lcssa = phi ptr [ %.0244.i101, %5102 ], [ %5203, %5201 ]
-  %.1.i105.lcssa = phi ptr [ %.0243.i103, %5102 ], [ %5202, %5201 ]
-  %5106 = icmp sgt i64 %.pre-phi3929, 3
-  br i1 %5106, label %.lr.ph3194, label %.preheader2035
+.preheader2037:                                   ; preds = %5200, %5101
+  %.pre-phi3929 = phi i64 [ %5103, %5101 ], [ %5204, %5200 ]
+  %.1245.i104.lcssa = phi ptr [ %.0244.i101, %5101 ], [ %5202, %5200 ]
+  %.1.i105.lcssa = phi ptr [ %.0243.i103, %5101 ], [ %5201, %5200 ]
+  %5105 = icmp sgt i64 %.pre-phi3929, 3
+  br i1 %5105, label %.lr.ph3194, label %.preheader2035
 
-.lr.ph3188:                                       ; preds = %5102, %5201
-  %.1.i1053186 = phi ptr [ %5202, %5201 ], [ %.0243.i103, %5102 ]
-  %.1245.i1043185 = phi ptr [ %5203, %5201 ], [ %.0244.i101, %5102 ]
-  %5107 = load i8, ptr %.1245.i1043185, align 1, !tbaa !75
-  %5108 = zext i8 %5107 to i64
-  %5109 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5108
-  %5110 = load i8, ptr %5109, align 1, !tbaa !75
-  %.not277.i184 = icmp eq i8 %5110, 0
-  br i1 %.not277.i184, label %5111, label %.preheader2032.preheader, !prof !22
+.lr.ph3188:                                       ; preds = %5101, %5200
+  %.1.i1053186 = phi ptr [ %5201, %5200 ], [ %.0243.i103, %5101 ]
+  %.1245.i1043185 = phi ptr [ %5202, %5200 ], [ %.0244.i101, %5101 ]
+  %5106 = load i8, ptr %.1245.i1043185, align 1, !tbaa !75
+  %5107 = zext i8 %5106 to i64
+  %5108 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5107
+  %5109 = load i8, ptr %5108, align 1, !tbaa !75
+  %.not277.i184 = icmp eq i8 %5109, 0
+  br i1 %.not277.i184, label %5110, label %.preheader2032.preheader, !prof !22
 
-5111:                                             ; preds = %.lr.ph3188
-  %5112 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 1
-  %5113 = load i8, ptr %5112, align 1, !tbaa !75
-  %5114 = zext i8 %5113 to i64
-  %5115 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5114
-  %5116 = load i8, ptr %5115, align 1, !tbaa !75
-  %.not278.i185 = icmp eq i8 %5116, 0
-  br i1 %.not278.i185, label %5117, label %.loopexit2039, !prof !22
+5110:                                             ; preds = %.lr.ph3188
+  %5111 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 1
+  %5112 = load i8, ptr %5111, align 1, !tbaa !75
+  %5113 = zext i8 %5112 to i64
+  %5114 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5113
+  %5115 = load i8, ptr %5114, align 1, !tbaa !75
+  %.not278.i185 = icmp eq i8 %5115, 0
+  br i1 %.not278.i185, label %5116, label %.loopexit2039, !prof !22
 
-5117:                                             ; preds = %5111
-  %5118 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 2
-  %5119 = load i8, ptr %5118, align 1, !tbaa !75
-  %5120 = zext i8 %5119 to i64
-  %5121 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5120
-  %5122 = load i8, ptr %5121, align 1, !tbaa !75
-  %.not279.i186 = icmp eq i8 %5122, 0
-  br i1 %.not279.i186, label %5123, label %.loopexit2040, !prof !22
+5116:                                             ; preds = %5110
+  %5117 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 2
+  %5118 = load i8, ptr %5117, align 1, !tbaa !75
+  %5119 = zext i8 %5118 to i64
+  %5120 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5119
+  %5121 = load i8, ptr %5120, align 1, !tbaa !75
+  %.not279.i186 = icmp eq i8 %5121, 0
+  br i1 %.not279.i186, label %5122, label %.loopexit2040, !prof !22
 
-5123:                                             ; preds = %5117
-  %5124 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 3
-  %5125 = load i8, ptr %5124, align 1, !tbaa !75
-  %5126 = zext i8 %5125 to i64
-  %5127 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5126
-  %5128 = load i8, ptr %5127, align 1, !tbaa !75
-  %.not280.i187 = icmp eq i8 %5128, 0
-  br i1 %.not280.i187, label %5129, label %.loopexit2041, !prof !22
+5122:                                             ; preds = %5116
+  %5123 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 3
+  %5124 = load i8, ptr %5123, align 1, !tbaa !75
+  %5125 = zext i8 %5124 to i64
+  %5126 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5125
+  %5127 = load i8, ptr %5126, align 1, !tbaa !75
+  %.not280.i187 = icmp eq i8 %5127, 0
+  br i1 %.not280.i187, label %5128, label %.loopexit2041, !prof !22
 
-5129:                                             ; preds = %5123
-  %5130 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 4
-  %5131 = load i8, ptr %5130, align 1, !tbaa !75
-  %5132 = zext i8 %5131 to i64
-  %5133 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5132
-  %5134 = load i8, ptr %5133, align 1, !tbaa !75
-  %.not281.i188 = icmp eq i8 %5134, 0
-  br i1 %.not281.i188, label %5135, label %5253, !prof !22
+5128:                                             ; preds = %5122
+  %5129 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 4
+  %5130 = load i8, ptr %5129, align 1, !tbaa !75
+  %5131 = zext i8 %5130 to i64
+  %5132 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5131
+  %5133 = load i8, ptr %5132, align 1, !tbaa !75
+  %.not281.i188 = icmp eq i8 %5133, 0
+  br i1 %.not281.i188, label %5134, label %5252, !prof !22
 
-5135:                                             ; preds = %5129
-  %5136 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 5
-  %5137 = load i8, ptr %5136, align 1, !tbaa !75
-  %5138 = zext i8 %5137 to i64
-  %5139 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5138
-  %5140 = load i8, ptr %5139, align 1, !tbaa !75
-  %.not282.i189 = icmp eq i8 %5140, 0
-  br i1 %.not282.i189, label %5141, label %5257, !prof !22
+5134:                                             ; preds = %5128
+  %5135 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 5
+  %5136 = load i8, ptr %5135, align 1, !tbaa !75
+  %5137 = zext i8 %5136 to i64
+  %5138 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5137
+  %5139 = load i8, ptr %5138, align 1, !tbaa !75
+  %.not282.i189 = icmp eq i8 %5139, 0
+  br i1 %.not282.i189, label %5140, label %5256, !prof !22
 
-5141:                                             ; preds = %5135
-  %5142 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 6
-  %5143 = load i8, ptr %5142, align 1, !tbaa !75
-  %5144 = zext i8 %5143 to i64
-  %5145 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5144
-  %5146 = load i8, ptr %5145, align 1, !tbaa !75
-  %.not283.i190 = icmp eq i8 %5146, 0
-  br i1 %.not283.i190, label %5147, label %5260, !prof !22
+5140:                                             ; preds = %5134
+  %5141 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 6
+  %5142 = load i8, ptr %5141, align 1, !tbaa !75
+  %5143 = zext i8 %5142 to i64
+  %5144 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5143
+  %5145 = load i8, ptr %5144, align 1, !tbaa !75
+  %.not283.i190 = icmp eq i8 %5145, 0
+  br i1 %.not283.i190, label %5146, label %5259, !prof !22
 
-5147:                                             ; preds = %5141
-  %5148 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 7
-  %5149 = load i8, ptr %5148, align 1, !tbaa !75
-  %5150 = zext i8 %5149 to i64
-  %5151 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5150
-  %5152 = load i8, ptr %5151, align 1, !tbaa !75
-  %.not284.i191 = icmp eq i8 %5152, 0
-  br i1 %.not284.i191, label %5153, label %5263, !prof !22
+5146:                                             ; preds = %5140
+  %5147 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 7
+  %5148 = load i8, ptr %5147, align 1, !tbaa !75
+  %5149 = zext i8 %5148 to i64
+  %5150 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5149
+  %5151 = load i8, ptr %5150, align 1, !tbaa !75
+  %.not284.i191 = icmp eq i8 %5151, 0
+  br i1 %.not284.i191, label %5152, label %5262, !prof !22
 
-5153:                                             ; preds = %5147
-  %5154 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 8
-  %5155 = load i8, ptr %5154, align 1, !tbaa !75
-  %5156 = zext i8 %5155 to i64
-  %5157 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5156
-  %5158 = load i8, ptr %5157, align 1, !tbaa !75
-  %.not285.i192 = icmp eq i8 %5158, 0
-  br i1 %.not285.i192, label %5159, label %5266, !prof !22
+5152:                                             ; preds = %5146
+  %5153 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 8
+  %5154 = load i8, ptr %5153, align 1, !tbaa !75
+  %5155 = zext i8 %5154 to i64
+  %5156 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5155
+  %5157 = load i8, ptr %5156, align 1, !tbaa !75
+  %.not285.i192 = icmp eq i8 %5157, 0
+  br i1 %.not285.i192, label %5158, label %5265, !prof !22
 
-5159:                                             ; preds = %5153
-  %5160 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 9
-  %5161 = load i8, ptr %5160, align 1, !tbaa !75
-  %5162 = zext i8 %5161 to i64
-  %5163 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5162
-  %5164 = load i8, ptr %5163, align 1, !tbaa !75
-  %.not286.i193 = icmp eq i8 %5164, 0
-  br i1 %.not286.i193, label %5165, label %5270, !prof !22
+5158:                                             ; preds = %5152
+  %5159 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 9
+  %5160 = load i8, ptr %5159, align 1, !tbaa !75
+  %5161 = zext i8 %5160 to i64
+  %5162 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5161
+  %5163 = load i8, ptr %5162, align 1, !tbaa !75
+  %.not286.i193 = icmp eq i8 %5163, 0
+  br i1 %.not286.i193, label %5164, label %5269, !prof !22
 
-5165:                                             ; preds = %5159
-  %5166 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 10
-  %5167 = load i8, ptr %5166, align 1, !tbaa !75
-  %5168 = zext i8 %5167 to i64
-  %5169 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5168
-  %5170 = load i8, ptr %5169, align 1, !tbaa !75
-  %.not287.i194 = icmp eq i8 %5170, 0
-  br i1 %.not287.i194, label %5171, label %5273, !prof !22
+5164:                                             ; preds = %5158
+  %5165 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 10
+  %5166 = load i8, ptr %5165, align 1, !tbaa !75
+  %5167 = zext i8 %5166 to i64
+  %5168 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5167
+  %5169 = load i8, ptr %5168, align 1, !tbaa !75
+  %.not287.i194 = icmp eq i8 %5169, 0
+  br i1 %.not287.i194, label %5170, label %5272, !prof !22
 
-5171:                                             ; preds = %5165
-  %5172 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 11
-  %5173 = load i8, ptr %5172, align 1, !tbaa !75
-  %5174 = zext i8 %5173 to i64
-  %5175 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5174
-  %5176 = load i8, ptr %5175, align 1, !tbaa !75
-  %.not288.i195 = icmp eq i8 %5176, 0
-  br i1 %.not288.i195, label %5177, label %5276, !prof !22
+5170:                                             ; preds = %5164
+  %5171 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 11
+  %5172 = load i8, ptr %5171, align 1, !tbaa !75
+  %5173 = zext i8 %5172 to i64
+  %5174 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5173
+  %5175 = load i8, ptr %5174, align 1, !tbaa !75
+  %.not288.i195 = icmp eq i8 %5175, 0
+  br i1 %.not288.i195, label %5176, label %5275, !prof !22
 
-5177:                                             ; preds = %5171
-  %5178 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 12
-  %5179 = load i8, ptr %5178, align 1, !tbaa !75
-  %5180 = zext i8 %5179 to i64
-  %5181 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5180
-  %5182 = load i8, ptr %5181, align 1, !tbaa !75
-  %.not289.i196 = icmp eq i8 %5182, 0
-  br i1 %.not289.i196, label %5183, label %5279, !prof !22
+5176:                                             ; preds = %5170
+  %5177 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 12
+  %5178 = load i8, ptr %5177, align 1, !tbaa !75
+  %5179 = zext i8 %5178 to i64
+  %5180 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5179
+  %5181 = load i8, ptr %5180, align 1, !tbaa !75
+  %.not289.i196 = icmp eq i8 %5181, 0
+  br i1 %.not289.i196, label %5182, label %5278, !prof !22
 
-5183:                                             ; preds = %5177
-  %5184 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 13
-  %5185 = load i8, ptr %5184, align 1, !tbaa !75
-  %5186 = zext i8 %5185 to i64
-  %5187 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5186
-  %5188 = load i8, ptr %5187, align 1, !tbaa !75
-  %.not290.i197 = icmp eq i8 %5188, 0
-  br i1 %.not290.i197, label %5189, label %5282, !prof !22
+5182:                                             ; preds = %5176
+  %5183 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 13
+  %5184 = load i8, ptr %5183, align 1, !tbaa !75
+  %5185 = zext i8 %5184 to i64
+  %5186 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5185
+  %5187 = load i8, ptr %5186, align 1, !tbaa !75
+  %.not290.i197 = icmp eq i8 %5187, 0
+  br i1 %.not290.i197, label %5188, label %5281, !prof !22
 
-5189:                                             ; preds = %5183
-  %5190 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 14
-  %5191 = load i8, ptr %5190, align 1, !tbaa !75
-  %5192 = zext i8 %5191 to i64
-  %5193 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5192
-  %5194 = load i8, ptr %5193, align 1, !tbaa !75
-  %.not291.i198 = icmp eq i8 %5194, 0
-  br i1 %.not291.i198, label %5195, label %5285, !prof !22
+5188:                                             ; preds = %5182
+  %5189 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 14
+  %5190 = load i8, ptr %5189, align 1, !tbaa !75
+  %5191 = zext i8 %5190 to i64
+  %5192 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5191
+  %5193 = load i8, ptr %5192, align 1, !tbaa !75
+  %.not291.i198 = icmp eq i8 %5193, 0
+  br i1 %.not291.i198, label %5194, label %5284, !prof !22
 
-5195:                                             ; preds = %5189
-  %5196 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 15
-  %5197 = load i8, ptr %5196, align 1, !tbaa !75
-  %5198 = zext i8 %5197 to i64
-  %5199 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5198
-  %5200 = load i8, ptr %5199, align 1, !tbaa !75
-  %.not292.i199 = icmp eq i8 %5200, 0
-  br i1 %.not292.i199, label %5201, label %5288, !prof !22
+5194:                                             ; preds = %5188
+  %5195 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 15
+  %5196 = load i8, ptr %5195, align 1, !tbaa !75
+  %5197 = zext i8 %5196 to i64
+  %5198 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5197
+  %5199 = load i8, ptr %5198, align 1, !tbaa !75
+  %.not292.i199 = icmp eq i8 %5199, 0
+  br i1 %.not292.i199, label %5200, label %5287, !prof !22
 
-5201:                                             ; preds = %5195
+5200:                                             ; preds = %5194
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(16) %.1245.i1043185, i64 16, i1 false)
-  %5202 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 16
-  %5203 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 16
-  %5204 = ptrtoint ptr %5203 to i64
-  %5205 = sub i64 %5101, %5204
-  %5206 = icmp sgt i64 %5205, 15
-  br i1 %5206, label %.lr.ph3188, label %.preheader2037, !llvm.loop !209
+  %5201 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 16
+  %5202 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 16
+  %5203 = ptrtoint ptr %5202 to i64
+  %5204 = sub i64 %5100, %5203
+  %5205 = icmp sgt i64 %5204, 15
+  br i1 %5205, label %.lr.ph3188, label %.preheader2037, !llvm.loop !209
 
-.preheader2035:                                   ; preds = %5230, %.preheader2037
-  %.6250.i106.lcssa = phi ptr [ %.1245.i104.lcssa, %.preheader2037 ], [ %5233, %5230 ]
-  %.6.i107.lcssa = phi ptr [ %.1.i105.lcssa, %.preheader2037 ], [ %5232, %5230 ]
-  %5207 = icmp ugt ptr %5100, %.6250.i106.lcssa
-  br i1 %5207, label %.lr.ph3199, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200
+.preheader2035:                                   ; preds = %5229, %.preheader2037
+  %.6250.i106.lcssa = phi ptr [ %.1245.i104.lcssa, %.preheader2037 ], [ %5232, %5229 ]
+  %.6.i107.lcssa = phi ptr [ %.1.i105.lcssa, %.preheader2037 ], [ %5231, %5229 ]
+  %5206 = icmp ugt ptr %5099, %.6250.i106.lcssa
+  br i1 %5206, label %.lr.ph3199, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200
 
-.lr.ph3194:                                       ; preds = %.preheader2037, %5230
-  %.6.i1073193 = phi ptr [ %5232, %5230 ], [ %.1.i105.lcssa, %.preheader2037 ]
-  %.6250.i1063192 = phi ptr [ %5233, %5230 ], [ %.1245.i104.lcssa, %.preheader2037 ]
-  %5208 = load i8, ptr %.6250.i1063192, align 1, !tbaa !75
-  %5209 = zext i8 %5208 to i64
-  %5210 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5209
-  %5211 = load i8, ptr %5210, align 1, !tbaa !75
-  %.not273.i174 = icmp eq i8 %5211, 0
-  br i1 %.not273.i174, label %5212, label %.preheader2032.preheader, !prof !22
+.lr.ph3194:                                       ; preds = %.preheader2037, %5229
+  %.6.i1073193 = phi ptr [ %5231, %5229 ], [ %.1.i105.lcssa, %.preheader2037 ]
+  %.6250.i1063192 = phi ptr [ %5232, %5229 ], [ %.1245.i104.lcssa, %.preheader2037 ]
+  %5207 = load i8, ptr %.6250.i1063192, align 1, !tbaa !75
+  %5208 = zext i8 %5207 to i64
+  %5209 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5208
+  %5210 = load i8, ptr %5209, align 1, !tbaa !75
+  %.not273.i174 = icmp eq i8 %5210, 0
+  br i1 %.not273.i174, label %5211, label %.preheader2032.preheader, !prof !22
 
-5212:                                             ; preds = %.lr.ph3194
-  %5213 = getelementptr inbounds nuw i8, ptr %.6250.i1063192, i64 1
-  %5214 = load i8, ptr %5213, align 1, !tbaa !75
-  %5215 = zext i8 %5214 to i64
-  %5216 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5215
-  %5217 = load i8, ptr %5216, align 1, !tbaa !75
-  %.not274.i175 = icmp eq i8 %5217, 0
-  br i1 %.not274.i175, label %5218, label %.loopexit2039, !prof !22
+5211:                                             ; preds = %.lr.ph3194
+  %5212 = getelementptr inbounds nuw i8, ptr %.6250.i1063192, i64 1
+  %5213 = load i8, ptr %5212, align 1, !tbaa !75
+  %5214 = zext i8 %5213 to i64
+  %5215 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5214
+  %5216 = load i8, ptr %5215, align 1, !tbaa !75
+  %.not274.i175 = icmp eq i8 %5216, 0
+  br i1 %.not274.i175, label %5217, label %.loopexit2039, !prof !22
 
-5218:                                             ; preds = %5212
-  %5219 = getelementptr inbounds nuw i8, ptr %.6250.i1063192, i64 2
-  %5220 = load i8, ptr %5219, align 1, !tbaa !75
-  %5221 = zext i8 %5220 to i64
-  %5222 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5221
-  %5223 = load i8, ptr %5222, align 1, !tbaa !75
-  %.not275.i178 = icmp eq i8 %5223, 0
-  br i1 %.not275.i178, label %5224, label %.loopexit2040, !prof !22
+5217:                                             ; preds = %5211
+  %5218 = getelementptr inbounds nuw i8, ptr %.6250.i1063192, i64 2
+  %5219 = load i8, ptr %5218, align 1, !tbaa !75
+  %5220 = zext i8 %5219 to i64
+  %5221 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5220
+  %5222 = load i8, ptr %5221, align 1, !tbaa !75
+  %.not275.i178 = icmp eq i8 %5222, 0
+  br i1 %.not275.i178, label %5223, label %.loopexit2040, !prof !22
 
-5224:                                             ; preds = %5218
-  %5225 = getelementptr inbounds nuw i8, ptr %.6250.i1063192, i64 3
-  %5226 = load i8, ptr %5225, align 1, !tbaa !75
-  %5227 = zext i8 %5226 to i64
-  %5228 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5227
-  %5229 = load i8, ptr %5228, align 1, !tbaa !75
-  %.not276.i181 = icmp eq i8 %5229, 0
-  br i1 %.not276.i181, label %5230, label %.loopexit2041, !prof !22
+5223:                                             ; preds = %5217
+  %5224 = getelementptr inbounds nuw i8, ptr %.6250.i1063192, i64 3
+  %5225 = load i8, ptr %5224, align 1, !tbaa !75
+  %5226 = zext i8 %5225 to i64
+  %5227 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5226
+  %5228 = load i8, ptr %5227, align 1, !tbaa !75
+  %.not276.i181 = icmp eq i8 %5228, 0
+  br i1 %.not276.i181, label %5229, label %.loopexit2041, !prof !22
 
-5230:                                             ; preds = %5224
-  %5231 = load i32, ptr %.6250.i1063192, align 1
-  store i32 %5231, ptr %.6.i1073193, align 1
-  %5232 = getelementptr inbounds nuw i8, ptr %.6.i1073193, i64 4
-  %5233 = getelementptr inbounds nuw i8, ptr %.6250.i1063192, i64 4
-  %5234 = ptrtoint ptr %5233 to i64
-  %5235 = sub i64 %5101, %5234
-  %5236 = icmp sgt i64 %5235, 3
-  br i1 %5236, label %.lr.ph3194, label %.preheader2035, !llvm.loop !210
+5229:                                             ; preds = %5223
+  %5230 = load i32, ptr %.6250.i1063192, align 1
+  store i32 %5230, ptr %.6.i1073193, align 1
+  %5231 = getelementptr inbounds nuw i8, ptr %.6.i1073193, i64 4
+  %5232 = getelementptr inbounds nuw i8, ptr %.6250.i1063192, i64 4
+  %5233 = ptrtoint ptr %5232 to i64
+  %5234 = sub i64 %5100, %5233
+  %5235 = icmp sgt i64 %5234, 3
+  br i1 %5235, label %.lr.ph3194, label %.preheader2035, !llvm.loop !210
 
-.lr.ph3199:                                       ; preds = %.preheader2035, %5241
-  %.7.i1093198 = phi ptr [ %5243, %5241 ], [ %.6.i107.lcssa, %.preheader2035 ]
-  %.7251.i1083197 = phi ptr [ %5242, %5241 ], [ %.6250.i106.lcssa, %.preheader2035 ]
-  %5237 = load i8, ptr %.7251.i1083197, align 1, !tbaa !75
-  %5238 = zext i8 %5237 to i64
-  %5239 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5238
-  %5240 = load i8, ptr %5239, align 1, !tbaa !75
-  %.not.i111 = icmp eq i8 %5240, 0
-  br i1 %.not.i111, label %5241, label %.preheader2032.preheader, !prof !22
+.lr.ph3199:                                       ; preds = %.preheader2035, %5240
+  %.7.i1093198 = phi ptr [ %5242, %5240 ], [ %.6.i107.lcssa, %.preheader2035 ]
+  %.7251.i1083197 = phi ptr [ %5241, %5240 ], [ %.6250.i106.lcssa, %.preheader2035 ]
+  %5236 = load i8, ptr %.7251.i1083197, align 1, !tbaa !75
+  %5237 = zext i8 %5236 to i64
+  %5238 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5237
+  %5239 = load i8, ptr %5238, align 1, !tbaa !75
+  %.not.i111 = icmp eq i8 %5239, 0
+  br i1 %.not.i111, label %5240, label %.preheader2032.preheader, !prof !22
 
-5241:                                             ; preds = %.lr.ph3199
-  %5242 = getelementptr inbounds nuw i8, ptr %.7251.i1083197, i64 1
-  %5243 = getelementptr inbounds nuw i8, ptr %.7.i1093198, i64 1
-  store i8 %5237, ptr %.7.i1093198, align 1, !tbaa !75
-  %5244 = icmp ugt ptr %5100, %5242
-  br i1 %5244, label %.lr.ph3199, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, !llvm.loop !211
+5240:                                             ; preds = %.lr.ph3199
+  %5241 = getelementptr inbounds nuw i8, ptr %.7251.i1083197, i64 1
+  %5242 = getelementptr inbounds nuw i8, ptr %.7.i1093198, i64 1
+  store i8 %5236, ptr %.7.i1093198, align 1, !tbaa !75
+  %5243 = icmp ugt ptr %5099, %5241
+  br i1 %5243, label %.lr.ph3199, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, !llvm.loop !211
 
-.loopexit2039:                                    ; preds = %5111, %5212
-  %5245 = phi i8 [ %5208, %5212 ], [ %5107, %5111 ]
-  %.3247.i176 = phi ptr [ %.6250.i1063192, %5212 ], [ %.1245.i1043185, %5111 ]
-  %.3.i177 = phi ptr [ %.6.i1073193, %5212 ], [ %.1.i1053186, %5111 ]
-  store i8 %5245, ptr %.3.i177, align 1
-  %5246 = getelementptr inbounds nuw i8, ptr %.3.i177, i64 1
-  %5247 = getelementptr inbounds nuw i8, ptr %.3247.i176, i64 1
+.loopexit2039:                                    ; preds = %5110, %5211
+  %5244 = phi i8 [ %5207, %5211 ], [ %5106, %5110 ]
+  %.3247.i176 = phi ptr [ %.6250.i1063192, %5211 ], [ %.1245.i1043185, %5110 ]
+  %.3.i177 = phi ptr [ %.6.i1073193, %5211 ], [ %.1.i1053186, %5110 ]
+  store i8 %5244, ptr %.3.i177, align 1
+  %5245 = getelementptr inbounds nuw i8, ptr %.3.i177, i64 1
+  %5246 = getelementptr inbounds nuw i8, ptr %.3247.i176, i64 1
   br label %.preheader2032.preheader
 
-.loopexit2040:                                    ; preds = %5117, %5218
-  %.4248.i179 = phi ptr [ %.6250.i1063192, %5218 ], [ %.1245.i1043185, %5117 ]
-  %.4.i180 = phi ptr [ %.6.i1073193, %5218 ], [ %.1.i1053186, %5117 ]
-  %5248 = load i16, ptr %.4248.i179, align 1
-  store i16 %5248, ptr %.4.i180, align 1
-  %5249 = getelementptr inbounds nuw i8, ptr %.4.i180, i64 2
-  %5250 = getelementptr inbounds nuw i8, ptr %.4248.i179, i64 2
+.loopexit2040:                                    ; preds = %5116, %5217
+  %.4248.i179 = phi ptr [ %.6250.i1063192, %5217 ], [ %.1245.i1043185, %5116 ]
+  %.4.i180 = phi ptr [ %.6.i1073193, %5217 ], [ %.1.i1053186, %5116 ]
+  %5247 = load i16, ptr %.4248.i179, align 1
+  store i16 %5247, ptr %.4.i180, align 1
+  %5248 = getelementptr inbounds nuw i8, ptr %.4.i180, i64 2
+  %5249 = getelementptr inbounds nuw i8, ptr %.4248.i179, i64 2
   br label %.preheader2032.preheader
 
-.loopexit2041:                                    ; preds = %5123, %5224
-  %.5249.i182 = phi ptr [ %.6250.i1063192, %5224 ], [ %.1245.i1043185, %5123 ]
-  %.5.i183 = phi ptr [ %.6.i1073193, %5224 ], [ %.1.i1053186, %5123 ]
+.loopexit2041:                                    ; preds = %5122, %5223
+  %.5249.i182 = phi ptr [ %.6250.i1063192, %5223 ], [ %.1245.i1043185, %5122 ]
+  %.5.i183 = phi ptr [ %.6.i1073193, %5223 ], [ %.1.i1053186, %5122 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.5.i183, ptr noundef nonnull align 1 dereferenceable(3) %.5249.i182, i64 3, i1 false)
-  %5251 = getelementptr inbounds nuw i8, ptr %.5.i183, i64 3
-  %5252 = getelementptr inbounds nuw i8, ptr %.5249.i182, i64 3
+  %5250 = getelementptr inbounds nuw i8, ptr %.5.i183, i64 3
+  %5251 = getelementptr inbounds nuw i8, ptr %.5249.i182, i64 3
   br label %.preheader2032.preheader
 
-5253:                                             ; preds = %5129
-  %5254 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 4
-  %5255 = load i32, ptr %.1245.i1043185, align 1
-  store i32 %5255, ptr %.1.i1053186, align 1
-  %5256 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 4
+5252:                                             ; preds = %5128
+  %5253 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 4
+  %5254 = load i32, ptr %.1245.i1043185, align 1
+  store i32 %5254, ptr %.1.i1053186, align 1
+  %5255 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 4
   br label %.preheader2032.preheader
 
-5257:                                             ; preds = %5135
-  %5258 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 5
+5256:                                             ; preds = %5134
+  %5257 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(5) %.1245.i1043185, i64 5, i1 false)
-  %5259 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 5
+  %5258 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 5
   br label %.preheader2032.preheader
 
-5260:                                             ; preds = %5141
-  %5261 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 6
+5259:                                             ; preds = %5140
+  %5260 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(6) %.1245.i1043185, i64 6, i1 false)
-  %5262 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 6
+  %5261 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 6
   br label %.preheader2032.preheader
 
-5263:                                             ; preds = %5147
-  %5264 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 7
+5262:                                             ; preds = %5146
+  %5263 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(7) %.1245.i1043185, i64 7, i1 false)
-  %5265 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 7
+  %5264 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 7
   br label %.preheader2032.preheader
 
-5266:                                             ; preds = %5153
-  %5267 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 8
-  %5268 = load i64, ptr %.1245.i1043185, align 1
-  store i64 %5268, ptr %.1.i1053186, align 1
-  %5269 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 8
+5265:                                             ; preds = %5152
+  %5266 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 8
+  %5267 = load i64, ptr %.1245.i1043185, align 1
+  store i64 %5267, ptr %.1.i1053186, align 1
+  %5268 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 8
   br label %.preheader2032.preheader
 
-5270:                                             ; preds = %5159
-  %5271 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 9
+5269:                                             ; preds = %5158
+  %5270 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(9) %.1245.i1043185, i64 9, i1 false)
-  %5272 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 9
+  %5271 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 9
   br label %.preheader2032.preheader
 
-5273:                                             ; preds = %5165
-  %5274 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 10
+5272:                                             ; preds = %5164
+  %5273 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(10) %.1245.i1043185, i64 10, i1 false)
-  %5275 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 10
+  %5274 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 10
   br label %.preheader2032.preheader
 
-5276:                                             ; preds = %5171
-  %5277 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 11
+5275:                                             ; preds = %5170
+  %5276 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(11) %.1245.i1043185, i64 11, i1 false)
-  %5278 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 11
+  %5277 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 11
   br label %.preheader2032.preheader
 
-5279:                                             ; preds = %5177
-  %5280 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 12
+5278:                                             ; preds = %5176
+  %5279 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(12) %.1245.i1043185, i64 12, i1 false)
-  %5281 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 12
+  %5280 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 12
   br label %.preheader2032.preheader
 
-5282:                                             ; preds = %5183
-  %5283 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 13
+5281:                                             ; preds = %5182
+  %5282 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(13) %.1245.i1043185, i64 13, i1 false)
-  %5284 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 13
+  %5283 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 13
   br label %.preheader2032.preheader
 
-5285:                                             ; preds = %5189
-  %5286 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 14
+5284:                                             ; preds = %5188
+  %5285 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(14) %.1245.i1043185, i64 14, i1 false)
-  %5287 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 14
+  %5286 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 14
   br label %.preheader2032.preheader
 
-5288:                                             ; preds = %5195
-  %5289 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 15
+5287:                                             ; preds = %5194
+  %5288 = getelementptr inbounds nuw i8, ptr %.1245.i1043185, i64 15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.1.i1053186, ptr noundef nonnull align 1 dereferenceable(15) %.1245.i1043185, i64 15, i1 false)
-  %5290 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 15
+  %5289 = getelementptr inbounds nuw i8, ptr %.1.i1053186, i64 15
   br label %.preheader2032.preheader
 
-.preheader2032.preheader:                         ; preds = %.lr.ph3188, %.lr.ph3194, %.lr.ph3199, %.loopexit2039, %.loopexit2040, %.loopexit2041, %5253, %5257, %5260, %5263, %5266, %5270, %5273, %5276, %5279, %5282, %5285, %5288
-  %.8252.i114.ph = phi ptr [ %5247, %.loopexit2039 ], [ %5250, %.loopexit2040 ], [ %5252, %.loopexit2041 ], [ %5254, %5253 ], [ %5258, %5257 ], [ %5261, %5260 ], [ %5264, %5263 ], [ %5267, %5266 ], [ %5271, %5270 ], [ %5274, %5273 ], [ %5277, %5276 ], [ %5280, %5279 ], [ %5283, %5282 ], [ %5286, %5285 ], [ %5289, %5288 ], [ %.7251.i1083197, %.lr.ph3199 ], [ %.6250.i1063192, %.lr.ph3194 ], [ %.1245.i1043185, %.lr.ph3188 ]
-  %.8.i115.ph = phi ptr [ %5246, %.loopexit2039 ], [ %5249, %.loopexit2040 ], [ %5251, %.loopexit2041 ], [ %5256, %5253 ], [ %5259, %5257 ], [ %5262, %5260 ], [ %5265, %5263 ], [ %5269, %5266 ], [ %5272, %5270 ], [ %5275, %5273 ], [ %5278, %5276 ], [ %5281, %5279 ], [ %5284, %5282 ], [ %5287, %5285 ], [ %5290, %5288 ], [ %.7.i1093198, %.lr.ph3199 ], [ %.6.i1073193, %.lr.ph3194 ], [ %.1.i1053186, %.lr.ph3188 ]
+.preheader2032.preheader:                         ; preds = %.lr.ph3188, %.lr.ph3194, %.lr.ph3199, %.loopexit2039, %.loopexit2040, %.loopexit2041, %5252, %5256, %5259, %5262, %5265, %5269, %5272, %5275, %5278, %5281, %5284, %5287
+  %.8252.i114.ph = phi ptr [ %5246, %.loopexit2039 ], [ %5249, %.loopexit2040 ], [ %5251, %.loopexit2041 ], [ %5253, %5252 ], [ %5257, %5256 ], [ %5260, %5259 ], [ %5263, %5262 ], [ %5266, %5265 ], [ %5270, %5269 ], [ %5273, %5272 ], [ %5276, %5275 ], [ %5279, %5278 ], [ %5282, %5281 ], [ %5285, %5284 ], [ %5288, %5287 ], [ %.7251.i1083197, %.lr.ph3199 ], [ %.6250.i1063192, %.lr.ph3194 ], [ %.1245.i1043185, %.lr.ph3188 ]
+  %.8.i115.ph = phi ptr [ %5245, %.loopexit2039 ], [ %5248, %.loopexit2040 ], [ %5250, %.loopexit2041 ], [ %5255, %5252 ], [ %5258, %5256 ], [ %5261, %5259 ], [ %5264, %5262 ], [ %5268, %5265 ], [ %5271, %5269 ], [ %5274, %5272 ], [ %5277, %5275 ], [ %5280, %5278 ], [ %5283, %5281 ], [ %5286, %5284 ], [ %5289, %5287 ], [ %.7.i1093198, %.lr.ph3199 ], [ %.6.i1073193, %.lr.ph3194 ], [ %.1.i1053186, %.lr.ph3188 ]
   br label %.preheader2032
 
 .preheader2032:                                   ; preds = %.preheader2032.backedge, %.preheader2032.preheader
   %.8252.i114 = phi ptr [ %.8252.i114.ph, %.preheader2032.preheader ], [ %.8252.i114.be, %.preheader2032.backedge ]
   %.8.i115 = phi ptr [ %.8.i115.ph, %.preheader2032.preheader ], [ %.8.i115.be, %.preheader2032.backedge ]
-  %5291 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 4
-  %5292 = icmp ugt ptr %5291, %5100
-  br i1 %5292, label %5293, label %._crit_edge3899, !prof !3
+  %5290 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 4
+  %5291 = icmp ugt ptr %5290, %5099
+  br i1 %5291, label %5292, label %._crit_edge3899, !prof !3
 
 ._crit_edge3899:                                  ; preds = %.preheader2032
   %.pre3900 = load i8, ptr %.8252.i114, align 1, !tbaa !75
   %.phi.trans.insert3901 = zext i8 %.pre3900 to i64
   %.phi.trans.insert3902 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %.phi.trans.insert3901
   %.pre3903 = load i8, ptr %.phi.trans.insert3902, align 1, !tbaa !75
-  br label %5305
+  br label %5304
 
-5293:                                             ; preds = %.preheader2032
-  %5294 = icmp eq ptr %5100, %.8252.i114
-  br i1 %5294, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, label %5295
+5292:                                             ; preds = %.preheader2032
+  %5293 = icmp eq ptr %5099, %.8252.i114
+  br i1 %5293, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, label %5294
 
-5295:                                             ; preds = %5293
-  %5296 = ptrtoint ptr %.8252.i114 to i64
-  %5297 = sub i64 %5101, %5296
-  %5298 = load i8, ptr %.8252.i114, align 1, !tbaa !75
-  %5299 = zext i8 %5298 to i64
-  %5300 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5299
-  %5301 = load i8, ptr %5300, align 1, !tbaa !75
-  %5302 = lshr i8 %5301, 1
-  %5303 = zext nneg i8 %5302 to i64
-  %5304 = icmp slt i64 %5297, %5303
-  br i1 %5304, label %5461, label %5305
+5294:                                             ; preds = %5292
+  %5295 = ptrtoint ptr %.8252.i114 to i64
+  %5296 = sub i64 %5100, %5295
+  %5297 = load i8, ptr %.8252.i114, align 1, !tbaa !75
+  %5298 = zext i8 %5297 to i64
+  %5299 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 %5298
+  %5300 = load i8, ptr %5299, align 1, !tbaa !75
+  %5301 = lshr i8 %5300, 1
+  %5302 = zext nneg i8 %5301 to i64
+  %5303 = icmp slt i64 %5296, %5302
+  br i1 %5303, label %5460, label %5304
 
-5305:                                             ; preds = %._crit_edge3899, %5295
-  %.pre-phi3930 = phi i64 [ %.phi.trans.insert3901, %._crit_edge3899 ], [ %5299, %5295 ]
-  %5306 = phi i8 [ %.pre3903, %._crit_edge3899 ], [ %5301, %5295 ]
-  %5307 = phi i8 [ %.pre3900, %._crit_edge3899 ], [ %5298, %5295 ]
-  switch i8 %5306, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 [
-    i8 0, label %5308
-    i8 4, label %5310
-    i8 6, label %5320
-    i8 8, label %5337
-    i8 2, label %5348
-    i8 3, label %5354
-    i8 5, label %5363
-    i8 7, label %5387
-    i8 9, label %5412
-    i8 1, label %5461
+5304:                                             ; preds = %._crit_edge3899, %5294
+  %.pre-phi3930 = phi i64 [ %.phi.trans.insert3901, %._crit_edge3899 ], [ %5298, %5294 ]
+  %5305 = phi i8 [ %.pre3903, %._crit_edge3899 ], [ %5300, %5294 ]
+  %5306 = phi i8 [ %.pre3900, %._crit_edge3899 ], [ %5297, %5294 ]
+  switch i8 %5305, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 [
+    i8 0, label %5307
+    i8 4, label %5309
+    i8 6, label %5319
+    i8 8, label %5336
+    i8 2, label %5347
+    i8 3, label %5353
+    i8 5, label %5362
+    i8 7, label %5386
+    i8 9, label %5411
+    i8 1, label %5460
   ]
 
-5308:                                             ; preds = %5305
-  %5309 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
-  store i8 %5307, ptr %.8.i115, align 1, !tbaa !75
-  br label %5102
+5307:                                             ; preds = %5304
+  %5308 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
+  store i8 %5306, ptr %.8.i115, align 1, !tbaa !75
+  br label %5101
 
-5310:                                             ; preds = %5305
+5309:                                             ; preds = %5304
   %.sroa.0.0.copyload.i624 = load i16, ptr %.8252.i114, align 1
-  %5311 = zext i16 %.sroa.0.0.copyload.i624 to i32
-  %5312 = and i32 %5311, 49376
-  %5313 = icmp ne i32 %5312, 32960
-  %5314 = and i32 %5311, 30
-  %5315 = icmp eq i32 %5314, 0
-  %.not315.i168 = or i1 %5313, %5315
-  %5316 = trunc i16 %.sroa.0.0.copyload.i624 to i8
-  br i1 %.not315.i168, label %.thread1820, label %5317, !prof !3
+  %5310 = zext i16 %.sroa.0.0.copyload.i624 to i32
+  %5311 = and i32 %5310, 49376
+  %5312 = icmp ne i32 %5311, 32960
+  %5313 = and i32 %5310, 30
+  %5314 = icmp eq i32 %5313, 0
+  %.not315.i168 = or i1 %5312, %5314
+  %5315 = trunc i16 %.sroa.0.0.copyload.i624 to i8
+  br i1 %.not315.i168, label %.thread1820, label %5316, !prof !3
 
-5317:                                             ; preds = %5310
+5316:                                             ; preds = %5309
   store i16 %.sroa.0.0.copyload.i624, ptr %.8.i115, align 1
-  %5318 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
-  %5319 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 2
+  %5317 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
+  %5318 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 2
   br label %.preheader2032.backedge
 
-5320:                                             ; preds = %5305
-  br i1 %5292, label %5327, label %5321, !prof !3
+5319:                                             ; preds = %5304
+  br i1 %5291, label %5326, label %5320, !prof !3
 
-5321:                                             ; preds = %5320
+5320:                                             ; preds = %5319
   %.sroa.0.0.copyload.i340.i161 = load i32, ptr %.8252.i114, align 1
-  %5322 = and i32 %.sroa.0.0.copyload.i340.i161, 12632304
-  %5323 = icmp eq i32 %5322, 8421600
-  %5324 = trunc i32 %.sroa.0.0.copyload.i340.i161 to i8
-  br i1 %5323, label %5325, label %.thread1820, !prof !22
+  %5321 = and i32 %.sroa.0.0.copyload.i340.i161, 12632304
+  %5322 = icmp eq i32 %5321, 8421600
+  %5323 = trunc i32 %.sroa.0.0.copyload.i340.i161 to i8
+  br i1 %5322, label %5324, label %.thread1820, !prof !22
 
-5325:                                             ; preds = %5321
-  %5326 = and i32 %.sroa.0.0.copyload.i340.i161, 8207
-  switch i32 %5326, label %.critedge.i162 [
+5324:                                             ; preds = %5320
+  %5325 = and i32 %.sroa.0.0.copyload.i340.i161, 8207
+  switch i32 %5325, label %.critedge.i162 [
     i32 8205, label %.thread1820
     i32 0, label %.thread1820
   ]
 
-5327:                                             ; preds = %5320
+5326:                                             ; preds = %5319
   %.sroa.0.0.copyload.i664 = load i16, ptr %.8252.i114, align 1
-  %5328 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 2
-  %5329 = load i8, ptr %5328, align 1, !tbaa !75
-  %.sroa.4.0.insert.ext.i665 = zext i8 %5329 to i32
+  %5327 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 2
+  %5328 = load i8, ptr %5327, align 1, !tbaa !75
+  %.sroa.4.0.insert.ext.i665 = zext i8 %5328 to i32
   %.sroa.4.0.insert.shift.i666 = shl nuw nsw i32 %.sroa.4.0.insert.ext.i665, 16
   %.sroa.0.0.insert.ext.i667 = zext i16 %.sroa.0.0.copyload.i664 to i32
   %.sroa.0.0.insert.insert.i668 = or disjoint i32 %.sroa.4.0.insert.shift.i666, %.sroa.0.0.insert.ext.i667
-  %5330 = and i32 %.sroa.0.0.insert.insert.i668, 12632304
-  %5331 = icmp eq i32 %5330, 8421600
-  %5332 = trunc i16 %.sroa.0.0.copyload.i664 to i8
-  br i1 %5331, label %5333, label %.thread1820, !prof !22
+  %5329 = and i32 %.sroa.0.0.insert.insert.i668, 12632304
+  %5330 = icmp eq i32 %5329, 8421600
+  %5331 = trunc i16 %.sroa.0.0.copyload.i664 to i8
+  br i1 %5330, label %5332, label %.thread1820, !prof !22
 
-5333:                                             ; preds = %5327
-  %5334 = and i32 %.sroa.0.0.insert.ext.i667, 8207
-  switch i32 %5334, label %.critedge.i162 [
+5332:                                             ; preds = %5326
+  %5333 = and i32 %.sroa.0.0.insert.ext.i667, 8207
+  switch i32 %5333, label %.critedge.i162 [
     i32 8205, label %.thread1820
     i32 0, label %.thread1820
   ]
 
-.critedge.i162:                                   ; preds = %5333, %5325
-  %storemerge1938 = phi i32 [ %.sroa.0.0.copyload.i340.i161, %5325 ], [ %.sroa.0.0.insert.insert.i668, %5333 ]
+.critedge.i162:                                   ; preds = %5332, %5324
+  %storemerge1938 = phi i32 [ %.sroa.0.0.copyload.i340.i161, %5324 ], [ %.sroa.0.0.insert.insert.i668, %5332 ]
   store i32 %storemerge1938, ptr %.8.i115, align 1
-  %5335 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 3
-  %5336 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 3
+  %5334 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 3
+  %5335 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 3
   br label %.preheader2032.backedge
 
-5337:                                             ; preds = %5305
+5336:                                             ; preds = %5304
   %.sroa.0.0.copyload.i339.i150 = load i32, ptr %.8252.i114, align 1
-  %5338 = and i32 %.sroa.0.0.copyload.i339.i150, -1061109512
-  %5339 = icmp ne i32 %5338, -2139062032
-  %5340 = and i32 %.sroa.0.0.copyload.i339.i150, 12295
-  %.not306.i151 = icmp eq i32 %5340, 0
-  %or.cond.i152 = or i1 %5339, %.not306.i151
-  %5341 = trunc i32 %.sroa.0.0.copyload.i339.i150 to i8
-  br i1 %or.cond.i152, label %.thread1820, label %5342, !prof !212
+  %5337 = and i32 %.sroa.0.0.copyload.i339.i150, -1061109512
+  %5338 = icmp ne i32 %5337, -2139062032
+  %5339 = and i32 %.sroa.0.0.copyload.i339.i150, 12295
+  %.not306.i151 = icmp eq i32 %5339, 0
+  %or.cond.i152 = or i1 %5338, %.not306.i151
+  %5340 = trunc i32 %.sroa.0.0.copyload.i339.i150 to i8
+  br i1 %or.cond.i152, label %.thread1820, label %5341, !prof !212
 
-5342:                                             ; preds = %5337
-  %5343 = and i32 %.sroa.0.0.copyload.i339.i150, 4
-  %5344 = icmp ne i32 %5343, 0
-  %5345 = and i32 %.sroa.0.0.copyload.i339.i150, 12291
-  %5346 = icmp ne i32 %5345, 0
-  %.not309.i153 = and i1 %5344, %5346
+5341:                                             ; preds = %5336
+  %5342 = and i32 %.sroa.0.0.copyload.i339.i150, 4
+  %5343 = icmp ne i32 %5342, 0
+  %5344 = and i32 %.sroa.0.0.copyload.i339.i150, 12291
+  %5345 = icmp ne i32 %5344, 0
+  %.not309.i153 = and i1 %5343, %5345
   br i1 %.not309.i153, label %.thread1820, label %.critedge324.i154, !prof !3
 
-.critedge324.i154:                                ; preds = %5342
+.critedge324.i154:                                ; preds = %5341
   store i32 %.sroa.0.0.copyload.i339.i150, ptr %.8.i115, align 1
-  %5347 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
+  %5346 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
   br label %.preheader2032.backedge
 
-5348:                                             ; preds = %5305
-  %5349 = shl nuw nsw i64 %.pre-phi3930, 1
-  %5350 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL21esc_single_char_tableE, i64 %5349
-  %5351 = load i16, ptr %5350, align 2
-  store i16 %5351, ptr %.8.i115, align 1
-  %5352 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
-  %5353 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
+5347:                                             ; preds = %5304
+  %5348 = shl nuw nsw i64 %.pre-phi3930, 1
+  %5349 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL21esc_single_char_tableE, i64 %5348
+  %5350 = load i16, ptr %5349, align 2
+  store i16 %5350, ptr %.8.i115, align 1
+  %5351 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
+  %5352 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
   br label %.preheader2032.backedge
 
-.preheader2032.backedge:                          ; preds = %5348, %5354, %5464, %5467, %5317, %.critedge.i162, %.critedge324.i154, %5369, %.critedge330.i132, %.critedge333.i126
-  %.8252.i114.be = phi ptr [ %5470, %5467 ], [ %5465, %5464 ], [ %5319, %5317 ], [ %5336, %.critedge.i162 ], [ %5291, %.critedge324.i154 ], [ %5353, %5348 ], [ %5362, %5354 ], [ %5386, %5369 ], [ %5411, %.critedge330.i132 ], [ %5291, %.critedge333.i126 ]
-  %.8.i115.be = phi ptr [ %5469, %5467 ], [ %5466, %5464 ], [ %5318, %5317 ], [ %5335, %.critedge.i162 ], [ %5347, %.critedge324.i154 ], [ %5352, %5348 ], [ %5361, %5354 ], [ %5385, %5369 ], [ %5410, %.critedge330.i132 ], [ %5460, %.critedge333.i126 ]
+.preheader2032.backedge:                          ; preds = %5347, %5353, %5463, %5466, %5316, %.critedge.i162, %.critedge324.i154, %5368, %.critedge330.i132, %.critedge333.i126
+  %.8252.i114.be = phi ptr [ %5469, %5466 ], [ %5464, %5463 ], [ %5318, %5316 ], [ %5335, %.critedge.i162 ], [ %5290, %.critedge324.i154 ], [ %5352, %5347 ], [ %5361, %5353 ], [ %5385, %5368 ], [ %5410, %.critedge330.i132 ], [ %5290, %.critedge333.i126 ]
+  %.8.i115.be = phi ptr [ %5468, %5466 ], [ %5465, %5463 ], [ %5317, %5316 ], [ %5334, %.critedge.i162 ], [ %5346, %.critedge324.i154 ], [ %5351, %5347 ], [ %5360, %5353 ], [ %5384, %5368 ], [ %5409, %.critedge330.i132 ], [ %5459, %.critedge333.i126 ]
   br label %.preheader2032
 
-5354:                                             ; preds = %5305
+5353:                                             ; preds = %5304
   store i32 808482140, ptr %.8.i115, align 1
-  %5355 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
-  %5356 = load i8, ptr %.8252.i114, align 1, !tbaa !75
-  %5357 = zext i8 %5356 to i64
-  %5358 = shl nuw nsw i64 %5357, 1
-  %5359 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5358
-  %5360 = load i16, ptr %5359, align 2
-  store i16 %5360, ptr %5355, align 1
-  %5361 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 6
-  %5362 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
+  %5354 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
+  %5355 = load i8, ptr %.8252.i114, align 1, !tbaa !75
+  %5356 = zext i8 %5355 to i64
+  %5357 = shl nuw nsw i64 %5356, 1
+  %5358 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5357
+  %5359 = load i16, ptr %5358, align 2
+  store i16 %5359, ptr %5354, align 1
+  %5360 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 6
+  %5361 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
   br label %.preheader2032.backedge
 
-5363:                                             ; preds = %5305
+5362:                                             ; preds = %5304
   %.sroa.0.0.copyload.i625 = load i16, ptr %.8252.i114, align 1
-  %5364 = zext i16 %.sroa.0.0.copyload.i625 to i32
-  %5365 = and i32 %5364, 49376
-  %5366 = icmp ne i32 %5365, 32960
-  %5367 = and i32 %5364, 30
-  %5368 = icmp eq i32 %5367, 0
-  %.not303.i142 = or i1 %5366, %5368
-  br i1 %.not303.i142, label %.thread1836, label %5369, !prof !3
+  %5363 = zext i16 %.sroa.0.0.copyload.i625 to i32
+  %5364 = and i32 %5363, 49376
+  %5365 = icmp ne i32 %5364, 32960
+  %5366 = and i32 %5363, 30
+  %5367 = icmp eq i32 %5366, 0
+  %.not303.i142 = or i1 %5365, %5367
+  br i1 %.not303.i142, label %.thread1836, label %5368, !prof !3
 
-5369:                                             ; preds = %5363
-  %5370 = lshr i16 %.sroa.0.0.copyload.i625, 8
-  %5371 = trunc nuw i16 %5370 to i8
-  %5372 = trunc i16 %.sroa.0.0.copyload.i625 to i8
-  %.tr304.i143 = shl i8 %5372, 6
-  %5373 = and i8 %5371, 63
+5368:                                             ; preds = %5362
+  %5369 = lshr i16 %.sroa.0.0.copyload.i625, 8
+  %5370 = trunc nuw i16 %5369 to i8
+  %5371 = trunc i16 %.sroa.0.0.copyload.i625 to i8
+  %.tr304.i143 = shl i8 %5371, 6
+  %5372 = and i8 %5370, 63
   store i16 30044, ptr %.8.i115, align 1
-  %5374 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
-  %5375 = lshr i8 %5372, 1
-  %5376 = and i8 %5375, 14
-  %5377 = zext nneg i8 %5376 to i64
-  %5378 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5377
-  %5379 = load i16, ptr %5378, align 2
-  store i16 %5379, ptr %5374, align 1
-  %5380 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
-  %.narrow305.i144 = or disjoint i8 %5373, %.tr304.i143
-  %5381 = zext i8 %.narrow305.i144 to i64
-  %5382 = shl nuw nsw i64 %5381, 1
-  %5383 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5382
-  %5384 = load i16, ptr %5383, align 2
-  store i16 %5384, ptr %5380, align 1
-  %5385 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 6
-  %5386 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 2
+  %5373 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
+  %5374 = lshr i8 %5371, 1
+  %5375 = and i8 %5374, 14
+  %5376 = zext nneg i8 %5375 to i64
+  %5377 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5376
+  %5378 = load i16, ptr %5377, align 2
+  store i16 %5378, ptr %5373, align 1
+  %5379 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
+  %.narrow305.i144 = or disjoint i8 %5372, %.tr304.i143
+  %5380 = zext i8 %.narrow305.i144 to i64
+  %5381 = shl nuw nsw i64 %5380, 1
+  %5382 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5381
+  %5383 = load i16, ptr %5382, align 2
+  store i16 %5383, ptr %5379, align 1
+  %5384 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 6
+  %5385 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 2
   br label %.preheader2032.backedge
 
-5387:                                             ; preds = %5305
+5386:                                             ; preds = %5304
   %.sroa.0.0.copyload.i669 = load i16, ptr %.8252.i114, align 1
-  %5388 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 2
-  %5389 = load i8, ptr %5388, align 1, !tbaa !75
-  %.sroa.4.0.insert.ext.i670 = zext i8 %5389 to i32
+  %5387 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 2
+  %5388 = load i8, ptr %5387, align 1, !tbaa !75
+  %.sroa.4.0.insert.ext.i670 = zext i8 %5388 to i32
   %.sroa.4.0.insert.shift.i671 = shl nuw nsw i32 %.sroa.4.0.insert.ext.i670, 16
   %.sroa.0.0.insert.ext.i672 = zext i16 %.sroa.0.0.copyload.i669 to i32
   %.sroa.0.0.insert.insert.i673 = or disjoint i32 %.sroa.4.0.insert.shift.i671, %.sroa.0.0.insert.ext.i672
-  %5390 = and i32 %.sroa.0.0.insert.insert.i673, 12632304
-  %5391 = icmp eq i32 %5390, 8421600
-  br i1 %5391, label %5392, label %.thread1836, !prof !22
+  %5389 = and i32 %.sroa.0.0.insert.insert.i673, 12632304
+  %5390 = icmp eq i32 %5389, 8421600
+  br i1 %5390, label %5391, label %.thread1836, !prof !22
 
-5392:                                             ; preds = %5387
-  %5393 = and i32 %.sroa.0.0.insert.ext.i672, 8207
-  switch i32 %5393, label %.critedge330.i132 [
+5391:                                             ; preds = %5386
+  %5392 = and i32 %.sroa.0.0.insert.ext.i672, 8207
+  switch i32 %5392, label %.critedge330.i132 [
     i32 8205, label %.thread1836
     i32 0, label %.thread1836
   ]
 
-.critedge330.i132:                                ; preds = %5392
-  %5394 = zext i16 %.sroa.0.0.copyload.i669 to i64
-  %5395 = shl nuw nsw i64 %5394, 12
-  %5396 = lshr i16 %.sroa.0.0.copyload.i669, 2
-  %5397 = and i16 %5396, 4032
-  %5398 = zext nneg i16 %5397 to i64
-  %5399 = and i8 %5389, 63
+.critedge330.i132:                                ; preds = %5391
+  %5393 = zext i16 %.sroa.0.0.copyload.i669 to i64
+  %5394 = shl nuw nsw i64 %5393, 12
+  %5395 = lshr i16 %.sroa.0.0.copyload.i669, 2
+  %5396 = and i16 %5395, 4032
+  %5397 = zext nneg i16 %5396 to i64
+  %5398 = and i8 %5388, 63
   store i16 30044, ptr %.8.i115, align 1
-  %5400 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
-  %.masked.i139 = or disjoint i64 %5395, %5398
-  %5401 = lshr i64 %.masked.i139, 7
-  %5402 = and i64 %5401, 510
-  %5403 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5402
-  %5404 = load i16, ptr %5403, align 2
-  store i16 %5404, ptr %5400, align 1
-  %5405 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
-  %.tr299.i140 = trunc i16 %5397 to i8
-  %.narrow300.i141 = or disjoint i8 %5399, %.tr299.i140
-  %5406 = zext i8 %.narrow300.i141 to i64
-  %5407 = shl nuw nsw i64 %5406, 1
-  %5408 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5407
-  %5409 = load i16, ptr %5408, align 2
-  store i16 %5409, ptr %5405, align 1
-  %5410 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 6
-  %5411 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 3
+  %5399 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
+  %.masked.i139 = or disjoint i64 %5394, %5397
+  %5400 = lshr i64 %.masked.i139, 7
+  %5401 = and i64 %5400, 510
+  %5402 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5401
+  %5403 = load i16, ptr %5402, align 2
+  store i16 %5403, ptr %5399, align 1
+  %5404 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
+  %.tr299.i140 = trunc i16 %5396 to i8
+  %.narrow300.i141 = or disjoint i8 %5398, %.tr299.i140
+  %5405 = zext i8 %.narrow300.i141 to i64
+  %5406 = shl nuw nsw i64 %5405, 1
+  %5407 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5406
+  %5408 = load i16, ptr %5407, align 2
+  store i16 %5408, ptr %5404, align 1
+  %5409 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 6
+  %5410 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 3
   br label %.preheader2032.backedge
 
-5412:                                             ; preds = %5305
+5411:                                             ; preds = %5304
   %.sroa.0.0.copyload.i.i120 = load i32, ptr %.8252.i114, align 1
-  %5413 = and i32 %.sroa.0.0.copyload.i.i120, -1061109512
-  %5414 = icmp ne i32 %5413, -2139062032
-  %5415 = and i32 %.sroa.0.0.copyload.i.i120, 12295
-  %.not293.i121 = icmp eq i32 %5415, 0
-  %or.cond331.i122 = or i1 %5414, %.not293.i121
-  %5416 = lshr i32 %.sroa.0.0.copyload.i.i120, 24
-  br i1 %or.cond331.i122, label %.thread1836, label %5417, !prof !212
+  %5412 = and i32 %.sroa.0.0.copyload.i.i120, -1061109512
+  %5413 = icmp ne i32 %5412, -2139062032
+  %5414 = and i32 %.sroa.0.0.copyload.i.i120, 12295
+  %.not293.i121 = icmp eq i32 %5414, 0
+  %or.cond331.i122 = or i1 %5413, %.not293.i121
+  %5415 = lshr i32 %.sroa.0.0.copyload.i.i120, 24
+  br i1 %or.cond331.i122, label %.thread1836, label %5416, !prof !212
 
-5417:                                             ; preds = %5412
-  %5418 = and i32 %.sroa.0.0.copyload.i.i120, 4
-  %5419 = icmp ne i32 %5418, 0
-  %5420 = and i32 %.sroa.0.0.copyload.i.i120, 12291
-  %5421 = icmp ne i32 %5420, 0
-  %.not296.i123 = and i1 %5419, %5421
+5416:                                             ; preds = %5411
+  %5417 = and i32 %.sroa.0.0.copyload.i.i120, 4
+  %5418 = icmp ne i32 %5417, 0
+  %5419 = and i32 %.sroa.0.0.copyload.i.i120, 12291
+  %5420 = icmp ne i32 %5419, 0
+  %.not296.i123 = and i1 %5418, %5420
   br i1 %.not296.i123, label %.thread1836, label %.critedge333.i126, !prof !3
 
-.critedge333.i126:                                ; preds = %5417
-  %5422 = shl i32 %.sroa.0.0.copyload.i.i120, 18
-  %5423 = and i32 %5422, 1835008
-  %5424 = shl i32 %.sroa.0.0.copyload.i.i120, 4
-  %5425 = and i32 %5424, 258048
-  %5426 = lshr i32 %.sroa.0.0.copyload.i.i120, 10
-  %5427 = and i32 %5426, 3072
-  %5428 = and i32 %5416, 63
-  %5429 = add nsw i32 %5423, -65536
-  %5430 = add nsw i32 %5429, %5425
-  %5431 = or disjoint i32 %5430, %5427
-  %5432 = lshr exact i32 %5430, 10
-  %5433 = add nuw nsw i32 %5432, 55296
+.critedge333.i126:                                ; preds = %5416
+  %5421 = shl i32 %.sroa.0.0.copyload.i.i120, 18
+  %5422 = and i32 %5421, 1835008
+  %5423 = shl i32 %.sroa.0.0.copyload.i.i120, 4
+  %5424 = and i32 %5423, 258048
+  %5425 = lshr i32 %.sroa.0.0.copyload.i.i120, 10
+  %5426 = and i32 %5425, 3072
+  %5427 = and i32 %5415, 63
+  %5428 = add nsw i32 %5422, -65536
+  %5429 = add nsw i32 %5428, %5424
+  %5430 = or disjoint i32 %5429, %5426
+  %5431 = lshr exact i32 %5429, 10
+  %5432 = add nuw nsw i32 %5431, 55296
   store i16 30044, ptr %.8.i115, align 1
-  %5434 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
-  %5435 = lshr i32 %5433, 7
-  %5436 = and i32 %5435, 65534
-  %5437 = zext nneg i32 %5436 to i64
-  %5438 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5437
-  %5439 = load i16, ptr %5438, align 2
-  store i16 %5439, ptr %5434, align 1
-  %5440 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
-  %5441 = lshr exact i32 %5431, 9
-  %5442 = and i32 %5441, 510
-  %5443 = zext nneg i32 %5442 to i64
-  %5444 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5443
-  %5445 = load i16, ptr %5444, align 2
-  store i16 %5445, ptr %5440, align 1
-  %5446 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 6
-  store i16 30044, ptr %5446, align 1
-  %5447 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 8
-  %5448 = lshr i32 %.sroa.0.0.copyload.i.i120, 17
-  %5449 = and i32 %5448, 6
-  %5450 = zext nneg i32 %5449 to i64
-  %5451 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5450
-  %5452 = getelementptr inbounds nuw i8, ptr %5451, i64 440
-  %5453 = load i16, ptr %5452, align 2
-  store i16 %5453, ptr %5447, align 1
-  %5454 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 10
-  %.masked4096 = and i32 %5426, 192
-  %5455 = or disjoint i32 %5428, %.masked4096
-  %5456 = shl nuw nsw i32 %5455, 1
-  %5457 = zext nneg i32 %5456 to i64
-  %5458 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5457
-  %5459 = load i16, ptr %5458, align 2
-  store i16 %5459, ptr %5454, align 1
-  %5460 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 12
+  %5433 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
+  %5434 = lshr i32 %5432, 7
+  %5435 = and i32 %5434, 65534
+  %5436 = zext nneg i32 %5435 to i64
+  %5437 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5436
+  %5438 = load i16, ptr %5437, align 2
+  store i16 %5438, ptr %5433, align 1
+  %5439 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
+  %5440 = lshr exact i32 %5430, 9
+  %5441 = and i32 %5440, 510
+  %5442 = zext nneg i32 %5441 to i64
+  %5443 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5442
+  %5444 = load i16, ptr %5443, align 2
+  store i16 %5444, ptr %5439, align 1
+  %5445 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 6
+  store i16 30044, ptr %5445, align 1
+  %5446 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 8
+  %5447 = lshr i32 %.sroa.0.0.copyload.i.i120, 17
+  %5448 = and i32 %5447, 6
+  %5449 = zext nneg i32 %5448 to i64
+  %5450 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5449
+  %5451 = getelementptr inbounds nuw i8, ptr %5450, i64 440
+  %5452 = load i16, ptr %5451, align 2
+  store i16 %5452, ptr %5446, align 1
+  %5453 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 10
+  %.masked4096 = and i32 %5425, 192
+  %5454 = or disjoint i32 %5427, %.masked4096
+  %5455 = shl nuw nsw i32 %5454, 1
+  %5456 = zext nneg i32 %5455 to i64
+  %5457 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5456
+  %5458 = load i16, ptr %5457, align 2
+  store i16 %5458, ptr %5453, align 1
+  %5459 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 12
   br label %.preheader2032.backedge
 
-5461:                                             ; preds = %5305, %5295
-  %5462 = phi i8 [ %5307, %5305 ], [ %5298, %5295 ]
+5460:                                             ; preds = %5304, %5294
+  %5461 = phi i8 [ %5306, %5304 ], [ %5297, %5294 ]
   br i1 %.not1920, label %.thread1820, label %.thread1836
 
-.thread1820:                                      ; preds = %5337, %5342, %5327, %5321, %5333, %5333, %5325, %5325, %5310, %5461
-  %5463 = phi i8 [ %5341, %5337 ], [ %5341, %5342 ], [ %5332, %5327 ], [ %5324, %5321 ], [ %5332, %5333 ], [ %5332, %5333 ], [ %5324, %5325 ], [ %5324, %5325 ], [ %5316, %5310 ], [ %5462, %5461 ]
-  br i1 %.not1923, label %.loopexit2019, label %5464
+.thread1820:                                      ; preds = %5336, %5341, %5326, %5320, %5332, %5332, %5324, %5324, %5309, %5460
+  %5462 = phi i8 [ %5340, %5336 ], [ %5340, %5341 ], [ %5331, %5326 ], [ %5323, %5320 ], [ %5331, %5332 ], [ %5331, %5332 ], [ %5323, %5324 ], [ %5323, %5324 ], [ %5315, %5309 ], [ %5461, %5460 ]
+  br i1 %.not1923, label %.loopexit2019, label %5463
 
-5464:                                             ; preds = %.thread1820
-  %5465 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
-  %5466 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 1
-  store i8 %5463, ptr %.8.i115, align 1, !tbaa !75
+5463:                                             ; preds = %.thread1820
+  %5464 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
+  %5465 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 1
+  store i8 %5462, ptr %.8.i115, align 1, !tbaa !75
   br label %.preheader2032.backedge
 
-.thread1836:                                      ; preds = %5412, %5417, %5387, %5392, %5392, %5363, %5461
-  br i1 %.not1923, label %.loopexit2019, label %5467
+.thread1836:                                      ; preds = %5411, %5416, %5386, %5391, %5391, %5362, %5460
+  br i1 %.not1923, label %.loopexit2019, label %5466
 
-5467:                                             ; preds = %.thread1836
+5466:                                             ; preds = %.thread1836
   store i16 30044, ptr %.8.i115, align 1
-  %5468 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
-  store i32 1145456198, ptr %5468, align 1
-  %5469 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 6
-  %5470 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
+  %5467 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 2
+  store i32 1145456198, ptr %5467, align 1
+  %5468 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 6
+  %5469 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
   br label %.preheader2032.backedge
 
-5471:                                             ; preds = %5099
-  %5472 = load i64, ptr %.0335.i, align 8, !tbaa !73
-  %5473 = and i64 %5472, 24
-  %.not395.i = icmp eq i64 %5473, 0
+5470:                                             ; preds = %5098
+  %5471 = load i64, ptr %.0335.i, align 8, !tbaa !73
+  %5472 = and i64 %5471, 24
+  %.not395.i = icmp eq i64 %5472, 0
   store i8 34, ptr %.1338.i, align 1, !tbaa !75
-  br i1 %.not395.i, label %.split373.i, label %5845
+  br i1 %.not395.i, label %.split373.i, label %5844
 
-.split373.i:                                      ; preds = %5471
-  %5474 = getelementptr inbounds nuw i8, ptr %5076, i64 %5074
-  %5475 = ptrtoint ptr %5474 to i64
-  br label %5476
+.split373.i:                                      ; preds = %5470
+  %5473 = getelementptr inbounds nuw i8, ptr %5075, i64 %5073
+  %5474 = ptrtoint ptr %5473 to i64
+  br label %5475
 
-5476:                                             ; preds = %5682, %.split373.i
-  %.0244.i = phi ptr [ %5076, %.split373.i ], [ %5683, %5682 ]
-  %.pn.i = phi ptr [ %.1338.i, %.split373.i ], [ %.8.i92, %5682 ]
+5475:                                             ; preds = %5681, %.split373.i
+  %.0244.i = phi ptr [ %5075, %.split373.i ], [ %5682, %5681 ]
+  %.pn.i = phi ptr [ %.1338.i, %.split373.i ], [ %.8.i92, %5681 ]
   %.0243.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
-  %5477 = ptrtoint ptr %.0244.i to i64
-  %5478 = sub i64 %5475, %5477
-  %5479 = icmp sgt i64 %5478, 15
-  br i1 %5479, label %.lr.ph3239, label %.preheader2023
+  %5476 = ptrtoint ptr %.0244.i to i64
+  %5477 = sub i64 %5474, %5476
+  %5478 = icmp sgt i64 %5477, 15
+  br i1 %5478, label %.lr.ph3239, label %.preheader2023
 
-.preheader2023:                                   ; preds = %5575, %5476
-  %.pre-phi3926 = phi i64 [ %5478, %5476 ], [ %5579, %5575 ]
-  %.1245.i.lcssa = phi ptr [ %.0244.i, %5476 ], [ %5577, %5575 ]
-  %.1.i86.lcssa = phi ptr [ %.0243.i, %5476 ], [ %5576, %5575 ]
-  %5480 = icmp sgt i64 %.pre-phi3926, 3
-  br i1 %5480, label %.lr.ph3245, label %.preheader2021
+.preheader2023:                                   ; preds = %5574, %5475
+  %.pre-phi3926 = phi i64 [ %5477, %5475 ], [ %5578, %5574 ]
+  %.1245.i.lcssa = phi ptr [ %.0244.i, %5475 ], [ %5576, %5574 ]
+  %.1.i86.lcssa = phi ptr [ %.0243.i, %5475 ], [ %5575, %5574 ]
+  %5479 = icmp sgt i64 %.pre-phi3926, 3
+  br i1 %5479, label %.lr.ph3245, label %.preheader2021
 
-.lr.ph3239:                                       ; preds = %5476, %5575
-  %.1.i863237 = phi ptr [ %5576, %5575 ], [ %.0243.i, %5476 ]
-  %.1245.i3236 = phi ptr [ %5577, %5575 ], [ %.0244.i, %5476 ]
-  %5481 = load i8, ptr %.1245.i3236, align 1, !tbaa !75
-  %5482 = zext i8 %5481 to i64
-  %5483 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5482
-  %5484 = load i8, ptr %5483, align 1, !tbaa !75
-  %.not277.i = icmp eq i8 %5484, 0
-  br i1 %.not277.i, label %5485, label %.preheader2018.preheader, !prof !22
+.lr.ph3239:                                       ; preds = %5475, %5574
+  %.1.i863237 = phi ptr [ %5575, %5574 ], [ %.0243.i, %5475 ]
+  %.1245.i3236 = phi ptr [ %5576, %5574 ], [ %.0244.i, %5475 ]
+  %5480 = load i8, ptr %.1245.i3236, align 1, !tbaa !75
+  %5481 = zext i8 %5480 to i64
+  %5482 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5481
+  %5483 = load i8, ptr %5482, align 1, !tbaa !75
+  %.not277.i = icmp eq i8 %5483, 0
+  br i1 %.not277.i, label %5484, label %.preheader2018.preheader, !prof !22
 
-5485:                                             ; preds = %.lr.ph3239
-  %5486 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 1
-  %5487 = load i8, ptr %5486, align 1, !tbaa !75
-  %5488 = zext i8 %5487 to i64
-  %5489 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5488
-  %5490 = load i8, ptr %5489, align 1, !tbaa !75
-  %.not278.i = icmp eq i8 %5490, 0
-  br i1 %.not278.i, label %5491, label %.loopexit2025, !prof !22
+5484:                                             ; preds = %.lr.ph3239
+  %5485 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 1
+  %5486 = load i8, ptr %5485, align 1, !tbaa !75
+  %5487 = zext i8 %5486 to i64
+  %5488 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5487
+  %5489 = load i8, ptr %5488, align 1, !tbaa !75
+  %.not278.i = icmp eq i8 %5489, 0
+  br i1 %.not278.i, label %5490, label %.loopexit2025, !prof !22
 
-5491:                                             ; preds = %5485
-  %5492 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 2
-  %5493 = load i8, ptr %5492, align 1, !tbaa !75
-  %5494 = zext i8 %5493 to i64
-  %5495 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5494
-  %5496 = load i8, ptr %5495, align 1, !tbaa !75
-  %.not279.i = icmp eq i8 %5496, 0
-  br i1 %.not279.i, label %5497, label %.loopexit2026, !prof !22
+5490:                                             ; preds = %5484
+  %5491 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 2
+  %5492 = load i8, ptr %5491, align 1, !tbaa !75
+  %5493 = zext i8 %5492 to i64
+  %5494 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5493
+  %5495 = load i8, ptr %5494, align 1, !tbaa !75
+  %.not279.i = icmp eq i8 %5495, 0
+  br i1 %.not279.i, label %5496, label %.loopexit2026, !prof !22
 
-5497:                                             ; preds = %5491
-  %5498 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 3
-  %5499 = load i8, ptr %5498, align 1, !tbaa !75
-  %5500 = zext i8 %5499 to i64
-  %5501 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5500
-  %5502 = load i8, ptr %5501, align 1, !tbaa !75
-  %.not280.i = icmp eq i8 %5502, 0
-  br i1 %.not280.i, label %5503, label %.loopexit2027, !prof !22
+5496:                                             ; preds = %5490
+  %5497 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 3
+  %5498 = load i8, ptr %5497, align 1, !tbaa !75
+  %5499 = zext i8 %5498 to i64
+  %5500 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5499
+  %5501 = load i8, ptr %5500, align 1, !tbaa !75
+  %.not280.i = icmp eq i8 %5501, 0
+  br i1 %.not280.i, label %5502, label %.loopexit2027, !prof !22
 
-5503:                                             ; preds = %5497
-  %5504 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 4
-  %5505 = load i8, ptr %5504, align 1, !tbaa !75
-  %5506 = zext i8 %5505 to i64
-  %5507 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5506
-  %5508 = load i8, ptr %5507, align 1, !tbaa !75
-  %.not281.i = icmp eq i8 %5508, 0
-  br i1 %.not281.i, label %5509, label %5627, !prof !22
+5502:                                             ; preds = %5496
+  %5503 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 4
+  %5504 = load i8, ptr %5503, align 1, !tbaa !75
+  %5505 = zext i8 %5504 to i64
+  %5506 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5505
+  %5507 = load i8, ptr %5506, align 1, !tbaa !75
+  %.not281.i = icmp eq i8 %5507, 0
+  br i1 %.not281.i, label %5508, label %5626, !prof !22
 
-5509:                                             ; preds = %5503
-  %5510 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 5
-  %5511 = load i8, ptr %5510, align 1, !tbaa !75
-  %5512 = zext i8 %5511 to i64
-  %5513 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5512
-  %5514 = load i8, ptr %5513, align 1, !tbaa !75
-  %.not282.i = icmp eq i8 %5514, 0
-  br i1 %.not282.i, label %5515, label %5631, !prof !22
+5508:                                             ; preds = %5502
+  %5509 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 5
+  %5510 = load i8, ptr %5509, align 1, !tbaa !75
+  %5511 = zext i8 %5510 to i64
+  %5512 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5511
+  %5513 = load i8, ptr %5512, align 1, !tbaa !75
+  %.not282.i = icmp eq i8 %5513, 0
+  br i1 %.not282.i, label %5514, label %5630, !prof !22
 
-5515:                                             ; preds = %5509
-  %5516 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 6
-  %5517 = load i8, ptr %5516, align 1, !tbaa !75
-  %5518 = zext i8 %5517 to i64
-  %5519 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5518
-  %5520 = load i8, ptr %5519, align 1, !tbaa !75
-  %.not283.i = icmp eq i8 %5520, 0
-  br i1 %.not283.i, label %5521, label %5634, !prof !22
+5514:                                             ; preds = %5508
+  %5515 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 6
+  %5516 = load i8, ptr %5515, align 1, !tbaa !75
+  %5517 = zext i8 %5516 to i64
+  %5518 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5517
+  %5519 = load i8, ptr %5518, align 1, !tbaa !75
+  %.not283.i = icmp eq i8 %5519, 0
+  br i1 %.not283.i, label %5520, label %5633, !prof !22
 
-5521:                                             ; preds = %5515
-  %5522 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 7
-  %5523 = load i8, ptr %5522, align 1, !tbaa !75
-  %5524 = zext i8 %5523 to i64
-  %5525 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5524
-  %5526 = load i8, ptr %5525, align 1, !tbaa !75
-  %.not284.i = icmp eq i8 %5526, 0
-  br i1 %.not284.i, label %5527, label %5637, !prof !22
+5520:                                             ; preds = %5514
+  %5521 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 7
+  %5522 = load i8, ptr %5521, align 1, !tbaa !75
+  %5523 = zext i8 %5522 to i64
+  %5524 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5523
+  %5525 = load i8, ptr %5524, align 1, !tbaa !75
+  %.not284.i = icmp eq i8 %5525, 0
+  br i1 %.not284.i, label %5526, label %5636, !prof !22
 
-5527:                                             ; preds = %5521
-  %5528 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 8
-  %5529 = load i8, ptr %5528, align 1, !tbaa !75
-  %5530 = zext i8 %5529 to i64
-  %5531 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5530
-  %5532 = load i8, ptr %5531, align 1, !tbaa !75
-  %.not285.i = icmp eq i8 %5532, 0
-  br i1 %.not285.i, label %5533, label %5640, !prof !22
+5526:                                             ; preds = %5520
+  %5527 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 8
+  %5528 = load i8, ptr %5527, align 1, !tbaa !75
+  %5529 = zext i8 %5528 to i64
+  %5530 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5529
+  %5531 = load i8, ptr %5530, align 1, !tbaa !75
+  %.not285.i = icmp eq i8 %5531, 0
+  br i1 %.not285.i, label %5532, label %5639, !prof !22
 
-5533:                                             ; preds = %5527
-  %5534 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 9
-  %5535 = load i8, ptr %5534, align 1, !tbaa !75
-  %5536 = zext i8 %5535 to i64
-  %5537 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5536
-  %5538 = load i8, ptr %5537, align 1, !tbaa !75
-  %.not286.i = icmp eq i8 %5538, 0
-  br i1 %.not286.i, label %5539, label %5644, !prof !22
+5532:                                             ; preds = %5526
+  %5533 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 9
+  %5534 = load i8, ptr %5533, align 1, !tbaa !75
+  %5535 = zext i8 %5534 to i64
+  %5536 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5535
+  %5537 = load i8, ptr %5536, align 1, !tbaa !75
+  %.not286.i = icmp eq i8 %5537, 0
+  br i1 %.not286.i, label %5538, label %5643, !prof !22
 
-5539:                                             ; preds = %5533
-  %5540 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 10
-  %5541 = load i8, ptr %5540, align 1, !tbaa !75
-  %5542 = zext i8 %5541 to i64
-  %5543 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5542
-  %5544 = load i8, ptr %5543, align 1, !tbaa !75
-  %.not287.i = icmp eq i8 %5544, 0
-  br i1 %.not287.i, label %5545, label %5647, !prof !22
+5538:                                             ; preds = %5532
+  %5539 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 10
+  %5540 = load i8, ptr %5539, align 1, !tbaa !75
+  %5541 = zext i8 %5540 to i64
+  %5542 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5541
+  %5543 = load i8, ptr %5542, align 1, !tbaa !75
+  %.not287.i = icmp eq i8 %5543, 0
+  br i1 %.not287.i, label %5544, label %5646, !prof !22
 
-5545:                                             ; preds = %5539
-  %5546 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 11
-  %5547 = load i8, ptr %5546, align 1, !tbaa !75
-  %5548 = zext i8 %5547 to i64
-  %5549 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5548
-  %5550 = load i8, ptr %5549, align 1, !tbaa !75
-  %.not288.i = icmp eq i8 %5550, 0
-  br i1 %.not288.i, label %5551, label %5650, !prof !22
+5544:                                             ; preds = %5538
+  %5545 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 11
+  %5546 = load i8, ptr %5545, align 1, !tbaa !75
+  %5547 = zext i8 %5546 to i64
+  %5548 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5547
+  %5549 = load i8, ptr %5548, align 1, !tbaa !75
+  %.not288.i = icmp eq i8 %5549, 0
+  br i1 %.not288.i, label %5550, label %5649, !prof !22
 
-5551:                                             ; preds = %5545
-  %5552 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 12
-  %5553 = load i8, ptr %5552, align 1, !tbaa !75
-  %5554 = zext i8 %5553 to i64
-  %5555 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5554
-  %5556 = load i8, ptr %5555, align 1, !tbaa !75
-  %.not289.i = icmp eq i8 %5556, 0
-  br i1 %.not289.i, label %5557, label %5653, !prof !22
+5550:                                             ; preds = %5544
+  %5551 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 12
+  %5552 = load i8, ptr %5551, align 1, !tbaa !75
+  %5553 = zext i8 %5552 to i64
+  %5554 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5553
+  %5555 = load i8, ptr %5554, align 1, !tbaa !75
+  %.not289.i = icmp eq i8 %5555, 0
+  br i1 %.not289.i, label %5556, label %5652, !prof !22
 
-5557:                                             ; preds = %5551
-  %5558 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 13
-  %5559 = load i8, ptr %5558, align 1, !tbaa !75
-  %5560 = zext i8 %5559 to i64
-  %5561 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5560
-  %5562 = load i8, ptr %5561, align 1, !tbaa !75
-  %.not290.i = icmp eq i8 %5562, 0
-  br i1 %.not290.i, label %5563, label %5656, !prof !22
+5556:                                             ; preds = %5550
+  %5557 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 13
+  %5558 = load i8, ptr %5557, align 1, !tbaa !75
+  %5559 = zext i8 %5558 to i64
+  %5560 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5559
+  %5561 = load i8, ptr %5560, align 1, !tbaa !75
+  %.not290.i = icmp eq i8 %5561, 0
+  br i1 %.not290.i, label %5562, label %5655, !prof !22
 
-5563:                                             ; preds = %5557
-  %5564 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 14
-  %5565 = load i8, ptr %5564, align 1, !tbaa !75
-  %5566 = zext i8 %5565 to i64
-  %5567 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5566
-  %5568 = load i8, ptr %5567, align 1, !tbaa !75
-  %.not291.i = icmp eq i8 %5568, 0
-  br i1 %.not291.i, label %5569, label %5659, !prof !22
+5562:                                             ; preds = %5556
+  %5563 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 14
+  %5564 = load i8, ptr %5563, align 1, !tbaa !75
+  %5565 = zext i8 %5564 to i64
+  %5566 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5565
+  %5567 = load i8, ptr %5566, align 1, !tbaa !75
+  %.not291.i = icmp eq i8 %5567, 0
+  br i1 %.not291.i, label %5568, label %5658, !prof !22
 
-5569:                                             ; preds = %5563
-  %5570 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 15
-  %5571 = load i8, ptr %5570, align 1, !tbaa !75
-  %5572 = zext i8 %5571 to i64
-  %5573 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5572
-  %5574 = load i8, ptr %5573, align 1, !tbaa !75
-  %.not292.i = icmp eq i8 %5574, 0
-  br i1 %.not292.i, label %5575, label %5662, !prof !22
+5568:                                             ; preds = %5562
+  %5569 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 15
+  %5570 = load i8, ptr %5569, align 1, !tbaa !75
+  %5571 = zext i8 %5570 to i64
+  %5572 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5571
+  %5573 = load i8, ptr %5572, align 1, !tbaa !75
+  %.not292.i = icmp eq i8 %5573, 0
+  br i1 %.not292.i, label %5574, label %5661, !prof !22
 
-5575:                                             ; preds = %5569
+5574:                                             ; preds = %5568
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(16) %.1245.i3236, i64 16, i1 false)
-  %5576 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 16
-  %5577 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 16
-  %5578 = ptrtoint ptr %5577 to i64
-  %5579 = sub i64 %5475, %5578
-  %5580 = icmp sgt i64 %5579, 15
-  br i1 %5580, label %.lr.ph3239, label %.preheader2023, !llvm.loop !209
+  %5575 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 16
+  %5576 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 16
+  %5577 = ptrtoint ptr %5576 to i64
+  %5578 = sub i64 %5474, %5577
+  %5579 = icmp sgt i64 %5578, 15
+  br i1 %5579, label %.lr.ph3239, label %.preheader2023, !llvm.loop !209
 
-.preheader2021:                                   ; preds = %5604, %.preheader2023
-  %.6250.i.lcssa = phi ptr [ %.1245.i.lcssa, %.preheader2023 ], [ %5607, %5604 ]
-  %.6.i87.lcssa = phi ptr [ %.1.i86.lcssa, %.preheader2023 ], [ %5606, %5604 ]
-  %5581 = icmp ugt ptr %5474, %.6250.i.lcssa
-  br i1 %5581, label %.lr.ph3250, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200
+.preheader2021:                                   ; preds = %5603, %.preheader2023
+  %.6250.i.lcssa = phi ptr [ %.1245.i.lcssa, %.preheader2023 ], [ %5606, %5603 ]
+  %.6.i87.lcssa = phi ptr [ %.1.i86.lcssa, %.preheader2023 ], [ %5605, %5603 ]
+  %5580 = icmp ugt ptr %5473, %.6250.i.lcssa
+  br i1 %5580, label %.lr.ph3250, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200
 
-.lr.ph3245:                                       ; preds = %.preheader2023, %5604
-  %.6.i873244 = phi ptr [ %5606, %5604 ], [ %.1.i86.lcssa, %.preheader2023 ]
-  %.6250.i3243 = phi ptr [ %5607, %5604 ], [ %.1245.i.lcssa, %.preheader2023 ]
-  %5582 = load i8, ptr %.6250.i3243, align 1, !tbaa !75
-  %5583 = zext i8 %5582 to i64
-  %5584 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5583
-  %5585 = load i8, ptr %5584, align 1, !tbaa !75
-  %.not273.i = icmp eq i8 %5585, 0
-  br i1 %.not273.i, label %5586, label %.preheader2018.preheader, !prof !22
+.lr.ph3245:                                       ; preds = %.preheader2023, %5603
+  %.6.i873244 = phi ptr [ %5605, %5603 ], [ %.1.i86.lcssa, %.preheader2023 ]
+  %.6250.i3243 = phi ptr [ %5606, %5603 ], [ %.1245.i.lcssa, %.preheader2023 ]
+  %5581 = load i8, ptr %.6250.i3243, align 1, !tbaa !75
+  %5582 = zext i8 %5581 to i64
+  %5583 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5582
+  %5584 = load i8, ptr %5583, align 1, !tbaa !75
+  %.not273.i = icmp eq i8 %5584, 0
+  br i1 %.not273.i, label %5585, label %.preheader2018.preheader, !prof !22
 
-5586:                                             ; preds = %.lr.ph3245
-  %5587 = getelementptr inbounds nuw i8, ptr %.6250.i3243, i64 1
-  %5588 = load i8, ptr %5587, align 1, !tbaa !75
-  %5589 = zext i8 %5588 to i64
-  %5590 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5589
-  %5591 = load i8, ptr %5590, align 1, !tbaa !75
-  %.not274.i = icmp eq i8 %5591, 0
-  br i1 %.not274.i, label %5592, label %.loopexit2025, !prof !22
+5585:                                             ; preds = %.lr.ph3245
+  %5586 = getelementptr inbounds nuw i8, ptr %.6250.i3243, i64 1
+  %5587 = load i8, ptr %5586, align 1, !tbaa !75
+  %5588 = zext i8 %5587 to i64
+  %5589 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5588
+  %5590 = load i8, ptr %5589, align 1, !tbaa !75
+  %.not274.i = icmp eq i8 %5590, 0
+  br i1 %.not274.i, label %5591, label %.loopexit2025, !prof !22
 
-5592:                                             ; preds = %5586
-  %5593 = getelementptr inbounds nuw i8, ptr %.6250.i3243, i64 2
-  %5594 = load i8, ptr %5593, align 1, !tbaa !75
-  %5595 = zext i8 %5594 to i64
-  %5596 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5595
-  %5597 = load i8, ptr %5596, align 1, !tbaa !75
-  %.not275.i = icmp eq i8 %5597, 0
-  br i1 %.not275.i, label %5598, label %.loopexit2026, !prof !22
+5591:                                             ; preds = %5585
+  %5592 = getelementptr inbounds nuw i8, ptr %.6250.i3243, i64 2
+  %5593 = load i8, ptr %5592, align 1, !tbaa !75
+  %5594 = zext i8 %5593 to i64
+  %5595 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5594
+  %5596 = load i8, ptr %5595, align 1, !tbaa !75
+  %.not275.i = icmp eq i8 %5596, 0
+  br i1 %.not275.i, label %5597, label %.loopexit2026, !prof !22
 
-5598:                                             ; preds = %5592
-  %5599 = getelementptr inbounds nuw i8, ptr %.6250.i3243, i64 3
-  %5600 = load i8, ptr %5599, align 1, !tbaa !75
-  %5601 = zext i8 %5600 to i64
-  %5602 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5601
-  %5603 = load i8, ptr %5602, align 1, !tbaa !75
-  %.not276.i = icmp eq i8 %5603, 0
-  br i1 %.not276.i, label %5604, label %.loopexit2027, !prof !22
+5597:                                             ; preds = %5591
+  %5598 = getelementptr inbounds nuw i8, ptr %.6250.i3243, i64 3
+  %5599 = load i8, ptr %5598, align 1, !tbaa !75
+  %5600 = zext i8 %5599 to i64
+  %5601 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5600
+  %5602 = load i8, ptr %5601, align 1, !tbaa !75
+  %.not276.i = icmp eq i8 %5602, 0
+  br i1 %.not276.i, label %5603, label %.loopexit2027, !prof !22
 
-5604:                                             ; preds = %5598
-  %5605 = load i32, ptr %.6250.i3243, align 1
-  store i32 %5605, ptr %.6.i873244, align 1
-  %5606 = getelementptr inbounds nuw i8, ptr %.6.i873244, i64 4
-  %5607 = getelementptr inbounds nuw i8, ptr %.6250.i3243, i64 4
-  %5608 = ptrtoint ptr %5607 to i64
-  %5609 = sub i64 %5475, %5608
-  %5610 = icmp sgt i64 %5609, 3
-  br i1 %5610, label %.lr.ph3245, label %.preheader2021, !llvm.loop !210
+5603:                                             ; preds = %5597
+  %5604 = load i32, ptr %.6250.i3243, align 1
+  store i32 %5604, ptr %.6.i873244, align 1
+  %5605 = getelementptr inbounds nuw i8, ptr %.6.i873244, i64 4
+  %5606 = getelementptr inbounds nuw i8, ptr %.6250.i3243, i64 4
+  %5607 = ptrtoint ptr %5606 to i64
+  %5608 = sub i64 %5474, %5607
+  %5609 = icmp sgt i64 %5608, 3
+  br i1 %5609, label %.lr.ph3245, label %.preheader2021, !llvm.loop !210
 
-.lr.ph3250:                                       ; preds = %.preheader2021, %5615
-  %.7.i883249 = phi ptr [ %5617, %5615 ], [ %.6.i87.lcssa, %.preheader2021 ]
-  %.7251.i3248 = phi ptr [ %5616, %5615 ], [ %.6250.i.lcssa, %.preheader2021 ]
-  %5611 = load i8, ptr %.7251.i3248, align 1, !tbaa !75
-  %5612 = zext i8 %5611 to i64
-  %5613 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5612
-  %5614 = load i8, ptr %5613, align 1, !tbaa !75
-  %.not.i90 = icmp eq i8 %5614, 0
-  br i1 %.not.i90, label %5615, label %.preheader2018.preheader, !prof !22
+.lr.ph3250:                                       ; preds = %.preheader2021, %5614
+  %.7.i883249 = phi ptr [ %5616, %5614 ], [ %.6.i87.lcssa, %.preheader2021 ]
+  %.7251.i3248 = phi ptr [ %5615, %5614 ], [ %.6250.i.lcssa, %.preheader2021 ]
+  %5610 = load i8, ptr %.7251.i3248, align 1, !tbaa !75
+  %5611 = zext i8 %5610 to i64
+  %5612 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5611
+  %5613 = load i8, ptr %5612, align 1, !tbaa !75
+  %.not.i90 = icmp eq i8 %5613, 0
+  br i1 %.not.i90, label %5614, label %.preheader2018.preheader, !prof !22
 
-5615:                                             ; preds = %.lr.ph3250
-  %5616 = getelementptr inbounds nuw i8, ptr %.7251.i3248, i64 1
-  %5617 = getelementptr inbounds nuw i8, ptr %.7.i883249, i64 1
-  store i8 %5611, ptr %.7.i883249, align 1, !tbaa !75
-  %5618 = icmp ugt ptr %5474, %5616
-  br i1 %5618, label %.lr.ph3250, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, !llvm.loop !211
+5614:                                             ; preds = %.lr.ph3250
+  %5615 = getelementptr inbounds nuw i8, ptr %.7251.i3248, i64 1
+  %5616 = getelementptr inbounds nuw i8, ptr %.7.i883249, i64 1
+  store i8 %5610, ptr %.7.i883249, align 1, !tbaa !75
+  %5617 = icmp ugt ptr %5473, %5615
+  br i1 %5617, label %.lr.ph3250, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, !llvm.loop !211
 
-.loopexit2025:                                    ; preds = %5485, %5586
-  %5619 = phi i8 [ %5582, %5586 ], [ %5481, %5485 ]
-  %.3247.i = phi ptr [ %.6250.i3243, %5586 ], [ %.1245.i3236, %5485 ]
-  %.3.i98 = phi ptr [ %.6.i873244, %5586 ], [ %.1.i863237, %5485 ]
-  store i8 %5619, ptr %.3.i98, align 1
-  %5620 = getelementptr inbounds nuw i8, ptr %.3.i98, i64 1
-  %5621 = getelementptr inbounds nuw i8, ptr %.3247.i, i64 1
+.loopexit2025:                                    ; preds = %5484, %5585
+  %5618 = phi i8 [ %5581, %5585 ], [ %5480, %5484 ]
+  %.3247.i = phi ptr [ %.6250.i3243, %5585 ], [ %.1245.i3236, %5484 ]
+  %.3.i98 = phi ptr [ %.6.i873244, %5585 ], [ %.1.i863237, %5484 ]
+  store i8 %5618, ptr %.3.i98, align 1
+  %5619 = getelementptr inbounds nuw i8, ptr %.3.i98, i64 1
+  %5620 = getelementptr inbounds nuw i8, ptr %.3247.i, i64 1
   br label %.preheader2018.preheader
 
-.loopexit2026:                                    ; preds = %5491, %5592
-  %.4248.i = phi ptr [ %.6250.i3243, %5592 ], [ %.1245.i3236, %5491 ]
-  %.4.i99 = phi ptr [ %.6.i873244, %5592 ], [ %.1.i863237, %5491 ]
-  %5622 = load i16, ptr %.4248.i, align 1
-  store i16 %5622, ptr %.4.i99, align 1
-  %5623 = getelementptr inbounds nuw i8, ptr %.4.i99, i64 2
-  %5624 = getelementptr inbounds nuw i8, ptr %.4248.i, i64 2
+.loopexit2026:                                    ; preds = %5490, %5591
+  %.4248.i = phi ptr [ %.6250.i3243, %5591 ], [ %.1245.i3236, %5490 ]
+  %.4.i99 = phi ptr [ %.6.i873244, %5591 ], [ %.1.i863237, %5490 ]
+  %5621 = load i16, ptr %.4248.i, align 1
+  store i16 %5621, ptr %.4.i99, align 1
+  %5622 = getelementptr inbounds nuw i8, ptr %.4.i99, i64 2
+  %5623 = getelementptr inbounds nuw i8, ptr %.4248.i, i64 2
   br label %.preheader2018.preheader
 
-.loopexit2027:                                    ; preds = %5497, %5598
-  %.5249.i = phi ptr [ %.6250.i3243, %5598 ], [ %.1245.i3236, %5497 ]
-  %.5.i100 = phi ptr [ %.6.i873244, %5598 ], [ %.1.i863237, %5497 ]
+.loopexit2027:                                    ; preds = %5496, %5597
+  %.5249.i = phi ptr [ %.6250.i3243, %5597 ], [ %.1245.i3236, %5496 ]
+  %.5.i100 = phi ptr [ %.6.i873244, %5597 ], [ %.1.i863237, %5496 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.5.i100, ptr noundef nonnull align 1 dereferenceable(3) %.5249.i, i64 3, i1 false)
-  %5625 = getelementptr inbounds nuw i8, ptr %.5.i100, i64 3
-  %5626 = getelementptr inbounds nuw i8, ptr %.5249.i, i64 3
+  %5624 = getelementptr inbounds nuw i8, ptr %.5.i100, i64 3
+  %5625 = getelementptr inbounds nuw i8, ptr %.5249.i, i64 3
   br label %.preheader2018.preheader
 
-5627:                                             ; preds = %5503
-  %5628 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 4
-  %5629 = load i32, ptr %.1245.i3236, align 1
-  store i32 %5629, ptr %.1.i863237, align 1
-  %5630 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 4
+5626:                                             ; preds = %5502
+  %5627 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 4
+  %5628 = load i32, ptr %.1245.i3236, align 1
+  store i32 %5628, ptr %.1.i863237, align 1
+  %5629 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 4
   br label %.preheader2018.preheader
 
-5631:                                             ; preds = %5509
-  %5632 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 5
+5630:                                             ; preds = %5508
+  %5631 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(5) %.1245.i3236, i64 5, i1 false)
-  %5633 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 5
+  %5632 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 5
   br label %.preheader2018.preheader
 
-5634:                                             ; preds = %5515
-  %5635 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 6
+5633:                                             ; preds = %5514
+  %5634 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(6) %.1245.i3236, i64 6, i1 false)
-  %5636 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 6
+  %5635 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 6
   br label %.preheader2018.preheader
 
-5637:                                             ; preds = %5521
-  %5638 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 7
+5636:                                             ; preds = %5520
+  %5637 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(7) %.1245.i3236, i64 7, i1 false)
-  %5639 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 7
+  %5638 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 7
   br label %.preheader2018.preheader
 
-5640:                                             ; preds = %5527
-  %5641 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 8
-  %5642 = load i64, ptr %.1245.i3236, align 1
-  store i64 %5642, ptr %.1.i863237, align 1
-  %5643 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 8
+5639:                                             ; preds = %5526
+  %5640 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 8
+  %5641 = load i64, ptr %.1245.i3236, align 1
+  store i64 %5641, ptr %.1.i863237, align 1
+  %5642 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 8
   br label %.preheader2018.preheader
 
-5644:                                             ; preds = %5533
-  %5645 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 9
+5643:                                             ; preds = %5532
+  %5644 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(9) %.1245.i3236, i64 9, i1 false)
-  %5646 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 9
+  %5645 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 9
   br label %.preheader2018.preheader
 
-5647:                                             ; preds = %5539
-  %5648 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 10
+5646:                                             ; preds = %5538
+  %5647 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(10) %.1245.i3236, i64 10, i1 false)
-  %5649 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 10
+  %5648 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 10
   br label %.preheader2018.preheader
 
-5650:                                             ; preds = %5545
-  %5651 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 11
+5649:                                             ; preds = %5544
+  %5650 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(11) %.1245.i3236, i64 11, i1 false)
-  %5652 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 11
+  %5651 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 11
   br label %.preheader2018.preheader
 
-5653:                                             ; preds = %5551
-  %5654 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 12
+5652:                                             ; preds = %5550
+  %5653 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(12) %.1245.i3236, i64 12, i1 false)
-  %5655 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 12
+  %5654 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 12
   br label %.preheader2018.preheader
 
-5656:                                             ; preds = %5557
-  %5657 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 13
+5655:                                             ; preds = %5556
+  %5656 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(13) %.1245.i3236, i64 13, i1 false)
-  %5658 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 13
+  %5657 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 13
   br label %.preheader2018.preheader
 
-5659:                                             ; preds = %5563
-  %5660 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 14
+5658:                                             ; preds = %5562
+  %5659 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(14) %.1245.i3236, i64 14, i1 false)
-  %5661 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 14
+  %5660 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 14
   br label %.preheader2018.preheader
 
-5662:                                             ; preds = %5569
-  %5663 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 15
+5661:                                             ; preds = %5568
+  %5662 = getelementptr inbounds nuw i8, ptr %.1245.i3236, i64 15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.1.i863237, ptr noundef nonnull align 1 dereferenceable(15) %.1245.i3236, i64 15, i1 false)
-  %5664 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 15
+  %5663 = getelementptr inbounds nuw i8, ptr %.1.i863237, i64 15
   br label %.preheader2018.preheader
 
-.preheader2018.preheader:                         ; preds = %.lr.ph3239, %.lr.ph3245, %.lr.ph3250, %.loopexit2025, %.loopexit2026, %.loopexit2027, %5627, %5631, %5634, %5637, %5640, %5644, %5647, %5650, %5653, %5656, %5659, %5662
-  %.8252.i.ph = phi ptr [ %5621, %.loopexit2025 ], [ %5624, %.loopexit2026 ], [ %5626, %.loopexit2027 ], [ %5628, %5627 ], [ %5632, %5631 ], [ %5635, %5634 ], [ %5638, %5637 ], [ %5641, %5640 ], [ %5645, %5644 ], [ %5648, %5647 ], [ %5651, %5650 ], [ %5654, %5653 ], [ %5657, %5656 ], [ %5660, %5659 ], [ %5663, %5662 ], [ %.7251.i3248, %.lr.ph3250 ], [ %.6250.i3243, %.lr.ph3245 ], [ %.1245.i3236, %.lr.ph3239 ]
-  %.8.i92.ph = phi ptr [ %5620, %.loopexit2025 ], [ %5623, %.loopexit2026 ], [ %5625, %.loopexit2027 ], [ %5630, %5627 ], [ %5633, %5631 ], [ %5636, %5634 ], [ %5639, %5637 ], [ %5643, %5640 ], [ %5646, %5644 ], [ %5649, %5647 ], [ %5652, %5650 ], [ %5655, %5653 ], [ %5658, %5656 ], [ %5661, %5659 ], [ %5664, %5662 ], [ %.7.i883249, %.lr.ph3250 ], [ %.6.i873244, %.lr.ph3245 ], [ %.1.i863237, %.lr.ph3239 ]
+.preheader2018.preheader:                         ; preds = %.lr.ph3239, %.lr.ph3245, %.lr.ph3250, %.loopexit2025, %.loopexit2026, %.loopexit2027, %5626, %5630, %5633, %5636, %5639, %5643, %5646, %5649, %5652, %5655, %5658, %5661
+  %.8252.i.ph = phi ptr [ %5620, %.loopexit2025 ], [ %5623, %.loopexit2026 ], [ %5625, %.loopexit2027 ], [ %5627, %5626 ], [ %5631, %5630 ], [ %5634, %5633 ], [ %5637, %5636 ], [ %5640, %5639 ], [ %5644, %5643 ], [ %5647, %5646 ], [ %5650, %5649 ], [ %5653, %5652 ], [ %5656, %5655 ], [ %5659, %5658 ], [ %5662, %5661 ], [ %.7251.i3248, %.lr.ph3250 ], [ %.6250.i3243, %.lr.ph3245 ], [ %.1245.i3236, %.lr.ph3239 ]
+  %.8.i92.ph = phi ptr [ %5619, %.loopexit2025 ], [ %5622, %.loopexit2026 ], [ %5624, %.loopexit2027 ], [ %5629, %5626 ], [ %5632, %5630 ], [ %5635, %5633 ], [ %5638, %5636 ], [ %5642, %5639 ], [ %5645, %5643 ], [ %5648, %5646 ], [ %5651, %5649 ], [ %5654, %5652 ], [ %5657, %5655 ], [ %5660, %5658 ], [ %5663, %5661 ], [ %.7.i883249, %.lr.ph3250 ], [ %.6.i873244, %.lr.ph3245 ], [ %.1.i863237, %.lr.ph3239 ]
   br label %.preheader2018
 
 .preheader2018:                                   ; preds = %.preheader2018.backedge, %.preheader2018.preheader
   %.8252.i = phi ptr [ %.8252.i.ph, %.preheader2018.preheader ], [ %.8252.i.be, %.preheader2018.backedge ]
   %.8.i92 = phi ptr [ %.8.i92.ph, %.preheader2018.preheader ], [ %.8.i92.be, %.preheader2018.backedge ]
-  %5665 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 4
-  %5666 = icmp ugt ptr %5665, %5474
-  br i1 %5666, label %5667, label %._crit_edge3904, !prof !3
+  %5664 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 4
+  %5665 = icmp ugt ptr %5664, %5473
+  br i1 %5665, label %5666, label %._crit_edge3904, !prof !3
 
 ._crit_edge3904:                                  ; preds = %.preheader2018
   %.pre3905 = load i8, ptr %.8252.i, align 1, !tbaa !75
   %.phi.trans.insert3906 = zext i8 %.pre3905 to i64
   %.phi.trans.insert3907 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %.phi.trans.insert3906
   %.pre3908 = load i8, ptr %.phi.trans.insert3907, align 1, !tbaa !75
-  br label %5679
+  br label %5678
 
-5667:                                             ; preds = %.preheader2018
-  %5668 = icmp eq ptr %5474, %.8252.i
-  br i1 %5668, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, label %5669
+5666:                                             ; preds = %.preheader2018
+  %5667 = icmp eq ptr %5473, %.8252.i
+  br i1 %5667, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, label %5668
 
-5669:                                             ; preds = %5667
-  %5670 = ptrtoint ptr %.8252.i to i64
-  %5671 = sub i64 %5475, %5670
-  %5672 = load i8, ptr %.8252.i, align 1, !tbaa !75
-  %5673 = zext i8 %5672 to i64
-  %5674 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5673
-  %5675 = load i8, ptr %5674, align 1, !tbaa !75
-  %5676 = lshr i8 %5675, 1
-  %5677 = zext nneg i8 %5676 to i64
-  %5678 = icmp slt i64 %5671, %5677
-  br i1 %5678, label %5835, label %5679
+5668:                                             ; preds = %5666
+  %5669 = ptrtoint ptr %.8252.i to i64
+  %5670 = sub i64 %5474, %5669
+  %5671 = load i8, ptr %.8252.i, align 1, !tbaa !75
+  %5672 = zext i8 %5671 to i64
+  %5673 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5672
+  %5674 = load i8, ptr %5673, align 1, !tbaa !75
+  %5675 = lshr i8 %5674, 1
+  %5676 = zext nneg i8 %5675 to i64
+  %5677 = icmp slt i64 %5670, %5676
+  br i1 %5677, label %5834, label %5678
 
-5679:                                             ; preds = %._crit_edge3904, %5669
-  %.pre-phi3927 = phi i64 [ %.phi.trans.insert3906, %._crit_edge3904 ], [ %5673, %5669 ]
-  %5680 = phi i8 [ %.pre3908, %._crit_edge3904 ], [ %5675, %5669 ]
-  %5681 = phi i8 [ %.pre3905, %._crit_edge3904 ], [ %5672, %5669 ]
-  switch i8 %5680, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 [
-    i8 0, label %5682
-    i8 4, label %5684
-    i8 6, label %5694
-    i8 8, label %5711
-    i8 2, label %5722
-    i8 3, label %5728
-    i8 5, label %5737
-    i8 7, label %5761
-    i8 9, label %5786
-    i8 1, label %5835
+5678:                                             ; preds = %._crit_edge3904, %5668
+  %.pre-phi3927 = phi i64 [ %.phi.trans.insert3906, %._crit_edge3904 ], [ %5672, %5668 ]
+  %5679 = phi i8 [ %.pre3908, %._crit_edge3904 ], [ %5674, %5668 ]
+  %5680 = phi i8 [ %.pre3905, %._crit_edge3904 ], [ %5671, %5668 ]
+  switch i8 %5679, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 [
+    i8 0, label %5681
+    i8 4, label %5683
+    i8 6, label %5693
+    i8 8, label %5710
+    i8 2, label %5721
+    i8 3, label %5727
+    i8 5, label %5736
+    i8 7, label %5760
+    i8 9, label %5785
+    i8 1, label %5834
   ]
 
-5682:                                             ; preds = %5679
-  %5683 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
-  store i8 %5681, ptr %.8.i92, align 1, !tbaa !75
-  br label %5476
+5681:                                             ; preds = %5678
+  %5682 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
+  store i8 %5680, ptr %.8.i92, align 1, !tbaa !75
+  br label %5475
 
-5684:                                             ; preds = %5679
+5683:                                             ; preds = %5678
   %.sroa.0.0.copyload.i626 = load i16, ptr %.8252.i, align 1
-  %5685 = zext i16 %.sroa.0.0.copyload.i626 to i32
-  %5686 = and i32 %5685, 49376
-  %5687 = icmp ne i32 %5686, 32960
-  %5688 = and i32 %5685, 30
-  %5689 = icmp eq i32 %5688, 0
-  %.not315.i = or i1 %5687, %5689
-  %5690 = trunc i16 %.sroa.0.0.copyload.i626 to i8
-  br i1 %.not315.i, label %.thread1852, label %5691, !prof !3
+  %5684 = zext i16 %.sroa.0.0.copyload.i626 to i32
+  %5685 = and i32 %5684, 49376
+  %5686 = icmp ne i32 %5685, 32960
+  %5687 = and i32 %5684, 30
+  %5688 = icmp eq i32 %5687, 0
+  %.not315.i = or i1 %5686, %5688
+  %5689 = trunc i16 %.sroa.0.0.copyload.i626 to i8
+  br i1 %.not315.i, label %.thread1852, label %5690, !prof !3
 
-5691:                                             ; preds = %5684
+5690:                                             ; preds = %5683
   store i16 %.sroa.0.0.copyload.i626, ptr %.8.i92, align 1
-  %5692 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
-  %5693 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 2
+  %5691 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
+  %5692 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 2
   br label %.preheader2018.backedge
 
-5694:                                             ; preds = %5679
-  br i1 %5666, label %5701, label %5695, !prof !3
+5693:                                             ; preds = %5678
+  br i1 %5665, label %5700, label %5694, !prof !3
 
-5695:                                             ; preds = %5694
+5694:                                             ; preds = %5693
   %.sroa.0.0.copyload.i340.i = load i32, ptr %.8252.i, align 1
-  %5696 = and i32 %.sroa.0.0.copyload.i340.i, 12632304
-  %5697 = icmp eq i32 %5696, 8421600
-  %5698 = trunc i32 %.sroa.0.0.copyload.i340.i to i8
-  br i1 %5697, label %5699, label %.thread1852, !prof !22
+  %5695 = and i32 %.sroa.0.0.copyload.i340.i, 12632304
+  %5696 = icmp eq i32 %5695, 8421600
+  %5697 = trunc i32 %.sroa.0.0.copyload.i340.i to i8
+  br i1 %5696, label %5698, label %.thread1852, !prof !22
 
-5699:                                             ; preds = %5695
-  %5700 = and i32 %.sroa.0.0.copyload.i340.i, 8207
-  switch i32 %5700, label %.critedge.i [
+5698:                                             ; preds = %5694
+  %5699 = and i32 %.sroa.0.0.copyload.i340.i, 8207
+  switch i32 %5699, label %.critedge.i [
     i32 8205, label %.thread1852
     i32 0, label %.thread1852
   ]
 
-5701:                                             ; preds = %5694
+5700:                                             ; preds = %5693
   %.sroa.0.0.copyload.i674 = load i16, ptr %.8252.i, align 1
-  %5702 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 2
-  %5703 = load i8, ptr %5702, align 1, !tbaa !75
-  %.sroa.4.0.insert.ext.i675 = zext i8 %5703 to i32
+  %5701 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 2
+  %5702 = load i8, ptr %5701, align 1, !tbaa !75
+  %.sroa.4.0.insert.ext.i675 = zext i8 %5702 to i32
   %.sroa.4.0.insert.shift.i676 = shl nuw nsw i32 %.sroa.4.0.insert.ext.i675, 16
   %.sroa.0.0.insert.ext.i677 = zext i16 %.sroa.0.0.copyload.i674 to i32
   %.sroa.0.0.insert.insert.i678 = or disjoint i32 %.sroa.4.0.insert.shift.i676, %.sroa.0.0.insert.ext.i677
-  %5704 = and i32 %.sroa.0.0.insert.insert.i678, 12632304
-  %5705 = icmp eq i32 %5704, 8421600
-  %5706 = trunc i16 %.sroa.0.0.copyload.i674 to i8
-  br i1 %5705, label %5707, label %.thread1852, !prof !22
+  %5703 = and i32 %.sroa.0.0.insert.insert.i678, 12632304
+  %5704 = icmp eq i32 %5703, 8421600
+  %5705 = trunc i16 %.sroa.0.0.copyload.i674 to i8
+  br i1 %5704, label %5706, label %.thread1852, !prof !22
 
-5707:                                             ; preds = %5701
-  %5708 = and i32 %.sroa.0.0.insert.ext.i677, 8207
-  switch i32 %5708, label %.critedge.i [
+5706:                                             ; preds = %5700
+  %5707 = and i32 %.sroa.0.0.insert.ext.i677, 8207
+  switch i32 %5707, label %.critedge.i [
     i32 8205, label %.thread1852
     i32 0, label %.thread1852
   ]
 
-.critedge.i:                                      ; preds = %5707, %5699
-  %storemerge1939 = phi i32 [ %.sroa.0.0.copyload.i340.i, %5699 ], [ %.sroa.0.0.insert.insert.i678, %5707 ]
+.critedge.i:                                      ; preds = %5706, %5698
+  %storemerge1939 = phi i32 [ %.sroa.0.0.copyload.i340.i, %5698 ], [ %.sroa.0.0.insert.insert.i678, %5706 ]
   store i32 %storemerge1939, ptr %.8.i92, align 1
-  %5709 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 3
-  %5710 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 3
+  %5708 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 3
+  %5709 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 3
   br label %.preheader2018.backedge
 
-5711:                                             ; preds = %5679
+5710:                                             ; preds = %5678
   %.sroa.0.0.copyload.i339.i = load i32, ptr %.8252.i, align 1
-  %5712 = and i32 %.sroa.0.0.copyload.i339.i, -1061109512
-  %5713 = icmp ne i32 %5712, -2139062032
-  %5714 = and i32 %.sroa.0.0.copyload.i339.i, 12295
-  %.not306.i = icmp eq i32 %5714, 0
-  %or.cond.i = or i1 %5713, %.not306.i
-  %5715 = trunc i32 %.sroa.0.0.copyload.i339.i to i8
-  br i1 %or.cond.i, label %.thread1852, label %5716, !prof !212
+  %5711 = and i32 %.sroa.0.0.copyload.i339.i, -1061109512
+  %5712 = icmp ne i32 %5711, -2139062032
+  %5713 = and i32 %.sroa.0.0.copyload.i339.i, 12295
+  %.not306.i = icmp eq i32 %5713, 0
+  %or.cond.i = or i1 %5712, %.not306.i
+  %5714 = trunc i32 %.sroa.0.0.copyload.i339.i to i8
+  br i1 %or.cond.i, label %.thread1852, label %5715, !prof !212
 
-5716:                                             ; preds = %5711
-  %5717 = and i32 %.sroa.0.0.copyload.i339.i, 4
-  %5718 = icmp ne i32 %5717, 0
-  %5719 = and i32 %.sroa.0.0.copyload.i339.i, 12291
-  %5720 = icmp ne i32 %5719, 0
-  %.not309.i = and i1 %5718, %5720
+5715:                                             ; preds = %5710
+  %5716 = and i32 %.sroa.0.0.copyload.i339.i, 4
+  %5717 = icmp ne i32 %5716, 0
+  %5718 = and i32 %.sroa.0.0.copyload.i339.i, 12291
+  %5719 = icmp ne i32 %5718, 0
+  %.not309.i = and i1 %5717, %5719
   br i1 %.not309.i, label %.thread1852, label %.critedge324.i, !prof !3
 
-.critedge324.i:                                   ; preds = %5716
+.critedge324.i:                                   ; preds = %5715
   store i32 %.sroa.0.0.copyload.i339.i, ptr %.8.i92, align 1
-  %5721 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
+  %5720 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
   br label %.preheader2018.backedge
 
-5722:                                             ; preds = %5679
-  %5723 = shl nuw nsw i64 %.pre-phi3927, 1
-  %5724 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL21esc_single_char_tableE, i64 %5723
-  %5725 = load i16, ptr %5724, align 2
-  store i16 %5725, ptr %.8.i92, align 1
-  %5726 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
-  %5727 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
+5721:                                             ; preds = %5678
+  %5722 = shl nuw nsw i64 %.pre-phi3927, 1
+  %5723 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL21esc_single_char_tableE, i64 %5722
+  %5724 = load i16, ptr %5723, align 2
+  store i16 %5724, ptr %.8.i92, align 1
+  %5725 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
+  %5726 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
   br label %.preheader2018.backedge
 
-.preheader2018.backedge:                          ; preds = %5722, %5728, %5838, %5841, %5691, %.critedge.i, %.critedge324.i, %5743, %.critedge330.i, %.critedge333.i
-  %.8252.i.be = phi ptr [ %5844, %5841 ], [ %5839, %5838 ], [ %5693, %5691 ], [ %5710, %.critedge.i ], [ %5665, %.critedge324.i ], [ %5727, %5722 ], [ %5736, %5728 ], [ %5760, %5743 ], [ %5785, %.critedge330.i ], [ %5665, %.critedge333.i ]
-  %.8.i92.be = phi ptr [ %5843, %5841 ], [ %5840, %5838 ], [ %5692, %5691 ], [ %5709, %.critedge.i ], [ %5721, %.critedge324.i ], [ %5726, %5722 ], [ %5735, %5728 ], [ %5759, %5743 ], [ %5784, %.critedge330.i ], [ %5834, %.critedge333.i ]
+.preheader2018.backedge:                          ; preds = %5721, %5727, %5837, %5840, %5690, %.critedge.i, %.critedge324.i, %5742, %.critedge330.i, %.critedge333.i
+  %.8252.i.be = phi ptr [ %5843, %5840 ], [ %5838, %5837 ], [ %5692, %5690 ], [ %5709, %.critedge.i ], [ %5664, %.critedge324.i ], [ %5726, %5721 ], [ %5735, %5727 ], [ %5759, %5742 ], [ %5784, %.critedge330.i ], [ %5664, %.critedge333.i ]
+  %.8.i92.be = phi ptr [ %5842, %5840 ], [ %5839, %5837 ], [ %5691, %5690 ], [ %5708, %.critedge.i ], [ %5720, %.critedge324.i ], [ %5725, %5721 ], [ %5734, %5727 ], [ %5758, %5742 ], [ %5783, %.critedge330.i ], [ %5833, %.critedge333.i ]
   br label %.preheader2018
 
-5728:                                             ; preds = %5679
+5727:                                             ; preds = %5678
   store i32 808482140, ptr %.8.i92, align 1
-  %5729 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
-  %5730 = load i8, ptr %.8252.i, align 1, !tbaa !75
-  %5731 = zext i8 %5730 to i64
-  %5732 = shl nuw nsw i64 %5731, 1
-  %5733 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5732
-  %5734 = load i16, ptr %5733, align 2
-  store i16 %5734, ptr %5729, align 1
-  %5735 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 6
-  %5736 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
+  %5728 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
+  %5729 = load i8, ptr %.8252.i, align 1, !tbaa !75
+  %5730 = zext i8 %5729 to i64
+  %5731 = shl nuw nsw i64 %5730, 1
+  %5732 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5731
+  %5733 = load i16, ptr %5732, align 2
+  store i16 %5733, ptr %5728, align 1
+  %5734 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 6
+  %5735 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
   br label %.preheader2018.backedge
 
-5737:                                             ; preds = %5679
+5736:                                             ; preds = %5678
   %.sroa.0.0.copyload.i627 = load i16, ptr %.8252.i, align 1
-  %5738 = zext i16 %.sroa.0.0.copyload.i627 to i32
-  %5739 = and i32 %5738, 49376
-  %5740 = icmp ne i32 %5739, 32960
-  %5741 = and i32 %5738, 30
-  %5742 = icmp eq i32 %5741, 0
-  %.not303.i = or i1 %5740, %5742
-  br i1 %.not303.i, label %.thread1868, label %5743, !prof !3
+  %5737 = zext i16 %.sroa.0.0.copyload.i627 to i32
+  %5738 = and i32 %5737, 49376
+  %5739 = icmp ne i32 %5738, 32960
+  %5740 = and i32 %5737, 30
+  %5741 = icmp eq i32 %5740, 0
+  %.not303.i = or i1 %5739, %5741
+  br i1 %.not303.i, label %.thread1868, label %5742, !prof !3
 
-5743:                                             ; preds = %5737
-  %5744 = lshr i16 %.sroa.0.0.copyload.i627, 8
-  %5745 = trunc nuw i16 %5744 to i8
-  %5746 = trunc i16 %.sroa.0.0.copyload.i627 to i8
-  %.tr304.i = shl i8 %5746, 6
-  %5747 = and i8 %5745, 63
+5742:                                             ; preds = %5736
+  %5743 = lshr i16 %.sroa.0.0.copyload.i627, 8
+  %5744 = trunc nuw i16 %5743 to i8
+  %5745 = trunc i16 %.sroa.0.0.copyload.i627 to i8
+  %.tr304.i = shl i8 %5745, 6
+  %5746 = and i8 %5744, 63
   store i16 30044, ptr %.8.i92, align 1
-  %5748 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
-  %5749 = lshr i8 %5746, 1
-  %5750 = and i8 %5749, 14
-  %5751 = zext nneg i8 %5750 to i64
-  %5752 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5751
-  %5753 = load i16, ptr %5752, align 2
-  store i16 %5753, ptr %5748, align 1
-  %5754 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
-  %.narrow305.i = or disjoint i8 %5747, %.tr304.i
-  %5755 = zext i8 %.narrow305.i to i64
-  %5756 = shl nuw nsw i64 %5755, 1
-  %5757 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5756
-  %5758 = load i16, ptr %5757, align 2
-  store i16 %5758, ptr %5754, align 1
-  %5759 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 6
-  %5760 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 2
+  %5747 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
+  %5748 = lshr i8 %5745, 1
+  %5749 = and i8 %5748, 14
+  %5750 = zext nneg i8 %5749 to i64
+  %5751 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5750
+  %5752 = load i16, ptr %5751, align 2
+  store i16 %5752, ptr %5747, align 1
+  %5753 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
+  %.narrow305.i = or disjoint i8 %5746, %.tr304.i
+  %5754 = zext i8 %.narrow305.i to i64
+  %5755 = shl nuw nsw i64 %5754, 1
+  %5756 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5755
+  %5757 = load i16, ptr %5756, align 2
+  store i16 %5757, ptr %5753, align 1
+  %5758 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 6
+  %5759 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 2
   br label %.preheader2018.backedge
 
-5761:                                             ; preds = %5679
+5760:                                             ; preds = %5678
   %.sroa.0.0.copyload.i679 = load i16, ptr %.8252.i, align 1
-  %5762 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 2
-  %5763 = load i8, ptr %5762, align 1, !tbaa !75
-  %.sroa.4.0.insert.ext.i680 = zext i8 %5763 to i32
+  %5761 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 2
+  %5762 = load i8, ptr %5761, align 1, !tbaa !75
+  %.sroa.4.0.insert.ext.i680 = zext i8 %5762 to i32
   %.sroa.4.0.insert.shift.i681 = shl nuw nsw i32 %.sroa.4.0.insert.ext.i680, 16
   %.sroa.0.0.insert.ext.i682 = zext i16 %.sroa.0.0.copyload.i679 to i32
   %.sroa.0.0.insert.insert.i683 = or disjoint i32 %.sroa.4.0.insert.shift.i681, %.sroa.0.0.insert.ext.i682
-  %5764 = and i32 %.sroa.0.0.insert.insert.i683, 12632304
-  %5765 = icmp eq i32 %5764, 8421600
-  br i1 %5765, label %5766, label %.thread1868, !prof !22
+  %5763 = and i32 %.sroa.0.0.insert.insert.i683, 12632304
+  %5764 = icmp eq i32 %5763, 8421600
+  br i1 %5764, label %5765, label %.thread1868, !prof !22
 
-5766:                                             ; preds = %5761
-  %5767 = and i32 %.sroa.0.0.insert.ext.i682, 8207
-  switch i32 %5767, label %.critedge330.i [
+5765:                                             ; preds = %5760
+  %5766 = and i32 %.sroa.0.0.insert.ext.i682, 8207
+  switch i32 %5766, label %.critedge330.i [
     i32 8205, label %.thread1868
     i32 0, label %.thread1868
   ]
 
-.critedge330.i:                                   ; preds = %5766
-  %5768 = zext i16 %.sroa.0.0.copyload.i679 to i64
-  %5769 = shl nuw nsw i64 %5768, 12
-  %5770 = lshr i16 %.sroa.0.0.copyload.i679, 2
-  %5771 = and i16 %5770, 4032
-  %5772 = zext nneg i16 %5771 to i64
-  %5773 = and i8 %5763, 63
+.critedge330.i:                                   ; preds = %5765
+  %5767 = zext i16 %.sroa.0.0.copyload.i679 to i64
+  %5768 = shl nuw nsw i64 %5767, 12
+  %5769 = lshr i16 %.sroa.0.0.copyload.i679, 2
+  %5770 = and i16 %5769, 4032
+  %5771 = zext nneg i16 %5770 to i64
+  %5772 = and i8 %5762, 63
   store i16 30044, ptr %.8.i92, align 1
-  %5774 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
-  %.masked.i = or disjoint i64 %5769, %5772
-  %5775 = lshr i64 %.masked.i, 7
-  %5776 = and i64 %5775, 510
-  %5777 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5776
-  %5778 = load i16, ptr %5777, align 2
-  store i16 %5778, ptr %5774, align 1
-  %5779 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
-  %.tr299.i = trunc i16 %5771 to i8
-  %.narrow300.i = or disjoint i8 %5773, %.tr299.i
-  %5780 = zext i8 %.narrow300.i to i64
-  %5781 = shl nuw nsw i64 %5780, 1
-  %5782 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5781
-  %5783 = load i16, ptr %5782, align 2
-  store i16 %5783, ptr %5779, align 1
-  %5784 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 6
-  %5785 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 3
+  %5773 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
+  %.masked.i = or disjoint i64 %5768, %5771
+  %5774 = lshr i64 %.masked.i, 7
+  %5775 = and i64 %5774, 510
+  %5776 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5775
+  %5777 = load i16, ptr %5776, align 2
+  store i16 %5777, ptr %5773, align 1
+  %5778 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
+  %.tr299.i = trunc i16 %5770 to i8
+  %.narrow300.i = or disjoint i8 %5772, %.tr299.i
+  %5779 = zext i8 %.narrow300.i to i64
+  %5780 = shl nuw nsw i64 %5779, 1
+  %5781 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5780
+  %5782 = load i16, ptr %5781, align 2
+  store i16 %5782, ptr %5778, align 1
+  %5783 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 6
+  %5784 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 3
   br label %.preheader2018.backedge
 
-5786:                                             ; preds = %5679
+5785:                                             ; preds = %5678
   %.sroa.0.0.copyload.i.i = load i32, ptr %.8252.i, align 1
-  %5787 = and i32 %.sroa.0.0.copyload.i.i, -1061109512
-  %5788 = icmp ne i32 %5787, -2139062032
-  %5789 = and i32 %.sroa.0.0.copyload.i.i, 12295
-  %.not293.i = icmp eq i32 %5789, 0
-  %or.cond331.i = or i1 %5788, %.not293.i
-  %5790 = lshr i32 %.sroa.0.0.copyload.i.i, 24
-  br i1 %or.cond331.i, label %.thread1868, label %5791, !prof !212
+  %5786 = and i32 %.sroa.0.0.copyload.i.i, -1061109512
+  %5787 = icmp ne i32 %5786, -2139062032
+  %5788 = and i32 %.sroa.0.0.copyload.i.i, 12295
+  %.not293.i = icmp eq i32 %5788, 0
+  %or.cond331.i = or i1 %5787, %.not293.i
+  %5789 = lshr i32 %.sroa.0.0.copyload.i.i, 24
+  br i1 %or.cond331.i, label %.thread1868, label %5790, !prof !212
 
-5791:                                             ; preds = %5786
-  %5792 = and i32 %.sroa.0.0.copyload.i.i, 4
-  %5793 = icmp ne i32 %5792, 0
-  %5794 = and i32 %.sroa.0.0.copyload.i.i, 12291
-  %5795 = icmp ne i32 %5794, 0
-  %.not296.i = and i1 %5793, %5795
+5790:                                             ; preds = %5785
+  %5791 = and i32 %.sroa.0.0.copyload.i.i, 4
+  %5792 = icmp ne i32 %5791, 0
+  %5793 = and i32 %.sroa.0.0.copyload.i.i, 12291
+  %5794 = icmp ne i32 %5793, 0
+  %.not296.i = and i1 %5792, %5794
   br i1 %.not296.i, label %.thread1868, label %.critedge333.i, !prof !3
 
-.critedge333.i:                                   ; preds = %5791
-  %5796 = shl i32 %.sroa.0.0.copyload.i.i, 18
-  %5797 = and i32 %5796, 1835008
-  %5798 = shl i32 %.sroa.0.0.copyload.i.i, 4
-  %5799 = and i32 %5798, 258048
-  %5800 = lshr i32 %.sroa.0.0.copyload.i.i, 10
-  %5801 = and i32 %5800, 3072
-  %5802 = and i32 %5790, 63
-  %5803 = add nsw i32 %5797, -65536
-  %5804 = add nsw i32 %5803, %5799
-  %5805 = or disjoint i32 %5804, %5801
-  %5806 = lshr exact i32 %5804, 10
-  %5807 = add nuw nsw i32 %5806, 55296
+.critedge333.i:                                   ; preds = %5790
+  %5795 = shl i32 %.sroa.0.0.copyload.i.i, 18
+  %5796 = and i32 %5795, 1835008
+  %5797 = shl i32 %.sroa.0.0.copyload.i.i, 4
+  %5798 = and i32 %5797, 258048
+  %5799 = lshr i32 %.sroa.0.0.copyload.i.i, 10
+  %5800 = and i32 %5799, 3072
+  %5801 = and i32 %5789, 63
+  %5802 = add nsw i32 %5796, -65536
+  %5803 = add nsw i32 %5802, %5798
+  %5804 = or disjoint i32 %5803, %5800
+  %5805 = lshr exact i32 %5803, 10
+  %5806 = add nuw nsw i32 %5805, 55296
   store i16 30044, ptr %.8.i92, align 1
-  %5808 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
-  %5809 = lshr i32 %5807, 7
-  %5810 = and i32 %5809, 65534
-  %5811 = zext nneg i32 %5810 to i64
-  %5812 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5811
-  %5813 = load i16, ptr %5812, align 2
-  store i16 %5813, ptr %5808, align 1
-  %5814 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
-  %5815 = lshr exact i32 %5805, 9
-  %5816 = and i32 %5815, 510
-  %5817 = zext nneg i32 %5816 to i64
-  %5818 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5817
-  %5819 = load i16, ptr %5818, align 2
-  store i16 %5819, ptr %5814, align 1
-  %5820 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 6
-  store i16 30044, ptr %5820, align 1
-  %5821 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 8
-  %5822 = lshr i32 %.sroa.0.0.copyload.i.i, 17
-  %5823 = and i32 %5822, 6
-  %5824 = zext nneg i32 %5823 to i64
-  %5825 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5824
-  %5826 = getelementptr inbounds nuw i8, ptr %5825, i64 440
-  %5827 = load i16, ptr %5826, align 2
-  store i16 %5827, ptr %5821, align 1
-  %5828 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 10
-  %.masked4098 = and i32 %5800, 192
-  %5829 = or disjoint i32 %5802, %.masked4098
-  %5830 = shl nuw nsw i32 %5829, 1
-  %5831 = zext nneg i32 %5830 to i64
-  %5832 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5831
-  %5833 = load i16, ptr %5832, align 2
-  store i16 %5833, ptr %5828, align 1
-  %5834 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 12
+  %5807 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
+  %5808 = lshr i32 %5806, 7
+  %5809 = and i32 %5808, 65534
+  %5810 = zext nneg i32 %5809 to i64
+  %5811 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5810
+  %5812 = load i16, ptr %5811, align 2
+  store i16 %5812, ptr %5807, align 1
+  %5813 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
+  %5814 = lshr exact i32 %5804, 9
+  %5815 = and i32 %5814, 510
+  %5816 = zext nneg i32 %5815 to i64
+  %5817 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5816
+  %5818 = load i16, ptr %5817, align 2
+  store i16 %5818, ptr %5813, align 1
+  %5819 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 6
+  store i16 30044, ptr %5819, align 1
+  %5820 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 8
+  %5821 = lshr i32 %.sroa.0.0.copyload.i.i, 17
+  %5822 = and i32 %5821, 6
+  %5823 = zext nneg i32 %5822 to i64
+  %5824 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5823
+  %5825 = getelementptr inbounds nuw i8, ptr %5824, i64 440
+  %5826 = load i16, ptr %5825, align 2
+  store i16 %5826, ptr %5820, align 1
+  %5827 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 10
+  %.masked4098 = and i32 %5799, 192
+  %5828 = or disjoint i32 %5801, %.masked4098
+  %5829 = shl nuw nsw i32 %5828, 1
+  %5830 = zext nneg i32 %5829 to i64
+  %5831 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5830
+  %5832 = load i16, ptr %5831, align 2
+  store i16 %5832, ptr %5827, align 1
+  %5833 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 12
   br label %.preheader2018.backedge
 
-5835:                                             ; preds = %5679, %5669
-  %5836 = phi i8 [ %5681, %5679 ], [ %5672, %5669 ]
+5834:                                             ; preds = %5678, %5668
+  %5835 = phi i8 [ %5680, %5678 ], [ %5671, %5668 ]
   br i1 %.not1920, label %.thread1852, label %.thread1868
 
-.thread1852:                                      ; preds = %5711, %5716, %5701, %5695, %5707, %5707, %5699, %5699, %5684, %5835
-  %5837 = phi i8 [ %5715, %5711 ], [ %5715, %5716 ], [ %5706, %5701 ], [ %5698, %5695 ], [ %5706, %5707 ], [ %5706, %5707 ], [ %5698, %5699 ], [ %5698, %5699 ], [ %5690, %5684 ], [ %5836, %5835 ]
-  br i1 %.not1923, label %.loopexit2019, label %5838
+.thread1852:                                      ; preds = %5710, %5715, %5700, %5694, %5706, %5706, %5698, %5698, %5683, %5834
+  %5836 = phi i8 [ %5714, %5710 ], [ %5714, %5715 ], [ %5705, %5700 ], [ %5697, %5694 ], [ %5705, %5706 ], [ %5705, %5706 ], [ %5697, %5698 ], [ %5697, %5698 ], [ %5689, %5683 ], [ %5835, %5834 ]
+  br i1 %.not1923, label %.loopexit2019, label %5837
 
-5838:                                             ; preds = %.thread1852
-  %5839 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
-  %5840 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 1
-  store i8 %5837, ptr %.8.i92, align 1, !tbaa !75
+5837:                                             ; preds = %.thread1852
+  %5838 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
+  %5839 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 1
+  store i8 %5836, ptr %.8.i92, align 1, !tbaa !75
   br label %.preheader2018.backedge
 
-.thread1868:                                      ; preds = %5786, %5791, %5761, %5766, %5766, %5737, %5835
-  br i1 %.not1923, label %.loopexit2019, label %5841
+.thread1868:                                      ; preds = %5785, %5790, %5760, %5765, %5765, %5736, %5834
+  br i1 %.not1923, label %.loopexit2019, label %5840
 
-5841:                                             ; preds = %.thread1868
+5840:                                             ; preds = %.thread1868
   store i16 30044, ptr %.8.i92, align 1
-  %5842 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
-  store i32 1145456198, ptr %5842, align 1
-  %5843 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 6
-  %5844 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
+  %5841 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 2
+  store i32 1145456198, ptr %5841, align 1
+  %5842 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 6
+  %5843 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
   br label %.preheader2018.backedge
 
-5845:                                             ; preds = %5471
-  %5846 = getelementptr inbounds nuw i8, ptr %.1338.i, i64 1
-  %5847 = icmp ugt i64 %5067, 4095
-  br i1 %5847, label %.lr.ph3207, label %.preheader2049
+5844:                                             ; preds = %5470
+  %5845 = getelementptr inbounds nuw i8, ptr %.1338.i, i64 1
+  %5846 = icmp ugt i64 %5066, 4095
+  br i1 %5846, label %.lr.ph3207, label %.preheader2049
 
-.preheader2049:                                   ; preds = %.lr.ph3207, %5845
-  %.021.i.lcssa = phi ptr [ %5846, %5845 ], [ %5849, %.lr.ph3207 ]
-  %.018.i.lcssa = phi ptr [ %5076, %5845 ], [ %5850, %.lr.ph3207 ]
-  %.0.i60.lcssa = phi i64 [ %5074, %5845 ], [ %5851, %.lr.ph3207 ]
-  %5848 = icmp samesign ugt i64 %.0.i60.lcssa, 3
-  br i1 %5848, label %.lr.ph3214, label %.preheader2048
+.preheader2049:                                   ; preds = %.lr.ph3207, %5844
+  %.021.i.lcssa = phi ptr [ %5845, %5844 ], [ %5848, %.lr.ph3207 ]
+  %.018.i.lcssa = phi ptr [ %5075, %5844 ], [ %5849, %.lr.ph3207 ]
+  %.0.i60.lcssa = phi i64 [ %5073, %5844 ], [ %5850, %.lr.ph3207 ]
+  %5847 = icmp samesign ugt i64 %.0.i60.lcssa, 3
+  br i1 %5847, label %.lr.ph3214, label %.preheader2048
 
-.lr.ph3207:                                       ; preds = %5845, %.lr.ph3207
-  %.0.i603205 = phi i64 [ %5851, %.lr.ph3207 ], [ %5074, %5845 ]
-  %.018.i3204 = phi ptr [ %5850, %.lr.ph3207 ], [ %5076, %5845 ]
-  %.021.i3203 = phi ptr [ %5849, %.lr.ph3207 ], [ %5846, %5845 ]
+.lr.ph3207:                                       ; preds = %5844, %.lr.ph3207
+  %.0.i603205 = phi i64 [ %5850, %.lr.ph3207 ], [ %5073, %5844 ]
+  %.018.i3204 = phi ptr [ %5849, %.lr.ph3207 ], [ %5075, %5844 ]
+  %.021.i3203 = phi ptr [ %5848, %.lr.ph3207 ], [ %5845, %5844 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.021.i3203, ptr noundef nonnull align 1 dereferenceable(16) %.018.i3204, i64 16, i1 false)
-  %5849 = getelementptr inbounds nuw i8, ptr %.021.i3203, i64 16
-  %5850 = getelementptr inbounds nuw i8, ptr %.018.i3204, i64 16
-  %5851 = add nsw i64 %.0.i603205, -16
-  %5852 = icmp ugt i64 %5851, 15
-  br i1 %5852, label %.lr.ph3207, label %.preheader2049, !llvm.loop !213
+  %5848 = getelementptr inbounds nuw i8, ptr %.021.i3203, i64 16
+  %5849 = getelementptr inbounds nuw i8, ptr %.018.i3204, i64 16
+  %5850 = add nsw i64 %.0.i603205, -16
+  %5851 = icmp ugt i64 %5850, 15
+  br i1 %5851, label %.lr.ph3207, label %.preheader2049, !llvm.loop !213
 
 .preheader2048:                                   ; preds = %.lr.ph3214, %.preheader2049
-  %.122.i.lcssa = phi ptr [ %.021.i.lcssa, %.preheader2049 ], [ %5854, %.lr.ph3214 ]
-  %.119.i.lcssa = phi ptr [ %.018.i.lcssa, %.preheader2049 ], [ %5855, %.lr.ph3214 ]
-  %.1.i61.lcssa = phi i64 [ %.0.i60.lcssa, %.preheader2049 ], [ %5856, %.lr.ph3214 ]
+  %.122.i.lcssa = phi ptr [ %.021.i.lcssa, %.preheader2049 ], [ %5853, %.lr.ph3214 ]
+  %.119.i.lcssa = phi ptr [ %.018.i.lcssa, %.preheader2049 ], [ %5854, %.lr.ph3214 ]
+  %.1.i61.lcssa = phi i64 [ %.0.i60.lcssa, %.preheader2049 ], [ %5855, %.lr.ph3214 ]
   %.not.i633218 = icmp eq i64 %.1.i61.lcssa, 0
   br i1 %.not.i633218, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, label %.lr.ph3222
 
 .lr.ph3214:                                       ; preds = %.preheader2049, %.lr.ph3214
-  %.1.i613213 = phi i64 [ %5856, %.lr.ph3214 ], [ %.0.i60.lcssa, %.preheader2049 ]
-  %.119.i3212 = phi ptr [ %5855, %.lr.ph3214 ], [ %.018.i.lcssa, %.preheader2049 ]
-  %.122.i3211 = phi ptr [ %5854, %.lr.ph3214 ], [ %.021.i.lcssa, %.preheader2049 ]
-  %5853 = load i32, ptr %.119.i3212, align 1
-  store i32 %5853, ptr %.122.i3211, align 1
-  %5854 = getelementptr inbounds nuw i8, ptr %.122.i3211, i64 4
-  %5855 = getelementptr inbounds nuw i8, ptr %.119.i3212, i64 4
-  %5856 = add nsw i64 %.1.i613213, -4
-  %5857 = icmp ugt i64 %5856, 3
-  br i1 %5857, label %.lr.ph3214, label %.preheader2048, !llvm.loop !214
+  %.1.i613213 = phi i64 [ %5855, %.lr.ph3214 ], [ %.0.i60.lcssa, %.preheader2049 ]
+  %.119.i3212 = phi ptr [ %5854, %.lr.ph3214 ], [ %.018.i.lcssa, %.preheader2049 ]
+  %.122.i3211 = phi ptr [ %5853, %.lr.ph3214 ], [ %.021.i.lcssa, %.preheader2049 ]
+  %5852 = load i32, ptr %.119.i3212, align 1
+  store i32 %5852, ptr %.122.i3211, align 1
+  %5853 = getelementptr inbounds nuw i8, ptr %.122.i3211, i64 4
+  %5854 = getelementptr inbounds nuw i8, ptr %.119.i3212, i64 4
+  %5855 = add nsw i64 %.1.i613213, -4
+  %5856 = icmp ugt i64 %5855, 3
+  br i1 %5856, label %.lr.ph3214, label %.preheader2048, !llvm.loop !214
 
 .lr.ph3222:                                       ; preds = %.preheader2048, %.lr.ph3222
-  %.2.i623221 = phi i64 [ %5861, %.lr.ph3222 ], [ %.1.i61.lcssa, %.preheader2048 ]
-  %.220.i3220 = phi ptr [ %5858, %.lr.ph3222 ], [ %.119.i.lcssa, %.preheader2048 ]
-  %.223.i3219 = phi ptr [ %5860, %.lr.ph3222 ], [ %.122.i.lcssa, %.preheader2048 ]
-  %5858 = getelementptr inbounds nuw i8, ptr %.220.i3220, i64 1
-  %5859 = load i8, ptr %.220.i3220, align 1, !tbaa !75
-  %5860 = getelementptr inbounds nuw i8, ptr %.223.i3219, i64 1
-  store i8 %5859, ptr %.223.i3219, align 1, !tbaa !75
-  %5861 = add nsw i64 %.2.i623221, -1
-  %.not.i63 = icmp eq i64 %5861, 0
+  %.2.i623221 = phi i64 [ %5860, %.lr.ph3222 ], [ %.1.i61.lcssa, %.preheader2048 ]
+  %.220.i3220 = phi ptr [ %5857, %.lr.ph3222 ], [ %.119.i.lcssa, %.preheader2048 ]
+  %.223.i3219 = phi ptr [ %5859, %.lr.ph3222 ], [ %.122.i.lcssa, %.preheader2048 ]
+  %5857 = getelementptr inbounds nuw i8, ptr %.220.i3220, i64 1
+  %5858 = load i8, ptr %.220.i3220, align 1, !tbaa !75
+  %5859 = getelementptr inbounds nuw i8, ptr %.223.i3219, i64 1
+  store i8 %5858, ptr %.223.i3219, align 1, !tbaa !75
+  %5860 = add nsw i64 %.2.i623221, -1
+  %.not.i63 = icmp eq i64 %5860, 0
   br i1 %.not.i63, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, label %.lr.ph3222, !llvm.loop !215
 
-_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200: ; preds = %.preheader2035, %.lr.ph3222, %.preheader2021, %5241, %5293, %5305, %5615, %5667, %5679, %.preheader2048
-  %.7.i109.lcssa.sink5415 = phi ptr [ %.122.i.lcssa, %.preheader2048 ], [ %.8.i92, %5679 ], [ %.8.i92, %5667 ], [ %5617, %5615 ], [ %.8.i115, %5305 ], [ %.8.i115, %5293 ], [ %5243, %5241 ], [ %.6.i87.lcssa, %.preheader2021 ], [ %5860, %.lr.ph3222 ], [ %.6.i107.lcssa, %.preheader2035 ]
-  %5862 = getelementptr inbounds nuw i8, ptr %.7.i109.lcssa.sink5415, i64 1
+_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200: ; preds = %.preheader2035, %.lr.ph3222, %.preheader2021, %5240, %5292, %5304, %5614, %5666, %5678, %.preheader2048
+  %.7.i109.lcssa.sink5415 = phi ptr [ %.122.i.lcssa, %.preheader2048 ], [ %.8.i92, %5678 ], [ %.8.i92, %5666 ], [ %5616, %5614 ], [ %.8.i115, %5304 ], [ %.8.i115, %5292 ], [ %5242, %5240 ], [ %.6.i87.lcssa, %.preheader2021 ], [ %5859, %.lr.ph3222 ], [ %.6.i107.lcssa, %.preheader2035 ]
+  %5861 = getelementptr inbounds nuw i8, ptr %.7.i109.lcssa.sink5415, i64 1
   store i8 34, ptr %.7.i109.lcssa.sink5415, align 1, !tbaa !75
-  %5863 = select i1 %.not392.i, i8 44, i8 58
-  %5864 = getelementptr inbounds nuw i8, ptr %.7.i109.lcssa.sink5415, i64 2
-  store i8 %5863, ptr %5862, align 1, !tbaa !75
-  br label %7569
+  %5862 = select i1 %.not392.i, i8 44, i8 58
+  %5863 = getelementptr inbounds nuw i8, ptr %.7.i109.lcssa.sink5415, i64 2
+  store i8 %5862, ptr %5861, align 1, !tbaa !75
+  br label %7567
 
-5865:                                             ; preds = %5066
-  %5866 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 32
-  %.not388.i = icmp ult ptr %5866, %.0356.i
-  br i1 %.not388.i, label %5886, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit412.i, !prof !22
+5864:                                             ; preds = %5065
+  %5865 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 32
+  %.not388.i = icmp ult ptr %5865, %.0356.i
+  br i1 %.not388.i, label %5885, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit412.i, !prof !22
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit412.i:  ; preds = %5865
-  %5867 = lshr i64 %.0348.i, 1
-  %5868 = tail call i64 @llvm.umax.i64(i64 %5867, i64 32)
-  %5869 = add nuw i64 %5868, 7
-  %5870 = and i64 %5869, -8
-  %5871 = add i64 %5870, %.0348.i
-  %5872 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %5871)
-  %.not389.i = icmp eq ptr %5872, null
-  br i1 %.not389.i, label %.loopexit2050, label %5873, !prof !3
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit412.i:  ; preds = %5864
+  %5866 = lshr i64 %.0348.i, 1
+  %5867 = tail call i64 @llvm.umax.i64(i64 %5866, i64 32)
+  %5868 = add nuw i64 %5867, 7
+  %5869 = and i64 %5868, -8
+  %5870 = add i64 %5869, %.0348.i
+  %5871 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %5870)
+  %.not389.i = icmp eq ptr %5871, null
+  br i1 %.not389.i, label %.loopexit2050, label %5872, !prof !3
 
-5873:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit412.i
-  %5874 = ptrtoint ptr %.0365.i to i64
-  %5875 = ptrtoint ptr %.0356.i to i64
-  %5876 = sub i64 %5874, %5875
-  %5877 = sub i64 %5871, %5876
-  %5878 = getelementptr inbounds nuw i8, ptr %5872, i64 %5877
-  %5879 = ptrtoint ptr %.0336.i to i64
-  %5880 = sub i64 %5875, %5879
-  %5881 = getelementptr inbounds i8, ptr %5872, i64 %5880
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5878, ptr nonnull align 1 %5881, i64 %5876, i1 false)
-  %5882 = ptrtoint ptr %.0337.i to i64
-  %5883 = sub i64 %5882, %5879
-  %5884 = getelementptr inbounds i8, ptr %5872, i64 %5883
-  %5885 = getelementptr inbounds nuw i8, ptr %5872, i64 %5871
+5872:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit412.i
+  %5873 = ptrtoint ptr %.0365.i to i64
+  %5874 = ptrtoint ptr %.0356.i to i64
+  %5875 = sub i64 %5873, %5874
+  %5876 = sub i64 %5870, %5875
+  %5877 = getelementptr inbounds nuw i8, ptr %5871, i64 %5876
+  %5878 = ptrtoint ptr %.0336.i to i64
+  %5879 = sub i64 %5874, %5878
+  %5880 = getelementptr inbounds i8, ptr %5871, i64 %5879
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5877, ptr nonnull align 1 %5880, i64 %5875, i1 false)
+  %5881 = ptrtoint ptr %.0337.i to i64
+  %5882 = sub i64 %5881, %5878
+  %5883 = getelementptr inbounds i8, ptr %5871, i64 %5882
+  %5884 = getelementptr inbounds nuw i8, ptr %5871, i64 %5870
   %.pre3898 = load i64, ptr %.0335.i, align 8, !tbaa !73
-  br label %5886
+  br label %5885
 
-5886:                                             ; preds = %5873, %5865
-  %5887 = phi i64 [ %.pre3898, %5873 ], [ %5067, %5865 ]
-  %.3368.i = phi ptr [ %5885, %5873 ], [ %.0365.i, %5865 ]
-  %.3359.i = phi ptr [ %5878, %5873 ], [ %.0356.i, %5865 ]
-  %.3351.i = phi i64 [ %5871, %5873 ], [ %.0348.i, %5865 ]
-  %.4341.i = phi ptr [ %5884, %5873 ], [ %.0337.i, %5865 ]
-  %.3.i35 = phi ptr [ %5872, %5873 ], [ %.0336.i, %5865 ]
-  %5888 = and i64 %5887, 16
-  %.not.i601 = icmp eq i64 %5888, 0
-  %5889 = getelementptr inbounds nuw i8, ptr %.0335.i, i64 8
-  %5890 = load i64, ptr %5889, align 8, !tbaa !75
-  br i1 %.not.i601, label %7099, label %5891
+5885:                                             ; preds = %5872, %5864
+  %5886 = phi i64 [ %.pre3898, %5872 ], [ %5066, %5864 ]
+  %.3368.i = phi ptr [ %5884, %5872 ], [ %.0365.i, %5864 ]
+  %.3359.i = phi ptr [ %5877, %5872 ], [ %.0356.i, %5864 ]
+  %.3351.i = phi i64 [ %5870, %5872 ], [ %.0348.i, %5864 ]
+  %.4341.i = phi ptr [ %5883, %5872 ], [ %.0337.i, %5864 ]
+  %.3.i35 = phi ptr [ %5871, %5872 ], [ %.0336.i, %5864 ]
+  %5887 = and i64 %5886, 16
+  %.not.i601 = icmp eq i64 %5887, 0
+  %5888 = getelementptr inbounds nuw i8, ptr %.0335.i, i64 8
+  %5889 = load i64, ptr %5888, align 8, !tbaa !75
+  br i1 %.not.i601, label %7098, label %5890
 
-5891:                                             ; preds = %5886
-  %5892 = and i64 %5890, 4503599627370495
-  %5893 = lshr i64 %5890, 52
-  %5894 = trunc nuw nsw i64 %5893 to i32
-  %5895 = and i32 %5894, 2047
-  %5896 = icmp eq i32 %5895, 2047
-  br i1 %5896, label %5897, label %5908, !prof !3
+5890:                                             ; preds = %5885
+  %5891 = and i64 %5889, 4503599627370495
+  %5892 = lshr i64 %5889, 52
+  %5893 = trunc nuw nsw i64 %5892 to i32
+  %5894 = and i32 %5893, 2047
+  %5895 = icmp eq i32 %5894, 2047
+  br i1 %5895, label %5896, label %5907, !prof !3
 
-5897:                                             ; preds = %5891
-  br i1 %.not1936, label %5900, label %5898, !prof !22
+5896:                                             ; preds = %5890
+  br i1 %.not1936, label %5899, label %5897, !prof !22
 
-5898:                                             ; preds = %5897
+5897:                                             ; preds = %5896
   store i32 1819047278, ptr %.4341.i, align 1
-  %5899 = getelementptr inbounds nuw i8, ptr %.4341.i, i64 4
+  %5898 = getelementptr inbounds nuw i8, ptr %.4341.i, i64 4
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-5900:                                             ; preds = %5897
-  br i1 %.not1937, label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890, label %5901, !prof !22
+5899:                                             ; preds = %5896
+  br i1 %.not1937, label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890, label %5900, !prof !22
 
-5901:                                             ; preds = %5900
-  %5902 = icmp eq i64 %5892, 0
-  br i1 %5902, label %5903, label %5906
+5900:                                             ; preds = %5899
+  %5901 = icmp eq i64 %5891, 0
+  br i1 %5901, label %5902, label %5905
 
-5903:                                             ; preds = %5901
+5902:                                             ; preds = %5900
   store i8 45, ptr %.4341.i, align 1, !tbaa !75
-  %.lobit131.i718 = lshr i64 %5890, 63
-  %5904 = getelementptr inbounds nuw i8, ptr %.4341.i, i64 %.lobit131.i718
-  store i64 8751735898823355977, ptr %5904, align 1
-  %5905 = getelementptr inbounds nuw i8, ptr %5904, i64 8
+  %.lobit131.i718 = lshr i64 %5889, 63
+  %5903 = getelementptr inbounds nuw i8, ptr %.4341.i, i64 %.lobit131.i718
+  store i64 8751735898823355977, ptr %5903, align 1
+  %5904 = getelementptr inbounds nuw i8, ptr %5903, i64 8
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-5906:                                             ; preds = %5901
+5905:                                             ; preds = %5900
   store i32 5136718, ptr %.4341.i, align 1
-  %5907 = getelementptr inbounds nuw i8, ptr %.4341.i, i64 3
+  %5906 = getelementptr inbounds nuw i8, ptr %.4341.i, i64 3
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-5908:                                             ; preds = %5891
+5907:                                             ; preds = %5890
   store i8 45, ptr %.4341.i, align 1, !tbaa !75
-  %.lobit.i705 = lshr i64 %5890, 63
-  %5909 = getelementptr i8, ptr %.4341.i, i64 %.lobit.i705
-  %.mask.i706 = and i64 %5890, 9223372036854775807
-  %5910 = icmp eq i64 %.mask.i706, 0
-  br i1 %5910, label %5911, label %5913
+  %.lobit.i705 = lshr i64 %5889, 63
+  %5908 = getelementptr i8, ptr %.4341.i, i64 %.lobit.i705
+  %.mask.i706 = and i64 %5889, 9223372036854775807
+  %5909 = icmp eq i64 %.mask.i706, 0
+  br i1 %5909, label %5910, label %5912
 
-5911:                                             ; preds = %5908
-  store i32 3157552, ptr %5909, align 1
-  %5912 = getelementptr inbounds nuw i8, ptr %5909, i64 3
+5910:                                             ; preds = %5907
+  store i32 3157552, ptr %5908, align 1
+  %5911 = getelementptr inbounds nuw i8, ptr %5908, i64 3
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-5913:                                             ; preds = %5908
-  %.not.i707 = icmp eq i32 %5895, 0
-  br i1 %.not.i707, label %6706, label %5914, !prof !3
+5912:                                             ; preds = %5907
+  %.not.i707 = icmp eq i32 %5894, 0
+  br i1 %.not.i707, label %6705, label %5913, !prof !3
 
-5914:                                             ; preds = %5913
-  %5915 = or disjoint i64 %5892, 4503599627370496
-  %5916 = add nsw i32 %5895, -1023
-  %or.cond.i708 = icmp ult i32 %5916, 53
-  br i1 %or.cond.i708, label %5917, label %6150
+5913:                                             ; preds = %5912
+  %5914 = or disjoint i64 %5891, 4503599627370496
+  %5915 = add nsw i32 %5894, -1023
+  %or.cond.i708 = icmp ult i32 %5915, 53
+  br i1 %or.cond.i708, label %5916, label %6149
 
-5917:                                             ; preds = %5914
-  %5918 = tail call range(i64 0, 53) i64 @llvm.cttz.i64(i64 range(i64 4503599627370496, 9007199254740992) %5915, i1 true)
-  %5919 = trunc nuw nsw i64 %5918 to i32
-  %5920 = sub nuw nsw i32 1075, %5895
-  %.not127.i715 = icmp samesign ugt i32 %5920, %5919
-  br i1 %.not127.i715, label %6150, label %5921
+5916:                                             ; preds = %5913
+  %5917 = tail call range(i64 0, 53) i64 @llvm.cttz.i64(i64 range(i64 4503599627370496, 9007199254740992) %5914, i1 true)
+  %5918 = trunc nuw nsw i64 %5917 to i32
+  %5919 = sub nuw nsw i32 1075, %5894
+  %.not127.i715 = icmp samesign ugt i32 %5919, %5918
+  br i1 %.not127.i715, label %6149, label %5920
 
-5921:                                             ; preds = %5917
-  %5922 = zext nneg i32 %5920 to i64
-  %5923 = lshr i64 %5915, %5922
-  %5924 = icmp samesign ult i64 %5923, 100000000
-  br i1 %5924, label %5925, label %6020
+5920:                                             ; preds = %5916
+  %5921 = zext nneg i32 %5919 to i64
+  %5922 = lshr i64 %5914, %5921
+  %5923 = icmp samesign ult i64 %5922, 100000000
+  br i1 %5923, label %5924, label %6019
 
-5925:                                             ; preds = %5921
-  %5926 = trunc nuw nsw i64 %5923 to i32
-  %5927 = icmp samesign ult i64 %5923, 100
-  br i1 %5927, label %5928, label %5937
+5924:                                             ; preds = %5920
+  %5925 = trunc nuw nsw i64 %5922 to i32
+  %5926 = icmp samesign ult i64 %5922, 100
+  br i1 %5926, label %5927, label %5936
 
-5928:                                             ; preds = %5925
-  %5929 = icmp samesign ult i64 %5923, 10
-  %5930 = shl nuw nsw i64 %5923, 1
-  %5931 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5930
-  %.neg70.i1098 = sext i1 %5929 to i64
-  %5932 = zext i1 %5929 to i64
-  %5933 = getelementptr inbounds nuw i8, ptr %5931, i64 %5932
-  %5934 = load i16, ptr %5933, align 1
-  store i16 %5934, ptr %5909, align 1
-  %5935 = getelementptr inbounds i8, ptr %5909, i64 %.neg70.i1098
-  %5936 = getelementptr inbounds nuw i8, ptr %5935, i64 2
+5927:                                             ; preds = %5924
+  %5928 = icmp samesign ult i64 %5922, 10
+  %5929 = shl nuw nsw i64 %5922, 1
+  %5930 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5929
+  %.neg70.i1098 = sext i1 %5928 to i64
+  %5931 = zext i1 %5928 to i64
+  %5932 = getelementptr inbounds nuw i8, ptr %5930, i64 %5931
+  %5933 = load i16, ptr %5932, align 1
+  store i16 %5933, ptr %5908, align 1
+  %5934 = getelementptr inbounds i8, ptr %5908, i64 %.neg70.i1098
+  %5935 = getelementptr inbounds nuw i8, ptr %5934, i64 2
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit
 
-5937:                                             ; preds = %5925
-  %5938 = icmp samesign ult i64 %5923, 10000
-  br i1 %5938, label %5939, label %5957
+5936:                                             ; preds = %5924
+  %5937 = icmp samesign ult i64 %5922, 10000
+  br i1 %5937, label %5938, label %5956
 
-5939:                                             ; preds = %5937
-  %5940 = mul nuw nsw i32 %5926, 5243
-  %5941 = lshr i32 %5940, 19
-  %.neg68.i1096 = mul nsw i32 %5941, -100
-  %5942 = add nsw i32 %.neg68.i1096, %5926
-  %5943 = icmp samesign ult i64 %5923, 1000
-  %5944 = shl nuw nsw i32 %5941, 1
-  %5945 = zext nneg i32 %5944 to i64
-  %5946 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5945
-  %.neg69.i1097 = sext i1 %5943 to i64
-  %5947 = zext i1 %5943 to i64
-  %5948 = getelementptr inbounds nuw i8, ptr %5946, i64 %5947
-  %5949 = load i16, ptr %5948, align 1
-  store i16 %5949, ptr %5909, align 1
-  %5950 = getelementptr inbounds i8, ptr %5909, i64 %.neg69.i1097
-  %5951 = getelementptr inbounds nuw i8, ptr %5950, i64 2
-  %5952 = shl nsw i32 %5942, 1
-  %5953 = zext i32 %5952 to i64
-  %5954 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5953
-  %5955 = load i16, ptr %5954, align 2
-  store i16 %5955, ptr %5951, align 1
-  %5956 = getelementptr inbounds nuw i8, ptr %5950, i64 4
+5938:                                             ; preds = %5936
+  %5939 = mul nuw nsw i32 %5925, 5243
+  %5940 = lshr i32 %5939, 19
+  %.neg68.i1096 = mul nsw i32 %5940, -100
+  %5941 = add nsw i32 %.neg68.i1096, %5925
+  %5942 = icmp samesign ult i64 %5922, 1000
+  %5943 = shl nuw nsw i32 %5940, 1
+  %5944 = zext nneg i32 %5943 to i64
+  %5945 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5944
+  %.neg69.i1097 = sext i1 %5942 to i64
+  %5946 = zext i1 %5942 to i64
+  %5947 = getelementptr inbounds nuw i8, ptr %5945, i64 %5946
+  %5948 = load i16, ptr %5947, align 1
+  store i16 %5948, ptr %5908, align 1
+  %5949 = getelementptr inbounds i8, ptr %5908, i64 %.neg69.i1097
+  %5950 = getelementptr inbounds nuw i8, ptr %5949, i64 2
+  %5951 = shl nsw i32 %5941, 1
+  %5952 = zext i32 %5951 to i64
+  %5953 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5952
+  %5954 = load i16, ptr %5953, align 2
+  store i16 %5954, ptr %5950, align 1
+  %5955 = getelementptr inbounds nuw i8, ptr %5949, i64 4
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit
 
-5957:                                             ; preds = %5937
-  %5958 = icmp samesign ult i64 %5923, 1000000
-  br i1 %5958, label %5959, label %5985
+5956:                                             ; preds = %5936
+  %5957 = icmp samesign ult i64 %5922, 1000000
+  br i1 %5957, label %5958, label %5984
 
-5959:                                             ; preds = %5957
-  %5960 = mul nuw nsw i64 %5923, 429497
-  %5961 = lshr i64 %5960, 32
-  %5962 = trunc nuw nsw i64 %5961 to i32
-  %.neg65.i1093 = mul nsw i32 %5962, -10000
-  %5963 = add nsw i32 %.neg65.i1093, %5926
-  %5964 = mul i32 %5963, 5243
-  %5965 = lshr i32 %5964, 19
-  %.neg66.i1094 = mul nsw i32 %5965, -100
-  %5966 = add nsw i32 %.neg66.i1094, %5963
-  %5967 = icmp samesign ult i64 %5923, 100000
-  %5968 = shl nuw nsw i64 %5961, 1
-  %5969 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5968
-  %.neg67.i1095 = sext i1 %5967 to i64
-  %5970 = zext i1 %5967 to i64
-  %5971 = getelementptr inbounds nuw i8, ptr %5969, i64 %5970
-  %5972 = load i16, ptr %5971, align 1
-  store i16 %5972, ptr %5909, align 1
-  %5973 = getelementptr inbounds i8, ptr %5909, i64 %.neg67.i1095
-  %5974 = getelementptr inbounds nuw i8, ptr %5973, i64 2
-  %5975 = shl nuw nsw i32 %5965, 1
-  %5976 = zext nneg i32 %5975 to i64
-  %5977 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5976
-  %5978 = load i16, ptr %5977, align 2
-  store i16 %5978, ptr %5974, align 1
-  %5979 = getelementptr inbounds nuw i8, ptr %5973, i64 4
-  %5980 = shl nsw i32 %5966, 1
-  %5981 = zext i32 %5980 to i64
-  %5982 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5981
-  %5983 = load i16, ptr %5982, align 2
-  store i16 %5983, ptr %5979, align 1
-  %5984 = getelementptr inbounds nuw i8, ptr %5973, i64 6
+5958:                                             ; preds = %5956
+  %5959 = mul nuw nsw i64 %5922, 429497
+  %5960 = lshr i64 %5959, 32
+  %5961 = trunc nuw nsw i64 %5960 to i32
+  %.neg65.i1093 = mul nsw i32 %5961, -10000
+  %5962 = add nsw i32 %.neg65.i1093, %5925
+  %5963 = mul i32 %5962, 5243
+  %5964 = lshr i32 %5963, 19
+  %.neg66.i1094 = mul nsw i32 %5964, -100
+  %5965 = add nsw i32 %.neg66.i1094, %5962
+  %5966 = icmp samesign ult i64 %5922, 100000
+  %5967 = shl nuw nsw i64 %5960, 1
+  %5968 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5967
+  %.neg67.i1095 = sext i1 %5966 to i64
+  %5969 = zext i1 %5966 to i64
+  %5970 = getelementptr inbounds nuw i8, ptr %5968, i64 %5969
+  %5971 = load i16, ptr %5970, align 1
+  store i16 %5971, ptr %5908, align 1
+  %5972 = getelementptr inbounds i8, ptr %5908, i64 %.neg67.i1095
+  %5973 = getelementptr inbounds nuw i8, ptr %5972, i64 2
+  %5974 = shl nuw nsw i32 %5964, 1
+  %5975 = zext nneg i32 %5974 to i64
+  %5976 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5975
+  %5977 = load i16, ptr %5976, align 2
+  store i16 %5977, ptr %5973, align 1
+  %5978 = getelementptr inbounds nuw i8, ptr %5972, i64 4
+  %5979 = shl nsw i32 %5965, 1
+  %5980 = zext i32 %5979 to i64
+  %5981 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5980
+  %5982 = load i16, ptr %5981, align 2
+  store i16 %5982, ptr %5978, align 1
+  %5983 = getelementptr inbounds nuw i8, ptr %5972, i64 6
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit
 
-5985:                                             ; preds = %5957
-  %5986 = mul nuw nsw i64 %5923, 109951163
-  %5987 = lshr i64 %5986, 40
-  %5988 = trunc nuw nsw i64 %5987 to i32
-  %.neg.i1088 = mul nsw i32 %5988, -10000
-  %5989 = add nsw i32 %.neg.i1088, %5926
-  %5990 = mul nuw nsw i32 %5988, 5243
-  %5991 = lshr i32 %5990, 19
-  %5992 = mul i32 %5989, 5243
-  %5993 = lshr i32 %5992, 19
-  %.neg62.i1089 = mul nsw i32 %5991, -100
-  %5994 = add nsw i32 %.neg62.i1089, %5988
-  %.neg63.i1090 = mul nsw i32 %5993, -100
-  %5995 = add nsw i32 %.neg63.i1090, %5989
-  %5996 = icmp samesign ult i64 %5923, 10000000
-  %5997 = shl nuw nsw i32 %5991, 1
-  %5998 = zext nneg i32 %5997 to i64
-  %5999 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5998
-  %.neg64.i1091 = sext i1 %5996 to i64
-  %6000 = zext i1 %5996 to i64
-  %6001 = getelementptr inbounds nuw i8, ptr %5999, i64 %6000
-  %6002 = load i16, ptr %6001, align 1
-  store i16 %6002, ptr %5909, align 1
-  %6003 = getelementptr inbounds i8, ptr %5909, i64 %.neg64.i1091
-  %6004 = getelementptr inbounds nuw i8, ptr %6003, i64 2
-  %6005 = shl nsw i32 %5994, 1
-  %6006 = zext i32 %6005 to i64
-  %6007 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6006
-  %6008 = load i16, ptr %6007, align 2
-  store i16 %6008, ptr %6004, align 1
-  %6009 = getelementptr inbounds nuw i8, ptr %6003, i64 4
-  %6010 = shl nuw nsw i32 %5993, 1
-  %6011 = zext nneg i32 %6010 to i64
-  %6012 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6011
-  %6013 = load i16, ptr %6012, align 2
-  store i16 %6013, ptr %6009, align 1
-  %6014 = getelementptr inbounds nuw i8, ptr %6003, i64 6
-  %6015 = shl nsw i32 %5995, 1
-  %6016 = zext i32 %6015 to i64
-  %6017 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6016
-  %6018 = load i16, ptr %6017, align 2
-  store i16 %6018, ptr %6014, align 1
-  %6019 = getelementptr inbounds nuw i8, ptr %6003, i64 8
+5984:                                             ; preds = %5956
+  %5985 = mul nuw nsw i64 %5922, 109951163
+  %5986 = lshr i64 %5985, 40
+  %5987 = trunc nuw nsw i64 %5986 to i32
+  %.neg.i1088 = mul nsw i32 %5987, -10000
+  %5988 = add nsw i32 %.neg.i1088, %5925
+  %5989 = mul nuw nsw i32 %5987, 5243
+  %5990 = lshr i32 %5989, 19
+  %5991 = mul i32 %5988, 5243
+  %5992 = lshr i32 %5991, 19
+  %.neg62.i1089 = mul nsw i32 %5990, -100
+  %5993 = add nsw i32 %.neg62.i1089, %5987
+  %.neg63.i1090 = mul nsw i32 %5992, -100
+  %5994 = add nsw i32 %.neg63.i1090, %5988
+  %5995 = icmp samesign ult i64 %5922, 10000000
+  %5996 = shl nuw nsw i32 %5990, 1
+  %5997 = zext nneg i32 %5996 to i64
+  %5998 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5997
+  %.neg64.i1091 = sext i1 %5995 to i64
+  %5999 = zext i1 %5995 to i64
+  %6000 = getelementptr inbounds nuw i8, ptr %5998, i64 %5999
+  %6001 = load i16, ptr %6000, align 1
+  store i16 %6001, ptr %5908, align 1
+  %6002 = getelementptr inbounds i8, ptr %5908, i64 %.neg64.i1091
+  %6003 = getelementptr inbounds nuw i8, ptr %6002, i64 2
+  %6004 = shl nsw i32 %5993, 1
+  %6005 = zext i32 %6004 to i64
+  %6006 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6005
+  %6007 = load i16, ptr %6006, align 2
+  store i16 %6007, ptr %6003, align 1
+  %6008 = getelementptr inbounds nuw i8, ptr %6002, i64 4
+  %6009 = shl nuw nsw i32 %5992, 1
+  %6010 = zext nneg i32 %6009 to i64
+  %6011 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6010
+  %6012 = load i16, ptr %6011, align 2
+  store i16 %6012, ptr %6008, align 1
+  %6013 = getelementptr inbounds nuw i8, ptr %6002, i64 6
+  %6014 = shl nsw i32 %5994, 1
+  %6015 = zext i32 %6014 to i64
+  %6016 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6015
+  %6017 = load i16, ptr %6016, align 2
+  store i16 %6017, ptr %6013, align 1
+  %6018 = getelementptr inbounds nuw i8, ptr %6002, i64 8
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit
 
-6020:                                             ; preds = %5921
-  %6021 = udiv i64 %5923, 100000000
-  %.neg.i732 = mul nuw nsw i64 %6021, 4194967296
-  %6022 = add nuw nsw i64 %.neg.i732, %5923
-  %6023 = trunc i64 %6022 to i32
-  %6024 = trunc nuw nsw i64 %6021 to i32
-  %6025 = icmp samesign ult i64 %5923, 10000000000
-  br i1 %6025, label %6026, label %6035
+6019:                                             ; preds = %5920
+  %6020 = udiv i64 %5922, 100000000
+  %.neg.i732 = mul nuw nsw i64 %6020, 4194967296
+  %6021 = add nuw nsw i64 %.neg.i732, %5922
+  %6022 = trunc i64 %6021 to i32
+  %6023 = trunc nuw nsw i64 %6020 to i32
+  %6024 = icmp samesign ult i64 %5922, 10000000000
+  br i1 %6024, label %6025, label %6034
 
-6026:                                             ; preds = %6020
-  %6027 = icmp samesign ult i64 %5923, 1000000000
-  %6028 = shl nuw nsw i64 %6021, 1
-  %6029 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6028
-  %.neg70.i1110 = sext i1 %6027 to i64
-  %6030 = zext i1 %6027 to i64
-  %6031 = getelementptr inbounds nuw i8, ptr %6029, i64 %6030
-  %6032 = load i16, ptr %6031, align 1
-  store i16 %6032, ptr %5909, align 1
-  %6033 = getelementptr inbounds i8, ptr %5909, i64 %.neg70.i1110
-  %6034 = getelementptr inbounds nuw i8, ptr %6033, i64 2
+6025:                                             ; preds = %6019
+  %6026 = icmp samesign ult i64 %5922, 1000000000
+  %6027 = shl nuw nsw i64 %6020, 1
+  %6028 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6027
+  %.neg70.i1110 = sext i1 %6026 to i64
+  %6029 = zext i1 %6026 to i64
+  %6030 = getelementptr inbounds nuw i8, ptr %6028, i64 %6029
+  %6031 = load i16, ptr %6030, align 1
+  store i16 %6031, ptr %5908, align 1
+  %6032 = getelementptr inbounds i8, ptr %5908, i64 %.neg70.i1110
+  %6033 = getelementptr inbounds nuw i8, ptr %6032, i64 2
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1111
 
-6035:                                             ; preds = %6020
-  %6036 = icmp samesign ult i64 %5923, 1000000000000
-  br i1 %6036, label %6037, label %6055
+6034:                                             ; preds = %6019
+  %6035 = icmp samesign ult i64 %5922, 1000000000000
+  br i1 %6035, label %6036, label %6054
 
-6037:                                             ; preds = %6035
-  %6038 = mul nuw nsw i32 %6024, 5243
-  %6039 = lshr i32 %6038, 19
-  %.neg68.i1108 = mul nsw i32 %6039, -100
-  %6040 = add nsw i32 %.neg68.i1108, %6024
-  %6041 = icmp samesign ult i64 %5923, 100000000000
-  %6042 = shl nuw nsw i32 %6039, 1
-  %6043 = zext nneg i32 %6042 to i64
-  %6044 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6043
-  %.neg69.i1109 = sext i1 %6041 to i64
-  %6045 = zext i1 %6041 to i64
-  %6046 = getelementptr inbounds nuw i8, ptr %6044, i64 %6045
-  %6047 = load i16, ptr %6046, align 1
-  store i16 %6047, ptr %5909, align 1
-  %6048 = getelementptr inbounds i8, ptr %5909, i64 %.neg69.i1109
-  %6049 = getelementptr inbounds nuw i8, ptr %6048, i64 2
-  %6050 = shl nsw i32 %6040, 1
-  %6051 = zext i32 %6050 to i64
-  %6052 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6051
-  %6053 = load i16, ptr %6052, align 2
-  store i16 %6053, ptr %6049, align 1
-  %6054 = getelementptr inbounds nuw i8, ptr %6048, i64 4
+6036:                                             ; preds = %6034
+  %6037 = mul nuw nsw i32 %6023, 5243
+  %6038 = lshr i32 %6037, 19
+  %.neg68.i1108 = mul nsw i32 %6038, -100
+  %6039 = add nsw i32 %.neg68.i1108, %6023
+  %6040 = icmp samesign ult i64 %5922, 100000000000
+  %6041 = shl nuw nsw i32 %6038, 1
+  %6042 = zext nneg i32 %6041 to i64
+  %6043 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6042
+  %.neg69.i1109 = sext i1 %6040 to i64
+  %6044 = zext i1 %6040 to i64
+  %6045 = getelementptr inbounds nuw i8, ptr %6043, i64 %6044
+  %6046 = load i16, ptr %6045, align 1
+  store i16 %6046, ptr %5908, align 1
+  %6047 = getelementptr inbounds i8, ptr %5908, i64 %.neg69.i1109
+  %6048 = getelementptr inbounds nuw i8, ptr %6047, i64 2
+  %6049 = shl nsw i32 %6039, 1
+  %6050 = zext i32 %6049 to i64
+  %6051 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6050
+  %6052 = load i16, ptr %6051, align 2
+  store i16 %6052, ptr %6048, align 1
+  %6053 = getelementptr inbounds nuw i8, ptr %6047, i64 4
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1111
 
-6055:                                             ; preds = %6035
-  %6056 = icmp samesign ult i64 %5923, 100000000000000
-  br i1 %6056, label %6057, label %6083
+6054:                                             ; preds = %6034
+  %6055 = icmp samesign ult i64 %5922, 100000000000000
+  br i1 %6055, label %6056, label %6082
 
-6057:                                             ; preds = %6055
-  %6058 = mul nuw nsw i64 %6021, 429497
-  %6059 = lshr i64 %6058, 32
-  %6060 = trunc nuw nsw i64 %6059 to i32
-  %.neg65.i1105 = mul nsw i32 %6060, -10000
-  %6061 = add nsw i32 %.neg65.i1105, %6024
-  %6062 = mul i32 %6061, 5243
-  %6063 = lshr i32 %6062, 19
-  %.neg66.i1106 = mul nsw i32 %6063, -100
-  %6064 = add nsw i32 %.neg66.i1106, %6061
-  %6065 = icmp samesign ult i64 %5923, 10000000000000
-  %6066 = shl nuw nsw i64 %6059, 1
-  %6067 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6066
-  %.neg67.i1107 = sext i1 %6065 to i64
-  %6068 = zext i1 %6065 to i64
-  %6069 = getelementptr inbounds nuw i8, ptr %6067, i64 %6068
-  %6070 = load i16, ptr %6069, align 1
-  store i16 %6070, ptr %5909, align 1
-  %6071 = getelementptr inbounds i8, ptr %5909, i64 %.neg67.i1107
-  %6072 = getelementptr inbounds nuw i8, ptr %6071, i64 2
-  %6073 = shl nuw nsw i32 %6063, 1
-  %6074 = zext nneg i32 %6073 to i64
-  %6075 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6074
-  %6076 = load i16, ptr %6075, align 2
-  store i16 %6076, ptr %6072, align 1
-  %6077 = getelementptr inbounds nuw i8, ptr %6071, i64 4
-  %6078 = shl nsw i32 %6064, 1
-  %6079 = zext i32 %6078 to i64
-  %6080 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6079
-  %6081 = load i16, ptr %6080, align 2
-  store i16 %6081, ptr %6077, align 1
-  %6082 = getelementptr inbounds nuw i8, ptr %6071, i64 6
+6056:                                             ; preds = %6054
+  %6057 = mul nuw nsw i64 %6020, 429497
+  %6058 = lshr i64 %6057, 32
+  %6059 = trunc nuw nsw i64 %6058 to i32
+  %.neg65.i1105 = mul nsw i32 %6059, -10000
+  %6060 = add nsw i32 %.neg65.i1105, %6023
+  %6061 = mul i32 %6060, 5243
+  %6062 = lshr i32 %6061, 19
+  %.neg66.i1106 = mul nsw i32 %6062, -100
+  %6063 = add nsw i32 %.neg66.i1106, %6060
+  %6064 = icmp samesign ult i64 %5922, 10000000000000
+  %6065 = shl nuw nsw i64 %6058, 1
+  %6066 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6065
+  %.neg67.i1107 = sext i1 %6064 to i64
+  %6067 = zext i1 %6064 to i64
+  %6068 = getelementptr inbounds nuw i8, ptr %6066, i64 %6067
+  %6069 = load i16, ptr %6068, align 1
+  store i16 %6069, ptr %5908, align 1
+  %6070 = getelementptr inbounds i8, ptr %5908, i64 %.neg67.i1107
+  %6071 = getelementptr inbounds nuw i8, ptr %6070, i64 2
+  %6072 = shl nuw nsw i32 %6062, 1
+  %6073 = zext nneg i32 %6072 to i64
+  %6074 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6073
+  %6075 = load i16, ptr %6074, align 2
+  store i16 %6075, ptr %6071, align 1
+  %6076 = getelementptr inbounds nuw i8, ptr %6070, i64 4
+  %6077 = shl nsw i32 %6063, 1
+  %6078 = zext i32 %6077 to i64
+  %6079 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6078
+  %6080 = load i16, ptr %6079, align 2
+  store i16 %6080, ptr %6076, align 1
+  %6081 = getelementptr inbounds nuw i8, ptr %6070, i64 6
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1111
 
-6083:                                             ; preds = %6055
-  %6084 = mul nuw nsw i64 %6021, 109951163
-  %6085 = lshr i64 %6084, 40
-  %6086 = trunc nuw nsw i64 %6085 to i32
-  %.neg.i1100 = mul nsw i32 %6086, -10000
-  %6087 = add nsw i32 %.neg.i1100, %6024
-  %6088 = mul nuw nsw i32 %6086, 5243
-  %6089 = lshr i32 %6088, 19
-  %6090 = mul i32 %6087, 5243
-  %6091 = lshr i32 %6090, 19
-  %.neg62.i1101 = mul nsw i32 %6089, -100
-  %6092 = add nsw i32 %.neg62.i1101, %6086
-  %.neg63.i1102 = mul nsw i32 %6091, -100
-  %6093 = add nsw i32 %.neg63.i1102, %6087
-  %6094 = icmp samesign ult i64 %5923, 1000000000000000
-  %6095 = shl nuw nsw i32 %6089, 1
-  %6096 = zext nneg i32 %6095 to i64
-  %6097 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6096
-  %.neg64.i1103 = sext i1 %6094 to i64
-  %6098 = zext i1 %6094 to i64
-  %6099 = getelementptr inbounds nuw i8, ptr %6097, i64 %6098
-  %6100 = load i16, ptr %6099, align 1
-  store i16 %6100, ptr %5909, align 1
-  %6101 = getelementptr inbounds i8, ptr %5909, i64 %.neg64.i1103
-  %6102 = getelementptr inbounds nuw i8, ptr %6101, i64 2
-  %6103 = shl nsw i32 %6092, 1
-  %6104 = zext i32 %6103 to i64
-  %6105 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6104
-  %6106 = load i16, ptr %6105, align 2
-  store i16 %6106, ptr %6102, align 1
-  %6107 = getelementptr inbounds nuw i8, ptr %6101, i64 4
-  %6108 = shl nuw nsw i32 %6091, 1
-  %6109 = zext nneg i32 %6108 to i64
-  %6110 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6109
-  %6111 = load i16, ptr %6110, align 2
-  store i16 %6111, ptr %6107, align 1
-  %6112 = getelementptr inbounds nuw i8, ptr %6101, i64 6
-  %6113 = shl nsw i32 %6093, 1
-  %6114 = zext i32 %6113 to i64
-  %6115 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6114
-  %6116 = load i16, ptr %6115, align 2
-  store i16 %6116, ptr %6112, align 1
-  %6117 = getelementptr inbounds nuw i8, ptr %6101, i64 8
+6082:                                             ; preds = %6054
+  %6083 = mul nuw nsw i64 %6020, 109951163
+  %6084 = lshr i64 %6083, 40
+  %6085 = trunc nuw nsw i64 %6084 to i32
+  %.neg.i1100 = mul nsw i32 %6085, -10000
+  %6086 = add nsw i32 %.neg.i1100, %6023
+  %6087 = mul nuw nsw i32 %6085, 5243
+  %6088 = lshr i32 %6087, 19
+  %6089 = mul i32 %6086, 5243
+  %6090 = lshr i32 %6089, 19
+  %.neg62.i1101 = mul nsw i32 %6088, -100
+  %6091 = add nsw i32 %.neg62.i1101, %6085
+  %.neg63.i1102 = mul nsw i32 %6090, -100
+  %6092 = add nsw i32 %.neg63.i1102, %6086
+  %6093 = icmp samesign ult i64 %5922, 1000000000000000
+  %6094 = shl nuw nsw i32 %6088, 1
+  %6095 = zext nneg i32 %6094 to i64
+  %6096 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6095
+  %.neg64.i1103 = sext i1 %6093 to i64
+  %6097 = zext i1 %6093 to i64
+  %6098 = getelementptr inbounds nuw i8, ptr %6096, i64 %6097
+  %6099 = load i16, ptr %6098, align 1
+  store i16 %6099, ptr %5908, align 1
+  %6100 = getelementptr inbounds i8, ptr %5908, i64 %.neg64.i1103
+  %6101 = getelementptr inbounds nuw i8, ptr %6100, i64 2
+  %6102 = shl nsw i32 %6091, 1
+  %6103 = zext i32 %6102 to i64
+  %6104 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6103
+  %6105 = load i16, ptr %6104, align 2
+  store i16 %6105, ptr %6101, align 1
+  %6106 = getelementptr inbounds nuw i8, ptr %6100, i64 4
+  %6107 = shl nuw nsw i32 %6090, 1
+  %6108 = zext nneg i32 %6107 to i64
+  %6109 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6108
+  %6110 = load i16, ptr %6109, align 2
+  store i16 %6110, ptr %6106, align 1
+  %6111 = getelementptr inbounds nuw i8, ptr %6100, i64 6
+  %6112 = shl nsw i32 %6092, 1
+  %6113 = zext i32 %6112 to i64
+  %6114 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6113
+  %6115 = load i16, ptr %6114, align 2
+  store i16 %6115, ptr %6111, align 1
+  %6116 = getelementptr inbounds nuw i8, ptr %6100, i64 8
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1111
 
-_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1111: ; preds = %6026, %6037, %6057, %6083
-  %.0.i1104 = phi ptr [ %6034, %6026 ], [ %6054, %6037 ], [ %6082, %6057 ], [ %6117, %6083 ]
-  %6118 = and i64 %6022, 4294967295
-  %6119 = mul nuw nsw i64 %6118, 109951163
-  %6120 = lshr i64 %6119, 40
-  %6121 = trunc nuw nsw i64 %6120 to i32
-  %.neg.i1215 = mul i32 %6121, -10000
-  %6122 = add i32 %.neg.i1215, %6023
-  %6123 = mul nuw i32 %6121, 5243
-  %6124 = lshr i32 %6123, 19
-  %6125 = mul i32 %6122, 5243
-  %6126 = lshr i32 %6125, 19
-  %.neg17.i1216 = mul nsw i32 %6124, -100
-  %6127 = add nsw i32 %.neg17.i1216, %6121
-  %.neg18.i1217 = mul i32 %6126, 2147483548
-  %6128 = add i32 %.neg18.i1217, %6122
-  %6129 = shl nuw nsw i32 %6124, 1
-  %6130 = zext nneg i32 %6129 to i64
-  %6131 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6130
-  %6132 = load i16, ptr %6131, align 2
-  store i16 %6132, ptr %.0.i1104, align 1
-  %6133 = getelementptr inbounds nuw i8, ptr %.0.i1104, i64 2
-  %6134 = shl nsw i32 %6127, 1
-  %6135 = zext i32 %6134 to i64
-  %6136 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6135
-  %6137 = load i16, ptr %6136, align 2
-  store i16 %6137, ptr %6133, align 1
-  %6138 = getelementptr inbounds nuw i8, ptr %.0.i1104, i64 4
-  %6139 = shl nuw nsw i32 %6126, 1
-  %6140 = zext nneg i32 %6139 to i64
-  %6141 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6140
-  %6142 = load i16, ptr %6141, align 2
-  store i16 %6142, ptr %6138, align 1
-  %6143 = getelementptr inbounds nuw i8, ptr %.0.i1104, i64 6
-  %6144 = shl i32 %6128, 1
-  %6145 = zext i32 %6144 to i64
-  %6146 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6145
-  %6147 = load i16, ptr %6146, align 2
-  store i16 %6147, ptr %6143, align 1
-  %6148 = getelementptr inbounds nuw i8, ptr %.0.i1104, i64 8
+_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1111: ; preds = %6025, %6036, %6056, %6082
+  %.0.i1104 = phi ptr [ %6033, %6025 ], [ %6053, %6036 ], [ %6081, %6056 ], [ %6116, %6082 ]
+  %6117 = and i64 %6021, 4294967295
+  %6118 = mul nuw nsw i64 %6117, 109951163
+  %6119 = lshr i64 %6118, 40
+  %6120 = trunc nuw nsw i64 %6119 to i32
+  %.neg.i1215 = mul i32 %6120, -10000
+  %6121 = add i32 %.neg.i1215, %6022
+  %6122 = mul nuw i32 %6120, 5243
+  %6123 = lshr i32 %6122, 19
+  %6124 = mul i32 %6121, 5243
+  %6125 = lshr i32 %6124, 19
+  %.neg17.i1216 = mul nsw i32 %6123, -100
+  %6126 = add nsw i32 %.neg17.i1216, %6120
+  %.neg18.i1217 = mul i32 %6125, 2147483548
+  %6127 = add i32 %.neg18.i1217, %6121
+  %6128 = shl nuw nsw i32 %6123, 1
+  %6129 = zext nneg i32 %6128 to i64
+  %6130 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6129
+  %6131 = load i16, ptr %6130, align 2
+  store i16 %6131, ptr %.0.i1104, align 1
+  %6132 = getelementptr inbounds nuw i8, ptr %.0.i1104, i64 2
+  %6133 = shl nsw i32 %6126, 1
+  %6134 = zext i32 %6133 to i64
+  %6135 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6134
+  %6136 = load i16, ptr %6135, align 2
+  store i16 %6136, ptr %6132, align 1
+  %6137 = getelementptr inbounds nuw i8, ptr %.0.i1104, i64 4
+  %6138 = shl nuw nsw i32 %6125, 1
+  %6139 = zext nneg i32 %6138 to i64
+  %6140 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6139
+  %6141 = load i16, ptr %6140, align 2
+  store i16 %6141, ptr %6137, align 1
+  %6142 = getelementptr inbounds nuw i8, ptr %.0.i1104, i64 6
+  %6143 = shl i32 %6127, 1
+  %6144 = zext i32 %6143 to i64
+  %6145 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6144
+  %6146 = load i16, ptr %6145, align 2
+  store i16 %6146, ptr %6142, align 1
+  %6147 = getelementptr inbounds nuw i8, ptr %.0.i1104, i64 8
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit
 
-_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit: ; preds = %5985, %5959, %5939, %5928, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1111
-  %.0.i733 = phi ptr [ %6148, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1111 ], [ %5936, %5928 ], [ %5956, %5939 ], [ %5984, %5959 ], [ %6019, %5985 ]
+_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit: ; preds = %5984, %5958, %5938, %5927, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1111
+  %.0.i733 = phi ptr [ %6147, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1111 ], [ %5935, %5927 ], [ %5955, %5938 ], [ %5983, %5958 ], [ %6018, %5984 ]
   store i16 12334, ptr %.0.i733, align 1
-  %6149 = getelementptr inbounds nuw i8, ptr %.0.i733, i64 2
+  %6148 = getelementptr inbounds nuw i8, ptr %.0.i733, i64 2
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-6150:                                             ; preds = %5917, %5914
-  %6151 = and i64 %5890, 1
-  %6152 = icmp eq i64 %5892, 0
-  %6153 = icmp ne i32 %5895, 1
-  %6154 = and i1 %6152, %6153
-  %6155 = shl nuw nsw i64 %5915, 2
-  %6156 = add nsw i64 %6155, -2
-  %6157 = zext i1 %6154 to i64
-  %6158 = or disjoint i64 %6156, %6157
-  %6159 = or disjoint i64 %6155, 2
-  %6160 = mul nuw nsw i32 %5895, 315653
-  %6161 = add nsw i32 %6160, -339326975
-  %.neg.i742 = select i1 %6154, i32 -131237, i32 0
-  %6162 = add nsw i32 %.neg.i742, %6161
-  %6163 = ashr i32 %6162, 20
-  %6164 = mul nsw i32 %6163, -217707
-  %6165 = ashr i32 %6164, 16
-  %6166 = add nsw i32 %5895, -1074
-  %6167 = add nsw i32 %6166, %6165
-  %.neg1925 = mul nsw i32 %6163, -2
-  %6168 = sext i32 %.neg1925 to i64
-  %6169 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6168
-  %6170 = getelementptr i8, ptr %6169, i64 5488
-  %6171 = load i64, ptr %6170, align 16, !tbaa !85
-  %6172 = getelementptr i8, ptr %6169, i64 5496
-  %6173 = load i64, ptr %6172, align 8, !tbaa !85
-  %6174 = add nsw i32 %6163, -1
-  %6175 = icmp ult i32 %6174, -56
-  %6176 = zext i1 %6175 to i64
-  %6177 = add i64 %6173, %6176
-  %6178 = zext i32 %6167 to i64
-  %6179 = shl i64 %6158, %6178
-  %6180 = zext i64 %6179 to i128
-  %6181 = zext i64 %6177 to i128
-  %6182 = mul nuw i128 %6181, %6180
-  %6183 = lshr i128 %6182, 64
-  %6184 = zext i64 %6171 to i128
-  %6185 = mul nuw i128 %6184, %6180
-  %6186 = add nuw i128 %6183, %6185
-  %6187 = lshr i128 %6186, 64
-  %6188 = trunc nuw i128 %6187 to i64
-  %6189 = and i128 %6186, 18446744073709551614
-  %6190 = icmp ne i128 %6189, 0
-  %6191 = zext i1 %6190 to i64
-  %6192 = or i64 %6191, %6188
-  %6193 = shl i64 %6155, %6178
-  %6194 = zext i64 %6193 to i128
-  %6195 = mul nuw i128 %6181, %6194
-  %6196 = lshr i128 %6195, 64
-  %6197 = mul nuw i128 %6184, %6194
-  %6198 = add nuw i128 %6196, %6197
-  %6199 = lshr i128 %6198, 64
-  %6200 = trunc nuw i128 %6199 to i64
-  %6201 = and i128 %6198, 18446744073709551614
-  %6202 = icmp ne i128 %6201, 0
-  %6203 = zext i1 %6202 to i64
-  %6204 = or i64 %6203, %6200
-  %6205 = shl i64 %6159, %6178
-  %6206 = zext i64 %6205 to i128
-  %6207 = mul nuw i128 %6181, %6206
-  %6208 = lshr i128 %6207, 64
-  %6209 = mul nuw i128 %6184, %6206
-  %6210 = add nuw i128 %6208, %6209
-  %6211 = lshr i128 %6210, 64
-  %6212 = trunc nuw i128 %6211 to i64
-  %6213 = and i128 %6210, 18446744073709551614
-  %6214 = icmp ne i128 %6213, 0
-  %6215 = zext i1 %6214 to i64
-  %6216 = or i64 %6215, %6212
-  %6217 = add i64 %6192, %6151
-  %6218 = sub i64 %6216, %6151
-  %6219 = lshr i64 %6200, 2
-  %6220 = icmp ugt i64 %6200, 39
-  br i1 %6220, label %6221, label %6231
+6149:                                             ; preds = %5916, %5913
+  %6150 = and i64 %5889, 1
+  %6151 = icmp eq i64 %5891, 0
+  %6152 = icmp ne i32 %5894, 1
+  %6153 = and i1 %6151, %6152
+  %6154 = shl nuw nsw i64 %5914, 2
+  %6155 = add nsw i64 %6154, -2
+  %6156 = zext i1 %6153 to i64
+  %6157 = or disjoint i64 %6155, %6156
+  %6158 = or disjoint i64 %6154, 2
+  %6159 = mul nuw nsw i32 %5894, 315653
+  %6160 = add nsw i32 %6159, -339326975
+  %.neg.i742 = select i1 %6153, i32 -131237, i32 0
+  %6161 = add nsw i32 %.neg.i742, %6160
+  %6162 = ashr i32 %6161, 20
+  %6163 = mul nsw i32 %6162, -217707
+  %6164 = ashr i32 %6163, 16
+  %6165 = add nsw i32 %5894, -1074
+  %6166 = add nsw i32 %6165, %6164
+  %.neg1925 = mul nsw i32 %6162, -2
+  %6167 = sext i32 %.neg1925 to i64
+  %6168 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6167
+  %6169 = getelementptr i8, ptr %6168, i64 5488
+  %6170 = load i64, ptr %6169, align 16, !tbaa !85
+  %6171 = getelementptr i8, ptr %6168, i64 5496
+  %6172 = load i64, ptr %6171, align 8, !tbaa !85
+  %6173 = add nsw i32 %6162, -1
+  %6174 = icmp ult i32 %6173, -56
+  %6175 = zext i1 %6174 to i64
+  %6176 = add i64 %6172, %6175
+  %6177 = zext i32 %6166 to i64
+  %6178 = shl i64 %6157, %6177
+  %6179 = zext i64 %6178 to i128
+  %6180 = zext i64 %6176 to i128
+  %6181 = mul nuw i128 %6180, %6179
+  %6182 = lshr i128 %6181, 64
+  %6183 = zext i64 %6170 to i128
+  %6184 = mul nuw i128 %6183, %6179
+  %6185 = add nuw i128 %6182, %6184
+  %6186 = lshr i128 %6185, 64
+  %6187 = trunc nuw i128 %6186 to i64
+  %6188 = and i128 %6185, 18446744073709551614
+  %6189 = icmp ne i128 %6188, 0
+  %6190 = zext i1 %6189 to i64
+  %6191 = or i64 %6190, %6187
+  %6192 = shl i64 %6154, %6177
+  %6193 = zext i64 %6192 to i128
+  %6194 = mul nuw i128 %6180, %6193
+  %6195 = lshr i128 %6194, 64
+  %6196 = mul nuw i128 %6183, %6193
+  %6197 = add nuw i128 %6195, %6196
+  %6198 = lshr i128 %6197, 64
+  %6199 = trunc nuw i128 %6198 to i64
+  %6200 = and i128 %6197, 18446744073709551614
+  %6201 = icmp ne i128 %6200, 0
+  %6202 = zext i1 %6201 to i64
+  %6203 = or i64 %6202, %6199
+  %6204 = shl i64 %6158, %6177
+  %6205 = zext i64 %6204 to i128
+  %6206 = mul nuw i128 %6180, %6205
+  %6207 = lshr i128 %6206, 64
+  %6208 = mul nuw i128 %6183, %6205
+  %6209 = add nuw i128 %6207, %6208
+  %6210 = lshr i128 %6209, 64
+  %6211 = trunc nuw i128 %6210 to i64
+  %6212 = and i128 %6209, 18446744073709551614
+  %6213 = icmp ne i128 %6212, 0
+  %6214 = zext i1 %6213 to i64
+  %6215 = or i64 %6214, %6211
+  %6216 = add i64 %6191, %6150
+  %6217 = sub i64 %6215, %6150
+  %6218 = lshr i64 %6199, 2
+  %6219 = icmp ugt i64 %6199, 39
+  br i1 %6219, label %6220, label %6230
 
-6221:                                             ; preds = %6150
-  %6222 = udiv i64 %6200, 40
-  %6223 = mul nuw i64 %6222, 40
-  %6224 = add i64 %6223, 40
-  %6225 = icmp uge i64 %6218, %6224
-  %6226 = icmp ugt i64 %6217, %6223
-  %.not.i745 = xor i1 %6226, %6225
-  br i1 %.not.i745, label %6231, label %6227
+6220:                                             ; preds = %6149
+  %6221 = udiv i64 %6199, 40
+  %6222 = mul nuw i64 %6221, 40
+  %6223 = add i64 %6222, 40
+  %6224 = icmp uge i64 %6217, %6223
+  %6225 = icmp ugt i64 %6216, %6222
+  %.not.i745 = xor i1 %6225, %6224
+  br i1 %.not.i745, label %6230, label %6226
 
-6227:                                             ; preds = %6221
-  %6228 = zext i1 %6225 to i64
-  %6229 = add nuw nsw i64 %6222, %6228
-  %6230 = add nsw i32 %6163, 1
+6226:                                             ; preds = %6220
+  %6227 = zext i1 %6224 to i64
+  %6228 = add nuw nsw i64 %6221, %6227
+  %6229 = add nsw i32 %6162, 1
   br label %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit746
 
-6231:                                             ; preds = %6221, %6150
-  %6232 = and i64 %6200, -4
-  %6233 = add i64 %6232, 4
-  %6234 = icmp uge i64 %6218, %6233
-  %6235 = or disjoint i64 %6232, 2
-  %6236 = icmp ugt i64 %6204, %6235
-  br i1 %6236, label %6242, label %6237
+6230:                                             ; preds = %6220, %6149
+  %6231 = and i64 %6199, -4
+  %6232 = add i64 %6231, 4
+  %6233 = icmp uge i64 %6217, %6232
+  %6234 = or disjoint i64 %6231, 2
+  %6235 = icmp ugt i64 %6203, %6234
+  br i1 %6235, label %6241, label %6236
 
-6237:                                             ; preds = %6231
-  %6238 = icmp eq i64 %6204, %6235
-  %6239 = and i64 %6200, 4
-  %6240 = icmp ne i64 %6239, 0
-  %6241 = and i1 %6240, %6238
-  br label %6242
+6236:                                             ; preds = %6230
+  %6237 = icmp eq i64 %6203, %6234
+  %6238 = and i64 %6199, 4
+  %6239 = icmp ne i64 %6238, 0
+  %6240 = and i1 %6239, %6237
+  br label %6241
 
-6242:                                             ; preds = %6237, %6231
-  %6243 = phi i1 [ true, %6231 ], [ %6241, %6237 ]
-  %6244 = icmp ugt i64 %6217, %6232
-  %.not58.i743 = xor i1 %6244, %6234
-  %6245 = select i1 %.not58.i743, i1 %6243, i1 %6234
-  %6246 = zext i1 %6245 to i64
-  %6247 = add nuw nsw i64 %6219, %6246
+6241:                                             ; preds = %6236, %6230
+  %6242 = phi i1 [ true, %6230 ], [ %6240, %6236 ]
+  %6243 = icmp ugt i64 %6216, %6231
+  %.not58.i743 = xor i1 %6243, %6233
+  %6244 = select i1 %.not58.i743, i1 %6242, i1 %6233
+  %6245 = zext i1 %6244 to i64
+  %6246 = add nuw nsw i64 %6218, %6245
   br label %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit746
 
-_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit746: ; preds = %6227, %6242
-  %.1 = phi i64 [ %6247, %6242 ], [ %6229, %6227 ]
-  %storemerge.i744 = phi i32 [ %6163, %6242 ], [ %6230, %6227 ]
-  %6248 = icmp samesign ult i64 %.1, 10000000000000000
-  %6249 = select i1 %6248, i32 16, i32 17
-  %6250 = icmp samesign ult i64 %.1, 1000000000000000
-  %.neg129.i709 = sext i1 %6250 to i32
-  %6251 = add nsw i32 %6249, %.neg129.i709
-  %6252 = add nsw i32 %6251, %storemerge.i744
-  %6253 = add nsw i32 %6252, 5
-  %or.cond3.i710 = icmp ult i32 %6253, 27
-  br i1 %or.cond3.i710, label %6254, label %6536
+_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit746: ; preds = %6226, %6241
+  %.1 = phi i64 [ %6246, %6241 ], [ %6228, %6226 ]
+  %storemerge.i744 = phi i32 [ %6162, %6241 ], [ %6229, %6226 ]
+  %6247 = icmp samesign ult i64 %.1, 10000000000000000
+  %6248 = select i1 %6247, i32 16, i32 17
+  %6249 = icmp samesign ult i64 %.1, 1000000000000000
+  %.neg129.i709 = sext i1 %6249 to i32
+  %6250 = add nsw i32 %6248, %.neg129.i709
+  %6251 = add nsw i32 %6250, %storemerge.i744
+  %6252 = add nsw i32 %6251, 5
+  %or.cond3.i710 = icmp ult i32 %6252, 27
+  br i1 %or.cond3.i710, label %6253, label %6535
 
-6254:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit746
-  %6255 = icmp slt i32 %6252, 1
-  br i1 %6255, label %6256, label %6395
+6253:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit746
+  %6254 = icmp slt i32 %6251, 1
+  br i1 %6254, label %6255, label %6394
 
-6256:                                             ; preds = %6254
-  %6257 = sub nsw i32 2, %6252
-  %6258 = zext nneg i32 %6257 to i64
-  %6259 = getelementptr inbounds nuw i8, ptr %5909, i64 %6258
-  %6260 = udiv i64 %.1, 100000000
-  %6261 = trunc i64 %6260 to i32
-  %.neg.i767 = mul i64 %6260, 4194967296
-  %6262 = add i64 %.neg.i767, %.1
-  %6263 = trunc i64 %6262 to i32
-  %6264 = udiv i32 %6261, 10000
-  %.neg95.i = mul i32 %6264, -10000
-  %6265 = add i32 %.neg95.i, %6261
-  %6266 = zext nneg i32 %6264 to i64
-  %6267 = mul nuw nsw i64 %6266, 167773
-  %6268 = lshr i64 %6267, 24
-  %6269 = trunc nuw nsw i64 %6268 to i32
-  %6270 = mul nuw nsw i32 %6269, 41
-  %6271 = lshr i32 %6270, 12
-  %.neg96.i = mul nsw i32 %6271, -100
-  %6272 = add nsw i32 %.neg96.i, %6269
-  %.neg97.i = mul nsw i32 %6269, -100
-  %6273 = add nsw i32 %.neg97.i, %6264
-  %6274 = trunc nuw nsw i32 %6271 to i8
-  %6275 = add nuw nsw i8 %6274, 48
-  store i8 %6275, ptr %6259, align 1, !tbaa !75
-  %6276 = icmp ugt i32 %6261, 99999999
-  %6277 = zext i1 %6276 to i64
-  %6278 = getelementptr inbounds nuw i8, ptr %6259, i64 %6277
-  %6279 = icmp ult i32 %6272, 10
-  %6280 = icmp ult i32 %6261, 100000000
-  %6281 = and i1 %6280, %6279
-  %6282 = shl nsw i32 %6272, 1
-  %6283 = zext i32 %6282 to i64
-  %6284 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6283
-  %.neg98.i = sext i1 %6281 to i64
-  %6285 = zext i1 %6281 to i64
-  %6286 = getelementptr inbounds nuw i8, ptr %6284, i64 %6285
-  %6287 = load i16, ptr %6286, align 1
-  store i16 %6287, ptr %6278, align 1
-  %6288 = getelementptr inbounds i8, ptr %6278, i64 %.neg98.i
-  %6289 = getelementptr inbounds nuw i8, ptr %6288, i64 2
-  %6290 = shl nsw i32 %6273, 1
-  %6291 = zext i32 %6290 to i64
-  %6292 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6291
-  %6293 = load i16, ptr %6292, align 2
-  store i16 %6293, ptr %6289, align 1
-  %.not.i768 = icmp eq i32 %6263, 0
-  br i1 %.not.i768, label %6352, label %6294
+6255:                                             ; preds = %6253
+  %6256 = sub nsw i32 2, %6251
+  %6257 = zext nneg i32 %6256 to i64
+  %6258 = getelementptr inbounds nuw i8, ptr %5908, i64 %6257
+  %6259 = udiv i64 %.1, 100000000
+  %6260 = trunc i64 %6259 to i32
+  %.neg.i767 = mul i64 %6259, 4194967296
+  %6261 = add i64 %.neg.i767, %.1
+  %6262 = trunc i64 %6261 to i32
+  %6263 = udiv i32 %6260, 10000
+  %.neg95.i = mul i32 %6263, -10000
+  %6264 = add i32 %.neg95.i, %6260
+  %6265 = zext nneg i32 %6263 to i64
+  %6266 = mul nuw nsw i64 %6265, 167773
+  %6267 = lshr i64 %6266, 24
+  %6268 = trunc nuw nsw i64 %6267 to i32
+  %6269 = mul nuw nsw i32 %6268, 41
+  %6270 = lshr i32 %6269, 12
+  %.neg96.i = mul nsw i32 %6270, -100
+  %6271 = add nsw i32 %.neg96.i, %6268
+  %.neg97.i = mul nsw i32 %6268, -100
+  %6272 = add nsw i32 %.neg97.i, %6263
+  %6273 = trunc nuw nsw i32 %6270 to i8
+  %6274 = add nuw nsw i8 %6273, 48
+  store i8 %6274, ptr %6258, align 1, !tbaa !75
+  %6275 = icmp ugt i32 %6260, 99999999
+  %6276 = zext i1 %6275 to i64
+  %6277 = getelementptr inbounds nuw i8, ptr %6258, i64 %6276
+  %6278 = icmp ult i32 %6271, 10
+  %6279 = icmp ult i32 %6260, 100000000
+  %6280 = and i1 %6279, %6278
+  %6281 = shl nsw i32 %6271, 1
+  %6282 = zext i32 %6281 to i64
+  %6283 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6282
+  %.neg98.i = sext i1 %6280 to i64
+  %6284 = zext i1 %6280 to i64
+  %6285 = getelementptr inbounds nuw i8, ptr %6283, i64 %6284
+  %6286 = load i16, ptr %6285, align 1
+  store i16 %6286, ptr %6277, align 1
+  %6287 = getelementptr inbounds i8, ptr %6277, i64 %.neg98.i
+  %6288 = getelementptr inbounds nuw i8, ptr %6287, i64 2
+  %6289 = shl nsw i32 %6272, 1
+  %6290 = zext i32 %6289 to i64
+  %6291 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6290
+  %6292 = load i16, ptr %6291, align 2
+  store i16 %6292, ptr %6288, align 1
+  %.not.i768 = icmp eq i32 %6262, 0
+  br i1 %.not.i768, label %6351, label %6293
 
-6294:                                             ; preds = %6256
-  %6295 = mul i32 %6265, 5243
-  %6296 = lshr i32 %6295, 19
-  %.neg103.i = mul i32 %6296, 2147483548
-  %6297 = add i32 %.neg103.i, %6265
-  %6298 = and i64 %6262, 4294967295
-  %6299 = mul nuw nsw i64 %6298, 109951163
-  %6300 = lshr i64 %6299, 40
-  %6301 = trunc nuw nsw i64 %6300 to i32
-  %.neg104.i = mul i32 %6301, -10000
-  %6302 = add i32 %.neg104.i, %6263
-  %6303 = mul nuw i32 %6301, 5243
-  %6304 = lshr i32 %6303, 19
-  %.neg105.i = mul nsw i32 %6304, -100
-  %6305 = add nsw i32 %.neg105.i, %6301
-  %6306 = getelementptr inbounds nuw i8, ptr %6288, i64 4
-  %6307 = shl nuw nsw i32 %6296, 1
-  %6308 = zext nneg i32 %6307 to i64
-  %6309 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6308
-  %6310 = load i16, ptr %6309, align 2
-  store i16 %6310, ptr %6306, align 1
-  %6311 = getelementptr inbounds nuw i8, ptr %6288, i64 6
-  %6312 = shl i32 %6297, 1
-  %6313 = zext i32 %6312 to i64
-  %6314 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6313
-  %6315 = load i16, ptr %6314, align 2
-  store i16 %6315, ptr %6311, align 1
-  %6316 = getelementptr inbounds nuw i8, ptr %6288, i64 8
-  %6317 = shl nuw nsw i32 %6304, 1
-  %6318 = zext nneg i32 %6317 to i64
-  %6319 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6318
-  %6320 = load i16, ptr %6319, align 2
-  store i16 %6320, ptr %6316, align 1
-  %6321 = getelementptr inbounds nuw i8, ptr %6288, i64 10
-  %6322 = shl nsw i32 %6305, 1
-  %6323 = zext i32 %6322 to i64
-  %6324 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6323
-  %6325 = load i16, ptr %6324, align 2
-  store i16 %6325, ptr %6321, align 1
-  %.not106.i769 = icmp eq i32 %6302, 0
-  br i1 %.not106.i769, label %6340, label %6326
+6293:                                             ; preds = %6255
+  %6294 = mul i32 %6264, 5243
+  %6295 = lshr i32 %6294, 19
+  %.neg103.i = mul i32 %6295, 2147483548
+  %6296 = add i32 %.neg103.i, %6264
+  %6297 = and i64 %6261, 4294967295
+  %6298 = mul nuw nsw i64 %6297, 109951163
+  %6299 = lshr i64 %6298, 40
+  %6300 = trunc nuw nsw i64 %6299 to i32
+  %.neg104.i = mul i32 %6300, -10000
+  %6301 = add i32 %.neg104.i, %6262
+  %6302 = mul nuw i32 %6300, 5243
+  %6303 = lshr i32 %6302, 19
+  %.neg105.i = mul nsw i32 %6303, -100
+  %6304 = add nsw i32 %.neg105.i, %6300
+  %6305 = getelementptr inbounds nuw i8, ptr %6287, i64 4
+  %6306 = shl nuw nsw i32 %6295, 1
+  %6307 = zext nneg i32 %6306 to i64
+  %6308 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6307
+  %6309 = load i16, ptr %6308, align 2
+  store i16 %6309, ptr %6305, align 1
+  %6310 = getelementptr inbounds nuw i8, ptr %6287, i64 6
+  %6311 = shl i32 %6296, 1
+  %6312 = zext i32 %6311 to i64
+  %6313 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6312
+  %6314 = load i16, ptr %6313, align 2
+  store i16 %6314, ptr %6310, align 1
+  %6315 = getelementptr inbounds nuw i8, ptr %6287, i64 8
+  %6316 = shl nuw nsw i32 %6303, 1
+  %6317 = zext nneg i32 %6316 to i64
+  %6318 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6317
+  %6319 = load i16, ptr %6318, align 2
+  store i16 %6319, ptr %6315, align 1
+  %6320 = getelementptr inbounds nuw i8, ptr %6287, i64 10
+  %6321 = shl nsw i32 %6304, 1
+  %6322 = zext i32 %6321 to i64
+  %6323 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6322
+  %6324 = load i16, ptr %6323, align 2
+  store i16 %6324, ptr %6320, align 1
+  %.not106.i769 = icmp eq i32 %6301, 0
+  br i1 %.not106.i769, label %6339, label %6325
 
-6326:                                             ; preds = %6294
-  %6327 = mul i32 %6302, 5243
-  %6328 = lshr i32 %6327, 19
-  %.neg108.i = mul nsw i32 %6328, -100
-  %6329 = add i32 %.neg108.i, %6302
-  %6330 = getelementptr inbounds nuw i8, ptr %6288, i64 12
-  %6331 = shl nuw nsw i32 %6328, 1
-  %6332 = zext nneg i32 %6331 to i64
-  %6333 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6332
-  %6334 = load i16, ptr %6333, align 2
-  store i16 %6334, ptr %6330, align 1
-  %6335 = getelementptr inbounds nuw i8, ptr %6288, i64 14
-  %6336 = shl i32 %6329, 1
-  %6337 = zext i32 %6336 to i64
-  %6338 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6337
-  %6339 = load i16, ptr %6338, align 2
-  store i16 %6339, ptr %6335, align 1
-  br label %6340
+6325:                                             ; preds = %6293
+  %6326 = mul i32 %6301, 5243
+  %6327 = lshr i32 %6326, 19
+  %.neg108.i = mul nsw i32 %6327, -100
+  %6328 = add i32 %.neg108.i, %6301
+  %6329 = getelementptr inbounds nuw i8, ptr %6287, i64 12
+  %6330 = shl nuw nsw i32 %6327, 1
+  %6331 = zext nneg i32 %6330 to i64
+  %6332 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6331
+  %6333 = load i16, ptr %6332, align 2
+  store i16 %6333, ptr %6329, align 1
+  %6334 = getelementptr inbounds nuw i8, ptr %6287, i64 14
+  %6335 = shl i32 %6328, 1
+  %6336 = zext i32 %6335 to i64
+  %6337 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6336
+  %6338 = load i16, ptr %6337, align 2
+  store i16 %6338, ptr %6334, align 1
+  br label %6339
 
-6340:                                             ; preds = %6294, %6326
-  %.sink5429 = phi i32 [ %6328, %6326 ], [ %6304, %6294 ]
-  %.sink5425 = phi i32 [ %6329, %6326 ], [ %6305, %6294 ]
-  %.sink5416 = phi i64 [ 16, %6326 ], [ 12, %6294 ]
-  %6341 = zext nneg i32 %.sink5429 to i64
-  %6342 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6341
-  %6343 = load i8, ptr %6342, align 1, !tbaa !75
-  %6344 = zext i8 %6343 to i64
-  %6345 = zext i32 %.sink5425 to i64
-  %6346 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6345
-  %6347 = load i8, ptr %6346, align 1, !tbaa !75
-  %6348 = zext i8 %6347 to i64
+6339:                                             ; preds = %6293, %6325
+  %.sink5429 = phi i32 [ %6327, %6325 ], [ %6303, %6293 ]
+  %.sink5425 = phi i32 [ %6328, %6325 ], [ %6304, %6293 ]
+  %.sink5416 = phi i64 [ 16, %6325 ], [ 12, %6293 ]
+  %6340 = zext nneg i32 %.sink5429 to i64
+  %6341 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6340
+  %6342 = load i8, ptr %6341, align 1, !tbaa !75
+  %6343 = zext i8 %6342 to i64
+  %6344 = zext i32 %.sink5425 to i64
+  %6345 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6344
+  %6346 = load i8, ptr %6345, align 1, !tbaa !75
+  %6347 = zext i8 %6346 to i64
   %.not107.i773 = icmp eq i32 %.sink5425, 0
-  %6349 = add nuw nsw i64 %6344, 2
-  %6350 = select i1 %.not107.i773, i64 %6349, i64 %6348
-  %6351 = sub nsw i64 %.sink5416, %6350
+  %6348 = add nuw nsw i64 %6343, 2
+  %6349 = select i1 %.not107.i773, i64 %6348, i64 %6347
+  %6350 = sub nsw i64 %.sink5416, %6349
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit
 
-6352:                                             ; preds = %6256
-  %.not99.i774 = icmp eq i32 %6265, 0
-  br i1 %.not99.i774, label %6378, label %6353
+6351:                                             ; preds = %6255
+  %.not99.i774 = icmp eq i32 %6264, 0
+  br i1 %.not99.i774, label %6377, label %6352
 
-6353:                                             ; preds = %6352
-  %6354 = mul i32 %6265, 5243
-  %6355 = lshr i32 %6354, 19
-  %.neg101.i = mul nsw i32 %6355, -100
-  %6356 = add i32 %.neg101.i, %6265
-  %6357 = getelementptr inbounds nuw i8, ptr %6288, i64 4
-  %6358 = shl nuw nsw i32 %6355, 1
-  %6359 = zext nneg i32 %6358 to i64
-  %6360 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6359
-  %6361 = load i16, ptr %6360, align 2
-  store i16 %6361, ptr %6357, align 1
-  %6362 = getelementptr inbounds nuw i8, ptr %6288, i64 6
-  %6363 = shl i32 %6356, 1
-  %6364 = zext i32 %6363 to i64
-  %6365 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6364
-  %6366 = load i16, ptr %6365, align 2
-  store i16 %6366, ptr %6362, align 1
-  %6367 = zext nneg i32 %6355 to i64
-  %6368 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6367
-  %6369 = load i8, ptr %6368, align 1, !tbaa !75
-  %6370 = zext i8 %6369 to i64
-  %6371 = zext i32 %6356 to i64
-  %6372 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6371
-  %6373 = load i8, ptr %6372, align 1, !tbaa !75
-  %6374 = zext i8 %6373 to i64
-  %.not102.i775 = icmp eq i32 %6356, 0
-  %6375 = add nuw nsw i64 %6370, 2
-  %6376 = select i1 %.not102.i775, i64 %6375, i64 %6374
-  %6377 = sub nsw i64 8, %6376
+6352:                                             ; preds = %6351
+  %6353 = mul i32 %6264, 5243
+  %6354 = lshr i32 %6353, 19
+  %.neg101.i = mul nsw i32 %6354, -100
+  %6355 = add i32 %.neg101.i, %6264
+  %6356 = getelementptr inbounds nuw i8, ptr %6287, i64 4
+  %6357 = shl nuw nsw i32 %6354, 1
+  %6358 = zext nneg i32 %6357 to i64
+  %6359 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6358
+  %6360 = load i16, ptr %6359, align 2
+  store i16 %6360, ptr %6356, align 1
+  %6361 = getelementptr inbounds nuw i8, ptr %6287, i64 6
+  %6362 = shl i32 %6355, 1
+  %6363 = zext i32 %6362 to i64
+  %6364 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6363
+  %6365 = load i16, ptr %6364, align 2
+  store i16 %6365, ptr %6361, align 1
+  %6366 = zext nneg i32 %6354 to i64
+  %6367 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6366
+  %6368 = load i8, ptr %6367, align 1, !tbaa !75
+  %6369 = zext i8 %6368 to i64
+  %6370 = zext i32 %6355 to i64
+  %6371 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6370
+  %6372 = load i8, ptr %6371, align 1, !tbaa !75
+  %6373 = zext i8 %6372 to i64
+  %.not102.i775 = icmp eq i32 %6355, 0
+  %6374 = add nuw nsw i64 %6369, 2
+  %6375 = select i1 %.not102.i775, i64 %6374, i64 %6373
+  %6376 = sub nsw i64 8, %6375
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit
 
-6378:                                             ; preds = %6352
-  %6379 = zext i32 %6272 to i64
-  %6380 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6379
-  %6381 = load i8, ptr %6380, align 1, !tbaa !75
-  %6382 = zext i8 %6381 to i64
-  %6383 = zext i32 %6273 to i64
-  %6384 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6383
-  %6385 = load i8, ptr %6384, align 1, !tbaa !75
-  %6386 = zext i8 %6385 to i64
-  %.not100.i776 = icmp eq i32 %6273, 0
-  %6387 = select i1 %.not100.i776, i64 %6382, i64 0
-  %6388 = add nuw nsw i64 %6387, %6386
-  %6389 = sub nsw i64 4, %6388
+6377:                                             ; preds = %6351
+  %6378 = zext i32 %6271 to i64
+  %6379 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6378
+  %6380 = load i8, ptr %6379, align 1, !tbaa !75
+  %6381 = zext i8 %6380 to i64
+  %6382 = zext i32 %6272 to i64
+  %6383 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6382
+  %6384 = load i8, ptr %6383, align 1, !tbaa !75
+  %6385 = zext i8 %6384 to i64
+  %.not100.i776 = icmp eq i32 %6272, 0
+  %6386 = select i1 %.not100.i776, i64 %6381, i64 0
+  %6387 = add nuw nsw i64 %6386, %6385
+  %6388 = sub nsw i64 4, %6387
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit
 
-_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit: ; preds = %6340, %6353, %6378
-  %.sink5430 = phi i64 [ %6351, %6340 ], [ %6377, %6353 ], [ %6389, %6378 ]
+_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit: ; preds = %6339, %6352, %6377
+  %.sink5430 = phi i64 [ %6350, %6339 ], [ %6376, %6352 ], [ %6388, %6377 ]
   %.pn.i770 = and i64 %.sink5430, 4294967295
-  %.0.i771 = getelementptr inbounds nuw i8, ptr %6288, i64 %.pn.i770
-  store i8 48, ptr %5909, align 1, !tbaa !75
-  %6390 = getelementptr inbounds nuw i8, ptr %5909, i64 1
-  store i8 46, ptr %6390, align 1, !tbaa !75
-  %6391 = icmp slt i32 %6252, 0
-  br i1 %6391, label %.lr.ph3172.preheader, label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
+  %.0.i771 = getelementptr inbounds nuw i8, ptr %6287, i64 %.pn.i770
+  store i8 48, ptr %5908, align 1, !tbaa !75
+  %6389 = getelementptr inbounds nuw i8, ptr %5908, i64 1
+  store i8 46, ptr %6389, align 1, !tbaa !75
+  %6390 = icmp slt i32 %6251, 0
+  br i1 %6390, label %.lr.ph3172.preheader, label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
 .lr.ph3172.preheader:                             ; preds = %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit
-  %6392 = sub nsw i32 0, %6252
-  %6393 = getelementptr i8, ptr %5909, i64 2
-  %6394 = zext nneg i32 %6392 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6393, i8 48, i64 %6394, i1 false), !tbaa !75
+  %6391 = sub nsw i32 0, %6251
+  %6392 = getelementptr i8, ptr %5908, i64 2
+  %6393 = zext nneg i32 %6391 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6392, i8 48, i64 %6393, i1 false), !tbaa !75
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-6395:                                             ; preds = %6254
-  %6396 = getelementptr inbounds nuw i8, ptr %5909, i64 1
-  %6397 = udiv i64 %.1, 100000000
-  %6398 = trunc i64 %6397 to i32
-  %.neg.i777 = mul i64 %6397, 4194967296
-  %6399 = add i64 %.neg.i777, %.1
-  %6400 = trunc i64 %6399 to i32
-  %6401 = udiv i32 %6398, 10000
-  %.neg95.i778 = mul i32 %6401, -10000
-  %6402 = add i32 %.neg95.i778, %6398
-  %6403 = zext nneg i32 %6401 to i64
-  %6404 = mul nuw nsw i64 %6403, 167773
-  %6405 = lshr i64 %6404, 24
-  %6406 = trunc nuw nsw i64 %6405 to i32
-  %6407 = mul nuw nsw i32 %6406, 41
-  %6408 = lshr i32 %6407, 12
-  %.neg96.i779 = mul nsw i32 %6408, -100
-  %6409 = add nsw i32 %.neg96.i779, %6406
-  %.neg97.i780 = mul nsw i32 %6406, -100
-  %6410 = add nsw i32 %.neg97.i780, %6401
-  %6411 = trunc nuw nsw i32 %6408 to i8
-  %6412 = add nuw nsw i8 %6411, 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %5909, i8 48, i64 24, i1 false)
-  store i8 %6412, ptr %6396, align 1, !tbaa !75
-  %6413 = icmp ugt i32 %6398, 99999999
-  %6414 = zext i1 %6413 to i64
-  %6415 = getelementptr inbounds nuw i8, ptr %6396, i64 %6414
-  %6416 = icmp ult i32 %6409, 10
-  %6417 = icmp ult i32 %6398, 100000000
-  %6418 = and i1 %6417, %6416
-  %6419 = shl nsw i32 %6409, 1
-  %6420 = zext i32 %6419 to i64
-  %6421 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6420
-  %.neg98.i781 = sext i1 %6418 to i64
-  %6422 = zext i1 %6418 to i64
-  %6423 = getelementptr inbounds nuw i8, ptr %6421, i64 %6422
-  %6424 = load i16, ptr %6423, align 1
-  store i16 %6424, ptr %6415, align 1
-  %6425 = getelementptr inbounds i8, ptr %6415, i64 %.neg98.i781
-  %6426 = getelementptr inbounds nuw i8, ptr %6425, i64 2
-  %6427 = shl nsw i32 %6410, 1
-  %6428 = zext i32 %6427 to i64
-  %6429 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6428
-  %6430 = load i16, ptr %6429, align 2
-  store i16 %6430, ptr %6426, align 1
-  %.not.i782 = icmp eq i32 %6400, 0
-  br i1 %.not.i782, label %6489, label %6431
+6394:                                             ; preds = %6253
+  %6395 = getelementptr inbounds nuw i8, ptr %5908, i64 1
+  %6396 = udiv i64 %.1, 100000000
+  %6397 = trunc i64 %6396 to i32
+  %.neg.i777 = mul i64 %6396, 4194967296
+  %6398 = add i64 %.neg.i777, %.1
+  %6399 = trunc i64 %6398 to i32
+  %6400 = udiv i32 %6397, 10000
+  %.neg95.i778 = mul i32 %6400, -10000
+  %6401 = add i32 %.neg95.i778, %6397
+  %6402 = zext nneg i32 %6400 to i64
+  %6403 = mul nuw nsw i64 %6402, 167773
+  %6404 = lshr i64 %6403, 24
+  %6405 = trunc nuw nsw i64 %6404 to i32
+  %6406 = mul nuw nsw i32 %6405, 41
+  %6407 = lshr i32 %6406, 12
+  %.neg96.i779 = mul nsw i32 %6407, -100
+  %6408 = add nsw i32 %.neg96.i779, %6405
+  %.neg97.i780 = mul nsw i32 %6405, -100
+  %6409 = add nsw i32 %.neg97.i780, %6400
+  %6410 = trunc nuw nsw i32 %6407 to i8
+  %6411 = add nuw nsw i8 %6410, 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %5908, i8 48, i64 24, i1 false)
+  store i8 %6411, ptr %6395, align 1, !tbaa !75
+  %6412 = icmp ugt i32 %6397, 99999999
+  %6413 = zext i1 %6412 to i64
+  %6414 = getelementptr inbounds nuw i8, ptr %6395, i64 %6413
+  %6415 = icmp ult i32 %6408, 10
+  %6416 = icmp ult i32 %6397, 100000000
+  %6417 = and i1 %6416, %6415
+  %6418 = shl nsw i32 %6408, 1
+  %6419 = zext i32 %6418 to i64
+  %6420 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6419
+  %.neg98.i781 = sext i1 %6417 to i64
+  %6421 = zext i1 %6417 to i64
+  %6422 = getelementptr inbounds nuw i8, ptr %6420, i64 %6421
+  %6423 = load i16, ptr %6422, align 1
+  store i16 %6423, ptr %6414, align 1
+  %6424 = getelementptr inbounds i8, ptr %6414, i64 %.neg98.i781
+  %6425 = getelementptr inbounds nuw i8, ptr %6424, i64 2
+  %6426 = shl nsw i32 %6409, 1
+  %6427 = zext i32 %6426 to i64
+  %6428 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6427
+  %6429 = load i16, ptr %6428, align 2
+  store i16 %6429, ptr %6425, align 1
+  %.not.i782 = icmp eq i32 %6399, 0
+  br i1 %.not.i782, label %6488, label %6430
 
-6431:                                             ; preds = %6395
-  %6432 = mul i32 %6402, 5243
-  %6433 = lshr i32 %6432, 19
-  %.neg103.i783 = mul i32 %6433, 2147483548
-  %6434 = add i32 %.neg103.i783, %6402
-  %6435 = and i64 %6399, 4294967295
-  %6436 = mul nuw nsw i64 %6435, 109951163
-  %6437 = lshr i64 %6436, 40
-  %6438 = trunc nuw nsw i64 %6437 to i32
-  %.neg104.i784 = mul i32 %6438, -10000
-  %6439 = add i32 %.neg104.i784, %6400
-  %6440 = mul nuw i32 %6438, 5243
-  %6441 = lshr i32 %6440, 19
-  %.neg105.i785 = mul nsw i32 %6441, -100
-  %6442 = add nsw i32 %.neg105.i785, %6438
-  %6443 = getelementptr inbounds nuw i8, ptr %6425, i64 4
-  %6444 = shl nuw nsw i32 %6433, 1
-  %6445 = zext nneg i32 %6444 to i64
-  %6446 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6445
-  %6447 = load i16, ptr %6446, align 2
-  store i16 %6447, ptr %6443, align 1
-  %6448 = getelementptr inbounds nuw i8, ptr %6425, i64 6
-  %6449 = shl i32 %6434, 1
-  %6450 = zext i32 %6449 to i64
-  %6451 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6450
-  %6452 = load i16, ptr %6451, align 2
-  store i16 %6452, ptr %6448, align 1
-  %6453 = getelementptr inbounds nuw i8, ptr %6425, i64 8
-  %6454 = shl nuw nsw i32 %6441, 1
-  %6455 = zext nneg i32 %6454 to i64
-  %6456 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6455
-  %6457 = load i16, ptr %6456, align 2
-  store i16 %6457, ptr %6453, align 1
-  %6458 = getelementptr inbounds nuw i8, ptr %6425, i64 10
-  %6459 = shl nsw i32 %6442, 1
-  %6460 = zext i32 %6459 to i64
-  %6461 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6460
-  %6462 = load i16, ptr %6461, align 2
-  store i16 %6462, ptr %6458, align 1
-  %.not106.i786 = icmp eq i32 %6439, 0
-  br i1 %.not106.i786, label %6477, label %6463
+6430:                                             ; preds = %6394
+  %6431 = mul i32 %6401, 5243
+  %6432 = lshr i32 %6431, 19
+  %.neg103.i783 = mul i32 %6432, 2147483548
+  %6433 = add i32 %.neg103.i783, %6401
+  %6434 = and i64 %6398, 4294967295
+  %6435 = mul nuw nsw i64 %6434, 109951163
+  %6436 = lshr i64 %6435, 40
+  %6437 = trunc nuw nsw i64 %6436 to i32
+  %.neg104.i784 = mul i32 %6437, -10000
+  %6438 = add i32 %.neg104.i784, %6399
+  %6439 = mul nuw i32 %6437, 5243
+  %6440 = lshr i32 %6439, 19
+  %.neg105.i785 = mul nsw i32 %6440, -100
+  %6441 = add nsw i32 %.neg105.i785, %6437
+  %6442 = getelementptr inbounds nuw i8, ptr %6424, i64 4
+  %6443 = shl nuw nsw i32 %6432, 1
+  %6444 = zext nneg i32 %6443 to i64
+  %6445 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6444
+  %6446 = load i16, ptr %6445, align 2
+  store i16 %6446, ptr %6442, align 1
+  %6447 = getelementptr inbounds nuw i8, ptr %6424, i64 6
+  %6448 = shl i32 %6433, 1
+  %6449 = zext i32 %6448 to i64
+  %6450 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6449
+  %6451 = load i16, ptr %6450, align 2
+  store i16 %6451, ptr %6447, align 1
+  %6452 = getelementptr inbounds nuw i8, ptr %6424, i64 8
+  %6453 = shl nuw nsw i32 %6440, 1
+  %6454 = zext nneg i32 %6453 to i64
+  %6455 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6454
+  %6456 = load i16, ptr %6455, align 2
+  store i16 %6456, ptr %6452, align 1
+  %6457 = getelementptr inbounds nuw i8, ptr %6424, i64 10
+  %6458 = shl nsw i32 %6441, 1
+  %6459 = zext i32 %6458 to i64
+  %6460 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6459
+  %6461 = load i16, ptr %6460, align 2
+  store i16 %6461, ptr %6457, align 1
+  %.not106.i786 = icmp eq i32 %6438, 0
+  br i1 %.not106.i786, label %6476, label %6462
 
-6463:                                             ; preds = %6431
-  %6464 = mul i32 %6439, 5243
-  %6465 = lshr i32 %6464, 19
-  %.neg108.i787 = mul nsw i32 %6465, -100
-  %6466 = add i32 %.neg108.i787, %6439
-  %6467 = getelementptr inbounds nuw i8, ptr %6425, i64 12
-  %6468 = shl nuw nsw i32 %6465, 1
-  %6469 = zext nneg i32 %6468 to i64
-  %6470 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6469
-  %6471 = load i16, ptr %6470, align 2
-  store i16 %6471, ptr %6467, align 1
-  %6472 = getelementptr inbounds nuw i8, ptr %6425, i64 14
-  %6473 = shl i32 %6466, 1
-  %6474 = zext i32 %6473 to i64
-  %6475 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6474
-  %6476 = load i16, ptr %6475, align 2
-  store i16 %6476, ptr %6472, align 1
-  br label %6477
+6462:                                             ; preds = %6430
+  %6463 = mul i32 %6438, 5243
+  %6464 = lshr i32 %6463, 19
+  %.neg108.i787 = mul nsw i32 %6464, -100
+  %6465 = add i32 %.neg108.i787, %6438
+  %6466 = getelementptr inbounds nuw i8, ptr %6424, i64 12
+  %6467 = shl nuw nsw i32 %6464, 1
+  %6468 = zext nneg i32 %6467 to i64
+  %6469 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6468
+  %6470 = load i16, ptr %6469, align 2
+  store i16 %6470, ptr %6466, align 1
+  %6471 = getelementptr inbounds nuw i8, ptr %6424, i64 14
+  %6472 = shl i32 %6465, 1
+  %6473 = zext i32 %6472 to i64
+  %6474 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6473
+  %6475 = load i16, ptr %6474, align 2
+  store i16 %6475, ptr %6471, align 1
+  br label %6476
 
-6477:                                             ; preds = %6431, %6463
-  %.sink5444 = phi i32 [ %6465, %6463 ], [ %6441, %6431 ]
-  %.sink5440 = phi i32 [ %6466, %6463 ], [ %6442, %6431 ]
-  %.sink5431 = phi i64 [ 16, %6463 ], [ 12, %6431 ]
-  %6478 = zext nneg i32 %.sink5444 to i64
-  %6479 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6478
-  %6480 = load i8, ptr %6479, align 1, !tbaa !75
-  %6481 = zext i8 %6480 to i64
-  %6482 = zext i32 %.sink5440 to i64
-  %6483 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6482
-  %6484 = load i8, ptr %6483, align 1, !tbaa !75
-  %6485 = zext i8 %6484 to i64
+6476:                                             ; preds = %6430, %6462
+  %.sink5444 = phi i32 [ %6464, %6462 ], [ %6440, %6430 ]
+  %.sink5440 = phi i32 [ %6465, %6462 ], [ %6441, %6430 ]
+  %.sink5431 = phi i64 [ 16, %6462 ], [ 12, %6430 ]
+  %6477 = zext nneg i32 %.sink5444 to i64
+  %6478 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6477
+  %6479 = load i8, ptr %6478, align 1, !tbaa !75
+  %6480 = zext i8 %6479 to i64
+  %6481 = zext i32 %.sink5440 to i64
+  %6482 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6481
+  %6483 = load i8, ptr %6482, align 1, !tbaa !75
+  %6484 = zext i8 %6483 to i64
   %.not107.i793 = icmp eq i32 %.sink5440, 0
-  %6486 = add nuw nsw i64 %6481, 2
-  %6487 = select i1 %.not107.i793, i64 %6486, i64 %6485
-  %6488 = sub nsw i64 %.sink5431, %6487
+  %6485 = add nuw nsw i64 %6480, 2
+  %6486 = select i1 %.not107.i793, i64 %6485, i64 %6484
+  %6487 = sub nsw i64 %.sink5431, %6486
   br label %.lr.ph3169.preheader
 
-6489:                                             ; preds = %6395
-  %.not99.i794 = icmp eq i32 %6402, 0
-  br i1 %.not99.i794, label %6515, label %6490
+6488:                                             ; preds = %6394
+  %.not99.i794 = icmp eq i32 %6401, 0
+  br i1 %.not99.i794, label %6514, label %6489
 
-6490:                                             ; preds = %6489
-  %6491 = mul i32 %6402, 5243
-  %6492 = lshr i32 %6491, 19
-  %.neg101.i795 = mul nsw i32 %6492, -100
-  %6493 = add i32 %.neg101.i795, %6402
-  %6494 = getelementptr inbounds nuw i8, ptr %6425, i64 4
-  %6495 = shl nuw nsw i32 %6492, 1
-  %6496 = zext nneg i32 %6495 to i64
-  %6497 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6496
-  %6498 = load i16, ptr %6497, align 2
-  store i16 %6498, ptr %6494, align 1
-  %6499 = getelementptr inbounds nuw i8, ptr %6425, i64 6
-  %6500 = shl i32 %6493, 1
-  %6501 = zext i32 %6500 to i64
-  %6502 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6501
-  %6503 = load i16, ptr %6502, align 2
-  store i16 %6503, ptr %6499, align 1
-  %6504 = zext nneg i32 %6492 to i64
-  %6505 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6504
-  %6506 = load i8, ptr %6505, align 1, !tbaa !75
-  %6507 = zext i8 %6506 to i64
-  %6508 = zext i32 %6493 to i64
-  %6509 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6508
-  %6510 = load i8, ptr %6509, align 1, !tbaa !75
-  %6511 = zext i8 %6510 to i64
-  %.not102.i796 = icmp eq i32 %6493, 0
-  %6512 = add nuw nsw i64 %6507, 2
-  %6513 = select i1 %.not102.i796, i64 %6512, i64 %6511
-  %6514 = sub nsw i64 8, %6513
+6489:                                             ; preds = %6488
+  %6490 = mul i32 %6401, 5243
+  %6491 = lshr i32 %6490, 19
+  %.neg101.i795 = mul nsw i32 %6491, -100
+  %6492 = add i32 %.neg101.i795, %6401
+  %6493 = getelementptr inbounds nuw i8, ptr %6424, i64 4
+  %6494 = shl nuw nsw i32 %6491, 1
+  %6495 = zext nneg i32 %6494 to i64
+  %6496 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6495
+  %6497 = load i16, ptr %6496, align 2
+  store i16 %6497, ptr %6493, align 1
+  %6498 = getelementptr inbounds nuw i8, ptr %6424, i64 6
+  %6499 = shl i32 %6492, 1
+  %6500 = zext i32 %6499 to i64
+  %6501 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6500
+  %6502 = load i16, ptr %6501, align 2
+  store i16 %6502, ptr %6498, align 1
+  %6503 = zext nneg i32 %6491 to i64
+  %6504 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6503
+  %6505 = load i8, ptr %6504, align 1, !tbaa !75
+  %6506 = zext i8 %6505 to i64
+  %6507 = zext i32 %6492 to i64
+  %6508 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6507
+  %6509 = load i8, ptr %6508, align 1, !tbaa !75
+  %6510 = zext i8 %6509 to i64
+  %.not102.i796 = icmp eq i32 %6492, 0
+  %6511 = add nuw nsw i64 %6506, 2
+  %6512 = select i1 %.not102.i796, i64 %6511, i64 %6510
+  %6513 = sub nsw i64 8, %6512
   br label %.lr.ph3169.preheader
 
-6515:                                             ; preds = %6489
-  %6516 = zext i32 %6409 to i64
-  %6517 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6516
-  %6518 = load i8, ptr %6517, align 1, !tbaa !75
-  %6519 = zext i8 %6518 to i64
-  %6520 = zext i32 %6410 to i64
-  %6521 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6520
-  %6522 = load i8, ptr %6521, align 1, !tbaa !75
-  %6523 = zext i8 %6522 to i64
-  %.not100.i797 = icmp eq i32 %6410, 0
-  %6524 = select i1 %.not100.i797, i64 %6519, i64 0
-  %6525 = add nuw nsw i64 %6524, %6523
-  %6526 = sub nsw i64 4, %6525
+6514:                                             ; preds = %6488
+  %6515 = zext i32 %6408 to i64
+  %6516 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6515
+  %6517 = load i8, ptr %6516, align 1, !tbaa !75
+  %6518 = zext i8 %6517 to i64
+  %6519 = zext i32 %6409 to i64
+  %6520 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6519
+  %6521 = load i8, ptr %6520, align 1, !tbaa !75
+  %6522 = zext i8 %6521 to i64
+  %.not100.i797 = icmp eq i32 %6409, 0
+  %6523 = select i1 %.not100.i797, i64 %6518, i64 0
+  %6524 = add nuw nsw i64 %6523, %6522
+  %6525 = sub nsw i64 4, %6524
   br label %.lr.ph3169.preheader
 
-.lr.ph3169.preheader:                             ; preds = %6515, %6490, %6477
-  %.sink5446 = phi i64 [ %6526, %6515 ], [ %6514, %6490 ], [ %6488, %6477 ]
-  %6527 = and i64 %.sink5446, 4294967295
-  %6528 = getelementptr inbounds nuw i8, ptr %6425, i64 %6527
-  %wide.trip.count3849 = zext nneg i32 %6252 to i64
+.lr.ph3169.preheader:                             ; preds = %6514, %6489, %6476
+  %.sink5446 = phi i64 [ %6525, %6514 ], [ %6513, %6489 ], [ %6487, %6476 ]
+  %6526 = and i64 %.sink5446, 4294967295
+  %6527 = getelementptr inbounds nuw i8, ptr %6424, i64 %6526
+  %wide.trip.count3849 = zext nneg i32 %6251 to i64
   br label %.lr.ph3169
 
 .lr.ph3169:                                       ; preds = %.lr.ph3169.preheader, %.lr.ph3169
   %indvars.iv3845 = phi i64 [ 0, %.lr.ph3169.preheader ], [ %indvars.iv.next3846, %.lr.ph3169 ]
   %indvars.iv.next3846 = add nuw nsw i64 %indvars.iv3845, 1
-  %6529 = getelementptr inbounds nuw i8, ptr %5909, i64 %indvars.iv.next3846
-  %6530 = load i8, ptr %6529, align 1, !tbaa !75
-  %6531 = getelementptr inbounds nuw i8, ptr %5909, i64 %indvars.iv3845
-  store i8 %6530, ptr %6531, align 1, !tbaa !75
+  %6528 = getelementptr inbounds nuw i8, ptr %5908, i64 %indvars.iv.next3846
+  %6529 = load i8, ptr %6528, align 1, !tbaa !75
+  %6530 = getelementptr inbounds nuw i8, ptr %5908, i64 %indvars.iv3845
+  store i8 %6529, ptr %6530, align 1, !tbaa !75
   %exitcond3850.not = icmp eq i64 %indvars.iv.next3846, %wide.trip.count3849
   br i1 %exitcond3850.not, label %._crit_edge3170, label %.lr.ph3169, !llvm.loop !216
 
 ._crit_edge3170:                                  ; preds = %.lr.ph3169
-  %6532 = zext nneg i32 %6252 to i64
-  %6533 = getelementptr inbounds nuw i8, ptr %5909, i64 %6532
-  store i8 46, ptr %6533, align 1, !tbaa !75
-  %6534 = getelementptr inbounds nuw i8, ptr %6533, i64 2
-  %6535 = icmp ult ptr %6534, %6528
-  %spec.select1901 = select i1 %6535, ptr %6528, ptr %6534
+  %6531 = zext nneg i32 %6251 to i64
+  %6532 = getelementptr inbounds nuw i8, ptr %5908, i64 %6531
+  store i8 46, ptr %6532, align 1, !tbaa !75
+  %6533 = getelementptr inbounds nuw i8, ptr %6532, i64 2
+  %6534 = icmp ult ptr %6533, %6527
+  %spec.select1901 = select i1 %6534, ptr %6527, ptr %6533
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-6536:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit746
-  %.ptr1931 = getelementptr inbounds nuw i8, ptr %5909, i64 1
-  %6537 = udiv i64 %.1, 100000000
-  %6538 = trunc i64 %6537 to i32
-  %.neg.i799 = mul i64 %6537, 4194967296
-  %6539 = add i64 %.neg.i799, %.1
-  %6540 = trunc i64 %6539 to i32
-  %6541 = udiv i32 %6538, 10000
-  %.neg95.i800 = mul i32 %6541, -10000
-  %6542 = add i32 %.neg95.i800, %6538
-  %6543 = zext nneg i32 %6541 to i64
-  %6544 = mul nuw nsw i64 %6543, 167773
-  %6545 = lshr i64 %6544, 24
-  %6546 = trunc nuw nsw i64 %6545 to i32
-  %6547 = mul nuw nsw i32 %6546, 41
-  %6548 = lshr i32 %6547, 12
-  %.neg96.i801 = mul nsw i32 %6548, -100
-  %6549 = add nsw i32 %.neg96.i801, %6546
-  %.neg97.i802 = mul nsw i32 %6546, -100
-  %6550 = add nsw i32 %.neg97.i802, %6541
-  %6551 = trunc nuw nsw i32 %6548 to i8
-  %6552 = add nuw nsw i8 %6551, 48
-  store i8 %6552, ptr %.ptr1931, align 1, !tbaa !75
-  %6553 = icmp ugt i32 %6538, 99999999
-  %.add1926 = select i1 %6553, i64 2, i64 1
-  %.ptr1932 = getelementptr inbounds nuw i8, ptr %5909, i64 %.add1926
-  %6554 = icmp ult i32 %6549, 10
-  %6555 = icmp ult i32 %6538, 100000000
-  %6556 = and i1 %6555, %6554
-  %6557 = shl nsw i32 %6549, 1
-  %6558 = zext i32 %6557 to i64
-  %6559 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6558
-  %.neg98.i803 = sext i1 %6556 to i64
-  %6560 = zext i1 %6556 to i64
-  %6561 = getelementptr inbounds nuw i8, ptr %6559, i64 %6560
-  %6562 = load i16, ptr %6561, align 1
-  store i16 %6562, ptr %.ptr1932, align 1
+6535:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit746
+  %.ptr1931 = getelementptr inbounds nuw i8, ptr %5908, i64 1
+  %6536 = udiv i64 %.1, 100000000
+  %6537 = trunc i64 %6536 to i32
+  %.neg.i799 = mul i64 %6536, 4194967296
+  %6538 = add i64 %.neg.i799, %.1
+  %6539 = trunc i64 %6538 to i32
+  %6540 = udiv i32 %6537, 10000
+  %.neg95.i800 = mul i32 %6540, -10000
+  %6541 = add i32 %.neg95.i800, %6537
+  %6542 = zext nneg i32 %6540 to i64
+  %6543 = mul nuw nsw i64 %6542, 167773
+  %6544 = lshr i64 %6543, 24
+  %6545 = trunc nuw nsw i64 %6544 to i32
+  %6546 = mul nuw nsw i32 %6545, 41
+  %6547 = lshr i32 %6546, 12
+  %.neg96.i801 = mul nsw i32 %6547, -100
+  %6548 = add nsw i32 %.neg96.i801, %6545
+  %.neg97.i802 = mul nsw i32 %6545, -100
+  %6549 = add nsw i32 %.neg97.i802, %6540
+  %6550 = trunc nuw nsw i32 %6547 to i8
+  %6551 = add nuw nsw i8 %6550, 48
+  store i8 %6551, ptr %.ptr1931, align 1, !tbaa !75
+  %6552 = icmp ugt i32 %6537, 99999999
+  %.add1926 = select i1 %6552, i64 2, i64 1
+  %.ptr1932 = getelementptr inbounds nuw i8, ptr %5908, i64 %.add1926
+  %6553 = icmp ult i32 %6548, 10
+  %6554 = icmp ult i32 %6537, 100000000
+  %6555 = and i1 %6554, %6553
+  %6556 = shl nsw i32 %6548, 1
+  %6557 = zext i32 %6556 to i64
+  %6558 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6557
+  %.neg98.i803 = sext i1 %6555 to i64
+  %6559 = zext i1 %6555 to i64
+  %6560 = getelementptr inbounds nuw i8, ptr %6558, i64 %6559
+  %6561 = load i16, ptr %6560, align 1
+  store i16 %6561, ptr %.ptr1932, align 1
   %.add1927 = add nsw i64 %.add1926, %.neg98.i803
-  %.ptr1933 = getelementptr inbounds nuw i8, ptr %5909, i64 %.add1927
-  %6563 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 2
-  %6564 = shl nsw i32 %6550, 1
-  %6565 = zext i32 %6564 to i64
-  %6566 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6565
-  %6567 = load i16, ptr %6566, align 2
-  store i16 %6567, ptr %6563, align 1
-  %.not.i804 = icmp eq i32 %6540, 0
-  br i1 %.not.i804, label %6637, label %6568
+  %.ptr1933 = getelementptr inbounds nuw i8, ptr %5908, i64 %.add1927
+  %6562 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 2
+  %6563 = shl nsw i32 %6549, 1
+  %6564 = zext i32 %6563 to i64
+  %6565 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6564
+  %6566 = load i16, ptr %6565, align 2
+  store i16 %6566, ptr %6562, align 1
+  %.not.i804 = icmp eq i32 %6539, 0
+  br i1 %.not.i804, label %6636, label %6567
 
-6568:                                             ; preds = %6536
-  %6569 = mul i32 %6542, 5243
-  %6570 = lshr i32 %6569, 19
-  %.neg103.i805 = mul i32 %6570, 2147483548
-  %6571 = add i32 %.neg103.i805, %6542
-  %6572 = and i64 %6539, 4294967295
-  %6573 = mul nuw nsw i64 %6572, 109951163
-  %6574 = lshr i64 %6573, 40
-  %6575 = trunc nuw nsw i64 %6574 to i32
-  %.neg104.i806 = mul i32 %6575, -10000
-  %6576 = add i32 %.neg104.i806, %6540
-  %6577 = mul nuw i32 %6575, 5243
-  %6578 = lshr i32 %6577, 19
-  %.neg105.i807 = mul nsw i32 %6578, -100
-  %6579 = add nsw i32 %.neg105.i807, %6575
-  %6580 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 4
-  %6581 = shl nuw nsw i32 %6570, 1
-  %6582 = zext nneg i32 %6581 to i64
-  %6583 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6582
-  %6584 = load i16, ptr %6583, align 2
-  store i16 %6584, ptr %6580, align 1
-  %6585 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 6
-  %6586 = shl i32 %6571, 1
-  %6587 = zext i32 %6586 to i64
-  %6588 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6587
-  %6589 = load i16, ptr %6588, align 2
-  store i16 %6589, ptr %6585, align 1
-  %6590 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 8
-  %6591 = shl nuw nsw i32 %6578, 1
-  %6592 = zext nneg i32 %6591 to i64
-  %6593 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6592
-  %6594 = load i16, ptr %6593, align 2
-  store i16 %6594, ptr %6590, align 1
-  %6595 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 10
-  %6596 = shl nsw i32 %6579, 1
-  %6597 = zext i32 %6596 to i64
-  %6598 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6597
-  %6599 = load i16, ptr %6598, align 2
-  store i16 %6599, ptr %6595, align 1
-  %.not106.i808 = icmp eq i32 %6576, 0
-  br i1 %.not106.i808, label %6625, label %6600
+6567:                                             ; preds = %6535
+  %6568 = mul i32 %6541, 5243
+  %6569 = lshr i32 %6568, 19
+  %.neg103.i805 = mul i32 %6569, 2147483548
+  %6570 = add i32 %.neg103.i805, %6541
+  %6571 = and i64 %6538, 4294967295
+  %6572 = mul nuw nsw i64 %6571, 109951163
+  %6573 = lshr i64 %6572, 40
+  %6574 = trunc nuw nsw i64 %6573 to i32
+  %.neg104.i806 = mul i32 %6574, -10000
+  %6575 = add i32 %.neg104.i806, %6539
+  %6576 = mul nuw i32 %6574, 5243
+  %6577 = lshr i32 %6576, 19
+  %.neg105.i807 = mul nsw i32 %6577, -100
+  %6578 = add nsw i32 %.neg105.i807, %6574
+  %6579 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 4
+  %6580 = shl nuw nsw i32 %6569, 1
+  %6581 = zext nneg i32 %6580 to i64
+  %6582 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6581
+  %6583 = load i16, ptr %6582, align 2
+  store i16 %6583, ptr %6579, align 1
+  %6584 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 6
+  %6585 = shl i32 %6570, 1
+  %6586 = zext i32 %6585 to i64
+  %6587 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6586
+  %6588 = load i16, ptr %6587, align 2
+  store i16 %6588, ptr %6584, align 1
+  %6589 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 8
+  %6590 = shl nuw nsw i32 %6577, 1
+  %6591 = zext nneg i32 %6590 to i64
+  %6592 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6591
+  %6593 = load i16, ptr %6592, align 2
+  store i16 %6593, ptr %6589, align 1
+  %6594 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 10
+  %6595 = shl nsw i32 %6578, 1
+  %6596 = zext i32 %6595 to i64
+  %6597 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6596
+  %6598 = load i16, ptr %6597, align 2
+  store i16 %6598, ptr %6594, align 1
+  %.not106.i808 = icmp eq i32 %6575, 0
+  br i1 %.not106.i808, label %6624, label %6599
 
-6600:                                             ; preds = %6568
-  %6601 = mul i32 %6576, 5243
-  %6602 = lshr i32 %6601, 19
-  %.neg108.i809 = mul nsw i32 %6602, -100
-  %6603 = add i32 %.neg108.i809, %6576
-  %6604 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 12
-  %6605 = shl nuw nsw i32 %6602, 1
-  %6606 = zext nneg i32 %6605 to i64
-  %6607 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6606
-  %6608 = load i16, ptr %6607, align 2
-  store i16 %6608, ptr %6604, align 1
-  %6609 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 14
-  %6610 = shl i32 %6603, 1
-  %6611 = zext i32 %6610 to i64
-  %6612 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6611
-  %6613 = load i16, ptr %6612, align 2
-  store i16 %6613, ptr %6609, align 1
-  %6614 = zext nneg i32 %6602 to i64
-  %6615 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6614
-  %6616 = load i8, ptr %6615, align 1, !tbaa !75
-  %6617 = zext i8 %6616 to i64
-  %6618 = zext i32 %6603 to i64
-  %6619 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6618
-  %6620 = load i8, ptr %6619, align 1, !tbaa !75
-  %6621 = zext i8 %6620 to i64
-  %.not109.i810 = icmp eq i32 %6603, 0
-  %6622 = add nuw nsw i64 %6617, 2
-  %6623 = select i1 %.not109.i810, i64 %6622, i64 %6621
-  %6624 = sub nsw i64 16, %6623
+6599:                                             ; preds = %6567
+  %6600 = mul i32 %6575, 5243
+  %6601 = lshr i32 %6600, 19
+  %.neg108.i809 = mul nsw i32 %6601, -100
+  %6602 = add i32 %.neg108.i809, %6575
+  %6603 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 12
+  %6604 = shl nuw nsw i32 %6601, 1
+  %6605 = zext nneg i32 %6604 to i64
+  %6606 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6605
+  %6607 = load i16, ptr %6606, align 2
+  store i16 %6607, ptr %6603, align 1
+  %6608 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 14
+  %6609 = shl i32 %6602, 1
+  %6610 = zext i32 %6609 to i64
+  %6611 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6610
+  %6612 = load i16, ptr %6611, align 2
+  store i16 %6612, ptr %6608, align 1
+  %6613 = zext nneg i32 %6601 to i64
+  %6614 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6613
+  %6615 = load i8, ptr %6614, align 1, !tbaa !75
+  %6616 = zext i8 %6615 to i64
+  %6617 = zext i32 %6602 to i64
+  %6618 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6617
+  %6619 = load i8, ptr %6618, align 1, !tbaa !75
+  %6620 = zext i8 %6619 to i64
+  %.not109.i810 = icmp eq i32 %6602, 0
+  %6621 = add nuw nsw i64 %6616, 2
+  %6622 = select i1 %.not109.i810, i64 %6621, i64 %6620
+  %6623 = sub nsw i64 16, %6622
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit820
 
-6625:                                             ; preds = %6568
-  %6626 = zext nneg i32 %6578 to i64
-  %6627 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6626
-  %6628 = load i8, ptr %6627, align 1, !tbaa !75
-  %6629 = zext i8 %6628 to i64
-  %6630 = zext i32 %6579 to i64
-  %6631 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6630
-  %6632 = load i8, ptr %6631, align 1, !tbaa !75
-  %6633 = zext i8 %6632 to i64
-  %.not107.i815 = icmp eq i32 %6579, 0
-  %6634 = add nuw nsw i64 %6629, 2
-  %6635 = select i1 %.not107.i815, i64 %6634, i64 %6633
-  %6636 = sub nsw i64 12, %6635
+6624:                                             ; preds = %6567
+  %6625 = zext nneg i32 %6577 to i64
+  %6626 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6625
+  %6627 = load i8, ptr %6626, align 1, !tbaa !75
+  %6628 = zext i8 %6627 to i64
+  %6629 = zext i32 %6578 to i64
+  %6630 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6629
+  %6631 = load i8, ptr %6630, align 1, !tbaa !75
+  %6632 = zext i8 %6631 to i64
+  %.not107.i815 = icmp eq i32 %6578, 0
+  %6633 = add nuw nsw i64 %6628, 2
+  %6634 = select i1 %.not107.i815, i64 %6633, i64 %6632
+  %6635 = sub nsw i64 12, %6634
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit820
 
-6637:                                             ; preds = %6536
-  %.not99.i816 = icmp eq i32 %6542, 0
-  br i1 %.not99.i816, label %6663, label %6638
+6636:                                             ; preds = %6535
+  %.not99.i816 = icmp eq i32 %6541, 0
+  br i1 %.not99.i816, label %6662, label %6637
 
-6638:                                             ; preds = %6637
-  %6639 = mul i32 %6542, 5243
-  %6640 = lshr i32 %6639, 19
-  %.neg101.i817 = mul nsw i32 %6640, -100
-  %6641 = add i32 %.neg101.i817, %6542
-  %6642 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 4
-  %6643 = shl nuw nsw i32 %6640, 1
-  %6644 = zext nneg i32 %6643 to i64
-  %6645 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6644
-  %6646 = load i16, ptr %6645, align 2
-  store i16 %6646, ptr %6642, align 1
-  %6647 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 6
-  %6648 = shl i32 %6641, 1
-  %6649 = zext i32 %6648 to i64
-  %6650 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6649
-  %6651 = load i16, ptr %6650, align 2
-  store i16 %6651, ptr %6647, align 1
-  %6652 = zext nneg i32 %6640 to i64
-  %6653 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6652
-  %6654 = load i8, ptr %6653, align 1, !tbaa !75
-  %6655 = zext i8 %6654 to i64
-  %6656 = zext i32 %6641 to i64
-  %6657 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6656
-  %6658 = load i8, ptr %6657, align 1, !tbaa !75
-  %6659 = zext i8 %6658 to i64
-  %.not102.i818 = icmp eq i32 %6641, 0
-  %6660 = add nuw nsw i64 %6655, 2
-  %6661 = select i1 %.not102.i818, i64 %6660, i64 %6659
-  %6662 = sub nsw i64 8, %6661
+6637:                                             ; preds = %6636
+  %6638 = mul i32 %6541, 5243
+  %6639 = lshr i32 %6638, 19
+  %.neg101.i817 = mul nsw i32 %6639, -100
+  %6640 = add i32 %.neg101.i817, %6541
+  %6641 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 4
+  %6642 = shl nuw nsw i32 %6639, 1
+  %6643 = zext nneg i32 %6642 to i64
+  %6644 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6643
+  %6645 = load i16, ptr %6644, align 2
+  store i16 %6645, ptr %6641, align 1
+  %6646 = getelementptr inbounds nuw i8, ptr %.ptr1933, i64 6
+  %6647 = shl i32 %6640, 1
+  %6648 = zext i32 %6647 to i64
+  %6649 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6648
+  %6650 = load i16, ptr %6649, align 2
+  store i16 %6650, ptr %6646, align 1
+  %6651 = zext nneg i32 %6639 to i64
+  %6652 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6651
+  %6653 = load i8, ptr %6652, align 1, !tbaa !75
+  %6654 = zext i8 %6653 to i64
+  %6655 = zext i32 %6640 to i64
+  %6656 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6655
+  %6657 = load i8, ptr %6656, align 1, !tbaa !75
+  %6658 = zext i8 %6657 to i64
+  %.not102.i818 = icmp eq i32 %6640, 0
+  %6659 = add nuw nsw i64 %6654, 2
+  %6660 = select i1 %.not102.i818, i64 %6659, i64 %6658
+  %6661 = sub nsw i64 8, %6660
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit820
 
-6663:                                             ; preds = %6637
-  %6664 = zext i32 %6549 to i64
-  %6665 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6664
-  %6666 = load i8, ptr %6665, align 1, !tbaa !75
-  %6667 = zext i8 %6666 to i64
-  %6668 = zext i32 %6550 to i64
-  %6669 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6668
-  %6670 = load i8, ptr %6669, align 1, !tbaa !75
-  %6671 = zext i8 %6670 to i64
-  %.not100.i819 = icmp eq i32 %6550, 0
-  %6672 = select i1 %.not100.i819, i64 %6667, i64 0
-  %6673 = add nuw nsw i64 %6672, %6671
-  %6674 = sub nsw i64 4, %6673
+6662:                                             ; preds = %6636
+  %6663 = zext i32 %6548 to i64
+  %6664 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6663
+  %6665 = load i8, ptr %6664, align 1, !tbaa !75
+  %6666 = zext i8 %6665 to i64
+  %6667 = zext i32 %6549 to i64
+  %6668 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6667
+  %6669 = load i8, ptr %6668, align 1, !tbaa !75
+  %6670 = zext i8 %6669 to i64
+  %.not100.i819 = icmp eq i32 %6549, 0
+  %6671 = select i1 %.not100.i819, i64 %6666, i64 0
+  %6672 = add nuw nsw i64 %6671, %6670
+  %6673 = sub nsw i64 4, %6672
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit820
 
-_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit820: ; preds = %6600, %6625, %6638, %6663
-  %.pn.i812.pn.in = phi i64 [ %6662, %6638 ], [ %6674, %6663 ], [ %6624, %6600 ], [ %6636, %6625 ]
+_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit820: ; preds = %6599, %6624, %6637, %6662
+  %.pn.i812.pn.in = phi i64 [ %6661, %6637 ], [ %6673, %6662 ], [ %6623, %6599 ], [ %6635, %6624 ]
   %.pn.i812.pn = and i64 %.pn.i812.pn.in, 4294967295
   %.1.i814.idx = add nuw nsw i64 %.pn.i812.pn, %.add1927
-  %.1.i814.ptr = getelementptr inbounds nuw i8, ptr %5909, i64 %.1.i814.idx
-  %6675 = icmp eq i64 %.1.i814.idx, 2
-  %.neg130.i711 = sext i1 %6675 to i64
-  %6676 = getelementptr inbounds i8, ptr %.1.i814.ptr, i64 %.neg130.i711
-  %6677 = add nsw i32 %6252, -1
-  %6678 = load i8, ptr %.ptr1931, align 1, !tbaa !75
-  store i8 %6678, ptr %5909, align 1, !tbaa !75
+  %.1.i814.ptr = getelementptr inbounds nuw i8, ptr %5908, i64 %.1.i814.idx
+  %6674 = icmp eq i64 %.1.i814.idx, 2
+  %.neg130.i711 = sext i1 %6674 to i64
+  %6675 = getelementptr inbounds i8, ptr %.1.i814.ptr, i64 %.neg130.i711
+  %6676 = add nsw i32 %6251, -1
+  %6677 = load i8, ptr %.ptr1931, align 1, !tbaa !75
+  store i8 %6677, ptr %5908, align 1, !tbaa !75
   store i8 46, ptr %.ptr1931, align 1, !tbaa !75
-  store i8 101, ptr %6676, align 1, !tbaa !75
-  %6679 = getelementptr inbounds nuw i8, ptr %6676, i64 1
-  store i8 45, ptr %6679, align 1, !tbaa !75
-  %.lobit.i953 = lshr i32 %6677, 31
-  %6680 = zext nneg i32 %.lobit.i953 to i64
-  %6681 = getelementptr inbounds nuw i8, ptr %6679, i64 %6680
-  %6682 = tail call i32 @llvm.abs.i32(i32 %6677, i1 true)
-  %6683 = icmp samesign ult i32 %6682, 100
-  br i1 %6683, label %6684, label %6694
+  store i8 101, ptr %6675, align 1, !tbaa !75
+  %6678 = getelementptr inbounds nuw i8, ptr %6675, i64 1
+  store i8 45, ptr %6678, align 1, !tbaa !75
+  %.lobit.i953 = lshr i32 %6676, 31
+  %6679 = zext nneg i32 %.lobit.i953 to i64
+  %6680 = getelementptr inbounds nuw i8, ptr %6678, i64 %6679
+  %6681 = tail call i32 @llvm.abs.i32(i32 %6676, i1 true)
+  %6682 = icmp samesign ult i32 %6681, 100
+  br i1 %6682, label %6683, label %6693
 
-6684:                                             ; preds = %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit820
-  %6685 = icmp samesign ult i32 %6682, 10
-  %6686 = shl nuw nsw i32 %6682, 1
-  %6687 = zext nneg i32 %6686 to i64
-  %6688 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6687
-  %.neg22.i = sext i1 %6685 to i64
-  %6689 = zext i1 %6685 to i64
-  %6690 = getelementptr inbounds nuw i8, ptr %6688, i64 %6689
-  %6691 = load i16, ptr %6690, align 1
-  store i16 %6691, ptr %6681, align 1
-  %6692 = getelementptr inbounds nuw i8, ptr %6681, i64 2
-  %6693 = getelementptr inbounds i8, ptr %6692, i64 %.neg22.i
+6683:                                             ; preds = %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit820
+  %6684 = icmp samesign ult i32 %6681, 10
+  %6685 = shl nuw nsw i32 %6681, 1
+  %6686 = zext nneg i32 %6685 to i64
+  %6687 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6686
+  %.neg22.i = sext i1 %6684 to i64
+  %6688 = zext i1 %6684 to i64
+  %6689 = getelementptr inbounds nuw i8, ptr %6687, i64 %6688
+  %6690 = load i16, ptr %6689, align 1
+  store i16 %6690, ptr %6680, align 1
+  %6691 = getelementptr inbounds nuw i8, ptr %6680, i64 2
+  %6692 = getelementptr inbounds i8, ptr %6691, i64 %.neg22.i
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-6694:                                             ; preds = %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit820
-  %6695 = mul nuw nsw i32 %6682, 656
-  %6696 = lshr i32 %6695, 16
-  %.neg.i954 = mul i32 %6696, 2147483548
-  %6697 = add i32 %.neg.i954, %6682
-  %6698 = trunc nuw nsw i32 %6696 to i8
-  %6699 = add nuw nsw i8 %6698, 48
-  store i8 %6699, ptr %6681, align 1, !tbaa !75
-  %6700 = getelementptr inbounds nuw i8, ptr %6681, i64 1
-  %6701 = shl i32 %6697, 1
-  %6702 = zext i32 %6701 to i64
-  %6703 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6702
-  %6704 = load i16, ptr %6703, align 2
-  store i16 %6704, ptr %6700, align 1
-  %6705 = getelementptr inbounds nuw i8, ptr %6681, i64 3
+6693:                                             ; preds = %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit820
+  %6694 = mul nuw nsw i32 %6681, 656
+  %6695 = lshr i32 %6694, 16
+  %.neg.i954 = mul i32 %6695, 2147483548
+  %6696 = add i32 %.neg.i954, %6681
+  %6697 = trunc nuw nsw i32 %6695 to i8
+  %6698 = add nuw nsw i8 %6697, 48
+  store i8 %6698, ptr %6680, align 1, !tbaa !75
+  %6699 = getelementptr inbounds nuw i8, ptr %6680, i64 1
+  %6700 = shl i32 %6696, 1
+  %6701 = zext i32 %6700 to i64
+  %6702 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6701
+  %6703 = load i16, ptr %6702, align 2
+  store i16 %6703, ptr %6699, align 1
+  %6704 = getelementptr inbounds nuw i8, ptr %6680, i64 3
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-6706:                                             ; preds = %5913
-  %6707 = and i64 %5890, 1
-  %6708 = shl nuw nsw i64 %5892, 5
-  %6709 = or disjoint i64 %6708, 16
-  %6710 = add nsw i64 %6708, -16
-  %6711 = zext i64 %6710 to i128
-  %6712 = mul nuw nsw i128 %6711, 7784369436827535058
-  %6713 = lshr i128 %6712, 64
-  %6714 = mul nuw i128 %6711, 11392378155556871081
-  %6715 = add nuw i128 %6713, %6714
-  %6716 = lshr i128 %6715, 64
-  %6717 = trunc nuw i128 %6716 to i64
-  %6718 = and i128 %6715, 18446744073709551614
-  %6719 = icmp ne i128 %6718, 0
-  %6720 = zext i1 %6719 to i64
-  %6721 = or i64 %6720, %6717
-  %6722 = zext nneg i64 %6708 to i128
-  %6723 = mul nuw nsw i128 %6722, 7784369436827535058
-  %6724 = lshr i128 %6723, 64
-  %6725 = mul nuw nsw i128 %6722, 11392378155556871081
-  %6726 = add nuw nsw i128 %6724, %6725
-  %6727 = lshr i128 %6726, 64
-  %6728 = trunc nuw nsw i128 %6727 to i64
-  %6729 = and i128 %6726, 18446744073709551614
-  %6730 = icmp ne i128 %6729, 0
-  %6731 = zext i1 %6730 to i64
-  %6732 = or i64 %6731, %6728
-  %6733 = zext nneg i64 %6709 to i128
-  %6734 = mul nuw nsw i128 %6733, 7784369436827535058
-  %6735 = lshr i128 %6734, 64
-  %6736 = mul nuw nsw i128 %6733, 11392378155556871081
-  %6737 = add nuw nsw i128 %6735, %6736
-  %6738 = lshr i128 %6737, 64
-  %6739 = trunc nuw nsw i128 %6738 to i64
-  %6740 = and i128 %6737, 18446744073709551614
-  %6741 = icmp ne i128 %6740, 0
-  %6742 = zext i1 %6741 to i64
-  %6743 = or i64 %6742, %6739
-  %6744 = add nuw i64 %6721, %6707
-  %6745 = sub nuw nsw i64 %6743, %6707
-  %6746 = lshr i64 %6728, 2
-  %6747 = icmp samesign ugt i64 %6728, 39
-  br i1 %6747, label %6748, label %6754
+6705:                                             ; preds = %5912
+  %6706 = and i64 %5889, 1
+  %6707 = shl nuw nsw i64 %5891, 5
+  %6708 = or disjoint i64 %6707, 16
+  %6709 = add nsw i64 %6707, -16
+  %6710 = zext i64 %6709 to i128
+  %6711 = mul nuw nsw i128 %6710, 7784369436827535058
+  %6712 = lshr i128 %6711, 64
+  %6713 = mul nuw i128 %6710, 11392378155556871081
+  %6714 = add nuw i128 %6712, %6713
+  %6715 = lshr i128 %6714, 64
+  %6716 = trunc nuw i128 %6715 to i64
+  %6717 = and i128 %6714, 18446744073709551614
+  %6718 = icmp ne i128 %6717, 0
+  %6719 = zext i1 %6718 to i64
+  %6720 = or i64 %6719, %6716
+  %6721 = zext nneg i64 %6707 to i128
+  %6722 = mul nuw nsw i128 %6721, 7784369436827535058
+  %6723 = lshr i128 %6722, 64
+  %6724 = mul nuw nsw i128 %6721, 11392378155556871081
+  %6725 = add nuw nsw i128 %6723, %6724
+  %6726 = lshr i128 %6725, 64
+  %6727 = trunc nuw nsw i128 %6726 to i64
+  %6728 = and i128 %6725, 18446744073709551614
+  %6729 = icmp ne i128 %6728, 0
+  %6730 = zext i1 %6729 to i64
+  %6731 = or i64 %6730, %6727
+  %6732 = zext nneg i64 %6708 to i128
+  %6733 = mul nuw nsw i128 %6732, 7784369436827535058
+  %6734 = lshr i128 %6733, 64
+  %6735 = mul nuw nsw i128 %6732, 11392378155556871081
+  %6736 = add nuw nsw i128 %6734, %6735
+  %6737 = lshr i128 %6736, 64
+  %6738 = trunc nuw nsw i128 %6737 to i64
+  %6739 = and i128 %6736, 18446744073709551614
+  %6740 = icmp ne i128 %6739, 0
+  %6741 = zext i1 %6740 to i64
+  %6742 = or i64 %6741, %6738
+  %6743 = add nuw i64 %6720, %6706
+  %6744 = sub nuw nsw i64 %6742, %6706
+  %6745 = lshr i64 %6727, 2
+  %6746 = icmp samesign ugt i64 %6727, 39
+  br i1 %6746, label %6747, label %6753
 
-6748:                                             ; preds = %6706
-  %6749 = udiv i64 %6728, 40
-  %6750 = mul nuw nsw i64 %6749, 40
-  %6751 = add nuw nsw i64 %6750, 40
-  %6752 = icmp samesign uge i64 %6745, %6751
-  %6753 = icmp ugt i64 %6744, %6750
-  %.not.i741 = xor i1 %6753, %6752
-  br i1 %.not.i741, label %6754, label %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit
+6747:                                             ; preds = %6705
+  %6748 = udiv i64 %6727, 40
+  %6749 = mul nuw nsw i64 %6748, 40
+  %6750 = add nuw nsw i64 %6749, 40
+  %6751 = icmp samesign uge i64 %6744, %6750
+  %6752 = icmp ugt i64 %6743, %6749
+  %.not.i741 = xor i1 %6752, %6751
+  br i1 %.not.i741, label %6753, label %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit
 
-6754:                                             ; preds = %6748, %6706
-  %6755 = and i64 %6728, 9223372036854775804
-  %6756 = add nuw nsw i64 %6755, 4
-  %6757 = icmp samesign uge i64 %6745, %6756
-  %6758 = or disjoint i64 %6755, 2
-  %6759 = icmp samesign ugt i64 %6732, %6758
-  br i1 %6759, label %6765, label %6760
+6753:                                             ; preds = %6747, %6705
+  %6754 = and i64 %6727, 9223372036854775804
+  %6755 = add nuw nsw i64 %6754, 4
+  %6756 = icmp samesign uge i64 %6744, %6755
+  %6757 = or disjoint i64 %6754, 2
+  %6758 = icmp samesign ugt i64 %6731, %6757
+  br i1 %6758, label %6764, label %6759
 
-6760:                                             ; preds = %6754
-  %6761 = icmp eq i64 %6732, %6758
-  %6762 = and i64 %6728, 4
-  %6763 = icmp ne i64 %6762, 0
-  %6764 = and i1 %6763, %6761
-  br label %6765
+6759:                                             ; preds = %6753
+  %6760 = icmp eq i64 %6731, %6757
+  %6761 = and i64 %6727, 4
+  %6762 = icmp ne i64 %6761, 0
+  %6763 = and i1 %6762, %6760
+  br label %6764
 
-6765:                                             ; preds = %6760, %6754
-  %6766 = phi i1 [ true, %6754 ], [ %6764, %6760 ]
-  %6767 = icmp ugt i64 %6744, %6755
-  %.not58.i = xor i1 %6767, %6757
-  %6768 = select i1 %.not58.i, i1 %6766, i1 %6757
+6764:                                             ; preds = %6759, %6753
+  %6765 = phi i1 [ true, %6753 ], [ %6763, %6759 ]
+  %6766 = icmp ugt i64 %6743, %6754
+  %.not58.i = xor i1 %6766, %6756
+  %6767 = select i1 %.not58.i, i1 %6765, i1 %6756
   br label %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit
 
-_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit: ; preds = %6748, %6765
-  %.sink5449 = phi i1 [ %6768, %6765 ], [ %6752, %6748 ]
-  %.sink5447 = phi i64 [ %6746, %6765 ], [ %6749, %6748 ]
-  %storemerge.i = phi i32 [ -324, %6765 ], [ -323, %6748 ]
-  %6769 = zext i1 %.sink5449 to i64
-  %6770 = add nuw nsw i64 %.sink5447, %6769
-  %6771 = getelementptr inbounds nuw i8, ptr %5909, i64 1
-  %6772 = icmp samesign ugt i64 %6770, 999999999999999
-  br i1 %6772, label %6773, label %6847
+_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit: ; preds = %6747, %6764
+  %.sink5449 = phi i1 [ %6767, %6764 ], [ %6751, %6747 ]
+  %.sink5447 = phi i64 [ %6745, %6764 ], [ %6748, %6747 ]
+  %storemerge.i = phi i32 [ -324, %6764 ], [ -323, %6747 ]
+  %6768 = zext i1 %.sink5449 to i64
+  %6769 = add nuw nsw i64 %.sink5447, %6768
+  %6770 = getelementptr inbounds nuw i8, ptr %5908, i64 1
+  %6771 = icmp samesign ugt i64 %6769, 999999999999999
+  br i1 %6771, label %6772, label %6846
 
-6773:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit
-  %6774 = udiv i64 %6770, 100000000
-  %.neg29.i = mul nuw nsw i64 %6774, 4194967296
-  %6775 = add nuw nsw i64 %.neg29.i, %6770
-  %6776 = trunc i64 %6775 to i32
-  %6777 = udiv i64 %6770, 10000000000000000
-  %.neg30.i = mul nuw nsw i64 %6777, 4194967296
-  %6778 = add nuw nsw i64 %.neg30.i, %6774
-  %6779 = trunc i64 %6778 to i32
-  %6780 = trunc nuw nsw i64 %6777 to i8
-  %6781 = add nuw nsw i8 %6780, 48
-  store i8 %6781, ptr %6771, align 1, !tbaa !75
-  %6782 = icmp samesign ugt i64 %6770, 9999999999999999
-  %6783 = zext i1 %6782 to i64
-  %6784 = getelementptr inbounds nuw i8, ptr %6771, i64 %6783
-  %6785 = and i64 %6778, 4294967295
-  %6786 = mul nuw nsw i64 %6785, 109951163
-  %6787 = lshr i64 %6786, 40
-  %6788 = trunc nuw nsw i64 %6787 to i32
-  %.neg.i1203 = mul i32 %6788, -10000
-  %6789 = add i32 %.neg.i1203, %6779
-  %6790 = mul nuw i32 %6788, 5243
-  %6791 = lshr i32 %6790, 19
-  %6792 = mul i32 %6789, 5243
-  %6793 = lshr i32 %6792, 19
-  %.neg17.i1204 = mul nsw i32 %6791, -100
-  %6794 = add nsw i32 %.neg17.i1204, %6788
-  %.neg18.i1205 = mul i32 %6793, 2147483548
-  %6795 = add i32 %.neg18.i1205, %6789
-  %6796 = shl nuw nsw i32 %6791, 1
-  %6797 = zext nneg i32 %6796 to i64
-  %6798 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6797
-  %6799 = load i16, ptr %6798, align 2
-  store i16 %6799, ptr %6784, align 1
-  %6800 = getelementptr inbounds nuw i8, ptr %6784, i64 2
-  %6801 = shl nsw i32 %6794, 1
-  %6802 = zext i32 %6801 to i64
-  %6803 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6802
-  %6804 = load i16, ptr %6803, align 2
-  store i16 %6804, ptr %6800, align 1
-  %6805 = getelementptr inbounds nuw i8, ptr %6784, i64 4
-  %6806 = shl nuw nsw i32 %6793, 1
-  %6807 = zext nneg i32 %6806 to i64
-  %6808 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6807
-  %6809 = load i16, ptr %6808, align 2
-  store i16 %6809, ptr %6805, align 1
-  %6810 = getelementptr inbounds nuw i8, ptr %6784, i64 6
-  %6811 = shl i32 %6795, 1
-  %6812 = zext i32 %6811 to i64
-  %6813 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6812
-  %6814 = load i16, ptr %6813, align 2
-  store i16 %6814, ptr %6810, align 1
-  %6815 = getelementptr inbounds nuw i8, ptr %6784, i64 8
-  %6816 = and i64 %6775, 4294967295
-  %6817 = mul nuw nsw i64 %6816, 109951163
-  %6818 = lshr i64 %6817, 40
-  %6819 = trunc nuw nsw i64 %6818 to i32
-  %.neg.i1200 = mul i32 %6819, -10000
-  %6820 = add i32 %.neg.i1200, %6776
-  %6821 = mul nuw i32 %6819, 5243
-  %6822 = lshr i32 %6821, 19
-  %6823 = mul i32 %6820, 5243
-  %6824 = lshr i32 %6823, 19
-  %.neg17.i1201 = mul nsw i32 %6822, -100
-  %6825 = add nsw i32 %.neg17.i1201, %6819
-  %.neg18.i1202 = mul i32 %6824, 2147483548
-  %6826 = add i32 %.neg18.i1202, %6820
-  %6827 = shl nuw nsw i32 %6822, 1
-  %6828 = zext nneg i32 %6827 to i64
-  %6829 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6828
-  %6830 = load i16, ptr %6829, align 2
-  store i16 %6830, ptr %6815, align 1
-  %6831 = getelementptr inbounds nuw i8, ptr %6784, i64 10
-  %6832 = shl nsw i32 %6825, 1
-  %6833 = zext i32 %6832 to i64
-  %6834 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6833
-  %6835 = load i16, ptr %6834, align 2
-  store i16 %6835, ptr %6831, align 1
-  %6836 = getelementptr inbounds nuw i8, ptr %6784, i64 12
-  %6837 = shl nuw nsw i32 %6824, 1
-  %6838 = zext nneg i32 %6837 to i64
-  %6839 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6838
-  %6840 = load i16, ptr %6839, align 2
-  store i16 %6840, ptr %6836, align 1
-  %6841 = getelementptr inbounds nuw i8, ptr %6784, i64 14
-  %6842 = shl i32 %6826, 1
-  %6843 = zext i32 %6842 to i64
-  %6844 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6843
-  %6845 = load i16, ptr %6844, align 2
-  store i16 %6845, ptr %6841, align 1
-  %6846 = getelementptr inbounds nuw i8, ptr %6784, i64 16
+6772:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit
+  %6773 = udiv i64 %6769, 100000000
+  %.neg29.i = mul nuw nsw i64 %6773, 4194967296
+  %6774 = add nuw nsw i64 %.neg29.i, %6769
+  %6775 = trunc i64 %6774 to i32
+  %6776 = udiv i64 %6769, 10000000000000000
+  %.neg30.i = mul nuw nsw i64 %6776, 4194967296
+  %6777 = add nuw nsw i64 %.neg30.i, %6773
+  %6778 = trunc i64 %6777 to i32
+  %6779 = trunc nuw nsw i64 %6776 to i8
+  %6780 = add nuw nsw i8 %6779, 48
+  store i8 %6780, ptr %6770, align 1, !tbaa !75
+  %6781 = icmp samesign ugt i64 %6769, 9999999999999999
+  %6782 = zext i1 %6781 to i64
+  %6783 = getelementptr inbounds nuw i8, ptr %6770, i64 %6782
+  %6784 = and i64 %6777, 4294967295
+  %6785 = mul nuw nsw i64 %6784, 109951163
+  %6786 = lshr i64 %6785, 40
+  %6787 = trunc nuw nsw i64 %6786 to i32
+  %.neg.i1203 = mul i32 %6787, -10000
+  %6788 = add i32 %.neg.i1203, %6778
+  %6789 = mul nuw i32 %6787, 5243
+  %6790 = lshr i32 %6789, 19
+  %6791 = mul i32 %6788, 5243
+  %6792 = lshr i32 %6791, 19
+  %.neg17.i1204 = mul nsw i32 %6790, -100
+  %6793 = add nsw i32 %.neg17.i1204, %6787
+  %.neg18.i1205 = mul i32 %6792, 2147483548
+  %6794 = add i32 %.neg18.i1205, %6788
+  %6795 = shl nuw nsw i32 %6790, 1
+  %6796 = zext nneg i32 %6795 to i64
+  %6797 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6796
+  %6798 = load i16, ptr %6797, align 2
+  store i16 %6798, ptr %6783, align 1
+  %6799 = getelementptr inbounds nuw i8, ptr %6783, i64 2
+  %6800 = shl nsw i32 %6793, 1
+  %6801 = zext i32 %6800 to i64
+  %6802 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6801
+  %6803 = load i16, ptr %6802, align 2
+  store i16 %6803, ptr %6799, align 1
+  %6804 = getelementptr inbounds nuw i8, ptr %6783, i64 4
+  %6805 = shl nuw nsw i32 %6792, 1
+  %6806 = zext nneg i32 %6805 to i64
+  %6807 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6806
+  %6808 = load i16, ptr %6807, align 2
+  store i16 %6808, ptr %6804, align 1
+  %6809 = getelementptr inbounds nuw i8, ptr %6783, i64 6
+  %6810 = shl i32 %6794, 1
+  %6811 = zext i32 %6810 to i64
+  %6812 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6811
+  %6813 = load i16, ptr %6812, align 2
+  store i16 %6813, ptr %6809, align 1
+  %6814 = getelementptr inbounds nuw i8, ptr %6783, i64 8
+  %6815 = and i64 %6774, 4294967295
+  %6816 = mul nuw nsw i64 %6815, 109951163
+  %6817 = lshr i64 %6816, 40
+  %6818 = trunc nuw nsw i64 %6817 to i32
+  %.neg.i1200 = mul i32 %6818, -10000
+  %6819 = add i32 %.neg.i1200, %6775
+  %6820 = mul nuw i32 %6818, 5243
+  %6821 = lshr i32 %6820, 19
+  %6822 = mul i32 %6819, 5243
+  %6823 = lshr i32 %6822, 19
+  %.neg17.i1201 = mul nsw i32 %6821, -100
+  %6824 = add nsw i32 %.neg17.i1201, %6818
+  %.neg18.i1202 = mul i32 %6823, 2147483548
+  %6825 = add i32 %.neg18.i1202, %6819
+  %6826 = shl nuw nsw i32 %6821, 1
+  %6827 = zext nneg i32 %6826 to i64
+  %6828 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6827
+  %6829 = load i16, ptr %6828, align 2
+  store i16 %6829, ptr %6814, align 1
+  %6830 = getelementptr inbounds nuw i8, ptr %6783, i64 10
+  %6831 = shl nsw i32 %6824, 1
+  %6832 = zext i32 %6831 to i64
+  %6833 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6832
+  %6834 = load i16, ptr %6833, align 2
+  store i16 %6834, ptr %6830, align 1
+  %6835 = getelementptr inbounds nuw i8, ptr %6783, i64 12
+  %6836 = shl nuw nsw i32 %6823, 1
+  %6837 = zext nneg i32 %6836 to i64
+  %6838 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6837
+  %6839 = load i16, ptr %6838, align 2
+  store i16 %6839, ptr %6835, align 1
+  %6840 = getelementptr inbounds nuw i8, ptr %6783, i64 14
+  %6841 = shl i32 %6825, 1
+  %6842 = zext i32 %6841 to i64
+  %6843 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6842
+  %6844 = load i16, ptr %6843, align 2
+  store i16 %6844, ptr %6840, align 1
+  %6845 = getelementptr inbounds nuw i8, ptr %6783, i64 16
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit
 
-6847:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit
-  %6848 = icmp samesign ugt i64 %6770, 99999999
-  br i1 %6848, label %6849, label %6975
+6846:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit
+  %6847 = icmp samesign ugt i64 %6769, 99999999
+  br i1 %6847, label %6848, label %6974
 
-6849:                                             ; preds = %6847
-  %6850 = udiv i64 %6770, 100000000
-  %.neg.i967 = mul nuw nsw i64 %6850, 4194967296
-  %6851 = add nuw nsw i64 %.neg.i967, %6770
-  %6852 = trunc i64 %6851 to i32
-  %6853 = trunc nuw nsw i64 %6850 to i32
-  %6854 = icmp samesign ult i64 %6770, 10000000000
-  br i1 %6854, label %6855, label %6864
+6848:                                             ; preds = %6846
+  %6849 = udiv i64 %6769, 100000000
+  %.neg.i967 = mul nuw nsw i64 %6849, 4194967296
+  %6850 = add nuw nsw i64 %.neg.i967, %6769
+  %6851 = trunc i64 %6850 to i32
+  %6852 = trunc nuw nsw i64 %6849 to i32
+  %6853 = icmp samesign ult i64 %6769, 10000000000
+  br i1 %6853, label %6854, label %6863
 
-6855:                                             ; preds = %6849
-  %6856 = icmp samesign ult i64 %6770, 1000000000
-  %6857 = shl nuw nsw i64 %6850, 1
-  %6858 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6857
-  %.neg70.i1026 = sext i1 %6856 to i64
-  %6859 = zext i1 %6856 to i64
-  %6860 = getelementptr inbounds nuw i8, ptr %6858, i64 %6859
-  %6861 = load i16, ptr %6860, align 1
-  store i16 %6861, ptr %6771, align 1
-  %6862 = getelementptr inbounds i8, ptr %6771, i64 %.neg70.i1026
-  %6863 = getelementptr inbounds nuw i8, ptr %6862, i64 2
+6854:                                             ; preds = %6848
+  %6855 = icmp samesign ult i64 %6769, 1000000000
+  %6856 = shl nuw nsw i64 %6849, 1
+  %6857 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6856
+  %.neg70.i1026 = sext i1 %6855 to i64
+  %6858 = zext i1 %6855 to i64
+  %6859 = getelementptr inbounds nuw i8, ptr %6857, i64 %6858
+  %6860 = load i16, ptr %6859, align 1
+  store i16 %6860, ptr %6770, align 1
+  %6861 = getelementptr inbounds i8, ptr %6770, i64 %.neg70.i1026
+  %6862 = getelementptr inbounds nuw i8, ptr %6861, i64 2
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1027
 
-6864:                                             ; preds = %6849
-  %6865 = icmp samesign ult i64 %6770, 1000000000000
-  br i1 %6865, label %6866, label %6884
+6863:                                             ; preds = %6848
+  %6864 = icmp samesign ult i64 %6769, 1000000000000
+  br i1 %6864, label %6865, label %6883
 
-6866:                                             ; preds = %6864
-  %6867 = mul nuw nsw i32 %6853, 5243
-  %6868 = lshr i32 %6867, 19
-  %.neg68.i1024 = mul nsw i32 %6868, -100
-  %6869 = add nsw i32 %.neg68.i1024, %6853
-  %6870 = icmp samesign ult i64 %6770, 100000000000
-  %6871 = shl nuw nsw i32 %6868, 1
-  %6872 = zext nneg i32 %6871 to i64
-  %6873 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6872
-  %.neg69.i1025 = sext i1 %6870 to i64
-  %6874 = zext i1 %6870 to i64
-  %6875 = getelementptr inbounds nuw i8, ptr %6873, i64 %6874
-  %6876 = load i16, ptr %6875, align 1
-  store i16 %6876, ptr %6771, align 1
-  %6877 = getelementptr inbounds i8, ptr %6771, i64 %.neg69.i1025
-  %6878 = getelementptr inbounds nuw i8, ptr %6877, i64 2
-  %6879 = shl nsw i32 %6869, 1
-  %6880 = zext i32 %6879 to i64
-  %6881 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6880
-  %6882 = load i16, ptr %6881, align 2
-  store i16 %6882, ptr %6878, align 1
-  %6883 = getelementptr inbounds nuw i8, ptr %6877, i64 4
+6865:                                             ; preds = %6863
+  %6866 = mul nuw nsw i32 %6852, 5243
+  %6867 = lshr i32 %6866, 19
+  %.neg68.i1024 = mul nsw i32 %6867, -100
+  %6868 = add nsw i32 %.neg68.i1024, %6852
+  %6869 = icmp samesign ult i64 %6769, 100000000000
+  %6870 = shl nuw nsw i32 %6867, 1
+  %6871 = zext nneg i32 %6870 to i64
+  %6872 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6871
+  %.neg69.i1025 = sext i1 %6869 to i64
+  %6873 = zext i1 %6869 to i64
+  %6874 = getelementptr inbounds nuw i8, ptr %6872, i64 %6873
+  %6875 = load i16, ptr %6874, align 1
+  store i16 %6875, ptr %6770, align 1
+  %6876 = getelementptr inbounds i8, ptr %6770, i64 %.neg69.i1025
+  %6877 = getelementptr inbounds nuw i8, ptr %6876, i64 2
+  %6878 = shl nsw i32 %6868, 1
+  %6879 = zext i32 %6878 to i64
+  %6880 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6879
+  %6881 = load i16, ptr %6880, align 2
+  store i16 %6881, ptr %6877, align 1
+  %6882 = getelementptr inbounds nuw i8, ptr %6876, i64 4
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1027
 
-6884:                                             ; preds = %6864
-  %6885 = icmp samesign ult i64 %6770, 100000000000000
-  br i1 %6885, label %6886, label %6912
+6883:                                             ; preds = %6863
+  %6884 = icmp samesign ult i64 %6769, 100000000000000
+  br i1 %6884, label %6885, label %6911
 
-6886:                                             ; preds = %6884
-  %6887 = mul nuw nsw i64 %6850, 429497
-  %6888 = lshr i64 %6887, 32
-  %6889 = trunc nuw nsw i64 %6888 to i32
-  %.neg65.i1021 = mul nsw i32 %6889, -10000
-  %6890 = add nsw i32 %.neg65.i1021, %6853
-  %6891 = mul i32 %6890, 5243
-  %6892 = lshr i32 %6891, 19
-  %.neg66.i1022 = mul nsw i32 %6892, -100
-  %6893 = add nsw i32 %.neg66.i1022, %6890
-  %6894 = icmp samesign ult i64 %6770, 10000000000000
-  %6895 = shl nuw nsw i64 %6888, 1
-  %6896 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6895
-  %.neg67.i1023 = sext i1 %6894 to i64
-  %6897 = zext i1 %6894 to i64
-  %6898 = getelementptr inbounds nuw i8, ptr %6896, i64 %6897
-  %6899 = load i16, ptr %6898, align 1
-  store i16 %6899, ptr %6771, align 1
-  %6900 = getelementptr inbounds i8, ptr %6771, i64 %.neg67.i1023
-  %6901 = getelementptr inbounds nuw i8, ptr %6900, i64 2
-  %6902 = shl nuw nsw i32 %6892, 1
-  %6903 = zext nneg i32 %6902 to i64
-  %6904 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6903
-  %6905 = load i16, ptr %6904, align 2
-  store i16 %6905, ptr %6901, align 1
-  %6906 = getelementptr inbounds nuw i8, ptr %6900, i64 4
-  %6907 = shl nsw i32 %6893, 1
-  %6908 = zext i32 %6907 to i64
-  %6909 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6908
-  %6910 = load i16, ptr %6909, align 2
-  store i16 %6910, ptr %6906, align 1
-  %6911 = getelementptr inbounds nuw i8, ptr %6900, i64 6
+6885:                                             ; preds = %6883
+  %6886 = mul nuw nsw i64 %6849, 429497
+  %6887 = lshr i64 %6886, 32
+  %6888 = trunc nuw nsw i64 %6887 to i32
+  %.neg65.i1021 = mul nsw i32 %6888, -10000
+  %6889 = add nsw i32 %.neg65.i1021, %6852
+  %6890 = mul i32 %6889, 5243
+  %6891 = lshr i32 %6890, 19
+  %.neg66.i1022 = mul nsw i32 %6891, -100
+  %6892 = add nsw i32 %.neg66.i1022, %6889
+  %6893 = icmp samesign ult i64 %6769, 10000000000000
+  %6894 = shl nuw nsw i64 %6887, 1
+  %6895 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6894
+  %.neg67.i1023 = sext i1 %6893 to i64
+  %6896 = zext i1 %6893 to i64
+  %6897 = getelementptr inbounds nuw i8, ptr %6895, i64 %6896
+  %6898 = load i16, ptr %6897, align 1
+  store i16 %6898, ptr %6770, align 1
+  %6899 = getelementptr inbounds i8, ptr %6770, i64 %.neg67.i1023
+  %6900 = getelementptr inbounds nuw i8, ptr %6899, i64 2
+  %6901 = shl nuw nsw i32 %6891, 1
+  %6902 = zext nneg i32 %6901 to i64
+  %6903 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6902
+  %6904 = load i16, ptr %6903, align 2
+  store i16 %6904, ptr %6900, align 1
+  %6905 = getelementptr inbounds nuw i8, ptr %6899, i64 4
+  %6906 = shl nsw i32 %6892, 1
+  %6907 = zext i32 %6906 to i64
+  %6908 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6907
+  %6909 = load i16, ptr %6908, align 2
+  store i16 %6909, ptr %6905, align 1
+  %6910 = getelementptr inbounds nuw i8, ptr %6899, i64 6
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1027
 
-6912:                                             ; preds = %6884
-  %6913 = mul nuw nsw i64 %6850, 109951163
-  %6914 = lshr i64 %6913, 40
-  %6915 = trunc nuw nsw i64 %6914 to i32
-  %.neg.i1016 = mul nsw i32 %6915, -10000
-  %6916 = add nsw i32 %.neg.i1016, %6853
-  %6917 = mul nuw nsw i32 %6915, 5243
-  %6918 = lshr i32 %6917, 19
-  %6919 = mul i32 %6916, 5243
-  %6920 = lshr i32 %6919, 19
-  %.neg62.i1017 = mul nsw i32 %6918, -100
-  %6921 = add nsw i32 %.neg62.i1017, %6915
-  %.neg63.i1018 = mul nsw i32 %6920, -100
-  %6922 = add nsw i32 %.neg63.i1018, %6916
-  %6923 = shl nuw nsw i32 %6918, 1
-  %6924 = zext nneg i32 %6923 to i64
-  %6925 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6924
-  %6926 = getelementptr inbounds nuw i8, ptr %6925, i64 1
-  %6927 = load i16, ptr %6926, align 1
-  store i16 %6927, ptr %6771, align 1
-  %6928 = getelementptr inbounds nuw i8, ptr %5909, i64 2
-  %6929 = shl nsw i32 %6921, 1
-  %6930 = zext i32 %6929 to i64
-  %6931 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6930
-  %6932 = load i16, ptr %6931, align 2
-  store i16 %6932, ptr %6928, align 1
-  %6933 = getelementptr inbounds nuw i8, ptr %5909, i64 4
-  %6934 = shl nuw nsw i32 %6920, 1
-  %6935 = zext nneg i32 %6934 to i64
-  %6936 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6935
-  %6937 = load i16, ptr %6936, align 2
-  store i16 %6937, ptr %6933, align 1
-  %6938 = getelementptr inbounds nuw i8, ptr %5909, i64 6
-  %6939 = shl nsw i32 %6922, 1
-  %6940 = zext i32 %6939 to i64
-  %6941 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6940
-  %6942 = load i16, ptr %6941, align 2
-  store i16 %6942, ptr %6938, align 1
-  %6943 = getelementptr inbounds nuw i8, ptr %5909, i64 8
+6911:                                             ; preds = %6883
+  %6912 = mul nuw nsw i64 %6849, 109951163
+  %6913 = lshr i64 %6912, 40
+  %6914 = trunc nuw nsw i64 %6913 to i32
+  %.neg.i1016 = mul nsw i32 %6914, -10000
+  %6915 = add nsw i32 %.neg.i1016, %6852
+  %6916 = mul nuw nsw i32 %6914, 5243
+  %6917 = lshr i32 %6916, 19
+  %6918 = mul i32 %6915, 5243
+  %6919 = lshr i32 %6918, 19
+  %.neg62.i1017 = mul nsw i32 %6917, -100
+  %6920 = add nsw i32 %.neg62.i1017, %6914
+  %.neg63.i1018 = mul nsw i32 %6919, -100
+  %6921 = add nsw i32 %.neg63.i1018, %6915
+  %6922 = shl nuw nsw i32 %6917, 1
+  %6923 = zext nneg i32 %6922 to i64
+  %6924 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6923
+  %6925 = getelementptr inbounds nuw i8, ptr %6924, i64 1
+  %6926 = load i16, ptr %6925, align 1
+  store i16 %6926, ptr %6770, align 1
+  %6927 = getelementptr inbounds nuw i8, ptr %5908, i64 2
+  %6928 = shl nsw i32 %6920, 1
+  %6929 = zext i32 %6928 to i64
+  %6930 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6929
+  %6931 = load i16, ptr %6930, align 2
+  store i16 %6931, ptr %6927, align 1
+  %6932 = getelementptr inbounds nuw i8, ptr %5908, i64 4
+  %6933 = shl nuw nsw i32 %6919, 1
+  %6934 = zext nneg i32 %6933 to i64
+  %6935 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6934
+  %6936 = load i16, ptr %6935, align 2
+  store i16 %6936, ptr %6932, align 1
+  %6937 = getelementptr inbounds nuw i8, ptr %5908, i64 6
+  %6938 = shl nsw i32 %6921, 1
+  %6939 = zext i32 %6938 to i64
+  %6940 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6939
+  %6941 = load i16, ptr %6940, align 2
+  store i16 %6941, ptr %6937, align 1
+  %6942 = getelementptr inbounds nuw i8, ptr %5908, i64 8
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1027
 
-_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1027: ; preds = %6855, %6866, %6886, %6912
-  %.0.i1020 = phi ptr [ %6863, %6855 ], [ %6883, %6866 ], [ %6911, %6886 ], [ %6943, %6912 ]
-  %6944 = and i64 %6851, 4294967295
-  %6945 = mul nuw nsw i64 %6944, 109951163
-  %6946 = lshr i64 %6945, 40
-  %6947 = trunc nuw nsw i64 %6946 to i32
-  %.neg.i1206 = mul i32 %6947, -10000
-  %6948 = add i32 %.neg.i1206, %6852
-  %6949 = mul nuw i32 %6947, 5243
-  %6950 = lshr i32 %6949, 19
-  %6951 = mul i32 %6948, 5243
-  %6952 = lshr i32 %6951, 19
-  %.neg17.i1207 = mul nsw i32 %6950, -100
-  %6953 = add nsw i32 %.neg17.i1207, %6947
-  %.neg18.i1208 = mul i32 %6952, 2147483548
-  %6954 = add i32 %.neg18.i1208, %6948
-  %6955 = shl nuw nsw i32 %6950, 1
-  %6956 = zext nneg i32 %6955 to i64
-  %6957 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6956
-  %6958 = load i16, ptr %6957, align 2
-  store i16 %6958, ptr %.0.i1020, align 1
-  %6959 = getelementptr inbounds nuw i8, ptr %.0.i1020, i64 2
-  %6960 = shl nsw i32 %6953, 1
-  %6961 = zext i32 %6960 to i64
-  %6962 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6961
-  %6963 = load i16, ptr %6962, align 2
-  store i16 %6963, ptr %6959, align 1
-  %6964 = getelementptr inbounds nuw i8, ptr %.0.i1020, i64 4
-  %6965 = shl nuw nsw i32 %6952, 1
-  %6966 = zext nneg i32 %6965 to i64
-  %6967 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6966
-  %6968 = load i16, ptr %6967, align 2
-  store i16 %6968, ptr %6964, align 1
-  %6969 = getelementptr inbounds nuw i8, ptr %.0.i1020, i64 6
-  %6970 = shl i32 %6954, 1
-  %6971 = zext i32 %6970 to i64
-  %6972 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6971
-  %6973 = load i16, ptr %6972, align 2
-  store i16 %6973, ptr %6969, align 1
-  %6974 = getelementptr inbounds nuw i8, ptr %.0.i1020, i64 8
+_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1027: ; preds = %6854, %6865, %6885, %6911
+  %.0.i1020 = phi ptr [ %6862, %6854 ], [ %6882, %6865 ], [ %6910, %6885 ], [ %6942, %6911 ]
+  %6943 = and i64 %6850, 4294967295
+  %6944 = mul nuw nsw i64 %6943, 109951163
+  %6945 = lshr i64 %6944, 40
+  %6946 = trunc nuw nsw i64 %6945 to i32
+  %.neg.i1206 = mul i32 %6946, -10000
+  %6947 = add i32 %.neg.i1206, %6851
+  %6948 = mul nuw i32 %6946, 5243
+  %6949 = lshr i32 %6948, 19
+  %6950 = mul i32 %6947, 5243
+  %6951 = lshr i32 %6950, 19
+  %.neg17.i1207 = mul nsw i32 %6949, -100
+  %6952 = add nsw i32 %.neg17.i1207, %6946
+  %.neg18.i1208 = mul i32 %6951, 2147483548
+  %6953 = add i32 %.neg18.i1208, %6947
+  %6954 = shl nuw nsw i32 %6949, 1
+  %6955 = zext nneg i32 %6954 to i64
+  %6956 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6955
+  %6957 = load i16, ptr %6956, align 2
+  store i16 %6957, ptr %.0.i1020, align 1
+  %6958 = getelementptr inbounds nuw i8, ptr %.0.i1020, i64 2
+  %6959 = shl nsw i32 %6952, 1
+  %6960 = zext i32 %6959 to i64
+  %6961 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6960
+  %6962 = load i16, ptr %6961, align 2
+  store i16 %6962, ptr %6958, align 1
+  %6963 = getelementptr inbounds nuw i8, ptr %.0.i1020, i64 4
+  %6964 = shl nuw nsw i32 %6951, 1
+  %6965 = zext nneg i32 %6964 to i64
+  %6966 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6965
+  %6967 = load i16, ptr %6966, align 2
+  store i16 %6967, ptr %6963, align 1
+  %6968 = getelementptr inbounds nuw i8, ptr %.0.i1020, i64 6
+  %6969 = shl i32 %6953, 1
+  %6970 = zext i32 %6969 to i64
+  %6971 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6970
+  %6972 = load i16, ptr %6971, align 2
+  store i16 %6972, ptr %6968, align 1
+  %6973 = getelementptr inbounds nuw i8, ptr %.0.i1020, i64 8
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit
 
-6975:                                             ; preds = %6847
-  %6976 = trunc nuw nsw i64 %6770 to i32
-  %6977 = icmp samesign ult i64 %6770, 100
-  br i1 %6977, label %6978, label %6987
+6974:                                             ; preds = %6846
+  %6975 = trunc nuw nsw i64 %6769 to i32
+  %6976 = icmp samesign ult i64 %6769, 100
+  br i1 %6976, label %6977, label %6986
 
-6978:                                             ; preds = %6975
-  %6979 = icmp samesign ult i64 %6770, 10
-  %6980 = shl nuw nsw i64 %6770, 1
-  %6981 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6980
-  %.neg70.i1038 = sext i1 %6979 to i64
-  %6982 = zext i1 %6979 to i64
-  %6983 = getelementptr inbounds nuw i8, ptr %6981, i64 %6982
-  %6984 = load i16, ptr %6983, align 1
-  store i16 %6984, ptr %6771, align 1
-  %6985 = getelementptr inbounds i8, ptr %6771, i64 %.neg70.i1038
-  %6986 = getelementptr inbounds nuw i8, ptr %6985, i64 2
+6977:                                             ; preds = %6974
+  %6978 = icmp samesign ult i64 %6769, 10
+  %6979 = shl nuw nsw i64 %6769, 1
+  %6980 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6979
+  %.neg70.i1038 = sext i1 %6978 to i64
+  %6981 = zext i1 %6978 to i64
+  %6982 = getelementptr inbounds nuw i8, ptr %6980, i64 %6981
+  %6983 = load i16, ptr %6982, align 1
+  store i16 %6983, ptr %6770, align 1
+  %6984 = getelementptr inbounds i8, ptr %6770, i64 %.neg70.i1038
+  %6985 = getelementptr inbounds nuw i8, ptr %6984, i64 2
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit
 
-6987:                                             ; preds = %6975
-  %6988 = icmp samesign ult i64 %6770, 10000
-  br i1 %6988, label %6989, label %7007
+6986:                                             ; preds = %6974
+  %6987 = icmp samesign ult i64 %6769, 10000
+  br i1 %6987, label %6988, label %7006
 
-6989:                                             ; preds = %6987
-  %6990 = mul nuw nsw i32 %6976, 5243
-  %6991 = lshr i32 %6990, 19
-  %.neg68.i1036 = mul nsw i32 %6991, -100
-  %6992 = add nsw i32 %.neg68.i1036, %6976
-  %6993 = icmp samesign ult i64 %6770, 1000
-  %6994 = shl nuw nsw i32 %6991, 1
-  %6995 = zext nneg i32 %6994 to i64
-  %6996 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6995
-  %.neg69.i1037 = sext i1 %6993 to i64
-  %6997 = zext i1 %6993 to i64
-  %6998 = getelementptr inbounds nuw i8, ptr %6996, i64 %6997
-  %6999 = load i16, ptr %6998, align 1
-  store i16 %6999, ptr %6771, align 1
-  %7000 = getelementptr inbounds i8, ptr %6771, i64 %.neg69.i1037
-  %7001 = getelementptr inbounds nuw i8, ptr %7000, i64 2
-  %7002 = shl nsw i32 %6992, 1
-  %7003 = zext i32 %7002 to i64
-  %7004 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7003
-  %7005 = load i16, ptr %7004, align 2
-  store i16 %7005, ptr %7001, align 1
-  %7006 = getelementptr inbounds nuw i8, ptr %7000, i64 4
+6988:                                             ; preds = %6986
+  %6989 = mul nuw nsw i32 %6975, 5243
+  %6990 = lshr i32 %6989, 19
+  %.neg68.i1036 = mul nsw i32 %6990, -100
+  %6991 = add nsw i32 %.neg68.i1036, %6975
+  %6992 = icmp samesign ult i64 %6769, 1000
+  %6993 = shl nuw nsw i32 %6990, 1
+  %6994 = zext nneg i32 %6993 to i64
+  %6995 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6994
+  %.neg69.i1037 = sext i1 %6992 to i64
+  %6996 = zext i1 %6992 to i64
+  %6997 = getelementptr inbounds nuw i8, ptr %6995, i64 %6996
+  %6998 = load i16, ptr %6997, align 1
+  store i16 %6998, ptr %6770, align 1
+  %6999 = getelementptr inbounds i8, ptr %6770, i64 %.neg69.i1037
+  %7000 = getelementptr inbounds nuw i8, ptr %6999, i64 2
+  %7001 = shl nsw i32 %6991, 1
+  %7002 = zext i32 %7001 to i64
+  %7003 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7002
+  %7004 = load i16, ptr %7003, align 2
+  store i16 %7004, ptr %7000, align 1
+  %7005 = getelementptr inbounds nuw i8, ptr %6999, i64 4
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit
 
-7007:                                             ; preds = %6987
-  %7008 = icmp samesign ult i64 %6770, 1000000
-  br i1 %7008, label %7009, label %7035
+7006:                                             ; preds = %6986
+  %7007 = icmp samesign ult i64 %6769, 1000000
+  br i1 %7007, label %7008, label %7034
 
-7009:                                             ; preds = %7007
-  %7010 = mul nuw nsw i64 %6770, 429497
-  %7011 = lshr i64 %7010, 32
-  %7012 = trunc nuw nsw i64 %7011 to i32
-  %.neg65.i1033 = mul nsw i32 %7012, -10000
-  %7013 = add nsw i32 %.neg65.i1033, %6976
-  %7014 = mul i32 %7013, 5243
-  %7015 = lshr i32 %7014, 19
-  %.neg66.i1034 = mul nsw i32 %7015, -100
-  %7016 = add nsw i32 %.neg66.i1034, %7013
-  %7017 = icmp samesign ult i64 %6770, 100000
-  %7018 = shl nuw nsw i64 %7011, 1
-  %7019 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7018
-  %.neg67.i1035 = sext i1 %7017 to i64
-  %7020 = zext i1 %7017 to i64
-  %7021 = getelementptr inbounds nuw i8, ptr %7019, i64 %7020
-  %7022 = load i16, ptr %7021, align 1
-  store i16 %7022, ptr %6771, align 1
-  %7023 = getelementptr inbounds i8, ptr %6771, i64 %.neg67.i1035
-  %7024 = getelementptr inbounds nuw i8, ptr %7023, i64 2
-  %7025 = shl nuw nsw i32 %7015, 1
-  %7026 = zext nneg i32 %7025 to i64
-  %7027 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7026
-  %7028 = load i16, ptr %7027, align 2
-  store i16 %7028, ptr %7024, align 1
-  %7029 = getelementptr inbounds nuw i8, ptr %7023, i64 4
-  %7030 = shl nsw i32 %7016, 1
-  %7031 = zext i32 %7030 to i64
-  %7032 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7031
-  %7033 = load i16, ptr %7032, align 2
-  store i16 %7033, ptr %7029, align 1
-  %7034 = getelementptr inbounds nuw i8, ptr %7023, i64 6
+7008:                                             ; preds = %7006
+  %7009 = mul nuw nsw i64 %6769, 429497
+  %7010 = lshr i64 %7009, 32
+  %7011 = trunc nuw nsw i64 %7010 to i32
+  %.neg65.i1033 = mul nsw i32 %7011, -10000
+  %7012 = add nsw i32 %.neg65.i1033, %6975
+  %7013 = mul i32 %7012, 5243
+  %7014 = lshr i32 %7013, 19
+  %.neg66.i1034 = mul nsw i32 %7014, -100
+  %7015 = add nsw i32 %.neg66.i1034, %7012
+  %7016 = icmp samesign ult i64 %6769, 100000
+  %7017 = shl nuw nsw i64 %7010, 1
+  %7018 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7017
+  %.neg67.i1035 = sext i1 %7016 to i64
+  %7019 = zext i1 %7016 to i64
+  %7020 = getelementptr inbounds nuw i8, ptr %7018, i64 %7019
+  %7021 = load i16, ptr %7020, align 1
+  store i16 %7021, ptr %6770, align 1
+  %7022 = getelementptr inbounds i8, ptr %6770, i64 %.neg67.i1035
+  %7023 = getelementptr inbounds nuw i8, ptr %7022, i64 2
+  %7024 = shl nuw nsw i32 %7014, 1
+  %7025 = zext nneg i32 %7024 to i64
+  %7026 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7025
+  %7027 = load i16, ptr %7026, align 2
+  store i16 %7027, ptr %7023, align 1
+  %7028 = getelementptr inbounds nuw i8, ptr %7022, i64 4
+  %7029 = shl nsw i32 %7015, 1
+  %7030 = zext i32 %7029 to i64
+  %7031 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7030
+  %7032 = load i16, ptr %7031, align 2
+  store i16 %7032, ptr %7028, align 1
+  %7033 = getelementptr inbounds nuw i8, ptr %7022, i64 6
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit
 
-7035:                                             ; preds = %7007
-  %7036 = mul nuw nsw i64 %6770, 109951163
-  %7037 = lshr i64 %7036, 40
-  %7038 = trunc nuw nsw i64 %7037 to i32
-  %.neg.i1028 = mul nsw i32 %7038, -10000
-  %7039 = add nsw i32 %.neg.i1028, %6976
-  %7040 = mul nuw nsw i32 %7038, 5243
-  %7041 = lshr i32 %7040, 19
-  %7042 = mul i32 %7039, 5243
-  %7043 = lshr i32 %7042, 19
-  %.neg62.i1029 = mul nsw i32 %7041, -100
-  %7044 = add nsw i32 %.neg62.i1029, %7038
-  %.neg63.i1030 = mul nsw i32 %7043, -100
-  %7045 = add nsw i32 %.neg63.i1030, %7039
-  %7046 = icmp samesign ult i64 %6770, 10000000
-  %7047 = shl nuw nsw i32 %7041, 1
-  %7048 = zext nneg i32 %7047 to i64
-  %7049 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7048
-  %.neg64.i1031 = sext i1 %7046 to i64
-  %7050 = zext i1 %7046 to i64
-  %7051 = getelementptr inbounds nuw i8, ptr %7049, i64 %7050
-  %7052 = load i16, ptr %7051, align 1
-  store i16 %7052, ptr %6771, align 1
-  %7053 = getelementptr inbounds i8, ptr %6771, i64 %.neg64.i1031
-  %7054 = getelementptr inbounds nuw i8, ptr %7053, i64 2
-  %7055 = shl nsw i32 %7044, 1
-  %7056 = zext i32 %7055 to i64
-  %7057 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7056
-  %7058 = load i16, ptr %7057, align 2
-  store i16 %7058, ptr %7054, align 1
-  %7059 = getelementptr inbounds nuw i8, ptr %7053, i64 4
-  %7060 = shl nuw nsw i32 %7043, 1
-  %7061 = zext nneg i32 %7060 to i64
-  %7062 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7061
-  %7063 = load i16, ptr %7062, align 2
-  store i16 %7063, ptr %7059, align 1
-  %7064 = getelementptr inbounds nuw i8, ptr %7053, i64 6
-  %7065 = shl nsw i32 %7045, 1
-  %7066 = zext i32 %7065 to i64
-  %7067 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7066
-  %7068 = load i16, ptr %7067, align 2
-  store i16 %7068, ptr %7064, align 1
-  %7069 = getelementptr inbounds nuw i8, ptr %7053, i64 8
+7034:                                             ; preds = %7006
+  %7035 = mul nuw nsw i64 %6769, 109951163
+  %7036 = lshr i64 %7035, 40
+  %7037 = trunc nuw nsw i64 %7036 to i32
+  %.neg.i1028 = mul nsw i32 %7037, -10000
+  %7038 = add nsw i32 %.neg.i1028, %6975
+  %7039 = mul nuw nsw i32 %7037, 5243
+  %7040 = lshr i32 %7039, 19
+  %7041 = mul i32 %7038, 5243
+  %7042 = lshr i32 %7041, 19
+  %.neg62.i1029 = mul nsw i32 %7040, -100
+  %7043 = add nsw i32 %.neg62.i1029, %7037
+  %.neg63.i1030 = mul nsw i32 %7042, -100
+  %7044 = add nsw i32 %.neg63.i1030, %7038
+  %7045 = icmp samesign ult i64 %6769, 10000000
+  %7046 = shl nuw nsw i32 %7040, 1
+  %7047 = zext nneg i32 %7046 to i64
+  %7048 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7047
+  %.neg64.i1031 = sext i1 %7045 to i64
+  %7049 = zext i1 %7045 to i64
+  %7050 = getelementptr inbounds nuw i8, ptr %7048, i64 %7049
+  %7051 = load i16, ptr %7050, align 1
+  store i16 %7051, ptr %6770, align 1
+  %7052 = getelementptr inbounds i8, ptr %6770, i64 %.neg64.i1031
+  %7053 = getelementptr inbounds nuw i8, ptr %7052, i64 2
+  %7054 = shl nsw i32 %7043, 1
+  %7055 = zext i32 %7054 to i64
+  %7056 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7055
+  %7057 = load i16, ptr %7056, align 2
+  store i16 %7057, ptr %7053, align 1
+  %7058 = getelementptr inbounds nuw i8, ptr %7052, i64 4
+  %7059 = shl nuw nsw i32 %7042, 1
+  %7060 = zext nneg i32 %7059 to i64
+  %7061 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7060
+  %7062 = load i16, ptr %7061, align 2
+  store i16 %7062, ptr %7058, align 1
+  %7063 = getelementptr inbounds nuw i8, ptr %7052, i64 6
+  %7064 = shl nsw i32 %7044, 1
+  %7065 = zext i32 %7064 to i64
+  %7066 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7065
+  %7067 = load i16, ptr %7066, align 2
+  store i16 %7067, ptr %7063, align 1
+  %7068 = getelementptr inbounds nuw i8, ptr %7052, i64 8
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit
 
-_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit: ; preds = %7035, %7009, %6989, %6978, %6773, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1027
-  %.0.i966 = phi ptr [ %6846, %6773 ], [ %6974, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1027 ], [ %6986, %6978 ], [ %7006, %6989 ], [ %7034, %7009 ], [ %7069, %7035 ]
-  %7070 = load i8, ptr %6771, align 1, !tbaa !75
-  store i8 %7070, ptr %5909, align 1, !tbaa !75
-  store i8 46, ptr %6771, align 1, !tbaa !75
-  br label %7071
+_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit: ; preds = %7034, %7008, %6988, %6977, %6772, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1027
+  %.0.i966 = phi ptr [ %6845, %6772 ], [ %6973, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1027 ], [ %6985, %6977 ], [ %7005, %6988 ], [ %7033, %7008 ], [ %7068, %7034 ]
+  %7069 = load i8, ptr %6770, align 1, !tbaa !75
+  store i8 %7069, ptr %5908, align 1, !tbaa !75
+  store i8 46, ptr %6770, align 1, !tbaa !75
+  br label %7070
 
-7071:                                             ; preds = %7071, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit
-  %.01658 = phi i32 [ %storemerge.i, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit ], [ %7073, %7071 ]
-  %.0121.i716 = phi ptr [ %.0.i966, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit ], [ %7072, %7071 ]
-  %7072 = getelementptr inbounds i8, ptr %.0121.i716, i64 -1
-  %7073 = add nsw i32 %.01658, 1
-  %7074 = load i8, ptr %7072, align 1, !tbaa !75
-  %7075 = icmp eq i8 %7074, 48
-  br i1 %7075, label %7071, label %7076, !llvm.loop !217
+7070:                                             ; preds = %7070, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit
+  %.01658 = phi i32 [ %storemerge.i, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit ], [ %7072, %7070 ]
+  %.0121.i716 = phi ptr [ %.0.i966, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit ], [ %7071, %7070 ]
+  %7071 = getelementptr inbounds i8, ptr %.0121.i716, i64 -1
+  %7072 = add nsw i32 %.01658, 1
+  %7073 = load i8, ptr %7071, align 1, !tbaa !75
+  %7074 = icmp eq i8 %7073, 48
+  br i1 %7074, label %7070, label %7075, !llvm.loop !217
 
-7076:                                             ; preds = %7071
-  %7077 = ptrtoint ptr %7072 to i64
-  %7078 = ptrtoint ptr %5909 to i64
-  %7079 = sub i64 %7077, %7078
-  %7080 = trunc i64 %7079 to i32
-  %7081 = add i32 %.01658, -1
-  %7082 = add i32 %7081, %7080
-  %7083 = icmp ne i8 %7074, 46
-  %7084 = zext i1 %7083 to i64
-  %7085 = getelementptr inbounds nuw i8, ptr %7072, i64 %7084
-  store i8 101, ptr %7085, align 1, !tbaa !75
-  %7086 = getelementptr inbounds nuw i8, ptr %7085, i64 1
-  store i8 45, ptr %7086, align 1, !tbaa !75
-  %7087 = getelementptr inbounds nuw i8, ptr %7085, i64 2
-  %7088 = mul i32 %7082, -656
-  %7089 = lshr i32 %7088, 16
-  %.neg.i717 = mul i32 %7089, 2147483548
-  %7090 = sub i32 %.neg.i717, %7082
-  %7091 = trunc i32 %7089 to i8
-  %7092 = add i8 %7091, 48
-  store i8 %7092, ptr %7087, align 1, !tbaa !75
-  %7093 = getelementptr inbounds nuw i8, ptr %7085, i64 3
-  %7094 = shl i32 %7090, 1
-  %7095 = zext i32 %7094 to i64
-  %7096 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7095
-  %7097 = load i16, ptr %7096, align 2
-  store i16 %7097, ptr %7093, align 1
-  %7098 = getelementptr inbounds nuw i8, ptr %7085, i64 5
+7075:                                             ; preds = %7070
+  %7076 = ptrtoint ptr %7071 to i64
+  %7077 = ptrtoint ptr %5908 to i64
+  %7078 = sub i64 %7076, %7077
+  %7079 = trunc i64 %7078 to i32
+  %7080 = add i32 %.01658, -1
+  %7081 = add i32 %7080, %7079
+  %7082 = icmp ne i8 %7073, 46
+  %7083 = zext i1 %7082 to i64
+  %7084 = getelementptr inbounds nuw i8, ptr %7071, i64 %7083
+  store i8 101, ptr %7084, align 1, !tbaa !75
+  %7085 = getelementptr inbounds nuw i8, ptr %7084, i64 1
+  store i8 45, ptr %7085, align 1, !tbaa !75
+  %7086 = getelementptr inbounds nuw i8, ptr %7084, i64 2
+  %7087 = mul i32 %7081, -656
+  %7088 = lshr i32 %7087, 16
+  %.neg.i717 = mul i32 %7088, 2147483548
+  %7089 = sub i32 %.neg.i717, %7081
+  %7090 = trunc i32 %7088 to i8
+  %7091 = add i8 %7090, 48
+  store i8 %7091, ptr %7086, align 1, !tbaa !75
+  %7092 = getelementptr inbounds nuw i8, ptr %7084, i64 3
+  %7093 = shl i32 %7089, 1
+  %7094 = zext i32 %7093 to i64
+  %7095 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7094
+  %7096 = load i16, ptr %7095, align 2
+  store i16 %7096, ptr %7092, align 1
+  %7097 = getelementptr inbounds nuw i8, ptr %7084, i64 5
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-7099:                                             ; preds = %5886
-  %7100 = sub i64 0, %5890
-  %7101 = lshr i64 %5887, 3
-  %.lobit.i = lshr i64 %5890, 63
-  %7102 = and i64 %.lobit.i, %7101
+7098:                                             ; preds = %5885
+  %7099 = sub i64 0, %5889
+  %7100 = lshr i64 %5886, 3
+  %.lobit.i = lshr i64 %5889, 63
+  %7101 = and i64 %.lobit.i, %7100
   store i8 45, ptr %.4341.i, align 1, !tbaa !75
-  %.not15.i = icmp eq i64 %7102, 0
-  %7103 = select i1 %.not15.i, i64 %5890, i64 %7100
-  %7104 = getelementptr inbounds nuw i8, ptr %.4341.i, i64 %7102
-  %7105 = icmp ult i64 %7103, 100000000
-  br i1 %7105, label %7106, label %7201
+  %.not15.i = icmp eq i64 %7101, 0
+  %7102 = select i1 %.not15.i, i64 %5889, i64 %7099
+  %7103 = getelementptr inbounds nuw i8, ptr %.4341.i, i64 %7101
+  %7104 = icmp ult i64 %7102, 100000000
+  br i1 %7104, label %7105, label %7200
 
-7106:                                             ; preds = %7099
-  %7107 = trunc nuw nsw i64 %7103 to i32
-  %7108 = icmp samesign ult i64 %7103, 100
-  br i1 %7108, label %7109, label %7118
+7105:                                             ; preds = %7098
+  %7106 = trunc nuw nsw i64 %7102 to i32
+  %7107 = icmp samesign ult i64 %7102, 100
+  br i1 %7107, label %7108, label %7117
 
-7109:                                             ; preds = %7106
-  %7110 = icmp samesign ult i64 %7103, 10
-  %7111 = shl nuw nsw i64 %7103, 1
-  %7112 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7111
-  %.neg70.i1122 = sext i1 %7110 to i64
-  %7113 = zext i1 %7110 to i64
-  %7114 = getelementptr inbounds nuw i8, ptr %7112, i64 %7113
-  %7115 = load i16, ptr %7114, align 1
-  store i16 %7115, ptr %7104, align 1
-  %7116 = getelementptr inbounds i8, ptr %7104, i64 %.neg70.i1122
-  %7117 = getelementptr inbounds nuw i8, ptr %7116, i64 2
+7108:                                             ; preds = %7105
+  %7109 = icmp samesign ult i64 %7102, 10
+  %7110 = shl nuw nsw i64 %7102, 1
+  %7111 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7110
+  %.neg70.i1122 = sext i1 %7109 to i64
+  %7112 = zext i1 %7109 to i64
+  %7113 = getelementptr inbounds nuw i8, ptr %7111, i64 %7112
+  %7114 = load i16, ptr %7113, align 1
+  store i16 %7114, ptr %7103, align 1
+  %7115 = getelementptr inbounds i8, ptr %7103, i64 %.neg70.i1122
+  %7116 = getelementptr inbounds nuw i8, ptr %7115, i64 2
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-7118:                                             ; preds = %7106
-  %7119 = icmp samesign ult i64 %7103, 10000
-  br i1 %7119, label %7120, label %7138
+7117:                                             ; preds = %7105
+  %7118 = icmp samesign ult i64 %7102, 10000
+  br i1 %7118, label %7119, label %7137
 
-7120:                                             ; preds = %7118
-  %7121 = mul nuw nsw i32 %7107, 5243
-  %7122 = lshr i32 %7121, 19
-  %.neg68.i1120 = mul nsw i32 %7122, -100
-  %7123 = add nsw i32 %.neg68.i1120, %7107
-  %7124 = icmp samesign ult i64 %7103, 1000
-  %7125 = shl nuw nsw i32 %7122, 1
-  %7126 = zext nneg i32 %7125 to i64
-  %7127 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7126
-  %.neg69.i1121 = sext i1 %7124 to i64
-  %7128 = zext i1 %7124 to i64
-  %7129 = getelementptr inbounds nuw i8, ptr %7127, i64 %7128
-  %7130 = load i16, ptr %7129, align 1
-  store i16 %7130, ptr %7104, align 1
-  %7131 = getelementptr inbounds i8, ptr %7104, i64 %.neg69.i1121
-  %7132 = getelementptr inbounds nuw i8, ptr %7131, i64 2
-  %7133 = shl nsw i32 %7123, 1
-  %7134 = zext i32 %7133 to i64
-  %7135 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7134
-  %7136 = load i16, ptr %7135, align 2
-  store i16 %7136, ptr %7132, align 1
-  %7137 = getelementptr inbounds nuw i8, ptr %7131, i64 4
+7119:                                             ; preds = %7117
+  %7120 = mul nuw nsw i32 %7106, 5243
+  %7121 = lshr i32 %7120, 19
+  %.neg68.i1120 = mul nsw i32 %7121, -100
+  %7122 = add nsw i32 %.neg68.i1120, %7106
+  %7123 = icmp samesign ult i64 %7102, 1000
+  %7124 = shl nuw nsw i32 %7121, 1
+  %7125 = zext nneg i32 %7124 to i64
+  %7126 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7125
+  %.neg69.i1121 = sext i1 %7123 to i64
+  %7127 = zext i1 %7123 to i64
+  %7128 = getelementptr inbounds nuw i8, ptr %7126, i64 %7127
+  %7129 = load i16, ptr %7128, align 1
+  store i16 %7129, ptr %7103, align 1
+  %7130 = getelementptr inbounds i8, ptr %7103, i64 %.neg69.i1121
+  %7131 = getelementptr inbounds nuw i8, ptr %7130, i64 2
+  %7132 = shl nsw i32 %7122, 1
+  %7133 = zext i32 %7132 to i64
+  %7134 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7133
+  %7135 = load i16, ptr %7134, align 2
+  store i16 %7135, ptr %7131, align 1
+  %7136 = getelementptr inbounds nuw i8, ptr %7130, i64 4
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-7138:                                             ; preds = %7118
-  %7139 = icmp samesign ult i64 %7103, 1000000
-  br i1 %7139, label %7140, label %7166
+7137:                                             ; preds = %7117
+  %7138 = icmp samesign ult i64 %7102, 1000000
+  br i1 %7138, label %7139, label %7165
 
-7140:                                             ; preds = %7138
-  %7141 = mul nuw nsw i64 %7103, 429497
-  %7142 = lshr i64 %7141, 32
-  %7143 = trunc nuw nsw i64 %7142 to i32
-  %.neg65.i1117 = mul nsw i32 %7143, -10000
-  %7144 = add nsw i32 %.neg65.i1117, %7107
-  %7145 = mul i32 %7144, 5243
-  %7146 = lshr i32 %7145, 19
-  %.neg66.i1118 = mul nsw i32 %7146, -100
-  %7147 = add nsw i32 %.neg66.i1118, %7144
-  %7148 = icmp samesign ult i64 %7103, 100000
-  %7149 = shl nuw nsw i64 %7142, 1
-  %7150 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7149
-  %.neg67.i1119 = sext i1 %7148 to i64
-  %7151 = zext i1 %7148 to i64
-  %7152 = getelementptr inbounds nuw i8, ptr %7150, i64 %7151
-  %7153 = load i16, ptr %7152, align 1
-  store i16 %7153, ptr %7104, align 1
-  %7154 = getelementptr inbounds i8, ptr %7104, i64 %.neg67.i1119
-  %7155 = getelementptr inbounds nuw i8, ptr %7154, i64 2
-  %7156 = shl nuw nsw i32 %7146, 1
-  %7157 = zext nneg i32 %7156 to i64
-  %7158 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7157
-  %7159 = load i16, ptr %7158, align 2
-  store i16 %7159, ptr %7155, align 1
-  %7160 = getelementptr inbounds nuw i8, ptr %7154, i64 4
-  %7161 = shl nsw i32 %7147, 1
-  %7162 = zext i32 %7161 to i64
-  %7163 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7162
-  %7164 = load i16, ptr %7163, align 2
-  store i16 %7164, ptr %7160, align 1
-  %7165 = getelementptr inbounds nuw i8, ptr %7154, i64 6
+7139:                                             ; preds = %7137
+  %7140 = mul nuw nsw i64 %7102, 429497
+  %7141 = lshr i64 %7140, 32
+  %7142 = trunc nuw nsw i64 %7141 to i32
+  %.neg65.i1117 = mul nsw i32 %7142, -10000
+  %7143 = add nsw i32 %.neg65.i1117, %7106
+  %7144 = mul i32 %7143, 5243
+  %7145 = lshr i32 %7144, 19
+  %.neg66.i1118 = mul nsw i32 %7145, -100
+  %7146 = add nsw i32 %.neg66.i1118, %7143
+  %7147 = icmp samesign ult i64 %7102, 100000
+  %7148 = shl nuw nsw i64 %7141, 1
+  %7149 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7148
+  %.neg67.i1119 = sext i1 %7147 to i64
+  %7150 = zext i1 %7147 to i64
+  %7151 = getelementptr inbounds nuw i8, ptr %7149, i64 %7150
+  %7152 = load i16, ptr %7151, align 1
+  store i16 %7152, ptr %7103, align 1
+  %7153 = getelementptr inbounds i8, ptr %7103, i64 %.neg67.i1119
+  %7154 = getelementptr inbounds nuw i8, ptr %7153, i64 2
+  %7155 = shl nuw nsw i32 %7145, 1
+  %7156 = zext nneg i32 %7155 to i64
+  %7157 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7156
+  %7158 = load i16, ptr %7157, align 2
+  store i16 %7158, ptr %7154, align 1
+  %7159 = getelementptr inbounds nuw i8, ptr %7153, i64 4
+  %7160 = shl nsw i32 %7146, 1
+  %7161 = zext i32 %7160 to i64
+  %7162 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7161
+  %7163 = load i16, ptr %7162, align 2
+  store i16 %7163, ptr %7159, align 1
+  %7164 = getelementptr inbounds nuw i8, ptr %7153, i64 6
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-7166:                                             ; preds = %7138
-  %7167 = mul nuw nsw i64 %7103, 109951163
-  %7168 = lshr i64 %7167, 40
-  %7169 = trunc nuw nsw i64 %7168 to i32
-  %.neg.i1112 = mul nsw i32 %7169, -10000
-  %7170 = add nsw i32 %.neg.i1112, %7107
-  %7171 = mul nuw nsw i32 %7169, 5243
-  %7172 = lshr i32 %7171, 19
-  %7173 = mul i32 %7170, 5243
-  %7174 = lshr i32 %7173, 19
-  %.neg62.i1113 = mul nsw i32 %7172, -100
-  %7175 = add nsw i32 %.neg62.i1113, %7169
-  %.neg63.i1114 = mul nsw i32 %7174, -100
-  %7176 = add nsw i32 %.neg63.i1114, %7170
-  %7177 = icmp samesign ult i64 %7103, 10000000
-  %7178 = shl nuw nsw i32 %7172, 1
-  %7179 = zext nneg i32 %7178 to i64
-  %7180 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7179
-  %.neg64.i1115 = sext i1 %7177 to i64
-  %7181 = zext i1 %7177 to i64
-  %7182 = getelementptr inbounds nuw i8, ptr %7180, i64 %7181
-  %7183 = load i16, ptr %7182, align 1
-  store i16 %7183, ptr %7104, align 1
-  %7184 = getelementptr inbounds i8, ptr %7104, i64 %.neg64.i1115
-  %7185 = getelementptr inbounds nuw i8, ptr %7184, i64 2
-  %7186 = shl nsw i32 %7175, 1
-  %7187 = zext i32 %7186 to i64
-  %7188 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7187
-  %7189 = load i16, ptr %7188, align 2
-  store i16 %7189, ptr %7185, align 1
-  %7190 = getelementptr inbounds nuw i8, ptr %7184, i64 4
-  %7191 = shl nuw nsw i32 %7174, 1
-  %7192 = zext nneg i32 %7191 to i64
-  %7193 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7192
-  %7194 = load i16, ptr %7193, align 2
-  store i16 %7194, ptr %7190, align 1
-  %7195 = getelementptr inbounds nuw i8, ptr %7184, i64 6
-  %7196 = shl nsw i32 %7176, 1
-  %7197 = zext i32 %7196 to i64
-  %7198 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7197
-  %7199 = load i16, ptr %7198, align 2
-  store i16 %7199, ptr %7195, align 1
-  %7200 = getelementptr inbounds nuw i8, ptr %7184, i64 8
+7165:                                             ; preds = %7137
+  %7166 = mul nuw nsw i64 %7102, 109951163
+  %7167 = lshr i64 %7166, 40
+  %7168 = trunc nuw nsw i64 %7167 to i32
+  %.neg.i1112 = mul nsw i32 %7168, -10000
+  %7169 = add nsw i32 %.neg.i1112, %7106
+  %7170 = mul nuw nsw i32 %7168, 5243
+  %7171 = lshr i32 %7170, 19
+  %7172 = mul i32 %7169, 5243
+  %7173 = lshr i32 %7172, 19
+  %.neg62.i1113 = mul nsw i32 %7171, -100
+  %7174 = add nsw i32 %.neg62.i1113, %7168
+  %.neg63.i1114 = mul nsw i32 %7173, -100
+  %7175 = add nsw i32 %.neg63.i1114, %7169
+  %7176 = icmp samesign ult i64 %7102, 10000000
+  %7177 = shl nuw nsw i32 %7171, 1
+  %7178 = zext nneg i32 %7177 to i64
+  %7179 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7178
+  %.neg64.i1115 = sext i1 %7176 to i64
+  %7180 = zext i1 %7176 to i64
+  %7181 = getelementptr inbounds nuw i8, ptr %7179, i64 %7180
+  %7182 = load i16, ptr %7181, align 1
+  store i16 %7182, ptr %7103, align 1
+  %7183 = getelementptr inbounds i8, ptr %7103, i64 %.neg64.i1115
+  %7184 = getelementptr inbounds nuw i8, ptr %7183, i64 2
+  %7185 = shl nsw i32 %7174, 1
+  %7186 = zext i32 %7185 to i64
+  %7187 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7186
+  %7188 = load i16, ptr %7187, align 2
+  store i16 %7188, ptr %7184, align 1
+  %7189 = getelementptr inbounds nuw i8, ptr %7183, i64 4
+  %7190 = shl nuw nsw i32 %7173, 1
+  %7191 = zext nneg i32 %7190 to i64
+  %7192 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7191
+  %7193 = load i16, ptr %7192, align 2
+  store i16 %7193, ptr %7189, align 1
+  %7194 = getelementptr inbounds nuw i8, ptr %7183, i64 6
+  %7195 = shl nsw i32 %7175, 1
+  %7196 = zext i32 %7195 to i64
+  %7197 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7196
+  %7198 = load i16, ptr %7197, align 2
+  store i16 %7198, ptr %7194, align 1
+  %7199 = getelementptr inbounds nuw i8, ptr %7183, i64 8
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-7201:                                             ; preds = %7099
-  %7202 = icmp ult i64 %7103, 10000000000000000
-  %7203 = udiv i64 %7103, 100000000
-  %.neg28.i730 = mul i64 %7203, 4194967296
-  %7204 = add i64 %.neg28.i730, %7103
-  %7205 = trunc i64 %7204 to i32
-  br i1 %7202, label %7206, label %7332
+7200:                                             ; preds = %7098
+  %7201 = icmp ult i64 %7102, 10000000000000000
+  %7202 = udiv i64 %7102, 100000000
+  %.neg28.i730 = mul i64 %7202, 4194967296
+  %7203 = add i64 %.neg28.i730, %7102
+  %7204 = trunc i64 %7203 to i32
+  br i1 %7201, label %7205, label %7331
 
-7206:                                             ; preds = %7201
-  %7207 = trunc nuw nsw i64 %7203 to i32
-  %7208 = icmp samesign ult i64 %7103, 10000000000
-  br i1 %7208, label %7209, label %7218
+7205:                                             ; preds = %7200
+  %7206 = trunc nuw nsw i64 %7202 to i32
+  %7207 = icmp samesign ult i64 %7102, 10000000000
+  br i1 %7207, label %7208, label %7217
 
-7209:                                             ; preds = %7206
-  %7210 = icmp samesign ult i64 %7103, 1000000000
-  %7211 = shl nuw nsw i64 %7203, 1
-  %7212 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7211
-  %.neg70.i1134 = sext i1 %7210 to i64
-  %7213 = zext i1 %7210 to i64
-  %7214 = getelementptr inbounds nuw i8, ptr %7212, i64 %7213
-  %7215 = load i16, ptr %7214, align 1
-  store i16 %7215, ptr %7104, align 1
-  %7216 = getelementptr inbounds i8, ptr %7104, i64 %.neg70.i1134
-  %7217 = getelementptr inbounds nuw i8, ptr %7216, i64 2
+7208:                                             ; preds = %7205
+  %7209 = icmp samesign ult i64 %7102, 1000000000
+  %7210 = shl nuw nsw i64 %7202, 1
+  %7211 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7210
+  %.neg70.i1134 = sext i1 %7209 to i64
+  %7212 = zext i1 %7209 to i64
+  %7213 = getelementptr inbounds nuw i8, ptr %7211, i64 %7212
+  %7214 = load i16, ptr %7213, align 1
+  store i16 %7214, ptr %7103, align 1
+  %7215 = getelementptr inbounds i8, ptr %7103, i64 %.neg70.i1134
+  %7216 = getelementptr inbounds nuw i8, ptr %7215, i64 2
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1135
 
-7218:                                             ; preds = %7206
-  %7219 = icmp samesign ult i64 %7103, 1000000000000
-  br i1 %7219, label %7220, label %7238
+7217:                                             ; preds = %7205
+  %7218 = icmp samesign ult i64 %7102, 1000000000000
+  br i1 %7218, label %7219, label %7237
 
-7220:                                             ; preds = %7218
-  %7221 = mul nuw nsw i32 %7207, 5243
-  %7222 = lshr i32 %7221, 19
-  %.neg68.i1132 = mul nsw i32 %7222, -100
-  %7223 = add nsw i32 %.neg68.i1132, %7207
-  %7224 = icmp samesign ult i64 %7103, 100000000000
-  %7225 = shl nuw nsw i32 %7222, 1
-  %7226 = zext nneg i32 %7225 to i64
-  %7227 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7226
-  %.neg69.i1133 = sext i1 %7224 to i64
-  %7228 = zext i1 %7224 to i64
-  %7229 = getelementptr inbounds nuw i8, ptr %7227, i64 %7228
-  %7230 = load i16, ptr %7229, align 1
-  store i16 %7230, ptr %7104, align 1
-  %7231 = getelementptr inbounds i8, ptr %7104, i64 %.neg69.i1133
-  %7232 = getelementptr inbounds nuw i8, ptr %7231, i64 2
-  %7233 = shl nsw i32 %7223, 1
-  %7234 = zext i32 %7233 to i64
-  %7235 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7234
-  %7236 = load i16, ptr %7235, align 2
-  store i16 %7236, ptr %7232, align 1
-  %7237 = getelementptr inbounds nuw i8, ptr %7231, i64 4
+7219:                                             ; preds = %7217
+  %7220 = mul nuw nsw i32 %7206, 5243
+  %7221 = lshr i32 %7220, 19
+  %.neg68.i1132 = mul nsw i32 %7221, -100
+  %7222 = add nsw i32 %.neg68.i1132, %7206
+  %7223 = icmp samesign ult i64 %7102, 100000000000
+  %7224 = shl nuw nsw i32 %7221, 1
+  %7225 = zext nneg i32 %7224 to i64
+  %7226 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7225
+  %.neg69.i1133 = sext i1 %7223 to i64
+  %7227 = zext i1 %7223 to i64
+  %7228 = getelementptr inbounds nuw i8, ptr %7226, i64 %7227
+  %7229 = load i16, ptr %7228, align 1
+  store i16 %7229, ptr %7103, align 1
+  %7230 = getelementptr inbounds i8, ptr %7103, i64 %.neg69.i1133
+  %7231 = getelementptr inbounds nuw i8, ptr %7230, i64 2
+  %7232 = shl nsw i32 %7222, 1
+  %7233 = zext i32 %7232 to i64
+  %7234 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7233
+  %7235 = load i16, ptr %7234, align 2
+  store i16 %7235, ptr %7231, align 1
+  %7236 = getelementptr inbounds nuw i8, ptr %7230, i64 4
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1135
 
-7238:                                             ; preds = %7218
-  %7239 = icmp samesign ult i64 %7103, 100000000000000
-  br i1 %7239, label %7240, label %7266
+7237:                                             ; preds = %7217
+  %7238 = icmp samesign ult i64 %7102, 100000000000000
+  br i1 %7238, label %7239, label %7265
 
-7240:                                             ; preds = %7238
-  %7241 = mul nuw nsw i64 %7203, 429497
-  %7242 = lshr i64 %7241, 32
-  %7243 = trunc nuw nsw i64 %7242 to i32
-  %.neg65.i1129 = mul nsw i32 %7243, -10000
-  %7244 = add nsw i32 %.neg65.i1129, %7207
-  %7245 = mul i32 %7244, 5243
-  %7246 = lshr i32 %7245, 19
-  %.neg66.i1130 = mul nsw i32 %7246, -100
-  %7247 = add nsw i32 %.neg66.i1130, %7244
-  %7248 = icmp samesign ult i64 %7103, 10000000000000
-  %7249 = shl nuw nsw i64 %7242, 1
-  %7250 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7249
-  %.neg67.i1131 = sext i1 %7248 to i64
-  %7251 = zext i1 %7248 to i64
-  %7252 = getelementptr inbounds nuw i8, ptr %7250, i64 %7251
-  %7253 = load i16, ptr %7252, align 1
-  store i16 %7253, ptr %7104, align 1
-  %7254 = getelementptr inbounds i8, ptr %7104, i64 %.neg67.i1131
-  %7255 = getelementptr inbounds nuw i8, ptr %7254, i64 2
-  %7256 = shl nuw nsw i32 %7246, 1
-  %7257 = zext nneg i32 %7256 to i64
-  %7258 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7257
-  %7259 = load i16, ptr %7258, align 2
-  store i16 %7259, ptr %7255, align 1
-  %7260 = getelementptr inbounds nuw i8, ptr %7254, i64 4
-  %7261 = shl nsw i32 %7247, 1
-  %7262 = zext i32 %7261 to i64
-  %7263 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7262
-  %7264 = load i16, ptr %7263, align 2
-  store i16 %7264, ptr %7260, align 1
-  %7265 = getelementptr inbounds nuw i8, ptr %7254, i64 6
+7239:                                             ; preds = %7237
+  %7240 = mul nuw nsw i64 %7202, 429497
+  %7241 = lshr i64 %7240, 32
+  %7242 = trunc nuw nsw i64 %7241 to i32
+  %.neg65.i1129 = mul nsw i32 %7242, -10000
+  %7243 = add nsw i32 %.neg65.i1129, %7206
+  %7244 = mul i32 %7243, 5243
+  %7245 = lshr i32 %7244, 19
+  %.neg66.i1130 = mul nsw i32 %7245, -100
+  %7246 = add nsw i32 %.neg66.i1130, %7243
+  %7247 = icmp samesign ult i64 %7102, 10000000000000
+  %7248 = shl nuw nsw i64 %7241, 1
+  %7249 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7248
+  %.neg67.i1131 = sext i1 %7247 to i64
+  %7250 = zext i1 %7247 to i64
+  %7251 = getelementptr inbounds nuw i8, ptr %7249, i64 %7250
+  %7252 = load i16, ptr %7251, align 1
+  store i16 %7252, ptr %7103, align 1
+  %7253 = getelementptr inbounds i8, ptr %7103, i64 %.neg67.i1131
+  %7254 = getelementptr inbounds nuw i8, ptr %7253, i64 2
+  %7255 = shl nuw nsw i32 %7245, 1
+  %7256 = zext nneg i32 %7255 to i64
+  %7257 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7256
+  %7258 = load i16, ptr %7257, align 2
+  store i16 %7258, ptr %7254, align 1
+  %7259 = getelementptr inbounds nuw i8, ptr %7253, i64 4
+  %7260 = shl nsw i32 %7246, 1
+  %7261 = zext i32 %7260 to i64
+  %7262 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7261
+  %7263 = load i16, ptr %7262, align 2
+  store i16 %7263, ptr %7259, align 1
+  %7264 = getelementptr inbounds nuw i8, ptr %7253, i64 6
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1135
 
-7266:                                             ; preds = %7238
-  %7267 = mul nuw nsw i64 %7203, 109951163
-  %7268 = lshr i64 %7267, 40
-  %7269 = trunc nuw nsw i64 %7268 to i32
-  %.neg.i1124 = mul nsw i32 %7269, -10000
-  %7270 = add nsw i32 %.neg.i1124, %7207
-  %7271 = mul nuw nsw i32 %7269, 5243
-  %7272 = lshr i32 %7271, 19
-  %7273 = mul i32 %7270, 5243
-  %7274 = lshr i32 %7273, 19
-  %.neg62.i1125 = mul nsw i32 %7272, -100
-  %7275 = add nsw i32 %.neg62.i1125, %7269
-  %.neg63.i1126 = mul nsw i32 %7274, -100
-  %7276 = add nsw i32 %.neg63.i1126, %7270
-  %7277 = icmp samesign ult i64 %7103, 1000000000000000
-  %7278 = shl nuw nsw i32 %7272, 1
-  %7279 = zext nneg i32 %7278 to i64
-  %7280 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7279
-  %.neg64.i1127 = sext i1 %7277 to i64
-  %7281 = zext i1 %7277 to i64
-  %7282 = getelementptr inbounds nuw i8, ptr %7280, i64 %7281
-  %7283 = load i16, ptr %7282, align 1
-  store i16 %7283, ptr %7104, align 1
-  %7284 = getelementptr inbounds i8, ptr %7104, i64 %.neg64.i1127
-  %7285 = getelementptr inbounds nuw i8, ptr %7284, i64 2
-  %7286 = shl nsw i32 %7275, 1
-  %7287 = zext i32 %7286 to i64
-  %7288 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7287
-  %7289 = load i16, ptr %7288, align 2
-  store i16 %7289, ptr %7285, align 1
-  %7290 = getelementptr inbounds nuw i8, ptr %7284, i64 4
-  %7291 = shl nuw nsw i32 %7274, 1
-  %7292 = zext nneg i32 %7291 to i64
-  %7293 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7292
-  %7294 = load i16, ptr %7293, align 2
-  store i16 %7294, ptr %7290, align 1
-  %7295 = getelementptr inbounds nuw i8, ptr %7284, i64 6
-  %7296 = shl nsw i32 %7276, 1
-  %7297 = zext i32 %7296 to i64
-  %7298 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7297
-  %7299 = load i16, ptr %7298, align 2
-  store i16 %7299, ptr %7295, align 1
-  %7300 = getelementptr inbounds nuw i8, ptr %7284, i64 8
+7265:                                             ; preds = %7237
+  %7266 = mul nuw nsw i64 %7202, 109951163
+  %7267 = lshr i64 %7266, 40
+  %7268 = trunc nuw nsw i64 %7267 to i32
+  %.neg.i1124 = mul nsw i32 %7268, -10000
+  %7269 = add nsw i32 %.neg.i1124, %7206
+  %7270 = mul nuw nsw i32 %7268, 5243
+  %7271 = lshr i32 %7270, 19
+  %7272 = mul i32 %7269, 5243
+  %7273 = lshr i32 %7272, 19
+  %.neg62.i1125 = mul nsw i32 %7271, -100
+  %7274 = add nsw i32 %.neg62.i1125, %7268
+  %.neg63.i1126 = mul nsw i32 %7273, -100
+  %7275 = add nsw i32 %.neg63.i1126, %7269
+  %7276 = icmp samesign ult i64 %7102, 1000000000000000
+  %7277 = shl nuw nsw i32 %7271, 1
+  %7278 = zext nneg i32 %7277 to i64
+  %7279 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7278
+  %.neg64.i1127 = sext i1 %7276 to i64
+  %7280 = zext i1 %7276 to i64
+  %7281 = getelementptr inbounds nuw i8, ptr %7279, i64 %7280
+  %7282 = load i16, ptr %7281, align 1
+  store i16 %7282, ptr %7103, align 1
+  %7283 = getelementptr inbounds i8, ptr %7103, i64 %.neg64.i1127
+  %7284 = getelementptr inbounds nuw i8, ptr %7283, i64 2
+  %7285 = shl nsw i32 %7274, 1
+  %7286 = zext i32 %7285 to i64
+  %7287 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7286
+  %7288 = load i16, ptr %7287, align 2
+  store i16 %7288, ptr %7284, align 1
+  %7289 = getelementptr inbounds nuw i8, ptr %7283, i64 4
+  %7290 = shl nuw nsw i32 %7273, 1
+  %7291 = zext nneg i32 %7290 to i64
+  %7292 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7291
+  %7293 = load i16, ptr %7292, align 2
+  store i16 %7293, ptr %7289, align 1
+  %7294 = getelementptr inbounds nuw i8, ptr %7283, i64 6
+  %7295 = shl nsw i32 %7275, 1
+  %7296 = zext i32 %7295 to i64
+  %7297 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7296
+  %7298 = load i16, ptr %7297, align 2
+  store i16 %7298, ptr %7294, align 1
+  %7299 = getelementptr inbounds nuw i8, ptr %7283, i64 8
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1135
 
-_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1135: ; preds = %7209, %7220, %7240, %7266
-  %.0.i1128 = phi ptr [ %7217, %7209 ], [ %7237, %7220 ], [ %7265, %7240 ], [ %7300, %7266 ]
-  %7301 = and i64 %7204, 4294967295
-  %7302 = mul nuw nsw i64 %7301, 109951163
-  %7303 = lshr i64 %7302, 40
-  %7304 = trunc nuw nsw i64 %7303 to i32
-  %.neg.i1218 = mul i32 %7304, -10000
-  %7305 = add i32 %.neg.i1218, %7205
-  %7306 = mul nuw i32 %7304, 5243
-  %7307 = lshr i32 %7306, 19
-  %7308 = mul i32 %7305, 5243
-  %7309 = lshr i32 %7308, 19
-  %.neg17.i1219 = mul nsw i32 %7307, -100
-  %7310 = add nsw i32 %.neg17.i1219, %7304
-  %.neg18.i1220 = mul i32 %7309, 2147483548
-  %7311 = add i32 %.neg18.i1220, %7305
-  %7312 = shl nuw nsw i32 %7307, 1
-  %7313 = zext nneg i32 %7312 to i64
-  %7314 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7313
-  %7315 = load i16, ptr %7314, align 2
-  store i16 %7315, ptr %.0.i1128, align 1
-  %7316 = getelementptr inbounds nuw i8, ptr %.0.i1128, i64 2
-  %7317 = shl nsw i32 %7310, 1
-  %7318 = zext i32 %7317 to i64
-  %7319 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7318
-  %7320 = load i16, ptr %7319, align 2
-  store i16 %7320, ptr %7316, align 1
-  %7321 = getelementptr inbounds nuw i8, ptr %.0.i1128, i64 4
-  %7322 = shl nuw nsw i32 %7309, 1
-  %7323 = zext nneg i32 %7322 to i64
-  %7324 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7323
-  %7325 = load i16, ptr %7324, align 2
-  store i16 %7325, ptr %7321, align 1
-  %7326 = getelementptr inbounds nuw i8, ptr %.0.i1128, i64 6
-  %7327 = shl i32 %7311, 1
-  %7328 = zext i32 %7327 to i64
-  %7329 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7328
-  %7330 = load i16, ptr %7329, align 2
-  store i16 %7330, ptr %7326, align 1
-  %7331 = getelementptr inbounds nuw i8, ptr %.0.i1128, i64 8
+_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1135: ; preds = %7208, %7219, %7239, %7265
+  %.0.i1128 = phi ptr [ %7216, %7208 ], [ %7236, %7219 ], [ %7264, %7239 ], [ %7299, %7265 ]
+  %7300 = and i64 %7203, 4294967295
+  %7301 = mul nuw nsw i64 %7300, 109951163
+  %7302 = lshr i64 %7301, 40
+  %7303 = trunc nuw nsw i64 %7302 to i32
+  %.neg.i1218 = mul i32 %7303, -10000
+  %7304 = add i32 %.neg.i1218, %7204
+  %7305 = mul nuw i32 %7303, 5243
+  %7306 = lshr i32 %7305, 19
+  %7307 = mul i32 %7304, 5243
+  %7308 = lshr i32 %7307, 19
+  %.neg17.i1219 = mul nsw i32 %7306, -100
+  %7309 = add nsw i32 %.neg17.i1219, %7303
+  %.neg18.i1220 = mul i32 %7308, 2147483548
+  %7310 = add i32 %.neg18.i1220, %7304
+  %7311 = shl nuw nsw i32 %7306, 1
+  %7312 = zext nneg i32 %7311 to i64
+  %7313 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7312
+  %7314 = load i16, ptr %7313, align 2
+  store i16 %7314, ptr %.0.i1128, align 1
+  %7315 = getelementptr inbounds nuw i8, ptr %.0.i1128, i64 2
+  %7316 = shl nsw i32 %7309, 1
+  %7317 = zext i32 %7316 to i64
+  %7318 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7317
+  %7319 = load i16, ptr %7318, align 2
+  store i16 %7319, ptr %7315, align 1
+  %7320 = getelementptr inbounds nuw i8, ptr %.0.i1128, i64 4
+  %7321 = shl nuw nsw i32 %7308, 1
+  %7322 = zext nneg i32 %7321 to i64
+  %7323 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7322
+  %7324 = load i16, ptr %7323, align 2
+  store i16 %7324, ptr %7320, align 1
+  %7325 = getelementptr inbounds nuw i8, ptr %.0.i1128, i64 6
+  %7326 = shl i32 %7310, 1
+  %7327 = zext i32 %7326 to i64
+  %7328 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7327
+  %7329 = load i16, ptr %7328, align 2
+  store i16 %7329, ptr %7325, align 1
+  %7330 = getelementptr inbounds nuw i8, ptr %.0.i1128, i64 8
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-7332:                                             ; preds = %7201
-  %7333 = udiv i64 %7103, 1000000000000
-  %7334 = trunc nuw nsw i64 %7333 to i32
-  %.neg27.i728 = mul nuw nsw i64 %7333, 4294957296
-  %7335 = add nuw nsw i64 %.neg27.i728, %7203
-  %7336 = trunc i64 %7335 to i32
-  %7337 = icmp ult i64 %7103, 1000000000000000000
-  br i1 %7337, label %7338, label %7364
+7331:                                             ; preds = %7200
+  %7332 = udiv i64 %7102, 1000000000000
+  %7333 = trunc nuw nsw i64 %7332 to i32
+  %.neg27.i728 = mul nuw nsw i64 %7332, 4294957296
+  %7334 = add nuw nsw i64 %.neg27.i728, %7202
+  %7335 = trunc i64 %7334 to i32
+  %7336 = icmp ult i64 %7102, 1000000000000000000
+  br i1 %7336, label %7337, label %7363
 
-7338:                                             ; preds = %7332
-  %7339 = mul nuw nsw i64 %7333, 429497
-  %7340 = lshr i64 %7339, 32
-  %7341 = trunc nuw nsw i64 %7340 to i32
-  %.neg44.i = mul nsw i32 %7341, -10000
-  %7342 = add nsw i32 %.neg44.i, %7334
-  %7343 = mul i32 %7342, 5243
-  %7344 = lshr i32 %7343, 19
-  %.neg45.i = mul nsw i32 %7344, -100
-  %7345 = add nsw i32 %.neg45.i, %7342
-  %7346 = icmp samesign ult i64 %7103, 100000000000000000
-  %7347 = shl nuw nsw i64 %7340, 1
-  %7348 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7347
-  %.neg46.i = sext i1 %7346 to i64
-  %7349 = zext i1 %7346 to i64
-  %7350 = getelementptr inbounds nuw i8, ptr %7348, i64 %7349
-  %7351 = load i16, ptr %7350, align 1
-  store i16 %7351, ptr %7104, align 1
-  %7352 = getelementptr inbounds i8, ptr %7104, i64 %.neg46.i
-  %7353 = getelementptr inbounds nuw i8, ptr %7352, i64 2
-  %7354 = shl nuw nsw i32 %7344, 1
-  %7355 = zext nneg i32 %7354 to i64
-  %7356 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7355
-  %7357 = load i16, ptr %7356, align 2
-  store i16 %7357, ptr %7353, align 1
-  %7358 = getelementptr inbounds nuw i8, ptr %7352, i64 4
-  %7359 = shl nsw i32 %7345, 1
-  %7360 = zext i32 %7359 to i64
-  %7361 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7360
-  %7362 = load i16, ptr %7361, align 2
-  store i16 %7362, ptr %7358, align 1
-  %7363 = getelementptr inbounds nuw i8, ptr %7352, i64 6
+7337:                                             ; preds = %7331
+  %7338 = mul nuw nsw i64 %7332, 429497
+  %7339 = lshr i64 %7338, 32
+  %7340 = trunc nuw nsw i64 %7339 to i32
+  %.neg44.i = mul nsw i32 %7340, -10000
+  %7341 = add nsw i32 %.neg44.i, %7333
+  %7342 = mul i32 %7341, 5243
+  %7343 = lshr i32 %7342, 19
+  %.neg45.i = mul nsw i32 %7343, -100
+  %7344 = add nsw i32 %.neg45.i, %7341
+  %7345 = icmp samesign ult i64 %7102, 100000000000000000
+  %7346 = shl nuw nsw i64 %7339, 1
+  %7347 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7346
+  %.neg46.i = sext i1 %7345 to i64
+  %7348 = zext i1 %7345 to i64
+  %7349 = getelementptr inbounds nuw i8, ptr %7347, i64 %7348
+  %7350 = load i16, ptr %7349, align 1
+  store i16 %7350, ptr %7103, align 1
+  %7351 = getelementptr inbounds i8, ptr %7103, i64 %.neg46.i
+  %7352 = getelementptr inbounds nuw i8, ptr %7351, i64 2
+  %7353 = shl nuw nsw i32 %7343, 1
+  %7354 = zext nneg i32 %7353 to i64
+  %7355 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7354
+  %7356 = load i16, ptr %7355, align 2
+  store i16 %7356, ptr %7352, align 1
+  %7357 = getelementptr inbounds nuw i8, ptr %7351, i64 4
+  %7358 = shl nsw i32 %7344, 1
+  %7359 = zext i32 %7358 to i64
+  %7360 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7359
+  %7361 = load i16, ptr %7360, align 2
+  store i16 %7361, ptr %7357, align 1
+  %7362 = getelementptr inbounds nuw i8, ptr %7351, i64 6
   br label %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit
 
-7364:                                             ; preds = %7332
-  %7365 = mul nuw nsw i64 %7333, 109951163
-  %7366 = lshr i64 %7365, 40
-  %7367 = trunc nuw nsw i64 %7366 to i32
-  %.neg.i1236 = mul nsw i32 %7367, -10000
-  %7368 = add nsw i32 %.neg.i1236, %7334
-  %7369 = mul nuw nsw i32 %7367, 5243
-  %7370 = lshr i32 %7369, 19
-  %7371 = mul i32 %7368, 5243
-  %7372 = lshr i32 %7371, 19
-  %.neg41.i = mul nsw i32 %7370, -100
-  %7373 = add nsw i32 %.neg41.i, %7367
-  %.neg42.i = mul nsw i32 %7372, -100
-  %7374 = add nsw i32 %.neg42.i, %7368
-  %7375 = icmp ult i64 %7103, -8446744073709551616
-  %7376 = shl nuw nsw i32 %7370, 1
-  %7377 = zext nneg i32 %7376 to i64
-  %7378 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7377
-  %.neg43.i = sext i1 %7375 to i64
-  %7379 = zext i1 %7375 to i64
-  %7380 = getelementptr inbounds nuw i8, ptr %7378, i64 %7379
-  %7381 = load i16, ptr %7380, align 1
-  store i16 %7381, ptr %7104, align 1
-  %7382 = getelementptr inbounds i8, ptr %7104, i64 %.neg43.i
-  %7383 = getelementptr inbounds nuw i8, ptr %7382, i64 2
-  %7384 = shl nsw i32 %7373, 1
-  %7385 = zext i32 %7384 to i64
-  %7386 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7385
-  %7387 = load i16, ptr %7386, align 2
-  store i16 %7387, ptr %7383, align 1
-  %7388 = getelementptr inbounds nuw i8, ptr %7382, i64 4
-  %7389 = shl nuw nsw i32 %7372, 1
-  %7390 = zext nneg i32 %7389 to i64
-  %7391 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7390
-  %7392 = load i16, ptr %7391, align 2
-  store i16 %7392, ptr %7388, align 1
-  %7393 = getelementptr inbounds nuw i8, ptr %7382, i64 6
-  %7394 = shl nsw i32 %7374, 1
-  %7395 = zext i32 %7394 to i64
-  %7396 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7395
-  %7397 = load i16, ptr %7396, align 2
-  store i16 %7397, ptr %7393, align 1
-  %7398 = getelementptr inbounds nuw i8, ptr %7382, i64 8
+7363:                                             ; preds = %7331
+  %7364 = mul nuw nsw i64 %7332, 109951163
+  %7365 = lshr i64 %7364, 40
+  %7366 = trunc nuw nsw i64 %7365 to i32
+  %.neg.i1236 = mul nsw i32 %7366, -10000
+  %7367 = add nsw i32 %.neg.i1236, %7333
+  %7368 = mul nuw nsw i32 %7366, 5243
+  %7369 = lshr i32 %7368, 19
+  %7370 = mul i32 %7367, 5243
+  %7371 = lshr i32 %7370, 19
+  %.neg41.i = mul nsw i32 %7369, -100
+  %7372 = add nsw i32 %.neg41.i, %7366
+  %.neg42.i = mul nsw i32 %7371, -100
+  %7373 = add nsw i32 %.neg42.i, %7367
+  %7374 = icmp ult i64 %7102, -8446744073709551616
+  %7375 = shl nuw nsw i32 %7369, 1
+  %7376 = zext nneg i32 %7375 to i64
+  %7377 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7376
+  %.neg43.i = sext i1 %7374 to i64
+  %7378 = zext i1 %7374 to i64
+  %7379 = getelementptr inbounds nuw i8, ptr %7377, i64 %7378
+  %7380 = load i16, ptr %7379, align 1
+  store i16 %7380, ptr %7103, align 1
+  %7381 = getelementptr inbounds i8, ptr %7103, i64 %.neg43.i
+  %7382 = getelementptr inbounds nuw i8, ptr %7381, i64 2
+  %7383 = shl nsw i32 %7372, 1
+  %7384 = zext i32 %7383 to i64
+  %7385 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7384
+  %7386 = load i16, ptr %7385, align 2
+  store i16 %7386, ptr %7382, align 1
+  %7387 = getelementptr inbounds nuw i8, ptr %7381, i64 4
+  %7388 = shl nuw nsw i32 %7371, 1
+  %7389 = zext nneg i32 %7388 to i64
+  %7390 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7389
+  %7391 = load i16, ptr %7390, align 2
+  store i16 %7391, ptr %7387, align 1
+  %7392 = getelementptr inbounds nuw i8, ptr %7381, i64 6
+  %7393 = shl nsw i32 %7373, 1
+  %7394 = zext i32 %7393 to i64
+  %7395 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7394
+  %7396 = load i16, ptr %7395, align 2
+  store i16 %7396, ptr %7392, align 1
+  %7397 = getelementptr inbounds nuw i8, ptr %7381, i64 8
   br label %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit
 
-_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit:  ; preds = %7338, %7364
-  %.0.i1237 = phi ptr [ %7363, %7338 ], [ %7398, %7364 ]
-  %7399 = mul i32 %7336, 5243
-  %7400 = lshr i32 %7399, 19
-  %.neg.i1256 = mul i32 %7400, 2147483548
-  %7401 = add i32 %.neg.i1256, %7336
-  %7402 = shl nuw nsw i32 %7400, 1
-  %7403 = zext nneg i32 %7402 to i64
-  %7404 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7403
-  %7405 = load i16, ptr %7404, align 2
-  store i16 %7405, ptr %.0.i1237, align 1
-  %7406 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 2
-  %7407 = shl i32 %7401, 1
-  %7408 = zext i32 %7407 to i64
-  %7409 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7408
-  %7410 = load i16, ptr %7409, align 2
-  store i16 %7410, ptr %7406, align 1
-  %7411 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 4
-  %7412 = and i64 %7204, 4294967295
-  %7413 = mul nuw nsw i64 %7412, 109951163
-  %7414 = lshr i64 %7413, 40
-  %7415 = trunc nuw nsw i64 %7414 to i32
-  %.neg.i1221 = mul i32 %7415, -10000
-  %7416 = add i32 %.neg.i1221, %7205
-  %7417 = mul nuw i32 %7415, 5243
-  %7418 = lshr i32 %7417, 19
-  %7419 = mul i32 %7416, 5243
-  %7420 = lshr i32 %7419, 19
-  %.neg17.i1222 = mul nsw i32 %7418, -100
-  %7421 = add nsw i32 %.neg17.i1222, %7415
-  %.neg18.i1223 = mul i32 %7420, 2147483548
-  %7422 = add i32 %.neg18.i1223, %7416
-  %7423 = shl nuw nsw i32 %7418, 1
-  %7424 = zext nneg i32 %7423 to i64
-  %7425 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7424
-  %7426 = load i16, ptr %7425, align 2
-  store i16 %7426, ptr %7411, align 1
-  %7427 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 6
-  %7428 = shl nsw i32 %7421, 1
-  %7429 = zext i32 %7428 to i64
-  %7430 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7429
-  %7431 = load i16, ptr %7430, align 2
-  store i16 %7431, ptr %7427, align 1
-  %7432 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 8
-  %7433 = shl nuw nsw i32 %7420, 1
-  %7434 = zext nneg i32 %7433 to i64
-  %7435 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7434
-  %7436 = load i16, ptr %7435, align 2
-  store i16 %7436, ptr %7432, align 1
-  %7437 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 10
-  %7438 = shl i32 %7422, 1
-  %7439 = zext i32 %7438 to i64
-  %7440 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7439
-  %7441 = load i16, ptr %7440, align 2
-  store i16 %7441, ptr %7437, align 1
-  %7442 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 12
+_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit:  ; preds = %7337, %7363
+  %.0.i1237 = phi ptr [ %7362, %7337 ], [ %7397, %7363 ]
+  %7398 = mul i32 %7335, 5243
+  %7399 = lshr i32 %7398, 19
+  %.neg.i1256 = mul i32 %7399, 2147483548
+  %7400 = add i32 %.neg.i1256, %7335
+  %7401 = shl nuw nsw i32 %7399, 1
+  %7402 = zext nneg i32 %7401 to i64
+  %7403 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7402
+  %7404 = load i16, ptr %7403, align 2
+  store i16 %7404, ptr %.0.i1237, align 1
+  %7405 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 2
+  %7406 = shl i32 %7400, 1
+  %7407 = zext i32 %7406 to i64
+  %7408 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7407
+  %7409 = load i16, ptr %7408, align 2
+  store i16 %7409, ptr %7405, align 1
+  %7410 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 4
+  %7411 = and i64 %7203, 4294967295
+  %7412 = mul nuw nsw i64 %7411, 109951163
+  %7413 = lshr i64 %7412, 40
+  %7414 = trunc nuw nsw i64 %7413 to i32
+  %.neg.i1221 = mul i32 %7414, -10000
+  %7415 = add i32 %.neg.i1221, %7204
+  %7416 = mul nuw i32 %7414, 5243
+  %7417 = lshr i32 %7416, 19
+  %7418 = mul i32 %7415, 5243
+  %7419 = lshr i32 %7418, 19
+  %.neg17.i1222 = mul nsw i32 %7417, -100
+  %7420 = add nsw i32 %.neg17.i1222, %7414
+  %.neg18.i1223 = mul i32 %7419, 2147483548
+  %7421 = add i32 %.neg18.i1223, %7415
+  %7422 = shl nuw nsw i32 %7417, 1
+  %7423 = zext nneg i32 %7422 to i64
+  %7424 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7423
+  %7425 = load i16, ptr %7424, align 2
+  store i16 %7425, ptr %7410, align 1
+  %7426 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 6
+  %7427 = shl nsw i32 %7420, 1
+  %7428 = zext i32 %7427 to i64
+  %7429 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7428
+  %7430 = load i16, ptr %7429, align 2
+  store i16 %7430, ptr %7426, align 1
+  %7431 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 8
+  %7432 = shl nuw nsw i32 %7419, 1
+  %7433 = zext nneg i32 %7432 to i64
+  %7434 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7433
+  %7435 = load i16, ptr %7434, align 2
+  store i16 %7435, ptr %7431, align 1
+  %7436 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 10
+  %7437 = shl i32 %7421, 1
+  %7438 = zext i32 %7437 to i64
+  %7439 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7438
+  %7440 = load i16, ptr %7439, align 2
+  store i16 %7440, ptr %7436, align 1
+  %7441 = getelementptr inbounds nuw i8, ptr %.0.i1237, i64 12
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread
 
-_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread: ; preds = %.lr.ph3172.preheader, %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit, %._crit_edge3170, %7166, %7140, %7120, %7109, %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1135, %6694, %6684, %7076, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit, %5911, %5906, %5903, %5898
-  %.0.i6021889 = phi ptr [ %7200, %7166 ], [ %7165, %7140 ], [ %7137, %7120 ], [ %7117, %7109 ], [ %7442, %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit ], [ %7331, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1135 ], [ %6705, %6694 ], [ %6693, %6684 ], [ %7098, %7076 ], [ %6149, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit ], [ %5912, %5911 ], [ %5907, %5906 ], [ %5905, %5903 ], [ %5899, %5898 ], [ %spec.select1901, %._crit_edge3170 ], [ %.0.i771, %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit ], [ %.0.i771, %.lr.ph3172.preheader ]
-  %7443 = getelementptr inbounds nuw i8, ptr %.0.i6021889, i64 1
+_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread: ; preds = %.lr.ph3172.preheader, %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit, %._crit_edge3170, %7165, %7139, %7119, %7108, %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1135, %6693, %6683, %7075, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit, %5910, %5905, %5902, %5897
+  %.0.i6021889 = phi ptr [ %7199, %7165 ], [ %7164, %7139 ], [ %7136, %7119 ], [ %7116, %7108 ], [ %7441, %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit ], [ %7330, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit1135 ], [ %6704, %6693 ], [ %6692, %6683 ], [ %7097, %7075 ], [ %6148, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit ], [ %5911, %5910 ], [ %5906, %5905 ], [ %5904, %5902 ], [ %5898, %5897 ], [ %spec.select1901, %._crit_edge3170 ], [ %.0.i771, %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit ], [ %.0.i771, %.lr.ph3172.preheader ]
+  %7442 = getelementptr inbounds nuw i8, ptr %.0.i6021889, i64 1
   store i8 44, ptr %.0.i6021889, align 1, !tbaa !75
-  br label %7569
+  br label %7567
 
-7444:                                             ; preds = %5066
-  %7445 = and i8 %5068, 6
-  %7446 = icmp eq i8 %7445, 6
-  br i1 %7446, label %7447, label %7490
+7443:                                             ; preds = %5065
+  %7444 = and i8 %5067, 6
+  %7445 = icmp eq i8 %7444, 6
+  br i1 %7445, label %7446, label %7489
 
-7447:                                             ; preds = %7444
-  %7448 = icmp eq i8 %5069, 7
-  %7449 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 16
-  %.not386.i = icmp ult ptr %7449, %.0356.i
-  br i1 %.not386.i, label %7469, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit410.i, !prof !22
+7446:                                             ; preds = %7443
+  %7447 = icmp eq i8 %5068, 7
+  %7448 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 16
+  %.not386.i = icmp ult ptr %7448, %.0356.i
+  br i1 %.not386.i, label %7468, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit410.i, !prof !22
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit410.i:  ; preds = %7447
-  %7450 = lshr i64 %.0348.i, 1
-  %7451 = tail call i64 @llvm.umax.i64(i64 %7450, i64 16)
-  %7452 = add nuw i64 %7451, 7
-  %7453 = and i64 %7452, -8
-  %7454 = add i64 %7453, %.0348.i
-  %7455 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %7454)
-  %.not387.i = icmp eq ptr %7455, null
-  br i1 %.not387.i, label %.loopexit2050, label %7456, !prof !3
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit410.i:  ; preds = %7446
+  %7449 = lshr i64 %.0348.i, 1
+  %7450 = tail call i64 @llvm.umax.i64(i64 %7449, i64 16)
+  %7451 = add nuw i64 %7450, 7
+  %7452 = and i64 %7451, -8
+  %7453 = add i64 %7452, %.0348.i
+  %7454 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %7453)
+  %.not387.i = icmp eq ptr %7454, null
+  br i1 %.not387.i, label %.loopexit2050, label %7455, !prof !3
 
-7456:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit410.i
-  %7457 = ptrtoint ptr %.0365.i to i64
-  %7458 = ptrtoint ptr %.0356.i to i64
-  %7459 = sub i64 %7457, %7458
-  %7460 = sub i64 %7454, %7459
-  %7461 = getelementptr inbounds nuw i8, ptr %7455, i64 %7460
-  %7462 = ptrtoint ptr %.0336.i to i64
-  %7463 = sub i64 %7458, %7462
-  %7464 = getelementptr inbounds i8, ptr %7455, i64 %7463
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7461, ptr nonnull align 1 %7464, i64 %7459, i1 false)
-  %7465 = ptrtoint ptr %.0337.i to i64
-  %7466 = sub i64 %7465, %7462
-  %7467 = getelementptr inbounds i8, ptr %7455, i64 %7466
-  %7468 = getelementptr inbounds nuw i8, ptr %7455, i64 %7454
-  br label %7469
+7455:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit410.i
+  %7456 = ptrtoint ptr %.0365.i to i64
+  %7457 = ptrtoint ptr %.0356.i to i64
+  %7458 = sub i64 %7456, %7457
+  %7459 = sub i64 %7453, %7458
+  %7460 = getelementptr inbounds nuw i8, ptr %7454, i64 %7459
+  %7461 = ptrtoint ptr %.0336.i to i64
+  %7462 = sub i64 %7457, %7461
+  %7463 = getelementptr inbounds i8, ptr %7454, i64 %7462
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7460, ptr nonnull align 1 %7463, i64 %7458, i1 false)
+  %7464 = ptrtoint ptr %.0337.i to i64
+  %7465 = sub i64 %7464, %7461
+  %7466 = getelementptr inbounds i8, ptr %7454, i64 %7465
+  %7467 = getelementptr inbounds nuw i8, ptr %7454, i64 %7453
+  br label %7468
 
-7469:                                             ; preds = %7456, %7447
-  %.4369.i = phi ptr [ %7468, %7456 ], [ %.0365.i, %7447 ]
-  %.4360.i = phi ptr [ %7461, %7456 ], [ %.0356.i, %7447 ]
-  %.4352.i = phi i64 [ %7454, %7456 ], [ %.0348.i, %7447 ]
-  %.5342.i = phi ptr [ %7467, %7456 ], [ %.0337.i, %7447 ]
-  %.4.i50 = phi ptr [ %7455, %7456 ], [ %.0336.i, %7447 ]
-  %7470 = icmp ult i64 %5067, 256
-  br i1 %7470, label %7471, label %7478, !prof !3
+7468:                                             ; preds = %7455, %7446
+  %.4369.i = phi ptr [ %7467, %7455 ], [ %.0365.i, %7446 ]
+  %.4360.i = phi ptr [ %7460, %7455 ], [ %.0356.i, %7446 ]
+  %.4352.i = phi i64 [ %7453, %7455 ], [ %.0348.i, %7446 ]
+  %.5342.i = phi ptr [ %7466, %7455 ], [ %.0337.i, %7446 ]
+  %.4.i50 = phi ptr [ %7454, %7455 ], [ %.0336.i, %7446 ]
+  %7469 = icmp ult i64 %5066, 256
+  br i1 %7469, label %7470, label %7477, !prof !3
 
-7471:                                             ; preds = %7469
-  %7472 = select i1 %7448, i8 32, i8 0
-  %7473 = or disjoint i8 %7472, 91
-  %7474 = getelementptr inbounds nuw i8, ptr %.5342.i, i64 1
-  store i8 %7473, ptr %.5342.i, align 1, !tbaa !75
-  %7475 = or disjoint i8 %7472, 93
-  %7476 = getelementptr inbounds nuw i8, ptr %.5342.i, i64 2
-  store i8 %7475, ptr %7474, align 1, !tbaa !75
-  %7477 = getelementptr inbounds nuw i8, ptr %.5342.i, i64 3
-  store i8 44, ptr %7476, align 1, !tbaa !75
-  br label %7569
+7470:                                             ; preds = %7468
+  %7471 = select i1 %7447, i8 32, i8 0
+  %7472 = or disjoint i8 %7471, 91
+  %7473 = getelementptr inbounds nuw i8, ptr %.5342.i, i64 1
+  store i8 %7472, ptr %.5342.i, align 1, !tbaa !75
+  %7474 = or disjoint i8 %7471, 93
+  %7475 = getelementptr inbounds nuw i8, ptr %.5342.i, i64 2
+  store i8 %7474, ptr %7473, align 1, !tbaa !75
+  %7476 = getelementptr inbounds nuw i8, ptr %.5342.i, i64 3
+  store i8 44, ptr %7475, align 1, !tbaa !75
+  br label %7567
 
-7478:                                             ; preds = %7469
-  %7479 = lshr i64 %5067, 8
-  %7480 = zext i1 %7448 to i8
-  %7481 = getelementptr inbounds i8, ptr %.4360.i, i64 -8
-  %7482 = zext nneg i8 %.01666.ph to i64
-  %7483 = shl i64 %.01665, 1
-  %7484 = or disjoint i64 %7483, %7482
-  store i64 %7484, ptr %7481, align 8, !tbaa !219
-  %7485 = zext i1 %7448 to i64
-  %7486 = shl nuw nsw i64 %7479, %7485
-  %7487 = select i1 %7448, i8 123, i8 91
-  %7488 = getelementptr inbounds nuw i8, ptr %.5342.i, i64 1
-  store i8 %7487, ptr %.5342.i, align 1, !tbaa !75
-  %7489 = getelementptr inbounds nuw i8, ptr %.0335.i, i64 16
+7477:                                             ; preds = %7468
+  %7478 = lshr i64 %5066, 8
+  %7479 = zext i1 %7447 to i8
+  %7480 = getelementptr inbounds i8, ptr %.4360.i, i64 -8
+  %7481 = zext nneg i8 %.01666.ph to i64
+  %7482 = shl i64 %.01665, 1
+  %7483 = or disjoint i64 %7482, %7481
+  store i64 %7483, ptr %7480, align 8, !tbaa !219
+  %7484 = zext i1 %7447 to i64
+  %7485 = shl nuw nsw i64 %7478, %7484
+  %7486 = select i1 %7447, i8 123, i8 91
+  %7487 = getelementptr inbounds nuw i8, ptr %.5342.i, i64 1
+  store i8 %7486, ptr %.5342.i, align 1, !tbaa !75
+  %7488 = getelementptr inbounds nuw i8, ptr %.0335.i, i64 16
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %7577, %7478
-  %.01666.ph.be = phi i8 [ %7480, %7478 ], [ %7582, %7577 ]
-  %.01665.ph.be = phi i64 [ %7486, %7478 ], [ %7583, %7577 ]
-  %.0365.i.ph.be = phi ptr [ %.4369.i, %7478 ], [ %.2367.i, %7577 ]
-  %.0356.i.ph.be = phi ptr [ %7481, %7478 ], [ %7578, %7577 ]
-  %.0348.i.ph.be = phi i64 [ %.4352.i, %7478 ], [ %.2350.i, %7577 ]
-  %.0337.i.ph.be = phi ptr [ %7488, %7478 ], [ %7576, %7577 ]
-  %.0336.i.ph.be = phi ptr [ %.4.i50, %7478 ], [ %.2.i36, %7577 ]
-  %.0335.i.ph.be = phi ptr [ %7489, %7478 ], [ %7570, %7577 ]
+.outer.backedge:                                  ; preds = %7575, %7477
+  %.01666.ph.be = phi i8 [ %7479, %7477 ], [ %7580, %7575 ]
+  %.01665.ph.be = phi i64 [ %7485, %7477 ], [ %7581, %7575 ]
+  %.0365.i.ph.be = phi ptr [ %.4369.i, %7477 ], [ %.2367.i, %7575 ]
+  %.0356.i.ph.be = phi ptr [ %7480, %7477 ], [ %7576, %7575 ]
+  %.0348.i.ph.be = phi i64 [ %.4352.i, %7477 ], [ %.2350.i, %7575 ]
+  %.0337.i.ph.be = phi ptr [ %7487, %7477 ], [ %7574, %7575 ]
+  %.0336.i.ph.be = phi ptr [ %.4.i50, %7477 ], [ %.2.i36, %7575 ]
+  %.0335.i.ph.be = phi ptr [ %7488, %7477 ], [ %7568, %7575 ]
   br label %.outer
 
-7490:                                             ; preds = %7444
-  switch i8 %5069, label %7613 [
-    i8 3, label %7491
-    i8 2, label %7518
-    i8 1, label %7541
+7489:                                             ; preds = %7443
+  switch i8 %5068, label %7611 [
+    i8 3, label %7490
+    i8 2, label %7516
+    i8 1, label %7539
   ]
 
-7491:                                             ; preds = %7490
-  %7492 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 16
-  %.not384.i = icmp ult ptr %7492, %.0356.i
+7490:                                             ; preds = %7489
+  %7491 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 16
+  %.not384.i = icmp ult ptr %7491, %.0356.i
   br i1 %.not384.i, label %_ZN13duckdb_yyjsonL10write_boolEPhb.exit, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit408.i, !prof !22
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit408.i:  ; preds = %7491
-  %7493 = lshr i64 %.0348.i, 1
-  %7494 = tail call i64 @llvm.umax.i64(i64 %7493, i64 16)
-  %7495 = add nuw i64 %7494, 7
-  %7496 = and i64 %7495, -8
-  %7497 = add i64 %7496, %.0348.i
-  %7498 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %7497)
-  %.not385.i = icmp eq ptr %7498, null
-  br i1 %.not385.i, label %.loopexit2050, label %7499, !prof !3
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit408.i:  ; preds = %7490
+  %7492 = lshr i64 %.0348.i, 1
+  %7493 = tail call i64 @llvm.umax.i64(i64 %7492, i64 16)
+  %7494 = add nuw i64 %7493, 7
+  %7495 = and i64 %7494, -8
+  %7496 = add i64 %7495, %.0348.i
+  %7497 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %7496)
+  %.not385.i = icmp eq ptr %7497, null
+  br i1 %.not385.i, label %.loopexit2050, label %7498, !prof !3
 
-7499:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit408.i
-  %7500 = ptrtoint ptr %.0365.i to i64
-  %7501 = ptrtoint ptr %.0356.i to i64
-  %7502 = sub i64 %7500, %7501
-  %7503 = sub i64 %7497, %7502
-  %7504 = getelementptr inbounds nuw i8, ptr %7498, i64 %7503
-  %7505 = ptrtoint ptr %.0336.i to i64
-  %7506 = sub i64 %7501, %7505
-  %7507 = getelementptr inbounds i8, ptr %7498, i64 %7506
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7504, ptr nonnull align 1 %7507, i64 %7502, i1 false)
-  %7508 = ptrtoint ptr %.0337.i to i64
-  %7509 = sub i64 %7508, %7505
-  %7510 = getelementptr inbounds i8, ptr %7498, i64 %7509
-  %7511 = getelementptr inbounds nuw i8, ptr %7498, i64 %7497
+7498:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit408.i
+  %7499 = ptrtoint ptr %.0365.i to i64
+  %7500 = ptrtoint ptr %.0356.i to i64
+  %7501 = sub i64 %7499, %7500
+  %7502 = sub i64 %7496, %7501
+  %7503 = getelementptr inbounds nuw i8, ptr %7497, i64 %7502
+  %7504 = ptrtoint ptr %.0336.i to i64
+  %7505 = sub i64 %7500, %7504
+  %7506 = getelementptr inbounds i8, ptr %7497, i64 %7505
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7503, ptr nonnull align 1 %7506, i64 %7501, i1 false)
+  %7507 = ptrtoint ptr %.0337.i to i64
+  %7508 = sub i64 %7507, %7504
+  %7509 = getelementptr inbounds i8, ptr %7497, i64 %7508
+  %7510 = getelementptr inbounds nuw i8, ptr %7497, i64 %7496
   %.pre3909 = load i64, ptr %.0335.i, align 8, !tbaa !73
   br label %_ZN13duckdb_yyjsonL10write_boolEPhb.exit
 
-_ZN13duckdb_yyjsonL10write_boolEPhb.exit:         ; preds = %7499, %7491
-  %7512 = phi i64 [ %.pre3909, %7499 ], [ %5067, %7491 ]
-  %.5370.i = phi ptr [ %7511, %7499 ], [ %.0365.i, %7491 ]
-  %.5361.i = phi ptr [ %7504, %7499 ], [ %.0356.i, %7491 ]
-  %.5353.i = phi i64 [ %7497, %7499 ], [ %.0348.i, %7491 ]
-  %.6343.i = phi ptr [ %7510, %7499 ], [ %.0337.i, %7491 ]
-  %.5.i49 = phi ptr [ %7498, %7499 ], [ %.0336.i, %7491 ]
-  %7513 = and i64 %7512, 24
-  %7514 = icmp ne i64 %7513, 0
-  %.1963 = select i1 %7514, i64 11185797034612, i64 2863564006908262
+_ZN13duckdb_yyjsonL10write_boolEPhb.exit:         ; preds = %7498, %7490
+  %7511 = phi i64 [ %.pre3909, %7498 ], [ %5066, %7490 ]
+  %.5370.i = phi ptr [ %7510, %7498 ], [ %.0365.i, %7490 ]
+  %.5361.i = phi ptr [ %7503, %7498 ], [ %.0356.i, %7490 ]
+  %.5353.i = phi i64 [ %7496, %7498 ], [ %.0348.i, %7490 ]
+  %.6343.i = phi ptr [ %7509, %7498 ], [ %.0337.i, %7490 ]
+  %.5.i49 = phi ptr [ %7497, %7498 ], [ %.0336.i, %7490 ]
+  %7512 = and i64 %7511, 24
+  %7513 = icmp ne i64 %7512, 0
+  %.1963 = select i1 %7513, i64 11185797034612, i64 2863564006908262
   store i64 %.1963, ptr %.6343.i, align 1
-  %7515 = getelementptr inbounds nuw i8, ptr %.6343.i, i64 5
-  %.neg.i = sext i1 %7514 to i64
-  %7516 = getelementptr inbounds i8, ptr %7515, i64 %.neg.i
-  %7517 = getelementptr inbounds nuw i8, ptr %7516, i64 1
-  br label %7569
+  %.neg.i = sext i1 %7513 to i64
+  %7514 = getelementptr i8, ptr %.6343.i, i64 %.neg.i
+  %7515 = getelementptr i8, ptr %7514, i64 6
+  br label %7567
 
-7518:                                             ; preds = %7490
-  %7519 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 16
-  %.not382.i = icmp ult ptr %7519, %.0356.i
-  br i1 %.not382.i, label %7539, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit406.i, !prof !22
+7516:                                             ; preds = %7489
+  %7517 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 16
+  %.not382.i = icmp ult ptr %7517, %.0356.i
+  br i1 %.not382.i, label %7537, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit406.i, !prof !22
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit406.i:  ; preds = %7518
-  %7520 = lshr i64 %.0348.i, 1
-  %7521 = tail call i64 @llvm.umax.i64(i64 %7520, i64 16)
-  %7522 = add nuw i64 %7521, 7
-  %7523 = and i64 %7522, -8
-  %7524 = add i64 %7523, %.0348.i
-  %7525 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %7524)
-  %.not383.i = icmp eq ptr %7525, null
-  br i1 %.not383.i, label %.loopexit2050, label %7526, !prof !3
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit406.i:  ; preds = %7516
+  %7518 = lshr i64 %.0348.i, 1
+  %7519 = tail call i64 @llvm.umax.i64(i64 %7518, i64 16)
+  %7520 = add nuw i64 %7519, 7
+  %7521 = and i64 %7520, -8
+  %7522 = add i64 %7521, %.0348.i
+  %7523 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %7522)
+  %.not383.i = icmp eq ptr %7523, null
+  br i1 %.not383.i, label %.loopexit2050, label %7524, !prof !3
 
-7526:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit406.i
-  %7527 = ptrtoint ptr %.0365.i to i64
-  %7528 = ptrtoint ptr %.0356.i to i64
-  %7529 = sub i64 %7527, %7528
-  %7530 = sub i64 %7524, %7529
-  %7531 = getelementptr inbounds nuw i8, ptr %7525, i64 %7530
-  %7532 = ptrtoint ptr %.0336.i to i64
-  %7533 = sub i64 %7528, %7532
-  %7534 = getelementptr inbounds i8, ptr %7525, i64 %7533
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7531, ptr nonnull align 1 %7534, i64 %7529, i1 false)
-  %7535 = ptrtoint ptr %.0337.i to i64
-  %7536 = sub i64 %7535, %7532
-  %7537 = getelementptr inbounds i8, ptr %7525, i64 %7536
-  %7538 = getelementptr inbounds nuw i8, ptr %7525, i64 %7524
-  br label %7539
+7524:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit406.i
+  %7525 = ptrtoint ptr %.0365.i to i64
+  %7526 = ptrtoint ptr %.0356.i to i64
+  %7527 = sub i64 %7525, %7526
+  %7528 = sub i64 %7522, %7527
+  %7529 = getelementptr inbounds nuw i8, ptr %7523, i64 %7528
+  %7530 = ptrtoint ptr %.0336.i to i64
+  %7531 = sub i64 %7526, %7530
+  %7532 = getelementptr inbounds i8, ptr %7523, i64 %7531
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7529, ptr nonnull align 1 %7532, i64 %7527, i1 false)
+  %7533 = ptrtoint ptr %.0337.i to i64
+  %7534 = sub i64 %7533, %7530
+  %7535 = getelementptr inbounds i8, ptr %7523, i64 %7534
+  %7536 = getelementptr inbounds nuw i8, ptr %7523, i64 %7522
+  br label %7537
 
-7539:                                             ; preds = %7526, %7518
-  %.6371.i = phi ptr [ %7538, %7526 ], [ %.0365.i, %7518 ]
-  %.6362.i = phi ptr [ %7531, %7526 ], [ %.0356.i, %7518 ]
-  %.6354.i = phi i64 [ %7524, %7526 ], [ %.0348.i, %7518 ]
-  %.7344.i = phi ptr [ %7537, %7526 ], [ %.0337.i, %7518 ]
-  %.6.i48 = phi ptr [ %7525, %7526 ], [ %.0336.i, %7518 ]
+7537:                                             ; preds = %7524, %7516
+  %.6371.i = phi ptr [ %7536, %7524 ], [ %.0365.i, %7516 ]
+  %.6362.i = phi ptr [ %7529, %7524 ], [ %.0356.i, %7516 ]
+  %.6354.i = phi i64 [ %7522, %7524 ], [ %.0348.i, %7516 ]
+  %.7344.i = phi ptr [ %7535, %7524 ], [ %.0337.i, %7516 ]
+  %.6.i48 = phi ptr [ %7523, %7524 ], [ %.0336.i, %7516 ]
   store i64 11185913886062, ptr %.7344.i, align 1
-  %7540 = getelementptr inbounds nuw i8, ptr %.7344.i, i64 5
-  br label %7569
+  %7538 = getelementptr inbounds nuw i8, ptr %.7344.i, i64 5
+  br label %7567
 
-7541:                                             ; preds = %7490
-  %7542 = lshr i64 %5067, 8
-  %7543 = getelementptr inbounds nuw i8, ptr %.0335.i, i64 8
-  %7544 = load ptr, ptr %7543, align 8, !tbaa !75
-  %7545 = add nuw nsw i64 %7542, 2
-  %7546 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 %7545
-  %.not380.i = icmp ult ptr %7546, %.0356.i
-  br i1 %.not380.i, label %7566, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit404.i, !prof !22
+7539:                                             ; preds = %7489
+  %7540 = lshr i64 %5066, 8
+  %7541 = getelementptr inbounds nuw i8, ptr %.0335.i, i64 8
+  %7542 = load ptr, ptr %7541, align 8, !tbaa !75
+  %7543 = add nuw nsw i64 %7540, 2
+  %7544 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 %7543
+  %.not380.i = icmp ult ptr %7544, %.0356.i
+  br i1 %.not380.i, label %7564, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit404.i, !prof !22
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit404.i:  ; preds = %7541
-  %7547 = lshr i64 %.0348.i, 1
-  %7548 = tail call i64 @llvm.umax.i64(i64 %7547, i64 %7545)
-  %7549 = add nuw i64 %7548, 7
-  %7550 = and i64 %7549, -8
-  %7551 = add i64 %7550, %.0348.i
-  %7552 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %7551)
-  %.not381.i = icmp eq ptr %7552, null
-  br i1 %.not381.i, label %.loopexit2050, label %7553, !prof !3
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit404.i:  ; preds = %7539
+  %7545 = lshr i64 %.0348.i, 1
+  %7546 = tail call i64 @llvm.umax.i64(i64 %7545, i64 %7543)
+  %7547 = add nuw i64 %7546, 7
+  %7548 = and i64 %7547, -8
+  %7549 = add i64 %7548, %.0348.i
+  %7550 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0336.i, i64 noundef %.0348.i, i64 noundef %7549)
+  %.not381.i = icmp eq ptr %7550, null
+  br i1 %.not381.i, label %.loopexit2050, label %7551, !prof !3
 
-7553:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit404.i
-  %7554 = ptrtoint ptr %.0365.i to i64
-  %7555 = ptrtoint ptr %.0356.i to i64
-  %7556 = sub i64 %7554, %7555
-  %7557 = sub i64 %7551, %7556
-  %7558 = getelementptr inbounds nuw i8, ptr %7552, i64 %7557
-  %7559 = ptrtoint ptr %.0336.i to i64
-  %7560 = sub i64 %7555, %7559
-  %7561 = getelementptr inbounds i8, ptr %7552, i64 %7560
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7558, ptr nonnull align 1 %7561, i64 %7556, i1 false)
-  %7562 = ptrtoint ptr %.0337.i to i64
-  %7563 = sub i64 %7562, %7559
-  %7564 = getelementptr inbounds i8, ptr %7552, i64 %7563
-  %7565 = getelementptr inbounds nuw i8, ptr %7552, i64 %7551
-  br label %7566
+7551:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit404.i
+  %7552 = ptrtoint ptr %.0365.i to i64
+  %7553 = ptrtoint ptr %.0356.i to i64
+  %7554 = sub i64 %7552, %7553
+  %7555 = sub i64 %7549, %7554
+  %7556 = getelementptr inbounds nuw i8, ptr %7550, i64 %7555
+  %7557 = ptrtoint ptr %.0336.i to i64
+  %7558 = sub i64 %7553, %7557
+  %7559 = getelementptr inbounds i8, ptr %7550, i64 %7558
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7556, ptr nonnull align 1 %7559, i64 %7554, i1 false)
+  %7560 = ptrtoint ptr %.0337.i to i64
+  %7561 = sub i64 %7560, %7557
+  %7562 = getelementptr inbounds i8, ptr %7550, i64 %7561
+  %7563 = getelementptr inbounds nuw i8, ptr %7550, i64 %7549
+  br label %7564
 
-7566:                                             ; preds = %7553, %7541
-  %.7372.i = phi ptr [ %7565, %7553 ], [ %.0365.i, %7541 ]
-  %.7363.i = phi ptr [ %7558, %7553 ], [ %.0356.i, %7541 ]
-  %.7355.i = phi i64 [ %7551, %7553 ], [ %.0348.i, %7541 ]
-  %.8345.i = phi ptr [ %7564, %7553 ], [ %.0337.i, %7541 ]
-  %.7.i47 = phi ptr [ %7552, %7553 ], [ %.0336.i, %7541 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.8345.i, ptr align 1 %7544, i64 range(i64 0, 72057594037927936) %7542, i1 false)
-  %7567 = getelementptr inbounds nuw i8, ptr %.8345.i, i64 %7542
-  %7568 = getelementptr inbounds nuw i8, ptr %7567, i64 1
-  store i8 44, ptr %7567, align 1, !tbaa !75
-  br label %7569
+7564:                                             ; preds = %7551, %7539
+  %.7372.i = phi ptr [ %7563, %7551 ], [ %.0365.i, %7539 ]
+  %.7363.i = phi ptr [ %7556, %7551 ], [ %.0356.i, %7539 ]
+  %.7355.i = phi i64 [ %7549, %7551 ], [ %.0348.i, %7539 ]
+  %.8345.i = phi ptr [ %7562, %7551 ], [ %.0337.i, %7539 ]
+  %.7.i47 = phi ptr [ %7550, %7551 ], [ %.0336.i, %7539 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.8345.i, ptr align 1 %7542, i64 range(i64 0, 72057594037927936) %7540, i1 false)
+  %7565 = getelementptr inbounds nuw i8, ptr %.8345.i, i64 %7540
+  %7566 = getelementptr inbounds nuw i8, ptr %7565, i64 1
+  store i8 44, ptr %7565, align 1, !tbaa !75
+  br label %7567
 
-7569:                                             ; preds = %7566, %7539, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit, %7471, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200
-  %.2367.i = phi ptr [ %.1366.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 ], [ %.3368.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread ], [ %.4369.i, %7471 ], [ %.5370.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit ], [ %.6371.i, %7539 ], [ %.7372.i, %7566 ]
-  %.2358.i = phi ptr [ %.1357.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 ], [ %.3359.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread ], [ %.4360.i, %7471 ], [ %.5361.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit ], [ %.6362.i, %7539 ], [ %.7363.i, %7566 ]
-  %.2350.i = phi i64 [ %.1349.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 ], [ %.3351.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread ], [ %.4352.i, %7471 ], [ %.5353.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit ], [ %.6354.i, %7539 ], [ %.7355.i, %7566 ]
-  %.3340.i = phi ptr [ %5864, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 ], [ %7443, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread ], [ %7477, %7471 ], [ %7517, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit ], [ %7540, %7539 ], [ %7568, %7566 ]
-  %.2.i36 = phi ptr [ %.1.i44, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 ], [ %.3.i35, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread ], [ %.4.i50, %7471 ], [ %.5.i49, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit ], [ %.6.i48, %7539 ], [ %.7.i47, %7566 ]
-  %7570 = getelementptr inbounds nuw i8, ptr %.0335.i, i64 16
-  %7571 = add i64 %.01665, -1
-  %7572 = icmp eq i64 %7571, 0
-  br i1 %7572, label %.preheader2046, label %5066, !prof !3
+7567:                                             ; preds = %7564, %7537, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit, %7470, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200
+  %.2367.i = phi ptr [ %.1366.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 ], [ %.3368.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread ], [ %.4369.i, %7470 ], [ %.5370.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit ], [ %.6371.i, %7537 ], [ %.7372.i, %7564 ]
+  %.2358.i = phi ptr [ %.1357.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 ], [ %.3359.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread ], [ %.4360.i, %7470 ], [ %.5361.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit ], [ %.6362.i, %7537 ], [ %.7363.i, %7564 ]
+  %.2350.i = phi i64 [ %.1349.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 ], [ %.3351.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread ], [ %.4352.i, %7470 ], [ %.5353.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit ], [ %.6354.i, %7537 ], [ %.7355.i, %7564 ]
+  %.3340.i = phi ptr [ %5863, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 ], [ %7442, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread ], [ %7476, %7470 ], [ %7515, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit ], [ %7538, %7537 ], [ %7566, %7564 ]
+  %.2.i36 = phi ptr [ %.1.i44, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200 ], [ %.3.i35, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread ], [ %.4.i50, %7470 ], [ %.5.i49, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit ], [ %.6.i48, %7537 ], [ %.7.i47, %7564 ]
+  %7568 = getelementptr inbounds nuw i8, ptr %.0335.i, i64 16
+  %7569 = add i64 %.01665, -1
+  %7570 = icmp eq i64 %7569, 0
+  br i1 %7570, label %.preheader2046, label %5065, !prof !3
 
-.preheader2046:                                   ; preds = %7569, %7577
-  %.11667 = phi i8 [ %7582, %7577 ], [ %.01666.ph, %7569 ]
-  %.8364.i = phi ptr [ %7578, %7577 ], [ %.2358.i, %7569 ]
-  %.9346.i = phi ptr [ %7576, %7577 ], [ %.3340.i, %7569 ]
-  %7573 = getelementptr inbounds i8, ptr %.9346.i, i64 -1
-  %7574 = shl nuw nsw i8 %.11667, 5
-  %7575 = add nuw nsw i8 %7574, 93
-  store i8 %7575, ptr %7573, align 1, !tbaa !75
-  %7576 = getelementptr inbounds nuw i8, ptr %.9346.i, i64 1
+.preheader2046:                                   ; preds = %7567, %7575
+  %.11667 = phi i8 [ %7580, %7575 ], [ %.01666.ph, %7567 ]
+  %.8364.i = phi ptr [ %7576, %7575 ], [ %.2358.i, %7567 ]
+  %.9346.i = phi ptr [ %7574, %7575 ], [ %.3340.i, %7567 ]
+  %7571 = getelementptr inbounds i8, ptr %.9346.i, i64 -1
+  %7572 = shl nuw nsw i8 %.11667, 5
+  %7573 = add nuw nsw i8 %7572, 93
+  store i8 %7573, ptr %7571, align 1, !tbaa !75
+  %7574 = getelementptr inbounds nuw i8, ptr %.9346.i, i64 1
   store i8 44, ptr %.9346.i, align 1, !tbaa !75
   %.not398.i = icmp ult ptr %.8364.i, %.2367.i
-  br i1 %.not398.i, label %7577, label %7584, !prof !22
+  br i1 %.not398.i, label %7575, label %7582, !prof !22
 
-7577:                                             ; preds = %.preheader2046
-  %7578 = getelementptr inbounds nuw i8, ptr %.8364.i, i64 8
-  %7579 = load i64, ptr %.8364.i, align 8, !tbaa !219
-  %7580 = lshr i64 %7579, 1
-  %7581 = trunc i64 %7579 to i8
-  %7582 = and i8 %7581, 1
-  %7583 = add nsw i64 %7580, -1
-  %.not399.i = icmp eq i64 %7583, 0
+7575:                                             ; preds = %.preheader2046
+  %7576 = getelementptr inbounds nuw i8, ptr %.8364.i, i64 8
+  %7577 = load i64, ptr %.8364.i, align 8, !tbaa !219
+  %7578 = lshr i64 %7577, 1
+  %7579 = trunc i64 %7577 to i8
+  %7580 = and i8 %7579, 1
+  %7581 = add nsw i64 %7578, -1
+  %.not399.i = icmp eq i64 %7581, 0
   br i1 %.not399.i, label %.preheader2046, label %.outer.backedge, !prof !3
 
-7584:                                             ; preds = %.preheader2046
-  br i1 %.not1924, label %7607, label %7585
+7582:                                             ; preds = %.preheader2046
+  br i1 %.not1924, label %7605, label %7583
 
-7585:                                             ; preds = %7584
-  %7586 = getelementptr inbounds nuw i8, ptr %.9346.i, i64 3
-  %.not400.i = icmp ult ptr %7586, %.8364.i
-  br i1 %.not400.i, label %7605, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i39, !prof !22
+7583:                                             ; preds = %7582
+  %7584 = getelementptr inbounds nuw i8, ptr %.9346.i, i64 3
+  %.not400.i = icmp ult ptr %7584, %.8364.i
+  br i1 %.not400.i, label %7603, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i39, !prof !22
 
-_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i39:   ; preds = %7585
-  %7587 = lshr i64 %.2350.i, 1
-  %7588 = tail call i64 @llvm.umax.i64(i64 %7587, i64 2)
-  %7589 = add nuw i64 %7588, 7
-  %7590 = and i64 %7589, -8
-  %7591 = add i64 %7590, %.2350.i
-  %7592 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.2.i36, i64 noundef %.2350.i, i64 noundef %7591)
-  %.not401.i = icmp eq ptr %7592, null
-  br i1 %.not401.i, label %.loopexit2050, label %7593, !prof !3
+_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i39:   ; preds = %7583
+  %7585 = lshr i64 %.2350.i, 1
+  %7586 = tail call i64 @llvm.umax.i64(i64 %7585, i64 2)
+  %7587 = add nuw i64 %7586, 7
+  %7588 = and i64 %7587, -8
+  %7589 = add i64 %7588, %.2350.i
+  %7590 = tail call noundef ptr %.sroa.6.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.2.i36, i64 noundef %.2350.i, i64 noundef %7589)
+  %.not401.i = icmp eq ptr %7590, null
+  br i1 %.not401.i, label %.loopexit2050, label %7591, !prof !3
 
-7593:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i39
-  %7594 = ptrtoint ptr %.2367.i to i64
-  %7595 = ptrtoint ptr %.8364.i to i64
-  %7596 = sub i64 %7594, %7595
-  %7597 = sub i64 %7591, %7596
-  %7598 = getelementptr inbounds nuw i8, ptr %7592, i64 %7597
-  %7599 = ptrtoint ptr %.2.i36 to i64
-  %7600 = sub i64 %7595, %7599
-  %7601 = getelementptr inbounds i8, ptr %7592, i64 %7600
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7598, ptr nonnull align 1 %7601, i64 %7596, i1 false)
-  %7602 = ptrtoint ptr %7576 to i64
-  %7603 = sub i64 %7602, %7599
-  %7604 = getelementptr inbounds i8, ptr %7592, i64 %7603
+7591:                                             ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit.i39
+  %7592 = ptrtoint ptr %.2367.i to i64
+  %7593 = ptrtoint ptr %.8364.i to i64
+  %7594 = sub i64 %7592, %7593
+  %7595 = sub i64 %7589, %7594
+  %7596 = getelementptr inbounds nuw i8, ptr %7590, i64 %7595
+  %7597 = ptrtoint ptr %.2.i36 to i64
+  %7598 = sub i64 %7593, %7597
+  %7599 = getelementptr inbounds i8, ptr %7590, i64 %7598
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7596, ptr nonnull align 1 %7599, i64 %7594, i1 false)
+  %7600 = ptrtoint ptr %7574 to i64
+  %7601 = sub i64 %7600, %7597
+  %7602 = getelementptr inbounds i8, ptr %7590, i64 %7601
+  br label %7603
+
+7603:                                             ; preds = %7591, %7583
+  %.11.i41 = phi ptr [ %7602, %7591 ], [ %7574, %7583 ]
+  %.9.i42 = phi ptr [ %7590, %7591 ], [ %.2.i36, %7583 ]
+  %7604 = getelementptr inbounds i8, ptr %.11.i41, i64 -1
+  store i8 10, ptr %7604, align 1, !tbaa !75
   br label %7605
 
-7605:                                             ; preds = %7593, %7585
-  %.11.i41 = phi ptr [ %7604, %7593 ], [ %7576, %7585 ]
-  %.9.i42 = phi ptr [ %7592, %7593 ], [ %.2.i36, %7585 ]
-  %7606 = getelementptr inbounds i8, ptr %.11.i41, i64 -1
-  store i8 10, ptr %7606, align 1, !tbaa !75
-  br label %7607
-
-7607:                                             ; preds = %7605, %7584
-  %7608 = phi ptr [ %.11.i41, %7605 ], [ %.9346.i, %7584 ]
-  %.8.i37 = phi ptr [ %.9.i42, %7605 ], [ %.2.i36, %7584 ]
-  store i8 0, ptr %7608, align 1, !tbaa !75
+7605:                                             ; preds = %7603, %7582
+  %7606 = phi ptr [ %.11.i41, %7603 ], [ %.9346.i, %7582 ]
+  %.8.i37 = phi ptr [ %.9.i42, %7603 ], [ %.2.i36, %7582 ]
+  store i8 0, ptr %7606, align 1, !tbaa !75
   br i1 %.not27, label %.cont1294, label %.else1296
 
-.else1296:                                        ; preds = %7607
-  %7609 = ptrtoint ptr %7608 to i64
-  %7610 = ptrtoint ptr %.8.i37 to i64
-  %7611 = sub i64 %7609, %7610
-  store i64 %7611, ptr %3, align 8, !tbaa !85
+.else1296:                                        ; preds = %7605
+  %7607 = ptrtoint ptr %7606 to i64
+  %7608 = ptrtoint ptr %.8.i37 to i64
+  %7609 = sub i64 %7607, %7608
+  store i64 %7609, ptr %3, align 8, !tbaa !85
   br label %.cont1294
 
-.cont1294:                                        ; preds = %7607, %.else1296
+.cont1294:                                        ; preds = %7605, %.else1296
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
@@ -47584,20 +47582,20 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit.i39:   ; preds = %7585
   %.sroa.sel1357.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1357.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.28, ptr %.sroa.sel1357.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not402.i = icmp eq ptr %.10.i43, null
-  br i1 %.not402.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7612
+  br i1 %.not402.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7610
 
-7612:                                             ; preds = %.cont1291
+7610:                                             ; preds = %.cont1291
   tail call void %.sroa.7.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef nonnull %.10.i43)
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-7613:                                             ; preds = %7490
-  br i1 %.not27, label %7614, label %.else
+7611:                                             ; preds = %7489
+  br i1 %.not27, label %7612, label %.else
 
-.else:                                            ; preds = %7613
+.else:                                            ; preds = %7611
   store i64 0, ptr %3, align 8, !tbaa !85
-  br label %7614
+  br label %7612
 
-7614:                                             ; preds = %.else, %7613
+7612:                                             ; preds = %.else, %7611
   store i32 3, ptr %8, align 8, !tbaa !208
   %.sroa.sel1366.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1366.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1366.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -47605,14 +47603,14 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit.i39:   ; preds = %7585
   tail call void %.sroa.7.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef nonnull %.0336.i)
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890: ; preds = %5900
-  br i1 %.not27, label %7615, label %.else1290
+_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890: ; preds = %5899
+  br i1 %.not27, label %7613, label %.else1290
 
 .else1290:                                        ; preds = %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890
   store i64 0, ptr %3, align 8, !tbaa !85
-  br label %7615
+  br label %7613
 
-7615:                                             ; preds = %.else1290, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890
+7613:                                             ; preds = %.else1290, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890
   store i32 4, ptr %8, align 8, !tbaa !208
   %.sroa.sel1360.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1360.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1360.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -47621,13 +47619,13 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890: ; preds 
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 .loopexit2019:                                    ; preds = %.thread1820, %.thread1836, %.thread1852, %.thread1868
-  br i1 %.not27, label %7616, label %.else1287
+  br i1 %.not27, label %7614, label %.else1287
 
 .else1287:                                        ; preds = %.loopexit2019
   store i64 0, ptr %3, align 8, !tbaa !85
-  br label %7616
+  br label %7614
 
-7616:                                             ; preds = %.else1287, %.loopexit2019
+7614:                                             ; preds = %.else1287, %.loopexit2019
   store i32 7, ptr %8, align 8, !tbaa !208
   %.sroa.sel1363.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1363.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1363.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -47635,8 +47633,8 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890: ; preds 
   tail call void %.sroa.7.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef nonnull %.1.i44)
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit: ; preds = %7616, %7615, %7614, %7612, %.cont1291, %.cont1294, %5037, %5036, %5035, %5033, %.cont1306, %.cont1309, %.cont1312, %.cont1315, %.cont1324, %.cont1318, %.cont1321, %.cont1327
-  %.0 = phi ptr [ null, %.cont1327 ], [ null, %.cont1324 ], [ %.080.i, %.cont1321 ], [ null, %.cont1318 ], [ null, %.cont1312 ], [ null, %.cont1315 ], [ %.11.i, %.cont1309 ], [ null, %5033 ], [ null, %.cont1306 ], [ null, %5035 ], [ null, %5036 ], [ null, %5037 ], [ %.8.i37, %.cont1294 ], [ null, %7612 ], [ null, %.cont1291 ], [ null, %7614 ], [ null, %7615 ], [ null, %7616 ]
+_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit: ; preds = %7614, %7613, %7612, %7610, %.cont1291, %.cont1294, %5036, %5035, %5034, %5032, %.cont1306, %.cont1309, %.cont1312, %.cont1315, %.cont1324, %.cont1318, %.cont1321, %.cont1327
+  %.0 = phi ptr [ null, %.cont1327 ], [ null, %.cont1324 ], [ %.080.i, %.cont1321 ], [ null, %.cont1318 ], [ null, %.cont1312 ], [ null, %.cont1315 ], [ %.11.i, %.cont1309 ], [ null, %5032 ], [ null, %.cont1306 ], [ null, %5034 ], [ null, %5035 ], [ null, %5036 ], [ %.8.i37, %.cont1294 ], [ null, %7610 ], [ null, %.cont1291 ], [ null, %7612 ], [ null, %7613 ], [ null, %7614 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -51705,7 +51703,7 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i.thread881: ; preds
   %.not1063 = icmp eq i32 %2369, 0
   %2370 = and i32 %2, 4
   %.not1064 = icmp eq i32 %2370, 0
-  br i1 %.not31, label %5064, label %2371
+  br i1 %.not31, label %5063, label %2371
 
 2371:                                             ; preds = %2367
   br i1 %.not1063, label %2373, label %2372, !prof !22
@@ -51790,14 +51788,14 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i33: ; preds = %2373, %2372
   %.not.i859.i22933245 = icmp eq i64 %.0470.i.ph, 0
   br label %2408
 
-2408:                                             ; preds = %.outer1228, %4984
-  %.0808 = phi i64 [ %4982, %4984 ], [ %.0808.ph, %.outer1228 ]
-  %.0494.i = phi ptr [ %.2496.i, %4984 ], [ %.0494.i.ph, %.outer1228 ]
-  %.0483.i = phi ptr [ %.2485.i, %4984 ], [ %.0483.i.ph, %.outer1228 ]
-  %.0472.i = phi i64 [ %.2474.i, %4984 ], [ %.0472.i.ph, %.outer1228 ]
-  %.0456.i = phi ptr [ %.3459.i, %4984 ], [ %.0456.i.ph, %.outer1228 ]
-  %.0455.i = phi ptr [ %.2.i, %4984 ], [ %.0455.i.ph, %.outer1228 ]
-  %.0454.i = phi ptr [ %4986, %4984 ], [ %.0454.i.ph, %.outer1228 ]
+2408:                                             ; preds = %.outer1228, %4983
+  %.0808 = phi i64 [ %4981, %4983 ], [ %.0808.ph, %.outer1228 ]
+  %.0494.i = phi ptr [ %.2496.i, %4983 ], [ %.0494.i.ph, %.outer1228 ]
+  %.0483.i = phi ptr [ %.2485.i, %4983 ], [ %.0483.i.ph, %.outer1228 ]
+  %.0472.i = phi i64 [ %.2474.i, %4983 ], [ %.0472.i.ph, %.outer1228 ]
+  %.0456.i = phi ptr [ %.3459.i, %4983 ], [ %.0456.i.ph, %.outer1228 ]
+  %.0455.i = phi ptr [ %.2.i, %4983 ], [ %.0455.i.ph, %.outer1228 ]
+  %.0454.i = phi ptr [ %4985, %4983 ], [ %.0454.i.ph, %.outer1228 ]
   %2409 = load i64, ptr %.0454.i, align 8, !tbaa !73
   %2410 = trunc i64 %2409 to i8
   %2411 = and i8 %2410, 7
@@ -53315,7 +53313,7 @@ _ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i: ; preds = %.preheader12
   %3212 = select i1 %.not532.i, i8 10, i8 32
   %3213 = getelementptr inbounds nuw i8, ptr %.8.i584.i.lcssa.sink4533, i64 3
   store i8 %3212, ptr %3211, align 1, !tbaa !75
-  br label %4981
+  br label %4980
 
 3214:                                             ; preds = %2408
   %3215 = trunc i64 %.0808 to i32
@@ -55529,7 +55527,7 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread: ; preds 
   store i8 44, ptr %.0.i671.i955, align 1, !tbaa !75
   %4799 = getelementptr inbounds nuw i8, ptr %.0.i671.i955, i64 2
   store i8 10, ptr %4798, align 1, !tbaa !75
-  br label %4981
+  br label %4980
 
 4800:                                             ; preds = %2408
   %4801 = and i8 %2410, 6
@@ -55607,7 +55605,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i: ; preds = %select.unfold959, %
   store i8 44, ptr %4838, align 1, !tbaa !75
   %4840 = getelementptr inbounds nuw i8, ptr %.0.i858.i.lcssa, i64 4
   store i8 10, ptr %4839, align 1, !tbaa !75
-  br label %4981
+  br label %4980
 
 4841:                                             ; preds = %4803
   %4842 = lshr i64 %2409, 8
@@ -55694,24 +55692,24 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold960, %
   %4886 = load ptr, ptr %.in523.i, align 8, !tbaa !79
   br label %.outer1228.backedge
 
-.outer1228.backedge:                              ; preds = %5018, %4885
-  %.0809.ph.be = phi i8 [ %4843, %4885 ], [ %5025, %5018 ]
-  %.0808.ph.be = phi i64 [ %4873, %4885 ], [ %5028, %5018 ]
-  %.0806.ph.be = phi ptr [ %.0454.i, %4885 ], [ %5027, %5018 ]
-  %.0494.i.ph.be = phi ptr [ %.5499.i, %4885 ], [ %.10504.i, %5018 ]
-  %.0483.i.ph.be = phi ptr [ %4867, %4885 ], [ %5021, %5018 ]
-  %.0472.i.ph.be = phi i64 [ %.5477.i, %4885 ], [ %.10482.i, %5018 ]
-  %.0470.i.ph.be = phi i64 [ %4876, %4885 ], [ %5012, %5018 ]
-  %.0456.i.ph.be = phi ptr [ %4879, %4885 ], [ %5030, %5018 ]
-  %.0455.i.ph.be = phi ptr [ %.5.i, %4885 ], [ %.10.i, %5018 ]
-  %.0454.i.ph.be = phi ptr [ %4886, %4885 ], [ %5020, %5018 ]
+.outer1228.backedge:                              ; preds = %5017, %4885
+  %.0809.ph.be = phi i8 [ %4843, %4885 ], [ %5024, %5017 ]
+  %.0808.ph.be = phi i64 [ %4873, %4885 ], [ %5027, %5017 ]
+  %.0806.ph.be = phi ptr [ %.0454.i, %4885 ], [ %5026, %5017 ]
+  %.0494.i.ph.be = phi ptr [ %.5499.i, %4885 ], [ %.10504.i, %5017 ]
+  %.0483.i.ph.be = phi ptr [ %4867, %4885 ], [ %5020, %5017 ]
+  %.0472.i.ph.be = phi i64 [ %.5477.i, %4885 ], [ %.10482.i, %5017 ]
+  %.0470.i.ph.be = phi i64 [ %4876, %4885 ], [ %5011, %5017 ]
+  %.0456.i.ph.be = phi ptr [ %4879, %4885 ], [ %5029, %5017 ]
+  %.0455.i.ph.be = phi ptr [ %.5.i, %4885 ], [ %.10.i, %5017 ]
+  %.0454.i.ph.be = phi ptr [ %4886, %4885 ], [ %5019, %5017 ]
   br label %.outer1228
 
 4887:                                             ; preds = %4800
-  switch i8 %2411, label %5060 [
+  switch i8 %2411, label %5059 [
     i8 3, label %4888
-    i8 2, label %4922
-    i8 1, label %4951
+    i8 2, label %4921
+    i8 1, label %4950
   ]
 
 4888:                                             ; preds = %4887
@@ -55774,286 +55772,285 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i: ; preds = %select.unfold961, %
   %4918 = icmp ne i64 %4917, 0
   %.1105 = select i1 %4918, i64 11185797034612, i64 2863564006908262
   store i64 %.1105, ptr %.0.i850.i.lcssa, align 1
-  %4919 = getelementptr inbounds nuw i8, ptr %.0.i850.i.lcssa, i64 5
   %.neg.i.i207 = sext i1 %4918 to i64
-  %4920 = getelementptr inbounds i8, ptr %4919, i64 %.neg.i.i207
-  %4921 = getelementptr inbounds nuw i8, ptr %4920, i64 2
-  br label %4981
+  %4919 = getelementptr i8, ptr %.0.i850.i.lcssa, i64 %.neg.i.i207
+  %4920 = getelementptr i8, ptr %4919, i64 7
+  br label %4980
 
-4922:                                             ; preds = %4887
-  %4923 = trunc i64 %.0808 to i32
-  %4924 = and i32 %4923, %2404
-  %.not514.i = icmp ne i32 %4924, 0
-  %4925 = select i1 %.not514.i, i64 16, i64 %2407
-  %4926 = getelementptr inbounds nuw i8, ptr %.0456.i, i64 %4925
-  %.not515.i = icmp ult ptr %4926, %.0483.i
-  br i1 %.not515.i, label %4947, label %4927, !prof !22
+4921:                                             ; preds = %4887
+  %4922 = trunc i64 %.0808 to i32
+  %4923 = and i32 %4922, %2404
+  %.not514.i = icmp ne i32 %4923, 0
+  %4924 = select i1 %.not514.i, i64 16, i64 %2407
+  %4925 = getelementptr inbounds nuw i8, ptr %.0456.i, i64 %4924
+  %.not515.i = icmp ult ptr %4925, %.0483.i
+  br i1 %.not515.i, label %4946, label %4926, !prof !22
 
-4927:                                             ; preds = %4922
-  %4928 = lshr i64 %.0472.i, 1
-  %4929 = tail call i64 @llvm.umax.i64(i64 %4928, i64 %4925)
-  %4930 = add i64 %4929, 15
-  %4931 = and i64 %4930, -16
-  %4932 = add i64 %4931, %.0472.i
-  %4933 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0455.i, i64 noundef %.0472.i, i64 noundef %4932)
-  %.not516.i = icmp eq ptr %4933, null
-  br i1 %.not516.i, label %.loopexit1223, label %4934, !prof !3
+4926:                                             ; preds = %4921
+  %4927 = lshr i64 %.0472.i, 1
+  %4928 = tail call i64 @llvm.umax.i64(i64 %4927, i64 %4924)
+  %4929 = add i64 %4928, 15
+  %4930 = and i64 %4929, -16
+  %4931 = add i64 %4930, %.0472.i
+  %4932 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0455.i, i64 noundef %.0472.i, i64 noundef %4931)
+  %.not516.i = icmp eq ptr %4932, null
+  br i1 %.not516.i, label %.loopexit1223, label %4933, !prof !3
 
-4934:                                             ; preds = %4927
-  %4935 = ptrtoint ptr %.0494.i to i64
-  %4936 = ptrtoint ptr %.0483.i to i64
-  %4937 = sub i64 %4935, %4936
-  %4938 = sub i64 %4932, %4937
-  %4939 = getelementptr inbounds nuw i8, ptr %4933, i64 %4938
-  %4940 = ptrtoint ptr %.0455.i to i64
-  %4941 = sub i64 %4936, %4940
-  %4942 = getelementptr inbounds i8, ptr %4933, i64 %4941
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %4939, ptr nonnull align 1 %4942, i64 %4937, i1 false)
-  %4943 = ptrtoint ptr %.0456.i to i64
-  %4944 = sub i64 %4943, %4940
-  %4945 = getelementptr inbounds i8, ptr %4933, i64 %4944
-  %4946 = getelementptr inbounds nuw i8, ptr %4933, i64 %4932
-  br label %4947
+4933:                                             ; preds = %4926
+  %4934 = ptrtoint ptr %.0494.i to i64
+  %4935 = ptrtoint ptr %.0483.i to i64
+  %4936 = sub i64 %4934, %4935
+  %4937 = sub i64 %4931, %4936
+  %4938 = getelementptr inbounds nuw i8, ptr %4932, i64 %4937
+  %4939 = ptrtoint ptr %.0455.i to i64
+  %4940 = sub i64 %4935, %4939
+  %4941 = getelementptr inbounds i8, ptr %4932, i64 %4940
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %4938, ptr nonnull align 1 %4941, i64 %4936, i1 false)
+  %4942 = ptrtoint ptr %.0456.i to i64
+  %4943 = sub i64 %4942, %4939
+  %4944 = getelementptr inbounds i8, ptr %4932, i64 %4943
+  %4945 = getelementptr inbounds nuw i8, ptr %4932, i64 %4931
+  br label %4946
 
-4947:                                             ; preds = %4934, %4922
-  %.7501.i = phi ptr [ %4946, %4934 ], [ %.0494.i, %4922 ]
-  %.7490.i = phi ptr [ %4939, %4934 ], [ %.0483.i, %4922 ]
-  %.7479.i = phi i64 [ %4932, %4934 ], [ %.0472.i, %4922 ]
-  %.8464.i = phi ptr [ %4945, %4934 ], [ %.0456.i, %4922 ]
-  %.7.i = phi ptr [ %4933, %4934 ], [ %.0455.i, %4922 ]
+4946:                                             ; preds = %4933, %4921
+  %.7501.i = phi ptr [ %4945, %4933 ], [ %.0494.i, %4921 ]
+  %.7490.i = phi ptr [ %4938, %4933 ], [ %.0483.i, %4921 ]
+  %.7479.i = phi i64 [ %4931, %4933 ], [ %.0472.i, %4921 ]
+  %.8464.i = phi ptr [ %4944, %4933 ], [ %.0456.i, %4921 ]
+  %.7.i = phi ptr [ %4932, %4933 ], [ %.0455.i, %4921 ]
   %.not.i847.i2281 = select i1 %.not514.i, i1 true, i1 %.not.i847.i22813242
   br i1 %.not.i847.i2281, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i, label %select.unfold962
 
-select.unfold962:                                 ; preds = %4947, %select.unfold962
-  %.0.i846.i2283 = phi ptr [ %4949, %select.unfold962 ], [ %.8464.i, %4947 ]
-  %.04.i845.i2282 = phi i64 [ %4948, %select.unfold962 ], [ %.0470.i.ph, %4947 ]
-  %4948 = add i64 %.04.i845.i2282, -1
+select.unfold962:                                 ; preds = %4946, %select.unfold962
+  %.0.i846.i2283 = phi ptr [ %4948, %select.unfold962 ], [ %.8464.i, %4946 ]
+  %.04.i845.i2282 = phi i64 [ %4947, %select.unfold962 ], [ %.0470.i.ph, %4946 ]
+  %4947 = add i64 %.04.i845.i2282, -1
   store i32 538976288, ptr %.0.i846.i2283, align 1
-  %4949 = getelementptr inbounds nuw i8, ptr %.0.i846.i2283, i64 %2377
-  %.not.i847.i = icmp eq i64 %4948, 0
+  %4948 = getelementptr inbounds nuw i8, ptr %.0.i846.i2283, i64 %2377
+  %.not.i847.i = icmp eq i64 %4947, 0
   br i1 %.not.i847.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i, label %select.unfold962, !llvm.loop !218
 
-_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i: ; preds = %select.unfold962, %4947
-  %.0.i846.i.lcssa = phi ptr [ %.8464.i, %4947 ], [ %4949, %select.unfold962 ]
+_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i: ; preds = %select.unfold962, %4946
+  %.0.i846.i.lcssa = phi ptr [ %.8464.i, %4946 ], [ %4948, %select.unfold962 ]
   store i64 11185913886062, ptr %.0.i846.i.lcssa, align 1
-  %4950 = getelementptr inbounds nuw i8, ptr %.0.i846.i.lcssa, i64 6
-  br label %4981
+  %4949 = getelementptr inbounds nuw i8, ptr %.0.i846.i.lcssa, i64 6
+  br label %4980
 
-4951:                                             ; preds = %4887
-  %4952 = lshr i64 %2409, 8
-  %4953 = getelementptr inbounds nuw i8, ptr %.0454.i, i64 8
-  %4954 = load ptr, ptr %4953, align 8, !tbaa !75
-  %4955 = add nuw nsw i64 %4952, 3
-  %4956 = getelementptr inbounds nuw i8, ptr %.0456.i, i64 %4955
-  %.not512.i = icmp ult ptr %4956, %.0483.i
-  br i1 %.not512.i, label %4977, label %4957, !prof !22
+4950:                                             ; preds = %4887
+  %4951 = lshr i64 %2409, 8
+  %4952 = getelementptr inbounds nuw i8, ptr %.0454.i, i64 8
+  %4953 = load ptr, ptr %4952, align 8, !tbaa !75
+  %4954 = add nuw nsw i64 %4951, 3
+  %4955 = getelementptr inbounds nuw i8, ptr %.0456.i, i64 %4954
+  %.not512.i = icmp ult ptr %4955, %.0483.i
+  br i1 %.not512.i, label %4976, label %4956, !prof !22
 
-4957:                                             ; preds = %4951
-  %4958 = lshr i64 %.0472.i, 1
-  %4959 = tail call i64 @llvm.umax.i64(i64 %4958, i64 %4955)
-  %4960 = add nuw i64 %4959, 15
-  %4961 = and i64 %4960, -16
-  %4962 = add i64 %4961, %.0472.i
-  %4963 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0455.i, i64 noundef %.0472.i, i64 noundef %4962)
-  %.not513.i = icmp eq ptr %4963, null
-  br i1 %.not513.i, label %.loopexit1223, label %4964, !prof !3
+4956:                                             ; preds = %4950
+  %4957 = lshr i64 %.0472.i, 1
+  %4958 = tail call i64 @llvm.umax.i64(i64 %4957, i64 %4954)
+  %4959 = add nuw i64 %4958, 15
+  %4960 = and i64 %4959, -16
+  %4961 = add i64 %4960, %.0472.i
+  %4962 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0455.i, i64 noundef %.0472.i, i64 noundef %4961)
+  %.not513.i = icmp eq ptr %4962, null
+  br i1 %.not513.i, label %.loopexit1223, label %4963, !prof !3
 
-4964:                                             ; preds = %4957
-  %4965 = ptrtoint ptr %.0494.i to i64
-  %4966 = ptrtoint ptr %.0483.i to i64
-  %4967 = sub i64 %4965, %4966
-  %4968 = sub i64 %4962, %4967
-  %4969 = getelementptr inbounds nuw i8, ptr %4963, i64 %4968
-  %4970 = ptrtoint ptr %.0455.i to i64
-  %4971 = sub i64 %4966, %4970
-  %4972 = getelementptr inbounds i8, ptr %4963, i64 %4971
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %4969, ptr nonnull align 1 %4972, i64 %4967, i1 false)
-  %4973 = ptrtoint ptr %.0456.i to i64
-  %4974 = sub i64 %4973, %4970
-  %4975 = getelementptr inbounds i8, ptr %4963, i64 %4974
-  %4976 = getelementptr inbounds nuw i8, ptr %4963, i64 %4962
-  br label %4977
+4963:                                             ; preds = %4956
+  %4964 = ptrtoint ptr %.0494.i to i64
+  %4965 = ptrtoint ptr %.0483.i to i64
+  %4966 = sub i64 %4964, %4965
+  %4967 = sub i64 %4961, %4966
+  %4968 = getelementptr inbounds nuw i8, ptr %4962, i64 %4967
+  %4969 = ptrtoint ptr %.0455.i to i64
+  %4970 = sub i64 %4965, %4969
+  %4971 = getelementptr inbounds i8, ptr %4962, i64 %4970
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %4968, ptr nonnull align 1 %4971, i64 %4966, i1 false)
+  %4972 = ptrtoint ptr %.0456.i to i64
+  %4973 = sub i64 %4972, %4969
+  %4974 = getelementptr inbounds i8, ptr %4962, i64 %4973
+  %4975 = getelementptr inbounds nuw i8, ptr %4962, i64 %4961
+  br label %4976
 
-4977:                                             ; preds = %4964, %4951
-  %.8502.i = phi ptr [ %4976, %4964 ], [ %.0494.i, %4951 ]
-  %.8491.i = phi ptr [ %4969, %4964 ], [ %.0483.i, %4951 ]
-  %.8480.i = phi i64 [ %4962, %4964 ], [ %.0472.i, %4951 ]
-  %.9465.i = phi ptr [ %4975, %4964 ], [ %.0456.i, %4951 ]
-  %.8.i = phi ptr [ %4963, %4964 ], [ %.0455.i, %4951 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.9465.i, ptr align 1 %4954, i64 range(i64 0, 72057594037927936) %4952, i1 false)
-  %4978 = getelementptr inbounds nuw i8, ptr %.9465.i, i64 %4952
-  %4979 = getelementptr inbounds nuw i8, ptr %4978, i64 1
-  store i8 44, ptr %4978, align 1, !tbaa !75
-  %4980 = getelementptr inbounds nuw i8, ptr %4978, i64 2
-  store i8 10, ptr %4979, align 1, !tbaa !75
-  br label %4981
+4976:                                             ; preds = %4963, %4950
+  %.8502.i = phi ptr [ %4975, %4963 ], [ %.0494.i, %4950 ]
+  %.8491.i = phi ptr [ %4968, %4963 ], [ %.0483.i, %4950 ]
+  %.8480.i = phi i64 [ %4961, %4963 ], [ %.0472.i, %4950 ]
+  %.9465.i = phi ptr [ %4974, %4963 ], [ %.0456.i, %4950 ]
+  %.8.i = phi ptr [ %4962, %4963 ], [ %.0455.i, %4950 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.9465.i, ptr align 1 %4953, i64 range(i64 0, 72057594037927936) %4951, i1 false)
+  %4977 = getelementptr inbounds nuw i8, ptr %.9465.i, i64 %4951
+  %4978 = getelementptr inbounds nuw i8, ptr %4977, i64 1
+  store i8 44, ptr %4977, align 1, !tbaa !75
+  %4979 = getelementptr inbounds nuw i8, ptr %4977, i64 2
+  store i8 10, ptr %4978, align 1, !tbaa !75
+  br label %4980
 
-4981:                                             ; preds = %4977, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i
-  %.2496.i = phi ptr [ %.1495.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i ], [ %.3497.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread ], [ %.4498.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i ], [ %.6500.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i ], [ %.7501.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i ], [ %.8502.i, %4977 ]
-  %.2485.i = phi ptr [ %.1484.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i ], [ %.3486.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread ], [ %.4487.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i ], [ %.6489.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i ], [ %.7490.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i ], [ %.8491.i, %4977 ]
-  %.2474.i = phi i64 [ %.1473.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i ], [ %.3475.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread ], [ %.4476.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i ], [ %.6478.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i ], [ %.7479.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i ], [ %.8480.i, %4977 ]
-  %.3459.i = phi ptr [ %3213, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i ], [ %4799, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread ], [ %4840, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i ], [ %4921, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i ], [ %4950, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i ], [ %4980, %4977 ]
-  %.2.i = phi ptr [ %.1.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i ], [ %.3.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread ], [ %.4.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i ], [ %.6.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i ], [ %.7.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i ], [ %.8.i, %4977 ]
-  %4982 = add i64 %.0808, -1
-  %4983 = icmp eq i64 %4982, 0
-  br i1 %4983, label %.preheader1222, label %4984, !prof !3
+4980:                                             ; preds = %4976, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i
+  %.2496.i = phi ptr [ %.1495.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i ], [ %.3497.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread ], [ %.4498.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i ], [ %.6500.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i ], [ %.7501.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i ], [ %.8502.i, %4976 ]
+  %.2485.i = phi ptr [ %.1484.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i ], [ %.3486.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread ], [ %.4487.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i ], [ %.6489.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i ], [ %.7490.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i ], [ %.8491.i, %4976 ]
+  %.2474.i = phi i64 [ %.1473.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i ], [ %.3475.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread ], [ %.4476.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i ], [ %.6478.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i ], [ %.7479.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i ], [ %.8480.i, %4976 ]
+  %.3459.i = phi ptr [ %3213, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i ], [ %4799, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread ], [ %4840, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i ], [ %4920, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i ], [ %4949, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i ], [ %4979, %4976 ]
+  %.2.i = phi ptr [ %.1.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i ], [ %.3.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread ], [ %.4.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i ], [ %.6.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i ], [ %.7.i, %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i ], [ %.8.i, %4976 ]
+  %4981 = add i64 %.0808, -1
+  %4982 = icmp eq i64 %4981, 0
+  br i1 %4982, label %.preheader1222, label %4983, !prof !3
 
-4984:                                             ; preds = %4981
-  %4985 = getelementptr inbounds nuw i8, ptr %.0454.i, i64 16
-  %4986 = load ptr, ptr %4985, align 8, !tbaa !79
+4983:                                             ; preds = %4980
+  %4984 = getelementptr inbounds nuw i8, ptr %.0454.i, i64 16
+  %4985 = load ptr, ptr %4984, align 8, !tbaa !79
   br label %2408
 
-.preheader1222:                                   ; preds = %4981, %5018
-  %.1810 = phi i8 [ %5025, %5018 ], [ %.0809.ph, %4981 ]
-  %.1807 = phi ptr [ %5027, %5018 ], [ %.0806.ph, %4981 ]
-  %.9503.i = phi ptr [ %.10504.i, %5018 ], [ %.2496.i, %4981 ]
-  %.9492.i = phi ptr [ %5021, %5018 ], [ %.2485.i, %4981 ]
-  %.9481.i = phi i64 [ %.10482.i, %5018 ], [ %.2474.i, %4981 ]
-  %.1471.i = phi i64 [ %5012, %5018 ], [ %.0470.i.ph, %4981 ]
-  %.10466.i = phi ptr [ %5030, %5018 ], [ %.3459.i, %4981 ]
-  %.9.i = phi ptr [ %.10.i, %5018 ], [ %.2.i, %4981 ]
-  %4987 = getelementptr inbounds i8, ptr %.10466.i, i64 -2
-  %4988 = getelementptr inbounds i8, ptr %.10466.i, i64 -1
-  store i8 10, ptr %4987, align 1, !tbaa !75
-  %4989 = shl i64 %.1471.i, 2
-  %4990 = getelementptr inbounds nuw i8, ptr %4988, i64 %4989
-  %.not539.i = icmp ult ptr %4990, %.9492.i
-  br i1 %.not539.i, label %5011, label %4991, !prof !22
+.preheader1222:                                   ; preds = %4980, %5017
+  %.1810 = phi i8 [ %5024, %5017 ], [ %.0809.ph, %4980 ]
+  %.1807 = phi ptr [ %5026, %5017 ], [ %.0806.ph, %4980 ]
+  %.9503.i = phi ptr [ %.10504.i, %5017 ], [ %.2496.i, %4980 ]
+  %.9492.i = phi ptr [ %5020, %5017 ], [ %.2485.i, %4980 ]
+  %.9481.i = phi i64 [ %.10482.i, %5017 ], [ %.2474.i, %4980 ]
+  %.1471.i = phi i64 [ %5011, %5017 ], [ %.0470.i.ph, %4980 ]
+  %.10466.i = phi ptr [ %5029, %5017 ], [ %.3459.i, %4980 ]
+  %.9.i = phi ptr [ %.10.i, %5017 ], [ %.2.i, %4980 ]
+  %4986 = getelementptr inbounds i8, ptr %.10466.i, i64 -2
+  %4987 = getelementptr inbounds i8, ptr %.10466.i, i64 -1
+  store i8 10, ptr %4986, align 1, !tbaa !75
+  %4988 = shl i64 %.1471.i, 2
+  %4989 = getelementptr inbounds nuw i8, ptr %4987, i64 %4988
+  %.not539.i = icmp ult ptr %4989, %.9492.i
+  br i1 %.not539.i, label %5010, label %4990, !prof !22
 
-4991:                                             ; preds = %.preheader1222
-  %4992 = lshr i64 %.9481.i, 1
-  %4993 = tail call i64 @llvm.umax.i64(i64 %4992, i64 %4989)
-  %4994 = add i64 %4993, 15
-  %4995 = and i64 %4994, -16
-  %4996 = add i64 %4995, %.9481.i
-  %4997 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.9.i, i64 noundef %.9481.i, i64 noundef %4996)
-  %.not540.i = icmp eq ptr %4997, null
-  br i1 %.not540.i, label %.loopexit1223, label %4998, !prof !3
+4990:                                             ; preds = %.preheader1222
+  %4991 = lshr i64 %.9481.i, 1
+  %4992 = tail call i64 @llvm.umax.i64(i64 %4991, i64 %4988)
+  %4993 = add i64 %4992, 15
+  %4994 = and i64 %4993, -16
+  %4995 = add i64 %4994, %.9481.i
+  %4996 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.9.i, i64 noundef %.9481.i, i64 noundef %4995)
+  %.not540.i = icmp eq ptr %4996, null
+  br i1 %.not540.i, label %.loopexit1223, label %4997, !prof !3
 
-4998:                                             ; preds = %4991
-  %4999 = ptrtoint ptr %.9503.i to i64
-  %5000 = ptrtoint ptr %.9492.i to i64
-  %5001 = sub i64 %4999, %5000
-  %5002 = sub i64 %4996, %5001
-  %5003 = getelementptr inbounds nuw i8, ptr %4997, i64 %5002
-  %5004 = ptrtoint ptr %.9.i to i64
-  %5005 = sub i64 %5000, %5004
-  %5006 = getelementptr inbounds i8, ptr %4997, i64 %5005
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5003, ptr nonnull align 1 %5006, i64 %5001, i1 false)
-  %5007 = ptrtoint ptr %4988 to i64
-  %5008 = sub i64 %5007, %5004
-  %5009 = getelementptr inbounds i8, ptr %4997, i64 %5008
-  %5010 = getelementptr inbounds nuw i8, ptr %4997, i64 %4996
-  br label %5011
+4997:                                             ; preds = %4990
+  %4998 = ptrtoint ptr %.9503.i to i64
+  %4999 = ptrtoint ptr %.9492.i to i64
+  %5000 = sub i64 %4998, %4999
+  %5001 = sub i64 %4995, %5000
+  %5002 = getelementptr inbounds nuw i8, ptr %4996, i64 %5001
+  %5003 = ptrtoint ptr %.9.i to i64
+  %5004 = sub i64 %4999, %5003
+  %5005 = getelementptr inbounds i8, ptr %4996, i64 %5004
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5002, ptr nonnull align 1 %5005, i64 %5000, i1 false)
+  %5006 = ptrtoint ptr %4987 to i64
+  %5007 = sub i64 %5006, %5003
+  %5008 = getelementptr inbounds i8, ptr %4996, i64 %5007
+  %5009 = getelementptr inbounds nuw i8, ptr %4996, i64 %4995
+  br label %5010
 
-5011:                                             ; preds = %4998, %.preheader1222
-  %.10504.i = phi ptr [ %5010, %4998 ], [ %.9503.i, %.preheader1222 ]
-  %.10493.i = phi ptr [ %5003, %4998 ], [ %.9492.i, %.preheader1222 ]
-  %.10482.i = phi i64 [ %4996, %4998 ], [ %.9481.i, %.preheader1222 ]
-  %.11467.i = phi ptr [ %5009, %4998 ], [ %4988, %.preheader1222 ]
-  %.10.i = phi ptr [ %4997, %4998 ], [ %.9.i, %.preheader1222 ]
-  %5012 = add i64 %.1471.i, -1
-  %.not.i844.i2307 = icmp eq i64 %5012, 0
+5010:                                             ; preds = %4997, %.preheader1222
+  %.10504.i = phi ptr [ %5009, %4997 ], [ %.9503.i, %.preheader1222 ]
+  %.10493.i = phi ptr [ %5002, %4997 ], [ %.9492.i, %.preheader1222 ]
+  %.10482.i = phi i64 [ %4995, %4997 ], [ %.9481.i, %.preheader1222 ]
+  %.11467.i = phi ptr [ %5008, %4997 ], [ %4987, %.preheader1222 ]
+  %.10.i = phi ptr [ %4996, %4997 ], [ %.9.i, %.preheader1222 ]
+  %5011 = add i64 %.1471.i, -1
+  %.not.i844.i2307 = icmp eq i64 %5011, 0
   br i1 %.not.i844.i2307, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i, label %.lr.ph2311
 
-.lr.ph2311:                                       ; preds = %5011, %.lr.ph2311
-  %.0.i843.i2309 = phi ptr [ %5014, %.lr.ph2311 ], [ %.11467.i, %5011 ]
-  %.04.i.i2308 = phi i64 [ %5013, %.lr.ph2311 ], [ %5012, %5011 ]
-  %5013 = add i64 %.04.i.i2308, -1
+.lr.ph2311:                                       ; preds = %5010, %.lr.ph2311
+  %.0.i843.i2309 = phi ptr [ %5013, %.lr.ph2311 ], [ %.11467.i, %5010 ]
+  %.04.i.i2308 = phi i64 [ %5012, %.lr.ph2311 ], [ %5011, %5010 ]
+  %5012 = add i64 %.04.i.i2308, -1
   store i32 538976288, ptr %.0.i843.i2309, align 1
-  %5014 = getelementptr inbounds nuw i8, ptr %.0.i843.i2309, i64 %2377
-  %.not.i844.i = icmp eq i64 %5013, 0
+  %5013 = getelementptr inbounds nuw i8, ptr %.0.i843.i2309, i64 %2377
+  %.not.i844.i = icmp eq i64 %5012, 0
   br i1 %.not.i844.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i, label %.lr.ph2311, !llvm.loop !218
 
-_ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i:    ; preds = %.lr.ph2311, %5011
-  %.0.i843.i.lcssa = phi ptr [ %.11467.i, %5011 ], [ %5014, %.lr.ph2311 ]
-  %5015 = shl nuw nsw i8 %.1810, 5
-  %5016 = add nuw nsw i8 %5015, 93
-  %5017 = getelementptr inbounds nuw i8, ptr %.0.i843.i.lcssa, i64 1
-  store i8 %5016, ptr %.0.i843.i.lcssa, align 1, !tbaa !75
+_ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i:    ; preds = %.lr.ph2311, %5010
+  %.0.i843.i.lcssa = phi ptr [ %.11467.i, %5010 ], [ %5013, %.lr.ph2311 ]
+  %5014 = shl nuw nsw i8 %.1810, 5
+  %5015 = add nuw nsw i8 %5014, 93
+  %5016 = getelementptr inbounds nuw i8, ptr %.0.i843.i.lcssa, i64 1
+  store i8 %5015, ptr %.0.i843.i.lcssa, align 1, !tbaa !75
   %.not541.i = icmp ult ptr %.10493.i, %.10504.i
-  br i1 %.not541.i, label %5018, label %5031, !prof !22
+  br i1 %.not541.i, label %5017, label %5030, !prof !22
 
-5018:                                             ; preds = %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i
-  %5019 = getelementptr inbounds nuw i8, ptr %.1807, i64 16
-  %5020 = load ptr, ptr %5019, align 8, !tbaa !79
-  %5021 = getelementptr inbounds nuw i8, ptr %.10493.i, i64 16
-  %5022 = load i64, ptr %.10493.i, align 8, !tbaa !221
-  %5023 = lshr i64 %5022, 1
-  %5024 = trunc i64 %5022 to i8
-  %5025 = and i8 %5024, 1
-  %5026 = getelementptr inbounds nuw i8, ptr %.10493.i, i64 8
-  %5027 = load ptr, ptr %5026, align 8, !tbaa !223
-  %5028 = add nsw i64 %5023, -1
-  %5029 = getelementptr inbounds nuw i8, ptr %.0.i843.i.lcssa, i64 2
-  store i8 44, ptr %5017, align 1, !tbaa !75
-  %5030 = getelementptr inbounds nuw i8, ptr %.0.i843.i.lcssa, i64 3
-  store i8 10, ptr %5029, align 1, !tbaa !75
-  %.not542.i = icmp eq i64 %5028, 0
+5017:                                             ; preds = %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i
+  %5018 = getelementptr inbounds nuw i8, ptr %.1807, i64 16
+  %5019 = load ptr, ptr %5018, align 8, !tbaa !79
+  %5020 = getelementptr inbounds nuw i8, ptr %.10493.i, i64 16
+  %5021 = load i64, ptr %.10493.i, align 8, !tbaa !221
+  %5022 = lshr i64 %5021, 1
+  %5023 = trunc i64 %5021 to i8
+  %5024 = and i8 %5023, 1
+  %5025 = getelementptr inbounds nuw i8, ptr %.10493.i, i64 8
+  %5026 = load ptr, ptr %5025, align 8, !tbaa !223
+  %5027 = add nsw i64 %5022, -1
+  %5028 = getelementptr inbounds nuw i8, ptr %.0.i843.i.lcssa, i64 2
+  store i8 44, ptr %5016, align 1, !tbaa !75
+  %5029 = getelementptr inbounds nuw i8, ptr %.0.i843.i.lcssa, i64 3
+  store i8 10, ptr %5028, align 1, !tbaa !75
+  %.not542.i = icmp eq i64 %5027, 0
   br i1 %.not542.i, label %.preheader1222, label %.outer1228.backedge, !prof !3
 
-5031:                                             ; preds = %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i
-  br i1 %.not1050, label %5055, label %5032
+5030:                                             ; preds = %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i
+  br i1 %.not1050, label %5054, label %5031
 
-5032:                                             ; preds = %5031
-  %5033 = getelementptr inbounds nuw i8, ptr %.0.i843.i.lcssa, i64 3
-  %.not543.i = icmp ult ptr %5033, %.10493.i
-  br i1 %.not543.i, label %5053, label %5034, !prof !22
+5031:                                             ; preds = %5030
+  %5032 = getelementptr inbounds nuw i8, ptr %.0.i843.i.lcssa, i64 3
+  %.not543.i = icmp ult ptr %5032, %.10493.i
+  br i1 %.not543.i, label %5052, label %5033, !prof !22
 
-5034:                                             ; preds = %5032
-  %5035 = lshr i64 %.10482.i, 1
-  %5036 = tail call i64 @llvm.umax.i64(i64 %5035, i64 2)
-  %5037 = add nuw i64 %5036, 15
-  %5038 = and i64 %5037, -16
-  %5039 = add i64 %5038, %.10482.i
-  %5040 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.10.i, i64 noundef %.10482.i, i64 noundef %5039)
-  %.not544.i = icmp eq ptr %5040, null
-  br i1 %.not544.i, label %.loopexit1223, label %5041, !prof !3
+5033:                                             ; preds = %5031
+  %5034 = lshr i64 %.10482.i, 1
+  %5035 = tail call i64 @llvm.umax.i64(i64 %5034, i64 2)
+  %5036 = add nuw i64 %5035, 15
+  %5037 = and i64 %5036, -16
+  %5038 = add i64 %5037, %.10482.i
+  %5039 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.10.i, i64 noundef %.10482.i, i64 noundef %5038)
+  %.not544.i = icmp eq ptr %5039, null
+  br i1 %.not544.i, label %.loopexit1223, label %5040, !prof !3
 
-5041:                                             ; preds = %5034
-  %5042 = ptrtoint ptr %.10504.i to i64
-  %5043 = ptrtoint ptr %.10493.i to i64
-  %5044 = sub i64 %5042, %5043
-  %5045 = sub i64 %5039, %5044
-  %5046 = getelementptr inbounds nuw i8, ptr %5040, i64 %5045
-  %5047 = ptrtoint ptr %.10.i to i64
-  %5048 = sub i64 %5043, %5047
-  %5049 = getelementptr inbounds i8, ptr %5040, i64 %5048
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5046, ptr nonnull align 1 %5049, i64 %5044, i1 false)
-  %5050 = ptrtoint ptr %5017 to i64
-  %5051 = sub i64 %5050, %5047
-  %5052 = getelementptr inbounds i8, ptr %5040, i64 %5051
-  br label %5053
+5040:                                             ; preds = %5033
+  %5041 = ptrtoint ptr %.10504.i to i64
+  %5042 = ptrtoint ptr %.10493.i to i64
+  %5043 = sub i64 %5041, %5042
+  %5044 = sub i64 %5038, %5043
+  %5045 = getelementptr inbounds nuw i8, ptr %5039, i64 %5044
+  %5046 = ptrtoint ptr %.10.i to i64
+  %5047 = sub i64 %5042, %5046
+  %5048 = getelementptr inbounds i8, ptr %5039, i64 %5047
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5045, ptr nonnull align 1 %5048, i64 %5043, i1 false)
+  %5049 = ptrtoint ptr %5016 to i64
+  %5050 = sub i64 %5049, %5046
+  %5051 = getelementptr inbounds i8, ptr %5039, i64 %5050
+  br label %5052
 
-5053:                                             ; preds = %5041, %5032
-  %.13469.i = phi ptr [ %5052, %5041 ], [ %5017, %5032 ]
-  %.12.i = phi ptr [ %5040, %5041 ], [ %.10.i, %5032 ]
-  %5054 = getelementptr inbounds nuw i8, ptr %.13469.i, i64 1
+5052:                                             ; preds = %5040, %5031
+  %.13469.i = phi ptr [ %5051, %5040 ], [ %5016, %5031 ]
+  %.12.i = phi ptr [ %5039, %5040 ], [ %.10.i, %5031 ]
+  %5053 = getelementptr inbounds nuw i8, ptr %.13469.i, i64 1
   store i8 10, ptr %.13469.i, align 1, !tbaa !75
-  br label %5055
+  br label %5054
 
-5055:                                             ; preds = %5053, %5031
-  %.12468.i = phi ptr [ %5054, %5053 ], [ %5017, %5031 ]
-  %.11.i = phi ptr [ %.12.i, %5053 ], [ %.10.i, %5031 ]
+5054:                                             ; preds = %5052, %5030
+  %.12468.i = phi ptr [ %5053, %5052 ], [ %5016, %5030 ]
+  %.11.i = phi ptr [ %.12.i, %5052 ], [ %.10.i, %5030 ]
   store i8 0, ptr %.12468.i, align 1, !tbaa !75
   br i1 %.not29, label %.cont428, label %.else430
 
-.else430:                                         ; preds = %5055
-  %5056 = ptrtoint ptr %.12468.i to i64
-  %5057 = ptrtoint ptr %.11.i to i64
-  %5058 = sub i64 %5056, %5057
-  store i64 %5058, ptr %4, align 8, !tbaa !85
+.else430:                                         ; preds = %5054
+  %5055 = ptrtoint ptr %.12468.i to i64
+  %5056 = ptrtoint ptr %.11.i to i64
+  %5057 = sub i64 %5055, %5056
+  store i64 %5057, ptr %4, align 8, !tbaa !85
   br label %.cont428
 
-.cont428:                                         ; preds = %5055, %.else430
+.cont428:                                         ; preds = %5054, %.else430
   store i32 0, ptr %9, align 8, !tbaa !208
   %.sroa.sel464.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel464.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel464.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.98, ptr %.sroa.sel464.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-.loopexit1223:                                    ; preds = %4846, %4957, %4927, %4893, %4811, %3219, %2424, %4991, %5034, %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i33
-  %.13.i = phi ptr [ %.10.i, %5034 ], [ null, %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i33 ], [ %.9.i, %4991 ], [ %.0455.i, %2424 ], [ %.0455.i, %3219 ], [ %.0455.i, %4811 ], [ %.0455.i, %4893 ], [ %.0455.i, %4927 ], [ %.0455.i, %4957 ], [ %.0455.i, %4846 ]
+.loopexit1223:                                    ; preds = %4846, %4956, %4926, %4893, %4811, %3219, %2424, %4990, %5033, %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i33
+  %.13.i = phi ptr [ %.10.i, %5033 ], [ null, %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i33 ], [ %.9.i, %4990 ], [ %.0455.i, %2424 ], [ %.0455.i, %3219 ], [ %.0455.i, %4811 ], [ %.0455.i, %4893 ], [ %.0455.i, %4926 ], [ %.0455.i, %4956 ], [ %.0455.i, %4846 ]
   br i1 %.not29, label %.cont425, label %.else427
 
 .else427:                                         ; preds = %.loopexit1223
@@ -56066,20 +56063,20 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i:    ; preds = %.lr.ph2311, %5011
   %.sroa.sel467.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel467.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.28, ptr %.sroa.sel467.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not545.i = icmp eq ptr %.13.i, null
-  br i1 %.not545.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5059
+  br i1 %.not545.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5058
 
-5059:                                             ; preds = %.cont425
+5058:                                             ; preds = %.cont425
   tail call void %.sroa.7.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef nonnull %.13.i)
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-5060:                                             ; preds = %4887
-  br i1 %.not29, label %5061, label %.else418
+5059:                                             ; preds = %4887
+  br i1 %.not29, label %5060, label %.else418
 
-.else418:                                         ; preds = %5060
+.else418:                                         ; preds = %5059
   store i64 0, ptr %4, align 8, !tbaa !85
-  br label %5061
+  br label %5060
 
-5061:                                             ; preds = %.else418, %5060
+5060:                                             ; preds = %.else418, %5059
   store i32 3, ptr %9, align 8, !tbaa !208
   %.sroa.sel476.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel476.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel476.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -56088,13 +56085,13 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i:    ; preds = %.lr.ph2311, %5011
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread956: ; preds = %3255
-  br i1 %.not29, label %5062, label %.else424
+  br i1 %.not29, label %5061, label %.else424
 
 .else424:                                         ; preds = %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread956
   store i64 0, ptr %4, align 8, !tbaa !85
-  br label %5062
+  br label %5061
 
-5062:                                             ; preds = %.else424, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread956
+5061:                                             ; preds = %.else424, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread956
   store i32 4, ptr %9, align 8, !tbaa !208
   %.sroa.sel470.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel470.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel470.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -56103,13 +56100,13 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread956: ; pre
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 .loopexit1195:                                    ; preds = %.thread885, %.thread901, %.thread917, %.thread933
-  br i1 %.not29, label %5063, label %.else421
+  br i1 %.not29, label %5062, label %.else421
 
 .else421:                                         ; preds = %.loopexit1195
   store i64 0, ptr %4, align 8, !tbaa !85
-  br label %5063
+  br label %5062
 
-5063:                                             ; preds = %.else421, %.loopexit1195
+5062:                                             ; preds = %.else421, %.loopexit1195
   store i32 7, ptr %9, align 8, !tbaa !208
   %.sroa.sel473.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel473.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel473.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -56117,4112 +56114,4111 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread956: ; pre
   tail call void %.sroa.7.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef nonnull %.1.i)
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-5064:                                             ; preds = %2367
-  br i1 %.not1063, label %5066, label %5065, !prof !22
+5063:                                             ; preds = %2367
+  br i1 %.not1063, label %5065, label %5064, !prof !22
 
-5065:                                             ; preds = %5064
+5064:                                             ; preds = %5063
   %_ZN13duckdb_yyjsonL19enc_table_esc_slashE._ZN13duckdb_yyjsonL13enc_table_escE.i.i403 = select i1 %.not1064, ptr @_ZN13duckdb_yyjsonL13enc_table_escE, ptr @_ZN13duckdb_yyjsonL19enc_table_esc_slashE, !prof !22
   br label %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210
 
-5066:                                             ; preds = %5064
+5065:                                             ; preds = %5063
   %_ZN13duckdb_yyjsonL19enc_table_cpy_slashE._ZN13duckdb_yyjsonL13enc_table_cpyE.i.i209 = select i1 %.not1064, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, ptr @_ZN13duckdb_yyjsonL19enc_table_cpy_slashE, !prof !22
   br label %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210
 
-_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5066, %5065
-  %.0.i424.i = phi ptr [ %_ZN13duckdb_yyjsonL19enc_table_esc_slashE._ZN13duckdb_yyjsonL13enc_table_escE.i.i403, %5065 ], [ %_ZN13duckdb_yyjsonL19enc_table_cpy_slashE._ZN13duckdb_yyjsonL13enc_table_cpyE.i.i209, %5066 ]
-  %5067 = icmp eq ptr %.0.i424.i, @_ZN13duckdb_yyjsonL13enc_table_cpyE
-  %5068 = and i32 %2, 32
-  %.not1066 = icmp eq i32 %5068, 0
-  %5069 = and i32 %2, 128
-  %.not1067 = icmp eq i32 %5069, 0
-  %5070 = mul i64 %1, 18
-  %5071 = add i64 %5070, 79
-  %5072 = and i64 %5071, -16
-  %5073 = tail call noundef ptr %.sroa.0515.0.copyload(ptr noundef %.sroa.8.0.copyload, i64 noundef %5072)
-  %.not.i211 = icmp eq ptr %5073, null
-  br i1 %.not.i211, label %.loopexit1193, label %5074
+_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5065, %5064
+  %.0.i424.i = phi ptr [ %_ZN13duckdb_yyjsonL19enc_table_esc_slashE._ZN13duckdb_yyjsonL13enc_table_escE.i.i403, %5064 ], [ %_ZN13duckdb_yyjsonL19enc_table_cpy_slashE._ZN13duckdb_yyjsonL13enc_table_cpyE.i.i209, %5065 ]
+  %5066 = icmp eq ptr %.0.i424.i, @_ZN13duckdb_yyjsonL13enc_table_cpyE
+  %5067 = and i32 %2, 32
+  %.not1066 = icmp eq i32 %5067, 0
+  %5068 = and i32 %2, 128
+  %.not1067 = icmp eq i32 %5068, 0
+  %5069 = mul i64 %1, 18
+  %5070 = add i64 %5069, 79
+  %5071 = and i64 %5070, -16
+  %5072 = tail call noundef ptr %.sroa.0515.0.copyload(ptr noundef %.sroa.8.0.copyload, i64 noundef %5071)
+  %.not.i211 = icmp eq ptr %5072, null
+  br i1 %.not.i211, label %.loopexit1193, label %5073
 
-5074:                                             ; preds = %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210
-  %5075 = getelementptr inbounds nuw i8, ptr %5073, i64 %5072
-  %5076 = load i64, ptr %0, align 8, !tbaa !73
-  %5077 = and i64 %5076, 7
-  %5078 = icmp eq i64 %5077, 7
-  %5079 = zext i1 %5078 to i8
-  %5080 = lshr i64 %5076, 8
-  %5081 = zext i1 %5078 to i64
-  %5082 = shl nuw nsw i64 %5080, %5081
-  %5083 = select i1 %5078, i8 123, i8 91
-  %5084 = getelementptr inbounds nuw i8, ptr %5073, i64 1
-  store i8 %5083, ptr %5073, align 1, !tbaa !75
-  %5085 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5086 = load ptr, ptr %5085, align 8, !tbaa !75
-  br i1 %5078, label %5087, label %5090
+5073:                                             ; preds = %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210
+  %5074 = getelementptr inbounds nuw i8, ptr %5072, i64 %5071
+  %5075 = load i64, ptr %0, align 8, !tbaa !73
+  %5076 = and i64 %5075, 7
+  %5077 = icmp eq i64 %5076, 7
+  %5078 = zext i1 %5077 to i8
+  %5079 = lshr i64 %5075, 8
+  %5080 = zext i1 %5077 to i64
+  %5081 = shl nuw nsw i64 %5079, %5080
+  %5082 = select i1 %5077, i8 123, i8 91
+  %5083 = getelementptr inbounds nuw i8, ptr %5072, i64 1
+  store i8 %5082, ptr %5072, align 1, !tbaa !75
+  %5084 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5085 = load ptr, ptr %5084, align 8, !tbaa !75
+  br i1 %5077, label %5086, label %5089
 
-5087:                                             ; preds = %5074
-  %5088 = getelementptr inbounds nuw i8, ptr %5086, i64 16
-  %5089 = load ptr, ptr %5088, align 8, !tbaa !79
-  br label %5090
+5086:                                             ; preds = %5073
+  %5087 = getelementptr inbounds nuw i8, ptr %5085, i64 16
+  %5088 = load ptr, ptr %5087, align 8, !tbaa !79
+  br label %5089
 
-5090:                                             ; preds = %5087, %5074
-  %.pn.i212 = phi ptr [ %5089, %5087 ], [ %5086, %5074 ]
-  %5091 = and i32 %2, 16
-  %.not1079 = icmp eq i32 %5091, 0
-  %5092 = and i32 %2, 8
-  %.not1080 = icmp eq i32 %5092, 0
+5089:                                             ; preds = %5086, %5073
+  %.pn.i212 = phi ptr [ %5088, %5086 ], [ %5085, %5073 ]
+  %5090 = and i32 %2, 16
+  %.not1079 = icmp eq i32 %5090, 0
+  %5091 = and i32 %2, 8
+  %.not1080 = icmp eq i32 %5091, 0
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %5090
-  %.0801.ph = phi i8 [ %5079, %5090 ], [ %.0801.ph.be, %.outer.backedge ]
-  %.0800.ph = phi i64 [ %5082, %5090 ], [ %.0800.ph.be, %.outer.backedge ]
-  %.0798.ph = phi ptr [ %0, %5090 ], [ %.0798.ph.be, %.outer.backedge ]
-  %.0370.i.ph = phi ptr [ %5075, %5090 ], [ %.0370.i.ph.be, %.outer.backedge ]
-  %.0361.i.ph = phi ptr [ %5075, %5090 ], [ %.0361.i.ph.be, %.outer.backedge ]
-  %.0353.i.ph = phi i64 [ %5072, %5090 ], [ %.0353.i.ph.be, %.outer.backedge ]
-  %.0342.i.ph = phi ptr [ %5084, %5090 ], [ %.0342.i.ph.be, %.outer.backedge ]
-  %.0341.i.ph = phi ptr [ %5073, %5090 ], [ %.0341.i.ph.be, %.outer.backedge ]
-  %.pn.i212.pn = phi ptr [ %.pn.i212, %5090 ], [ %.pn.i212.pn.be, %.outer.backedge ]
-  %5093 = zext nneg i8 %.0801.ph to i32
-  br label %5094
+.outer:                                           ; preds = %.outer.backedge, %5089
+  %.0801.ph = phi i8 [ %5078, %5089 ], [ %.0801.ph.be, %.outer.backedge ]
+  %.0800.ph = phi i64 [ %5081, %5089 ], [ %.0800.ph.be, %.outer.backedge ]
+  %.0798.ph = phi ptr [ %0, %5089 ], [ %.0798.ph.be, %.outer.backedge ]
+  %.0370.i.ph = phi ptr [ %5074, %5089 ], [ %.0370.i.ph.be, %.outer.backedge ]
+  %.0361.i.ph = phi ptr [ %5074, %5089 ], [ %.0361.i.ph.be, %.outer.backedge ]
+  %.0353.i.ph = phi i64 [ %5071, %5089 ], [ %.0353.i.ph.be, %.outer.backedge ]
+  %.0342.i.ph = phi ptr [ %5083, %5089 ], [ %.0342.i.ph.be, %.outer.backedge ]
+  %.0341.i.ph = phi ptr [ %5072, %5089 ], [ %.0341.i.ph.be, %.outer.backedge ]
+  %.pn.i212.pn = phi ptr [ %.pn.i212, %5089 ], [ %.pn.i212.pn.be, %.outer.backedge ]
+  %5092 = zext nneg i8 %.0801.ph to i32
+  br label %5093
 
-5094:                                             ; preds = %7607, %.outer
-  %.0800 = phi i64 [ %.0800.ph, %.outer ], [ %7608, %7607 ]
-  %.0370.i = phi ptr [ %.0370.i.ph, %.outer ], [ %.2372.i, %7607 ]
-  %.0361.i = phi ptr [ %.0361.i.ph, %.outer ], [ %.2363.i, %7607 ]
-  %.0353.i = phi i64 [ %.0353.i.ph, %.outer ], [ %.2355.i, %7607 ]
-  %.0342.i = phi ptr [ %.0342.i.ph, %.outer ], [ %.3345.i, %7607 ]
-  %.0341.i = phi ptr [ %.0341.i.ph, %.outer ], [ %.2.i222, %7607 ]
-  %.0340.i.pn = phi ptr [ %.pn.i212.pn, %.outer ], [ %.0340.i, %7607 ]
+5093:                                             ; preds = %7605, %.outer
+  %.0800 = phi i64 [ %.0800.ph, %.outer ], [ %7606, %7605 ]
+  %.0370.i = phi ptr [ %.0370.i.ph, %.outer ], [ %.2372.i, %7605 ]
+  %.0361.i = phi ptr [ %.0361.i.ph, %.outer ], [ %.2363.i, %7605 ]
+  %.0353.i = phi i64 [ %.0353.i.ph, %.outer ], [ %.2355.i, %7605 ]
+  %.0342.i = phi ptr [ %.0342.i.ph, %.outer ], [ %.3345.i, %7605 ]
+  %.0341.i = phi ptr [ %.0341.i.ph, %.outer ], [ %.2.i222, %7605 ]
+  %.0340.i.pn = phi ptr [ %.pn.i212.pn, %.outer ], [ %.0340.i, %7605 ]
   %.0340.i.in = getelementptr inbounds nuw i8, ptr %.0340.i.pn, i64 16
   %.0340.i = load ptr, ptr %.0340.i.in, align 8, !tbaa !79
-  %5095 = load i64, ptr %.0340.i, align 8, !tbaa !73
-  %5096 = trunc i64 %5095 to i8
-  %5097 = and i8 %5096, 7
-  switch i8 %5097, label %7474 [
-    i8 5, label %5098
-    i8 4, label %5894
+  %5094 = load i64, ptr %.0340.i, align 8, !tbaa !73
+  %5095 = trunc i64 %5094 to i8
+  %5096 = and i8 %5095, 7
+  switch i8 %5096, label %7473 [
+    i8 5, label %5097
+    i8 4, label %5893
   ]
 
-5098:                                             ; preds = %5094
-  %5099 = trunc i64 %.0800 to i32
-  %5100 = xor i32 %5099, -1
-  %5101 = and i32 %5100, %5093
-  %.not399.i = icmp eq i32 %5101, 0
-  %5102 = lshr i64 %5095, 8
-  %5103 = getelementptr inbounds nuw i8, ptr %.0340.i, i64 8
-  %5104 = load ptr, ptr %5103, align 8, !tbaa !75
-  %5105 = mul nuw nsw i64 %5102, 6
-  %5106 = add nuw nsw i64 %5105, 16
-  %5107 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 %5106
-  %.not400.i = icmp ult ptr %5107, %.0361.i
-  br i1 %.not400.i, label %5128, label %5108, !prof !22
+5097:                                             ; preds = %5093
+  %5098 = trunc i64 %.0800 to i32
+  %5099 = xor i32 %5098, -1
+  %5100 = and i32 %5099, %5092
+  %.not399.i = icmp eq i32 %5100, 0
+  %5101 = lshr i64 %5094, 8
+  %5102 = getelementptr inbounds nuw i8, ptr %.0340.i, i64 8
+  %5103 = load ptr, ptr %5102, align 8, !tbaa !75
+  %5104 = mul nuw nsw i64 %5101, 6
+  %5105 = add nuw nsw i64 %5104, 16
+  %5106 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 %5105
+  %.not400.i = icmp ult ptr %5106, %.0361.i
+  br i1 %.not400.i, label %5127, label %5107, !prof !22
 
-5108:                                             ; preds = %5098
-  %5109 = lshr i64 %.0353.i, 1
-  %5110 = tail call i64 @llvm.umax.i64(i64 %5109, i64 %5106)
-  %5111 = add nuw i64 %5110, 15
-  %5112 = and i64 %5111, -16
-  %5113 = add i64 %5112, %.0353.i
-  %5114 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %5113)
-  %.not401.i = icmp eq ptr %5114, null
-  br i1 %.not401.i, label %.loopexit1193, label %5115, !prof !3
+5107:                                             ; preds = %5097
+  %5108 = lshr i64 %.0353.i, 1
+  %5109 = tail call i64 @llvm.umax.i64(i64 %5108, i64 %5105)
+  %5110 = add nuw i64 %5109, 15
+  %5111 = and i64 %5110, -16
+  %5112 = add i64 %5111, %.0353.i
+  %5113 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %5112)
+  %.not401.i = icmp eq ptr %5113, null
+  br i1 %.not401.i, label %.loopexit1193, label %5114, !prof !3
 
-5115:                                             ; preds = %5108
-  %5116 = ptrtoint ptr %.0370.i to i64
-  %5117 = ptrtoint ptr %.0361.i to i64
-  %5118 = sub i64 %5116, %5117
-  %5119 = sub i64 %5113, %5118
-  %5120 = getelementptr inbounds nuw i8, ptr %5114, i64 %5119
-  %5121 = ptrtoint ptr %.0341.i to i64
-  %5122 = sub i64 %5117, %5121
-  %5123 = getelementptr inbounds i8, ptr %5114, i64 %5122
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5120, ptr nonnull align 1 %5123, i64 %5118, i1 false)
-  %5124 = ptrtoint ptr %.0342.i to i64
-  %5125 = sub i64 %5124, %5121
-  %5126 = getelementptr inbounds i8, ptr %5114, i64 %5125
-  %5127 = getelementptr inbounds nuw i8, ptr %5114, i64 %5113
-  br label %5128
+5114:                                             ; preds = %5107
+  %5115 = ptrtoint ptr %.0370.i to i64
+  %5116 = ptrtoint ptr %.0361.i to i64
+  %5117 = sub i64 %5115, %5116
+  %5118 = sub i64 %5112, %5117
+  %5119 = getelementptr inbounds nuw i8, ptr %5113, i64 %5118
+  %5120 = ptrtoint ptr %.0341.i to i64
+  %5121 = sub i64 %5116, %5120
+  %5122 = getelementptr inbounds i8, ptr %5113, i64 %5121
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5119, ptr nonnull align 1 %5122, i64 %5117, i1 false)
+  %5123 = ptrtoint ptr %.0342.i to i64
+  %5124 = sub i64 %5123, %5120
+  %5125 = getelementptr inbounds i8, ptr %5113, i64 %5124
+  %5126 = getelementptr inbounds nuw i8, ptr %5113, i64 %5112
+  br label %5127
 
-5128:                                             ; preds = %5115, %5098
-  %.1371.i = phi ptr [ %5127, %5115 ], [ %.0370.i, %5098 ]
-  %.1362.i = phi ptr [ %5120, %5115 ], [ %.0361.i, %5098 ]
-  %.1354.i = phi i64 [ %5113, %5115 ], [ %.0353.i, %5098 ]
-  %.1343.i = phi ptr [ %5126, %5115 ], [ %.0342.i, %5098 ]
-  %.1.i283 = phi ptr [ %5114, %5115 ], [ %.0341.i, %5098 ]
-  br i1 %5067, label %5500, label %.split.i284, !prof !22
+5127:                                             ; preds = %5114, %5097
+  %.1371.i = phi ptr [ %5126, %5114 ], [ %.0370.i, %5097 ]
+  %.1362.i = phi ptr [ %5119, %5114 ], [ %.0361.i, %5097 ]
+  %.1354.i = phi i64 [ %5112, %5114 ], [ %.0353.i, %5097 ]
+  %.1343.i = phi ptr [ %5125, %5114 ], [ %.0342.i, %5097 ]
+  %.1.i283 = phi ptr [ %5113, %5114 ], [ %.0341.i, %5097 ]
+  br i1 %5066, label %5499, label %.split.i284, !prof !22
 
-.split.i284:                                      ; preds = %5128
-  %5129 = getelementptr inbounds nuw i8, ptr %5104, i64 %5102
+.split.i284:                                      ; preds = %5127
+  %5128 = getelementptr inbounds nuw i8, ptr %5103, i64 %5101
   store i8 34, ptr %.1343.i, align 1, !tbaa !75
-  %5130 = ptrtoint ptr %5129 to i64
-  br label %5131
+  %5129 = ptrtoint ptr %5128 to i64
+  br label %5130
 
-5131:                                             ; preds = %5337, %.split.i284
-  %.0244.i430.i = phi ptr [ %5104, %.split.i284 ], [ %5338, %5337 ]
-  %.pn.i431.i = phi ptr [ %.1343.i, %.split.i284 ], [ %.8.i444.i, %5337 ]
+5130:                                             ; preds = %5336, %.split.i284
+  %.0244.i430.i = phi ptr [ %5103, %.split.i284 ], [ %5337, %5336 ]
+  %.pn.i431.i = phi ptr [ %.1343.i, %.split.i284 ], [ %.8.i444.i, %5336 ]
   %.0243.i432.i = getelementptr inbounds nuw i8, ptr %.pn.i431.i, i64 1
-  %5132 = ptrtoint ptr %.0244.i430.i to i64
-  %5133 = sub i64 %5130, %5132
-  %5134 = icmp sgt i64 %5133, 15
-  br i1 %5134, label %.lr.ph2333, label %.preheader1180
+  %5131 = ptrtoint ptr %.0244.i430.i to i64
+  %5132 = sub i64 %5129, %5131
+  %5133 = icmp sgt i64 %5132, 15
+  br i1 %5133, label %.lr.ph2333, label %.preheader1180
 
-.preheader1180:                                   ; preds = %5230, %5131
-  %.pre-phi3080 = phi i64 [ %5133, %5131 ], [ %5234, %5230 ]
-  %.1245.i433.i.lcssa = phi ptr [ %.0244.i430.i, %5131 ], [ %5232, %5230 ]
-  %.1.i434.i.lcssa = phi ptr [ %.0243.i432.i, %5131 ], [ %5231, %5230 ]
-  %5135 = icmp sgt i64 %.pre-phi3080, 3
-  br i1 %5135, label %.lr.ph2339, label %.preheader1178
+.preheader1180:                                   ; preds = %5229, %5130
+  %.pre-phi3080 = phi i64 [ %5132, %5130 ], [ %5233, %5229 ]
+  %.1245.i433.i.lcssa = phi ptr [ %.0244.i430.i, %5130 ], [ %5231, %5229 ]
+  %.1.i434.i.lcssa = phi ptr [ %.0243.i432.i, %5130 ], [ %5230, %5229 ]
+  %5134 = icmp sgt i64 %.pre-phi3080, 3
+  br i1 %5134, label %.lr.ph2339, label %.preheader1178
 
-.lr.ph2333:                                       ; preds = %5131, %5230
-  %.1.i434.i2331 = phi ptr [ %5231, %5230 ], [ %.0243.i432.i, %5131 ]
-  %.1245.i433.i2330 = phi ptr [ %5232, %5230 ], [ %.0244.i430.i, %5131 ]
-  %5136 = load i8, ptr %.1245.i433.i2330, align 1, !tbaa !75
-  %5137 = zext i8 %5136 to i64
-  %5138 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5137
-  %5139 = load i8, ptr %5138, align 1, !tbaa !75
-  %.not277.i513.i = icmp eq i8 %5139, 0
-  br i1 %.not277.i513.i, label %5140, label %.preheader1175.preheader, !prof !22
+.lr.ph2333:                                       ; preds = %5130, %5229
+  %.1.i434.i2331 = phi ptr [ %5230, %5229 ], [ %.0243.i432.i, %5130 ]
+  %.1245.i433.i2330 = phi ptr [ %5231, %5229 ], [ %.0244.i430.i, %5130 ]
+  %5135 = load i8, ptr %.1245.i433.i2330, align 1, !tbaa !75
+  %5136 = zext i8 %5135 to i64
+  %5137 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5136
+  %5138 = load i8, ptr %5137, align 1, !tbaa !75
+  %.not277.i513.i = icmp eq i8 %5138, 0
+  br i1 %.not277.i513.i, label %5139, label %.preheader1175.preheader, !prof !22
 
-5140:                                             ; preds = %.lr.ph2333
-  %5141 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 1
-  %5142 = load i8, ptr %5141, align 1, !tbaa !75
-  %5143 = zext i8 %5142 to i64
-  %5144 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5143
-  %5145 = load i8, ptr %5144, align 1, !tbaa !75
-  %.not278.i514.i = icmp eq i8 %5145, 0
-  br i1 %.not278.i514.i, label %5146, label %.loopexit1182, !prof !22
+5139:                                             ; preds = %.lr.ph2333
+  %5140 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 1
+  %5141 = load i8, ptr %5140, align 1, !tbaa !75
+  %5142 = zext i8 %5141 to i64
+  %5143 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5142
+  %5144 = load i8, ptr %5143, align 1, !tbaa !75
+  %.not278.i514.i = icmp eq i8 %5144, 0
+  br i1 %.not278.i514.i, label %5145, label %.loopexit1182, !prof !22
 
-5146:                                             ; preds = %5140
-  %5147 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 2
-  %5148 = load i8, ptr %5147, align 1, !tbaa !75
-  %5149 = zext i8 %5148 to i64
-  %5150 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5149
-  %5151 = load i8, ptr %5150, align 1, !tbaa !75
-  %.not279.i515.i = icmp eq i8 %5151, 0
-  br i1 %.not279.i515.i, label %5152, label %.loopexit1183, !prof !22
+5145:                                             ; preds = %5139
+  %5146 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 2
+  %5147 = load i8, ptr %5146, align 1, !tbaa !75
+  %5148 = zext i8 %5147 to i64
+  %5149 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5148
+  %5150 = load i8, ptr %5149, align 1, !tbaa !75
+  %.not279.i515.i = icmp eq i8 %5150, 0
+  br i1 %.not279.i515.i, label %5151, label %.loopexit1183, !prof !22
 
-5152:                                             ; preds = %5146
-  %5153 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 3
-  %5154 = load i8, ptr %5153, align 1, !tbaa !75
-  %5155 = zext i8 %5154 to i64
-  %5156 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5155
-  %5157 = load i8, ptr %5156, align 1, !tbaa !75
-  %.not280.i516.i = icmp eq i8 %5157, 0
-  br i1 %.not280.i516.i, label %5158, label %.loopexit1184, !prof !22
+5151:                                             ; preds = %5145
+  %5152 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 3
+  %5153 = load i8, ptr %5152, align 1, !tbaa !75
+  %5154 = zext i8 %5153 to i64
+  %5155 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5154
+  %5156 = load i8, ptr %5155, align 1, !tbaa !75
+  %.not280.i516.i = icmp eq i8 %5156, 0
+  br i1 %.not280.i516.i, label %5157, label %.loopexit1184, !prof !22
 
-5158:                                             ; preds = %5152
-  %5159 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 4
-  %5160 = load i8, ptr %5159, align 1, !tbaa !75
-  %5161 = zext i8 %5160 to i64
-  %5162 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5161
-  %5163 = load i8, ptr %5162, align 1, !tbaa !75
-  %.not281.i517.i = icmp eq i8 %5163, 0
-  br i1 %.not281.i517.i, label %5164, label %5282, !prof !22
+5157:                                             ; preds = %5151
+  %5158 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 4
+  %5159 = load i8, ptr %5158, align 1, !tbaa !75
+  %5160 = zext i8 %5159 to i64
+  %5161 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5160
+  %5162 = load i8, ptr %5161, align 1, !tbaa !75
+  %.not281.i517.i = icmp eq i8 %5162, 0
+  br i1 %.not281.i517.i, label %5163, label %5281, !prof !22
 
-5164:                                             ; preds = %5158
-  %5165 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 5
-  %5166 = load i8, ptr %5165, align 1, !tbaa !75
-  %5167 = zext i8 %5166 to i64
-  %5168 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5167
-  %5169 = load i8, ptr %5168, align 1, !tbaa !75
-  %.not282.i518.i = icmp eq i8 %5169, 0
-  br i1 %.not282.i518.i, label %5170, label %5286, !prof !22
+5163:                                             ; preds = %5157
+  %5164 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 5
+  %5165 = load i8, ptr %5164, align 1, !tbaa !75
+  %5166 = zext i8 %5165 to i64
+  %5167 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5166
+  %5168 = load i8, ptr %5167, align 1, !tbaa !75
+  %.not282.i518.i = icmp eq i8 %5168, 0
+  br i1 %.not282.i518.i, label %5169, label %5285, !prof !22
 
-5170:                                             ; preds = %5164
-  %5171 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 6
-  %5172 = load i8, ptr %5171, align 1, !tbaa !75
-  %5173 = zext i8 %5172 to i64
-  %5174 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5173
-  %5175 = load i8, ptr %5174, align 1, !tbaa !75
-  %.not283.i519.i = icmp eq i8 %5175, 0
-  br i1 %.not283.i519.i, label %5176, label %5289, !prof !22
+5169:                                             ; preds = %5163
+  %5170 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 6
+  %5171 = load i8, ptr %5170, align 1, !tbaa !75
+  %5172 = zext i8 %5171 to i64
+  %5173 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5172
+  %5174 = load i8, ptr %5173, align 1, !tbaa !75
+  %.not283.i519.i = icmp eq i8 %5174, 0
+  br i1 %.not283.i519.i, label %5175, label %5288, !prof !22
 
-5176:                                             ; preds = %5170
-  %5177 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 7
-  %5178 = load i8, ptr %5177, align 1, !tbaa !75
-  %5179 = zext i8 %5178 to i64
-  %5180 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5179
-  %5181 = load i8, ptr %5180, align 1, !tbaa !75
-  %.not284.i520.i = icmp eq i8 %5181, 0
-  br i1 %.not284.i520.i, label %5182, label %5292, !prof !22
+5175:                                             ; preds = %5169
+  %5176 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 7
+  %5177 = load i8, ptr %5176, align 1, !tbaa !75
+  %5178 = zext i8 %5177 to i64
+  %5179 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5178
+  %5180 = load i8, ptr %5179, align 1, !tbaa !75
+  %.not284.i520.i = icmp eq i8 %5180, 0
+  br i1 %.not284.i520.i, label %5181, label %5291, !prof !22
 
-5182:                                             ; preds = %5176
-  %5183 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 8
-  %5184 = load i8, ptr %5183, align 1, !tbaa !75
-  %5185 = zext i8 %5184 to i64
-  %5186 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5185
-  %5187 = load i8, ptr %5186, align 1, !tbaa !75
-  %.not285.i521.i = icmp eq i8 %5187, 0
-  br i1 %.not285.i521.i, label %5188, label %5295, !prof !22
+5181:                                             ; preds = %5175
+  %5182 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 8
+  %5183 = load i8, ptr %5182, align 1, !tbaa !75
+  %5184 = zext i8 %5183 to i64
+  %5185 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5184
+  %5186 = load i8, ptr %5185, align 1, !tbaa !75
+  %.not285.i521.i = icmp eq i8 %5186, 0
+  br i1 %.not285.i521.i, label %5187, label %5294, !prof !22
 
-5188:                                             ; preds = %5182
-  %5189 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 9
-  %5190 = load i8, ptr %5189, align 1, !tbaa !75
-  %5191 = zext i8 %5190 to i64
-  %5192 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5191
-  %5193 = load i8, ptr %5192, align 1, !tbaa !75
-  %.not286.i522.i = icmp eq i8 %5193, 0
-  br i1 %.not286.i522.i, label %5194, label %5299, !prof !22
+5187:                                             ; preds = %5181
+  %5188 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 9
+  %5189 = load i8, ptr %5188, align 1, !tbaa !75
+  %5190 = zext i8 %5189 to i64
+  %5191 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5190
+  %5192 = load i8, ptr %5191, align 1, !tbaa !75
+  %.not286.i522.i = icmp eq i8 %5192, 0
+  br i1 %.not286.i522.i, label %5193, label %5298, !prof !22
 
-5194:                                             ; preds = %5188
-  %5195 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 10
-  %5196 = load i8, ptr %5195, align 1, !tbaa !75
-  %5197 = zext i8 %5196 to i64
-  %5198 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5197
-  %5199 = load i8, ptr %5198, align 1, !tbaa !75
-  %.not287.i523.i = icmp eq i8 %5199, 0
-  br i1 %.not287.i523.i, label %5200, label %5302, !prof !22
+5193:                                             ; preds = %5187
+  %5194 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 10
+  %5195 = load i8, ptr %5194, align 1, !tbaa !75
+  %5196 = zext i8 %5195 to i64
+  %5197 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5196
+  %5198 = load i8, ptr %5197, align 1, !tbaa !75
+  %.not287.i523.i = icmp eq i8 %5198, 0
+  br i1 %.not287.i523.i, label %5199, label %5301, !prof !22
 
-5200:                                             ; preds = %5194
-  %5201 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 11
-  %5202 = load i8, ptr %5201, align 1, !tbaa !75
-  %5203 = zext i8 %5202 to i64
-  %5204 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5203
-  %5205 = load i8, ptr %5204, align 1, !tbaa !75
-  %.not288.i524.i = icmp eq i8 %5205, 0
-  br i1 %.not288.i524.i, label %5206, label %5305, !prof !22
+5199:                                             ; preds = %5193
+  %5200 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 11
+  %5201 = load i8, ptr %5200, align 1, !tbaa !75
+  %5202 = zext i8 %5201 to i64
+  %5203 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5202
+  %5204 = load i8, ptr %5203, align 1, !tbaa !75
+  %.not288.i524.i = icmp eq i8 %5204, 0
+  br i1 %.not288.i524.i, label %5205, label %5304, !prof !22
 
-5206:                                             ; preds = %5200
-  %5207 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 12
-  %5208 = load i8, ptr %5207, align 1, !tbaa !75
-  %5209 = zext i8 %5208 to i64
-  %5210 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5209
-  %5211 = load i8, ptr %5210, align 1, !tbaa !75
-  %.not289.i525.i = icmp eq i8 %5211, 0
-  br i1 %.not289.i525.i, label %5212, label %5308, !prof !22
+5205:                                             ; preds = %5199
+  %5206 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 12
+  %5207 = load i8, ptr %5206, align 1, !tbaa !75
+  %5208 = zext i8 %5207 to i64
+  %5209 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5208
+  %5210 = load i8, ptr %5209, align 1, !tbaa !75
+  %.not289.i525.i = icmp eq i8 %5210, 0
+  br i1 %.not289.i525.i, label %5211, label %5307, !prof !22
 
-5212:                                             ; preds = %5206
-  %5213 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 13
-  %5214 = load i8, ptr %5213, align 1, !tbaa !75
-  %5215 = zext i8 %5214 to i64
-  %5216 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5215
-  %5217 = load i8, ptr %5216, align 1, !tbaa !75
-  %.not290.i526.i = icmp eq i8 %5217, 0
-  br i1 %.not290.i526.i, label %5218, label %5311, !prof !22
+5211:                                             ; preds = %5205
+  %5212 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 13
+  %5213 = load i8, ptr %5212, align 1, !tbaa !75
+  %5214 = zext i8 %5213 to i64
+  %5215 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5214
+  %5216 = load i8, ptr %5215, align 1, !tbaa !75
+  %.not290.i526.i = icmp eq i8 %5216, 0
+  br i1 %.not290.i526.i, label %5217, label %5310, !prof !22
 
-5218:                                             ; preds = %5212
-  %5219 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 14
-  %5220 = load i8, ptr %5219, align 1, !tbaa !75
-  %5221 = zext i8 %5220 to i64
-  %5222 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5221
-  %5223 = load i8, ptr %5222, align 1, !tbaa !75
-  %.not291.i527.i = icmp eq i8 %5223, 0
-  br i1 %.not291.i527.i, label %5224, label %5314, !prof !22
+5217:                                             ; preds = %5211
+  %5218 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 14
+  %5219 = load i8, ptr %5218, align 1, !tbaa !75
+  %5220 = zext i8 %5219 to i64
+  %5221 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5220
+  %5222 = load i8, ptr %5221, align 1, !tbaa !75
+  %.not291.i527.i = icmp eq i8 %5222, 0
+  br i1 %.not291.i527.i, label %5223, label %5313, !prof !22
 
-5224:                                             ; preds = %5218
-  %5225 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 15
-  %5226 = load i8, ptr %5225, align 1, !tbaa !75
-  %5227 = zext i8 %5226 to i64
-  %5228 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5227
-  %5229 = load i8, ptr %5228, align 1, !tbaa !75
-  %.not292.i528.i = icmp eq i8 %5229, 0
-  br i1 %.not292.i528.i, label %5230, label %5317, !prof !22
+5223:                                             ; preds = %5217
+  %5224 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 15
+  %5225 = load i8, ptr %5224, align 1, !tbaa !75
+  %5226 = zext i8 %5225 to i64
+  %5227 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5226
+  %5228 = load i8, ptr %5227, align 1, !tbaa !75
+  %.not292.i528.i = icmp eq i8 %5228, 0
+  br i1 %.not292.i528.i, label %5229, label %5316, !prof !22
 
-5230:                                             ; preds = %5224
+5229:                                             ; preds = %5223
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(16) %.1245.i433.i2330, i64 16, i1 false)
-  %5231 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 16
-  %5232 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 16
-  %5233 = ptrtoint ptr %5232 to i64
-  %5234 = sub i64 %5130, %5233
-  %5235 = icmp sgt i64 %5234, 15
-  br i1 %5235, label %.lr.ph2333, label %.preheader1180, !llvm.loop !209
+  %5230 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 16
+  %5231 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 16
+  %5232 = ptrtoint ptr %5231 to i64
+  %5233 = sub i64 %5129, %5232
+  %5234 = icmp sgt i64 %5233, 15
+  br i1 %5234, label %.lr.ph2333, label %.preheader1180, !llvm.loop !209
 
-.preheader1178:                                   ; preds = %5259, %.preheader1180
-  %.6250.i435.i.lcssa = phi ptr [ %.1245.i433.i.lcssa, %.preheader1180 ], [ %5262, %5259 ]
-  %.6.i436.i.lcssa = phi ptr [ %.1.i434.i.lcssa, %.preheader1180 ], [ %5261, %5259 ]
-  %5236 = icmp ugt ptr %5129, %.6250.i435.i.lcssa
-  br i1 %5236, label %.lr.ph2344, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i
+.preheader1178:                                   ; preds = %5258, %.preheader1180
+  %.6250.i435.i.lcssa = phi ptr [ %.1245.i433.i.lcssa, %.preheader1180 ], [ %5261, %5258 ]
+  %.6.i436.i.lcssa = phi ptr [ %.1.i434.i.lcssa, %.preheader1180 ], [ %5260, %5258 ]
+  %5235 = icmp ugt ptr %5128, %.6250.i435.i.lcssa
+  br i1 %5235, label %.lr.ph2344, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i
 
-.lr.ph2339:                                       ; preds = %.preheader1180, %5259
-  %.6.i436.i2338 = phi ptr [ %5261, %5259 ], [ %.1.i434.i.lcssa, %.preheader1180 ]
-  %.6250.i435.i2337 = phi ptr [ %5262, %5259 ], [ %.1245.i433.i.lcssa, %.preheader1180 ]
-  %5237 = load i8, ptr %.6250.i435.i2337, align 1, !tbaa !75
-  %5238 = zext i8 %5237 to i64
-  %5239 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5238
-  %5240 = load i8, ptr %5239, align 1, !tbaa !75
-  %.not273.i503.i = icmp eq i8 %5240, 0
-  br i1 %.not273.i503.i, label %5241, label %.preheader1175.preheader, !prof !22
+.lr.ph2339:                                       ; preds = %.preheader1180, %5258
+  %.6.i436.i2338 = phi ptr [ %5260, %5258 ], [ %.1.i434.i.lcssa, %.preheader1180 ]
+  %.6250.i435.i2337 = phi ptr [ %5261, %5258 ], [ %.1245.i433.i.lcssa, %.preheader1180 ]
+  %5236 = load i8, ptr %.6250.i435.i2337, align 1, !tbaa !75
+  %5237 = zext i8 %5236 to i64
+  %5238 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5237
+  %5239 = load i8, ptr %5238, align 1, !tbaa !75
+  %.not273.i503.i = icmp eq i8 %5239, 0
+  br i1 %.not273.i503.i, label %5240, label %.preheader1175.preheader, !prof !22
 
-5241:                                             ; preds = %.lr.ph2339
-  %5242 = getelementptr inbounds nuw i8, ptr %.6250.i435.i2337, i64 1
-  %5243 = load i8, ptr %5242, align 1, !tbaa !75
-  %5244 = zext i8 %5243 to i64
-  %5245 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5244
-  %5246 = load i8, ptr %5245, align 1, !tbaa !75
-  %.not274.i504.i = icmp eq i8 %5246, 0
-  br i1 %.not274.i504.i, label %5247, label %.loopexit1182, !prof !22
+5240:                                             ; preds = %.lr.ph2339
+  %5241 = getelementptr inbounds nuw i8, ptr %.6250.i435.i2337, i64 1
+  %5242 = load i8, ptr %5241, align 1, !tbaa !75
+  %5243 = zext i8 %5242 to i64
+  %5244 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5243
+  %5245 = load i8, ptr %5244, align 1, !tbaa !75
+  %.not274.i504.i = icmp eq i8 %5245, 0
+  br i1 %.not274.i504.i, label %5246, label %.loopexit1182, !prof !22
 
-5247:                                             ; preds = %5241
-  %5248 = getelementptr inbounds nuw i8, ptr %.6250.i435.i2337, i64 2
-  %5249 = load i8, ptr %5248, align 1, !tbaa !75
-  %5250 = zext i8 %5249 to i64
-  %5251 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5250
-  %5252 = load i8, ptr %5251, align 1, !tbaa !75
-  %.not275.i507.i = icmp eq i8 %5252, 0
-  br i1 %.not275.i507.i, label %5253, label %.loopexit1183, !prof !22
+5246:                                             ; preds = %5240
+  %5247 = getelementptr inbounds nuw i8, ptr %.6250.i435.i2337, i64 2
+  %5248 = load i8, ptr %5247, align 1, !tbaa !75
+  %5249 = zext i8 %5248 to i64
+  %5250 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5249
+  %5251 = load i8, ptr %5250, align 1, !tbaa !75
+  %.not275.i507.i = icmp eq i8 %5251, 0
+  br i1 %.not275.i507.i, label %5252, label %.loopexit1183, !prof !22
 
-5253:                                             ; preds = %5247
-  %5254 = getelementptr inbounds nuw i8, ptr %.6250.i435.i2337, i64 3
-  %5255 = load i8, ptr %5254, align 1, !tbaa !75
-  %5256 = zext i8 %5255 to i64
-  %5257 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5256
-  %5258 = load i8, ptr %5257, align 1, !tbaa !75
-  %.not276.i510.i = icmp eq i8 %5258, 0
-  br i1 %.not276.i510.i, label %5259, label %.loopexit1184, !prof !22
+5252:                                             ; preds = %5246
+  %5253 = getelementptr inbounds nuw i8, ptr %.6250.i435.i2337, i64 3
+  %5254 = load i8, ptr %5253, align 1, !tbaa !75
+  %5255 = zext i8 %5254 to i64
+  %5256 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5255
+  %5257 = load i8, ptr %5256, align 1, !tbaa !75
+  %.not276.i510.i = icmp eq i8 %5257, 0
+  br i1 %.not276.i510.i, label %5258, label %.loopexit1184, !prof !22
 
-5259:                                             ; preds = %5253
-  %5260 = load i32, ptr %.6250.i435.i2337, align 1
-  store i32 %5260, ptr %.6.i436.i2338, align 1
-  %5261 = getelementptr inbounds nuw i8, ptr %.6.i436.i2338, i64 4
-  %5262 = getelementptr inbounds nuw i8, ptr %.6250.i435.i2337, i64 4
-  %5263 = ptrtoint ptr %5262 to i64
-  %5264 = sub i64 %5130, %5263
-  %5265 = icmp sgt i64 %5264, 3
-  br i1 %5265, label %.lr.ph2339, label %.preheader1178, !llvm.loop !210
+5258:                                             ; preds = %5252
+  %5259 = load i32, ptr %.6250.i435.i2337, align 1
+  store i32 %5259, ptr %.6.i436.i2338, align 1
+  %5260 = getelementptr inbounds nuw i8, ptr %.6.i436.i2338, i64 4
+  %5261 = getelementptr inbounds nuw i8, ptr %.6250.i435.i2337, i64 4
+  %5262 = ptrtoint ptr %5261 to i64
+  %5263 = sub i64 %5129, %5262
+  %5264 = icmp sgt i64 %5263, 3
+  br i1 %5264, label %.lr.ph2339, label %.preheader1178, !llvm.loop !210
 
-.lr.ph2344:                                       ; preds = %.preheader1178, %5270
-  %.7.i438.i2343 = phi ptr [ %5272, %5270 ], [ %.6.i436.i.lcssa, %.preheader1178 ]
-  %.7251.i437.i2342 = phi ptr [ %5271, %5270 ], [ %.6250.i435.i.lcssa, %.preheader1178 ]
-  %5266 = load i8, ptr %.7251.i437.i2342, align 1, !tbaa !75
-  %5267 = zext i8 %5266 to i64
-  %5268 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5267
-  %5269 = load i8, ptr %5268, align 1, !tbaa !75
-  %.not.i440.i = icmp eq i8 %5269, 0
-  br i1 %.not.i440.i, label %5270, label %.preheader1175.preheader, !prof !22
+.lr.ph2344:                                       ; preds = %.preheader1178, %5269
+  %.7.i438.i2343 = phi ptr [ %5271, %5269 ], [ %.6.i436.i.lcssa, %.preheader1178 ]
+  %.7251.i437.i2342 = phi ptr [ %5270, %5269 ], [ %.6250.i435.i.lcssa, %.preheader1178 ]
+  %5265 = load i8, ptr %.7251.i437.i2342, align 1, !tbaa !75
+  %5266 = zext i8 %5265 to i64
+  %5267 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5266
+  %5268 = load i8, ptr %5267, align 1, !tbaa !75
+  %.not.i440.i = icmp eq i8 %5268, 0
+  br i1 %.not.i440.i, label %5269, label %.preheader1175.preheader, !prof !22
 
-5270:                                             ; preds = %.lr.ph2344
-  %5271 = getelementptr inbounds nuw i8, ptr %.7251.i437.i2342, i64 1
-  %5272 = getelementptr inbounds nuw i8, ptr %.7.i438.i2343, i64 1
-  store i8 %5266, ptr %.7.i438.i2343, align 1, !tbaa !75
-  %5273 = icmp ugt ptr %5129, %5271
-  br i1 %5273, label %.lr.ph2344, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, !llvm.loop !211
+5269:                                             ; preds = %.lr.ph2344
+  %5270 = getelementptr inbounds nuw i8, ptr %.7251.i437.i2342, i64 1
+  %5271 = getelementptr inbounds nuw i8, ptr %.7.i438.i2343, i64 1
+  store i8 %5265, ptr %.7.i438.i2343, align 1, !tbaa !75
+  %5272 = icmp ugt ptr %5128, %5270
+  br i1 %5272, label %.lr.ph2344, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, !llvm.loop !211
 
-.loopexit1182:                                    ; preds = %5140, %5241
-  %5274 = phi i8 [ %5237, %5241 ], [ %5136, %5140 ]
-  %.3247.i505.i = phi ptr [ %.6250.i435.i2337, %5241 ], [ %.1245.i433.i2330, %5140 ]
-  %.3.i506.i = phi ptr [ %.6.i436.i2338, %5241 ], [ %.1.i434.i2331, %5140 ]
-  store i8 %5274, ptr %.3.i506.i, align 1
-  %5275 = getelementptr inbounds nuw i8, ptr %.3.i506.i, i64 1
-  %5276 = getelementptr inbounds nuw i8, ptr %.3247.i505.i, i64 1
+.loopexit1182:                                    ; preds = %5139, %5240
+  %5273 = phi i8 [ %5236, %5240 ], [ %5135, %5139 ]
+  %.3247.i505.i = phi ptr [ %.6250.i435.i2337, %5240 ], [ %.1245.i433.i2330, %5139 ]
+  %.3.i506.i = phi ptr [ %.6.i436.i2338, %5240 ], [ %.1.i434.i2331, %5139 ]
+  store i8 %5273, ptr %.3.i506.i, align 1
+  %5274 = getelementptr inbounds nuw i8, ptr %.3.i506.i, i64 1
+  %5275 = getelementptr inbounds nuw i8, ptr %.3247.i505.i, i64 1
   br label %.preheader1175.preheader
 
-.loopexit1183:                                    ; preds = %5146, %5247
-  %.4248.i508.i = phi ptr [ %.6250.i435.i2337, %5247 ], [ %.1245.i433.i2330, %5146 ]
-  %.4.i509.i = phi ptr [ %.6.i436.i2338, %5247 ], [ %.1.i434.i2331, %5146 ]
-  %5277 = load i16, ptr %.4248.i508.i, align 1
-  store i16 %5277, ptr %.4.i509.i, align 1
-  %5278 = getelementptr inbounds nuw i8, ptr %.4.i509.i, i64 2
-  %5279 = getelementptr inbounds nuw i8, ptr %.4248.i508.i, i64 2
+.loopexit1183:                                    ; preds = %5145, %5246
+  %.4248.i508.i = phi ptr [ %.6250.i435.i2337, %5246 ], [ %.1245.i433.i2330, %5145 ]
+  %.4.i509.i = phi ptr [ %.6.i436.i2338, %5246 ], [ %.1.i434.i2331, %5145 ]
+  %5276 = load i16, ptr %.4248.i508.i, align 1
+  store i16 %5276, ptr %.4.i509.i, align 1
+  %5277 = getelementptr inbounds nuw i8, ptr %.4.i509.i, i64 2
+  %5278 = getelementptr inbounds nuw i8, ptr %.4248.i508.i, i64 2
   br label %.preheader1175.preheader
 
-.loopexit1184:                                    ; preds = %5152, %5253
-  %.5249.i511.i = phi ptr [ %.6250.i435.i2337, %5253 ], [ %.1245.i433.i2330, %5152 ]
-  %.5.i512.i = phi ptr [ %.6.i436.i2338, %5253 ], [ %.1.i434.i2331, %5152 ]
+.loopexit1184:                                    ; preds = %5151, %5252
+  %.5249.i511.i = phi ptr [ %.6250.i435.i2337, %5252 ], [ %.1245.i433.i2330, %5151 ]
+  %.5.i512.i = phi ptr [ %.6.i436.i2338, %5252 ], [ %.1.i434.i2331, %5151 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.5.i512.i, ptr noundef nonnull align 1 dereferenceable(3) %.5249.i511.i, i64 3, i1 false)
-  %5280 = getelementptr inbounds nuw i8, ptr %.5.i512.i, i64 3
-  %5281 = getelementptr inbounds nuw i8, ptr %.5249.i511.i, i64 3
+  %5279 = getelementptr inbounds nuw i8, ptr %.5.i512.i, i64 3
+  %5280 = getelementptr inbounds nuw i8, ptr %.5249.i511.i, i64 3
   br label %.preheader1175.preheader
 
-5282:                                             ; preds = %5158
-  %5283 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 4
-  %5284 = load i32, ptr %.1245.i433.i2330, align 1
-  store i32 %5284, ptr %.1.i434.i2331, align 1
-  %5285 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 4
+5281:                                             ; preds = %5157
+  %5282 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 4
+  %5283 = load i32, ptr %.1245.i433.i2330, align 1
+  store i32 %5283, ptr %.1.i434.i2331, align 1
+  %5284 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 4
   br label %.preheader1175.preheader
 
-5286:                                             ; preds = %5164
-  %5287 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 5
+5285:                                             ; preds = %5163
+  %5286 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(5) %.1245.i433.i2330, i64 5, i1 false)
-  %5288 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 5
+  %5287 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 5
   br label %.preheader1175.preheader
 
-5289:                                             ; preds = %5170
-  %5290 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 6
+5288:                                             ; preds = %5169
+  %5289 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(6) %.1245.i433.i2330, i64 6, i1 false)
-  %5291 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 6
+  %5290 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 6
   br label %.preheader1175.preheader
 
-5292:                                             ; preds = %5176
-  %5293 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 7
+5291:                                             ; preds = %5175
+  %5292 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(7) %.1245.i433.i2330, i64 7, i1 false)
-  %5294 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 7
+  %5293 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 7
   br label %.preheader1175.preheader
 
-5295:                                             ; preds = %5182
-  %5296 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 8
-  %5297 = load i64, ptr %.1245.i433.i2330, align 1
-  store i64 %5297, ptr %.1.i434.i2331, align 1
-  %5298 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 8
+5294:                                             ; preds = %5181
+  %5295 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 8
+  %5296 = load i64, ptr %.1245.i433.i2330, align 1
+  store i64 %5296, ptr %.1.i434.i2331, align 1
+  %5297 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 8
   br label %.preheader1175.preheader
 
-5299:                                             ; preds = %5188
-  %5300 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 9
+5298:                                             ; preds = %5187
+  %5299 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(9) %.1245.i433.i2330, i64 9, i1 false)
-  %5301 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 9
+  %5300 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 9
   br label %.preheader1175.preheader
 
-5302:                                             ; preds = %5194
-  %5303 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 10
+5301:                                             ; preds = %5193
+  %5302 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(10) %.1245.i433.i2330, i64 10, i1 false)
-  %5304 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 10
+  %5303 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 10
   br label %.preheader1175.preheader
 
-5305:                                             ; preds = %5200
-  %5306 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 11
+5304:                                             ; preds = %5199
+  %5305 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(11) %.1245.i433.i2330, i64 11, i1 false)
-  %5307 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 11
+  %5306 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 11
   br label %.preheader1175.preheader
 
-5308:                                             ; preds = %5206
-  %5309 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 12
+5307:                                             ; preds = %5205
+  %5308 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(12) %.1245.i433.i2330, i64 12, i1 false)
-  %5310 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 12
+  %5309 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 12
   br label %.preheader1175.preheader
 
-5311:                                             ; preds = %5212
-  %5312 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 13
+5310:                                             ; preds = %5211
+  %5311 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(13) %.1245.i433.i2330, i64 13, i1 false)
-  %5313 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 13
+  %5312 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 13
   br label %.preheader1175.preheader
 
-5314:                                             ; preds = %5218
-  %5315 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 14
+5313:                                             ; preds = %5217
+  %5314 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(14) %.1245.i433.i2330, i64 14, i1 false)
-  %5316 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 14
+  %5315 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 14
   br label %.preheader1175.preheader
 
-5317:                                             ; preds = %5224
-  %5318 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 15
+5316:                                             ; preds = %5223
+  %5317 = getelementptr inbounds nuw i8, ptr %.1245.i433.i2330, i64 15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.1.i434.i2331, ptr noundef nonnull align 1 dereferenceable(15) %.1245.i433.i2330, i64 15, i1 false)
-  %5319 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 15
+  %5318 = getelementptr inbounds nuw i8, ptr %.1.i434.i2331, i64 15
   br label %.preheader1175.preheader
 
-.preheader1175.preheader:                         ; preds = %.lr.ph2333, %.lr.ph2339, %.lr.ph2344, %.loopexit1182, %.loopexit1183, %.loopexit1184, %5282, %5286, %5289, %5292, %5295, %5299, %5302, %5305, %5308, %5311, %5314, %5317
-  %.8252.i443.i.ph = phi ptr [ %5276, %.loopexit1182 ], [ %5279, %.loopexit1183 ], [ %5281, %.loopexit1184 ], [ %5283, %5282 ], [ %5287, %5286 ], [ %5290, %5289 ], [ %5293, %5292 ], [ %5296, %5295 ], [ %5300, %5299 ], [ %5303, %5302 ], [ %5306, %5305 ], [ %5309, %5308 ], [ %5312, %5311 ], [ %5315, %5314 ], [ %5318, %5317 ], [ %.7251.i437.i2342, %.lr.ph2344 ], [ %.6250.i435.i2337, %.lr.ph2339 ], [ %.1245.i433.i2330, %.lr.ph2333 ]
-  %.8.i444.i.ph = phi ptr [ %5275, %.loopexit1182 ], [ %5278, %.loopexit1183 ], [ %5280, %.loopexit1184 ], [ %5285, %5282 ], [ %5288, %5286 ], [ %5291, %5289 ], [ %5294, %5292 ], [ %5298, %5295 ], [ %5301, %5299 ], [ %5304, %5302 ], [ %5307, %5305 ], [ %5310, %5308 ], [ %5313, %5311 ], [ %5316, %5314 ], [ %5319, %5317 ], [ %.7.i438.i2343, %.lr.ph2344 ], [ %.6.i436.i2338, %.lr.ph2339 ], [ %.1.i434.i2331, %.lr.ph2333 ]
+.preheader1175.preheader:                         ; preds = %.lr.ph2333, %.lr.ph2339, %.lr.ph2344, %.loopexit1182, %.loopexit1183, %.loopexit1184, %5281, %5285, %5288, %5291, %5294, %5298, %5301, %5304, %5307, %5310, %5313, %5316
+  %.8252.i443.i.ph = phi ptr [ %5275, %.loopexit1182 ], [ %5278, %.loopexit1183 ], [ %5280, %.loopexit1184 ], [ %5282, %5281 ], [ %5286, %5285 ], [ %5289, %5288 ], [ %5292, %5291 ], [ %5295, %5294 ], [ %5299, %5298 ], [ %5302, %5301 ], [ %5305, %5304 ], [ %5308, %5307 ], [ %5311, %5310 ], [ %5314, %5313 ], [ %5317, %5316 ], [ %.7251.i437.i2342, %.lr.ph2344 ], [ %.6250.i435.i2337, %.lr.ph2339 ], [ %.1245.i433.i2330, %.lr.ph2333 ]
+  %.8.i444.i.ph = phi ptr [ %5274, %.loopexit1182 ], [ %5277, %.loopexit1183 ], [ %5279, %.loopexit1184 ], [ %5284, %5281 ], [ %5287, %5285 ], [ %5290, %5288 ], [ %5293, %5291 ], [ %5297, %5294 ], [ %5300, %5298 ], [ %5303, %5301 ], [ %5306, %5304 ], [ %5309, %5307 ], [ %5312, %5310 ], [ %5315, %5313 ], [ %5318, %5316 ], [ %.7.i438.i2343, %.lr.ph2344 ], [ %.6.i436.i2338, %.lr.ph2339 ], [ %.1.i434.i2331, %.lr.ph2333 ]
   br label %.preheader1175
 
 .preheader1175:                                   ; preds = %.preheader1175.backedge, %.preheader1175.preheader
   %.8252.i443.i = phi ptr [ %.8252.i443.i.ph, %.preheader1175.preheader ], [ %.8252.i443.i.be, %.preheader1175.backedge ]
   %.8.i444.i = phi ptr [ %.8.i444.i.ph, %.preheader1175.preheader ], [ %.8.i444.i.be, %.preheader1175.backedge ]
-  %5320 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 4
-  %5321 = icmp ugt ptr %5320, %5129
-  br i1 %5321, label %5322, label %._crit_edge3050, !prof !3
+  %5319 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 4
+  %5320 = icmp ugt ptr %5319, %5128
+  br i1 %5320, label %5321, label %._crit_edge3050, !prof !3
 
 ._crit_edge3050:                                  ; preds = %.preheader1175
   %.pre3051 = load i8, ptr %.8252.i443.i, align 1, !tbaa !75
   %.phi.trans.insert3052 = zext i8 %.pre3051 to i64
   %.phi.trans.insert3053 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %.phi.trans.insert3052
   %.pre3054 = load i8, ptr %.phi.trans.insert3053, align 1, !tbaa !75
-  br label %5334
+  br label %5333
 
-5322:                                             ; preds = %.preheader1175
-  %5323 = icmp eq ptr %5129, %.8252.i443.i
-  br i1 %5323, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, label %5324
+5321:                                             ; preds = %.preheader1175
+  %5322 = icmp eq ptr %5128, %.8252.i443.i
+  br i1 %5322, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, label %5323
 
-5324:                                             ; preds = %5322
-  %5325 = ptrtoint ptr %.8252.i443.i to i64
-  %5326 = sub i64 %5130, %5325
-  %5327 = load i8, ptr %.8252.i443.i, align 1, !tbaa !75
-  %5328 = zext i8 %5327 to i64
-  %5329 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5328
-  %5330 = load i8, ptr %5329, align 1, !tbaa !75
-  %5331 = lshr i8 %5330, 1
-  %5332 = zext nneg i8 %5331 to i64
-  %5333 = icmp slt i64 %5326, %5332
-  br i1 %5333, label %5490, label %5334
+5323:                                             ; preds = %5321
+  %5324 = ptrtoint ptr %.8252.i443.i to i64
+  %5325 = sub i64 %5129, %5324
+  %5326 = load i8, ptr %.8252.i443.i, align 1, !tbaa !75
+  %5327 = zext i8 %5326 to i64
+  %5328 = getelementptr inbounds nuw i8, ptr %.0.i424.i, i64 %5327
+  %5329 = load i8, ptr %5328, align 1, !tbaa !75
+  %5330 = lshr i8 %5329, 1
+  %5331 = zext nneg i8 %5330 to i64
+  %5332 = icmp slt i64 %5325, %5331
+  br i1 %5332, label %5489, label %5333
 
-5334:                                             ; preds = %._crit_edge3050, %5324
-  %.pre-phi3081 = phi i64 [ %.phi.trans.insert3052, %._crit_edge3050 ], [ %5328, %5324 ]
-  %5335 = phi i8 [ %.pre3054, %._crit_edge3050 ], [ %5330, %5324 ]
-  %5336 = phi i8 [ %.pre3051, %._crit_edge3050 ], [ %5327, %5324 ]
-  switch i8 %5335, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i [
-    i8 0, label %5337
-    i8 4, label %5339
-    i8 6, label %5349
-    i8 8, label %5366
-    i8 2, label %5377
-    i8 3, label %5383
-    i8 5, label %5392
-    i8 7, label %5416
-    i8 9, label %5441
-    i8 1, label %5490
+5333:                                             ; preds = %._crit_edge3050, %5323
+  %.pre-phi3081 = phi i64 [ %.phi.trans.insert3052, %._crit_edge3050 ], [ %5327, %5323 ]
+  %5334 = phi i8 [ %.pre3054, %._crit_edge3050 ], [ %5329, %5323 ]
+  %5335 = phi i8 [ %.pre3051, %._crit_edge3050 ], [ %5326, %5323 ]
+  switch i8 %5334, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i [
+    i8 0, label %5336
+    i8 4, label %5338
+    i8 6, label %5348
+    i8 8, label %5365
+    i8 2, label %5376
+    i8 3, label %5382
+    i8 5, label %5391
+    i8 7, label %5415
+    i8 9, label %5440
+    i8 1, label %5489
   ]
 
-5337:                                             ; preds = %5334
-  %5338 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
-  store i8 %5336, ptr %.8.i444.i, align 1, !tbaa !75
-  br label %5131
+5336:                                             ; preds = %5333
+  %5337 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
+  store i8 %5335, ptr %.8.i444.i, align 1, !tbaa !75
+  br label %5130
 
-5339:                                             ; preds = %5334
+5338:                                             ; preds = %5333
   %.sroa.0.0.copyload.i.i290 = load i16, ptr %.8252.i443.i, align 1
-  %5340 = zext i16 %.sroa.0.0.copyload.i.i290 to i32
-  %5341 = and i32 %5340, 49376
-  %5342 = icmp ne i32 %5341, 32960
-  %5343 = and i32 %5340, 30
-  %5344 = icmp eq i32 %5343, 0
-  %.not315.i497.i = or i1 %5342, %5344
-  %5345 = trunc i16 %.sroa.0.0.copyload.i.i290 to i8
-  br i1 %.not315.i497.i, label %.thread963, label %5346, !prof !3
+  %5339 = zext i16 %.sroa.0.0.copyload.i.i290 to i32
+  %5340 = and i32 %5339, 49376
+  %5341 = icmp ne i32 %5340, 32960
+  %5342 = and i32 %5339, 30
+  %5343 = icmp eq i32 %5342, 0
+  %.not315.i497.i = or i1 %5341, %5343
+  %5344 = trunc i16 %.sroa.0.0.copyload.i.i290 to i8
+  br i1 %.not315.i497.i, label %.thread963, label %5345, !prof !3
 
-5346:                                             ; preds = %5339
+5345:                                             ; preds = %5338
   store i16 %.sroa.0.0.copyload.i.i290, ptr %.8.i444.i, align 1
-  %5347 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
-  %5348 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 2
+  %5346 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
+  %5347 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 2
   br label %.preheader1175.backedge
 
-5349:                                             ; preds = %5334
-  br i1 %5321, label %5356, label %5350, !prof !3
+5348:                                             ; preds = %5333
+  br i1 %5320, label %5355, label %5349, !prof !3
 
-5350:                                             ; preds = %5349
+5349:                                             ; preds = %5348
   %.sroa.0.0.copyload.i340.i490.i = load i32, ptr %.8252.i443.i, align 1
-  %5351 = and i32 %.sroa.0.0.copyload.i340.i490.i, 12632304
-  %5352 = icmp eq i32 %5351, 8421600
-  %5353 = trunc i32 %.sroa.0.0.copyload.i340.i490.i to i8
-  br i1 %5352, label %5354, label %.thread963, !prof !22
+  %5350 = and i32 %.sroa.0.0.copyload.i340.i490.i, 12632304
+  %5351 = icmp eq i32 %5350, 8421600
+  %5352 = trunc i32 %.sroa.0.0.copyload.i340.i490.i to i8
+  br i1 %5351, label %5353, label %.thread963, !prof !22
 
-5354:                                             ; preds = %5350
-  %5355 = and i32 %.sroa.0.0.copyload.i340.i490.i, 8207
-  switch i32 %5355, label %.critedge.i491.i [
+5353:                                             ; preds = %5349
+  %5354 = and i32 %.sroa.0.0.copyload.i340.i490.i, 8207
+  switch i32 %5354, label %.critedge.i491.i [
     i32 8205, label %.thread963
     i32 0, label %.thread963
   ]
 
-5356:                                             ; preds = %5349
+5355:                                             ; preds = %5348
   %.sroa.0.0.copyload.i535.i = load i16, ptr %.8252.i443.i, align 1
-  %5357 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 2
-  %5358 = load i8, ptr %5357, align 1, !tbaa !75
-  %.sroa.4.0.insert.ext.i.i286 = zext i8 %5358 to i32
+  %5356 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 2
+  %5357 = load i8, ptr %5356, align 1, !tbaa !75
+  %.sroa.4.0.insert.ext.i.i286 = zext i8 %5357 to i32
   %.sroa.4.0.insert.shift.i.i287 = shl nuw nsw i32 %.sroa.4.0.insert.ext.i.i286, 16
   %.sroa.0.0.insert.ext.i.i288 = zext i16 %.sroa.0.0.copyload.i535.i to i32
   %.sroa.0.0.insert.insert.i.i289 = or disjoint i32 %.sroa.4.0.insert.shift.i.i287, %.sroa.0.0.insert.ext.i.i288
-  %5359 = and i32 %.sroa.0.0.insert.insert.i.i289, 12632304
-  %5360 = icmp eq i32 %5359, 8421600
-  %5361 = trunc i16 %.sroa.0.0.copyload.i535.i to i8
-  br i1 %5360, label %5362, label %.thread963, !prof !22
+  %5358 = and i32 %.sroa.0.0.insert.insert.i.i289, 12632304
+  %5359 = icmp eq i32 %5358, 8421600
+  %5360 = trunc i16 %.sroa.0.0.copyload.i535.i to i8
+  br i1 %5359, label %5361, label %.thread963, !prof !22
 
-5362:                                             ; preds = %5356
-  %5363 = and i32 %.sroa.0.0.insert.ext.i.i288, 8207
-  switch i32 %5363, label %.critedge.i491.i [
+5361:                                             ; preds = %5355
+  %5362 = and i32 %.sroa.0.0.insert.ext.i.i288, 8207
+  switch i32 %5362, label %.critedge.i491.i [
     i32 8205, label %.thread963
     i32 0, label %.thread963
   ]
 
-.critedge.i491.i:                                 ; preds = %5362, %5354
-  %storemerge1081 = phi i32 [ %.sroa.0.0.copyload.i340.i490.i, %5354 ], [ %.sroa.0.0.insert.insert.i.i289, %5362 ]
+.critedge.i491.i:                                 ; preds = %5361, %5353
+  %storemerge1081 = phi i32 [ %.sroa.0.0.copyload.i340.i490.i, %5353 ], [ %.sroa.0.0.insert.insert.i.i289, %5361 ]
   store i32 %storemerge1081, ptr %.8.i444.i, align 1
-  %5364 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 3
-  %5365 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 3
+  %5363 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 3
+  %5364 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 3
   br label %.preheader1175.backedge
 
-5366:                                             ; preds = %5334
+5365:                                             ; preds = %5333
   %.sroa.0.0.copyload.i339.i479.i = load i32, ptr %.8252.i443.i, align 1
-  %5367 = and i32 %.sroa.0.0.copyload.i339.i479.i, -1061109512
-  %5368 = icmp ne i32 %5367, -2139062032
-  %5369 = and i32 %.sroa.0.0.copyload.i339.i479.i, 12295
-  %.not306.i480.i = icmp eq i32 %5369, 0
-  %or.cond.i481.i = or i1 %5368, %.not306.i480.i
-  %5370 = trunc i32 %.sroa.0.0.copyload.i339.i479.i to i8
-  br i1 %or.cond.i481.i, label %.thread963, label %5371, !prof !212
+  %5366 = and i32 %.sroa.0.0.copyload.i339.i479.i, -1061109512
+  %5367 = icmp ne i32 %5366, -2139062032
+  %5368 = and i32 %.sroa.0.0.copyload.i339.i479.i, 12295
+  %.not306.i480.i = icmp eq i32 %5368, 0
+  %or.cond.i481.i = or i1 %5367, %.not306.i480.i
+  %5369 = trunc i32 %.sroa.0.0.copyload.i339.i479.i to i8
+  br i1 %or.cond.i481.i, label %.thread963, label %5370, !prof !212
 
-5371:                                             ; preds = %5366
-  %5372 = and i32 %.sroa.0.0.copyload.i339.i479.i, 4
-  %5373 = icmp ne i32 %5372, 0
-  %5374 = and i32 %.sroa.0.0.copyload.i339.i479.i, 12291
-  %5375 = icmp ne i32 %5374, 0
-  %.not309.i482.i = and i1 %5373, %5375
+5370:                                             ; preds = %5365
+  %5371 = and i32 %.sroa.0.0.copyload.i339.i479.i, 4
+  %5372 = icmp ne i32 %5371, 0
+  %5373 = and i32 %.sroa.0.0.copyload.i339.i479.i, 12291
+  %5374 = icmp ne i32 %5373, 0
+  %.not309.i482.i = and i1 %5372, %5374
   br i1 %.not309.i482.i, label %.thread963, label %.critedge324.i483.i, !prof !3
 
-.critedge324.i483.i:                              ; preds = %5371
+.critedge324.i483.i:                              ; preds = %5370
   store i32 %.sroa.0.0.copyload.i339.i479.i, ptr %.8.i444.i, align 1
-  %5376 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
+  %5375 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
   br label %.preheader1175.backedge
 
-5377:                                             ; preds = %5334
-  %5378 = shl nuw nsw i64 %.pre-phi3081, 1
-  %5379 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL21esc_single_char_tableE, i64 %5378
-  %5380 = load i16, ptr %5379, align 2
-  store i16 %5380, ptr %.8.i444.i, align 1
-  %5381 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
-  %5382 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
+5376:                                             ; preds = %5333
+  %5377 = shl nuw nsw i64 %.pre-phi3081, 1
+  %5378 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL21esc_single_char_tableE, i64 %5377
+  %5379 = load i16, ptr %5378, align 2
+  store i16 %5379, ptr %.8.i444.i, align 1
+  %5380 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
+  %5381 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
   br label %.preheader1175.backedge
 
-.preheader1175.backedge:                          ; preds = %5377, %5383, %5493, %5496, %5346, %.critedge.i491.i, %.critedge324.i483.i, %5398, %.critedge330.i461.i, %.critedge333.i455.i
-  %.8252.i443.i.be = phi ptr [ %5499, %5496 ], [ %5494, %5493 ], [ %5348, %5346 ], [ %5365, %.critedge.i491.i ], [ %5320, %.critedge324.i483.i ], [ %5382, %5377 ], [ %5391, %5383 ], [ %5415, %5398 ], [ %5440, %.critedge330.i461.i ], [ %5320, %.critedge333.i455.i ]
-  %.8.i444.i.be = phi ptr [ %5498, %5496 ], [ %5495, %5493 ], [ %5347, %5346 ], [ %5364, %.critedge.i491.i ], [ %5376, %.critedge324.i483.i ], [ %5381, %5377 ], [ %5390, %5383 ], [ %5414, %5398 ], [ %5439, %.critedge330.i461.i ], [ %5489, %.critedge333.i455.i ]
+.preheader1175.backedge:                          ; preds = %5376, %5382, %5492, %5495, %5345, %.critedge.i491.i, %.critedge324.i483.i, %5397, %.critedge330.i461.i, %.critedge333.i455.i
+  %.8252.i443.i.be = phi ptr [ %5498, %5495 ], [ %5493, %5492 ], [ %5347, %5345 ], [ %5364, %.critedge.i491.i ], [ %5319, %.critedge324.i483.i ], [ %5381, %5376 ], [ %5390, %5382 ], [ %5414, %5397 ], [ %5439, %.critedge330.i461.i ], [ %5319, %.critedge333.i455.i ]
+  %.8.i444.i.be = phi ptr [ %5497, %5495 ], [ %5494, %5492 ], [ %5346, %5345 ], [ %5363, %.critedge.i491.i ], [ %5375, %.critedge324.i483.i ], [ %5380, %5376 ], [ %5389, %5382 ], [ %5413, %5397 ], [ %5438, %.critedge330.i461.i ], [ %5488, %.critedge333.i455.i ]
   br label %.preheader1175
 
-5383:                                             ; preds = %5334
+5382:                                             ; preds = %5333
   store i32 808482140, ptr %.8.i444.i, align 1
-  %5384 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
-  %5385 = load i8, ptr %.8252.i443.i, align 1, !tbaa !75
-  %5386 = zext i8 %5385 to i64
-  %5387 = shl nuw nsw i64 %5386, 1
-  %5388 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5387
-  %5389 = load i16, ptr %5388, align 2
-  store i16 %5389, ptr %5384, align 1
-  %5390 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 6
-  %5391 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
+  %5383 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
+  %5384 = load i8, ptr %.8252.i443.i, align 1, !tbaa !75
+  %5385 = zext i8 %5384 to i64
+  %5386 = shl nuw nsw i64 %5385, 1
+  %5387 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5386
+  %5388 = load i16, ptr %5387, align 2
+  store i16 %5388, ptr %5383, align 1
+  %5389 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 6
+  %5390 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
   br label %.preheader1175.backedge
 
-5392:                                             ; preds = %5334
+5391:                                             ; preds = %5333
   %.sroa.0.0.copyload.i532.i = load i16, ptr %.8252.i443.i, align 1
-  %5393 = zext i16 %.sroa.0.0.copyload.i532.i to i32
-  %5394 = and i32 %5393, 49376
-  %5395 = icmp ne i32 %5394, 32960
-  %5396 = and i32 %5393, 30
-  %5397 = icmp eq i32 %5396, 0
-  %.not303.i471.i = or i1 %5395, %5397
-  br i1 %.not303.i471.i, label %.thread979, label %5398, !prof !3
+  %5392 = zext i16 %.sroa.0.0.copyload.i532.i to i32
+  %5393 = and i32 %5392, 49376
+  %5394 = icmp ne i32 %5393, 32960
+  %5395 = and i32 %5392, 30
+  %5396 = icmp eq i32 %5395, 0
+  %.not303.i471.i = or i1 %5394, %5396
+  br i1 %.not303.i471.i, label %.thread979, label %5397, !prof !3
 
-5398:                                             ; preds = %5392
-  %5399 = lshr i16 %.sroa.0.0.copyload.i532.i, 8
-  %5400 = trunc nuw i16 %5399 to i8
-  %5401 = trunc i16 %.sroa.0.0.copyload.i532.i to i8
-  %.tr304.i472.i = shl i8 %5401, 6
-  %5402 = and i8 %5400, 63
+5397:                                             ; preds = %5391
+  %5398 = lshr i16 %.sroa.0.0.copyload.i532.i, 8
+  %5399 = trunc nuw i16 %5398 to i8
+  %5400 = trunc i16 %.sroa.0.0.copyload.i532.i to i8
+  %.tr304.i472.i = shl i8 %5400, 6
+  %5401 = and i8 %5399, 63
   store i16 30044, ptr %.8.i444.i, align 1
-  %5403 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
-  %5404 = lshr i8 %5401, 1
-  %5405 = and i8 %5404, 14
-  %5406 = zext nneg i8 %5405 to i64
-  %5407 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5406
-  %5408 = load i16, ptr %5407, align 2
-  store i16 %5408, ptr %5403, align 1
-  %5409 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
-  %.narrow305.i473.i = or disjoint i8 %5402, %.tr304.i472.i
-  %5410 = zext i8 %.narrow305.i473.i to i64
-  %5411 = shl nuw nsw i64 %5410, 1
-  %5412 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5411
-  %5413 = load i16, ptr %5412, align 2
-  store i16 %5413, ptr %5409, align 1
-  %5414 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 6
-  %5415 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 2
+  %5402 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
+  %5403 = lshr i8 %5400, 1
+  %5404 = and i8 %5403, 14
+  %5405 = zext nneg i8 %5404 to i64
+  %5406 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5405
+  %5407 = load i16, ptr %5406, align 2
+  store i16 %5407, ptr %5402, align 1
+  %5408 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
+  %.narrow305.i473.i = or disjoint i8 %5401, %.tr304.i472.i
+  %5409 = zext i8 %.narrow305.i473.i to i64
+  %5410 = shl nuw nsw i64 %5409, 1
+  %5411 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5410
+  %5412 = load i16, ptr %5411, align 2
+  store i16 %5412, ptr %5408, align 1
+  %5413 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 6
+  %5414 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 2
   br label %.preheader1175.backedge
 
-5416:                                             ; preds = %5334
+5415:                                             ; preds = %5333
   %.sroa.0.0.copyload.i536.i = load i16, ptr %.8252.i443.i, align 1
-  %5417 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 2
-  %5418 = load i8, ptr %5417, align 1, !tbaa !75
-  %.sroa.4.0.insert.ext.i537.i = zext i8 %5418 to i32
+  %5416 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 2
+  %5417 = load i8, ptr %5416, align 1, !tbaa !75
+  %.sroa.4.0.insert.ext.i537.i = zext i8 %5417 to i32
   %.sroa.4.0.insert.shift.i538.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i537.i, 16
   %.sroa.0.0.insert.ext.i539.i = zext i16 %.sroa.0.0.copyload.i536.i to i32
   %.sroa.0.0.insert.insert.i540.i = or disjoint i32 %.sroa.4.0.insert.shift.i538.i, %.sroa.0.0.insert.ext.i539.i
-  %5419 = and i32 %.sroa.0.0.insert.insert.i540.i, 12632304
-  %5420 = icmp eq i32 %5419, 8421600
-  br i1 %5420, label %5421, label %.thread979, !prof !22
+  %5418 = and i32 %.sroa.0.0.insert.insert.i540.i, 12632304
+  %5419 = icmp eq i32 %5418, 8421600
+  br i1 %5419, label %5420, label %.thread979, !prof !22
 
-5421:                                             ; preds = %5416
-  %5422 = and i32 %.sroa.0.0.insert.ext.i539.i, 8207
-  switch i32 %5422, label %.critedge330.i461.i [
+5420:                                             ; preds = %5415
+  %5421 = and i32 %.sroa.0.0.insert.ext.i539.i, 8207
+  switch i32 %5421, label %.critedge330.i461.i [
     i32 8205, label %.thread979
     i32 0, label %.thread979
   ]
 
-.critedge330.i461.i:                              ; preds = %5421
-  %5423 = zext i16 %.sroa.0.0.copyload.i536.i to i64
-  %5424 = shl nuw nsw i64 %5423, 12
-  %5425 = lshr i16 %.sroa.0.0.copyload.i536.i, 2
-  %5426 = and i16 %5425, 4032
-  %5427 = zext nneg i16 %5426 to i64
-  %5428 = and i8 %5418, 63
+.critedge330.i461.i:                              ; preds = %5420
+  %5422 = zext i16 %.sroa.0.0.copyload.i536.i to i64
+  %5423 = shl nuw nsw i64 %5422, 12
+  %5424 = lshr i16 %.sroa.0.0.copyload.i536.i, 2
+  %5425 = and i16 %5424, 4032
+  %5426 = zext nneg i16 %5425 to i64
+  %5427 = and i8 %5417, 63
   store i16 30044, ptr %.8.i444.i, align 1
-  %5429 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
-  %.masked.i468.i = or disjoint i64 %5424, %5427
-  %5430 = lshr i64 %.masked.i468.i, 7
-  %5431 = and i64 %5430, 510
-  %5432 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5431
-  %5433 = load i16, ptr %5432, align 2
-  store i16 %5433, ptr %5429, align 1
-  %5434 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
-  %.tr299.i469.i = trunc i16 %5426 to i8
-  %.narrow300.i470.i = or disjoint i8 %5428, %.tr299.i469.i
-  %5435 = zext i8 %.narrow300.i470.i to i64
-  %5436 = shl nuw nsw i64 %5435, 1
-  %5437 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5436
-  %5438 = load i16, ptr %5437, align 2
-  store i16 %5438, ptr %5434, align 1
-  %5439 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 6
-  %5440 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 3
+  %5428 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
+  %.masked.i468.i = or disjoint i64 %5423, %5426
+  %5429 = lshr i64 %.masked.i468.i, 7
+  %5430 = and i64 %5429, 510
+  %5431 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5430
+  %5432 = load i16, ptr %5431, align 2
+  store i16 %5432, ptr %5428, align 1
+  %5433 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
+  %.tr299.i469.i = trunc i16 %5425 to i8
+  %.narrow300.i470.i = or disjoint i8 %5427, %.tr299.i469.i
+  %5434 = zext i8 %.narrow300.i470.i to i64
+  %5435 = shl nuw nsw i64 %5434, 1
+  %5436 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5435
+  %5437 = load i16, ptr %5436, align 2
+  store i16 %5437, ptr %5433, align 1
+  %5438 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 6
+  %5439 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 3
   br label %.preheader1175.backedge
 
-5441:                                             ; preds = %5334
+5440:                                             ; preds = %5333
   %.sroa.0.0.copyload.i.i449.i = load i32, ptr %.8252.i443.i, align 1
-  %5442 = and i32 %.sroa.0.0.copyload.i.i449.i, -1061109512
-  %5443 = icmp ne i32 %5442, -2139062032
-  %5444 = and i32 %.sroa.0.0.copyload.i.i449.i, 12295
-  %.not293.i450.i = icmp eq i32 %5444, 0
-  %or.cond331.i451.i = or i1 %5443, %.not293.i450.i
-  %5445 = lshr i32 %.sroa.0.0.copyload.i.i449.i, 24
-  br i1 %or.cond331.i451.i, label %.thread979, label %5446, !prof !212
+  %5441 = and i32 %.sroa.0.0.copyload.i.i449.i, -1061109512
+  %5442 = icmp ne i32 %5441, -2139062032
+  %5443 = and i32 %.sroa.0.0.copyload.i.i449.i, 12295
+  %.not293.i450.i = icmp eq i32 %5443, 0
+  %or.cond331.i451.i = or i1 %5442, %.not293.i450.i
+  %5444 = lshr i32 %.sroa.0.0.copyload.i.i449.i, 24
+  br i1 %or.cond331.i451.i, label %.thread979, label %5445, !prof !212
 
-5446:                                             ; preds = %5441
-  %5447 = and i32 %.sroa.0.0.copyload.i.i449.i, 4
-  %5448 = icmp ne i32 %5447, 0
-  %5449 = and i32 %.sroa.0.0.copyload.i.i449.i, 12291
-  %5450 = icmp ne i32 %5449, 0
-  %.not296.i452.i = and i1 %5448, %5450
+5445:                                             ; preds = %5440
+  %5446 = and i32 %.sroa.0.0.copyload.i.i449.i, 4
+  %5447 = icmp ne i32 %5446, 0
+  %5448 = and i32 %.sroa.0.0.copyload.i.i449.i, 12291
+  %5449 = icmp ne i32 %5448, 0
+  %.not296.i452.i = and i1 %5447, %5449
   br i1 %.not296.i452.i, label %.thread979, label %.critedge333.i455.i, !prof !3
 
-.critedge333.i455.i:                              ; preds = %5446
-  %5451 = shl i32 %.sroa.0.0.copyload.i.i449.i, 18
-  %5452 = and i32 %5451, 1835008
-  %5453 = shl i32 %.sroa.0.0.copyload.i.i449.i, 4
-  %5454 = and i32 %5453, 258048
-  %5455 = lshr i32 %.sroa.0.0.copyload.i.i449.i, 10
-  %5456 = and i32 %5455, 3072
-  %5457 = and i32 %5445, 63
-  %5458 = add nsw i32 %5452, -65536
-  %5459 = add nsw i32 %5458, %5454
-  %5460 = or disjoint i32 %5459, %5456
-  %5461 = lshr exact i32 %5459, 10
-  %5462 = add nuw nsw i32 %5461, 55296
+.critedge333.i455.i:                              ; preds = %5445
+  %5450 = shl i32 %.sroa.0.0.copyload.i.i449.i, 18
+  %5451 = and i32 %5450, 1835008
+  %5452 = shl i32 %.sroa.0.0.copyload.i.i449.i, 4
+  %5453 = and i32 %5452, 258048
+  %5454 = lshr i32 %.sroa.0.0.copyload.i.i449.i, 10
+  %5455 = and i32 %5454, 3072
+  %5456 = and i32 %5444, 63
+  %5457 = add nsw i32 %5451, -65536
+  %5458 = add nsw i32 %5457, %5453
+  %5459 = or disjoint i32 %5458, %5455
+  %5460 = lshr exact i32 %5458, 10
+  %5461 = add nuw nsw i32 %5460, 55296
   store i16 30044, ptr %.8.i444.i, align 1
-  %5463 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
-  %5464 = lshr i32 %5462, 7
-  %5465 = and i32 %5464, 65534
-  %5466 = zext nneg i32 %5465 to i64
-  %5467 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5466
-  %5468 = load i16, ptr %5467, align 2
-  store i16 %5468, ptr %5463, align 1
-  %5469 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
-  %5470 = lshr exact i32 %5460, 9
-  %5471 = and i32 %5470, 510
-  %5472 = zext nneg i32 %5471 to i64
-  %5473 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5472
-  %5474 = load i16, ptr %5473, align 2
-  store i16 %5474, ptr %5469, align 1
-  %5475 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 6
-  store i16 30044, ptr %5475, align 1
-  %5476 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 8
-  %5477 = lshr i32 %.sroa.0.0.copyload.i.i449.i, 17
-  %5478 = and i32 %5477, 6
-  %5479 = zext nneg i32 %5478 to i64
-  %5480 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5479
-  %5481 = getelementptr inbounds nuw i8, ptr %5480, i64 440
-  %5482 = load i16, ptr %5481, align 2
-  store i16 %5482, ptr %5476, align 1
-  %5483 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 10
-  %.masked3247 = and i32 %5455, 192
-  %5484 = or disjoint i32 %5457, %.masked3247
-  %5485 = shl nuw nsw i32 %5484, 1
-  %5486 = zext nneg i32 %5485 to i64
-  %5487 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5486
-  %5488 = load i16, ptr %5487, align 2
-  store i16 %5488, ptr %5483, align 1
-  %5489 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 12
+  %5462 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
+  %5463 = lshr i32 %5461, 7
+  %5464 = and i32 %5463, 65534
+  %5465 = zext nneg i32 %5464 to i64
+  %5466 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5465
+  %5467 = load i16, ptr %5466, align 2
+  store i16 %5467, ptr %5462, align 1
+  %5468 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
+  %5469 = lshr exact i32 %5459, 9
+  %5470 = and i32 %5469, 510
+  %5471 = zext nneg i32 %5470 to i64
+  %5472 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5471
+  %5473 = load i16, ptr %5472, align 2
+  store i16 %5473, ptr %5468, align 1
+  %5474 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 6
+  store i16 30044, ptr %5474, align 1
+  %5475 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 8
+  %5476 = lshr i32 %.sroa.0.0.copyload.i.i449.i, 17
+  %5477 = and i32 %5476, 6
+  %5478 = zext nneg i32 %5477 to i64
+  %5479 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5478
+  %5480 = getelementptr inbounds nuw i8, ptr %5479, i64 440
+  %5481 = load i16, ptr %5480, align 2
+  store i16 %5481, ptr %5475, align 1
+  %5482 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 10
+  %.masked3247 = and i32 %5454, 192
+  %5483 = or disjoint i32 %5456, %.masked3247
+  %5484 = shl nuw nsw i32 %5483, 1
+  %5485 = zext nneg i32 %5484 to i64
+  %5486 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5485
+  %5487 = load i16, ptr %5486, align 2
+  store i16 %5487, ptr %5482, align 1
+  %5488 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 12
   br label %.preheader1175.backedge
 
-5490:                                             ; preds = %5334, %5324
-  %5491 = phi i8 [ %5336, %5334 ], [ %5327, %5324 ]
+5489:                                             ; preds = %5333, %5323
+  %5490 = phi i8 [ %5335, %5333 ], [ %5326, %5323 ]
   br i1 %.not1063, label %.thread963, label %.thread979
 
-.thread963:                                       ; preds = %5366, %5371, %5356, %5350, %5362, %5362, %5354, %5354, %5339, %5490
-  %5492 = phi i8 [ %5370, %5366 ], [ %5370, %5371 ], [ %5361, %5356 ], [ %5353, %5350 ], [ %5361, %5362 ], [ %5361, %5362 ], [ %5353, %5354 ], [ %5353, %5354 ], [ %5345, %5339 ], [ %5491, %5490 ]
-  br i1 %.not1066, label %.loopexit1162, label %5493
+.thread963:                                       ; preds = %5365, %5370, %5355, %5349, %5361, %5361, %5353, %5353, %5338, %5489
+  %5491 = phi i8 [ %5369, %5365 ], [ %5369, %5370 ], [ %5360, %5355 ], [ %5352, %5349 ], [ %5360, %5361 ], [ %5360, %5361 ], [ %5352, %5353 ], [ %5352, %5353 ], [ %5344, %5338 ], [ %5490, %5489 ]
+  br i1 %.not1066, label %.loopexit1162, label %5492
 
-5493:                                             ; preds = %.thread963
-  %5494 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
-  %5495 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 1
-  store i8 %5492, ptr %.8.i444.i, align 1, !tbaa !75
+5492:                                             ; preds = %.thread963
+  %5493 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
+  %5494 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 1
+  store i8 %5491, ptr %.8.i444.i, align 1, !tbaa !75
   br label %.preheader1175.backedge
 
-.thread979:                                       ; preds = %5441, %5446, %5416, %5421, %5421, %5392, %5490
-  br i1 %.not1066, label %.loopexit1162, label %5496
+.thread979:                                       ; preds = %5440, %5445, %5415, %5420, %5420, %5391, %5489
+  br i1 %.not1066, label %.loopexit1162, label %5495
 
-5496:                                             ; preds = %.thread979
+5495:                                             ; preds = %.thread979
   store i16 30044, ptr %.8.i444.i, align 1
-  %5497 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
-  store i32 1145456198, ptr %5497, align 1
-  %5498 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 6
-  %5499 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
+  %5496 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 2
+  store i32 1145456198, ptr %5496, align 1
+  %5497 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 6
+  %5498 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
   br label %.preheader1175.backedge
 
-5500:                                             ; preds = %5128
-  %5501 = load i64, ptr %.0340.i, align 8, !tbaa !73
-  %5502 = and i64 %5501, 24
-  %.not402.i = icmp eq i64 %5502, 0
+5499:                                             ; preds = %5127
+  %5500 = load i64, ptr %.0340.i, align 8, !tbaa !73
+  %5501 = and i64 %5500, 24
+  %.not402.i = icmp eq i64 %5501, 0
   store i8 34, ptr %.1343.i, align 1, !tbaa !75
-  br i1 %.not402.i, label %.split378.i, label %5874
+  br i1 %.not402.i, label %.split378.i, label %5873
 
-.split378.i:                                      ; preds = %5500
-  %5503 = getelementptr inbounds nuw i8, ptr %5104, i64 %5102
-  %5504 = ptrtoint ptr %5503 to i64
-  br label %5505
+.split378.i:                                      ; preds = %5499
+  %5502 = getelementptr inbounds nuw i8, ptr %5103, i64 %5101
+  %5503 = ptrtoint ptr %5502 to i64
+  br label %5504
 
-5505:                                             ; preds = %5711, %.split378.i
-  %.0244.i.i301 = phi ptr [ %5104, %.split378.i ], [ %5712, %5711 ]
-  %.pn.i.i302 = phi ptr [ %.1343.i, %.split378.i ], [ %.8.i.i312, %5711 ]
+5504:                                             ; preds = %5710, %.split378.i
+  %.0244.i.i301 = phi ptr [ %5103, %.split378.i ], [ %5711, %5710 ]
+  %.pn.i.i302 = phi ptr [ %.1343.i, %.split378.i ], [ %.8.i.i312, %5710 ]
   %.0243.i.i303 = getelementptr inbounds nuw i8, ptr %.pn.i.i302, i64 1
-  %5506 = ptrtoint ptr %.0244.i.i301 to i64
-  %5507 = sub i64 %5504, %5506
-  %5508 = icmp sgt i64 %5507, 15
-  br i1 %5508, label %.lr.ph2384, label %.preheader1166
+  %5505 = ptrtoint ptr %.0244.i.i301 to i64
+  %5506 = sub i64 %5503, %5505
+  %5507 = icmp sgt i64 %5506, 15
+  br i1 %5507, label %.lr.ph2384, label %.preheader1166
 
-.preheader1166:                                   ; preds = %5604, %5505
-  %.pre-phi3077 = phi i64 [ %5507, %5505 ], [ %5608, %5604 ]
-  %.1245.i.i304.lcssa = phi ptr [ %.0244.i.i301, %5505 ], [ %5606, %5604 ]
-  %.1.i426.i.lcssa = phi ptr [ %.0243.i.i303, %5505 ], [ %5605, %5604 ]
-  %5509 = icmp sgt i64 %.pre-phi3077, 3
-  br i1 %5509, label %.lr.ph2390, label %.preheader1164
+.preheader1166:                                   ; preds = %5603, %5504
+  %.pre-phi3077 = phi i64 [ %5506, %5504 ], [ %5607, %5603 ]
+  %.1245.i.i304.lcssa = phi ptr [ %.0244.i.i301, %5504 ], [ %5605, %5603 ]
+  %.1.i426.i.lcssa = phi ptr [ %.0243.i.i303, %5504 ], [ %5604, %5603 ]
+  %5508 = icmp sgt i64 %.pre-phi3077, 3
+  br i1 %5508, label %.lr.ph2390, label %.preheader1164
 
-.lr.ph2384:                                       ; preds = %5505, %5604
-  %.1.i426.i2382 = phi ptr [ %5605, %5604 ], [ %.0243.i.i303, %5505 ]
-  %.1245.i.i3042381 = phi ptr [ %5606, %5604 ], [ %.0244.i.i301, %5505 ]
-  %5510 = load i8, ptr %.1245.i.i3042381, align 1, !tbaa !75
-  %5511 = zext i8 %5510 to i64
-  %5512 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5511
-  %5513 = load i8, ptr %5512, align 1, !tbaa !75
-  %.not277.i.i381 = icmp eq i8 %5513, 0
-  br i1 %.not277.i.i381, label %5514, label %.preheader1161.preheader, !prof !22
+.lr.ph2384:                                       ; preds = %5504, %5603
+  %.1.i426.i2382 = phi ptr [ %5604, %5603 ], [ %.0243.i.i303, %5504 ]
+  %.1245.i.i3042381 = phi ptr [ %5605, %5603 ], [ %.0244.i.i301, %5504 ]
+  %5509 = load i8, ptr %.1245.i.i3042381, align 1, !tbaa !75
+  %5510 = zext i8 %5509 to i64
+  %5511 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5510
+  %5512 = load i8, ptr %5511, align 1, !tbaa !75
+  %.not277.i.i381 = icmp eq i8 %5512, 0
+  br i1 %.not277.i.i381, label %5513, label %.preheader1161.preheader, !prof !22
 
-5514:                                             ; preds = %.lr.ph2384
-  %5515 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 1
-  %5516 = load i8, ptr %5515, align 1, !tbaa !75
-  %5517 = zext i8 %5516 to i64
-  %5518 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5517
-  %5519 = load i8, ptr %5518, align 1, !tbaa !75
-  %.not278.i.i382 = icmp eq i8 %5519, 0
-  br i1 %.not278.i.i382, label %5520, label %.loopexit1168, !prof !22
+5513:                                             ; preds = %.lr.ph2384
+  %5514 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 1
+  %5515 = load i8, ptr %5514, align 1, !tbaa !75
+  %5516 = zext i8 %5515 to i64
+  %5517 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5516
+  %5518 = load i8, ptr %5517, align 1, !tbaa !75
+  %.not278.i.i382 = icmp eq i8 %5518, 0
+  br i1 %.not278.i.i382, label %5519, label %.loopexit1168, !prof !22
 
-5520:                                             ; preds = %5514
-  %5521 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 2
-  %5522 = load i8, ptr %5521, align 1, !tbaa !75
-  %5523 = zext i8 %5522 to i64
-  %5524 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5523
-  %5525 = load i8, ptr %5524, align 1, !tbaa !75
-  %.not279.i.i383 = icmp eq i8 %5525, 0
-  br i1 %.not279.i.i383, label %5526, label %.loopexit1169, !prof !22
+5519:                                             ; preds = %5513
+  %5520 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 2
+  %5521 = load i8, ptr %5520, align 1, !tbaa !75
+  %5522 = zext i8 %5521 to i64
+  %5523 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5522
+  %5524 = load i8, ptr %5523, align 1, !tbaa !75
+  %.not279.i.i383 = icmp eq i8 %5524, 0
+  br i1 %.not279.i.i383, label %5525, label %.loopexit1169, !prof !22
 
-5526:                                             ; preds = %5520
-  %5527 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 3
-  %5528 = load i8, ptr %5527, align 1, !tbaa !75
-  %5529 = zext i8 %5528 to i64
-  %5530 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5529
-  %5531 = load i8, ptr %5530, align 1, !tbaa !75
-  %.not280.i.i384 = icmp eq i8 %5531, 0
-  br i1 %.not280.i.i384, label %5532, label %.loopexit1170, !prof !22
+5525:                                             ; preds = %5519
+  %5526 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 3
+  %5527 = load i8, ptr %5526, align 1, !tbaa !75
+  %5528 = zext i8 %5527 to i64
+  %5529 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5528
+  %5530 = load i8, ptr %5529, align 1, !tbaa !75
+  %.not280.i.i384 = icmp eq i8 %5530, 0
+  br i1 %.not280.i.i384, label %5531, label %.loopexit1170, !prof !22
 
-5532:                                             ; preds = %5526
-  %5533 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 4
-  %5534 = load i8, ptr %5533, align 1, !tbaa !75
-  %5535 = zext i8 %5534 to i64
-  %5536 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5535
-  %5537 = load i8, ptr %5536, align 1, !tbaa !75
-  %.not281.i.i385 = icmp eq i8 %5537, 0
-  br i1 %.not281.i.i385, label %5538, label %5656, !prof !22
+5531:                                             ; preds = %5525
+  %5532 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 4
+  %5533 = load i8, ptr %5532, align 1, !tbaa !75
+  %5534 = zext i8 %5533 to i64
+  %5535 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5534
+  %5536 = load i8, ptr %5535, align 1, !tbaa !75
+  %.not281.i.i385 = icmp eq i8 %5536, 0
+  br i1 %.not281.i.i385, label %5537, label %5655, !prof !22
 
-5538:                                             ; preds = %5532
-  %5539 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 5
-  %5540 = load i8, ptr %5539, align 1, !tbaa !75
-  %5541 = zext i8 %5540 to i64
-  %5542 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5541
-  %5543 = load i8, ptr %5542, align 1, !tbaa !75
-  %.not282.i.i386 = icmp eq i8 %5543, 0
-  br i1 %.not282.i.i386, label %5544, label %5660, !prof !22
+5537:                                             ; preds = %5531
+  %5538 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 5
+  %5539 = load i8, ptr %5538, align 1, !tbaa !75
+  %5540 = zext i8 %5539 to i64
+  %5541 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5540
+  %5542 = load i8, ptr %5541, align 1, !tbaa !75
+  %.not282.i.i386 = icmp eq i8 %5542, 0
+  br i1 %.not282.i.i386, label %5543, label %5659, !prof !22
 
-5544:                                             ; preds = %5538
-  %5545 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 6
-  %5546 = load i8, ptr %5545, align 1, !tbaa !75
-  %5547 = zext i8 %5546 to i64
-  %5548 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5547
-  %5549 = load i8, ptr %5548, align 1, !tbaa !75
-  %.not283.i.i387 = icmp eq i8 %5549, 0
-  br i1 %.not283.i.i387, label %5550, label %5663, !prof !22
+5543:                                             ; preds = %5537
+  %5544 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 6
+  %5545 = load i8, ptr %5544, align 1, !tbaa !75
+  %5546 = zext i8 %5545 to i64
+  %5547 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5546
+  %5548 = load i8, ptr %5547, align 1, !tbaa !75
+  %.not283.i.i387 = icmp eq i8 %5548, 0
+  br i1 %.not283.i.i387, label %5549, label %5662, !prof !22
 
-5550:                                             ; preds = %5544
-  %5551 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 7
-  %5552 = load i8, ptr %5551, align 1, !tbaa !75
-  %5553 = zext i8 %5552 to i64
-  %5554 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5553
-  %5555 = load i8, ptr %5554, align 1, !tbaa !75
-  %.not284.i.i388 = icmp eq i8 %5555, 0
-  br i1 %.not284.i.i388, label %5556, label %5666, !prof !22
+5549:                                             ; preds = %5543
+  %5550 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 7
+  %5551 = load i8, ptr %5550, align 1, !tbaa !75
+  %5552 = zext i8 %5551 to i64
+  %5553 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5552
+  %5554 = load i8, ptr %5553, align 1, !tbaa !75
+  %.not284.i.i388 = icmp eq i8 %5554, 0
+  br i1 %.not284.i.i388, label %5555, label %5665, !prof !22
 
-5556:                                             ; preds = %5550
-  %5557 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 8
-  %5558 = load i8, ptr %5557, align 1, !tbaa !75
-  %5559 = zext i8 %5558 to i64
-  %5560 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5559
-  %5561 = load i8, ptr %5560, align 1, !tbaa !75
-  %.not285.i.i389 = icmp eq i8 %5561, 0
-  br i1 %.not285.i.i389, label %5562, label %5669, !prof !22
+5555:                                             ; preds = %5549
+  %5556 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 8
+  %5557 = load i8, ptr %5556, align 1, !tbaa !75
+  %5558 = zext i8 %5557 to i64
+  %5559 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5558
+  %5560 = load i8, ptr %5559, align 1, !tbaa !75
+  %.not285.i.i389 = icmp eq i8 %5560, 0
+  br i1 %.not285.i.i389, label %5561, label %5668, !prof !22
 
-5562:                                             ; preds = %5556
-  %5563 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 9
-  %5564 = load i8, ptr %5563, align 1, !tbaa !75
-  %5565 = zext i8 %5564 to i64
-  %5566 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5565
-  %5567 = load i8, ptr %5566, align 1, !tbaa !75
-  %.not286.i.i390 = icmp eq i8 %5567, 0
-  br i1 %.not286.i.i390, label %5568, label %5673, !prof !22
+5561:                                             ; preds = %5555
+  %5562 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 9
+  %5563 = load i8, ptr %5562, align 1, !tbaa !75
+  %5564 = zext i8 %5563 to i64
+  %5565 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5564
+  %5566 = load i8, ptr %5565, align 1, !tbaa !75
+  %.not286.i.i390 = icmp eq i8 %5566, 0
+  br i1 %.not286.i.i390, label %5567, label %5672, !prof !22
 
-5568:                                             ; preds = %5562
-  %5569 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 10
-  %5570 = load i8, ptr %5569, align 1, !tbaa !75
-  %5571 = zext i8 %5570 to i64
-  %5572 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5571
-  %5573 = load i8, ptr %5572, align 1, !tbaa !75
-  %.not287.i.i391 = icmp eq i8 %5573, 0
-  br i1 %.not287.i.i391, label %5574, label %5676, !prof !22
+5567:                                             ; preds = %5561
+  %5568 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 10
+  %5569 = load i8, ptr %5568, align 1, !tbaa !75
+  %5570 = zext i8 %5569 to i64
+  %5571 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5570
+  %5572 = load i8, ptr %5571, align 1, !tbaa !75
+  %.not287.i.i391 = icmp eq i8 %5572, 0
+  br i1 %.not287.i.i391, label %5573, label %5675, !prof !22
 
-5574:                                             ; preds = %5568
-  %5575 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 11
-  %5576 = load i8, ptr %5575, align 1, !tbaa !75
-  %5577 = zext i8 %5576 to i64
-  %5578 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5577
-  %5579 = load i8, ptr %5578, align 1, !tbaa !75
-  %.not288.i.i392 = icmp eq i8 %5579, 0
-  br i1 %.not288.i.i392, label %5580, label %5679, !prof !22
+5573:                                             ; preds = %5567
+  %5574 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 11
+  %5575 = load i8, ptr %5574, align 1, !tbaa !75
+  %5576 = zext i8 %5575 to i64
+  %5577 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5576
+  %5578 = load i8, ptr %5577, align 1, !tbaa !75
+  %.not288.i.i392 = icmp eq i8 %5578, 0
+  br i1 %.not288.i.i392, label %5579, label %5678, !prof !22
 
-5580:                                             ; preds = %5574
-  %5581 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 12
-  %5582 = load i8, ptr %5581, align 1, !tbaa !75
-  %5583 = zext i8 %5582 to i64
-  %5584 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5583
-  %5585 = load i8, ptr %5584, align 1, !tbaa !75
-  %.not289.i.i393 = icmp eq i8 %5585, 0
-  br i1 %.not289.i.i393, label %5586, label %5682, !prof !22
+5579:                                             ; preds = %5573
+  %5580 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 12
+  %5581 = load i8, ptr %5580, align 1, !tbaa !75
+  %5582 = zext i8 %5581 to i64
+  %5583 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5582
+  %5584 = load i8, ptr %5583, align 1, !tbaa !75
+  %.not289.i.i393 = icmp eq i8 %5584, 0
+  br i1 %.not289.i.i393, label %5585, label %5681, !prof !22
 
-5586:                                             ; preds = %5580
-  %5587 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 13
-  %5588 = load i8, ptr %5587, align 1, !tbaa !75
-  %5589 = zext i8 %5588 to i64
-  %5590 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5589
-  %5591 = load i8, ptr %5590, align 1, !tbaa !75
-  %.not290.i.i394 = icmp eq i8 %5591, 0
-  br i1 %.not290.i.i394, label %5592, label %5685, !prof !22
+5585:                                             ; preds = %5579
+  %5586 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 13
+  %5587 = load i8, ptr %5586, align 1, !tbaa !75
+  %5588 = zext i8 %5587 to i64
+  %5589 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5588
+  %5590 = load i8, ptr %5589, align 1, !tbaa !75
+  %.not290.i.i394 = icmp eq i8 %5590, 0
+  br i1 %.not290.i.i394, label %5591, label %5684, !prof !22
 
-5592:                                             ; preds = %5586
-  %5593 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 14
-  %5594 = load i8, ptr %5593, align 1, !tbaa !75
-  %5595 = zext i8 %5594 to i64
-  %5596 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5595
-  %5597 = load i8, ptr %5596, align 1, !tbaa !75
-  %.not291.i.i395 = icmp eq i8 %5597, 0
-  br i1 %.not291.i.i395, label %5598, label %5688, !prof !22
+5591:                                             ; preds = %5585
+  %5592 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 14
+  %5593 = load i8, ptr %5592, align 1, !tbaa !75
+  %5594 = zext i8 %5593 to i64
+  %5595 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5594
+  %5596 = load i8, ptr %5595, align 1, !tbaa !75
+  %.not291.i.i395 = icmp eq i8 %5596, 0
+  br i1 %.not291.i.i395, label %5597, label %5687, !prof !22
 
-5598:                                             ; preds = %5592
-  %5599 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 15
-  %5600 = load i8, ptr %5599, align 1, !tbaa !75
-  %5601 = zext i8 %5600 to i64
-  %5602 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5601
-  %5603 = load i8, ptr %5602, align 1, !tbaa !75
-  %.not292.i.i396 = icmp eq i8 %5603, 0
-  br i1 %.not292.i.i396, label %5604, label %5691, !prof !22
+5597:                                             ; preds = %5591
+  %5598 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 15
+  %5599 = load i8, ptr %5598, align 1, !tbaa !75
+  %5600 = zext i8 %5599 to i64
+  %5601 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5600
+  %5602 = load i8, ptr %5601, align 1, !tbaa !75
+  %.not292.i.i396 = icmp eq i8 %5602, 0
+  br i1 %.not292.i.i396, label %5603, label %5690, !prof !22
 
-5604:                                             ; preds = %5598
+5603:                                             ; preds = %5597
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(16) %.1245.i.i3042381, i64 16, i1 false)
-  %5605 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 16
-  %5606 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 16
-  %5607 = ptrtoint ptr %5606 to i64
-  %5608 = sub i64 %5504, %5607
-  %5609 = icmp sgt i64 %5608, 15
-  br i1 %5609, label %.lr.ph2384, label %.preheader1166, !llvm.loop !209
+  %5604 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 16
+  %5605 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 16
+  %5606 = ptrtoint ptr %5605 to i64
+  %5607 = sub i64 %5503, %5606
+  %5608 = icmp sgt i64 %5607, 15
+  br i1 %5608, label %.lr.ph2384, label %.preheader1166, !llvm.loop !209
 
-.preheader1164:                                   ; preds = %5633, %.preheader1166
-  %.6250.i.i305.lcssa = phi ptr [ %.1245.i.i304.lcssa, %.preheader1166 ], [ %5636, %5633 ]
-  %.6.i.i306.lcssa = phi ptr [ %.1.i426.i.lcssa, %.preheader1166 ], [ %5635, %5633 ]
-  %5610 = icmp ugt ptr %5503, %.6250.i.i305.lcssa
-  br i1 %5610, label %.lr.ph2395, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i
+.preheader1164:                                   ; preds = %5632, %.preheader1166
+  %.6250.i.i305.lcssa = phi ptr [ %.1245.i.i304.lcssa, %.preheader1166 ], [ %5635, %5632 ]
+  %.6.i.i306.lcssa = phi ptr [ %.1.i426.i.lcssa, %.preheader1166 ], [ %5634, %5632 ]
+  %5609 = icmp ugt ptr %5502, %.6250.i.i305.lcssa
+  br i1 %5609, label %.lr.ph2395, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i
 
-.lr.ph2390:                                       ; preds = %.preheader1166, %5633
-  %.6.i.i3062389 = phi ptr [ %5635, %5633 ], [ %.1.i426.i.lcssa, %.preheader1166 ]
-  %.6250.i.i3052388 = phi ptr [ %5636, %5633 ], [ %.1245.i.i304.lcssa, %.preheader1166 ]
-  %5611 = load i8, ptr %.6250.i.i3052388, align 1, !tbaa !75
-  %5612 = zext i8 %5611 to i64
-  %5613 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5612
-  %5614 = load i8, ptr %5613, align 1, !tbaa !75
-  %.not273.i.i371 = icmp eq i8 %5614, 0
-  br i1 %.not273.i.i371, label %5615, label %.preheader1161.preheader, !prof !22
+.lr.ph2390:                                       ; preds = %.preheader1166, %5632
+  %.6.i.i3062389 = phi ptr [ %5634, %5632 ], [ %.1.i426.i.lcssa, %.preheader1166 ]
+  %.6250.i.i3052388 = phi ptr [ %5635, %5632 ], [ %.1245.i.i304.lcssa, %.preheader1166 ]
+  %5610 = load i8, ptr %.6250.i.i3052388, align 1, !tbaa !75
+  %5611 = zext i8 %5610 to i64
+  %5612 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5611
+  %5613 = load i8, ptr %5612, align 1, !tbaa !75
+  %.not273.i.i371 = icmp eq i8 %5613, 0
+  br i1 %.not273.i.i371, label %5614, label %.preheader1161.preheader, !prof !22
 
-5615:                                             ; preds = %.lr.ph2390
-  %5616 = getelementptr inbounds nuw i8, ptr %.6250.i.i3052388, i64 1
-  %5617 = load i8, ptr %5616, align 1, !tbaa !75
-  %5618 = zext i8 %5617 to i64
-  %5619 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5618
-  %5620 = load i8, ptr %5619, align 1, !tbaa !75
-  %.not274.i.i372 = icmp eq i8 %5620, 0
-  br i1 %.not274.i.i372, label %5621, label %.loopexit1168, !prof !22
+5614:                                             ; preds = %.lr.ph2390
+  %5615 = getelementptr inbounds nuw i8, ptr %.6250.i.i3052388, i64 1
+  %5616 = load i8, ptr %5615, align 1, !tbaa !75
+  %5617 = zext i8 %5616 to i64
+  %5618 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5617
+  %5619 = load i8, ptr %5618, align 1, !tbaa !75
+  %.not274.i.i372 = icmp eq i8 %5619, 0
+  br i1 %.not274.i.i372, label %5620, label %.loopexit1168, !prof !22
 
-5621:                                             ; preds = %5615
-  %5622 = getelementptr inbounds nuw i8, ptr %.6250.i.i3052388, i64 2
-  %5623 = load i8, ptr %5622, align 1, !tbaa !75
-  %5624 = zext i8 %5623 to i64
-  %5625 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5624
-  %5626 = load i8, ptr %5625, align 1, !tbaa !75
-  %.not275.i.i375 = icmp eq i8 %5626, 0
-  br i1 %.not275.i.i375, label %5627, label %.loopexit1169, !prof !22
+5620:                                             ; preds = %5614
+  %5621 = getelementptr inbounds nuw i8, ptr %.6250.i.i3052388, i64 2
+  %5622 = load i8, ptr %5621, align 1, !tbaa !75
+  %5623 = zext i8 %5622 to i64
+  %5624 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5623
+  %5625 = load i8, ptr %5624, align 1, !tbaa !75
+  %.not275.i.i375 = icmp eq i8 %5625, 0
+  br i1 %.not275.i.i375, label %5626, label %.loopexit1169, !prof !22
 
-5627:                                             ; preds = %5621
-  %5628 = getelementptr inbounds nuw i8, ptr %.6250.i.i3052388, i64 3
-  %5629 = load i8, ptr %5628, align 1, !tbaa !75
-  %5630 = zext i8 %5629 to i64
-  %5631 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5630
-  %5632 = load i8, ptr %5631, align 1, !tbaa !75
-  %.not276.i.i378 = icmp eq i8 %5632, 0
-  br i1 %.not276.i.i378, label %5633, label %.loopexit1170, !prof !22
+5626:                                             ; preds = %5620
+  %5627 = getelementptr inbounds nuw i8, ptr %.6250.i.i3052388, i64 3
+  %5628 = load i8, ptr %5627, align 1, !tbaa !75
+  %5629 = zext i8 %5628 to i64
+  %5630 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5629
+  %5631 = load i8, ptr %5630, align 1, !tbaa !75
+  %.not276.i.i378 = icmp eq i8 %5631, 0
+  br i1 %.not276.i.i378, label %5632, label %.loopexit1170, !prof !22
 
-5633:                                             ; preds = %5627
-  %5634 = load i32, ptr %.6250.i.i3052388, align 1
-  store i32 %5634, ptr %.6.i.i3062389, align 1
-  %5635 = getelementptr inbounds nuw i8, ptr %.6.i.i3062389, i64 4
-  %5636 = getelementptr inbounds nuw i8, ptr %.6250.i.i3052388, i64 4
-  %5637 = ptrtoint ptr %5636 to i64
-  %5638 = sub i64 %5504, %5637
-  %5639 = icmp sgt i64 %5638, 3
-  br i1 %5639, label %.lr.ph2390, label %.preheader1164, !llvm.loop !210
+5632:                                             ; preds = %5626
+  %5633 = load i32, ptr %.6250.i.i3052388, align 1
+  store i32 %5633, ptr %.6.i.i3062389, align 1
+  %5634 = getelementptr inbounds nuw i8, ptr %.6.i.i3062389, i64 4
+  %5635 = getelementptr inbounds nuw i8, ptr %.6250.i.i3052388, i64 4
+  %5636 = ptrtoint ptr %5635 to i64
+  %5637 = sub i64 %5503, %5636
+  %5638 = icmp sgt i64 %5637, 3
+  br i1 %5638, label %.lr.ph2390, label %.preheader1164, !llvm.loop !210
 
-.lr.ph2395:                                       ; preds = %.preheader1164, %5644
-  %.7.i.i3082394 = phi ptr [ %5646, %5644 ], [ %.6.i.i306.lcssa, %.preheader1164 ]
-  %.7251.i.i3072393 = phi ptr [ %5645, %5644 ], [ %.6250.i.i305.lcssa, %.preheader1164 ]
-  %5640 = load i8, ptr %.7251.i.i3072393, align 1, !tbaa !75
-  %5641 = zext i8 %5640 to i64
-  %5642 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5641
-  %5643 = load i8, ptr %5642, align 1, !tbaa !75
-  %.not.i428.i = icmp eq i8 %5643, 0
-  br i1 %.not.i428.i, label %5644, label %.preheader1161.preheader, !prof !22
+.lr.ph2395:                                       ; preds = %.preheader1164, %5643
+  %.7.i.i3082394 = phi ptr [ %5645, %5643 ], [ %.6.i.i306.lcssa, %.preheader1164 ]
+  %.7251.i.i3072393 = phi ptr [ %5644, %5643 ], [ %.6250.i.i305.lcssa, %.preheader1164 ]
+  %5639 = load i8, ptr %.7251.i.i3072393, align 1, !tbaa !75
+  %5640 = zext i8 %5639 to i64
+  %5641 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5640
+  %5642 = load i8, ptr %5641, align 1, !tbaa !75
+  %.not.i428.i = icmp eq i8 %5642, 0
+  br i1 %.not.i428.i, label %5643, label %.preheader1161.preheader, !prof !22
 
-5644:                                             ; preds = %.lr.ph2395
-  %5645 = getelementptr inbounds nuw i8, ptr %.7251.i.i3072393, i64 1
-  %5646 = getelementptr inbounds nuw i8, ptr %.7.i.i3082394, i64 1
-  store i8 %5640, ptr %.7.i.i3082394, align 1, !tbaa !75
-  %5647 = icmp ugt ptr %5503, %5645
-  br i1 %5647, label %.lr.ph2395, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, !llvm.loop !211
+5643:                                             ; preds = %.lr.ph2395
+  %5644 = getelementptr inbounds nuw i8, ptr %.7251.i.i3072393, i64 1
+  %5645 = getelementptr inbounds nuw i8, ptr %.7.i.i3082394, i64 1
+  store i8 %5639, ptr %.7.i.i3082394, align 1, !tbaa !75
+  %5646 = icmp ugt ptr %5502, %5644
+  br i1 %5646, label %.lr.ph2395, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, !llvm.loop !211
 
-.loopexit1168:                                    ; preds = %5514, %5615
-  %5648 = phi i8 [ %5611, %5615 ], [ %5510, %5514 ]
-  %.3247.i.i373 = phi ptr [ %.6250.i.i3052388, %5615 ], [ %.1245.i.i3042381, %5514 ]
-  %.3.i.i374 = phi ptr [ %.6.i.i3062389, %5615 ], [ %.1.i426.i2382, %5514 ]
-  store i8 %5648, ptr %.3.i.i374, align 1
-  %5649 = getelementptr inbounds nuw i8, ptr %.3.i.i374, i64 1
-  %5650 = getelementptr inbounds nuw i8, ptr %.3247.i.i373, i64 1
+.loopexit1168:                                    ; preds = %5513, %5614
+  %5647 = phi i8 [ %5610, %5614 ], [ %5509, %5513 ]
+  %.3247.i.i373 = phi ptr [ %.6250.i.i3052388, %5614 ], [ %.1245.i.i3042381, %5513 ]
+  %.3.i.i374 = phi ptr [ %.6.i.i3062389, %5614 ], [ %.1.i426.i2382, %5513 ]
+  store i8 %5647, ptr %.3.i.i374, align 1
+  %5648 = getelementptr inbounds nuw i8, ptr %.3.i.i374, i64 1
+  %5649 = getelementptr inbounds nuw i8, ptr %.3247.i.i373, i64 1
   br label %.preheader1161.preheader
 
-.loopexit1169:                                    ; preds = %5520, %5621
-  %.4248.i.i376 = phi ptr [ %.6250.i.i3052388, %5621 ], [ %.1245.i.i3042381, %5520 ]
-  %.4.i.i377 = phi ptr [ %.6.i.i3062389, %5621 ], [ %.1.i426.i2382, %5520 ]
-  %5651 = load i16, ptr %.4248.i.i376, align 1
-  store i16 %5651, ptr %.4.i.i377, align 1
-  %5652 = getelementptr inbounds nuw i8, ptr %.4.i.i377, i64 2
-  %5653 = getelementptr inbounds nuw i8, ptr %.4248.i.i376, i64 2
+.loopexit1169:                                    ; preds = %5519, %5620
+  %.4248.i.i376 = phi ptr [ %.6250.i.i3052388, %5620 ], [ %.1245.i.i3042381, %5519 ]
+  %.4.i.i377 = phi ptr [ %.6.i.i3062389, %5620 ], [ %.1.i426.i2382, %5519 ]
+  %5650 = load i16, ptr %.4248.i.i376, align 1
+  store i16 %5650, ptr %.4.i.i377, align 1
+  %5651 = getelementptr inbounds nuw i8, ptr %.4.i.i377, i64 2
+  %5652 = getelementptr inbounds nuw i8, ptr %.4248.i.i376, i64 2
   br label %.preheader1161.preheader
 
-.loopexit1170:                                    ; preds = %5526, %5627
-  %.5249.i.i379 = phi ptr [ %.6250.i.i3052388, %5627 ], [ %.1245.i.i3042381, %5526 ]
-  %.5.i.i380 = phi ptr [ %.6.i.i3062389, %5627 ], [ %.1.i426.i2382, %5526 ]
+.loopexit1170:                                    ; preds = %5525, %5626
+  %.5249.i.i379 = phi ptr [ %.6250.i.i3052388, %5626 ], [ %.1245.i.i3042381, %5525 ]
+  %.5.i.i380 = phi ptr [ %.6.i.i3062389, %5626 ], [ %.1.i426.i2382, %5525 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.5.i.i380, ptr noundef nonnull align 1 dereferenceable(3) %.5249.i.i379, i64 3, i1 false)
-  %5654 = getelementptr inbounds nuw i8, ptr %.5.i.i380, i64 3
-  %5655 = getelementptr inbounds nuw i8, ptr %.5249.i.i379, i64 3
+  %5653 = getelementptr inbounds nuw i8, ptr %.5.i.i380, i64 3
+  %5654 = getelementptr inbounds nuw i8, ptr %.5249.i.i379, i64 3
   br label %.preheader1161.preheader
 
-5656:                                             ; preds = %5532
-  %5657 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 4
-  %5658 = load i32, ptr %.1245.i.i3042381, align 1
-  store i32 %5658, ptr %.1.i426.i2382, align 1
-  %5659 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 4
+5655:                                             ; preds = %5531
+  %5656 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 4
+  %5657 = load i32, ptr %.1245.i.i3042381, align 1
+  store i32 %5657, ptr %.1.i426.i2382, align 1
+  %5658 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 4
   br label %.preheader1161.preheader
 
-5660:                                             ; preds = %5538
-  %5661 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 5
+5659:                                             ; preds = %5537
+  %5660 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(5) %.1245.i.i3042381, i64 5, i1 false)
-  %5662 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 5
+  %5661 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 5
   br label %.preheader1161.preheader
 
-5663:                                             ; preds = %5544
-  %5664 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 6
+5662:                                             ; preds = %5543
+  %5663 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(6) %.1245.i.i3042381, i64 6, i1 false)
-  %5665 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 6
+  %5664 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 6
   br label %.preheader1161.preheader
 
-5666:                                             ; preds = %5550
-  %5667 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 7
+5665:                                             ; preds = %5549
+  %5666 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(7) %.1245.i.i3042381, i64 7, i1 false)
-  %5668 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 7
+  %5667 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 7
   br label %.preheader1161.preheader
 
-5669:                                             ; preds = %5556
-  %5670 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 8
-  %5671 = load i64, ptr %.1245.i.i3042381, align 1
-  store i64 %5671, ptr %.1.i426.i2382, align 1
-  %5672 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 8
+5668:                                             ; preds = %5555
+  %5669 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 8
+  %5670 = load i64, ptr %.1245.i.i3042381, align 1
+  store i64 %5670, ptr %.1.i426.i2382, align 1
+  %5671 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 8
   br label %.preheader1161.preheader
 
-5673:                                             ; preds = %5562
-  %5674 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 9
+5672:                                             ; preds = %5561
+  %5673 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(9) %.1245.i.i3042381, i64 9, i1 false)
-  %5675 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 9
+  %5674 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 9
   br label %.preheader1161.preheader
 
-5676:                                             ; preds = %5568
-  %5677 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 10
+5675:                                             ; preds = %5567
+  %5676 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(10) %.1245.i.i3042381, i64 10, i1 false)
-  %5678 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 10
+  %5677 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 10
   br label %.preheader1161.preheader
 
-5679:                                             ; preds = %5574
-  %5680 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 11
+5678:                                             ; preds = %5573
+  %5679 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(11) %.1245.i.i3042381, i64 11, i1 false)
-  %5681 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 11
+  %5680 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 11
   br label %.preheader1161.preheader
 
-5682:                                             ; preds = %5580
-  %5683 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 12
+5681:                                             ; preds = %5579
+  %5682 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(12) %.1245.i.i3042381, i64 12, i1 false)
-  %5684 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 12
+  %5683 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 12
   br label %.preheader1161.preheader
 
-5685:                                             ; preds = %5586
-  %5686 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 13
+5684:                                             ; preds = %5585
+  %5685 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(13) %.1245.i.i3042381, i64 13, i1 false)
-  %5687 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 13
+  %5686 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 13
   br label %.preheader1161.preheader
 
-5688:                                             ; preds = %5592
-  %5689 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 14
+5687:                                             ; preds = %5591
+  %5688 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(14) %.1245.i.i3042381, i64 14, i1 false)
-  %5690 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 14
+  %5689 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 14
   br label %.preheader1161.preheader
 
-5691:                                             ; preds = %5598
-  %5692 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 15
+5690:                                             ; preds = %5597
+  %5691 = getelementptr inbounds nuw i8, ptr %.1245.i.i3042381, i64 15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.1.i426.i2382, ptr noundef nonnull align 1 dereferenceable(15) %.1245.i.i3042381, i64 15, i1 false)
-  %5693 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 15
+  %5692 = getelementptr inbounds nuw i8, ptr %.1.i426.i2382, i64 15
   br label %.preheader1161.preheader
 
-.preheader1161.preheader:                         ; preds = %.lr.ph2384, %.lr.ph2390, %.lr.ph2395, %.loopexit1168, %.loopexit1169, %.loopexit1170, %5656, %5660, %5663, %5666, %5669, %5673, %5676, %5679, %5682, %5685, %5688, %5691
-  %.8252.i.i311.ph = phi ptr [ %5650, %.loopexit1168 ], [ %5653, %.loopexit1169 ], [ %5655, %.loopexit1170 ], [ %5657, %5656 ], [ %5661, %5660 ], [ %5664, %5663 ], [ %5667, %5666 ], [ %5670, %5669 ], [ %5674, %5673 ], [ %5677, %5676 ], [ %5680, %5679 ], [ %5683, %5682 ], [ %5686, %5685 ], [ %5689, %5688 ], [ %5692, %5691 ], [ %.7251.i.i3072393, %.lr.ph2395 ], [ %.6250.i.i3052388, %.lr.ph2390 ], [ %.1245.i.i3042381, %.lr.ph2384 ]
-  %.8.i.i312.ph = phi ptr [ %5649, %.loopexit1168 ], [ %5652, %.loopexit1169 ], [ %5654, %.loopexit1170 ], [ %5659, %5656 ], [ %5662, %5660 ], [ %5665, %5663 ], [ %5668, %5666 ], [ %5672, %5669 ], [ %5675, %5673 ], [ %5678, %5676 ], [ %5681, %5679 ], [ %5684, %5682 ], [ %5687, %5685 ], [ %5690, %5688 ], [ %5693, %5691 ], [ %.7.i.i3082394, %.lr.ph2395 ], [ %.6.i.i3062389, %.lr.ph2390 ], [ %.1.i426.i2382, %.lr.ph2384 ]
+.preheader1161.preheader:                         ; preds = %.lr.ph2384, %.lr.ph2390, %.lr.ph2395, %.loopexit1168, %.loopexit1169, %.loopexit1170, %5655, %5659, %5662, %5665, %5668, %5672, %5675, %5678, %5681, %5684, %5687, %5690
+  %.8252.i.i311.ph = phi ptr [ %5649, %.loopexit1168 ], [ %5652, %.loopexit1169 ], [ %5654, %.loopexit1170 ], [ %5656, %5655 ], [ %5660, %5659 ], [ %5663, %5662 ], [ %5666, %5665 ], [ %5669, %5668 ], [ %5673, %5672 ], [ %5676, %5675 ], [ %5679, %5678 ], [ %5682, %5681 ], [ %5685, %5684 ], [ %5688, %5687 ], [ %5691, %5690 ], [ %.7251.i.i3072393, %.lr.ph2395 ], [ %.6250.i.i3052388, %.lr.ph2390 ], [ %.1245.i.i3042381, %.lr.ph2384 ]
+  %.8.i.i312.ph = phi ptr [ %5648, %.loopexit1168 ], [ %5651, %.loopexit1169 ], [ %5653, %.loopexit1170 ], [ %5658, %5655 ], [ %5661, %5659 ], [ %5664, %5662 ], [ %5667, %5665 ], [ %5671, %5668 ], [ %5674, %5672 ], [ %5677, %5675 ], [ %5680, %5678 ], [ %5683, %5681 ], [ %5686, %5684 ], [ %5689, %5687 ], [ %5692, %5690 ], [ %.7.i.i3082394, %.lr.ph2395 ], [ %.6.i.i3062389, %.lr.ph2390 ], [ %.1.i426.i2382, %.lr.ph2384 ]
   br label %.preheader1161
 
 .preheader1161:                                   ; preds = %.preheader1161.backedge, %.preheader1161.preheader
   %.8252.i.i311 = phi ptr [ %.8252.i.i311.ph, %.preheader1161.preheader ], [ %.8252.i.i311.be, %.preheader1161.backedge ]
   %.8.i.i312 = phi ptr [ %.8.i.i312.ph, %.preheader1161.preheader ], [ %.8.i.i312.be, %.preheader1161.backedge ]
-  %5694 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 4
-  %5695 = icmp ugt ptr %5694, %5503
-  br i1 %5695, label %5696, label %._crit_edge3055, !prof !3
+  %5693 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 4
+  %5694 = icmp ugt ptr %5693, %5502
+  br i1 %5694, label %5695, label %._crit_edge3055, !prof !3
 
 ._crit_edge3055:                                  ; preds = %.preheader1161
   %.pre3056 = load i8, ptr %.8252.i.i311, align 1, !tbaa !75
   %.phi.trans.insert3057 = zext i8 %.pre3056 to i64
   %.phi.trans.insert3058 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %.phi.trans.insert3057
   %.pre3059 = load i8, ptr %.phi.trans.insert3058, align 1, !tbaa !75
-  br label %5708
+  br label %5707
 
-5696:                                             ; preds = %.preheader1161
-  %5697 = icmp eq ptr %5503, %.8252.i.i311
-  br i1 %5697, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, label %5698
+5695:                                             ; preds = %.preheader1161
+  %5696 = icmp eq ptr %5502, %.8252.i.i311
+  br i1 %5696, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, label %5697
 
-5698:                                             ; preds = %5696
-  %5699 = ptrtoint ptr %.8252.i.i311 to i64
-  %5700 = sub i64 %5504, %5699
-  %5701 = load i8, ptr %.8252.i.i311, align 1, !tbaa !75
-  %5702 = zext i8 %5701 to i64
-  %5703 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5702
-  %5704 = load i8, ptr %5703, align 1, !tbaa !75
-  %5705 = lshr i8 %5704, 1
-  %5706 = zext nneg i8 %5705 to i64
-  %5707 = icmp slt i64 %5700, %5706
-  br i1 %5707, label %5864, label %5708
+5697:                                             ; preds = %5695
+  %5698 = ptrtoint ptr %.8252.i.i311 to i64
+  %5699 = sub i64 %5503, %5698
+  %5700 = load i8, ptr %.8252.i.i311, align 1, !tbaa !75
+  %5701 = zext i8 %5700 to i64
+  %5702 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL13enc_table_cpyE, i64 %5701
+  %5703 = load i8, ptr %5702, align 1, !tbaa !75
+  %5704 = lshr i8 %5703, 1
+  %5705 = zext nneg i8 %5704 to i64
+  %5706 = icmp slt i64 %5699, %5705
+  br i1 %5706, label %5863, label %5707
 
-5708:                                             ; preds = %._crit_edge3055, %5698
-  %.pre-phi3078 = phi i64 [ %.phi.trans.insert3057, %._crit_edge3055 ], [ %5702, %5698 ]
-  %5709 = phi i8 [ %.pre3059, %._crit_edge3055 ], [ %5704, %5698 ]
-  %5710 = phi i8 [ %.pre3056, %._crit_edge3055 ], [ %5701, %5698 ]
-  switch i8 %5709, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i [
-    i8 0, label %5711
-    i8 4, label %5713
-    i8 6, label %5723
-    i8 8, label %5740
-    i8 2, label %5751
-    i8 3, label %5757
-    i8 5, label %5766
-    i8 7, label %5790
-    i8 9, label %5815
-    i8 1, label %5864
+5707:                                             ; preds = %._crit_edge3055, %5697
+  %.pre-phi3078 = phi i64 [ %.phi.trans.insert3057, %._crit_edge3055 ], [ %5701, %5697 ]
+  %5708 = phi i8 [ %.pre3059, %._crit_edge3055 ], [ %5703, %5697 ]
+  %5709 = phi i8 [ %.pre3056, %._crit_edge3055 ], [ %5700, %5697 ]
+  switch i8 %5708, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i [
+    i8 0, label %5710
+    i8 4, label %5712
+    i8 6, label %5722
+    i8 8, label %5739
+    i8 2, label %5750
+    i8 3, label %5756
+    i8 5, label %5765
+    i8 7, label %5789
+    i8 9, label %5814
+    i8 1, label %5863
   ]
 
-5711:                                             ; preds = %5708
-  %5712 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 1
-  store i8 %5710, ptr %.8.i.i312, align 1, !tbaa !75
-  br label %5505
+5710:                                             ; preds = %5707
+  %5711 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 1
+  store i8 %5709, ptr %.8.i.i312, align 1, !tbaa !75
+  br label %5504
 
-5713:                                             ; preds = %5708
+5712:                                             ; preds = %5707
   %.sroa.0.0.copyload.i533.i = load i16, ptr %.8252.i.i311, align 1
-  %5714 = zext i16 %.sroa.0.0.copyload.i533.i to i32
-  %5715 = and i32 %5714, 49376
-  %5716 = icmp ne i32 %5715, 32960
-  %5717 = and i32 %5714, 30
-  %5718 = icmp eq i32 %5717, 0
-  %.not315.i.i365 = or i1 %5716, %5718
-  %5719 = trunc i16 %.sroa.0.0.copyload.i533.i to i8
-  br i1 %.not315.i.i365, label %.thread995, label %5720, !prof !3
+  %5713 = zext i16 %.sroa.0.0.copyload.i533.i to i32
+  %5714 = and i32 %5713, 49376
+  %5715 = icmp ne i32 %5714, 32960
+  %5716 = and i32 %5713, 30
+  %5717 = icmp eq i32 %5716, 0
+  %.not315.i.i365 = or i1 %5715, %5717
+  %5718 = trunc i16 %.sroa.0.0.copyload.i533.i to i8
+  br i1 %.not315.i.i365, label %.thread995, label %5719, !prof !3
 
-5720:                                             ; preds = %5713
+5719:                                             ; preds = %5712
   store i16 %.sroa.0.0.copyload.i533.i, ptr %.8.i.i312, align 1
-  %5721 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
-  %5722 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 2
+  %5720 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
+  %5721 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 2
   br label %.preheader1161.backedge
 
-5723:                                             ; preds = %5708
-  br i1 %5695, label %5730, label %5724, !prof !3
+5722:                                             ; preds = %5707
+  br i1 %5694, label %5729, label %5723, !prof !3
 
-5724:                                             ; preds = %5723
+5723:                                             ; preds = %5722
   %.sroa.0.0.copyload.i340.i.i358 = load i32, ptr %.8252.i.i311, align 1
-  %5725 = and i32 %.sroa.0.0.copyload.i340.i.i358, 12632304
-  %5726 = icmp eq i32 %5725, 8421600
-  %5727 = trunc i32 %.sroa.0.0.copyload.i340.i.i358 to i8
-  br i1 %5726, label %5728, label %.thread995, !prof !22
+  %5724 = and i32 %.sroa.0.0.copyload.i340.i.i358, 12632304
+  %5725 = icmp eq i32 %5724, 8421600
+  %5726 = trunc i32 %.sroa.0.0.copyload.i340.i.i358 to i8
+  br i1 %5725, label %5727, label %.thread995, !prof !22
 
-5728:                                             ; preds = %5724
-  %5729 = and i32 %.sroa.0.0.copyload.i340.i.i358, 8207
-  switch i32 %5729, label %.critedge.i.i359 [
+5727:                                             ; preds = %5723
+  %5728 = and i32 %.sroa.0.0.copyload.i340.i.i358, 8207
+  switch i32 %5728, label %.critedge.i.i359 [
     i32 8205, label %.thread995
     i32 0, label %.thread995
   ]
 
-5730:                                             ; preds = %5723
+5729:                                             ; preds = %5722
   %.sroa.0.0.copyload.i541.i = load i16, ptr %.8252.i.i311, align 1
-  %5731 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 2
-  %5732 = load i8, ptr %5731, align 1, !tbaa !75
-  %.sroa.4.0.insert.ext.i542.i = zext i8 %5732 to i32
+  %5730 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 2
+  %5731 = load i8, ptr %5730, align 1, !tbaa !75
+  %.sroa.4.0.insert.ext.i542.i = zext i8 %5731 to i32
   %.sroa.4.0.insert.shift.i543.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i542.i, 16
   %.sroa.0.0.insert.ext.i544.i = zext i16 %.sroa.0.0.copyload.i541.i to i32
   %.sroa.0.0.insert.insert.i545.i = or disjoint i32 %.sroa.4.0.insert.shift.i543.i, %.sroa.0.0.insert.ext.i544.i
-  %5733 = and i32 %.sroa.0.0.insert.insert.i545.i, 12632304
-  %5734 = icmp eq i32 %5733, 8421600
-  %5735 = trunc i16 %.sroa.0.0.copyload.i541.i to i8
-  br i1 %5734, label %5736, label %.thread995, !prof !22
+  %5732 = and i32 %.sroa.0.0.insert.insert.i545.i, 12632304
+  %5733 = icmp eq i32 %5732, 8421600
+  %5734 = trunc i16 %.sroa.0.0.copyload.i541.i to i8
+  br i1 %5733, label %5735, label %.thread995, !prof !22
 
-5736:                                             ; preds = %5730
-  %5737 = and i32 %.sroa.0.0.insert.ext.i544.i, 8207
-  switch i32 %5737, label %.critedge.i.i359 [
+5735:                                             ; preds = %5729
+  %5736 = and i32 %.sroa.0.0.insert.ext.i544.i, 8207
+  switch i32 %5736, label %.critedge.i.i359 [
     i32 8205, label %.thread995
     i32 0, label %.thread995
   ]
 
-.critedge.i.i359:                                 ; preds = %5736, %5728
-  %storemerge1082 = phi i32 [ %.sroa.0.0.copyload.i340.i.i358, %5728 ], [ %.sroa.0.0.insert.insert.i545.i, %5736 ]
+.critedge.i.i359:                                 ; preds = %5735, %5727
+  %storemerge1082 = phi i32 [ %.sroa.0.0.copyload.i340.i.i358, %5727 ], [ %.sroa.0.0.insert.insert.i545.i, %5735 ]
   store i32 %storemerge1082, ptr %.8.i.i312, align 1
-  %5738 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 3
-  %5739 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 3
+  %5737 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 3
+  %5738 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 3
   br label %.preheader1161.backedge
 
-5740:                                             ; preds = %5708
+5739:                                             ; preds = %5707
   %.sroa.0.0.copyload.i339.i.i347 = load i32, ptr %.8252.i.i311, align 1
-  %5741 = and i32 %.sroa.0.0.copyload.i339.i.i347, -1061109512
-  %5742 = icmp ne i32 %5741, -2139062032
-  %5743 = and i32 %.sroa.0.0.copyload.i339.i.i347, 12295
-  %.not306.i.i348 = icmp eq i32 %5743, 0
-  %or.cond.i.i349 = or i1 %5742, %.not306.i.i348
-  %5744 = trunc i32 %.sroa.0.0.copyload.i339.i.i347 to i8
-  br i1 %or.cond.i.i349, label %.thread995, label %5745, !prof !212
+  %5740 = and i32 %.sroa.0.0.copyload.i339.i.i347, -1061109512
+  %5741 = icmp ne i32 %5740, -2139062032
+  %5742 = and i32 %.sroa.0.0.copyload.i339.i.i347, 12295
+  %.not306.i.i348 = icmp eq i32 %5742, 0
+  %or.cond.i.i349 = or i1 %5741, %.not306.i.i348
+  %5743 = trunc i32 %.sroa.0.0.copyload.i339.i.i347 to i8
+  br i1 %or.cond.i.i349, label %.thread995, label %5744, !prof !212
 
-5745:                                             ; preds = %5740
-  %5746 = and i32 %.sroa.0.0.copyload.i339.i.i347, 4
-  %5747 = icmp ne i32 %5746, 0
-  %5748 = and i32 %.sroa.0.0.copyload.i339.i.i347, 12291
-  %5749 = icmp ne i32 %5748, 0
-  %.not309.i.i350 = and i1 %5747, %5749
+5744:                                             ; preds = %5739
+  %5745 = and i32 %.sroa.0.0.copyload.i339.i.i347, 4
+  %5746 = icmp ne i32 %5745, 0
+  %5747 = and i32 %.sroa.0.0.copyload.i339.i.i347, 12291
+  %5748 = icmp ne i32 %5747, 0
+  %.not309.i.i350 = and i1 %5746, %5748
   br i1 %.not309.i.i350, label %.thread995, label %.critedge324.i.i351, !prof !3
 
-.critedge324.i.i351:                              ; preds = %5745
+.critedge324.i.i351:                              ; preds = %5744
   store i32 %.sroa.0.0.copyload.i339.i.i347, ptr %.8.i.i312, align 1
-  %5750 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 4
+  %5749 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 4
   br label %.preheader1161.backedge
 
-5751:                                             ; preds = %5708
-  %5752 = shl nuw nsw i64 %.pre-phi3078, 1
-  %5753 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL21esc_single_char_tableE, i64 %5752
-  %5754 = load i16, ptr %5753, align 2
-  store i16 %5754, ptr %.8.i.i312, align 1
-  %5755 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
-  %5756 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 1
+5750:                                             ; preds = %5707
+  %5751 = shl nuw nsw i64 %.pre-phi3078, 1
+  %5752 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL21esc_single_char_tableE, i64 %5751
+  %5753 = load i16, ptr %5752, align 2
+  store i16 %5753, ptr %.8.i.i312, align 1
+  %5754 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
+  %5755 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 1
   br label %.preheader1161.backedge
 
-.preheader1161.backedge:                          ; preds = %5751, %5757, %5867, %5870, %5720, %.critedge.i.i359, %.critedge324.i.i351, %5772, %.critedge330.i.i329, %.critedge333.i.i323
-  %.8252.i.i311.be = phi ptr [ %5873, %5870 ], [ %5868, %5867 ], [ %5722, %5720 ], [ %5739, %.critedge.i.i359 ], [ %5694, %.critedge324.i.i351 ], [ %5756, %5751 ], [ %5765, %5757 ], [ %5789, %5772 ], [ %5814, %.critedge330.i.i329 ], [ %5694, %.critedge333.i.i323 ]
-  %.8.i.i312.be = phi ptr [ %5872, %5870 ], [ %5869, %5867 ], [ %5721, %5720 ], [ %5738, %.critedge.i.i359 ], [ %5750, %.critedge324.i.i351 ], [ %5755, %5751 ], [ %5764, %5757 ], [ %5788, %5772 ], [ %5813, %.critedge330.i.i329 ], [ %5863, %.critedge333.i.i323 ]
+.preheader1161.backedge:                          ; preds = %5750, %5756, %5866, %5869, %5719, %.critedge.i.i359, %.critedge324.i.i351, %5771, %.critedge330.i.i329, %.critedge333.i.i323
+  %.8252.i.i311.be = phi ptr [ %5872, %5869 ], [ %5867, %5866 ], [ %5721, %5719 ], [ %5738, %.critedge.i.i359 ], [ %5693, %.critedge324.i.i351 ], [ %5755, %5750 ], [ %5764, %5756 ], [ %5788, %5771 ], [ %5813, %.critedge330.i.i329 ], [ %5693, %.critedge333.i.i323 ]
+  %.8.i.i312.be = phi ptr [ %5871, %5869 ], [ %5868, %5866 ], [ %5720, %5719 ], [ %5737, %.critedge.i.i359 ], [ %5749, %.critedge324.i.i351 ], [ %5754, %5750 ], [ %5763, %5756 ], [ %5787, %5771 ], [ %5812, %.critedge330.i.i329 ], [ %5862, %.critedge333.i.i323 ]
   br label %.preheader1161
 
-5757:                                             ; preds = %5708
+5756:                                             ; preds = %5707
   store i32 808482140, ptr %.8.i.i312, align 1
-  %5758 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 4
-  %5759 = load i8, ptr %.8252.i.i311, align 1, !tbaa !75
-  %5760 = zext i8 %5759 to i64
-  %5761 = shl nuw nsw i64 %5760, 1
-  %5762 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5761
-  %5763 = load i16, ptr %5762, align 2
-  store i16 %5763, ptr %5758, align 1
-  %5764 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 6
-  %5765 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 1
+  %5757 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 4
+  %5758 = load i8, ptr %.8252.i.i311, align 1, !tbaa !75
+  %5759 = zext i8 %5758 to i64
+  %5760 = shl nuw nsw i64 %5759, 1
+  %5761 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5760
+  %5762 = load i16, ptr %5761, align 2
+  store i16 %5762, ptr %5757, align 1
+  %5763 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 6
+  %5764 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 1
   br label %.preheader1161.backedge
 
-5766:                                             ; preds = %5708
+5765:                                             ; preds = %5707
   %.sroa.0.0.copyload.i534.i = load i16, ptr %.8252.i.i311, align 1
-  %5767 = zext i16 %.sroa.0.0.copyload.i534.i to i32
-  %5768 = and i32 %5767, 49376
-  %5769 = icmp ne i32 %5768, 32960
-  %5770 = and i32 %5767, 30
-  %5771 = icmp eq i32 %5770, 0
-  %.not303.i.i339 = or i1 %5769, %5771
-  br i1 %.not303.i.i339, label %.thread1011, label %5772, !prof !3
+  %5766 = zext i16 %.sroa.0.0.copyload.i534.i to i32
+  %5767 = and i32 %5766, 49376
+  %5768 = icmp ne i32 %5767, 32960
+  %5769 = and i32 %5766, 30
+  %5770 = icmp eq i32 %5769, 0
+  %.not303.i.i339 = or i1 %5768, %5770
+  br i1 %.not303.i.i339, label %.thread1011, label %5771, !prof !3
 
-5772:                                             ; preds = %5766
-  %5773 = lshr i16 %.sroa.0.0.copyload.i534.i, 8
-  %5774 = trunc nuw i16 %5773 to i8
-  %5775 = trunc i16 %.sroa.0.0.copyload.i534.i to i8
-  %.tr304.i.i340 = shl i8 %5775, 6
-  %5776 = and i8 %5774, 63
+5771:                                             ; preds = %5765
+  %5772 = lshr i16 %.sroa.0.0.copyload.i534.i, 8
+  %5773 = trunc nuw i16 %5772 to i8
+  %5774 = trunc i16 %.sroa.0.0.copyload.i534.i to i8
+  %.tr304.i.i340 = shl i8 %5774, 6
+  %5775 = and i8 %5773, 63
   store i16 30044, ptr %.8.i.i312, align 1
-  %5777 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
-  %5778 = lshr i8 %5775, 1
-  %5779 = and i8 %5778, 14
-  %5780 = zext nneg i8 %5779 to i64
-  %5781 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5780
-  %5782 = load i16, ptr %5781, align 2
-  store i16 %5782, ptr %5777, align 1
-  %5783 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 4
-  %.narrow305.i.i341 = or disjoint i8 %5776, %.tr304.i.i340
-  %5784 = zext i8 %.narrow305.i.i341 to i64
-  %5785 = shl nuw nsw i64 %5784, 1
-  %5786 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5785
-  %5787 = load i16, ptr %5786, align 2
-  store i16 %5787, ptr %5783, align 1
-  %5788 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 6
-  %5789 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 2
+  %5776 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
+  %5777 = lshr i8 %5774, 1
+  %5778 = and i8 %5777, 14
+  %5779 = zext nneg i8 %5778 to i64
+  %5780 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5779
+  %5781 = load i16, ptr %5780, align 2
+  store i16 %5781, ptr %5776, align 1
+  %5782 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 4
+  %.narrow305.i.i341 = or disjoint i8 %5775, %.tr304.i.i340
+  %5783 = zext i8 %.narrow305.i.i341 to i64
+  %5784 = shl nuw nsw i64 %5783, 1
+  %5785 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5784
+  %5786 = load i16, ptr %5785, align 2
+  store i16 %5786, ptr %5782, align 1
+  %5787 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 6
+  %5788 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 2
   br label %.preheader1161.backedge
 
-5790:                                             ; preds = %5708
+5789:                                             ; preds = %5707
   %.sroa.0.0.copyload.i546.i = load i16, ptr %.8252.i.i311, align 1
-  %5791 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 2
-  %5792 = load i8, ptr %5791, align 1, !tbaa !75
-  %.sroa.4.0.insert.ext.i547.i = zext i8 %5792 to i32
+  %5790 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 2
+  %5791 = load i8, ptr %5790, align 1, !tbaa !75
+  %.sroa.4.0.insert.ext.i547.i = zext i8 %5791 to i32
   %.sroa.4.0.insert.shift.i548.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i547.i, 16
   %.sroa.0.0.insert.ext.i549.i = zext i16 %.sroa.0.0.copyload.i546.i to i32
   %.sroa.0.0.insert.insert.i550.i = or disjoint i32 %.sroa.4.0.insert.shift.i548.i, %.sroa.0.0.insert.ext.i549.i
-  %5793 = and i32 %.sroa.0.0.insert.insert.i550.i, 12632304
-  %5794 = icmp eq i32 %5793, 8421600
-  br i1 %5794, label %5795, label %.thread1011, !prof !22
+  %5792 = and i32 %.sroa.0.0.insert.insert.i550.i, 12632304
+  %5793 = icmp eq i32 %5792, 8421600
+  br i1 %5793, label %5794, label %.thread1011, !prof !22
 
-5795:                                             ; preds = %5790
-  %5796 = and i32 %.sroa.0.0.insert.ext.i549.i, 8207
-  switch i32 %5796, label %.critedge330.i.i329 [
+5794:                                             ; preds = %5789
+  %5795 = and i32 %.sroa.0.0.insert.ext.i549.i, 8207
+  switch i32 %5795, label %.critedge330.i.i329 [
     i32 8205, label %.thread1011
     i32 0, label %.thread1011
   ]
 
-.critedge330.i.i329:                              ; preds = %5795
-  %5797 = zext i16 %.sroa.0.0.copyload.i546.i to i64
-  %5798 = shl nuw nsw i64 %5797, 12
-  %5799 = lshr i16 %.sroa.0.0.copyload.i546.i, 2
-  %5800 = and i16 %5799, 4032
-  %5801 = zext nneg i16 %5800 to i64
-  %5802 = and i8 %5792, 63
+.critedge330.i.i329:                              ; preds = %5794
+  %5796 = zext i16 %.sroa.0.0.copyload.i546.i to i64
+  %5797 = shl nuw nsw i64 %5796, 12
+  %5798 = lshr i16 %.sroa.0.0.copyload.i546.i, 2
+  %5799 = and i16 %5798, 4032
+  %5800 = zext nneg i16 %5799 to i64
+  %5801 = and i8 %5791, 63
   store i16 30044, ptr %.8.i.i312, align 1
-  %5803 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
-  %.masked.i.i336 = or disjoint i64 %5798, %5801
-  %5804 = lshr i64 %.masked.i.i336, 7
-  %5805 = and i64 %5804, 510
-  %5806 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5805
-  %5807 = load i16, ptr %5806, align 2
-  store i16 %5807, ptr %5803, align 1
-  %5808 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 4
-  %.tr299.i.i337 = trunc i16 %5800 to i8
-  %.narrow300.i.i338 = or disjoint i8 %5802, %.tr299.i.i337
-  %5809 = zext i8 %.narrow300.i.i338 to i64
-  %5810 = shl nuw nsw i64 %5809, 1
-  %5811 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5810
-  %5812 = load i16, ptr %5811, align 2
-  store i16 %5812, ptr %5808, align 1
-  %5813 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 6
-  %5814 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 3
+  %5802 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
+  %.masked.i.i336 = or disjoint i64 %5797, %5800
+  %5803 = lshr i64 %.masked.i.i336, 7
+  %5804 = and i64 %5803, 510
+  %5805 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5804
+  %5806 = load i16, ptr %5805, align 2
+  store i16 %5806, ptr %5802, align 1
+  %5807 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 4
+  %.tr299.i.i337 = trunc i16 %5799 to i8
+  %.narrow300.i.i338 = or disjoint i8 %5801, %.tr299.i.i337
+  %5808 = zext i8 %.narrow300.i.i338 to i64
+  %5809 = shl nuw nsw i64 %5808, 1
+  %5810 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5809
+  %5811 = load i16, ptr %5810, align 2
+  store i16 %5811, ptr %5807, align 1
+  %5812 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 6
+  %5813 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 3
   br label %.preheader1161.backedge
 
-5815:                                             ; preds = %5708
+5814:                                             ; preds = %5707
   %.sroa.0.0.copyload.i.i.i317 = load i32, ptr %.8252.i.i311, align 1
-  %5816 = and i32 %.sroa.0.0.copyload.i.i.i317, -1061109512
-  %5817 = icmp ne i32 %5816, -2139062032
-  %5818 = and i32 %.sroa.0.0.copyload.i.i.i317, 12295
-  %.not293.i.i318 = icmp eq i32 %5818, 0
-  %or.cond331.i.i319 = or i1 %5817, %.not293.i.i318
-  %5819 = lshr i32 %.sroa.0.0.copyload.i.i.i317, 24
-  br i1 %or.cond331.i.i319, label %.thread1011, label %5820, !prof !212
+  %5815 = and i32 %.sroa.0.0.copyload.i.i.i317, -1061109512
+  %5816 = icmp ne i32 %5815, -2139062032
+  %5817 = and i32 %.sroa.0.0.copyload.i.i.i317, 12295
+  %.not293.i.i318 = icmp eq i32 %5817, 0
+  %or.cond331.i.i319 = or i1 %5816, %.not293.i.i318
+  %5818 = lshr i32 %.sroa.0.0.copyload.i.i.i317, 24
+  br i1 %or.cond331.i.i319, label %.thread1011, label %5819, !prof !212
 
-5820:                                             ; preds = %5815
-  %5821 = and i32 %.sroa.0.0.copyload.i.i.i317, 4
-  %5822 = icmp ne i32 %5821, 0
-  %5823 = and i32 %.sroa.0.0.copyload.i.i.i317, 12291
-  %5824 = icmp ne i32 %5823, 0
-  %.not296.i.i320 = and i1 %5822, %5824
+5819:                                             ; preds = %5814
+  %5820 = and i32 %.sroa.0.0.copyload.i.i.i317, 4
+  %5821 = icmp ne i32 %5820, 0
+  %5822 = and i32 %.sroa.0.0.copyload.i.i.i317, 12291
+  %5823 = icmp ne i32 %5822, 0
+  %.not296.i.i320 = and i1 %5821, %5823
   br i1 %.not296.i.i320, label %.thread1011, label %.critedge333.i.i323, !prof !3
 
-.critedge333.i.i323:                              ; preds = %5820
-  %5825 = shl i32 %.sroa.0.0.copyload.i.i.i317, 18
-  %5826 = and i32 %5825, 1835008
-  %5827 = shl i32 %.sroa.0.0.copyload.i.i.i317, 4
-  %5828 = and i32 %5827, 258048
-  %5829 = lshr i32 %.sroa.0.0.copyload.i.i.i317, 10
-  %5830 = and i32 %5829, 3072
-  %5831 = and i32 %5819, 63
-  %5832 = add nsw i32 %5826, -65536
-  %5833 = add nsw i32 %5832, %5828
-  %5834 = or disjoint i32 %5833, %5830
-  %5835 = lshr exact i32 %5833, 10
-  %5836 = add nuw nsw i32 %5835, 55296
+.critedge333.i.i323:                              ; preds = %5819
+  %5824 = shl i32 %.sroa.0.0.copyload.i.i.i317, 18
+  %5825 = and i32 %5824, 1835008
+  %5826 = shl i32 %.sroa.0.0.copyload.i.i.i317, 4
+  %5827 = and i32 %5826, 258048
+  %5828 = lshr i32 %.sroa.0.0.copyload.i.i.i317, 10
+  %5829 = and i32 %5828, 3072
+  %5830 = and i32 %5818, 63
+  %5831 = add nsw i32 %5825, -65536
+  %5832 = add nsw i32 %5831, %5827
+  %5833 = or disjoint i32 %5832, %5829
+  %5834 = lshr exact i32 %5832, 10
+  %5835 = add nuw nsw i32 %5834, 55296
   store i16 30044, ptr %.8.i.i312, align 1
-  %5837 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
-  %5838 = lshr i32 %5836, 7
-  %5839 = and i32 %5838, 65534
-  %5840 = zext nneg i32 %5839 to i64
-  %5841 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5840
-  %5842 = load i16, ptr %5841, align 2
-  store i16 %5842, ptr %5837, align 1
-  %5843 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 4
-  %5844 = lshr exact i32 %5834, 9
-  %5845 = and i32 %5844, 510
-  %5846 = zext nneg i32 %5845 to i64
-  %5847 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5846
-  %5848 = load i16, ptr %5847, align 2
-  store i16 %5848, ptr %5843, align 1
-  %5849 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 6
-  store i16 30044, ptr %5849, align 1
-  %5850 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 8
-  %5851 = lshr i32 %.sroa.0.0.copyload.i.i.i317, 17
-  %5852 = and i32 %5851, 6
-  %5853 = zext nneg i32 %5852 to i64
-  %5854 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5853
-  %5855 = getelementptr inbounds nuw i8, ptr %5854, i64 440
-  %5856 = load i16, ptr %5855, align 2
-  store i16 %5856, ptr %5850, align 1
-  %5857 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 10
-  %.masked3249 = and i32 %5829, 192
-  %5858 = or disjoint i32 %5831, %.masked3249
-  %5859 = shl nuw nsw i32 %5858, 1
-  %5860 = zext nneg i32 %5859 to i64
-  %5861 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5860
-  %5862 = load i16, ptr %5861, align 2
-  store i16 %5862, ptr %5857, align 1
-  %5863 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 12
+  %5836 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
+  %5837 = lshr i32 %5835, 7
+  %5838 = and i32 %5837, 65534
+  %5839 = zext nneg i32 %5838 to i64
+  %5840 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5839
+  %5841 = load i16, ptr %5840, align 2
+  store i16 %5841, ptr %5836, align 1
+  %5842 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 4
+  %5843 = lshr exact i32 %5833, 9
+  %5844 = and i32 %5843, 510
+  %5845 = zext nneg i32 %5844 to i64
+  %5846 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5845
+  %5847 = load i16, ptr %5846, align 2
+  store i16 %5847, ptr %5842, align 1
+  %5848 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 6
+  store i16 30044, ptr %5848, align 1
+  %5849 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 8
+  %5850 = lshr i32 %.sroa.0.0.copyload.i.i.i317, 17
+  %5851 = and i32 %5850, 6
+  %5852 = zext nneg i32 %5851 to i64
+  %5853 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5852
+  %5854 = getelementptr inbounds nuw i8, ptr %5853, i64 440
+  %5855 = load i16, ptr %5854, align 2
+  store i16 %5855, ptr %5849, align 1
+  %5856 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 10
+  %.masked3249 = and i32 %5828, 192
+  %5857 = or disjoint i32 %5830, %.masked3249
+  %5858 = shl nuw nsw i32 %5857, 1
+  %5859 = zext nneg i32 %5858 to i64
+  %5860 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL18esc_hex_char_tableE, i64 %5859
+  %5861 = load i16, ptr %5860, align 2
+  store i16 %5861, ptr %5856, align 1
+  %5862 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 12
   br label %.preheader1161.backedge
 
-5864:                                             ; preds = %5708, %5698
-  %5865 = phi i8 [ %5710, %5708 ], [ %5701, %5698 ]
+5863:                                             ; preds = %5707, %5697
+  %5864 = phi i8 [ %5709, %5707 ], [ %5700, %5697 ]
   br i1 %.not1063, label %.thread995, label %.thread1011
 
-.thread995:                                       ; preds = %5740, %5745, %5730, %5724, %5736, %5736, %5728, %5728, %5713, %5864
-  %5866 = phi i8 [ %5744, %5740 ], [ %5744, %5745 ], [ %5735, %5730 ], [ %5727, %5724 ], [ %5735, %5736 ], [ %5735, %5736 ], [ %5727, %5728 ], [ %5727, %5728 ], [ %5719, %5713 ], [ %5865, %5864 ]
-  br i1 %.not1066, label %.loopexit1162, label %5867
+.thread995:                                       ; preds = %5739, %5744, %5729, %5723, %5735, %5735, %5727, %5727, %5712, %5863
+  %5865 = phi i8 [ %5743, %5739 ], [ %5743, %5744 ], [ %5734, %5729 ], [ %5726, %5723 ], [ %5734, %5735 ], [ %5734, %5735 ], [ %5726, %5727 ], [ %5726, %5727 ], [ %5718, %5712 ], [ %5864, %5863 ]
+  br i1 %.not1066, label %.loopexit1162, label %5866
 
-5867:                                             ; preds = %.thread995
-  %5868 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 1
-  %5869 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 1
-  store i8 %5866, ptr %.8.i.i312, align 1, !tbaa !75
+5866:                                             ; preds = %.thread995
+  %5867 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 1
+  %5868 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 1
+  store i8 %5865, ptr %.8.i.i312, align 1, !tbaa !75
   br label %.preheader1161.backedge
 
-.thread1011:                                      ; preds = %5815, %5820, %5790, %5795, %5795, %5766, %5864
-  br i1 %.not1066, label %.loopexit1162, label %5870
+.thread1011:                                      ; preds = %5814, %5819, %5789, %5794, %5794, %5765, %5863
+  br i1 %.not1066, label %.loopexit1162, label %5869
 
-5870:                                             ; preds = %.thread1011
+5869:                                             ; preds = %.thread1011
   store i16 30044, ptr %.8.i.i312, align 1
-  %5871 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
-  store i32 1145456198, ptr %5871, align 1
-  %5872 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 6
-  %5873 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 1
+  %5870 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 2
+  store i32 1145456198, ptr %5870, align 1
+  %5871 = getelementptr inbounds nuw i8, ptr %.8.i.i312, i64 6
+  %5872 = getelementptr inbounds nuw i8, ptr %.8252.i.i311, i64 1
   br label %.preheader1161.backedge
 
-5874:                                             ; preds = %5500
-  %5875 = getelementptr inbounds nuw i8, ptr %.1343.i, i64 1
-  %5876 = icmp ugt i64 %5095, 4095
-  br i1 %5876, label %.lr.ph2352, label %.preheader1192
+5873:                                             ; preds = %5499
+  %5874 = getelementptr inbounds nuw i8, ptr %.1343.i, i64 1
+  %5875 = icmp ugt i64 %5094, 4095
+  br i1 %5875, label %.lr.ph2352, label %.preheader1192
 
-.preheader1192:                                   ; preds = %.lr.ph2352, %5874
-  %.021.i.i291.lcssa = phi ptr [ %5875, %5874 ], [ %5878, %.lr.ph2352 ]
-  %.018.i.i292.lcssa = phi ptr [ %5104, %5874 ], [ %5879, %.lr.ph2352 ]
-  %.0.i425.i.lcssa = phi i64 [ %5102, %5874 ], [ %5880, %.lr.ph2352 ]
-  %5877 = icmp samesign ugt i64 %.0.i425.i.lcssa, 3
-  br i1 %5877, label %.lr.ph2359, label %.preheader1191
+.preheader1192:                                   ; preds = %.lr.ph2352, %5873
+  %.021.i.i291.lcssa = phi ptr [ %5874, %5873 ], [ %5877, %.lr.ph2352 ]
+  %.018.i.i292.lcssa = phi ptr [ %5103, %5873 ], [ %5878, %.lr.ph2352 ]
+  %.0.i425.i.lcssa = phi i64 [ %5101, %5873 ], [ %5879, %.lr.ph2352 ]
+  %5876 = icmp samesign ugt i64 %.0.i425.i.lcssa, 3
+  br i1 %5876, label %.lr.ph2359, label %.preheader1191
 
-.lr.ph2352:                                       ; preds = %5874, %.lr.ph2352
-  %.0.i425.i2350 = phi i64 [ %5880, %.lr.ph2352 ], [ %5102, %5874 ]
-  %.018.i.i2922349 = phi ptr [ %5879, %.lr.ph2352 ], [ %5104, %5874 ]
-  %.021.i.i2912348 = phi ptr [ %5878, %.lr.ph2352 ], [ %5875, %5874 ]
+.lr.ph2352:                                       ; preds = %5873, %.lr.ph2352
+  %.0.i425.i2350 = phi i64 [ %5879, %.lr.ph2352 ], [ %5101, %5873 ]
+  %.018.i.i2922349 = phi ptr [ %5878, %.lr.ph2352 ], [ %5103, %5873 ]
+  %.021.i.i2912348 = phi ptr [ %5877, %.lr.ph2352 ], [ %5874, %5873 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.021.i.i2912348, ptr noundef nonnull align 1 dereferenceable(16) %.018.i.i2922349, i64 16, i1 false)
-  %5878 = getelementptr inbounds nuw i8, ptr %.021.i.i2912348, i64 16
-  %5879 = getelementptr inbounds nuw i8, ptr %.018.i.i2922349, i64 16
-  %5880 = add nsw i64 %.0.i425.i2350, -16
-  %5881 = icmp ugt i64 %5880, 15
-  br i1 %5881, label %.lr.ph2352, label %.preheader1192, !llvm.loop !213
+  %5877 = getelementptr inbounds nuw i8, ptr %.021.i.i2912348, i64 16
+  %5878 = getelementptr inbounds nuw i8, ptr %.018.i.i2922349, i64 16
+  %5879 = add nsw i64 %.0.i425.i2350, -16
+  %5880 = icmp ugt i64 %5879, 15
+  br i1 %5880, label %.lr.ph2352, label %.preheader1192, !llvm.loop !213
 
 .preheader1191:                                   ; preds = %.lr.ph2359, %.preheader1192
-  %.122.i.i293.lcssa = phi ptr [ %.021.i.i291.lcssa, %.preheader1192 ], [ %5883, %.lr.ph2359 ]
-  %.119.i.i294.lcssa = phi ptr [ %.018.i.i292.lcssa, %.preheader1192 ], [ %5884, %.lr.ph2359 ]
-  %.1.i.i295.lcssa = phi i64 [ %.0.i425.i.lcssa, %.preheader1192 ], [ %5885, %.lr.ph2359 ]
+  %.122.i.i293.lcssa = phi ptr [ %.021.i.i291.lcssa, %.preheader1192 ], [ %5882, %.lr.ph2359 ]
+  %.119.i.i294.lcssa = phi ptr [ %.018.i.i292.lcssa, %.preheader1192 ], [ %5883, %.lr.ph2359 ]
+  %.1.i.i295.lcssa = phi i64 [ %.0.i425.i.lcssa, %.preheader1192 ], [ %5884, %.lr.ph2359 ]
   %.not.i.i2992363 = icmp eq i64 %.1.i.i295.lcssa, 0
   br i1 %.not.i.i2992363, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, label %.lr.ph2367
 
 .lr.ph2359:                                       ; preds = %.preheader1192, %.lr.ph2359
-  %.1.i.i2952358 = phi i64 [ %5885, %.lr.ph2359 ], [ %.0.i425.i.lcssa, %.preheader1192 ]
-  %.119.i.i2942357 = phi ptr [ %5884, %.lr.ph2359 ], [ %.018.i.i292.lcssa, %.preheader1192 ]
-  %.122.i.i2932356 = phi ptr [ %5883, %.lr.ph2359 ], [ %.021.i.i291.lcssa, %.preheader1192 ]
-  %5882 = load i32, ptr %.119.i.i2942357, align 1
-  store i32 %5882, ptr %.122.i.i2932356, align 1
-  %5883 = getelementptr inbounds nuw i8, ptr %.122.i.i2932356, i64 4
-  %5884 = getelementptr inbounds nuw i8, ptr %.119.i.i2942357, i64 4
-  %5885 = add nsw i64 %.1.i.i2952358, -4
-  %5886 = icmp ugt i64 %5885, 3
-  br i1 %5886, label %.lr.ph2359, label %.preheader1191, !llvm.loop !214
+  %.1.i.i2952358 = phi i64 [ %5884, %.lr.ph2359 ], [ %.0.i425.i.lcssa, %.preheader1192 ]
+  %.119.i.i2942357 = phi ptr [ %5883, %.lr.ph2359 ], [ %.018.i.i292.lcssa, %.preheader1192 ]
+  %.122.i.i2932356 = phi ptr [ %5882, %.lr.ph2359 ], [ %.021.i.i291.lcssa, %.preheader1192 ]
+  %5881 = load i32, ptr %.119.i.i2942357, align 1
+  store i32 %5881, ptr %.122.i.i2932356, align 1
+  %5882 = getelementptr inbounds nuw i8, ptr %.122.i.i2932356, i64 4
+  %5883 = getelementptr inbounds nuw i8, ptr %.119.i.i2942357, i64 4
+  %5884 = add nsw i64 %.1.i.i2952358, -4
+  %5885 = icmp ugt i64 %5884, 3
+  br i1 %5885, label %.lr.ph2359, label %.preheader1191, !llvm.loop !214
 
 .lr.ph2367:                                       ; preds = %.preheader1191, %.lr.ph2367
-  %.2.i.i2982366 = phi i64 [ %5890, %.lr.ph2367 ], [ %.1.i.i295.lcssa, %.preheader1191 ]
-  %.220.i.i2972365 = phi ptr [ %5887, %.lr.ph2367 ], [ %.119.i.i294.lcssa, %.preheader1191 ]
-  %.223.i.i2962364 = phi ptr [ %5889, %.lr.ph2367 ], [ %.122.i.i293.lcssa, %.preheader1191 ]
-  %5887 = getelementptr inbounds nuw i8, ptr %.220.i.i2972365, i64 1
-  %5888 = load i8, ptr %.220.i.i2972365, align 1, !tbaa !75
-  %5889 = getelementptr inbounds nuw i8, ptr %.223.i.i2962364, i64 1
-  store i8 %5888, ptr %.223.i.i2962364, align 1, !tbaa !75
-  %5890 = add nsw i64 %.2.i.i2982366, -1
-  %.not.i.i299 = icmp eq i64 %5890, 0
+  %.2.i.i2982366 = phi i64 [ %5889, %.lr.ph2367 ], [ %.1.i.i295.lcssa, %.preheader1191 ]
+  %.220.i.i2972365 = phi ptr [ %5886, %.lr.ph2367 ], [ %.119.i.i294.lcssa, %.preheader1191 ]
+  %.223.i.i2962364 = phi ptr [ %5888, %.lr.ph2367 ], [ %.122.i.i293.lcssa, %.preheader1191 ]
+  %5886 = getelementptr inbounds nuw i8, ptr %.220.i.i2972365, i64 1
+  %5887 = load i8, ptr %.220.i.i2972365, align 1, !tbaa !75
+  %5888 = getelementptr inbounds nuw i8, ptr %.223.i.i2962364, i64 1
+  store i8 %5887, ptr %.223.i.i2962364, align 1, !tbaa !75
+  %5889 = add nsw i64 %.2.i.i2982366, -1
+  %.not.i.i299 = icmp eq i64 %5889, 0
   br i1 %.not.i.i299, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, label %.lr.ph2367, !llvm.loop !215
 
-_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i: ; preds = %.preheader1178, %.lr.ph2367, %.preheader1164, %5270, %5322, %5334, %5644, %5696, %5708, %.preheader1191
-  %.8.i444.i.lcssa.sink4568 = phi ptr [ %.122.i.i293.lcssa, %.preheader1191 ], [ %.8.i.i312, %5708 ], [ %.8.i.i312, %5696 ], [ %5646, %5644 ], [ %.8.i444.i, %5334 ], [ %.8.i444.i, %5322 ], [ %5272, %5270 ], [ %.6.i.i306.lcssa, %.preheader1164 ], [ %5889, %.lr.ph2367 ], [ %.6.i436.i.lcssa, %.preheader1178 ]
-  %5891 = getelementptr inbounds nuw i8, ptr %.8.i444.i.lcssa.sink4568, i64 1
+_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i: ; preds = %.preheader1178, %.lr.ph2367, %.preheader1164, %5269, %5321, %5333, %5643, %5695, %5707, %.preheader1191
+  %.8.i444.i.lcssa.sink4568 = phi ptr [ %.122.i.i293.lcssa, %.preheader1191 ], [ %.8.i.i312, %5707 ], [ %.8.i.i312, %5695 ], [ %5645, %5643 ], [ %.8.i444.i, %5333 ], [ %.8.i444.i, %5321 ], [ %5271, %5269 ], [ %.6.i.i306.lcssa, %.preheader1164 ], [ %5888, %.lr.ph2367 ], [ %.6.i436.i.lcssa, %.preheader1178 ]
+  %5890 = getelementptr inbounds nuw i8, ptr %.8.i444.i.lcssa.sink4568, i64 1
   store i8 34, ptr %.8.i444.i.lcssa.sink4568, align 1, !tbaa !75
-  %5892 = select i1 %.not399.i, i8 44, i8 58
-  %5893 = getelementptr inbounds nuw i8, ptr %.8.i444.i.lcssa.sink4568, i64 2
-  store i8 %5892, ptr %5891, align 1, !tbaa !75
-  br label %7607
+  %5891 = select i1 %.not399.i, i8 44, i8 58
+  %5892 = getelementptr inbounds nuw i8, ptr %.8.i444.i.lcssa.sink4568, i64 2
+  store i8 %5891, ptr %5890, align 1, !tbaa !75
+  br label %7605
 
-5894:                                             ; preds = %5094
-  %5895 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 32
-  %.not395.i = icmp ult ptr %5895, %.0361.i
-  br i1 %.not395.i, label %5916, label %5896, !prof !22
+5893:                                             ; preds = %5093
+  %5894 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 32
+  %.not395.i = icmp ult ptr %5894, %.0361.i
+  br i1 %.not395.i, label %5915, label %5895, !prof !22
 
-5896:                                             ; preds = %5894
-  %5897 = lshr i64 %.0353.i, 1
-  %5898 = tail call i64 @llvm.umax.i64(i64 %5897, i64 32)
-  %5899 = add nuw i64 %5898, 15
-  %5900 = and i64 %5899, -16
-  %5901 = add i64 %5900, %.0353.i
-  %5902 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %5901)
-  %.not396.i = icmp eq ptr %5902, null
-  br i1 %.not396.i, label %.loopexit1193, label %5903, !prof !3
+5895:                                             ; preds = %5893
+  %5896 = lshr i64 %.0353.i, 1
+  %5897 = tail call i64 @llvm.umax.i64(i64 %5896, i64 32)
+  %5898 = add nuw i64 %5897, 15
+  %5899 = and i64 %5898, -16
+  %5900 = add i64 %5899, %.0353.i
+  %5901 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %5900)
+  %.not396.i = icmp eq ptr %5901, null
+  br i1 %.not396.i, label %.loopexit1193, label %5902, !prof !3
 
-5903:                                             ; preds = %5896
-  %5904 = ptrtoint ptr %.0370.i to i64
-  %5905 = ptrtoint ptr %.0361.i to i64
-  %5906 = sub i64 %5904, %5905
-  %5907 = sub i64 %5901, %5906
-  %5908 = getelementptr inbounds nuw i8, ptr %5902, i64 %5907
-  %5909 = ptrtoint ptr %.0341.i to i64
-  %5910 = sub i64 %5905, %5909
-  %5911 = getelementptr inbounds i8, ptr %5902, i64 %5910
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5908, ptr nonnull align 1 %5911, i64 %5906, i1 false)
-  %5912 = ptrtoint ptr %.0342.i to i64
-  %5913 = sub i64 %5912, %5909
-  %5914 = getelementptr inbounds i8, ptr %5902, i64 %5913
-  %5915 = getelementptr inbounds nuw i8, ptr %5902, i64 %5901
+5902:                                             ; preds = %5895
+  %5903 = ptrtoint ptr %.0370.i to i64
+  %5904 = ptrtoint ptr %.0361.i to i64
+  %5905 = sub i64 %5903, %5904
+  %5906 = sub i64 %5900, %5905
+  %5907 = getelementptr inbounds nuw i8, ptr %5901, i64 %5906
+  %5908 = ptrtoint ptr %.0341.i to i64
+  %5909 = sub i64 %5904, %5908
+  %5910 = getelementptr inbounds i8, ptr %5901, i64 %5909
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5907, ptr nonnull align 1 %5910, i64 %5905, i1 false)
+  %5911 = ptrtoint ptr %.0342.i to i64
+  %5912 = sub i64 %5911, %5908
+  %5913 = getelementptr inbounds i8, ptr %5901, i64 %5912
+  %5914 = getelementptr inbounds nuw i8, ptr %5901, i64 %5900
   %.pre3049 = load i64, ptr %.0340.i, align 8, !tbaa !73
-  br label %5916
+  br label %5915
 
-5916:                                             ; preds = %5903, %5894
-  %5917 = phi i64 [ %.pre3049, %5903 ], [ %5095, %5894 ]
-  %.3373.i = phi ptr [ %5915, %5903 ], [ %.0370.i, %5894 ]
-  %.3364.i = phi ptr [ %5908, %5903 ], [ %.0361.i, %5894 ]
-  %.3356.i = phi i64 [ %5901, %5903 ], [ %.0353.i, %5894 ]
-  %.4346.i = phi ptr [ %5914, %5903 ], [ %.0342.i, %5894 ]
-  %.3.i214 = phi ptr [ %5902, %5903 ], [ %.0341.i, %5894 ]
-  %5918 = and i64 %5917, 16
-  %.not.i530.i = icmp eq i64 %5918, 0
-  %5919 = getelementptr inbounds nuw i8, ptr %.0340.i, i64 8
-  %5920 = load i64, ptr %5919, align 8, !tbaa !75
-  br i1 %.not.i530.i, label %7129, label %5921
+5915:                                             ; preds = %5902, %5893
+  %5916 = phi i64 [ %.pre3049, %5902 ], [ %5094, %5893 ]
+  %.3373.i = phi ptr [ %5914, %5902 ], [ %.0370.i, %5893 ]
+  %.3364.i = phi ptr [ %5907, %5902 ], [ %.0361.i, %5893 ]
+  %.3356.i = phi i64 [ %5900, %5902 ], [ %.0353.i, %5893 ]
+  %.4346.i = phi ptr [ %5913, %5902 ], [ %.0342.i, %5893 ]
+  %.3.i214 = phi ptr [ %5901, %5902 ], [ %.0341.i, %5893 ]
+  %5917 = and i64 %5916, 16
+  %.not.i530.i = icmp eq i64 %5917, 0
+  %5918 = getelementptr inbounds nuw i8, ptr %.0340.i, i64 8
+  %5919 = load i64, ptr %5918, align 8, !tbaa !75
+  br i1 %.not.i530.i, label %7128, label %5920
 
-5921:                                             ; preds = %5916
-  %5922 = and i64 %5920, 4503599627370495
-  %5923 = lshr i64 %5920, 52
-  %5924 = trunc nuw nsw i64 %5923 to i32
-  %5925 = and i32 %5924, 2047
-  %5926 = icmp eq i32 %5925, 2047
-  br i1 %5926, label %5927, label %5938, !prof !3
+5920:                                             ; preds = %5915
+  %5921 = and i64 %5919, 4503599627370495
+  %5922 = lshr i64 %5919, 52
+  %5923 = trunc nuw nsw i64 %5922 to i32
+  %5924 = and i32 %5923, 2047
+  %5925 = icmp eq i32 %5924, 2047
+  br i1 %5925, label %5926, label %5937, !prof !3
 
-5927:                                             ; preds = %5921
-  br i1 %.not1079, label %5930, label %5928, !prof !22
+5926:                                             ; preds = %5920
+  br i1 %.not1079, label %5929, label %5927, !prof !22
 
-5928:                                             ; preds = %5927
+5927:                                             ; preds = %5926
   store i32 1819047278, ptr %.4346.i, align 1
-  %5929 = getelementptr inbounds nuw i8, ptr %.4346.i, i64 4
+  %5928 = getelementptr inbounds nuw i8, ptr %.4346.i, i64 4
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-5930:                                             ; preds = %5927
-  br i1 %.not1080, label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033, label %5931, !prof !22
+5929:                                             ; preds = %5926
+  br i1 %.not1080, label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033, label %5930, !prof !22
 
-5931:                                             ; preds = %5930
-  %5932 = icmp eq i64 %5922, 0
-  br i1 %5932, label %5933, label %5936
+5930:                                             ; preds = %5929
+  %5931 = icmp eq i64 %5921, 0
+  br i1 %5931, label %5932, label %5935
 
-5933:                                             ; preds = %5931
+5932:                                             ; preds = %5930
   store i8 45, ptr %.4346.i, align 1, !tbaa !75
-  %.lobit131.i.i269 = lshr i64 %5920, 63
-  %5934 = getelementptr inbounds nuw i8, ptr %.4346.i, i64 %.lobit131.i.i269
-  store i64 8751735898823355977, ptr %5934, align 1
-  %5935 = getelementptr inbounds nuw i8, ptr %5934, i64 8
+  %.lobit131.i.i269 = lshr i64 %5919, 63
+  %5933 = getelementptr inbounds nuw i8, ptr %.4346.i, i64 %.lobit131.i.i269
+  store i64 8751735898823355977, ptr %5933, align 1
+  %5934 = getelementptr inbounds nuw i8, ptr %5933, i64 8
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-5936:                                             ; preds = %5931
+5935:                                             ; preds = %5930
   store i32 5136718, ptr %.4346.i, align 1
-  %5937 = getelementptr inbounds nuw i8, ptr %.4346.i, i64 3
+  %5936 = getelementptr inbounds nuw i8, ptr %.4346.i, i64 3
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-5938:                                             ; preds = %5921
+5937:                                             ; preds = %5920
   store i8 45, ptr %.4346.i, align 1, !tbaa !75
-  %.lobit.i551.i = lshr i64 %5920, 63
-  %5939 = getelementptr i8, ptr %.4346.i, i64 %.lobit.i551.i
-  %.mask.i.i215 = and i64 %5920, 9223372036854775807
-  %5940 = icmp eq i64 %.mask.i.i215, 0
-  br i1 %5940, label %5941, label %5943
+  %.lobit.i551.i = lshr i64 %5919, 63
+  %5938 = getelementptr i8, ptr %.4346.i, i64 %.lobit.i551.i
+  %.mask.i.i215 = and i64 %5919, 9223372036854775807
+  %5939 = icmp eq i64 %.mask.i.i215, 0
+  br i1 %5939, label %5940, label %5942
 
-5941:                                             ; preds = %5938
-  store i32 3157552, ptr %5939, align 1
-  %5942 = getelementptr inbounds nuw i8, ptr %5939, i64 3
+5940:                                             ; preds = %5937
+  store i32 3157552, ptr %5938, align 1
+  %5941 = getelementptr inbounds nuw i8, ptr %5938, i64 3
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-5943:                                             ; preds = %5938
-  %.not.i552.i = icmp eq i32 %5925, 0
-  br i1 %.not.i552.i, label %6736, label %5944, !prof !3
+5942:                                             ; preds = %5937
+  %.not.i552.i = icmp eq i32 %5924, 0
+  br i1 %.not.i552.i, label %6735, label %5943, !prof !3
 
-5944:                                             ; preds = %5943
-  %5945 = or disjoint i64 %5922, 4503599627370496
-  %5946 = add nsw i32 %5925, -1023
-  %or.cond.i553.i = icmp ult i32 %5946, 53
-  br i1 %or.cond.i553.i, label %5947, label %6180
+5943:                                             ; preds = %5942
+  %5944 = or disjoint i64 %5921, 4503599627370496
+  %5945 = add nsw i32 %5924, -1023
+  %or.cond.i553.i = icmp ult i32 %5945, 53
+  br i1 %or.cond.i553.i, label %5946, label %6179
 
-5947:                                             ; preds = %5944
-  %5948 = tail call range(i64 0, 53) i64 @llvm.cttz.i64(i64 range(i64 4503599627370496, 9007199254740992) %5945, i1 true)
-  %5949 = trunc nuw nsw i64 %5948 to i32
-  %5950 = sub nuw nsw i32 1075, %5925
-  %.not127.i.i248 = icmp samesign ugt i32 %5950, %5949
-  br i1 %.not127.i.i248, label %6180, label %5951
+5946:                                             ; preds = %5943
+  %5947 = tail call range(i64 0, 53) i64 @llvm.cttz.i64(i64 range(i64 4503599627370496, 9007199254740992) %5944, i1 true)
+  %5948 = trunc nuw nsw i64 %5947 to i32
+  %5949 = sub nuw nsw i32 1075, %5924
+  %.not127.i.i248 = icmp samesign ugt i32 %5949, %5948
+  br i1 %.not127.i.i248, label %6179, label %5950
 
-5951:                                             ; preds = %5947
-  %5952 = zext nneg i32 %5950 to i64
-  %5953 = lshr i64 %5945, %5952
-  %5954 = icmp samesign ult i64 %5953, 100000000
-  br i1 %5954, label %5955, label %6050
+5950:                                             ; preds = %5946
+  %5951 = zext nneg i32 %5949 to i64
+  %5952 = lshr i64 %5944, %5951
+  %5953 = icmp samesign ult i64 %5952, 100000000
+  br i1 %5953, label %5954, label %6049
 
-5955:                                             ; preds = %5951
-  %5956 = trunc nuw nsw i64 %5953 to i32
-  %5957 = icmp samesign ult i64 %5953, 100
-  br i1 %5957, label %5958, label %5967
+5954:                                             ; preds = %5950
+  %5955 = trunc nuw nsw i64 %5952 to i32
+  %5956 = icmp samesign ult i64 %5952, 100
+  br i1 %5956, label %5957, label %5966
 
-5958:                                             ; preds = %5955
-  %5959 = icmp samesign ult i64 %5953, 10
-  %5960 = shl nuw nsw i64 %5953, 1
-  %5961 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5960
-  %.neg70.i646.i = sext i1 %5959 to i64
-  %5962 = zext i1 %5959 to i64
-  %5963 = getelementptr inbounds nuw i8, ptr %5961, i64 %5962
-  %5964 = load i16, ptr %5963, align 1
-  store i16 %5964, ptr %5939, align 1
-  %5965 = getelementptr inbounds i8, ptr %5939, i64 %.neg70.i646.i
-  %5966 = getelementptr inbounds nuw i8, ptr %5965, i64 2
+5957:                                             ; preds = %5954
+  %5958 = icmp samesign ult i64 %5952, 10
+  %5959 = shl nuw nsw i64 %5952, 1
+  %5960 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5959
+  %.neg70.i646.i = sext i1 %5958 to i64
+  %5961 = zext i1 %5958 to i64
+  %5962 = getelementptr inbounds nuw i8, ptr %5960, i64 %5961
+  %5963 = load i16, ptr %5962, align 1
+  store i16 %5963, ptr %5938, align 1
+  %5964 = getelementptr inbounds i8, ptr %5938, i64 %.neg70.i646.i
+  %5965 = getelementptr inbounds nuw i8, ptr %5964, i64 2
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249
 
-5967:                                             ; preds = %5955
-  %5968 = icmp samesign ult i64 %5953, 10000
-  br i1 %5968, label %5969, label %5987
+5966:                                             ; preds = %5954
+  %5967 = icmp samesign ult i64 %5952, 10000
+  br i1 %5967, label %5968, label %5986
 
-5969:                                             ; preds = %5967
-  %5970 = mul nuw nsw i32 %5956, 5243
-  %5971 = lshr i32 %5970, 19
-  %.neg68.i644.i = mul nsw i32 %5971, -100
-  %5972 = add nsw i32 %.neg68.i644.i, %5956
-  %5973 = icmp samesign ult i64 %5953, 1000
-  %5974 = shl nuw nsw i32 %5971, 1
-  %5975 = zext nneg i32 %5974 to i64
-  %5976 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5975
-  %.neg69.i645.i = sext i1 %5973 to i64
-  %5977 = zext i1 %5973 to i64
-  %5978 = getelementptr inbounds nuw i8, ptr %5976, i64 %5977
-  %5979 = load i16, ptr %5978, align 1
-  store i16 %5979, ptr %5939, align 1
-  %5980 = getelementptr inbounds i8, ptr %5939, i64 %.neg69.i645.i
-  %5981 = getelementptr inbounds nuw i8, ptr %5980, i64 2
-  %5982 = shl nsw i32 %5972, 1
-  %5983 = zext i32 %5982 to i64
-  %5984 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5983
-  %5985 = load i16, ptr %5984, align 2
-  store i16 %5985, ptr %5981, align 1
-  %5986 = getelementptr inbounds nuw i8, ptr %5980, i64 4
+5968:                                             ; preds = %5966
+  %5969 = mul nuw nsw i32 %5955, 5243
+  %5970 = lshr i32 %5969, 19
+  %.neg68.i644.i = mul nsw i32 %5970, -100
+  %5971 = add nsw i32 %.neg68.i644.i, %5955
+  %5972 = icmp samesign ult i64 %5952, 1000
+  %5973 = shl nuw nsw i32 %5970, 1
+  %5974 = zext nneg i32 %5973 to i64
+  %5975 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5974
+  %.neg69.i645.i = sext i1 %5972 to i64
+  %5976 = zext i1 %5972 to i64
+  %5977 = getelementptr inbounds nuw i8, ptr %5975, i64 %5976
+  %5978 = load i16, ptr %5977, align 1
+  store i16 %5978, ptr %5938, align 1
+  %5979 = getelementptr inbounds i8, ptr %5938, i64 %.neg69.i645.i
+  %5980 = getelementptr inbounds nuw i8, ptr %5979, i64 2
+  %5981 = shl nsw i32 %5971, 1
+  %5982 = zext i32 %5981 to i64
+  %5983 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5982
+  %5984 = load i16, ptr %5983, align 2
+  store i16 %5984, ptr %5980, align 1
+  %5985 = getelementptr inbounds nuw i8, ptr %5979, i64 4
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249
 
-5987:                                             ; preds = %5967
-  %5988 = icmp samesign ult i64 %5953, 1000000
-  br i1 %5988, label %5989, label %6015
+5986:                                             ; preds = %5966
+  %5987 = icmp samesign ult i64 %5952, 1000000
+  br i1 %5987, label %5988, label %6014
 
-5989:                                             ; preds = %5987
-  %5990 = mul nuw nsw i64 %5953, 429497
-  %5991 = lshr i64 %5990, 32
-  %5992 = trunc nuw nsw i64 %5991 to i32
-  %.neg65.i641.i = mul nsw i32 %5992, -10000
-  %5993 = add nsw i32 %.neg65.i641.i, %5956
-  %5994 = mul i32 %5993, 5243
-  %5995 = lshr i32 %5994, 19
-  %.neg66.i642.i = mul nsw i32 %5995, -100
-  %5996 = add nsw i32 %.neg66.i642.i, %5993
-  %5997 = icmp samesign ult i64 %5953, 100000
-  %5998 = shl nuw nsw i64 %5991, 1
-  %5999 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5998
-  %.neg67.i643.i = sext i1 %5997 to i64
-  %6000 = zext i1 %5997 to i64
-  %6001 = getelementptr inbounds nuw i8, ptr %5999, i64 %6000
-  %6002 = load i16, ptr %6001, align 1
-  store i16 %6002, ptr %5939, align 1
-  %6003 = getelementptr inbounds i8, ptr %5939, i64 %.neg67.i643.i
-  %6004 = getelementptr inbounds nuw i8, ptr %6003, i64 2
-  %6005 = shl nuw nsw i32 %5995, 1
-  %6006 = zext nneg i32 %6005 to i64
-  %6007 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6006
-  %6008 = load i16, ptr %6007, align 2
-  store i16 %6008, ptr %6004, align 1
-  %6009 = getelementptr inbounds nuw i8, ptr %6003, i64 4
-  %6010 = shl nsw i32 %5996, 1
-  %6011 = zext i32 %6010 to i64
-  %6012 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6011
-  %6013 = load i16, ptr %6012, align 2
-  store i16 %6013, ptr %6009, align 1
-  %6014 = getelementptr inbounds nuw i8, ptr %6003, i64 6
+5988:                                             ; preds = %5986
+  %5989 = mul nuw nsw i64 %5952, 429497
+  %5990 = lshr i64 %5989, 32
+  %5991 = trunc nuw nsw i64 %5990 to i32
+  %.neg65.i641.i = mul nsw i32 %5991, -10000
+  %5992 = add nsw i32 %.neg65.i641.i, %5955
+  %5993 = mul i32 %5992, 5243
+  %5994 = lshr i32 %5993, 19
+  %.neg66.i642.i = mul nsw i32 %5994, -100
+  %5995 = add nsw i32 %.neg66.i642.i, %5992
+  %5996 = icmp samesign ult i64 %5952, 100000
+  %5997 = shl nuw nsw i64 %5990, 1
+  %5998 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %5997
+  %.neg67.i643.i = sext i1 %5996 to i64
+  %5999 = zext i1 %5996 to i64
+  %6000 = getelementptr inbounds nuw i8, ptr %5998, i64 %5999
+  %6001 = load i16, ptr %6000, align 1
+  store i16 %6001, ptr %5938, align 1
+  %6002 = getelementptr inbounds i8, ptr %5938, i64 %.neg67.i643.i
+  %6003 = getelementptr inbounds nuw i8, ptr %6002, i64 2
+  %6004 = shl nuw nsw i32 %5994, 1
+  %6005 = zext nneg i32 %6004 to i64
+  %6006 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6005
+  %6007 = load i16, ptr %6006, align 2
+  store i16 %6007, ptr %6003, align 1
+  %6008 = getelementptr inbounds nuw i8, ptr %6002, i64 4
+  %6009 = shl nsw i32 %5995, 1
+  %6010 = zext i32 %6009 to i64
+  %6011 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6010
+  %6012 = load i16, ptr %6011, align 2
+  store i16 %6012, ptr %6008, align 1
+  %6013 = getelementptr inbounds nuw i8, ptr %6002, i64 6
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249
 
-6015:                                             ; preds = %5987
-  %6016 = mul nuw nsw i64 %5953, 109951163
-  %6017 = lshr i64 %6016, 40
-  %6018 = trunc nuw nsw i64 %6017 to i32
-  %.neg.i636.i = mul nsw i32 %6018, -10000
-  %6019 = add nsw i32 %.neg.i636.i, %5956
-  %6020 = mul nuw nsw i32 %6018, 5243
-  %6021 = lshr i32 %6020, 19
-  %6022 = mul i32 %6019, 5243
-  %6023 = lshr i32 %6022, 19
-  %.neg62.i637.i = mul nsw i32 %6021, -100
-  %6024 = add nsw i32 %.neg62.i637.i, %6018
-  %.neg63.i638.i = mul nsw i32 %6023, -100
-  %6025 = add nsw i32 %.neg63.i638.i, %6019
-  %6026 = icmp samesign ult i64 %5953, 10000000
-  %6027 = shl nuw nsw i32 %6021, 1
-  %6028 = zext nneg i32 %6027 to i64
-  %6029 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6028
-  %.neg64.i639.i = sext i1 %6026 to i64
-  %6030 = zext i1 %6026 to i64
-  %6031 = getelementptr inbounds nuw i8, ptr %6029, i64 %6030
-  %6032 = load i16, ptr %6031, align 1
-  store i16 %6032, ptr %5939, align 1
-  %6033 = getelementptr inbounds i8, ptr %5939, i64 %.neg64.i639.i
-  %6034 = getelementptr inbounds nuw i8, ptr %6033, i64 2
-  %6035 = shl nsw i32 %6024, 1
-  %6036 = zext i32 %6035 to i64
-  %6037 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6036
-  %6038 = load i16, ptr %6037, align 2
-  store i16 %6038, ptr %6034, align 1
-  %6039 = getelementptr inbounds nuw i8, ptr %6033, i64 4
-  %6040 = shl nuw nsw i32 %6023, 1
-  %6041 = zext nneg i32 %6040 to i64
-  %6042 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6041
-  %6043 = load i16, ptr %6042, align 2
-  store i16 %6043, ptr %6039, align 1
-  %6044 = getelementptr inbounds nuw i8, ptr %6033, i64 6
-  %6045 = shl nsw i32 %6025, 1
-  %6046 = zext i32 %6045 to i64
-  %6047 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6046
-  %6048 = load i16, ptr %6047, align 2
-  store i16 %6048, ptr %6044, align 1
-  %6049 = getelementptr inbounds nuw i8, ptr %6033, i64 8
+6014:                                             ; preds = %5986
+  %6015 = mul nuw nsw i64 %5952, 109951163
+  %6016 = lshr i64 %6015, 40
+  %6017 = trunc nuw nsw i64 %6016 to i32
+  %.neg.i636.i = mul nsw i32 %6017, -10000
+  %6018 = add nsw i32 %.neg.i636.i, %5955
+  %6019 = mul nuw nsw i32 %6017, 5243
+  %6020 = lshr i32 %6019, 19
+  %6021 = mul i32 %6018, 5243
+  %6022 = lshr i32 %6021, 19
+  %.neg62.i637.i = mul nsw i32 %6020, -100
+  %6023 = add nsw i32 %.neg62.i637.i, %6017
+  %.neg63.i638.i = mul nsw i32 %6022, -100
+  %6024 = add nsw i32 %.neg63.i638.i, %6018
+  %6025 = icmp samesign ult i64 %5952, 10000000
+  %6026 = shl nuw nsw i32 %6020, 1
+  %6027 = zext nneg i32 %6026 to i64
+  %6028 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6027
+  %.neg64.i639.i = sext i1 %6025 to i64
+  %6029 = zext i1 %6025 to i64
+  %6030 = getelementptr inbounds nuw i8, ptr %6028, i64 %6029
+  %6031 = load i16, ptr %6030, align 1
+  store i16 %6031, ptr %5938, align 1
+  %6032 = getelementptr inbounds i8, ptr %5938, i64 %.neg64.i639.i
+  %6033 = getelementptr inbounds nuw i8, ptr %6032, i64 2
+  %6034 = shl nsw i32 %6023, 1
+  %6035 = zext i32 %6034 to i64
+  %6036 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6035
+  %6037 = load i16, ptr %6036, align 2
+  store i16 %6037, ptr %6033, align 1
+  %6038 = getelementptr inbounds nuw i8, ptr %6032, i64 4
+  %6039 = shl nuw nsw i32 %6022, 1
+  %6040 = zext nneg i32 %6039 to i64
+  %6041 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6040
+  %6042 = load i16, ptr %6041, align 2
+  store i16 %6042, ptr %6038, align 1
+  %6043 = getelementptr inbounds nuw i8, ptr %6032, i64 6
+  %6044 = shl nsw i32 %6024, 1
+  %6045 = zext i32 %6044 to i64
+  %6046 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6045
+  %6047 = load i16, ptr %6046, align 2
+  store i16 %6047, ptr %6043, align 1
+  %6048 = getelementptr inbounds nuw i8, ptr %6032, i64 8
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249
 
-6050:                                             ; preds = %5951
-  %6051 = udiv i64 %5953, 100000000
-  %.neg.i559.i = mul nuw nsw i64 %6051, 4194967296
-  %6052 = add nuw nsw i64 %.neg.i559.i, %5953
-  %6053 = trunc i64 %6052 to i32
-  %6054 = trunc nuw nsw i64 %6051 to i32
-  %6055 = icmp samesign ult i64 %5953, 10000000000
-  br i1 %6055, label %6056, label %6065
+6049:                                             ; preds = %5950
+  %6050 = udiv i64 %5952, 100000000
+  %.neg.i559.i = mul nuw nsw i64 %6050, 4194967296
+  %6051 = add nuw nsw i64 %.neg.i559.i, %5952
+  %6052 = trunc i64 %6051 to i32
+  %6053 = trunc nuw nsw i64 %6050 to i32
+  %6054 = icmp samesign ult i64 %5952, 10000000000
+  br i1 %6054, label %6055, label %6064
 
-6056:                                             ; preds = %6050
-  %6057 = icmp samesign ult i64 %5953, 1000000000
-  %6058 = shl nuw nsw i64 %6051, 1
-  %6059 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6058
-  %.neg70.i658.i = sext i1 %6057 to i64
-  %6060 = zext i1 %6057 to i64
-  %6061 = getelementptr inbounds nuw i8, ptr %6059, i64 %6060
-  %6062 = load i16, ptr %6061, align 1
-  store i16 %6062, ptr %5939, align 1
-  %6063 = getelementptr inbounds i8, ptr %5939, i64 %.neg70.i658.i
-  %6064 = getelementptr inbounds nuw i8, ptr %6063, i64 2
+6055:                                             ; preds = %6049
+  %6056 = icmp samesign ult i64 %5952, 1000000000
+  %6057 = shl nuw nsw i64 %6050, 1
+  %6058 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6057
+  %.neg70.i658.i = sext i1 %6056 to i64
+  %6059 = zext i1 %6056 to i64
+  %6060 = getelementptr inbounds nuw i8, ptr %6058, i64 %6059
+  %6061 = load i16, ptr %6060, align 1
+  store i16 %6061, ptr %5938, align 1
+  %6062 = getelementptr inbounds i8, ptr %5938, i64 %.neg70.i658.i
+  %6063 = getelementptr inbounds nuw i8, ptr %6062, i64 2
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit659.i
 
-6065:                                             ; preds = %6050
-  %6066 = icmp samesign ult i64 %5953, 1000000000000
-  br i1 %6066, label %6067, label %6085
+6064:                                             ; preds = %6049
+  %6065 = icmp samesign ult i64 %5952, 1000000000000
+  br i1 %6065, label %6066, label %6084
 
-6067:                                             ; preds = %6065
-  %6068 = mul nuw nsw i32 %6054, 5243
-  %6069 = lshr i32 %6068, 19
-  %.neg68.i656.i = mul nsw i32 %6069, -100
-  %6070 = add nsw i32 %.neg68.i656.i, %6054
-  %6071 = icmp samesign ult i64 %5953, 100000000000
-  %6072 = shl nuw nsw i32 %6069, 1
-  %6073 = zext nneg i32 %6072 to i64
-  %6074 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6073
-  %.neg69.i657.i = sext i1 %6071 to i64
-  %6075 = zext i1 %6071 to i64
-  %6076 = getelementptr inbounds nuw i8, ptr %6074, i64 %6075
-  %6077 = load i16, ptr %6076, align 1
-  store i16 %6077, ptr %5939, align 1
-  %6078 = getelementptr inbounds i8, ptr %5939, i64 %.neg69.i657.i
-  %6079 = getelementptr inbounds nuw i8, ptr %6078, i64 2
-  %6080 = shl nsw i32 %6070, 1
-  %6081 = zext i32 %6080 to i64
-  %6082 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6081
-  %6083 = load i16, ptr %6082, align 2
-  store i16 %6083, ptr %6079, align 1
-  %6084 = getelementptr inbounds nuw i8, ptr %6078, i64 4
+6066:                                             ; preds = %6064
+  %6067 = mul nuw nsw i32 %6053, 5243
+  %6068 = lshr i32 %6067, 19
+  %.neg68.i656.i = mul nsw i32 %6068, -100
+  %6069 = add nsw i32 %.neg68.i656.i, %6053
+  %6070 = icmp samesign ult i64 %5952, 100000000000
+  %6071 = shl nuw nsw i32 %6068, 1
+  %6072 = zext nneg i32 %6071 to i64
+  %6073 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6072
+  %.neg69.i657.i = sext i1 %6070 to i64
+  %6074 = zext i1 %6070 to i64
+  %6075 = getelementptr inbounds nuw i8, ptr %6073, i64 %6074
+  %6076 = load i16, ptr %6075, align 1
+  store i16 %6076, ptr %5938, align 1
+  %6077 = getelementptr inbounds i8, ptr %5938, i64 %.neg69.i657.i
+  %6078 = getelementptr inbounds nuw i8, ptr %6077, i64 2
+  %6079 = shl nsw i32 %6069, 1
+  %6080 = zext i32 %6079 to i64
+  %6081 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6080
+  %6082 = load i16, ptr %6081, align 2
+  store i16 %6082, ptr %6078, align 1
+  %6083 = getelementptr inbounds nuw i8, ptr %6077, i64 4
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit659.i
 
-6085:                                             ; preds = %6065
-  %6086 = icmp samesign ult i64 %5953, 100000000000000
-  br i1 %6086, label %6087, label %6113
+6084:                                             ; preds = %6064
+  %6085 = icmp samesign ult i64 %5952, 100000000000000
+  br i1 %6085, label %6086, label %6112
 
-6087:                                             ; preds = %6085
-  %6088 = mul nuw nsw i64 %6051, 429497
-  %6089 = lshr i64 %6088, 32
-  %6090 = trunc nuw nsw i64 %6089 to i32
-  %.neg65.i653.i = mul nsw i32 %6090, -10000
-  %6091 = add nsw i32 %.neg65.i653.i, %6054
-  %6092 = mul i32 %6091, 5243
-  %6093 = lshr i32 %6092, 19
-  %.neg66.i654.i = mul nsw i32 %6093, -100
-  %6094 = add nsw i32 %.neg66.i654.i, %6091
-  %6095 = icmp samesign ult i64 %5953, 10000000000000
-  %6096 = shl nuw nsw i64 %6089, 1
-  %6097 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6096
-  %.neg67.i655.i = sext i1 %6095 to i64
-  %6098 = zext i1 %6095 to i64
-  %6099 = getelementptr inbounds nuw i8, ptr %6097, i64 %6098
-  %6100 = load i16, ptr %6099, align 1
-  store i16 %6100, ptr %5939, align 1
-  %6101 = getelementptr inbounds i8, ptr %5939, i64 %.neg67.i655.i
-  %6102 = getelementptr inbounds nuw i8, ptr %6101, i64 2
-  %6103 = shl nuw nsw i32 %6093, 1
-  %6104 = zext nneg i32 %6103 to i64
-  %6105 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6104
-  %6106 = load i16, ptr %6105, align 2
-  store i16 %6106, ptr %6102, align 1
-  %6107 = getelementptr inbounds nuw i8, ptr %6101, i64 4
-  %6108 = shl nsw i32 %6094, 1
-  %6109 = zext i32 %6108 to i64
-  %6110 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6109
-  %6111 = load i16, ptr %6110, align 2
-  store i16 %6111, ptr %6107, align 1
-  %6112 = getelementptr inbounds nuw i8, ptr %6101, i64 6
+6086:                                             ; preds = %6084
+  %6087 = mul nuw nsw i64 %6050, 429497
+  %6088 = lshr i64 %6087, 32
+  %6089 = trunc nuw nsw i64 %6088 to i32
+  %.neg65.i653.i = mul nsw i32 %6089, -10000
+  %6090 = add nsw i32 %.neg65.i653.i, %6053
+  %6091 = mul i32 %6090, 5243
+  %6092 = lshr i32 %6091, 19
+  %.neg66.i654.i = mul nsw i32 %6092, -100
+  %6093 = add nsw i32 %.neg66.i654.i, %6090
+  %6094 = icmp samesign ult i64 %5952, 10000000000000
+  %6095 = shl nuw nsw i64 %6088, 1
+  %6096 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6095
+  %.neg67.i655.i = sext i1 %6094 to i64
+  %6097 = zext i1 %6094 to i64
+  %6098 = getelementptr inbounds nuw i8, ptr %6096, i64 %6097
+  %6099 = load i16, ptr %6098, align 1
+  store i16 %6099, ptr %5938, align 1
+  %6100 = getelementptr inbounds i8, ptr %5938, i64 %.neg67.i655.i
+  %6101 = getelementptr inbounds nuw i8, ptr %6100, i64 2
+  %6102 = shl nuw nsw i32 %6092, 1
+  %6103 = zext nneg i32 %6102 to i64
+  %6104 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6103
+  %6105 = load i16, ptr %6104, align 2
+  store i16 %6105, ptr %6101, align 1
+  %6106 = getelementptr inbounds nuw i8, ptr %6100, i64 4
+  %6107 = shl nsw i32 %6093, 1
+  %6108 = zext i32 %6107 to i64
+  %6109 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6108
+  %6110 = load i16, ptr %6109, align 2
+  store i16 %6110, ptr %6106, align 1
+  %6111 = getelementptr inbounds nuw i8, ptr %6100, i64 6
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit659.i
 
-6113:                                             ; preds = %6085
-  %6114 = mul nuw nsw i64 %6051, 109951163
-  %6115 = lshr i64 %6114, 40
-  %6116 = trunc nuw nsw i64 %6115 to i32
-  %.neg.i648.i = mul nsw i32 %6116, -10000
-  %6117 = add nsw i32 %.neg.i648.i, %6054
-  %6118 = mul nuw nsw i32 %6116, 5243
-  %6119 = lshr i32 %6118, 19
-  %6120 = mul i32 %6117, 5243
-  %6121 = lshr i32 %6120, 19
-  %.neg62.i649.i = mul nsw i32 %6119, -100
-  %6122 = add nsw i32 %.neg62.i649.i, %6116
-  %.neg63.i650.i = mul nsw i32 %6121, -100
-  %6123 = add nsw i32 %.neg63.i650.i, %6117
-  %6124 = icmp samesign ult i64 %5953, 1000000000000000
-  %6125 = shl nuw nsw i32 %6119, 1
-  %6126 = zext nneg i32 %6125 to i64
-  %6127 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6126
-  %.neg64.i651.i = sext i1 %6124 to i64
-  %6128 = zext i1 %6124 to i64
-  %6129 = getelementptr inbounds nuw i8, ptr %6127, i64 %6128
-  %6130 = load i16, ptr %6129, align 1
-  store i16 %6130, ptr %5939, align 1
-  %6131 = getelementptr inbounds i8, ptr %5939, i64 %.neg64.i651.i
-  %6132 = getelementptr inbounds nuw i8, ptr %6131, i64 2
-  %6133 = shl nsw i32 %6122, 1
-  %6134 = zext i32 %6133 to i64
-  %6135 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6134
-  %6136 = load i16, ptr %6135, align 2
-  store i16 %6136, ptr %6132, align 1
-  %6137 = getelementptr inbounds nuw i8, ptr %6131, i64 4
-  %6138 = shl nuw nsw i32 %6121, 1
-  %6139 = zext nneg i32 %6138 to i64
-  %6140 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6139
-  %6141 = load i16, ptr %6140, align 2
-  store i16 %6141, ptr %6137, align 1
-  %6142 = getelementptr inbounds nuw i8, ptr %6131, i64 6
-  %6143 = shl nsw i32 %6123, 1
-  %6144 = zext i32 %6143 to i64
-  %6145 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6144
-  %6146 = load i16, ptr %6145, align 2
-  store i16 %6146, ptr %6142, align 1
-  %6147 = getelementptr inbounds nuw i8, ptr %6131, i64 8
+6112:                                             ; preds = %6084
+  %6113 = mul nuw nsw i64 %6050, 109951163
+  %6114 = lshr i64 %6113, 40
+  %6115 = trunc nuw nsw i64 %6114 to i32
+  %.neg.i648.i = mul nsw i32 %6115, -10000
+  %6116 = add nsw i32 %.neg.i648.i, %6053
+  %6117 = mul nuw nsw i32 %6115, 5243
+  %6118 = lshr i32 %6117, 19
+  %6119 = mul i32 %6116, 5243
+  %6120 = lshr i32 %6119, 19
+  %.neg62.i649.i = mul nsw i32 %6118, -100
+  %6121 = add nsw i32 %.neg62.i649.i, %6115
+  %.neg63.i650.i = mul nsw i32 %6120, -100
+  %6122 = add nsw i32 %.neg63.i650.i, %6116
+  %6123 = icmp samesign ult i64 %5952, 1000000000000000
+  %6124 = shl nuw nsw i32 %6118, 1
+  %6125 = zext nneg i32 %6124 to i64
+  %6126 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6125
+  %.neg64.i651.i = sext i1 %6123 to i64
+  %6127 = zext i1 %6123 to i64
+  %6128 = getelementptr inbounds nuw i8, ptr %6126, i64 %6127
+  %6129 = load i16, ptr %6128, align 1
+  store i16 %6129, ptr %5938, align 1
+  %6130 = getelementptr inbounds i8, ptr %5938, i64 %.neg64.i651.i
+  %6131 = getelementptr inbounds nuw i8, ptr %6130, i64 2
+  %6132 = shl nsw i32 %6121, 1
+  %6133 = zext i32 %6132 to i64
+  %6134 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6133
+  %6135 = load i16, ptr %6134, align 2
+  store i16 %6135, ptr %6131, align 1
+  %6136 = getelementptr inbounds nuw i8, ptr %6130, i64 4
+  %6137 = shl nuw nsw i32 %6120, 1
+  %6138 = zext nneg i32 %6137 to i64
+  %6139 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6138
+  %6140 = load i16, ptr %6139, align 2
+  store i16 %6140, ptr %6136, align 1
+  %6141 = getelementptr inbounds nuw i8, ptr %6130, i64 6
+  %6142 = shl nsw i32 %6122, 1
+  %6143 = zext i32 %6142 to i64
+  %6144 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6143
+  %6145 = load i16, ptr %6144, align 2
+  store i16 %6145, ptr %6141, align 1
+  %6146 = getelementptr inbounds nuw i8, ptr %6130, i64 8
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit659.i
 
-_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit659.i: ; preds = %6113, %6087, %6067, %6056
-  %.0.i652.i = phi ptr [ %6064, %6056 ], [ %6084, %6067 ], [ %6112, %6087 ], [ %6147, %6113 ]
-  %6148 = and i64 %6052, 4294967295
-  %6149 = mul nuw nsw i64 %6148, 109951163
-  %6150 = lshr i64 %6149, 40
-  %6151 = trunc nuw nsw i64 %6150 to i32
-  %.neg.i691.i = mul i32 %6151, -10000
-  %6152 = add i32 %.neg.i691.i, %6053
-  %6153 = mul nuw i32 %6151, 5243
-  %6154 = lshr i32 %6153, 19
-  %6155 = mul i32 %6152, 5243
-  %6156 = lshr i32 %6155, 19
-  %.neg17.i692.i = mul nsw i32 %6154, -100
-  %6157 = add nsw i32 %.neg17.i692.i, %6151
-  %.neg18.i693.i = mul i32 %6156, 2147483548
-  %6158 = add i32 %.neg18.i693.i, %6152
-  %6159 = shl nuw nsw i32 %6154, 1
-  %6160 = zext nneg i32 %6159 to i64
-  %6161 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6160
-  %6162 = load i16, ptr %6161, align 2
-  store i16 %6162, ptr %.0.i652.i, align 1
-  %6163 = getelementptr inbounds nuw i8, ptr %.0.i652.i, i64 2
-  %6164 = shl nsw i32 %6157, 1
-  %6165 = zext i32 %6164 to i64
-  %6166 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6165
-  %6167 = load i16, ptr %6166, align 2
-  store i16 %6167, ptr %6163, align 1
-  %6168 = getelementptr inbounds nuw i8, ptr %.0.i652.i, i64 4
-  %6169 = shl nuw nsw i32 %6156, 1
-  %6170 = zext nneg i32 %6169 to i64
-  %6171 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6170
-  %6172 = load i16, ptr %6171, align 2
-  store i16 %6172, ptr %6168, align 1
-  %6173 = getelementptr inbounds nuw i8, ptr %.0.i652.i, i64 6
-  %6174 = shl i32 %6158, 1
-  %6175 = zext i32 %6174 to i64
-  %6176 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6175
-  %6177 = load i16, ptr %6176, align 2
-  store i16 %6177, ptr %6173, align 1
-  %6178 = getelementptr inbounds nuw i8, ptr %.0.i652.i, i64 8
+_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit659.i: ; preds = %6112, %6086, %6066, %6055
+  %.0.i652.i = phi ptr [ %6063, %6055 ], [ %6083, %6066 ], [ %6111, %6086 ], [ %6146, %6112 ]
+  %6147 = and i64 %6051, 4294967295
+  %6148 = mul nuw nsw i64 %6147, 109951163
+  %6149 = lshr i64 %6148, 40
+  %6150 = trunc nuw nsw i64 %6149 to i32
+  %.neg.i691.i = mul i32 %6150, -10000
+  %6151 = add i32 %.neg.i691.i, %6052
+  %6152 = mul nuw i32 %6150, 5243
+  %6153 = lshr i32 %6152, 19
+  %6154 = mul i32 %6151, 5243
+  %6155 = lshr i32 %6154, 19
+  %.neg17.i692.i = mul nsw i32 %6153, -100
+  %6156 = add nsw i32 %.neg17.i692.i, %6150
+  %.neg18.i693.i = mul i32 %6155, 2147483548
+  %6157 = add i32 %.neg18.i693.i, %6151
+  %6158 = shl nuw nsw i32 %6153, 1
+  %6159 = zext nneg i32 %6158 to i64
+  %6160 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6159
+  %6161 = load i16, ptr %6160, align 2
+  store i16 %6161, ptr %.0.i652.i, align 1
+  %6162 = getelementptr inbounds nuw i8, ptr %.0.i652.i, i64 2
+  %6163 = shl nsw i32 %6156, 1
+  %6164 = zext i32 %6163 to i64
+  %6165 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6164
+  %6166 = load i16, ptr %6165, align 2
+  store i16 %6166, ptr %6162, align 1
+  %6167 = getelementptr inbounds nuw i8, ptr %.0.i652.i, i64 4
+  %6168 = shl nuw nsw i32 %6155, 1
+  %6169 = zext nneg i32 %6168 to i64
+  %6170 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6169
+  %6171 = load i16, ptr %6170, align 2
+  store i16 %6171, ptr %6167, align 1
+  %6172 = getelementptr inbounds nuw i8, ptr %.0.i652.i, i64 6
+  %6173 = shl i32 %6157, 1
+  %6174 = zext i32 %6173 to i64
+  %6175 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6174
+  %6176 = load i16, ptr %6175, align 2
+  store i16 %6176, ptr %6172, align 1
+  %6177 = getelementptr inbounds nuw i8, ptr %.0.i652.i, i64 8
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249
 
-_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249: ; preds = %5958, %5969, %5989, %6015, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit659.i
-  %.0.i560.i = phi ptr [ %6178, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit659.i ], [ %5966, %5958 ], [ %5986, %5969 ], [ %6014, %5989 ], [ %6049, %6015 ]
+_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249: ; preds = %5957, %5968, %5988, %6014, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit659.i
+  %.0.i560.i = phi ptr [ %6177, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit659.i ], [ %5965, %5957 ], [ %5985, %5968 ], [ %6013, %5988 ], [ %6048, %6014 ]
   store i16 12334, ptr %.0.i560.i, align 1
-  %6179 = getelementptr inbounds nuw i8, ptr %.0.i560.i, i64 2
+  %6178 = getelementptr inbounds nuw i8, ptr %.0.i560.i, i64 2
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-6180:                                             ; preds = %5947, %5944
-  %6181 = and i64 %5920, 1
-  %6182 = icmp eq i64 %5922, 0
-  %6183 = icmp ne i32 %5925, 1
-  %6184 = and i1 %6182, %6183
-  %6185 = shl nuw nsw i64 %5945, 2
-  %6186 = add nsw i64 %6185, -2
-  %6187 = zext i1 %6184 to i64
-  %6188 = or disjoint i64 %6186, %6187
-  %6189 = or disjoint i64 %6185, 2
-  %6190 = mul nuw nsw i32 %5925, 315653
-  %6191 = add nsw i32 %6190, -339326975
-  %.neg.i563.i = select i1 %6184, i32 -131237, i32 0
-  %6192 = add nsw i32 %.neg.i563.i, %6191
-  %6193 = ashr i32 %6192, 20
-  %6194 = mul nsw i32 %6193, -217707
-  %6195 = ashr i32 %6194, 16
-  %6196 = add nsw i32 %5925, -1074
-  %6197 = add nsw i32 %6196, %6195
-  %.neg1068 = mul nsw i32 %6193, -2
-  %6198 = sext i32 %.neg1068 to i64
-  %6199 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6198
-  %6200 = getelementptr i8, ptr %6199, i64 5488
-  %6201 = load i64, ptr %6200, align 16, !tbaa !85
-  %6202 = getelementptr i8, ptr %6199, i64 5496
-  %6203 = load i64, ptr %6202, align 8, !tbaa !85
-  %6204 = add nsw i32 %6193, -1
-  %6205 = icmp ult i32 %6204, -56
-  %6206 = zext i1 %6205 to i64
-  %6207 = add i64 %6203, %6206
-  %6208 = zext i32 %6197 to i64
-  %6209 = shl i64 %6188, %6208
-  %6210 = zext i64 %6209 to i128
-  %6211 = zext i64 %6207 to i128
-  %6212 = mul nuw i128 %6211, %6210
-  %6213 = lshr i128 %6212, 64
-  %6214 = zext i64 %6201 to i128
-  %6215 = mul nuw i128 %6214, %6210
-  %6216 = add nuw i128 %6213, %6215
-  %6217 = lshr i128 %6216, 64
-  %6218 = trunc nuw i128 %6217 to i64
-  %6219 = and i128 %6216, 18446744073709551614
-  %6220 = icmp ne i128 %6219, 0
-  %6221 = zext i1 %6220 to i64
-  %6222 = or i64 %6221, %6218
-  %6223 = shl i64 %6185, %6208
-  %6224 = zext i64 %6223 to i128
-  %6225 = mul nuw i128 %6211, %6224
-  %6226 = lshr i128 %6225, 64
-  %6227 = mul nuw i128 %6214, %6224
-  %6228 = add nuw i128 %6226, %6227
-  %6229 = lshr i128 %6228, 64
-  %6230 = trunc nuw i128 %6229 to i64
-  %6231 = and i128 %6228, 18446744073709551614
-  %6232 = icmp ne i128 %6231, 0
-  %6233 = zext i1 %6232 to i64
-  %6234 = or i64 %6233, %6230
-  %6235 = shl i64 %6189, %6208
-  %6236 = zext i64 %6235 to i128
-  %6237 = mul nuw i128 %6211, %6236
-  %6238 = lshr i128 %6237, 64
-  %6239 = mul nuw i128 %6214, %6236
-  %6240 = add nuw i128 %6238, %6239
-  %6241 = lshr i128 %6240, 64
-  %6242 = trunc nuw i128 %6241 to i64
-  %6243 = and i128 %6240, 18446744073709551614
-  %6244 = icmp ne i128 %6243, 0
-  %6245 = zext i1 %6244 to i64
-  %6246 = or i64 %6245, %6242
-  %6247 = add i64 %6222, %6181
-  %6248 = sub i64 %6246, %6181
-  %6249 = lshr i64 %6230, 2
-  %6250 = icmp ugt i64 %6230, 39
-  br i1 %6250, label %6251, label %6261
+6179:                                             ; preds = %5946, %5943
+  %6180 = and i64 %5919, 1
+  %6181 = icmp eq i64 %5921, 0
+  %6182 = icmp ne i32 %5924, 1
+  %6183 = and i1 %6181, %6182
+  %6184 = shl nuw nsw i64 %5944, 2
+  %6185 = add nsw i64 %6184, -2
+  %6186 = zext i1 %6183 to i64
+  %6187 = or disjoint i64 %6185, %6186
+  %6188 = or disjoint i64 %6184, 2
+  %6189 = mul nuw nsw i32 %5924, 315653
+  %6190 = add nsw i32 %6189, -339326975
+  %.neg.i563.i = select i1 %6183, i32 -131237, i32 0
+  %6191 = add nsw i32 %.neg.i563.i, %6190
+  %6192 = ashr i32 %6191, 20
+  %6193 = mul nsw i32 %6192, -217707
+  %6194 = ashr i32 %6193, 16
+  %6195 = add nsw i32 %5924, -1074
+  %6196 = add nsw i32 %6195, %6194
+  %.neg1068 = mul nsw i32 %6192, -2
+  %6197 = sext i32 %.neg1068 to i64
+  %6198 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6197
+  %6199 = getelementptr i8, ptr %6198, i64 5488
+  %6200 = load i64, ptr %6199, align 16, !tbaa !85
+  %6201 = getelementptr i8, ptr %6198, i64 5496
+  %6202 = load i64, ptr %6201, align 8, !tbaa !85
+  %6203 = add nsw i32 %6192, -1
+  %6204 = icmp ult i32 %6203, -56
+  %6205 = zext i1 %6204 to i64
+  %6206 = add i64 %6202, %6205
+  %6207 = zext i32 %6196 to i64
+  %6208 = shl i64 %6187, %6207
+  %6209 = zext i64 %6208 to i128
+  %6210 = zext i64 %6206 to i128
+  %6211 = mul nuw i128 %6210, %6209
+  %6212 = lshr i128 %6211, 64
+  %6213 = zext i64 %6200 to i128
+  %6214 = mul nuw i128 %6213, %6209
+  %6215 = add nuw i128 %6212, %6214
+  %6216 = lshr i128 %6215, 64
+  %6217 = trunc nuw i128 %6216 to i64
+  %6218 = and i128 %6215, 18446744073709551614
+  %6219 = icmp ne i128 %6218, 0
+  %6220 = zext i1 %6219 to i64
+  %6221 = or i64 %6220, %6217
+  %6222 = shl i64 %6184, %6207
+  %6223 = zext i64 %6222 to i128
+  %6224 = mul nuw i128 %6210, %6223
+  %6225 = lshr i128 %6224, 64
+  %6226 = mul nuw i128 %6213, %6223
+  %6227 = add nuw i128 %6225, %6226
+  %6228 = lshr i128 %6227, 64
+  %6229 = trunc nuw i128 %6228 to i64
+  %6230 = and i128 %6227, 18446744073709551614
+  %6231 = icmp ne i128 %6230, 0
+  %6232 = zext i1 %6231 to i64
+  %6233 = or i64 %6232, %6229
+  %6234 = shl i64 %6188, %6207
+  %6235 = zext i64 %6234 to i128
+  %6236 = mul nuw i128 %6210, %6235
+  %6237 = lshr i128 %6236, 64
+  %6238 = mul nuw i128 %6213, %6235
+  %6239 = add nuw i128 %6237, %6238
+  %6240 = lshr i128 %6239, 64
+  %6241 = trunc nuw i128 %6240 to i64
+  %6242 = and i128 %6239, 18446744073709551614
+  %6243 = icmp ne i128 %6242, 0
+  %6244 = zext i1 %6243 to i64
+  %6245 = or i64 %6244, %6241
+  %6246 = add i64 %6221, %6180
+  %6247 = sub i64 %6245, %6180
+  %6248 = lshr i64 %6229, 2
+  %6249 = icmp ugt i64 %6229, 39
+  br i1 %6249, label %6250, label %6260
 
-6251:                                             ; preds = %6180
-  %6252 = udiv i64 %6230, 40
-  %6253 = mul nuw i64 %6252, 40
-  %6254 = add i64 %6253, 40
-  %6255 = icmp uge i64 %6248, %6254
-  %6256 = icmp ugt i64 %6247, %6253
-  %.not.i566.i = xor i1 %6256, %6255
-  br i1 %.not.i566.i, label %6261, label %6257
+6250:                                             ; preds = %6179
+  %6251 = udiv i64 %6229, 40
+  %6252 = mul nuw i64 %6251, 40
+  %6253 = add i64 %6252, 40
+  %6254 = icmp uge i64 %6247, %6253
+  %6255 = icmp ugt i64 %6246, %6252
+  %.not.i566.i = xor i1 %6255, %6254
+  br i1 %.not.i566.i, label %6260, label %6256
 
-6257:                                             ; preds = %6251
-  %6258 = zext i1 %6255 to i64
-  %6259 = add nuw nsw i64 %6252, %6258
-  %6260 = add nsw i32 %6193, 1
+6256:                                             ; preds = %6250
+  %6257 = zext i1 %6254 to i64
+  %6258 = add nuw nsw i64 %6251, %6257
+  %6259 = add nsw i32 %6192, 1
   br label %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit567.i
 
-6261:                                             ; preds = %6251, %6180
-  %6262 = and i64 %6230, -4
-  %6263 = add i64 %6262, 4
-  %6264 = icmp uge i64 %6248, %6263
-  %6265 = or disjoint i64 %6262, 2
-  %6266 = icmp ugt i64 %6234, %6265
-  br i1 %6266, label %6272, label %6267
+6260:                                             ; preds = %6250, %6179
+  %6261 = and i64 %6229, -4
+  %6262 = add i64 %6261, 4
+  %6263 = icmp uge i64 %6247, %6262
+  %6264 = or disjoint i64 %6261, 2
+  %6265 = icmp ugt i64 %6233, %6264
+  br i1 %6265, label %6271, label %6266
 
-6267:                                             ; preds = %6261
-  %6268 = icmp eq i64 %6234, %6265
-  %6269 = and i64 %6230, 4
-  %6270 = icmp ne i64 %6269, 0
-  %6271 = and i1 %6270, %6268
-  br label %6272
+6266:                                             ; preds = %6260
+  %6267 = icmp eq i64 %6233, %6264
+  %6268 = and i64 %6229, 4
+  %6269 = icmp ne i64 %6268, 0
+  %6270 = and i1 %6269, %6267
+  br label %6271
 
-6272:                                             ; preds = %6267, %6261
-  %6273 = phi i1 [ true, %6261 ], [ %6271, %6267 ]
-  %6274 = icmp ugt i64 %6247, %6262
-  %.not58.i564.i = xor i1 %6274, %6264
-  %6275 = select i1 %.not58.i564.i, i1 %6273, i1 %6264
-  %6276 = zext i1 %6275 to i64
-  %6277 = add nuw nsw i64 %6249, %6276
+6271:                                             ; preds = %6266, %6260
+  %6272 = phi i1 [ true, %6260 ], [ %6270, %6266 ]
+  %6273 = icmp ugt i64 %6246, %6261
+  %.not58.i564.i = xor i1 %6273, %6263
+  %6274 = select i1 %.not58.i564.i, i1 %6272, i1 %6263
+  %6275 = zext i1 %6274 to i64
+  %6276 = add nuw nsw i64 %6248, %6275
   br label %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit567.i
 
-_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit567.i: ; preds = %6272, %6257
-  %.0796 = phi i64 [ %6277, %6272 ], [ %6259, %6257 ]
-  %storemerge.i565.i = phi i32 [ %6193, %6272 ], [ %6260, %6257 ]
-  %6278 = icmp samesign ult i64 %.0796, 10000000000000000
-  %6279 = select i1 %6278, i32 16, i32 17
-  %6280 = icmp samesign ult i64 %.0796, 1000000000000000
-  %.neg129.i.i216 = sext i1 %6280 to i32
-  %6281 = add nsw i32 %6279, %.neg129.i.i216
-  %6282 = add nsw i32 %6281, %storemerge.i565.i
-  %6283 = add nsw i32 %6282, 5
-  %or.cond3.i.i217 = icmp ult i32 %6283, 27
-  br i1 %or.cond3.i.i217, label %6284, label %6566
+_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit567.i: ; preds = %6271, %6256
+  %.0796 = phi i64 [ %6276, %6271 ], [ %6258, %6256 ]
+  %storemerge.i565.i = phi i32 [ %6192, %6271 ], [ %6259, %6256 ]
+  %6277 = icmp samesign ult i64 %.0796, 10000000000000000
+  %6278 = select i1 %6277, i32 16, i32 17
+  %6279 = icmp samesign ult i64 %.0796, 1000000000000000
+  %.neg129.i.i216 = sext i1 %6279 to i32
+  %6280 = add nsw i32 %6278, %.neg129.i.i216
+  %6281 = add nsw i32 %6280, %storemerge.i565.i
+  %6282 = add nsw i32 %6281, 5
+  %or.cond3.i.i217 = icmp ult i32 %6282, 27
+  br i1 %or.cond3.i.i217, label %6283, label %6565
 
-6284:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit567.i
-  %6285 = icmp slt i32 %6282, 1
-  br i1 %6285, label %6286, label %6427
+6283:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit567.i
+  %6284 = icmp slt i32 %6281, 1
+  br i1 %6284, label %6285, label %6426
 
-6286:                                             ; preds = %6284
-  %6287 = sub nsw i32 2, %6282
-  %6288 = zext nneg i32 %6287 to i64
-  %6289 = getelementptr inbounds nuw i8, ptr %5939, i64 %6288
-  %6290 = udiv i64 %.0796, 100000000
-  %6291 = trunc i64 %6290 to i32
-  %.neg.i568.i = mul i64 %6290, 4194967296
-  %6292 = add i64 %.neg.i568.i, %.0796
-  %6293 = trunc i64 %6292 to i32
-  %6294 = udiv i32 %6291, 10000
-  %.neg95.i.i230 = mul i32 %6294, -10000
-  %6295 = add i32 %.neg95.i.i230, %6291
-  %6296 = zext nneg i32 %6294 to i64
-  %6297 = mul nuw nsw i64 %6296, 167773
-  %6298 = lshr i64 %6297, 24
-  %6299 = trunc nuw nsw i64 %6298 to i32
-  %6300 = mul nuw nsw i32 %6299, 41
-  %6301 = lshr i32 %6300, 12
-  %.neg96.i.i231 = mul nsw i32 %6301, -100
-  %6302 = add nsw i32 %.neg96.i.i231, %6299
-  %.neg97.i.i232 = mul nsw i32 %6299, -100
-  %6303 = add nsw i32 %.neg97.i.i232, %6294
-  %6304 = trunc nuw nsw i32 %6301 to i8
-  %6305 = add nuw nsw i8 %6304, 48
-  store i8 %6305, ptr %6289, align 1, !tbaa !75
-  %6306 = icmp ugt i32 %6291, 99999999
-  %6307 = zext i1 %6306 to i64
-  %6308 = getelementptr inbounds nuw i8, ptr %6289, i64 %6307
-  %6309 = icmp ult i32 %6302, 10
-  %6310 = icmp ult i32 %6291, 100000000
-  %6311 = and i1 %6310, %6309
-  %6312 = shl nsw i32 %6302, 1
-  %6313 = zext i32 %6312 to i64
-  %6314 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6313
-  %.neg98.i.i233 = sext i1 %6311 to i64
-  %6315 = zext i1 %6311 to i64
-  %6316 = getelementptr inbounds nuw i8, ptr %6314, i64 %6315
-  %6317 = load i16, ptr %6316, align 1
-  store i16 %6317, ptr %6308, align 1
-  %6318 = getelementptr inbounds i8, ptr %6308, i64 %.neg98.i.i233
-  %6319 = getelementptr inbounds nuw i8, ptr %6318, i64 2
-  %6320 = shl nsw i32 %6303, 1
-  %6321 = zext i32 %6320 to i64
-  %6322 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6321
-  %6323 = load i16, ptr %6322, align 2
-  store i16 %6323, ptr %6319, align 1
-  %.not.i569.i = icmp eq i32 %6293, 0
-  br i1 %.not.i569.i, label %6382, label %6324
+6285:                                             ; preds = %6283
+  %6286 = sub nsw i32 2, %6281
+  %6287 = zext nneg i32 %6286 to i64
+  %6288 = getelementptr inbounds nuw i8, ptr %5938, i64 %6287
+  %6289 = udiv i64 %.0796, 100000000
+  %6290 = trunc i64 %6289 to i32
+  %.neg.i568.i = mul i64 %6289, 4194967296
+  %6291 = add i64 %.neg.i568.i, %.0796
+  %6292 = trunc i64 %6291 to i32
+  %6293 = udiv i32 %6290, 10000
+  %.neg95.i.i230 = mul i32 %6293, -10000
+  %6294 = add i32 %.neg95.i.i230, %6290
+  %6295 = zext nneg i32 %6293 to i64
+  %6296 = mul nuw nsw i64 %6295, 167773
+  %6297 = lshr i64 %6296, 24
+  %6298 = trunc nuw nsw i64 %6297 to i32
+  %6299 = mul nuw nsw i32 %6298, 41
+  %6300 = lshr i32 %6299, 12
+  %.neg96.i.i231 = mul nsw i32 %6300, -100
+  %6301 = add nsw i32 %.neg96.i.i231, %6298
+  %.neg97.i.i232 = mul nsw i32 %6298, -100
+  %6302 = add nsw i32 %.neg97.i.i232, %6293
+  %6303 = trunc nuw nsw i32 %6300 to i8
+  %6304 = add nuw nsw i8 %6303, 48
+  store i8 %6304, ptr %6288, align 1, !tbaa !75
+  %6305 = icmp ugt i32 %6290, 99999999
+  %6306 = zext i1 %6305 to i64
+  %6307 = getelementptr inbounds nuw i8, ptr %6288, i64 %6306
+  %6308 = icmp ult i32 %6301, 10
+  %6309 = icmp ult i32 %6290, 100000000
+  %6310 = and i1 %6309, %6308
+  %6311 = shl nsw i32 %6301, 1
+  %6312 = zext i32 %6311 to i64
+  %6313 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6312
+  %.neg98.i.i233 = sext i1 %6310 to i64
+  %6314 = zext i1 %6310 to i64
+  %6315 = getelementptr inbounds nuw i8, ptr %6313, i64 %6314
+  %6316 = load i16, ptr %6315, align 1
+  store i16 %6316, ptr %6307, align 1
+  %6317 = getelementptr inbounds i8, ptr %6307, i64 %.neg98.i.i233
+  %6318 = getelementptr inbounds nuw i8, ptr %6317, i64 2
+  %6319 = shl nsw i32 %6302, 1
+  %6320 = zext i32 %6319 to i64
+  %6321 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6320
+  %6322 = load i16, ptr %6321, align 2
+  store i16 %6322, ptr %6318, align 1
+  %.not.i569.i = icmp eq i32 %6292, 0
+  br i1 %.not.i569.i, label %6381, label %6323
 
-6324:                                             ; preds = %6286
-  %6325 = mul i32 %6295, 5243
-  %6326 = lshr i32 %6325, 19
-  %.neg103.i.i234 = mul i32 %6326, 2147483548
-  %6327 = add i32 %.neg103.i.i234, %6295
-  %6328 = and i64 %6292, 4294967295
-  %6329 = mul nuw nsw i64 %6328, 109951163
-  %6330 = lshr i64 %6329, 40
-  %6331 = trunc nuw nsw i64 %6330 to i32
-  %.neg104.i.i235 = mul i32 %6331, -10000
-  %6332 = add i32 %.neg104.i.i235, %6293
-  %6333 = mul nuw i32 %6331, 5243
-  %6334 = lshr i32 %6333, 19
-  %.neg105.i.i236 = mul nsw i32 %6334, -100
-  %6335 = add nsw i32 %.neg105.i.i236, %6331
-  %6336 = getelementptr inbounds nuw i8, ptr %6318, i64 4
-  %6337 = shl nuw nsw i32 %6326, 1
-  %6338 = zext nneg i32 %6337 to i64
-  %6339 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6338
-  %6340 = load i16, ptr %6339, align 2
-  store i16 %6340, ptr %6336, align 1
-  %6341 = getelementptr inbounds nuw i8, ptr %6318, i64 6
-  %6342 = shl i32 %6327, 1
-  %6343 = zext i32 %6342 to i64
-  %6344 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6343
-  %6345 = load i16, ptr %6344, align 2
-  store i16 %6345, ptr %6341, align 1
-  %6346 = getelementptr inbounds nuw i8, ptr %6318, i64 8
-  %6347 = shl nuw nsw i32 %6334, 1
-  %6348 = zext nneg i32 %6347 to i64
-  %6349 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6348
-  %6350 = load i16, ptr %6349, align 2
-  store i16 %6350, ptr %6346, align 1
-  %6351 = getelementptr inbounds nuw i8, ptr %6318, i64 10
-  %6352 = shl nsw i32 %6335, 1
-  %6353 = zext i32 %6352 to i64
-  %6354 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6353
-  %6355 = load i16, ptr %6354, align 2
-  store i16 %6355, ptr %6351, align 1
-  %.not106.i.i237 = icmp eq i32 %6332, 0
-  br i1 %.not106.i.i237, label %6370, label %6356
+6323:                                             ; preds = %6285
+  %6324 = mul i32 %6294, 5243
+  %6325 = lshr i32 %6324, 19
+  %.neg103.i.i234 = mul i32 %6325, 2147483548
+  %6326 = add i32 %.neg103.i.i234, %6294
+  %6327 = and i64 %6291, 4294967295
+  %6328 = mul nuw nsw i64 %6327, 109951163
+  %6329 = lshr i64 %6328, 40
+  %6330 = trunc nuw nsw i64 %6329 to i32
+  %.neg104.i.i235 = mul i32 %6330, -10000
+  %6331 = add i32 %.neg104.i.i235, %6292
+  %6332 = mul nuw i32 %6330, 5243
+  %6333 = lshr i32 %6332, 19
+  %.neg105.i.i236 = mul nsw i32 %6333, -100
+  %6334 = add nsw i32 %.neg105.i.i236, %6330
+  %6335 = getelementptr inbounds nuw i8, ptr %6317, i64 4
+  %6336 = shl nuw nsw i32 %6325, 1
+  %6337 = zext nneg i32 %6336 to i64
+  %6338 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6337
+  %6339 = load i16, ptr %6338, align 2
+  store i16 %6339, ptr %6335, align 1
+  %6340 = getelementptr inbounds nuw i8, ptr %6317, i64 6
+  %6341 = shl i32 %6326, 1
+  %6342 = zext i32 %6341 to i64
+  %6343 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6342
+  %6344 = load i16, ptr %6343, align 2
+  store i16 %6344, ptr %6340, align 1
+  %6345 = getelementptr inbounds nuw i8, ptr %6317, i64 8
+  %6346 = shl nuw nsw i32 %6333, 1
+  %6347 = zext nneg i32 %6346 to i64
+  %6348 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6347
+  %6349 = load i16, ptr %6348, align 2
+  store i16 %6349, ptr %6345, align 1
+  %6350 = getelementptr inbounds nuw i8, ptr %6317, i64 10
+  %6351 = shl nsw i32 %6334, 1
+  %6352 = zext i32 %6351 to i64
+  %6353 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6352
+  %6354 = load i16, ptr %6353, align 2
+  store i16 %6354, ptr %6350, align 1
+  %.not106.i.i237 = icmp eq i32 %6331, 0
+  br i1 %.not106.i.i237, label %6369, label %6355
 
-6356:                                             ; preds = %6324
-  %6357 = mul i32 %6332, 5243
-  %6358 = lshr i32 %6357, 19
-  %.neg108.i.i238 = mul nsw i32 %6358, -100
-  %6359 = add i32 %.neg108.i.i238, %6332
-  %6360 = getelementptr inbounds nuw i8, ptr %6318, i64 12
-  %6361 = shl nuw nsw i32 %6358, 1
-  %6362 = zext nneg i32 %6361 to i64
-  %6363 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6362
-  %6364 = load i16, ptr %6363, align 2
-  store i16 %6364, ptr %6360, align 1
-  %6365 = getelementptr inbounds nuw i8, ptr %6318, i64 14
-  %6366 = shl i32 %6359, 1
-  %6367 = zext i32 %6366 to i64
-  %6368 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6367
-  %6369 = load i16, ptr %6368, align 2
-  store i16 %6369, ptr %6365, align 1
-  br label %6370
+6355:                                             ; preds = %6323
+  %6356 = mul i32 %6331, 5243
+  %6357 = lshr i32 %6356, 19
+  %.neg108.i.i238 = mul nsw i32 %6357, -100
+  %6358 = add i32 %.neg108.i.i238, %6331
+  %6359 = getelementptr inbounds nuw i8, ptr %6317, i64 12
+  %6360 = shl nuw nsw i32 %6357, 1
+  %6361 = zext nneg i32 %6360 to i64
+  %6362 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6361
+  %6363 = load i16, ptr %6362, align 2
+  store i16 %6363, ptr %6359, align 1
+  %6364 = getelementptr inbounds nuw i8, ptr %6317, i64 14
+  %6365 = shl i32 %6358, 1
+  %6366 = zext i32 %6365 to i64
+  %6367 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6366
+  %6368 = load i16, ptr %6367, align 2
+  store i16 %6368, ptr %6364, align 1
+  br label %6369
 
-6370:                                             ; preds = %6324, %6356
-  %.sink4582 = phi i32 [ %6358, %6356 ], [ %6334, %6324 ]
-  %.sink4578 = phi i32 [ %6359, %6356 ], [ %6335, %6324 ]
-  %.sink4569 = phi i64 [ 16, %6356 ], [ 12, %6324 ]
-  %6371 = zext nneg i32 %.sink4582 to i64
-  %6372 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6371
-  %6373 = load i8, ptr %6372, align 1, !tbaa !75
-  %6374 = zext i8 %6373 to i64
-  %6375 = zext i32 %.sink4578 to i64
-  %6376 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6375
-  %6377 = load i8, ptr %6376, align 1, !tbaa !75
-  %6378 = zext i8 %6377 to i64
+6369:                                             ; preds = %6323, %6355
+  %.sink4582 = phi i32 [ %6357, %6355 ], [ %6333, %6323 ]
+  %.sink4578 = phi i32 [ %6358, %6355 ], [ %6334, %6323 ]
+  %.sink4569 = phi i64 [ 16, %6355 ], [ 12, %6323 ]
+  %6370 = zext nneg i32 %.sink4582 to i64
+  %6371 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6370
+  %6372 = load i8, ptr %6371, align 1, !tbaa !75
+  %6373 = zext i8 %6372 to i64
+  %6374 = zext i32 %.sink4578 to i64
+  %6375 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6374
+  %6376 = load i8, ptr %6375, align 1, !tbaa !75
+  %6377 = zext i8 %6376 to i64
   %.not107.i.i243 = icmp eq i32 %.sink4578, 0
-  %6379 = add nuw nsw i64 %6374, 2
-  %6380 = select i1 %.not107.i.i243, i64 %6379, i64 %6378
-  %6381 = sub nsw i64 %.sink4569, %6380
+  %6378 = add nuw nsw i64 %6373, 2
+  %6379 = select i1 %.not107.i.i243, i64 %6378, i64 %6377
+  %6380 = sub nsw i64 %.sink4569, %6379
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241
 
-6382:                                             ; preds = %6286
-  %.not99.i.i244 = icmp eq i32 %6295, 0
-  br i1 %.not99.i.i244, label %6408, label %6383
+6381:                                             ; preds = %6285
+  %.not99.i.i244 = icmp eq i32 %6294, 0
+  br i1 %.not99.i.i244, label %6407, label %6382
 
-6383:                                             ; preds = %6382
-  %6384 = mul i32 %6295, 5243
-  %6385 = lshr i32 %6384, 19
-  %.neg101.i.i245 = mul nsw i32 %6385, -100
-  %6386 = add i32 %.neg101.i.i245, %6295
-  %6387 = getelementptr inbounds nuw i8, ptr %6318, i64 4
-  %6388 = shl nuw nsw i32 %6385, 1
-  %6389 = zext nneg i32 %6388 to i64
-  %6390 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6389
-  %6391 = load i16, ptr %6390, align 2
-  store i16 %6391, ptr %6387, align 1
-  %6392 = getelementptr inbounds nuw i8, ptr %6318, i64 6
-  %6393 = shl i32 %6386, 1
-  %6394 = zext i32 %6393 to i64
-  %6395 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6394
-  %6396 = load i16, ptr %6395, align 2
-  store i16 %6396, ptr %6392, align 1
-  %6397 = zext nneg i32 %6385 to i64
-  %6398 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6397
-  %6399 = load i8, ptr %6398, align 1, !tbaa !75
-  %6400 = zext i8 %6399 to i64
-  %6401 = zext i32 %6386 to i64
-  %6402 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6401
-  %6403 = load i8, ptr %6402, align 1, !tbaa !75
-  %6404 = zext i8 %6403 to i64
-  %.not102.i.i246 = icmp eq i32 %6386, 0
-  %6405 = add nuw nsw i64 %6400, 2
-  %6406 = select i1 %.not102.i.i246, i64 %6405, i64 %6404
-  %6407 = sub nsw i64 8, %6406
+6382:                                             ; preds = %6381
+  %6383 = mul i32 %6294, 5243
+  %6384 = lshr i32 %6383, 19
+  %.neg101.i.i245 = mul nsw i32 %6384, -100
+  %6385 = add i32 %.neg101.i.i245, %6294
+  %6386 = getelementptr inbounds nuw i8, ptr %6317, i64 4
+  %6387 = shl nuw nsw i32 %6384, 1
+  %6388 = zext nneg i32 %6387 to i64
+  %6389 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6388
+  %6390 = load i16, ptr %6389, align 2
+  store i16 %6390, ptr %6386, align 1
+  %6391 = getelementptr inbounds nuw i8, ptr %6317, i64 6
+  %6392 = shl i32 %6385, 1
+  %6393 = zext i32 %6392 to i64
+  %6394 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6393
+  %6395 = load i16, ptr %6394, align 2
+  store i16 %6395, ptr %6391, align 1
+  %6396 = zext nneg i32 %6384 to i64
+  %6397 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6396
+  %6398 = load i8, ptr %6397, align 1, !tbaa !75
+  %6399 = zext i8 %6398 to i64
+  %6400 = zext i32 %6385 to i64
+  %6401 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6400
+  %6402 = load i8, ptr %6401, align 1, !tbaa !75
+  %6403 = zext i8 %6402 to i64
+  %.not102.i.i246 = icmp eq i32 %6385, 0
+  %6404 = add nuw nsw i64 %6399, 2
+  %6405 = select i1 %.not102.i.i246, i64 %6404, i64 %6403
+  %6406 = sub nsw i64 8, %6405
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241
 
-6408:                                             ; preds = %6382
-  %6409 = zext i32 %6302 to i64
-  %6410 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6409
-  %6411 = load i8, ptr %6410, align 1, !tbaa !75
-  %6412 = zext i8 %6411 to i64
-  %6413 = zext i32 %6303 to i64
-  %6414 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6413
-  %6415 = load i8, ptr %6414, align 1, !tbaa !75
-  %6416 = zext i8 %6415 to i64
-  %.not100.i.i247 = icmp eq i32 %6303, 0
-  %6417 = select i1 %.not100.i.i247, i64 %6412, i64 0
-  %6418 = add nuw nsw i64 %6417, %6416
-  %6419 = sub nsw i64 4, %6418
+6407:                                             ; preds = %6381
+  %6408 = zext i32 %6301 to i64
+  %6409 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6408
+  %6410 = load i8, ptr %6409, align 1, !tbaa !75
+  %6411 = zext i8 %6410 to i64
+  %6412 = zext i32 %6302 to i64
+  %6413 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6412
+  %6414 = load i8, ptr %6413, align 1, !tbaa !75
+  %6415 = zext i8 %6414 to i64
+  %.not100.i.i247 = icmp eq i32 %6302, 0
+  %6416 = select i1 %.not100.i.i247, i64 %6411, i64 0
+  %6417 = add nuw nsw i64 %6416, %6415
+  %6418 = sub nsw i64 4, %6417
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241
 
-_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241: ; preds = %6408, %6383, %6370
-  %.sink4584 = phi i64 [ %6419, %6408 ], [ %6407, %6383 ], [ %6381, %6370 ]
-  %6420 = and i64 %.sink4584, 4294967295
-  %6421 = getelementptr inbounds nuw i8, ptr %6318, i64 %6420
-  store i8 48, ptr %5939, align 1, !tbaa !75
-  %6422 = getelementptr inbounds nuw i8, ptr %5939, i64 1
-  store i8 46, ptr %6422, align 1, !tbaa !75
-  %6423 = icmp slt i32 %6282, 0
-  br i1 %6423, label %.lr.ph2317.preheader, label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
+_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241: ; preds = %6407, %6382, %6369
+  %.sink4584 = phi i64 [ %6418, %6407 ], [ %6406, %6382 ], [ %6380, %6369 ]
+  %6419 = and i64 %.sink4584, 4294967295
+  %6420 = getelementptr inbounds nuw i8, ptr %6317, i64 %6419
+  store i8 48, ptr %5938, align 1, !tbaa !75
+  %6421 = getelementptr inbounds nuw i8, ptr %5938, i64 1
+  store i8 46, ptr %6421, align 1, !tbaa !75
+  %6422 = icmp slt i32 %6281, 0
+  br i1 %6422, label %.lr.ph2317.preheader, label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
 .lr.ph2317.preheader:                             ; preds = %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241
-  %6424 = sub nsw i32 0, %6282
-  %6425 = getelementptr i8, ptr %5939, i64 2
-  %6426 = zext nneg i32 %6424 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6425, i8 48, i64 %6426, i1 false), !tbaa !75
+  %6423 = sub nsw i32 0, %6281
+  %6424 = getelementptr i8, ptr %5938, i64 2
+  %6425 = zext nneg i32 %6423 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6424, i8 48, i64 %6425, i1 false), !tbaa !75
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-6427:                                             ; preds = %6284
-  %6428 = getelementptr inbounds nuw i8, ptr %5939, i64 1
-  %6429 = udiv i64 %.0796, 100000000
-  %6430 = trunc i64 %6429 to i32
-  %.neg.i573.i = mul i64 %6429, 4194967296
-  %6431 = add i64 %.neg.i573.i, %.0796
-  %6432 = trunc i64 %6431 to i32
-  %6433 = udiv i32 %6430, 10000
-  %.neg95.i574.i = mul i32 %6433, -10000
-  %6434 = add i32 %.neg95.i574.i, %6430
-  %6435 = zext nneg i32 %6433 to i64
-  %6436 = mul nuw nsw i64 %6435, 167773
-  %6437 = lshr i64 %6436, 24
-  %6438 = trunc nuw nsw i64 %6437 to i32
-  %6439 = mul nuw nsw i32 %6438, 41
-  %6440 = lshr i32 %6439, 12
-  %.neg96.i575.i = mul nsw i32 %6440, -100
-  %6441 = add nsw i32 %.neg96.i575.i, %6438
-  %.neg97.i576.i = mul nsw i32 %6438, -100
-  %6442 = add nsw i32 %.neg97.i576.i, %6433
-  %6443 = trunc nuw nsw i32 %6440 to i8
-  %6444 = add nuw nsw i8 %6443, 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %5939, i8 48, i64 24, i1 false)
-  store i8 %6444, ptr %6428, align 1, !tbaa !75
-  %6445 = icmp ugt i32 %6430, 99999999
-  %6446 = zext i1 %6445 to i64
-  %6447 = getelementptr inbounds nuw i8, ptr %6428, i64 %6446
-  %6448 = icmp ult i32 %6441, 10
-  %6449 = icmp ult i32 %6430, 100000000
-  %6450 = and i1 %6449, %6448
-  %6451 = shl nsw i32 %6441, 1
-  %6452 = zext i32 %6451 to i64
-  %6453 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6452
-  %.neg98.i577.i = sext i1 %6450 to i64
-  %6454 = zext i1 %6450 to i64
-  %6455 = getelementptr inbounds nuw i8, ptr %6453, i64 %6454
-  %6456 = load i16, ptr %6455, align 1
-  store i16 %6456, ptr %6447, align 1
-  %6457 = getelementptr inbounds i8, ptr %6447, i64 %.neg98.i577.i
-  %6458 = getelementptr inbounds nuw i8, ptr %6457, i64 2
-  %6459 = shl nsw i32 %6442, 1
-  %6460 = zext i32 %6459 to i64
-  %6461 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6460
-  %6462 = load i16, ptr %6461, align 2
-  store i16 %6462, ptr %6458, align 1
-  %.not.i578.i = icmp eq i32 %6432, 0
-  br i1 %.not.i578.i, label %6521, label %6463
+6426:                                             ; preds = %6283
+  %6427 = getelementptr inbounds nuw i8, ptr %5938, i64 1
+  %6428 = udiv i64 %.0796, 100000000
+  %6429 = trunc i64 %6428 to i32
+  %.neg.i573.i = mul i64 %6428, 4194967296
+  %6430 = add i64 %.neg.i573.i, %.0796
+  %6431 = trunc i64 %6430 to i32
+  %6432 = udiv i32 %6429, 10000
+  %.neg95.i574.i = mul i32 %6432, -10000
+  %6433 = add i32 %.neg95.i574.i, %6429
+  %6434 = zext nneg i32 %6432 to i64
+  %6435 = mul nuw nsw i64 %6434, 167773
+  %6436 = lshr i64 %6435, 24
+  %6437 = trunc nuw nsw i64 %6436 to i32
+  %6438 = mul nuw nsw i32 %6437, 41
+  %6439 = lshr i32 %6438, 12
+  %.neg96.i575.i = mul nsw i32 %6439, -100
+  %6440 = add nsw i32 %.neg96.i575.i, %6437
+  %.neg97.i576.i = mul nsw i32 %6437, -100
+  %6441 = add nsw i32 %.neg97.i576.i, %6432
+  %6442 = trunc nuw nsw i32 %6439 to i8
+  %6443 = add nuw nsw i8 %6442, 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %5938, i8 48, i64 24, i1 false)
+  store i8 %6443, ptr %6427, align 1, !tbaa !75
+  %6444 = icmp ugt i32 %6429, 99999999
+  %6445 = zext i1 %6444 to i64
+  %6446 = getelementptr inbounds nuw i8, ptr %6427, i64 %6445
+  %6447 = icmp ult i32 %6440, 10
+  %6448 = icmp ult i32 %6429, 100000000
+  %6449 = and i1 %6448, %6447
+  %6450 = shl nsw i32 %6440, 1
+  %6451 = zext i32 %6450 to i64
+  %6452 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6451
+  %.neg98.i577.i = sext i1 %6449 to i64
+  %6453 = zext i1 %6449 to i64
+  %6454 = getelementptr inbounds nuw i8, ptr %6452, i64 %6453
+  %6455 = load i16, ptr %6454, align 1
+  store i16 %6455, ptr %6446, align 1
+  %6456 = getelementptr inbounds i8, ptr %6446, i64 %.neg98.i577.i
+  %6457 = getelementptr inbounds nuw i8, ptr %6456, i64 2
+  %6458 = shl nsw i32 %6441, 1
+  %6459 = zext i32 %6458 to i64
+  %6460 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6459
+  %6461 = load i16, ptr %6460, align 2
+  store i16 %6461, ptr %6457, align 1
+  %.not.i578.i = icmp eq i32 %6431, 0
+  br i1 %.not.i578.i, label %6520, label %6462
 
-6463:                                             ; preds = %6427
-  %6464 = mul i32 %6434, 5243
-  %6465 = lshr i32 %6464, 19
-  %.neg103.i579.i = mul i32 %6465, 2147483548
-  %6466 = add i32 %.neg103.i579.i, %6434
-  %6467 = and i64 %6431, 4294967295
-  %6468 = mul nuw nsw i64 %6467, 109951163
-  %6469 = lshr i64 %6468, 40
-  %6470 = trunc nuw nsw i64 %6469 to i32
-  %.neg104.i580.i = mul i32 %6470, -10000
-  %6471 = add i32 %.neg104.i580.i, %6432
-  %6472 = mul nuw i32 %6470, 5243
-  %6473 = lshr i32 %6472, 19
-  %.neg105.i581.i = mul nsw i32 %6473, -100
-  %6474 = add nsw i32 %.neg105.i581.i, %6470
-  %6475 = getelementptr inbounds nuw i8, ptr %6457, i64 4
-  %6476 = shl nuw nsw i32 %6465, 1
-  %6477 = zext nneg i32 %6476 to i64
-  %6478 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6477
-  %6479 = load i16, ptr %6478, align 2
-  store i16 %6479, ptr %6475, align 1
-  %6480 = getelementptr inbounds nuw i8, ptr %6457, i64 6
-  %6481 = shl i32 %6466, 1
-  %6482 = zext i32 %6481 to i64
-  %6483 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6482
-  %6484 = load i16, ptr %6483, align 2
-  store i16 %6484, ptr %6480, align 1
-  %6485 = getelementptr inbounds nuw i8, ptr %6457, i64 8
-  %6486 = shl nuw nsw i32 %6473, 1
-  %6487 = zext nneg i32 %6486 to i64
-  %6488 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6487
-  %6489 = load i16, ptr %6488, align 2
-  store i16 %6489, ptr %6485, align 1
-  %6490 = getelementptr inbounds nuw i8, ptr %6457, i64 10
-  %6491 = shl nsw i32 %6474, 1
-  %6492 = zext i32 %6491 to i64
-  %6493 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6492
-  %6494 = load i16, ptr %6493, align 2
-  store i16 %6494, ptr %6490, align 1
-  %.not106.i582.i = icmp eq i32 %6471, 0
-  br i1 %.not106.i582.i, label %6509, label %6495
+6462:                                             ; preds = %6426
+  %6463 = mul i32 %6433, 5243
+  %6464 = lshr i32 %6463, 19
+  %.neg103.i579.i = mul i32 %6464, 2147483548
+  %6465 = add i32 %.neg103.i579.i, %6433
+  %6466 = and i64 %6430, 4294967295
+  %6467 = mul nuw nsw i64 %6466, 109951163
+  %6468 = lshr i64 %6467, 40
+  %6469 = trunc nuw nsw i64 %6468 to i32
+  %.neg104.i580.i = mul i32 %6469, -10000
+  %6470 = add i32 %.neg104.i580.i, %6431
+  %6471 = mul nuw i32 %6469, 5243
+  %6472 = lshr i32 %6471, 19
+  %.neg105.i581.i = mul nsw i32 %6472, -100
+  %6473 = add nsw i32 %.neg105.i581.i, %6469
+  %6474 = getelementptr inbounds nuw i8, ptr %6456, i64 4
+  %6475 = shl nuw nsw i32 %6464, 1
+  %6476 = zext nneg i32 %6475 to i64
+  %6477 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6476
+  %6478 = load i16, ptr %6477, align 2
+  store i16 %6478, ptr %6474, align 1
+  %6479 = getelementptr inbounds nuw i8, ptr %6456, i64 6
+  %6480 = shl i32 %6465, 1
+  %6481 = zext i32 %6480 to i64
+  %6482 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6481
+  %6483 = load i16, ptr %6482, align 2
+  store i16 %6483, ptr %6479, align 1
+  %6484 = getelementptr inbounds nuw i8, ptr %6456, i64 8
+  %6485 = shl nuw nsw i32 %6472, 1
+  %6486 = zext nneg i32 %6485 to i64
+  %6487 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6486
+  %6488 = load i16, ptr %6487, align 2
+  store i16 %6488, ptr %6484, align 1
+  %6489 = getelementptr inbounds nuw i8, ptr %6456, i64 10
+  %6490 = shl nsw i32 %6473, 1
+  %6491 = zext i32 %6490 to i64
+  %6492 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6491
+  %6493 = load i16, ptr %6492, align 2
+  store i16 %6493, ptr %6489, align 1
+  %.not106.i582.i = icmp eq i32 %6470, 0
+  br i1 %.not106.i582.i, label %6508, label %6494
 
-6495:                                             ; preds = %6463
-  %6496 = mul i32 %6471, 5243
-  %6497 = lshr i32 %6496, 19
-  %.neg108.i583.i = mul nsw i32 %6497, -100
-  %6498 = add i32 %.neg108.i583.i, %6471
-  %6499 = getelementptr inbounds nuw i8, ptr %6457, i64 12
-  %6500 = shl nuw nsw i32 %6497, 1
-  %6501 = zext nneg i32 %6500 to i64
-  %6502 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6501
-  %6503 = load i16, ptr %6502, align 2
-  store i16 %6503, ptr %6499, align 1
-  %6504 = getelementptr inbounds nuw i8, ptr %6457, i64 14
-  %6505 = shl i32 %6498, 1
-  %6506 = zext i32 %6505 to i64
-  %6507 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6506
-  %6508 = load i16, ptr %6507, align 2
-  store i16 %6508, ptr %6504, align 1
-  br label %6509
+6494:                                             ; preds = %6462
+  %6495 = mul i32 %6470, 5243
+  %6496 = lshr i32 %6495, 19
+  %.neg108.i583.i = mul nsw i32 %6496, -100
+  %6497 = add i32 %.neg108.i583.i, %6470
+  %6498 = getelementptr inbounds nuw i8, ptr %6456, i64 12
+  %6499 = shl nuw nsw i32 %6496, 1
+  %6500 = zext nneg i32 %6499 to i64
+  %6501 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6500
+  %6502 = load i16, ptr %6501, align 2
+  store i16 %6502, ptr %6498, align 1
+  %6503 = getelementptr inbounds nuw i8, ptr %6456, i64 14
+  %6504 = shl i32 %6497, 1
+  %6505 = zext i32 %6504 to i64
+  %6506 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6505
+  %6507 = load i16, ptr %6506, align 2
+  store i16 %6507, ptr %6503, align 1
+  br label %6508
 
-6509:                                             ; preds = %6463, %6495
-  %.sink4598 = phi i32 [ %6497, %6495 ], [ %6473, %6463 ]
-  %.sink4594 = phi i32 [ %6498, %6495 ], [ %6474, %6463 ]
-  %.sink4585 = phi i64 [ 16, %6495 ], [ 12, %6463 ]
-  %6510 = zext nneg i32 %.sink4598 to i64
-  %6511 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6510
-  %6512 = load i8, ptr %6511, align 1, !tbaa !75
-  %6513 = zext i8 %6512 to i64
-  %6514 = zext i32 %.sink4594 to i64
-  %6515 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6514
-  %6516 = load i8, ptr %6515, align 1, !tbaa !75
-  %6517 = zext i8 %6516 to i64
+6508:                                             ; preds = %6462, %6494
+  %.sink4598 = phi i32 [ %6496, %6494 ], [ %6472, %6462 ]
+  %.sink4594 = phi i32 [ %6497, %6494 ], [ %6473, %6462 ]
+  %.sink4585 = phi i64 [ 16, %6494 ], [ 12, %6462 ]
+  %6509 = zext nneg i32 %.sink4598 to i64
+  %6510 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6509
+  %6511 = load i8, ptr %6510, align 1, !tbaa !75
+  %6512 = zext i8 %6511 to i64
+  %6513 = zext i32 %.sink4594 to i64
+  %6514 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6513
+  %6515 = load i8, ptr %6514, align 1, !tbaa !75
+  %6516 = zext i8 %6515 to i64
   %.not107.i589.i = icmp eq i32 %.sink4594, 0
-  %6518 = add nuw nsw i64 %6513, 2
-  %6519 = select i1 %.not107.i589.i, i64 %6518, i64 %6517
-  %6520 = sub nsw i64 %.sink4585, %6519
+  %6517 = add nuw nsw i64 %6512, 2
+  %6518 = select i1 %.not107.i589.i, i64 %6517, i64 %6516
+  %6519 = sub nsw i64 %.sink4585, %6518
   br label %.lr.ph2314.preheader
 
-6521:                                             ; preds = %6427
-  %.not99.i590.i = icmp eq i32 %6434, 0
-  br i1 %.not99.i590.i, label %6547, label %6522
+6520:                                             ; preds = %6426
+  %.not99.i590.i = icmp eq i32 %6433, 0
+  br i1 %.not99.i590.i, label %6546, label %6521
 
-6522:                                             ; preds = %6521
-  %6523 = mul i32 %6434, 5243
-  %6524 = lshr i32 %6523, 19
-  %.neg101.i591.i = mul nsw i32 %6524, -100
-  %6525 = add i32 %.neg101.i591.i, %6434
-  %6526 = getelementptr inbounds nuw i8, ptr %6457, i64 4
-  %6527 = shl nuw nsw i32 %6524, 1
-  %6528 = zext nneg i32 %6527 to i64
-  %6529 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6528
-  %6530 = load i16, ptr %6529, align 2
-  store i16 %6530, ptr %6526, align 1
-  %6531 = getelementptr inbounds nuw i8, ptr %6457, i64 6
-  %6532 = shl i32 %6525, 1
-  %6533 = zext i32 %6532 to i64
-  %6534 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6533
-  %6535 = load i16, ptr %6534, align 2
-  store i16 %6535, ptr %6531, align 1
-  %6536 = zext nneg i32 %6524 to i64
-  %6537 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6536
-  %6538 = load i8, ptr %6537, align 1, !tbaa !75
-  %6539 = zext i8 %6538 to i64
-  %6540 = zext i32 %6525 to i64
-  %6541 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6540
-  %6542 = load i8, ptr %6541, align 1, !tbaa !75
-  %6543 = zext i8 %6542 to i64
-  %.not102.i592.i = icmp eq i32 %6525, 0
-  %6544 = add nuw nsw i64 %6539, 2
-  %6545 = select i1 %.not102.i592.i, i64 %6544, i64 %6543
-  %6546 = sub nsw i64 8, %6545
+6521:                                             ; preds = %6520
+  %6522 = mul i32 %6433, 5243
+  %6523 = lshr i32 %6522, 19
+  %.neg101.i591.i = mul nsw i32 %6523, -100
+  %6524 = add i32 %.neg101.i591.i, %6433
+  %6525 = getelementptr inbounds nuw i8, ptr %6456, i64 4
+  %6526 = shl nuw nsw i32 %6523, 1
+  %6527 = zext nneg i32 %6526 to i64
+  %6528 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6527
+  %6529 = load i16, ptr %6528, align 2
+  store i16 %6529, ptr %6525, align 1
+  %6530 = getelementptr inbounds nuw i8, ptr %6456, i64 6
+  %6531 = shl i32 %6524, 1
+  %6532 = zext i32 %6531 to i64
+  %6533 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6532
+  %6534 = load i16, ptr %6533, align 2
+  store i16 %6534, ptr %6530, align 1
+  %6535 = zext nneg i32 %6523 to i64
+  %6536 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6535
+  %6537 = load i8, ptr %6536, align 1, !tbaa !75
+  %6538 = zext i8 %6537 to i64
+  %6539 = zext i32 %6524 to i64
+  %6540 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6539
+  %6541 = load i8, ptr %6540, align 1, !tbaa !75
+  %6542 = zext i8 %6541 to i64
+  %.not102.i592.i = icmp eq i32 %6524, 0
+  %6543 = add nuw nsw i64 %6538, 2
+  %6544 = select i1 %.not102.i592.i, i64 %6543, i64 %6542
+  %6545 = sub nsw i64 8, %6544
   br label %.lr.ph2314.preheader
 
-6547:                                             ; preds = %6521
-  %6548 = zext i32 %6441 to i64
-  %6549 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6548
-  %6550 = load i8, ptr %6549, align 1, !tbaa !75
-  %6551 = zext i8 %6550 to i64
-  %6552 = zext i32 %6442 to i64
-  %6553 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6552
-  %6554 = load i8, ptr %6553, align 1, !tbaa !75
-  %6555 = zext i8 %6554 to i64
-  %.not100.i593.i = icmp eq i32 %6442, 0
-  %6556 = select i1 %.not100.i593.i, i64 %6551, i64 0
-  %6557 = add nuw nsw i64 %6556, %6555
-  %6558 = sub nsw i64 4, %6557
+6546:                                             ; preds = %6520
+  %6547 = zext i32 %6440 to i64
+  %6548 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6547
+  %6549 = load i8, ptr %6548, align 1, !tbaa !75
+  %6550 = zext i8 %6549 to i64
+  %6551 = zext i32 %6441 to i64
+  %6552 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6551
+  %6553 = load i8, ptr %6552, align 1, !tbaa !75
+  %6554 = zext i8 %6553 to i64
+  %.not100.i593.i = icmp eq i32 %6441, 0
+  %6555 = select i1 %.not100.i593.i, i64 %6550, i64 0
+  %6556 = add nuw nsw i64 %6555, %6554
+  %6557 = sub nsw i64 4, %6556
   br label %.lr.ph2314.preheader
 
-.lr.ph2314.preheader:                             ; preds = %6509, %6522, %6547
-  %.sink4599 = phi i64 [ %6520, %6509 ], [ %6546, %6522 ], [ %6558, %6547 ]
+.lr.ph2314.preheader:                             ; preds = %6508, %6521, %6546
+  %.sink4599 = phi i64 [ %6519, %6508 ], [ %6545, %6521 ], [ %6557, %6546 ]
   %.pn.i586.i = and i64 %.sink4599, 4294967295
-  %.0.i587.i = getelementptr inbounds nuw i8, ptr %6457, i64 %.pn.i586.i
-  %wide.trip.count2996 = zext nneg i32 %6282 to i64
+  %.0.i587.i = getelementptr inbounds nuw i8, ptr %6456, i64 %.pn.i586.i
+  %wide.trip.count2996 = zext nneg i32 %6281 to i64
   br label %.lr.ph2314
 
 .lr.ph2314:                                       ; preds = %.lr.ph2314.preheader, %.lr.ph2314
   %indvars.iv2992 = phi i64 [ 0, %.lr.ph2314.preheader ], [ %indvars.iv.next2993, %.lr.ph2314 ]
   %indvars.iv.next2993 = add nuw nsw i64 %indvars.iv2992, 1
-  %6559 = getelementptr inbounds nuw i8, ptr %5939, i64 %indvars.iv.next2993
-  %6560 = load i8, ptr %6559, align 1, !tbaa !75
-  %6561 = getelementptr inbounds nuw i8, ptr %5939, i64 %indvars.iv2992
-  store i8 %6560, ptr %6561, align 1, !tbaa !75
+  %6558 = getelementptr inbounds nuw i8, ptr %5938, i64 %indvars.iv.next2993
+  %6559 = load i8, ptr %6558, align 1, !tbaa !75
+  %6560 = getelementptr inbounds nuw i8, ptr %5938, i64 %indvars.iv2992
+  store i8 %6559, ptr %6560, align 1, !tbaa !75
   %exitcond2997.not = icmp eq i64 %indvars.iv.next2993, %wide.trip.count2996
   br i1 %exitcond2997.not, label %._crit_edge2315, label %.lr.ph2314, !llvm.loop !216
 
 ._crit_edge2315:                                  ; preds = %.lr.ph2314
-  %6562 = zext nneg i32 %6282 to i64
-  %6563 = getelementptr inbounds nuw i8, ptr %5939, i64 %6562
-  store i8 46, ptr %6563, align 1, !tbaa !75
-  %6564 = getelementptr inbounds nuw i8, ptr %6563, i64 2
-  %6565 = icmp ult ptr %6564, %.0.i587.i
-  %spec.select1044 = select i1 %6565, ptr %.0.i587.i, ptr %6564
+  %6561 = zext nneg i32 %6281 to i64
+  %6562 = getelementptr inbounds nuw i8, ptr %5938, i64 %6561
+  store i8 46, ptr %6562, align 1, !tbaa !75
+  %6563 = getelementptr inbounds nuw i8, ptr %6562, i64 2
+  %6564 = icmp ult ptr %6563, %.0.i587.i
+  %spec.select1044 = select i1 %6564, ptr %.0.i587.i, ptr %6563
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-6566:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit567.i
-  %.ptr1074 = getelementptr inbounds nuw i8, ptr %5939, i64 1
-  %6567 = udiv i64 %.0796, 100000000
-  %6568 = trunc i64 %6567 to i32
-  %.neg.i595.i = mul i64 %6567, 4194967296
-  %6569 = add i64 %.neg.i595.i, %.0796
-  %6570 = trunc i64 %6569 to i32
-  %6571 = udiv i32 %6568, 10000
-  %.neg95.i596.i = mul i32 %6571, -10000
-  %6572 = add i32 %.neg95.i596.i, %6568
-  %6573 = zext nneg i32 %6571 to i64
-  %6574 = mul nuw nsw i64 %6573, 167773
-  %6575 = lshr i64 %6574, 24
-  %6576 = trunc nuw nsw i64 %6575 to i32
-  %6577 = mul nuw nsw i32 %6576, 41
-  %6578 = lshr i32 %6577, 12
-  %.neg96.i597.i = mul nsw i32 %6578, -100
-  %6579 = add nsw i32 %.neg96.i597.i, %6576
-  %.neg97.i598.i = mul nsw i32 %6576, -100
-  %6580 = add nsw i32 %.neg97.i598.i, %6571
-  %6581 = trunc nuw nsw i32 %6578 to i8
-  %6582 = add nuw nsw i8 %6581, 48
-  store i8 %6582, ptr %.ptr1074, align 1, !tbaa !75
-  %6583 = icmp ugt i32 %6568, 99999999
-  %.add1069 = select i1 %6583, i64 2, i64 1
-  %.ptr1075 = getelementptr inbounds nuw i8, ptr %5939, i64 %.add1069
-  %6584 = icmp ult i32 %6579, 10
-  %6585 = icmp ult i32 %6568, 100000000
-  %6586 = and i1 %6585, %6584
-  %6587 = shl nsw i32 %6579, 1
-  %6588 = zext i32 %6587 to i64
-  %6589 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6588
-  %.neg98.i599.i = sext i1 %6586 to i64
-  %6590 = zext i1 %6586 to i64
-  %6591 = getelementptr inbounds nuw i8, ptr %6589, i64 %6590
-  %6592 = load i16, ptr %6591, align 1
-  store i16 %6592, ptr %.ptr1075, align 1
+6565:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit567.i
+  %.ptr1074 = getelementptr inbounds nuw i8, ptr %5938, i64 1
+  %6566 = udiv i64 %.0796, 100000000
+  %6567 = trunc i64 %6566 to i32
+  %.neg.i595.i = mul i64 %6566, 4194967296
+  %6568 = add i64 %.neg.i595.i, %.0796
+  %6569 = trunc i64 %6568 to i32
+  %6570 = udiv i32 %6567, 10000
+  %.neg95.i596.i = mul i32 %6570, -10000
+  %6571 = add i32 %.neg95.i596.i, %6567
+  %6572 = zext nneg i32 %6570 to i64
+  %6573 = mul nuw nsw i64 %6572, 167773
+  %6574 = lshr i64 %6573, 24
+  %6575 = trunc nuw nsw i64 %6574 to i32
+  %6576 = mul nuw nsw i32 %6575, 41
+  %6577 = lshr i32 %6576, 12
+  %.neg96.i597.i = mul nsw i32 %6577, -100
+  %6578 = add nsw i32 %.neg96.i597.i, %6575
+  %.neg97.i598.i = mul nsw i32 %6575, -100
+  %6579 = add nsw i32 %.neg97.i598.i, %6570
+  %6580 = trunc nuw nsw i32 %6577 to i8
+  %6581 = add nuw nsw i8 %6580, 48
+  store i8 %6581, ptr %.ptr1074, align 1, !tbaa !75
+  %6582 = icmp ugt i32 %6567, 99999999
+  %.add1069 = select i1 %6582, i64 2, i64 1
+  %.ptr1075 = getelementptr inbounds nuw i8, ptr %5938, i64 %.add1069
+  %6583 = icmp ult i32 %6578, 10
+  %6584 = icmp ult i32 %6567, 100000000
+  %6585 = and i1 %6584, %6583
+  %6586 = shl nsw i32 %6578, 1
+  %6587 = zext i32 %6586 to i64
+  %6588 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6587
+  %.neg98.i599.i = sext i1 %6585 to i64
+  %6589 = zext i1 %6585 to i64
+  %6590 = getelementptr inbounds nuw i8, ptr %6588, i64 %6589
+  %6591 = load i16, ptr %6590, align 1
+  store i16 %6591, ptr %.ptr1075, align 1
   %.add1070 = add nsw i64 %.add1069, %.neg98.i599.i
-  %.ptr1076 = getelementptr inbounds nuw i8, ptr %5939, i64 %.add1070
-  %6593 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 2
-  %6594 = shl nsw i32 %6580, 1
-  %6595 = zext i32 %6594 to i64
-  %6596 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6595
-  %6597 = load i16, ptr %6596, align 2
-  store i16 %6597, ptr %6593, align 1
-  %.not.i600.i = icmp eq i32 %6570, 0
-  br i1 %.not.i600.i, label %6667, label %6598
+  %.ptr1076 = getelementptr inbounds nuw i8, ptr %5938, i64 %.add1070
+  %6592 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 2
+  %6593 = shl nsw i32 %6579, 1
+  %6594 = zext i32 %6593 to i64
+  %6595 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6594
+  %6596 = load i16, ptr %6595, align 2
+  store i16 %6596, ptr %6592, align 1
+  %.not.i600.i = icmp eq i32 %6569, 0
+  br i1 %.not.i600.i, label %6666, label %6597
 
-6598:                                             ; preds = %6566
-  %6599 = mul i32 %6572, 5243
-  %6600 = lshr i32 %6599, 19
-  %.neg103.i601.i = mul i32 %6600, 2147483548
-  %6601 = add i32 %.neg103.i601.i, %6572
-  %6602 = and i64 %6569, 4294967295
-  %6603 = mul nuw nsw i64 %6602, 109951163
-  %6604 = lshr i64 %6603, 40
-  %6605 = trunc nuw nsw i64 %6604 to i32
-  %.neg104.i602.i = mul i32 %6605, -10000
-  %6606 = add i32 %.neg104.i602.i, %6570
-  %6607 = mul nuw i32 %6605, 5243
-  %6608 = lshr i32 %6607, 19
-  %.neg105.i603.i = mul nsw i32 %6608, -100
-  %6609 = add nsw i32 %.neg105.i603.i, %6605
-  %6610 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 4
-  %6611 = shl nuw nsw i32 %6600, 1
-  %6612 = zext nneg i32 %6611 to i64
-  %6613 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6612
-  %6614 = load i16, ptr %6613, align 2
-  store i16 %6614, ptr %6610, align 1
-  %6615 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 6
-  %6616 = shl i32 %6601, 1
-  %6617 = zext i32 %6616 to i64
-  %6618 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6617
-  %6619 = load i16, ptr %6618, align 2
-  store i16 %6619, ptr %6615, align 1
-  %6620 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 8
-  %6621 = shl nuw nsw i32 %6608, 1
-  %6622 = zext nneg i32 %6621 to i64
-  %6623 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6622
-  %6624 = load i16, ptr %6623, align 2
-  store i16 %6624, ptr %6620, align 1
-  %6625 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 10
-  %6626 = shl nsw i32 %6609, 1
-  %6627 = zext i32 %6626 to i64
-  %6628 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6627
-  %6629 = load i16, ptr %6628, align 2
-  store i16 %6629, ptr %6625, align 1
-  %.not106.i604.i = icmp eq i32 %6606, 0
-  br i1 %.not106.i604.i, label %6655, label %6630
+6597:                                             ; preds = %6565
+  %6598 = mul i32 %6571, 5243
+  %6599 = lshr i32 %6598, 19
+  %.neg103.i601.i = mul i32 %6599, 2147483548
+  %6600 = add i32 %.neg103.i601.i, %6571
+  %6601 = and i64 %6568, 4294967295
+  %6602 = mul nuw nsw i64 %6601, 109951163
+  %6603 = lshr i64 %6602, 40
+  %6604 = trunc nuw nsw i64 %6603 to i32
+  %.neg104.i602.i = mul i32 %6604, -10000
+  %6605 = add i32 %.neg104.i602.i, %6569
+  %6606 = mul nuw i32 %6604, 5243
+  %6607 = lshr i32 %6606, 19
+  %.neg105.i603.i = mul nsw i32 %6607, -100
+  %6608 = add nsw i32 %.neg105.i603.i, %6604
+  %6609 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 4
+  %6610 = shl nuw nsw i32 %6599, 1
+  %6611 = zext nneg i32 %6610 to i64
+  %6612 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6611
+  %6613 = load i16, ptr %6612, align 2
+  store i16 %6613, ptr %6609, align 1
+  %6614 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 6
+  %6615 = shl i32 %6600, 1
+  %6616 = zext i32 %6615 to i64
+  %6617 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6616
+  %6618 = load i16, ptr %6617, align 2
+  store i16 %6618, ptr %6614, align 1
+  %6619 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 8
+  %6620 = shl nuw nsw i32 %6607, 1
+  %6621 = zext nneg i32 %6620 to i64
+  %6622 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6621
+  %6623 = load i16, ptr %6622, align 2
+  store i16 %6623, ptr %6619, align 1
+  %6624 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 10
+  %6625 = shl nsw i32 %6608, 1
+  %6626 = zext i32 %6625 to i64
+  %6627 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6626
+  %6628 = load i16, ptr %6627, align 2
+  store i16 %6628, ptr %6624, align 1
+  %.not106.i604.i = icmp eq i32 %6605, 0
+  br i1 %.not106.i604.i, label %6654, label %6629
 
-6630:                                             ; preds = %6598
-  %6631 = mul i32 %6606, 5243
-  %6632 = lshr i32 %6631, 19
-  %.neg108.i605.i = mul nsw i32 %6632, -100
-  %6633 = add i32 %.neg108.i605.i, %6606
-  %6634 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 12
-  %6635 = shl nuw nsw i32 %6632, 1
-  %6636 = zext nneg i32 %6635 to i64
-  %6637 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6636
-  %6638 = load i16, ptr %6637, align 2
-  store i16 %6638, ptr %6634, align 1
-  %6639 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 14
-  %6640 = shl i32 %6633, 1
-  %6641 = zext i32 %6640 to i64
-  %6642 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6641
-  %6643 = load i16, ptr %6642, align 2
-  store i16 %6643, ptr %6639, align 1
-  %6644 = zext nneg i32 %6632 to i64
-  %6645 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6644
-  %6646 = load i8, ptr %6645, align 1, !tbaa !75
-  %6647 = zext i8 %6646 to i64
-  %6648 = zext i32 %6633 to i64
-  %6649 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6648
-  %6650 = load i8, ptr %6649, align 1, !tbaa !75
-  %6651 = zext i8 %6650 to i64
-  %.not109.i606.i = icmp eq i32 %6633, 0
-  %6652 = add nuw nsw i64 %6647, 2
-  %6653 = select i1 %.not109.i606.i, i64 %6652, i64 %6651
-  %6654 = sub nsw i64 16, %6653
+6629:                                             ; preds = %6597
+  %6630 = mul i32 %6605, 5243
+  %6631 = lshr i32 %6630, 19
+  %.neg108.i605.i = mul nsw i32 %6631, -100
+  %6632 = add i32 %.neg108.i605.i, %6605
+  %6633 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 12
+  %6634 = shl nuw nsw i32 %6631, 1
+  %6635 = zext nneg i32 %6634 to i64
+  %6636 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6635
+  %6637 = load i16, ptr %6636, align 2
+  store i16 %6637, ptr %6633, align 1
+  %6638 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 14
+  %6639 = shl i32 %6632, 1
+  %6640 = zext i32 %6639 to i64
+  %6641 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6640
+  %6642 = load i16, ptr %6641, align 2
+  store i16 %6642, ptr %6638, align 1
+  %6643 = zext nneg i32 %6631 to i64
+  %6644 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6643
+  %6645 = load i8, ptr %6644, align 1, !tbaa !75
+  %6646 = zext i8 %6645 to i64
+  %6647 = zext i32 %6632 to i64
+  %6648 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6647
+  %6649 = load i8, ptr %6648, align 1, !tbaa !75
+  %6650 = zext i8 %6649 to i64
+  %.not109.i606.i = icmp eq i32 %6632, 0
+  %6651 = add nuw nsw i64 %6646, 2
+  %6652 = select i1 %.not109.i606.i, i64 %6651, i64 %6650
+  %6653 = sub nsw i64 16, %6652
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit616.i
 
-6655:                                             ; preds = %6598
-  %6656 = zext nneg i32 %6608 to i64
-  %6657 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6656
-  %6658 = load i8, ptr %6657, align 1, !tbaa !75
-  %6659 = zext i8 %6658 to i64
-  %6660 = zext i32 %6609 to i64
-  %6661 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6660
-  %6662 = load i8, ptr %6661, align 1, !tbaa !75
-  %6663 = zext i8 %6662 to i64
-  %.not107.i611.i = icmp eq i32 %6609, 0
-  %6664 = add nuw nsw i64 %6659, 2
-  %6665 = select i1 %.not107.i611.i, i64 %6664, i64 %6663
-  %6666 = sub nsw i64 12, %6665
+6654:                                             ; preds = %6597
+  %6655 = zext nneg i32 %6607 to i64
+  %6656 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6655
+  %6657 = load i8, ptr %6656, align 1, !tbaa !75
+  %6658 = zext i8 %6657 to i64
+  %6659 = zext i32 %6608 to i64
+  %6660 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6659
+  %6661 = load i8, ptr %6660, align 1, !tbaa !75
+  %6662 = zext i8 %6661 to i64
+  %.not107.i611.i = icmp eq i32 %6608, 0
+  %6663 = add nuw nsw i64 %6658, 2
+  %6664 = select i1 %.not107.i611.i, i64 %6663, i64 %6662
+  %6665 = sub nsw i64 12, %6664
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit616.i
 
-6667:                                             ; preds = %6566
-  %.not99.i612.i = icmp eq i32 %6572, 0
-  br i1 %.not99.i612.i, label %6693, label %6668
+6666:                                             ; preds = %6565
+  %.not99.i612.i = icmp eq i32 %6571, 0
+  br i1 %.not99.i612.i, label %6692, label %6667
 
-6668:                                             ; preds = %6667
-  %6669 = mul i32 %6572, 5243
-  %6670 = lshr i32 %6669, 19
-  %.neg101.i613.i = mul nsw i32 %6670, -100
-  %6671 = add i32 %.neg101.i613.i, %6572
-  %6672 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 4
-  %6673 = shl nuw nsw i32 %6670, 1
-  %6674 = zext nneg i32 %6673 to i64
-  %6675 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6674
-  %6676 = load i16, ptr %6675, align 2
-  store i16 %6676, ptr %6672, align 1
-  %6677 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 6
-  %6678 = shl i32 %6671, 1
-  %6679 = zext i32 %6678 to i64
-  %6680 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6679
-  %6681 = load i16, ptr %6680, align 2
-  store i16 %6681, ptr %6677, align 1
-  %6682 = zext nneg i32 %6670 to i64
-  %6683 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6682
-  %6684 = load i8, ptr %6683, align 1, !tbaa !75
-  %6685 = zext i8 %6684 to i64
-  %6686 = zext i32 %6671 to i64
-  %6687 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6686
-  %6688 = load i8, ptr %6687, align 1, !tbaa !75
-  %6689 = zext i8 %6688 to i64
-  %.not102.i614.i = icmp eq i32 %6671, 0
-  %6690 = add nuw nsw i64 %6685, 2
-  %6691 = select i1 %.not102.i614.i, i64 %6690, i64 %6689
-  %6692 = sub nsw i64 8, %6691
+6667:                                             ; preds = %6666
+  %6668 = mul i32 %6571, 5243
+  %6669 = lshr i32 %6668, 19
+  %.neg101.i613.i = mul nsw i32 %6669, -100
+  %6670 = add i32 %.neg101.i613.i, %6571
+  %6671 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 4
+  %6672 = shl nuw nsw i32 %6669, 1
+  %6673 = zext nneg i32 %6672 to i64
+  %6674 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6673
+  %6675 = load i16, ptr %6674, align 2
+  store i16 %6675, ptr %6671, align 1
+  %6676 = getelementptr inbounds nuw i8, ptr %.ptr1076, i64 6
+  %6677 = shl i32 %6670, 1
+  %6678 = zext i32 %6677 to i64
+  %6679 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6678
+  %6680 = load i16, ptr %6679, align 2
+  store i16 %6680, ptr %6676, align 1
+  %6681 = zext nneg i32 %6669 to i64
+  %6682 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6681
+  %6683 = load i8, ptr %6682, align 1, !tbaa !75
+  %6684 = zext i8 %6683 to i64
+  %6685 = zext i32 %6670 to i64
+  %6686 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6685
+  %6687 = load i8, ptr %6686, align 1, !tbaa !75
+  %6688 = zext i8 %6687 to i64
+  %.not102.i614.i = icmp eq i32 %6670, 0
+  %6689 = add nuw nsw i64 %6684, 2
+  %6690 = select i1 %.not102.i614.i, i64 %6689, i64 %6688
+  %6691 = sub nsw i64 8, %6690
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit616.i
 
-6693:                                             ; preds = %6667
-  %6694 = zext i32 %6579 to i64
-  %6695 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6694
-  %6696 = load i8, ptr %6695, align 1, !tbaa !75
-  %6697 = zext i8 %6696 to i64
-  %6698 = zext i32 %6580 to i64
-  %6699 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6698
-  %6700 = load i8, ptr %6699, align 1, !tbaa !75
-  %6701 = zext i8 %6700 to i64
-  %.not100.i615.i = icmp eq i32 %6580, 0
-  %6702 = select i1 %.not100.i615.i, i64 %6697, i64 0
-  %6703 = add nuw nsw i64 %6702, %6701
-  %6704 = sub nsw i64 4, %6703
+6692:                                             ; preds = %6666
+  %6693 = zext i32 %6578 to i64
+  %6694 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6693
+  %6695 = load i8, ptr %6694, align 1, !tbaa !75
+  %6696 = zext i8 %6695 to i64
+  %6697 = zext i32 %6579 to i64
+  %6698 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL23dec_trailing_zero_tableE, i64 %6697
+  %6699 = load i8, ptr %6698, align 1, !tbaa !75
+  %6700 = zext i8 %6699 to i64
+  %.not100.i615.i = icmp eq i32 %6579, 0
+  %6701 = select i1 %.not100.i615.i, i64 %6696, i64 0
+  %6702 = add nuw nsw i64 %6701, %6700
+  %6703 = sub nsw i64 4, %6702
   br label %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit616.i
 
-_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit616.i: ; preds = %6630, %6655, %6693, %6668
-  %.pn.i608.i.pn.in = phi i64 [ %6692, %6668 ], [ %6704, %6693 ], [ %6654, %6630 ], [ %6666, %6655 ]
+_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit616.i: ; preds = %6629, %6654, %6692, %6667
+  %.pn.i608.i.pn.in = phi i64 [ %6691, %6667 ], [ %6703, %6692 ], [ %6653, %6629 ], [ %6665, %6654 ]
   %.pn.i608.i.pn = and i64 %.pn.i608.i.pn.in, 4294967295
   %.1.i610.i.idx = add nuw nsw i64 %.pn.i608.i.pn, %.add1070
-  %.1.i610.i.ptr = getelementptr inbounds nuw i8, ptr %5939, i64 %.1.i610.i.idx
-  %6705 = icmp eq i64 %.1.i610.i.idx, 2
-  %.neg130.i.i218 = sext i1 %6705 to i64
-  %6706 = getelementptr inbounds i8, ptr %.1.i610.i.ptr, i64 %.neg130.i.i218
-  %6707 = add nsw i32 %6282, -1
-  %6708 = load i8, ptr %.ptr1074, align 1, !tbaa !75
-  store i8 %6708, ptr %5939, align 1, !tbaa !75
+  %.1.i610.i.ptr = getelementptr inbounds nuw i8, ptr %5938, i64 %.1.i610.i.idx
+  %6704 = icmp eq i64 %.1.i610.i.idx, 2
+  %.neg130.i.i218 = sext i1 %6704 to i64
+  %6705 = getelementptr inbounds i8, ptr %.1.i610.i.ptr, i64 %.neg130.i.i218
+  %6706 = add nsw i32 %6281, -1
+  %6707 = load i8, ptr %.ptr1074, align 1, !tbaa !75
+  store i8 %6707, ptr %5938, align 1, !tbaa !75
   store i8 46, ptr %.ptr1074, align 1, !tbaa !75
-  store i8 101, ptr %6706, align 1, !tbaa !75
-  %6709 = getelementptr inbounds nuw i8, ptr %6706, i64 1
-  store i8 45, ptr %6709, align 1, !tbaa !75
-  %.lobit.i617.i = lshr i32 %6707, 31
-  %6710 = zext nneg i32 %.lobit.i617.i to i64
-  %6711 = getelementptr inbounds nuw i8, ptr %6709, i64 %6710
-  %6712 = tail call i32 @llvm.abs.i32(i32 %6707, i1 true)
-  %6713 = icmp samesign ult i32 %6712, 100
-  br i1 %6713, label %6714, label %6724
+  store i8 101, ptr %6705, align 1, !tbaa !75
+  %6708 = getelementptr inbounds nuw i8, ptr %6705, i64 1
+  store i8 45, ptr %6708, align 1, !tbaa !75
+  %.lobit.i617.i = lshr i32 %6706, 31
+  %6709 = zext nneg i32 %.lobit.i617.i to i64
+  %6710 = getelementptr inbounds nuw i8, ptr %6708, i64 %6709
+  %6711 = tail call i32 @llvm.abs.i32(i32 %6706, i1 true)
+  %6712 = icmp samesign ult i32 %6711, 100
+  br i1 %6712, label %6713, label %6723
 
-6714:                                             ; preds = %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit616.i
-  %6715 = icmp samesign ult i32 %6712, 10
-  %6716 = shl nuw nsw i32 %6712, 1
-  %6717 = zext nneg i32 %6716 to i64
-  %6718 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6717
-  %.neg22.i.i229 = sext i1 %6715 to i64
-  %6719 = zext i1 %6715 to i64
-  %6720 = getelementptr inbounds nuw i8, ptr %6718, i64 %6719
-  %6721 = load i16, ptr %6720, align 1
-  store i16 %6721, ptr %6711, align 1
-  %6722 = getelementptr inbounds nuw i8, ptr %6711, i64 2
-  %6723 = getelementptr inbounds i8, ptr %6722, i64 %.neg22.i.i229
+6713:                                             ; preds = %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit616.i
+  %6714 = icmp samesign ult i32 %6711, 10
+  %6715 = shl nuw nsw i32 %6711, 1
+  %6716 = zext nneg i32 %6715 to i64
+  %6717 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6716
+  %.neg22.i.i229 = sext i1 %6714 to i64
+  %6718 = zext i1 %6714 to i64
+  %6719 = getelementptr inbounds nuw i8, ptr %6717, i64 %6718
+  %6720 = load i16, ptr %6719, align 1
+  store i16 %6720, ptr %6710, align 1
+  %6721 = getelementptr inbounds nuw i8, ptr %6710, i64 2
+  %6722 = getelementptr inbounds i8, ptr %6721, i64 %.neg22.i.i229
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-6724:                                             ; preds = %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit616.i
-  %6725 = mul nuw nsw i32 %6712, 656
-  %6726 = lshr i32 %6725, 16
-  %.neg.i618.i = mul i32 %6726, 2147483548
-  %6727 = add i32 %.neg.i618.i, %6712
-  %6728 = trunc nuw nsw i32 %6726 to i8
-  %6729 = add nuw nsw i8 %6728, 48
-  store i8 %6729, ptr %6711, align 1, !tbaa !75
-  %6730 = getelementptr inbounds nuw i8, ptr %6711, i64 1
-  %6731 = shl i32 %6727, 1
-  %6732 = zext i32 %6731 to i64
-  %6733 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6732
-  %6734 = load i16, ptr %6733, align 2
-  store i16 %6734, ptr %6730, align 1
-  %6735 = getelementptr inbounds nuw i8, ptr %6711, i64 3
+6723:                                             ; preds = %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit616.i
+  %6724 = mul nuw nsw i32 %6711, 656
+  %6725 = lshr i32 %6724, 16
+  %.neg.i618.i = mul i32 %6725, 2147483548
+  %6726 = add i32 %.neg.i618.i, %6711
+  %6727 = trunc nuw nsw i32 %6725 to i8
+  %6728 = add nuw nsw i8 %6727, 48
+  store i8 %6728, ptr %6710, align 1, !tbaa !75
+  %6729 = getelementptr inbounds nuw i8, ptr %6710, i64 1
+  %6730 = shl i32 %6726, 1
+  %6731 = zext i32 %6730 to i64
+  %6732 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6731
+  %6733 = load i16, ptr %6732, align 2
+  store i16 %6733, ptr %6729, align 1
+  %6734 = getelementptr inbounds nuw i8, ptr %6710, i64 3
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-6736:                                             ; preds = %5943
-  %6737 = and i64 %5920, 1
-  %6738 = shl nuw nsw i64 %5922, 5
-  %6739 = or disjoint i64 %6738, 16
-  %6740 = add nsw i64 %6738, -16
-  %6741 = zext i64 %6740 to i128
-  %6742 = mul nuw nsw i128 %6741, 7784369436827535058
-  %6743 = lshr i128 %6742, 64
-  %6744 = mul nuw i128 %6741, 11392378155556871081
-  %6745 = add nuw i128 %6743, %6744
-  %6746 = lshr i128 %6745, 64
-  %6747 = trunc nuw i128 %6746 to i64
-  %6748 = and i128 %6745, 18446744073709551614
-  %6749 = icmp ne i128 %6748, 0
-  %6750 = zext i1 %6749 to i64
-  %6751 = or i64 %6750, %6747
-  %6752 = zext nneg i64 %6738 to i128
-  %6753 = mul nuw nsw i128 %6752, 7784369436827535058
-  %6754 = lshr i128 %6753, 64
-  %6755 = mul nuw nsw i128 %6752, 11392378155556871081
-  %6756 = add nuw nsw i128 %6754, %6755
-  %6757 = lshr i128 %6756, 64
-  %6758 = trunc nuw nsw i128 %6757 to i64
-  %6759 = and i128 %6756, 18446744073709551614
-  %6760 = icmp ne i128 %6759, 0
-  %6761 = zext i1 %6760 to i64
-  %6762 = or i64 %6761, %6758
-  %6763 = zext nneg i64 %6739 to i128
-  %6764 = mul nuw nsw i128 %6763, 7784369436827535058
-  %6765 = lshr i128 %6764, 64
-  %6766 = mul nuw nsw i128 %6763, 11392378155556871081
-  %6767 = add nuw nsw i128 %6765, %6766
-  %6768 = lshr i128 %6767, 64
-  %6769 = trunc nuw nsw i128 %6768 to i64
-  %6770 = and i128 %6767, 18446744073709551614
-  %6771 = icmp ne i128 %6770, 0
-  %6772 = zext i1 %6771 to i64
-  %6773 = or i64 %6772, %6769
-  %6774 = add nuw i64 %6751, %6737
-  %6775 = sub nuw nsw i64 %6773, %6737
-  %6776 = lshr i64 %6758, 2
-  %6777 = icmp samesign ugt i64 %6758, 39
-  br i1 %6777, label %6778, label %6784
+6735:                                             ; preds = %5942
+  %6736 = and i64 %5919, 1
+  %6737 = shl nuw nsw i64 %5921, 5
+  %6738 = or disjoint i64 %6737, 16
+  %6739 = add nsw i64 %6737, -16
+  %6740 = zext i64 %6739 to i128
+  %6741 = mul nuw nsw i128 %6740, 7784369436827535058
+  %6742 = lshr i128 %6741, 64
+  %6743 = mul nuw i128 %6740, 11392378155556871081
+  %6744 = add nuw i128 %6742, %6743
+  %6745 = lshr i128 %6744, 64
+  %6746 = trunc nuw i128 %6745 to i64
+  %6747 = and i128 %6744, 18446744073709551614
+  %6748 = icmp ne i128 %6747, 0
+  %6749 = zext i1 %6748 to i64
+  %6750 = or i64 %6749, %6746
+  %6751 = zext nneg i64 %6737 to i128
+  %6752 = mul nuw nsw i128 %6751, 7784369436827535058
+  %6753 = lshr i128 %6752, 64
+  %6754 = mul nuw nsw i128 %6751, 11392378155556871081
+  %6755 = add nuw nsw i128 %6753, %6754
+  %6756 = lshr i128 %6755, 64
+  %6757 = trunc nuw nsw i128 %6756 to i64
+  %6758 = and i128 %6755, 18446744073709551614
+  %6759 = icmp ne i128 %6758, 0
+  %6760 = zext i1 %6759 to i64
+  %6761 = or i64 %6760, %6757
+  %6762 = zext nneg i64 %6738 to i128
+  %6763 = mul nuw nsw i128 %6762, 7784369436827535058
+  %6764 = lshr i128 %6763, 64
+  %6765 = mul nuw nsw i128 %6762, 11392378155556871081
+  %6766 = add nuw nsw i128 %6764, %6765
+  %6767 = lshr i128 %6766, 64
+  %6768 = trunc nuw nsw i128 %6767 to i64
+  %6769 = and i128 %6766, 18446744073709551614
+  %6770 = icmp ne i128 %6769, 0
+  %6771 = zext i1 %6770 to i64
+  %6772 = or i64 %6771, %6768
+  %6773 = add nuw i64 %6750, %6736
+  %6774 = sub nuw nsw i64 %6772, %6736
+  %6775 = lshr i64 %6757, 2
+  %6776 = icmp samesign ugt i64 %6757, 39
+  br i1 %6776, label %6777, label %6783
 
-6778:                                             ; preds = %6736
-  %6779 = udiv i64 %6758, 40
-  %6780 = mul nuw nsw i64 %6779, 40
-  %6781 = add nuw nsw i64 %6780, 40
-  %6782 = icmp samesign uge i64 %6775, %6781
-  %6783 = icmp ugt i64 %6774, %6780
-  %.not.i562.i = xor i1 %6783, %6782
-  br i1 %.not.i562.i, label %6784, label %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit.i251
+6777:                                             ; preds = %6735
+  %6778 = udiv i64 %6757, 40
+  %6779 = mul nuw nsw i64 %6778, 40
+  %6780 = add nuw nsw i64 %6779, 40
+  %6781 = icmp samesign uge i64 %6774, %6780
+  %6782 = icmp ugt i64 %6773, %6779
+  %.not.i562.i = xor i1 %6782, %6781
+  br i1 %.not.i562.i, label %6783, label %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit.i251
 
-6784:                                             ; preds = %6778, %6736
-  %6785 = and i64 %6758, 9223372036854775804
-  %6786 = add nuw nsw i64 %6785, 4
-  %6787 = icmp samesign uge i64 %6775, %6786
-  %6788 = or disjoint i64 %6785, 2
-  %6789 = icmp samesign ugt i64 %6762, %6788
-  br i1 %6789, label %6795, label %6790
+6783:                                             ; preds = %6777, %6735
+  %6784 = and i64 %6757, 9223372036854775804
+  %6785 = add nuw nsw i64 %6784, 4
+  %6786 = icmp samesign uge i64 %6774, %6785
+  %6787 = or disjoint i64 %6784, 2
+  %6788 = icmp samesign ugt i64 %6761, %6787
+  br i1 %6788, label %6794, label %6789
 
-6790:                                             ; preds = %6784
-  %6791 = icmp eq i64 %6762, %6788
-  %6792 = and i64 %6758, 4
-  %6793 = icmp ne i64 %6792, 0
-  %6794 = and i1 %6793, %6791
-  br label %6795
+6789:                                             ; preds = %6783
+  %6790 = icmp eq i64 %6761, %6787
+  %6791 = and i64 %6757, 4
+  %6792 = icmp ne i64 %6791, 0
+  %6793 = and i1 %6792, %6790
+  br label %6794
 
-6795:                                             ; preds = %6790, %6784
-  %6796 = phi i1 [ true, %6784 ], [ %6794, %6790 ]
-  %6797 = icmp ugt i64 %6774, %6785
-  %.not58.i.i250 = xor i1 %6797, %6787
-  %6798 = select i1 %.not58.i.i250, i1 %6796, i1 %6787
+6794:                                             ; preds = %6789, %6783
+  %6795 = phi i1 [ true, %6783 ], [ %6793, %6789 ]
+  %6796 = icmp ugt i64 %6773, %6784
+  %.not58.i.i250 = xor i1 %6796, %6786
+  %6797 = select i1 %.not58.i.i250, i1 %6795, i1 %6786
   br label %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit.i251
 
-_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit.i251: ; preds = %6778, %6795
-  %.sink4602 = phi i1 [ %6798, %6795 ], [ %6782, %6778 ]
-  %.sink4600 = phi i64 [ %6776, %6795 ], [ %6779, %6778 ]
-  %storemerge.i.i252 = phi i32 [ -324, %6795 ], [ -323, %6778 ]
-  %6799 = zext i1 %.sink4602 to i64
-  %6800 = add nuw nsw i64 %.sink4600, %6799
-  %6801 = getelementptr inbounds nuw i8, ptr %5939, i64 1
-  %6802 = icmp samesign ugt i64 %6800, 999999999999999
-  br i1 %6802, label %6803, label %6877
+_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit.i251: ; preds = %6777, %6794
+  %.sink4602 = phi i1 [ %6797, %6794 ], [ %6781, %6777 ]
+  %.sink4600 = phi i64 [ %6775, %6794 ], [ %6778, %6777 ]
+  %storemerge.i.i252 = phi i32 [ -324, %6794 ], [ -323, %6777 ]
+  %6798 = zext i1 %.sink4602 to i64
+  %6799 = add nuw nsw i64 %.sink4600, %6798
+  %6800 = getelementptr inbounds nuw i8, ptr %5938, i64 1
+  %6801 = icmp samesign ugt i64 %6799, 999999999999999
+  br i1 %6801, label %6802, label %6876
 
-6803:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit.i251
-  %6804 = udiv i64 %6800, 100000000
-  %.neg29.i.i265 = mul nuw nsw i64 %6804, 4194967296
-  %6805 = add nuw nsw i64 %.neg29.i.i265, %6800
-  %6806 = trunc i64 %6805 to i32
-  %6807 = udiv i64 %6800, 10000000000000000
-  %.neg30.i.i266 = mul nuw nsw i64 %6807, 4194967296
-  %6808 = add nuw nsw i64 %.neg30.i.i266, %6804
-  %6809 = trunc i64 %6808 to i32
-  %6810 = trunc nuw nsw i64 %6807 to i8
-  %6811 = add nuw nsw i8 %6810, 48
-  store i8 %6811, ptr %6801, align 1, !tbaa !75
-  %6812 = icmp samesign ugt i64 %6800, 9999999999999999
-  %6813 = zext i1 %6812 to i64
-  %6814 = getelementptr inbounds nuw i8, ptr %6801, i64 %6813
-  %6815 = and i64 %6808, 4294967295
-  %6816 = mul nuw nsw i64 %6815, 109951163
-  %6817 = lshr i64 %6816, 40
-  %6818 = trunc nuw nsw i64 %6817 to i32
-  %.neg.i685.i = mul i32 %6818, -10000
-  %6819 = add i32 %.neg.i685.i, %6809
-  %6820 = mul nuw i32 %6818, 5243
-  %6821 = lshr i32 %6820, 19
-  %6822 = mul i32 %6819, 5243
-  %6823 = lshr i32 %6822, 19
-  %.neg17.i686.i = mul nsw i32 %6821, -100
-  %6824 = add nsw i32 %.neg17.i686.i, %6818
-  %.neg18.i687.i = mul i32 %6823, 2147483548
-  %6825 = add i32 %.neg18.i687.i, %6819
-  %6826 = shl nuw nsw i32 %6821, 1
-  %6827 = zext nneg i32 %6826 to i64
-  %6828 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6827
-  %6829 = load i16, ptr %6828, align 2
-  store i16 %6829, ptr %6814, align 1
-  %6830 = getelementptr inbounds nuw i8, ptr %6814, i64 2
-  %6831 = shl nsw i32 %6824, 1
-  %6832 = zext i32 %6831 to i64
-  %6833 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6832
-  %6834 = load i16, ptr %6833, align 2
-  store i16 %6834, ptr %6830, align 1
-  %6835 = getelementptr inbounds nuw i8, ptr %6814, i64 4
-  %6836 = shl nuw nsw i32 %6823, 1
-  %6837 = zext nneg i32 %6836 to i64
-  %6838 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6837
-  %6839 = load i16, ptr %6838, align 2
-  store i16 %6839, ptr %6835, align 1
-  %6840 = getelementptr inbounds nuw i8, ptr %6814, i64 6
-  %6841 = shl i32 %6825, 1
-  %6842 = zext i32 %6841 to i64
-  %6843 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6842
-  %6844 = load i16, ptr %6843, align 2
-  store i16 %6844, ptr %6840, align 1
-  %6845 = getelementptr inbounds nuw i8, ptr %6814, i64 8
-  %6846 = and i64 %6805, 4294967295
-  %6847 = mul nuw nsw i64 %6846, 109951163
-  %6848 = lshr i64 %6847, 40
-  %6849 = trunc nuw nsw i64 %6848 to i32
-  %.neg.i684.i = mul i32 %6849, -10000
-  %6850 = add i32 %.neg.i684.i, %6806
-  %6851 = mul nuw i32 %6849, 5243
-  %6852 = lshr i32 %6851, 19
-  %6853 = mul i32 %6850, 5243
-  %6854 = lshr i32 %6853, 19
-  %.neg17.i.i267 = mul nsw i32 %6852, -100
-  %6855 = add nsw i32 %.neg17.i.i267, %6849
-  %.neg18.i.i268 = mul i32 %6854, 2147483548
-  %6856 = add i32 %.neg18.i.i268, %6850
-  %6857 = shl nuw nsw i32 %6852, 1
-  %6858 = zext nneg i32 %6857 to i64
-  %6859 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6858
-  %6860 = load i16, ptr %6859, align 2
-  store i16 %6860, ptr %6845, align 1
-  %6861 = getelementptr inbounds nuw i8, ptr %6814, i64 10
-  %6862 = shl nsw i32 %6855, 1
-  %6863 = zext i32 %6862 to i64
-  %6864 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6863
-  %6865 = load i16, ptr %6864, align 2
-  store i16 %6865, ptr %6861, align 1
-  %6866 = getelementptr inbounds nuw i8, ptr %6814, i64 12
-  %6867 = shl nuw nsw i32 %6854, 1
-  %6868 = zext nneg i32 %6867 to i64
-  %6869 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6868
-  %6870 = load i16, ptr %6869, align 2
-  store i16 %6870, ptr %6866, align 1
-  %6871 = getelementptr inbounds nuw i8, ptr %6814, i64 14
-  %6872 = shl i32 %6856, 1
-  %6873 = zext i32 %6872 to i64
-  %6874 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6873
-  %6875 = load i16, ptr %6874, align 2
-  store i16 %6875, ptr %6871, align 1
-  %6876 = getelementptr inbounds nuw i8, ptr %6814, i64 16
+6802:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit.i251
+  %6803 = udiv i64 %6799, 100000000
+  %.neg29.i.i265 = mul nuw nsw i64 %6803, 4194967296
+  %6804 = add nuw nsw i64 %.neg29.i.i265, %6799
+  %6805 = trunc i64 %6804 to i32
+  %6806 = udiv i64 %6799, 10000000000000000
+  %.neg30.i.i266 = mul nuw nsw i64 %6806, 4194967296
+  %6807 = add nuw nsw i64 %.neg30.i.i266, %6803
+  %6808 = trunc i64 %6807 to i32
+  %6809 = trunc nuw nsw i64 %6806 to i8
+  %6810 = add nuw nsw i8 %6809, 48
+  store i8 %6810, ptr %6800, align 1, !tbaa !75
+  %6811 = icmp samesign ugt i64 %6799, 9999999999999999
+  %6812 = zext i1 %6811 to i64
+  %6813 = getelementptr inbounds nuw i8, ptr %6800, i64 %6812
+  %6814 = and i64 %6807, 4294967295
+  %6815 = mul nuw nsw i64 %6814, 109951163
+  %6816 = lshr i64 %6815, 40
+  %6817 = trunc nuw nsw i64 %6816 to i32
+  %.neg.i685.i = mul i32 %6817, -10000
+  %6818 = add i32 %.neg.i685.i, %6808
+  %6819 = mul nuw i32 %6817, 5243
+  %6820 = lshr i32 %6819, 19
+  %6821 = mul i32 %6818, 5243
+  %6822 = lshr i32 %6821, 19
+  %.neg17.i686.i = mul nsw i32 %6820, -100
+  %6823 = add nsw i32 %.neg17.i686.i, %6817
+  %.neg18.i687.i = mul i32 %6822, 2147483548
+  %6824 = add i32 %.neg18.i687.i, %6818
+  %6825 = shl nuw nsw i32 %6820, 1
+  %6826 = zext nneg i32 %6825 to i64
+  %6827 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6826
+  %6828 = load i16, ptr %6827, align 2
+  store i16 %6828, ptr %6813, align 1
+  %6829 = getelementptr inbounds nuw i8, ptr %6813, i64 2
+  %6830 = shl nsw i32 %6823, 1
+  %6831 = zext i32 %6830 to i64
+  %6832 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6831
+  %6833 = load i16, ptr %6832, align 2
+  store i16 %6833, ptr %6829, align 1
+  %6834 = getelementptr inbounds nuw i8, ptr %6813, i64 4
+  %6835 = shl nuw nsw i32 %6822, 1
+  %6836 = zext nneg i32 %6835 to i64
+  %6837 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6836
+  %6838 = load i16, ptr %6837, align 2
+  store i16 %6838, ptr %6834, align 1
+  %6839 = getelementptr inbounds nuw i8, ptr %6813, i64 6
+  %6840 = shl i32 %6824, 1
+  %6841 = zext i32 %6840 to i64
+  %6842 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6841
+  %6843 = load i16, ptr %6842, align 2
+  store i16 %6843, ptr %6839, align 1
+  %6844 = getelementptr inbounds nuw i8, ptr %6813, i64 8
+  %6845 = and i64 %6804, 4294967295
+  %6846 = mul nuw nsw i64 %6845, 109951163
+  %6847 = lshr i64 %6846, 40
+  %6848 = trunc nuw nsw i64 %6847 to i32
+  %.neg.i684.i = mul i32 %6848, -10000
+  %6849 = add i32 %.neg.i684.i, %6805
+  %6850 = mul nuw i32 %6848, 5243
+  %6851 = lshr i32 %6850, 19
+  %6852 = mul i32 %6849, 5243
+  %6853 = lshr i32 %6852, 19
+  %.neg17.i.i267 = mul nsw i32 %6851, -100
+  %6854 = add nsw i32 %.neg17.i.i267, %6848
+  %.neg18.i.i268 = mul i32 %6853, 2147483548
+  %6855 = add i32 %.neg18.i.i268, %6849
+  %6856 = shl nuw nsw i32 %6851, 1
+  %6857 = zext nneg i32 %6856 to i64
+  %6858 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6857
+  %6859 = load i16, ptr %6858, align 2
+  store i16 %6859, ptr %6844, align 1
+  %6860 = getelementptr inbounds nuw i8, ptr %6813, i64 10
+  %6861 = shl nsw i32 %6854, 1
+  %6862 = zext i32 %6861 to i64
+  %6863 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6862
+  %6864 = load i16, ptr %6863, align 2
+  store i16 %6864, ptr %6860, align 1
+  %6865 = getelementptr inbounds nuw i8, ptr %6813, i64 12
+  %6866 = shl nuw nsw i32 %6853, 1
+  %6867 = zext nneg i32 %6866 to i64
+  %6868 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6867
+  %6869 = load i16, ptr %6868, align 2
+  store i16 %6869, ptr %6865, align 1
+  %6870 = getelementptr inbounds nuw i8, ptr %6813, i64 14
+  %6871 = shl i32 %6855, 1
+  %6872 = zext i32 %6871 to i64
+  %6873 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6872
+  %6874 = load i16, ptr %6873, align 2
+  store i16 %6874, ptr %6870, align 1
+  %6875 = getelementptr inbounds nuw i8, ptr %6813, i64 16
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253
 
-6877:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit.i251
-  %6878 = icmp samesign ugt i64 %6800, 99999999
-  br i1 %6878, label %6879, label %7005
+6876:                                             ; preds = %_ZN13duckdb_yyjsonL14f64_bin_to_decEmjmiPmPi.exit.i251
+  %6877 = icmp samesign ugt i64 %6799, 99999999
+  br i1 %6877, label %6878, label %7004
 
-6879:                                             ; preds = %6877
-  %6880 = udiv i64 %6800, 100000000
-  %.neg.i621.i = mul nuw nsw i64 %6880, 4194967296
-  %6881 = add nuw nsw i64 %.neg.i621.i, %6800
-  %6882 = trunc i64 %6881 to i32
-  %6883 = trunc nuw nsw i64 %6880 to i32
-  %6884 = icmp samesign ult i64 %6800, 10000000000
-  br i1 %6884, label %6885, label %6894
+6878:                                             ; preds = %6876
+  %6879 = udiv i64 %6799, 100000000
+  %.neg.i621.i = mul nuw nsw i64 %6879, 4194967296
+  %6880 = add nuw nsw i64 %.neg.i621.i, %6799
+  %6881 = trunc i64 %6880 to i32
+  %6882 = trunc nuw nsw i64 %6879 to i32
+  %6883 = icmp samesign ult i64 %6799, 10000000000
+  br i1 %6883, label %6884, label %6893
 
-6885:                                             ; preds = %6879
-  %6886 = icmp samesign ult i64 %6800, 1000000000
-  %6887 = shl nuw nsw i64 %6880, 1
-  %6888 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6887
-  %.neg70.i.i264 = sext i1 %6886 to i64
-  %6889 = zext i1 %6886 to i64
-  %6890 = getelementptr inbounds nuw i8, ptr %6888, i64 %6889
-  %6891 = load i16, ptr %6890, align 1
-  store i16 %6891, ptr %6801, align 1
-  %6892 = getelementptr inbounds i8, ptr %6801, i64 %.neg70.i.i264
-  %6893 = getelementptr inbounds nuw i8, ptr %6892, i64 2
+6884:                                             ; preds = %6878
+  %6885 = icmp samesign ult i64 %6799, 1000000000
+  %6886 = shl nuw nsw i64 %6879, 1
+  %6887 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6886
+  %.neg70.i.i264 = sext i1 %6885 to i64
+  %6888 = zext i1 %6885 to i64
+  %6889 = getelementptr inbounds nuw i8, ptr %6887, i64 %6888
+  %6890 = load i16, ptr %6889, align 1
+  store i16 %6890, ptr %6800, align 1
+  %6891 = getelementptr inbounds i8, ptr %6800, i64 %.neg70.i.i264
+  %6892 = getelementptr inbounds nuw i8, ptr %6891, i64 2
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit.i258
 
-6894:                                             ; preds = %6879
-  %6895 = icmp samesign ult i64 %6800, 1000000000000
-  br i1 %6895, label %6896, label %6914
+6893:                                             ; preds = %6878
+  %6894 = icmp samesign ult i64 %6799, 1000000000000
+  br i1 %6894, label %6895, label %6913
 
-6896:                                             ; preds = %6894
-  %6897 = mul nuw nsw i32 %6883, 5243
-  %6898 = lshr i32 %6897, 19
-  %.neg68.i.i262 = mul nsw i32 %6898, -100
-  %6899 = add nsw i32 %.neg68.i.i262, %6883
-  %6900 = icmp samesign ult i64 %6800, 100000000000
-  %6901 = shl nuw nsw i32 %6898, 1
-  %6902 = zext nneg i32 %6901 to i64
-  %6903 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6902
-  %.neg69.i.i263 = sext i1 %6900 to i64
-  %6904 = zext i1 %6900 to i64
-  %6905 = getelementptr inbounds nuw i8, ptr %6903, i64 %6904
-  %6906 = load i16, ptr %6905, align 1
-  store i16 %6906, ptr %6801, align 1
-  %6907 = getelementptr inbounds i8, ptr %6801, i64 %.neg69.i.i263
-  %6908 = getelementptr inbounds nuw i8, ptr %6907, i64 2
-  %6909 = shl nsw i32 %6899, 1
-  %6910 = zext i32 %6909 to i64
-  %6911 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6910
-  %6912 = load i16, ptr %6911, align 2
-  store i16 %6912, ptr %6908, align 1
-  %6913 = getelementptr inbounds nuw i8, ptr %6907, i64 4
+6895:                                             ; preds = %6893
+  %6896 = mul nuw nsw i32 %6882, 5243
+  %6897 = lshr i32 %6896, 19
+  %.neg68.i.i262 = mul nsw i32 %6897, -100
+  %6898 = add nsw i32 %.neg68.i.i262, %6882
+  %6899 = icmp samesign ult i64 %6799, 100000000000
+  %6900 = shl nuw nsw i32 %6897, 1
+  %6901 = zext nneg i32 %6900 to i64
+  %6902 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6901
+  %.neg69.i.i263 = sext i1 %6899 to i64
+  %6903 = zext i1 %6899 to i64
+  %6904 = getelementptr inbounds nuw i8, ptr %6902, i64 %6903
+  %6905 = load i16, ptr %6904, align 1
+  store i16 %6905, ptr %6800, align 1
+  %6906 = getelementptr inbounds i8, ptr %6800, i64 %.neg69.i.i263
+  %6907 = getelementptr inbounds nuw i8, ptr %6906, i64 2
+  %6908 = shl nsw i32 %6898, 1
+  %6909 = zext i32 %6908 to i64
+  %6910 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6909
+  %6911 = load i16, ptr %6910, align 2
+  store i16 %6911, ptr %6907, align 1
+  %6912 = getelementptr inbounds nuw i8, ptr %6906, i64 4
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit.i258
 
-6914:                                             ; preds = %6894
-  %6915 = icmp samesign ult i64 %6800, 100000000000000
-  br i1 %6915, label %6916, label %6942
+6913:                                             ; preds = %6893
+  %6914 = icmp samesign ult i64 %6799, 100000000000000
+  br i1 %6914, label %6915, label %6941
 
-6916:                                             ; preds = %6914
-  %6917 = mul nuw nsw i64 %6880, 429497
-  %6918 = lshr i64 %6917, 32
-  %6919 = trunc nuw nsw i64 %6918 to i32
-  %.neg65.i.i259 = mul nsw i32 %6919, -10000
-  %6920 = add nsw i32 %.neg65.i.i259, %6883
-  %6921 = mul i32 %6920, 5243
-  %6922 = lshr i32 %6921, 19
-  %.neg66.i.i260 = mul nsw i32 %6922, -100
-  %6923 = add nsw i32 %.neg66.i.i260, %6920
-  %6924 = icmp samesign ult i64 %6800, 10000000000000
-  %6925 = shl nuw nsw i64 %6918, 1
-  %6926 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6925
-  %.neg67.i.i261 = sext i1 %6924 to i64
-  %6927 = zext i1 %6924 to i64
-  %6928 = getelementptr inbounds nuw i8, ptr %6926, i64 %6927
-  %6929 = load i16, ptr %6928, align 1
-  store i16 %6929, ptr %6801, align 1
-  %6930 = getelementptr inbounds i8, ptr %6801, i64 %.neg67.i.i261
-  %6931 = getelementptr inbounds nuw i8, ptr %6930, i64 2
-  %6932 = shl nuw nsw i32 %6922, 1
-  %6933 = zext nneg i32 %6932 to i64
-  %6934 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6933
-  %6935 = load i16, ptr %6934, align 2
-  store i16 %6935, ptr %6931, align 1
-  %6936 = getelementptr inbounds nuw i8, ptr %6930, i64 4
-  %6937 = shl nsw i32 %6923, 1
-  %6938 = zext i32 %6937 to i64
-  %6939 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6938
-  %6940 = load i16, ptr %6939, align 2
-  store i16 %6940, ptr %6936, align 1
-  %6941 = getelementptr inbounds nuw i8, ptr %6930, i64 6
+6915:                                             ; preds = %6913
+  %6916 = mul nuw nsw i64 %6879, 429497
+  %6917 = lshr i64 %6916, 32
+  %6918 = trunc nuw nsw i64 %6917 to i32
+  %.neg65.i.i259 = mul nsw i32 %6918, -10000
+  %6919 = add nsw i32 %.neg65.i.i259, %6882
+  %6920 = mul i32 %6919, 5243
+  %6921 = lshr i32 %6920, 19
+  %.neg66.i.i260 = mul nsw i32 %6921, -100
+  %6922 = add nsw i32 %.neg66.i.i260, %6919
+  %6923 = icmp samesign ult i64 %6799, 10000000000000
+  %6924 = shl nuw nsw i64 %6917, 1
+  %6925 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6924
+  %.neg67.i.i261 = sext i1 %6923 to i64
+  %6926 = zext i1 %6923 to i64
+  %6927 = getelementptr inbounds nuw i8, ptr %6925, i64 %6926
+  %6928 = load i16, ptr %6927, align 1
+  store i16 %6928, ptr %6800, align 1
+  %6929 = getelementptr inbounds i8, ptr %6800, i64 %.neg67.i.i261
+  %6930 = getelementptr inbounds nuw i8, ptr %6929, i64 2
+  %6931 = shl nuw nsw i32 %6921, 1
+  %6932 = zext nneg i32 %6931 to i64
+  %6933 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6932
+  %6934 = load i16, ptr %6933, align 2
+  store i16 %6934, ptr %6930, align 1
+  %6935 = getelementptr inbounds nuw i8, ptr %6929, i64 4
+  %6936 = shl nsw i32 %6922, 1
+  %6937 = zext i32 %6936 to i64
+  %6938 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6937
+  %6939 = load i16, ptr %6938, align 2
+  store i16 %6939, ptr %6935, align 1
+  %6940 = getelementptr inbounds nuw i8, ptr %6929, i64 6
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit.i258
 
-6942:                                             ; preds = %6914
-  %6943 = mul nuw nsw i64 %6880, 109951163
-  %6944 = lshr i64 %6943, 40
-  %6945 = trunc nuw nsw i64 %6944 to i32
-  %.neg.i622.i = mul nsw i32 %6945, -10000
-  %6946 = add nsw i32 %.neg.i622.i, %6883
-  %6947 = mul nuw nsw i32 %6945, 5243
-  %6948 = lshr i32 %6947, 19
-  %6949 = mul i32 %6946, 5243
-  %6950 = lshr i32 %6949, 19
-  %.neg62.i.i255 = mul nsw i32 %6948, -100
-  %6951 = add nsw i32 %.neg62.i.i255, %6945
-  %.neg63.i.i256 = mul nsw i32 %6950, -100
-  %6952 = add nsw i32 %.neg63.i.i256, %6946
-  %6953 = shl nuw nsw i32 %6948, 1
-  %6954 = zext nneg i32 %6953 to i64
-  %6955 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6954
-  %6956 = getelementptr inbounds nuw i8, ptr %6955, i64 1
-  %6957 = load i16, ptr %6956, align 1
-  store i16 %6957, ptr %6801, align 1
-  %6958 = getelementptr inbounds nuw i8, ptr %5939, i64 2
-  %6959 = shl nsw i32 %6951, 1
-  %6960 = zext i32 %6959 to i64
-  %6961 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6960
-  %6962 = load i16, ptr %6961, align 2
-  store i16 %6962, ptr %6958, align 1
-  %6963 = getelementptr inbounds nuw i8, ptr %5939, i64 4
-  %6964 = shl nuw nsw i32 %6950, 1
-  %6965 = zext nneg i32 %6964 to i64
-  %6966 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6965
-  %6967 = load i16, ptr %6966, align 2
-  store i16 %6967, ptr %6963, align 1
-  %6968 = getelementptr inbounds nuw i8, ptr %5939, i64 6
-  %6969 = shl nsw i32 %6952, 1
-  %6970 = zext i32 %6969 to i64
-  %6971 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6970
-  %6972 = load i16, ptr %6971, align 2
-  store i16 %6972, ptr %6968, align 1
-  %6973 = getelementptr inbounds nuw i8, ptr %5939, i64 8
+6941:                                             ; preds = %6913
+  %6942 = mul nuw nsw i64 %6879, 109951163
+  %6943 = lshr i64 %6942, 40
+  %6944 = trunc nuw nsw i64 %6943 to i32
+  %.neg.i622.i = mul nsw i32 %6944, -10000
+  %6945 = add nsw i32 %.neg.i622.i, %6882
+  %6946 = mul nuw nsw i32 %6944, 5243
+  %6947 = lshr i32 %6946, 19
+  %6948 = mul i32 %6945, 5243
+  %6949 = lshr i32 %6948, 19
+  %.neg62.i.i255 = mul nsw i32 %6947, -100
+  %6950 = add nsw i32 %.neg62.i.i255, %6944
+  %.neg63.i.i256 = mul nsw i32 %6949, -100
+  %6951 = add nsw i32 %.neg63.i.i256, %6945
+  %6952 = shl nuw nsw i32 %6947, 1
+  %6953 = zext nneg i32 %6952 to i64
+  %6954 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6953
+  %6955 = getelementptr inbounds nuw i8, ptr %6954, i64 1
+  %6956 = load i16, ptr %6955, align 1
+  store i16 %6956, ptr %6800, align 1
+  %6957 = getelementptr inbounds nuw i8, ptr %5938, i64 2
+  %6958 = shl nsw i32 %6950, 1
+  %6959 = zext i32 %6958 to i64
+  %6960 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6959
+  %6961 = load i16, ptr %6960, align 2
+  store i16 %6961, ptr %6957, align 1
+  %6962 = getelementptr inbounds nuw i8, ptr %5938, i64 4
+  %6963 = shl nuw nsw i32 %6949, 1
+  %6964 = zext nneg i32 %6963 to i64
+  %6965 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6964
+  %6966 = load i16, ptr %6965, align 2
+  store i16 %6966, ptr %6962, align 1
+  %6967 = getelementptr inbounds nuw i8, ptr %5938, i64 6
+  %6968 = shl nsw i32 %6951, 1
+  %6969 = zext i32 %6968 to i64
+  %6970 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6969
+  %6971 = load i16, ptr %6970, align 2
+  store i16 %6971, ptr %6967, align 1
+  %6972 = getelementptr inbounds nuw i8, ptr %5938, i64 8
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit.i258
 
-_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit.i258: ; preds = %6942, %6916, %6896, %6885
-  %.0.i623.i = phi ptr [ %6893, %6885 ], [ %6913, %6896 ], [ %6941, %6916 ], [ %6973, %6942 ]
-  %6974 = and i64 %6881, 4294967295
-  %6975 = mul nuw nsw i64 %6974, 109951163
-  %6976 = lshr i64 %6975, 40
-  %6977 = trunc nuw nsw i64 %6976 to i32
-  %.neg.i688.i = mul i32 %6977, -10000
-  %6978 = add i32 %.neg.i688.i, %6882
-  %6979 = mul nuw i32 %6977, 5243
-  %6980 = lshr i32 %6979, 19
-  %6981 = mul i32 %6978, 5243
-  %6982 = lshr i32 %6981, 19
-  %.neg17.i689.i = mul nsw i32 %6980, -100
-  %6983 = add nsw i32 %.neg17.i689.i, %6977
-  %.neg18.i690.i = mul i32 %6982, 2147483548
-  %6984 = add i32 %.neg18.i690.i, %6978
-  %6985 = shl nuw nsw i32 %6980, 1
-  %6986 = zext nneg i32 %6985 to i64
-  %6987 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6986
-  %6988 = load i16, ptr %6987, align 2
-  store i16 %6988, ptr %.0.i623.i, align 1
-  %6989 = getelementptr inbounds nuw i8, ptr %.0.i623.i, i64 2
-  %6990 = shl nsw i32 %6983, 1
-  %6991 = zext i32 %6990 to i64
-  %6992 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6991
-  %6993 = load i16, ptr %6992, align 2
-  store i16 %6993, ptr %6989, align 1
-  %6994 = getelementptr inbounds nuw i8, ptr %.0.i623.i, i64 4
-  %6995 = shl nuw nsw i32 %6982, 1
-  %6996 = zext nneg i32 %6995 to i64
-  %6997 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6996
-  %6998 = load i16, ptr %6997, align 2
-  store i16 %6998, ptr %6994, align 1
-  %6999 = getelementptr inbounds nuw i8, ptr %.0.i623.i, i64 6
-  %7000 = shl i32 %6984, 1
-  %7001 = zext i32 %7000 to i64
-  %7002 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7001
-  %7003 = load i16, ptr %7002, align 2
-  store i16 %7003, ptr %6999, align 1
-  %7004 = getelementptr inbounds nuw i8, ptr %.0.i623.i, i64 8
+_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit.i258: ; preds = %6941, %6915, %6895, %6884
+  %.0.i623.i = phi ptr [ %6892, %6884 ], [ %6912, %6895 ], [ %6940, %6915 ], [ %6972, %6941 ]
+  %6973 = and i64 %6880, 4294967295
+  %6974 = mul nuw nsw i64 %6973, 109951163
+  %6975 = lshr i64 %6974, 40
+  %6976 = trunc nuw nsw i64 %6975 to i32
+  %.neg.i688.i = mul i32 %6976, -10000
+  %6977 = add i32 %.neg.i688.i, %6881
+  %6978 = mul nuw i32 %6976, 5243
+  %6979 = lshr i32 %6978, 19
+  %6980 = mul i32 %6977, 5243
+  %6981 = lshr i32 %6980, 19
+  %.neg17.i689.i = mul nsw i32 %6979, -100
+  %6982 = add nsw i32 %.neg17.i689.i, %6976
+  %.neg18.i690.i = mul i32 %6981, 2147483548
+  %6983 = add i32 %.neg18.i690.i, %6977
+  %6984 = shl nuw nsw i32 %6979, 1
+  %6985 = zext nneg i32 %6984 to i64
+  %6986 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6985
+  %6987 = load i16, ptr %6986, align 2
+  store i16 %6987, ptr %.0.i623.i, align 1
+  %6988 = getelementptr inbounds nuw i8, ptr %.0.i623.i, i64 2
+  %6989 = shl nsw i32 %6982, 1
+  %6990 = zext i32 %6989 to i64
+  %6991 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6990
+  %6992 = load i16, ptr %6991, align 2
+  store i16 %6992, ptr %6988, align 1
+  %6993 = getelementptr inbounds nuw i8, ptr %.0.i623.i, i64 4
+  %6994 = shl nuw nsw i32 %6981, 1
+  %6995 = zext nneg i32 %6994 to i64
+  %6996 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %6995
+  %6997 = load i16, ptr %6996, align 2
+  store i16 %6997, ptr %6993, align 1
+  %6998 = getelementptr inbounds nuw i8, ptr %.0.i623.i, i64 6
+  %6999 = shl i32 %6983, 1
+  %7000 = zext i32 %6999 to i64
+  %7001 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7000
+  %7002 = load i16, ptr %7001, align 2
+  store i16 %7002, ptr %6998, align 1
+  %7003 = getelementptr inbounds nuw i8, ptr %.0.i623.i, i64 8
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253
 
-7005:                                             ; preds = %6877
-  %7006 = trunc nuw nsw i64 %6800 to i32
-  %7007 = icmp samesign ult i64 %6800, 100
-  br i1 %7007, label %7008, label %7017
+7004:                                             ; preds = %6876
+  %7005 = trunc nuw nsw i64 %6799 to i32
+  %7006 = icmp samesign ult i64 %6799, 100
+  br i1 %7006, label %7007, label %7016
 
-7008:                                             ; preds = %7005
-  %7009 = icmp samesign ult i64 %6800, 10
-  %7010 = shl nuw nsw i64 %6800, 1
-  %7011 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7010
-  %.neg70.i634.i = sext i1 %7009 to i64
-  %7012 = zext i1 %7009 to i64
-  %7013 = getelementptr inbounds nuw i8, ptr %7011, i64 %7012
-  %7014 = load i16, ptr %7013, align 1
-  store i16 %7014, ptr %6801, align 1
-  %7015 = getelementptr inbounds i8, ptr %6801, i64 %.neg70.i634.i
-  %7016 = getelementptr inbounds nuw i8, ptr %7015, i64 2
+7007:                                             ; preds = %7004
+  %7008 = icmp samesign ult i64 %6799, 10
+  %7009 = shl nuw nsw i64 %6799, 1
+  %7010 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7009
+  %.neg70.i634.i = sext i1 %7008 to i64
+  %7011 = zext i1 %7008 to i64
+  %7012 = getelementptr inbounds nuw i8, ptr %7010, i64 %7011
+  %7013 = load i16, ptr %7012, align 1
+  store i16 %7013, ptr %6800, align 1
+  %7014 = getelementptr inbounds i8, ptr %6800, i64 %.neg70.i634.i
+  %7015 = getelementptr inbounds nuw i8, ptr %7014, i64 2
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253
 
-7017:                                             ; preds = %7005
-  %7018 = icmp samesign ult i64 %6800, 10000
-  br i1 %7018, label %7019, label %7037
+7016:                                             ; preds = %7004
+  %7017 = icmp samesign ult i64 %6799, 10000
+  br i1 %7017, label %7018, label %7036
 
-7019:                                             ; preds = %7017
-  %7020 = mul nuw nsw i32 %7006, 5243
-  %7021 = lshr i32 %7020, 19
-  %.neg68.i632.i = mul nsw i32 %7021, -100
-  %7022 = add nsw i32 %.neg68.i632.i, %7006
-  %7023 = icmp samesign ult i64 %6800, 1000
-  %7024 = shl nuw nsw i32 %7021, 1
-  %7025 = zext nneg i32 %7024 to i64
-  %7026 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7025
-  %.neg69.i633.i = sext i1 %7023 to i64
-  %7027 = zext i1 %7023 to i64
-  %7028 = getelementptr inbounds nuw i8, ptr %7026, i64 %7027
-  %7029 = load i16, ptr %7028, align 1
-  store i16 %7029, ptr %6801, align 1
-  %7030 = getelementptr inbounds i8, ptr %6801, i64 %.neg69.i633.i
-  %7031 = getelementptr inbounds nuw i8, ptr %7030, i64 2
-  %7032 = shl nsw i32 %7022, 1
-  %7033 = zext i32 %7032 to i64
-  %7034 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7033
-  %7035 = load i16, ptr %7034, align 2
-  store i16 %7035, ptr %7031, align 1
-  %7036 = getelementptr inbounds nuw i8, ptr %7030, i64 4
+7018:                                             ; preds = %7016
+  %7019 = mul nuw nsw i32 %7005, 5243
+  %7020 = lshr i32 %7019, 19
+  %.neg68.i632.i = mul nsw i32 %7020, -100
+  %7021 = add nsw i32 %.neg68.i632.i, %7005
+  %7022 = icmp samesign ult i64 %6799, 1000
+  %7023 = shl nuw nsw i32 %7020, 1
+  %7024 = zext nneg i32 %7023 to i64
+  %7025 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7024
+  %.neg69.i633.i = sext i1 %7022 to i64
+  %7026 = zext i1 %7022 to i64
+  %7027 = getelementptr inbounds nuw i8, ptr %7025, i64 %7026
+  %7028 = load i16, ptr %7027, align 1
+  store i16 %7028, ptr %6800, align 1
+  %7029 = getelementptr inbounds i8, ptr %6800, i64 %.neg69.i633.i
+  %7030 = getelementptr inbounds nuw i8, ptr %7029, i64 2
+  %7031 = shl nsw i32 %7021, 1
+  %7032 = zext i32 %7031 to i64
+  %7033 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7032
+  %7034 = load i16, ptr %7033, align 2
+  store i16 %7034, ptr %7030, align 1
+  %7035 = getelementptr inbounds nuw i8, ptr %7029, i64 4
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253
 
-7037:                                             ; preds = %7017
-  %7038 = icmp samesign ult i64 %6800, 1000000
-  br i1 %7038, label %7039, label %7065
+7036:                                             ; preds = %7016
+  %7037 = icmp samesign ult i64 %6799, 1000000
+  br i1 %7037, label %7038, label %7064
 
-7039:                                             ; preds = %7037
-  %7040 = mul nuw nsw i64 %6800, 429497
-  %7041 = lshr i64 %7040, 32
-  %7042 = trunc nuw nsw i64 %7041 to i32
-  %.neg65.i629.i = mul nsw i32 %7042, -10000
-  %7043 = add nsw i32 %.neg65.i629.i, %7006
-  %7044 = mul i32 %7043, 5243
-  %7045 = lshr i32 %7044, 19
-  %.neg66.i630.i = mul nsw i32 %7045, -100
-  %7046 = add nsw i32 %.neg66.i630.i, %7043
-  %7047 = icmp samesign ult i64 %6800, 100000
-  %7048 = shl nuw nsw i64 %7041, 1
-  %7049 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7048
-  %.neg67.i631.i = sext i1 %7047 to i64
-  %7050 = zext i1 %7047 to i64
-  %7051 = getelementptr inbounds nuw i8, ptr %7049, i64 %7050
-  %7052 = load i16, ptr %7051, align 1
-  store i16 %7052, ptr %6801, align 1
-  %7053 = getelementptr inbounds i8, ptr %6801, i64 %.neg67.i631.i
-  %7054 = getelementptr inbounds nuw i8, ptr %7053, i64 2
-  %7055 = shl nuw nsw i32 %7045, 1
-  %7056 = zext nneg i32 %7055 to i64
-  %7057 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7056
-  %7058 = load i16, ptr %7057, align 2
-  store i16 %7058, ptr %7054, align 1
-  %7059 = getelementptr inbounds nuw i8, ptr %7053, i64 4
-  %7060 = shl nsw i32 %7046, 1
-  %7061 = zext i32 %7060 to i64
-  %7062 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7061
-  %7063 = load i16, ptr %7062, align 2
-  store i16 %7063, ptr %7059, align 1
-  %7064 = getelementptr inbounds nuw i8, ptr %7053, i64 6
+7038:                                             ; preds = %7036
+  %7039 = mul nuw nsw i64 %6799, 429497
+  %7040 = lshr i64 %7039, 32
+  %7041 = trunc nuw nsw i64 %7040 to i32
+  %.neg65.i629.i = mul nsw i32 %7041, -10000
+  %7042 = add nsw i32 %.neg65.i629.i, %7005
+  %7043 = mul i32 %7042, 5243
+  %7044 = lshr i32 %7043, 19
+  %.neg66.i630.i = mul nsw i32 %7044, -100
+  %7045 = add nsw i32 %.neg66.i630.i, %7042
+  %7046 = icmp samesign ult i64 %6799, 100000
+  %7047 = shl nuw nsw i64 %7040, 1
+  %7048 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7047
+  %.neg67.i631.i = sext i1 %7046 to i64
+  %7049 = zext i1 %7046 to i64
+  %7050 = getelementptr inbounds nuw i8, ptr %7048, i64 %7049
+  %7051 = load i16, ptr %7050, align 1
+  store i16 %7051, ptr %6800, align 1
+  %7052 = getelementptr inbounds i8, ptr %6800, i64 %.neg67.i631.i
+  %7053 = getelementptr inbounds nuw i8, ptr %7052, i64 2
+  %7054 = shl nuw nsw i32 %7044, 1
+  %7055 = zext nneg i32 %7054 to i64
+  %7056 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7055
+  %7057 = load i16, ptr %7056, align 2
+  store i16 %7057, ptr %7053, align 1
+  %7058 = getelementptr inbounds nuw i8, ptr %7052, i64 4
+  %7059 = shl nsw i32 %7045, 1
+  %7060 = zext i32 %7059 to i64
+  %7061 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7060
+  %7062 = load i16, ptr %7061, align 2
+  store i16 %7062, ptr %7058, align 1
+  %7063 = getelementptr inbounds nuw i8, ptr %7052, i64 6
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253
 
-7065:                                             ; preds = %7037
-  %7066 = mul nuw nsw i64 %6800, 109951163
-  %7067 = lshr i64 %7066, 40
-  %7068 = trunc nuw nsw i64 %7067 to i32
-  %.neg.i624.i = mul nsw i32 %7068, -10000
-  %7069 = add nsw i32 %.neg.i624.i, %7006
-  %7070 = mul nuw nsw i32 %7068, 5243
-  %7071 = lshr i32 %7070, 19
-  %7072 = mul i32 %7069, 5243
-  %7073 = lshr i32 %7072, 19
-  %.neg62.i625.i = mul nsw i32 %7071, -100
-  %7074 = add nsw i32 %.neg62.i625.i, %7068
-  %.neg63.i626.i = mul nsw i32 %7073, -100
-  %7075 = add nsw i32 %.neg63.i626.i, %7069
-  %7076 = icmp samesign ult i64 %6800, 10000000
-  %7077 = shl nuw nsw i32 %7071, 1
-  %7078 = zext nneg i32 %7077 to i64
-  %7079 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7078
-  %.neg64.i627.i = sext i1 %7076 to i64
-  %7080 = zext i1 %7076 to i64
-  %7081 = getelementptr inbounds nuw i8, ptr %7079, i64 %7080
-  %7082 = load i16, ptr %7081, align 1
-  store i16 %7082, ptr %6801, align 1
-  %7083 = getelementptr inbounds i8, ptr %6801, i64 %.neg64.i627.i
-  %7084 = getelementptr inbounds nuw i8, ptr %7083, i64 2
-  %7085 = shl nsw i32 %7074, 1
-  %7086 = zext i32 %7085 to i64
-  %7087 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7086
-  %7088 = load i16, ptr %7087, align 2
-  store i16 %7088, ptr %7084, align 1
-  %7089 = getelementptr inbounds nuw i8, ptr %7083, i64 4
-  %7090 = shl nuw nsw i32 %7073, 1
-  %7091 = zext nneg i32 %7090 to i64
-  %7092 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7091
-  %7093 = load i16, ptr %7092, align 2
-  store i16 %7093, ptr %7089, align 1
-  %7094 = getelementptr inbounds nuw i8, ptr %7083, i64 6
-  %7095 = shl nsw i32 %7075, 1
-  %7096 = zext i32 %7095 to i64
-  %7097 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7096
-  %7098 = load i16, ptr %7097, align 2
-  store i16 %7098, ptr %7094, align 1
-  %7099 = getelementptr inbounds nuw i8, ptr %7083, i64 8
+7064:                                             ; preds = %7036
+  %7065 = mul nuw nsw i64 %6799, 109951163
+  %7066 = lshr i64 %7065, 40
+  %7067 = trunc nuw nsw i64 %7066 to i32
+  %.neg.i624.i = mul nsw i32 %7067, -10000
+  %7068 = add nsw i32 %.neg.i624.i, %7005
+  %7069 = mul nuw nsw i32 %7067, 5243
+  %7070 = lshr i32 %7069, 19
+  %7071 = mul i32 %7068, 5243
+  %7072 = lshr i32 %7071, 19
+  %.neg62.i625.i = mul nsw i32 %7070, -100
+  %7073 = add nsw i32 %.neg62.i625.i, %7067
+  %.neg63.i626.i = mul nsw i32 %7072, -100
+  %7074 = add nsw i32 %.neg63.i626.i, %7068
+  %7075 = icmp samesign ult i64 %6799, 10000000
+  %7076 = shl nuw nsw i32 %7070, 1
+  %7077 = zext nneg i32 %7076 to i64
+  %7078 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7077
+  %.neg64.i627.i = sext i1 %7075 to i64
+  %7079 = zext i1 %7075 to i64
+  %7080 = getelementptr inbounds nuw i8, ptr %7078, i64 %7079
+  %7081 = load i16, ptr %7080, align 1
+  store i16 %7081, ptr %6800, align 1
+  %7082 = getelementptr inbounds i8, ptr %6800, i64 %.neg64.i627.i
+  %7083 = getelementptr inbounds nuw i8, ptr %7082, i64 2
+  %7084 = shl nsw i32 %7073, 1
+  %7085 = zext i32 %7084 to i64
+  %7086 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7085
+  %7087 = load i16, ptr %7086, align 2
+  store i16 %7087, ptr %7083, align 1
+  %7088 = getelementptr inbounds nuw i8, ptr %7082, i64 4
+  %7089 = shl nuw nsw i32 %7072, 1
+  %7090 = zext nneg i32 %7089 to i64
+  %7091 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7090
+  %7092 = load i16, ptr %7091, align 2
+  store i16 %7092, ptr %7088, align 1
+  %7093 = getelementptr inbounds nuw i8, ptr %7082, i64 6
+  %7094 = shl nsw i32 %7074, 1
+  %7095 = zext i32 %7094 to i64
+  %7096 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7095
+  %7097 = load i16, ptr %7096, align 2
+  store i16 %7097, ptr %7093, align 1
+  %7098 = getelementptr inbounds nuw i8, ptr %7082, i64 8
   br label %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253
 
-_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253: ; preds = %7008, %7019, %7039, %7065, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit.i258, %6803
-  %.0.i620.i = phi ptr [ %6876, %6803 ], [ %7004, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit.i258 ], [ %7016, %7008 ], [ %7036, %7019 ], [ %7064, %7039 ], [ %7099, %7065 ]
-  %7100 = load i8, ptr %6801, align 1, !tbaa !75
-  store i8 %7100, ptr %5939, align 1, !tbaa !75
-  store i8 46, ptr %6801, align 1, !tbaa !75
-  br label %7101
+_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253: ; preds = %7007, %7018, %7038, %7064, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit.i258, %6802
+  %.0.i620.i = phi ptr [ %6875, %6802 ], [ %7003, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit.i258 ], [ %7015, %7007 ], [ %7035, %7018 ], [ %7063, %7038 ], [ %7098, %7064 ]
+  %7099 = load i8, ptr %6800, align 1, !tbaa !75
+  store i8 %7099, ptr %5938, align 1, !tbaa !75
+  store i8 46, ptr %6800, align 1, !tbaa !75
+  br label %7100
 
-7101:                                             ; preds = %7101, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253
-  %.0797 = phi i32 [ %storemerge.i.i252, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253 ], [ %7103, %7101 ]
-  %.0121.i.i254 = phi ptr [ %.0.i620.i, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253 ], [ %7102, %7101 ]
-  %7102 = getelementptr inbounds i8, ptr %.0121.i.i254, i64 -1
-  %7103 = add nsw i32 %.0797, 1
-  %7104 = load i8, ptr %7102, align 1, !tbaa !75
-  %7105 = icmp eq i8 %7104, 48
-  br i1 %7105, label %7101, label %7106, !llvm.loop !217
+7100:                                             ; preds = %7100, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253
+  %.0797 = phi i32 [ %storemerge.i.i252, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253 ], [ %7102, %7100 ]
+  %.0121.i.i254 = phi ptr [ %.0.i620.i, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253 ], [ %7101, %7100 ]
+  %7101 = getelementptr inbounds i8, ptr %.0121.i.i254, i64 -1
+  %7102 = add nsw i32 %.0797, 1
+  %7103 = load i8, ptr %7101, align 1, !tbaa !75
+  %7104 = icmp eq i8 %7103, 48
+  br i1 %7104, label %7100, label %7105, !llvm.loop !217
 
-7106:                                             ; preds = %7101
-  %7107 = ptrtoint ptr %7102 to i64
-  %7108 = ptrtoint ptr %5939 to i64
-  %7109 = sub i64 %7107, %7108
-  %7110 = trunc i64 %7109 to i32
-  %7111 = add i32 %.0797, -1
-  %7112 = add i32 %7111, %7110
-  %7113 = icmp ne i8 %7104, 46
-  %7114 = zext i1 %7113 to i64
-  %7115 = getelementptr inbounds nuw i8, ptr %7102, i64 %7114
-  store i8 101, ptr %7115, align 1, !tbaa !75
-  %7116 = getelementptr inbounds nuw i8, ptr %7115, i64 1
-  store i8 45, ptr %7116, align 1, !tbaa !75
-  %7117 = getelementptr inbounds nuw i8, ptr %7115, i64 2
-  %7118 = mul i32 %7112, -656
-  %7119 = lshr i32 %7118, 16
-  %.neg.i556.i = mul i32 %7119, 2147483548
-  %7120 = sub i32 %.neg.i556.i, %7112
-  %7121 = trunc i32 %7119 to i8
-  %7122 = add i8 %7121, 48
-  store i8 %7122, ptr %7117, align 1, !tbaa !75
-  %7123 = getelementptr inbounds nuw i8, ptr %7115, i64 3
-  %7124 = shl i32 %7120, 1
-  %7125 = zext i32 %7124 to i64
-  %7126 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7125
-  %7127 = load i16, ptr %7126, align 2
-  store i16 %7127, ptr %7123, align 1
-  %7128 = getelementptr inbounds nuw i8, ptr %7115, i64 5
+7105:                                             ; preds = %7100
+  %7106 = ptrtoint ptr %7101 to i64
+  %7107 = ptrtoint ptr %5938 to i64
+  %7108 = sub i64 %7106, %7107
+  %7109 = trunc i64 %7108 to i32
+  %7110 = add i32 %.0797, -1
+  %7111 = add i32 %7110, %7109
+  %7112 = icmp ne i8 %7103, 46
+  %7113 = zext i1 %7112 to i64
+  %7114 = getelementptr inbounds nuw i8, ptr %7101, i64 %7113
+  store i8 101, ptr %7114, align 1, !tbaa !75
+  %7115 = getelementptr inbounds nuw i8, ptr %7114, i64 1
+  store i8 45, ptr %7115, align 1, !tbaa !75
+  %7116 = getelementptr inbounds nuw i8, ptr %7114, i64 2
+  %7117 = mul i32 %7111, -656
+  %7118 = lshr i32 %7117, 16
+  %.neg.i556.i = mul i32 %7118, 2147483548
+  %7119 = sub i32 %.neg.i556.i, %7111
+  %7120 = trunc i32 %7118 to i8
+  %7121 = add i8 %7120, 48
+  store i8 %7121, ptr %7116, align 1, !tbaa !75
+  %7122 = getelementptr inbounds nuw i8, ptr %7114, i64 3
+  %7123 = shl i32 %7119, 1
+  %7124 = zext i32 %7123 to i64
+  %7125 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7124
+  %7126 = load i16, ptr %7125, align 2
+  store i16 %7126, ptr %7122, align 1
+  %7127 = getelementptr inbounds nuw i8, ptr %7114, i64 5
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-7129:                                             ; preds = %5916
-  %7130 = sub i64 0, %5920
-  %7131 = lshr i64 %5917, 3
-  %.lobit.i.i270 = lshr i64 %5920, 63
-  %7132 = and i64 %.lobit.i.i270, %7131
+7128:                                             ; preds = %5915
+  %7129 = sub i64 0, %5919
+  %7130 = lshr i64 %5916, 3
+  %.lobit.i.i270 = lshr i64 %5919, 63
+  %7131 = and i64 %.lobit.i.i270, %7130
   store i8 45, ptr %.4346.i, align 1, !tbaa !75
-  %.not15.i.i271 = icmp eq i64 %7132, 0
-  %7133 = select i1 %.not15.i.i271, i64 %5920, i64 %7130
-  %7134 = getelementptr inbounds nuw i8, ptr %.4346.i, i64 %7132
-  %7135 = icmp ult i64 %7133, 100000000
-  br i1 %7135, label %7136, label %7231
+  %.not15.i.i271 = icmp eq i64 %7131, 0
+  %7132 = select i1 %.not15.i.i271, i64 %5919, i64 %7129
+  %7133 = getelementptr inbounds nuw i8, ptr %.4346.i, i64 %7131
+  %7134 = icmp ult i64 %7132, 100000000
+  br i1 %7134, label %7135, label %7230
 
-7136:                                             ; preds = %7129
-  %7137 = trunc nuw nsw i64 %7133 to i32
-  %7138 = icmp samesign ult i64 %7133, 100
-  br i1 %7138, label %7139, label %7148
+7135:                                             ; preds = %7128
+  %7136 = trunc nuw nsw i64 %7132 to i32
+  %7137 = icmp samesign ult i64 %7132, 100
+  br i1 %7137, label %7138, label %7147
 
-7139:                                             ; preds = %7136
-  %7140 = icmp samesign ult i64 %7133, 10
-  %7141 = shl nuw nsw i64 %7133, 1
-  %7142 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7141
-  %.neg70.i670.i = sext i1 %7140 to i64
-  %7143 = zext i1 %7140 to i64
-  %7144 = getelementptr inbounds nuw i8, ptr %7142, i64 %7143
-  %7145 = load i16, ptr %7144, align 1
-  store i16 %7145, ptr %7134, align 1
-  %7146 = getelementptr inbounds i8, ptr %7134, i64 %.neg70.i670.i
-  %7147 = getelementptr inbounds nuw i8, ptr %7146, i64 2
+7138:                                             ; preds = %7135
+  %7139 = icmp samesign ult i64 %7132, 10
+  %7140 = shl nuw nsw i64 %7132, 1
+  %7141 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7140
+  %.neg70.i670.i = sext i1 %7139 to i64
+  %7142 = zext i1 %7139 to i64
+  %7143 = getelementptr inbounds nuw i8, ptr %7141, i64 %7142
+  %7144 = load i16, ptr %7143, align 1
+  store i16 %7144, ptr %7133, align 1
+  %7145 = getelementptr inbounds i8, ptr %7133, i64 %.neg70.i670.i
+  %7146 = getelementptr inbounds nuw i8, ptr %7145, i64 2
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-7148:                                             ; preds = %7136
-  %7149 = icmp samesign ult i64 %7133, 10000
-  br i1 %7149, label %7150, label %7168
+7147:                                             ; preds = %7135
+  %7148 = icmp samesign ult i64 %7132, 10000
+  br i1 %7148, label %7149, label %7167
 
-7150:                                             ; preds = %7148
-  %7151 = mul nuw nsw i32 %7137, 5243
-  %7152 = lshr i32 %7151, 19
-  %.neg68.i668.i = mul nsw i32 %7152, -100
-  %7153 = add nsw i32 %.neg68.i668.i, %7137
-  %7154 = icmp samesign ult i64 %7133, 1000
-  %7155 = shl nuw nsw i32 %7152, 1
-  %7156 = zext nneg i32 %7155 to i64
-  %7157 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7156
-  %.neg69.i669.i = sext i1 %7154 to i64
-  %7158 = zext i1 %7154 to i64
-  %7159 = getelementptr inbounds nuw i8, ptr %7157, i64 %7158
-  %7160 = load i16, ptr %7159, align 1
-  store i16 %7160, ptr %7134, align 1
-  %7161 = getelementptr inbounds i8, ptr %7134, i64 %.neg69.i669.i
-  %7162 = getelementptr inbounds nuw i8, ptr %7161, i64 2
-  %7163 = shl nsw i32 %7153, 1
-  %7164 = zext i32 %7163 to i64
-  %7165 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7164
-  %7166 = load i16, ptr %7165, align 2
-  store i16 %7166, ptr %7162, align 1
-  %7167 = getelementptr inbounds nuw i8, ptr %7161, i64 4
+7149:                                             ; preds = %7147
+  %7150 = mul nuw nsw i32 %7136, 5243
+  %7151 = lshr i32 %7150, 19
+  %.neg68.i668.i = mul nsw i32 %7151, -100
+  %7152 = add nsw i32 %.neg68.i668.i, %7136
+  %7153 = icmp samesign ult i64 %7132, 1000
+  %7154 = shl nuw nsw i32 %7151, 1
+  %7155 = zext nneg i32 %7154 to i64
+  %7156 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7155
+  %.neg69.i669.i = sext i1 %7153 to i64
+  %7157 = zext i1 %7153 to i64
+  %7158 = getelementptr inbounds nuw i8, ptr %7156, i64 %7157
+  %7159 = load i16, ptr %7158, align 1
+  store i16 %7159, ptr %7133, align 1
+  %7160 = getelementptr inbounds i8, ptr %7133, i64 %.neg69.i669.i
+  %7161 = getelementptr inbounds nuw i8, ptr %7160, i64 2
+  %7162 = shl nsw i32 %7152, 1
+  %7163 = zext i32 %7162 to i64
+  %7164 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7163
+  %7165 = load i16, ptr %7164, align 2
+  store i16 %7165, ptr %7161, align 1
+  %7166 = getelementptr inbounds nuw i8, ptr %7160, i64 4
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-7168:                                             ; preds = %7148
-  %7169 = icmp samesign ult i64 %7133, 1000000
-  br i1 %7169, label %7170, label %7196
+7167:                                             ; preds = %7147
+  %7168 = icmp samesign ult i64 %7132, 1000000
+  br i1 %7168, label %7169, label %7195
 
-7170:                                             ; preds = %7168
-  %7171 = mul nuw nsw i64 %7133, 429497
-  %7172 = lshr i64 %7171, 32
-  %7173 = trunc nuw nsw i64 %7172 to i32
-  %.neg65.i665.i = mul nsw i32 %7173, -10000
-  %7174 = add nsw i32 %.neg65.i665.i, %7137
-  %7175 = mul i32 %7174, 5243
-  %7176 = lshr i32 %7175, 19
-  %.neg66.i666.i = mul nsw i32 %7176, -100
-  %7177 = add nsw i32 %.neg66.i666.i, %7174
-  %7178 = icmp samesign ult i64 %7133, 100000
-  %7179 = shl nuw nsw i64 %7172, 1
-  %7180 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7179
-  %.neg67.i667.i = sext i1 %7178 to i64
-  %7181 = zext i1 %7178 to i64
-  %7182 = getelementptr inbounds nuw i8, ptr %7180, i64 %7181
-  %7183 = load i16, ptr %7182, align 1
-  store i16 %7183, ptr %7134, align 1
-  %7184 = getelementptr inbounds i8, ptr %7134, i64 %.neg67.i667.i
-  %7185 = getelementptr inbounds nuw i8, ptr %7184, i64 2
-  %7186 = shl nuw nsw i32 %7176, 1
-  %7187 = zext nneg i32 %7186 to i64
-  %7188 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7187
-  %7189 = load i16, ptr %7188, align 2
-  store i16 %7189, ptr %7185, align 1
-  %7190 = getelementptr inbounds nuw i8, ptr %7184, i64 4
-  %7191 = shl nsw i32 %7177, 1
-  %7192 = zext i32 %7191 to i64
-  %7193 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7192
-  %7194 = load i16, ptr %7193, align 2
-  store i16 %7194, ptr %7190, align 1
-  %7195 = getelementptr inbounds nuw i8, ptr %7184, i64 6
+7169:                                             ; preds = %7167
+  %7170 = mul nuw nsw i64 %7132, 429497
+  %7171 = lshr i64 %7170, 32
+  %7172 = trunc nuw nsw i64 %7171 to i32
+  %.neg65.i665.i = mul nsw i32 %7172, -10000
+  %7173 = add nsw i32 %.neg65.i665.i, %7136
+  %7174 = mul i32 %7173, 5243
+  %7175 = lshr i32 %7174, 19
+  %.neg66.i666.i = mul nsw i32 %7175, -100
+  %7176 = add nsw i32 %.neg66.i666.i, %7173
+  %7177 = icmp samesign ult i64 %7132, 100000
+  %7178 = shl nuw nsw i64 %7171, 1
+  %7179 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7178
+  %.neg67.i667.i = sext i1 %7177 to i64
+  %7180 = zext i1 %7177 to i64
+  %7181 = getelementptr inbounds nuw i8, ptr %7179, i64 %7180
+  %7182 = load i16, ptr %7181, align 1
+  store i16 %7182, ptr %7133, align 1
+  %7183 = getelementptr inbounds i8, ptr %7133, i64 %.neg67.i667.i
+  %7184 = getelementptr inbounds nuw i8, ptr %7183, i64 2
+  %7185 = shl nuw nsw i32 %7175, 1
+  %7186 = zext nneg i32 %7185 to i64
+  %7187 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7186
+  %7188 = load i16, ptr %7187, align 2
+  store i16 %7188, ptr %7184, align 1
+  %7189 = getelementptr inbounds nuw i8, ptr %7183, i64 4
+  %7190 = shl nsw i32 %7176, 1
+  %7191 = zext i32 %7190 to i64
+  %7192 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7191
+  %7193 = load i16, ptr %7192, align 2
+  store i16 %7193, ptr %7189, align 1
+  %7194 = getelementptr inbounds nuw i8, ptr %7183, i64 6
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-7196:                                             ; preds = %7168
-  %7197 = mul nuw nsw i64 %7133, 109951163
-  %7198 = lshr i64 %7197, 40
-  %7199 = trunc nuw nsw i64 %7198 to i32
-  %.neg.i660.i = mul nsw i32 %7199, -10000
-  %7200 = add nsw i32 %.neg.i660.i, %7137
-  %7201 = mul nuw nsw i32 %7199, 5243
-  %7202 = lshr i32 %7201, 19
-  %7203 = mul i32 %7200, 5243
-  %7204 = lshr i32 %7203, 19
-  %.neg62.i661.i = mul nsw i32 %7202, -100
-  %7205 = add nsw i32 %.neg62.i661.i, %7199
-  %.neg63.i662.i = mul nsw i32 %7204, -100
-  %7206 = add nsw i32 %.neg63.i662.i, %7200
-  %7207 = icmp samesign ult i64 %7133, 10000000
-  %7208 = shl nuw nsw i32 %7202, 1
-  %7209 = zext nneg i32 %7208 to i64
-  %7210 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7209
-  %.neg64.i663.i = sext i1 %7207 to i64
-  %7211 = zext i1 %7207 to i64
-  %7212 = getelementptr inbounds nuw i8, ptr %7210, i64 %7211
-  %7213 = load i16, ptr %7212, align 1
-  store i16 %7213, ptr %7134, align 1
-  %7214 = getelementptr inbounds i8, ptr %7134, i64 %.neg64.i663.i
-  %7215 = getelementptr inbounds nuw i8, ptr %7214, i64 2
-  %7216 = shl nsw i32 %7205, 1
-  %7217 = zext i32 %7216 to i64
-  %7218 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7217
-  %7219 = load i16, ptr %7218, align 2
-  store i16 %7219, ptr %7215, align 1
-  %7220 = getelementptr inbounds nuw i8, ptr %7214, i64 4
-  %7221 = shl nuw nsw i32 %7204, 1
-  %7222 = zext nneg i32 %7221 to i64
-  %7223 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7222
-  %7224 = load i16, ptr %7223, align 2
-  store i16 %7224, ptr %7220, align 1
-  %7225 = getelementptr inbounds nuw i8, ptr %7214, i64 6
-  %7226 = shl nsw i32 %7206, 1
-  %7227 = zext i32 %7226 to i64
-  %7228 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7227
-  %7229 = load i16, ptr %7228, align 2
-  store i16 %7229, ptr %7225, align 1
-  %7230 = getelementptr inbounds nuw i8, ptr %7214, i64 8
+7195:                                             ; preds = %7167
+  %7196 = mul nuw nsw i64 %7132, 109951163
+  %7197 = lshr i64 %7196, 40
+  %7198 = trunc nuw nsw i64 %7197 to i32
+  %.neg.i660.i = mul nsw i32 %7198, -10000
+  %7199 = add nsw i32 %.neg.i660.i, %7136
+  %7200 = mul nuw nsw i32 %7198, 5243
+  %7201 = lshr i32 %7200, 19
+  %7202 = mul i32 %7199, 5243
+  %7203 = lshr i32 %7202, 19
+  %.neg62.i661.i = mul nsw i32 %7201, -100
+  %7204 = add nsw i32 %.neg62.i661.i, %7198
+  %.neg63.i662.i = mul nsw i32 %7203, -100
+  %7205 = add nsw i32 %.neg63.i662.i, %7199
+  %7206 = icmp samesign ult i64 %7132, 10000000
+  %7207 = shl nuw nsw i32 %7201, 1
+  %7208 = zext nneg i32 %7207 to i64
+  %7209 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7208
+  %.neg64.i663.i = sext i1 %7206 to i64
+  %7210 = zext i1 %7206 to i64
+  %7211 = getelementptr inbounds nuw i8, ptr %7209, i64 %7210
+  %7212 = load i16, ptr %7211, align 1
+  store i16 %7212, ptr %7133, align 1
+  %7213 = getelementptr inbounds i8, ptr %7133, i64 %.neg64.i663.i
+  %7214 = getelementptr inbounds nuw i8, ptr %7213, i64 2
+  %7215 = shl nsw i32 %7204, 1
+  %7216 = zext i32 %7215 to i64
+  %7217 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7216
+  %7218 = load i16, ptr %7217, align 2
+  store i16 %7218, ptr %7214, align 1
+  %7219 = getelementptr inbounds nuw i8, ptr %7213, i64 4
+  %7220 = shl nuw nsw i32 %7203, 1
+  %7221 = zext nneg i32 %7220 to i64
+  %7222 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7221
+  %7223 = load i16, ptr %7222, align 2
+  store i16 %7223, ptr %7219, align 1
+  %7224 = getelementptr inbounds nuw i8, ptr %7213, i64 6
+  %7225 = shl nsw i32 %7205, 1
+  %7226 = zext i32 %7225 to i64
+  %7227 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7226
+  %7228 = load i16, ptr %7227, align 2
+  store i16 %7228, ptr %7224, align 1
+  %7229 = getelementptr inbounds nuw i8, ptr %7213, i64 8
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-7231:                                             ; preds = %7129
-  %7232 = icmp ult i64 %7133, 10000000000000000
-  %7233 = udiv i64 %7133, 100000000
-  %.neg28.i.i282 = mul i64 %7233, 4194967296
-  %7234 = add i64 %.neg28.i.i282, %7133
-  %7235 = trunc i64 %7234 to i32
-  br i1 %7232, label %7236, label %7362
+7230:                                             ; preds = %7128
+  %7231 = icmp ult i64 %7132, 10000000000000000
+  %7232 = udiv i64 %7132, 100000000
+  %.neg28.i.i282 = mul i64 %7232, 4194967296
+  %7233 = add i64 %.neg28.i.i282, %7132
+  %7234 = trunc i64 %7233 to i32
+  br i1 %7231, label %7235, label %7361
 
-7236:                                             ; preds = %7231
-  %7237 = trunc nuw nsw i64 %7233 to i32
-  %7238 = icmp samesign ult i64 %7133, 10000000000
-  br i1 %7238, label %7239, label %7248
+7235:                                             ; preds = %7230
+  %7236 = trunc nuw nsw i64 %7232 to i32
+  %7237 = icmp samesign ult i64 %7132, 10000000000
+  br i1 %7237, label %7238, label %7247
 
-7239:                                             ; preds = %7236
-  %7240 = icmp samesign ult i64 %7133, 1000000000
-  %7241 = shl nuw nsw i64 %7233, 1
-  %7242 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7241
-  %.neg70.i682.i = sext i1 %7240 to i64
-  %7243 = zext i1 %7240 to i64
-  %7244 = getelementptr inbounds nuw i8, ptr %7242, i64 %7243
-  %7245 = load i16, ptr %7244, align 1
-  store i16 %7245, ptr %7134, align 1
-  %7246 = getelementptr inbounds i8, ptr %7134, i64 %.neg70.i682.i
-  %7247 = getelementptr inbounds nuw i8, ptr %7246, i64 2
+7238:                                             ; preds = %7235
+  %7239 = icmp samesign ult i64 %7132, 1000000000
+  %7240 = shl nuw nsw i64 %7232, 1
+  %7241 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7240
+  %.neg70.i682.i = sext i1 %7239 to i64
+  %7242 = zext i1 %7239 to i64
+  %7243 = getelementptr inbounds nuw i8, ptr %7241, i64 %7242
+  %7244 = load i16, ptr %7243, align 1
+  store i16 %7244, ptr %7133, align 1
+  %7245 = getelementptr inbounds i8, ptr %7133, i64 %.neg70.i682.i
+  %7246 = getelementptr inbounds nuw i8, ptr %7245, i64 2
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit683.i
 
-7248:                                             ; preds = %7236
-  %7249 = icmp samesign ult i64 %7133, 1000000000000
-  br i1 %7249, label %7250, label %7268
+7247:                                             ; preds = %7235
+  %7248 = icmp samesign ult i64 %7132, 1000000000000
+  br i1 %7248, label %7249, label %7267
 
-7250:                                             ; preds = %7248
-  %7251 = mul nuw nsw i32 %7237, 5243
-  %7252 = lshr i32 %7251, 19
-  %.neg68.i680.i = mul nsw i32 %7252, -100
-  %7253 = add nsw i32 %.neg68.i680.i, %7237
-  %7254 = icmp samesign ult i64 %7133, 100000000000
-  %7255 = shl nuw nsw i32 %7252, 1
-  %7256 = zext nneg i32 %7255 to i64
-  %7257 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7256
-  %.neg69.i681.i = sext i1 %7254 to i64
-  %7258 = zext i1 %7254 to i64
-  %7259 = getelementptr inbounds nuw i8, ptr %7257, i64 %7258
-  %7260 = load i16, ptr %7259, align 1
-  store i16 %7260, ptr %7134, align 1
-  %7261 = getelementptr inbounds i8, ptr %7134, i64 %.neg69.i681.i
-  %7262 = getelementptr inbounds nuw i8, ptr %7261, i64 2
-  %7263 = shl nsw i32 %7253, 1
-  %7264 = zext i32 %7263 to i64
-  %7265 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7264
-  %7266 = load i16, ptr %7265, align 2
-  store i16 %7266, ptr %7262, align 1
-  %7267 = getelementptr inbounds nuw i8, ptr %7261, i64 4
+7249:                                             ; preds = %7247
+  %7250 = mul nuw nsw i32 %7236, 5243
+  %7251 = lshr i32 %7250, 19
+  %.neg68.i680.i = mul nsw i32 %7251, -100
+  %7252 = add nsw i32 %.neg68.i680.i, %7236
+  %7253 = icmp samesign ult i64 %7132, 100000000000
+  %7254 = shl nuw nsw i32 %7251, 1
+  %7255 = zext nneg i32 %7254 to i64
+  %7256 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7255
+  %.neg69.i681.i = sext i1 %7253 to i64
+  %7257 = zext i1 %7253 to i64
+  %7258 = getelementptr inbounds nuw i8, ptr %7256, i64 %7257
+  %7259 = load i16, ptr %7258, align 1
+  store i16 %7259, ptr %7133, align 1
+  %7260 = getelementptr inbounds i8, ptr %7133, i64 %.neg69.i681.i
+  %7261 = getelementptr inbounds nuw i8, ptr %7260, i64 2
+  %7262 = shl nsw i32 %7252, 1
+  %7263 = zext i32 %7262 to i64
+  %7264 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7263
+  %7265 = load i16, ptr %7264, align 2
+  store i16 %7265, ptr %7261, align 1
+  %7266 = getelementptr inbounds nuw i8, ptr %7260, i64 4
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit683.i
 
-7268:                                             ; preds = %7248
-  %7269 = icmp samesign ult i64 %7133, 100000000000000
-  br i1 %7269, label %7270, label %7296
+7267:                                             ; preds = %7247
+  %7268 = icmp samesign ult i64 %7132, 100000000000000
+  br i1 %7268, label %7269, label %7295
 
-7270:                                             ; preds = %7268
-  %7271 = mul nuw nsw i64 %7233, 429497
-  %7272 = lshr i64 %7271, 32
-  %7273 = trunc nuw nsw i64 %7272 to i32
-  %.neg65.i677.i = mul nsw i32 %7273, -10000
-  %7274 = add nsw i32 %.neg65.i677.i, %7237
-  %7275 = mul i32 %7274, 5243
-  %7276 = lshr i32 %7275, 19
-  %.neg66.i678.i = mul nsw i32 %7276, -100
-  %7277 = add nsw i32 %.neg66.i678.i, %7274
-  %7278 = icmp samesign ult i64 %7133, 10000000000000
-  %7279 = shl nuw nsw i64 %7272, 1
-  %7280 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7279
-  %.neg67.i679.i = sext i1 %7278 to i64
-  %7281 = zext i1 %7278 to i64
-  %7282 = getelementptr inbounds nuw i8, ptr %7280, i64 %7281
-  %7283 = load i16, ptr %7282, align 1
-  store i16 %7283, ptr %7134, align 1
-  %7284 = getelementptr inbounds i8, ptr %7134, i64 %.neg67.i679.i
-  %7285 = getelementptr inbounds nuw i8, ptr %7284, i64 2
-  %7286 = shl nuw nsw i32 %7276, 1
-  %7287 = zext nneg i32 %7286 to i64
-  %7288 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7287
-  %7289 = load i16, ptr %7288, align 2
-  store i16 %7289, ptr %7285, align 1
-  %7290 = getelementptr inbounds nuw i8, ptr %7284, i64 4
-  %7291 = shl nsw i32 %7277, 1
-  %7292 = zext i32 %7291 to i64
-  %7293 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7292
-  %7294 = load i16, ptr %7293, align 2
-  store i16 %7294, ptr %7290, align 1
-  %7295 = getelementptr inbounds nuw i8, ptr %7284, i64 6
+7269:                                             ; preds = %7267
+  %7270 = mul nuw nsw i64 %7232, 429497
+  %7271 = lshr i64 %7270, 32
+  %7272 = trunc nuw nsw i64 %7271 to i32
+  %.neg65.i677.i = mul nsw i32 %7272, -10000
+  %7273 = add nsw i32 %.neg65.i677.i, %7236
+  %7274 = mul i32 %7273, 5243
+  %7275 = lshr i32 %7274, 19
+  %.neg66.i678.i = mul nsw i32 %7275, -100
+  %7276 = add nsw i32 %.neg66.i678.i, %7273
+  %7277 = icmp samesign ult i64 %7132, 10000000000000
+  %7278 = shl nuw nsw i64 %7271, 1
+  %7279 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7278
+  %.neg67.i679.i = sext i1 %7277 to i64
+  %7280 = zext i1 %7277 to i64
+  %7281 = getelementptr inbounds nuw i8, ptr %7279, i64 %7280
+  %7282 = load i16, ptr %7281, align 1
+  store i16 %7282, ptr %7133, align 1
+  %7283 = getelementptr inbounds i8, ptr %7133, i64 %.neg67.i679.i
+  %7284 = getelementptr inbounds nuw i8, ptr %7283, i64 2
+  %7285 = shl nuw nsw i32 %7275, 1
+  %7286 = zext nneg i32 %7285 to i64
+  %7287 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7286
+  %7288 = load i16, ptr %7287, align 2
+  store i16 %7288, ptr %7284, align 1
+  %7289 = getelementptr inbounds nuw i8, ptr %7283, i64 4
+  %7290 = shl nsw i32 %7276, 1
+  %7291 = zext i32 %7290 to i64
+  %7292 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7291
+  %7293 = load i16, ptr %7292, align 2
+  store i16 %7293, ptr %7289, align 1
+  %7294 = getelementptr inbounds nuw i8, ptr %7283, i64 6
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit683.i
 
-7296:                                             ; preds = %7268
-  %7297 = mul nuw nsw i64 %7233, 109951163
-  %7298 = lshr i64 %7297, 40
-  %7299 = trunc nuw nsw i64 %7298 to i32
-  %.neg.i672.i = mul nsw i32 %7299, -10000
-  %7300 = add nsw i32 %.neg.i672.i, %7237
-  %7301 = mul nuw nsw i32 %7299, 5243
-  %7302 = lshr i32 %7301, 19
-  %7303 = mul i32 %7300, 5243
-  %7304 = lshr i32 %7303, 19
-  %.neg62.i673.i = mul nsw i32 %7302, -100
-  %7305 = add nsw i32 %.neg62.i673.i, %7299
-  %.neg63.i674.i = mul nsw i32 %7304, -100
-  %7306 = add nsw i32 %.neg63.i674.i, %7300
-  %7307 = icmp samesign ult i64 %7133, 1000000000000000
-  %7308 = shl nuw nsw i32 %7302, 1
-  %7309 = zext nneg i32 %7308 to i64
-  %7310 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7309
-  %.neg64.i675.i = sext i1 %7307 to i64
-  %7311 = zext i1 %7307 to i64
-  %7312 = getelementptr inbounds nuw i8, ptr %7310, i64 %7311
-  %7313 = load i16, ptr %7312, align 1
-  store i16 %7313, ptr %7134, align 1
-  %7314 = getelementptr inbounds i8, ptr %7134, i64 %.neg64.i675.i
-  %7315 = getelementptr inbounds nuw i8, ptr %7314, i64 2
-  %7316 = shl nsw i32 %7305, 1
-  %7317 = zext i32 %7316 to i64
-  %7318 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7317
-  %7319 = load i16, ptr %7318, align 2
-  store i16 %7319, ptr %7315, align 1
-  %7320 = getelementptr inbounds nuw i8, ptr %7314, i64 4
-  %7321 = shl nuw nsw i32 %7304, 1
-  %7322 = zext nneg i32 %7321 to i64
-  %7323 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7322
-  %7324 = load i16, ptr %7323, align 2
-  store i16 %7324, ptr %7320, align 1
-  %7325 = getelementptr inbounds nuw i8, ptr %7314, i64 6
-  %7326 = shl nsw i32 %7306, 1
-  %7327 = zext i32 %7326 to i64
-  %7328 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7327
-  %7329 = load i16, ptr %7328, align 2
-  store i16 %7329, ptr %7325, align 1
-  %7330 = getelementptr inbounds nuw i8, ptr %7314, i64 8
+7295:                                             ; preds = %7267
+  %7296 = mul nuw nsw i64 %7232, 109951163
+  %7297 = lshr i64 %7296, 40
+  %7298 = trunc nuw nsw i64 %7297 to i32
+  %.neg.i672.i = mul nsw i32 %7298, -10000
+  %7299 = add nsw i32 %.neg.i672.i, %7236
+  %7300 = mul nuw nsw i32 %7298, 5243
+  %7301 = lshr i32 %7300, 19
+  %7302 = mul i32 %7299, 5243
+  %7303 = lshr i32 %7302, 19
+  %.neg62.i673.i = mul nsw i32 %7301, -100
+  %7304 = add nsw i32 %.neg62.i673.i, %7298
+  %.neg63.i674.i = mul nsw i32 %7303, -100
+  %7305 = add nsw i32 %.neg63.i674.i, %7299
+  %7306 = icmp samesign ult i64 %7132, 1000000000000000
+  %7307 = shl nuw nsw i32 %7301, 1
+  %7308 = zext nneg i32 %7307 to i64
+  %7309 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7308
+  %.neg64.i675.i = sext i1 %7306 to i64
+  %7310 = zext i1 %7306 to i64
+  %7311 = getelementptr inbounds nuw i8, ptr %7309, i64 %7310
+  %7312 = load i16, ptr %7311, align 1
+  store i16 %7312, ptr %7133, align 1
+  %7313 = getelementptr inbounds i8, ptr %7133, i64 %.neg64.i675.i
+  %7314 = getelementptr inbounds nuw i8, ptr %7313, i64 2
+  %7315 = shl nsw i32 %7304, 1
+  %7316 = zext i32 %7315 to i64
+  %7317 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7316
+  %7318 = load i16, ptr %7317, align 2
+  store i16 %7318, ptr %7314, align 1
+  %7319 = getelementptr inbounds nuw i8, ptr %7313, i64 4
+  %7320 = shl nuw nsw i32 %7303, 1
+  %7321 = zext nneg i32 %7320 to i64
+  %7322 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7321
+  %7323 = load i16, ptr %7322, align 2
+  store i16 %7323, ptr %7319, align 1
+  %7324 = getelementptr inbounds nuw i8, ptr %7313, i64 6
+  %7325 = shl nsw i32 %7305, 1
+  %7326 = zext i32 %7325 to i64
+  %7327 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7326
+  %7328 = load i16, ptr %7327, align 2
+  store i16 %7328, ptr %7324, align 1
+  %7329 = getelementptr inbounds nuw i8, ptr %7313, i64 8
   br label %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit683.i
 
-_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit683.i: ; preds = %7296, %7270, %7250, %7239
-  %.0.i676.i = phi ptr [ %7247, %7239 ], [ %7267, %7250 ], [ %7295, %7270 ], [ %7330, %7296 ]
-  %7331 = and i64 %7234, 4294967295
-  %7332 = mul nuw nsw i64 %7331, 109951163
-  %7333 = lshr i64 %7332, 40
-  %7334 = trunc nuw nsw i64 %7333 to i32
-  %.neg.i694.i = mul i32 %7334, -10000
-  %7335 = add i32 %.neg.i694.i, %7235
-  %7336 = mul nuw i32 %7334, 5243
-  %7337 = lshr i32 %7336, 19
-  %7338 = mul i32 %7335, 5243
-  %7339 = lshr i32 %7338, 19
-  %.neg17.i695.i = mul nsw i32 %7337, -100
-  %7340 = add nsw i32 %.neg17.i695.i, %7334
-  %.neg18.i696.i = mul i32 %7339, 2147483548
-  %7341 = add i32 %.neg18.i696.i, %7335
-  %7342 = shl nuw nsw i32 %7337, 1
-  %7343 = zext nneg i32 %7342 to i64
-  %7344 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7343
-  %7345 = load i16, ptr %7344, align 2
-  store i16 %7345, ptr %.0.i676.i, align 1
-  %7346 = getelementptr inbounds nuw i8, ptr %.0.i676.i, i64 2
-  %7347 = shl nsw i32 %7340, 1
-  %7348 = zext i32 %7347 to i64
-  %7349 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7348
-  %7350 = load i16, ptr %7349, align 2
-  store i16 %7350, ptr %7346, align 1
-  %7351 = getelementptr inbounds nuw i8, ptr %.0.i676.i, i64 4
-  %7352 = shl nuw nsw i32 %7339, 1
-  %7353 = zext nneg i32 %7352 to i64
-  %7354 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7353
-  %7355 = load i16, ptr %7354, align 2
-  store i16 %7355, ptr %7351, align 1
-  %7356 = getelementptr inbounds nuw i8, ptr %.0.i676.i, i64 6
-  %7357 = shl i32 %7341, 1
-  %7358 = zext i32 %7357 to i64
-  %7359 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7358
-  %7360 = load i16, ptr %7359, align 2
-  store i16 %7360, ptr %7356, align 1
-  %7361 = getelementptr inbounds nuw i8, ptr %.0.i676.i, i64 8
+_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit683.i: ; preds = %7295, %7269, %7249, %7238
+  %.0.i676.i = phi ptr [ %7246, %7238 ], [ %7266, %7249 ], [ %7294, %7269 ], [ %7329, %7295 ]
+  %7330 = and i64 %7233, 4294967295
+  %7331 = mul nuw nsw i64 %7330, 109951163
+  %7332 = lshr i64 %7331, 40
+  %7333 = trunc nuw nsw i64 %7332 to i32
+  %.neg.i694.i = mul i32 %7333, -10000
+  %7334 = add i32 %.neg.i694.i, %7234
+  %7335 = mul nuw i32 %7333, 5243
+  %7336 = lshr i32 %7335, 19
+  %7337 = mul i32 %7334, 5243
+  %7338 = lshr i32 %7337, 19
+  %.neg17.i695.i = mul nsw i32 %7336, -100
+  %7339 = add nsw i32 %.neg17.i695.i, %7333
+  %.neg18.i696.i = mul i32 %7338, 2147483548
+  %7340 = add i32 %.neg18.i696.i, %7334
+  %7341 = shl nuw nsw i32 %7336, 1
+  %7342 = zext nneg i32 %7341 to i64
+  %7343 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7342
+  %7344 = load i16, ptr %7343, align 2
+  store i16 %7344, ptr %.0.i676.i, align 1
+  %7345 = getelementptr inbounds nuw i8, ptr %.0.i676.i, i64 2
+  %7346 = shl nsw i32 %7339, 1
+  %7347 = zext i32 %7346 to i64
+  %7348 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7347
+  %7349 = load i16, ptr %7348, align 2
+  store i16 %7349, ptr %7345, align 1
+  %7350 = getelementptr inbounds nuw i8, ptr %.0.i676.i, i64 4
+  %7351 = shl nuw nsw i32 %7338, 1
+  %7352 = zext nneg i32 %7351 to i64
+  %7353 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7352
+  %7354 = load i16, ptr %7353, align 2
+  store i16 %7354, ptr %7350, align 1
+  %7355 = getelementptr inbounds nuw i8, ptr %.0.i676.i, i64 6
+  %7356 = shl i32 %7340, 1
+  %7357 = zext i32 %7356 to i64
+  %7358 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7357
+  %7359 = load i16, ptr %7358, align 2
+  store i16 %7359, ptr %7355, align 1
+  %7360 = getelementptr inbounds nuw i8, ptr %.0.i676.i, i64 8
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-7362:                                             ; preds = %7231
-  %7363 = udiv i64 %7133, 1000000000000
-  %7364 = trunc nuw nsw i64 %7363 to i32
-  %.neg27.i.i272 = mul nuw nsw i64 %7363, 4294957296
-  %7365 = add nuw nsw i64 %.neg27.i.i272, %7233
-  %7366 = trunc i64 %7365 to i32
-  %7367 = icmp ult i64 %7133, 1000000000000000000
-  br i1 %7367, label %7368, label %7394
+7361:                                             ; preds = %7230
+  %7362 = udiv i64 %7132, 1000000000000
+  %7363 = trunc nuw nsw i64 %7362 to i32
+  %.neg27.i.i272 = mul nuw nsw i64 %7362, 4294957296
+  %7364 = add nuw nsw i64 %.neg27.i.i272, %7232
+  %7365 = trunc i64 %7364 to i32
+  %7366 = icmp ult i64 %7132, 1000000000000000000
+  br i1 %7366, label %7367, label %7393
 
-7368:                                             ; preds = %7362
-  %7369 = mul nuw nsw i64 %7363, 429497
-  %7370 = lshr i64 %7369, 32
-  %7371 = trunc nuw nsw i64 %7370 to i32
-  %.neg44.i.i279 = mul nsw i32 %7371, -10000
-  %7372 = add nsw i32 %.neg44.i.i279, %7364
-  %7373 = mul i32 %7372, 5243
-  %7374 = lshr i32 %7373, 19
-  %.neg45.i.i280 = mul nsw i32 %7374, -100
-  %7375 = add nsw i32 %.neg45.i.i280, %7372
-  %7376 = icmp samesign ult i64 %7133, 100000000000000000
-  %7377 = shl nuw nsw i64 %7370, 1
-  %7378 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7377
-  %.neg46.i.i281 = sext i1 %7376 to i64
-  %7379 = zext i1 %7376 to i64
-  %7380 = getelementptr inbounds nuw i8, ptr %7378, i64 %7379
-  %7381 = load i16, ptr %7380, align 1
-  store i16 %7381, ptr %7134, align 1
-  %7382 = getelementptr inbounds i8, ptr %7134, i64 %.neg46.i.i281
-  %7383 = getelementptr inbounds nuw i8, ptr %7382, i64 2
-  %7384 = shl nuw nsw i32 %7374, 1
-  %7385 = zext nneg i32 %7384 to i64
-  %7386 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7385
-  %7387 = load i16, ptr %7386, align 2
-  store i16 %7387, ptr %7383, align 1
-  %7388 = getelementptr inbounds nuw i8, ptr %7382, i64 4
-  %7389 = shl nsw i32 %7375, 1
-  %7390 = zext i32 %7389 to i64
-  %7391 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7390
-  %7392 = load i16, ptr %7391, align 2
-  store i16 %7392, ptr %7388, align 1
-  %7393 = getelementptr inbounds nuw i8, ptr %7382, i64 6
+7367:                                             ; preds = %7361
+  %7368 = mul nuw nsw i64 %7362, 429497
+  %7369 = lshr i64 %7368, 32
+  %7370 = trunc nuw nsw i64 %7369 to i32
+  %.neg44.i.i279 = mul nsw i32 %7370, -10000
+  %7371 = add nsw i32 %.neg44.i.i279, %7363
+  %7372 = mul i32 %7371, 5243
+  %7373 = lshr i32 %7372, 19
+  %.neg45.i.i280 = mul nsw i32 %7373, -100
+  %7374 = add nsw i32 %.neg45.i.i280, %7371
+  %7375 = icmp samesign ult i64 %7132, 100000000000000000
+  %7376 = shl nuw nsw i64 %7369, 1
+  %7377 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7376
+  %.neg46.i.i281 = sext i1 %7375 to i64
+  %7378 = zext i1 %7375 to i64
+  %7379 = getelementptr inbounds nuw i8, ptr %7377, i64 %7378
+  %7380 = load i16, ptr %7379, align 1
+  store i16 %7380, ptr %7133, align 1
+  %7381 = getelementptr inbounds i8, ptr %7133, i64 %.neg46.i.i281
+  %7382 = getelementptr inbounds nuw i8, ptr %7381, i64 2
+  %7383 = shl nuw nsw i32 %7373, 1
+  %7384 = zext nneg i32 %7383 to i64
+  %7385 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7384
+  %7386 = load i16, ptr %7385, align 2
+  store i16 %7386, ptr %7382, align 1
+  %7387 = getelementptr inbounds nuw i8, ptr %7381, i64 4
+  %7388 = shl nsw i32 %7374, 1
+  %7389 = zext i32 %7388 to i64
+  %7390 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7389
+  %7391 = load i16, ptr %7390, align 2
+  store i16 %7391, ptr %7387, align 1
+  %7392 = getelementptr inbounds nuw i8, ptr %7381, i64 6
   br label %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit.i276
 
-7394:                                             ; preds = %7362
-  %7395 = mul nuw nsw i64 %7363, 109951163
-  %7396 = lshr i64 %7395, 40
-  %7397 = trunc nuw nsw i64 %7396 to i32
-  %.neg.i700.i = mul nsw i32 %7397, -10000
-  %7398 = add nsw i32 %.neg.i700.i, %7364
-  %7399 = mul nuw nsw i32 %7397, 5243
-  %7400 = lshr i32 %7399, 19
-  %7401 = mul i32 %7398, 5243
-  %7402 = lshr i32 %7401, 19
-  %.neg41.i.i273 = mul nsw i32 %7400, -100
-  %7403 = add nsw i32 %.neg41.i.i273, %7397
-  %.neg42.i.i274 = mul nsw i32 %7402, -100
-  %7404 = add nsw i32 %.neg42.i.i274, %7398
-  %7405 = icmp ult i64 %7133, -8446744073709551616
-  %7406 = shl nuw nsw i32 %7400, 1
-  %7407 = zext nneg i32 %7406 to i64
-  %7408 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7407
-  %.neg43.i.i275 = sext i1 %7405 to i64
-  %7409 = zext i1 %7405 to i64
-  %7410 = getelementptr inbounds nuw i8, ptr %7408, i64 %7409
-  %7411 = load i16, ptr %7410, align 1
-  store i16 %7411, ptr %7134, align 1
-  %7412 = getelementptr inbounds i8, ptr %7134, i64 %.neg43.i.i275
-  %7413 = getelementptr inbounds nuw i8, ptr %7412, i64 2
-  %7414 = shl nsw i32 %7403, 1
-  %7415 = zext i32 %7414 to i64
-  %7416 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7415
-  %7417 = load i16, ptr %7416, align 2
-  store i16 %7417, ptr %7413, align 1
-  %7418 = getelementptr inbounds nuw i8, ptr %7412, i64 4
-  %7419 = shl nuw nsw i32 %7402, 1
-  %7420 = zext nneg i32 %7419 to i64
-  %7421 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7420
-  %7422 = load i16, ptr %7421, align 2
-  store i16 %7422, ptr %7418, align 1
-  %7423 = getelementptr inbounds nuw i8, ptr %7412, i64 6
-  %7424 = shl nsw i32 %7404, 1
-  %7425 = zext i32 %7424 to i64
-  %7426 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7425
-  %7427 = load i16, ptr %7426, align 2
-  store i16 %7427, ptr %7423, align 1
-  %7428 = getelementptr inbounds nuw i8, ptr %7412, i64 8
+7393:                                             ; preds = %7361
+  %7394 = mul nuw nsw i64 %7362, 109951163
+  %7395 = lshr i64 %7394, 40
+  %7396 = trunc nuw nsw i64 %7395 to i32
+  %.neg.i700.i = mul nsw i32 %7396, -10000
+  %7397 = add nsw i32 %.neg.i700.i, %7363
+  %7398 = mul nuw nsw i32 %7396, 5243
+  %7399 = lshr i32 %7398, 19
+  %7400 = mul i32 %7397, 5243
+  %7401 = lshr i32 %7400, 19
+  %.neg41.i.i273 = mul nsw i32 %7399, -100
+  %7402 = add nsw i32 %.neg41.i.i273, %7396
+  %.neg42.i.i274 = mul nsw i32 %7401, -100
+  %7403 = add nsw i32 %.neg42.i.i274, %7397
+  %7404 = icmp ult i64 %7132, -8446744073709551616
+  %7405 = shl nuw nsw i32 %7399, 1
+  %7406 = zext nneg i32 %7405 to i64
+  %7407 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7406
+  %.neg43.i.i275 = sext i1 %7404 to i64
+  %7408 = zext i1 %7404 to i64
+  %7409 = getelementptr inbounds nuw i8, ptr %7407, i64 %7408
+  %7410 = load i16, ptr %7409, align 1
+  store i16 %7410, ptr %7133, align 1
+  %7411 = getelementptr inbounds i8, ptr %7133, i64 %.neg43.i.i275
+  %7412 = getelementptr inbounds nuw i8, ptr %7411, i64 2
+  %7413 = shl nsw i32 %7402, 1
+  %7414 = zext i32 %7413 to i64
+  %7415 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7414
+  %7416 = load i16, ptr %7415, align 2
+  store i16 %7416, ptr %7412, align 1
+  %7417 = getelementptr inbounds nuw i8, ptr %7411, i64 4
+  %7418 = shl nuw nsw i32 %7401, 1
+  %7419 = zext nneg i32 %7418 to i64
+  %7420 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7419
+  %7421 = load i16, ptr %7420, align 2
+  store i16 %7421, ptr %7417, align 1
+  %7422 = getelementptr inbounds nuw i8, ptr %7411, i64 6
+  %7423 = shl nsw i32 %7403, 1
+  %7424 = zext i32 %7423 to i64
+  %7425 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7424
+  %7426 = load i16, ptr %7425, align 2
+  store i16 %7426, ptr %7422, align 1
+  %7427 = getelementptr inbounds nuw i8, ptr %7411, i64 8
   br label %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit.i276
 
-_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit.i276: ; preds = %7394, %7368
-  %.0.i701.i = phi ptr [ %7393, %7368 ], [ %7428, %7394 ]
-  %7429 = mul i32 %7366, 5243
-  %7430 = lshr i32 %7429, 19
-  %.neg.i702.i = mul i32 %7430, 2147483548
-  %7431 = add i32 %.neg.i702.i, %7366
-  %7432 = shl nuw nsw i32 %7430, 1
-  %7433 = zext nneg i32 %7432 to i64
-  %7434 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7433
-  %7435 = load i16, ptr %7434, align 2
-  store i16 %7435, ptr %.0.i701.i, align 1
-  %7436 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 2
-  %7437 = shl i32 %7431, 1
-  %7438 = zext i32 %7437 to i64
-  %7439 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7438
-  %7440 = load i16, ptr %7439, align 2
-  store i16 %7440, ptr %7436, align 1
-  %7441 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 4
-  %7442 = and i64 %7234, 4294967295
-  %7443 = mul nuw nsw i64 %7442, 109951163
-  %7444 = lshr i64 %7443, 40
-  %7445 = trunc nuw nsw i64 %7444 to i32
-  %.neg.i697.i277 = mul i32 %7445, -10000
-  %7446 = add i32 %.neg.i697.i277, %7235
-  %7447 = mul nuw i32 %7445, 5243
-  %7448 = lshr i32 %7447, 19
-  %7449 = mul i32 %7446, 5243
-  %7450 = lshr i32 %7449, 19
-  %.neg17.i698.i = mul nsw i32 %7448, -100
-  %7451 = add nsw i32 %.neg17.i698.i, %7445
-  %.neg18.i699.i = mul i32 %7450, 2147483548
-  %7452 = add i32 %.neg18.i699.i, %7446
-  %7453 = shl nuw nsw i32 %7448, 1
-  %7454 = zext nneg i32 %7453 to i64
-  %7455 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7454
-  %7456 = load i16, ptr %7455, align 2
-  store i16 %7456, ptr %7441, align 1
-  %7457 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 6
-  %7458 = shl nsw i32 %7451, 1
-  %7459 = zext i32 %7458 to i64
-  %7460 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7459
-  %7461 = load i16, ptr %7460, align 2
-  store i16 %7461, ptr %7457, align 1
-  %7462 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 8
-  %7463 = shl nuw nsw i32 %7450, 1
-  %7464 = zext nneg i32 %7463 to i64
-  %7465 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7464
-  %7466 = load i16, ptr %7465, align 2
-  store i16 %7466, ptr %7462, align 1
-  %7467 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 10
-  %7468 = shl i32 %7452, 1
-  %7469 = zext i32 %7468 to i64
-  %7470 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7469
-  %7471 = load i16, ptr %7470, align 2
-  store i16 %7471, ptr %7467, align 1
-  %7472 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 12
+_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit.i276: ; preds = %7393, %7367
+  %.0.i701.i = phi ptr [ %7392, %7367 ], [ %7427, %7393 ]
+  %7428 = mul i32 %7365, 5243
+  %7429 = lshr i32 %7428, 19
+  %.neg.i702.i = mul i32 %7429, 2147483548
+  %7430 = add i32 %.neg.i702.i, %7365
+  %7431 = shl nuw nsw i32 %7429, 1
+  %7432 = zext nneg i32 %7431 to i64
+  %7433 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7432
+  %7434 = load i16, ptr %7433, align 2
+  store i16 %7434, ptr %.0.i701.i, align 1
+  %7435 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 2
+  %7436 = shl i32 %7430, 1
+  %7437 = zext i32 %7436 to i64
+  %7438 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7437
+  %7439 = load i16, ptr %7438, align 2
+  store i16 %7439, ptr %7435, align 1
+  %7440 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 4
+  %7441 = and i64 %7233, 4294967295
+  %7442 = mul nuw nsw i64 %7441, 109951163
+  %7443 = lshr i64 %7442, 40
+  %7444 = trunc nuw nsw i64 %7443 to i32
+  %.neg.i697.i277 = mul i32 %7444, -10000
+  %7445 = add i32 %.neg.i697.i277, %7234
+  %7446 = mul nuw i32 %7444, 5243
+  %7447 = lshr i32 %7446, 19
+  %7448 = mul i32 %7445, 5243
+  %7449 = lshr i32 %7448, 19
+  %.neg17.i698.i = mul nsw i32 %7447, -100
+  %7450 = add nsw i32 %.neg17.i698.i, %7444
+  %.neg18.i699.i = mul i32 %7449, 2147483548
+  %7451 = add i32 %.neg18.i699.i, %7445
+  %7452 = shl nuw nsw i32 %7447, 1
+  %7453 = zext nneg i32 %7452 to i64
+  %7454 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7453
+  %7455 = load i16, ptr %7454, align 2
+  store i16 %7455, ptr %7440, align 1
+  %7456 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 6
+  %7457 = shl nsw i32 %7450, 1
+  %7458 = zext i32 %7457 to i64
+  %7459 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7458
+  %7460 = load i16, ptr %7459, align 2
+  store i16 %7460, ptr %7456, align 1
+  %7461 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 8
+  %7462 = shl nuw nsw i32 %7449, 1
+  %7463 = zext nneg i32 %7462 to i64
+  %7464 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7463
+  %7465 = load i16, ptr %7464, align 2
+  store i16 %7465, ptr %7461, align 1
+  %7466 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 10
+  %7467 = shl i32 %7451, 1
+  %7468 = zext i32 %7467 to i64
+  %7469 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_yyjsonL11digit_tableE, i64 %7468
+  %7470 = load i16, ptr %7469, align 2
+  store i16 %7470, ptr %7466, align 1
+  %7471 = getelementptr inbounds nuw i8, ptr %.0.i701.i, i64 12
   br label %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread
 
-_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread: ; preds = %.lr.ph2317.preheader, %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241, %._crit_edge2315, %7196, %7170, %7150, %7139, %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit.i276, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit683.i, %6724, %6714, %7106, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249, %5941, %5936, %5933, %5928
-  %.0.i531.i1032 = phi ptr [ %7230, %7196 ], [ %7195, %7170 ], [ %7167, %7150 ], [ %7147, %7139 ], [ %7472, %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit.i276 ], [ %7361, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit683.i ], [ %6735, %6724 ], [ %6723, %6714 ], [ %7128, %7106 ], [ %6179, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249 ], [ %5942, %5941 ], [ %5937, %5936 ], [ %5935, %5933 ], [ %5929, %5928 ], [ %spec.select1044, %._crit_edge2315 ], [ %6421, %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241 ], [ %6421, %.lr.ph2317.preheader ]
-  %7473 = getelementptr inbounds nuw i8, ptr %.0.i531.i1032, i64 1
+_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread: ; preds = %.lr.ph2317.preheader, %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241, %._crit_edge2315, %7195, %7169, %7149, %7138, %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit.i276, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit683.i, %6723, %6713, %7105, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249, %5940, %5935, %5932, %5927
+  %.0.i531.i1032 = phi ptr [ %7229, %7195 ], [ %7194, %7169 ], [ %7166, %7149 ], [ %7146, %7138 ], [ %7471, %_ZN13duckdb_yyjsonL17write_u64_len_5_8EjPh.exit.i276 ], [ %7360, %_ZN13duckdb_yyjsonL17write_u32_len_1_8EjPh.exit683.i ], [ %6734, %6723 ], [ %6722, %6713 ], [ %7127, %7105 ], [ %6178, %_ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i249 ], [ %5941, %5940 ], [ %5936, %5935 ], [ %5934, %5932 ], [ %5928, %5927 ], [ %spec.select1044, %._crit_edge2315 ], [ %6420, %_ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241 ], [ %6420, %.lr.ph2317.preheader ]
+  %7472 = getelementptr inbounds nuw i8, ptr %.0.i531.i1032, i64 1
   store i8 44, ptr %.0.i531.i1032, align 1, !tbaa !75
-  br label %7607
+  br label %7605
 
-7474:                                             ; preds = %5094
-  %7475 = and i8 %5096, 6
-  %7476 = icmp eq i8 %7475, 6
-  br i1 %7476, label %7477, label %7525
+7473:                                             ; preds = %5093
+  %7474 = and i8 %5095, 6
+  %7475 = icmp eq i8 %7474, 6
+  br i1 %7475, label %7476, label %7524
 
-7477:                                             ; preds = %7474
-  %7478 = icmp eq i8 %5097, 7
-  %7479 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 16
-  %.not391.i = icmp ult ptr %7479, %.0361.i
-  br i1 %.not391.i, label %7500, label %7480, !prof !22
+7476:                                             ; preds = %7473
+  %7477 = icmp eq i8 %5096, 7
+  %7478 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 16
+  %.not391.i = icmp ult ptr %7478, %.0361.i
+  br i1 %.not391.i, label %7499, label %7479, !prof !22
 
-7480:                                             ; preds = %7477
-  %7481 = lshr i64 %.0353.i, 1
-  %7482 = tail call i64 @llvm.umax.i64(i64 %7481, i64 16)
-  %7483 = add nuw i64 %7482, 15
-  %7484 = and i64 %7483, -16
-  %7485 = add i64 %7484, %.0353.i
-  %7486 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %7485)
-  %.not392.i = icmp eq ptr %7486, null
-  br i1 %.not392.i, label %.loopexit1193, label %7487, !prof !3
+7479:                                             ; preds = %7476
+  %7480 = lshr i64 %.0353.i, 1
+  %7481 = tail call i64 @llvm.umax.i64(i64 %7480, i64 16)
+  %7482 = add nuw i64 %7481, 15
+  %7483 = and i64 %7482, -16
+  %7484 = add i64 %7483, %.0353.i
+  %7485 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %7484)
+  %.not392.i = icmp eq ptr %7485, null
+  br i1 %.not392.i, label %.loopexit1193, label %7486, !prof !3
 
-7487:                                             ; preds = %7480
-  %7488 = ptrtoint ptr %.0370.i to i64
-  %7489 = ptrtoint ptr %.0361.i to i64
-  %7490 = sub i64 %7488, %7489
-  %7491 = sub i64 %7485, %7490
-  %7492 = getelementptr inbounds nuw i8, ptr %7486, i64 %7491
-  %7493 = ptrtoint ptr %.0341.i to i64
-  %7494 = sub i64 %7489, %7493
-  %7495 = getelementptr inbounds i8, ptr %7486, i64 %7494
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7492, ptr nonnull align 1 %7495, i64 %7490, i1 false)
-  %7496 = ptrtoint ptr %.0342.i to i64
-  %7497 = sub i64 %7496, %7493
-  %7498 = getelementptr inbounds i8, ptr %7486, i64 %7497
-  %7499 = getelementptr inbounds nuw i8, ptr %7486, i64 %7485
-  br label %7500
+7486:                                             ; preds = %7479
+  %7487 = ptrtoint ptr %.0370.i to i64
+  %7488 = ptrtoint ptr %.0361.i to i64
+  %7489 = sub i64 %7487, %7488
+  %7490 = sub i64 %7484, %7489
+  %7491 = getelementptr inbounds nuw i8, ptr %7485, i64 %7490
+  %7492 = ptrtoint ptr %.0341.i to i64
+  %7493 = sub i64 %7488, %7492
+  %7494 = getelementptr inbounds i8, ptr %7485, i64 %7493
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7491, ptr nonnull align 1 %7494, i64 %7489, i1 false)
+  %7495 = ptrtoint ptr %.0342.i to i64
+  %7496 = sub i64 %7495, %7492
+  %7497 = getelementptr inbounds i8, ptr %7485, i64 %7496
+  %7498 = getelementptr inbounds nuw i8, ptr %7485, i64 %7484
+  br label %7499
 
-7500:                                             ; preds = %7487, %7477
-  %.4374.i = phi ptr [ %7499, %7487 ], [ %.0370.i, %7477 ]
-  %.4365.i = phi ptr [ %7492, %7487 ], [ %.0361.i, %7477 ]
-  %.4357.i = phi i64 [ %7485, %7487 ], [ %.0353.i, %7477 ]
-  %.5347.i = phi ptr [ %7498, %7487 ], [ %.0342.i, %7477 ]
-  %.4.i402 = phi ptr [ %7486, %7487 ], [ %.0341.i, %7477 ]
-  %7501 = icmp ult i64 %5095, 256
-  br i1 %7501, label %7502, label %7509, !prof !3
+7499:                                             ; preds = %7486, %7476
+  %.4374.i = phi ptr [ %7498, %7486 ], [ %.0370.i, %7476 ]
+  %.4365.i = phi ptr [ %7491, %7486 ], [ %.0361.i, %7476 ]
+  %.4357.i = phi i64 [ %7484, %7486 ], [ %.0353.i, %7476 ]
+  %.5347.i = phi ptr [ %7497, %7486 ], [ %.0342.i, %7476 ]
+  %.4.i402 = phi ptr [ %7485, %7486 ], [ %.0341.i, %7476 ]
+  %7500 = icmp ult i64 %5094, 256
+  br i1 %7500, label %7501, label %7508, !prof !3
 
-7502:                                             ; preds = %7500
-  %7503 = select i1 %7478, i8 32, i8 0
-  %7504 = or disjoint i8 %7503, 91
-  %7505 = getelementptr inbounds nuw i8, ptr %.5347.i, i64 1
-  store i8 %7504, ptr %.5347.i, align 1, !tbaa !75
-  %7506 = or disjoint i8 %7503, 93
-  %7507 = getelementptr inbounds nuw i8, ptr %.5347.i, i64 2
-  store i8 %7506, ptr %7505, align 1, !tbaa !75
-  %7508 = getelementptr inbounds nuw i8, ptr %.5347.i, i64 3
-  store i8 44, ptr %7507, align 1, !tbaa !75
-  br label %7607
+7501:                                             ; preds = %7499
+  %7502 = select i1 %7477, i8 32, i8 0
+  %7503 = or disjoint i8 %7502, 91
+  %7504 = getelementptr inbounds nuw i8, ptr %.5347.i, i64 1
+  store i8 %7503, ptr %.5347.i, align 1, !tbaa !75
+  %7505 = or disjoint i8 %7502, 93
+  %7506 = getelementptr inbounds nuw i8, ptr %.5347.i, i64 2
+  store i8 %7505, ptr %7504, align 1, !tbaa !75
+  %7507 = getelementptr inbounds nuw i8, ptr %.5347.i, i64 3
+  store i8 44, ptr %7506, align 1, !tbaa !75
+  br label %7605
 
-7509:                                             ; preds = %7500
-  %7510 = lshr i64 %5095, 8
-  %7511 = getelementptr inbounds i8, ptr %.4365.i, i64 -16
-  %7512 = zext nneg i8 %.0801.ph to i64
-  %7513 = shl i64 %.0800, 1
-  %7514 = or disjoint i64 %7513, %7512
-  store i64 %7514, ptr %7511, align 8, !tbaa !221
-  %7515 = getelementptr inbounds i8, ptr %.4365.i, i64 -8
-  store ptr %.0798.ph, ptr %7515, align 8, !tbaa !223
-  %7516 = zext i1 %7478 to i64
-  %7517 = shl nuw nsw i64 %7510, %7516
-  %7518 = select i1 %7478, i8 123, i8 91
-  %7519 = getelementptr inbounds nuw i8, ptr %.5347.i, i64 1
-  store i8 %7518, ptr %.5347.i, align 1, !tbaa !75
-  %7520 = getelementptr inbounds nuw i8, ptr %.0340.i, i64 8
-  %7521 = load ptr, ptr %7520, align 8, !tbaa !75
-  br i1 %7478, label %7522, label %.outer.backedge
+7508:                                             ; preds = %7499
+  %7509 = lshr i64 %5094, 8
+  %7510 = getelementptr inbounds i8, ptr %.4365.i, i64 -16
+  %7511 = zext nneg i8 %.0801.ph to i64
+  %7512 = shl i64 %.0800, 1
+  %7513 = or disjoint i64 %7512, %7511
+  store i64 %7513, ptr %7510, align 8, !tbaa !221
+  %7514 = getelementptr inbounds i8, ptr %.4365.i, i64 -8
+  store ptr %.0798.ph, ptr %7514, align 8, !tbaa !223
+  %7515 = zext i1 %7477 to i64
+  %7516 = shl nuw nsw i64 %7509, %7515
+  %7517 = select i1 %7477, i8 123, i8 91
+  %7518 = getelementptr inbounds nuw i8, ptr %.5347.i, i64 1
+  store i8 %7517, ptr %.5347.i, align 1, !tbaa !75
+  %7519 = getelementptr inbounds nuw i8, ptr %.0340.i, i64 8
+  %7520 = load ptr, ptr %7519, align 8, !tbaa !75
+  br i1 %7477, label %7521, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %7614, %7509, %7522
-  %.0801.ph.be = phi i8 [ 1, %7522 ], [ 0, %7509 ], [ %7619, %7614 ]
-  %.0800.ph.be = phi i64 [ %7517, %7522 ], [ %7517, %7509 ], [ %7622, %7614 ]
-  %.0798.ph.be = phi ptr [ %.0340.i, %7522 ], [ %.0340.i, %7509 ], [ %7621, %7614 ]
-  %.0370.i.ph.be = phi ptr [ %.4374.i, %7522 ], [ %.4374.i, %7509 ], [ %.2372.i, %7614 ]
-  %.0361.i.ph.be = phi ptr [ %7511, %7522 ], [ %7511, %7509 ], [ %7615, %7614 ]
-  %.0353.i.ph.be = phi i64 [ %.4357.i, %7522 ], [ %.4357.i, %7509 ], [ %.2355.i, %7614 ]
-  %.0342.i.ph.be = phi ptr [ %7519, %7522 ], [ %7519, %7509 ], [ %7613, %7614 ]
-  %.0341.i.ph.be = phi ptr [ %.4.i402, %7522 ], [ %.4.i402, %7509 ], [ %.2.i222, %7614 ]
-  %.pn.i212.pn.be = phi ptr [ %7524, %7522 ], [ %7521, %7509 ], [ %.1799, %7614 ]
+.outer.backedge:                                  ; preds = %7612, %7508, %7521
+  %.0801.ph.be = phi i8 [ 1, %7521 ], [ 0, %7508 ], [ %7617, %7612 ]
+  %.0800.ph.be = phi i64 [ %7516, %7521 ], [ %7516, %7508 ], [ %7620, %7612 ]
+  %.0798.ph.be = phi ptr [ %.0340.i, %7521 ], [ %.0340.i, %7508 ], [ %7619, %7612 ]
+  %.0370.i.ph.be = phi ptr [ %.4374.i, %7521 ], [ %.4374.i, %7508 ], [ %.2372.i, %7612 ]
+  %.0361.i.ph.be = phi ptr [ %7510, %7521 ], [ %7510, %7508 ], [ %7613, %7612 ]
+  %.0353.i.ph.be = phi i64 [ %.4357.i, %7521 ], [ %.4357.i, %7508 ], [ %.2355.i, %7612 ]
+  %.0342.i.ph.be = phi ptr [ %7518, %7521 ], [ %7518, %7508 ], [ %7611, %7612 ]
+  %.0341.i.ph.be = phi ptr [ %.4.i402, %7521 ], [ %.4.i402, %7508 ], [ %.2.i222, %7612 ]
+  %.pn.i212.pn.be = phi ptr [ %7523, %7521 ], [ %7520, %7508 ], [ %.1799, %7612 ]
   br label %.outer
 
-7522:                                             ; preds = %7509
-  %7523 = getelementptr inbounds nuw i8, ptr %7521, i64 16
-  %7524 = load ptr, ptr %7523, align 8, !tbaa !79
+7521:                                             ; preds = %7508
+  %7522 = getelementptr inbounds nuw i8, ptr %7520, i64 16
+  %7523 = load ptr, ptr %7522, align 8, !tbaa !79
   br label %.outer.backedge
 
-7525:                                             ; preds = %7474
-  switch i8 %5097, label %7653 [
-    i8 3, label %7526
-    i8 2, label %7554
-    i8 1, label %7578
+7524:                                             ; preds = %7473
+  switch i8 %5096, label %7651 [
+    i8 3, label %7525
+    i8 2, label %7552
+    i8 1, label %7576
   ]
 
-7526:                                             ; preds = %7525
-  %7527 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 16
-  %.not389.i = icmp ult ptr %7527, %.0361.i
-  br i1 %.not389.i, label %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400, label %7528, !prof !22
+7525:                                             ; preds = %7524
+  %7526 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 16
+  %.not389.i = icmp ult ptr %7526, %.0361.i
+  br i1 %.not389.i, label %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400, label %7527, !prof !22
 
-7528:                                             ; preds = %7526
-  %7529 = lshr i64 %.0353.i, 1
-  %7530 = tail call i64 @llvm.umax.i64(i64 %7529, i64 16)
-  %7531 = add nuw i64 %7530, 15
-  %7532 = and i64 %7531, -16
-  %7533 = add i64 %7532, %.0353.i
-  %7534 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %7533)
-  %.not390.i = icmp eq ptr %7534, null
-  br i1 %.not390.i, label %.loopexit1193, label %7535, !prof !3
+7527:                                             ; preds = %7525
+  %7528 = lshr i64 %.0353.i, 1
+  %7529 = tail call i64 @llvm.umax.i64(i64 %7528, i64 16)
+  %7530 = add nuw i64 %7529, 15
+  %7531 = and i64 %7530, -16
+  %7532 = add i64 %7531, %.0353.i
+  %7533 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %7532)
+  %.not390.i = icmp eq ptr %7533, null
+  br i1 %.not390.i, label %.loopexit1193, label %7534, !prof !3
 
-7535:                                             ; preds = %7528
-  %7536 = ptrtoint ptr %.0370.i to i64
-  %7537 = ptrtoint ptr %.0361.i to i64
-  %7538 = sub i64 %7536, %7537
-  %7539 = sub i64 %7533, %7538
-  %7540 = getelementptr inbounds nuw i8, ptr %7534, i64 %7539
-  %7541 = ptrtoint ptr %.0341.i to i64
-  %7542 = sub i64 %7537, %7541
-  %7543 = getelementptr inbounds i8, ptr %7534, i64 %7542
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7540, ptr nonnull align 1 %7543, i64 %7538, i1 false)
-  %7544 = ptrtoint ptr %.0342.i to i64
-  %7545 = sub i64 %7544, %7541
-  %7546 = getelementptr inbounds i8, ptr %7534, i64 %7545
-  %7547 = getelementptr inbounds nuw i8, ptr %7534, i64 %7533
+7534:                                             ; preds = %7527
+  %7535 = ptrtoint ptr %.0370.i to i64
+  %7536 = ptrtoint ptr %.0361.i to i64
+  %7537 = sub i64 %7535, %7536
+  %7538 = sub i64 %7532, %7537
+  %7539 = getelementptr inbounds nuw i8, ptr %7533, i64 %7538
+  %7540 = ptrtoint ptr %.0341.i to i64
+  %7541 = sub i64 %7536, %7540
+  %7542 = getelementptr inbounds i8, ptr %7533, i64 %7541
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7539, ptr nonnull align 1 %7542, i64 %7537, i1 false)
+  %7543 = ptrtoint ptr %.0342.i to i64
+  %7544 = sub i64 %7543, %7540
+  %7545 = getelementptr inbounds i8, ptr %7533, i64 %7544
+  %7546 = getelementptr inbounds nuw i8, ptr %7533, i64 %7532
   %.pre3060 = load i64, ptr %.0340.i, align 8, !tbaa !73
   br label %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400
 
-_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400:    ; preds = %7535, %7526
-  %7548 = phi i64 [ %.pre3060, %7535 ], [ %5095, %7526 ]
-  %.5375.i = phi ptr [ %7547, %7535 ], [ %.0370.i, %7526 ]
-  %.5366.i = phi ptr [ %7540, %7535 ], [ %.0361.i, %7526 ]
-  %.5358.i = phi i64 [ %7533, %7535 ], [ %.0353.i, %7526 ]
-  %.6348.i = phi ptr [ %7546, %7535 ], [ %.0342.i, %7526 ]
-  %.5.i399 = phi ptr [ %7534, %7535 ], [ %.0341.i, %7526 ]
-  %7549 = and i64 %7548, 24
-  %7550 = icmp ne i64 %7549, 0
-  %.1106 = select i1 %7550, i64 11185797034612, i64 2863564006908262
+_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400:    ; preds = %7534, %7525
+  %7547 = phi i64 [ %.pre3060, %7534 ], [ %5094, %7525 ]
+  %.5375.i = phi ptr [ %7546, %7534 ], [ %.0370.i, %7525 ]
+  %.5366.i = phi ptr [ %7539, %7534 ], [ %.0361.i, %7525 ]
+  %.5358.i = phi i64 [ %7532, %7534 ], [ %.0353.i, %7525 ]
+  %.6348.i = phi ptr [ %7545, %7534 ], [ %.0342.i, %7525 ]
+  %.5.i399 = phi ptr [ %7533, %7534 ], [ %.0341.i, %7525 ]
+  %7548 = and i64 %7547, 24
+  %7549 = icmp ne i64 %7548, 0
+  %.1106 = select i1 %7549, i64 11185797034612, i64 2863564006908262
   store i64 %.1106, ptr %.6348.i, align 1
-  %7551 = getelementptr inbounds nuw i8, ptr %.6348.i, i64 5
-  %.neg.i.i401 = sext i1 %7550 to i64
-  %7552 = getelementptr inbounds i8, ptr %7551, i64 %.neg.i.i401
-  %7553 = getelementptr inbounds nuw i8, ptr %7552, i64 1
-  br label %7607
+  %.neg.i.i401 = sext i1 %7549 to i64
+  %7550 = getelementptr i8, ptr %.6348.i, i64 %.neg.i.i401
+  %7551 = getelementptr i8, ptr %7550, i64 6
+  br label %7605
 
-7554:                                             ; preds = %7525
-  %7555 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 16
-  %.not387.i = icmp ult ptr %7555, %.0361.i
-  br i1 %.not387.i, label %7576, label %7556, !prof !22
+7552:                                             ; preds = %7524
+  %7553 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 16
+  %.not387.i = icmp ult ptr %7553, %.0361.i
+  br i1 %.not387.i, label %7574, label %7554, !prof !22
 
-7556:                                             ; preds = %7554
-  %7557 = lshr i64 %.0353.i, 1
-  %7558 = tail call i64 @llvm.umax.i64(i64 %7557, i64 16)
-  %7559 = add nuw i64 %7558, 15
-  %7560 = and i64 %7559, -16
-  %7561 = add i64 %7560, %.0353.i
-  %7562 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %7561)
-  %.not388.i = icmp eq ptr %7562, null
-  br i1 %.not388.i, label %.loopexit1193, label %7563, !prof !3
+7554:                                             ; preds = %7552
+  %7555 = lshr i64 %.0353.i, 1
+  %7556 = tail call i64 @llvm.umax.i64(i64 %7555, i64 16)
+  %7557 = add nuw i64 %7556, 15
+  %7558 = and i64 %7557, -16
+  %7559 = add i64 %7558, %.0353.i
+  %7560 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %7559)
+  %.not388.i = icmp eq ptr %7560, null
+  br i1 %.not388.i, label %.loopexit1193, label %7561, !prof !3
 
-7563:                                             ; preds = %7556
-  %7564 = ptrtoint ptr %.0370.i to i64
-  %7565 = ptrtoint ptr %.0361.i to i64
-  %7566 = sub i64 %7564, %7565
-  %7567 = sub i64 %7561, %7566
-  %7568 = getelementptr inbounds nuw i8, ptr %7562, i64 %7567
-  %7569 = ptrtoint ptr %.0341.i to i64
-  %7570 = sub i64 %7565, %7569
-  %7571 = getelementptr inbounds i8, ptr %7562, i64 %7570
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7568, ptr nonnull align 1 %7571, i64 %7566, i1 false)
-  %7572 = ptrtoint ptr %.0342.i to i64
-  %7573 = sub i64 %7572, %7569
-  %7574 = getelementptr inbounds i8, ptr %7562, i64 %7573
-  %7575 = getelementptr inbounds nuw i8, ptr %7562, i64 %7561
-  br label %7576
+7561:                                             ; preds = %7554
+  %7562 = ptrtoint ptr %.0370.i to i64
+  %7563 = ptrtoint ptr %.0361.i to i64
+  %7564 = sub i64 %7562, %7563
+  %7565 = sub i64 %7559, %7564
+  %7566 = getelementptr inbounds nuw i8, ptr %7560, i64 %7565
+  %7567 = ptrtoint ptr %.0341.i to i64
+  %7568 = sub i64 %7563, %7567
+  %7569 = getelementptr inbounds i8, ptr %7560, i64 %7568
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7566, ptr nonnull align 1 %7569, i64 %7564, i1 false)
+  %7570 = ptrtoint ptr %.0342.i to i64
+  %7571 = sub i64 %7570, %7567
+  %7572 = getelementptr inbounds i8, ptr %7560, i64 %7571
+  %7573 = getelementptr inbounds nuw i8, ptr %7560, i64 %7559
+  br label %7574
 
-7576:                                             ; preds = %7563, %7554
-  %.6376.i = phi ptr [ %7575, %7563 ], [ %.0370.i, %7554 ]
-  %.6367.i = phi ptr [ %7568, %7563 ], [ %.0361.i, %7554 ]
-  %.6359.i = phi i64 [ %7561, %7563 ], [ %.0353.i, %7554 ]
-  %.7349.i = phi ptr [ %7574, %7563 ], [ %.0342.i, %7554 ]
-  %.6.i398 = phi ptr [ %7562, %7563 ], [ %.0341.i, %7554 ]
+7574:                                             ; preds = %7561, %7552
+  %.6376.i = phi ptr [ %7573, %7561 ], [ %.0370.i, %7552 ]
+  %.6367.i = phi ptr [ %7566, %7561 ], [ %.0361.i, %7552 ]
+  %.6359.i = phi i64 [ %7559, %7561 ], [ %.0353.i, %7552 ]
+  %.7349.i = phi ptr [ %7572, %7561 ], [ %.0342.i, %7552 ]
+  %.6.i398 = phi ptr [ %7560, %7561 ], [ %.0341.i, %7552 ]
   store i64 11185913886062, ptr %.7349.i, align 1
-  %7577 = getelementptr inbounds nuw i8, ptr %.7349.i, i64 5
-  br label %7607
+  %7575 = getelementptr inbounds nuw i8, ptr %.7349.i, i64 5
+  br label %7605
 
-7578:                                             ; preds = %7525
-  %7579 = lshr i64 %5095, 8
-  %7580 = getelementptr inbounds nuw i8, ptr %.0340.i, i64 8
-  %7581 = load ptr, ptr %7580, align 8, !tbaa !75
-  %7582 = add nuw nsw i64 %7579, 2
-  %7583 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 %7582
-  %.not385.i = icmp ult ptr %7583, %.0361.i
-  br i1 %.not385.i, label %7604, label %7584, !prof !22
+7576:                                             ; preds = %7524
+  %7577 = lshr i64 %5094, 8
+  %7578 = getelementptr inbounds nuw i8, ptr %.0340.i, i64 8
+  %7579 = load ptr, ptr %7578, align 8, !tbaa !75
+  %7580 = add nuw nsw i64 %7577, 2
+  %7581 = getelementptr inbounds nuw i8, ptr %.0342.i, i64 %7580
+  %.not385.i = icmp ult ptr %7581, %.0361.i
+  br i1 %.not385.i, label %7602, label %7582, !prof !22
 
-7584:                                             ; preds = %7578
-  %7585 = lshr i64 %.0353.i, 1
-  %7586 = tail call i64 @llvm.umax.i64(i64 %7585, i64 %7582)
-  %7587 = add nuw i64 %7586, 15
-  %7588 = and i64 %7587, -16
-  %7589 = add i64 %7588, %.0353.i
-  %7590 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %7589)
-  %.not386.i = icmp eq ptr %7590, null
-  br i1 %.not386.i, label %.loopexit1193, label %7591, !prof !3
+7582:                                             ; preds = %7576
+  %7583 = lshr i64 %.0353.i, 1
+  %7584 = tail call i64 @llvm.umax.i64(i64 %7583, i64 %7580)
+  %7585 = add nuw i64 %7584, 15
+  %7586 = and i64 %7585, -16
+  %7587 = add i64 %7586, %.0353.i
+  %7588 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.0341.i, i64 noundef %.0353.i, i64 noundef %7587)
+  %.not386.i = icmp eq ptr %7588, null
+  br i1 %.not386.i, label %.loopexit1193, label %7589, !prof !3
 
-7591:                                             ; preds = %7584
-  %7592 = ptrtoint ptr %.0370.i to i64
-  %7593 = ptrtoint ptr %.0361.i to i64
-  %7594 = sub i64 %7592, %7593
-  %7595 = sub i64 %7589, %7594
-  %7596 = getelementptr inbounds nuw i8, ptr %7590, i64 %7595
-  %7597 = ptrtoint ptr %.0341.i to i64
-  %7598 = sub i64 %7593, %7597
-  %7599 = getelementptr inbounds i8, ptr %7590, i64 %7598
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7596, ptr nonnull align 1 %7599, i64 %7594, i1 false)
-  %7600 = ptrtoint ptr %.0342.i to i64
-  %7601 = sub i64 %7600, %7597
-  %7602 = getelementptr inbounds i8, ptr %7590, i64 %7601
-  %7603 = getelementptr inbounds nuw i8, ptr %7590, i64 %7589
-  br label %7604
+7589:                                             ; preds = %7582
+  %7590 = ptrtoint ptr %.0370.i to i64
+  %7591 = ptrtoint ptr %.0361.i to i64
+  %7592 = sub i64 %7590, %7591
+  %7593 = sub i64 %7587, %7592
+  %7594 = getelementptr inbounds nuw i8, ptr %7588, i64 %7593
+  %7595 = ptrtoint ptr %.0341.i to i64
+  %7596 = sub i64 %7591, %7595
+  %7597 = getelementptr inbounds i8, ptr %7588, i64 %7596
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7594, ptr nonnull align 1 %7597, i64 %7592, i1 false)
+  %7598 = ptrtoint ptr %.0342.i to i64
+  %7599 = sub i64 %7598, %7595
+  %7600 = getelementptr inbounds i8, ptr %7588, i64 %7599
+  %7601 = getelementptr inbounds nuw i8, ptr %7588, i64 %7587
+  br label %7602
 
-7604:                                             ; preds = %7591, %7578
-  %.7377.i = phi ptr [ %7603, %7591 ], [ %.0370.i, %7578 ]
-  %.7368.i = phi ptr [ %7596, %7591 ], [ %.0361.i, %7578 ]
-  %.7360.i = phi i64 [ %7589, %7591 ], [ %.0353.i, %7578 ]
-  %.8350.i = phi ptr [ %7602, %7591 ], [ %.0342.i, %7578 ]
-  %.7.i397 = phi ptr [ %7590, %7591 ], [ %.0341.i, %7578 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.8350.i, ptr align 1 %7581, i64 range(i64 0, 72057594037927936) %7579, i1 false)
-  %7605 = getelementptr inbounds nuw i8, ptr %.8350.i, i64 %7579
-  %7606 = getelementptr inbounds nuw i8, ptr %7605, i64 1
-  store i8 44, ptr %7605, align 1, !tbaa !75
-  br label %7607
+7602:                                             ; preds = %7589, %7576
+  %.7377.i = phi ptr [ %7601, %7589 ], [ %.0370.i, %7576 ]
+  %.7368.i = phi ptr [ %7594, %7589 ], [ %.0361.i, %7576 ]
+  %.7360.i = phi i64 [ %7587, %7589 ], [ %.0353.i, %7576 ]
+  %.8350.i = phi ptr [ %7600, %7589 ], [ %.0342.i, %7576 ]
+  %.7.i397 = phi ptr [ %7588, %7589 ], [ %.0341.i, %7576 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.8350.i, ptr align 1 %7579, i64 range(i64 0, 72057594037927936) %7577, i1 false)
+  %7603 = getelementptr inbounds nuw i8, ptr %.8350.i, i64 %7577
+  %7604 = getelementptr inbounds nuw i8, ptr %7603, i64 1
+  store i8 44, ptr %7603, align 1, !tbaa !75
+  br label %7605
 
-7607:                                             ; preds = %7604, %7576, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400, %7502, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i
-  %.2372.i = phi ptr [ %.1371.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i ], [ %.3373.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread ], [ %.4374.i, %7502 ], [ %.5375.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400 ], [ %.6376.i, %7576 ], [ %.7377.i, %7604 ]
-  %.2363.i = phi ptr [ %.1362.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i ], [ %.3364.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread ], [ %.4365.i, %7502 ], [ %.5366.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400 ], [ %.6367.i, %7576 ], [ %.7368.i, %7604 ]
-  %.2355.i = phi i64 [ %.1354.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i ], [ %.3356.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread ], [ %.4357.i, %7502 ], [ %.5358.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400 ], [ %.6359.i, %7576 ], [ %.7360.i, %7604 ]
-  %.3345.i = phi ptr [ %5893, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i ], [ %7473, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread ], [ %7508, %7502 ], [ %7553, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400 ], [ %7577, %7576 ], [ %7606, %7604 ]
-  %.2.i222 = phi ptr [ %.1.i283, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i ], [ %.3.i214, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread ], [ %.4.i402, %7502 ], [ %.5.i399, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400 ], [ %.6.i398, %7576 ], [ %.7.i397, %7604 ]
-  %7608 = add i64 %.0800, -1
-  %7609 = icmp eq i64 %7608, 0
-  br i1 %7609, label %.preheader1189, label %5094, !prof !3
+7605:                                             ; preds = %7602, %7574, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400, %7501, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i
+  %.2372.i = phi ptr [ %.1371.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i ], [ %.3373.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread ], [ %.4374.i, %7501 ], [ %.5375.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400 ], [ %.6376.i, %7574 ], [ %.7377.i, %7602 ]
+  %.2363.i = phi ptr [ %.1362.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i ], [ %.3364.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread ], [ %.4365.i, %7501 ], [ %.5366.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400 ], [ %.6367.i, %7574 ], [ %.7368.i, %7602 ]
+  %.2355.i = phi i64 [ %.1354.i, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i ], [ %.3356.i, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread ], [ %.4357.i, %7501 ], [ %.5358.i, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400 ], [ %.6359.i, %7574 ], [ %.7360.i, %7602 ]
+  %.3345.i = phi ptr [ %5892, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i ], [ %7472, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread ], [ %7507, %7501 ], [ %7551, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400 ], [ %7575, %7574 ], [ %7604, %7602 ]
+  %.2.i222 = phi ptr [ %.1.i283, %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i ], [ %.3.i214, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread ], [ %.4.i402, %7501 ], [ %.5.i399, %_ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400 ], [ %.6.i398, %7574 ], [ %.7.i397, %7602 ]
+  %7606 = add i64 %.0800, -1
+  %7607 = icmp eq i64 %7606, 0
+  br i1 %7607, label %.preheader1189, label %5093, !prof !3
 
-.preheader1189:                                   ; preds = %7607, %7614
-  %.1802 = phi i8 [ %7619, %7614 ], [ %.0801.ph, %7607 ]
-  %.1799 = phi ptr [ %7621, %7614 ], [ %.0798.ph, %7607 ]
-  %.8369.i = phi ptr [ %7615, %7614 ], [ %.2363.i, %7607 ]
-  %.9351.i = phi ptr [ %7613, %7614 ], [ %.3345.i, %7607 ]
-  %7610 = getelementptr inbounds i8, ptr %.9351.i, i64 -1
-  %7611 = shl nuw nsw i8 %.1802, 5
-  %7612 = add nuw nsw i8 %7611, 93
-  store i8 %7612, ptr %7610, align 1, !tbaa !75
-  %7613 = getelementptr inbounds nuw i8, ptr %.9351.i, i64 1
+.preheader1189:                                   ; preds = %7605, %7612
+  %.1802 = phi i8 [ %7617, %7612 ], [ %.0801.ph, %7605 ]
+  %.1799 = phi ptr [ %7619, %7612 ], [ %.0798.ph, %7605 ]
+  %.8369.i = phi ptr [ %7613, %7612 ], [ %.2363.i, %7605 ]
+  %.9351.i = phi ptr [ %7611, %7612 ], [ %.3345.i, %7605 ]
+  %7608 = getelementptr inbounds i8, ptr %.9351.i, i64 -1
+  %7609 = shl nuw nsw i8 %.1802, 5
+  %7610 = add nuw nsw i8 %7609, 93
+  store i8 %7610, ptr %7608, align 1, !tbaa !75
+  %7611 = getelementptr inbounds nuw i8, ptr %.9351.i, i64 1
   store i8 44, ptr %.9351.i, align 1, !tbaa !75
   %.not405.i = icmp ult ptr %.8369.i, %.2372.i
-  br i1 %.not405.i, label %7614, label %7623, !prof !22
+  br i1 %.not405.i, label %7612, label %7621, !prof !22
 
-7614:                                             ; preds = %.preheader1189
-  %7615 = getelementptr inbounds nuw i8, ptr %.8369.i, i64 16
-  %7616 = load i64, ptr %.8369.i, align 8, !tbaa !221
-  %7617 = lshr i64 %7616, 1
-  %7618 = trunc i64 %7616 to i8
-  %7619 = and i8 %7618, 1
-  %7620 = getelementptr inbounds nuw i8, ptr %.8369.i, i64 8
-  %7621 = load ptr, ptr %7620, align 8, !tbaa !223
-  %7622 = add nsw i64 %7617, -1
-  %.not406.i = icmp eq i64 %7622, 0
+7612:                                             ; preds = %.preheader1189
+  %7613 = getelementptr inbounds nuw i8, ptr %.8369.i, i64 16
+  %7614 = load i64, ptr %.8369.i, align 8, !tbaa !221
+  %7615 = lshr i64 %7614, 1
+  %7616 = trunc i64 %7614 to i8
+  %7617 = and i8 %7616, 1
+  %7618 = getelementptr inbounds nuw i8, ptr %.8369.i, i64 8
+  %7619 = load ptr, ptr %7618, align 8, !tbaa !223
+  %7620 = add nsw i64 %7615, -1
+  %.not406.i = icmp eq i64 %7620, 0
   br i1 %.not406.i, label %.preheader1189, label %.outer.backedge, !prof !3
 
-7623:                                             ; preds = %.preheader1189
-  br i1 %.not1067, label %7647, label %7624
+7621:                                             ; preds = %.preheader1189
+  br i1 %.not1067, label %7645, label %7622
 
-7624:                                             ; preds = %7623
-  %7625 = getelementptr inbounds nuw i8, ptr %.9351.i, i64 3
-  %.not407.i = icmp ult ptr %7625, %.8369.i
-  br i1 %.not407.i, label %7645, label %7626, !prof !22
+7622:                                             ; preds = %7621
+  %7623 = getelementptr inbounds nuw i8, ptr %.9351.i, i64 3
+  %.not407.i = icmp ult ptr %7623, %.8369.i
+  br i1 %.not407.i, label %7643, label %7624, !prof !22
 
-7626:                                             ; preds = %7624
-  %7627 = lshr i64 %.2355.i, 1
-  %7628 = tail call i64 @llvm.umax.i64(i64 %7627, i64 2)
-  %7629 = add nuw i64 %7628, 15
-  %7630 = and i64 %7629, -16
-  %7631 = add i64 %7630, %.2355.i
-  %7632 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.2.i222, i64 noundef %.2355.i, i64 noundef %7631)
-  %.not408.i = icmp eq ptr %7632, null
-  br i1 %.not408.i, label %.loopexit1193, label %7633, !prof !3
+7624:                                             ; preds = %7622
+  %7625 = lshr i64 %.2355.i, 1
+  %7626 = tail call i64 @llvm.umax.i64(i64 %7625, i64 2)
+  %7627 = add nuw i64 %7626, 15
+  %7628 = and i64 %7627, -16
+  %7629 = add i64 %7628, %.2355.i
+  %7630 = tail call noundef ptr %.sroa.6518.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef %.2.i222, i64 noundef %.2355.i, i64 noundef %7629)
+  %.not408.i = icmp eq ptr %7630, null
+  br i1 %.not408.i, label %.loopexit1193, label %7631, !prof !3
 
-7633:                                             ; preds = %7626
-  %7634 = ptrtoint ptr %.2372.i to i64
-  %7635 = ptrtoint ptr %.8369.i to i64
-  %7636 = sub i64 %7634, %7635
-  %7637 = sub i64 %7631, %7636
-  %7638 = getelementptr inbounds nuw i8, ptr %7632, i64 %7637
-  %7639 = ptrtoint ptr %.2.i222 to i64
-  %7640 = sub i64 %7635, %7639
-  %7641 = getelementptr inbounds i8, ptr %7632, i64 %7640
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7638, ptr nonnull align 1 %7641, i64 %7636, i1 false)
-  %7642 = ptrtoint ptr %7613 to i64
-  %7643 = sub i64 %7642, %7639
-  %7644 = getelementptr inbounds i8, ptr %7632, i64 %7643
+7631:                                             ; preds = %7624
+  %7632 = ptrtoint ptr %.2372.i to i64
+  %7633 = ptrtoint ptr %.8369.i to i64
+  %7634 = sub i64 %7632, %7633
+  %7635 = sub i64 %7629, %7634
+  %7636 = getelementptr inbounds nuw i8, ptr %7630, i64 %7635
+  %7637 = ptrtoint ptr %.2.i222 to i64
+  %7638 = sub i64 %7633, %7637
+  %7639 = getelementptr inbounds i8, ptr %7630, i64 %7638
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7636, ptr nonnull align 1 %7639, i64 %7634, i1 false)
+  %7640 = ptrtoint ptr %7611 to i64
+  %7641 = sub i64 %7640, %7637
+  %7642 = getelementptr inbounds i8, ptr %7630, i64 %7641
+  br label %7643
+
+7643:                                             ; preds = %7631, %7622
+  %.11.i226 = phi ptr [ %7642, %7631 ], [ %7611, %7622 ]
+  %.9.i227 = phi ptr [ %7630, %7631 ], [ %.2.i222, %7622 ]
+  %7644 = getelementptr inbounds i8, ptr %.11.i226, i64 -1
+  store i8 10, ptr %7644, align 1, !tbaa !75
   br label %7645
 
-7645:                                             ; preds = %7633, %7624
-  %.11.i226 = phi ptr [ %7644, %7633 ], [ %7613, %7624 ]
-  %.9.i227 = phi ptr [ %7632, %7633 ], [ %.2.i222, %7624 ]
-  %7646 = getelementptr inbounds i8, ptr %.11.i226, i64 -1
-  store i8 10, ptr %7646, align 1, !tbaa !75
-  br label %7647
-
-7647:                                             ; preds = %7645, %7623
-  %7648 = phi ptr [ %.11.i226, %7645 ], [ %.9351.i, %7623 ]
-  %.8.i223 = phi ptr [ %.9.i227, %7645 ], [ %.2.i222, %7623 ]
-  store i8 0, ptr %7648, align 1, !tbaa !75
+7645:                                             ; preds = %7643, %7621
+  %7646 = phi ptr [ %.11.i226, %7643 ], [ %.9351.i, %7621 ]
+  %.8.i223 = phi ptr [ %.9.i227, %7643 ], [ %.2.i222, %7621 ]
+  store i8 0, ptr %7646, align 1, !tbaa !75
   br i1 %.not29, label %.cont413, label %.else415
 
-.else415:                                         ; preds = %7647
-  %7649 = ptrtoint ptr %7648 to i64
-  %7650 = ptrtoint ptr %.8.i223 to i64
-  %7651 = sub i64 %7649, %7650
-  store i64 %7651, ptr %4, align 8, !tbaa !85
+.else415:                                         ; preds = %7645
+  %7647 = ptrtoint ptr %7646 to i64
+  %7648 = ptrtoint ptr %.8.i223 to i64
+  %7649 = sub i64 %7647, %7648
+  store i64 %7649, ptr %4, align 8, !tbaa !85
   br label %.cont413
 
-.cont413:                                         ; preds = %7647, %.else415
+.cont413:                                         ; preds = %7645, %.else415
   store i32 0, ptr %9, align 8, !tbaa !208
   %.sroa.sel479.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel479.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel479.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.98, ptr %.sroa.sel479.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-.loopexit1193:                                    ; preds = %7584, %7556, %7528, %7480, %5896, %5108, %7626, %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210
-  %.10.i228 = phi ptr [ %.2.i222, %7626 ], [ null, %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210 ], [ %.0341.i, %5108 ], [ %.0341.i, %5896 ], [ %.0341.i, %7480 ], [ %.0341.i, %7528 ], [ %.0341.i, %7556 ], [ %.0341.i, %7584 ]
+.loopexit1193:                                    ; preds = %7582, %7554, %7527, %7479, %5895, %5107, %7624, %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210
+  %.10.i228 = phi ptr [ %.2.i222, %7624 ], [ null, %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210 ], [ %.0341.i, %5107 ], [ %.0341.i, %5895 ], [ %.0341.i, %7479 ], [ %.0341.i, %7527 ], [ %.0341.i, %7554 ], [ %.0341.i, %7582 ]
   br i1 %.not29, label %.cont410, label %.else412
 
 .else412:                                         ; preds = %.loopexit1193
@@ -60235,20 +60231,20 @@ _ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400:    ; preds = %7535, %7526
   %.sroa.sel482.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel482.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.28, ptr %.sroa.sel482.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not409.i = icmp eq ptr %.10.i228, null
-  br i1 %.not409.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7652
+  br i1 %.not409.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7650
 
-7652:                                             ; preds = %.cont410
+7650:                                             ; preds = %.cont410
   tail call void %.sroa.7.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef nonnull %.10.i228)
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-7653:                                             ; preds = %7525
-  br i1 %.not29, label %7654, label %.else
+7651:                                             ; preds = %7524
+  br i1 %.not29, label %7652, label %.else
 
-.else:                                            ; preds = %7653
+.else:                                            ; preds = %7651
   store i64 0, ptr %4, align 8, !tbaa !85
-  br label %7654
+  br label %7652
 
-7654:                                             ; preds = %.else, %7653
+7652:                                             ; preds = %.else, %7651
   store i32 3, ptr %9, align 8, !tbaa !208
   %.sroa.sel491.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel491.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel491.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -60256,14 +60252,14 @@ _ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400:    ; preds = %7535, %7526
   tail call void %.sroa.7.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef nonnull %.0341.i)
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033: ; preds = %5930
-  br i1 %.not29, label %7655, label %.else409
+_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033: ; preds = %5929
+  br i1 %.not29, label %7653, label %.else409
 
 .else409:                                         ; preds = %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033
   store i64 0, ptr %4, align 8, !tbaa !85
-  br label %7655
+  br label %7653
 
-7655:                                             ; preds = %.else409, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033
+7653:                                             ; preds = %.else409, %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033
   store i32 4, ptr %9, align 8, !tbaa !208
   %.sroa.sel485.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel485.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel485.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -60272,13 +60268,13 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033: ; p
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 .loopexit1162:                                    ; preds = %.thread963, %.thread979, %.thread995, %.thread1011
-  br i1 %.not29, label %7656, label %.else406
+  br i1 %.not29, label %7654, label %.else406
 
 .else406:                                         ; preds = %.loopexit1162
   store i64 0, ptr %4, align 8, !tbaa !85
-  br label %7656
+  br label %7654
 
-7656:                                             ; preds = %.else406, %.loopexit1162
+7654:                                             ; preds = %.else406, %.loopexit1162
   store i32 7, ptr %9, align 8, !tbaa !208
   %.sroa.sel488.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel488.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel488.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -60286,8 +60282,8 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033: ; p
   tail call void %.sroa.7.0.copyload(ptr noundef %.sroa.8.0.copyload, ptr noundef nonnull %.1.i283)
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
-_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit: ; preds = %7656, %7655, %7654, %7652, %.cont410, %.cont413, %5063, %5062, %5061, %5059, %.cont425, %.cont428, %.cont431, %.cont434, %.cont443, %.cont437, %.cont440, %.cont446
-  %.0 = phi ptr [ null, %.cont446 ], [ null, %.cont443 ], [ %.080.i.i, %.cont440 ], [ null, %.cont437 ], [ null, %.cont431 ], [ null, %.cont434 ], [ %.11.i, %.cont428 ], [ null, %5059 ], [ null, %.cont425 ], [ null, %5061 ], [ null, %5062 ], [ null, %5063 ], [ %.8.i223, %.cont413 ], [ null, %7652 ], [ null, %.cont410 ], [ null, %7654 ], [ null, %7655 ], [ null, %7656 ]
+_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit: ; preds = %7654, %7653, %7652, %7650, %.cont410, %.cont413, %5062, %5061, %5060, %5058, %.cont425, %.cont428, %.cont431, %.cont434, %.cont443, %.cont437, %.cont440, %.cont446
+  %.0 = phi ptr [ null, %.cont446 ], [ null, %.cont443 ], [ %.080.i.i, %.cont440 ], [ null, %.cont437 ], [ null, %.cont431 ], [ null, %.cont434 ], [ %.11.i, %.cont428 ], [ null, %5058 ], [ null, %.cont425 ], [ null, %5060 ], [ null, %5061 ], [ null, %5062 ], [ %.8.i223, %.cont413 ], [ null, %7650 ], [ null, %.cont410 ], [ null, %7652 ], [ null, %7653 ], [ null, %7654 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }

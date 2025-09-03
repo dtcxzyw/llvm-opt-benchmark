@@ -23,124 +23,123 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef captures(ret: address, pr
 .lr.ph.i.lr.ph:                                   ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = icmp eq ptr %1, null
-  %8 = getelementptr i8, ptr %0, i64 48
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %wait_on_slots.exit
-  %9 = phi i32 [ %4, %.lr.ph.i.lr.ph ], [ %131, %wait_on_slots.exit ]
+  %8 = phi i32 [ %4, %.lr.ph.i.lr.ph ], [ %131, %wait_on_slots.exit ]
   br i1 %7, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i
-  %10 = zext nneg i32 %9 to i64
+  %9 = zext nneg i32 %8 to i64
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %18, %.lr.ph.split.us.preheader.i
-  %indvars.iv25.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next26.i, %18 ]
-  %11 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %indvars.iv25.i
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %18, label %15
+.lr.ph.split.us.i:                                ; preds = %17, %.lr.ph.split.us.preheader.i
+  %indvars.iv25.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next26.i, %17 ]
+  %10 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %indvars.iv25.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %17, label %14
 
-15:                                               ; preds = %.lr.ph.split.us.i
-  %16 = load ptr, ptr %11, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %find_matching_idle_slot.exit.thread45
+14:                                               ; preds = %.lr.ph.split.us.i
+  %15 = load ptr, ptr %10, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %find_matching_idle_slot.exit.thread45
 
-18:                                               ; preds = %15, %.lr.ph.split.us.i
+17:                                               ; preds = %14, %.lr.ph.split.us.i
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next26.i, %10
+  %exitcond.not = icmp eq i64 %indvars.iv.next26.i, %9
   br i1 %exitcond.not, label %find_matching_idle_slot.exit.thread, label %.lr.ph.split.us.i, !llvm.loop !6
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %31
-  %19 = phi i32 [ %32, %31 ], [ %9, %.lr.ph.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %31 ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %indvars.iv.i
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load i8, ptr %21, align 8, !range !4, !noundef !5
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %31, label %24
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %30
+  %18 = phi i32 [ %31, %30 ], [ %8, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.lr.ph.i ]
+  %19 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i8, ptr %20, align 8, !range !4, !noundef !5
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %30, label %23
 
-24:                                               ; preds = %.lr.ph.split.i
-  %25 = load ptr, ptr %20, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %31, label %27
+23:                                               ; preds = %.lr.ph.split.i
+  %24 = load ptr, ptr %19, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %30, label %26
 
-27:                                               ; preds = %24
-  %28 = call ptr @PQdb(ptr noundef nonnull %25) #9
-  %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %1) #10
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %find_matching_idle_slot.exit.thread45, label %._crit_edge28.i
+26:                                               ; preds = %23
+  %27 = call ptr @PQdb(ptr noundef nonnull %24) #9
+  %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %1) #10
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %find_matching_idle_slot.exit.thread45, label %._crit_edge28.i
 
-._crit_edge28.i:                                  ; preds = %27
+._crit_edge28.i:                                  ; preds = %26
   %.pre.i = load i32, ptr %0, align 8
-  br label %31
+  br label %30
 
-31:                                               ; preds = %._crit_edge28.i, %24, %.lr.ph.split.i
-  %32 = phi i32 [ %.pre.i, %._crit_edge28.i ], [ %19, %24 ], [ %19, %.lr.ph.split.i ]
+30:                                               ; preds = %._crit_edge28.i, %23, %.lr.ph.split.i
+  %31 = phi i32 [ %.pre.i, %._crit_edge28.i ], [ %18, %23 ], [ %18, %.lr.ph.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = sext i32 %32 to i64
-  %34 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %34, label %.lr.ph.split.i, label %find_matching_idle_slot.exit.thread, !llvm.loop !6
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next.i, %32
+  br i1 %33, label %.lr.ph.split.i, label %find_matching_idle_slot.exit.thread, !llvm.loop !6
 
-find_matching_idle_slot.exit.thread45:            ; preds = %27, %15
-  %.012.i47.in = phi i64 [ %indvars.iv25.i, %15 ], [ %indvars.iv.i, %27 ]
-  %35 = and i64 %.012.i47.in, 4294967295
-  %36 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i8 1, ptr %37, align 8
+find_matching_idle_slot.exit.thread45:            ; preds = %26, %14
+  %.012.i47.in = phi i64 [ %indvars.iv25.i, %14 ], [ %indvars.iv.i, %26 ]
+  %34 = and i64 %.012.i47.in, 4294967295
+  %35 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i8 1, ptr %36, align 8
   br label %135
 
-find_matching_idle_slot.exit.thread:              ; preds = %31, %18
-  %.pr = phi i32 [ %9, %18 ], [ %32, %31 ]
-  %38 = icmp sgt i32 %.pr, 0
-  br i1 %38, label %.lr.ph.i33, label %find_any_idle_slot.exit.thread.thread
+find_matching_idle_slot.exit.thread:              ; preds = %30, %17
+  %.pr = phi i32 [ %8, %17 ], [ %31, %30 ]
+  %37 = icmp sgt i32 %.pr, 0
+  br i1 %37, label %.lr.ph.i33, label %find_any_idle_slot.exit.thread.thread
 
 .lr.ph.i33:                                       ; preds = %find_matching_idle_slot.exit.thread
   %wide.trip.count.i = zext nneg i32 %.pr to i64
-  br label %39
+  br label %38
 
-39:                                               ; preds = %47, %.lr.ph.i33
-  %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i35, %47 ]
-  %40 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %indvars.iv.i34
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load i8, ptr %41, align 8, !range !4, !noundef !5
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %47, label %44
+38:                                               ; preds = %46, %.lr.ph.i33
+  %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i35, %46 ]
+  %39 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %indvars.iv.i34
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i8, ptr %40, align 8, !range !4, !noundef !5
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %46, label %43
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %40, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %find_unconnected_slot.exit, label %47
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %39, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %find_unconnected_slot.exit, label %46
 
-47:                                               ; preds = %44, %39
+46:                                               ; preds = %43, %38
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.i36, label %39, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.lr.ph.i37, label %38, !llvm.loop !8
 
-find_unconnected_slot.exit:                       ; preds = %44
-  %48 = trunc nuw nsw i64 %indvars.iv.i34 to i32
-  call fastcc void @connect_slot(ptr noundef nonnull %0, i32 noundef %48, ptr noundef %1)
-  %49 = and i64 %indvars.iv.i34, 4294967295
-  %50 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %49
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i8 1, ptr %51, align 8
+find_unconnected_slot.exit:                       ; preds = %43
+  %47 = trunc nuw nsw i64 %indvars.iv.i34 to i32
+  call fastcc void @connect_slot(ptr noundef nonnull %0, i32 noundef %47, ptr noundef %1)
+  %48 = and i64 %indvars.iv.i34, 4294967295
+  %49 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i8 1, ptr %50, align 8
   br label %135
 
-.lr.ph.i36:                                       ; preds = %47, %55
-  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %55 ], [ 0, %47 ]
-  %.idx.i = shl nuw nsw i64 %indvars.iv.i38, 5
-  %52 = getelementptr i8, ptr %8, i64 %.idx.i
+.lr.ph.i37:                                       ; preds = %46, %55
+  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %55 ], [ 0, %46 ]
+  %51 = getelementptr %struct.ParallelSlot, ptr %0, i64 %indvars.iv.i38
+  %52 = getelementptr i8, ptr %51, i64 48
   %53 = load i8, ptr %52, align 8, !range !4, !noundef !5
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %find_any_idle_slot.exit
 
-55:                                               ; preds = %.lr.ph.i36
+55:                                               ; preds = %.lr.ph.i37
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i
-  br i1 %exitcond.not.i40, label %find_any_idle_slot.exit.thread, label %.lr.ph.i36, !llvm.loop !9
+  br i1 %exitcond.not.i40, label %find_any_idle_slot.exit.thread, label %.lr.ph.i37, !llvm.loop !9
 
-find_any_idle_slot.exit:                          ; preds = %.lr.ph.i36
+find_any_idle_slot.exit:                          ; preds = %.lr.ph.i37
   %56 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   %57 = and i64 %indvars.iv.i38, 4294967295
   %58 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %6, i64 %57
@@ -334,7 +333,7 @@ wait_on_slots.exit:                               ; preds = %.loopexit.i
   br i1 %134, label %.lr.ph.i, label %find_any_idle_slot.exit.thread.thread
 
 135:                                              ; preds = %wait_on_slots.exit.thread, %find_any_idle_slot.exit, %find_unconnected_slot.exit, %find_matching_idle_slot.exit.thread45
-  %.0 = phi ptr [ %36, %find_matching_idle_slot.exit.thread45 ], [ %50, %find_unconnected_slot.exit ], [ %58, %find_any_idle_slot.exit ], [ null, %wait_on_slots.exit.thread ]
+  %.0 = phi ptr [ %35, %find_matching_idle_slot.exit.thread45 ], [ %49, %find_unconnected_slot.exit ], [ %58, %find_any_idle_slot.exit ], [ null, %wait_on_slots.exit.thread ]
   ret ptr %.0
 }
 

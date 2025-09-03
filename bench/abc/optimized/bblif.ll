@@ -1860,19 +1860,18 @@ define ptr @Bbl_ObjFaninNext(ptr noundef readonly captures(address, ret: address
   br i1 %16, label %17, label %.critedge.thread
 
 17:                                               ; preds = %.critedge
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %19 = zext nneg i32 %.0.lcssa to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !15
-  %23 = sext i32 %22 to i64
-  %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 %24
+  %18 = zext nneg i32 %.0.lcssa to i64
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load i32, ptr %20, align 4, !tbaa !15
+  %22 = sext i32 %21 to i64
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %0, i64 %23
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %13, %.critedge, %17
-  %26 = phi ptr [ %25, %17 ], [ null, %.critedge ], [ null, %13 ]
-  ret ptr %26
+  %25 = phi ptr [ %24, %17 ], [ null, %.critedge ], [ null, %13 ]
+  ret ptr %25
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -1969,8 +1968,8 @@ define void @Bbl_ManDumpBlif(ptr noundef readonly captures(none) %0, ptr noundef
 
 Bbl_ObjFaninNext.exit:                            ; preds = %.critedge.i
   %40 = zext nneg i32 %.0.lcssa.i to i64
-  %41 = getelementptr inbounds nuw i32, ptr %27, i64 %40
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %41 = getelementptr inbounds nuw i32, ptr %.04483, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   br label %28, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.critedge.i, %36, %24
@@ -2069,8 +2068,8 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
 
 Bbl_ObjFaninNext.exit74:                          ; preds = %.critedge.i72
   %82 = zext nneg i32 %.0.lcssa.i73 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %69, i64 %82
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %83 = getelementptr inbounds nuw i32, ptr %.14591, i64 %82
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   br label %70, !llvm.loop !53
 
 ._crit_edge89:                                    ; preds = %.critedge.i72, %78, %66

@@ -216,25 +216,24 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
 
 .lr.ph.i.i:                                       ; preds = %76
   %84 = getelementptr inbounds nuw i8, ptr %61, i64 80
-  %85 = getelementptr inbounds nuw i8, ptr %61, i64 156
   %wide.trip.count.i.i = zext nneg i32 %59 to i64
-  br label %86
+  br label %85
 
-86:                                               ; preds = %86, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %86 ]
-  %87 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.17) #11
-  %88 = call double @strtod(ptr noundef nonnull captures(none) %87, ptr noundef null) #11
-  %89 = fptrunc double %88 to float
-  %90 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %84, i64 %indvars.iv.i.i
-  store float %89, ptr %90, align 4, !tbaa !33
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
-  %91 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i.i
-  store float %89, ptr %91, align 4, !tbaa !34
+85:                                               ; preds = %85, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %85 ]
+  %86 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.17) #11
+  %87 = call double @strtod(ptr noundef nonnull captures(none) %86, ptr noundef null) #11
+  %88 = fptrunc double %87 to float
+  %89 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %84, i64 %indvars.iv.i.i
+  store float %88, ptr %89, align 4, !tbaa !33
+  %90 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %61, i64 %indvars.iv.i.i
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 156
+  store float %88, ptr %91, align 4, !tbaa !34
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %86, !llvm.loop !35
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %85, !llvm.loop !35
 
-._crit_edge.i.i:                                  ; preds = %86, %76
+._crit_edge.i.i:                                  ; preds = %85, %76
   %92 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.17) #11
   %93 = call double @strtod(ptr noundef nonnull captures(none) %92, ptr noundef null) #11
   %94 = fptrunc double %93 to float

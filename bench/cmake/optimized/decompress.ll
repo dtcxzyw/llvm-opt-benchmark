@@ -5499,8 +5499,8 @@ makeMaps_d.exit:                                  ; preds = %1943
 
 3400:                                             ; preds = %3398, %3400
   %indvars.iv2664 = phi i64 [ 1, %3398 ], [ %indvars.iv.next2665, %3400 ]
-  %3401 = getelementptr i32, ptr %3391, i64 %indvars.iv2664
-  %3402 = getelementptr i8, ptr %3401, i64 -4
+  %3401 = getelementptr i32, ptr %0, i64 %indvars.iv2664
+  %3402 = getelementptr i8, ptr %3401, i64 64
   %3403 = load i32, ptr %3402, align 4, !tbaa !73
   %3404 = getelementptr inbounds nuw i32, ptr %3399, i64 %indvars.iv2664
   store i32 %3403, ptr %3404, align 4, !tbaa !73

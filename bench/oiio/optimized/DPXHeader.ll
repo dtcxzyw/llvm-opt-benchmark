@@ -1145,153 +1145,152 @@ define hidden noundef zeroext i1 @_ZN3dpx6Header5WriteEP9OutStream(ptr noundef n
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3dpx6Header15WriteOffsetDataEP9OutStream(ptr noundef nonnull align 4 dereferenceable(2049) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 780
   br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i.i
 
-_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i.i: ; preds = %9, %2
-  %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %9 ]
-  %4 = mul nuw nsw i64 %indvars.iv.i.i, 72
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 %4
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %7 = load i8, ptr %6, align 4, !tbaa !65
-  %8 = icmp eq i8 %7, -1
-  br i1 %8, label %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i, label %9
+_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i.i: ; preds = %7, %2
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %7 ], [ 0, %2 ]
+  %3 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %indvars.iv.i.i
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
+  %5 = load i8, ptr %4, align 4, !tbaa !65
+  %6 = icmp eq i8 %5, -1
+  br i1 %6, label %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i, label %7
 
-9:                                                ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i.i
+7:                                                ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i.i, !llvm.loop !66
 
 _ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i: ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i.i
-  %10 = icmp eq i64 %indvars.iv.i.i, 0
-  %11 = trunc i64 %indvars.iv.i.i to i16
-  %spec.select.i = select i1 %10, i16 -1, i16 %11
+  %8 = icmp eq i64 %indvars.iv.i.i, 0
+  %9 = trunc i64 %indvars.iv.i.i to i16
+  %spec.select.i = select i1 %8, i16 -1, i16 %9
   br label %_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit
 
-_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit: ; preds = %9, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i
-  %12 = phi i16 [ %spec.select.i, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i ], [ 8, %9 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 770
-  store i16 %12, ptr %13, align 2, !tbaa !67
-  %14 = load ptr, ptr %1, align 8, !tbaa !58
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 4, i32 noundef 0)
-  br i1 %17, label %18, label %.loopexit
+_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit: ; preds = %7, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i
+  %10 = phi i16 [ %spec.select.i, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.i ], [ 8, %7 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 770
+  store i16 %10, ptr %11, align 2, !tbaa !67
+  %12 = load ptr, ptr %1, align 8, !tbaa !58
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 4, i32 noundef 0)
+  br i1 %15, label %16, label %.loopexit
 
-18:                                               ; preds = %_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit
-  %19 = load i32, ptr %0, align 4, !tbaa !15
-  %.not.i.i.not = icmp eq i32 %19, 1396985944
-  br i1 %.not.i.i.not, label %24, label %20
+16:                                               ; preds = %_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit
+  %17 = load i32, ptr %0, align 4, !tbaa !15
+  %.not.i.i.not = icmp eq i32 %17, 1396985944
+  br i1 %.not.i.i.not, label %22, label %18
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !60
-  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
-  store i32 %23, ptr %21, align 4, !tbaa !60
-  br label %24
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %20 = load i32, ptr %19, align 4, !tbaa !60
+  %21 = tail call noundef i32 @llvm.bswap.i32(i32 %20)
+  store i32 %21, ptr %19, align 4, !tbaa !60
+  br label %22
 
-24:                                               ; preds = %20, %18
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %26 = load ptr, ptr %1, align 8, !tbaa !58
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %25, i64 noundef 4)
-  %30 = icmp eq i64 %29, 4
-  br i1 %30, label %31, label %.loopexit
+22:                                               ; preds = %18, %16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %24 = load ptr, ptr %1, align 8, !tbaa !58
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %23, i64 noundef 4)
+  %28 = icmp eq i64 %27, 4
+  br i1 %28, label %29, label %.loopexit
 
-31:                                               ; preds = %24
-  %32 = load i32, ptr %0, align 4, !tbaa !15
-  %.not.i.i17.not = icmp eq i32 %32, 1396985944
-  br i1 %.not.i.i17.not, label %36, label %33
+29:                                               ; preds = %22
+  %30 = load i32, ptr %0, align 4, !tbaa !15
+  %.not.i.i17.not = icmp eq i32 %30, 1396985944
+  br i1 %.not.i.i17.not, label %34, label %31
 
-33:                                               ; preds = %31
-  %34 = load i32, ptr %25, align 4, !tbaa !60
-  %35 = tail call noundef i32 @llvm.bswap.i32(i32 %34)
-  store i32 %35, ptr %25, align 4, !tbaa !60
-  br label %36
+31:                                               ; preds = %29
+  %32 = load i32, ptr %23, align 4, !tbaa !60
+  %33 = tail call noundef i32 @llvm.bswap.i32(i32 %32)
+  store i32 %33, ptr %23, align 4, !tbaa !60
+  br label %34
 
-36:                                               ; preds = %33, %31
-  %37 = load ptr, ptr %1, align 8, !tbaa !58
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 16, i32 noundef 0)
-  br i1 %40, label %41, label %.loopexit
+34:                                               ; preds = %31, %29
+  %35 = load ptr, ptr %1, align 8, !tbaa !58
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 16, i32 noundef 0)
+  br i1 %38, label %39, label %.loopexit
 
-41:                                               ; preds = %36
-  %42 = load i32, ptr %0, align 4, !tbaa !15
-  %.not.i.i18.not = icmp eq i32 %42, 1396985944
-  br i1 %.not.i.i18.not, label %47, label %43
+39:                                               ; preds = %34
+  %40 = load i32, ptr %0, align 4, !tbaa !15
+  %.not.i.i18.not = icmp eq i32 %40, 1396985944
+  br i1 %.not.i.i18.not, label %45, label %41
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !60
-  %46 = tail call noundef i32 @llvm.bswap.i32(i32 %45)
-  store i32 %46, ptr %44, align 4, !tbaa !60
-  br label %47
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load i32, ptr %42, align 4, !tbaa !60
+  %44 = tail call noundef i32 @llvm.bswap.i32(i32 %43)
+  store i32 %44, ptr %42, align 4, !tbaa !60
+  br label %45
 
-47:                                               ; preds = %43, %41
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = load ptr, ptr %1, align 8, !tbaa !58
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %48, i64 noundef 4)
-  %53 = icmp eq i64 %52, 4
-  br i1 %53, label %54, label %.loopexit
+45:                                               ; preds = %41, %39
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = load ptr, ptr %1, align 8, !tbaa !58
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %46, i64 noundef 4)
+  %51 = icmp eq i64 %50, 4
+  br i1 %51, label %52, label %.loopexit
 
-54:                                               ; preds = %47
-  %55 = load i32, ptr %0, align 4, !tbaa !15
-  %.not.i.i19.not = icmp eq i32 %55, 1396985944
-  br i1 %.not.i.i19.not, label %59, label %56
+52:                                               ; preds = %45
+  %53 = load i32, ptr %0, align 4, !tbaa !15
+  %.not.i.i19.not = icmp eq i32 %53, 1396985944
+  br i1 %.not.i.i19.not, label %57, label %54
 
-56:                                               ; preds = %54
-  %57 = load i32, ptr %48, align 4, !tbaa !60
-  %58 = tail call noundef i32 @llvm.bswap.i32(i32 %57)
-  store i32 %58, ptr %48, align 4, !tbaa !60
-  br label %59
+54:                                               ; preds = %52
+  %55 = load i32, ptr %46, align 4, !tbaa !60
+  %56 = tail call noundef i32 @llvm.bswap.i32(i32 %55)
+  store i32 %56, ptr %46, align 4, !tbaa !60
+  br label %57
 
-59:                                               ; preds = %56, %54
-  %60 = load ptr, ptr %1, align 8, !tbaa !58
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 770, i32 noundef 0)
-  br i1 %63, label %64, label %.loopexit
+57:                                               ; preds = %54, %52
+  %58 = load ptr, ptr %1, align 8, !tbaa !58
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 770, i32 noundef 0)
+  br i1 %61, label %62, label %.loopexit
 
-64:                                               ; preds = %59
-  %65 = load i32, ptr %0, align 4, !tbaa !15
-  %.not.i.i20.not = icmp eq i32 %65, 1396985944
-  br i1 %.not.i.i20.not, label %69, label %66
+62:                                               ; preds = %57
+  %63 = load i32, ptr %0, align 4, !tbaa !15
+  %.not.i.i20.not = icmp eq i32 %63, 1396985944
+  br i1 %.not.i.i20.not, label %67, label %64
 
-66:                                               ; preds = %64
-  %67 = load i16, ptr %13, align 2, !tbaa !61
-  %68 = tail call noundef i16 @llvm.bswap.i16(i16 %67)
-  store i16 %68, ptr %13, align 2, !tbaa !61
-  br label %69
+64:                                               ; preds = %62
+  %65 = load i16, ptr %11, align 2, !tbaa !61
+  %66 = tail call noundef i16 @llvm.bswap.i16(i16 %65)
+  store i16 %66, ptr %11, align 2, !tbaa !61
+  br label %67
 
-69:                                               ; preds = %66, %64
-  %70 = load ptr, ptr %1, align 8, !tbaa !58
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load ptr, ptr %71, align 8
-  %73 = tail call noundef i64 %72(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %13, i64 noundef 2)
-  %74 = icmp eq i64 %73, 2
-  br i1 %74, label %75, label %.loopexit
+67:                                               ; preds = %64, %62
+  %68 = load ptr, ptr %1, align 8, !tbaa !58
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call noundef i64 %70(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %11, i64 noundef 2)
+  %72 = icmp eq i64 %71, 2
+  br i1 %72, label %73, label %.loopexit
 
-75:                                               ; preds = %69
-  %76 = load i32, ptr %0, align 4, !tbaa !15
-  %.not.i.i21.not = icmp eq i32 %76, 1396985944
-  br i1 %.not.i.i21.not, label %.preheader, label %77
+73:                                               ; preds = %67
+  %74 = load i32, ptr %0, align 4, !tbaa !15
+  %.not.i.i21.not = icmp eq i32 %74, 1396985944
+  br i1 %.not.i.i21.not, label %78, label %75
 
-77:                                               ; preds = %75
-  %78 = load i16, ptr %13, align 2, !tbaa !61
-  %79 = tail call noundef i16 @llvm.bswap.i16(i16 %78)
-  store i16 %79, ptr %13, align 2, !tbaa !61
-  br label %.preheader
+75:                                               ; preds = %73
+  %76 = load i16, ptr %11, align 2, !tbaa !61
+  %77 = tail call noundef i16 @llvm.bswap.i16(i16 %76)
+  store i16 %77, ptr %11, align 2, !tbaa !61
+  br label %78
 
-.preheader:                                       ; preds = %77, %75
+78:                                               ; preds = %75, %73
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 780
   br label %80
 
-80:                                               ; preds = %.preheader, %110
-  %indvars.iv = phi i64 [ %indvars.iv.next, %110 ], [ 0, %.preheader ]
-  %81 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %3, i64 %indvars.iv
+80:                                               ; preds = %78, %110
+  %indvars.iv = phi i64 [ 0, %78 ], [ %indvars.iv.next, %110 ]
+  %81 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %79, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 20
   %83 = load i8, ptr %82, align 4, !tbaa !65
   %84 = icmp eq i8 %83, -1
@@ -1343,41 +1342,38 @@ _ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit: ; preds = %9, %_ZNK3dp
   %exitcond = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond, label %.loopexit, label %80, !llvm.loop !68
 
-.loopexit:                                        ; preds = %85, %98, %110, %36, %47, %69, %59, %24, %_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit
-  %.016 = phi i1 [ false, %_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit ], [ false, %24 ], [ false, %36 ], [ false, %47 ], [ false, %59 ], [ false, %69 ], [ false, %85 ], [ false, %98 ], [ true, %110 ]
+.loopexit:                                        ; preds = %85, %98, %110, %34, %45, %67, %57, %22, %_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit
+  %.016 = phi i1 [ false, %_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv.exit ], [ false, %22 ], [ false, %34 ], [ false, %45 ], [ false, %57 ], [ false, %67 ], [ false, %85 ], [ false, %98 ], [ true, %110 ]
   ret i1 %.016
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv(ptr noundef nonnull align 4 captures(none) dereferenceable(1664) %0) local_unnamed_addr #9 align 2 {
-.preheader.i:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 780
   br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i
 
-_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i: ; preds = %7, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %2 = mul nuw nsw i64 %indvars.iv.i, 72
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %5 = load i8, ptr %4, align 4, !tbaa !65
-  %6 = icmp eq i8 %5, -1
-  br i1 %6, label %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit, label %7
+_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i: ; preds = %1, %6
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %6 ], [ 0, %1 ]
+  %2 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 800
+  %4 = load i8, ptr %3, align 4, !tbaa !65
+  %5 = icmp eq i8 %4, -1
+  br i1 %5, label %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit, label %6
 
-7:                                                ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i
+6:                                                ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.thread, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i, !llvm.loop !66
 
 _ZNK3dpx13GenericHeader17ImageElementCountEv.exit: ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i
-  %8 = icmp eq i64 %indvars.iv.i, 0
-  %9 = trunc i64 %indvars.iv.i to i16
-  %spec.select = select i1 %8, i16 -1, i16 %9
+  %7 = icmp eq i64 %indvars.iv.i, 0
+  %8 = trunc i64 %indvars.iv.i to i16
+  %spec.select = select i1 %7, i16 -1, i16 %8
   br label %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.thread
 
-_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.thread: ; preds = %7, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit
-  %10 = phi i16 [ %spec.select, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit ], [ 8, %7 ]
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 770
-  store i16 %10, ptr %11, align 2, !tbaa !67
+_ZNK3dpx13GenericHeader17ImageElementCountEv.exit.thread: ; preds = %6, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit
+  %9 = phi i16 [ %spec.select, %_ZNK3dpx13GenericHeader17ImageElementCountEv.exit ], [ 8, %6 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 770
+  store i16 %9, ptr %10, align 2, !tbaa !67
   ret void
 }
 
@@ -1497,9 +1493,8 @@ define hidden void @_ZN3dpx6Header5ResetEv(ptr noundef nonnull align 4 dereferen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 1, 9) i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1664) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = sext i32 %1 to i64
-  %.idx = mul nsw i64 %3, 72
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %5 = getelementptr i8, ptr %4, i64 %.idx
+  %4 = getelementptr %"struct.dpx::ImageElement", ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 800
   %6 = load i8, ptr %5, align 4, !tbaa !65
   switch i8 %6, label %14 [
     i8 -100, label %13
@@ -1551,32 +1546,27 @@ define hidden noundef i32 @_ZNK3dpx13GenericHeader17ImageElementCountEv(ptr noun
   %4 = zext nneg i16 %3 to i32
   %5 = add i16 %3, -1
   %or.cond = icmp ult i16 %5, 8
-  br i1 %or.cond, label %.loopexit, label %.preheader
+  br i1 %or.cond, label %.loopexit, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
 
-.preheader:                                       ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 780
-  br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
+_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %1, %10
+  %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %1 ]
+  %6 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 800
+  %8 = load i8, ptr %7, align 4, !tbaa !65
+  %9 = icmp eq i8 %8, -1
+  br i1 %9, label %.loopexit.loopexit.split.loop.exit, label %10
 
-_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %.preheader, %12
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
-  %7 = mul nuw nsw i64 %indvars.iv, 72
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %10 = load i8, ptr %9, align 4, !tbaa !65
-  %11 = icmp eq i8 %10, -1
-  br i1 %11, label %.loopexit.loopexit.split.loop.exit, label %12
-
-12:                                               ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
+10:                                               ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.loopexit, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, !llvm.loop !66
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %.loopexit.loopexit.split.loop.exit, %1
-  %.05 = phi i32 [ %4, %1 ], [ %13, %.loopexit.loopexit.split.loop.exit ], [ 8, %12 ]
+.loopexit:                                        ; preds = %10, %.loopexit.loopexit.split.loop.exit, %1
+  %.05 = phi i32 [ %4, %1 ], [ %11, %.loopexit.loopexit.split.loop.exit ], [ 8, %10 ]
   ret i32 %.05
 }
 
@@ -1588,68 +1578,64 @@ define hidden void @_ZN3dpx6Header16CalculateOffsetsEv(ptr noundef nonnull readn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 5) i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1664) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %or.cond = icmp ugt i32 %1, 7
-  br i1 %or.cond, label %12, label %3
+  br i1 %or.cond, label %11, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 780
-  %narrow = mul nuw nsw i32 %1, 72
-  %5 = zext nneg i32 %narrow to i64
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 23
-  %8 = load i8, ptr %7, align 1, !tbaa !69
-  switch i8 %8, label %11 [
-    i8 8, label %12
-    i8 10, label %9
-    i8 12, label %9
-    i8 16, label %9
-    i8 32, label %10
+  %4 = zext nneg i32 %1 to i64
+  %5 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 803
+  %7 = load i8, ptr %6, align 1, !tbaa !69
+  switch i8 %7, label %10 [
+    i8 8, label %11
+    i8 10, label %8
+    i8 12, label %8
+    i8 16, label %8
+    i8 32, label %9
   ]
 
-9:                                                ; preds = %3, %3, %3
-  br label %12
+8:                                                ; preds = %3, %3, %3
+  br label %11
+
+9:                                                ; preds = %3
+  br label %11
 
 10:                                               ; preds = %3
-  br label %12
+  br label %11
 
-11:                                               ; preds = %3
-  br label %12
-
-12:                                               ; preds = %9, %10, %11, %3, %2
-  %.06 = phi i32 [ 0, %2 ], [ 4, %11 ], [ 1, %9 ], [ 3, %10 ], [ 0, %3 ]
+11:                                               ; preds = %8, %9, %10, %3, %2
+  %.06 = phi i32 [ 0, %2 ], [ 4, %10 ], [ 1, %8 ], [ 3, %9 ], [ 0, %3 ]
   ret i32 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 9) i32 @_ZNK3dpx13GenericHeader18ComponentByteCountEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1664) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %or.cond = icmp ugt i32 %1, 7
-  br i1 %or.cond, label %12, label %3
+  br i1 %or.cond, label %11, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 780
-  %narrow = mul nuw nsw i32 %1, 72
-  %5 = zext nneg i32 %narrow to i64
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 23
-  %8 = load i8, ptr %7, align 1, !tbaa !69
-  switch i8 %8, label %11 [
-    i8 8, label %12
-    i8 10, label %9
-    i8 12, label %9
-    i8 16, label %9
-    i8 32, label %10
+  %4 = zext nneg i32 %1 to i64
+  %5 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 803
+  %7 = load i8, ptr %6, align 1, !tbaa !69
+  switch i8 %7, label %10 [
+    i8 8, label %11
+    i8 10, label %8
+    i8 12, label %8
+    i8 16, label %8
+    i8 32, label %9
   ]
 
-9:                                                ; preds = %3, %3, %3
-  br label %12
+8:                                                ; preds = %3, %3, %3
+  br label %11
+
+9:                                                ; preds = %3
+  br label %11
 
 10:                                               ; preds = %3
-  br label %12
+  br label %11
 
-11:                                               ; preds = %3
-  br label %12
-
-12:                                               ; preds = %9, %10, %11, %3, %2
-  %.06 = phi i32 [ 0, %2 ], [ 8, %11 ], [ 2, %9 ], [ 4, %10 ], [ 1, %3 ]
+11:                                               ; preds = %8, %9, %10, %3, %2
+  %.06 = phi i32 [ 0, %2 ], [ 8, %10 ], [ 2, %8 ], [ 4, %9 ], [ 1, %3 ]
   ret i32 %.06
 }
 
@@ -2195,21 +2181,19 @@ define hidden noundef zeroext i1 @_ZNK3dpx6Header9DatumSwapEi(ptr noundef nonnul
   %5 = trunc nuw i8 %4 to i1
   %or.cond.i = icmp ult i32 %1, 8
   %or.cond.not = and i1 %or.cond.i, %5
-  br i1 %or.cond.not, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit6.thread
+  br i1 %or.cond.not, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit5.thread
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 780
-  %narrow.i = mul nuw nsw i32 %1, 72
-  %7 = zext nneg i32 %narrow.i to i64
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %10 = load i8, ptr %9, align 4, !tbaa !65
-  %switch.selectcmp.case1 = icmp eq i8 %10, 50
-  %switch.selectcmp.case2 = icmp eq i8 %10, 100
+  %6 = zext nneg i32 %1 to i64
+  %7 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 800
+  %9 = load i8, ptr %8, align 4, !tbaa !65
+  %switch.selectcmp.case1 = icmp eq i8 %9, 50
+  %switch.selectcmp.case2 = icmp eq i8 %9, 100
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit6.thread
+  br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit5.thread
 
-_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit6.thread: ; preds = %2, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
+_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit5.thread: ; preds = %2, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
   %.0 = phi i1 [ %switch.selectcmp, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ false, %2 ]
   ret i1 %.0
 }

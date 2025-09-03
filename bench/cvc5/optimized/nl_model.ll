@@ -10190,8 +10190,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit340: ; preds = %170, %164, %172
   %181 = zext i1 %180 to i32
   %reass.sub = sub nsw i32 %181, %.01801429
   %182 = sext i32 %reass.sub to i64
-  %183 = getelementptr ptr, ptr %147, i64 %182
-  %184 = getelementptr i8, ptr %183, i64 8
+  %183 = getelementptr ptr, ptr %142, i64 %182
+  %184 = getelementptr i8, ptr %183, i64 32
   %185 = load ptr, ptr %184, align 8, !tbaa !19, !noalias !166
   store ptr %185, ptr %39, align 8, !tbaa !21, !alias.scope !166
   %186 = load i64, ptr %185, align 8, !noalias !166

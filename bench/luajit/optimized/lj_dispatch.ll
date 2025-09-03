@@ -1464,70 +1464,69 @@ define hidden void @lj_dispatch_stitch(ptr noundef %0, ptr noundef %1) local_unn
   %25 = load i32, ptr %1, align 4, !tbaa !44
   %26 = and i32 %25, 255
   %27 = icmp eq i32 %26, 50
-  br i1 %27, label %28, label %35
+  br i1 %27, label %28, label %34
 
 28:                                               ; preds = %2
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %30 = lshr i32 %25, 16
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr i32, ptr %29, i64 %31
-  %33 = getelementptr i8, ptr %32, i64 -131072
-  %34 = load i32, ptr %33, align 4, !tbaa !44
-  %.pre.i = and i32 %34, 255
-  br label %35
+  %29 = lshr i32 %25, 16
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr i32, ptr %1, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -131068
+  %33 = load i32, ptr %32, align 4, !tbaa !44
+  %.pre.i = and i32 %33, 255
+  br label %34
 
-35:                                               ; preds = %28, %2
+34:                                               ; preds = %28, %2
   %.pre-phi.i = phi i32 [ %.pre.i, %28 ], [ %26, %2 ]
-  %.0.i = phi i32 [ %34, %28 ], [ %25, %2 ]
-  %36 = add nsw i32 %.pre-phi.i, -63
-  %37 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 31)
-  switch i32 %37, label %58 [
-    i32 1, label %38
-    i32 2, label %38
-    i32 5, label %46
-    i32 0, label %53
+  %.0.i = phi i32 [ %33, %28 ], [ %25, %2 ]
+  %35 = add nsw i32 %.pre-phi.i, -63
+  %36 = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 31)
+  switch i32 %36, label %57 [
+    i32 1, label %37
+    i32 2, label %37
+    i32 5, label %45
+    i32 0, label %52
   ]
 
-38:                                               ; preds = %35, %35
-  %39 = lshr i32 %.0.i, 8
-  %40 = and i32 %39, 255
-  %41 = lshr i32 %.0.i, 16
-  %42 = and i32 %41, 255
-  %43 = add i32 %24, 1
-  %44 = add i32 %43, %42
-  %45 = add i32 %44, %40
+37:                                               ; preds = %34, %34
+  %38 = lshr i32 %.0.i, 8
+  %39 = and i32 %38, 255
+  %40 = lshr i32 %.0.i, 16
+  %41 = and i32 %40, 255
+  %42 = add i32 %24, 1
+  %43 = add i32 %42, %41
+  %44 = add i32 %43, %39
   br label %cur_topslot.exit
 
-46:                                               ; preds = %35
-  %47 = lshr i32 %.0.i, 8
-  %48 = and i32 %47, 255
-  %49 = lshr i32 %.0.i, 16
-  %50 = add i32 %24, -1
-  %51 = add i32 %50, %49
-  %52 = add i32 %51, %48
+45:                                               ; preds = %34
+  %46 = lshr i32 %.0.i, 8
+  %47 = and i32 %46, 255
+  %48 = lshr i32 %.0.i, 16
+  %49 = add i32 %24, -1
+  %50 = add i32 %49, %48
+  %51 = add i32 %50, %47
   br label %cur_topslot.exit
 
-53:                                               ; preds = %35
-  %54 = lshr i32 %.0.i, 8
-  %55 = and i32 %54, 255
-  %56 = add i32 %24, -1
-  %57 = add i32 %56, %55
+52:                                               ; preds = %34
+  %53 = lshr i32 %.0.i, 8
+  %54 = and i32 %53, 255
+  %55 = add i32 %24, -1
+  %56 = add i32 %55, %54
   br label %cur_topslot.exit
 
-58:                                               ; preds = %35
-  %59 = getelementptr inbounds i8, ptr %23, i64 -93
-  %60 = load i8, ptr %59, align 1, !tbaa !71
-  %61 = zext i8 %60 to i32
+57:                                               ; preds = %34
+  %58 = getelementptr inbounds i8, ptr %23, i64 -93
+  %59 = load i8, ptr %58, align 1, !tbaa !71
+  %60 = zext i8 %59 to i32
   br label %cur_topslot.exit
 
-cur_topslot.exit:                                 ; preds = %38, %46, %53, %58
-  %.014.i = phi i32 [ %61, %58 ], [ %45, %38 ], [ %52, %46 ], [ %57, %53 ]
-  %62 = zext i32 %.014.i to i64
-  %63 = getelementptr inbounds nuw %union.TValue, ptr %16, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %63, ptr %64, align 8, !tbaa !57
-  %65 = getelementptr inbounds i8, ptr %1, i64 -4
-  tail call void @lj_trace_stitch(ptr noundef nonnull %0, ptr noundef nonnull %65) #12
+cur_topslot.exit:                                 ; preds = %37, %45, %52, %57
+  %.014.i = phi i32 [ %60, %57 ], [ %44, %37 ], [ %51, %45 ], [ %56, %52 ]
+  %61 = zext i32 %.014.i to i64
+  %62 = getelementptr inbounds nuw %union.TValue, ptr %16, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %62, ptr %63, align 8, !tbaa !57
+  %64 = getelementptr inbounds i8, ptr %1, i64 -4
+  tail call void @lj_trace_stitch(ptr noundef nonnull %0, ptr noundef nonnull %64) #12
   store i64 %13, ptr %12, align 8, !tbaa !70
   store i32 %4, ptr %3, align 4, !tbaa !44
   ret void

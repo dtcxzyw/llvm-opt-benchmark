@@ -137,55 +137,54 @@ StatsShmemSize.exit:                              ; preds = %15
   call void @dsa_detach(ptr noundef %22) #15
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store volatile i64 1, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 50472
-  br label %28
+  br label %27
 
-28:                                               ; preds = %20, %51
-  %indvars.iv = phi i64 [ 1, %20 ], [ %indvars.iv.next, %51 ]
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %30 = call ptr @pgstat_get_kind_info(i32 noundef %29) #15
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %51, label %31
+27:                                               ; preds = %20, %50
+  %indvars.iv = phi i64 [ 1, %20 ], [ %indvars.iv.next, %50 ]
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
+  %29 = call ptr @pgstat_get_kind_info(i32 noundef %28) #15
+  %.not = icmp eq ptr %29, null
+  br i1 %.not, label %50, label %30
 
-31:                                               ; preds = %28
-  %32 = load i8, ptr %30, align 8
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %51
+30:                                               ; preds = %27
+  %31 = load i8, ptr %29, align 8
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %50
 
-34:                                               ; preds = %31
-  %35 = icmp samesign ult i64 %indvars.iv, 13
-  br i1 %35, label %36, label %41
+33:                                               ; preds = %30
+  %34 = icmp samesign ult i64 %indvars.iv, 13
+  br i1 %34, label %35, label %40
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %38 = load i32, ptr %37, align 4
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 %39
-  br label %48
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  %37 = load i32, ptr %36, align 4
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 %38
+  br label %47
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = zext i32 %43 to i64
-  %45 = call ptr @ShmemAlloc(i64 noundef %44) #15
-  %46 = getelementptr ptr, ptr %27, i64 %indvars.iv
-  %47 = getelementptr i8, ptr %46, i64 -1024
-  store ptr %45, ptr %47, align 8
-  br label %48
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = zext i32 %42 to i64
+  %44 = call ptr @ShmemAlloc(i64 noundef %43) #15
+  %45 = getelementptr ptr, ptr %17, i64 %indvars.iv
+  %46 = getelementptr i8, ptr %45, i64 49448
+  store ptr %44, ptr %46, align 8
+  br label %47
 
-48:                                               ; preds = %41, %36
-  %.031 = phi ptr [ %40, %36 ], [ %45, %41 ]
-  %49 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef %.031) #15
-  br label %51
+47:                                               ; preds = %40, %35
+  %.031 = phi ptr [ %39, %35 ], [ %44, %40 ]
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  %49 = load ptr, ptr %48, align 8
+  call void %49(ptr noundef %.031) #15
+  br label %50
 
-51:                                               ; preds = %28, %31, %48
+50:                                               ; preds = %27, %30, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !8
 
-.loopexit:                                        ; preds = %51, %StatsShmemSize.exit
+.loopexit:                                        ; preds = %50, %StatsShmemSize.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

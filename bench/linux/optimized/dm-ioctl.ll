@@ -3357,34 +3357,34 @@ define internal noundef range(i32 -22, 1) i32 @get_target_version(ptr readnone c
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %26, ptr %27, align 4
   %28 = getelementptr i8, ptr %22, i64 %11
-  %29 = getelementptr i8, ptr %22, i64 12
-  %30 = load ptr, ptr %8, align 8
-  %31 = tail call i64 @strlen(ptr noundef %30) #21
-  %32 = getelementptr i8, ptr %29, i64 %31
-  %33 = getelementptr i8, ptr %32, i64 1
-  %34 = icmp ugt ptr %33, %28
-  br i1 %34, label %.thread.i, label %35
+  %29 = load ptr, ptr %8, align 8
+  %30 = tail call i64 @strlen(ptr noundef %29) #21
+  %31 = getelementptr i8, ptr %22, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 13
+  %33 = icmp ugt ptr %32, %28
+  br i1 %33, label %.thread.i, label %34
 
-35:                                               ; preds = %24
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 %37, ptr %38, align 4
-  %39 = getelementptr i8, ptr %5, i64 28
-  %40 = load i32, ptr %39, align 4
-  %41 = getelementptr i8, ptr %22, i64 8
-  store i32 %40, ptr %41, align 4
-  %42 = getelementptr i8, ptr %5, i64 32
-  %43 = load i32, ptr %42, align 8
-  store i32 %43, ptr %29, align 4
+34:                                               ; preds = %24
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  store i32 %36, ptr %37, align 4
+  %38 = getelementptr i8, ptr %5, i64 28
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr i8, ptr %22, i64 8
+  store i32 %39, ptr %40, align 4
+  %41 = getelementptr i8, ptr %5, i64 32
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr i8, ptr %22, i64 12
+  store i32 %42, ptr %43, align 4
   store i32 0, ptr %22, align 4
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %45 = load ptr, ptr %8, align 8
   %46 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef %45) #21
   br label %.thread.i
 
-.thread.i:                                        ; preds = %7, %35, %24
-  %.sink4 = phi i32 [ 0, %35 ], [ 256, %24 ], [ 256, %7 ]
+.thread.i:                                        ; preds = %7, %34, %24
+  %.sink4 = phi i32 [ 0, %34 ], [ 256, %24 ], [ 256, %7 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, %.sink4
@@ -4015,74 +4015,72 @@ define internal void @list_version_get_needed(ptr noundef readonly captures(none
 define internal void @list_version_get_info(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #10 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr i8, ptr %4, i64 12
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 @strlen(ptr noundef %7) #21
-  %9 = getelementptr i8, ptr %5, i64 %8
-  %10 = getelementptr i8, ptr %9, i64 1
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp ugt ptr %10, %12
-  br i1 %13, label %14, label %16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call i64 @strlen(ptr noundef %6) #21
+  %8 = getelementptr i8, ptr %4, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp ugt ptr %9, %11
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 256, ptr %15, align 8
-  br label %53
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 256, ptr %14, align 8
+  br label %51
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %25, label %20
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %24, label %19
 
-20:                                               ; preds = %16
-  %21 = ptrtoint ptr %4 to i64
-  %22 = ptrtoint ptr %18 to i64
-  %23 = sub i64 %21, %22
-  %24 = trunc i64 %23 to i32
-  store i32 %24, ptr %18, align 4
+19:                                               ; preds = %15
+  %20 = ptrtoint ptr %4 to i64
+  %21 = ptrtoint ptr %17 to i64
+  %22 = sub i64 %20, %21
+  %23 = trunc i64 %22 to i32
+  store i32 %23, ptr %17, align 4
   %.pre = load ptr, ptr %3, align 8
-  br label %25
+  br label %24
 
-25:                                               ; preds = %20, %16
-  %26 = phi ptr [ %.pre, %20 ], [ %4, %16 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 %28, ptr %29, align 4
-  %30 = getelementptr i8, ptr %0, i64 28
-  %31 = load i32, ptr %30, align 4
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr i8, ptr %32, i64 8
-  store i32 %31, ptr %33, align 4
-  %34 = getelementptr i8, ptr %0, i64 32
-  %35 = load i32, ptr %34, align 8
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr i8, ptr %36, i64 12
-  store i32 %35, ptr %37, align 4
+24:                                               ; preds = %19, %15
+  %25 = phi ptr [ %.pre, %19 ], [ %4, %15 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load i32, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store i32 %27, ptr %28, align 4
+  %29 = getelementptr i8, ptr %0, i64 28
+  %30 = load i32, ptr %29, align 4
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr i8, ptr %31, i64 8
+  store i32 %30, ptr %32, align 4
+  %33 = getelementptr i8, ptr %0, i64 32
+  %34 = load i32, ptr %33, align 8
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr i8, ptr %35, i64 12
+  store i32 %34, ptr %36, align 4
+  %37 = load ptr, ptr %3, align 8
+  store i32 0, ptr %37, align 4
   %38 = load ptr, ptr %3, align 8
-  store i32 0, ptr %38, align 4
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = load ptr, ptr %6, align 8
-  %42 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef %41) #21
-  %43 = load ptr, ptr %3, align 8
-  store ptr %43, ptr %17, align 8
-  %44 = getelementptr i8, ptr %43, i64 16
-  %45 = load ptr, ptr %6, align 8
-  %46 = tail call i64 @strlen(ptr noundef %45) #21
-  %47 = getelementptr i8, ptr %44, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 1
-  %49 = ptrtoint ptr %48 to i64
-  %50 = add i64 %49, 7
-  %51 = and i64 %50, -8
-  %52 = inttoptr i64 %51 to ptr
-  store ptr %52, ptr %3, align 8
-  br label %53
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load ptr, ptr %5, align 8
+  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef %40) #21
+  %42 = load ptr, ptr %3, align 8
+  store ptr %42, ptr %16, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = tail call i64 @strlen(ptr noundef %43) #21
+  %45 = getelementptr i8, ptr %42, i64 %44
+  %46 = getelementptr i8, ptr %45, i64 17
+  %47 = ptrtoint ptr %46 to i64
+  %48 = add i64 %47, 7
+  %49 = and i64 %48, -8
+  %50 = inttoptr i64 %49 to ptr
+  store ptr %50, ptr %3, align 8
+  br label %51
 
-53:                                               ; preds = %25, %14
+51:                                               ; preds = %24, %13
   ret void
 }
 

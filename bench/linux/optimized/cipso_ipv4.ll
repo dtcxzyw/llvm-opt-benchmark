@@ -2780,26 +2780,25 @@ define dso_local i32 @cipso_v4_sock_getattr(ptr noundef %0, ptr noundef %1) loca
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %16, label %6
+  br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %8 = load i8, ptr %7, align 2
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %16, label %10
+  br i1 %9, label %15, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %12 = zext i8 %8 to i64
-  %13 = getelementptr i8, ptr %11, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -20
-  %15 = tail call i32 @cipso_v4_getattr(ptr noundef %14, ptr noundef %1)
-  br label %16
+  %11 = zext i8 %8 to i64
+  %12 = getelementptr i8, ptr %4, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 12
+  %14 = tail call i32 @cipso_v4_getattr(ptr noundef %13, ptr noundef %1)
+  br label %15
 
-16:                                               ; preds = %10, %6, %2
-  %17 = phi i32 [ %15, %10 ], [ -42, %6 ], [ -42, %2 ]
+15:                                               ; preds = %10, %6, %2
+  %16 = phi i32 [ %14, %10 ], [ -42, %6 ], [ -42, %2 ]
   tail call void @__rcu_read_unlock() #15
-  ret i32 %17
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

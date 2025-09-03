@@ -81,29 +81,28 @@ define void @_ZN6LibRaw18canon_600_fixed_wbEi(ptr noundef nonnull writeonly alig
   %.0 = phi nsz float [ 0.000000e+00, %._crit_edge ], [ %28, %15 ]
   %30 = getelementptr inbounds nuw [5 x i16], ptr @_ZZN6LibRaw18canon_600_fixed_wbEiE3mul, i64 %.pre-phi
   %31 = getelementptr inbounds [5 x i16], ptr @_ZZN6LibRaw18canon_600_fixed_wbEiE3mul, i64 %.pre-phi40
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 153192
-  br label %33
+  br label %32
 
-33:                                               ; preds = %29, %33
-  %indvars.iv35 = phi i64 [ 1, %29 ], [ %indvars.iv.next36, %33 ]
-  %34 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv35
-  %35 = load i16, ptr %34, align 2, !tbaa !6
-  %36 = sitofp i16 %35 to float
-  %37 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv35
-  %38 = load i16, ptr %37, align 2, !tbaa !6
-  %39 = sitofp i16 %38 to float
-  %40 = fsub reassoc nsz arcp contract afn float %36, %39
-  %41 = fmul reassoc nsz arcp contract afn float %40, %.0
-  %42 = fadd reassoc nsz arcp contract afn float %41, %39
-  %43 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %42
-  %44 = getelementptr float, ptr %32, i64 %indvars.iv35
-  %45 = getelementptr i8, ptr %44, i64 -4
-  store float %43, ptr %45, align 4, !tbaa !13
+32:                                               ; preds = %29, %32
+  %indvars.iv35 = phi i64 [ 1, %29 ], [ %indvars.iv.next36, %32 ]
+  %33 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv35
+  %34 = load i16, ptr %33, align 2, !tbaa !6
+  %35 = sitofp i16 %34 to float
+  %36 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv35
+  %37 = load i16, ptr %36, align 2, !tbaa !6
+  %38 = sitofp i16 %37 to float
+  %39 = fsub reassoc nsz arcp contract afn float %35, %38
+  %40 = fmul reassoc nsz arcp contract afn float %39, %.0
+  %41 = fadd reassoc nsz arcp contract afn float %40, %38
+  %42 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %41
+  %43 = getelementptr float, ptr %0, i64 %indvars.iv35
+  %44 = getelementptr i8, ptr %43, i64 153188
+  store float %42, ptr %44, align 4, !tbaa !13
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 5
-  br i1 %exitcond38.not, label %46, label %33, !llvm.loop !15
+  br i1 %exitcond38.not, label %45, label %32, !llvm.loop !15
 
-46:                                               ; preds = %33
+45:                                               ; preds = %32
   ret void
 }
 
@@ -813,7 +812,7 @@ define void @_ZN6LibRaw17canon_600_correctEv(ptr noundef nonnull align 8 derefer
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i16, ptr %3, align 4, !tbaa !79
   %.not = icmp eq i16 %4, 0
-  br i1 %.not, label %.split.loop.exit44.i, label %.lr.ph29
+  br i1 %.not, label %.split.loop.exit44.i.preheader, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -883,117 +882,116 @@ define void @_ZN6LibRaw17canon_600_correctEv(ptr noundef nonnull align 8 derefer
   %53 = load i16, ptr %3, align 4, !tbaa !79
   %54 = zext i16 %53 to i32
   %55 = icmp samesign ult i32 %52, %54
-  br i1 %55, label %10, label %.split.loop.exit44.i, !llvm.loop !108
+  br i1 %55, label %10, label %.split.loop.exit44.i.preheader, !llvm.loop !108
 
-.split.loop.exit44.i:                             ; preds = %._crit_edge, %1
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 153192
-  br label %57
+.split.loop.exit44.i.preheader:                   ; preds = %._crit_edge, %1
+  br label %.split.loop.exit44.i
 
-57:                                               ; preds = %57, %.split.loop.exit44.i
-  %indvars.iv35.i = phi i64 [ 1, %.split.loop.exit44.i ], [ %indvars.iv.next36.i, %57 ]
-  %58 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6LibRaw18canon_600_fixed_wbEiE3mul, i64 30), i64 %indvars.iv35.i
-  %59 = load i16, ptr %58, align 2, !tbaa !6
-  %60 = sitofp i16 %59 to float
-  %61 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6LibRaw18canon_600_fixed_wbEiE3mul, i64 20), i64 %indvars.iv35.i
-  %62 = load i16, ptr %61, align 2, !tbaa !6
-  %63 = sitofp i16 %62 to float
-  %64 = fsub reassoc nsz arcp contract afn float %60, %63
-  %65 = fmul reassoc nsz arcp contract afn float %64, 0x3FE5F15F20000000
-  %66 = fadd reassoc nsz arcp contract afn float %65, %63
-  %67 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %66
-  %68 = getelementptr float, ptr %56, i64 %indvars.iv35.i
-  %69 = getelementptr i8, ptr %68, i64 -4
-  store float %67, ptr %69, align 4, !tbaa !13
+.split.loop.exit44.i:                             ; preds = %.split.loop.exit44.i.preheader, %.split.loop.exit44.i
+  %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %.split.loop.exit44.i ], [ 1, %.split.loop.exit44.i.preheader ]
+  %56 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6LibRaw18canon_600_fixed_wbEiE3mul, i64 30), i64 %indvars.iv35.i
+  %57 = load i16, ptr %56, align 2, !tbaa !6
+  %58 = sitofp i16 %57 to float
+  %59 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6LibRaw18canon_600_fixed_wbEiE3mul, i64 20), i64 %indvars.iv35.i
+  %60 = load i16, ptr %59, align 2, !tbaa !6
+  %61 = sitofp i16 %60 to float
+  %62 = fsub reassoc nsz arcp contract afn float %58, %61
+  %63 = fmul reassoc nsz arcp contract afn float %62, 0x3FE5F15F20000000
+  %64 = fadd reassoc nsz arcp contract afn float %63, %61
+  %65 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %64
+  %66 = getelementptr float, ptr %0, i64 %indvars.iv35.i
+  %67 = getelementptr i8, ptr %66, i64 153188
+  store float %65, ptr %67, align 4, !tbaa !13
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 5
-  br i1 %exitcond38.not.i, label %_ZN6LibRaw18canon_600_fixed_wbEi.exit, label %57, !llvm.loop !15
+  br i1 %exitcond38.not.i, label %_ZN6LibRaw18canon_600_fixed_wbEi.exit, label %.split.loop.exit44.i, !llvm.loop !15
 
-_ZN6LibRaw18canon_600_fixed_wbEi.exit:            ; preds = %57
+_ZN6LibRaw18canon_600_fixed_wbEi.exit:            ; preds = %.split.loop.exit44.i
   tail call void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 153196
-  %71 = load float, ptr %70, align 4, !tbaa !13
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 153200
-  %73 = load float, ptr %72, align 8, !tbaa !13
-  %74 = fdiv reassoc nsz arcp contract afn float %71, %73
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 153204
-  %76 = load float, ptr %75, align 4, !tbaa !13
-  %77 = fdiv reassoc nsz arcp contract afn float %76, %73
-  %78 = fcmp reassoc nsz arcp contract afn ogt float %74, 1.000000e+00
-  %79 = fpext reassoc nsz arcp contract afn float %74 to double
-  %80 = fcmp reassoc nsz arcp contract afn ole double %79, 1.280000e+00
-  %or.cond22.not26.i = and i1 %78, %80
-  %81 = fpext reassoc nsz arcp contract afn float %77 to double
-  %82 = fcmp reassoc nsz arcp contract afn olt double %81, 8.789000e-01
-  %or.cond24.i = select i1 %or.cond22.not26.i, i1 %82, i1 false
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 153196
+  %69 = load float, ptr %68, align 4, !tbaa !13
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 153200
+  %71 = load float, ptr %70, align 8, !tbaa !13
+  %72 = fdiv reassoc nsz arcp contract afn float %69, %71
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 153204
+  %74 = load float, ptr %73, align 4, !tbaa !13
+  %75 = fdiv reassoc nsz arcp contract afn float %74, %71
+  %76 = fcmp reassoc nsz arcp contract afn ogt float %72, 1.000000e+00
+  %77 = fpext reassoc nsz arcp contract afn float %72 to double
+  %78 = fcmp reassoc nsz arcp contract afn ole double %77, 1.280000e+00
+  %or.cond22.not26.i = and i1 %76, %78
+  %79 = fpext reassoc nsz arcp contract afn float %75 to double
+  %80 = fcmp reassoc nsz arcp contract afn olt double %79, 8.789000e-01
+  %or.cond24.i = select i1 %or.cond22.not26.i, i1 %80, i1 false
   %.0.i17 = zext i1 %or.cond24.i to i32
-  %83 = fcmp reassoc nsz arcp contract afn ule double %79, 1.280000e+00
-  %84 = fcmp reassoc nsz arcp contract afn ugt float %74, 2.000000e+00
-  %or.cond.not28.i = or i1 %84, %83
-  %brmerge.i = select i1 %or.cond.not28.i, i1 true, i1 %82
+  %81 = fcmp reassoc nsz arcp contract afn ule double %77, 1.280000e+00
+  %82 = fcmp reassoc nsz arcp contract afn ugt float %72, 2.000000e+00
+  %or.cond.not28.i = or i1 %82, %81
+  %brmerge.i = select i1 %or.cond.not28.i, i1 true, i1 %80
   %.0.mux.i = select i1 %or.cond.not28.i, i32 %.0.i17, i32 3
-  br i1 %brmerge.i, label %88, label %85
+  br i1 %brmerge.i, label %86, label %83
 
-85:                                               ; preds = %_ZN6LibRaw18canon_600_fixed_wbEi.exit
-  %86 = fcmp reassoc nsz arcp contract afn ugt float %77, 2.000000e+00
-  br i1 %86, label %88, label %87
+83:                                               ; preds = %_ZN6LibRaw18canon_600_fixed_wbEi.exit
+  %84 = fcmp reassoc nsz arcp contract afn ugt float %75, 2.000000e+00
+  br i1 %84, label %86, label %85
 
-87:                                               ; preds = %85
-  br label %88
+85:                                               ; preds = %83
+  br label %86
 
-88:                                               ; preds = %87, %85, %_ZN6LibRaw18canon_600_fixed_wbEi.exit
-  %.1.i = phi i32 [ 4, %87 ], [ %.0.i17, %85 ], [ %.0.mux.i, %_ZN6LibRaw18canon_600_fixed_wbEi.exit ]
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 153436
-  %90 = load float, ptr %89, align 4, !tbaa !16
-  %91 = fcmp reassoc nsz arcp contract afn une float %90, 0.000000e+00
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 381484
-  store i32 0, ptr %92, align 4, !tbaa !90
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %94 = load i32, ptr %93, align 4, !tbaa !91
-  %95 = icmp sgt i32 %94, 0
-  %96 = zext nneg i32 %.1.i to i64
-  %97 = select i1 %91, i64 5, i64 %96
-  %98 = getelementptr inbounds nuw [12 x i16], ptr @_ZZN6LibRaw15canon_600_coeffEvE5table, i64 %97
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 153304
-  br i1 %95, label %.preheader.us.preheader.i, label %_ZN6LibRaw15canon_600_coeffEv.exit
+86:                                               ; preds = %85, %83, %_ZN6LibRaw18canon_600_fixed_wbEi.exit
+  %.1.i = phi i32 [ 4, %85 ], [ %.0.i17, %83 ], [ %.0.mux.i, %_ZN6LibRaw18canon_600_fixed_wbEi.exit ]
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 153436
+  %88 = load float, ptr %87, align 4, !tbaa !16
+  %89 = fcmp reassoc nsz arcp contract afn une float %88, 0.000000e+00
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 381484
+  store i32 0, ptr %90, align 4, !tbaa !90
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 540
+  %92 = load i32, ptr %91, align 4, !tbaa !91
+  %93 = icmp sgt i32 %92, 0
+  %94 = zext nneg i32 %.1.i to i64
+  %95 = select i1 %89, i64 5, i64 %94
+  %96 = getelementptr inbounds nuw [12 x i16], ptr @_ZZN6LibRaw15canon_600_coeffEvE5table, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 153304
+  br i1 %93, label %.preheader.us.preheader.i, label %_ZN6LibRaw15canon_600_coeffEv.exit
 
-.preheader.us.preheader.i:                        ; preds = %88
-  %100 = tail call i32 @llvm.umin.i32(i32 %94, i32 4)
-  %wide.trip.count.i = zext nneg i32 %100 to i64
+.preheader.us.preheader.i:                        ; preds = %86
+  %98 = tail call i32 @llvm.umin.i32(i32 %92, i32 4)
+  %wide.trip.count.i = zext nneg i32 %98 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv35.i18 = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next36.i22, %._crit_edge.us.i ]
-  %101 = getelementptr inbounds nuw [4 x float], ptr %99, i64 %indvars.iv35.i18
+  %99 = getelementptr inbounds nuw [4 x float], ptr %97, i64 %indvars.iv35.i18
   %.idx.i = shl nuw nsw i64 %indvars.iv35.i18, 3
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %98, i64 %.idx.i
-  br label %102
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %96, i64 %.idx.i
+  br label %100
 
-102:                                              ; preds = %102, %.preheader.us.i
-  %indvars.iv.i19 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i20, %102 ]
+100:                                              ; preds = %100, %.preheader.us.i
+  %indvars.iv.i19 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i20, %100 ]
   %gep.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i, i64 %indvars.iv.i19
-  %103 = load i16, ptr %gep.i, align 2, !tbaa !6
-  %104 = sitofp i16 %103 to float
-  %105 = fmul reassoc nsz arcp contract afn float %104, 0x3F50000000000000
-  %106 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv.i19
-  store float %105, ptr %106, align 4, !tbaa !13
+  %101 = load i16, ptr %gep.i, align 2, !tbaa !6
+  %102 = sitofp i16 %101 to float
+  %103 = fmul reassoc nsz arcp contract afn float %102, 0x3F50000000000000
+  %104 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv.i19
+  store float %103, ptr %104, align 4, !tbaa !13
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i
-  br i1 %exitcond.not.i21, label %._crit_edge.us.i, label %102, !llvm.loop !92
+  br i1 %exitcond.not.i21, label %._crit_edge.us.i, label %100, !llvm.loop !92
 
-._crit_edge.us.i:                                 ; preds = %102
+._crit_edge.us.i:                                 ; preds = %100
   %indvars.iv.next36.i22 = add nuw nsw i64 %indvars.iv35.i18, 1
   %exitcond38.not.i23 = icmp eq i64 %indvars.iv.next36.i22, 3
   br i1 %exitcond38.not.i23, label %_ZN6LibRaw15canon_600_coeffEv.exit, label %.preheader.us.i, !llvm.loop !93
 
-_ZN6LibRaw15canon_600_coeffEv.exit:               ; preds = %._crit_edge.us.i, %88
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 152992
-  %108 = load i32, ptr %107, align 8, !tbaa !104
-  %109 = sub i32 1023, %108
-  %110 = mul i32 %109, 1109
-  %111 = lshr i32 %110, 9
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 153000
-  store i32 %111, ptr %112, align 8, !tbaa !109
-  store i32 0, ptr %107, align 8, !tbaa !104
+_ZN6LibRaw15canon_600_coeffEv.exit:               ; preds = %._crit_edge.us.i, %86
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 152992
+  %106 = load i32, ptr %105, align 8, !tbaa !104
+  %107 = sub i32 1023, %106
+  %108 = mul i32 %107, 1109
+  %109 = lshr i32 %108, 9
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 153000
+  store i32 %109, ptr %110, align 8, !tbaa !109
+  store i32 0, ptr %105, align 8, !tbaa !104
   ret void
 }
 

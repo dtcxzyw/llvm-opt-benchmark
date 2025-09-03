@@ -1226,8 +1226,8 @@ define hidden void @_ZN8Rewriter19rewrite_Object_initERK12methodHandleP10JavaThr
   br label %14
 
 14:                                               ; preds = %.lr.ph, %.backedge
-  %15 = phi i32 [ %9, %.lr.ph ], [ %64, %.backedge ]
-  %16 = phi i32 [ %8, %.lr.ph ], [ %63, %.backedge ]
+  %15 = phi i32 [ %9, %.lr.ph ], [ %63, %.backedge ]
+  %16 = phi i32 [ %8, %.lr.ph ], [ %62, %.backedge ]
   store i32 %16, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1272,11 +1272,11 @@ _ZN17RawBytecodeStream8raw_nextEv.exit:           ; preds = %32, %_ZN9Bytecodes1
     i32 56, label %43
     i32 57, label %43
     i32 58, label %43
-    i32 59, label %61
-    i32 63, label %61
-    i32 67, label %61
-    i32 71, label %61
-    i32 75, label %61
+    i32 59, label %60
+    i32 63, label %60
+    i32 67, label %60
+    i32 71, label %60
+    i32 75, label %60
   ]
 
 35:                                               ; preds = %_ZN17RawBytecodeStream8raw_nextEv.exit
@@ -1296,43 +1296,42 @@ _ZN17RawBytecodeStream8raw_nextEv.exit:           ; preds = %32, %_ZN9Bytecodes1
   %46 = load ptr, ptr %11, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  %50 = load i32, ptr %10, align 8
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %49, i64 %51
-  br i1 %45, label %53, label %56
+  %49 = load i32, ptr %10, align 8
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr i8, ptr %48, i64 %50
+  br i1 %45, label %52, label %55
 
-53:                                               ; preds = %43
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 2
-  %.0.i.i.i.i.i = load i16, ptr %54, align 1
-  %55 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
+52:                                               ; preds = %43
+  %53 = getelementptr i8, ptr %51, i64 58
+  %.0.i.i.i.i.i = load i16, ptr %53, align 1
+  %54 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit
 
-56:                                               ; preds = %43
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i16
+55:                                               ; preds = %43
+  %56 = getelementptr i8, ptr %51, i64 57
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit
 
-_ZNK17RawBytecodeStream9get_indexEv.exit:         ; preds = %53, %56
-  %60 = phi i16 [ %55, %53 ], [ %59, %56 ]
-  %.not = icmp eq i16 %60, 0
-  br i1 %.not, label %61, label %.backedge
+_ZNK17RawBytecodeStream9get_indexEv.exit:         ; preds = %52, %55
+  %59 = phi i16 [ %54, %52 ], [ %58, %55 ]
+  %.not = icmp eq i16 %59, 0
+  br i1 %.not, label %60, label %.backedge
 
-61:                                               ; preds = %_ZNK17RawBytecodeStream9get_indexEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1320), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 178, ptr noundef %62, ptr noundef nonnull @.str.8) #10
+60:                                               ; preds = %_ZNK17RawBytecodeStream9get_indexEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1320), align 8
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 178, ptr noundef %61, ptr noundef nonnull @.str.8) #10
   br label %.loopexit
 
 .backedge:                                        ; preds = %35, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZNK17RawBytecodeStream9get_indexEv.exit
-  %63 = load i32, ptr %6, align 4
-  %64 = load i32, ptr %7, align 8
-  %.not2 = icmp slt i32 %63, %64
+  %62 = load i32, ptr %6, align 4
+  %63 = load i32, ptr %7, align 8
+  %.not2 = icmp slt i32 %62, %63
   br i1 %.not2, label %14, label %.loopexit, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.backedge, %3, %61
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %65) #10
+.loopexit:                                        ; preds = %.backedge, %3, %60
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %64) #10
   ret void
 }
 

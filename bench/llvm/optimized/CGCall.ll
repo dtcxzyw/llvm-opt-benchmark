@@ -26,12 +26,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.791" = type { %"class.llvm::SmallVectorBase.792" }
 %"class.llvm::SmallVectorBase.792" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.793" = type { [16 x i8] }
-%"struct.clang::FunctionType::FunctionTypeExtraBitfields" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::FunctionTypeArmAttributes" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::ExceptionType" = type { %"class.clang::QualType" }
 %"class.clang::QualType" = type { %"class.llvm::PointerIntPair.272" }
 %"class.llvm::PointerIntPair.272" = type { %"struct.llvm::detail::PunnedPointer.273" }
 %"struct.llvm::detail::PunnedPointer.273" = type { [8 x i8] }
+%"struct.clang::FunctionType::FunctionTypeExtraBitfields" = type { i16, [6 x i8] }
+%"struct.clang::FunctionType::FunctionTypeArmAttributes" = type { i16, [6 x i8] }
+%"struct.clang::FunctionType::ExceptionType" = type { %"class.clang::QualType" }
 %"class.clang::CanQual" = type { %"class.clang::QualType" }
 %"class.clang::FunctionType::ExtParameterInfo" = type { i8 }
 %"class.clang::SourceLocation" = type { i32 }
@@ -1180,9 +1180,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZL23arr
 
 20:                                               ; preds = %18
   %21 = and i64 %.pre.i.i, 65535
-  %.idx.i.i = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 52
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
+  %22 = getelementptr inbounds nuw %"class.clang::QualType", ptr %14, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 52
   %24 = ptrtoint ptr %23 to i64
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
@@ -2492,9 +2491,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7CanQualINS1_4TypeEEELb1EE9push_backES4
 
 58:                                               ; preds = %56
   %59 = and i64 %.pre.i.i, 65535
-  %.idx.i.i = shl nuw nsw i64 %59, 3
-  %60 = getelementptr inbounds nuw i8, ptr %52, i64 52
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i
+  %60 = getelementptr inbounds nuw %"class.clang::QualType", ptr %52, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 52
   %62 = ptrtoint ptr %61 to i64
   %63 = add i64 %62, 7
   %64 = and i64 %63, -8
@@ -4053,9 +4051,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZL27arr
 
 20:                                               ; preds = %19
   %21 = and i64 %.pre.i, 65535
-  %.idx.i = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
+  %22 = getelementptr inbounds nuw %"class.clang::QualType", ptr %3, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 52
   %24 = ptrtoint ptr %23 to i64
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
@@ -4384,9 +4381,8 @@ _ZL25getArgTypesForDeclarationRN5clang10ASTContextERKNS_7CodeGen15FunctionArgLis
 
 61:                                               ; preds = %59
   %62 = and i64 %.pre.i, 65535
-  %.idx.i13 = shl nuw nsw i64 %62, 3
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i13
+  %63 = getelementptr inbounds nuw %"class.clang::QualType", ptr %1, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 52
   %65 = ptrtoint ptr %64 to i64
   %66 = add i64 %65, 7
   %67 = and i64 %66, -8

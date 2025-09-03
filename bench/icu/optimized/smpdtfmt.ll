@@ -7243,9 +7243,8 @@ tailrecurse.backedge:                             ; preds = %710, %712, %620, %6
 
 759:                                              ; preds = %754
   %760 = load ptr, ptr %26, align 8, !tbaa !46
-  %.idx = shl nuw nsw i64 %.0452, 1
-  %761 = getelementptr inbounds nuw i8, ptr %760, i64 833
-  %762 = getelementptr inbounds nuw i8, ptr %761, i64 %.idx
+  %761 = getelementptr inbounds nuw [2 x i8], ptr %760, i64 %.0452
+  %762 = getelementptr inbounds nuw i8, ptr %761, i64 833
   br label %763
 
 763:                                              ; preds = %759, %755

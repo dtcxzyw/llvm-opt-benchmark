@@ -753,98 +753,96 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4,
   %.val.val = load i16, ptr %6, align 4
   %7 = and i16 %.val.val, 1
   %.not.i = icmp eq i16 %7, 0
-  br i1 %.not.i, label %8, label %47
+  br i1 %.not.i, label %8, label %45
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr %struct.CompactAttribute, ptr %9, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 -16
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %15, label %45
+  %9 = zext nneg i32 %1 to i64
+  %10 = getelementptr %struct.CompactAttribute, ptr %2, i64 %9, i32 4
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp sgt i32 %11, -1
+  br i1 %12, label %13, label %43
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %17 = load i8, ptr %16, align 2
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %.val, i64 %18
-  %20 = zext nneg i32 %13 to i64
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
-  %22 = getelementptr i8, ptr %11, i64 -10
-  %23 = load i8, ptr %22, align 2, !range !6, !noundef !7
-  %24 = trunc nuw i8 %23 to i1
-  %25 = getelementptr i8, ptr %11, i64 -12
-  %26 = load i16, ptr %25, align 4
-  br i1 %24, label %27, label %43
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %15 = load i8, ptr %14, align 2
+  %16 = zext i8 %15 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 %16
+  %18 = zext nneg i32 %11 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %21 = load i8, ptr %20, align 2, !range !6, !noundef !7
+  %22 = trunc nuw i8 %21 to i1
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %24 = load i16, ptr %23, align 4
+  br i1 %22, label %25, label %41
 
-27:                                               ; preds = %15
-  switch i16 %26, label %39 [
-    i16 1, label %28
-    i16 2, label %31
-    i16 4, label %34
-    i16 8, label %37
+25:                                               ; preds = %13
+  switch i16 %24, label %37 [
+    i16 1, label %26
+    i16 2, label %29
+    i16 4, label %32
+    i16 8, label %35
   ]
 
-28:                                               ; preds = %27
-  %29 = load i8, ptr %21, align 1
-  %30 = sext i8 %29 to i64
+26:                                               ; preds = %25
+  %27 = load i8, ptr %19, align 1
+  %28 = sext i8 %27 to i64
   br label %fetch_att.exit
 
-31:                                               ; preds = %27
-  %32 = load i16, ptr %21, align 2
-  %33 = sext i16 %32 to i64
+29:                                               ; preds = %25
+  %30 = load i16, ptr %19, align 2
+  %31 = sext i16 %30 to i64
   br label %fetch_att.exit
 
-34:                                               ; preds = %27
-  %35 = load i32, ptr %21, align 4
-  %36 = sext i32 %35 to i64
+32:                                               ; preds = %25
+  %33 = load i32, ptr %19, align 4
+  %34 = sext i32 %33 to i64
   br label %fetch_att.exit
 
-37:                                               ; preds = %27
-  %38 = load i64, ptr %21, align 8
+35:                                               ; preds = %25
+  %36 = load i64, ptr %19, align 8
   br label %fetch_att.exit
 
-39:                                               ; preds = %27
-  %40 = sext i16 %26 to i32
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef range(i32 -32768, 32768) %40) #13
+37:                                               ; preds = %25
+  %38 = sext i16 %24 to i32
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %39)
+  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef range(i32 -32768, 32768) %38) #13
   tail call void @errfinish(ptr noundef nonnull @.str.43, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #13
   unreachable
 
-43:                                               ; preds = %15
-  %44 = ptrtoint ptr %21 to i64
+41:                                               ; preds = %13
+  %42 = ptrtoint ptr %19 to i64
   br label %fetch_att.exit
 
-45:                                               ; preds = %8
-  %46 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #13
+43:                                               ; preds = %8
+  %44 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #13
   br label %fetch_att.exit
 
-47:                                               ; preds = %4
-  %48 = add nsw i32 %1, -1
-  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 23
-  %50 = lshr i32 %48, 3
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = and i32 %48, 7
-  %56 = shl nuw nsw i32 1, %55
-  %57 = and i32 %56, %54
-  %.not.i20 = icmp eq i32 %57, 0
-  br i1 %.not.i20, label %58, label %59
+45:                                               ; preds = %4
+  %46 = add nsw i32 %1, -1
+  %47 = getelementptr inbounds nuw i8, ptr %.val, i64 23
+  %48 = lshr i32 %46, 3
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i32
+  %53 = and i32 %46, 7
+  %54 = shl nuw nsw i32 1, %53
+  %55 = and i32 %54, %52
+  %.not.i20 = icmp eq i32 %55, 0
+  br i1 %.not.i20, label %56, label %57
 
-58:                                               ; preds = %47
+56:                                               ; preds = %45
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-59:                                               ; preds = %47
-  %60 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #13
+57:                                               ; preds = %45
+  %58 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #13
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %59, %58
-  %.1 = phi i64 [ 0, %58 ], [ %60, %59 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
+fetch_att.exit:                                   ; preds = %41, %35, %32, %29, %26, %43, %57, %56
+  %.1 = phi i64 [ 0, %56 ], [ %58, %57 ], [ %44, %43 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ], [ %42, %41 ]
   ret i64 %.1
 }
 
@@ -9264,42 +9262,41 @@ define dso_local noundef i32 @errtablecol(ptr noundef readonly captures(none) %0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %6, label %16
+  br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %4, align 8
   %.not = icmp sgt i32 %1, %7
-  br i1 %.not, label %16, label %8
+  br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %7 to i64
   %10 = shl nuw nsw i64 %9, 4
   %11 = getelementptr i8, ptr %4, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 24
-  %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr %struct.FormData_pg_attribute, ptr %12, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 -96
-  br label %21
+  %12 = zext nneg i32 %1 to i64
+  %13 = getelementptr %struct.FormData_pg_attribute, ptr %11, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -72
+  br label %20
 
-16:                                               ; preds = %6, %2
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %18 = load i32, ptr %17, align 8
-  %19 = trunc i32 %1 to i16
-  %20 = tail call ptr @get_attname(i32 noundef %18, i16 noundef signext %19, i1 noundef zeroext false) #13
-  br label %21
+15:                                               ; preds = %6, %2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %17 = load i32, ptr %16, align 8
+  %18 = trunc i32 %1 to i16
+  %19 = tail call ptr @get_attname(i32 noundef %17, i16 noundef signext %18, i1 noundef zeroext false) #13
+  br label %20
 
-21:                                               ; preds = %16, %8
-  %.0 = phi ptr [ %15, %8 ], [ %20, %16 ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 68
-  %25 = load i32, ptr %24, align 4
-  %26 = tail call ptr @get_namespace_name(i32 noundef %25) #13
-  %27 = tail call i32 @err_generic_string(i32 noundef 115, ptr noundef %26) #13
-  %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = tail call i32 @err_generic_string(i32 noundef 116, ptr noundef nonnull %29) #13
-  %31 = tail call i32 @err_generic_string(i32 noundef 99, ptr noundef %.0) #13
+20:                                               ; preds = %15, %8
+  %.0 = phi ptr [ %14, %8 ], [ %19, %15 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 68
+  %24 = load i32, ptr %23, align 4
+  %25 = tail call ptr @get_namespace_name(i32 noundef %24) #13
+  %26 = tail call i32 @err_generic_string(i32 noundef 115, ptr noundef %25) #13
+  %27 = load ptr, ptr %21, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %29 = tail call i32 @err_generic_string(i32 noundef 116, ptr noundef nonnull %28) #13
+  %30 = tail call i32 @err_generic_string(i32 noundef 99, ptr noundef %.0) #13
   ret i32 0
 }
 

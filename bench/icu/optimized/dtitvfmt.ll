@@ -3640,21 +3640,20 @@ define void @_ZN6icu_7718DateIntervalFormat17initializePatternER10UErrorCode(ptr
 
 51:                                               ; preds = %42, %26
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  br label %54
+  br label %53
 
-54:                                               ; preds = %51, %54
-  %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %54 ]
-  %55 = load ptr, ptr %52, align 8, !tbaa !49
-  %56 = call noundef signext i8 @_ZNK6icu_7716DateIntervalInfo15getDefaultOrderEv(ptr noundef nonnull align 8 dereferenceable(88) %55)
-  %.idx = mul nuw nsw i64 %indvars.iv, 136
-  %57 = getelementptr i8, ptr %53, i64 %.idx
-  store i8 %56, ptr %57, align 8, !tbaa !55
+53:                                               ; preds = %51, %53
+  %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %53 ]
+  %54 = load ptr, ptr %52, align 8, !tbaa !49
+  %55 = call noundef signext i8 @_ZNK6icu_7716DateIntervalInfo15getDefaultOrderEv(ptr noundef nonnull align 8 dereferenceable(88) %54)
+  %56 = getelementptr %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %0, i64 %indvars.iv
+  %57 = getelementptr i8, ptr %56, i64 472
+  store i8 %55, ptr %57, align 8, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %58, label %54, !llvm.loop !76
+  br i1 %exitcond.not, label %58, label %53, !llvm.loop !76
 
-58:                                               ; preds = %54
+58:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %11, align 8, !tbaa !15
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 8

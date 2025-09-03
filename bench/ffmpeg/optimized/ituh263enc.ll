@@ -4815,9 +4815,9 @@ put_bits.exit254:                                 ; preds = %480, %488, %470
   %510 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  %513 = getelementptr inbounds nuw i8, ptr %0, i64 1304
-  %514 = shl nsw i32 %504, 1
-  %515 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %513 = shl nsw i32 %504, 1
+  %514 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %515 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 3960
   br label %518
 
@@ -4839,7 +4839,7 @@ put_bits.exit254:                                 ; preds = %480, %488, %470
 523:                                              ; preds = %518
   %524 = trunc nuw nsw i64 %indvars.iv to i32
   %525 = and i32 %524, 1
-  %526 = or disjoint i32 %514, %525
+  %526 = or disjoint i32 %513, %525
   %527 = load i32, ptr %511, align 8, !tbaa !57
   %528 = shl nsw i32 %527, 1
   %529 = lshr i32 %524, 1
@@ -4848,15 +4848,15 @@ put_bits.exit254:                                 ; preds = %480, %488, %470
 
 531:                                              ; preds = %518
   %532 = load i32, ptr %511, align 8, !tbaa !57
-  %533 = getelementptr ptr, ptr %513, i64 %indvars.iv
-  %534 = getelementptr i8, ptr %533, i64 -24
+  %533 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %534 = getelementptr i8, ptr %533, i64 1280
   br label %535
 
 535:                                              ; preds = %531, %523
   %.046.i = phi i32 [ %526, %523 ], [ %504, %531 ]
   %.045.i = phi i32 [ %530, %523 ], [ %532, %531 ]
-  %.044.in.i = phi ptr [ %515, %523 ], [ %512, %531 ]
-  %.0.in.i = phi ptr [ %513, %523 ], [ %534, %531 ]
+  %.044.in.i = phi ptr [ %514, %523 ], [ %512, %531 ]
+  %.0.in.i = phi ptr [ %515, %523 ], [ %534, %531 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !138
   %.044.i = load i32, ptr %.044.in.i, align 4, !tbaa !63
   %536 = mul nsw i32 %.044.i, %.045.i

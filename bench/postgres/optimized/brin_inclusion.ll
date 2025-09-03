@@ -5,6 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
+%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
+%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [27 x i8] c"invalid strategy number %d\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"brin_inclusion.c\00", align 1
@@ -531,81 +533,73 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef readonly
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 196
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, %2
-  br i1 %.not, label %20, label %.preheader
+  br i1 %.not, label %17, label %.preheader
 
-.preheader:                                       ; preds = %4
-  %14 = getelementptr i8, ptr %11, i64 152
-  br label %15
-
-15:                                               ; preds = %.preheader, %15
-  %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = mul nuw nsw i64 %indvars.iv, 48
-  %17 = getelementptr i8, ptr %14, i64 %16
-  %18 = getelementptr i8, ptr %17, i64 8
-  store i32 0, ptr %18, align 8
+.preheader:                                       ; preds = %4, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %4 ]
+  %14 = getelementptr %struct.FmgrInfo, ptr %11, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %14, i64 160
+  store i32 0, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 31
-  br i1 %exitcond.not, label %19, label %15, !llvm.loop !6
+  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !6
 
-19:                                               ; preds = %15
+16:                                               ; preds = %.preheader
   store i32 %2, ptr %12, align 4
-  br label %20
+  br label %17
 
-20:                                               ; preds = %19, %4
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 200
-  %22 = zext i16 %3 to i64
-  %23 = getelementptr %struct.FmgrInfo, ptr %21, i64 %22
-  %24 = getelementptr i8, ptr %23, i64 -48
-  %25 = getelementptr i8, ptr %23, i64 -40
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %59
+17:                                               ; preds = %16, %4
+  %18 = zext i16 %3 to i64
+  %19 = getelementptr %struct.FmgrInfo, ptr %11, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 152
+  %21 = getelementptr i8, ptr %19, i64 160
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %54
 
-28:                                               ; preds = %20
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 360
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 360
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i32, ptr %28, i64 %7
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %7
-  %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = load i32, ptr %36, align 8
-  %38 = sext i32 %37 to i64
-  %39 = shl nsw i64 %38, 4
-  %40 = getelementptr i8, ptr %36, i64 %39
-  %41 = zext i32 %34 to i64
-  %.idx = mul nsw i64 %7, 100
-  %42 = getelementptr i8, ptr %40, i64 92
-  %43 = getelementptr i8, ptr %42, i64 %.idx
-  %44 = load i32, ptr %43, align 4
-  %45 = zext i32 %44 to i64
-  %46 = zext i32 %2 to i64
-  %47 = sext i16 %3 to i64
-  %48 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %41, i64 noundef %45, i64 noundef %46, i64 noundef %47) #4
-  %.not35 = icmp eq ptr %48, null
-  br i1 %.not35, label %49, label %54
+  %33 = load i32, ptr %32, align 8
+  %34 = sext i32 %33 to i64
+  %35 = shl nsw i64 %34, 4
+  %36 = getelementptr i8, ptr %32, i64 %35
+  %37 = zext i32 %30 to i64
+  %38 = getelementptr %struct.FormData_pg_attribute, ptr %36, i64 %7, i32 17
+  %39 = load i32, ptr %38, align 4
+  %40 = zext i32 %39 to i64
+  %41 = zext i32 %2 to i64
+  %42 = sext i16 %3 to i64
+  %43 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %37, i64 noundef %40, i64 noundef %41, i64 noundef %42) #4
+  %.not35 = icmp eq ptr %43, null
+  br i1 %.not35, label %44, label %49
 
-49:                                               ; preds = %28
-  %50 = zext i16 %3 to i32
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %51)
-  %52 = load i32, ptr %43, align 4
-  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %50, i32 noundef %52, i32 noundef %2, i32 noundef %34) #4
+44:                                               ; preds = %24
+  %45 = zext i16 %3 to i32
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  tail call void @llvm.assume(i1 %46)
+  %47 = load i32, ptr %38, align 4
+  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %45, i32 noundef %47, i32 noundef %2, i32 noundef %30) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__func__.inclusion_get_strategy_procinfo) #4
   unreachable
 
-54:                                               ; preds = %28
-  %55 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %48, i16 noundef signext 7) #4
-  %56 = trunc i64 %55 to i32
-  tail call void @ReleaseSysCache(ptr noundef nonnull %48) #4
-  %57 = tail call i32 @get_opcode(i32 noundef %56) #4
-  %58 = load ptr, ptr %0, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %57, ptr noundef %24, ptr noundef %58) #4
-  br label %59
+49:                                               ; preds = %24
+  %50 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %43, i16 noundef signext 7) #4
+  %51 = trunc i64 %50 to i32
+  tail call void @ReleaseSysCache(ptr noundef nonnull %43) #4
+  %52 = tail call i32 @get_opcode(i32 noundef %51) #4
+  %53 = load ptr, ptr %0, align 8
+  tail call void @fmgr_info_cxt(i32 noundef %52, ptr noundef %20, ptr noundef %53) #4
+  br label %54
 
-59:                                               ; preds = %54, %20
-  ret ptr %24
+54:                                               ; preds = %49, %17
+  ret ptr %20
 }
 
 ; Function Attrs: cold

@@ -49873,11 +49873,11 @@ _ZN12_GLOBAL__N_116AArch64AsmParser10PrefixInfo14CreateFromInstERKN4llvm6MCInstE
   %106 = load i16, ptr %51, align 8, !tbaa !1557
   %107 = zext i16 %106 to i64
   %108 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %51, i64 %107
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %110 = load i16, ptr %90, align 4, !tbaa !1558
-  %111 = zext i16 %110 to i64
-  %112 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %109, i64 %111
-  %113 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %112, i64 %indvars.iv, i32 3
+  %109 = load i16, ptr %90, align 4, !tbaa !1558
+  %110 = zext i16 %109 to i64
+  %111 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %108, i64 %110
+  %112 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %111, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 36
   %114 = load i16, ptr %113, align 2, !tbaa !1559
   %115 = and i16 %114, 1
   %.not.i = icmp eq i16 %115, 0

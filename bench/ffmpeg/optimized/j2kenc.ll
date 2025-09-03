@@ -5,6 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
 %union.anon.0 = type { i64 }
+%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 %struct.Jpeg2000Tile = type { ptr, ptr }
 %struct.Jpeg2000Component = type { ptr, %struct.DWTContext, ptr, ptr, [2 x [2 x i32]], [2 x [2 x i32]], i8 }
 %struct.DWTContext = type { [32 x [2 x i32]], [32 x [2 x i8]], i8, i8, ptr, ptr }
@@ -274,27 +275,26 @@ parse_layer_rates.exit:                           ; preds = %34, %12, %19
   %89 = zext i8 %88 to i32
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %89, ptr %90, align 4, !tbaa !59
-  %91 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %92 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  br label %94
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  br label %93
 
-94:                                               ; preds = %77, %94
-  %indvars.iv = phi i64 [ 0, %77 ], [ %indvars.iv.next, %94 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %95 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx
+93:                                               ; preds = %77, %93
+  %indvars.iv = phi i64 [ 0, %77 ], [ %indvars.iv.next, %93 ]
+  %94 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %8, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %96 = load i32, ptr %95, align 4, !tbaa !60
   %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv
   store i8 %97, ptr %98, align 1, !tbaa !62
   %99 = trunc i64 %indvars.iv to i8
-  %100 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv
   store i8 %99, ptr %100, align 1, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %101, label %94, !llvm.loop !63
+  br i1 %exitcond.not, label %101, label %93, !llvm.loop !63
 
-101:                                              ; preds = %94
+101:                                              ; preds = %93
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %103 = load i64, ptr %102, align 8, !tbaa !64
   %104 = and i64 %103, 16
@@ -323,7 +323,7 @@ parse_layer_rates.exit:                           ; preds = %34, %12, %19
   br i1 %.not78, label %120, label %117
 
 117:                                              ; preds = %114
-  store i8 2, ptr %93, align 4, !tbaa !62
+  store i8 2, ptr %92, align 4, !tbaa !62
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 37
   store i8 0, ptr %118, align 1, !tbaa !62
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 38
@@ -351,7 +351,7 @@ parse_layer_rates.exit:                           ; preds = %34, %12, %19
   br i1 %130, label %.lr.ph.i80, label %._crit_edge.i
 
 .lr.ph.i80:                                       ; preds = %.preheader.i79
-  %131 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv57.i
+  %131 = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv57.i
   br label %132
 
 132:                                              ; preds = %179, %.lr.ph.i80
@@ -614,7 +614,7 @@ init_quantization.exit:                           ; preds = %._crit_edge.i, %120
 .thread104.i:                                     ; preds = %277, %237
   %282 = phi i32 [ %279, %277 ], [ 1, %237 ]
   %283 = phi i32 [ %281, %277 ], [ 1, %237 ]
-  %.shrunk.in.i = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv138.i
+  %.shrunk.in.i = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv138.i
   %.shrunk.i = load i8, ptr %.shrunk.in.i, align 1, !tbaa !62
   %284 = zext i8 %.shrunk.i to i32
   %285 = load ptr, ptr %9, align 8, !tbaa !28
@@ -711,7 +711,7 @@ init_quantization.exit:                           ; preds = %._crit_edge.i, %120
   %328 = mul nsw i32 %319, %314
   %329 = sitofp i32 %328 to double
   %330 = fmul nsz double %300, %329
-  %331 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv68.i.i
+  %331 = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv68.i.i
   br label %332
 
 332:                                              ; preds = %350, %.thread.us.us.us.us.us.us.i.i

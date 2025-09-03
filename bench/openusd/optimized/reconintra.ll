@@ -1187,35 +1187,33 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %32 = shl i32 %13, 2
   %33 = shl i32 %14, 2
   %.not = icmp eq i32 %7, 0
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br i1 %.not, label %86, label %35
+  br i1 %.not, label %85, label %34
 
-35:                                               ; preds = %16
-  %36 = icmp ne i32 %15, 0
-  %37 = zext i1 %36 to i64
-  %.offs = select i1 %36, i64 2768, i64 160
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.offs
-  %39 = load ptr, ptr %38, align 16
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 47796
-  %41 = getelementptr inbounds nuw i16, ptr %40, i64 %37
-  %42 = load i16, ptr %41, align 2
-  %43 = zext i16 %42 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %26, i64 102
-  %46 = shl nsw i32 %15, 3
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i16, ptr %45, i64 %47
-  %49 = getelementptr i8, ptr %1, i64 7960
-  %.val = load ptr, ptr %49, align 8
-  %50 = getelementptr i8, ptr %.val, i64 192
-  %.val.val = load i32, ptr %50, align 8
-  %51 = and i32 %.val.val, 8
-  %.not202 = icmp eq i32 %51, 0
+34:                                               ; preds = %16
+  %35 = icmp ne i32 %15, 0
+  %36 = zext i1 %35 to i64
+  %37 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %1, i64 %36, i32 11
+  %38 = load ptr, ptr %37, align 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 47796
+  %40 = getelementptr inbounds nuw i16, ptr %39, i64 %36
+  %41 = load i16, ptr %40, align 2
+  %42 = zext i16 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 102
+  %45 = shl nsw i32 %15, 3
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i16, ptr %44, i64 %46
+  %48 = getelementptr i8, ptr %1, i64 7960
+  %.val = load ptr, ptr %48, align 8
+  %49 = getelementptr i8, ptr %.val, i64 192
+  %.val.val = load i32, ptr %49, align 8
+  %50 = and i32 %.val.val, 8
+  %.not202 = icmp eq i32 %50, 0
   br i1 %.not202, label %.preheader.us.preheader, label %.preheader354.us.preheader
 
-.preheader.us.preheader:                          ; preds = %35
+.preheader.us.preheader:                          ; preds = %34
   %smax397 = tail call i32 @llvm.smax.i32(i32 %29, i32 1)
-  %52 = sext i32 %12 to i64
+  %51 = sext i32 %12 to i64
   %smax403 = tail call i32 @llvm.smax.i32(i32 %31, i32 1)
   %wide.trip.count404 = zext nneg i32 %smax403 to i64
   %wide.trip.count398 = zext nneg i32 %smax397 to i64
@@ -1223,42 +1221,42 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us366
   %indvars.iv400 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next401, %._crit_edge.us366 ]
-  %53 = trunc i64 %indvars.iv400 to i32
-  %54 = add i32 %33, %53
-  %55 = mul i32 %54, %2
-  %56 = add i32 %55, %32
-  %57 = mul nsw i64 %indvars.iv400, %52
-  %invariant.gep473 = getelementptr i8, ptr %11, i64 %57
-  br label %58
+  %52 = trunc i64 %indvars.iv400 to i32
+  %53 = add i32 %33, %52
+  %54 = mul i32 %53, %2
+  %55 = add i32 %54, %32
+  %56 = mul nsw i64 %indvars.iv400, %51
+  %invariant.gep473 = getelementptr i8, ptr %11, i64 %56
+  br label %57
 
-58:                                               ; preds = %.preheader.us, %58
-  %indvars.iv394 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next395, %58 ]
-  %59 = trunc nuw nsw i64 %indvars.iv394 to i32
-  %60 = add i32 %56, %59
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %44, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw i16, ptr %48, i64 %64
-  %66 = load i16, ptr %65, align 2
-  %67 = trunc i16 %66 to i8
+57:                                               ; preds = %.preheader.us, %57
+  %indvars.iv394 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next395, %57 ]
+  %58 = trunc nuw nsw i64 %indvars.iv394 to i32
+  %59 = add i32 %55, %58
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds i8, ptr %43, i64 %60
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i64
+  %64 = getelementptr inbounds nuw i16, ptr %47, i64 %63
+  %65 = load i16, ptr %64, align 2
+  %66 = trunc i16 %65 to i8
   %gep474 = getelementptr i8, ptr %invariant.gep473, i64 %indvars.iv394
-  store i8 %67, ptr %gep474, align 1
+  store i8 %66, ptr %gep474, align 1
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count398
-  br i1 %exitcond399.not, label %._crit_edge.us366, label %58, !llvm.loop !32
+  br i1 %exitcond399.not, label %._crit_edge.us366, label %57, !llvm.loop !32
 
-._crit_edge.us366:                                ; preds = %58
+._crit_edge.us366:                                ; preds = %57
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %exitcond405.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count404
   br i1 %exitcond405.not, label %.loopexit, label %.preheader.us, !llvm.loop !33
 
-.preheader354.us.preheader:                       ; preds = %35
-  %68 = ptrtoint ptr %11 to i64
-  %69 = shl i64 %68, 1
-  %70 = inttoptr i64 %69 to ptr
+.preheader354.us.preheader:                       ; preds = %34
+  %67 = ptrtoint ptr %11 to i64
+  %68 = shl i64 %67, 1
+  %69 = inttoptr i64 %68 to ptr
   %smax = tail call i32 @llvm.smax.i32(i32 %29, i32 1)
-  %71 = sext i32 %12 to i64
+  %70 = sext i32 %12 to i64
   %smax391 = tail call i32 @llvm.smax.i32(i32 %31, i32 1)
   %wide.trip.count392 = zext nneg i32 %smax391 to i64
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -1266,38 +1264,39 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
 
 .preheader354.us:                                 ; preds = %.preheader354.us.preheader, %._crit_edge.us
   %indvars.iv388 = phi i64 [ 0, %.preheader354.us.preheader ], [ %indvars.iv.next389, %._crit_edge.us ]
-  %72 = trunc i64 %indvars.iv388 to i32
-  %73 = add i32 %33, %72
-  %74 = mul i32 %73, %2
-  %75 = add i32 %74, %32
-  %76 = mul nsw i64 %indvars.iv388, %71
-  %invariant.gep = getelementptr i16, ptr %70, i64 %76
-  br label %77
+  %71 = trunc i64 %indvars.iv388 to i32
+  %72 = add i32 %33, %71
+  %73 = mul i32 %72, %2
+  %74 = add i32 %73, %32
+  %75 = mul nsw i64 %indvars.iv388, %70
+  %invariant.gep = getelementptr i16, ptr %69, i64 %75
+  br label %76
 
-77:                                               ; preds = %.preheader354.us, %77
-  %indvars.iv = phi i64 [ 0, %.preheader354.us ], [ %indvars.iv.next, %77 ]
-  %78 = trunc nuw nsw i64 %indvars.iv to i32
-  %79 = add i32 %75, %78
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %44, i64 %80
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %48, i64 %83
-  %85 = load i16, ptr %84, align 2
+76:                                               ; preds = %.preheader354.us, %76
+  %indvars.iv = phi i64 [ 0, %.preheader354.us ], [ %indvars.iv.next, %76 ]
+  %77 = trunc nuw nsw i64 %indvars.iv to i32
+  %78 = add i32 %74, %77
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %43, i64 %79
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i64
+  %83 = getelementptr inbounds nuw i16, ptr %47, i64 %82
+  %84 = load i16, ptr %83, align 2
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
-  store i16 %85, ptr %gep, align 2
+  store i16 %84, ptr %gep, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %77, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge.us, label %76, !llvm.loop !34
 
-._crit_edge.us:                                   ; preds = %77
+._crit_edge.us:                                   ; preds = %76
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %exitcond393.not = icmp eq i64 %indvars.iv.next389, %wide.trip.count392
   br i1 %exitcond393.not, label %.loopexit, label %.preheader354.us, !llvm.loop !35
 
-86:                                               ; preds = %16
+85:                                               ; preds = %16
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %87 = sext i32 %15 to i64
-  %88 = getelementptr inbounds %struct.macroblockd_plane, ptr %34, i64 %87
+  %88 = getelementptr inbounds %struct.macroblockd_plane, ptr %86, i64 %87
   %89 = getelementptr inbounds nuw i32, ptr @tx_size_wide_unit, i64 %27
   %90 = load i32, ptr %89, align 4
   %91 = getelementptr inbounds nuw i32, ptr @tx_size_high_unit, i64 %27
@@ -1309,7 +1308,7 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %.not191 = icmp eq i32 %14, 0
   br i1 %.not191, label %97, label %99
 
-97:                                               ; preds = %86
+97:                                               ; preds = %85
   %.not192 = icmp eq i32 %96, 0
   %.in.in.in.v = select i1 %.not192, i64 7872, i64 7874
   %.in.in.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in.in.in.v
@@ -1318,8 +1317,8 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %98 = icmp ne i8 %.in, 0
   br label %99
 
-99:                                               ; preds = %97, %86
-  %100 = phi i1 [ true, %86 ], [ %98, %97 ]
+99:                                               ; preds = %97, %85
+  %100 = phi i1 [ true, %85 ], [ %98, %97 ]
   %.not193 = icmp eq i32 %13, 0
   br i1 %.not193, label %101, label %103
 

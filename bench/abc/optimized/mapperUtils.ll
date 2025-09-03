@@ -4,6 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.Map_TimeStruct_t_ = type { float, float, float }
+%struct.Map_MatchStruct_t_ = type { ptr, i32, i32, ptr, %struct.Map_TimeStruct_t_, float }
 
 @.str = private unnamed_addr constant [16 x i8] c"Output  %-*s : \00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Delay = (%5.2f, %5.2f)  \00", align 1
@@ -401,13 +402,11 @@ define void @Map_MappingPrintOutputArrivals(ptr noundef readonly captures(none) 
   %27 = xor i64 %26, 1
   %28 = and i64 %23, 1
   %29 = xor i64 %28, 1
-  %.idx.i.i = mul nuw nsw i64 %27, 12
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 104
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i
+  %30 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %22, i64 %27
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %32 = load float, ptr %31, align 4, !tbaa !40
-  %.idx14.i.i = mul nuw nsw i64 %29, 12
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 104
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx14.i.i
+  %33 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %25, i64 %29
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 104
   %35 = load float, ptr %34, align 4, !tbaa !40
   %36 = fcmp uge float %32, %35
   br i1 %36, label %37, label %9, !llvm.loop !42
@@ -828,9 +827,8 @@ define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr noundef readonly captu
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !39
-  %.idx = mul nsw i64 %5, 40
-  %8 = getelementptr i8, ptr %1, i64 96
-  %9 = getelementptr i8, ptr %8, i64 %.idx
+  %8 = getelementptr %struct.Map_MatchStruct_t_, ptr %1, i64 %5
+  %9 = getelementptr i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !63
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
@@ -879,9 +877,8 @@ define float @Map_MappingGetAreaFlow(ptr noundef readonly captures(none) %0) loc
   %spec.select = select i1 %24, i64 %19, i64 %20
   %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %spec.select
   %26 = load ptr, ptr %25, align 8, !tbaa !66
-  %.idx = mul nuw nsw i64 %spec.select, 40
-  %27 = getelementptr i8, ptr %26, i64 116
-  %28 = getelementptr i8, ptr %27, i64 %.idx
+  %27 = getelementptr %struct.Map_MatchStruct_t_, ptr %26, i64 %spec.select
+  %28 = getelementptr i8, ptr %27, i64 116
   %29 = load float, ptr %28, align 4, !tbaa !67
   %30 = fadd float %.01921, %29
   br label %31

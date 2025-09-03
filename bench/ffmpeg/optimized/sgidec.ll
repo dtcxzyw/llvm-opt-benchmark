@@ -466,13 +466,11 @@ bytestream2_get_byte.exit.i.us.us:                ; preds = %113, %110
 bytestream2_get_byte.exit31.i.us.us:              ; preds = %122, %119
   %.0.i30.i.us.us = phi i8 [ 0, %122 ], [ %121, %119 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.02240.i.us.us, i8 %.0.i30.i.us.us, i64 %100, i1 false), !tbaa !19
-  %scevgep.i.us.us = getelementptr i8, ptr %.02240.i.us.us, i64 1
-  %123 = getelementptr i8, ptr %scevgep.i.us.us, i64 %100
-  %scevgep46.i.us.us = getelementptr i8, ptr %123, i64 -1
+  %123 = getelementptr i8, ptr %.02240.i.us.us, i64 %100
   br label %.loopexit.i.us.us
 
 .loopexit.i.us.us:                                ; preds = %bytestream2_get_byte.exit.i.us.us, %bytestream2_get_byte.exit31.i.us.us
-  %.2.i.us.us = phi ptr [ %scevgep46.i.us.us, %bytestream2_get_byte.exit31.i.us.us ], [ %114, %bytestream2_get_byte.exit.i.us.us ]
+  %.2.i.us.us = phi ptr [ %123, %bytestream2_get_byte.exit31.i.us.us ], [ %114, %bytestream2_get_byte.exit.i.us.us ]
   %124 = icmp ult ptr %.2.i.us.us, %83
   br i1 %124, label %85, label %._crit_edge.i.loopexit.us.us, !llvm.loop !41
 

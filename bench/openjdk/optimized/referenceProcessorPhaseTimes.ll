@@ -811,32 +811,29 @@ _ZN15WorkerDataArrayIdED2Ev.exit8:                ; preds = %27
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN28ReferenceProcessorPhaseTimes15add_ref_droppedE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = sext i32 %1 to i64
-  %6 = getelementptr i64, ptr %4, i64 %5
-  %7 = getelementptr i8, ptr %6, i64 -8
-  %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull %7) #11, !srcloc !14
+  %4 = sext i32 %1 to i64
+  %5 = getelementptr i64, ptr %0, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 96
+  %7 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull %6) #11, !srcloc !14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN28ReferenceProcessorPhaseTimes18set_ref_discoveredE13ReferenceTypem(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %5 = sext i32 %1 to i64
-  %6 = getelementptr i64, ptr %4, i64 %5
-  %7 = getelementptr i8, ptr %6, i64 -8
-  store i64 %2, ptr %7, align 8
+  %4 = sext i32 %1 to i64
+  %5 = getelementptr i64, ptr %0, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 128
+  store i64 %2, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = sext i32 %1 to i64
-  %5 = getelementptr i64, ptr %3, i64 %4
-  %6 = getelementptr i8, ptr %5, i64 -8
-  %7 = load i64, ptr %6, align 8
-  ret i64 %7
+  %3 = sext i32 %1 to i64
+  %4 = getelementptr i64, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 128
+  %6 = load i64, ptr %5, align 8
+  ret i64 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

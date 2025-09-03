@@ -4878,8 +4878,8 @@ _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit222: ; preds = %.noexc220
 
 _ZN6icu_7713UnicodeStringaSEi.exit:               ; preds = %155
   %167 = icmp eq i64 %indvars.iv, 0
-  %168 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %36, i64 %indvars.iv
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 1088
+  %168 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 1096
   %.0.i = select i1 %167, ptr %148, ptr %169
   %.sroa.sel372 = select i1 %3, ptr %.sroa.gep364, ptr %157
   %170 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel372, ptr noundef nonnull align 8 dereferenceable(64) %.0.i)

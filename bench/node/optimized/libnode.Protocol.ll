@@ -24465,10 +24465,9 @@ if.end29:                                         ; preds = %if.else19, %if.else
 
 while.body35.preheader:                           ; preds = %if.end29
   %and18 = and i32 %.sink, %conv5
-  %scevgep = getelementptr i8, ptr %start.addr.0187, i64 2
   %4 = zext nneg i32 %num_bytes_left.0 to i64
-  %5 = getelementptr i8, ptr %scevgep, i64 %4
-  %scevgep194 = getelementptr i8, ptr %5, i64 -1
+  %5 = getelementptr i8, ptr %start.addr.0187, i64 %4
+  %scevgep194 = getelementptr i8, ptr %5, i64 1
   br label %while.body35
 
 while.body35:                                     ; preds = %while.body35.preheader, %if.end42

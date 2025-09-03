@@ -1275,7 +1275,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 20:                                               ; preds = %16, %HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit
   %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
-  br label %287
+  br label %285
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr %6, align 8
@@ -1605,82 +1605,80 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
   br i1 %exitcond.not.i, label %.loopexit.i, label %236, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %236, %.loopexit.i.i
-  %239 = getelementptr inbounds nuw i8, ptr %23, i64 36
-  %240 = getelementptr inbounds nuw i8, ptr %23, i64 110
-  %241 = getelementptr inbounds nuw i8, ptr %23, i64 112
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %244 = getelementptr inbounds nuw i8, ptr %23, i64 106
-  %245 = getelementptr inbounds nuw i8, ptr %23, i64 108
-  br label %246
+  %239 = getelementptr inbounds nuw i8, ptr %23, i64 110
+  %240 = getelementptr inbounds nuw i8, ptr %23, i64 112
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %243 = getelementptr inbounds nuw i8, ptr %23, i64 106
+  %244 = getelementptr inbounds nuw i8, ptr %23, i64 108
+  br label %245
 
-246:                                              ; preds = %284, %.loopexit.i
-  %indvars.iv35.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next36.i, %284 ]
-  %247 = shl nuw nsw i64 %indvars.iv35.i, 3
-  %248 = getelementptr inbounds nuw i8, ptr %239, i64 %247
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
-  %250 = load float, ptr %249, align 4
-  %251 = fpext float %250 to double
-  %252 = icmp samesign ult i64 %indvars.iv35.i, 3
-  br i1 %252, label %253, label %269
+245:                                              ; preds = %282, %.loopexit.i
+  %indvars.iv35.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next36.i, %282 ]
+  %246 = getelementptr inbounds nuw %struct.IMUCalibrationData, ptr %23, i64 %indvars.iv35.i
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 40
+  %248 = load float, ptr %247, align 4
+  %249 = fpext float %248 to double
+  %250 = icmp samesign ult i64 %indvars.iv35.i, 3
+  br i1 %250, label %251, label %267
 
-253:                                              ; preds = %246
-  %254 = load i16, ptr %244, align 2
+251:                                              ; preds = %245
+  %252 = load i16, ptr %243, align 2
+  %253 = uitofp i16 %252 to double
+  %254 = load i16, ptr %244, align 4
   %255 = uitofp i16 %254 to double
-  %256 = load i16, ptr %245, align 4
-  %257 = uitofp i16 %256 to double
-  %258 = fdiv double %255, %257
-  %259 = fmul double %258, 0x400921FB54442D18
-  %260 = fdiv double %259, 1.800000e+02
-  %261 = fmul double %260, %251
-  %262 = load i16, ptr %242, align 8
-  %263 = icmp eq i16 %262, 1356
-  br i1 %263, label %264, label %284
+  %256 = fdiv double %253, %255
+  %257 = fmul double %256, 0x400921FB54442D18
+  %258 = fdiv double %257, 1.800000e+02
+  %259 = fmul double %258, %249
+  %260 = load i16, ptr %241, align 8
+  %261 = icmp eq i16 %260, 1356
+  br i1 %261, label %262, label %282
 
-264:                                              ; preds = %253
-  %265 = load i16, ptr %243, align 2
-  %266 = icmp eq i16 %265, 1477
-  br i1 %266, label %267, label %284
+262:                                              ; preds = %251
+  %263 = load i16, ptr %242, align 2
+  %264 = icmp eq i16 %263, 1477
+  br i1 %264, label %265, label %282
 
-267:                                              ; preds = %264
-  %268 = fmul double %261, 2.000000e+00
-  br label %284
+265:                                              ; preds = %262
+  %266 = fmul double %259, 2.000000e+00
+  br label %282
 
-269:                                              ; preds = %246
-  %270 = load i16, ptr %240, align 2
+267:                                              ; preds = %245
+  %268 = load i16, ptr %239, align 2
+  %269 = uitofp i16 %268 to double
+  %270 = load i16, ptr %240, align 8
   %271 = uitofp i16 %270 to double
-  %272 = load i16, ptr %241, align 8
-  %273 = uitofp i16 %272 to double
-  %274 = fdiv double %271, %273
-  %275 = fmul double %274, 0x40239D0140000000
-  %276 = fmul double %275, %251
-  %277 = load i16, ptr %242, align 8
-  %278 = icmp eq i16 %277, 1356
-  br i1 %278, label %279, label %284
+  %272 = fdiv double %269, %271
+  %273 = fmul double %272, 0x40239D0140000000
+  %274 = fmul double %273, %249
+  %275 = load i16, ptr %241, align 8
+  %276 = icmp eq i16 %275, 1356
+  br i1 %276, label %277, label %282
 
-279:                                              ; preds = %269
-  %280 = load i16, ptr %243, align 2
-  %281 = icmp eq i16 %280, 1477
-  br i1 %281, label %282, label %284
+277:                                              ; preds = %267
+  %278 = load i16, ptr %242, align 2
+  %279 = icmp eq i16 %278, 1477
+  br i1 %279, label %280, label %282
 
-282:                                              ; preds = %279
-  %283 = fmul double %276, -2.000000e+00
-  br label %284
+280:                                              ; preds = %277
+  %281 = fmul double %274, -2.000000e+00
+  br label %282
 
-284:                                              ; preds = %282, %279, %269, %267, %264, %253
-  %.0.i = phi double [ %268, %267 ], [ %261, %264 ], [ %261, %253 ], [ %283, %282 ], [ %276, %279 ], [ %276, %269 ]
-  %285 = fptrunc double %.0.i to float
-  store float %285, ptr %249, align 4
+282:                                              ; preds = %280, %277, %267, %265, %262, %251
+  %.0.i = phi double [ %266, %265 ], [ %259, %262 ], [ %259, %251 ], [ %281, %280 ], [ %274, %277 ], [ %274, %267 ]
+  %283 = fptrunc double %.0.i to float
+  store float %283, ptr %247, align 4
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 6
-  br i1 %exitcond38.not.i, label %.critedge, label %246, !llvm.loop !12
+  br i1 %exitcond38.not.i, label %.critedge, label %245, !llvm.loop !12
 
-.critedge:                                        ; preds = %284, %15
-  %286 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 %5, ptr %286, align 8
-  br label %287
+.critedge:                                        ; preds = %282, %15
+  %284 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 %5, ptr %284, align 8
+  br label %285
 
-287:                                              ; preds = %.critedge, %20
+285:                                              ; preds = %.critedge, %20
   %.0 = phi i1 [ true, %.critedge ], [ %21, %20 ]
   ret i1 %.0
 }

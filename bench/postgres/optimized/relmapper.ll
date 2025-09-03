@@ -574,22 +574,21 @@ define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %
   %.sroa.01.4.insert.ext = zext i32 %4 to i64
   %.sroa.01.4.insert.shift = shl nuw i64 %.sroa.01.4.insert.ext, 32
   %.sroa.01.4.insert.insert = or disjoint i64 %.sroa.01.4.insert.shift, %.sroa.01.0.insert.ext
-  %63 = getelementptr i8, ptr %0, i64 12
-  br label %64
+  br label %63
 
-64:                                               ; preds = %.lr.ph, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 3
-  %65 = getelementptr i8, ptr %63, i64 %.idx
+63:                                               ; preds = %.lr.ph, %63
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %64 = getelementptr %struct.RelMapping, ptr %0, i64 %indvars.iv
+  %65 = getelementptr i8, ptr %64, i64 12
   %66 = load i32, ptr %65, align 4
   call void @RelationPreserveStorage(i64 %.sroa.01.4.insert.insert, i32 %66, i1 noundef zeroext false) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = load i32, ptr %11, align 4
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %64, label %.loopexit, !llvm.loop !14
+  br i1 %69, label %63, label %.loopexit, !llvm.loop !14
 
-.loopexit:                                        ; preds = %64, %.preheader, %60
+.loopexit:                                        ; preds = %63, %.preheader, %60
   br i1 %1, label %70, label %73
 
 70:                                               ; preds = %.loopexit

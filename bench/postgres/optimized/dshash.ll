@@ -328,12 +328,11 @@ define dso_local nonnull ptr @dshash_find_or_insert(ptr noundef captures(none) %
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.idx = mul nuw nsw i64 %12, 24
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
+  %15 = getelementptr inbounds nuw %struct.dshash_partition, ptr %14, i64 %12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
   br label %20
 
 20:                                               ; preds = %resize.exit, %3
@@ -341,7 +340,7 @@ define dso_local nonnull ptr @dshash_find_or_insert(ptr noundef captures(none) %
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = getelementptr inbounds nuw %struct.dshash_partition, ptr %22, i64 %12
   %24 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 0) #13
-  %25 = load i64, ptr %15, align 8
+  %25 = load i64, ptr %16, align 8
   %26 = load ptr, ptr %13, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3096
   %28 = load i64, ptr %27, align 8
@@ -349,7 +348,7 @@ define dso_local nonnull ptr @dshash_find_or_insert(ptr noundef captures(none) %
   br i1 %.not.i, label %.ensure_valid_bucket_pointers.exit_crit_edge, label %29
 
 .ensure_valid_bucket_pointers.exit_crit_edge:     ; preds = %20
-  %.pre47 = load ptr, ptr %16, align 8
+  %.pre46 = load ptr, ptr %17, align 8
   br label %ensure_valid_bucket_pointers.exit
 
 29:                                               ; preds = %20
@@ -357,16 +356,16 @@ define dso_local nonnull ptr @dshash_find_or_insert(ptr noundef captures(none) %
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 3104
   %32 = load i64, ptr %31, align 8
   %33 = tail call ptr @dsa_get_address(ptr noundef %30, i64 noundef %32) #13
-  store ptr %33, ptr %16, align 8
+  store ptr %33, ptr %17, align 8
   %34 = load ptr, ptr %13, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 3096
   %36 = load i64, ptr %35, align 8
-  store i64 %36, ptr %15, align 8
+  store i64 %36, ptr %16, align 8
   br label %ensure_valid_bucket_pointers.exit
 
 ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucket_pointers.exit_crit_edge, %29
   %37 = phi i64 [ %25, %.ensure_valid_bucket_pointers.exit_crit_edge ], [ %36, %29 ]
-  %38 = phi ptr [ %.pre47, %.ensure_valid_bucket_pointers.exit_crit_edge ], [ %33, %29 ]
+  %38 = phi ptr [ %.pre46, %.ensure_valid_bucket_pointers.exit_crit_edge ], [ %33, %29 ]
   %39 = trunc i64 %37 to i32
   %40 = sub i32 32, %39
   %41 = lshr i32 %10, %40
@@ -381,7 +380,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
   %45 = load ptr, ptr %0, align 8
   %46 = tail call ptr @dsa_get_address(ptr noundef %45, i64 noundef %.01016.i) #13
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load ptr, ptr %17, align 8
+  %48 = load ptr, ptr %18, align 8
   %49 = load i64, ptr %4, align 8
   %50 = load ptr, ptr %8, align 8
   %51 = tail call i32 %48(ptr noundef %1, ptr noundef nonnull %47, i64 noundef %49, ptr noundef %50) #13
@@ -400,7 +399,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
 .loopexit:                                        ; preds = %53, %ensure_valid_bucket_pointers.exit
   store i8 0, ptr %2, align 1
   %55 = load i64, ptr %19, align 8
-  %56 = load i64, ptr %15, align 8
+  %56 = load i64, ptr %16, align 8
   %57 = add i64 %56, -7
   %58 = shl nuw i64 1, %57
   %59 = lshr i64 %58, 1
@@ -414,7 +413,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = getelementptr inbounds nuw %struct.dshash_partition, ptr %65, i64 %12
   tail call void @LWLockRelease(ptr noundef nonnull %66) #13
-  %67 = load i64, ptr %15, align 8
+  %67 = load i64, ptr %16, align 8
   %68 = add i64 %67, 1
   br label %69
 
@@ -459,7 +458,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
 
 94:                                               ; preds = %._crit_edge.i, %83
   %.147.i = phi i64 [ 0, %83 ], [ %107, %._crit_edge.i ]
-  %95 = load ptr, ptr %16, align 8
+  %95 = load ptr, ptr %17, align 8
   %96 = getelementptr inbounds nuw i64, ptr %95, i64 %.147.i
   %97 = load i64, ptr %96, align 8
   %.not45.i = icmp eq i64 %97, 0
@@ -495,7 +494,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
   %113 = load ptr, ptr %13, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 3096
   store i64 %68, ptr %114, align 8
-  store ptr %88, ptr %16, align 8
+  store ptr %88, ptr %17, align 8
   %115 = load ptr, ptr %0, align 8
   tail call void @dsa_free(ptr noundef %115, i64 noundef %112) #13
   br label %116
@@ -515,7 +514,7 @@ resize.exit:                                      ; preds = %116, %79
   br label %20
 
 121:                                              ; preds = %.loopexit
-  %122 = load ptr, ptr %16, align 8
+  %122 = load ptr, ptr %17, align 8
   %123 = trunc i64 %56 to i32
   %124 = sub i32 32, %123
   %125 = lshr i32 %10, %124
@@ -627,9 +626,8 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
   tail call void @dsa_free(ptr noundef %52, i64 noundef %53) #13
   store i64 %51, ptr %.014.i, align 8
   %54 = load ptr, ptr %12, align 8
-  %.idx = mul nuw nsw i64 %11, 24
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx
+  %55 = getelementptr inbounds nuw %struct.dshash_partition, ptr %54, i64 %11
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, -1
   store i64 %58, ptr %56, align 8
@@ -679,9 +677,8 @@ define dso_local void @dshash_delete_entry(ptr noundef readonly captures(none) %
   %24 = lshr i64 %6, 25
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8
-  %.idx.i = mul nuw nsw i64 %24, 24
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i
+  %27 = getelementptr inbounds nuw %struct.dshash_partition, ptr %26, i64 %24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, -1
   store i64 %30, ptr %28, align 8
@@ -986,9 +983,8 @@ define dso_local void @dshash_delete_current(ptr noundef readonly captures(none)
   %25 = lshr i64 %7, 25
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %27 = load ptr, ptr %26, align 8
-  %.idx.i = mul nuw nsw i64 %25, 24
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
+  %28 = getelementptr inbounds nuw %struct.dshash_partition, ptr %27, i64 %25
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, -1
   store i64 %31, ptr %29, align 8
@@ -1044,30 +1040,29 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   br label %29
 
 .loopexit:                                        ; preds = %._crit_edge, %29
-  %exitcond46.not = icmp eq i64 %34, 128
+  %exitcond46.not = icmp eq i64 %35, 128
   br i1 %exitcond46.not, label %.preheader, label %29, !llvm.loop !16
 
 29:                                               ; preds = %ensure_valid_bucket_pointers.exit, %.loopexit
-  %.143 = phi i64 [ 0, %ensure_valid_bucket_pointers.exit ], [ %34, %.loopexit ]
+  %.143 = phi i64 [ 0, %ensure_valid_bucket_pointers.exit ], [ %35, %.loopexit ]
   %30 = load ptr, ptr %2, align 8
-  %31 = load i64, ptr %10, align 8
-  %32 = add i64 %31, -7
-  %33 = shl i64 %.143, %32
-  %34 = add nuw nsw i64 %.143, 1
-  %35 = shl i64 %34, %32
-  %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %36, ptr noundef nonnull @.str.4, i64 noundef %.143) #13
-  %38 = load ptr, ptr @stderr, align 8
-  %.idx = mul nuw nsw i64 %.143, 24
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
+  %31 = getelementptr inbounds nuw %struct.dshash_partition, ptr %30, i64 %.143
+  %32 = load i64, ptr %10, align 8
+  %33 = add i64 %32, -7
+  %34 = shl i64 %.143, %33
+  %35 = add nuw nsw i64 %.143, 1
+  %36 = shl i64 %35, %33
+  %37 = load ptr, ptr @stderr, align 8
+  %38 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %37, ptr noundef nonnull @.str.4, i64 noundef %.143) #13
+  %39 = load ptr, ptr @stderr, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %41 = load i64, ptr %40, align 8
-  %42 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %38, ptr noundef nonnull @.str.5, i64 noundef %41) #13
-  %43 = icmp ult i64 %33, %35
+  %42 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %39, ptr noundef nonnull @.str.5, i64 noundef %41) #13
+  %43 = icmp ult i64 %34, %36
   br i1 %43, label %.lr.ph42, label %.loopexit
 
 .lr.ph42:                                         ; preds = %29, %._crit_edge
-  %.03440 = phi i64 [ %51, %._crit_edge ], [ %33, %29 ]
+  %.03440 = phi i64 [ %51, %._crit_edge ], [ %34, %29 ]
   %44 = load ptr, ptr %28, align 8
   %45 = getelementptr inbounds nuw i64, ptr %44, i64 %.03440
   %.03236 = load i64, ptr %45, align 8
@@ -1089,7 +1084,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   %49 = load ptr, ptr @stderr, align 8
   %50 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %49, ptr noundef nonnull @.str.6, i64 noundef %.03440, i64 noundef %.033.lcssa) #13
   %51 = add nuw i64 %.03440, 1
-  %exitcond45.not = icmp eq i64 %51, %35
+  %exitcond45.not = icmp eq i64 %51, %36
   br i1 %exitcond45.not, label %.loopexit, label %.lr.ph42, !llvm.loop !18
 
 .preheader:                                       ; preds = %.loopexit, %.preheader

@@ -2610,8 +2610,8 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
 64:                                               ; preds = %61
   %65 = udiv i32 %62, 3
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr %"class.open_spiel::skat::Trick", ptr %52, i64 %66
-  %68 = getelementptr i8, ptr %67, i64 -32
+  %67 = getelementptr %"class.open_spiel::skat::Trick", ptr %1, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 192
   invoke void @_ZNK10open_spiel4skat5Trick8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %68)
           to label %69 unwind label %75
 
@@ -3293,266 +3293,265 @@ switch.lookup:                                    ; preds = %2
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -2, 3) i32 @_ZNK10open_spiel4skat9SkatState9WinsTrickEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %4 = load i32, ptr %3, align 4
-  %5 = sdiv i32 %4, 3
-  %6 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr %"class.open_spiel::skat::Trick", ptr %2, i64 %7
-  %9 = getelementptr i8, ptr %8, i64 -32
-  %10 = getelementptr i8, ptr %8, i64 -24
-  %11 = load ptr, ptr %10, align 8, !noalias !16
-  %12 = load ptr, ptr %9, align 8, !noalias !16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %3 = load i32, ptr %2, align 4
+  %4 = sdiv i32 %3, 3
+  %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
+  %6 = zext nneg i32 %5 to i64
+  %7 = getelementptr %"class.open_spiel::skat::Trick", ptr %0, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 192
+  %9 = getelementptr i8, ptr %7, i64 200
+  %10 = load ptr, ptr %9, align 8, !noalias !16
+  %11 = load ptr, ptr %8, align 8, !noalias !16
+  %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %12 to i64
-  %15 = sub i64 %13, %14
-  %.not.i.i.i.i.i = icmp eq ptr %11, %12
-  br i1 %.not.i.i.i.i.i, label %.thread.i, label %17
+  %14 = sub i64 %12, %13
+  %.not.i.i.i.i.i = icmp eq ptr %10, %11
+  br i1 %.not.i.i.i.i.i, label %.thread.i, label %16
 
 .thread.i:                                        ; preds = %1
-  %16 = getelementptr inbounds i8, ptr null, i64 %15
+  %15 = getelementptr inbounds i8, ptr null, i64 %14
   br label %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit
 
-17:                                               ; preds = %1
-  %18 = icmp ugt i64 %15, 9223372036854775804
-  br i1 %18, label %.noexc.i.i.i, label %19
+16:                                               ; preds = %1
+  %17 = icmp ugt i64 %14, 9223372036854775804
+  br i1 %17, label %.noexc.i.i.i, label %18
 
-.noexc.i.i.i:                                     ; preds = %17
+.noexc.i.i.i:                                     ; preds = %16
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #27, !noalias !16
   unreachable
 
-19:                                               ; preds = %17
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #30, !noalias !16
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %15
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %20, ptr align 4 %12, i64 %15, i1 false), !noalias !16
+18:                                               ; preds = %16
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #30, !noalias !16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %14
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %19, ptr align 4 %11, i64 %14, i1 false), !noalias !16
   br label %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit
 
-_ZNK10open_spiel4skat5Trick8GetCardsEv.exit:      ; preds = %.thread.i, %19
-  %.sroa.0.0 = phi ptr [ null, %.thread.i ], [ %20, %19 ]
-  %.sroa.14.0 = phi ptr [ %16, %.thread.i ], [ %21, %19 ]
-  %22 = icmp eq ptr %.sroa.0.0, %.sroa.14.0
-  br i1 %22, label %106, label %.preheader
+_ZNK10open_spiel4skat5Trick8GetCardsEv.exit:      ; preds = %.thread.i, %18
+  %.sroa.0.0 = phi ptr [ null, %.thread.i ], [ %19, %18 ]
+  %.sroa.14.0 = phi ptr [ %15, %.thread.i ], [ %20, %18 ]
+  %21 = icmp eq ptr %.sroa.0.0, %.sroa.14.0
+  br i1 %21, label %105, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit
-  %23 = ptrtoint ptr %.sroa.14.0 to i64
-  %24 = ptrtoint ptr %.sroa.0.0 to i64
-  %25 = sub i64 %23, %24
-  %26 = ashr exact i64 %25, 2
-  %27 = icmp ugt i64 %26, 1
-  br i1 %27, label %.lr.ph, label %._crit_edge
+  %22 = ptrtoint ptr %.sroa.14.0 to i64
+  %23 = ptrtoint ptr %.sroa.0.0 to i64
+  %24 = sub i64 %22, %23
+  %25 = ashr exact i64 %24, 2
+  %26 = icmp ugt i64 %25, 1
+  br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %28 = load i32, ptr %.sroa.0.0, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %30, 6
-  %32 = sdiv i32 %28, 8
-  br i1 %31, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i.us, label %.lr.ph.split
+  %27 = load i32, ptr %.sroa.0.0, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp eq i32 %29, 6
+  %31 = sdiv i32 %27, 8
+  br i1 %30, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i.us, label %.lr.ph.split
 
 _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i.us: ; preds = %.lr.ph, %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us ], [ 1, %.lr.ph ]
   %.01039.us = phi i32 [ %spec.select.us, %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us ], [ 0, %.lr.ph ]
-  %33 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv45
-  %34 = load i32, ptr %33, align 4
-  %35 = sdiv i32 %34, 8
-  %36 = srem i32 %34, 8
-  %37 = icmp eq i32 %35, %32
-  %38 = icmp sgt i32 %36, -1
-  %or.cond = and i1 %37, %38
+  %32 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv45
+  %33 = load i32, ptr %32, align 4
+  %34 = sdiv i32 %33, 8
+  %35 = srem i32 %33, 8
+  %36 = icmp eq i32 %34, %31
+  %37 = icmp sgt i32 %35, -1
+  %or.cond = and i1 %36, %37
   br i1 %or.cond, label %switch.lookup, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us
 
 switch.lookup:                                    ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i.us
-  %39 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel4skat9SkatState9WinsTrickEv.1, i64 %39
+  %38 = zext nneg i32 %35 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel4skat9SkatState9WinsTrickEv.1, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us
 
 _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us: ; preds = %switch.lookup, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i.us
   %.0.i.ph.us = phi i32 [ -1, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i.us ], [ %switch.load, %switch.lookup ]
-  %40 = zext nneg i32 %.01039.us to i64
-  %41 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %40
-  %42 = load i32, ptr %41, align 4
-  %43 = sdiv i32 %42, 8
-  %44 = srem i32 %42, 8
-  %45 = icmp eq i32 %43, %32
-  %46 = icmp sgt i32 %44, -1
-  %or.cond61 = and i1 %45, %46
+  %39 = zext nneg i32 %.01039.us to i64
+  %40 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %39
+  %41 = load i32, ptr %40, align 4
+  %42 = sdiv i32 %41, 8
+  %43 = srem i32 %41, 8
+  %44 = icmp eq i32 %42, %31
+  %45 = icmp sgt i32 %43, -1
+  %or.cond61 = and i1 %44, %45
   br i1 %or.cond61, label %switch.lookup57, label %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us
 
 switch.lookup57:                                  ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us
-  %47 = zext nneg i32 %44 to i64
-  %switch.gep58 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel4skat9SkatState9WinsTrickEv.1, i64 %47
+  %46 = zext nneg i32 %43 to i64
+  %switch.gep58 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel4skat9SkatState9WinsTrickEv.1, i64 %46
   %switch.load59 = load i32, ptr %switch.gep58, align 4
   br label %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us
 
 _ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us: ; preds = %switch.lookup57, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us
   %.0.i15.us = phi i32 [ -1, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us ], [ %switch.load59, %switch.lookup57 ]
-  %48 = icmp sgt i32 %.0.i.ph.us, %.0.i15.us
-  %49 = trunc nuw nsw i64 %indvars.iv45 to i32
-  %spec.select.us = select i1 %48, i32 %49, i32 %.01039.us
+  %47 = icmp sgt i32 %.0.i.ph.us, %.0.i15.us
+  %48 = trunc nuw nsw i64 %indvars.iv45 to i32
+  %spec.select.us = select i1 %47, i32 %48, i32 %.01039.us
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %exitcond48.not = icmp eq i64 %indvars.iv.next46, %26
+  %exitcond48.not = icmp eq i64 %indvars.iv.next46, %25
   br i1 %exitcond48.not, label %._crit_edge, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22 ], [ 1, %.lr.ph ]
   %.01039 = phi i32 [ %spec.select, %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22 ], [ 0, %.lr.ph ]
-  %50 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv
-  %51 = load i32, ptr %50, align 4
-  %52 = and i32 %51, -2147483641
-  %53 = icmp eq i32 %52, 7
-  br i1 %53, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i, label %54
+  %49 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv
+  %50 = load i32, ptr %49, align 4
+  %51 = and i32 %50, -2147483641
+  %52 = icmp eq i32 %51, 7
+  br i1 %52, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i, label %53
 
-54:                                               ; preds = %.lr.ph.split
-  switch i32 %30, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i [
-    i32 1, label %55
-    i32 2, label %57
-    i32 3, label %60
+53:                                               ; preds = %.lr.ph.split
+  switch i32 %29, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i [
+    i32 1, label %54
+    i32 2, label %56
+    i32 3, label %59
     i32 4, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i
   ]
 
-55:                                               ; preds = %54
-  %.off.i.i = add i32 %51, 7
-  %56 = icmp ult i32 %.off.i.i, 15
-  br i1 %56, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i
+54:                                               ; preds = %53
+  %.off.i.i = add i32 %50, 7
+  %55 = icmp ult i32 %.off.i.i, 15
+  br i1 %55, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i
 
-57:                                               ; preds = %54
-  %58 = and i32 %51, -8
-  %59 = icmp eq i32 %58, 8
-  br i1 %59, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i
+56:                                               ; preds = %53
+  %57 = and i32 %50, -8
+  %58 = icmp eq i32 %57, 8
+  br i1 %58, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i
 
-60:                                               ; preds = %54
-  %61 = and i32 %51, -8
-  %62 = icmp eq i32 %61, 16
-  br i1 %62, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i
+59:                                               ; preds = %53
+  %60 = and i32 %50, -8
+  %61 = icmp eq i32 %60, 16
+  br i1 %61, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i: ; preds = %54
-  %63 = and i32 %51, -8
-  %64 = icmp eq i32 %63, 24
-  br i1 %64, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i: ; preds = %53
+  %62 = and i32 %50, -8
+  %63 = icmp eq i32 %62, 24
+  br i1 %63, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i: ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i, %60, %57, %55, %.lr.ph.split
-  %65 = srem i32 %51, 8
-  %66 = icmp eq i32 %65, 7
-  br i1 %66, label %67, label %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i: ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i, %59, %56, %54, %.lr.ph.split
+  %64 = srem i32 %50, 8
+  %65 = icmp eq i32 %64, 7
+  br i1 %65, label %66, label %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i
 
-67:                                               ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i
-  %68 = sdiv i32 %51, 8
-  %69 = add nuw nsw i32 %68, 7
+66:                                               ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i
+  %67 = sdiv i32 %50, 8
+  %68 = add nuw nsw i32 %67, 7
   br label %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i
 
-_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i: ; preds = %67, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i
-  %.0.i7.i = phi i32 [ %69, %67 ], [ %65, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i ]
-  %70 = add nsw i32 %.0.i7.i, 7
-  br label %74
+_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i: ; preds = %66, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i
+  %.0.i7.i = phi i32 [ %68, %66 ], [ %64, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i ]
+  %69 = add nsw i32 %.0.i7.i, 7
+  br label %73
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i: ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i, %60, %57, %55, %54
-  %71 = sdiv i32 %51, 8
-  %72 = srem i32 %51, 8
-  %73 = icmp eq i32 %71, %32
-  %spec.select62 = select i1 %73, i32 %72, i32 -1
-  br label %74
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i: ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i, %59, %56, %54, %53
+  %70 = sdiv i32 %50, 8
+  %71 = srem i32 %50, 8
+  %72 = icmp eq i32 %70, %31
+  %spec.select62 = select i1 %72, i32 %71, i32 -1
+  br label %73
 
-74:                                               ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i
-  %.0.i = phi i32 [ %70, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i ], [ %spec.select62, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i ]
-  %75 = zext nneg i32 %.01039 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %75
-  %77 = load i32, ptr %76, align 4
-  %78 = and i32 %77, -2147483641
-  %79 = icmp eq i32 %78, 7
-  br i1 %79, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16, label %80
+73:                                               ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i
+  %.0.i = phi i32 [ %69, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i ], [ %spec.select62, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i ]
+  %74 = zext nneg i32 %.01039 to i64
+  %75 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %74
+  %76 = load i32, ptr %75, align 4
+  %77 = and i32 %76, -2147483641
+  %78 = icmp eq i32 %77, 7
+  br i1 %78, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16, label %79
 
-80:                                               ; preds = %74
-  switch i32 %30, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14 [
-    i32 1, label %81
-    i32 2, label %83
-    i32 3, label %86
+79:                                               ; preds = %73
+  switch i32 %29, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14 [
+    i32 1, label %80
+    i32 2, label %82
+    i32 3, label %85
     i32 4, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i13
   ]
 
-81:                                               ; preds = %80
-  %.off.i.i19 = add i32 %77, 7
-  %82 = icmp ult i32 %.off.i.i19, 15
-  br i1 %82, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14
+80:                                               ; preds = %79
+  %.off.i.i19 = add i32 %76, 7
+  %81 = icmp ult i32 %.off.i.i19, 15
+  br i1 %81, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14
 
-83:                                               ; preds = %80
-  %84 = and i32 %77, -8
-  %85 = icmp eq i32 %84, 8
-  br i1 %85, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14
+82:                                               ; preds = %79
+  %83 = and i32 %76, -8
+  %84 = icmp eq i32 %83, 8
+  br i1 %84, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14
 
-86:                                               ; preds = %80
-  %87 = and i32 %77, -8
-  %88 = icmp eq i32 %87, 16
-  br i1 %88, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14
+85:                                               ; preds = %79
+  %86 = and i32 %76, -8
+  %87 = icmp eq i32 %86, 16
+  br i1 %87, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i13: ; preds = %80
-  %89 = and i32 %77, -8
-  %90 = icmp eq i32 %89, 24
-  br i1 %90, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i13: ; preds = %79
+  %88 = and i32 %76, -8
+  %89 = icmp eq i32 %88, 24
+  br i1 %89, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16, label %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16: ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i13, %86, %83, %81, %74
-  %91 = srem i32 %77, 8
-  %92 = icmp eq i32 %91, 7
-  br i1 %92, label %93, label %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16: ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i13, %85, %82, %80, %73
+  %90 = srem i32 %76, 8
+  %91 = icmp eq i32 %90, 7
+  br i1 %91, label %92, label %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17
 
-93:                                               ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16
-  %94 = sdiv i32 %77, 8
-  %95 = add nuw nsw i32 %94, 7
+92:                                               ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16
+  %93 = sdiv i32 %76, 8
+  %94 = add nuw nsw i32 %93, 7
   br label %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17
 
-_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17: ; preds = %93, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16
-  %.0.i7.i18 = phi i32 [ %95, %93 ], [ %91, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16 ]
-  %96 = add nsw i32 %.0.i7.i18, 7
+_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17: ; preds = %92, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16
+  %.0.i7.i18 = phi i32 [ %94, %92 ], [ %90, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread6.i.i16 ]
+  %95 = add nsw i32 %.0.i7.i18, 7
   br label %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22
 
-_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14: ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i13, %86, %83, %81, %80
-  %97 = sdiv i32 %77, 8
-  %98 = srem i32 %77, 8
-  %99 = icmp eq i32 %97, %32
-  %spec.select63 = select i1 %99, i32 %98, i32 -1
+_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14: ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.i13, %85, %82, %80, %79
+  %96 = sdiv i32 %76, 8
+  %97 = srem i32 %76, 8
+  %98 = icmp eq i32 %96, %31
+  %spec.select63 = select i1 %98, i32 %97, i32 -1
   br label %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22
 
 _ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22: ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17
-  %.0.i15 = phi i32 [ %96, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17 ], [ %spec.select63, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14 ]
-  %100 = icmp sgt i32 %.0.i, %.0.i15
-  %101 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %100, i32 %101, i32 %.01039
+  %.0.i15 = phi i32 [ %95, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17 ], [ %spec.select63, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14 ]
+  %99 = icmp sgt i32 %.0.i, %.0.i15
+  %100 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %99, i32 %100, i32 %.01039
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %26
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %25
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
-102:                                              ; preds = %._crit_edge
-  %103 = landingpad { ptr, i32 }
+101:                                              ; preds = %._crit_edge
+  %102 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %104
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %103
 
-104:                                              ; preds = %102
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %25) #31
+103:                                              ; preds = %101
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %24) #31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %102, %104
-  resume { ptr, i32 } %103
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %101, %103
+  resume { ptr, i32 } %102
 
 ._crit_edge:                                      ; preds = %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22, %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us, %.preheader
   %.010.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select.us, %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us ], [ %spec.select, %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22 ]
-  %105 = invoke noundef i32 @_ZNK10open_spiel4skat5Trick16PlayerAtPositionEi(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %.010.lcssa)
-          to label %106 unwind label %102
+  %104 = invoke noundef i32 @_ZNK10open_spiel4skat5Trick16PlayerAtPositionEi(ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %.010.lcssa)
+          to label %105 unwind label %101
 
-106:                                              ; preds = %._crit_edge, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit
-  %.0 = phi i32 [ -1, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %105, %._crit_edge ]
+105:                                              ; preds = %._crit_edge, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit
+  %.0 = phi i32 [ -1, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %104, %._crit_edge ]
   %.not.i.i.i23 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i23, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %107
+  br i1 %.not.i.i.i23, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %106
 
-107:                                              ; preds = %106
-  %108 = ptrtoint ptr %.sroa.14.0 to i64
-  %109 = ptrtoint ptr %.sroa.0.0 to i64
-  %110 = sub i64 %108, %109
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %110) #31
+106:                                              ; preds = %105
+  %107 = ptrtoint ptr %.sroa.14.0 to i64
+  %108 = ptrtoint ptr %.sroa.0.0 to i64
+  %109 = sub i64 %107, %108
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %109) #31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit24
 
-_ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %106, %107
+_ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %105, %106
   ret i32 %.0
 }
 
@@ -4194,10 +4193,10 @@ _ZN10open_spiel4skat5TrickD2Ev.exit14:            ; preds = %52, %45
   %63 = sdiv i32 %62, 3
   %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 1)
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr %"class.open_spiel::skat::Trick", ptr %32, i64 %65
-  %67 = getelementptr i8, ptr %66, i64 -32
+  %66 = getelementptr %"class.open_spiel::skat::Trick", ptr %0, i64 %65
+  %67 = getelementptr i8, ptr %66, i64 192
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr i8, ptr %66, i64 -24
+  %69 = getelementptr i8, ptr %66, i64 200
   %70 = load ptr, ptr %69, align 8
   %.not8.i = icmp eq ptr %68, %70
   br i1 %61, label %71, label %99
@@ -5938,7 +5937,7 @@ define void @_ZNK10open_spiel4skat9SkatState17ObservationTensorEiN4absl7debian24
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %207
+  br label %205
 
 23:                                               ; preds = %4
   store i32 %1, ptr %10, align 4
@@ -5960,7 +5959,7 @@ define void @_ZNK10open_spiel4skat9SkatState17ObservationTensorEiN4absl7debian24
 29:                                               ; preds = %27
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %207
+  br label %205
 
 31:                                               ; preds = %23
   %.not6.i.i.i = icmp eq i64 %3, 0
@@ -6028,7 +6027,7 @@ _ZNK10open_spiel4Game21ObservationTensorSizeEv.exit: ; preds = %_ZN4absl7debian2
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
           cleanup
-  br label %207
+  br label %205
 
 58:                                               ; preds = %_ZNK10open_spiel4Game21ObservationTensorSizeEv.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6043,287 +6042,285 @@ _ZNK10open_spiel4Game21ObservationTensorSizeEv.exit: ; preds = %_ZN4absl7debian2
   %65 = load i32, ptr %59, align 8
   %66 = add i32 %65, -1
   %or.cond = icmp ult i32 %66, 3
-  br i1 %or.cond, label %67, label %72
+  br i1 %or.cond, label %67, label %71
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %69 = zext nneg i32 %65 to i64
-  %70 = getelementptr float, ptr %68, i64 %69
-  %71 = getelementptr i8, ptr %70, i64 -4
-  store float 1.000000e+00, ptr %71, align 4
-  br label %72
+  %68 = zext nneg i32 %65 to i64
+  %69 = getelementptr float, ptr %2, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 8
+  store float 1.000000e+00, ptr %70, align 4
+  br label %71
 
-72:                                               ; preds = %67, %62
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %75 = icmp ult i32 %1, 3
+71:                                               ; preds = %67, %62
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %74 = icmp ult i32 %1, 3
   %switch.offset = add nuw nsw i32 %1, 1
-  %.0.i = select i1 %75, i32 %switch.offset, i32 0
+  %.0.i = select i1 %74, i32 %switch.offset, i32 0
   br label %_ZN10open_spiel4skat16PlayerToLocationEi.exit
 
-_ZN10open_spiel4skat16PlayerToLocationEi.exit:    ; preds = %72, %81
-  %indvars.iv = phi i64 [ 0, %72 ], [ %indvars.iv.next, %81 ]
-  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %77, %.0.i
-  br i1 %78, label %79, label %81
+_ZN10open_spiel4skat16PlayerToLocationEi.exit:    ; preds = %71, %80
+  %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %80 ]
+  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp eq i32 %76, %.0.i
+  br i1 %77, label %78, label %80
 
-79:                                               ; preds = %_ZN10open_spiel4skat16PlayerToLocationEi.exit
-  %80 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv
-  store float 1.000000e+00, ptr %80, align 4
-  br label %81
+78:                                               ; preds = %_ZN10open_spiel4skat16PlayerToLocationEi.exit
+  %79 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv
+  store float 1.000000e+00, ptr %79, align 4
+  br label %80
 
-81:                                               ; preds = %_ZN10open_spiel4skat16PlayerToLocationEi.exit, %79
+80:                                               ; preds = %_ZN10open_spiel4skat16PlayerToLocationEi.exit, %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %82, label %_ZN10open_spiel4skat16PlayerToLocationEi.exit, !llvm.loop !36
+  br i1 %exitcond.not, label %81, label %_ZN10open_spiel4skat16PlayerToLocationEi.exit, !llvm.loop !36
 
-82:                                               ; preds = %81
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  br label %85
+81:                                               ; preds = %80
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  br label %84
 
-85:                                               ; preds = %82, %85
-  %indvars.iv104 = phi i64 [ 0, %82 ], [ %indvars.iv.next105, %85 ]
-  %.06094 = phi ptr [ %83, %82 ], [ %90, %85 ]
-  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv104
-  %87 = load i32, ptr %86, align 4
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds float, ptr %.06094, i64 %88
-  store float 1.000000e+00, ptr %89, align 4
-  %90 = getelementptr inbounds nuw i8, ptr %.06094, i64 28
+84:                                               ; preds = %81, %84
+  %indvars.iv104 = phi i64 [ 0, %81 ], [ %indvars.iv.next105, %84 ]
+  %.06094 = phi ptr [ %82, %81 ], [ %89, %84 ]
+  %85 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv104
+  %86 = load i32, ptr %85, align 4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds float, ptr %.06094, i64 %87
+  store float 1.000000e+00, ptr %88, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %.06094, i64 28
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, 3
-  br i1 %exitcond107.not, label %91, label %85, !llvm.loop !37
+  br i1 %exitcond107.not, label %90, label %84, !llvm.loop !37
 
-91:                                               ; preds = %85
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %93 = load i32, ptr %92, align 8
-  %94 = icmp sgt i32 %93, -1
-  br i1 %94, label %95, label %98
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %92 = load i32, ptr %91, align 8
+  %93 = icmp sgt i32 %92, -1
+  br i1 %93, label %94, label %97
 
-95:                                               ; preds = %91
-  %96 = zext nneg i32 %93 to i64
-  %97 = getelementptr inbounds nuw float, ptr %90, i64 %96
-  store float 1.000000e+00, ptr %97, align 4
-  %.pre = load i32, ptr %92, align 8
-  br label %98
+94:                                               ; preds = %90
+  %95 = zext nneg i32 %92 to i64
+  %96 = getelementptr inbounds nuw float, ptr %89, i64 %95
+  store float 1.000000e+00, ptr %96, align 4
+  %.pre = load i32, ptr %91, align 8
+  br label %97
 
-98:                                               ; preds = %95, %91
-  %99 = phi i32 [ %.pre, %95 ], [ %93, %91 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.06094, i64 40
-  %101 = icmp eq i32 %1, %99
-  br i1 %101, label %.preheader, label %.loopexit
+97:                                               ; preds = %94, %90
+  %98 = phi i32 [ %.pre, %94 ], [ %92, %90 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.06094, i64 40
+  %100 = icmp eq i32 %1, %98
+  br i1 %100, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %98, %107
-  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %107 ], [ 0, %98 ]
-  %102 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv108
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %103, 4
-  br i1 %104, label %105, label %107
+.preheader:                                       ; preds = %97, %106
+  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %106 ], [ 0, %97 ]
+  %101 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv108
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp eq i32 %102, 4
+  br i1 %103, label %104, label %106
 
-105:                                              ; preds = %.preheader
-  %106 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv108
-  store float 1.000000e+00, ptr %106, align 4
-  br label %107
+104:                                              ; preds = %.preheader
+  %105 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv108
+  store float 1.000000e+00, ptr %105, align 4
+  br label %106
 
-107:                                              ; preds = %.preheader, %105
+106:                                              ; preds = %.preheader, %104
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, 32
   br i1 %exitcond111.not, label %.loopexit, label %.preheader, !llvm.loop !38
 
-.loopexit:                                        ; preds = %107, %98
-  %108 = getelementptr inbounds nuw i8, ptr %.06094, i64 168
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %110 = load i32, ptr %109, align 4
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw float, ptr %108, i64 %111
-  store float 1.000000e+00, ptr %112, align 4
-  %113 = load i32, ptr %59, align 8
-  %114 = icmp eq i32 %113, 3
-  br i1 %114, label %115, label %159
+.loopexit:                                        ; preds = %106, %97
+  %107 = getelementptr inbounds nuw i8, ptr %.06094, i64 168
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %109 = load i32, ptr %108, align 4
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw float, ptr %107, i64 %110
+  store float 1.000000e+00, ptr %111, align 4
+  %112 = load i32, ptr %59, align 8
+  %113 = icmp eq i32 %112, 3
+  br i1 %113, label %114, label %158
 
-115:                                              ; preds = %.loopexit
-  %116 = getelementptr inbounds nuw i8, ptr %.06094, i64 196
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %119 = load i32, ptr %118, align 4
-  %120 = sdiv i32 %119, 3
-  %.sroa.speculated.i.i = call noundef i32 @llvm.smin.i32(i32 %120, i32 9)
-  %121 = sext i32 %.sroa.speculated.i.i to i64
-  %.idx92 = shl nsw i64 %121, 5
-  %122 = getelementptr i8, ptr %117, i64 %.idx92
-  %123 = getelementptr i8, ptr %122, i64 24
-  %124 = load i32, ptr %123, align 8
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds float, ptr %116, i64 %125
-  store float 1.000000e+00, ptr %126, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %.06094, i64 208
-  %128 = load i32, ptr %118, align 4
-  %129 = sdiv i32 %128, 3
-  %.sroa.speculated.i.i69 = call noundef i32 @llvm.smin.i32(i32 %129, i32 9)
-  %130 = sext i32 %.sroa.speculated.i.i69 to i64
-  %131 = getelementptr inbounds %"class.open_spiel::skat::Trick", ptr %117, i64 %130
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %133 = load ptr, ptr %132, align 8, !noalias !39
-  %134 = load ptr, ptr %131, align 8, !noalias !39
+114:                                              ; preds = %.loopexit
+  %115 = getelementptr inbounds nuw i8, ptr %.06094, i64 196
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %118 = load i32, ptr %117, align 4
+  %119 = sdiv i32 %118, 3
+  %.sroa.speculated.i.i = call noundef i32 @llvm.smin.i32(i32 %119, i32 9)
+  %120 = sext i32 %.sroa.speculated.i.i to i64
+  %.idx92 = shl nsw i64 %120, 5
+  %121 = getelementptr i8, ptr %116, i64 %.idx92
+  %122 = getelementptr i8, ptr %121, i64 24
+  %123 = load i32, ptr %122, align 8
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds float, ptr %115, i64 %124
+  store float 1.000000e+00, ptr %125, align 4
+  %126 = getelementptr inbounds nuw i8, ptr %.06094, i64 208
+  %127 = load i32, ptr %117, align 4
+  %128 = sdiv i32 %127, 3
+  %.sroa.speculated.i.i69 = call noundef i32 @llvm.smin.i32(i32 %128, i32 9)
+  %129 = sext i32 %.sroa.speculated.i.i69 to i64
+  %130 = getelementptr inbounds %"class.open_spiel::skat::Trick", ptr %116, i64 %129
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load ptr, ptr %131, align 8, !noalias !39
+  %133 = load ptr, ptr %130, align 8, !noalias !39
+  %134 = ptrtoint ptr %132 to i64
   %135 = ptrtoint ptr %133 to i64
-  %136 = ptrtoint ptr %134 to i64
-  %137 = sub i64 %135, %136
-  %.not.i.i.i.i.i = icmp eq ptr %133, %134
-  br i1 %.not.i.i.i.i.i, label %.thread.i, label %139
+  %136 = sub i64 %134, %135
+  %.not.i.i.i.i.i = icmp eq ptr %132, %133
+  br i1 %.not.i.i.i.i.i, label %.thread.i, label %138
 
-.thread.i:                                        ; preds = %115
-  %138 = getelementptr inbounds i8, ptr null, i64 %137
+.thread.i:                                        ; preds = %114
+  %137 = getelementptr inbounds i8, ptr null, i64 %136
   br label %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit
 
-139:                                              ; preds = %115
-  %140 = icmp ugt i64 %137, 9223372036854775804
-  br i1 %140, label %.noexc.i.i.i, label %141
+138:                                              ; preds = %114
+  %139 = icmp ugt i64 %136, 9223372036854775804
+  br i1 %139, label %.noexc.i.i.i, label %140
 
-.noexc.i.i.i:                                     ; preds = %139
+.noexc.i.i.i:                                     ; preds = %138
   call void @_ZSt28__throw_bad_array_new_lengthv() #27, !noalias !39
   unreachable
 
-141:                                              ; preds = %139
-  %142 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %137) #30, !noalias !39
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 %137
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %142, ptr align 4 %134, i64 %137, i1 false), !noalias !39
+140:                                              ; preds = %138
+  %141 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %136) #30, !noalias !39
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %136
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %141, ptr align 4 %133, i64 %136, i1 false), !noalias !39
   br label %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit
 
-_ZNK10open_spiel4skat5Trick8GetCardsEv.exit:      ; preds = %.thread.i, %141
-  %.sroa.081.0 = phi ptr [ null, %.thread.i ], [ %142, %141 ]
-  %.sroa.885.0 = phi ptr [ %138, %.thread.i ], [ %143, %141 ]
-  %144 = ptrtoint ptr %.sroa.885.0 to i64
-  %145 = ptrtoint ptr %.sroa.081.0 to i64
-  %146 = sub i64 %144, %145
-  %147 = ashr exact i64 %146, 2
-  br label %148
+_ZNK10open_spiel4skat5Trick8GetCardsEv.exit:      ; preds = %.thread.i, %140
+  %.sroa.081.0 = phi ptr [ null, %.thread.i ], [ %141, %140 ]
+  %.sroa.885.0 = phi ptr [ %137, %.thread.i ], [ %142, %140 ]
+  %143 = ptrtoint ptr %.sroa.885.0 to i64
+  %144 = ptrtoint ptr %.sroa.081.0 to i64
+  %145 = sub i64 %143, %144
+  %146 = ashr exact i64 %145, 2
+  br label %147
 
-148:                                              ; preds = %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit, %155
-  %indvars.iv112 = phi i64 [ 0, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %indvars.iv.next113, %155 ]
-  %.197 = phi ptr [ %127, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %156, %155 ]
-  %149 = icmp ugt i64 %147, %indvars.iv112
-  br i1 %149, label %150, label %155
+147:                                              ; preds = %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit, %154
+  %indvars.iv112 = phi i64 [ 0, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %indvars.iv.next113, %154 ]
+  %.197 = phi ptr [ %126, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %155, %154 ]
+  %148 = icmp ugt i64 %146, %indvars.iv112
+  br i1 %148, label %149, label %154
 
-150:                                              ; preds = %148
-  %151 = getelementptr inbounds nuw i32, ptr %.sroa.081.0, i64 %indvars.iv112
-  %152 = load i32, ptr %151, align 4
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds float, ptr %.197, i64 %153
-  store float 1.000000e+00, ptr %154, align 4
-  br label %155
+149:                                              ; preds = %147
+  %150 = getelementptr inbounds nuw i32, ptr %.sroa.081.0, i64 %indvars.iv112
+  %151 = load i32, ptr %150, align 4
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds float, ptr %.197, i64 %152
+  store float 1.000000e+00, ptr %153, align 4
+  br label %154
 
-155:                                              ; preds = %150, %148
-  %156 = getelementptr inbounds nuw i8, ptr %.197, i64 128
+154:                                              ; preds = %149, %147
+  %155 = getelementptr inbounds nuw i8, ptr %.197, i64 128
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, 3
-  br i1 %exitcond115.not, label %157, label %148, !llvm.loop !42
+  br i1 %exitcond115.not, label %156, label %147, !llvm.loop !42
 
-157:                                              ; preds = %155
+156:                                              ; preds = %154
   %.not.i.i.i70 = icmp eq ptr %.sroa.081.0, null
-  br i1 %.not.i.i.i70, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %158
+  br i1 %.not.i.i.i70, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %157
 
-158:                                              ; preds = %157
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.081.0, i64 noundef %146) #31
+157:                                              ; preds = %156
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.081.0, i64 noundef %145) #31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-159:                                              ; preds = %.loopexit
-  %160 = getelementptr inbounds nuw i8, ptr %.06094, i64 592
+158:                                              ; preds = %.loopexit
+  %159 = getelementptr inbounds nuw i8, ptr %.06094, i64 592
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %158, %157, %159
-  %.2 = phi ptr [ %160, %159 ], [ %156, %157 ], [ %156, %158 ]
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %162 = load i32, ptr %161, align 4
-  %163 = icmp sgt i32 %162, 2
-  br i1 %163, label %164, label %_ZNSt6vectorIiSaIiEED2Ev.exit76
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %157, %156, %158
+  %.2 = phi ptr [ %159, %158 ], [ %155, %156 ], [ %155, %157 ]
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %161 = load i32, ptr %160, align 4
+  %162 = icmp sgt i32 %161, 2
+  br i1 %162, label %163, label %_ZNSt6vectorIiSaIiEED2Ev.exit76
 
-164:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %165 = udiv i32 %162, 3
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %167 = zext nneg i32 %165 to i64
-  %168 = getelementptr %"class.open_spiel::skat::Trick", ptr %166, i64 %167
-  %169 = getelementptr i8, ptr %168, i64 -8
-  %170 = load i32, ptr %169, align 8
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds float, ptr %.2, i64 %171
-  store float 1.000000e+00, ptr %172, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %.2, i64 12
-  %174 = load i32, ptr %161, align 4
-  %175 = sdiv i32 %174, 3
-  %176 = call i32 @llvm.smax.i32(i32 %175, i32 1)
-  %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr %"class.open_spiel::skat::Trick", ptr %166, i64 %177
-  %179 = getelementptr i8, ptr %178, i64 -32
-  %180 = getelementptr i8, ptr %178, i64 -24
-  %181 = load ptr, ptr %180, align 8, !noalias !43
-  %182 = load ptr, ptr %179, align 8, !noalias !43
-  %183 = ptrtoint ptr %181 to i64
-  %184 = ptrtoint ptr %182 to i64
-  %185 = sub i64 %183, %184
-  %.not.i.i.i.i.i71 = icmp eq ptr %181, %182
-  br i1 %.not.i.i.i.i.i71, label %.thread.i73, label %187
+163:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
+  %164 = udiv i32 %161, 3
+  %165 = zext nneg i32 %164 to i64
+  %166 = getelementptr %"class.open_spiel::skat::Trick", ptr %0, i64 %165
+  %167 = getelementptr i8, ptr %166, i64 216
+  %168 = load i32, ptr %167, align 8
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds float, ptr %.2, i64 %169
+  store float 1.000000e+00, ptr %170, align 4
+  %171 = getelementptr inbounds nuw i8, ptr %.2, i64 12
+  %172 = load i32, ptr %160, align 4
+  %173 = sdiv i32 %172, 3
+  %174 = call i32 @llvm.smax.i32(i32 %173, i32 1)
+  %175 = zext nneg i32 %174 to i64
+  %176 = getelementptr %"class.open_spiel::skat::Trick", ptr %0, i64 %175
+  %177 = getelementptr i8, ptr %176, i64 192
+  %178 = getelementptr i8, ptr %176, i64 200
+  %179 = load ptr, ptr %178, align 8, !noalias !43
+  %180 = load ptr, ptr %177, align 8, !noalias !43
+  %181 = ptrtoint ptr %179 to i64
+  %182 = ptrtoint ptr %180 to i64
+  %183 = sub i64 %181, %182
+  %.not.i.i.i.i.i71 = icmp eq ptr %179, %180
+  br i1 %.not.i.i.i.i.i71, label %.thread.i73, label %185
 
-.thread.i73:                                      ; preds = %164
-  %186 = getelementptr inbounds i8, ptr null, i64 %185
+.thread.i73:                                      ; preds = %163
+  %184 = getelementptr inbounds i8, ptr null, i64 %183
   br label %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74
 
-187:                                              ; preds = %164
-  %188 = icmp ugt i64 %185, 9223372036854775804
-  br i1 %188, label %.noexc.i.i.i72, label %189
+185:                                              ; preds = %163
+  %186 = icmp ugt i64 %183, 9223372036854775804
+  br i1 %186, label %.noexc.i.i.i72, label %187
 
-.noexc.i.i.i72:                                   ; preds = %187
+.noexc.i.i.i72:                                   ; preds = %185
   call void @_ZSt28__throw_bad_array_new_lengthv() #27, !noalias !43
   unreachable
 
-189:                                              ; preds = %187
-  %190 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %185) #30, !noalias !43
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 %185
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %190, ptr align 4 %182, i64 %185, i1 false), !noalias !43
+187:                                              ; preds = %185
+  %188 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %183) #30, !noalias !43
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 %183
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %188, ptr align 4 %180, i64 %183, i1 false), !noalias !43
   br label %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74
 
-_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74:    ; preds = %.thread.i73, %189
-  %.sroa.0.0 = phi ptr [ null, %.thread.i73 ], [ %190, %189 ]
-  %.sroa.8.0 = phi ptr [ %186, %.thread.i73 ], [ %191, %189 ]
-  %192 = ptrtoint ptr %.sroa.8.0 to i64
-  %193 = ptrtoint ptr %.sroa.0.0 to i64
-  %194 = sub i64 %192, %193
-  %195 = ashr exact i64 %194, 2
-  br label %196
+_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74:    ; preds = %.thread.i73, %187
+  %.sroa.0.0 = phi ptr [ null, %.thread.i73 ], [ %188, %187 ]
+  %.sroa.8.0 = phi ptr [ %184, %.thread.i73 ], [ %189, %187 ]
+  %190 = ptrtoint ptr %.sroa.8.0 to i64
+  %191 = ptrtoint ptr %.sroa.0.0 to i64
+  %192 = sub i64 %190, %191
+  %193 = ashr exact i64 %192, 2
+  br label %194
 
-196:                                              ; preds = %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74, %203
-  %indvars.iv116 = phi i64 [ 0, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74 ], [ %indvars.iv.next117, %203 ]
-  %.399 = phi ptr [ %173, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74 ], [ %204, %203 ]
-  %197 = icmp ugt i64 %195, %indvars.iv116
-  br i1 %197, label %198, label %203
+194:                                              ; preds = %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74, %201
+  %indvars.iv116 = phi i64 [ 0, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74 ], [ %indvars.iv.next117, %201 ]
+  %.399 = phi ptr [ %171, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74 ], [ %202, %201 ]
+  %195 = icmp ugt i64 %193, %indvars.iv116
+  br i1 %195, label %196, label %201
 
-198:                                              ; preds = %196
-  %199 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv116
-  %200 = load i32, ptr %199, align 4
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds float, ptr %.399, i64 %201
-  store float 1.000000e+00, ptr %202, align 4
-  br label %203
+196:                                              ; preds = %194
+  %197 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv116
+  %198 = load i32, ptr %197, align 4
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds float, ptr %.399, i64 %199
+  store float 1.000000e+00, ptr %200, align 4
+  br label %201
 
-203:                                              ; preds = %198, %196
-  %204 = getelementptr inbounds nuw i8, ptr %.399, i64 128
+201:                                              ; preds = %196, %194
+  %202 = getelementptr inbounds nuw i8, ptr %.399, i64 128
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 3
-  br i1 %exitcond119.not, label %205, label %196, !llvm.loop !46
+  br i1 %exitcond119.not, label %203, label %194, !llvm.loop !46
 
-205:                                              ; preds = %203
+203:                                              ; preds = %201
   %.not.i.i.i75 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i75, label %_ZNSt6vectorIiSaIiEED2Ev.exit76, label %206
+  br i1 %.not.i.i.i75, label %_ZNSt6vectorIiSaIiEED2Ev.exit76, label %204
 
-206:                                              ; preds = %205
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %194) #31
+204:                                              ; preds = %203
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %192) #31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit76
 
-_ZNSt6vectorIiSaIiEED2Ev.exit76:                  ; preds = %206, %205, %_ZNSt6vectorIiSaIiEED2Ev.exit, %58
+_ZNSt6vectorIiSaIiEED2Ev.exit76:                  ; preds = %204, %203, %_ZNSt6vectorIiSaIiEED2Ev.exit, %58
   ret void
 
-207:                                              ; preds = %56, %29, %21
+205:                                              ; preds = %56, %29, %21
   %.sink = phi ptr [ %16, %56 ], [ %12, %29 ], [ %8, %21 ]
   %.pn = phi { ptr, i32 } [ %57, %56 ], [ %30, %29 ], [ %22, %21 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #28

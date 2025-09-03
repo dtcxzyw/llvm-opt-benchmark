@@ -1904,8 +1904,8 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.start.p0(ptr nonnull %330)
   %468 = getelementptr inbounds nuw i8, ptr %330, i64 56
   store i64 ptrtoint (ptr @_ZNK6Struct5valueEv to i64), ptr %330, align 8
-  %.sroa.41061.0..sroa_idx = getelementptr inbounds nuw i8, ptr %330, i64 8
-  store i64 0, ptr %.sroa.41061.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.41059.0..sroa_idx = getelementptr inbounds nuw i8, ptr %330, i64 8
+  store i64 0, ptr %.sroa.41059.0..sroa_idx, align 8, !tbaa !61
   %469 = getelementptr inbounds nuw i8, ptr %330, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defI6StructiS3_JEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_KFT0_DpT2_EDpRKT3_EUlPKS3_E_iJSI_EJLm0EEJS4_S5_S6_EEEP7_objectOS7_PFT2_DpSD_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESX_SY_SZ_S10_S12_, ptr %469, align 8, !tbaa !49
   %470 = getelementptr inbounds nuw i8, ptr %330, i64 40
@@ -1931,8 +1931,8 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.start.p0(ptr nonnull %326)
   %478 = getelementptr inbounds nuw i8, ptr %326, i64 56
   store i64 ptrtoint (ptr @_ZN6Struct9set_valueEi to i64), ptr %326, align 8
-  %.sroa.41065.0..sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 8
-  store i64 0, ptr %.sroa.41065.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.41063.0..sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 8
+  store i64 0, ptr %.sroa.41063.0..sroa_idx, align 8, !tbaa !61
   %479 = getelementptr inbounds nuw i8, ptr %326, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defI6StructvS3_JiEJNS_5scopeENS_4nameENS_9is_methodENS_3argEEEEvMT1_FT0_DpT2_EDpRKT3_EUlPS3_iE_vJSI_iEJLm0ELm1EEJS4_S5_S6_S7_EEEP7_objectOS8_PFT2_DpSE_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESX_SY_SZ_S10_S12_, ptr %479, align 8, !tbaa !62
   %480 = getelementptr inbounds nuw i8, ptr %326, i64 40
@@ -1969,8 +1969,8 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.start.p0(ptr nonnull %324)
   %493 = getelementptr inbounds nuw i8, ptr %324, i64 56
   store i64 ptrtoint (ptr @_ZN6Struct4selfEv to i64), ptr %324, align 8
-  %.sroa.41070.0..sroa_idx = getelementptr inbounds nuw i8, ptr %324, i64 8
-  store i64 0, ptr %.sroa.41070.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.41068.0..sroa_idx = getelementptr inbounds nuw i8, ptr %324, i64 8
+  store i64 0, ptr %.sroa.41068.0..sroa_idx, align 8, !tbaa !61
   %494 = getelementptr inbounds nuw i8, ptr %324, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defI6StructRS3_S3_JEJNS_5scopeENS_4nameENS_9is_methodENS_9rv_policyEEEEvMT1_FT0_DpT2_EDpRKT3_EUlPS3_E_S4_JSJ_EJLm0EEJS5_S6_S7_S8_EEEP7_objectOS9_PFT2_DpSF_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSM_PhS8_PNS0_12cleanup_listEE_8__invokeESY_SZ_S10_S8_S12_, ptr %494, align 8, !tbaa !49
   %495 = getelementptr inbounds nuw i8, ptr %324, i64 40
@@ -2049,8 +2049,8 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.start.p0(ptr nonnull %320)
   %524 = getelementptr inbounds nuw i8, ptr %320, i64 56
   store i64 ptrtoint (ptr @_ZN6Struct8setstateEi to i64), ptr %320, align 8
-  %.sroa.41074.0..sroa_idx = getelementptr inbounds nuw i8, ptr %320, i64 8
-  store i64 0, ptr %.sroa.41074.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.41072.0..sroa_idx = getelementptr inbounds nuw i8, ptr %320, i64 8
+  store i64 0, ptr %.sroa.41072.0..sroa_idx, align 8, !tbaa !61
   %525 = getelementptr inbounds nuw i8, ptr %320, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defI6StructvS3_JiEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_FT0_DpT2_EDpRKT3_EUlPS3_iE_vJSH_iEJLm0ELm1EEJS4_S5_S6_EEEP7_objectOS7_PFT2_DpSD_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSK_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESW_SX_SY_SZ_S11_, ptr %525, align 8, !tbaa !49
   %526 = getelementptr inbounds nuw i8, ptr %320, i64 40
@@ -2442,7 +2442,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.end.p0(ptr nonnull %293)
   %673 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %386) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %386)
-  %.sroa.0.0.copyload.i604 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i602 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %109)
   store ptr null, ptr %109, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %110)
@@ -2458,14 +2458,14 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %679 = getelementptr inbounds nuw i8, ptr %110, i64 62
   store i16 0, ptr %679, align 2, !tbaa !57
   %680 = getelementptr inbounds nuw i8, ptr %110, i64 80
-  store ptr %.sroa.0.0.copyload.i604, ptr %680, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i602, ptr %680, align 8, !tbaa !58
   %681 = getelementptr inbounds nuw i8, ptr %110, i64 64
   store ptr @.str.21, ptr %681, align 8, !tbaa !59
   store i32 48, ptr %674, align 8, !tbaa !60
   %682 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %110) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
-  %.sroa.0.0.copyload.i605 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i603 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
   store ptr null, ptr %107, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
@@ -2481,7 +2481,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %688 = getelementptr inbounds nuw i8, ptr %108, i64 62
   store i16 0, ptr %688, align 2, !tbaa !57
   %689 = getelementptr inbounds nuw i8, ptr %108, i64 80
-  store ptr %.sroa.0.0.copyload.i605, ptr %689, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i603, ptr %689, align 8, !tbaa !58
   %690 = getelementptr inbounds nuw i8, ptr %108, i64 64
   store ptr @.str.22, ptr %690, align 8, !tbaa !59
   store i32 48, ptr %683, align 8, !tbaa !60
@@ -2623,8 +2623,8 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.start.p0(ptr nonnull %282)
   %743 = getelementptr inbounds nuw i8, ptr %282, i64 56
   store i64 17, ptr %282, align 8
-  %.sroa.41131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %282, i64 8
-  store i64 0, ptr %.sroa.41131.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.41129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %282, i64 8
+  store i64 0, ptr %.sroa.41129.0..sroa_idx, align 8, !tbaa !61
   %744 = getelementptr inbounds nuw i8, ptr %282, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defI6AnimalNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_JEJNS_5scopeENS_4nameENS_9is_methodEA9_cEEEvMT1_KFT0_DpT2_EDpRKT3_EUlPKS3_E_S9_JSP_EJLm0EEJSA_SB_SC_SD_EEEP7_objectOSE_PFT2_DpSK_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSS_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES14_S15_S16_S17_S19_, ptr %744, align 8, !tbaa !49
   %745 = getelementptr inbounds nuw i8, ptr %282, i64 40
@@ -2652,8 +2652,8 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.start.p0(ptr nonnull %280)
   %754 = getelementptr inbounds nuw i8, ptr %280, i64 56
   store i64 25, ptr %280, align 8
-  %.sroa.41134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %280, i64 8
-  store i64 0, ptr %.sroa.41134.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.41132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %280, i64 8
+  store i64 0, ptr %.sroa.41132.0..sroa_idx, align 8, !tbaa !61
   %755 = getelementptr inbounds nuw i8, ptr %280, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defI6AnimalNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_JEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_KFT0_DpT2_EDpRKT3_EUlPKS3_E_S9_JSO_EJLm0EEJSA_SB_SC_EEEP7_objectOSD_PFT2_DpSJ_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSR_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES13_S14_S15_S16_S18_, ptr %755, align 8, !tbaa !49
   %756 = getelementptr inbounds nuw i8, ptr %280, i64 40
@@ -2674,8 +2674,8 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.end.p0(ptr nonnull %279)
   %763 = ptrtoint ptr %730 to i64
   store i64 %763, ptr %389, align 8
-  %.not.i.i.i.i606 = icmp eq ptr %730, null
-  br i1 %.not.i.i.i.i606, label %767, label %764
+  %.not.i.i.i.i604 = icmp eq ptr %730, null
+  br i1 %.not.i.i.i.i604, label %767, label %764
 
 764:                                              ; preds = %603
   %765 = load i64, ptr %730, align 8, !tbaa !86
@@ -2807,7 +2807,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %817 = call noundef ptr @_ZN8nanobind6detail11nb_type_newEPKNS0_14type_init_dataE(ptr noundef nonnull %375) #36
   store ptr %817, ptr %393, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %375)
-  %.sroa.0.0.copyload.i607 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i605 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %105)
   store ptr @_ZTI6Animal, ptr %105, align 16, !tbaa !48
   %818 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -2825,14 +2825,14 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %824 = getelementptr inbounds nuw i8, ptr %106, i64 62
   store i16 1, ptr %824, align 2, !tbaa !57
   %825 = getelementptr inbounds nuw i8, ptr %106, i64 80
-  store ptr %.sroa.0.0.copyload.i607, ptr %825, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i605, ptr %825, align 8, !tbaa !58
   %826 = getelementptr inbounds nuw i8, ptr %106, i64 64
   store ptr @.str.34, ptr %826, align 8, !tbaa !59
   store i32 48, ptr %819, align 8, !tbaa !60
   %827 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %106) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
-  %.sroa.0.0.copyload.i608 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i606 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   store ptr @_ZTI6Animal, ptr %103, align 16, !tbaa !48
   %828 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -2852,14 +2852,14 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %835 = getelementptr inbounds nuw i8, ptr %104, i64 62
   store i16 1, ptr %835, align 2, !tbaa !57
   %836 = getelementptr inbounds nuw i8, ptr %104, i64 80
-  store ptr %.sroa.0.0.copyload.i608, ptr %836, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i606, ptr %836, align 8, !tbaa !58
   %837 = getelementptr inbounds nuw i8, ptr %104, i64 64
   store ptr @.str.35, ptr %837, align 8, !tbaa !59
   store i32 55, ptr %830, align 8, !tbaa !60
   %838 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %104) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
-  %.sroa.0.0.copyload.i609 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i607 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   store ptr @_ZTIZL30nanobind_init_test_classes_extRN8nanobind7module_EE3Dog, ptr %101, align 16, !tbaa !48
   %839 = getelementptr inbounds nuw i8, ptr %101, i64 8
@@ -2879,14 +2879,14 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %846 = getelementptr inbounds nuw i8, ptr %102, i64 62
   store i16 1, ptr %846, align 2, !tbaa !57
   %847 = getelementptr inbounds nuw i8, ptr %102, i64 80
-  store ptr %.sroa.0.0.copyload.i609, ptr %847, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i607, ptr %847, align 8, !tbaa !58
   %848 = getelementptr inbounds nuw i8, ptr %102, i64 64
   store ptr @.str.36, ptr %848, align 8, !tbaa !59
   store i32 55, ptr %841, align 8, !tbaa !60
   %849 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %102) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
-  %.sroa.0.0.copyload.i610 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i608 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
   store ptr @_ZTI6Animal, ptr %99, align 16, !tbaa !48
   %850 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -2904,14 +2904,14 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %856 = getelementptr inbounds nuw i8, ptr %100, i64 62
   store i16 1, ptr %856, align 2, !tbaa !57
   %857 = getelementptr inbounds nuw i8, ptr %100, i64 80
-  store ptr %.sroa.0.0.copyload.i610, ptr %857, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i608, ptr %857, align 8, !tbaa !58
   %858 = getelementptr inbounds nuw i8, ptr %100, i64 64
   store ptr @.str.37, ptr %858, align 8, !tbaa !59
   store i32 48, ptr %851, align 8, !tbaa !60
   %859 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %100) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
-  %.sroa.0.0.copyload.i611 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i609 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
   store ptr null, ptr %97, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %98)
@@ -2927,14 +2927,14 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %865 = getelementptr inbounds nuw i8, ptr %98, i64 62
   store i16 1, ptr %865, align 2, !tbaa !57
   %866 = getelementptr inbounds nuw i8, ptr %98, i64 80
-  store ptr %.sroa.0.0.copyload.i611, ptr %866, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i609, ptr %866, align 8, !tbaa !58
   %867 = getelementptr inbounds nuw i8, ptr %98, i64 64
   store ptr @.str.38, ptr %867, align 8, !tbaa !59
   store i32 48, ptr %860, align 8, !tbaa !60
   %868 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %98) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
-  %.sroa.0.0.copyload.i612 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i610 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
   store ptr null, ptr %95, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
@@ -2950,7 +2950,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %874 = getelementptr inbounds nuw i8, ptr %96, i64 62
   store i16 1, ptr %874, align 2, !tbaa !57
   %875 = getelementptr inbounds nuw i8, ptr %96, i64 80
-  store ptr %.sroa.0.0.copyload.i612, ptr %875, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i610, ptr %875, align 8, !tbaa !58
   %876 = getelementptr inbounds nuw i8, ptr %96, i64 64
   store ptr @.str.39, ptr %876, align 8, !tbaa !59
   store i32 48, ptr %869, align 8, !tbaa !60
@@ -2972,7 +2972,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   store ptr %882, ptr %394, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %374)
   %883 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %394) #36
-  %.sroa.0.0.copyload.i613 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i611 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
   store ptr @_ZTIZL30nanobind_init_test_classes_extRN8nanobind7module_EE3Foo, ptr %93, align 16, !tbaa !48
   %884 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -2990,7 +2990,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %890 = getelementptr inbounds nuw i8, ptr %94, i64 62
   store i16 1, ptr %890, align 2, !tbaa !57
   %891 = getelementptr inbounds nuw i8, ptr %94, i64 80
-  store ptr %.sroa.0.0.copyload.i613, ptr %891, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i611, ptr %891, align 8, !tbaa !58
   %892 = getelementptr inbounds nuw i8, ptr %94, i64 64
   store ptr @.str.41, ptr %892, align 8, !tbaa !59
   store i32 53, ptr %885, align 8, !tbaa !60
@@ -3007,18 +3007,18 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %896 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %92) #36, !noalias !100
   call void @llvm.lifetime.end.p0(ptr nonnull %92), !noalias !100
   store ptr @.str.43, ptr %395, align 8, !tbaa !106
-  %.sroa.5841.0..sroa_idx = getelementptr inbounds nuw i8, ptr %395, i64 8
-  store ptr null, ptr %.sroa.5841.0..sroa_idx, align 8, !tbaa !106
-  %.sroa.6842.0..sroa_idx = getelementptr inbounds nuw i8, ptr %395, i64 16
-  store i8 1, ptr %.sroa.6842.0..sroa_idx, align 8, !tbaa !61
-  %.sroa.7843.0..sroa_idx = getelementptr inbounds nuw i8, ptr %395, i64 17
-  store i8 0, ptr %.sroa.7843.0..sroa_idx, align 1, !tbaa !107
+  %.sroa.5839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %395, i64 8
+  store ptr null, ptr %.sroa.5839.0..sroa_idx, align 8, !tbaa !106
+  %.sroa.6840.0..sroa_idx = getelementptr inbounds nuw i8, ptr %395, i64 16
+  store i8 1, ptr %.sroa.6840.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.7841.0..sroa_idx = getelementptr inbounds nuw i8, ptr %395, i64 17
+  store i8 0, ptr %.sroa.7841.0..sroa_idx, align 1, !tbaa !107
   %897 = getelementptr inbounds nuw i8, ptr %395, i64 24
   store i64 ptrtoint (ptr @_Py_NoneStruct to i64), ptr %897, align 8
   store ptr null, ptr %373, align 8, !tbaa !20
   %898 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %373) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %373), !noalias !97
-  %.sroa.0.0.copyload.i614 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i612 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
   store ptr @_ZTIZL30nanobind_init_test_classes_extRN8nanobind7module_EE3Foo, ptr %90, align 16, !tbaa !48
   %899 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -3036,7 +3036,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %905 = getelementptr inbounds nuw i8, ptr %91, i64 62
   store i16 1, ptr %905, align 2, !tbaa !67
   %906 = getelementptr inbounds nuw i8, ptr %91, i64 80
-  store ptr %.sroa.0.0.copyload.i614, ptr %906, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i612, ptr %906, align 8, !tbaa !68
   %907 = getelementptr inbounds nuw i8, ptr %91, i64 64
   store ptr @.str.42, ptr %907, align 8, !tbaa !69
   store i32 176, ptr %900, align 8, !tbaa !70
@@ -3412,7 +3412,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.end.p0(ptr nonnull %255)
   %1052 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %400) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %400)
-  %.sroa.0.0.copyload.i618 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i616 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %86)
   store ptr @_ZTIZL30nanobind_init_test_classes_extRN8nanobind7module_EE1D, ptr %86, align 16, !tbaa !48
   %1053 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -3430,14 +3430,14 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %1059 = getelementptr inbounds nuw i8, ptr %87, i64 62
   store i16 1, ptr %1059, align 2, !tbaa !57
   %1060 = getelementptr inbounds nuw i8, ptr %87, i64 80
-  store ptr %.sroa.0.0.copyload.i618, ptr %1060, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i616, ptr %1060, align 8, !tbaa !58
   %1061 = getelementptr inbounds nuw i8, ptr %87, i64 64
   store ptr @.str.49, ptr %1061, align 8, !tbaa !59
   store i32 48, ptr %1054, align 8, !tbaa !60
   %1062 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %87) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.end.p0(ptr nonnull %86)
-  %.sroa.0.0.copyload.i619 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i617 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store ptr @_ZTIZL30nanobind_init_test_classes_extRN8nanobind7module_EE1D, ptr %84, align 16, !tbaa !48
   %1063 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -3455,7 +3455,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %1069 = getelementptr inbounds nuw i8, ptr %85, i64 62
   store i16 1, ptr %1069, align 2, !tbaa !67
   %1070 = getelementptr inbounds nuw i8, ptr %85, i64 80
-  store ptr %.sroa.0.0.copyload.i619, ptr %1070, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i617, ptr %1070, align 8, !tbaa !68
   %1071 = getelementptr inbounds nuw i8, ptr %85, i64 64
   store ptr @.str.50, ptr %1071, align 8, !tbaa !69
   store i32 176, ptr %1064, align 8, !tbaa !70
@@ -3468,7 +3468,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %1075 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %85) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
-  %.sroa.0.0.copyload.i623 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i621 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
   store ptr null, ptr %82, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -3484,14 +3484,14 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %1081 = getelementptr inbounds nuw i8, ptr %83, i64 62
   store i16 1, ptr %1081, align 2, !tbaa !57
   %1082 = getelementptr inbounds nuw i8, ptr %83, i64 80
-  store ptr %.sroa.0.0.copyload.i623, ptr %1082, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i621, ptr %1082, align 8, !tbaa !58
   %1083 = getelementptr inbounds nuw i8, ptr %83, i64 64
   store ptr @.str.51, ptr %1083, align 8, !tbaa !59
   store i32 48, ptr %1076, align 8, !tbaa !60
   %1084 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %83) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
-  %.sroa.0.0.copyload.i624 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i622 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store ptr null, ptr %80, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
@@ -3507,7 +3507,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %1090 = getelementptr inbounds nuw i8, ptr %81, i64 62
   store i16 1, ptr %1090, align 2, !tbaa !57
   %1091 = getelementptr inbounds nuw i8, ptr %81, i64 80
-  store ptr %.sroa.0.0.copyload.i624, ptr %1091, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i622, ptr %1091, align 8, !tbaa !58
   %1092 = getelementptr inbounds nuw i8, ptr %81, i64 64
   store ptr @.str.52, ptr %1092, align 8, !tbaa !59
   store i32 48, ptr %1085, align 8, !tbaa !60
@@ -3665,7 +3665,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.end.p0(ptr nonnull %247)
   %1154 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %401) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %401)
-  %.sroa.0.0.copyload.i627 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i625 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store ptr null, ptr %72, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
@@ -3681,14 +3681,14 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %1160 = getelementptr inbounds nuw i8, ptr %73, i64 62
   store i16 2, ptr %1160, align 2, !tbaa !57
   %1161 = getelementptr inbounds nuw i8, ptr %73, i64 80
-  store ptr %.sroa.0.0.copyload.i627, ptr %1161, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i625, ptr %1161, align 8, !tbaa !58
   %1162 = getelementptr inbounds nuw i8, ptr %73, i64 64
   store ptr @.str.55, ptr %1162, align 8, !tbaa !59
   store i32 131120, ptr %1155, align 8, !tbaa !60
   %1163 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %73) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
-  %.sroa.0.0.copyload.i628 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i626 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store ptr null, ptr %70, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
@@ -3704,14 +3704,14 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %1169 = getelementptr inbounds nuw i8, ptr %71, i64 62
   store i16 2, ptr %1169, align 2, !tbaa !57
   %1170 = getelementptr inbounds nuw i8, ptr %71, i64 80
-  store ptr %.sroa.0.0.copyload.i628, ptr %1170, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i626, ptr %1170, align 8, !tbaa !58
   %1171 = getelementptr inbounds nuw i8, ptr %71, i64 64
   store ptr @.str.56, ptr %1171, align 8, !tbaa !59
   store i32 131120, ptr %1164, align 8, !tbaa !60
   %1172 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %71) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
-  %.sroa.0.0.copyload.i629 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i627 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store ptr null, ptr %68, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
@@ -3727,7 +3727,7 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   %1178 = getelementptr inbounds nuw i8, ptr %69, i64 62
   store i16 0, ptr %1178, align 2, !tbaa !57
   %1179 = getelementptr inbounds nuw i8, ptr %69, i64 80
-  store ptr %.sroa.0.0.copyload.i629, ptr %1179, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i627, ptr %1179, align 8, !tbaa !58
   %1180 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr @.str.57, ptr %1180, align 8, !tbaa !59
   store i32 48, ptr %1173, align 8, !tbaa !60
@@ -4002,8 +4002,8 @@ define internal fastcc void @_ZL30nanobind_init_test_classes_extRN8nanobind7modu
   call void @llvm.lifetime.end.p0(ptr nonnull %229)
   %1282 = ptrtoint ptr %1271 to i64
   store i64 %1282, ptr %406, align 8
-  %.not.i.i.i.i630 = icmp eq ptr %1271, null
-  br i1 %.not.i.i.i.i630, label %_ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithSupplementJEEC2ERKS4_.exit, label %1283
+  %.not.i.i.i.i628 = icmp eq ptr %1271, null
+  br i1 %.not.i.i.i.i628, label %_ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithSupplementJEEC2ERKS4_.exit, label %1283
 
 1283:                                             ; preds = %767
   %1284 = load i64, ptr %1271, align 8, !tbaa !86
@@ -4027,7 +4027,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   br i1 %.not, label %1291, label %1288, !llvm.loop !120
 
 1291:                                             ; preds = %1288
-  %.sroa.0.0.copyload.i631 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i629 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store ptr null, ptr %64, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
@@ -4043,7 +4043,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1297 = getelementptr inbounds nuw i8, ptr %65, i64 62
   store i16 1, ptr %1297, align 2, !tbaa !57
   %1298 = getelementptr inbounds nuw i8, ptr %65, i64 80
-  store ptr %.sroa.0.0.copyload.i631, ptr %1298, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i629, ptr %1298, align 8, !tbaa !58
   %1299 = getelementptr inbounds nuw i8, ptr %65, i64 64
   store ptr @.str.65, ptr %1299, align 8, !tbaa !59
   store i32 48, ptr %1292, align 8, !tbaa !60
@@ -4095,7 +4095,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   call void @llvm.lifetime.end.p0(ptr nonnull %227)
   %1317 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %409) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %409)
-  %.sroa.0.0.copyload.i632 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i630 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store ptr null, ptr %62, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -4111,14 +4111,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1323 = getelementptr inbounds nuw i8, ptr %63, i64 62
   store i16 0, ptr %1323, align 2, !tbaa !57
   %1324 = getelementptr inbounds nuw i8, ptr %63, i64 80
-  store ptr %.sroa.0.0.copyload.i632, ptr %1324, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i630, ptr %1324, align 8, !tbaa !58
   %1325 = getelementptr inbounds nuw i8, ptr %63, i64 64
   store ptr @.str.67, ptr %1325, align 8, !tbaa !59
   store i32 48, ptr %1318, align 8, !tbaa !60
   %1326 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %63) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
-  %.sroa.0.0.copyload.i633 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i631 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store ptr @_ZTI6Struct, ptr %60, align 16, !tbaa !48
   %1327 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -4136,14 +4136,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1333 = getelementptr inbounds nuw i8, ptr %61, i64 62
   store i16 1, ptr %1333, align 2, !tbaa !57
   %1334 = getelementptr inbounds nuw i8, ptr %61, i64 80
-  store ptr %.sroa.0.0.copyload.i633, ptr %1334, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i631, ptr %1334, align 8, !tbaa !58
   %1335 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store ptr @.str.68, ptr %1335, align 8, !tbaa !59
   store i32 48, ptr %1328, align 8, !tbaa !60
   %1336 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %61) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  %.sroa.0.0.copyload.i634 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i632 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store ptr @_ZTI6Struct, ptr %58, align 16, !tbaa !48
   %1337 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -4161,14 +4161,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1343 = getelementptr inbounds nuw i8, ptr %59, i64 62
   store i16 1, ptr %1343, align 2, !tbaa !57
   %1344 = getelementptr inbounds nuw i8, ptr %59, i64 80
-  store ptr %.sroa.0.0.copyload.i634, ptr %1344, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i632, ptr %1344, align 8, !tbaa !58
   %1345 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr @.str.69, ptr %1345, align 8, !tbaa !59
   store i32 48, ptr %1338, align 8, !tbaa !60
   %1346 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %59) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  %.sroa.0.0.copyload.i635 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i633 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store ptr @_ZTI6Struct, ptr %56, align 16, !tbaa !48
   %1347 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -4186,14 +4186,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1353 = getelementptr inbounds nuw i8, ptr %57, i64 62
   store i16 1, ptr %1353, align 2, !tbaa !57
   %1354 = getelementptr inbounds nuw i8, ptr %57, i64 80
-  store ptr %.sroa.0.0.copyload.i635, ptr %1354, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i633, ptr %1354, align 8, !tbaa !58
   %1355 = getelementptr inbounds nuw i8, ptr %57, i64 64
   store ptr @.str.70, ptr %1355, align 8, !tbaa !59
   store i32 48, ptr %1348, align 8, !tbaa !60
   %1356 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %57) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  %.sroa.0.0.copyload.i636 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i634 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store ptr @_ZTI6Struct, ptr %54, align 16, !tbaa !48
   %1357 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -4211,7 +4211,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1363 = getelementptr inbounds nuw i8, ptr %55, i64 62
   store i16 1, ptr %1363, align 2, !tbaa !67
   %1364 = getelementptr inbounds nuw i8, ptr %55, i64 80
-  store ptr %.sroa.0.0.copyload.i636, ptr %1364, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i634, ptr %1364, align 8, !tbaa !68
   %1365 = getelementptr inbounds nuw i8, ptr %55, i64 64
   store ptr @.str.71, ptr %1365, align 8, !tbaa !69
   store i32 176, ptr %1358, align 8, !tbaa !70
@@ -4224,7 +4224,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1369 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %55) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  %.sroa.0.0.copyload.i640 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i638 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store ptr @_ZTI6Struct, ptr %52, align 16, !tbaa !48
   %1370 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -4242,7 +4242,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1376 = getelementptr inbounds nuw i8, ptr %53, i64 62
   store i16 1, ptr %1376, align 2, !tbaa !67
   %1377 = getelementptr inbounds nuw i8, ptr %53, i64 80
-  store ptr %.sroa.0.0.copyload.i640, ptr %1377, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i638, ptr %1377, align 8, !tbaa !68
   %1378 = getelementptr inbounds nuw i8, ptr %53, i64 64
   store ptr @.str.72, ptr %1378, align 8, !tbaa !69
   store i32 176, ptr %1371, align 8, !tbaa !70
@@ -4257,7 +4257,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1383 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %53) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  %.sroa.0.0.copyload.i644 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i642 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store ptr @_ZTI6Struct, ptr %50, align 16, !tbaa !48
   %1384 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -4275,7 +4275,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1390 = getelementptr inbounds nuw i8, ptr %51, i64 62
   store i16 1, ptr %1390, align 2, !tbaa !67
   %1391 = getelementptr inbounds nuw i8, ptr %51, i64 80
-  store ptr %.sroa.0.0.copyload.i644, ptr %1391, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i642, ptr %1391, align 8, !tbaa !68
   %1392 = getelementptr inbounds nuw i8, ptr %51, i64 64
   store ptr @.str.74, ptr %1392, align 8, !tbaa !69
   store i32 176, ptr %1385, align 8, !tbaa !70
@@ -4288,7 +4288,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1396 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %51) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
-  %.sroa.0.0.copyload.i648 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i646 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store ptr @_ZTI6Struct, ptr %48, align 16, !tbaa !48
   %1397 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -4306,7 +4306,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1403 = getelementptr inbounds nuw i8, ptr %49, i64 62
   store i16 1, ptr %1403, align 2, !tbaa !67
   %1404 = getelementptr inbounds nuw i8, ptr %49, i64 80
-  store ptr %.sroa.0.0.copyload.i648, ptr %1404, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i646, ptr %1404, align 8, !tbaa !68
   %1405 = getelementptr inbounds nuw i8, ptr %49, i64 64
   store ptr @.str.75, ptr %1405, align 8, !tbaa !69
   store i32 176, ptr %1398, align 8, !tbaa !70
@@ -4551,7 +4551,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   store ptr %1498, ptr %413, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %357)
   %1499 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %413) #36
-  %.sroa.0.0.copyload.i652 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i650 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr null, ptr %44, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -4567,14 +4567,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1505 = getelementptr inbounds nuw i8, ptr %45, i64 62
   store i16 1, ptr %1505, align 2, !tbaa !57
   %1506 = getelementptr inbounds nuw i8, ptr %45, i64 80
-  store ptr %.sroa.0.0.copyload.i652, ptr %1506, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i650, ptr %1506, align 8, !tbaa !58
   %1507 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr @.str.80, ptr %1507, align 8, !tbaa !59
   store i32 48, ptr %1500, align 8, !tbaa !60
   %1508 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %45) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  %.sroa.0.0.copyload.i653 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i651 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr null, ptr %42, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
@@ -4590,14 +4590,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1514 = getelementptr inbounds nuw i8, ptr %43, i64 62
   store i16 1, ptr %1514, align 2, !tbaa !57
   %1515 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  store ptr %.sroa.0.0.copyload.i653, ptr %1515, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i651, ptr %1515, align 8, !tbaa !58
   %1516 = getelementptr inbounds nuw i8, ptr %43, i64 64
   store ptr @.str.81, ptr %1516, align 8, !tbaa !59
   store i32 48, ptr %1509, align 8, !tbaa !60
   %1517 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %43) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  %.sroa.0.0.copyload.i654 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i652 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store ptr null, ptr %40, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
@@ -4613,7 +4613,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1523 = getelementptr inbounds nuw i8, ptr %41, i64 62
   store i16 1, ptr %1523, align 2, !tbaa !57
   %1524 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  store ptr %.sroa.0.0.copyload.i654, ptr %1524, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i652, ptr %1524, align 8, !tbaa !58
   %1525 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store ptr @.str.82, ptr %1525, align 8, !tbaa !59
   store i32 48, ptr %1518, align 8, !tbaa !60
@@ -4692,7 +4692,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   store ptr %1555, ptr %417, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %353)
   %1556 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %417) #36
-  %.sroa.0.0.copyload.i655 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i653 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store ptr @_ZTIZL30nanobind_init_test_classes_extRN8nanobind7module_EE15PolymorphicBase, ptr %38, align 16, !tbaa !48
   %1557 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -4710,14 +4710,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1563 = getelementptr inbounds nuw i8, ptr %39, i64 62
   store i16 0, ptr %1563, align 2, !tbaa !57
   %1564 = getelementptr inbounds nuw i8, ptr %39, i64 80
-  store ptr %.sroa.0.0.copyload.i655, ptr %1564, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i653, ptr %1564, align 8, !tbaa !58
   %1565 = getelementptr inbounds nuw i8, ptr %39, i64 64
   store ptr @.str.87, ptr %1565, align 8, !tbaa !59
   store i32 48, ptr %1558, align 8, !tbaa !60
   %1566 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %39) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  %.sroa.0.0.copyload.i656 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i654 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr @_ZTIZL30nanobind_init_test_classes_extRN8nanobind7module_EE15PolymorphicBase, ptr %36, align 16, !tbaa !48
   %1567 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -4735,14 +4735,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1573 = getelementptr inbounds nuw i8, ptr %37, i64 62
   store i16 0, ptr %1573, align 2, !tbaa !57
   %1574 = getelementptr inbounds nuw i8, ptr %37, i64 80
-  store ptr %.sroa.0.0.copyload.i656, ptr %1574, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i654, ptr %1574, align 8, !tbaa !58
   %1575 = getelementptr inbounds nuw i8, ptr %37, i64 64
   store ptr @.str.88, ptr %1575, align 8, !tbaa !59
   store i32 48, ptr %1568, align 8, !tbaa !60
   %1576 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %37) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  %.sroa.0.0.copyload.i657 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i655 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr @_ZTIZL30nanobind_init_test_classes_extRN8nanobind7module_EE4Base, ptr %34, align 16, !tbaa !48
   %1577 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -4760,14 +4760,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1583 = getelementptr inbounds nuw i8, ptr %35, i64 62
   store i16 0, ptr %1583, align 2, !tbaa !57
   %1584 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  store ptr %.sroa.0.0.copyload.i657, ptr %1584, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i655, ptr %1584, align 8, !tbaa !58
   %1585 = getelementptr inbounds nuw i8, ptr %35, i64 64
   store ptr @.str.89, ptr %1585, align 8, !tbaa !59
   store i32 48, ptr %1578, align 8, !tbaa !60
   %1586 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %35) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %.sroa.0.0.copyload.i658 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i656 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr @_ZTIZL30nanobind_init_test_classes_extRN8nanobind7module_EE4Base, ptr %32, align 16, !tbaa !48
   %1587 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -4785,14 +4785,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1593 = getelementptr inbounds nuw i8, ptr %33, i64 62
   store i16 0, ptr %1593, align 2, !tbaa !57
   %1594 = getelementptr inbounds nuw i8, ptr %33, i64 80
-  store ptr %.sroa.0.0.copyload.i658, ptr %1594, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i656, ptr %1594, align 8, !tbaa !58
   %1595 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store ptr @.str.90, ptr %1595, align 8, !tbaa !59
   store i32 48, ptr %1588, align 8, !tbaa !60
   %1596 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %33) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %.sroa.0.0.copyload.i659 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i657 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr @_ZTI6Shared, ptr %30, align 16, !tbaa !48
   %1597 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -4810,14 +4810,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1603 = getelementptr inbounds nuw i8, ptr %31, i64 62
   store i16 1, ptr %1603, align 2, !tbaa !57
   %1604 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  store ptr %.sroa.0.0.copyload.i659, ptr %1604, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i657, ptr %1604, align 8, !tbaa !58
   %1605 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store ptr @.str.91, ptr %1605, align 8, !tbaa !59
   store i32 48, ptr %1598, align 8, !tbaa !60
   %1606 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %31) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %.sroa.0.0.copyload.i660 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i658 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr @_ZTI6Struct, ptr %28, align 16, !tbaa !48
   %1607 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4835,7 +4835,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1613 = getelementptr inbounds nuw i8, ptr %29, i64 62
   store i16 1, ptr %1613, align 2, !tbaa !67
   %1614 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  store ptr %.sroa.0.0.copyload.i660, ptr %1614, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i658, ptr %1614, align 8, !tbaa !68
   %1615 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store ptr @.str.92, ptr %1615, align 8, !tbaa !69
   store i32 176, ptr %1608, align 8, !tbaa !70
@@ -4848,7 +4848,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1619 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %29) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %.sroa.0.0.copyload.i664 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i662 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr @_ZTI6Struct, ptr %26, align 16, !tbaa !48
   %1620 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -4866,7 +4866,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1626 = getelementptr inbounds nuw i8, ptr %27, i64 62
   store i16 1, ptr %1626, align 2, !tbaa !67
   %1627 = getelementptr inbounds nuw i8, ptr %27, i64 80
-  store ptr %.sroa.0.0.copyload.i664, ptr %1627, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i662, ptr %1627, align 8, !tbaa !68
   %1628 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store ptr @.str.93, ptr %1628, align 8, !tbaa !69
   store i32 176, ptr %1621, align 8, !tbaa !70
@@ -4879,7 +4879,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1632 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %27) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %.sroa.0.0.copyload.i668 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i666 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr @_ZTI6Struct, ptr %24, align 16, !tbaa !48
   %1633 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -4897,7 +4897,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1639 = getelementptr inbounds nuw i8, ptr %25, i64 62
   store i16 1, ptr %1639, align 2, !tbaa !67
   %1640 = getelementptr inbounds nuw i8, ptr %25, i64 80
-  store ptr %.sroa.0.0.copyload.i668, ptr %1640, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i666, ptr %1640, align 8, !tbaa !68
   %1641 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr @.str.94, ptr %1641, align 8, !tbaa !69
   %1642 = getelementptr inbounds nuw i8, ptr %25, i64 88
@@ -4910,7 +4910,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1645 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %25) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %.sroa.0.0.copyload.i672 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i670 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr null, ptr %22, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -4926,14 +4926,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1651 = getelementptr inbounds nuw i8, ptr %23, i64 62
   store i16 1, ptr %1651, align 2, !tbaa !57
   %1652 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  store ptr %.sroa.0.0.copyload.i672, ptr %1652, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i670, ptr %1652, align 8, !tbaa !58
   %1653 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr @.str.95, ptr %1653, align 8, !tbaa !59
   store i32 48, ptr %1646, align 8, !tbaa !60
   %1654 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %23) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %.sroa.0.0.copyload.i673 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i671 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -4949,7 +4949,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1660 = getelementptr inbounds nuw i8, ptr %21, i64 62
   store i16 0, ptr %1660, align 2, !tbaa !57
   %1661 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  store ptr %.sroa.0.0.copyload.i673, ptr %1661, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i671, ptr %1661, align 8, !tbaa !58
   %1662 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store ptr @.str.96, ptr %1662, align 8, !tbaa !59
   store i32 48, ptr %1655, align 8, !tbaa !60
@@ -5007,7 +5007,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   call void @llvm.lifetime.end.p0(ptr nonnull %211)
   %1684 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %418) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %418)
-  %.sroa.0.0.copyload.i674 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i672 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr null, ptr %18, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -5023,14 +5023,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1690 = getelementptr inbounds nuw i8, ptr %19, i64 62
   store i16 0, ptr %1690, align 2, !tbaa !57
   %1691 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  store ptr %.sroa.0.0.copyload.i674, ptr %1691, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i672, ptr %1691, align 8, !tbaa !58
   %1692 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr @.str.98, ptr %1692, align 8, !tbaa !59
   store i32 48, ptr %1685, align 8, !tbaa !60
   %1693 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %19) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %.sroa.0.0.copyload.i675 = load ptr, ptr %0, align 8
+  %.sroa.0.0.copyload.i673 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr @_ZTIZL30nanobind_init_test_classes_extRN8nanobind7module_EE18IncrementingStruct, ptr %16, align 16, !tbaa !48
   %1694 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -5050,7 +5050,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %1701 = getelementptr inbounds nuw i8, ptr %17, i64 62
   store i16 1, ptr %1701, align 2, !tbaa !57
   %1702 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store ptr %.sroa.0.0.copyload.i675, ptr %1702, align 8, !tbaa !58
+  store ptr %.sroa.0.0.copyload.i673, ptr %1702, align 8, !tbaa !58
   %1703 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store ptr @.str.99, ptr %1703, align 8, !tbaa !59
   store i32 131120, ptr %1696, align 8, !tbaa !60
@@ -5451,8 +5451,8 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   call void @llvm.lifetime.start.p0(ptr nonnull %178), !noalias !123
   %1846 = getelementptr inbounds nuw i8, ptr %178, i64 56
   store i64 ptrtoint (ptr @_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EENK10HiddenBase4vgetEv to i64), ptr %178, align 8, !noalias !123
-  %.sroa.41328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store i64 0, ptr %.sroa.41328.0..sroa_idx, align 8, !tbaa !61, !noalias !123
+  %.sroa.41326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %178, i64 8
+  store i64 0, ptr %.sroa.41326.0..sroa_idx, align 8, !tbaa !61, !noalias !123
   %1847 = getelementptr inbounds nuw i8, ptr %178, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_12cpp_functionIZL30nanobind_init_test_classes_extRNS_7module_EE12BoundDerivediZL30nanobind_init_test_classes_extS4_E10HiddenBaseJEJNS_9is_methodENS_9is_getterENS_9rv_policyEEEENS_6objectEMT1_KFT0_DpT2_EDpRKT3_EUlPKS5_E_iJSM_EJLm0EEJS7_S8_S9_EEEP7_objectOSB_PFT2_DpSH_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSP_PhS9_PNS0_12cleanup_listEE_8__invokeES11_S12_S13_S9_S15_, ptr %1847, align 8, !tbaa !49, !noalias !123
   %1848 = getelementptr inbounds nuw i8, ptr %178, i64 40
@@ -5483,8 +5483,8 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   call void @llvm.lifetime.start.p0(ptr nonnull %176), !noalias !126
   %1856 = getelementptr inbounds nuw i8, ptr %176, i64 56
   store i64 ptrtoint (ptr @_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EEN10HiddenBase4vsetEi to i64), ptr %176, align 8, !noalias !126
-  %.sroa.41331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store i64 0, ptr %.sroa.41331.0..sroa_idx, align 8, !tbaa !61, !noalias !126
+  %.sroa.41329.0..sroa_idx = getelementptr inbounds nuw i8, ptr %176, i64 8
+  store i64 0, ptr %.sroa.41329.0..sroa_idx, align 8, !tbaa !61, !noalias !126
   %1857 = getelementptr inbounds nuw i8, ptr %176, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_12cpp_functionIZL30nanobind_init_test_classes_extRNS_7module_EE12BoundDerivedvZL30nanobind_init_test_classes_extS4_E10HiddenBaseJiEJNS_9is_methodEEEENS_6objectEMT1_FT0_DpT2_EDpRKT3_EUlPS5_iE_vJSJ_iEJLm0ELm1EEJS7_EEEP7_objectOS9_PFT2_DpSF_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSM_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESY_SZ_S10_S11_S13_, ptr %1857, align 8, !tbaa !49, !noalias !126
   %1858 = getelementptr inbounds nuw i8, ptr %176, i64 40
@@ -5520,8 +5520,8 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   call void @llvm.lifetime.start.p0(ptr nonnull %174)
   %1869 = getelementptr inbounds nuw i8, ptr %174, i64 56
   store i64 ptrtoint (ptr @_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EENK10HiddenBase10get_answerEv to i64), ptr %174, align 8
-  %.sroa.41336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %174, i64 8
-  store i64 0, ptr %.sroa.41336.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.41334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %174, i64 8
+  store i64 0, ptr %.sroa.41334.0..sroa_idx, align 8, !tbaa !61
   %1870 = getelementptr inbounds nuw i8, ptr %174, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defIZL30nanobind_init_test_classes_extRNS_7module_EE12BoundDerivediZL30nanobind_init_test_classes_extS4_E10HiddenBaseJEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_KFT0_DpT2_EDpRKT3_EUlPKS5_E_iJSL_EJLm0EEJS7_S8_S9_EEEP7_objectOSA_PFT2_DpSG_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSO_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES10_S11_S12_S13_S15_, ptr %1870, align 8, !tbaa !49
   %1871 = getelementptr inbounds nuw i8, ptr %174, i64 40
@@ -5547,8 +5547,8 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   call void @llvm.lifetime.start.p0(ptr nonnull %172)
   %1879 = getelementptr inbounds nuw i8, ptr %172, i64 56
   store i64 1, ptr %172, align 8
-  %.sroa.41339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store i64 0, ptr %.sroa.41339.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.41337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 8
+  store i64 0, ptr %.sroa.41337.0..sroa_idx, align 8, !tbaa !61
   %1880 = getelementptr inbounds nuw i8, ptr %172, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defIZL30nanobind_init_test_classes_extRNS_7module_EE12BoundDerivediS5_JEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_FT0_DpT2_EDpRKT3_EUlPS5_E_iJSJ_EJLm0EEJS6_S7_S8_EEEP7_objectOS9_PFT2_DpSF_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSM_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESY_SZ_S10_S11_S13_, ptr %1880, align 8, !tbaa !49
   %1881 = getelementptr inbounds nuw i8, ptr %172, i64 40
@@ -5721,8 +5721,8 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   call void @llvm.lifetime.start.p0(ptr nonnull %162)
   %1947 = getelementptr inbounds nuw i8, ptr %162, i64 56
   store i64 ptrtoint (ptr @_ZNK9UniqueInt5valueEv to i64), ptr %162, align 8
-  %.sroa.41378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 8
-  store i64 0, ptr %.sroa.41378.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.41376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 8
+  store i64 0, ptr %.sroa.41376.0..sroa_idx, align 8, !tbaa !61
   %1948 = getelementptr inbounds nuw i8, ptr %162, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defI9UniqueIntiS3_JEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_KFT0_DpT2_EDpRKT3_EUlPKS3_E_iJSI_EJLm0EEJS4_S5_S6_EEEP7_objectOS7_PFT2_DpSD_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESX_SY_SZ_S10_S12_, ptr %1948, align 8, !tbaa !49
   %1949 = getelementptr inbounds nuw i8, ptr %162, i64 40
@@ -5749,8 +5749,8 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   call void @llvm.lifetime.start.p0(ptr nonnull %160)
   %1957 = getelementptr inbounds nuw i8, ptr %160, i64 56
   store i64 ptrtoint (ptr @_ZNK9UniqueInt7lookupsEv to i64), ptr %160, align 8
-  %.sroa.41376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 8
-  store i64 0, ptr %.sroa.41376.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.41374.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 8
+  store i64 0, ptr %.sroa.41374.0..sroa_idx, align 8, !tbaa !61
   %1958 = getelementptr inbounds nuw i8, ptr %160, i64 32
   store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defI9UniqueIntiS3_JEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_KFT0_DpT2_EDpRKT3_EUlPKS3_E_iJSI_EJLm0EEJS4_S5_S6_EEEP7_objectOS7_PFT2_DpSD_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESX_SY_SZ_S10_S12_, ptr %1958, align 8, !tbaa !49
   %1959 = getelementptr inbounds nuw i8, ptr %160, i64 40
@@ -5863,12 +5863,12 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
 
 1998:                                             ; preds = %1972
   store ptr @.str.5, ptr %426, align 8, !tbaa !106
-  %.sroa.5700.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 8
-  store ptr null, ptr %.sroa.5700.0..sroa_idx, align 8, !tbaa !106
-  %.sroa.6701.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 16
-  store i8 1, ptr %.sroa.6701.0..sroa_idx, align 8, !tbaa !61
-  %.sroa.7702.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 17
-  store i8 0, ptr %.sroa.7702.0..sroa_idx, align 1, !tbaa !107
+  %.sroa.5698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 8
+  store ptr null, ptr %.sroa.5698.0..sroa_idx, align 8, !tbaa !106
+  %.sroa.6699.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 16
+  store i8 1, ptr %.sroa.6699.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.7700.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 17
+  store i8 0, ptr %.sroa.7700.0..sroa_idx, align 1, !tbaa !107
   %1999 = getelementptr inbounds nuw i8, ptr %426, i64 24
   %2000 = load i64, ptr %340, align 8
   store i64 %2000, ptr %1999, align 8
@@ -5942,9 +5942,9 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %2029 = getelementptr inbounds nuw i8, ptr %152, i64 64
   store ptr @.str.121, ptr %2029, align 8, !tbaa !69
   store i32 1200, ptr %2022, align 8, !tbaa !70
-  %2030 = load i8, ptr %.sroa.7702.0..sroa_idx, align 1, !tbaa !142, !range !144, !noundef !145
+  %2030 = load i8, ptr %.sroa.7700.0..sroa_idx, align 1, !tbaa !142, !range !144, !noundef !145
   %spec.select.i.i.i = shl nuw nsw i8 %2030, 2
-  %2031 = load i8, ptr %.sroa.6701.0..sroa_idx, align 8, !tbaa !146
+  %2031 = load i8, ptr %.sroa.6699.0..sroa_idx, align 8, !tbaa !146
   %.not.i.i.i = icmp ne i8 %2031, 0
   %2032 = zext i1 %.not.i.i.i to i8
   %.1.i.i.i = or disjoint i8 %spec.select.i.i.i, %2032
@@ -5953,7 +5953,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   store i8 %.1.i.i.i, ptr %2034, align 8, !tbaa !71
   %2035 = load ptr, ptr %426, align 8, !tbaa !147
   store ptr %2035, ptr %2033, align 8, !tbaa !73
-  %2036 = load ptr, ptr %.sroa.5700.0..sroa_idx, align 8, !tbaa !148
+  %2036 = load ptr, ptr %.sroa.5698.0..sroa_idx, align 8, !tbaa !148
   %2037 = getelementptr inbounds nuw i8, ptr %152, i64 96
   store ptr %2036, ptr %2037, align 8, !tbaa !74
   %2038 = getelementptr inbounds nuw i8, ptr %152, i64 112
@@ -6032,8 +6032,8 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   store ptr @.str.5, ptr %429, align 8, !tbaa !106
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %429, i64 8
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !106
-  %.sroa.6687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %429, i64 16
-  store i8 1, ptr %.sroa.6687.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.6685.0..sroa_idx = getelementptr inbounds nuw i8, ptr %429, i64 16
+  store i8 1, ptr %.sroa.6685.0..sroa_idx, align 8, !tbaa !61
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %429, i64 17
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !107
   %2062 = getelementptr inbounds nuw i8, ptr %429, i64 24
@@ -6044,7 +6044,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   call void @llvm.lifetime.end.p0(ptr nonnull %339), !noalias !149
   %.sroa.0.0.copyload.i549 = load ptr, ptr %428, align 8
   invoke void @_ZN8nanobind6detail13wrap_base_newENS_6handleEb(ptr %.sroa.0.0.copyload.i549, i1 noundef zeroext false) #38
-          to label %2065 unwind label %.body583
+          to label %2065 unwind label %.body581
 
 2065:                                             ; preds = %2061
   %2066 = inttoptr i64 %2063 to ptr
@@ -6134,14 +6134,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   %2104 = getelementptr inbounds nuw i8, ptr %143, i64 112
   store ptr null, ptr %2104, align 8, !tbaa !75
   %2105 = load i8, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !142, !range !144, !noundef !145
-  %spec.select.i.i578 = shl nuw nsw i8 %2105, 2
-  %2106 = load i8, ptr %.sroa.6687.0..sroa_idx, align 8, !tbaa !146
-  %.not.i.i579 = icmp ne i8 %2106, 0
-  %2107 = zext i1 %.not.i.i579 to i8
-  %.1.i.i580 = or disjoint i8 %spec.select.i.i578, %2107
+  %spec.select.i.i577 = shl nuw nsw i8 %2105, 2
+  %2106 = load i8, ptr %.sroa.6685.0..sroa_idx, align 8, !tbaa !146
+  %.not.i.i578 = icmp ne i8 %2106, 0
+  %2107 = zext i1 %.not.i.i578 to i8
+  %.1.i.i579 = or disjoint i8 %spec.select.i.i577, %2107
   %2108 = getelementptr inbounds nuw i8, ptr %143, i64 128
   %2109 = getelementptr inbounds nuw i8, ptr %143, i64 160
-  store i8 %.1.i.i580, ptr %2109, align 8, !tbaa !71
+  store i8 %.1.i.i579, ptr %2109, align 8, !tbaa !71
   %2110 = load ptr, ptr %429, align 8, !tbaa !147
   store ptr %2110, ptr %2108, align 8, !tbaa !73
   %2111 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !148
@@ -6517,14 +6517,14 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
           cleanup
   br label %2248
 
-.body583:                                         ; preds = %2061
+.body581:                                         ; preds = %2061
   %2246 = landingpad { ptr, i32 }
           cleanup
   %2247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %2062) #36
   br label %2248
 
-2248:                                             ; preds = %.body583, %2244
-  %.pn261 = phi { ptr, i32 } [ %2246, %.body583 ], [ %2245, %2244 ]
+2248:                                             ; preds = %.body581, %2244
+  %.pn261 = phi { ptr, i32 } [ %2246, %.body581 ], [ %2245, %2244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %430)
   call void @llvm.lifetime.end.p0(ptr nonnull %429)
   %2249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %428) #36

@@ -906,16 +906,14 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_779BytesTrie4nextEPKci(ptr noundef n
   br i1 %56, label %.preheader._crit_edge, label %.lr.ph205, !llvm.loop !16
 
 .preheader155._crit_edge.loopexit:                ; preds = %77
-  %scevgep.le = getelementptr i8, ptr %.076, i64 1
   %57 = zext nneg i32 %.067 to i64
-  %58 = getelementptr i8, ptr %scevgep.le, i64 %57
-  %scevgep278.le = getelementptr i8, ptr %58, i64 -1
+  %58 = getelementptr i8, ptr %.076, i64 %57
   %59 = sub i32 %.091, %.067
   br label %.preheader155._crit_edge
 
 .preheader155._crit_edge:                         ; preds = %.preheader155, %.preheader155._crit_edge.loopexit
   %.495.lcssa = phi i32 [ %59, %.preheader155._crit_edge.loopexit ], [ %.091, %.preheader155 ]
-  %.480.lcssa = phi ptr [ %scevgep278.le, %.preheader155._crit_edge.loopexit ], [ %.076, %.preheader155 ]
+  %.480.lcssa = phi ptr [ %58, %.preheader155._crit_edge.loopexit ], [ %.076, %.preheader155 ]
   store i32 %.495.lcssa, ptr %30, align 8, !tbaa !12
   store ptr %.480.lcssa, ptr %26, align 8, !tbaa !11
   %60 = icmp slt i32 %.495.lcssa, 0

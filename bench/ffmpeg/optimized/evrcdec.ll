@@ -1197,11 +1197,11 @@ decode_lspf.exit:                                 ; preds = %578, %.preheader.i
   %698 = getelementptr inbounds nuw i8, ptr %16, i64 68
   %699 = getelementptr inbounds nuw i8, ptr %16, i64 1040
   %700 = getelementptr inbounds nuw i8, ptr %16, i64 1044
-  %701 = getelementptr inbounds nuw i8, ptr %16, i64 1048
-  %702 = getelementptr inbounds nuw i8, ptr %16, i64 1560
-  %703 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  %704 = getelementptr inbounds nuw i8, ptr %16, i64 2884
-  %705 = getelementptr inbounds nuw i8, ptr %16, i64 2872
+  %701 = getelementptr inbounds nuw i8, ptr %16, i64 1560
+  %702 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  %703 = getelementptr inbounds nuw i8, ptr %16, i64 2884
+  %704 = getelementptr inbounds nuw i8, ptr %16, i64 2872
+  %705 = getelementptr inbounds nuw i8, ptr %16, i64 1048
   %706 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %707 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %708
@@ -1294,7 +1294,7 @@ bandwidth_expansion.exit:                         ; preds = %.preheader249, %754
   br i1 %.not194, label %.lr.ph261, label %764
 
 .lr.ph261:                                        ; preds = %bandwidth_expansion.exit
-  %763 = getelementptr inbounds nuw float, ptr %705, i64 %indvars.iv293
+  %763 = getelementptr inbounds nuw float, ptr %704, i64 %indvars.iv293
   %umax290 = call i32 @llvm.umax.i32(i32 %713, i32 1)
   %wide.trip.count291 = zext nneg i32 %umax290 to i64
   %.pre302 = load float, ptr %763, align 4, !tbaa !31
@@ -1324,8 +1324,8 @@ bandwidth_expansion.exit:                         ; preds = %.preheader249, %754
   %784 = load float, ptr %700, align 4, !tbaa !42
   %785 = fadd nsz float %784, %783
   store float %785, ptr %700, align 4, !tbaa !42
-  call fastcc void @acb_excitation(ptr noundef nonnull %16, ptr noundef nonnull %702, float noundef %779, ptr noundef %11, i32 noundef %713)
-  %786 = getelementptr inbounds nuw [4 x i16], ptr %703, i64 %indvars.iv293
+  call fastcc void @acb_excitation(ptr noundef nonnull %16, ptr noundef nonnull %701, float noundef %779, ptr noundef %11, i32 noundef %713)
+  %786 = getelementptr inbounds nuw [4 x i16], ptr %702, i64 %indvars.iv293
   %.val = load i32, ptr %55, align 8, !tbaa !56
   %787 = icmp eq i32 %.val, 4
   br i1 %787, label %788, label %838
@@ -1482,8 +1482,8 @@ decode_8_pulses_35bits.exit.i:                    ; preds = %821
   %indvars.iv283 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next284, %.lr.ph ]
   %877 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv283
   %878 = load float, ptr %877, align 4, !tbaa !31
-  %879 = getelementptr inbounds nuw float, ptr %701, i64 %indvars.iv283
-  %880 = getelementptr inbounds nuw i8, ptr %879, i64 512
+  %879 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv283
+  %880 = getelementptr inbounds nuw i8, ptr %879, i64 1560
   %881 = load float, ptr %880, align 4, !tbaa !31
   %882 = call nsz float @llvm.fmuladd.f32(float %774, float %878, float %881)
   store float %882, ptr %880, align 4, !tbaa !31
@@ -1492,20 +1492,20 @@ decode_8_pulses_35bits.exit.i:                    ; preds = %821
   br i1 %exitcond286.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %883 = load float, ptr %704, align 4, !tbaa !40
+  %883 = load float, ptr %703, align 4, !tbaa !40
   %884 = fpext nsz float %883 to double
   %885 = fadd nsz double %884, 2.000000e-01
   %.inv = fcmp nsz oge double %885, 1.000000e+00
   %886 = select i1 %.inv, double 1.000000e+00, double %885
   %887 = fptrunc double %886 to float
-  store float %887, ptr %704, align 4, !tbaa !40
+  store float %887, ptr %703, align 4, !tbaa !40
   %888 = sext i32 %.val to i64
   br label %.lr.ph.preheader.i212
 
 889:                                              ; preds = %.lr.ph261, %889
   %indvars.iv287 = phi i64 [ 0, %.lr.ph261 ], [ %indvars.iv.next288, %889 ]
-  %890 = getelementptr inbounds nuw float, ptr %701, i64 %indvars.iv287
-  %891 = getelementptr inbounds nuw i8, ptr %890, i64 512
+  %890 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv287
+  %891 = getelementptr inbounds nuw i8, ptr %890, i64 1560
   store float %.pre302, ptr %891, align 4, !tbaa !31
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next288, %wide.trip.count291
@@ -1514,8 +1514,8 @@ decode_8_pulses_35bits.exit.i:                    ; preds = %821
 .lr.ph.preheader.i212:                            ; preds = %889, %._crit_edge
   %892 = phi i64 [ %888, %._crit_edge ], [ 1, %889 ]
   %893 = zext i8 %712 to i64
-  %894 = getelementptr inbounds nuw float, ptr %701, i64 %893
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %701, ptr noundef nonnull align 4 dereferenceable(512) %894, i64 512, i1 false)
+  %894 = getelementptr inbounds nuw float, ptr %705, i64 %893
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %705, ptr noundef nonnull align 4 dereferenceable(512) %894, i64 512, i1 false)
   %895 = load i32, ptr %707, align 8, !tbaa !92
   %.not195 = icmp eq i32 %895, 0
   %896 = select i1 %.not195, ptr %.1263, ptr %12
@@ -1525,7 +1525,7 @@ decode_8_pulses_35bits.exit.i:                    ; preds = %821
 
 .lr.ph.i214:                                      ; preds = %913, %.lr.ph.preheader.i212
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph.preheader.i212 ], [ %indvars.iv.next30.i, %913 ]
-  %899 = getelementptr inbounds nuw float, ptr %702, i64 %indvars.iv29.i
+  %899 = getelementptr inbounds nuw float, ptr %701, i64 %indvars.iv29.i
   %900 = load float, ptr %899, align 4, !tbaa !31
   %901 = getelementptr inbounds nuw float, ptr %896, i64 %indvars.iv29.i
   store float %900, ptr %901, align 4, !tbaa !31
@@ -1708,10 +1708,10 @@ decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %5
   %981 = getelementptr inbounds nuw i8, ptr %16, i64 1040
   %982 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %983 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %984 = getelementptr inbounds nuw i8, ptr %16, i64 1048
-  %985 = getelementptr inbounds nuw i8, ptr %16, i64 1560
-  %986 = getelementptr inbounds nuw i8, ptr %16, i64 2884
-  %987 = getelementptr inbounds nuw i8, ptr %16, i64 2872
+  %984 = getelementptr inbounds nuw i8, ptr %16, i64 1560
+  %985 = getelementptr inbounds nuw i8, ptr %16, i64 2884
+  %986 = getelementptr inbounds nuw i8, ptr %16, i64 2872
+  %987 = getelementptr inbounds nuw i8, ptr %16, i64 1048
   %988 = getelementptr inbounds nuw i8, ptr %16, i64 1044
   %989 = getelementptr inbounds nuw i8, ptr %16, i64 184
   br label %990
@@ -1799,7 +1799,7 @@ decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %5
   br i1 %.not114.i, label %.lr.ph128.i, label %.lr.ph.preheader.i223
 
 .lr.ph128.i:                                      ; preds = %1039
-  %1047 = getelementptr inbounds nuw float, ptr %987, i64 %indvars.iv178.i
+  %1047 = getelementptr inbounds nuw float, ptr %986, i64 %indvars.iv178.i
   %umax163.i = call i32 @llvm.umax.i32(i32 %995, i32 1)
   %wide.trip.count164.i = zext nneg i32 %umax163.i to i64
   %.pre184.i = load float, ptr %1047, align 4, !tbaa !31
@@ -1807,16 +1807,16 @@ decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %5
 
 .lr.ph.preheader.i223:                            ; preds = %1039
   %1048 = load float, ptr %981, align 8, !tbaa !43
-  call fastcc void @acb_excitation(ptr noundef nonnull %16, ptr noundef nonnull %985, float noundef %1048, ptr noundef %7, i32 noundef %995)
+  call fastcc void @acb_excitation(ptr noundef nonnull %16, ptr noundef nonnull %984, float noundef %1048, ptr noundef %7, i32 noundef %995)
   %umax.i224 = call i32 @llvm.umax.i32(i32 %995, i32 1)
   %wide.trip.count.i225 = zext nneg i32 %umax.i224 to i64
   br label %.lr.ph.i226
 
 .lr.ph.i226:                                      ; preds = %.lr.ph.i226, %.lr.ph.preheader.i223
   %indvars.iv156.i = phi i64 [ 0, %.lr.ph.preheader.i223 ], [ %indvars.iv.next157.i, %.lr.ph.i226 ]
-  %1049 = load float, ptr %986, align 4, !tbaa !40
-  %1050 = getelementptr inbounds nuw float, ptr %984, i64 %indvars.iv156.i
-  %1051 = getelementptr inbounds nuw i8, ptr %1050, i64 512
+  %1049 = load float, ptr %985, align 4, !tbaa !40
+  %1050 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv156.i
+  %1051 = getelementptr inbounds nuw i8, ptr %1050, i64 1560
   %1052 = load float, ptr %1051, align 4, !tbaa !31
   %1053 = fmul nsz float %1049, %1052
   store float %1053, ptr %1051, align 4, !tbaa !31
@@ -1826,8 +1826,8 @@ decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %5
 
 1054:                                             ; preds = %1054, %.lr.ph128.i
   %indvars.iv160.i = phi i64 [ 0, %.lr.ph128.i ], [ %indvars.iv.next161.i, %1054 ]
-  %1055 = getelementptr inbounds nuw float, ptr %984, i64 %indvars.iv160.i
-  %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 512
+  %1055 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv160.i
+  %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 1560
   store float %.pre184.i, ptr %1056, align 4, !tbaa !31
   %indvars.iv.next161.i = add nuw nsw i64 %indvars.iv160.i, 1
   %exitcond165.not.i = icmp eq i64 %indvars.iv.next161.i, %wide.trip.count164.i
@@ -1835,29 +1835,29 @@ decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %5
 
 .loopexit.thread.i:                               ; preds = %1054
   %1057 = zext i8 %994 to i64
-  %1058 = getelementptr inbounds nuw float, ptr %984, i64 %1057
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %984, ptr noundef nonnull align 4 dereferenceable(512) %1058, i64 512, i1 false)
+  %1058 = getelementptr inbounds nuw float, ptr %987, i64 %1057
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %987, ptr noundef nonnull align 4 dereferenceable(512) %1058, i64 512, i1 false)
   br label %.lr.ph133.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i226
-  %1059 = load float, ptr %986, align 4, !tbaa !40
+  %1059 = load float, ptr %985, align 4, !tbaa !40
   %1060 = fpext nsz float %1059 to double
   %1061 = fadd nsz double %1060, -5.000000e-02
   %1062 = fcmp nsz ogt double %1061, 0.000000e+00
   %1063 = select i1 %1062, double %1061, double 0.000000e+00
   %1064 = fptrunc double %1063 to float
-  store float %1064, ptr %986, align 4, !tbaa !40
+  store float %1064, ptr %985, align 4, !tbaa !40
   %.pre185.i = load i32, ptr %921, align 8, !tbaa !56
   %1065 = zext i8 %994 to i64
-  %1066 = getelementptr inbounds nuw float, ptr %984, i64 %1065
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %984, ptr noundef nonnull align 4 dereferenceable(512) %1066, i64 512, i1 false)
+  %1066 = getelementptr inbounds nuw float, ptr %987, i64 %1065
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %987, ptr noundef nonnull align 4 dereferenceable(512) %1066, i64 512, i1 false)
   %.not115.i = icmp eq i32 %.pre185.i, 1
   br i1 %.not115.i, label %.lr.ph133.i, label %1069
 
 .lr.ph133.i:                                      ; preds = %.loopexit.i, %.loopexit.thread.i
   %wide.trip.count176.i.pre-phi = phi i64 [ %wide.trip.count.i225, %.loopexit.i ], [ %wide.trip.count164.i, %.loopexit.thread.i ]
   %1067 = phi i64 [ %1065, %.loopexit.i ], [ %1057, %.loopexit.thread.i ]
-  %1068 = getelementptr inbounds nuw float, ptr %987, i64 %indvars.iv178.i
+  %1068 = getelementptr inbounds nuw float, ptr %986, i64 %indvars.iv178.i
   %.pre186.i = load float, ptr %1068, align 4, !tbaa !31
   br label %1081
 
@@ -1876,7 +1876,7 @@ decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %5
 
 .lr.ph131.i:                                      ; preds = %.lr.ph131.i, %.lr.ph131.preheader.i
   %indvars.iv166.i = phi i64 [ 0, %.lr.ph131.preheader.i ], [ %indvars.iv.next167.i, %.lr.ph131.i ]
-  %1077 = getelementptr inbounds nuw float, ptr %984, i64 %indvars.iv166.i
+  %1077 = getelementptr inbounds nuw float, ptr %987, i64 %indvars.iv166.i
   %1078 = getelementptr inbounds nuw i8, ptr %1077, i64 512
   %1079 = load float, ptr %1078, align 4, !tbaa !31
   %1080 = fadd nsz float %1079, %1076
@@ -1887,7 +1887,7 @@ decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %5
 
 1081:                                             ; preds = %1081, %.lr.ph133.i
   %indvars.iv172.i = phi i64 [ 0, %.lr.ph133.i ], [ %indvars.iv.next173.i, %1081 ]
-  %1082 = getelementptr inbounds nuw float, ptr %984, i64 %indvars.iv172.i
+  %1082 = getelementptr inbounds nuw float, ptr %987, i64 %indvars.iv172.i
   %1083 = getelementptr inbounds nuw i8, ptr %1082, i64 512
   store float %.pre186.i, ptr %1083, align 4, !tbaa !31
   %indvars.iv.next173.i = add nuw nsw i64 %indvars.iv172.i, 1
@@ -1903,7 +1903,7 @@ decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %5
 
 .lr.ph.i.i:                                       ; preds = %1101, %.thread.i227
   %indvars.iv29.i.i = phi i64 [ 0, %.thread.i227 ], [ %indvars.iv.next30.i.i, %1101 ]
-  %1088 = getelementptr inbounds nuw float, ptr %985, i64 %indvars.iv29.i.i
+  %1088 = getelementptr inbounds nuw float, ptr %984, i64 %indvars.iv29.i.i
   %1089 = load float, ptr %1088, align 4, !tbaa !31
   br label %1090
 

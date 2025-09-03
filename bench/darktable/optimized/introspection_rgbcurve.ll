@@ -214,452 +214,444 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 512
   store i32 1, ptr %9, align 4, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  br label %12
+  br label %11
 
-.preheader150:                                    ; preds = %12
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 164
-  br label %17
-
-12:                                               ; preds = %1, %12
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_ab, i64 %indvars.iv
-  %14 = load float, ptr %13, align 4, !tbaa !13
-  %15 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %10, i64 %indvars.iv
-  store float %14, ptr %15, align 4, !tbaa !15
+11:                                               ; preds = %1, %11
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
+  %12 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_ab, i64 %indvars.iv
+  %13 = load float, ptr %12, align 4, !tbaa !13
+  %14 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %10, i64 %indvars.iv
+  store float %13, ptr %14, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.preheader150, label %12
+  br i1 %exitcond.not, label %.preheader149, label %11
 
-.preheader149:                                    ; preds = %17
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  br label %22
+.preheader148:                                    ; preds = %.preheader149
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 320
+  br label %20
 
-17:                                               ; preds = %.preheader150, %17
-  %indvars.iv176 = phi i64 [ 0, %.preheader150 ], [ %indvars.iv.next177, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_ab, i64 %indvars.iv176
-  %19 = load float, ptr %18, align 4, !tbaa !13
-  %.idx139 = shl nuw nsw i64 %indvars.iv176, 3
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx139
-  store float %19, ptr %20, align 4, !tbaa !17
-  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %exitcond179.not = icmp eq i64 %indvars.iv.next177, 7
-  br i1 %exitcond179.not, label %.preheader149, label %17
+.preheader149:                                    ; preds = %11, %.preheader149
+  %indvars.iv175 = phi i64 [ %indvars.iv.next176, %.preheader149 ], [ 0, %11 ]
+  %16 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_ab, i64 %indvars.iv175
+  %17 = load float, ptr %16, align 4, !tbaa !13
+  %18 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv175
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 164
+  store float %17, ptr %19, align 4, !tbaa !17
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %exitcond178.not = icmp eq i64 %indvars.iv.next176, 7
+  br i1 %exitcond178.not, label %.preheader148, label %.preheader149
 
-.preheader148:                                    ; preds = %22
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 324
-  br label %43
+20:                                               ; preds = %.preheader148, %20
+  %indvars.iv179 = phi i64 [ 0, %.preheader148 ], [ %indvars.iv.next180, %20 ]
+  %21 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_ab, i64 %indvars.iv179
+  %22 = load float, ptr %21, align 4, !tbaa !13
+  %23 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %15, i64 %indvars.iv179
+  store float %22, ptr %23, align 4, !tbaa !15
+  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
+  %exitcond182.not = icmp eq i64 %indvars.iv.next180, 7
+  br i1 %exitcond182.not, label %.preheader147, label %20
 
-22:                                               ; preds = %.preheader149, %22
-  %indvars.iv180 = phi i64 [ 0, %.preheader149 ], [ %indvars.iv.next181, %22 ]
-  %23 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_ab, i64 %indvars.iv180
-  %24 = load float, ptr %23, align 4, !tbaa !13
-  %25 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %16, i64 %indvars.iv180
-  store float %24, ptr %25, align 4, !tbaa !15
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %exitcond183.not = icmp eq i64 %indvars.iv.next181, 7
-  br i1 %exitcond183.not, label %.preheader148, label %22
-
-26:                                               ; preds = %43
+24:                                               ; preds = %.preheader147
   store float 0.000000e+00, ptr %2, align 4, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float 0x3F6FA33380000000, ptr %27, align 4, !tbaa !15
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float 0x3FB39CE8E0000000, ptr %28, align 4, !tbaa !15
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float 0x3FC5AD6CC0000000, ptr %29, align 4, !tbaa !15
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float 0x3FE8C63280000000, ptr %30, align 4, !tbaa !15
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float 1.000000e+00, ptr %31, align 4, !tbaa !15
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float 0.000000e+00, ptr %32, align 4, !tbaa !17
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float 0x3F7FE004C0000000, ptr %33, align 4, !tbaa !17
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store float 0x3FC3FDC5A0000000, ptr %34, align 4, !tbaa !17
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store float 0x3FD2952080000000, ptr %35, align 4, !tbaa !17
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float 0x3FE8C36540000000, ptr %36, align 4, !tbaa !17
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store float 1.000000e+00, ptr %37, align 4, !tbaa !17
-  %38 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #25
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !18
-  %42 = tail call i32 (...) %41() #25
-  call void @dt_gui_presets_add_generic(ptr noundef %38, ptr noundef nonnull %39, i32 noundef %42, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store float 0x3F6FA33380000000, ptr %25, align 4, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store float 0x3FB39CE8E0000000, ptr %26, align 4, !tbaa !15
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store float 0x3FC5AD6CC0000000, ptr %27, align 4, !tbaa !15
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store float 0x3FE8C63280000000, ptr %28, align 4, !tbaa !15
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store float 1.000000e+00, ptr %29, align 4, !tbaa !15
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store float 0.000000e+00, ptr %30, align 4, !tbaa !17
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store float 0x3F7FE004C0000000, ptr %31, align 4, !tbaa !17
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store float 0x3FC3FDC5A0000000, ptr %32, align 4, !tbaa !17
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store float 0x3FD2952080000000, ptr %33, align 4, !tbaa !17
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  store float 0x3FE8C36540000000, ptr %34, align 4, !tbaa !17
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  store float 1.000000e+00, ptr %35, align 4, !tbaa !17
+  %36 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #25
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %39 = load ptr, ptr %38, align 8, !tbaa !18
+  %40 = tail call i32 (...) %39() #25
+  call void @dt_gui_presets_add_generic(ptr noundef %36, ptr noundef nonnull %37, i32 noundef %40, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
   store i32 7, ptr %4, align 4, !tbaa !6
-  br label %47
+  br label %45
 
-43:                                               ; preds = %.preheader148, %43
-  %indvars.iv184 = phi i64 [ 0, %.preheader148 ], [ %indvars.iv.next185, %43 ]
-  %44 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_ab, i64 %indvars.iv184
-  %45 = load float, ptr %44, align 4, !tbaa !13
-  %.idx = shl nuw nsw i64 %indvars.iv184, 3
-  %46 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
-  store float %45, ptr %46, align 4, !tbaa !17
-  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
-  %exitcond187.not = icmp eq i64 %indvars.iv.next185, 7
-  br i1 %exitcond187.not, label %26, label %43
+.preheader147:                                    ; preds = %20, %.preheader147
+  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.preheader147 ], [ 0, %20 ]
+  %41 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_ab, i64 %indvars.iv183
+  %42 = load float, ptr %41, align 4, !tbaa !13
+  %43 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv183
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 324
+  store float %42, ptr %44, align 4, !tbaa !17
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
+  %exitcond186.not = icmp eq i64 %indvars.iv.next184, 7
+  br i1 %exitcond186.not, label %24, label %.preheader147
 
-47:                                               ; preds = %26, %47
-  %indvars.iv188 = phi i64 [ 0, %26 ], [ %indvars.iv.next189, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv188
-  %49 = load float, ptr %48, align 4, !tbaa !13
-  %50 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv188
-  store float %49, ptr %50, align 4, !tbaa !15
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
-  %exitcond191.not = icmp eq i64 %indvars.iv.next189, 7
-  br i1 %exitcond191.not, label %.preheader147, label %47
+45:                                               ; preds = %24, %45
+  %indvars.iv187 = phi i64 [ 0, %24 ], [ %indvars.iv.next188, %45 ]
+  %46 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv187
+  %47 = load float, ptr %46, align 4, !tbaa !13
+  %48 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv187
+  store float %47, ptr %48, align 4, !tbaa !15
+  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
+  %exitcond190.not = icmp eq i64 %indvars.iv.next188, 7
+  br i1 %exitcond190.not, label %.preheader146, label %45
 
-51:                                               ; preds = %.preheader147
-  %52 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #25
-  %53 = load ptr, ptr %40, align 8, !tbaa !18
-  %54 = call i32 (...) %53() #25
-  call void @dt_gui_presets_add_generic(ptr noundef %52, ptr noundef nonnull %39, i32 noundef %54, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
-  br label %58
+49:                                               ; preds = %.preheader146
+  %50 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #25
+  %51 = load ptr, ptr %38, align 8, !tbaa !18
+  %52 = call i32 (...) %51() #25
+  call void @dt_gui_presets_add_generic(ptr noundef %50, ptr noundef nonnull %37, i32 noundef %52, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
+  br label %56
 
-.preheader147:                                    ; preds = %47, %.preheader147
-  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %.preheader147 ], [ 0, %47 ]
-  %55 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv192
-  %56 = load float, ptr %55, align 4, !tbaa !13
-  %57 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv192, i32 1
-  store float %56, ptr %57, align 4, !tbaa !17
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %exitcond195.not = icmp eq i64 %indvars.iv.next193, 7
-  br i1 %exitcond195.not, label %51, label %.preheader147
+.preheader146:                                    ; preds = %45, %.preheader146
+  %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.preheader146 ], [ 0, %45 ]
+  %53 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv191
+  %54 = load float, ptr %53, align 4, !tbaa !13
+  %55 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv191, i32 1
+  store float %54, ptr %55, align 4, !tbaa !17
+  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
+  %exitcond194.not = icmp eq i64 %indvars.iv.next192, 7
+  br i1 %exitcond194.not, label %49, label %.preheader146
 
-58:                                               ; preds = %51, %58
-  %indvars.iv196 = phi i64 [ 0, %51 ], [ %indvars.iv.next197, %58 ]
-  %59 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv196
-  %60 = load float, ptr %59, align 4, !tbaa !13
-  %61 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv196
-  store float %60, ptr %61, align 4, !tbaa !15
-  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %exitcond199.not = icmp eq i64 %indvars.iv.next197, 7
-  br i1 %exitcond199.not, label %.preheader146, label %58
+56:                                               ; preds = %49, %56
+  %indvars.iv195 = phi i64 [ 0, %49 ], [ %indvars.iv.next196, %56 ]
+  %57 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv195
+  %58 = load float, ptr %57, align 4, !tbaa !13
+  %59 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv195
+  store float %58, ptr %59, align 4, !tbaa !15
+  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
+  %exitcond198.not = icmp eq i64 %indvars.iv.next196, 7
+  br i1 %exitcond198.not, label %.preheader145, label %56
 
-62:                                               ; preds = %.preheader146
-  %63 = load float, ptr %33, align 4, !tbaa !17
-  %64 = fpext reassoc nsz arcp contract afn float %63 to double
-  %65 = fadd reassoc nsz arcp contract afn double %64, -2.000000e-02
-  %66 = fptrunc reassoc nsz arcp contract afn double %65 to float
-  store float %66, ptr %33, align 4, !tbaa !17
-  %67 = load float, ptr %34, align 4, !tbaa !17
-  %68 = fpext reassoc nsz arcp contract afn float %67 to double
-  %69 = fadd reassoc nsz arcp contract afn double %68, -3.000000e-02
-  %70 = fptrunc reassoc nsz arcp contract afn double %69 to float
-  store float %70, ptr %34, align 4, !tbaa !17
-  %71 = load float, ptr %36, align 4, !tbaa !17
-  %72 = fpext reassoc nsz arcp contract afn float %71 to double
-  %73 = fadd reassoc nsz arcp contract afn double %72, 3.000000e-02
-  %74 = fptrunc reassoc nsz arcp contract afn double %73 to float
-  store float %74, ptr %36, align 4, !tbaa !17
-  %75 = load float, ptr %37, align 4, !tbaa !17
-  %76 = fpext reassoc nsz arcp contract afn float %75 to double
-  %77 = fadd reassoc nsz arcp contract afn double %76, 2.000000e-02
-  %78 = fptrunc reassoc nsz arcp contract afn double %77 to float
-  store float %78, ptr %37, align 4, !tbaa !17
-  %79 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #25
-  %80 = load ptr, ptr %40, align 8, !tbaa !18
-  %81 = call i32 (...) %80() #25
-  call void @dt_gui_presets_add_generic(ptr noundef %79, ptr noundef nonnull %39, i32 noundef %81, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
-  br label %85
+60:                                               ; preds = %.preheader145
+  %61 = load float, ptr %31, align 4, !tbaa !17
+  %62 = fpext reassoc nsz arcp contract afn float %61 to double
+  %63 = fadd reassoc nsz arcp contract afn double %62, -2.000000e-02
+  %64 = fptrunc reassoc nsz arcp contract afn double %63 to float
+  store float %64, ptr %31, align 4, !tbaa !17
+  %65 = load float, ptr %32, align 4, !tbaa !17
+  %66 = fpext reassoc nsz arcp contract afn float %65 to double
+  %67 = fadd reassoc nsz arcp contract afn double %66, -3.000000e-02
+  %68 = fptrunc reassoc nsz arcp contract afn double %67 to float
+  store float %68, ptr %32, align 4, !tbaa !17
+  %69 = load float, ptr %34, align 4, !tbaa !17
+  %70 = fpext reassoc nsz arcp contract afn float %69 to double
+  %71 = fadd reassoc nsz arcp contract afn double %70, 3.000000e-02
+  %72 = fptrunc reassoc nsz arcp contract afn double %71 to float
+  store float %72, ptr %34, align 4, !tbaa !17
+  %73 = load float, ptr %35, align 4, !tbaa !17
+  %74 = fpext reassoc nsz arcp contract afn float %73 to double
+  %75 = fadd reassoc nsz arcp contract afn double %74, 2.000000e-02
+  %76 = fptrunc reassoc nsz arcp contract afn double %75 to float
+  store float %76, ptr %35, align 4, !tbaa !17
+  %77 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #25
+  %78 = load ptr, ptr %38, align 8, !tbaa !18
+  %79 = call i32 (...) %78() #25
+  call void @dt_gui_presets_add_generic(ptr noundef %77, ptr noundef nonnull %37, i32 noundef %79, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
+  br label %83
 
-.preheader146:                                    ; preds = %58, %.preheader146
-  %indvars.iv200 = phi i64 [ %indvars.iv.next201, %.preheader146 ], [ 0, %58 ]
-  %82 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv200
-  %83 = load float, ptr %82, align 4, !tbaa !13
-  %84 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv200, i32 1
-  store float %83, ptr %84, align 4, !tbaa !17
-  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %exitcond203.not = icmp eq i64 %indvars.iv.next201, 7
-  br i1 %exitcond203.not, label %62, label %.preheader146
+.preheader145:                                    ; preds = %56, %.preheader145
+  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %.preheader145 ], [ 0, %56 ]
+  %80 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv199
+  %81 = load float, ptr %80, align 4, !tbaa !13
+  %82 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv199, i32 1
+  store float %81, ptr %82, align 4, !tbaa !17
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %exitcond202.not = icmp eq i64 %indvars.iv.next200, 7
+  br i1 %exitcond202.not, label %60, label %.preheader145
 
-85:                                               ; preds = %62, %85
-  %indvars.iv204 = phi i64 [ 0, %62 ], [ %indvars.iv.next205, %85 ]
-  %86 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv204
-  %87 = load float, ptr %86, align 4, !tbaa !13
-  %88 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv204
-  store float %87, ptr %88, align 4, !tbaa !15
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %exitcond207.not = icmp eq i64 %indvars.iv.next205, 7
-  br i1 %exitcond207.not, label %.preheader145, label %85
+83:                                               ; preds = %60, %83
+  %indvars.iv203 = phi i64 [ 0, %60 ], [ %indvars.iv.next204, %83 ]
+  %84 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv203
+  %85 = load float, ptr %84, align 4, !tbaa !13
+  %86 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv203
+  store float %85, ptr %86, align 4, !tbaa !15
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %exitcond206.not = icmp eq i64 %indvars.iv.next204, 7
+  br i1 %exitcond206.not, label %.preheader144, label %83
 
-89:                                               ; preds = %.preheader145
-  %90 = load float, ptr %33, align 4, !tbaa !17
-  %91 = fpext reassoc nsz arcp contract afn float %90 to double
-  %92 = fadd reassoc nsz arcp contract afn double %91, -4.000000e-02
-  %93 = fptrunc reassoc nsz arcp contract afn double %92 to float
-  store float %93, ptr %33, align 4, !tbaa !17
-  %94 = load float, ptr %34, align 4, !tbaa !17
-  %95 = fpext reassoc nsz arcp contract afn float %94 to double
-  %96 = fadd reassoc nsz arcp contract afn double %95, -6.000000e-02
-  %97 = fptrunc reassoc nsz arcp contract afn double %96 to float
-  store float %97, ptr %34, align 4, !tbaa !17
-  %98 = load float, ptr %36, align 4, !tbaa !17
-  %99 = fpext reassoc nsz arcp contract afn float %98 to double
-  %100 = fadd reassoc nsz arcp contract afn double %99, 6.000000e-02
-  %101 = fptrunc reassoc nsz arcp contract afn double %100 to float
-  store float %101, ptr %36, align 4, !tbaa !17
-  %102 = load float, ptr %37, align 4, !tbaa !17
-  %103 = fpext reassoc nsz arcp contract afn float %102 to double
-  %104 = fadd reassoc nsz arcp contract afn double %103, 4.000000e-02
-  %105 = fptrunc reassoc nsz arcp contract afn double %104 to float
-  store float %105, ptr %37, align 4, !tbaa !17
-  %106 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #25
-  %107 = load ptr, ptr %40, align 8, !tbaa !18
-  %108 = call i32 (...) %107() #25
-  call void @dt_gui_presets_add_generic(ptr noundef %106, ptr noundef nonnull %39, i32 noundef %108, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
-  br label %112
+87:                                               ; preds = %.preheader144
+  %88 = load float, ptr %31, align 4, !tbaa !17
+  %89 = fpext reassoc nsz arcp contract afn float %88 to double
+  %90 = fadd reassoc nsz arcp contract afn double %89, -4.000000e-02
+  %91 = fptrunc reassoc nsz arcp contract afn double %90 to float
+  store float %91, ptr %31, align 4, !tbaa !17
+  %92 = load float, ptr %32, align 4, !tbaa !17
+  %93 = fpext reassoc nsz arcp contract afn float %92 to double
+  %94 = fadd reassoc nsz arcp contract afn double %93, -6.000000e-02
+  %95 = fptrunc reassoc nsz arcp contract afn double %94 to float
+  store float %95, ptr %32, align 4, !tbaa !17
+  %96 = load float, ptr %34, align 4, !tbaa !17
+  %97 = fpext reassoc nsz arcp contract afn float %96 to double
+  %98 = fadd reassoc nsz arcp contract afn double %97, 6.000000e-02
+  %99 = fptrunc reassoc nsz arcp contract afn double %98 to float
+  store float %99, ptr %34, align 4, !tbaa !17
+  %100 = load float, ptr %35, align 4, !tbaa !17
+  %101 = fpext reassoc nsz arcp contract afn float %100 to double
+  %102 = fadd reassoc nsz arcp contract afn double %101, 4.000000e-02
+  %103 = fptrunc reassoc nsz arcp contract afn double %102 to float
+  store float %103, ptr %35, align 4, !tbaa !17
+  %104 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #25
+  %105 = load ptr, ptr %38, align 8, !tbaa !18
+  %106 = call i32 (...) %105() #25
+  call void @dt_gui_presets_add_generic(ptr noundef %104, ptr noundef nonnull %37, i32 noundef %106, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
+  br label %110
 
-.preheader145:                                    ; preds = %85, %.preheader145
-  %indvars.iv208 = phi i64 [ %indvars.iv.next209, %.preheader145 ], [ 0, %85 ]
-  %109 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv208
-  %110 = load float, ptr %109, align 4, !tbaa !13
-  %111 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv208, i32 1
-  store float %110, ptr %111, align 4, !tbaa !17
-  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %exitcond211.not = icmp eq i64 %indvars.iv.next209, 7
-  br i1 %exitcond211.not, label %89, label %.preheader145
+.preheader144:                                    ; preds = %83, %.preheader144
+  %indvars.iv207 = phi i64 [ %indvars.iv.next208, %.preheader144 ], [ 0, %83 ]
+  %107 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv207
+  %108 = load float, ptr %107, align 4, !tbaa !13
+  %109 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv207, i32 1
+  store float %108, ptr %109, align 4, !tbaa !17
+  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
+  %exitcond210.not = icmp eq i64 %indvars.iv.next208, 7
+  br i1 %exitcond210.not, label %87, label %.preheader144
 
-112:                                              ; preds = %89, %112
-  %indvars.iv212 = phi i64 [ 0, %89 ], [ %indvars.iv.next213, %112 ]
-  %113 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv212
-  %114 = load float, ptr %113, align 4, !tbaa !13
-  %115 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv212
-  store float %114, ptr %115, align 4, !tbaa !15
-  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
-  %exitcond215.not = icmp eq i64 %indvars.iv.next213, 7
-  br i1 %exitcond215.not, label %.preheader144, label %112
+110:                                              ; preds = %87, %110
+  %indvars.iv211 = phi i64 [ 0, %87 ], [ %indvars.iv.next212, %110 ]
+  %111 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv211
+  %112 = load float, ptr %111, align 4, !tbaa !13
+  %113 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv211
+  store float %112, ptr %113, align 4, !tbaa !15
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
+  %exitcond214.not = icmp eq i64 %indvars.iv.next212, 7
+  br i1 %exitcond214.not, label %.preheader143, label %110
 
-116:                                              ; preds = %.preheader144
-  %117 = load float, ptr %33, align 4, !tbaa !17
-  %118 = fpext reassoc nsz arcp contract afn float %117 to double
-  %119 = fadd reassoc nsz arcp contract afn double %118, -2.000000e-02
-  %120 = fptrunc reassoc nsz arcp contract afn double %119 to float
-  store float %120, ptr %33, align 4, !tbaa !17
-  %121 = load float, ptr %34, align 4, !tbaa !17
-  %122 = fpext reassoc nsz arcp contract afn float %121 to double
-  %123 = fadd reassoc nsz arcp contract afn double %122, -3.000000e-02
-  %124 = fptrunc reassoc nsz arcp contract afn double %123 to float
-  store float %124, ptr %34, align 4, !tbaa !17
-  %125 = load float, ptr %36, align 4, !tbaa !17
-  %126 = fpext reassoc nsz arcp contract afn float %125 to double
-  %127 = fadd reassoc nsz arcp contract afn double %126, 3.000000e-02
-  %128 = fptrunc reassoc nsz arcp contract afn double %127 to float
-  store float %128, ptr %36, align 4, !tbaa !17
-  %129 = load float, ptr %37, align 4, !tbaa !17
-  %130 = fpext reassoc nsz arcp contract afn float %129 to double
-  %131 = fadd reassoc nsz arcp contract afn double %130, 2.000000e-02
-  %132 = fptrunc reassoc nsz arcp contract afn double %131 to float
-  store float %132, ptr %37, align 4, !tbaa !17
-  br label %136
+114:                                              ; preds = %.preheader143
+  %115 = load float, ptr %31, align 4, !tbaa !17
+  %116 = fpext reassoc nsz arcp contract afn float %115 to double
+  %117 = fadd reassoc nsz arcp contract afn double %116, -2.000000e-02
+  %118 = fptrunc reassoc nsz arcp contract afn double %117 to float
+  store float %118, ptr %31, align 4, !tbaa !17
+  %119 = load float, ptr %32, align 4, !tbaa !17
+  %120 = fpext reassoc nsz arcp contract afn float %119 to double
+  %121 = fadd reassoc nsz arcp contract afn double %120, -3.000000e-02
+  %122 = fptrunc reassoc nsz arcp contract afn double %121 to float
+  store float %122, ptr %32, align 4, !tbaa !17
+  %123 = load float, ptr %34, align 4, !tbaa !17
+  %124 = fpext reassoc nsz arcp contract afn float %123 to double
+  %125 = fadd reassoc nsz arcp contract afn double %124, 3.000000e-02
+  %126 = fptrunc reassoc nsz arcp contract afn double %125 to float
+  store float %126, ptr %34, align 4, !tbaa !17
+  %127 = load float, ptr %35, align 4, !tbaa !17
+  %128 = fpext reassoc nsz arcp contract afn float %127 to double
+  %129 = fadd reassoc nsz arcp contract afn double %128, 2.000000e-02
+  %130 = fptrunc reassoc nsz arcp contract afn double %129 to float
+  store float %130, ptr %35, align 4, !tbaa !17
+  br label %134
 
-.preheader144:                                    ; preds = %112, %.preheader144
-  %indvars.iv216 = phi i64 [ %indvars.iv.next217, %.preheader144 ], [ 0, %112 ]
-  %133 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv216
-  %134 = load float, ptr %133, align 4, !tbaa !13
-  %135 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv216, i32 1
-  store float %134, ptr %135, align 4, !tbaa !17
-  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
-  %exitcond219.not = icmp eq i64 %indvars.iv.next217, 7
-  br i1 %exitcond219.not, label %116, label %.preheader144
+.preheader143:                                    ; preds = %110, %.preheader143
+  %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.preheader143 ], [ 0, %110 ]
+  %131 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv215
+  %132 = load float, ptr %131, align 4, !tbaa !13
+  %133 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv215, i32 1
+  store float %132, ptr %133, align 4, !tbaa !17
+  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
+  %exitcond218.not = icmp eq i64 %indvars.iv.next216, 7
+  br i1 %exitcond218.not, label %114, label %.preheader143
 
-136:                                              ; preds = %116, %136
-  %indvars.iv220 = phi i64 [ 1, %116 ], [ %indvars.iv.next221, %136 ]
-  %137 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv220
-  %138 = load float, ptr %137, align 4, !tbaa !15
-  %139 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %138, float 0x40019999A0000000)
-  store float %139, ptr %137, align 4, !tbaa !15
-  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %exitcond223.not = icmp eq i64 %indvars.iv.next221, 6
-  br i1 %exitcond223.not, label %.preheader143, label %136
+134:                                              ; preds = %114, %134
+  %indvars.iv219 = phi i64 [ 1, %114 ], [ %indvars.iv.next220, %134 ]
+  %135 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv219
+  %136 = load float, ptr %135, align 4, !tbaa !15
+  %137 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %136, float 0x40019999A0000000)
+  store float %137, ptr %135, align 4, !tbaa !15
+  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
+  %exitcond222.not = icmp eq i64 %indvars.iv.next220, 6
+  br i1 %exitcond222.not, label %.preheader142, label %134
 
-140:                                              ; preds = %.preheader143
-  %141 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #25
-  %142 = load ptr, ptr %40, align 8, !tbaa !18
-  %143 = call i32 (...) %142() #25
-  call void @dt_gui_presets_add_generic(ptr noundef %141, ptr noundef nonnull %39, i32 noundef %143, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
-  br label %147
+138:                                              ; preds = %.preheader142
+  %139 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #25
+  %140 = load ptr, ptr %38, align 8, !tbaa !18
+  %141 = call i32 (...) %140() #25
+  call void @dt_gui_presets_add_generic(ptr noundef %139, ptr noundef nonnull %37, i32 noundef %141, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
+  br label %145
 
-.preheader143:                                    ; preds = %136, %.preheader143
-  %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.preheader143 ], [ 1, %136 ]
-  %144 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv224, i32 1
-  %145 = load float, ptr %144, align 4, !tbaa !17
-  %146 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %145, float 0x40019999A0000000)
-  store float %146, ptr %144, align 4, !tbaa !17
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %exitcond227.not = icmp eq i64 %indvars.iv.next225, 6
-  br i1 %exitcond227.not, label %140, label %.preheader143
+.preheader142:                                    ; preds = %134, %.preheader142
+  %indvars.iv223 = phi i64 [ %indvars.iv.next224, %.preheader142 ], [ 1, %134 ]
+  %142 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv223, i32 1
+  %143 = load float, ptr %142, align 4, !tbaa !17
+  %144 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %143, float 0x40019999A0000000)
+  store float %144, ptr %142, align 4, !tbaa !17
+  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
+  %exitcond226.not = icmp eq i64 %indvars.iv.next224, 6
+  br i1 %exitcond226.not, label %138, label %.preheader142
 
-147:                                              ; preds = %140, %147
-  %indvars.iv228 = phi i64 [ 0, %140 ], [ %indvars.iv.next229, %147 ]
-  %148 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv228
-  %149 = load float, ptr %148, align 4, !tbaa !13
-  %150 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv228
-  store float %149, ptr %150, align 4, !tbaa !15
-  %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
-  %exitcond231.not = icmp eq i64 %indvars.iv.next229, 7
-  br i1 %exitcond231.not, label %.preheader142, label %147
+145:                                              ; preds = %138, %145
+  %indvars.iv227 = phi i64 [ 0, %138 ], [ %indvars.iv.next228, %145 ]
+  %146 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv227
+  %147 = load float, ptr %146, align 4, !tbaa !13
+  %148 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv227
+  store float %147, ptr %148, align 4, !tbaa !15
+  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
+  %exitcond230.not = icmp eq i64 %indvars.iv.next228, 7
+  br i1 %exitcond230.not, label %.preheader141, label %145
 
-151:                                              ; preds = %.preheader142
-  %152 = load float, ptr %33, align 4, !tbaa !17
-  %153 = fpext reassoc nsz arcp contract afn float %152 to double
-  %154 = fadd reassoc nsz arcp contract afn double %153, -4.000000e-02
-  %155 = fptrunc reassoc nsz arcp contract afn double %154 to float
-  store float %155, ptr %33, align 4, !tbaa !17
-  %156 = load float, ptr %34, align 4, !tbaa !17
-  %157 = fpext reassoc nsz arcp contract afn float %156 to double
-  %158 = fadd reassoc nsz arcp contract afn double %157, -6.000000e-02
-  %159 = fptrunc reassoc nsz arcp contract afn double %158 to float
-  store float %159, ptr %34, align 4, !tbaa !17
-  %160 = load float, ptr %36, align 4, !tbaa !17
-  %161 = fpext reassoc nsz arcp contract afn float %160 to double
-  %162 = fadd reassoc nsz arcp contract afn double %161, 6.000000e-02
-  %163 = fptrunc reassoc nsz arcp contract afn double %162 to float
-  store float %163, ptr %36, align 4, !tbaa !17
-  %164 = load float, ptr %37, align 4, !tbaa !17
-  %165 = fpext reassoc nsz arcp contract afn float %164 to double
-  %166 = fadd reassoc nsz arcp contract afn double %165, 4.000000e-02
-  %167 = fptrunc reassoc nsz arcp contract afn double %166 to float
-  store float %167, ptr %37, align 4, !tbaa !17
-  br label %171
+149:                                              ; preds = %.preheader141
+  %150 = load float, ptr %31, align 4, !tbaa !17
+  %151 = fpext reassoc nsz arcp contract afn float %150 to double
+  %152 = fadd reassoc nsz arcp contract afn double %151, -4.000000e-02
+  %153 = fptrunc reassoc nsz arcp contract afn double %152 to float
+  store float %153, ptr %31, align 4, !tbaa !17
+  %154 = load float, ptr %32, align 4, !tbaa !17
+  %155 = fpext reassoc nsz arcp contract afn float %154 to double
+  %156 = fadd reassoc nsz arcp contract afn double %155, -6.000000e-02
+  %157 = fptrunc reassoc nsz arcp contract afn double %156 to float
+  store float %157, ptr %32, align 4, !tbaa !17
+  %158 = load float, ptr %34, align 4, !tbaa !17
+  %159 = fpext reassoc nsz arcp contract afn float %158 to double
+  %160 = fadd reassoc nsz arcp contract afn double %159, 6.000000e-02
+  %161 = fptrunc reassoc nsz arcp contract afn double %160 to float
+  store float %161, ptr %34, align 4, !tbaa !17
+  %162 = load float, ptr %35, align 4, !tbaa !17
+  %163 = fpext reassoc nsz arcp contract afn float %162 to double
+  %164 = fadd reassoc nsz arcp contract afn double %163, 4.000000e-02
+  %165 = fptrunc reassoc nsz arcp contract afn double %164 to float
+  store float %165, ptr %35, align 4, !tbaa !17
+  br label %169
 
-.preheader142:                                    ; preds = %147, %.preheader142
-  %indvars.iv232 = phi i64 [ %indvars.iv.next233, %.preheader142 ], [ 0, %147 ]
-  %168 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv232
-  %169 = load float, ptr %168, align 4, !tbaa !13
-  %170 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv232, i32 1
-  store float %169, ptr %170, align 4, !tbaa !17
-  %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %exitcond235.not = icmp eq i64 %indvars.iv.next233, 7
-  br i1 %exitcond235.not, label %151, label %.preheader142
+.preheader141:                                    ; preds = %145, %.preheader141
+  %indvars.iv231 = phi i64 [ %indvars.iv.next232, %.preheader141 ], [ 0, %145 ]
+  %166 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv231
+  %167 = load float, ptr %166, align 4, !tbaa !13
+  %168 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv231, i32 1
+  store float %167, ptr %168, align 4, !tbaa !17
+  %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
+  %exitcond234.not = icmp eq i64 %indvars.iv.next232, 7
+  br i1 %exitcond234.not, label %149, label %.preheader141
 
-171:                                              ; preds = %151, %171
-  %indvars.iv236 = phi i64 [ 1, %151 ], [ %indvars.iv.next237, %171 ]
-  %172 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv236
-  %173 = load float, ptr %172, align 4, !tbaa !15
-  %174 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %173, float 0x40019999A0000000)
-  store float %174, ptr %172, align 4, !tbaa !15
-  %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
-  %exitcond239.not = icmp eq i64 %indvars.iv.next237, 6
-  br i1 %exitcond239.not, label %.preheader141, label %171
+169:                                              ; preds = %149, %169
+  %indvars.iv235 = phi i64 [ 1, %149 ], [ %indvars.iv.next236, %169 ]
+  %170 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv235
+  %171 = load float, ptr %170, align 4, !tbaa !15
+  %172 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %171, float 0x40019999A0000000)
+  store float %172, ptr %170, align 4, !tbaa !15
+  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
+  %exitcond238.not = icmp eq i64 %indvars.iv.next236, 6
+  br i1 %exitcond238.not, label %.preheader140, label %169
 
-175:                                              ; preds = %.preheader141
-  %176 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #25
-  %177 = load ptr, ptr %40, align 8, !tbaa !18
-  %178 = call i32 (...) %177() #25
-  call void @dt_gui_presets_add_generic(ptr noundef %176, ptr noundef nonnull %39, i32 noundef %178, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
+173:                                              ; preds = %.preheader140
+  %174 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #25
+  %175 = load ptr, ptr %38, align 8, !tbaa !18
+  %176 = call i32 (...) %175() #25
+  call void @dt_gui_presets_add_generic(ptr noundef %174, ptr noundef nonnull %37, i32 noundef %176, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
   store i32 2, ptr %7, align 4, !tbaa !6
-  br label %182
+  br label %180
 
-.preheader141:                                    ; preds = %171, %.preheader141
-  %indvars.iv240 = phi i64 [ %indvars.iv.next241, %.preheader141 ], [ 1, %171 ]
-  %179 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv240, i32 1
-  %180 = load float, ptr %179, align 4, !tbaa !17
-  %181 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %180, float 0x40019999A0000000)
-  store float %181, ptr %179, align 4, !tbaa !17
-  %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
-  %exitcond243.not = icmp eq i64 %indvars.iv.next241, 6
-  br i1 %exitcond243.not, label %175, label %.preheader141
+.preheader140:                                    ; preds = %169, %.preheader140
+  %indvars.iv239 = phi i64 [ %indvars.iv.next240, %.preheader140 ], [ 1, %169 ]
+  %177 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv239, i32 1
+  %178 = load float, ptr %177, align 4, !tbaa !17
+  %179 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %178, float 0x40019999A0000000)
+  store float %179, ptr %177, align 4, !tbaa !17
+  %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
+  %exitcond242.not = icmp eq i64 %indvars.iv.next240, 6
+  br i1 %exitcond242.not, label %173, label %.preheader140
 
-182:                                              ; preds = %175, %182
-  %indvars.iv244 = phi i64 [ 0, %175 ], [ %indvars.iv.next245, %182 ]
-  %183 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv244
-  %184 = load float, ptr %183, align 4, !tbaa !13
-  %185 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv244
-  store float %184, ptr %185, align 4, !tbaa !15
-  %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
-  %exitcond247.not = icmp eq i64 %indvars.iv.next245, 7
-  br i1 %exitcond247.not, label %.preheader140, label %182
+180:                                              ; preds = %173, %180
+  %indvars.iv243 = phi i64 [ 0, %173 ], [ %indvars.iv.next244, %180 ]
+  %181 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv243
+  %182 = load float, ptr %181, align 4, !tbaa !13
+  %183 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv243
+  store float %182, ptr %183, align 4, !tbaa !15
+  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
+  %exitcond246.not = icmp eq i64 %indvars.iv.next244, 7
+  br i1 %exitcond246.not, label %.preheader139, label %180
 
-.preheader140:                                    ; preds = %182, %.preheader140
-  %indvars.iv248 = phi i64 [ %indvars.iv.next249, %.preheader140 ], [ 0, %182 ]
-  %186 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv248
-  %187 = load float, ptr %186, align 4, !tbaa !13
-  %188 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv248, i32 1
-  store float %187, ptr %188, align 4, !tbaa !17
-  %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
-  %exitcond251.not = icmp eq i64 %indvars.iv.next249, 7
-  br i1 %exitcond251.not, label %.preheader, label %.preheader140
+.preheader139:                                    ; preds = %180, %.preheader139
+  %indvars.iv247 = phi i64 [ %indvars.iv.next248, %.preheader139 ], [ 0, %180 ]
+  %184 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv247
+  %185 = load float, ptr %184, align 4, !tbaa !13
+  %186 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv247, i32 1
+  store float %185, ptr %186, align 4, !tbaa !17
+  %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
+  %exitcond250.not = icmp eq i64 %indvars.iv.next248, 7
+  br i1 %exitcond250.not, label %.preheader, label %.preheader139
 
-189:                                              ; preds = %.preheader
-  %190 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #25
-  %191 = load ptr, ptr %40, align 8, !tbaa !18
-  %192 = call i32 (...) %191() #25
-  call void @dt_gui_presets_add_generic(ptr noundef %190, ptr noundef nonnull %39, i32 noundef %192, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
-  br label %201
+187:                                              ; preds = %.preheader
+  %188 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #25
+  %189 = load ptr, ptr %38, align 8, !tbaa !18
+  %190 = call i32 (...) %189() #25
+  call void @dt_gui_presets_add_generic(ptr noundef %188, ptr noundef nonnull %37, i32 noundef %190, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
+  br label %199
 
-.preheader:                                       ; preds = %.preheader140, %.preheader
-  %indvars.iv252 = phi i64 [ %indvars.iv.next253, %.preheader ], [ 1, %.preheader140 ]
-  %193 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv252
-  %194 = load float, ptr %193, align 4, !tbaa !13
-  %195 = fmul reassoc nsz arcp contract afn float %194, %194
-  %196 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv252, i32 1
-  store float %195, ptr %196, align 4, !tbaa !17
-  %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
-  %exitcond255.not = icmp eq i64 %indvars.iv.next253, 6
-  br i1 %exitcond255.not, label %189, label %.preheader
+.preheader:                                       ; preds = %.preheader139, %.preheader
+  %indvars.iv251 = phi i64 [ %indvars.iv.next252, %.preheader ], [ 1, %.preheader139 ]
+  %191 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv251
+  %192 = load float, ptr %191, align 4, !tbaa !13
+  %193 = fmul reassoc nsz arcp contract afn float %192, %192
+  %194 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv251, i32 1
+  store float %193, ptr %194, align 4, !tbaa !17
+  %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
+  %exitcond254.not = icmp eq i64 %indvars.iv.next252, 6
+  br i1 %exitcond254.not, label %187, label %.preheader
 
-197:                                              ; preds = %201
-  %198 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #25
-  %199 = load ptr, ptr %40, align 8, !tbaa !18
-  %200 = call i32 (...) %199() #25
-  call void @dt_gui_presets_add_generic(ptr noundef %198, ptr noundef nonnull %39, i32 noundef %200, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
-  br label %210
+195:                                              ; preds = %199
+  %196 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #25
+  %197 = load ptr, ptr %38, align 8, !tbaa !18
+  %198 = call i32 (...) %197() #25
+  call void @dt_gui_presets_add_generic(ptr noundef %196, ptr noundef nonnull %37, i32 noundef %198, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
+  br label %208
 
-201:                                              ; preds = %189, %201
-  %indvars.iv256 = phi i64 [ 1, %189 ], [ %indvars.iv.next257, %201 ]
-  %202 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv256
-  %203 = load float, ptr %202, align 4, !tbaa !13
-  %204 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %203)
-  %205 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv256, i32 1
-  store float %204, ptr %205, align 4, !tbaa !17
-  %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
-  %exitcond259.not = icmp eq i64 %indvars.iv.next257, 6
-  br i1 %exitcond259.not, label %197, label %201
+199:                                              ; preds = %187, %199
+  %indvars.iv255 = phi i64 [ 1, %187 ], [ %indvars.iv.next256, %199 ]
+  %200 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv255
+  %201 = load float, ptr %200, align 4, !tbaa !13
+  %202 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %201)
+  %203 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv255, i32 1
+  store float %202, ptr %203, align 4, !tbaa !17
+  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
+  %exitcond258.not = icmp eq i64 %indvars.iv.next256, 6
+  br i1 %exitcond258.not, label %195, label %199
 
-206:                                              ; preds = %210
-  %207 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #25
-  %208 = load ptr, ptr %40, align 8, !tbaa !18
-  %209 = call i32 (...) %208() #25
-  call void @dt_gui_presets_add_generic(ptr noundef %207, ptr noundef nonnull %39, i32 noundef %209, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
-  br label %221
+204:                                              ; preds = %208
+  %205 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #25
+  %206 = load ptr, ptr %38, align 8, !tbaa !18
+  %207 = call i32 (...) %206() #25
+  call void @dt_gui_presets_add_generic(ptr noundef %205, ptr noundef nonnull %37, i32 noundef %207, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
+  br label %219
 
-210:                                              ; preds = %197, %210
-  %indvars.iv260 = phi i64 [ 1, %197 ], [ %indvars.iv.next261, %210 ]
-  %211 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv260
-  %212 = load float, ptr %211, align 4, !tbaa !13
-  %213 = fadd reassoc nsz arcp contract afn float %212, 1.000000e+00
-  %214 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %213)
-  %215 = fmul reassoc nsz arcp contract afn float %214, 0x3FF7154760000000
-  %216 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv260, i32 1
-  store float %215, ptr %216, align 4, !tbaa !17
-  %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
-  %exitcond263.not = icmp eq i64 %indvars.iv.next261, 6
-  br i1 %exitcond263.not, label %206, label %210
+208:                                              ; preds = %195, %208
+  %indvars.iv259 = phi i64 [ 1, %195 ], [ %indvars.iv.next260, %208 ]
+  %209 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv259
+  %210 = load float, ptr %209, align 4, !tbaa !13
+  %211 = fadd reassoc nsz arcp contract afn float %210, 1.000000e+00
+  %212 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %211)
+  %213 = fmul reassoc nsz arcp contract afn float %212, 0x3FF7154760000000
+  %214 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv259, i32 1
+  store float %213, ptr %214, align 4, !tbaa !17
+  %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
+  %exitcond262.not = icmp eq i64 %indvars.iv.next260, 6
+  br i1 %exitcond262.not, label %204, label %208
 
-217:                                              ; preds = %221
-  %218 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef 5) #25
-  %219 = load ptr, ptr %40, align 8, !tbaa !18
-  %220 = call i32 (...) %219() #25
-  call void @dt_gui_presets_add_generic(ptr noundef %218, ptr noundef nonnull %39, i32 noundef %220, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
+215:                                              ; preds = %219
+  %216 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef 5) #25
+  %217 = load ptr, ptr %38, align 8, !tbaa !18
+  %218 = call i32 (...) %217() #25
+  call void @dt_gui_presets_add_generic(ptr noundef %216, ptr noundef nonnull %37, i32 noundef %218, ptr noundef nonnull %2, i32 noundef 516, i32 noundef 1, i32 noundef 3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-221:                                              ; preds = %206, %221
-  %indvars.iv264 = phi i64 [ 1, %206 ], [ %indvars.iv.next265, %221 ]
-  %222 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv264
-  %223 = load float, ptr %222, align 4, !tbaa !13
-  %exp2 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %223)
-  %224 = fadd reassoc nsz arcp contract afn float %exp2, -1.000000e+00
-  %225 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv264, i32 1
-  store float %224, ptr %225, align 4, !tbaa !17
-  %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
-  %exitcond267.not = icmp eq i64 %indvars.iv.next265, 6
-  br i1 %exitcond267.not, label %217, label %221
+219:                                              ; preds = %204, %219
+  %indvars.iv263 = phi i64 [ 1, %204 ], [ %indvars.iv.next264, %219 ]
+  %220 = getelementptr inbounds nuw float, ptr @__const.init_presets.linear_L, i64 %indvars.iv263
+  %221 = load float, ptr %220, align 4, !tbaa !13
+  %exp2 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %221)
+  %222 = fadd reassoc nsz arcp contract afn float %exp2, -1.000000e+00
+  %223 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %2, i64 %indvars.iv263, i32 1
+  store float %222, ptr %223, align 4, !tbaa !17
+  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
+  %exitcond266.not = icmp eq i64 %indvars.iv.next264, 6
+  br i1 %exitcond266.not, label %215, label %219
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -13073,8 +13073,8 @@ _ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit: ; preds = %_ZN18constantPool
   %35 = icmp eq i32 %34, 2
   %36 = add nsw i32 %33, -2
   %spec.select = select i1 %35, i32 %36, i32 %33
-  %.not1822 = icmp sgt i32 %spec.select, 0
-  br i1 %.not1822, label %.lr.ph, label %.loopexit
+  %.not1820 = icmp sgt i32 %spec.select, 0
+  br i1 %.not1820, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
@@ -13141,12 +13141,12 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %47, %53
   br i1 %70, label %71, label %79
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv
-  %73 = getelementptr i8, ptr %72, i64 2
+  %72 = getelementptr i16, ptr %32, i64 %indvars.iv
+  %73 = getelementptr i8, ptr %72, i64 6
   %74 = load i16, ptr %73, align 2
   %75 = zext i16 %74 to i32
   store i32 %75, ptr %1, align 4
-  %76 = getelementptr i8, ptr %72, i64 4
+  %76 = getelementptr i8, ptr %72, i64 8
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i32
   store i32 %78, ptr %2, align 4
@@ -13429,8 +13429,8 @@ _ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit: ; preds = %1
   %7 = icmp eq i32 %6, 2
   %8 = add nsw i32 %5, -2
   %spec.select = select i1 %7, i32 %8, i32 %5
-  %.not12 = icmp sgt i32 %spec.select, 0
-  br i1 %.not12, label %.lr.ph, label %.loopexit
+  %.not10 = icmp sgt i32 %spec.select, 0
+  br i1 %.not10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -13454,8 +13454,8 @@ _ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit: ; preds = %1
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
-  %24 = getelementptr i8, ptr %23, i64 6
+  %23 = getelementptr i16, ptr %4, i64 %indvars.iv
+  %24 = getelementptr i8, ptr %23, i64 10
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
   br label %.loopexit

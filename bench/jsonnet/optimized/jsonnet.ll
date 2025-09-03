@@ -2031,10 +2031,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %201, %2
   %scevgep174.i = getelementptr i8, ptr %.044169.i, i64 %strlen.i
   %225 = getelementptr i8, ptr %scevgep174.i, i64 2
   %strlen175.i = call i64 @strlen(ptr nonnull dereferenceable(1) %225)
-  %scevgep176.i = getelementptr i8, ptr %.044169.i, i64 2
-  %226 = getelementptr i8, ptr %scevgep176.i, i64 %strlen175.i
+  %226 = getelementptr i8, ptr %.044169.i, i64 %strlen175.i
   %scevgep177.i = getelementptr i8, ptr %226, i64 %strlen.i
-  %227 = getelementptr inbounds nuw i8, ptr %scevgep177.i, i64 1
+  %227 = getelementptr i8, ptr %scevgep177.i, i64 3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %223, ptr %7, align 8, !tbaa !45
   %228 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.044169.i) #27

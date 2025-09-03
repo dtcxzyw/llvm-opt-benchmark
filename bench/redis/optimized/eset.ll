@@ -58,9 +58,8 @@ define hidden i64 @je_eset_nextents_get(ptr noundef readonly captures(none) %0, 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden i64 @je_eset_nbytes_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = zext i32 %1 to i64
-  %.idx = shl nuw nsw i64 %3, 4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 6440
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
+  %4 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %0, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 6440
   %6 = load atomic i64, ptr %5 monotonic, align 8
   ret i64 %6
 }
@@ -418,48 +417,47 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   br i1 %52, label %.lr.ph.i, label %eset_first_fit.exit
 
 .lr.ph.i:                                         ; preds = %fb_ffs.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %55
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %54
 
-55:                                               ; preds = %fb_ffs.exit37.i, %.lr.ph.i
+54:                                               ; preds = %fb_ffs.exit37.i, %.lr.ph.i
   %.025.in46.i = phi i64 [ %51, %.lr.ph.i ], [ %94, %fb_ffs.exit37.i ]
   %.02645.i = phi i32 [ %4, %.lr.ph.i ], [ %spec.store.select.i, %fb_ffs.exit37.i ]
   %.sroa.5.044.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.5.1.i, %fb_ffs.exit37.i ]
   %.sroa.0.043.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.1.i, %fb_ffs.exit37.i ]
   %.02742.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %fb_ffs.exit37.i ]
-  %56 = icmp eq i32 %.02645.i, 64
-  %spec.store.select.i = select i1 %56, i32 63, i32 %.02645.i
-  %57 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %.025.in46.i
-  %58 = load i64, ptr %57, align 8, !tbaa !24
-  %59 = zext nneg i32 %spec.store.select.i to i64
-  %60 = lshr i64 %58, %59
-  %61 = icmp ugt i64 %60, %9
-  br i1 %61, label %eset_first_fit.exit, label %62
+  %55 = icmp eq i32 %.02645.i, 64
+  %spec.store.select.i = select i1 %55, i32 63, i32 %.02645.i
+  %56 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %.025.in46.i
+  %57 = load i64, ptr %56, align 8, !tbaa !24
+  %58 = zext nneg i32 %spec.store.select.i to i64
+  %59 = lshr i64 %57, %58
+  %60 = icmp ugt i64 %59, %9
+  br i1 %60, label %eset_first_fit.exit, label %61
 
-62:                                               ; preds = %55
-  %63 = icmp eq ptr %.02742.i, null
-  br i1 %63, label %72, label %64
+61:                                               ; preds = %54
+  %62 = icmp eq ptr %.02742.i, null
+  br i1 %62, label %72, label %63
 
-64:                                               ; preds = %62
-  %.idx.i = shl nuw nsw i64 %.025.in46.i, 5
-  %65 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %0, i64 %.025.in46.i
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = load i64, ptr %65, align 8
   %.not.i.i = icmp eq i64 %66, %.sroa.0.043.i
   br i1 %.not.i.i, label %edata_cmp_summary_comp.exit.i, label %67
 
-67:                                               ; preds = %64
+67:                                               ; preds = %63
   %68 = icmp ult i64 %66, %.sroa.0.043.i
   br i1 %68, label %72, label %76
 
-edata_cmp_summary_comp.exit.i:                    ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
+edata_cmp_summary_comp.exit.i:                    ; preds = %63
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %70 = load i64, ptr %69, align 8
   %71 = icmp ult i64 %70, %.sroa.5.044.i
   br i1 %71, label %72, label %76
 
-72:                                               ; preds = %edata_cmp_summary_comp.exit.i, %67, %62
-  %73 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %54, i64 %.025.in46.i
+72:                                               ; preds = %edata_cmp_summary_comp.exit.i, %67, %61
+  %73 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %53, i64 %.025.in46.i
   %74 = tail call ptr @je_edata_heap_first(ptr noundef nonnull %73) #7
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %75, align 8, !tbaa !24
@@ -504,10 +502,10 @@ fb_ffs.exit37.i:                                  ; preds = %88, %78
   %93 = shl nuw nsw i64 %.039.i.lcssa.i33.i, 6
   %94 = or disjoint i64 %93, %92
   %95 = icmp samesign ult i64 %94, 200
-  br i1 %95, label %55, label %eset_first_fit.exit, !llvm.loop !26
+  br i1 %95, label %54, label %eset_first_fit.exit, !llvm.loop !26
 
-eset_first_fit.exit:                              ; preds = %.lr.ph.i.i, %55, %76, %fb_ffs.exit37.i, %.lr.ph.i35.i, %30, %34, %fb_ffs.exit.i
-  %.0.i = phi ptr [ %35, %34 ], [ null, %30 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %.lr.ph.i35.i ], [ %.2.i, %fb_ffs.exit37.i ], [ %.02742.i, %55 ], [ %.2.i, %76 ], [ null, %.lr.ph.i.i ]
+eset_first_fit.exit:                              ; preds = %.lr.ph.i.i, %54, %76, %fb_ffs.exit37.i, %.lr.ph.i35.i, %30, %34, %fb_ffs.exit.i
+  %.0.i = phi ptr [ %35, %34 ], [ null, %30 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %.lr.ph.i35.i ], [ %.2.i, %fb_ffs.exit37.i ], [ %.02742.i, %54 ], [ %.2.i, %76 ], [ null, %.lr.ph.i.i ]
   %96 = icmp ugt i64 %2, 4096
   %97 = icmp eq ptr %.0.i, null
   %or.cond = select i1 %96, i1 %97, i1 false

@@ -440,99 +440,97 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 define internal float @_action_process_colors(ptr noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3) #1 {
   %5 = alloca %struct._GdkEventButton, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %49, label %6
+  br i1 %.not, label %47, label %6
 
 6:                                                ; preds = %4
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef 80) #20
   %8 = tail call ptr @g_object_get_data(ptr noundef %7, ptr noundef nonnull @.str.98) #20
   %.not34 = icmp eq i32 %1, 0
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = sext i32 %1 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %.in = select i1 %.not34, ptr %13, ptr %12
-  %14 = load ptr, ptr %.in, align 8, !tbaa !6
-  %15 = load ptr, ptr %8, align 8, !tbaa !11
-  %16 = add nsw i32 %1, -1
+  %9 = sext i32 %1 to i64
+  %10 = getelementptr ptr, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %.in = select i1 %.not34, ptr %11, ptr %10
+  %12 = load ptr, ptr %.in, align 8, !tbaa !6
+  %13 = load ptr, ptr %8, align 8, !tbaa !11
+  %14 = add nsw i32 %1, -1
+  %15 = shl nuw i32 1, %14
+  %16 = add nsw i32 %1, 11
   %17 = shl nuw i32 1, %16
-  %18 = add nsw i32 %1, 11
-  %19 = shl nuw i32 1, %18
-  %20 = or i32 %17, %19
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %22 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %21, ptr noundef nonnull @.str.99) #20
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_get_mask.exit, label %23
+  %18 = or i32 %15, %17
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %20 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %19, ptr noundef nonnull @.str.99) #20
+  %.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i, label %_get_mask.exit, label %21
 
-23:                                               ; preds = %6
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 74
-  %25 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %24, ptr noundef null, i32 noundef 16) #20
-  %26 = trunc i64 %25 to i32
+21:                                               ; preds = %6
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 74
+  %23 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %22, ptr noundef null, i32 noundef 16) #20
+  %24 = trunc i64 %23 to i32
   br label %_get_mask.exit
 
-_get_mask.exit:                                   ; preds = %6, %23
-  %.0.i = phi i32 [ %26, %23 ], [ 0, %6 ]
-  %27 = select i1 %.not34, i32 -2147483648, i32 %20
-  %28 = and i32 %.0.i, %27
-  %29 = fcmp reassoc nsz arcp contract afn une float %3, 0xC7EFFFFFE0000000
-  br i1 %29, label %30, label %46
+_get_mask.exit:                                   ; preds = %6, %21
+  %.0.i = phi i32 [ %24, %21 ], [ 0, %6 ]
+  %25 = select i1 %.not34, i32 -2147483648, i32 %18
+  %26 = and i32 %.0.i, %25
+  %27 = fcmp reassoc nsz arcp contract afn une float %3, 0xC7EFFFFFE0000000
+  br i1 %27, label %28, label %44
 
-30:                                               ; preds = %_get_mask.exit
+28:                                               ; preds = %_get_mask.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %32 = icmp eq i32 %2, 3
-  %33 = select i1 %32, i32 4, i32 0
-  store i32 %33, ptr %31, align 8, !tbaa !14
-  %.not39 = icmp eq i32 %28, 0
-  br i1 %.not39, label %35, label %34
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %30 = icmp eq i32 %2, 3
+  %31 = select i1 %30, i32 4, i32 0
+  store i32 %31, ptr %29, align 8, !tbaa !14
+  %.not39 = icmp eq i32 %26, 0
+  br i1 %.not39, label %33, label %32
 
-34:                                               ; preds = %30
+32:                                               ; preds = %28
   switch i32 %2, label %.thread [
-    i32 4, label %39
-    i32 1, label %39
+    i32 4, label %37
+    i32 1, label %37
   ]
 
-35:                                               ; preds = %30
+33:                                               ; preds = %28
   %.not40 = icmp eq i32 %2, 2
-  br i1 %.not40, label %39, label %.thread
+  br i1 %.not40, label %37, label %.thread
 
-.thread:                                          ; preds = %34, %35
-  br i1 %.not34, label %38, label %36
+.thread:                                          ; preds = %32, %33
+  br i1 %.not34, label %36, label %34
+
+34:                                               ; preds = %.thread
+  %35 = call i32 @_colors_clicked(ptr noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  br label %37
 
 36:                                               ; preds = %.thread
-  %37 = call i32 @_colors_clicked(ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %8)
-  br label %39
-
-38:                                               ; preds = %.thread
   tail call void @_colors_operator_clicked(ptr poison, ptr noundef nonnull %8)
-  br label %39
+  br label %37
 
-39:                                               ; preds = %34, %34, %36, %38, %35
-  %40 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %21, ptr noundef nonnull @.str.99) #20
-  %.not.i35 = icmp eq i32 %40, 0
-  br i1 %.not.i35, label %_get_mask.exit37, label %41
+37:                                               ; preds = %32, %32, %34, %36, %33
+  %38 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %19, ptr noundef nonnull @.str.99) #20
+  %.not.i35 = icmp eq i32 %38, 0
+  br i1 %.not.i35, label %_get_mask.exit37, label %39
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %15, i64 74
-  %43 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %42, ptr noundef null, i32 noundef 16) #20
-  %44 = trunc i64 %43 to i32
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 74
+  %41 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %40, ptr noundef null, i32 noundef 16) #20
+  %42 = trunc i64 %41 to i32
   br label %_get_mask.exit37
 
-_get_mask.exit37:                                 ; preds = %39, %41
-  %.0.i36 = phi i32 [ %44, %41 ], [ 0, %39 ]
-  %45 = and i32 %.0.i36, %27
+_get_mask.exit37:                                 ; preds = %37, %39
+  %.0.i36 = phi i32 [ %42, %39 ], [ 0, %37 ]
+  %43 = and i32 %.0.i36, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %46
+  br label %44
 
-46:                                               ; preds = %_get_mask.exit37, %_get_mask.exit
-  %.0 = phi i32 [ %45, %_get_mask.exit37 ], [ %28, %_get_mask.exit ]
-  %47 = icmp ne i32 %.0, 0
-  %48 = uitofp i1 %47 to float
-  br label %49
+44:                                               ; preds = %_get_mask.exit37, %_get_mask.exit
+  %.0 = phi i32 [ %43, %_get_mask.exit37 ], [ %26, %_get_mask.exit ]
+  %45 = icmp ne i32 %.0, 0
+  %46 = uitofp i1 %45 to float
+  br label %47
 
-49:                                               ; preds = %4, %46
-  %.031 = phi nsz float [ %48, %46 ], [ 0xC7EFFFFFE0000000, %4 ]
+47:                                               ; preds = %4, %44
+  %.031 = phi nsz float [ %46, %44 ], [ 0xC7EFFFFFE0000000, %4 ]
   ret float %.031
 }
 

@@ -638,7 +638,7 @@ define hidden noundef zeroext i1 @_ZN12CDSEnumKlass21initialize_enum_klassEP13In
   %6 = load i8, ptr @_ZN17ArchiveHeapLoader10_is_mappedE, align 1
   %7 = trunc i8 %6 to i1
   %8 = select i1 %5, i1 true, i1 %7
-  br i1 %8, label %9, label %124
+  br i1 %8, label %9, label %123
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -767,16 +767,16 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %79) #9
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %80) #9
-  br label %124
+  br label %123
 
 81:                                               ; preds = %.lr.ph, %_ZN15FieldStreamBase4nextEv.exit
-  %82 = phi i32 [ %71, %.lr.ph ], [ %122, %_ZN15FieldStreamBase4nextEv.exit ]
-  %83 = phi i32 [ %70, %.lr.ph ], [ %123, %_ZN15FieldStreamBase4nextEv.exit ]
+  %82 = phi i32 [ %71, %.lr.ph ], [ %121, %_ZN15FieldStreamBase4nextEv.exit ]
+  %83 = phi i32 [ %70, %.lr.ph ], [ %122, %_ZN15FieldStreamBase4nextEv.exit ]
   %.0918 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN15FieldStreamBase4nextEv.exit ]
   %.sroa.0.0.copyload.i.i = load i32, ptr %72, align 4
   %84 = and i32 %.sroa.0.0.copyload.i.i, 8
   %.not16 = icmp eq i32 %84, 0
-  br i1 %.not16, label %117, label %85
+  br i1 %.not16, label %116, label %85
 
 85:                                               ; preds = %81
   %86 = add nsw i32 %.0918, 1
@@ -797,50 +797,49 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %99 = add nsw i64 %96, 7
   %100 = and i64 %99, -8
   %101 = getelementptr i8, ptr %11, i64 %88
-  %102 = getelementptr i8, ptr %101, i64 16
-  %103 = getelementptr i8, ptr %102, i64 %..i.i.i.i.i.i.i
-  %104 = getelementptr i8, ptr %103, i64 %98
-  %105 = getelementptr i8, ptr %104, i64 %100
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %107 = sext i32 %.0918 to i64
-  %108 = getelementptr inbounds i32, ptr %106, i64 %107
-  %109 = load i32, ptr %108, align 4
-  %110 = load ptr, ptr %76, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %112 = load ptr, ptr %111, align 8
-  %113 = load i32, ptr %68, align 8
-  call void @_ZN15fieldDescriptor12reinitializeEP13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef %112, i32 noundef %113) #9
+  %102 = getelementptr i8, ptr %101, i64 %..i.i.i.i.i.i.i
+  %103 = getelementptr i8, ptr %102, i64 %98
+  %104 = getelementptr i8, ptr %103, i64 %100
+  %105 = getelementptr i8, ptr %104, i64 20
+  %106 = sext i32 %.0918 to i64
+  %107 = getelementptr inbounds i32, ptr %105, i64 %106
+  %108 = load i32, ptr %107, align 4
+  %109 = load ptr, ptr %76, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %111 = load ptr, ptr %110, align 8
+  %112 = load i32, ptr %68, align 8
+  call void @_ZN15fieldDescriptor12reinitializeEP13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef %111, i32 noundef %112) #9
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
-  %114 = call noundef ptr @_ZN10HeapShared8get_rootEib(i32 noundef %109, i1 noundef zeroext true) #9
-  %115 = sext i32 %.sroa.1.0.copyload.i to i64
-  %116 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %115, ptr noundef %114) #9
+  %113 = call noundef ptr @_ZN10HeapShared8get_rootEib(i32 noundef %108, i1 noundef zeroext true) #9
+  %114 = sext i32 %.sroa.1.0.copyload.i to i64
+  %115 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
+  call void %115(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %114, ptr noundef %113) #9
   %.pre = load i32, ptr %68, align 8
   %.pre19 = load i32, ptr %69, align 4
-  br label %117
+  br label %116
 
-117:                                              ; preds = %81, %85
-  %118 = phi i32 [ %.pre19, %85 ], [ %82, %81 ]
-  %119 = phi i32 [ %.pre, %85 ], [ %83, %81 ]
+116:                                              ; preds = %81, %85
+  %117 = phi i32 [ %.pre19, %85 ], [ %82, %81 ]
+  %118 = phi i32 [ %.pre, %85 ], [ %83, %81 ]
   %.1 = phi i32 [ %86, %85 ], [ %.0918, %81 ]
-  %120 = add nsw i32 %119, 1
-  store i32 %120, ptr %68, align 8
-  %.not.i = icmp slt i32 %120, %118
-  br i1 %.not.i, label %121, label %_ZN15FieldStreamBase4nextEv.exit
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %68, align 8
+  %.not.i = icmp slt i32 %119, %117
+  br i1 %.not.i, label %120, label %_ZN15FieldStreamBase4nextEv.exit
 
-121:                                              ; preds = %117
+120:                                              ; preds = %116
   call void @_ZN15FieldInfoReader15read_field_infoER9FieldInfo(ptr noundef nonnull align 8 dereferenceable(20) %77, ptr noundef nonnull align 4 dereferenceable(26) %78)
   %.pre20 = load i32, ptr %68, align 8
   %.pre21 = load i32, ptr %69, align 4
   br label %_ZN15FieldStreamBase4nextEv.exit
 
-_ZN15FieldStreamBase4nextEv.exit:                 ; preds = %117, %121
-  %122 = phi i32 [ %118, %117 ], [ %.pre21, %121 ]
-  %123 = phi i32 [ %120, %117 ], [ %.pre20, %121 ]
-  %.not15 = icmp slt i32 %123, %122
+_ZN15FieldStreamBase4nextEv.exit:                 ; preds = %116, %120
+  %121 = phi i32 [ %117, %116 ], [ %.pre21, %120 ]
+  %122 = phi i32 [ %119, %116 ], [ %.pre20, %120 ]
+  %.not15 = icmp slt i32 %122, %121
   br i1 %.not15, label %81, label %._crit_edge, !llvm.loop !9
 
-124:                                              ; preds = %2, %._crit_edge
+123:                                              ; preds = %2, %._crit_edge
   ret i1 %8
 }
 

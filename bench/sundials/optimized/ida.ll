@@ -2858,8 +2858,8 @@ IDAWrmsNorm.exit.i70.i:                           ; preds = %737, %734
 803:                                              ; preds = %799
   %804 = load ptr, ptr %248, align 8, !tbaa !70
   %805 = sext i32 %801 to i64
-  %806 = getelementptr ptr, ptr %215, i64 %805
-  %807 = getelementptr i8, ptr %806, i64 8
+  %806 = getelementptr ptr, ptr %0, i64 %805
+  %807 = getelementptr i8, ptr %806, i64 104
   %808 = load ptr, ptr %807, align 8, !tbaa !78
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %804, ptr noundef %808) #13
   %.pre166.i.i = load i32, ptr %224, align 4, !tbaa !82

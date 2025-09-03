@@ -1574,97 +1574,91 @@ define hidden void @_ZN6cineon6Header5ResetEv(ptr noundef nonnull align 4 derefe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK6cineon13GenericHeader17ImageElementCountEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1024) %0) local_unnamed_addr #11 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 196
   br label %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit
 
-_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit: ; preds = %1, %8
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %3 = mul nuw nsw i64 %indvars.iv, 28
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 %3
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %6 = load i8, ptr %5, align 1, !tbaa !43
-  %7 = icmp eq i8 %6, -1
-  br i1 %7, label %.split.loop.exit, label %8
+_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit: ; preds = %1, %6
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
+  %2 = getelementptr inbounds nuw %"struct.cineon::ImageElement", ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 197
+  %4 = load i8, ptr %3, align 1, !tbaa !43
+  %5 = icmp eq i8 %4, -1
+  br i1 %5, label %.split.loop.exit, label %6
 
-8:                                                ; preds = %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit
+6:                                                ; preds = %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.split.loop.exit7, label %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit, !llvm.loop !49
+  br i1 %exitcond.not, label %.split.loop.exit6, label %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit, !llvm.loop !49
 
 .split.loop.exit:                                 ; preds = %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit
-  %9 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit7
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.split.loop.exit6
 
-.split.loop.exit7:                                ; preds = %8, %.split.loop.exit
-  %.0.lcssa = phi i32 [ %9, %.split.loop.exit ], [ 8, %8 ]
+.split.loop.exit6:                                ; preds = %6, %.split.loop.exit
+  %.0.lcssa = phi i32 [ %7, %.split.loop.exit ], [ 8, %6 ]
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 4) i32 @_ZNK6cineon13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1024) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %or.cond = icmp ugt i32 %1, 7
-  br i1 %or.cond, label %12, label %3
+  br i1 %or.cond, label %11, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %narrow = mul nuw nsw i32 %1, 28
-  %5 = zext nneg i32 %narrow to i64
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %8 = load i8, ptr %7, align 2, !tbaa !12
-  switch i8 %8, label %11 [
-    i8 8, label %12
-    i8 10, label %9
-    i8 12, label %9
-    i8 16, label %9
-    i8 32, label %10
+  %4 = zext nneg i32 %1 to i64
+  %5 = getelementptr inbounds nuw %"struct.cineon::ImageElement", ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 198
+  %7 = load i8, ptr %6, align 2, !tbaa !12
+  switch i8 %7, label %10 [
+    i8 8, label %11
+    i8 10, label %8
+    i8 12, label %8
+    i8 16, label %8
+    i8 32, label %9
   ]
 
-9:                                                ; preds = %3, %3, %3
-  br label %12
+8:                                                ; preds = %3, %3, %3
+  br label %11
+
+9:                                                ; preds = %3
+  br label %11
 
 10:                                               ; preds = %3
-  br label %12
+  br label %11
 
-11:                                               ; preds = %3
-  br label %12
-
-12:                                               ; preds = %9, %10, %11, %3, %2
-  %.06 = phi i32 [ 0, %2 ], [ 3, %11 ], [ 1, %9 ], [ 2, %10 ], [ 0, %3 ]
+11:                                               ; preds = %8, %9, %10, %3, %2
+  %.06 = phi i32 [ 0, %2 ], [ 3, %10 ], [ 1, %8 ], [ 2, %9 ], [ 0, %3 ]
   ret i32 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 9) i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1024) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %or.cond = icmp ugt i32 %1, 7
-  br i1 %or.cond, label %12, label %3
+  br i1 %or.cond, label %11, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %narrow = mul nuw nsw i32 %1, 28
-  %5 = zext nneg i32 %narrow to i64
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %8 = load i8, ptr %7, align 2, !tbaa !12
-  switch i8 %8, label %11 [
-    i8 8, label %12
-    i8 10, label %9
-    i8 12, label %9
-    i8 16, label %9
-    i8 32, label %10
+  %4 = zext nneg i32 %1 to i64
+  %5 = getelementptr inbounds nuw %"struct.cineon::ImageElement", ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 198
+  %7 = load i8, ptr %6, align 2, !tbaa !12
+  switch i8 %7, label %10 [
+    i8 8, label %11
+    i8 10, label %8
+    i8 12, label %8
+    i8 16, label %8
+    i8 32, label %9
   ]
 
-9:                                                ; preds = %3, %3, %3
-  br label %12
+8:                                                ; preds = %3, %3, %3
+  br label %11
+
+9:                                                ; preds = %3
+  br label %11
 
 10:                                               ; preds = %3
-  br label %12
+  br label %11
 
-11:                                               ; preds = %3
-  br label %12
-
-12:                                               ; preds = %9, %10, %11, %3, %2
-  %.06 = phi i32 [ 0, %2 ], [ 8, %11 ], [ 2, %9 ], [ 4, %10 ], [ 1, %3 ]
+11:                                               ; preds = %8, %9, %10, %3, %2
+  %.06 = phi i32 [ 0, %2 ], [ 8, %10 ], [ 2, %8 ], [ 4, %9 ], [ 1, %3 ]
   ret i32 %.06
 }
 
@@ -1845,52 +1839,49 @@ define hidden noundef i32 @_ZNK6cineon6Header6HeightEv(ptr noundef nonnull reado
   %5 = load i8, ptr %4, align 4, !tbaa !62
   %6 = and i8 %5, -4
   %switch = icmp eq i8 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %wide.trip.count35 = zext i8 %3 to i64
+  %wide.trip.count28 = zext i8 %3 to i64
   br i1 %switch, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13.us
-  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13.us ], [ 0, %.lr.ph ]
-  %.0924.us = phi i32 [ %.1.us, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13.us ], [ 0, %.lr.ph ]
-  %or.cond.i.us = icmp samesign ugt i64 %indvars.iv30, 7
-  br i1 %or.cond.i.us, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13.us, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12.us
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12.us ], [ 0, %.lr.ph ]
+  %.0921.us = phi i32 [ %.1.us, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12.us ], [ 0, %.lr.ph ]
+  %or.cond.i.us = icmp samesign ugt i64 %indvars.iv25, 7
+  br i1 %or.cond.i.us, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12.us, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread.us
 
 _ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread.us: ; preds = %.lr.ph.split.us
-  %8 = mul nuw nsw i64 %indvars.iv30, 28
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !63
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %11, i32 %.0924.us)
-  br label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13.us
+  %7 = getelementptr inbounds nuw %"struct.cineon::ImageElement", ptr %0, i64 %indvars.iv25
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
+  %9 = load i32, ptr %8, align 4, !tbaa !63
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %9, i32 %.0921.us)
+  br label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12.us
 
-_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13.us: ; preds = %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread.us, %.lr.ph.split.us
+_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12.us: ; preds = %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread.us, %.lr.ph.split.us
   %.1.us = phi i32 [ -1, %.lr.ph.split.us ], [ %spec.select, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread.us ]
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond36.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count35
-  br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !64
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
+  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !64
 
-._crit_edge:                                      ; preds = %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13.us, %1
-  %.09.lcssa = phi i32 [ 0, %1 ], [ %.1.us, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13.us ], [ %.1, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13 ]
+._crit_edge:                                      ; preds = %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12.us, %1
+  %.09.lcssa = phi i32 [ 0, %1 ], [ %.1.us, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12.us ], [ %.1, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12 ]
   ret i32 %.09.lcssa
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13 ], [ 0, %.lr.ph ]
-  %.0924 = phi i32 [ %.1, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13 ], [ 0, %.lr.ph ]
-  %or.cond.i14 = icmp samesign ugt i64 %indvars.iv, 7
-  br i1 %or.cond.i14, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13, label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12 ], [ 0, %.lr.ph ]
+  %.0921 = phi i32 [ %.1, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12 ], [ 0, %.lr.ph ]
+  %or.cond.i13 = icmp samesign ugt i64 %indvars.iv, 7
+  br i1 %or.cond.i13, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12, label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread
 
 _ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread: ; preds = %.lr.ph.split
-  %12 = mul nuw nsw i64 %indvars.iv, 28
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i32, ptr %14, align 4, !tbaa !65
-  %spec.select39 = tail call i32 @llvm.umax.i32(i32 %15, i32 %.0924)
-  br label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13
+  %10 = getelementptr inbounds nuw %"struct.cineon::ImageElement", ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 204
+  %12 = load i32, ptr %11, align 4, !tbaa !65
+  %spec.select32 = tail call i32 @llvm.umax.i32(i32 %12, i32 %.0921)
+  br label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12
 
-_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit13: ; preds = %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread, %.lr.ph.split
-  %.1 = phi i32 [ -1, %.lr.ph.split ], [ %spec.select39, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread ]
+_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit12: ; preds = %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread, %.lr.ph.split
+  %.1 = phi i32 [ -1, %.lr.ph.split ], [ %spec.select32, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count35
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !64
 }
 
@@ -1906,52 +1897,49 @@ define hidden noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull readon
   %5 = load i8, ptr %4, align 4, !tbaa !62
   %6 = and i8 %5, -4
   %switch = icmp eq i8 %6, 4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %wide.trip.count35 = zext i8 %3 to i64
+  %wide.trip.count28 = zext i8 %3 to i64
   br i1 %switch, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13.us
-  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13.us ], [ 0, %.lr.ph ]
-  %.0924.us = phi i32 [ %.1.us, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13.us ], [ 0, %.lr.ph ]
-  %or.cond.i.us = icmp samesign ugt i64 %indvars.iv30, 7
-  br i1 %or.cond.i.us, label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13.us, label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12.us
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12.us ], [ 0, %.lr.ph ]
+  %.0921.us = phi i32 [ %.1.us, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12.us ], [ 0, %.lr.ph ]
+  %or.cond.i.us = icmp samesign ugt i64 %indvars.iv25, 7
+  br i1 %or.cond.i.us, label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12.us, label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread.us
 
 _ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread.us: ; preds = %.lr.ph.split.us
-  %8 = mul nuw nsw i64 %indvars.iv30, 28
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !65
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %11, i32 %.0924.us)
-  br label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13.us
+  %7 = getelementptr inbounds nuw %"struct.cineon::ImageElement", ptr %0, i64 %indvars.iv25
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 204
+  %9 = load i32, ptr %8, align 4, !tbaa !65
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %9, i32 %.0921.us)
+  br label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12.us
 
-_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13.us: ; preds = %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread.us, %.lr.ph.split.us
+_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12.us: ; preds = %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread.us, %.lr.ph.split.us
   %.1.us = phi i32 [ -1, %.lr.ph.split.us ], [ %spec.select, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit.thread.us ]
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond36.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count35
-  br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !66
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
+  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !66
 
-._crit_edge:                                      ; preds = %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13.us, %1
-  %.09.lcssa = phi i32 [ 0, %1 ], [ %.1.us, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13.us ], [ %.1, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13 ]
+._crit_edge:                                      ; preds = %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12.us, %1
+  %.09.lcssa = phi i32 [ 0, %1 ], [ %.1.us, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12.us ], [ %.1, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12 ]
   ret i32 %.09.lcssa
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13 ], [ 0, %.lr.ph ]
-  %.0924 = phi i32 [ %.1, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13 ], [ 0, %.lr.ph ]
-  %or.cond.i14 = icmp samesign ugt i64 %indvars.iv, 7
-  br i1 %or.cond.i14, label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12 ], [ 0, %.lr.ph ]
+  %.0921 = phi i32 [ %.1, %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12 ], [ 0, %.lr.ph ]
+  %or.cond.i13 = icmp samesign ugt i64 %indvars.iv, 7
+  br i1 %or.cond.i13, label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread
 
 _ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread: ; preds = %.lr.ph.split
-  %12 = mul nuw nsw i64 %indvars.iv, 28
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !63
-  %spec.select39 = tail call i32 @llvm.umax.i32(i32 %15, i32 %.0924)
-  br label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13
+  %10 = getelementptr inbounds nuw %"struct.cineon::ImageElement", ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 200
+  %12 = load i32, ptr %11, align 4, !tbaa !63
+  %spec.select32 = tail call i32 @llvm.umax.i32(i32 %12, i32 %.0921)
+  br label %_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12
 
-_ZNK6cineon13GenericHeader15LinesPerElementEi.exit13: ; preds = %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread, %.lr.ph.split
-  %.1 = phi i32 [ -1, %.lr.ph.split ], [ %spec.select39, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread ]
+_ZNK6cineon13GenericHeader15LinesPerElementEi.exit12: ; preds = %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread, %.lr.ph.split
+  %.1 = phi i32 [ -1, %.lr.ph.split ], [ %spec.select32, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count35
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !66
 }
 

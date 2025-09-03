@@ -180,14 +180,14 @@ ir_gdbjit_strz.exit.i.i:
   store i8 0, ptr %15, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %18, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false), !tbaa !18
   %scevgep = getelementptr inbounds nuw i8, ptr %5, i64 775
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  store i32 1, ptr %19, align 8, !tbaa !31
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 188
-  store i32 8, ptr %20, align 4, !tbaa !32
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  store i64 16, ptr %21, align 8, !tbaa !33
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  store i64 6, ptr %22, align 8, !tbaa !34
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  store i32 1, ptr %20, align 8, !tbaa !31
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 188
+  store i32 8, ptr %21, align 4, !tbaa !32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  store i64 16, ptr %22, align 8, !tbaa !33
+  store i64 6, ptr %19, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 200
   store i64 %6, ptr %23, align 8, !tbaa !35
   %24 = and i64 %2, 4294967295

@@ -177,7 +177,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @minmax_get_strategy_procinfo(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @minmax_get_strategy_procinfo(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = zext i16 %1 to i64
   %7 = add nsw i64 %6, -1
@@ -187,81 +187,73 @@ define internal fastcc ptr @minmax_get_strategy_procinfo(ptr noundef readonly ca
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, %2
-  br i1 %.not, label %19, label %.preheader
+  br i1 %.not, label %16, label %.preheader
 
-.preheader:                                       ; preds = %4
-  %13 = getelementptr i8, ptr %11, i64 -40
-  br label %14
-
-14:                                               ; preds = %.preheader, %14
-  %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = mul nuw nsw i64 %indvars.iv, 48
-  %16 = getelementptr i8, ptr %13, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 8
-  store i32 0, ptr %17, align 8
+.preheader:                                       ; preds = %4, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %4 ]
+  %13 = getelementptr %struct.FmgrInfo, ptr %11, i64 %indvars.iv
+  %14 = getelementptr i8, ptr %13, i64 -32
+  store i32 0, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %18, label %14, !llvm.loop !6
+  br i1 %exitcond.not, label %15, label %.preheader, !llvm.loop !6
 
-18:                                               ; preds = %14
+15:                                               ; preds = %.preheader
   store i32 %2, ptr %11, align 8
-  br label %19
+  br label %16
 
-19:                                               ; preds = %18, %4
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %21 = zext i16 %3 to i64
-  %22 = getelementptr %struct.FmgrInfo, ptr %20, i64 %21
-  %23 = getelementptr i8, ptr %22, i64 -48
-  %24 = getelementptr i8, ptr %22, i64 -40
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %58
+16:                                               ; preds = %15, %4
+  %17 = zext i16 %3 to i64
+  %18 = getelementptr %struct.FmgrInfo, ptr %11, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -40
+  %20 = getelementptr i8, ptr %18, i64 -32
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %53
 
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 360
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 360
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i32, ptr %27, i64 %7
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %7
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = load i32, ptr %35, align 8
-  %37 = sext i32 %36 to i64
-  %38 = shl nsw i64 %37, 4
-  %39 = getelementptr i8, ptr %35, i64 %38
-  %40 = zext i32 %33 to i64
-  %.idx = mul nsw i64 %7, 100
-  %41 = getelementptr i8, ptr %39, i64 92
-  %42 = getelementptr i8, ptr %41, i64 %.idx
-  %43 = load i32, ptr %42, align 4
-  %44 = zext i32 %43 to i64
-  %45 = zext i32 %2 to i64
-  %46 = sext i16 %3 to i64
-  %47 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %40, i64 noundef %44, i64 noundef %45, i64 noundef %46) #4
-  %.not35 = icmp eq ptr %47, null
-  br i1 %.not35, label %48, label %53
+  %32 = load i32, ptr %31, align 8
+  %33 = sext i32 %32 to i64
+  %34 = shl nsw i64 %33, 4
+  %35 = getelementptr i8, ptr %31, i64 %34
+  %36 = zext i32 %29 to i64
+  %37 = getelementptr %struct.FormData_pg_attribute, ptr %35, i64 %7, i32 17
+  %38 = load i32, ptr %37, align 4
+  %39 = zext i32 %38 to i64
+  %40 = zext i32 %2 to i64
+  %41 = sext i16 %3 to i64
+  %42 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %36, i64 noundef %39, i64 noundef %40, i64 noundef %41) #4
+  %.not35 = icmp eq ptr %42, null
+  br i1 %.not35, label %43, label %48
 
-48:                                               ; preds = %27
-  %49 = zext i16 %3 to i32
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %50)
-  %51 = load i32, ptr %42, align 4
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %49, i32 noundef %51, i32 noundef %2, i32 noundef %33) #4
+43:                                               ; preds = %23
+  %44 = zext i16 %3 to i32
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  tail call void @llvm.assume(i1 %45)
+  %46 = load i32, ptr %37, align 4
+  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %44, i32 noundef %46, i32 noundef %2, i32 noundef %29) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__func__.minmax_get_strategy_procinfo) #4
   unreachable
 
-53:                                               ; preds = %27
-  %54 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %47, i16 noundef signext 7) #4
-  %55 = trunc i64 %54 to i32
-  tail call void @ReleaseSysCache(ptr noundef nonnull %47) #4
-  %56 = tail call i32 @get_opcode(i32 noundef %55) #4
-  %57 = load ptr, ptr %0, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %56, ptr noundef %23, ptr noundef %57) #4
-  br label %58
+48:                                               ; preds = %23
+  %49 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %42, i16 noundef signext 7) #4
+  %50 = trunc i64 %49 to i32
+  tail call void @ReleaseSysCache(ptr noundef nonnull %42) #4
+  %51 = tail call i32 @get_opcode(i32 noundef %50) #4
+  %52 = load ptr, ptr %0, align 8
+  tail call void @fmgr_info_cxt(i32 noundef %51, ptr noundef %19, ptr noundef %52) #4
+  br label %53
 
-58:                                               ; preds = %53, %19
-  ret ptr %23
+53:                                               ; preds = %48, %16
+  ret ptr %19
 }
 
 declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

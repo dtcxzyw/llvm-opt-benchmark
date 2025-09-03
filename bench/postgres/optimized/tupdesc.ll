@@ -211,9 +211,8 @@ define dso_local noundef ptr @CreateTupleDescCopy(ptr noundef readonly captures(
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 4
   %24 = getelementptr i8, ptr %5, i64 %23
-  %.idx = mul nuw nsw i64 %indvars.iv, 100
-  %25 = getelementptr i8, ptr %24, i64 110
-  %26 = getelementptr i8, ptr %25, i64 %.idx
+  %25 = getelementptr %struct.FormData_pg_attribute, ptr %24, i64 %indvars.iv
+  %26 = getelementptr i8, ptr %25, i64 110
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %26, i8 0, i64 5, i1 false)
   tail call void @populate_compact_attribute(ptr noundef nonnull %5, i32 noundef %27)
@@ -268,9 +267,8 @@ define dso_local noundef ptr @CreateTupleDescTruncatedCopy(ptr noundef readonly 
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 4
   %24 = getelementptr i8, ptr %5, i64 %23
-  %.idx = mul nuw nsw i64 %indvars.iv, 100
-  %25 = getelementptr i8, ptr %24, i64 110
-  %26 = getelementptr i8, ptr %25, i64 %.idx
+  %25 = getelementptr %struct.FormData_pg_attribute, ptr %24, i64 %indvars.iv
+  %26 = getelementptr i8, ptr %25, i64 110
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %26, i8 0, i64 5, i1 false)
   tail call void @populate_compact_attribute(ptr noundef nonnull %5, i32 noundef %27)
@@ -546,9 +544,8 @@ define dso_local void @TupleDescCopy(ptr noundef captures(none) %0, ptr noundef 
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 4
   %11 = getelementptr i8, ptr %0, i64 %10
-  %.idx = mul nuw nsw i64 %indvars.iv, 100
-  %12 = getelementptr i8, ptr %11, i64 110
-  %13 = getelementptr i8, ptr %12, i64 %.idx
+  %12 = getelementptr %struct.FormData_pg_attribute, ptr %11, i64 %indvars.iv
+  %13 = getelementptr i8, ptr %12, i64 110
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %13, i8 0, i64 5, i1 false)
   tail call void @populate_compact_attribute(ptr noundef nonnull %0, i32 noundef %14)
@@ -654,9 +651,8 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   %28 = sext i32 %27 to i64
   %29 = shl nsw i64 %28, 4
   %30 = getelementptr i8, ptr %0, i64 %29
-  %.idx = mul nuw nsw i64 %indvars.iv44, 100
-  %31 = getelementptr i8, ptr %30, i64 106
-  %32 = getelementptr i8, ptr %31, i64 %.idx
+  %31 = getelementptr %struct.FormData_pg_attribute, ptr %30, i64 %indvars.iv44
+  %32 = getelementptr i8, ptr %31, i64 106
   %33 = load i8, ptr %32, align 2, !range !4, !noundef !5
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %39, label %35
@@ -1255,30 +1251,28 @@ define dso_local i32 @hashRowType(ptr noundef readonly captures(none) %0) local_
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %16 = phi i32 [ %30, %.lr.ph ], [ %14, %1 ]
-  %.0910 = phi i32 [ %29, %.lr.ph ], [ %13, %1 ]
+  %16 = phi i32 [ %29, %.lr.ph ], [ %14, %1 ]
+  %.0910 = phi i32 [ %28, %.lr.ph ], [ %13, %1 ]
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 4
   %19 = getelementptr i8, ptr %0, i64 %18
-  %.idx = mul nuw nsw i64 %indvars.iv, 100
-  %20 = getelementptr i8, ptr %19, i64 92
-  %21 = getelementptr i8, ptr %20, i64 %.idx
-  %22 = load i32, ptr %21, align 4
-  %23 = tail call i32 @hash_bytes_uint32(i32 noundef %22) #11
-  %24 = shl i32 %.0910, 6
-  %25 = lshr i32 %.0910, 2
-  %26 = add i32 %24, -1640531527
-  %27 = add i32 %26, %25
-  %28 = add i32 %27, %23
-  %29 = xor i32 %28, %.0910
+  %20 = getelementptr %struct.FormData_pg_attribute, ptr %19, i64 %indvars.iv, i32 17
+  %21 = load i32, ptr %20, align 4
+  %22 = tail call i32 @hash_bytes_uint32(i32 noundef %21) #11
+  %23 = shl i32 %.0910, 6
+  %24 = lshr i32 %.0910, 2
+  %25 = add i32 %23, -1640531527
+  %26 = add i32 %25, %24
+  %27 = add i32 %26, %22
+  %28 = xor i32 %27, %.0910
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr %0, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  %29 = load i32, ptr %0, align 8
+  %30 = sext i32 %29 to i64
+  %31 = icmp slt i64 %indvars.iv.next, %30
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.09.lcssa = phi i32 [ %13, %1 ], [ %29, %.lr.ph ]
+  %.09.lcssa = phi i32 [ %13, %1 ], [ %28, %.lr.ph ]
   ret i32 %.09.lcssa
 }
 
@@ -1486,10 +1480,8 @@ define dso_local void @TupleDescInitEntryCollation(ptr noundef captures(none) %0
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 4
   %8 = getelementptr i8, ptr %0, i64 %7
-  %.idx = mul nsw i64 %4, 100
-  %9 = getelementptr i8, ptr %8, i64 20
-  %10 = getelementptr i8, ptr %9, i64 %.idx
-  store i32 %2, ptr %10, align 4
+  %9 = getelementptr %struct.FormData_pg_attribute, ptr %8, i64 %4, i32 1, i32 0, i64 16
+  store i32 %2, ptr %9, align 4
   ret void
 }
 
@@ -1620,10 +1612,8 @@ list_length.exit:                                 ; preds = %4, %5
   %75 = sext i32 %74 to i64
   %76 = shl nsw i64 %75, 4
   %77 = getelementptr i8, ptr %11, i64 %76
-  %.idx.i = mul nsw i64 %73, 100
-  %78 = getelementptr i8, ptr %77, i64 20
-  %79 = getelementptr i8, ptr %78, i64 %.idx.i
-  store i32 %71, ptr %79, align 4
+  %78 = getelementptr %struct.FormData_pg_attribute, ptr %77, i64 %73, i32 1, i32 0, i64 16
+  store i32 %71, ptr %78, align 4
   br label %24, !llvm.loop !24
 }
 

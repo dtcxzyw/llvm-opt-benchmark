@@ -93,83 +93,82 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !26
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 3112
-  %20 = uitofp i64 %13 to float
+  %19 = uitofp i64 %13 to float
   %.pre = load i32, ptr %18, align 8, !tbaa !19
   %.pre163 = load ptr, ptr %0, align 8, !tbaa !16
-  br label %21
+  br label %20
 
-21:                                               ; preds = %14, %110
-  %22 = phi ptr [ %.pre163, %14 ], [ %63, %110 ]
-  %23 = phi i32 [ %.pre, %14 ], [ %66, %110 ]
+20:                                               ; preds = %14, %110
+  %21 = phi ptr [ %.pre163, %14 ], [ %63, %110 ]
+  %22 = phi i32 [ %.pre, %14 ], [ %66, %110 ]
   %indvars.iv160 = phi i64 [ 1, %14 ], [ %indvars.iv.next161, %110 ]
   %.092149 = phi i32 [ -1, %14 ], [ %.3, %110 ]
   %.094148 = phi i64 [ 0, %14 ], [ %.397, %110 ]
   %.098147 = phi i32 [ -1, %14 ], [ %.2100.ph, %110 ]
   %.0103146 = phi i1 [ false, %14 ], [ %.2105.ph, %110 ]
   %.0107145 = phi i64 [ -1, %14 ], [ %.2109.ph, %110 ]
-  %24 = trunc nuw nsw i64 %indvars.iv160 to i32
-  %25 = mul i32 %23, %24
-  %26 = load i32, ptr %15, align 4, !tbaa !26
-  %27 = urem i32 %26, %23
-  %28 = add i32 %27, %25
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.window_data, ptr %22, i64 %29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
-  %31 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %4, i64 %indvars.iv160
-  %32 = load i64, ptr %31, align 8, !tbaa !22
-  %33 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %6, i64 %indvars.iv160
-  %34 = load i64, ptr %33, align 8, !tbaa !22
-  %.not = icmp ne i64 %32, %34
-  br i1 %.not, label %35, label %42
+  %23 = trunc nuw nsw i64 %indvars.iv160 to i32
+  %24 = mul i32 %22, %23
+  %25 = load i32, ptr %15, align 4, !tbaa !26
+  %26 = urem i32 %25, %22
+  %27 = add i32 %26, %24
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw %struct.window_data, ptr %21, i64 %28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
+  %30 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %4, i64 %indvars.iv160
+  %31 = load i64, ptr %30, align 8, !tbaa !22
+  %32 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %6, i64 %indvars.iv160
+  %33 = load i64, ptr %32, align 8, !tbaa !22
+  %.not = icmp ne i64 %31, %33
+  br i1 %.not, label %34, label %41
 
-35:                                               ; preds = %21
-  %36 = sub nsw i64 %32, %34
-  %37 = uitofp i64 %36 to float
-  %38 = fdiv float %37, %20
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store float %38, ptr %39, align 8, !tbaa !27
-  %40 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store i64 1, ptr %40, align 8, !tbaa !30
-  %41 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 1, ptr %41, align 8, !tbaa !31
-  br label %42
+34:                                               ; preds = %20
+  %35 = sub nsw i64 %31, %33
+  %36 = uitofp i64 %35 to float
+  %37 = fdiv float %36, %19
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store float %37, ptr %38, align 8, !tbaa !27
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  store i64 1, ptr %39, align 8, !tbaa !30
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i64 1, ptr %40, align 8, !tbaa !31
+  br label %41
 
-42:                                               ; preds = %35, %21
-  %43 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !32
-  %45 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !32
-  %47 = icmp sgt i64 %44, %46
-  br i1 %47, label %48, label %50
+41:                                               ; preds = %34, %20
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !32
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !32
+  %46 = icmp sgt i64 %43, %45
+  br i1 %46, label %47, label %49
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 1, ptr %49, align 8, !tbaa !31
-  br label %50
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i64 1, ptr %48, align 8, !tbaa !31
+  br label %49
 
-50:                                               ; preds = %48, %42
-  %51 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %5, i64 %indvars.iv160
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !33
-  %.idx = mul nuw nsw i64 %indvars.iv160, 24
-  %54 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
+49:                                               ; preds = %47, %41
+  %50 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %5, i64 %indvars.iv160
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load i64, ptr %51, align 8, !tbaa !33
+  %53 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %0, i64 %indvars.iv160
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 3112
   %55 = load i64, ptr %54, align 8, !tbaa !33
-  %56 = icmp sgt i64 %53, %55
+  %56 = icmp sgt i64 %52, %55
   br i1 %56, label %57, label %59
 
-57:                                               ; preds = %50
-  %58 = getelementptr inbounds nuw i8, ptr %30, i64 8
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 1, ptr %58, align 8, !tbaa !31
   br label %59
 
-59:                                               ; preds = %57, %50
-  %60 = getelementptr inbounds nuw i8, ptr %31, i64 16
+59:                                               ; preds = %57, %49
+  %60 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %61 = load i32, ptr %60, align 8, !tbaa !35
   %62 = zext i32 %61 to i64
-  store i64 %62, ptr %30, align 8, !tbaa !36
+  store i64 %62, ptr %29, align 8, !tbaa !36
   %63 = load ptr, ptr %0, align 8, !tbaa !16
-  %64 = sext i32 %25 to i64
+  %64 = sext i32 %24 to i64
   %65 = getelementptr inbounds %struct.window_data, ptr %63, i64 %64
   %66 = load i32, ptr %18, align 8, !tbaa !19
   %.not.i = icmp eq i32 %66, 0
@@ -211,10 +210,10 @@ window_sum.exit:                                  ; preds = %59, %window_sum.exi
   %.sroa.9.1 = phi float [ %80, %window_sum.exit.loopexit ], [ 0.000000e+00, %59 ]
   %.sroa.12115.1 = phi i64 [ %83, %window_sum.exit.loopexit ], [ 0, %59 ]
   %86 = phi i64 [ %84, %window_sum.exit.loopexit ], [ poison, %59 ]
-  %87 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !38
   %89 = sitofp i64 %88 to double
-  %90 = load i32, ptr %51, align 8, !tbaa !39
+  %90 = load i32, ptr %50, align 8, !tbaa !39
   %91 = uitofp i32 %90 to double
   %92 = fmul double %91, 2.500000e+00
   %93 = fcmp olt double %92, %89
@@ -223,11 +222,11 @@ window_sum.exit:                                  ; preds = %59, %window_sum.exi
 
 94:                                               ; preds = %window_sum.exit
   %95 = icmp ugt i64 %86, %.094148
-  %96 = icmp sgt i64 %53, 2
+  %96 = icmp sgt i64 %52, 2
   %97 = tail call i64 @llvm.umax.i64(i64 %86, i64 %.094148)
   %.397 = select i1 %96, i64 %97, i64 %.094148
   %98 = and i1 %96, %95
-  %.3 = select i1 %98, i32 %24, i32 %.092149
+  %.3 = select i1 %98, i32 %23, i32 %.092149
   %99 = icmp ult i64 %86, %.0107145
   br i1 %99, label %100, label %110
 
@@ -247,17 +246,17 @@ window_sum.exit:                                  ; preds = %59, %window_sum.exi
   br label %110
 
 109:                                              ; preds = %window_sum.exit
-  store i32 %24, ptr %1, align 4, !tbaa !21
+  store i32 %23, ptr %1, align 4, !tbaa !21
   store i32 0, ptr %2, align 4, !tbaa !21
   br label %.loopexit
 
 110:                                              ; preds = %108, %104, %94
   %.2109.ph = phi i64 [ %.0107145, %94 ], [ %.0107145, %104 ], [ %86, %108 ]
   %.2105.ph = phi i1 [ %.0103146, %94 ], [ %.0103146, %104 ], [ %.not, %108 ]
-  %.2100.ph = phi i32 [ %.098147, %94 ], [ %.098147, %104 ], [ %24, %108 ]
+  %.2100.ph = phi i32 [ %.098147, %94 ], [ %.098147, %104 ], [ %23, %108 ]
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next161, 64
-  br i1 %exitcond162.not, label %.loopexit, label %21, !llvm.loop !40
+  br i1 %exitcond162.not, label %.loopexit, label %20, !llvm.loop !40
 
 .loopexit:                                        ; preds = %110, %109
   %.0107142 = phi i64 [ %.0107145, %109 ], [ %.2109.ph, %110 ]

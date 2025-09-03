@@ -17151,7 +17151,7 @@ _ZNSt12_Vector_baseIcN3ue216AlignedAllocatorIcLm64EEEE13_M_deallocateEPcm.exit.i
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i.i: ; preds = %5768, %5765
   %.ph.i.i = phi ptr [ %5767, %5768 ], [ %5736, %5765 ]
-  %5769 = getelementptr inbounds i8, ptr %.ph.i.i, i64 -4
+  %5769 = getelementptr i8, ptr %.ph.i.i, i64 -4
   %5770 = load i32, ptr %.sroa.0.011.i.i.i.i906, align 4, !noalias !277
   store i32 %5770, ptr %5769, align 1, !noalias !277
   br label %.noexc108.i.i
@@ -22392,32 +22392,30 @@ _ZN3ue214RoseEngineBlob3padEm.exit:               ; preds = %4, %20, %22, %24, %
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit: ; preds = %34, %35, %37, %39
   %40 = phi ptr [ %.pre8, %34 ], [ %28, %35 ], [ %28, %37 ], [ %38, %39 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 -1
-  %42 = sub i64 0, %2
-  %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %1, i64 %2, i1 false)
+  %41 = sub i64 0, %2
+  %42 = getelementptr i8, ptr %40, i64 %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %1, i64 %2, i1 false)
   %.not.i.i6 = icmp ult i64 %31, 4294967296
-  br i1 %.not.i.i6, label %_ZN3ue210verify_u32ImEEjT_.exit, label %45
+  br i1 %.not.i.i6, label %_ZN3ue210verify_u32ImEEjT_.exit, label %43
 
-45:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %46 = tail call ptr @__cxa_allocate_exception(i64 48) #27
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %46)
-          to label %47 unwind label %48
+43:                                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
+  %44 = tail call ptr @__cxa_allocate_exception(i64 48) #27
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %44)
+          to label %45 unwind label %46
 
-47:                                               ; preds = %45
-  tail call void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #28
+45:                                               ; preds = %43
+  tail call void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #28
   unreachable
 
-48:                                               ; preds = %45
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %46) #27
-  resume { ptr, i32 } %49
+  tail call void @__cxa_free_exception(ptr nonnull %44) #27
+  resume { ptr, i32 } %47
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %50 = trunc nuw i64 %31 to i32
-  ret i32 %50
+  %48 = trunc nuw i64 %31 to i32
+  ret i32 %48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -48220,7 +48218,7 @@ define linkonce_odr hidden noundef i32 @_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx1
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i: ; preds = %16, %15
   %.ph.i = phi ptr [ %10, %16 ], [ %9, %15 ]
-  %17 = getelementptr inbounds i8, ptr %.ph.i, i64 -1
+  %17 = getelementptr i8, ptr %.ph.i, i64 -1
   %18 = load i8, ptr %1, align 1
   store i8 %18, ptr %17, align 1
   br label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit
@@ -48228,7 +48226,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i: ; pred
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i: ; preds = %6
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1)
   %.pre8.i.i = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %.pre8.i.i, i64 -1
+  %19 = getelementptr i8, ptr %.pre8.i.i, i64 -1
   %20 = load i8, ptr %1, align 1
   store i8 %20, ptr %19, align 1
   %.not.i.i6.i.i = icmp ult i64 %14, 4294967296
@@ -48281,7 +48279,7 @@ _ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit:        ; preds = %_ZNSt6vectorIcN3ue2
 
 _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.thread.i9: ; preds = %34, %33
   %.ph.i10 = phi ptr [ %29, %34 ], [ %28, %33 ]
-  %35 = getelementptr inbounds i8, ptr %.ph.i10, i64 -1
+  %35 = getelementptr i8, ptr %.ph.i10, i64 -1
   %36 = load i8, ptr %.sroa.0.019, align 1
   store i8 %36, ptr %35, align 1
   br label %_ZN3ue214RoseEngineBlob3addIhEEjRKT_.exit11
@@ -48290,7 +48288,7 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i.i5: ; preds = %.
   %37 = add i64 %32, 512
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1)
   %.pre8.i.i6 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %.pre8.i.i6, i64 -1
+  %38 = getelementptr i8, ptr %.pre8.i.i6, i64 -1
   %39 = load i8, ptr %.sroa.0.019, align 1
   store i8 %39, ptr %38, align 1
   %.not.i.i6.i.i7 = icmp ult i64 %37, 4294967296

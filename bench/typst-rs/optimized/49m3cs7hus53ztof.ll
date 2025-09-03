@@ -56769,7 +56769,7 @@ define hidden void @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bounds$
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bounds$GT$6dyn_eq17h00fbbe52b46d9978E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
   %3 = tail call noundef zeroext i1 @_ZN5typst11foundations7content7Content2is17he15640dc2c18778aE.llvm.2456044669961016091(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-  br i1 %3, label %4, label %22
+  br i1 %3, label %4, label %21
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8, !nonnull !16, !noundef !16
@@ -56782,24 +56782,23 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$T$u20$as$u20$typst..foundations..co
   %12 = and i64 %11, -16
   %13 = getelementptr i8, ptr %5, i64 %12
   %14 = and i64 %11, -80
-  %15 = getelementptr i8, ptr %13, i64 96
-  %16 = getelementptr i8, ptr %15, i64 %14
-  %17 = add i64 %9, -1
-  %18 = and i64 %17, -16
-  %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr i8, ptr %19, i64 16
-  %21 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20)
-  br label %22
+  %15 = getelementptr i8, ptr %13, i64 %14
+  %16 = add i64 %9, -1
+  %17 = and i64 %16, -16
+  %18 = getelementptr i8, ptr %15, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 112
+  %20 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
+  br label %21
 
-22:                                               ; preds = %2, %4
-  %.0 = phi i1 [ %21, %4 ], [ false, %2 ]
+21:                                               ; preds = %2, %4
+  %.0 = phi i1 [ %20, %4 ], [ false, %2 ]
   ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN57_$LT$T$u20$as$u20$typst..foundations..content..Bounds$GT$6dyn_eq17h59314f1e639a0305E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
   %3 = tail call noundef zeroext i1 @_ZN5typst11foundations7content7Content2is17hf01ea69c42712dccE.llvm.2456044669961016091(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-  br i1 %3, label %4, label %22
+  br i1 %3, label %4, label %21
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8, !nonnull !16, !noundef !16
@@ -56812,17 +56811,16 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$T$u20$as$u20$typst..foundations..co
   %12 = and i64 %11, -16
   %13 = getelementptr i8, ptr %5, i64 %12
   %14 = and i64 %11, -80
-  %15 = getelementptr i8, ptr %13, i64 96
-  %16 = getelementptr i8, ptr %15, i64 %14
-  %17 = add i64 %9, -1
-  %18 = and i64 %17, -16
-  %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr i8, ptr %19, i64 16
-  %21 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20)
-  br label %22
+  %15 = getelementptr i8, ptr %13, i64 %14
+  %16 = add i64 %9, -1
+  %17 = and i64 %16, -16
+  %18 = getelementptr i8, ptr %15, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 112
+  %20 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
+  br label %21
 
-22:                                               ; preds = %2, %4
-  %.0 = phi i1 [ %21, %4 ], [ false, %2 ]
+21:                                               ; preds = %2, %4
+  %.0 = phi i1 [ %20, %4 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -57891,7 +57889,7 @@ define noundef zeroext i1 @_ZN5typst11foundations8selector8Selector7matches17h65
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8bdacfac0d46a9b1E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8bdacfac0d46a9b1E.exit": ; preds = %77, %75, %66, %65, %95, %20, %100, %48, %15, %3, %3, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hc235b82471ce5558E.exit", %31, %50
-  %.0 = phi i1 [ %94, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hc235b82471ce5558E.exit" ], [ %.2, %31 ], [ %58, %50 ], [ false, %3 ], [ false, %3 ], [ false, %15 ], [ %125, %100 ], [ false, %48 ], [ false, %20 ], [ %spec.select, %95 ], [ %.not.not.not.not.not, %65 ], [ %.not.not.not.not.not, %66 ], [ %76, %75 ], [ %76, %77 ]
+  %.0 = phi i1 [ %94, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hc235b82471ce5558E.exit" ], [ %.2, %31 ], [ %58, %50 ], [ false, %3 ], [ false, %3 ], [ false, %15 ], [ %124, %100 ], [ false, %48 ], [ false, %20 ], [ %spec.select, %95 ], [ %.not.not.not.not.not, %65 ], [ %.not.not.not.not.not, %66 ], [ %76, %75 ], [ %76, %77 ]
   ret i1 %.0
 
 95:                                               ; preds = %20
@@ -57929,23 +57927,22 @@ define noundef zeroext i1 @_ZN5typst11foundations8selector8Selector7matches17h65
   %108 = and i64 %107, -16
   %109 = getelementptr i8, ptr %.val51, i64 %108
   %110 = and i64 %107, -80
-  %111 = getelementptr i8, ptr %109, i64 96
-  %112 = getelementptr i8, ptr %111, i64 %110
-  %113 = add i64 %105, -1
-  %114 = and i64 %113, -16
-  %115 = getelementptr i8, ptr %112, i64 %114
-  %116 = getelementptr i8, ptr %115, i64 16
-  %117 = getelementptr i8, ptr %115, i64 31
-  %118 = load i8, ptr %117, align 1, !alias.scope !9296, !noundef !16
-  %119 = icmp slt i8 %118, 0
-  %120 = and i8 %118, 127
-  %121 = zext nneg i8 %120 to i64
-  %122 = load ptr, ptr %116, align 8, !alias.scope !9296, !nonnull !16
-  %123 = getelementptr i8, ptr %115, i64 24
-  %124 = load i64, ptr %123, align 8, !alias.scope !9296
-  %.sroa.3.0.i.i = select i1 %119, i64 %121, i64 %124
-  %.sroa.0.0.i.i = select i1 %119, ptr %116, ptr %122
-  %125 = tail call fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17h4e94ad186f87f8f6E(ptr readonly %.val, ptr %.val50, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
+  %111 = getelementptr i8, ptr %109, i64 %110
+  %112 = add i64 %105, -1
+  %113 = and i64 %112, -16
+  %114 = getelementptr i8, ptr %111, i64 %113
+  %115 = getelementptr i8, ptr %114, i64 112
+  %116 = getelementptr i8, ptr %114, i64 127
+  %117 = load i8, ptr %116, align 1, !alias.scope !9296, !noundef !16
+  %118 = icmp slt i8 %117, 0
+  %119 = and i8 %117, 127
+  %120 = zext nneg i8 %119 to i64
+  %121 = load ptr, ptr %115, align 8, !alias.scope !9296, !nonnull !16
+  %122 = getelementptr i8, ptr %114, i64 120
+  %123 = load i64, ptr %122, align 8, !alias.scope !9296
+  %.sroa.3.0.i.i = select i1 %118, i64 %120, i64 %123
+  %.sroa.0.0.i.i = select i1 %118, ptr %115, ptr %121
+  %124 = tail call fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17h4e94ad186f87f8f6E(ptr readonly %.val, ptr %.val50, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8bdacfac0d46a9b1E.exit"
 }
 

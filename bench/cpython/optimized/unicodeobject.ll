@@ -20852,10 +20852,9 @@ _PyUnicodeWriter_WriteCharInline.exit92:          ; preds = %100, %102, %105
 108:                                              ; preds = %69, %73
   %.055 = phi i32 [ 8, %73 ], [ 4, %69 ]
   %.1 = phi ptr [ @.str.91, %73 ], [ @.str.90, %69 ]
-  %scevgep = getelementptr i8, ptr %30, i64 6
   %109 = zext nneg i32 %.055 to i64
-  %110 = getelementptr i8, ptr %scevgep, i64 %109
-  %scevgep129 = getelementptr i8, ptr %110, i64 -4
+  %110 = getelementptr i8, ptr %30, i64 %109
+  %scevgep129 = getelementptr i8, ptr %110, i64 2
   br label %111
 
 111:                                              ; preds = %108, %131

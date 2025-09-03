@@ -7271,7 +7271,7 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7C
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit
   %.012 = phi ptr [ %.1, %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit ], [ %.0.i.i, %.lr.ph.preheader ]
-  %.01011 = phi i64 [ %54, %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit ], [ %6, %.lr.ph.preheader ]
+  %.01011 = phi i64 [ %53, %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit ], [ %6, %.lr.ph.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   %9 = load i64, ptr %8, align 8, !tbaa !233
   %10 = add i64 %9, 64
@@ -7288,93 +7288,91 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7C
   %.1 = phi ptr [ %.0.i.i.i, %11 ], [ %.012, %.lr.ph ]
   %15 = mul i64 %.01011, 27
   %16 = and i64 %15, 63
-  %.idx = mul nuw nsw i64 %16, 144
-  %17 = getelementptr inbounds nuw i8, ptr %.1, i64 80
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %20 = load ptr, ptr %19, align 8, !tbaa !168
-  %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i, label %21
+  %17 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 64
+  %18 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 152
+  %19 = load ptr, ptr %18, align 8, !tbaa !168
+  %.not.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i, label %20
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %23 = load ptr, ptr %22, align 8, !tbaa !51
-  %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i, label %24
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %22 = load ptr, ptr %21, align 8, !tbaa !51
+  %.not.i.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i, label %23
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %26 = tail call noundef i64 %23(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %25, ptr noundef null) #28
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %25 = tail call noundef i64 %22(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %24, ptr noundef null) #28
   br label %_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i
 
-_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i: ; preds = %24, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 80) #41
+_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i: ; preds = %23, %20
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 80) #41
   br label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i, %14
-  store ptr null, ptr %19, align 8, !tbaa !168
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %28 = load ptr, ptr %27, align 8, !tbaa !46
-  %.not.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %29
+  store ptr null, ptr %18, align 8, !tbaa !168
+  %26 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 144
+  %27 = load ptr, ptr %26, align 8, !tbaa !46
+  %.not.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %28
 
-29:                                               ; preds = %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load atomic i64, ptr %30 acquire, align 8
-  %32 = icmp eq i64 %31, 4294967297
-  %33 = trunc i64 %31 to i32
-  br i1 %32, label %34, label %42
+28:                                               ; preds = %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = load atomic i64, ptr %29 acquire, align 8
+  %31 = icmp eq i64 %30, 4294967297
+  %32 = trunc i64 %30 to i32
+  br i1 %31, label %33, label %41
 
-34:                                               ; preds = %29
-  store i32 0, ptr %30, align 8, !tbaa !21
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  store i32 0, ptr %35, align 4, !tbaa !24
-  %36 = load ptr, ptr %28, align 8, !tbaa !25
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #28
-  %39 = load ptr, ptr %28, align 8, !tbaa !25
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %28) #28
+33:                                               ; preds = %28
+  store i32 0, ptr %29, align 8, !tbaa !21
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 12
+  store i32 0, ptr %34, align 4, !tbaa !24
+  %35 = load ptr, ptr %27, align 8, !tbaa !25
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %27) #28
+  %38 = load ptr, ptr %27, align 8, !tbaa !25
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = load ptr, ptr %39, align 8
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %27) #28
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
-42:                                               ; preds = %29
-  %43 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !48
-  %.not.i.i.i.i = icmp eq i8 %43, 0
-  br i1 %.not.i.i.i.i, label %46, label %44
+41:                                               ; preds = %28
+  %42 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !48
+  %.not.i.i.i.i = icmp eq i8 %42, 0
+  br i1 %.not.i.i.i.i, label %45, label %43
 
-44:                                               ; preds = %42
-  %45 = add nsw i32 %33, -1
-  store i32 %45, ptr %30, align 4, !tbaa !142
+43:                                               ; preds = %41
+  %44 = add nsw i32 %32, -1
+  store i32 %44, ptr %29, align 4, !tbaa !142
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-46:                                               ; preds = %42
-  %47 = atomicrmw volatile add ptr %30, i32 -1 acq_rel, align 4
+45:                                               ; preds = %41
+  %46 = atomicrmw volatile add ptr %29, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %46, %44
-  %.0.i.i.i.i.i = phi i32 [ %33, %44 ], [ %47, %46 ]
-  %48 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %48, label %49, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !151
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %45, %43
+  %.0.i.i.i.i.i = phi i32 [ %32, %43 ], [ %46, %45 ]
+  %47 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %47, label %48, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !151
 
-49:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #28
+48:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #28
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
-_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %49, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %34, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i
-  %50 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %51 = load ptr, ptr %50, align 8, !tbaa !51
-  %.not.i.i1.i = icmp eq ptr %51, null
-  br i1 %.not.i.i1.i, label %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit, label %52
+_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %48, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %33, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i
+  %49 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 120
+  %50 = load ptr, ptr %49, align 8, !tbaa !51
+  %.not.i.i1.i = icmp eq ptr %50, null
+  br i1 %.not.i.i1.i, label %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit, label %51
 
-52:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  %53 = tail call noundef i64 %51(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(120) %18, ptr noundef null) #28
+51:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
+  %52 = tail call noundef i64 %50(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(120) %17, ptr noundef null) #28
   br label %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit
 
-_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit:      ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %52
-  %54 = add i64 %.01011, 1
-  %exitcond.not = icmp eq i64 %54, %3
+_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit:      ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %51
+  %53 = add i64 %.01011, 1
+  %exitcond.not = icmp eq i64 %53, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !384
 }
 
@@ -15138,7 +15136,7 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7C
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit
   %.012 = phi ptr [ %.1, %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit ], [ %.0.i.i, %.lr.ph.preheader ]
-  %.01011 = phi i64 [ %54, %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit ], [ %6, %.lr.ph.preheader ]
+  %.01011 = phi i64 [ %53, %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit ], [ %6, %.lr.ph.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   %9 = load i64, ptr %8, align 8, !tbaa !620
   %10 = add i64 %9, 256
@@ -15155,93 +15153,91 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7C
   %.1 = phi ptr [ %.0.i.i.i, %11 ], [ %.012, %.lr.ph ]
   %15 = mul i64 %.01011, 27
   %16 = and i64 %15, 255
-  %.idx = mul nuw nsw i64 %16, 144
-  %17 = getelementptr inbounds nuw i8, ptr %.1, i64 80
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %20 = load ptr, ptr %19, align 8, !tbaa !168
-  %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i, label %21
+  %17 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 64
+  %18 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 152
+  %19 = load ptr, ptr %18, align 8, !tbaa !168
+  %.not.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i, label %20
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %23 = load ptr, ptr %22, align 8, !tbaa !51
-  %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i, label %24
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %22 = load ptr, ptr %21, align 8, !tbaa !51
+  %.not.i.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i, label %23
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %26 = tail call noundef i64 %23(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %25, ptr noundef null) #28
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %25 = tail call noundef i64 %22(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %24, ptr noundef null) #28
   br label %_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i
 
-_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i: ; preds = %24, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 80) #41
+_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i: ; preds = %23, %20
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 80) #41
   br label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5folly18ThreadPoolExecutor4Task10ExpirationEEclEPS3_.exit.i.i, %14
-  store ptr null, ptr %19, align 8, !tbaa !168
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %28 = load ptr, ptr %27, align 8, !tbaa !46
-  %.not.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %29
+  store ptr null, ptr %18, align 8, !tbaa !168
+  %26 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 144
+  %27 = load ptr, ptr %26, align 8, !tbaa !46
+  %.not.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %28
 
-29:                                               ; preds = %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load atomic i64, ptr %30 acquire, align 8
-  %32 = icmp eq i64 %31, 4294967297
-  %33 = trunc i64 %31 to i32
-  br i1 %32, label %34, label %42
+28:                                               ; preds = %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = load atomic i64, ptr %29 acquire, align 8
+  %31 = icmp eq i64 %30, 4294967297
+  %32 = trunc i64 %30 to i32
+  br i1 %31, label %33, label %41
 
-34:                                               ; preds = %29
-  store i32 0, ptr %30, align 8, !tbaa !21
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  store i32 0, ptr %35, align 4, !tbaa !24
-  %36 = load ptr, ptr %28, align 8, !tbaa !25
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #28
-  %39 = load ptr, ptr %28, align 8, !tbaa !25
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %28) #28
+33:                                               ; preds = %28
+  store i32 0, ptr %29, align 8, !tbaa !21
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 12
+  store i32 0, ptr %34, align 4, !tbaa !24
+  %35 = load ptr, ptr %27, align 8, !tbaa !25
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %27) #28
+  %38 = load ptr, ptr %27, align 8, !tbaa !25
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = load ptr, ptr %39, align 8
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %27) #28
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
-42:                                               ; preds = %29
-  %43 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !48
-  %.not.i.i.i.i = icmp eq i8 %43, 0
-  br i1 %.not.i.i.i.i, label %46, label %44
+41:                                               ; preds = %28
+  %42 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !48
+  %.not.i.i.i.i = icmp eq i8 %42, 0
+  br i1 %.not.i.i.i.i, label %45, label %43
 
-44:                                               ; preds = %42
-  %45 = add nsw i32 %33, -1
-  store i32 %45, ptr %30, align 4, !tbaa !142
+43:                                               ; preds = %41
+  %44 = add nsw i32 %32, -1
+  store i32 %44, ptr %29, align 4, !tbaa !142
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-46:                                               ; preds = %42
-  %47 = atomicrmw volatile add ptr %30, i32 -1 acq_rel, align 4
+45:                                               ; preds = %41
+  %46 = atomicrmw volatile add ptr %29, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %46, %44
-  %.0.i.i.i.i.i = phi i32 [ %33, %44 ], [ %47, %46 ]
-  %48 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %48, label %49, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !151
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %45, %43
+  %.0.i.i.i.i.i = phi i32 [ %32, %43 ], [ %46, %45 ]
+  %47 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %47, label %48, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !151
 
-49:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #28
+48:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #28
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
-_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %49, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %34, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i
-  %50 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %51 = load ptr, ptr %50, align 8, !tbaa !51
-  %.not.i.i1.i = icmp eq ptr %51, null
-  br i1 %.not.i.i1.i, label %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit, label %52
+_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %48, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %33, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.i
+  %49 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Entry", ptr %.1, i64 %16, i32 2, i32 0, i64 120
+  %50 = load ptr, ptr %49, align 8, !tbaa !51
+  %.not.i.i1.i = icmp eq ptr %50, null
+  br i1 %.not.i.i1.i, label %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit, label %51
 
-52:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  %53 = tail call noundef i64 %51(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(120) %18, ptr noundef null) #28
+51:                                               ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
+  %52 = tail call noundef i64 %50(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(120) %17, ptr noundef null) #28
   br label %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit
 
-_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit:      ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %52
-  %54 = add i64 %.01011, 1
-  %exitcond.not = icmp eq i64 %54, %3
+_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit:      ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %51
+  %53 = add i64 %.01011, 1
+  %exitcond.not = icmp eq i64 %53, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !633
 }
 

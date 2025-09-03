@@ -1286,15 +1286,15 @@ define internal void @init_globals() #0 {
   store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 16), align 8
   %20 = load ptr, ptr @tcp_svc_port_range_values, align 8
   %21 = load i32, ptr %20, align 4
-  %.not41 = icmp eq i32 %21, 0
-  br i1 %.not41, label %.preheader, label %.lr.ph32
+  %.not40 = icmp eq i32 %21, 0
+  br i1 %.not40, label %.preheader, label %.lr.ph31
 
 22:                                               ; preds = %4, %30
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %30 ]
   %23 = getelementptr %struct._HF_OF_INTEREST_INFO, ptr @hf_of_interest, i64 %indvars.iv
   %24 = load i32, ptr %23, align 16
-  %.not26 = icmp eq i32 %24, -1
-  br i1 %.not26, label %27, label %25
+  %.not25 = icmp eq i32 %24, -1
+  br i1 %.not25, label %27, label %25
 
 25:                                               ; preds = %22
   %26 = tail call ptr @g_array_append_vals(ptr noundef %13, ptr noundef %23, i32 noundef 1)
@@ -1314,50 +1314,49 @@ define internal void @init_globals() #0 {
 .preheader:                                       ; preds = %._crit_edge, %14
   %31 = load ptr, ptr @udp_svc_port_range_values, align 8
   %32 = load i32, ptr %31, align 4
-  %.not42 = icmp eq i32 %32, 0
-  br i1 %.not42, label %._crit_edge40, label %.lr.ph39
+  %.not41 = icmp eq i32 %32, 0
+  br i1 %.not41, label %._crit_edge39, label %.lr.ph38
 
-.lr.ph32:                                         ; preds = %14, %._crit_edge
+.lr.ph31:                                         ; preds = %14, %._crit_edge
   %33 = phi i32 [ %41, %._crit_edge ], [ %21, %14 ]
   %34 = phi ptr [ %42, %._crit_edge ], [ %20, %14 ]
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %._crit_edge ], [ 0, %14 ]
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %._crit_edge ], [ 0, %14 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %36 = getelementptr %struct.range_admin_tag, ptr %35, i64 %indvars.iv44
+  %36 = getelementptr %struct.range_admin_tag, ptr %35, i64 %indvars.iv43
   %37 = load i32, ptr %36, align 4
-  %.idx24 = shl nuw nsw i64 %indvars.iv44, 3
-  %38 = getelementptr i8, ptr %34, i64 8
-  %39 = getelementptr i8, ptr %38, i64 %.idx24
+  %38 = getelementptr %struct.range_admin_tag, ptr %34, i64 %indvars.iv43
+  %39 = getelementptr i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 4
-  %.not2528 = icmp ugt i32 %37, %40
-  br i1 %.not2528, label %._crit_edge, label %.lr.ph
+  %.not2427 = icmp ugt i32 %37, %40
+  br i1 %.not2427, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %50, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph32
-  %41 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %33, %.lr.ph32 ]
-  %42 = phi ptr [ %50, %._crit_edge.loopexit ], [ %34, %.lr.ph32 ]
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph31
+  %41 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %33, %.lr.ph31 ]
+  %42 = phi ptr [ %50, %._crit_edge.loopexit ], [ %34, %.lr.ph31 ]
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %43 = zext i32 %41 to i64
-  %44 = icmp samesign ult i64 %indvars.iv.next45, %43
-  br i1 %44, label %.lr.ph32, label %.preheader, !llvm.loop !13
+  %44 = icmp samesign ult i64 %indvars.iv.next44, %43
+  br i1 %44, label %.lr.ph31, label %.preheader, !llvm.loop !13
 
-.lr.ph:                                           ; preds = %.lr.ph32, %.lr.ph
-  %.02129 = phi i32 [ %49, %.lr.ph ], [ %37, %.lr.ph32 ]
+.lr.ph:                                           ; preds = %.lr.ph31, %.lr.ph
+  %.02128 = phi i32 [ %49, %.lr.ph ], [ %37, %.lr.ph31 ]
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 8), align 8
-  %46 = zext i32 %.02129 to i64
+  %46 = zext i32 %.02128 to i64
   %47 = inttoptr i64 %46 to ptr
   %48 = tail call ptr @wmem_map_insert(ptr noundef %45, ptr noundef %47, ptr noundef nonnull inttoptr (i64 2 to ptr))
-  %49 = add i32 %.02129, 1
+  %49 = add i32 %.02128, 1
   %50 = load ptr, ptr @tcp_svc_port_range_values, align 8
-  %51 = getelementptr i8, ptr %50, i64 8
-  %52 = getelementptr i8, ptr %51, i64 %.idx24
+  %51 = getelementptr %struct.range_admin_tag, ptr %50, i64 %indvars.iv43
+  %52 = getelementptr i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 4
-  %.not25 = icmp ugt i32 %49, %53
-  br i1 %.not25, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  %.not24 = icmp ugt i32 %49, %53
+  br i1 %.not24, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
-._crit_edge40:                                    ; preds = %._crit_edge37, %.preheader
+._crit_edge39:                                    ; preds = %._crit_edge36, %.preheader
   %54 = tail call ptr @wmem_file_scope()
   %55 = tail call noalias ptr @wmem_map_new(ptr noundef %54, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %55, ptr @dcerpc_context_zero, align 8
@@ -1387,47 +1386,46 @@ define internal void @init_globals() #0 {
   %77 = tail call ptr @wmem_map_insert(ptr noundef %76, ptr noundef nonnull inttoptr (i64 53 to ptr), ptr noundef nonnull inttoptr (i64 7 to ptr))
   br label %99
 
-.lr.ph39:                                         ; preds = %.preheader, %._crit_edge37
-  %78 = phi i32 [ %86, %._crit_edge37 ], [ %32, %.preheader ]
-  %79 = phi ptr [ %87, %._crit_edge37 ], [ %31, %.preheader ]
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %._crit_edge37 ], [ 0, %.preheader ]
+.lr.ph38:                                         ; preds = %.preheader, %._crit_edge36
+  %78 = phi i32 [ %86, %._crit_edge36 ], [ %32, %.preheader ]
+  %79 = phi ptr [ %87, %._crit_edge36 ], [ %31, %.preheader ]
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %._crit_edge36 ], [ 0, %.preheader ]
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  %81 = getelementptr %struct.range_admin_tag, ptr %80, i64 %indvars.iv47
+  %81 = getelementptr %struct.range_admin_tag, ptr %80, i64 %indvars.iv46
   %82 = load i32, ptr %81, align 4
-  %.idx = shl nuw nsw i64 %indvars.iv47, 3
-  %83 = getelementptr i8, ptr %79, i64 8
-  %84 = getelementptr i8, ptr %83, i64 %.idx
+  %83 = getelementptr %struct.range_admin_tag, ptr %79, i64 %indvars.iv46
+  %84 = getelementptr i8, ptr %83, i64 8
   %85 = load i32, ptr %84, align 4
-  %.not33 = icmp ugt i32 %82, %85
-  br i1 %.not33, label %._crit_edge37, label %.lr.ph36
+  %.not32 = icmp ugt i32 %82, %85
+  br i1 %.not32, label %._crit_edge36, label %.lr.ph35
 
-._crit_edge37.loopexit:                           ; preds = %.lr.ph36
-  %.pre50 = load i32, ptr %95, align 4
-  br label %._crit_edge37
+._crit_edge36.loopexit:                           ; preds = %.lr.ph35
+  %.pre49 = load i32, ptr %95, align 4
+  br label %._crit_edge36
 
-._crit_edge37:                                    ; preds = %._crit_edge37.loopexit, %.lr.ph39
-  %86 = phi i32 [ %.pre50, %._crit_edge37.loopexit ], [ %78, %.lr.ph39 ]
-  %87 = phi ptr [ %95, %._crit_edge37.loopexit ], [ %79, %.lr.ph39 ]
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+._crit_edge36:                                    ; preds = %._crit_edge36.loopexit, %.lr.ph38
+  %86 = phi i32 [ %.pre49, %._crit_edge36.loopexit ], [ %78, %.lr.ph38 ]
+  %87 = phi ptr [ %95, %._crit_edge36.loopexit ], [ %79, %.lr.ph38 ]
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %88 = zext i32 %86 to i64
-  %89 = icmp samesign ult i64 %indvars.iv.next48, %88
-  br i1 %89, label %.lr.ph39, label %._crit_edge40, !llvm.loop !15
+  %89 = icmp samesign ult i64 %indvars.iv.next47, %88
+  br i1 %89, label %.lr.ph38, label %._crit_edge39, !llvm.loop !15
 
-.lr.ph36:                                         ; preds = %.lr.ph39, %.lr.ph36
-  %.034 = phi i32 [ %94, %.lr.ph36 ], [ %82, %.lr.ph39 ]
+.lr.ph35:                                         ; preds = %.lr.ph38, %.lr.ph35
+  %.033 = phi i32 [ %94, %.lr.ph35 ], [ %82, %.lr.ph38 ]
   %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @preferences, i64 16), align 8
-  %91 = zext i32 %.034 to i64
+  %91 = zext i32 %.033 to i64
   %92 = inttoptr i64 %91 to ptr
   %93 = tail call ptr @wmem_map_insert(ptr noundef %90, ptr noundef %92, ptr noundef nonnull inttoptr (i64 3 to ptr))
-  %94 = add i32 %.034, 1
+  %94 = add i32 %.033, 1
   %95 = load ptr, ptr @udp_svc_port_range_values, align 8
-  %96 = getelementptr i8, ptr %95, i64 8
-  %97 = getelementptr i8, ptr %96, i64 %.idx
+  %96 = getelementptr %struct.range_admin_tag, ptr %95, i64 %indvars.iv46
+  %97 = getelementptr i8, ptr %96, i64 8
   %98 = load i32, ptr %97, align 4
   %.not = icmp ugt i32 %94, %98
-  br i1 %.not, label %._crit_edge37.loopexit, label %.lr.ph36, !llvm.loop !16
+  br i1 %.not, label %._crit_edge36.loopexit, label %.lr.ph35, !llvm.loop !16
 
-99:                                               ; preds = %0, %._crit_edge40
+99:                                               ; preds = %0, %._crit_edge39
   ret void
 }
 

@@ -1541,21 +1541,17 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %.lr.ph.i
 
 _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21: ; preds = %156
   %.not.i.i22 = icmp eq i8 %158, 0
-  br i1 %.not.i.i22, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit35.thread, label %.lr.ph.i.i23.preheader
+  br i1 %.not.i.i22, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit35.thread, label %.lr.ph.i.i23
 
-.lr.ph.i.i23.preheader:                           ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21
-  %161 = getelementptr inbounds nuw i8, ptr %.pre209, i64 224
-  br label %.lr.ph.i.i23
-
-.lr.ph.i.i23:                                     ; preds = %.lr.ph.i.i23.preheader, %.lr.ph.i.i23
-  %.sroa.01.08.i.i24 = phi i64 [ %163, %.lr.ph.i.i23 ], [ 0, %.lr.ph.i.i23.preheader ]
-  %162 = phi i64 [ %166, %.lr.ph.i.i23 ], [ 0, %.lr.ph.i.i23.preheader ]
-  %163 = add nuw nsw i64 %.sroa.01.08.i.i24, 1
-  %.idx = shl nuw nsw i64 %.sroa.01.08.i.i24, 5
-  %164 = getelementptr inbounds nuw i8, ptr %161, i64 %.idx
+.lr.ph.i.i23:                                     ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21, %.lr.ph.i.i23
+  %.sroa.01.08.i.i24 = phi i64 [ %162, %.lr.ph.i.i23 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21 ]
+  %161 = phi i64 [ %166, %.lr.ph.i.i23 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21 ]
+  %162 = add nuw nsw i64 %.sroa.01.08.i.i24, 1
+  %163 = getelementptr inbounds nuw { i64, i64, i64, i64 }, ptr %.pre209, i64 %.sroa.01.08.i.i24
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 224
   %165 = load i64, ptr %164, align 8, !alias.scope !261, !noalias !259, !noundef !7
-  %166 = add i64 %165, %162
-  %exitcond.not.i.i26 = icmp eq i64 %163, %159
+  %166 = add i64 %165, %161
+  %exitcond.not.i.i26 = icmp eq i64 %162, %159
   br i1 %exitcond.not.i.i26, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit35.thread, label %.lr.ph.i.i23
 
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit35.thread: ; preds = %.lr.ph.i.i23, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21

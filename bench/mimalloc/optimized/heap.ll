@@ -9,6 +9,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mi_memid_s = type { %union.anon, i8, i8, i8, i32 }
 %union.anon = type { %struct.mi_memid_os_info }
 %struct.mi_memid_os_info = type { ptr, i64 }
+%struct.mi_page_s = type { i8, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, ptr, i16, i8, i8, i64, ptr, i64, i64, ptr, ptr }
+%union.mi_page_flags_s = type { i8 }
 %struct.mi_heap_area_ex_s = type { %struct.mi_heap_area_s, ptr }
 %struct.mi_heap_area_s = type { ptr, i64, i64, i64, i64, i64, i32 }
 
@@ -871,9 +873,8 @@ define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(a
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %21 = load i64, ptr %20, align 16, !tbaa !58
   %22 = lshr i64 %19, %21
-  %.idx.i = mul nuw nsw i64 %22, 80
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 216
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
+  %23 = getelementptr inbounds nuw %struct.mi_page_s, ptr %12, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 216
   %25 = load atomic i64, ptr %24 monotonic, align 8
   %26 = inttoptr i64 %25 to ptr
   %27 = icmp eq ptr %0, %26

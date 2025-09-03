@@ -6994,8 +6994,8 @@ DOFObjectID_GetDataSize.exit.i:                   ; preds = %.thread.i.i.i.i, %1
 DOFObjectID_GetClassSize.exit.i:                  ; preds = %.thread.i.i.i, %19
   %.0.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ %spec.select5.i.i, %19 ]
   %21 = zext nneg i32 %.0.i.i to i64
-  %22 = getelementptr i8, ptr %4, i64 %21
-  %23 = getelementptr i8, ptr %22, i64 1
+  %22 = getelementptr i8, ptr %0, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 7
   br label %DOFObjectID_GetData.exit
 
 DOFObjectID_GetData.exit:                         ; preds = %DOFObjectID_GetDataSize.exit.i, %DOFObjectID_GetClassSize.exit.i
@@ -7711,8 +7711,8 @@ DOFObjectID_GetDataSize.exit.i:                   ; preds = %.thread.i.i.i.i, %8
 DOFObjectID_GetClassSize.exit.i:                  ; preds = %.thread.i.i.i, %90
   %.0.i.i = phi i32 [ %spec.select.i.i, %.thread.i.i.i ], [ %spec.select5.i.i, %90 ]
   %92 = zext nneg i32 %.0.i.i to i64
-  %93 = getelementptr i8, ptr %6, i64 %92
-  %94 = getelementptr i8, ptr %93, i64 1
+  %93 = getelementptr i8, ptr %0, i64 %92
+  %94 = getelementptr i8, ptr %93, i64 7
   br label %DOFObjectID_GetData.exit
 
 DOFObjectID_GetData.exit:                         ; preds = %DOFObjectID_GetDataSize.exit.i, %DOFObjectID_GetClassSize.exit.i
