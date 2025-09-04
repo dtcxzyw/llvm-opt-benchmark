@@ -880,7 +880,7 @@ define dso_local range(i32 0, 2) i32 @rb_parser_st_insert(ptr noundef captures(n
   br i1 %exitcond.not.i, label %.thread50, label %22, !llvm.loop !37
 
 .loopexit.split.loop.exit31.i:                    ; preds = %30
-  br i1 %35, label %.backedge.backedge, label %find_entry.exit, !prof !39
+  br i1 %35, label %.backedge.backedge, label %find_entry.exit, !prof !46
 
 .backedge.backedge:                               ; preds = %.loopexit.split.loop.exit31.i, %40, %find_entry.exit
   br label %.backedge
@@ -1460,7 +1460,7 @@ define dso_local range(i32 0, 2) i32 @rb_parser_st_insert2(ptr noundef captures(
   br i1 %exitcond.not.i, label %.thread52, label %23, !llvm.loop !37
 
 .loopexit.split.loop.exit31.i:                    ; preds = %31
-  br i1 %36, label %.backedge.backedge, label %find_entry.exit, !prof !39
+  br i1 %36, label %.backedge.backedge, label %find_entry.exit, !prof !46
 
 .backedge.backedge:                               ; preds = %.loopexit.split.loop.exit31.i, %41, %find_entry.exit
   br label %.backedge
@@ -1839,7 +1839,7 @@ get_bin.exit.i:                                   ; preds = %59, %55, %51, %47
   br label %43
 
 .loopexit.split.loop.exit40.i:                    ; preds = %74
-  br i1 %79, label %.backedge.backedge, label %.loopexit, !prof !46
+  br i1 %79, label %.backedge.backedge, label %.loopexit, !prof !39
 
 find_table_bin_ind.exit.thread:                   ; preds = %80
   %.not = icmp eq ptr %2, null
@@ -2841,7 +2841,7 @@ get_bin.exit.i:                                   ; preds = %87, %83, %79, %75
 find_table_entry_ind.exit:                        ; preds = %97, %.loopexit.split.loop.exit41.i
   %.pre.i237 = phi i32 [ %46, %.loopexit.split.loop.exit41.i ], [ %.pre.i238, %97 ]
   %113 = icmp eq i64 %90, -2
-  br i1 %113, label %.preheader.outer.backedge, label %find_table_entry_ind.exit.thread, !prof !62
+  br i1 %113, label %.preheader.outer.backedge, label %find_table_entry_ind.exit.thread, !prof !63
 
 .preheader.outer.backedge:                        ; preds = %.loopexit.split.loop.exit31.i, %find_table_entry_ind.exit, %.loopexit.split.loop.exit41.i
   %.pre.i.ph.be = phi i32 [ %.pre.i94, %.loopexit.split.loop.exit41.i ], [ %.pre.i237, %find_table_entry_ind.exit ], [ %.pre39.i, %.loopexit.split.loop.exit31.i ]
@@ -2971,7 +2971,7 @@ get_bin.exit.i114.us:                             ; preds = %144, %140, %136, %1
   br label %._crit_edge.i117.us
 
 .loopexit.split.loop.exit40.i.us:                 ; preds = %158
-  br i1 %163, label %.split.us, label %.split195.us, !prof !39
+  br i1 %163, label %.split.us, label %.split195.us, !prof !46
 
 164:                                              ; preds = %get_bin.exit.i114.us
   %165 = icmp eq i64 %147, 0
@@ -3025,7 +3025,7 @@ get_bin.exit.i114.us:                             ; preds = %144, %140, %136, %1
 
 .thread.i105:                                     ; preds = %182
   %.not25.not.i106 = icmp eq i32 %.pre.i97, %178
-  br i1 %.not25.not.i106, label %find_entry.exit108, label %.backedge, !prof !63
+  br i1 %.not25.not.i106, label %find_entry.exit108, label %.backedge, !prof !64
 
 186:                                              ; preds = %182
   %187 = load ptr, ptr %23, align 8, !tbaa !7
@@ -3052,7 +3052,7 @@ find_entry.exit108:                               ; preds = %.thread.i105, %.loo
   switch i64 %.02233.i98, label %set_bin.exit [
     i64 -2, label %.backedge
     i64 -1, label %update_range_for_deleted.exit
-  ], !prof !40
+  ], !prof !65
 
 .backedge:                                        ; preds = %.loopexit.split.loop.exit31.i102, %.thread.i105, %find_entry.exit108
   %.pre.i97245294 = phi i32 [ %.pre.i97245, %find_entry.exit108 ], [ %.pre.i97246, %.thread.i105 ], [ %.pre39.i104, %.loopexit.split.loop.exit31.i102 ]
@@ -3134,7 +3134,7 @@ update_range_for_deleted.exit:                    ; preds = %find_entry.exit108,
   %227 = add i64 %.178, 1
   %228 = load i64, ptr %12, align 8, !tbaa !30
   %229 = icmp ult i64 %227, %228
-  br i1 %229, label %26, label %.loopexit, !llvm.loop !64
+  br i1 %229, label %26, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %121, %120, %update_range_for_deleted.exit, %5, %116
   %.0 = phi i32 [ 1, %116 ], [ 0, %5 ], [ 0, %update_range_for_deleted.exit ], [ 0, %120 ], [ 0, %121 ]
@@ -3146,9 +3146,9 @@ update_range_for_deleted.exit:                    ; preds = %find_entry.exit108,
 define dso_local range(i32 0, 2) i32 @rb_parser_st_foreach(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.functor, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %1, ptr %4, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %2, ptr %5, align 8, !tbaa !67
+  store i64 %2, ptr %5, align 8, !tbaa !69
   %6 = ptrtoint ptr %4 to i64
   %7 = call fastcc i32 @st_general_foreach(ptr noundef %0, ptr noundef nonnull @apply_functor, ptr noundef null, i64 noundef %6, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3158,9 +3158,9 @@ define dso_local range(i32 0, 2) i32 @rb_parser_st_foreach(ptr noundef captures(
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @apply_functor(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 %3) #0 {
   %5 = inttoptr i64 %2 to ptr
-  %6 = load ptr, ptr %5, align 8, !tbaa !65
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !67
+  %8 = load i64, ptr %7, align 8, !tbaa !69
   %9 = tail call i32 %6(i64 noundef %0, i64 noundef %1, i64 noundef %8) #25
   ret i32 %9
 }
@@ -3207,7 +3207,7 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_pa
   %22 = icmp uge i64 %21, %7
   %23 = icmp eq ptr %.1.i, %8
   %or.cond.i = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond.i, label %st_general_keys.exit, label %.lr.ph.i, !llvm.loop !68
+  br i1 %or.cond.i, label %st_general_keys.exit, label %.lr.ph.i, !llvm.loop !70
 
 st_general_keys.exit:                             ; preds = %20, %3
   %.0.lcssa.i = phi ptr [ %1, %3 ], [ %.1.i, %20 ]
@@ -3254,7 +3254,7 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_pa
   %23 = icmp uge i64 %22, %8
   %24 = icmp eq ptr %.1.i, %9
   %or.cond.i = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond.i, label %st_general_keys.exit, label %.lr.ph.i, !llvm.loop !68
+  br i1 %or.cond.i, label %st_general_keys.exit, label %.lr.ph.i, !llvm.loop !70
 
 st_general_keys.exit:                             ; preds = %21, %4
   %.0.lcssa.i = phi ptr [ %1, %4 ], [ %.1.i, %21 ]
@@ -3301,7 +3301,7 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_pa
   %22 = icmp uge i64 %21, %8
   %23 = icmp eq ptr %.1.i, %6
   %or.cond.i = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond.i, label %st_general_values.exit, label %.lr.ph.i, !llvm.loop !69
+  br i1 %or.cond.i, label %st_general_values.exit, label %.lr.ph.i, !llvm.loop !71
 
 st_general_values.exit:                           ; preds = %20, %3
   %.0.lcssa.i = phi ptr [ %1, %3 ], [ %.1.i, %20 ]
@@ -3348,7 +3348,7 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_pa
   %23 = icmp uge i64 %22, %9
   %24 = icmp eq ptr %.1.i, %7
   %or.cond.i = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond.i, label %st_general_values.exit, label %.lr.ph.i, !llvm.loop !69
+  br i1 %or.cond.i, label %st_general_values.exit, label %.lr.ph.i, !llvm.loop !71
 
 st_general_values.exit:                           ; preds = %21, %4
   %.0.lcssa.i = phi ptr [ %1, %4 ], [ %.1.i, %21 ]
@@ -3382,7 +3382,7 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
   %15 = getelementptr i8, ptr %.134, i64 8
   %16 = add i64 %.1, -8
   %17 = icmp ugt i64 %16, 7
-  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !70
+  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.preheader, %3
   %.035 = phi i64 [ %2, %3 ], [ %14, %.preheader ]
@@ -3585,7 +3585,7 @@ define dso_local range(i32 -1, 2) i32 @rb_parser_st_locale_insensitive_strncasec
   %6 = getelementptr i8, ptr %.03044, i64 1
   %7 = getelementptr i8, ptr %.03143, i64 1
   %exitcond.not = icmp eq i64 %5, %2
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
 
 .lr.ph:                                           ; preds = %3, %4
   %.045 = phi i64 [ %5, %4 ], [ 0, %3 ]
@@ -3679,7 +3679,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   %15 = getelementptr i8, ptr %.134.i, i64 8
   %16 = add i64 %.1.i, -8
   %17 = icmp ugt i64 %16, 7
-  br i1 %17, label %.preheader.i, label %.loopexit.i, !llvm.loop !70
+  br i1 %17, label %.preheader.i, label %.loopexit.i, !llvm.loop !72
 
 .loopexit.i:                                      ; preds = %.preheader.i, %1
   %.035.i = phi i64 [ 2166136261, %1 ], [ %14, %.preheader.i ]
@@ -3851,7 +3851,7 @@ define internal i64 @strcasehash(i64 noundef %0) #18 {
   %12 = mul i64 %11, 16777619
   %13 = load i8, ptr %5, align 1, !tbaa !41
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.08.lcssa = phi i64 [ 2166136261, %1 ], [ %12, %.lr.ph ]
@@ -3898,7 +3898,7 @@ define internal fastcc void @rebuild_table_with(ptr noundef captures(none) %0, p
   br i1 %.not.us, label %set_bin.exit.us, label %23
 
 23:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !73
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !75
   br label %set_bin.exit.us
 
 set_bin.exit.us:                                  ; preds = %23, %21
@@ -3912,7 +3912,7 @@ set_bin.exit.us:                                  ; preds = %23, %21
   %.1.us = phi i64 [ %.02937.us, %.lr.ph.split.us ], [ %26, %set_bin.exit.us ]
   %28 = add nuw i64 %.038.us, 1
   %exitcond43.not = icmp eq i64 %28, %9
-  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !74
+  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !76
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %96
   %.038 = phi i64 [ %97, %96 ], [ %13, %.lr.ph ]
@@ -3930,7 +3930,7 @@ set_bin.exit.us:                                  ; preds = %23, %21
   br i1 %.not, label %36, label %35
 
 35:                                               ; preds = %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false), !tbaa.struct !73
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false), !tbaa.struct !75
   %.pre = load i64, ptr %29, align 8, !tbaa !32
   br label %36
 
@@ -4068,7 +4068,7 @@ set_bin.exit:                                     ; preds = %91, %88, %85, %82
   %.1 = phi i64 [ %.02937, %.lr.ph.split ], [ %95, %set_bin.exit ]
   %97 = add nuw i64 %.038, 1
   %exitcond.not = icmp eq i64 %97, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %96, %27, %2
   ret void
@@ -4161,17 +4161,17 @@ attributes #26 = { nounwind willreturn memory(read) }
 !36 = !{!"branch_weights", i32 716543353, i32 1430940295}
 !37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"branch_weights", i32 4359880, i32 2143123768}
-!40 = !{!"branch_weights", i32 -2147483648, i32 0, i32 0}
+!39 = !{!"branch_weights", i32 2181030, i32 2145302618}
+!40 = !{!"branch_weights", i32 2147326926, i32 156722, i32 0}
 !41 = !{!9, !9, i64 0}
 !42 = !{!43, !43, i64 0}
 !43 = !{!"short", !9, i64 0}
 !44 = !{!11, !11, i64 0}
 !45 = !{!14, !14, i64 0}
-!46 = !{!"branch_weights", i32 4359879, i32 2143123769}
+!46 = !{!"branch_weights", i32 2181029, i32 2145302619}
 !47 = !{!"branch_weights", i32 1171314867, i32 0, i32 976168781}
 !48 = !{!33, !14, i64 16}
-!49 = !{!"branch_weights", i32 1073741824, i32 0, i32 1073741824}
+!49 = !{!"branch_weights", i32 1073598934, i32 285781, i32 1073598934}
 !50 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !51 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}
 !52 = !{i64 0, i64 1, !41, i64 1, i64 1, !41, i64 2, i64 1, !41, i64 4, i64 4, !44, i64 8, i64 8, !53, i64 16, i64 8, !45, i64 24, i64 8, !54, i64 32, i64 8, !45, i64 40, i64 8, !45, i64 48, i64 8, !55}
@@ -4179,21 +4179,23 @@ attributes #26 = { nounwind willreturn memory(read) }
 !54 = !{!15, !15, i64 0}
 !55 = !{!16, !16, i64 0}
 !56 = distinct !{!56, !38}
-!57 = !{!"branch_weights", i32 4446386, i32 -100915379}
-!58 = !{!"branch_weights", i32 8977367, i32 -8977368}
+!57 = !{!"branch_weights", i32 4444163, i32 -103010308}
+!58 = !{!"branch_weights", i32 6762957, i32 -6762958}
 !59 = distinct !{!59, !38}
-!60 = !{!"branch_weights", i32 13259077, i32 -13259078}
+!60 = !{!"branch_weights", i32 8905992, i32 -8905993}
 !61 = !{!"branch_weights", !"expected", i32 2274276, i32 2145209372}
-!62 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!63 = !{!"branch_weights", i32 2000, i32 2}
-!64 = distinct !{!64, !38}
-!65 = !{!66, !13, i64 0}
-!66 = !{!"functor", !13, i64 0, !14, i64 8}
-!67 = !{!66, !14, i64 8}
-!68 = distinct !{!68, !38}
-!69 = distinct !{!69, !38}
+!62 = !{!"branch_weights", !"expected", i32 285779, i32 2147197869}
+!63 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!64 = !{!"branch_weights", i32 2000, i32 1}
+!65 = !{!"branch_weights", i32 2147421620, i32 62028, i32 0}
+!66 = distinct !{!66, !38}
+!67 = !{!68, !13, i64 0}
+!68 = !{!"functor", !13, i64 0, !14, i64 8}
+!69 = !{!68, !14, i64 8}
 !70 = distinct !{!70, !38}
 !71 = distinct !{!71, !38}
 !72 = distinct !{!72, !38}
-!73 = !{i64 0, i64 8, !45, i64 8, i64 8, !45, i64 16, i64 8, !45}
+!73 = distinct !{!73, !38}
 !74 = distinct !{!74, !38}
+!75 = !{i64 0, i64 8, !45, i64 8, i64 8, !45, i64 16, i64 8, !45}
+!76 = distinct !{!76, !38}
