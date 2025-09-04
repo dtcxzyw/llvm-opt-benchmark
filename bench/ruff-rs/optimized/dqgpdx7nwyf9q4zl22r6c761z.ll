@@ -48994,37 +48994,36 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic5types8generic
 define noundef zeroext i1 @"_ZN96_$LT$ty_python_semantic..types..generics..GenericContextOrigin$u20$as$u20$core..fmt..Display$GT$3fmt17hf4fbbc033c9ec015E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !range !321, !noundef !3
   %4 = add nsw i8 %3, -2
-  %5 = icmp ult i8 %4, 3
-  %6 = zext nneg i8 %3 to i64
-  %7 = add nsw i64 %6, -1
-  %8 = select i1 %5, i64 %7, i64 0
-  switch i64 %8, label %9 [
-    i64 0, label %10
-    i64 1, label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
+  %5 = zext nneg i8 %4 to i64
+  %6 = icmp ult i8 %4, 3
+  %7 = select i1 %6, i64 %5, i64 -1
+  switch i64 %7, label %8 [
+    i64 -1, label %9
+    i64 0, label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
+    i64 1, label %11
     i64 2, label %12
-    i64 3, label %13
   ]
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   unreachable
 
-10:                                               ; preds = %2
-  %11 = trunc nuw i8 %3 to i1
-  %..i.i = select i1 %11, i64 29, i64 16
-  %anon.24707c9813366632d6460d300f68d204.386.anon.24707c9813366632d6460d300f68d204.385.i.i = select i1 %11, ptr @anon.24707c9813366632d6460d300f68d204.386, ptr @anon.24707c9813366632d6460d300f68d204.385
+9:                                                ; preds = %2
+  %10 = trunc nuw i8 %3 to i1
+  %..i.i = select i1 %10, i64 29, i64 16
+  %anon.24707c9813366632d6460d300f68d204.386.anon.24707c9813366632d6460d300f68d204.385.i.i = select i1 %10, ptr @anon.24707c9813366632d6460d300f68d204.386, ptr @anon.24707c9813366632d6460d300f68d204.385
+  br label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
+
+11:                                               ; preds = %2
   br label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
 
 12:                                               ; preds = %2
   br label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
 
-13:                                               ; preds = %2
-  br label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
-
-_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit: ; preds = %2, %10, %12, %13
-  %.sroa.02.0.i = phi ptr [ %anon.24707c9813366632d6460d300f68d204.386.anon.24707c9813366632d6460d300f68d204.385.i.i, %10 ], [ @anon.24707c9813366632d6460d300f68d204.383, %12 ], [ @anon.24707c9813366632d6460d300f68d204.384, %13 ], [ @anon.24707c9813366632d6460d300f68d204.382, %2 ]
-  %.sroa.5.0.i = phi i64 [ %..i.i, %10 ], [ 23, %12 ], [ 19, %13 ], [ 9, %2 ]
-  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.5.0.i)
-  ret i1 %14
+_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit: ; preds = %2, %9, %11, %12
+  %.sroa.02.0.i = phi ptr [ %anon.24707c9813366632d6460d300f68d204.386.anon.24707c9813366632d6460d300f68d204.385.i.i, %9 ], [ @anon.24707c9813366632d6460d300f68d204.383, %11 ], [ @anon.24707c9813366632d6460d300f68d204.384, %12 ], [ @anon.24707c9813366632d6460d300f68d204.382, %2 ]
+  %.sroa.5.0.i = phi i64 [ %..i.i, %9 ], [ 23, %11 ], [ 19, %12 ], [ 9, %2 ]
+  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.5.0.i)
+  ret i1 %13
 }
 
 ; Function Attrs: nonlazybind uwtable

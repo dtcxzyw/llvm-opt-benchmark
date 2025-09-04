@@ -13881,35 +13881,34 @@ define hidden noundef zeroext i1 @"_ZN83_$LT$aws_smithy_types..error..operation.
 define hidden { ptr, ptr } @"_ZN85_$LT$aws_smithy_types..error..operation..BuildError$u20$as$u20$core..error..Error$GT$6source17hc4fc2e3641ef2683E.llvm.6974339801470247616"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !327, !noundef !5
   %3 = icmp slt i64 %2, -9223372036854775805
-  %4 = add i64 %2, -9223372036854775807
-  %5 = select i1 %3, i64 %4, i64 0
-  switch i64 %5, label %6 [
-    i64 0, label %14
-    i64 1, label %14
-    i64 2, label %7
-    i64 3, label %9
+  %4 = select i1 %3, i64 %2, i64 9223372036854775807
+  switch i64 %4, label %5 [
+    i64 9223372036854775807, label %13
+    i64 -9223372036854775808, label %13
+    i64 -9223372036854775807, label %6
+    i64 -9223372036854775806, label %8
   ]
 
-6:                                                ; preds = %1
+5:                                                ; preds = %1
   unreachable
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %14
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %13
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !nonnull !5, !align !6, !noundef !5
-  br label %14
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !6, !noundef !5
+  br label %13
 
-14:                                               ; preds = %1, %1, %9, %7
-  %.sroa.4.0 = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.114, %7 ], [ %13, %9 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %11, %9 ], [ null, %1 ], [ null, %1 ]
-  %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %16
+13:                                               ; preds = %1, %1, %8, %6
+  %.sroa.4.0 = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.114, %6 ], [ %12, %8 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %10, %8 ], [ null, %1 ], [ null, %1 ]
+  %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.4.0, 1
+  ret { ptr, ptr } %15
 }
 
 ; Function Attrs: nonlazybind uwtable

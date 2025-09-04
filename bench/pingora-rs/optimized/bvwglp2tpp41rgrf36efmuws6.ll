@@ -3057,86 +3057,85 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$yaml_rust..yaml..Ya
 define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$serde_yaml..error..ErrorImpl$GT$17h02cdb635db10c072E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !300, !noundef !4
   %3 = icmp slt i64 %2, -9223372036854775799
-  %4 = add i64 %2, -9223372036854775807
-  %5 = select i1 %3, i64 %4, i64 0
-  switch i64 %5, label %6 [
-    i64 0, label %12
-    i64 1, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
-    i64 2, label %13
-    i64 3, label %15
-    i64 4, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
-    i64 5, label %17
-    i64 6, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
-    i64 7, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
-    i64 8, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
+  %4 = select i1 %3, i64 %2, i64 9223372036854775807
+  switch i64 %4, label %5 [
+    i64 9223372036854775807, label %11
+    i64 -9223372036854775808, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
+    i64 -9223372036854775807, label %12
+    i64 -9223372036854775806, label %14
+    i64 -9223372036854775805, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
+    i64 -9223372036854775804, label %16
+    i64 -9223372036854775803, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
+    i64 -9223372036854775802, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
+    i64 -9223372036854775801, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
   ]
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
-  %8 = load ptr, ptr %7, align 8, !alias.scope !307, !nonnull !4, !noundef !4
-  %9 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !307
-  %10 = icmp eq i64 %9, 1
-  br i1 %10, label %11, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
+  %7 = load ptr, ptr %6, align 8, !alias.scope !307, !nonnull !4, !noundef !4
+  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !307
+  %9 = icmp eq i64 %8, 1
+  br i1 %9, label %10, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
 
-11:                                               ; preds = %6
+10:                                               ; preds = %5
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfd438a5dda51094bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfd438a5dda51094bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
 
-12:                                               ; preds = %1
+11:                                               ; preds = %1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-          to label %25 unwind label %19
+          to label %24 unwind label %18
 
-"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit": ; preds = %29, %25, %11, %6, %17, %15, %13, %1, %1, %1, %1, %1
+"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit": ; preds = %28, %24, %10, %5, %16, %14, %12, %1, %1, %1, %1, %1
   ret void
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr50drop_in_place$LT$yaml_rust..scanner..ScanError$GT$17h78817c2a1f1963e9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14)
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr50drop_in_place$LT$yaml_rust..scanner..ScanError$GT$17h78817c2a1f1963e9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
 
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$alloc..string..FromUtf8Error$GT$17h2d84b9a29f70ae59E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr49drop_in_place$LT$alloc..string..FromUtf8Error$GT$17h2d84b9a29f70ae59E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
 
-19:                                               ; preds = %12
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %11
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i64, ptr %21, align 8, !range !308, !alias.scope !309, !noundef !4
-  %23 = icmp eq i64 %22, -9223372036854775808
-  br i1 %23, label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$serde_yaml..error..Pos$GT$$GT$17hba4b9a7aa76a0db2E.exit", label %24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load i64, ptr %20, align 8, !range !308, !alias.scope !309, !noundef !4
+  %22 = icmp eq i64 %21, -9223372036854775808
+  br i1 %22, label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$serde_yaml..error..Pos$GT$$GT$17hba4b9a7aa76a0db2E.exit", label %23
 
-24:                                               ; preds = %19
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$serde_yaml..error..Pos$GT$17he3a0c4d6c79b17b2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21)
-          to label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$serde_yaml..error..Pos$GT$$GT$17hba4b9a7aa76a0db2E.exit" unwind label %30
+23:                                               ; preds = %18
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$serde_yaml..error..Pos$GT$17he3a0c4d6c79b17b2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20)
+          to label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$serde_yaml..error..Pos$GT$$GT$17hba4b9a7aa76a0db2E.exit" unwind label %29
 
-25:                                               ; preds = %12
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load i64, ptr %26, align 8, !range !308, !alias.scope !312, !noundef !4
-  %28 = icmp eq i64 %27, -9223372036854775808
-  br i1 %28, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit", label %29
+24:                                               ; preds = %11
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %26 = load i64, ptr %25, align 8, !range !308, !alias.scope !312, !noundef !4
+  %27 = icmp eq i64 %26, -9223372036854775808
+  br i1 %27, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit", label %28
 
-29:                                               ; preds = %25
-  tail call void @"_ZN4core3ptr43drop_in_place$LT$serde_yaml..error..Pos$GT$17he3a0c4d6c79b17b2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %26)
+28:                                               ; preds = %24
+  tail call void @"_ZN4core3ptr43drop_in_place$LT$serde_yaml..error..Pos$GT$17he3a0c4d6c79b17b2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %25)
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h45b670b0e7976729E.exit"
 
-30:                                               ; preds = %24
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %23
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #29
   unreachable
 
-"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$serde_yaml..error..Pos$GT$$GT$17hba4b9a7aa76a0db2E.exit": ; preds = %19, %24
-  resume { ptr, i32 } %20
+"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$serde_yaml..error..Pos$GT$$GT$17hba4b9a7aa76a0db2E.exit": ; preds = %18, %23
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: nonlazybind uwtable

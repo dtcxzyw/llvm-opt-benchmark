@@ -14603,91 +14603,90 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_yaml..error..Error$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2546)
   %2 = load i64, ptr %.val, align 8, !range !2549, !alias.scope !2546, !noundef !3
   %3 = icmp slt i64 %2, -9223372036854775799
-  %4 = add i64 %2, -9223372036854775807
-  %5 = select i1 %3, i64 %4, i64 0
-  switch i64 %5, label %6 [
-    i64 0, label %12
-    i64 1, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
-    i64 2, label %13
-    i64 3, label %15
-    i64 4, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
-    i64 5, label %17
-    i64 6, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
-    i64 7, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
-    i64 8, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
+  %4 = select i1 %3, i64 %2, i64 9223372036854775807
+  switch i64 %4, label %5 [
+    i64 9223372036854775807, label %11
+    i64 -9223372036854775808, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
+    i64 -9223372036854775807, label %12
+    i64 -9223372036854775806, label %14
+    i64 -9223372036854775805, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
+    i64 -9223372036854775804, label %16
+    i64 -9223372036854775803, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
+    i64 -9223372036854775802, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
+    i64 -9223372036854775801, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
   ]
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2550)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2553)
-  %8 = load ptr, ptr %7, align 8, !alias.scope !2556, !nonnull !3, !noundef !3
-  %9 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !2556
-  %10 = icmp eq i64 %9, 1
-  br i1 %10, label %11, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2556, !nonnull !3, !noundef !3
+  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !2556
+  %9 = icmp eq i64 %8, 1
+  br i1 %9, label %10, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit"
 
-11:                                               ; preds = %6
+10:                                               ; preds = %5
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfd438a5dda51094bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit" unwind label %31
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfd438a5dda51094bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+          to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit" unwind label %30
+
+11:                                               ; preds = %1
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h4aa6efd278f9f6aeE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %.val, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E.exit.i.i" unwind label %18
 
 12:                                               ; preds = %1
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h4aa6efd278f9f6aeE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %.val, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E.exit.i.i" unwind label %19
-
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   br label %.invoke.i
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
-          to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit" unwind label %31
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
+          to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit" unwind label %30
 
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   br label %.invoke.i
 
-19:                                               ; preds = %12
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %11
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %22 = load i64, ptr %21, align 8, !range !204, !alias.scope !2557, !noundef !3
-  %23 = icmp eq i64 %22, -9223372036854775808
-  br i1 %23, label %33, label %24
+  %20 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %21 = load i64, ptr %20, align 8, !range !204, !alias.scope !2557, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  br i1 %22, label %32, label %23
 
-24:                                               ; preds = %19
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h4aa6efd278f9f6aeE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21, i64 noundef 1, i64 noundef 1)
-          to label %33 unwind label %29
+23:                                               ; preds = %18
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h4aa6efd278f9f6aeE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20, i64 noundef 1, i64 noundef 1)
+          to label %32 unwind label %28
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E.exit.i.i": ; preds = %12
-  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %26 = load i64, ptr %25, align 8, !range !204, !alias.scope !2560, !noundef !3
-  %27 = icmp eq i64 %26, -9223372036854775808
-  br i1 %27, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit", label %.invoke.i
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E.exit.i.i": ; preds = %11
+  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %25 = load i64, ptr %24, align 8, !range !204, !alias.scope !2560, !noundef !3
+  %26 = icmp eq i64 %25, -9223372036854775808
+  br i1 %26, label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit", label %.invoke.i
 
-.invoke.i:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E.exit.i.i", %17, %13
-  %28 = phi ptr [ %18, %17 ], [ %14, %13 ], [ %25, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E.exit.i.i" ]
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h4aa6efd278f9f6aeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %28, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit" unwind label %31
+.invoke.i:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E.exit.i.i", %16, %12
+  %27 = phi ptr [ %17, %16 ], [ %13, %12 ], [ %24, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E.exit.i.i" ]
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h4aa6efd278f9f6aeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %27, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit" unwind label %30
 
-29:                                               ; preds = %24
-  %30 = landingpad { ptr, i32 }
+28:                                               ; preds = %23
+  %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
-31:                                               ; preds = %.invoke.i, %15, %11
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %.invoke.i, %14, %10
+  %31 = landingpad { ptr, i32 }
           cleanup
-  br label %33
+  br label %32
 
-33:                                               ; preds = %31, %24, %19
-  %eh.lpad-body.i = phi { ptr, i32 } [ %32, %31 ], [ %20, %24 ], [ %20, %19 ]
+32:                                               ; preds = %30, %23, %18
+  %eh.lpad-body.i = phi { ptr, i32 } [ %31, %30 ], [ %19, %23 ], [ %19, %18 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef 72, i64 noundef 8) #24
   resume { ptr, i32 } %eh.lpad-body.i
 
-"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit": ; preds = %1, %1, %1, %1, %1, %6, %11, %15, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E.exit.i.i", %.invoke.i
+"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..error..ErrorImpl$GT$$GT$17he1d8943d6d049988E.exit": ; preds = %1, %1, %1, %1, %1, %5, %10, %14, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E.exit.i.i", %.invoke.i
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef 72, i64 noundef 8) #24
   ret void
 }

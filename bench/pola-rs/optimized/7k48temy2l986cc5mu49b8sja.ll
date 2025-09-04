@@ -2133,11 +2133,11 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$polars_error..ErrString$GT$1
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$simd_json..error..Error$GT$17hcdc0c99bb057fe3cE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !186, !alias.scope !187, !noundef !6
   %3 = add nsw i8 %2, -13
-  %4 = icmp ult i8 %3, 41
-  %5 = zext nneg i8 %2 to i64
-  %6 = add nsw i64 %5, -12
-  %7 = select i1 %4, i64 %6, i64 0
-  switch i64 %7, label %8 [
+  %4 = zext nneg i8 %3 to i64
+  %5 = icmp ult i8 %3, 41
+  %6 = select i1 %5, i64 %4, i64 -1
+  switch i64 %6, label %7 [
+    i64 -1, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 0, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 1, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 2, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
@@ -2168,8 +2168,8 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$simd_json..error..Error$GT$1
     i64 27, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 28, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 29, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
-    i64 30, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
-    i64 31, label %10
+    i64 30, label %9
+    i64 31, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 32, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 33, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 34, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
@@ -2178,20 +2178,19 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$simd_json..error..Error$GT$1
     i64 37, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 38, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 39, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
-    i64 40, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
   ]
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5318c51aba648351E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5318c51aba648351E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
   br label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h2d2f9907b33cf9bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 1, i64 noundef 1)
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h2d2f9907b33cf9bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef 1, i64 noundef 1)
   br label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
 
-"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit": ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %8, %10
+"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit": ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %7, %9
   ret void
 }
 

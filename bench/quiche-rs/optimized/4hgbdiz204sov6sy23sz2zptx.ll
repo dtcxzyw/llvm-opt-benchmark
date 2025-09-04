@@ -3434,63 +3434,62 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$h3i..frame..H3iFram
   %2 = load i64, ptr %0, align 8, !range !427, !noundef !3
   %3 = and i64 %2, 14
   %4 = icmp eq i64 %3, 12
-  %5 = add nsw i64 %2, -11
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
-    i64 0, label %8
-    i64 1, label %9
+  %5 = select i1 %4, i64 %2, i64 11
+  switch i64 %5, label %6 [
+    i64 11, label %7
+    i64 12, label %8
   ]
 
-7:                                                ; preds = %"_ZN4core3ptr48drop_in_place$LT$h3i..frame..EnrichedHeaders$GT$17h702c175612bb6ba5E.exit", %8, %1
+6:                                                ; preds = %"_ZN4core3ptr48drop_in_place$LT$h3i..frame..EnrichedHeaders$GT$17h702c175612bb6ba5E.exit", %7, %1
   ret void
 
-8:                                                ; preds = %1
+7:                                                ; preds = %1
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$quiche..h3..frame..Frame$GT$17hdeaae8edebdafc5bE"(ptr noalias noundef align 8 dereferenceable(152) %0)
-  br label %7
+  br label %6
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h7738039fe091cb51E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %10, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h97b274d37be1d255E.exit.i" unwind label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h7738039fe091cb51E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %9, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h97b274d37be1d255E.exit.i" unwind label %10
 
-11:                                               ; preds = %9
-  %12 = landingpad { ptr, i32 }
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
           cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h84cdcea4b3d657c1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #17
+          to label %14 unwind label %19
+
+"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h97b274d37be1d255E.exit.i": ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h84cdcea4b3d657c1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #17
-          to label %15 unwind label %20
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h84cdcea4b3d657c1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
+          to label %"_ZN4core3ptr48drop_in_place$LT$h3i..frame..EnrichedHeaders$GT$17h702c175612bb6ba5E.exit" unwind label %17
 
-"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h97b274d37be1d255E.exit.i": ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h84cdcea4b3d657c1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
-          to label %"_ZN4core3ptr48drop_in_place$LT$h3i..frame..EnrichedHeaders$GT$17h702c175612bb6ba5E.exit" unwind label %18
+14:                                               ; preds = %17, %10
+  %.pn.i = phi { ptr, i32 } [ %18, %17 ], [ %11, %10 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h1fd0c2803af00ec6E(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef 48, i64 noundef 16)
+          to label %"_ZN4core3ptr100drop_in_place$LT$multimap..MultiMap$LT$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hfaff4c6c526a52a3E.exit.i" unwind label %19
 
-15:                                               ; preds = %18, %11
-  %.pn.i = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h1fd0c2803af00ec6E(ptr noalias noundef nonnull align 8 dereferenceable(48) %16, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef 48, i64 noundef 16)
-          to label %"_ZN4core3ptr100drop_in_place$LT$multimap..MultiMap$LT$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hfaff4c6c526a52a3E.exit.i" unwind label %20
-
-18:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h97b274d37be1d255E.exit.i"
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h97b274d37be1d255E.exit.i"
+  %18 = landingpad { ptr, i32 }
           cleanup
-  br label %15
+  br label %14
 
-20:                                               ; preds = %15, %11
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %14, %10
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16
   unreachable
 
-"_ZN4core3ptr100drop_in_place$LT$multimap..MultiMap$LT$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hfaff4c6c526a52a3E.exit.i": ; preds = %15
+"_ZN4core3ptr100drop_in_place$LT$multimap..MultiMap$LT$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hfaff4c6c526a52a3E.exit.i": ; preds = %14
   resume { ptr, i32 } %.pn.i
 
 "_ZN4core3ptr48drop_in_place$LT$h3i..frame..EnrichedHeaders$GT$17h702c175612bb6ba5E.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h97b274d37be1d255E.exit.i"
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h1fd0c2803af00ec6E(ptr noalias noundef nonnull align 8 dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef 48, i64 noundef 16)
-  br label %7
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h1fd0c2803af00ec6E(ptr noalias noundef nonnull align 8 dereferenceable(48) %21, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef 48, i64 noundef 16)
+  br label %6
 }
 
 ; Function Attrs: nonlazybind uwtable

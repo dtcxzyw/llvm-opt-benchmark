@@ -22,94 +22,92 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { ptr, i64 } @_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.17234822155331637475(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 8, !range !4, !noundef !5
   %3 = add nsw i8 %2, -6
-  %4 = icmp ult i8 %3, 4
-  %5 = zext nneg i8 %2 to i64
-  %6 = add nsw i64 %5, -5
-  %7 = select i1 %4, i64 %6, i64 0
-  switch i64 %7, label %8 [
-    i64 0, label %9
-    i64 1, label %17
+  %4 = zext nneg i8 %3 to i64
+  %5 = icmp ult i8 %3, 4
+  %6 = select i1 %5, i64 %4, i64 -1
+  switch i64 %6, label %7 [
+    i64 -1, label %8
+    i64 0, label %16
+    i64 1, label %9
     i64 2, label %10
     i64 3, label %11
-    i64 4, label %12
   ]
 
-8:                                                ; preds = %1
+7:                                                ; preds = %1
   unreachable
 
-9:                                                ; preds = %1
+8:                                                ; preds = %1
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %17
+  br label %16
+
+9:                                                ; preds = %1
+  br label %16
 
 10:                                               ; preds = %1
-  br label %17
+  br label %16
 
 11:                                               ; preds = %1
-  br label %17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8, !nonnull !5, !align !6, !noundef !5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !5
+  br label %16
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !5, !align !6, !noundef !5
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i64, ptr %15, align 8, !noundef !5
-  br label %17
-
-17:                                               ; preds = %1, %12, %11, %10, %9
-  %.sroa.8.0 = phi i64 [ %.sroa.4.0.copyload, %9 ], [ 1, %10 ], [ 2, %11 ], [ %16, %12 ], [ %7, %1 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.3.0.copyload, %9 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.1.llvm.17234822155331637475, %10 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.2.llvm.17234822155331637475, %11 ], [ %14, %12 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.0.llvm.17234822155331637475, %1 ]
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.8.0, 1
-  ret { ptr, i64 } %19
+16:                                               ; preds = %1, %11, %10, %9, %8
+  %.sroa.8.0 = phi i64 [ %.sroa.4.0.copyload, %8 ], [ %6, %9 ], [ %6, %10 ], [ %15, %11 ], [ 1, %1 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.3.0.copyload, %8 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.1.llvm.17234822155331637475, %9 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.2.llvm.17234822155331637475, %10 ], [ %13, %11 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.0.llvm.17234822155331637475, %1 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %18 = insertvalue { ptr, i64 } %17, i64 %.sroa.8.0, 1
+  ret { ptr, i64 } %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h511213a1e87dc0f3E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #0 {
   %.sroa.0.0.copyload = load i8, ptr %1, align 8
   %3 = add nsw i8 %.sroa.0.0.copyload, -6
-  %4 = icmp ult i8 %3, 4
-  %5 = zext nneg i8 %.sroa.0.0.copyload to i64
-  %6 = add nsw i64 %5, -5
-  %7 = select i1 %4, i64 %6, i64 0
-  switch i64 %7, label %8 [
-    i64 0, label %9
-    i64 1, label %"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h0e918c209bd3e12dE.llvm.17234822155331637475.exit"
+  %4 = zext nneg i8 %3 to i64
+  %5 = icmp ult i8 %3, 4
+  %6 = select i1 %5, i64 %4, i64 -1
+  switch i64 %6, label %7 [
+    i64 -1, label %8
+    i64 0, label %"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h0e918c209bd3e12dE.llvm.17234822155331637475.exit"
+    i64 1, label %9
     i64 2, label %10
     i64 3, label %11
-    i64 4, label %12
   ]
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   unreachable
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.42.0.copyload = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   br label %"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h0e918c209bd3e12dE.llvm.17234822155331637475.exit"
 
+9:                                                ; preds = %2
+  br label %"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h0e918c209bd3e12dE.llvm.17234822155331637475.exit"
+
 10:                                               ; preds = %2
   br label %"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h0e918c209bd3e12dE.llvm.17234822155331637475.exit"
 
 11:                                               ; preds = %2
-  br label %"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h0e918c209bd3e12dE.llvm.17234822155331637475.exit"
-
-12:                                               ; preds = %2
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   br label %"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h0e918c209bd3e12dE.llvm.17234822155331637475.exit"
 
-"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h0e918c209bd3e12dE.llvm.17234822155331637475.exit": ; preds = %2, %9, %10, %11, %12
-  %.sroa.8.0.i.i = phi i64 [ %.sroa.5.0.copyload, %9 ], [ 1, %10 ], [ 2, %11 ], [ %.sroa.3.0.copyload, %12 ], [ %7, %2 ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.42.0.copyload, %9 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.1.llvm.17234822155331637475, %10 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.2.llvm.17234822155331637475, %11 ], [ %.sroa.21.0.copyload, %12 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.0.llvm.17234822155331637475, %2 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.8.0.i.i, 1
-  ret { ptr, i64 } %14
+"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h0e918c209bd3e12dE.llvm.17234822155331637475.exit": ; preds = %2, %8, %9, %10, %11
+  %.sroa.8.0.i.i = phi i64 [ %.sroa.5.0.copyload, %8 ], [ %6, %9 ], [ %6, %10 ], [ %.sroa.3.0.copyload, %11 ], [ 1, %2 ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.42.0.copyload, %8 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.1.llvm.17234822155331637475, %9 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.2.llvm.17234822155331637475, %10 ], [ %.sroa.21.0.copyload, %11 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.0.llvm.17234822155331637475, %2 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.8.0.i.i, 1
+  ret { ptr, i64 } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2364,47 +2362,46 @@ default.unreachable:                              ; preds = %50
 define hidden { ptr, i64 } @"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h0e918c209bd3e12dE.llvm.17234822155331637475"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 8, !range !4, !alias.scope !613, !noundef !5
   %4 = add nsw i8 %3, -6
-  %5 = icmp ult i8 %4, 4
-  %6 = zext nneg i8 %3 to i64
-  %7 = add nsw i64 %6, -5
-  %8 = select i1 %5, i64 %7, i64 0
-  switch i64 %8, label %9 [
-    i64 0, label %10
-    i64 1, label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.17234822155331637475.exit
+  %5 = zext nneg i8 %4 to i64
+  %6 = icmp ult i8 %4, 4
+  %7 = select i1 %6, i64 %5, i64 -1
+  switch i64 %7, label %8 [
+    i64 -1, label %9
+    i64 0, label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.17234822155331637475.exit
+    i64 1, label %10
     i64 2, label %11
     i64 3, label %12
-    i64 4, label %13
   ]
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   unreachable
 
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !613, !nonnull !5, !noundef !5
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !613
   br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.17234822155331637475.exit
 
+10:                                               ; preds = %2
+  br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.17234822155331637475.exit
+
 11:                                               ; preds = %2
   br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.17234822155331637475.exit
 
 12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8, !alias.scope !613, !nonnull !5, !align !6, !noundef !5
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load i64, ptr %15, align 8, !alias.scope !613, !noundef !5
   br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.17234822155331637475.exit
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !alias.scope !613, !nonnull !5, !align !6, !noundef !5
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !alias.scope !613, !noundef !5
-  br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.17234822155331637475.exit
-
-_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.17234822155331637475.exit: ; preds = %2, %10, %11, %12, %13
-  %.sroa.8.0.i = phi i64 [ %.sroa.4.0.copyload.i, %10 ], [ 1, %11 ], [ 2, %12 ], [ %17, %13 ], [ %8, %2 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.3.0.copyload.i, %10 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.1.llvm.17234822155331637475, %11 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.2.llvm.17234822155331637475, %12 ], [ %15, %13 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.0.llvm.17234822155331637475, %2 ]
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.8.0.i, 1
-  ret { ptr, i64 } %19
+_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.17234822155331637475.exit: ; preds = %2, %9, %10, %11, %12
+  %.sroa.8.0.i = phi i64 [ %.sroa.4.0.copyload.i, %9 ], [ %7, %10 ], [ %7, %11 ], [ %16, %12 ], [ 1, %2 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.3.0.copyload.i, %9 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.1.llvm.17234822155331637475, %10 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.2.llvm.17234822155331637475, %11 ], [ %14, %12 ], [ @anon.69ff629b3ebad55794dd416f2aad9d65.0.llvm.17234822155331637475, %2 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %18 = insertvalue { ptr, i64 } %17, i64 %.sroa.8.0.i, 1
+  ret { ptr, i64 } %18
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

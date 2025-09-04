@@ -1037,36 +1037,35 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   %3 = alloca [24 x i8], align 8
   br label %4
 
-4:                                                ; preds = %12, %2
+4:                                                ; preds = %11, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17hf9af68cae6a29fa8E.llvm.3227829919183848626"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %1)
   %5 = load i64, ptr %3, align 8, !range !180, !noundef !9
   %6 = icmp slt i64 %5, -9223372036854775806
-  %7 = add i64 %5, -9223372036854775807
-  %8 = select i1 %6, i64 %7, i64 0
-  switch i64 %8, label %9 [
-    i64 0, label %10
-    i64 1, label %11
-    i64 2, label %12
+  %7 = select i1 %6, i64 %5, i64 9223372036854775807
+  switch i64 %7, label %8 [
+    i64 9223372036854775807, label %9
+    i64 -9223372036854775808, label %10
+    i64 -9223372036854775807, label %11
   ]
 
-9:                                                ; preds = %4
+8:                                                ; preds = %4
   unreachable
 
-10:                                               ; preds = %4
+9:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  br label %13
+  br label %12
+
+10:                                               ; preds = %4
+  store i64 -9223372036854775808, ptr %0, align 8
+  br label %12
 
 11:                                               ; preds = %4
-  store i64 -9223372036854775808, ptr %0, align 8
-  br label %13
-
-12:                                               ; preds = %4
   tail call void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %4
 
-13:                                               ; preds = %11, %10
+12:                                               ; preds = %10, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

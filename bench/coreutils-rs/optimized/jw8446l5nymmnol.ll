@@ -72,24 +72,23 @@ _ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h5436f43a4d59a023E.exit:
 define noundef zeroext i1 @_ZN6uu_seq6number13PreciseNumber7is_zero17h9b1f39b8f52ce26dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !17, !alias.scope !18, !noundef !21
   %3 = icmp slt i64 %2, -9223372036854775804
-  %4 = add i64 %2, -9223372036854775807
-  %5 = select i1 %3, i64 %4, i64 0
-  switch i64 %5, label %"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit" [
-    i64 0, label %6
-    i64 3, label %10
+  %4 = select i1 %3, i64 %2, i64 9223372036854775807
+  switch i64 %4, label %"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit" [
+    i64 9223372036854775807, label %5
+    i64 -9223372036854775806, label %9
   ]
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i8, ptr %7, align 8, !range !22, !alias.scope !18, !noundef !21
-  %9 = icmp eq i8 %8, 1
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load i8, ptr %6, align 8, !range !22, !alias.scope !18, !noundef !21
+  %8 = icmp eq i8 %7, 1
   br label %"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit"
 
-10:                                               ; preds = %1
+9:                                                ; preds = %1
   br label %"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit"
 
-"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit": ; preds = %1, %6, %10
-  %.0.i = phi i1 [ %9, %6 ], [ true, %10 ], [ false, %1 ]
+"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit": ; preds = %1, %5, %9
+  %.0.i = phi i1 [ %8, %5 ], [ true, %9 ], [ false, %1 ]
   ret i1 %.0.i
 }
 

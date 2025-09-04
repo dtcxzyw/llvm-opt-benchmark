@@ -4447,58 +4447,57 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$uv_cli..ProjectCommand$GT$17
   %2 = load i64, ptr %0, align 8, !range !900, !noundef !16
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 7
-  %5 = add nsw i64 %2, -1
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
-    i64 0, label %9
-    i64 1, label %10
-    i64 2, label %12
-    i64 3, label %14
-    i64 4, label %16
-    i64 5, label %18
-    i64 6, label %20
+  %5 = select i1 %4, i64 %2, i64 1
+  switch i64 %5, label %6 [
+    i64 1, label %8
+    i64 2, label %9
+    i64 3, label %11
+    i64 4, label %13
+    i64 5, label %15
+    i64 6, label %17
+    i64 7, label %19
   ]
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$uv_cli..TreeArgs$GT$17h6339a8c8bd3a0ee3E"(ptr noalias noundef nonnull align 8 dereferenceable(768) %8)
-  br label %22
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$uv_cli..TreeArgs$GT$17h6339a8c8bd3a0ee3E"(ptr noalias noundef nonnull align 8 dereferenceable(768) %7)
+  br label %21
+
+8:                                                ; preds = %1
+  tail call void @"_ZN4core3ptr36drop_in_place$LT$uv_cli..RunArgs$GT$17h02eae87ac10096f3E"(ptr noalias noundef nonnull align 8 dereferenceable(896) %0)
+  br label %21
 
 9:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr36drop_in_place$LT$uv_cli..RunArgs$GT$17h02eae87ac10096f3E"(ptr noalias noundef nonnull align 8 dereferenceable(896) %0)
-  br label %22
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$uv_cli..InitArgs$GT$17h148b620aaebe99c3E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %10)
+  br label %21
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$uv_cli..InitArgs$GT$17h148b620aaebe99c3E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %11)
-  br label %22
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr36drop_in_place$LT$uv_cli..AddArgs$GT$17h8f3ca7e2f2dedc54E"(ptr noalias noundef nonnull align 8 dereferenceable(864) %12)
+  br label %21
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr36drop_in_place$LT$uv_cli..AddArgs$GT$17h8f3ca7e2f2dedc54E"(ptr noalias noundef nonnull align 8 dereferenceable(864) %13)
-  br label %22
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr39drop_in_place$LT$uv_cli..RemoveArgs$GT$17hb06400627d74f566E"(ptr noalias noundef nonnull align 8 dereferenceable(696) %14)
+  br label %21
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr39drop_in_place$LT$uv_cli..RemoveArgs$GT$17hb06400627d74f566E"(ptr noalias noundef nonnull align 8 dereferenceable(696) %15)
-  br label %22
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$uv_cli..SyncArgs$GT$17hc7b86998fe2bc63dE"(ptr noalias noundef nonnull align 8 dereferenceable(816) %16)
+  br label %21
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$uv_cli..SyncArgs$GT$17hc7b86998fe2bc63dE"(ptr noalias noundef nonnull align 8 dereferenceable(816) %17)
-  br label %22
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr37drop_in_place$LT$uv_cli..LockArgs$GT$17h2fcd3676ba1b0edaE"(ptr noalias noundef nonnull align 8 dereferenceable(624) %18)
+  br label %21
 
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr37drop_in_place$LT$uv_cli..LockArgs$GT$17h2fcd3676ba1b0edaE"(ptr noalias noundef nonnull align 8 dereferenceable(624) %19)
-  br label %22
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr39drop_in_place$LT$uv_cli..ExportArgs$GT$17h9ff9459226ab046fE"(ptr noalias noundef nonnull align 8 dereferenceable(840) %20)
+  br label %21
 
-20:                                               ; preds = %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr39drop_in_place$LT$uv_cli..ExportArgs$GT$17h9ff9459226ab046fE"(ptr noalias noundef nonnull align 8 dereferenceable(840) %21)
-  br label %22
-
-22:                                               ; preds = %20, %18, %16, %14, %12, %10, %9, %7
+21:                                               ; preds = %19, %17, %15, %13, %11, %9, %8, %6
   ret void
 }
 

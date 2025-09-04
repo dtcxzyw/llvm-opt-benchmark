@@ -12665,41 +12665,40 @@ define hidden void @_ZN10serde_json5value8to_value17h4506f68f072b581fE(ptr dead_
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..GotoDefinitionResponse$GT$$GT$17hd32ceefacead891fE"(ptr noalias noundef align 8 dereferenceable(104) %1) #17
-          to label %17 unwind label %15
+          to label %16 unwind label %14
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h2db2792d533d6f08E.exit": ; preds = %4
   %7 = icmp slt i64 %3, -9223372036854775806
-  %8 = add i64 %3, -9223372036854775807
-  %9 = select i1 %7, i64 %8, i64 0
-  switch i64 %9, label %10 [
-    i64 0, label %12
-    i64 1, label %13
+  %8 = select i1 %7, i64 %3, i64 9223372036854775807
+  switch i64 %8, label %9 [
+    i64 9223372036854775807, label %11
+    i64 -9223372036854775808, label %12
   ]
 
-10:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h2db2792d533d6f08E.exit"
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..LocationLink$GT$$GT$17h3f95e91357143cf6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+9:                                                ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h2db2792d533d6f08E.exit"
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..LocationLink$GT$$GT$17h3f95e91357143cf6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   br label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..GotoDefinitionResponse$GT$$GT$17hd32ceefacead891fE.exit"
 
-12:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h2db2792d533d6f08E.exit"
+11:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h2db2792d533d6f08E.exit"
   tail call void @"_ZN4core3ptr40drop_in_place$LT$lsp_types..Location$GT$17h0e9e6677aa9c726aE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
   br label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..GotoDefinitionResponse$GT$$GT$17hd32ceefacead891fE.exit"
 
-13:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h2db2792d533d6f08E.exit"
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Location$GT$$GT$17h0a71e0eaa316ce60E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
+12:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h2db2792d533d6f08E.exit"
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Location$GT$$GT$17h0a71e0eaa316ce60E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   br label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..GotoDefinitionResponse$GT$$GT$17hd32ceefacead891fE.exit"
 
-"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..GotoDefinitionResponse$GT$$GT$17hd32ceefacead891fE.exit": ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h2db2792d533d6f08E.exit.thread", %10, %12, %13
+"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$lsp_types..GotoDefinitionResponse$GT$$GT$17hd32ceefacead891fE.exit": ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h2db2792d533d6f08E.exit.thread", %9, %11, %12
   ret void
 
-15:                                               ; preds = %5
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %5
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #18
   unreachable
 
-17:                                               ; preds = %5
+16:                                               ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -17918,30 +17917,29 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Optio
   %3 = icmp eq i64 %2, -9223372036854775806
   br i1 %3, label %"_ZN4core3ptr54drop_in_place$LT$lsp_types..GotoDefinitionResponse$GT$17hb66e7291b6a2ca7bE.exit", label %4
 
-"_ZN4core3ptr54drop_in_place$LT$lsp_types..GotoDefinitionResponse$GT$17hb66e7291b6a2ca7bE.exit": ; preds = %11, %10, %8, %1
+"_ZN4core3ptr54drop_in_place$LT$lsp_types..GotoDefinitionResponse$GT$17hb66e7291b6a2ca7bE.exit": ; preds = %10, %9, %7, %1
   ret void
 
 4:                                                ; preds = %1
   %5 = icmp slt i64 %2, -9223372036854775806
-  %6 = add i64 %2, -9223372036854775807
-  %7 = select i1 %5, i64 %6, i64 0
-  switch i64 %7, label %8 [
-    i64 0, label %10
-    i64 1, label %11
+  %6 = select i1 %5, i64 %2, i64 9223372036854775807
+  switch i64 %6, label %7 [
+    i64 9223372036854775807, label %9
+    i64 -9223372036854775808, label %10
   ]
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..LocationLink$GT$$GT$17h3f95e91357143cf6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..LocationLink$GT$$GT$17h3f95e91357143cf6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   br label %"_ZN4core3ptr54drop_in_place$LT$lsp_types..GotoDefinitionResponse$GT$17hb66e7291b6a2ca7bE.exit"
 
-10:                                               ; preds = %4
+9:                                                ; preds = %4
   tail call void @"_ZN4core3ptr40drop_in_place$LT$lsp_types..Location$GT$17h0e9e6677aa9c726aE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
   br label %"_ZN4core3ptr54drop_in_place$LT$lsp_types..GotoDefinitionResponse$GT$17hb66e7291b6a2ca7bE.exit"
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Location$GT$$GT$17h0a71e0eaa316ce60E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Location$GT$$GT$17h0a71e0eaa316ce60E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   br label %"_ZN4core3ptr54drop_in_place$LT$lsp_types..GotoDefinitionResponse$GT$17hb66e7291b6a2ca7bE.exit"
 }
 

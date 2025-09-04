@@ -89,8 +89,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c271807190dab6ef4fb880e89547f829.159 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr inttoptr (i64 1 to ptr), [8 x i8] zeroinitializer }>, align 8
 @anon.c271807190dab6ef4fb880e89547f829.160 = private unnamed_addr constant [40 x i8] c"crates/polars-pipe/src/operators/sink.rs", align 1
 @anon.c271807190dab6ef4fb880e89547f829.161 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c271807190dab6ef4fb880e89547f829.160, [16 x i8] c"(\00\00\00\00\00\00\002\00\00\00\09\00\00\00" }>, align 8
-@"switch.table._ZN80_$LT$polars_pipe..operators..sink..FinalizedSink$u20$as$u20$core..fmt..Debug$GT$3fmt17hc62adca19d98d59dE" = private unnamed_addr constant [3 x ptr] [ptr @anon.c271807190dab6ef4fb880e89547f829.156, ptr @anon.c271807190dab6ef4fb880e89547f829.157, ptr @anon.c271807190dab6ef4fb880e89547f829.158], align 8
-@"switch.table._ZN80_$LT$polars_pipe..operators..sink..FinalizedSink$u20$as$u20$core..fmt..Debug$GT$3fmt17hc62adca19d98d59dE.199" = private unnamed_addr constant [3 x i64] [i64 8, i64 8, i64 6], align 8
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN123_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$K$C$V$RP$$GT$$GT$9from_iter17h3ef5aa0a0b327f25E"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -29727,44 +29725,56 @@ define hidden noundef zeroext i1 @_ZN11polars_pipe9operators8operator8Operator10
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN80_$LT$polars_pipe..operators..sink..FinalizedSink$u20$as$u20$core..fmt..Debug$GT$3fmt17hc62adca19d98d59dE"(ptr noundef nonnull readonly align 8 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
-switch.lookup:
-  %2 = alloca [48 x i8], align 8
-  %3 = alloca [16 x i8], align 8
+  %3 = alloca [48 x i8], align 8
   %4 = alloca [16 x i8], align 8
+  %5 = alloca [16 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %6 = load i64, ptr %0, align 8, !range !3970, !noundef !3
+  %7 = icmp slt i64 %6, -9223372036854775806
+  %8 = select i1 %7, i64 %6, i64 9223372036854775807
+  switch i64 %8, label %9 [
+    i64 9223372036854775807, label %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit
+    i64 -9223372036854775808, label %10
+    i64 -9223372036854775807, label %11
+  ]
+
+9:                                                ; preds = %2
+  unreachable
+
+10:                                               ; preds = %2
+  br label %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit
+
+11:                                               ; preds = %2
+  br label %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit
+
+_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit: ; preds = %2, %11, %10
+  %anon.c271807190dab6ef4fb880e89547f829.158.sink = phi ptr [ @anon.c271807190dab6ef4fb880e89547f829.158, %11 ], [ @anon.c271807190dab6ef4fb880e89547f829.157, %10 ], [ @anon.c271807190dab6ef4fb880e89547f829.156, %2 ]
+  %.sink = phi i64 [ 6, %11 ], [ 8, %10 ], [ 8, %2 ]
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %anon.c271807190dab6ef4fb880e89547f829.158.sink, ptr %5, align 8
+  store i64 %.sink, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = load i64, ptr %0, align 8, !range !3970, !noundef !3
-  %6 = icmp slt i64 %5, -9223372036854775806
-  %7 = add i64 %5, -9223372036854775807
-  %8 = select i1 %6, i64 %7, i64 0
-  %switch.gep = getelementptr inbounds ptr, ptr @"switch.table._ZN80_$LT$polars_pipe..operators..sink..FinalizedSink$u20$as$u20$core..fmt..Debug$GT$3fmt17hc62adca19d98d59dE", i64 %8
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep4 = getelementptr inbounds i64, ptr @"switch.table._ZN80_$LT$polars_pipe..operators..sink..FinalizedSink$u20$as$u20$core..fmt..Debug$GT$3fmt17hc62adca19d98d59dE.199", i64 %8
-  %switch.load5 = load i64, ptr %switch.gep4, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %switch.load, ptr %4, align 8
-  store i64 %switch.load5, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %4, ptr %3, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %5, ptr %4, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h223ba4033b0b28baE", ptr %.sroa.42.0..sroa_idx, align 8
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val3 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3971
-  store ptr @anon.c271807190dab6ef4fb880e89547f829.159, ptr %2, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val3 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3971
+  store ptr @anon.c271807190dab6ef4fb880e89547f829.159, ptr %3, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %3, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %4, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %11 = call noundef zeroext i1 @_ZN4core3fmt5write17hc97f233ad21a5b4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !3971
-  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3971
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %14 = call noundef zeroext i1 @_ZN4core3fmt5write17hc97f233ad21a5b4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !3971
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3971
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

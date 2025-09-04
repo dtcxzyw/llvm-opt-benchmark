@@ -2625,24 +2625,23 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17
   %2 = load i64, ptr %0, align 8, !range !711, !noundef !4
   %3 = add nsw i64 %2, -4
   %4 = icmp ult i64 %3, 3
-  %5 = add nsw i64 %2, -3
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
-    i64 0, label %8
-    i64 1, label %9
+  %5 = select i1 %4, i64 %2, i64 3
+  switch i64 %5, label %6 [
+    i64 3, label %7
+    i64 4, label %8
   ]
 
-7:                                                ; preds = %9, %8, %1
+6:                                                ; preds = %8, %7, %1
   ret void
 
-8:                                                ; preds = %1
+7:                                                ; preds = %1
   tail call void @"_ZN4core3ptr44drop_in_place$LT$mbe..expander..Fragment$GT$17h59e3dd3e01fab990E.llvm.15988534848567551436"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
-  br label %7
+  br label %6
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$mbe..expander..Binding$GT$$GT$17h9be55c6c91332cfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  br label %7
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$mbe..expander..Binding$GT$$GT$17h9be55c6c91332cfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  br label %6
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2843,39 +2842,38 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$$LP$smol_str..SmolStr$C$mbe.
           cleanup
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436"(ptr noalias noundef nonnull align 8 dereferenceable(72) %11) #51
-          to label %23 unwind label %21
+          to label %22 unwind label %20
 
 "_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit": ; preds = %3, %1, %.noexc
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !range !711, !alias.scope !799, !noundef !4
   %14 = add nsw i64 %13, -4
   %15 = icmp ult i64 %14, 3
-  %16 = add nsw i64 %13, -3
-  %17 = select i1 %15, i64 %16, i64 0
-  switch i64 %17, label %"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit" [
-    i64 0, label %18
-    i64 1, label %19
+  %16 = select i1 %15, i64 %13, i64 3
+  switch i64 %16, label %"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit" [
+    i64 3, label %17
+    i64 4, label %18
   ]
 
-18:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit"
+17:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit"
   tail call void @"_ZN4core3ptr44drop_in_place$LT$mbe..expander..Fragment$GT$17h59e3dd3e01fab990E.llvm.15988534848567551436"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12)
   br label %"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit"
 
-19:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit"
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$mbe..expander..Binding$GT$$GT$17h9be55c6c91332cfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
+18:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit"
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$mbe..expander..Binding$GT$$GT$17h9be55c6c91332cfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
   br label %"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit"
 
-"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit": ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit", %18, %19
+"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit": ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit", %17, %18
   ret void
 
-21:                                               ; preds = %9
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %9
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #49
   unreachable
 
-23:                                               ; preds = %9
+22:                                               ; preds = %9
   resume { ptr, i32 } %10
 }
 

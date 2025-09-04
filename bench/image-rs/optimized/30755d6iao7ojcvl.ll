@@ -23316,31 +23316,28 @@ define internal { ptr, i64 } @_ZN4core5error5Error11description17h36909955ede145
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h14f0533cd86041dbE(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #12 {
   %2 = load i64, ptr %0, align 8, !range !4129, !alias.scope !4130, !noundef !13
-  %3 = icmp slt i64 %2, -9223372036854775805
-  %4 = add i64 %2, -9223372036854775807
-  %5 = select i1 %3, i64 %4, i64 0
-  switch i64 %5, label %"_ZN65_$LT$jpeg_decoder..error..Error$u20$as$u20$core..error..Error$GT$6source17h3467325972fea702E.exit" [
-    i64 2, label %6
-    i64 3, label %8
+  switch i64 %2, label %"_ZN65_$LT$jpeg_decoder..error..Error$u20$as$u20$core..error..Error$GT$6source17h3467325972fea702E.exit" [
+    i64 -9223372036854775807, label %3
+    i64 -9223372036854775806, label %5
   ]
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN65_$LT$jpeg_decoder..error..Error$u20$as$u20$core..error..Error$GT$6source17h3467325972fea702E.exit"
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !4130, !nonnull !13, !align !145, !noundef !13
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4130, !nonnull !13, !align !391, !noundef !13
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !alias.scope !4130, !nonnull !13, !align !145, !noundef !13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8, !alias.scope !4130, !nonnull !13, !align !391, !noundef !13
   br label %"_ZN65_$LT$jpeg_decoder..error..Error$u20$as$u20$core..error..Error$GT$6source17h3467325972fea702E.exit"
 
-"_ZN65_$LT$jpeg_decoder..error..Error$u20$as$u20$core..error..Error$GT$6source17h3467325972fea702E.exit": ; preds = %1, %6, %8
-  %.sroa.4.0.i = phi ptr [ @anon.f6d9434fcf4bddc9e50dec3b041c07d1.105, %6 ], [ %12, %8 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %10, %8 ], [ null, %1 ]
-  %13 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %14 = insertvalue { ptr, ptr } %13, ptr %.sroa.4.0.i, 1
-  ret { ptr, ptr } %14
+"_ZN65_$LT$jpeg_decoder..error..Error$u20$as$u20$core..error..Error$GT$6source17h3467325972fea702E.exit": ; preds = %1, %3, %5
+  %.sroa.4.0.i = phi ptr [ @anon.f6d9434fcf4bddc9e50dec3b041c07d1.105, %3 ], [ %9, %5 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %4, %3 ], [ %7, %5 ], [ null, %1 ]
+  %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.4.0.i, 1
+  ret { ptr, ptr } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

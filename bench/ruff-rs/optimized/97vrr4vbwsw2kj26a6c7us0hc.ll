@@ -1436,43 +1436,42 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %7 = load i64, ptr %6, align 8, !range !95, !alias.scope !92, !noalias !96, !noundef !3
   %8 = icmp slt i64 %7, -9223372036854775806
-  %9 = add i64 %7, -9223372036854775807
-  %10 = select i1 %8, i64 %9, i64 0
-  switch i64 %10, label %11 [
-    i64 0, label %12
-    i64 1, label %15
-    i64 2, label %18
+  %9 = select i1 %8, i64 %7, i64 9223372036854775807
+  switch i64 %9, label %10 [
+    i64 9223372036854775807, label %11
+    i64 -9223372036854775808, label %14
+    i64 -9223372036854775807, label %17
   ]
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   unreachable
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !98
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %13, ptr %5, align 8, !noalias !98
-  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h562079a96f37f57fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.270, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.271, i64 noundef 4, ptr noundef nonnull readonly align 8 dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4c7e1a88640444eca2a4b9650267a67c.269, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.24, i64 noundef 5, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4c7e1a88640444eca2a4b9650267a67c.243)
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %12, ptr %5, align 8, !noalias !98
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h562079a96f37f57fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.270, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.271, i64 noundef 4, ptr noundef nonnull readonly align 8 dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4c7e1a88640444eca2a4b9650267a67c.269, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.24, i64 noundef 5, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4c7e1a88640444eca2a4b9650267a67c.243)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !98
   br label %"_ZN64_$LT$ty_project..walk..WalkError$u20$as$u20$core..fmt..Debug$GT$3fmt17h45f587309e7af626E.exit"
 
-15:                                               ; preds = %2
+14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !98
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %16, ptr %4, align 8, !noalias !98
-  %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha1d56172232f9f17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.272, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.24, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4c7e1a88640444eca2a4b9650267a67c.243)
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %15, ptr %4, align 8, !noalias !98
+  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha1d56172232f9f17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.272, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.24, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4c7e1a88640444eca2a4b9650267a67c.243)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !98
   br label %"_ZN64_$LT$ty_project..walk..WalkError$u20$as$u20$core..fmt..Debug$GT$3fmt17h45f587309e7af626E.exit"
 
-18:                                               ; preds = %2
+17:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !98
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %19, ptr %3, align 8, !noalias !98
-  %20 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha1d56172232f9f17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.274, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.271, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4c7e1a88640444eca2a4b9650267a67c.273)
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %18, ptr %3, align 8, !noalias !98
+  %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha1d56172232f9f17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.274, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.4c7e1a88640444eca2a4b9650267a67c.271, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4c7e1a88640444eca2a4b9650267a67c.273)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !98
   br label %"_ZN64_$LT$ty_project..walk..WalkError$u20$as$u20$core..fmt..Debug$GT$3fmt17h45f587309e7af626E.exit"
 
-"_ZN64_$LT$ty_project..walk..WalkError$u20$as$u20$core..fmt..Debug$GT$3fmt17h45f587309e7af626E.exit": ; preds = %12, %15, %18
-  %.sroa.0.0.in.i = phi i1 [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
+"_ZN64_$LT$ty_project..walk..WalkError$u20$as$u20$core..fmt..Debug$GT$3fmt17h45f587309e7af626E.exit": ; preds = %11, %14, %17
+  %.sroa.0.0.in.i = phi i1 [ %13, %11 ], [ %16, %14 ], [ %19, %17 ]
   ret i1 %.sroa.0.0.in.i
 }
 
