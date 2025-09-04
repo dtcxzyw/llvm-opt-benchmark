@@ -78,17 +78,17 @@ define noundef zeroext i1 @_ZN6uu_seq6number13PreciseNumber7is_zero17h9b1f39b8f5
     i64 -9223372036854775806, label %9
   ]
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i8, ptr %6, align 8, !range !22, !alias.scope !18, !noundef !21
-  %8 = icmp eq i8 %7, 1
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i8, ptr %7, align 8, !range !22, !alias.scope !18, !noundef !21
+  %9 = icmp eq i8 %8, 1
   br label %"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit"
 
-9:                                                ; preds = %1
+10:                                               ; preds = %1
   br label %"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit"
 
-"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit": ; preds = %1, %5, %9
-  %.0.i = phi i1 [ %8, %5 ], [ true, %9 ], [ false, %1 ]
+"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit": ; preds = %1, %6, %10
+  %.0.i = phi i1 [ %9, %5 ], [ true, %9 ], [ false, %1 ]
   ret i1 %.0.i
 }
 

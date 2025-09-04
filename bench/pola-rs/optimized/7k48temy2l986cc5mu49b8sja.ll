@@ -2168,7 +2168,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$simd_json..error..Error$GT$1
     i64 27, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 28, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 29, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
-    i64 30, label %9
+    i64 30, label %11
     i64 31, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 32, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
     i64 33, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
@@ -2180,17 +2180,17 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$simd_json..error..Error$GT$1
     i64 39, label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
   ]
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5318c51aba648351E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5318c51aba648351E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
   br label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h2d2f9907b33cf9bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef 1, i64 noundef 1)
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h2d2f9907b33cf9bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 1, i64 noundef 1)
   br label %"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit"
 
-"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit": ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %7, %9
+"_ZN4core3ptr48drop_in_place$LT$simd_json..error..ErrorType$GT$17ha23ec5a5bf4211c2E.exit": ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %8, %10
   ret void
 }
 

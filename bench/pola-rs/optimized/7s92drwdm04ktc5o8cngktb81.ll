@@ -1362,30 +1362,30 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
     i64 -9223372036854775806, label %15
   ]
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   unreachable
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !80
   store ptr %4, ptr %3, align 8, !noalias !80
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bdda65075ad4da2321df875b039c542b.176, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.bdda65075ad4da2321df875b039c542b.8)
+  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bdda65075ad4da2321df875b039c542b.176, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.bdda65075ad4da2321df875b039c542b.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !80
   br label %"_ZN63_$LT$sqlparser..ast..ddl..Owner$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf9e6d423b6984fdE.exit"
 
-11:                                               ; preds = %2
-  %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bdda65075ad4da2321df875b039c542b.183, i64 noundef 11), !noalias !74
+12:                                               ; preds = %2
+  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bdda65075ad4da2321df875b039c542b.183, i64 noundef 11), !noalias !74
   br label %"_ZN63_$LT$sqlparser..ast..ddl..Owner$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf9e6d423b6984fdE.exit"
 
-13:                                               ; preds = %2
-  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bdda65075ad4da2321df875b039c542b.184, i64 noundef 11), !noalias !74
+14:                                               ; preds = %2
+  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bdda65075ad4da2321df875b039c542b.184, i64 noundef 11), !noalias !74
   br label %"_ZN63_$LT$sqlparser..ast..ddl..Owner$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf9e6d423b6984fdE.exit"
 
-15:                                               ; preds = %2
-  %16 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bdda65075ad4da2321df875b039c542b.185, i64 noundef 11), !noalias !74
+16:                                               ; preds = %2
+  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bdda65075ad4da2321df875b039c542b.185, i64 noundef 11), !noalias !74
   br label %"_ZN63_$LT$sqlparser..ast..ddl..Owner$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf9e6d423b6984fdE.exit"
 
-"_ZN63_$LT$sqlparser..ast..ddl..Owner$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf9e6d423b6984fdE.exit": ; preds = %9, %11, %13, %15
-  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
+"_ZN63_$LT$sqlparser..ast..ddl..Owner$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf9e6d423b6984fdE.exit": ; preds = %10, %12, %14, %16
+  %.sroa.0.0.in.i = phi i1 [ %11, %9 ], [ %13, %11 ], [ %15, %13 ], [ %17, %15 ]
   ret i1 %.sroa.0.0.in.i
 }
 

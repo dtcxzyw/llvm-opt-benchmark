@@ -10074,30 +10074,30 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
     i64 -9223372036854775807, label %14
   ]
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   unreachable
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1670
   store ptr %5, ptr %4, align 8, !noalias !1670
-  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha337af91ec8b34c9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e9045b00a1ae718fdaff1813a74cc412.532, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.e9045b00a1ae718fdaff1813a74cc412.21, i64 noundef 6, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9045b00a1ae718fdaff1813a74cc412.533)
+  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha337af91ec8b34c9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e9045b00a1ae718fdaff1813a74cc412.532, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.e9045b00a1ae718fdaff1813a74cc412.21, i64 noundef 6, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9045b00a1ae718fdaff1813a74cc412.533)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1670
   br label %"_ZN83_$LT$aws_config..retry..error..RetryConfigErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c0f185de5770a01E.exit"
 
-12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e9045b00a1ae718fdaff1813a74cc412.534, i64 noundef 24), !noalias !1665
+13:                                               ; preds = %2
+  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e9045b00a1ae718fdaff1813a74cc412.534, i64 noundef 24), !noalias !1665
   br label %"_ZN83_$LT$aws_config..retry..error..RetryConfigErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c0f185de5770a01E.exit"
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1670
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %15, ptr %3, align 8, !noalias !1670
-  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha337af91ec8b34c9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e9045b00a1ae718fdaff1813a74cc412.535, i64 noundef 24, ptr noalias noundef nonnull readonly align 1 @anon.e9045b00a1ae718fdaff1813a74cc412.21, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9045b00a1ae718fdaff1813a74cc412.536)
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %16, ptr %3, align 8, !noalias !1670
+  %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha337af91ec8b34c9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.e9045b00a1ae718fdaff1813a74cc412.535, i64 noundef 24, ptr noalias noundef nonnull readonly align 1 @anon.e9045b00a1ae718fdaff1813a74cc412.21, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9045b00a1ae718fdaff1813a74cc412.536)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1670
   br label %"_ZN83_$LT$aws_config..retry..error..RetryConfigErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c0f185de5770a01E.exit"
 
-"_ZN83_$LT$aws_config..retry..error..RetryConfigErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c0f185de5770a01E.exit": ; preds = %10, %12, %14
-  %.0.in.i = phi i1 [ %11, %10 ], [ %13, %12 ], [ %16, %14 ]
+"_ZN83_$LT$aws_config..retry..error..RetryConfigErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c0f185de5770a01E.exit": ; preds = %11, %13, %15
+  %.0.in.i = phi i1 [ %12, %10 ], [ %14, %12 ], [ %17, %14 ]
   ret i1 %.0.in.i
 }
 

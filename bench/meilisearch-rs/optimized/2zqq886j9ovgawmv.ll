@@ -31964,78 +31964,78 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8388d8d6d47f12
     i64 5, label %25
   ]
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  tail call void @"_ZN4core3ptr50drop_in_place$LT$milli..vector..rest..Embedder$GT$17h2b182552641048deE"(ptr noalias noundef nonnull align 8 dereferenceable(272) %9)
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  tail call void @"_ZN4core3ptr50drop_in_place$LT$milli..vector..rest..Embedder$GT$17h2b182552641048deE"(ptr noalias noundef nonnull align 8 dereferenceable(272) %10)
   br label %"_ZN4core3ptr44drop_in_place$LT$milli..vector..Embedder$GT$17h1a69e6aa80829adeE.exit"
 
-10:                                               ; preds = %1
+11:                                               ; preds = %1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$candle_transformers..models..bert..BertModel$GT$17h5ebfcfbc18cc6c89E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(1352) %3)
-          to label %14 unwind label %11
+          to label %14 unwind label %12
 
-11:                                               ; preds = %10
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %11
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  invoke void @"_ZN4core3ptr278drop_in_place$LT$tokenizers..tokenizer..TokenizerImpl$LT$tokenizers..models..ModelWrapper$C$tokenizers..normalizers..NormalizerWrapper$C$tokenizers..pre_tokenizers..PreTokenizerWrapper$C$tokenizers..processors..PostProcessorWrapper$C$tokenizers..decoders..DecoderWrapper$GT$$GT$17h8be639b3208acff0E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %13)
-          to label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..tokenizer..Tokenizer$GT$17he158191674d56ef3E.llvm.4616129397091597767.exit.i.i" unwind label %19
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 296
+  invoke void @"_ZN4core3ptr278drop_in_place$LT$tokenizers..tokenizer..TokenizerImpl$LT$tokenizers..models..ModelWrapper$C$tokenizers..normalizers..NormalizerWrapper$C$tokenizers..pre_tokenizers..PreTokenizerWrapper$C$tokenizers..processors..PostProcessorWrapper$C$tokenizers..decoders..DecoderWrapper$GT$$GT$17h8be639b3208acff0E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %14)
+          to label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..tokenizer..Tokenizer$GT$17he158191674d56ef3E.llvm.4616129397091597767.exit.i.i" unwind label %20
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  invoke void @"_ZN4core3ptr278drop_in_place$LT$tokenizers..tokenizer..TokenizerImpl$LT$tokenizers..models..ModelWrapper$C$tokenizers..normalizers..NormalizerWrapper$C$tokenizers..pre_tokenizers..PreTokenizerWrapper$C$tokenizers..processors..PostProcessorWrapper$C$tokenizers..decoders..DecoderWrapper$GT$$GT$17h8be639b3208acff0E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %15)
-          to label %"_ZN4core3ptr48drop_in_place$LT$milli..vector..hf..Embedder$GT$17ha9e59cf8173fe50dE.exit.i" unwind label %17
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 296
+  invoke void @"_ZN4core3ptr278drop_in_place$LT$tokenizers..tokenizer..TokenizerImpl$LT$tokenizers..models..ModelWrapper$C$tokenizers..normalizers..NormalizerWrapper$C$tokenizers..pre_tokenizers..PreTokenizerWrapper$C$tokenizers..processors..PostProcessorWrapper$C$tokenizers..decoders..DecoderWrapper$GT$$GT$17h8be639b3208acff0E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %16)
+          to label %"_ZN4core3ptr48drop_in_place$LT$milli..vector..hf..Embedder$GT$17ha9e59cf8173fe50dE.exit.i" unwind label %18
 
-"_ZN4core3ptr53drop_in_place$LT$tokenizers..tokenizer..Tokenizer$GT$17he158191674d56ef3E.llvm.4616129397091597767.exit.i.i": ; preds = %17, %11
-  %.pn.i.i = phi { ptr, i32 } [ %18, %17 ], [ %12, %11 ]
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 1296
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$milli..vector..hf..EmbedderOptions$GT$17h1056e4453a5c86a2E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %16) #69
-          to label %21 unwind label %19
+"_ZN4core3ptr53drop_in_place$LT$tokenizers..tokenizer..Tokenizer$GT$17he158191674d56ef3E.llvm.4616129397091597767.exit.i.i": ; preds = %18, %12
+  %.pn.i.i = phi { ptr, i32 } [ %19, %17 ], [ %13, %11 ]
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 1296
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$milli..vector..hf..EmbedderOptions$GT$17h1056e4453a5c86a2E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %17) #69
+          to label %21 unwind label %20
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %15
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..tokenizer..Tokenizer$GT$17he158191674d56ef3E.llvm.4616129397091597767.exit.i.i"
 
-19:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$tokenizers..tokenizer..Tokenizer$GT$17he158191674d56ef3E.llvm.4616129397091597767.exit.i.i", %11
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$tokenizers..tokenizer..Tokenizer$GT$17he158191674d56ef3E.llvm.4616129397091597767.exit.i.i", %12
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #70
   unreachable
 
-21:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$tokenizers..tokenizer..Tokenizer$GT$17he158191674d56ef3E.llvm.4616129397091597767.exit.i.i"
+22:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$tokenizers..tokenizer..Tokenizer$GT$17he158191674d56ef3E.llvm.4616129397091597767.exit.i.i"
   resume { ptr, i32 } %.pn.i.i
 
-"_ZN4core3ptr48drop_in_place$LT$milli..vector..hf..Embedder$GT$17ha9e59cf8173fe50dE.exit.i": ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 1296
-  tail call void @"_ZN4core3ptr55drop_in_place$LT$milli..vector..hf..EmbedderOptions$GT$17h1056e4453a5c86a2E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %22)
+"_ZN4core3ptr48drop_in_place$LT$milli..vector..hf..Embedder$GT$17ha9e59cf8173fe50dE.exit.i": ; preds = %15
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1296
+  tail call void @"_ZN4core3ptr55drop_in_place$LT$milli..vector..hf..EmbedderOptions$GT$17h1056e4453a5c86a2E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %23)
   br label %"_ZN4core3ptr44drop_in_place$LT$milli..vector..Embedder$GT$17h1a69e6aa80829adeE.exit"
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  tail call void @"_ZN4core3ptr52drop_in_place$LT$milli..vector..openai..Embedder$GT$17h1664cbef7773061eE"(ptr noalias noundef nonnull align 8 dereferenceable(528) %24)
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  tail call void @"_ZN4core3ptr52drop_in_place$LT$milli..vector..openai..Embedder$GT$17h1664cbef7773061eE"(ptr noalias noundef nonnull align 8 dereferenceable(528) %25)
   br label %"_ZN4core3ptr44drop_in_place$LT$milli..vector..Embedder$GT$17h1a69e6aa80829adeE.exit"
 
-25:                                               ; preds = %1
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  tail call void @"_ZN4core3ptr50drop_in_place$LT$milli..vector..rest..Embedder$GT$17h2b182552641048deE"(ptr noalias noundef nonnull align 8 dereferenceable(272) %26)
+26:                                               ; preds = %1
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  tail call void @"_ZN4core3ptr50drop_in_place$LT$milli..vector..rest..Embedder$GT$17h2b182552641048deE"(ptr noalias noundef nonnull align 8 dereferenceable(272) %27)
   br label %"_ZN4core3ptr44drop_in_place$LT$milli..vector..Embedder$GT$17h1a69e6aa80829adeE.exit"
 
-"_ZN4core3ptr44drop_in_place$LT$milli..vector..Embedder$GT$17h1a69e6aa80829adeE.exit": ; preds = %1, %8, %"_ZN4core3ptr48drop_in_place$LT$milli..vector..hf..Embedder$GT$17ha9e59cf8173fe50dE.exit.i", %23, %25
-  %27 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %27, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Weak$LT$milli..vector..Embedder$C$$RF$alloc..alloc..Global$GT$$GT$17h110dbb52b69d9de9E.exit", label %28
+"_ZN4core3ptr44drop_in_place$LT$milli..vector..Embedder$GT$17h1a69e6aa80829adeE.exit": ; preds = %1, %9, %"_ZN4core3ptr48drop_in_place$LT$milli..vector..hf..Embedder$GT$17ha9e59cf8173fe50dE.exit.i", %24, %26
+  %28 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
+  br i1 %28, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Weak$LT$milli..vector..Embedder$C$$RF$alloc..alloc..Global$GT$$GT$17h110dbb52b69d9de9E.exit", label %29
 
-28:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$milli..vector..Embedder$GT$17h1a69e6aa80829adeE.exit"
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = atomicrmw sub ptr %29, i64 1 release, align 8, !noalias !6684
-  %31 = icmp eq i64 %30, 1
-  br i1 %31, label %32, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Weak$LT$milli..vector..Embedder$C$$RF$alloc..alloc..Global$GT$$GT$17h110dbb52b69d9de9E.exit"
+29:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$milli..vector..Embedder$GT$17h1a69e6aa80829adeE.exit"
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = atomicrmw sub ptr %30, i64 1 release, align 8, !noalias !6684
+  %32 = icmp eq i64 %31, 1
+  br i1 %32, label %33, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Weak$LT$milli..vector..Embedder$C$$RF$alloc..alloc..Global$GT$$GT$17h110dbb52b69d9de9E.exit"
 
-32:                                               ; preds = %28
+33:                                               ; preds = %29
   fence acquire
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 1368, i64 noundef 8) #71, !noalias !6684
   br label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Weak$LT$milli..vector..Embedder$C$$RF$alloc..alloc..Global$GT$$GT$17h110dbb52b69d9de9E.exit"
 
-"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Weak$LT$milli..vector..Embedder$C$$RF$alloc..alloc..Global$GT$$GT$17h110dbb52b69d9de9E.exit": ; preds = %"_ZN4core3ptr44drop_in_place$LT$milli..vector..Embedder$GT$17h1a69e6aa80829adeE.exit", %28, %32
+"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Weak$LT$milli..vector..Embedder$C$$RF$alloc..alloc..Global$GT$$GT$17h110dbb52b69d9de9E.exit": ; preds = %"_ZN4core3ptr44drop_in_place$LT$milli..vector..Embedder$GT$17h1a69e6aa80829adeE.exit", %29, %33
   ret void
 }
 

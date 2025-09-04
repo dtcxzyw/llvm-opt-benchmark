@@ -5208,36 +5208,36 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hd7a86bdd008a57dfE(ptr n
     i64 19, label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
   ]
 
-6:                                                ; preds = %1
+7:                                                ; preds = %1
   unreachable
 
-7:                                                ; preds = %1
-  %8 = tail call { ptr, ptr } @"_ZN78_$LT$uv_workspace..workspace..WorkspaceError$u20$as$u20$core..error..Error$GT$6source17h46d323e938d00051E"(ptr noundef nonnull readonly align 8 dereferenceable(64) %0)
-  %9 = extractvalue { ptr, ptr } %8, 0
-  %10 = extractvalue { ptr, ptr } %8, 1
+8:                                                ; preds = %1
+  %9 = tail call { ptr, ptr } @"_ZN78_$LT$uv_workspace..workspace..WorkspaceError$u20$as$u20$core..error..Error$GT$6source17h46d323e938d00051E"(ptr noundef nonnull readonly align 8 dereferenceable(64) %0)
+  %10 = extractvalue { ptr, ptr } %9, 0
+  %11 = extractvalue { ptr, ptr } %9, 1
   br label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = tail call { ptr, ptr } @"_ZN92_$LT$uv_workspace..dependency_groups..DependencyGroupError$u20$as$u20$core..error..Error$GT$6source17h8bfbbb3ab8289489E"(ptr noundef nonnull readonly align 1 %12)
-  %14 = extractvalue { ptr, ptr } %13, 0
-  %15 = extractvalue { ptr, ptr } %13, 1
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = tail call { ptr, ptr } @"_ZN92_$LT$uv_workspace..dependency_groups..DependencyGroupError$u20$as$u20$core..error..Error$GT$6source17h8bfbbb3ab8289489E"(ptr noundef nonnull readonly align 1 %13)
+  %15 = extractvalue { ptr, ptr } %14, 0
+  %16 = extractvalue { ptr, ptr } %14, 1
   br label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
 
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
 
-"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit": ; preds = %1, %1, %1, %1, %7, %11, %16, %18
-  %.sroa.9.0.i = phi ptr [ %10, %7 ], [ %15, %11 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %16 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %18 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %9, %7 ], [ %14, %11 ], [ %17, %16 ], [ %19, %18 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
-  %20 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.9.0.i, 1
-  ret { ptr, ptr } %21
+"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit": ; preds = %1, %1, %1, %1, %8, %12, %17, %19
+  %.sroa.9.0.i = phi ptr [ %11, %7 ], [ %16, %11 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %16 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %18 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %10, %7 ], [ %15, %11 ], [ %18, %16 ], [ %20, %18 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %21 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %22 = insertvalue { ptr, ptr } %21, ptr %.sroa.9.0.i, 1
+  ret { ptr, ptr } %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

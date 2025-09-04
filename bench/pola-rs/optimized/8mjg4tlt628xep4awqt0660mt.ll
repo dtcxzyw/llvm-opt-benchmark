@@ -48421,7 +48421,7 @@ define hidden void @"_ZN9polars_io7parquet5write6writer73_$LT$impl$u20$polars_io
   %.not = icmp eq i64 %25, -9223372036854775806
   %.sink7.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sink7.sroa.gep8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %.not, label %47, label %26
+  br i1 %.not, label %48, label %26
 
 26:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -48435,75 +48435,75 @@ define hidden void @"_ZN9polars_io7parquet5write6writer73_$LT$impl$u20$polars_io
     i64 -9223372036854775807, label %36
   ]
 
-29:                                               ; preds = %26
-  unreachable
-
 30:                                               ; preds = %26
-  invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4e6f85af63e23785E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4f7a5d3048e73285a2d35613024ab1ab.400)
-          to label %"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit" unwind label %50
+  unreachable
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %33 = load ptr, ptr %32, align 8, !alias.scope !5440, !noalias !5437, !nonnull !3, !noundef !3
-  %34 = atomicrmw add ptr %33, i64 1 monotonic, align 8, !noalias !5442
-  %35 = icmp slt i64 %34, 0
-  br i1 %35, label %45, label %41
+  invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4e6f85af63e23785E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4f7a5d3048e73285a2d35613024ab1ab.400)
+          to label %"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit" unwind label %51
 
-36:                                               ; preds = %26
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %38 = load ptr, ptr %37, align 8, !alias.scope !5440, !noalias !5437, !nonnull !3, !noundef !3
-  %39 = atomicrmw add ptr %38, i64 1 monotonic, align 8, !noalias !5442
-  %40 = icmp slt i64 %39, 0
-  br i1 %40, label %46, label %"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit.sink.split"
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %34 = load ptr, ptr %33, align 8, !alias.scope !5440, !noalias !5437, !nonnull !3, !noundef !3
+  %35 = atomicrmw add ptr %34, i64 1 monotonic, align 8, !noalias !5442
+  %36 = icmp slt i64 %35, 0
+  br i1 %36, label %46, label %42
 
-41:                                               ; preds = %31
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %43 = load ptr, ptr %42, align 8, !alias.scope !5440, !noalias !5437, !nonnull !3, !align !18, !noundef !3
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %33, ptr %44, align 8, !alias.scope !5437, !noalias !5440
+37:                                               ; preds = %26
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %39 = load ptr, ptr %38, align 8, !alias.scope !5440, !noalias !5437, !nonnull !3, !noundef !3
+  %40 = atomicrmw add ptr %39, i64 1 monotonic, align 8, !noalias !5442
+  %41 = icmp slt i64 %40, 0
+  br i1 %41, label %47, label %"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit.sink.split"
+
+42:                                               ; preds = %32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %44 = load ptr, ptr %43, align 8, !alias.scope !5440, !noalias !5437, !nonnull !3, !align !18, !noundef !3
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %34, ptr %45, align 8, !alias.scope !5437, !noalias !5440
   br label %"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit.sink.split"
 
-45:                                               ; preds = %31
+46:                                               ; preds = %32
   tail call void @llvm.trap()
   unreachable
 
-46:                                               ; preds = %36
+47:                                               ; preds = %37
   tail call void @llvm.trap()
   unreachable
 
-47:                                               ; preds = %4
+48:                                               ; preds = %4
   store i64 -9223372036854775806, ptr %6, align 8
-  br label %48
+  br label %49
 
-48:                                               ; preds = %"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit", %47
+49:                                               ; preds = %"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit", %48
   call void @"_ZN9polars_io7parquet5write6writer22ParquetWriter$LT$W$GT$23with_key_value_metadata17h59dabbb9dedbee59E"(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit.sink.split": ; preds = %36, %41
+"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit.sink.split": ; preds = %37, %42
   %.sink7.sroa.phi = phi ptr [ %.sink7.sroa.gep, %41 ], [ %.sink7.sroa.gep8, %36 ]
-  %.sink5 = phi ptr [ %43, %41 ], [ %38, %36 ]
+  %.sink5 = phi ptr [ %44, %41 ], [ %39, %36 ]
   store ptr %.sink5, ptr %.sink7.sroa.phi, align 8, !alias.scope !5437, !noalias !5440
   store i64 %28, ptr %5, align 8, !alias.scope !5437, !noalias !5440
   br label %"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit"
 
-"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit": ; preds = %"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit.sink.split", %30
+"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit": ; preds = %"_ZN102_$LT$polars_io..parquet..write..key_value_metadata..KeyValueMetadata$u20$as$u20$core..clone..Clone$GT$5clone17he2641425eb8482c9E.exit.sink.split", %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %48
+  br label %49
 
-49:                                               ; preds = %50
-  resume { ptr, i32 } %51
+50:                                               ; preds = %51
+  resume { ptr, i32 } %52
 
-50:                                               ; preds = %30
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %31
+  %52 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr163drop_in_place$LT$polars_io..parquet..write..writer..ParquetWriter$LT$alloc..boxed..Box$LT$dyn$u20$polars_utils..file..WriteClose$u2b$core..marker..Send$GT$$GT$$GT$17h71ffd01b38089835E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %10) #31
-          to label %49 unwind label %52
+          to label %49 unwind label %53
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %51
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #30
   unreachable

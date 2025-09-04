@@ -13884,31 +13884,31 @@ define hidden { ptr, ptr } @"_ZN85_$LT$aws_smithy_types..error..operation..Build
   %4 = select i1 %3, i64 %2, i64 9223372036854775807
   switch i64 %4, label %5 [
     i64 9223372036854775807, label %13
-    i64 -9223372036854775808, label %13
+    i64 -9223372036854775808, label %14
     i64 -9223372036854775807, label %6
     i64 -9223372036854775806, label %8
   ]
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   unreachable
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %13
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %14
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !6, !noundef !5
-  br label %13
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8, !nonnull !5, !align !6, !noundef !5
+  br label %14
 
-13:                                               ; preds = %1, %1, %8, %6
-  %.sroa.4.0 = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.114, %6 ], [ %12, %8 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %10, %8 ], [ null, %1 ], [ null, %1 ]
-  %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %15
+14:                                               ; preds = %1, %1, %9, %7
+  %.sroa.4.0 = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.114, %6 ], [ %13, %8 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %6 ], [ %11, %8 ], [ null, %1 ], [ null, %1 ]
+  %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.4.0, 1
+  ret { ptr, ptr } %16
 }
 
 ; Function Attrs: nonlazybind uwtable

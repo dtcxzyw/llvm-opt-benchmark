@@ -924,7 +924,7 @@ define internal fastcc void @"_ZN70_$LT$std..path..PathBuf$u20$as$u20$ruff_cache
   br label %5
 
 5:                                                ; preds = %.lr.ph, %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit"
-  %6 = phi i8 [ %4, %.lr.ph ], [ %29, %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit" ]
+  %6 = phi i8 [ %4, %.lr.ph ], [ %27, %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit" ]
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.62.0.copyload = load ptr, ptr %.sroa.62.0..sroa_idx, align 8
   %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8
@@ -938,82 +938,82 @@ define internal fastcc void @"_ZN70_$LT$std..path..PathBuf$u20$as$u20$ruff_cache
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_isize17h105a921bf3aca00eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef range(i64 0, 257) %11), !noalias !135
   %12 = select i1 %9, i64 %8, i64 -1
   switch i64 %12, label %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit" [
-    i64 -1, label %13
+    i64 -1, label %12
     i64 3, label %27
   ]
 
-13:                                               ; preds = %5
+12:                                               ; preds = %5
   %14 = zext nneg i8 %6 to i64
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_isize17h105a921bf3aca00eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef range(i64 0, 257) %14), !noalias !138
   switch i8 %6, label %default.unreachable1.i.i [
-    i8 0, label %15
-    i8 1, label %17
-    i8 2, label %20
-    i8 3, label %21
-    i8 4, label %23
-    i8 5, label %26
+    i8 0, label %13
+    i8 1, label %15
+    i8 2, label %18
+    i8 3, label %19
+    i8 4, label %21
+    i8 5, label %24
   ]
 
-default.unreachable1.i.i:                         ; preds = %13
+default.unreachable1.i.i:                         ; preds = %12
   unreachable
 
-15:                                               ; preds = %13
-  %16 = icmp ne ptr %.sroa.62.0.copyload, null
-  call void @llvm.assume(i1 %16)
+13:                                               ; preds = %12
+  %14 = icmp ne ptr %.sroa.62.0.copyload, null
+  call void @llvm.assume(i1 %14)
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.11.0.copyload), !noalias !141
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h606bd41db2fbfc59E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.62.0.copyload, i64 noundef %.sroa.11.0.copyload), !noalias !138
   br label %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit"
 
-17:                                               ; preds = %13
-  %18 = icmp ne ptr %.sroa.62.0.copyload, null
-  call void @llvm.assume(i1 %18)
+15:                                               ; preds = %12
+  %16 = icmp ne ptr %.sroa.62.0.copyload, null
+  call void @llvm.assume(i1 %16)
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.11.0.copyload), !noalias !144
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h606bd41db2fbfc59E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.62.0.copyload, i64 noundef %.sroa.11.0.copyload), !noalias !138
-  %19 = icmp ne ptr %.sroa.16.0.copyload, null
-  call void @llvm.assume(i1 %19)
+  %17 = icmp ne ptr %.sroa.16.0.copyload, null
+  call void @llvm.assume(i1 %17)
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.18.0.copyload), !noalias !147
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h606bd41db2fbfc59E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.16.0.copyload, i64 noundef %.sroa.18.0.copyload), !noalias !138
   br label %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit"
 
-20:                                               ; preds = %13
+18:                                               ; preds = %12
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i8 noundef %.sroa.4.0.copyload), !noalias !138
   br label %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit"
 
-21:                                               ; preds = %13
-  %22 = icmp ne ptr %.sroa.62.0.copyload, null
-  call void @llvm.assume(i1 %22)
+19:                                               ; preds = %12
+  %20 = icmp ne ptr %.sroa.62.0.copyload, null
+  call void @llvm.assume(i1 %20)
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.11.0.copyload), !noalias !150
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h606bd41db2fbfc59E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.62.0.copyload, i64 noundef %.sroa.11.0.copyload), !noalias !138
   br label %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit"
 
-23:                                               ; preds = %13
-  %24 = icmp ne ptr %.sroa.62.0.copyload, null
-  call void @llvm.assume(i1 %24)
+21:                                               ; preds = %12
+  %22 = icmp ne ptr %.sroa.62.0.copyload, null
+  call void @llvm.assume(i1 %22)
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.11.0.copyload), !noalias !153
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h606bd41db2fbfc59E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.62.0.copyload, i64 noundef %.sroa.11.0.copyload), !noalias !138
-  %25 = icmp ne ptr %.sroa.16.0.copyload, null
-  call void @llvm.assume(i1 %25)
+  %23 = icmp ne ptr %.sroa.16.0.copyload, null
+  call void @llvm.assume(i1 %23)
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.18.0.copyload), !noalias !156
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h606bd41db2fbfc59E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.16.0.copyload, i64 noundef %.sroa.18.0.copyload), !noalias !138
   br label %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit"
 
-26:                                               ; preds = %13
+24:                                               ; preds = %12
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i8 noundef %.sroa.4.0.copyload), !noalias !138
   br label %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit"
 
-27:                                               ; preds = %5
-  %28 = icmp ne ptr %.sroa.62.0.copyload, null
-  call void @llvm.assume(i1 %28)
+25:                                               ; preds = %5
+  %26 = icmp ne ptr %.sroa.62.0.copyload, null
+  call void @llvm.assume(i1 %26)
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.11.0.copyload), !noalias !159
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h606bd41db2fbfc59E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.62.0.copyload, i64 noundef %.sroa.11.0.copyload), !noalias !135
   br label %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit"
 
-"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit": ; preds = %5, %15, %17, %20, %21, %23, %26, %27
+"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit": ; preds = %5, %13, %15, %18, %19, %21, %24, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0ff127f8b21ed2cE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %3)
-  %29 = load i8, ptr %2, align 8, !range !134, !noundef !3
-  %.not = icmp eq i8 %29, 10
+  %27 = load i8, ptr %2, align 8, !range !134, !noundef !3
+  %.not = icmp eq i8 %27, 10
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %"_ZN57_$LT$std..path..Component$u20$as$u20$core..hash..Hash$GT$4hash17haa2400d99b98ab65E.exit", %1

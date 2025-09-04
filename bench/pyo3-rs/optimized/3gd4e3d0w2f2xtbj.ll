@@ -54,91 +54,91 @@ define hidden void @"_ZN19pyo3_macros_backend12deprecations33deprecate_trailing_
     i64 39, label %16
     i64 40, label %21
     i64 41, label %29
-    i64 42, label %49
-    i64 43, label %49
+    i64 42, label %50
+    i64 43, label %50
   ]
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   unreachable
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  br i1 %.not, label %43, label %37
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %19 = load ptr, ptr %18, align 8
+  %.not = icmp eq ptr %19, null
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  br i1 %.not, label %44, label %38
 
-21:                                               ; preds = %2
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %23, ptr %5, align 8
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %24, ptr %5, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf705e44605670c3dE", ptr %.sroa.211.0..sroa_idx, align 8
   store ptr @anon.158eba16dc124256d975cac670ba47fe.4, ptr %6, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 2, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %5, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 1, ptr %27, align 8
-  %28 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hfcd89bd5181ab6a2E"(ptr align 8 %22, ptr nonnull align 8 %6)
-  br label %49
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 2, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %5, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 1, ptr %28, align 8
+  %29 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hfcd89bd5181ab6a2E"(ptr align 8 %23, ptr nonnull align 8 %6)
+  br label %50
 
-29:                                               ; preds = %2
-  %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %31, ptr %3, align 8
+30:                                               ; preds = %2
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %32, ptr %3, align 8
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf705e44605670c3dE", ptr %.sroa.215.0..sroa_idx, align 8
   store ptr @anon.158eba16dc124256d975cac670ba47fe.4, ptr %4, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %35, align 8
-  %36 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hfcd89bd5181ab6a2E"(ptr align 8 %30, ptr nonnull align 8 %4)
-  br label %49
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 2, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %36, align 8
+  %37 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hfcd89bd5181ab6a2E"(ptr align 8 %31, ptr nonnull align 8 %4)
+  br label %50
 
-37:                                               ; preds = %16
-  store ptr %20, ptr %9, align 8
+38:                                               ; preds = %17
+  store ptr %21, ptr %9, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf705e44605670c3dE", ptr %.sroa.23.0..sroa_idx, align 8
   store ptr @anon.158eba16dc124256d975cac670ba47fe.1, ptr %10, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 2, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %9, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 1, ptr %41, align 8
-  %42 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hfcd89bd5181ab6a2E"(ptr align 8 %19, ptr nonnull align 8 %10)
-  br label %49
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 2, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %9, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 1, ptr %42, align 8
+  %43 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hfcd89bd5181ab6a2E"(ptr align 8 %20, ptr nonnull align 8 %10)
+  br label %50
 
-43:                                               ; preds = %16
-  store ptr %20, ptr %7, align 8
+44:                                               ; preds = %17
+  store ptr %21, ptr %7, align 8
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf705e44605670c3dE", ptr %.sroa.27.0..sroa_idx, align 8
   store ptr @anon.158eba16dc124256d975cac670ba47fe.4, ptr %8, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 2, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %7, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 1, ptr %47, align 8
-  %48 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hfcd89bd5181ab6a2E"(ptr align 8 %19, ptr nonnull align 8 %8)
-  br label %49
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 2, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %7, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 1, ptr %48, align 8
+  %49 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hfcd89bd5181ab6a2E"(ptr align 8 %20, ptr nonnull align 8 %8)
+  br label %50
 
-49:                                               ; preds = %2, %2, %43, %37, %29, %21
-  %.sroa.0.0.shrunk = phi i1 [ %42, %37 ], [ %48, %43 ], [ %28, %21 ], [ %36, %29 ], [ false, %2 ], [ false, %2 ]
+50:                                               ; preds = %2, %2, %44, %38, %30, %22
+  %.sroa.0.0.shrunk = phi i1 [ %43, %37 ], [ %49, %43 ], [ %29, %21 ], [ %37, %29 ], [ false, %2 ], [ false, %2 ]
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h68bbca48c69d5c8cE"(i1 zeroext %.sroa.0.0.shrunk, ptr nonnull align 1 @anon.158eba16dc124256d975cac670ba47fe.5, i64 35, ptr nonnull align 8 @anon.158eba16dc124256d975cac670ba47fe.7)
   ret void
 }
