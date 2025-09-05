@@ -123,34 +123,32 @@ define void @_ZN3gmx4Grid8GeometryC2ENS_12PairlistTypeE(ptr noundef nonnull writ
   %14 = select i1 %4, i32 0, i32 3
   %15 = shl i32 %9, %14
   store i32 %15, ptr %13, align 4, !tbaa !14
-  %16 = icmp sgt i32 %9, 0
-  %17 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
-  %18 = icmp samesign ult i32 %17, 2
-  %19 = select i1 %16, i1 %18, i1 false
-  br i1 %19, label %_ZN3gmxL8get_2logEi.exit, label %20
+  %16 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
+  %17 = icmp samesign ult i32 %16, 2
+  br i1 %17, label %_ZN3gmxL8get_2logEi.exit, label %18
 
-20:                                               ; preds = %2
+18:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 1 dereferenceable(128) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 66, ptr noundef nonnull @.str.1, i32 noundef %9) #30
-          to label %21 unwind label %22
+          to label %19 unwind label %20
 
-21:                                               ; preds = %20
+19:                                               ; preds = %18
   unreachable
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %21
 
 _ZN3gmxL8get_2logEi.exit:                         ; preds = %2
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = tail call noundef i32 @_ZN3gmx5log2IEi(i32 noundef %9)
-  store i32 %25, ptr %24, align 4, !tbaa !15
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %1, ptr %26, align 4, !tbaa !16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = tail call noundef i32 @_ZN3gmx5log2IEi(i32 noundef %9)
+  store i32 %23, ptr %22, align 4, !tbaa !15
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %1, ptr %24, align 4, !tbaa !16
   ret void
 }
 

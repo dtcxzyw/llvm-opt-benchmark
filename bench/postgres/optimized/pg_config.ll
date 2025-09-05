@@ -130,14 +130,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 sub_0:                                            ; preds = %.lr.ph
   %13 = load i8, ptr %10, align 1
-  %.not44 = icmp eq i8 %13, 45
-  br i1 %.not44, label %sub_1, label %.tail.thread
+  %.not = icmp eq i8 %13, 45
+  br i1 %.not, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %15 = load i8, ptr %14, align 1
-  %.not45 = icmp eq i8 %15, 63
-  br i1 %.not45, label %.tail, label %.tail.thread
+  %.not43 = icmp eq i8 %15, 63
+  br i1 %.not43, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 2
@@ -166,87 +166,86 @@ sub_1:                                            ; preds = %sub_0
 27:                                               ; preds = %._crit_edge
   %28 = call ptr @get_configdata(ptr noundef nonnull %4, ptr noundef nonnull %3) #5
   %29 = icmp slt i32 %0, 2
-  br i1 %29, label %.preheader, label %.preheader34.preheader
+  br i1 %29, label %.preheader, label %.preheader33.preheader
 
-.preheader34.preheader:                           ; preds = %27
-  %wide.trip.count57 = zext nneg i32 %0 to i64
-  br label %.preheader34
+.preheader33.preheader:                           ; preds = %27
+  %wide.trip.count54 = zext nneg i32 %0 to i64
+  br label %.preheader33
 
 .preheader:                                       ; preds = %27
   %30 = load i64, ptr %3, align 8
-  %.not46 = icmp eq i64 %30, 0
-  br i1 %.not46, label %._crit_edge43, label %.lr.ph42
+  %.not44 = icmp eq i64 %30, 0
+  br i1 %.not44, label %._crit_edge42, label %.lr.ph41
 
-.lr.ph42:                                         ; preds = %.preheader, %.lr.ph42
-  %31 = phi i64 [ %38, %.lr.ph42 ], [ 0, %.preheader ]
-  %.141 = phi i32 [ %37, %.lr.ph42 ], [ 0, %.preheader ]
+.lr.ph41:                                         ; preds = %.preheader, %.lr.ph41
+  %31 = phi i64 [ %38, %.lr.ph41 ], [ 0, %.preheader ]
+  %.140 = phi i32 [ %37, %.lr.ph41 ], [ 0, %.preheader ]
   %32 = getelementptr inbounds %struct.ConfigData, ptr %28, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4, ptr noundef %33, ptr noundef %35) #5
-  %37 = add i32 %.141, 1
+  %37 = add i32 %.140, 1
   %38 = sext i32 %37 to i64
   %39 = load i64, ptr %3, align 8
   %40 = icmp ugt i64 %39, %38
-  br i1 %40, label %.lr.ph42, label %._crit_edge43, !llvm.loop !6
+  br i1 %40, label %.lr.ph41, label %._crit_edge42, !llvm.loop !6
 
-._crit_edge43:                                    ; preds = %.lr.ph42, %.preheader
+._crit_edge42:                                    ; preds = %.lr.ph41, %.preheader
   call void @exit(i32 noundef 0) #7
   unreachable
 
-.preheader34:                                     ; preds = %.preheader34.preheader, %show_item.exit.thread33
-  %indvars.iv54 = phi i64 [ 1, %.preheader34.preheader ], [ %indvars.iv.next55, %show_item.exit.thread33 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv54
+.preheader33:                                     ; preds = %.preheader33.preheader, %show_item.exit
+  %indvars.iv51 = phi i64 [ 1, %.preheader33.preheader ], [ %indvars.iv.next52, %show_item.exit ]
+  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv51
   %42 = load ptr, ptr %41, align 8
-  br label %46
+  br label %44
 
-43:                                               ; preds = %46
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %44 = getelementptr inbounds nuw %struct.InfoItem, ptr @info_items, i64 %indvars.iv.next51
-  %45 = load ptr, ptr %44, align 16
-  %exitcond53 = icmp eq i64 %indvars.iv.next51, 23
-  br i1 %exitcond53, label %show_item.exit.thread, label %46, !llvm.loop !7
+43:                                               ; preds = %44
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %cond = icmp eq i64 %indvars.iv.next49, 23
+  br i1 %cond, label %66, label %44, !llvm.loop !7
 
-46:                                               ; preds = %.preheader34, %43
-  %indvars.iv50 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next51, %43 ]
-  %47 = phi ptr [ @.str.40, %.preheader34 ], [ %45, %43 ]
-  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %47) #6
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %43
+44:                                               ; preds = %.preheader33, %43
+  %indvars.iv48 = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next49, %43 ]
+  %45 = getelementptr inbounds nuw %struct.InfoItem, ptr @info_items, i64 %indvars.iv48
+  %46 = load ptr, ptr %45, align 16
+  %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %46) #6
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %43
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw %struct.InfoItem, ptr @info_items, i64 %indvars.iv50, i32 1
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i64, ptr %3, align 8
-  %.not.i = icmp eq i64 %53, 0
-  br i1 %.not.i, label %show_item.exit.thread33, label %.lr.ph.i
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i64, ptr %3, align 8
+  %.not.i = icmp eq i64 %52, 0
+  br i1 %.not.i, label %show_item.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %50, %63
-  %54 = phi i64 [ %65, %63 ], [ 0, %50 ]
-  %.08.i = phi i32 [ %64, %63 ], [ 0, %50 ]
-  %55 = getelementptr inbounds %struct.ConfigData, ptr %28, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  %57 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %56) #6
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %63
+.lr.ph.i:                                         ; preds = %49, %62
+  %53 = phi i64 [ %64, %62 ], [ 0, %49 ]
+  %.08.i = phi i32 [ %63, %62 ], [ 0, %49 ]
+  %54 = getelementptr inbounds %struct.ConfigData, ptr %28, i64 %53
+  %55 = load ptr, ptr %54, align 8
+  %56 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %55) #6
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %62
 
-59:                                               ; preds = %.lr.ph.i
-  %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.86, ptr noundef %61) #5
-  br label %63
+58:                                               ; preds = %.lr.ph.i
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.86, ptr noundef %60) #5
+  br label %62
 
-63:                                               ; preds = %59, %.lr.ph.i
-  %64 = add i32 %.08.i, 1
-  %65 = sext i32 %64 to i64
-  %66 = icmp ugt i64 %53, %65
-  br i1 %66, label %.lr.ph.i, label %show_item.exit.thread33, !llvm.loop !8
+62:                                               ; preds = %58, %.lr.ph.i
+  %63 = add i32 %.08.i, 1
+  %64 = sext i32 %63 to i64
+  %65 = icmp ugt i64 %52, %64
+  br i1 %65, label %.lr.ph.i, label %show_item.exit, !llvm.loop !8
 
-show_item.exit.thread:                            ; preds = %43
+66:                                               ; preds = %43
   %67 = load ptr, ptr @stderr, align 8
   %68 = load ptr, ptr @progname, align 8
-  %69 = and i64 %indvars.iv54, 4294967295
+  %69 = and i64 %indvars.iv51, 4294967295
   %70 = getelementptr inbounds nuw ptr, ptr %1, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %67, ptr noundef nonnull @.str.5, ptr noundef %68, ptr noundef %71) #5
@@ -254,12 +253,12 @@ show_item.exit.thread:                            ; preds = %43
   call void @exit(i32 noundef 1) #8
   unreachable
 
-show_item.exit.thread33:                          ; preds = %63, %50
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %73, label %.preheader34, !llvm.loop !9
+show_item.exit:                                   ; preds = %62, %49
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
+  br i1 %exitcond55.not, label %73, label %.preheader33, !llvm.loop !9
 
-73:                                               ; preds = %show_item.exit.thread33
+73:                                               ; preds = %show_item.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0

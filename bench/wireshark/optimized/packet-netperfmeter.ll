@@ -332,9 +332,10 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
 
 29:                                               ; preds = %8, %29
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %29 ]
-  %30 = phi ptr [ @.str.18, %8 ], [ %33, %29 ]
+  %30 = getelementptr %struct._value_string, ptr @message_type_values, i64 %indvars.iv, i32 1
   store i32 3, ptr %2, align 16
-  store ptr %30, ptr %10, align 8
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %10, align 8
   store i32 1, ptr %11, align 8
   store i32 0, ptr %12, align 16
   store i32 0, ptr %13, align 16
@@ -353,13 +354,11 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
   store double -1.000000e+00, ptr %26, align 8
   store i32 0, ptr %27, align 8
   store double -1.000000e+00, ptr %28, align 16
-  %31 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %31, i32 noundef 10, ptr noundef nonnull %2)
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %32, i32 noundef 10, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr %struct._value_string, ptr @message_type_values, i64 %indvars.iv.next, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %.loopexit, label %29, !llvm.loop !6
+  %.not17 = icmp eq i64 %indvars.iv.next, 8
+  br i1 %.not17, label %.loopexit, label %29, !llvm.loop !6
 
 .loopexit:                                        ; preds = %29, %4, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -406,37 +405,36 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr noundef readonly captur
   br label %33
 
 33:                                               ; preds = %10, %33
-  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %33 ]
-  %34 = trunc nuw nsw i64 %indvars.iv to i32
-  %35 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %34, i32 noundef 1)
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load i32, ptr %36, align 8
-  %38 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %34, i32 noundef 3)
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %34, i32 noundef 2)
-  store i32 4, ptr %41, align 8
-  %42 = uitofp i32 %37 to double
-  %43 = fmul double %42, 1.000000e+02
-  %44 = load i64, ptr @npm_total_msgs, align 8
-  %45 = uitofp i64 %44 to double
-  %46 = fdiv double %43, %45
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store double %46, ptr %47, align 8
-  tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %34, i32 noundef 2, ptr noundef %41)
-  %48 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %34, i32 noundef 4)
-  store i32 4, ptr %48, align 8
-  %49 = uitofp i32 %40 to double
-  %50 = fmul double %49, 1.000000e+02
-  %51 = load i64, ptr @npm_total_bytes, align 8
-  %52 = uitofp i64 %51 to double
-  %53 = fdiv double %50, %52
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store double %53, ptr %54, align 8
-  tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %34, i32 noundef 4, ptr noundef %48)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %55, label %33, !llvm.loop !8
+  %.0104109 = phi i32 [ 0, %10 ], [ %54, %33 ]
+  %34 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 1)
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load i32, ptr %35, align 8
+  %37 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 3)
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load i32, ptr %38, align 8
+  %40 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 2)
+  store i32 4, ptr %40, align 8
+  %41 = uitofp i32 %36 to double
+  %42 = fmul double %41, 1.000000e+02
+  %43 = load i64, ptr @npm_total_msgs, align 8
+  %44 = uitofp i64 %43 to double
+  %45 = fdiv double %42, %44
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store double %45, ptr %46, align 8
+  tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 2, ptr noundef %40)
+  %47 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 4)
+  store i32 4, ptr %47, align 8
+  %48 = uitofp i32 %39 to double
+  %49 = fmul double %48, 1.000000e+02
+  %50 = load i64, ptr @npm_total_bytes, align 8
+  %51 = uitofp i64 %50 to double
+  %52 = fdiv double %49, %51
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store double %52, ptr %53, align 8
+  tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 4, ptr noundef %47)
+  %54 = add nuw nsw i32 %.0104109, 1
+  %.not = icmp eq i32 %54, 8
+  br i1 %.not, label %55, label %33, !llvm.loop !8
 
 55:                                               ; preds = %33
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -468,8 +466,8 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr noundef readonly captur
   store double %71, ptr %61, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 5, ptr noundef %60)
   %.pre = load i32, ptr %56, align 8
-  %.pre111 = and i32 %.pre, 1
-  %72 = icmp eq i32 %.pre111, 0
+  %.pre110 = and i32 %.pre, 1
+  %72 = icmp eq i32 %.pre110, 0
   br i1 %72, label %.thread, label %73
 
 73:                                               ; preds = %70
@@ -497,9 +495,9 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %55, %84, %70
-  %.0103117 = phi double [ %71, %84 ], [ %71, %70 ], [ -1.000000e+00, %55 ]
+  %.0103116 = phi double [ %71, %84 ], [ %71, %70 ], [ -1.000000e+00, %55 ]
   %.0102 = phi double [ %85, %84 ], [ -1.000000e+00, %70 ], [ -1.000000e+00, %55 ]
-  %86 = fsub double %.0102, %.0103117
+  %86 = fsub double %.0102, %.0103116
   %87 = fcmp ogt double %86, 0.000000e+00
   br i1 %87, label %88, label %99
 

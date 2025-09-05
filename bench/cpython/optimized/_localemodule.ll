@@ -2077,8 +2077,8 @@ define internal fastcc ptr @_locale_nl_langinfo_impl(i32 noundef %0) unnamed_add
 
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 56
-  br i1 %exitcond, label %49, label %3, !llvm.loop !49
+  %.not = icmp eq i64 %indvars.iv.next, 56
+  br i1 %.not, label %49, label %3, !llvm.loop !49
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -2341,29 +2341,28 @@ define internal range(i32 -1, 1) i32 @_locale_exec(ptr noundef %0) #0 {
 
 30:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = getelementptr %struct.langinfo_constant, ptr @langinfo_constants, i64 %indvars.iv.next
-  %32 = load ptr, ptr %31, align 16, !tbaa !56
-  %exitcond = icmp eq i64 %indvars.iv.next, 56
-  br i1 %exitcond, label %39, label %.preheader, !llvm.loop !57
+  %.not = icmp eq i64 %indvars.iv.next, 56
+  br i1 %.not, label %38, label %.preheader, !llvm.loop !56
 
 .preheader:                                       ; preds = %25, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %25 ]
-  %33 = phi ptr [ %32, %30 ], [ @.str.43, %25 ]
-  %34 = getelementptr %struct.langinfo_constant, ptr @langinfo_constants, i64 %indvars.iv, i32 1
-  %35 = load i32, ptr %34, align 8, !tbaa !50
-  %36 = sext i32 %35 to i64
-  %37 = tail call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef nonnull %33, i64 noundef %36) #8
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %.loopexit, label %30
+  %31 = getelementptr %struct.langinfo_constant, ptr @langinfo_constants, i64 %indvars.iv
+  %32 = load ptr, ptr %31, align 16, !tbaa !57
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %34 = load i32, ptr %33, align 8, !tbaa !50
+  %35 = sext i32 %34 to i64
+  %36 = tail call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef %32, i64 noundef %35) #8
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %.loopexit, label %30
 
-39:                                               ; preds = %30
-  %40 = tail call ptr @PyErr_Occurred() #8
-  %.not19 = icmp ne ptr %40, null
+38:                                               ; preds = %30
+  %39 = tail call ptr @PyErr_Occurred() #8
+  %.not19 = icmp ne ptr %39, null
   %. = sext i1 %.not19 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %25, %39, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ %., %39 ], [ -1, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %25, %38, %22, %19, %16, %13, %10, %7, %4, %1
+  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ %., %38 ], [ -1, %.preheader ]
   ret i32 %.0
 }
 
@@ -2449,5 +2448,5 @@ attributes #10 = { nounwind willreturn memory(none) }
 !53 = distinct !{!53, !45}
 !54 = distinct !{!54, !45}
 !55 = distinct !{!55, !45}
-!56 = !{!51, !19, i64 0}
-!57 = distinct !{!57, !45}
+!56 = distinct !{!56, !45}
+!57 = !{!51, !19, i64 0}

@@ -3178,60 +3178,59 @@ define hidden void @_ZNK7JVMFlag10print_kindEP12outputStreamj(ptr noundef nonnul
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, -131088
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %33, label %8
+  br i1 %.not, label %32, label %8
 
 8:                                                ; preds = %3
   %9 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.33) #13
   br label %10
 
-10:                                               ; preds = %8, %26
-  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %26 ]
-  %11 = phi i32 [ 16384, %8 ], [ %28, %26 ]
-  %.027 = phi i1 [ true, %8 ], [ %.2, %26 ]
-  %.01826 = phi i64 [ 1, %8 ], [ %.220, %26 ]
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw %struct.Data, ptr @__const._ZNK7JVMFlag10print_kindEP12outputStreamj.data, i64 %indvars.iv, i32 1
+10:                                               ; preds = %8, %27
+  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %27 ]
+  %.027 = phi i1 [ true, %8 ], [ %.2, %27 ]
+  %.01826 = phi i64 [ 1, %8 ], [ %.220, %27 ]
+  %11 = getelementptr inbounds nuw %struct.Data, ptr @__const._ZNK7JVMFlag10print_kindEP12outputStreamj.data, i64 %indvars.iv
+  %12 = load i32, ptr %11, align 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
-  %12 = load i32, ptr %5, align 8
-  %13 = and i32 %12, %11
-  %.not24 = icmp eq i32 %13, 0
-  br i1 %.not24, label %26, label %14
+  %13 = load i32, ptr %5, align 8
+  %14 = and i32 %13, %12
+  %.not24 = icmp eq i32 %14, 0
+  br i1 %.not24, label %27, label %15
 
-14:                                               ; preds = %10
-  br i1 %.027, label %20, label %15
+15:                                               ; preds = %10
+  br i1 %.027, label %21, label %16
 
-15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %4, i64 %.01826
-  %17 = sub i64 64, %.01826
-  %18 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %16, i64 noundef %17, ptr noundef nonnull @.str.34) #13
-  %19 = add i64 %.01826, 1
-  br label %20
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds i8, ptr %4, i64 %.01826
+  %18 = sub i64 64, %.01826
+  %19 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %17, i64 noundef %18, ptr noundef nonnull @.str.34) #13
+  %20 = add i64 %.01826, 1
+  br label %21
 
-20:                                               ; preds = %14, %15
-  %.119 = phi i64 [ %19, %15 ], [ %.01826, %14 ]
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.21.0.copyload) #12
-  %22 = getelementptr inbounds i8, ptr %4, i64 %.119
-  %23 = sub i64 64, %.119
-  %24 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %22, i64 noundef %23, ptr noundef nonnull @.str.9, ptr noundef nonnull %.sroa.21.0.copyload) #13
-  %25 = add i64 %21, %.119
-  br label %26
+21:                                               ; preds = %15, %16
+  %.119 = phi i64 [ %20, %16 ], [ %.01826, %15 ]
+  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.21.0.copyload) #12
+  %23 = getelementptr inbounds i8, ptr %4, i64 %.119
+  %24 = sub i64 64, %.119
+  %25 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str.9, ptr noundef nonnull %.sroa.21.0.copyload) #13
+  %26 = add i64 %22, %.119
+  br label %27
 
-26:                                               ; preds = %10, %20
-  %.220 = phi i64 [ %25, %20 ], [ %.01826, %10 ]
-  %.2 = phi i1 [ false, %20 ], [ %.027, %10 ]
+27:                                               ; preds = %10, %21
+  %.220 = phi i64 [ %26, %21 ], [ %.01826, %10 ]
+  %.2 = phi i1 [ false, %21 ], [ %.027, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr inbounds nuw %struct.Data, ptr @__const._ZNK7JVMFlag10print_kindEP12outputStreamj.data, i64 %indvars.iv.next
-  %28 = load i32, ptr %27, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond, label %29, label %10, !llvm.loop !8
+  %.not23 = icmp eq i64 %indvars.iv.next, 11
+  br i1 %.not23, label %28, label %10, !llvm.loop !8
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %4, i64 %.220
-  %31 = sub i64 64, %.220
-  %32 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %30, i64 noundef %31, ptr noundef nonnull @.str.35) #13
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds i8, ptr %4, i64 %.220
+  %30 = sub i64 64, %.220
+  %31 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %29, i64 noundef %30, ptr noundef nonnull @.str.35) #13
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull %4) #13
-  br label %33
+  br label %32
 
-33:                                               ; preds = %29, %3
+32:                                               ; preds = %28, %3
   ret void
 }
 

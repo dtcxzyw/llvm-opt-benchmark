@@ -625,24 +625,20 @@ define dso_local void @phy_check_downshift(ptr noundef %0) #1 align 16 {
 
 28:                                               ; preds = %16
   %29 = load i32, ptr %18, align 8
-  %30 = icmp eq i32 %29, -1
-  br i1 %30, label %.thread, label %31
+  %30 = load i32, ptr %9, align 8
+  %31 = icmp slt i32 %30, %29
+  br i1 %31, label %32, label %.thread
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %9, align 8
-  %33 = icmp slt i32 %32, %29
-  br i1 %33, label %34, label %.thread
-
-34:                                               ; preds = %31
-  %35 = call ptr @phy_speed_to_str(i32 noundef %29)
-  %36 = call ptr @phy_speed_to_str(i32 noundef %32)
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %35, ptr noundef nonnull %36) #10
-  %37 = load i32, ptr %3, align 4
-  %38 = or i32 %37, 512
-  store i32 %38, ptr %3, align 4
+32:                                               ; preds = %28
+  %33 = call ptr @phy_speed_to_str(i32 noundef %29)
+  %34 = call ptr @phy_speed_to_str(i32 noundef %30)
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %33, ptr noundef nonnull %34) #10
+  %35 = load i32, ptr %3, align 4
+  %36 = or i32 %35, 512
+  store i32 %36, ptr %3, align 4
   br label %.thread
 
-.thread:                                          ; preds = %25, %34, %31, %28, %8, %1
+.thread:                                          ; preds = %25, %32, %28, %8, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -690,17 +686,16 @@ define dso_local noundef range(i32 -22, 1) i32 @phy_speed_down_core(ptr noundef 
 22:                                               ; preds = %15
   %23 = load i32, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %24 = icmp eq i32 %23, -1
-  br i1 %24, label %.loopexit, label %.preheader
+  br label %24
 
-.preheader:                                       ; preds = %22, %29
+24:                                               ; preds = %22, %29
   %25 = phi i32 [ %33, %29 ], [ 0, %22 ]
   %26 = phi ptr [ %34, %29 ], [ @settings, %22 ]
   %27 = load i32, ptr %26, align 4
   %28 = icmp ugt i32 %27, %23
   br i1 %28, label %29, label %.loopexit
 
-29:                                               ; preds = %.preheader
+29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 5
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
@@ -708,10 +703,10 @@ define dso_local noundef range(i32 -22, 1) i32 @phy_speed_down_core(ptr noundef 
   %33 = add nuw nsw i32 %25, 1
   %34 = getelementptr i8, ptr %26, i64 8
   %35 = icmp eq i32 %33, 89
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %35, label %.loopexit, label %24, !llvm.loop !17
 
-.loopexit:                                        ; preds = %29, %.preheader, %.thread, %22
-  %36 = phi i32 [ -22, %22 ], [ -22, %.thread ], [ 0, %.preheader ], [ 0, %29 ]
+.loopexit:                                        ; preds = %29, %24, %.thread
+  %36 = phi i32 [ -22, %.thread ], [ 0, %24 ], [ 0, %29 ]
   ret i32 %36
 }
 

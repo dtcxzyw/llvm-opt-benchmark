@@ -20,7 +20,6 @@ $__clang_call_terminate = comdat any
 @.str.4 = private unnamed_addr constant [3 x i8] c"us\00", align 1
 @.str.5 = private unnamed_addr constant [3 x i8] c"ms\00", align 1
 @.str.6 = private unnamed_addr constant [2 x i8] c"s\00", align 1
-@.str.7 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.8 = private unnamed_addr constant [10 x i8] c"Time (%s)\00", align 1
 @_ZL22c_timeUnitNamesForXvgr = internal unnamed_addr constant %"struct.gmx::EnumerationArray" { [6 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.9, ptr @.str.5, ptr @.str.6] }, align 8
 @.str.9 = private unnamed_addr constant [5 x i8] c"\\mus\00", align 1
@@ -240,56 +239,45 @@ define void @_Z24output_env_get_time_unitB5cxx11PK16gmx_output_env_t(ptr dead_on
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %0, align 8, !tbaa !23
-  %10 = icmp eq ptr %8, null
-  br i1 %10, label %.noexc, label %11
-
-.noexc:                                           ; preds = %2
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.7) #18
-  unreachable
-
-11:                                               ; preds = %2
-  %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
+  %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %12, ptr %3, align 8, !tbaa !25
-  %13 = icmp ugt i64 %12, 15
-  br i1 %13, label %.noexc.i, label %._crit_edge.i.i
+  store i64 %10, ptr %3, align 8, !tbaa !25
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %.noexc.i, label %._crit_edge.i.i
 
-.noexc.i:                                         ; preds = %11
-  %14 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %14, ptr %0, align 8, !tbaa !27
-  %15 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %15, ptr %9, align 8, !tbaa !29
+.noexc.i:                                         ; preds = %2
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %12, ptr %0, align 8, !tbaa !27
+  %13 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %13, ptr %9, align 8, !tbaa !29
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.noexc.i, %11
-  %16 = phi ptr [ %14, %.noexc.i ], [ %9, %11 ]
-  switch i64 %12, label %19 [
-    i64 1, label %17
-    i64 0, label %20
+._crit_edge.i.i:                                  ; preds = %.noexc.i, %2
+  %14 = phi ptr [ %12, %.noexc.i ], [ %9, %2 ]
+  switch i64 %10, label %17 [
+    i64 1, label %15
+    i64 0, label %18
   ]
 
+15:                                               ; preds = %._crit_edge.i.i
+  %16 = load i8, ptr %8, align 1, !tbaa !29
+  store i8 %16, ptr %14, align 1, !tbaa !29
+  br label %18
+
 17:                                               ; preds = %._crit_edge.i.i
-  %18 = load i8, ptr %8, align 1, !tbaa !29
-  store i8 %18, ptr %16, align 1, !tbaa !29
-  br label %20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull align 1 %8, i64 %10, i1 false)
+  br label %18
 
-19:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull align 1 %8, i64 %12, i1 false)
-  br label %20
-
-20:                                               ; preds = %19, %17, %._crit_edge.i.i
-  %21 = load i64, ptr %3, align 8, !tbaa !25
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %21, ptr %22, align 8, !tbaa !30
-  %23 = load ptr, ptr %0, align 8, !tbaa !27
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
-  store i8 0, ptr %24, align 1, !tbaa !29
+18:                                               ; preds = %17, %15, %._crit_edge.i.i
+  %19 = load i64, ptr %3, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %19, ptr %20, align 8, !tbaa !30
+  %21 = load ptr, ptr %0, align 8, !tbaa !27
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
+  store i8 0, ptr %22, align 1, !tbaa !29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
-
-; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
@@ -361,9 +349,9 @@ define void @_Z21output_env_conv_timesPK16gmx_output_env_tiPf(ptr noundef readon
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds nuw float, ptr @_ZL23c_picosecondsInTimeUnit, i64 %6
   %8 = load float, ptr %7, align 4, !tbaa !31
-  %9 = fcmp une float %8, 1.000000e+00
-  %10 = icmp sgt i32 %1, 0
-  %or.cond = and i1 %9, %10
+  %.not = icmp ne i32 %5, 1
+  %9 = icmp sgt i32 %1, 0
+  %or.cond = and i1 %.not, %9
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %3
@@ -372,10 +360,10 @@ define void @_Z21output_env_conv_timesPK16gmx_output_env_tiPf(ptr noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %12 = load float, ptr %11, align 4, !tbaa !31
-  %13 = fmul float %8, %12
-  store float %13, ptr %11, align 4, !tbaa !31
+  %10 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %11 = load float, ptr %10, align 4, !tbaa !31
+  %12 = fmul float %8, %11
+  store float %12, ptr %10, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33

@@ -5300,8 +5300,8 @@ define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef
   %14 = icmp samesign ult i32 %3, %13
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %7, %61
-  %.06875 = phi i32 [ %.1, %61 ], [ %3, %7 ]
+.lr.ph:                                           ; preds = %7, %58
+  %.06875 = phi i32 [ %.1, %58 ], [ %3, %7 ]
   %15 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.06875)
   %16 = add nuw nsw i32 %.06875, 2
   %17 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %16)
@@ -5326,7 +5326,7 @@ define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef
 
 29:                                               ; preds = %27, %18
   %30 = add nuw nsw i32 %22, %.06875
-  br label %61
+  br label %58
 
 31:                                               ; preds = %.lr.ph
   %32 = zext nneg i16 %15 to i32
@@ -5350,41 +5350,33 @@ define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef
 46:                                               ; preds = %31
   %47 = load ptr, ptr %8, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.2641)
-  br label %59
+  br label %56
 
 48:                                               ; preds = %31
-  br i1 %34, label %49, label %57
+  br i1 %34, label %49, label %54
 
 49:                                               ; preds = %48
   %50 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %44, i32 noundef %36)
   %51 = getelementptr %struct._pfcp_ie, ptr @pfcp_ies, i64 %33
   %52 = load ptr, ptr %51, align 8
-  %.not73 = icmp eq ptr %52, null
-  br i1 %.not73, label %55, label %53
+  %53 = load ptr, ptr %8, align 8
+  call void %52(ptr noundef %50, ptr noundef %1, ptr noundef %39, ptr noundef %53, i16 noundef zeroext %17, i8 noundef zeroext %5, ptr noundef %6)
+  br label %56
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %8, align 8
-  call void %52(ptr noundef %50, ptr noundef %1, ptr noundef %39, ptr noundef %54, i16 noundef zeroext %17, i8 noundef zeroext %5, ptr noundef %6)
-  br label %59
+54:                                               ; preds = %48
+  %55 = call ptr @proto_tree_add_expert(ptr noundef %39, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_not_decoded_too_large, ptr noundef %0, i32 noundef %44, i32 noundef %36)
+  br label %56
 
-55:                                               ; preds = %49
-  %56 = call ptr @proto_tree_add_expert(ptr noundef %39, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_not_decoded_null, ptr noundef %0, i32 noundef %44, i32 noundef %36)
-  br label %59
+56:                                               ; preds = %54, %49, %46
+  %57 = add nuw nsw i32 %44, %36
+  br label %58
 
-57:                                               ; preds = %48
-  %58 = call ptr @proto_tree_add_expert(ptr noundef %39, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_not_decoded_too_large, ptr noundef %0, i32 noundef %44, i32 noundef %36)
-  br label %59
+58:                                               ; preds = %56, %29
+  %.1 = phi i32 [ %30, %29 ], [ %57, %56 ]
+  %59 = icmp slt i32 %.1, %13
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-59:                                               ; preds = %57, %55, %53, %46
-  %60 = add nuw nsw i32 %44, %36
-  br label %61
-
-61:                                               ; preds = %59, %29
-  %.1 = phi i32 [ %30, %29 ], [ %60, %59 ]
-  %62 = icmp slt i32 %.1, %13
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !16
-
-._crit_edge:                                      ; preds = %61, %7
+._crit_edge:                                      ; preds = %58, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }

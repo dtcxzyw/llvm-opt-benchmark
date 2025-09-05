@@ -183,13 +183,13 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !5
 
 .preheader:                                       ; preds = %.preheader.preheader
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93127, 1
-  %exitcond96 = icmp eq i64 %indvars.iv.next94, 3
-  br i1 %exitcond96, label %.loopexit, label %.preheader.preheader
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93126, 1
+  %.not = icmp eq i64 %indvars.iv.next94, 3
+  br i1 %.not, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.preheader.preheader, %.preheader
-  %indvars.iv93127 = phi i64 [ %indvars.iv.next94, %.preheader ], [ 0, %.preheader.preheader.preheader ]
-  %15 = getelementptr inbounds nuw %struct.ClassSelector, ptr @class_tables, i64 %indvars.iv93127
+  %indvars.iv93126 = phi i64 [ %indvars.iv.next94, %.preheader ], [ 0, %.preheader.preheader.preheader ]
+  %15 = getelementptr inbounds nuw %struct.ClassSelector, ptr @class_tables, i64 %indvars.iv93126
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %10) #9
   %18 = icmp eq i32 %17, 0
@@ -207,12 +207,12 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   br i1 %23, label %.lr.ph75.preheader, label %._crit_edge76
 
 .lr.ph75.preheader:                               ; preds = %.loopexit
-  %wide.trip.count105 = zext nneg i32 %2 to i64
+  %wide.trip.count104 = zext nneg i32 %2 to i64
   br label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %glib_auto_cleanup_GStrv.exit
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next103, %glib_auto_cleanup_GStrv.exit ]
-  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv102
+  %indvars.iv101 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next102, %glib_auto_cleanup_GStrv.exit ]
+  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv101
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @g_strsplit(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef -1) #8
   %27 = load ptr, ptr %26, align 8
@@ -258,17 +258,17 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 .lr.ph72:                                         ; preds = %46
   %53 = load ptr, ptr @class_table, align 8
-  %wide.trip.count100 = zext nneg i32 %51 to i64
+  %wide.trip.count99 = zext nneg i32 %51 to i64
   br label %55
 
 54:                                               ; preds = %55
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %glib_auto_cleanup_GStrv.exit, label %55, !llvm.loop !6
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
+  br i1 %exitcond100.not, label %glib_auto_cleanup_GStrv.exit, label %55, !llvm.loop !6
 
 55:                                               ; preds = %.lr.ph72, %54
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next98, %54 ]
-  %56 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %53, i64 %indvars.iv97
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next97, %54 ]
+  %56 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %53, i64 %indvars.iv96
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) %58) #9
@@ -282,9 +282,9 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 glib_auto_cleanup_GStrv.exit:                     ; preds = %54, %46, %31, %39, %61
   tail call void @g_strfreev(ptr noundef nonnull %26) #8
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !7
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
+  br i1 %exitcond105.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !7
 
 ._crit_edge76:                                    ; preds = %glib_auto_cleanup_GStrv.exit, %.loopexit
   %63 = tail call ptr @g_hash_table_new_full(ptr noundef null, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @free_record) #8

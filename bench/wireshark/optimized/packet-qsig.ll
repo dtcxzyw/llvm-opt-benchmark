@@ -3880,28 +3880,14 @@ get_service.exit:                                 ; preds = %get_op.exit.thread8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.2044, ptr noundef nonnull %68)
   br label %70
 
-70:                                               ; preds = %69, %65
+70:                                               ; preds = %65, %69
   %71 = getelementptr %struct._qsig_op_t, ptr @qsig_op_tab, i64 %42, i32 1
   %72 = load ptr, ptr %71, align 8
-  %.not74 = icmp eq ptr %72, null
-  br i1 %.not74, label %75, label %73
-
-73:                                               ; preds = %70
-  %74 = call i32 %72(ptr noundef %0, ptr noundef %1, ptr noundef %51, ptr noundef null)
+  %73 = call i32 %72(ptr noundef %0, ptr noundef %1, ptr noundef %51, ptr noundef null)
   br label %get_op.exit.thread
 
-75:                                               ; preds = %70
-  %76 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %78, label %get_op.exit.thread
-
-78:                                               ; preds = %75
-  %79 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_qsig_unsupported_error_type, ptr noundef %0, i32 noundef 0, i32 noundef -1)
-  %80 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
-  br label %get_op.exit.thread
-
-get_op.exit.thread:                               ; preds = %35, %19, %26, %30, %get_op.exit78, %73, %78, %75, %get_op.exit, %13, %10, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %13 ], [ 0, %get_op.exit ], [ %74, %73 ], [ %80, %78 ], [ 0, %75 ], [ 0, %get_op.exit78 ], [ 0, %30 ], [ 0, %26 ], [ 0, %19 ], [ 0, %35 ]
+get_op.exit.thread:                               ; preds = %35, %19, %26, %30, %get_op.exit78, %70, %get_op.exit, %13, %10, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %13 ], [ 0, %get_op.exit ], [ %73, %70 ], [ 0, %get_op.exit78 ], [ 0, %30 ], [ 0, %26 ], [ 0, %19 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

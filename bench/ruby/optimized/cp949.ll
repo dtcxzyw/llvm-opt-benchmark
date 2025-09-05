@@ -32,36 +32,38 @@ define internal range(i32 -2147483647, -2147483648) i32 @cp949_mbc_enc_len(ptr n
   %7 = getelementptr inbounds nuw i8, ptr @trans, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !6
   %9 = sext i8 %8 to i64
-  %10 = icmp slt i8 %8, 0
-  br i1 %10, label %11, label %14
+  %10 = add i8 %5, 1
+  %11 = icmp ult i8 %10, -126
+  br i1 %11, label %12, label %15
 
-11:                                               ; preds = %3
-  %12 = icmp eq i8 %8, -1
-  %13 = select i1 %12, i32 1, i32 -1
-  br label %28
+12:                                               ; preds = %3
+  %13 = icmp eq i8 %8, -1
+  %14 = select i1 %13, i32 1, i32 -1
+  br label %30
 
-14:                                               ; preds = %3
-  %15 = icmp eq ptr %4, %1
-  br i1 %15, label %16, label %20
+15:                                               ; preds = %3
+  %16 = icmp eq ptr %4, %1
+  br i1 %16, label %17, label %21
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i32, ptr @EncLen_CP949, i64 %6
-  %18 = load i32, ptr %17, align 4, !tbaa !9
-  %19 = sub nsw i32 0, %18
-  br label %28
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i32, ptr @EncLen_CP949, i64 %6
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = sub nsw i32 0, %19
+  br label %30
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 %9
-  %22 = load i8, ptr %4, align 1, !tbaa !6
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !6
-  %26 = icmp eq i8 %25, -1
-  %27 = select i1 %26, i32 2, i32 -1
-  br label %28
+21:                                               ; preds = %15
+  %22 = and i64 %9, 4294967295
+  %23 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 %22
+  %24 = load i8, ptr %4, align 1, !tbaa !6
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !6
+  %28 = icmp eq i8 %27, -1
+  %29 = select i1 %28, i32 2, i32 -1
+  br label %30
 
-28:                                               ; preds = %20, %16, %11
-  %.0 = phi i32 [ %13, %11 ], [ %19, %16 ], [ %27, %20 ]
+30:                                               ; preds = %21, %17, %12
+  %.0 = phi i32 [ %14, %12 ], [ %20, %17 ], [ %29, %21 ]
   ret i32 %.0
 }
 

@@ -38821,16 +38821,16 @@ _ZL14ClampWindowPosP11ImGuiWindowRK6ImRect.exit:  ; preds = %1196, %1204, %1208
   br label %.thread972
 
 1359:                                             ; preds = %1354
-  %1360 = fcmp oeq float %.val349.i, 1.000000e+00
-  %1361 = select i1 %1360, float %1190, float 0xC7EFFFFFE0000000
-  %1362 = fcmp oeq float %.val350.i, 1.000000e+00
-  %1363 = fcmp oeq float %.val350.i, 0.000000e+00
-  %or.cond3.i569 = and i1 %or.cond999, %1363
-  %or.cond258.i = or i1 %1362, %or.cond3.i569
-  %1364 = select i1 %or.cond258.i, float %.sroa.6942.0, float 0xC7EFFFFFE0000000
-  %1365 = fcmp oeq float %.val349.i, 0.000000e+00
+  %1360 = select i1 %.not256.i, float %1190, float 0xC7EFFFFFE0000000
+  %1361 = fcmp oeq float %.val350.i, 1.000000e+00
+  %1362 = fcmp oeq float %.val350.i, 0.000000e+00
+  %or.cond3.i569 = and i1 %or.cond999, %1362
+  %or.cond258.i = or i1 %1361, %or.cond3.i569
+  %1363 = select i1 %or.cond258.i, float %.sroa.6942.0, float 0xC7EFFFFFE0000000
+  %1364 = add i32 %1342, -1
+  %1365 = icmp ult i32 %1364, 2
   %1366 = select i1 %1365, float %1192, float 0x47EFFFFFE0000000
-  %1367 = select i1 %1363, float %1193, float 0x47EFFFFFE0000000
+  %1367 = select i1 %1362, float %1193, float 0x47EFFFFFE0000000
   %.val284.i = load float, ptr %1306, align 4, !tbaa !49
   %.val285.i = load float, ptr %1308, align 4, !tbaa !50
   %.val286.i = load float, ptr %1307, align 4, !tbaa !49
@@ -38847,14 +38847,14 @@ _ZL14ClampWindowPosP11ImGuiWindowRK6ImRect.exit:  ; preds = %1196, %1204, %1208
   %1377 = fadd float %1329, %1376
   %1378 = fadd float %1374, %1368
   %1379 = fadd float %1377, %1369
-  %1380 = fcmp olt float %1378, %1361
+  %1380 = fcmp olt float %1378, %1360
   %1381 = fcmp ogt float %1378, %1366
   %..i741 = select i1 %1381, float %1366, float %1378
-  %1382 = select i1 %1380, float %1361, float %..i741
-  %1383 = fcmp olt float %1379, %1364
+  %1382 = select i1 %1380, float %1360, float %..i741
+  %1383 = fcmp olt float %1379, %1363
   %1384 = fcmp ogt float %1379, %1367
   %.19.i742 = select i1 %1384, float %1367, float %1379
-  %1385 = select i1 %1383, float %1364, float %.19.i742
+  %1385 = select i1 %1383, float %1363, float %.19.i742
   %.val30.i = load float, ptr %1222, align 4, !tbaa !49
   %.val31.i = load float, ptr %1223, align 4, !tbaa !50
   %1386 = fsub float %.val30.i, %1382
@@ -38892,7 +38892,7 @@ _ZL14ClampWindowPosP11ImGuiWindowRK6ImRect.exit:  ; preds = %1196, %1204, %1208
   br label %1407
 
 1407:                                             ; preds = %1404, %1359
-  br i1 %1363, label %1408, label %.thread972
+  br i1 %1362, label %1408, label %.thread972
 
 1408:                                             ; preds = %1407
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %1403, i64 1

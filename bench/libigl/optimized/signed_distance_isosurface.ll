@@ -66122,8 +66122,6 @@ _ZNK4CGAL30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28R
   store i8 0, ptr %55, align 1, !tbaa !744
   %56 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %.0.i.i
   %57 = load i32, ptr %56, align 4, !tbaa !160
-  %or.cond.i = icmp ult i32 %57, 4
-  tail call void @llvm.assume(i1 %or.cond.i)
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 32
   %59 = zext nneg i32 %57 to i64
   %60 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %58, i64 %59
@@ -81879,7 +81877,7 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_2
   %40 = zext nneg i32 %.0.i to i64
   %41 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE20tab_next_around_edgeE, i64 %40, i64 3
   %42 = load i8, ptr %41, align 1, !tbaa !21
-  %43 = zext nneg i8 %42 to i32
+  %43 = sext i8 %42 to i32
   %.neg53 = xor i32 %.0.i, 3
   %44 = sub nsw i32 %.neg53, %43
   %or.cond.i = icmp ult i32 %44, 4
@@ -81887,9 +81885,7 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_2
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %10, i64 %45
   %.sroa.0.0.copyload.i27 = load ptr, ptr %46, align 8, !tbaa !98
-  %or.cond.i28 = icmp ult i8 %42, 4
-  tail call void @llvm.assume(i1 %or.cond.i28)
-  %47 = zext nneg i8 %42 to i64
+  %47 = zext nneg i32 %43 to i64
   %48 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %10, i64 %47
   %.sroa.0.0.copyload.i29 = load ptr, ptr %48, align 8, !tbaa !98
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i27, i64 16

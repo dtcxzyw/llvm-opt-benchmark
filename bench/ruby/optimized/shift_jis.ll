@@ -531,14 +531,14 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
   %7 = and i64 %6, 4294967295
   %8 = add nsw i64 %7, -3
   %or.cond.i = icmp ult i64 %8, 6
-  br i1 %or.cond.i, label %9, label %.critedge28.thread.i
+  br i1 %or.cond.i, label %9, label %.critedge29.thread.i
 
 9:                                                ; preds = %3
   %.val.i = load i8, ptr %1, align 1, !tbaa !6
   %10 = getelementptr i8, ptr %1, i64 2
-  %.val29.i = load i8, ptr %10, align 1, !tbaa !6
+  %.val30.i = load i8, ptr %10, align 1, !tbaa !6
   %11 = trunc i64 %6 to i32
-  %12 = zext i8 %.val29.i to i64
+  %12 = zext i8 %.val30.i to i64
   %13 = getelementptr inbounds nuw i8, ptr @onig_jis_property_hash.asso_values, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !6
   %15 = zext i8 %14 to i32
@@ -549,48 +549,51 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %16, %20
   %22 = icmp samesign ult i32 %21, 13
-  br i1 %22, label %23, label %.critedge28.thread.i
+  br i1 %22, label %23, label %.critedge29.thread.i
 
 23:                                               ; preds = %9
   %24 = zext nneg i32 %21 to i64
   %25 = getelementptr inbounds nuw %struct.enc_property, ptr @onig_jis_property.wordlist, i64 %24
-  %26 = load i8, ptr %25, align 2, !tbaa !19
-  %27 = icmp sgt i8 %26, -1
-  br i1 %27, label %28, label %.critedge28.thread.i
+  %26 = shl nuw nsw i64 1, %24
+  %27 = and i64 %26, 7584
+  %.not.i = icmp eq i64 %27, 0
+  br i1 %.not.i, label %.critedge29.thread.i, label %28
 
 28:                                               ; preds = %23
-  %29 = zext nneg i8 %26 to i64
-  %30 = getelementptr inbounds nuw i8, ptr @onig_jis_property_pool_contents, i64 %29
-  %31 = load i8, ptr %30, align 1, !tbaa !6
-  %32 = xor i8 %31, %.val.i
-  %33 = and i8 %32, -33
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %35, label %.critedge28.thread.i
+  %29 = load i8, ptr %25, align 2, !tbaa !19
+  %30 = sext i8 %29 to i64
+  %31 = and i64 %30, 4294967295
+  %32 = getelementptr inbounds nuw i8, ptr @onig_jis_property_pool_contents, i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !6
+  %34 = xor i8 %33, %.val.i
+  %35 = and i8 %34, -33
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %37, label %.critedge29.thread.i
 
-35:                                               ; preds = %28
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %7
-  %37 = tail call i32 @onigenc_with_ascii_strnicmp(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %1, ptr noundef nonnull %36, ptr noundef nonnull %30, i32 noundef %11) #7
-  %.not.i = icmp eq i32 %37, 0
-  br i1 %.not.i, label %38, label %.critedge28.thread.i
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 %7
+  %39 = tail call i32 @onigenc_with_ascii_strnicmp(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %1, ptr noundef nonnull %38, ptr noundef nonnull %32, i32 noundef %11) #7
+  %.not27.i = icmp eq i32 %39, 0
+  br i1 %.not27.i, label %40, label %.critedge29.thread.i
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %7
-  %40 = load i8, ptr %39, align 1, !tbaa !6
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %onig_jis_property.exit, label %.critedge28.thread.i
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 %7
+  %42 = load i8, ptr %41, align 1, !tbaa !6
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %onig_jis_property.exit, label %.critedge29.thread.i
 
-.critedge28.thread.i:                             ; preds = %9, %23, %28, %35, %38, %3
-  %42 = tail call i32 @onigenc_minimum_property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
-  br label %46
+.critedge29.thread.i:                             ; preds = %9, %23, %28, %37, %40, %3
+  %44 = tail call i32 @onigenc_minimum_property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
+  br label %48
 
-onig_jis_property.exit:                           ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %44 = load i8, ptr %43, align 1, !tbaa !21
-  %45 = zext i8 %44 to i32
-  br label %46
+onig_jis_property.exit:                           ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %46 = load i8, ptr %45, align 1, !tbaa !21
+  %47 = zext i8 %46 to i32
+  br label %48
 
-46:                                               ; preds = %onig_jis_property.exit, %.critedge28.thread.i
-  %.0 = phi i32 [ %45, %onig_jis_property.exit ], [ %42, %.critedge28.thread.i ]
+48:                                               ; preds = %onig_jis_property.exit, %.critedge29.thread.i
+  %.0 = phi i32 [ %47, %onig_jis_property.exit ], [ %44, %.critedge29.thread.i ]
   ret i32 %.0
 }
 

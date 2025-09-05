@@ -88,7 +88,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %218
+  br label %216
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -232,7 +232,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread: ; preds = %38, %._crit_edg
 64:                                               ; preds = %_ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
   %65 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %218
+  br label %216
 
 .thread:                                          ; preds = %55, %63, %60, %6
   %.0240 = phi i32 [ -1, %6 ], [ %.1241246, %60 ], [ %.1241246, %63 ], [ %.1241246, %55 ]
@@ -349,7 +349,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread: ; preds = %82, %._crit_
 110:                                              ; preds = %_ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.10)
   %111 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %218
+  br label %216
 
 112:                                              ; preds = %106, %109, %99
   %113 = or i32 %.1239257, %.0240
@@ -361,7 +361,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread: ; preds = %82, %._crit_
 114:                                              ; preds = %112
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %115 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %218
+  br label %216
 
 .thread266:                                       ; preds = %.thread, %112
   %116 = load ptr, ptr %0, align 8, !tbaa !54
@@ -454,7 +454,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit205.thread: ; preds = %132, %._crit
 149:                                              ; preds = %_ZL26get_unit_conversion_factorPKcPiPS0_.exit205.thread
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
   %150 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %218
+  br label %216
 
 151:                                              ; preds = %.thread278, %.thread266
   %.0236 = phi i32 [ -1, %.thread266 ], [ %.1237276, %.thread278 ]
@@ -542,7 +542,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread: ; preds = %168, %._crit
 185:                                              ; preds = %_ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.19)
   %186 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %218
+  br label %216
 
 187:                                              ; preds = %177, %_ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread
   %.1235286 = phi i32 [ %.1235, %177 ], [ %.1235287, %_ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread ]
@@ -559,7 +559,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread: ; preds = %168, %._crit
 191:                                              ; preds = %187
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.20)
   %192 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %218
+  br label %216
 
 .thread292:                                       ; preds = %151, %187
   %193 = load ptr, ptr %0, align 8, !tbaa !54
@@ -567,72 +567,70 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread: ; preds = %168, %._crit
   %195 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %193, ptr noundef %194, ptr noundef nonnull @.str.21)
   %.sroa.09.0..sroa.09.0..cast = inttoptr i64 %195 to ptr
   %.not160 = icmp eq i64 %195, 0
-  br i1 %.not160, label %205, label %.preheader305
+  br i1 %.not160, label %204, label %.preheader305
 
-.preheader305:                                    ; preds = %.thread292, %198
-  %indvars.iv = phi i64 [ %indvars.iv.next, %198 ], [ 0, %.thread292 ]
-  %196 = phi ptr [ %200, %198 ], [ @.str.27, %.thread292 ]
-  %197 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(1) %196) #12
-  %.not162 = icmp eq i32 %197, 0
-  br i1 %.not162, label %.critedge, label %198
+.preheader305:                                    ; preds = %.thread292, %199
+  %indvars.iv = phi i64 [ %indvars.iv.next, %199 ], [ 0, %.thread292 ]
+  %196 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %indvars.iv
+  %197 = load ptr, ptr %196, align 16, !tbaa !63
+  %198 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(1) %197) #12
+  %.not162 = icmp eq i32 %198, 0
+  br i1 %.not162, label %.critedge, label %199
 
-198:                                              ; preds = %.preheader305
+199:                                              ; preds = %.preheader305
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %199 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %indvars.iv.next
-  %200 = load ptr, ptr %199, align 16, !tbaa !63
-  %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.critedge176, label %.preheader305, !llvm.loop !65
+  %.not161 = icmp eq i64 %indvars.iv.next, 4
+  br i1 %.not161, label %.critedge176, label %.preheader305, !llvm.loop !65
 
-.critedge176:                                     ; preds = %198
+.critedge176:                                     ; preds = %199
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.22)
-  %201 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %218
+  %200 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  br label %216
 
 .critedge:                                        ; preds = %.preheader305
-  %202 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %202, ptr %2, align 8, !tbaa !49
-  %203 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %indvars.iv, i32 3
-  %204 = load ptr, ptr %203, align 8, !tbaa !66
-  tail call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, ptr noundef %204)
-  br label %205
+  %201 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %201, ptr %2, align 8, !tbaa !49
+  %202 = getelementptr inbounds nuw i8, ptr %196, i64 24
+  %203 = load ptr, ptr %202, align 8, !tbaa !66
+  tail call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, ptr noundef %203)
+  br label %204
 
-205:                                              ; preds = %.critedge, %.thread292
-  %206 = load ptr, ptr %0, align 8, !tbaa !54
-  %207 = load ptr, ptr %22, align 8, !tbaa !55
-  %208 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %206, ptr noundef %207, ptr noundef nonnull @.str.24)
-  %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %208 to ptr
-  %.not163 = icmp eq i64 %208, 0
-  br i1 %.not163, label %218, label %.preheader
+204:                                              ; preds = %.critedge, %.thread292
+  %205 = load ptr, ptr %0, align 8, !tbaa !54
+  %206 = load ptr, ptr %22, align 8, !tbaa !55
+  %207 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %205, ptr noundef %206, ptr noundef nonnull @.str.24)
+  %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %207 to ptr
+  %.not163 = icmp eq i64 %207, 0
+  br i1 %.not163, label %216, label %.preheader
 
-.preheader:                                       ; preds = %205, %211
-  %indvars.iv334 = phi i64 [ %indvars.iv.next335, %211 ], [ 0, %205 ]
-  %209 = phi ptr [ %213, %211 ], [ @.str.27, %205 ]
+.preheader:                                       ; preds = %204, %211
+  %indvars.iv334 = phi i64 [ %indvars.iv.next335, %211 ], [ 0, %204 ]
+  %208 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %indvars.iv334
+  %209 = load ptr, ptr %208, align 16, !tbaa !63
   %210 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(1) %209) #12
   %.not165 = icmp eq i32 %210, 0
   br i1 %.not165, label %.critedge8, label %211
 
 211:                                              ; preds = %.preheader
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
-  %212 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %indvars.iv.next335
-  %213 = load ptr, ptr %212, align 16, !tbaa !63
-  %exitcond337 = icmp eq i64 %indvars.iv.next335, 4
-  br i1 %exitcond337, label %.critedge177, label %.preheader, !llvm.loop !67
+  %.not164 = icmp eq i64 %indvars.iv.next335, 4
+  br i1 %.not164, label %.critedge177, label %.preheader, !llvm.loop !67
 
 .critedge177:                                     ; preds = %211
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.25)
-  %214 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %218
+  %212 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  br label %216
 
 .critedge8:                                       ; preds = %.preheader
-  %215 = trunc nuw nsw i64 %indvars.iv334 to i32
-  store i32 %215, ptr %18, align 4, !tbaa !51
-  %216 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TIME_UNITS", ptr @_ZL10time_units, i64 %indvars.iv334, i32 3
-  %217 = load ptr, ptr %216, align 8, !tbaa !66
-  tail call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef %217)
-  br label %218
+  %213 = trunc nuw nsw i64 %indvars.iv334 to i32
+  store i32 %213, ptr %18, align 4, !tbaa !51
+  %214 = getelementptr inbounds nuw i8, ptr %208, i64 24
+  %215 = load ptr, ptr %214, align 8, !tbaa !66
+  tail call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef %215)
+  br label %216
 
-218:                                              ; preds = %185, %149, %110, %64, %205, %.critedge8, %.critedge177, %.critedge176, %191, %114, %4
-  %.0 = phi ptr [ %5, %4 ], [ %115, %114 ], [ %192, %191 ], [ %214, %.critedge177 ], [ %201, %.critedge176 ], [ %186, %185 ], [ %150, %149 ], [ %111, %110 ], [ %65, %64 ], [ %0, %.critedge8 ], [ %0, %205 ]
+216:                                              ; preds = %185, %149, %110, %64, %204, %.critedge8, %.critedge177, %.critedge176, %191, %114, %4
+  %.0 = phi ptr [ %5, %4 ], [ %115, %114 ], [ %192, %191 ], [ %212, %.critedge177 ], [ %200, %.critedge176 ], [ %186, %185 ], [ %150, %149 ], [ %111, %110 ], [ %65, %64 ], [ %0, %.critedge8 ], [ %0, %204 ]
   ret ptr %.0
 }
 

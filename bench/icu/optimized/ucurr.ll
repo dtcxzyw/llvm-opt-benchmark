@@ -7947,37 +7947,23 @@ define internal noundef i32 @_ZL23ucurr_countCurrencyListP12UEnumerationP10UErro
   %4 = load ptr, ptr %3, align 8, !tbaa !101
   %5 = load i32, ptr %4, align 4, !tbaa !98
   %6 = icmp eq i32 %5, 2147483647
-  br i1 %6, label %.split.us, label %.split
+  br i1 %6, label %.split14.us, label %.split
 
-.split.us:                                        ; preds = %2, %.split.us
-  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.split.us ], [ 0, %2 ]
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %7 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv.next18
-  %8 = load ptr, ptr %7, align 16, !tbaa !119
-  %.not.us = icmp eq ptr %8, null
-  br i1 %.not.us, label %.split14.us.loopexit, label %.split.us, !llvm.loop !121
-
-.split14.us.loopexit:                             ; preds = %.split.us
-  %indvars20 = trunc i64 %indvars.iv.next18 to i32
-  br label %.split14.us
-
-.split14.us:                                      ; preds = %.split, %.split14.us.loopexit
-  %.us-phi = phi i32 [ %indvars20, %.split14.us.loopexit ], [ %spec.select, %.split ]
+.split14.us:                                      ; preds = %.split, %2
+  %.us-phi = phi i32 [ 308, %2 ], [ %spec.select, %.split ]
   ret i32 %.us-phi
 
 .split:                                           ; preds = %2, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %2 ]
   %.0911 = phi i32 [ %spec.select, %.split ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv, i32 1
-  %10 = load i32, ptr %9, align 8, !tbaa !122
-  %11 = and i32 %10, %5
-  %12 = icmp eq i32 %11, %5
-  %13 = zext i1 %12 to i32
-  %spec.select = add nuw nsw i32 %.0911, %13
+  %7 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv, i32 1
+  %8 = load i32, ptr %7, align 8, !tbaa !119
+  %9 = and i32 %8, %5
+  %10 = icmp eq i32 %9, %5
+  %11 = zext i1 %10 to i32
+  %spec.select = add nuw nsw i32 %.0911, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv.next
-  %15 = load ptr, ptr %14, align 16, !tbaa !119
-  %.not = icmp eq ptr %15, null
+  %.not = icmp eq i64 %indvars.iv.next, 308
   br i1 %.not, label %.split14.us, label %.split, !llvm.loop !121
 }
 
@@ -8010,10 +7996,10 @@ define internal noundef ptr @_ZL22ucurr_nextCurrencyListP12UEnumerationPiP10UErr
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !122
+  %16 = load i32, ptr %15, align 8, !tbaa !119
   %17 = and i32 %16, %12
   %18 = icmp eq i32 %17, %12
-  br i1 %18, label %19, label %8, !llvm.loop !123
+  br i1 %18, label %19, label %8, !llvm.loop !122
 
 19:                                               ; preds = %14, %9
   %.not18 = icmp eq ptr %1, null
@@ -8024,7 +8010,7 @@ define internal noundef ptr @_ZL22ucurr_nextCurrencyListP12UEnumerationPiP10UErr
   br label %.thread
 
 .thread:                                          ; preds = %19, %20
-  %21 = load ptr, ptr %11, align 8, !tbaa !119
+  %21 = load ptr, ptr %11, align 8, !tbaa !123
   br label %24
 
 22:                                               ; preds = %8
@@ -8221,8 +8207,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !116 = !{!117, !117, i64 0}
 !117 = !{!"vtable pointer", !8, i64 0}
 !118 = distinct !{!118, !35}
-!119 = !{!120, !5, i64 0}
+!119 = !{!120, !9, i64 8}
 !120 = !{!"_ZTS12CurrencyList", !5, i64 0, !9, i64 8}
 !121 = distinct !{!121, !35}
-!122 = !{!120, !9, i64 8}
-!123 = distinct !{!123, !35}
+!122 = distinct !{!122, !35}
+!123 = !{!120, !5, i64 0}

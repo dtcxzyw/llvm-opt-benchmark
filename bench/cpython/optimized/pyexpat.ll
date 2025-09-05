@@ -6399,25 +6399,25 @@ define internal fastcc range(i32 -1, 1) i32 @add_errors_module(ptr noundef %0) u
 
 .preheader:                                       ; preds = %7, %55
   %.033 = phi i64 [ %56, %55 ], [ 0, %7 ]
-  %10 = getelementptr %struct.ErrorInfo, ptr @error_info_of, i64 %.033
-  %11 = load ptr, ptr %10, align 16, !tbaa !104
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %55, label %13
+  %10 = icmp eq i64 %.033, 0
+  br i1 %10, label %55, label %11
 
-13:                                               ; preds = %.preheader
+11:                                               ; preds = %.preheader
+  %12 = getelementptr %struct.ErrorInfo, ptr @error_info_of, i64 %.033
+  %13 = load ptr, ptr %12, align 16, !tbaa !104
   %14 = trunc nuw nsw i64 %.033 to i32
   %15 = tail call ptr @PyExpat_XML_ErrorString(i32 noundef %14) #8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %20
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !106
   br label %20
 
-20:                                               ; preds = %17, %13
-  %.023.i = phi ptr [ %19, %17 ], [ %15, %13 ]
-  %21 = tail call i32 @PyModule_AddStringConstant(ptr noundef nonnull %2, ptr noundef nonnull %11, ptr noundef %.023.i) #8
+20:                                               ; preds = %17, %11
+  %.023.i = phi ptr [ %19, %17 ], [ %15, %11 ]
+  %21 = tail call i32 @PyModule_AddStringConstant(ptr noundef nonnull %2, ptr noundef %13, ptr noundef %.023.i) #8
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %add_error.exit.thread, label %23
 

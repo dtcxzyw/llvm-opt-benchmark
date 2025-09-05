@@ -56,7 +56,7 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %or.cond3 = or i1 %19, %21
   %22 = icmp eq ptr %2, null
   %or.cond5 = or i1 %22, %or.cond3
-  br i1 %or.cond5, label %196, label %23
+  br i1 %or.cond5, label %194, label %23
 
 23:                                               ; preds = %5
   %24 = call ptr @TIFFClientOpen(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %9, ptr noundef nonnull @MyRead, ptr noundef nonnull @MyRead, ptr noundef nonnull @MySeek, ptr noundef nonnull @MyClose, ptr noundef nonnull @MySize, ptr noundef nonnull @MyMapFile, ptr noundef nonnull @MyUnmapFile) #10
@@ -66,7 +66,7 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @stderr, align 8, !tbaa !17
   %28 = call i64 @fwrite(ptr nonnull @.str.2, i64 30, i64 1, ptr %27) #11
-  br label %196
+  br label %194
 
 29:                                               ; preds = %23
   %30 = call zeroext i16 @TIFFNumberOfDirectories(ptr noundef nonnull %24) #10
@@ -88,11 +88,11 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 39:                                               ; preds = %37
   %40 = load ptr, ptr @stderr, align 8, !tbaa !17
   %41 = call i64 @fwrite(ptr nonnull @.str.4, i64 52, i64 1, ptr %40) #11
-  br label %195
+  br label %193
 
 42:                                               ; preds = %37
   %43 = load i16, ptr %14, align 2, !tbaa !13
-  switch i16 %43, label %195 [
+  switch i16 %43, label %193 [
     i16 4, label %44
     i16 3, label %44
     i16 1, label %44
@@ -111,7 +111,7 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 48:                                               ; preds = %46, %44
   %49 = load ptr, ptr @stderr, align 8, !tbaa !17
   %50 = call i64 @fwrite(ptr nonnull @.str.5, i64 46, i64 1, ptr %49) #11
-  br label %195
+  br label %193
 
 51:                                               ; preds = %46
   %52 = load i32, ptr %10, align 4, !tbaa !19
@@ -128,7 +128,7 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %60 = load i32, ptr %10, align 4, !tbaa !19
   %61 = load i32, ptr %11, align 4, !tbaa !19
   %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.6, i32 noundef %60, i32 noundef %61) #12
-  br label %195
+  br label %193
 
 63:                                               ; preds = %51
   %64 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %24, i32 noundef 322, ptr noundef nonnull %12) #10
@@ -179,7 +179,7 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %88 = load ptr, ptr @stderr, align 8, !tbaa !17
   %89 = load i32, ptr %13, align 4, !tbaa !19
   %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.7, i32 noundef %87, i32 noundef %89) #12
-  br label %195
+  br label %193
 
 91:                                               ; preds = %81, %65, %63
   %92 = load i16, ptr %14, align 2, !tbaa !13
@@ -194,14 +194,14 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 96:                                               ; preds = %94
   %97 = load ptr, ptr @stderr, align 8, !tbaa !17
   %98 = call i64 @fwrite(ptr nonnull @.str.8, i64 47, i64 1, ptr %97) #11
-  br label %195
+  br label %193
 
 99:                                               ; preds = %94, %91
   %100 = load i32, ptr %11, align 4, !tbaa !19
   %101 = zext i32 %100 to i64
   %102 = mul i64 %54, %101
   %103 = icmp slt i64 %102, 0
-  br i1 %103, label %195, label %104
+  br i1 %103, label %193, label %104
 
 104:                                              ; preds = %99
   %105 = call ptr @_TIFFmalloc(i64 noundef %102) #10
@@ -325,7 +325,7 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
 .thread:                                          ; preds = %104
   %167 = load ptr, ptr @stderr, align 8, !tbaa !17
   %168 = call i64 @fwrite(ptr nonnull @.str.9, i64 35, i64 1, ptr %167) #11
-  br label %195
+  br label %193
 
 169:                                              ; preds = %106, %165, %163
   %.1 = phi i32 [ 0, %106 ], [ %164, %163 ], [ %166, %165 ]
@@ -333,72 +333,70 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
   %170 = icmp ne i32 %.1, 0
   %171 = icmp ne ptr %4, null
   %or.cond15 = and i1 %171, %170
-  br i1 %or.cond15, label %172, label %195
+  br i1 %or.cond15, label %172, label %193
 
 172:                                              ; preds = %169
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %173
 
 173:                                              ; preds = %.critedge.i, %172
-  %exitcond.i = phi i1 [ false, %172 ], [ true, %.critedge.i ]
-  %indvars.iv.i = phi i64 [ 1, %172 ], [ 2, %.critedge.i ]
-  %174 = phi i32 [ 34675, %172 ], [ %186, %.critedge.i ]
-  %175 = phi ptr [ @kTIFFMetadataMap, %172 ], [ %185, %.critedge.i ]
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = load i64, ptr %176, align 8, !tbaa !31
+  %.not.i = phi i1 [ false, %172 ], [ true, %.critedge.i ]
+  %indvars.iv.i = phi i64 [ 0, %172 ], [ 1, %.critedge.i ]
+  %174 = getelementptr inbounds nuw %struct.anon, ptr @kTIFFMetadataMap, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %176 = load i64, ptr %175, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %178 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %24, i32 noundef %174, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
+  %177 = load i32, ptr %174, align 16, !tbaa !33
+  %178 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %24, i32 noundef %177, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
   %.not12.i = icmp eq i32 %178, 0
   br i1 %.not12.i, label %.critedge.i, label %179
 
 179:                                              ; preds = %173
-  %180 = getelementptr inbounds nuw i8, ptr %4, i64 %177
-  %181 = load ptr, ptr %7, align 8, !tbaa !33
+  %180 = getelementptr inbounds nuw i8, ptr %4, i64 %176
+  %181 = load ptr, ptr %7, align 8, !tbaa !34
   %182 = load i32, ptr %8, align 4, !tbaa !19
   %183 = zext i32 %182 to i64
   %184 = call i32 @MetadataCopy(ptr noundef %181, i64 noundef %183, ptr noundef nonnull %180) #10
   %.not13.i = icmp eq i32 %184, 0
-  br i1 %.not13.i, label %192, label %.critedge.i
+  br i1 %.not13.i, label %190, label %.critedge.i
 
 .critedge.i:                                      ; preds = %179, %173
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %185 = getelementptr inbounds nuw %struct.anon, ptr @kTIFFMetadataMap, i64 %indvars.iv.i
-  %186 = load i32, ptr %185, align 16, !tbaa !34
-  br i1 %exitcond.i, label %187, label %173, !llvm.loop !35
+  br i1 %.not.i, label %185, label %173, !llvm.loop !35
 
-187:                                              ; preds = %.critedge.i
-  %188 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %24, i32 noundef 34665, ptr noundef nonnull %6) #10
-  %.not11.i = icmp eq i32 %188, 0
-  br i1 %.not11.i, label %ExtractMetadataFromTIFF.exit.thread, label %189
+185:                                              ; preds = %.critedge.i
+  %186 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %24, i32 noundef 34665, ptr noundef nonnull %6) #10
+  %.not11.i = icmp eq i32 %186, 0
+  br i1 %.not11.i, label %ExtractMetadataFromTIFF.exit.thread, label %187
 
-189:                                              ; preds = %187
-  %190 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %191 = call i64 @fwrite(ptr nonnull @.str.11, i64 51, i64 1, ptr %190) #11
+187:                                              ; preds = %185
+  %188 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %189 = call i64 @fwrite(ptr nonnull @.str.11, i64 51, i64 1, ptr %188) #11
   br label %ExtractMetadataFromTIFF.exit.thread
 
-ExtractMetadataFromTIFF.exit.thread:              ; preds = %189, %187
+ExtractMetadataFromTIFF.exit.thread:              ; preds = %187, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %195
+  br label %193
 
-192:                                              ; preds = %179
+190:                                              ; preds = %179
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %193 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %194 = call i64 @fwrite(ptr nonnull @.str.10, i64 32, i64 1, ptr %193) #11
+  %191 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %192 = call i64 @fwrite(ptr nonnull @.str.10, i64 32, i64 1, ptr %191) #11
   call void @MetadataFree(ptr noundef nonnull %4) #10
   call void @WebPPictureFree(ptr noundef %2) #10
-  br label %195
+  br label %193
 
-195:                                              ; preds = %ExtractMetadataFromTIFF.exit.thread, %.thread, %42, %169, %192, %99, %96, %86, %58, %48, %39
-  %.067 = phi i32 [ 0, %86 ], [ 0, %99 ], [ 0, %192 ], [ %.1, %169 ], [ 0, %96 ], [ 0, %58 ], [ 0, %48 ], [ 0, %42 ], [ 0, %39 ], [ 0, %.thread ], [ 1, %ExtractMetadataFromTIFF.exit.thread ]
+193:                                              ; preds = %ExtractMetadataFromTIFF.exit.thread, %.thread, %42, %169, %190, %99, %96, %86, %58, %48, %39
+  %.067 = phi i32 [ 0, %86 ], [ 0, %99 ], [ 0, %190 ], [ %.1, %169 ], [ 0, %96 ], [ 0, %58 ], [ 0, %48 ], [ 0, %42 ], [ 0, %39 ], [ 0, %.thread ], [ 1, %ExtractMetadataFromTIFF.exit.thread ]
   call void @TIFFClose(ptr noundef nonnull %24) #10
-  br label %196
+  br label %194
 
-196:                                              ; preds = %5, %195, %26
-  %.066 = phi i32 [ 0, %26 ], [ %.067, %195 ], [ 0, %5 ]
+194:                                              ; preds = %5, %193, %26
+  %.066 = phi i32 [ 0, %26 ], [ %.067, %193 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -584,7 +582,7 @@ attributes #12 = { cold nounwind }
 !30 = !{!"llvm.loop.unswitch.partial.disable"}
 !31 = !{!32, !10, i64 8}
 !32 = !{!"", !20, i64 0, !10, i64 8}
-!33 = !{!7, !7, i64 0}
-!34 = !{!32, !20, i64 0}
+!33 = !{!32, !20, i64 0}
+!34 = !{!7, !7, i64 0}
 !35 = distinct !{!35, !28}
 !36 = !{!10, !10, i64 0}

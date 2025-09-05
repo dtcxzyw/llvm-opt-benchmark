@@ -6679,92 +6679,82 @@ define void @_ZN10actix_http8encoding7encoder11update_head17h80c12d70c4b0582fE(i
   %12 = load i8, ptr %11, align 1, !alias.scope !1015, !noalias !1018, !noundef !21
   %13 = add i8 %12, -32
   %or.cond.i.i = icmp ult i8 %13, 95
-  %14 = icmp eq i8 %12, 9
-  %.0.i.i = or i1 %14, %or.cond.i.i
-  br i1 %.0.i.i, label %9, label %.noexc
+  br i1 %or.cond.i.i, label %9, label %.noexc
 
 .noexc:                                           ; preds = %.preheader
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8f37cc3906fcce93576d9d7b4606f951.88) #35
   unreachable
 
-15:                                               ; preds = %.preheader17
+14:                                               ; preds = %.preheader17
   br i1 %exitcond.not.i4.i, label %.loopexit, label %.preheader17
 
-.preheader17:                                     ; preds = %2, %15
-  %exitcond.not.i4.i = phi i1 [ true, %15 ], [ false, %2 ]
-  %.0911.i1.i = phi i64 [ 1, %15 ], [ 0, %2 ]
-  %16 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.176, i64 %.0911.i1.i
-  %17 = load i8, ptr %16, align 1, !alias.scope !1020, !noalias !1023, !noundef !21
-  %18 = add i8 %17, -32
-  %or.cond.i2.i = icmp ult i8 %18, 95
-  %19 = icmp eq i8 %17, 9
-  %.0.i3.i = or i1 %19, %or.cond.i2.i
-  br i1 %.0.i3.i, label %15, label %.noexc4
+.preheader17:                                     ; preds = %2, %14
+  %exitcond.not.i4.i = phi i1 [ true, %14 ], [ false, %2 ]
+  %.0911.i1.i = phi i64 [ 1, %14 ], [ 0, %2 ]
+  %15 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.176, i64 %.0911.i1.i
+  %16 = load i8, ptr %15, align 1, !alias.scope !1020, !noalias !1023, !noundef !21
+  %17 = add i8 %16, -32
+  %or.cond.i2.i = icmp ult i8 %17, 95
+  br i1 %or.cond.i2.i, label %14, label %.noexc4
 
 .noexc4:                                          ; preds = %.preheader17
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8f37cc3906fcce93576d9d7b4606f951.88) #35
   unreachable
 
-20:                                               ; preds = %.preheader19
-  %21 = add nuw nsw i64 %.0911.i9.i, 1
-  %exitcond.not.i12.i = icmp eq i64 %21, 7
+18:                                               ; preds = %.preheader19
+  %19 = add nuw nsw i64 %.0911.i9.i, 1
+  %exitcond.not.i12.i = icmp eq i64 %19, 7
   br i1 %exitcond.not.i12.i, label %.loopexit, label %.preheader19
 
-.preheader19:                                     ; preds = %2, %20
-  %.0911.i9.i = phi i64 [ %21, %20 ], [ 0, %2 ]
-  %22 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.177, i64 %.0911.i9.i
-  %23 = load i8, ptr %22, align 1, !alias.scope !1025, !noalias !1028, !noundef !21
-  %24 = add i8 %23, -32
-  %or.cond.i10.i = icmp ult i8 %24, 95
-  %25 = icmp eq i8 %23, 9
-  %.0.i11.i = or i1 %25, %or.cond.i10.i
-  br i1 %.0.i11.i, label %20, label %.noexc5
+.preheader19:                                     ; preds = %2, %18
+  %.0911.i9.i = phi i64 [ %19, %18 ], [ 0, %2 ]
+  %20 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.177, i64 %.0911.i9.i
+  %21 = load i8, ptr %20, align 1, !alias.scope !1025, !noalias !1028, !noundef !21
+  %22 = add i8 %21, -32
+  %or.cond.i10.i = icmp ult i8 %22, 95
+  br i1 %or.cond.i10.i, label %18, label %.noexc5
 
 .noexc5:                                          ; preds = %.preheader19
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8f37cc3906fcce93576d9d7b4606f951.88) #35
   unreachable
 
-26:                                               ; preds = %.preheader21
-  %27 = add nuw nsw i64 %.0911.i17.i, 1
-  %exitcond.not.i20.i = icmp eq i64 %27, 4
+23:                                               ; preds = %.preheader21
+  %24 = add nuw nsw i64 %.0911.i17.i, 1
+  %exitcond.not.i20.i = icmp eq i64 %24, 4
   br i1 %exitcond.not.i20.i, label %.loopexit, label %.preheader21
 
-.preheader21:                                     ; preds = %2, %26
-  %.0911.i17.i = phi i64 [ %27, %26 ], [ 0, %2 ]
-  %28 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.178, i64 %.0911.i17.i
-  %29 = load i8, ptr %28, align 1, !alias.scope !1030, !noalias !1033, !noundef !21
-  %30 = add i8 %29, -32
-  %or.cond.i18.i = icmp ult i8 %30, 95
-  %31 = icmp eq i8 %29, 9
-  %.0.i19.i = or i1 %31, %or.cond.i18.i
-  br i1 %.0.i19.i, label %26, label %.noexc6
+.preheader21:                                     ; preds = %2, %23
+  %.0911.i17.i = phi i64 [ %24, %23 ], [ 0, %2 ]
+  %25 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.178, i64 %.0911.i17.i
+  %26 = load i8, ptr %25, align 1, !alias.scope !1030, !noalias !1033, !noundef !21
+  %27 = add i8 %26, -32
+  %or.cond.i18.i = icmp ult i8 %27, 95
+  br i1 %or.cond.i18.i, label %23, label %.noexc6
 
 .noexc6:                                          ; preds = %.preheader21
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8f37cc3906fcce93576d9d7b4606f951.88) #35
   unreachable
 
-32:                                               ; preds = %.preheader23
-  %33 = add nuw nsw i64 %.0911.i25.i, 1
-  %exitcond.not.i28.i = icmp eq i64 %33, 4
+28:                                               ; preds = %.preheader23
+  %29 = add nuw nsw i64 %.0911.i25.i, 1
+  %exitcond.not.i28.i = icmp eq i64 %29, 4
   br i1 %exitcond.not.i28.i, label %.loopexit, label %.preheader23
 
-.preheader23:                                     ; preds = %2, %32
-  %.0911.i25.i = phi i64 [ %33, %32 ], [ 0, %2 ]
-  %34 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.179, i64 %.0911.i25.i
-  %35 = load i8, ptr %34, align 1, !alias.scope !1035, !noalias !1038, !noundef !21
-  %36 = add i8 %35, -32
-  %or.cond.i26.i = icmp ult i8 %36, 95
-  %37 = icmp eq i8 %35, 9
-  %.0.i27.i = or i1 %37, %or.cond.i26.i
-  br i1 %.0.i27.i, label %32, label %.noexc7
+.preheader23:                                     ; preds = %2, %28
+  %.0911.i25.i = phi i64 [ %29, %28 ], [ 0, %2 ]
+  %30 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.179, i64 %.0911.i25.i
+  %31 = load i8, ptr %30, align 1, !alias.scope !1035, !noalias !1038, !noundef !21
+  %32 = add i8 %31, -32
+  %or.cond.i26.i = icmp ult i8 %32, 95
+  br i1 %or.cond.i26.i, label %28, label %.noexc7
 
 .noexc7:                                          ; preds = %.preheader23
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8f37cc3906fcce93576d9d7b4606f951.88) #35
   unreachable
 
-.loopexit:                                        ; preds = %32, %26, %20, %15, %9
-  %anon.8f37cc3906fcce93576d9d7b4606f951.179.sink.i = phi ptr [ @anon.8f37cc3906fcce93576d9d7b4606f951.175, %9 ], [ @anon.8f37cc3906fcce93576d9d7b4606f951.176, %15 ], [ @anon.8f37cc3906fcce93576d9d7b4606f951.177, %20 ], [ @anon.8f37cc3906fcce93576d9d7b4606f951.178, %26 ], [ @anon.8f37cc3906fcce93576d9d7b4606f951.179, %32 ]
-  %.sink.i = phi i64 [ 8, %9 ], [ 2, %15 ], [ 7, %20 ], [ 4, %26 ], [ 4, %32 ]
+.loopexit:                                        ; preds = %28, %23, %18, %14, %9
+  %anon.8f37cc3906fcce93576d9d7b4606f951.179.sink.i = phi ptr [ @anon.8f37cc3906fcce93576d9d7b4606f951.175, %9 ], [ @anon.8f37cc3906fcce93576d9d7b4606f951.176, %14 ], [ @anon.8f37cc3906fcce93576d9d7b4606f951.177, %18 ], [ @anon.8f37cc3906fcce93576d9d7b4606f951.178, %23 ], [ @anon.8f37cc3906fcce93576d9d7b4606f951.179, %28 ]
+  %.sink.i = phi i64 [ 8, %9 ], [ 2, %14 ], [ 7, %18 ], [ 4, %23 ], [ 4, %28 ]
   store ptr @anon.8f37cc3906fcce93576d9d7b4606f951.85, ptr %5, align 8, !alias.scope !1012, !noalias !21
   %.sroa.4.0..sroa_idx.i29.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %anon.8f37cc3906fcce93576d9d7b4606f951.179.sink.i, ptr %.sroa.4.0..sroa_idx.i29.i, align 8, !alias.scope !1012, !noalias !21
@@ -6772,8 +6762,8 @@ define void @_ZN10actix_http8encoding7encoder11update_head17h80c12d70c4b0582fE(i
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i30.i, align 8, !alias.scope !1012, !noalias !21
   %.sroa.6.0..sroa_idx.i31.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %.sroa.6.0..sroa_idx.i31.i, align 8, !alias.scope !1012, !noalias !21
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 0, ptr %38, align 8, !alias.scope !1012, !noalias !21
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 0, ptr %33, align 8, !alias.scope !1012, !noalias !21
   call void @_ZN10actix_http6header3map9HeaderMap6insert17h2b0590807be57f54E(ptr noalias noundef nonnull sret({ { i64, [23 x i64] } }) align 8 captures(none) dereferenceable(192) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6784,28 +6774,26 @@ define void @_ZN10actix_http8encoding7encoder11update_head17h80c12d70c4b0582fE(i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !1040)
   call void @llvm.experimental.noalias.scope.decl(metadata !1043)
-  br label %41
+  br label %36
 
-39:                                               ; preds = %41
-  %40 = add nuw nsw i64 %.0911.i, 1
-  %exitcond.not.i = icmp eq i64 %40, 15
-  br i1 %exitcond.not.i, label %46, label %41
+34:                                               ; preds = %36
+  %35 = add nuw nsw i64 %.0911.i, 1
+  %exitcond.not.i = icmp eq i64 %35, 15
+  br i1 %exitcond.not.i, label %40, label %36
 
-41:                                               ; preds = %39, %.loopexit
-  %.0911.i = phi i64 [ 0, %.loopexit ], [ %40, %39 ]
-  %42 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.121, i64 %.0911.i
-  %43 = load i8, ptr %42, align 1, !alias.scope !1043, !noalias !1040, !noundef !21
-  %44 = add i8 %43, -32
-  %or.cond.i = icmp ult i8 %44, 95
-  %45 = icmp eq i8 %43, 9
-  %.0.i = or i1 %45, %or.cond.i
-  br i1 %.0.i, label %39, label %.noexc8
+36:                                               ; preds = %34, %.loopexit
+  %.0911.i = phi i64 [ 0, %.loopexit ], [ %35, %34 ]
+  %37 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.121, i64 %.0911.i
+  %38 = load i8, ptr %37, align 1, !alias.scope !1043, !noalias !1040, !noundef !21
+  %39 = add i8 %38, -32
+  %or.cond.i = icmp ult i8 %39, 95
+  br i1 %or.cond.i, label %34, label %.noexc8
 
-.noexc8:                                          ; preds = %41
+.noexc8:                                          ; preds = %36
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8f37cc3906fcce93576d9d7b4606f951.88) #35
   unreachable
 
-46:                                               ; preds = %39
+40:                                               ; preds = %34
   store ptr @anon.8f37cc3906fcce93576d9d7b4606f951.85, ptr %3, align 8, !alias.scope !1040, !noalias !1043
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.8f37cc3906fcce93576d9d7b4606f951.121, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1040, !noalias !1043
@@ -6813,15 +6801,15 @@ define void @_ZN10actix_http8encoding7encoder11update_head17h80c12d70c4b0582fE(i
   store i64 15, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1040, !noalias !1043
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1040, !noalias !1043
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 0, ptr %47, align 8, !alias.scope !1040, !noalias !1043
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 0, ptr %41, align 8, !alias.scope !1040, !noalias !1043
   call void @_ZN10actix_http6header3map9HeaderMap6append17heeb61e8216d45b51E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 82
-  %49 = load i8, ptr %48, align 2, !alias.scope !1045, !noundef !21
-  %50 = and i8 %49, -17
-  store i8 %50, ptr %48, align 2, !alias.scope !1045
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 82
+  %43 = load i8, ptr %42, align 2, !alias.scope !1045, !noundef !21
+  %44 = and i8 %43, -17
+  store i8 %44, ptr %42, align 2, !alias.scope !1045
   ret void
 }
 

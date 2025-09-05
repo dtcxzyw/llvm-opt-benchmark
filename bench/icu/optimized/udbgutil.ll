@@ -1375,30 +1375,26 @@ udbg_getSystemParameterNameByIndex.exit:          ; preds = %1, %18
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %18 ]
   %5 = getelementptr inbounds nuw %struct.USystemParams, ptr @_ZL12systemParams, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 16, !tbaa !26
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %udbg_getSystemParameterNameByIndex.exit.thread, label %udbg_getSystemParameterValueByIndex.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  store i32 0, ptr %3, align 4, !tbaa !13
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %9 = call noundef i32 %8(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef 2000, ptr noundef nonnull %3)
+  %10 = load i32, ptr %3, align 4, !tbaa !13
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %15, label %13
 
-udbg_getSystemParameterNameByIndex.exit.thread:   ; preds = %18, %udbg_getSystemParameterNameByIndex.exit
-  %7 = call i64 @fwrite(ptr nonnull @.str.4, i64 20, i64 1, ptr %0)
+udbg_getSystemParameterNameByIndex.exit.thread:   ; preds = %18
+  %12 = call i64 @fwrite(ptr nonnull @.str.4, i64 20, i64 1, ptr %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-udbg_getSystemParameterValueByIndex.exit:         ; preds = %udbg_getSystemParameterNameByIndex.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 0, ptr %3, align 4, !tbaa !13
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
-  %10 = call noundef i32 %9(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef 2000, ptr noundef nonnull %3)
-  %11 = load i32, ptr %3, align 4, !tbaa !13
-  %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %15, label %13
-
-13:                                               ; preds = %udbg_getSystemParameterValueByIndex.exit
+13:                                               ; preds = %udbg_getSystemParameterNameByIndex.exit
   %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %6, ptr noundef nonnull %2) #26
   br label %18
 
-15:                                               ; preds = %udbg_getSystemParameterValueByIndex.exit
-  %16 = call ptr @u_errorName_77(i32 noundef %11)
+15:                                               ; preds = %udbg_getSystemParameterNameByIndex.exit
+  %16 = call ptr @u_errorName_77(i32 noundef %10)
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %6, ptr noundef %16) #26
   br label %18
 

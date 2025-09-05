@@ -2015,8 +2015,8 @@ define dso_local void @RM_KeyAtPosWithFlags(ptr noundef readonly captures(none) 
 35:                                               ; preds = %31, %27
   %.1.i = phi i64 [ %34, %31 ], [ %.01113.i, %27 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %27, !llvm.loop !152
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %.not.i, label %moduleConvertKeySpecsFlags.exit, label %27, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %35
   %36 = trunc i64 %.1.i to i32
@@ -2052,15 +2052,15 @@ define dso_local void @RM_KeyAtPos(ptr noundef readonly captures(none) %0, i32 n
 11:                                               ; preds = %8, %3
   %.1.i = phi i64 [ %10, %8 ], [ %.01113.i, %3 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %3, !llvm.loop !152
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %.not.i, label %moduleConvertKeySpecsFlags.exit, label %3, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8, !tbaa !87
   %14 = and i32 %13, 2
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %RM_KeyAtPosWithFlags.exit, label %15
+  %.not.i2 = icmp eq i32 %14, 0
+  br i1 %.not.i2, label %RM_KeyAtPosWithFlags.exit, label %15
 
 15:                                               ; preds = %moduleConvertKeySpecsFlags.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2113,8 +2113,8 @@ moduleConvertKeySpecsFlags.exit:                  ; preds = %11
 43:                                               ; preds = %39, %35
   %.1.i.i = phi i64 [ %42, %39 ], [ %.01113.i.i, %35 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %exitcond.i.i, label %moduleConvertKeySpecsFlags.exit.i, label %35, !llvm.loop !152
+  %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 11
+  br i1 %.not.i.i, label %moduleConvertKeySpecsFlags.exit.i, label %35, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit.i:                ; preds = %43
   %44 = trunc i64 %.1.i.i to i32
@@ -3600,8 +3600,8 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
 239:                                              ; preds = %235, %231
   %.1.i = phi i64 [ %238, %235 ], [ %.01113.i, %231 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i180 = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i180, label %moduleConvertKeySpecsFlags.exit, label %231, !llvm.loop !152
+  %.not.i180 = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %.not.i180, label %moduleConvertKeySpecsFlags.exit, label %231, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %239
   %240 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 1
@@ -20366,8 +20366,8 @@ define dso_local range(i32 0, 2) i32 @RM_ACLCheckKeyPermissions(ptr noundef read
 15:                                               ; preds = %12, %7
   %.1.i = phi i64 [ %14, %12 ], [ %.01113.i, %7 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %7, !llvm.loop !152
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %.not.i, label %moduleConvertKeySpecsFlags.exit, label %7, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %15
   %16 = trunc i64 %.1.i to i32
@@ -20462,8 +20462,8 @@ define dso_local range(i32 0, 2) i32 @RM_ACLCheckKeyPrefixPermissions(ptr nounde
 15:                                               ; preds = %12, %7
   %.1.i = phi i64 [ %14, %12 ], [ %.01113.i, %7 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %7, !llvm.loop !152
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %.not.i, label %moduleConvertKeySpecsFlags.exit, label %7, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %15
   %16 = trunc i64 %.1.i to i32
@@ -29897,8 +29897,8 @@ define dso_local noalias ptr @RM_GetCommandKeysWithFlags(ptr readnone captures(n
 63:                                               ; preds = %60, %55
   %.1.i = phi i64 [ %62, %60 ], [ %.01113.i, %55 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %55, !llvm.loop !152
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %.not.i, label %moduleConvertKeySpecsFlags.exit, label %55, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %63
   %64 = trunc i64 %.1.i to i32

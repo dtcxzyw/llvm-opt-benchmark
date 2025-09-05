@@ -1220,7 +1220,7 @@ createEmptyEventPipe.exit:                        ; preds = %251
 350:                                              ; preds = %349, %344, %301, %299
   %.pr.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142064), align 8, !tbaa !262
   %.not21.i10 = icmp eq i32 %.pr.i, 0
-  br i1 %.not21.i10, label %.thread97.i, label %351
+  br i1 %.not21.i10, label %.thread96.i, label %351
 
 351:                                              ; preds = %350, %.thread.i
   %352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142184), align 8, !tbaa !254
@@ -1263,22 +1263,22 @@ createEmptyEventPipe.exit:                        ; preds = %251
   %372 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142100), align 4
   %373 = icmp ne i32 %372, 0
   %or.cond3.i = select i1 %371, i1 true, i1 %373
-  br i1 %or.cond3.i, label %.thread97.i, label %374
+  br i1 %or.cond3.i, label %.thread96.i, label %374
 
 374:                                              ; preds = %369
   %375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142208), align 8, !tbaa !257
   %376 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %377 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
   call void %375(ptr noundef %376, i64 noundef %377, i32 noundef 4) #13
-  br label %.thread97.i
+  br label %.thread96.i
 
-.thread97.i:                                      ; preds = %374, %369, %350
+.thread96.i:                                      ; preds = %374, %369, %350
   %378 = call ptr @_glfwPlatformLoadModule(ptr noundef nonnull @.str.144) #13
   store ptr %378, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142392), align 8, !tbaa !100
   %.not25.i = icmp eq ptr %378, null
   br i1 %.not25.i, label %391, label %379
 
-379:                                              ; preds = %.thread97.i
+379:                                              ; preds = %.thread96.i
   %380 = call ptr @_glfwPlatformGetModuleSymbol(ptr noundef nonnull %378, ptr noundef nonnull @.str.145) #13
   store ptr %380, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142400), align 8, !tbaa !101
   %381 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142392), align 8, !tbaa !100
@@ -1298,7 +1298,7 @@ createEmptyEventPipe.exit:                        ; preds = %251
   store ptr %390, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142440), align 8, !tbaa !273
   br label %391
 
-391:                                              ; preds = %379, %.thread97.i
+391:                                              ; preds = %379, %.thread96.i
   %392 = call ptr @_glfwPlatformLoadModule(ptr noundef nonnull @.str.151) #13
   store ptr %392, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142456), align 8, !tbaa !274
   %.not26.i = icmp eq ptr %392, null
@@ -1579,10 +1579,9 @@ thread-pre-split40.i:                             ; preds = %431
 
 .loopexit51.i.i:                                  ; preds = %516
   %522 = load i32, ptr %517, align 16, !tbaa !317
-  %.not4855.i.i = icmp eq i32 %522, -1
-  br i1 %.not4855.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %515, %.loopexit51.i.i
+.lr.ph.i.i:                                       ; preds = %515
   %523 = load ptr, ptr %494, align 8, !tbaa !319
   br label %524
 

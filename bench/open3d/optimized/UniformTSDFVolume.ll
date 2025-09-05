@@ -2052,11 +2052,13 @@ _ZNSt13unordered_mapIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEiN6open3d7utility10ha
 
 .preheader:                                       ; preds = %468
   %119 = getelementptr inbounds nuw [16 x i32], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 %109
-  %120 = load i32, ptr %119, align 16, !tbaa !53
-  %.not296 = icmp eq i32 %120, -1
-  br i1 %.not296, label %.thread254, label %.lr.ph
+  switch i32 %.347, label %.lr.ph [
+    i32 255, label %.thread254
+    i32 0, label %.thread254
+  ]
 
 .lr.ph:                                           ; preds = %.preheader
+  %120 = load i32, ptr %119, align 16, !tbaa !53
   %121 = load ptr, ptr %0, align 8, !tbaa !144
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 120
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 128
@@ -2981,7 +2983,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit:
           cleanup
   br label %517
 
-.thread254:                                       ; preds = %64, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit, %.preheader, %108, %108
+.thread254:                                       ; preds = %64, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit, %.preheader, %.preheader, %108, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %513 = add nuw nsw i32 %storemerge63298, 1

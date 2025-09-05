@@ -276,7 +276,7 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
   %108 = zext nneg i16 %105 to i64
   %109 = getelementptr inbounds nuw %struct.u_scanf_info, ptr @_ZL15g_u_scanf_infos, i64 %108
   %110 = load i32, ptr %109, align 16, !tbaa !26
-  %.not36 = icmp eq i32 %110, 2
+  %.not36 = icmp eq i16 %105, 78
   br i1 %.not36, label %113, label %111
 
 111:                                              ; preds = %107

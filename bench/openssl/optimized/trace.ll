@@ -33,24 +33,20 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define ptr @OSSL_trace_get_category_name(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i32 %0, 20
-  br i1 %2, label %11, label %3
+  br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
   %5 = getelementptr inbounds nuw %struct.trace_category_st, ptr @trace_categories, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !3
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %11, label %7, !prof !10
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !10
+  %9 = icmp eq i32 %8, %0
+  %spec.select = select i1 %9, ptr %6, ptr null, !prof !11
+  br label %10
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !11
-  %10 = icmp eq i32 %9, %0
-  %spec.select = select i1 %10, ptr %6, ptr null, !prof !12
-  br label %11
-
-11:                                               ; preds = %7, %3, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %spec.select, %7 ]
+10:                                               ; preds = %3, %1
+  %.0 = phi ptr [ null, %1 ], [ %spec.select, %3 ]
   ret ptr %.0
 }
 
@@ -62,7 +58,7 @@ define i32 @OSSL_trace_get_category_num(ptr noundef %0) local_unnamed_addr #1 {
 3:                                                ; preds = %.preheader
   %4 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %4, 21
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %1, %3
   %.08 = phi i64 [ %4, %3 ], [ 0, %1 ]
@@ -74,7 +70,7 @@ define i32 @OSSL_trace_get_category_num(ptr noundef %0) local_unnamed_addr #1 {
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !11
+  %11 = load i32, ptr %10, align 8, !tbaa !10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %1, %9
@@ -154,7 +150,7 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %.12227 = phi ptr [ %3, %.lr.ph.preheader ], [ %20, %17 ]
-  %13 = load i8, ptr %.12227, align 1, !tbaa !15
+  %13 = load i8, ptr %.12227, align 1, !tbaa !14
   %.not25 = icmp eq i8 %13, 10
   br i1 %.not25, label %17, label %14
 
@@ -165,17 +161,17 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br i1 %.not26, label %._crit_edge30, label %17
 
 ._crit_edge30:                                    ; preds = %14
-  %.pre = load i8, ptr %.12227, align 1, !tbaa !15
+  %.pre = load i8, ptr %.12227, align 1, !tbaa !14
   br label %17
 
 17:                                               ; preds = %.lr.ph, %._crit_edge30, %14
   %18 = phi i8 [ 32, %14 ], [ %.pre, %._crit_edge30 ], [ 10, %.lr.ph ]
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
-  store i8 %18, ptr %19, align 1, !tbaa !15
+  store i8 %18, ptr %19, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw i8, ptr %.12227, i64 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.preheader
   %21 = icmp eq i32 %10, 0
@@ -185,7 +181,7 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %.122.lcssa42 = phi ptr [ %3, %._crit_edge ], [ %20, %17 ]
   %.020343640 = phi i32 [ %10, %._crit_edge ], [ %.0203437, %17 ]
   %22 = getelementptr inbounds i8, ptr %.122.lcssa42, i64 -1
-  %23 = load i8, ptr %22, align 1, !tbaa !15
+  %23 = load i8, ptr %22, align 1, !tbaa !14
   %.not24 = icmp eq i8 %23, 10
   br i1 %.not24, label %28, label %24
 
@@ -194,7 +190,7 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %25 = add nsw i32 %.020343641, 1
   %26 = sext i32 %.020343641 to i64
   %27 = getelementptr inbounds i8, ptr %6, i64 %26
-  store i8 10, ptr %27, align 1, !tbaa !15
+  store i8 10, ptr %27, align 1, !tbaa !14
   br label %28
 
 28:                                               ; preds = %.thread, %._crit_edge.thread, %24, %9
@@ -233,10 +229,9 @@ attributes #4 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = !{!4, !9, i64 8}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!7, !7, i64 0}
-!16 = distinct !{!16, !14}
+!10 = !{!4, !9, i64 8}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!7, !7, i64 0}
+!15 = distinct !{!15, !13}

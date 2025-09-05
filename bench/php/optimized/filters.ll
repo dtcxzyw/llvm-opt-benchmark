@@ -51,28 +51,27 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @zm_startup_standard_filters(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  br label %6
+  br label %4
 
-3:                                                ; preds = %6
+3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv.next
-  %5 = load ptr, ptr %4, align 16, !tbaa !4
-  %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %14, label %6
+  %.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %.not, label %13, label %4
 
-6:                                                ; preds = %2, %3
+4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %7 = phi ptr [ @strfilter_rot13_ops, %2 ], [ %5, %3 ]
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv, i32 1
-  %11 = load ptr, ptr %10, align 8, !tbaa !14
-  %12 = tail call i32 @php_stream_filter_register_factory(ptr noundef %9, ptr noundef %11) #18
-  %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %3
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv
+  %6 = load ptr, ptr %5, align 16, !tbaa !4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load ptr, ptr %7, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
+  %11 = tail call i32 @php_stream_filter_register_factory(ptr noundef %8, ptr noundef %10) #18
+  %12 = icmp eq i32 %11, -1
+  br i1 %12, label %13, label %3
 
-14:                                               ; preds = %3, %6
-  %.05 = phi i32 [ -1, %6 ], [ 0, %3 ]
+13:                                               ; preds = %3, %4
+  %.05 = phi i32 [ -1, %4 ], [ 0, %3 ]
   ret i32 %.05
 }
 
@@ -84,17 +83,16 @@ define hidden noundef i32 @zm_shutdown_standard_filters(i32 noundef %0, i32 noun
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = phi ptr [ @strfilter_rot13_ops, %2 ], [ %9, %3 ]
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !11
-  %7 = tail call i32 @php_stream_filter_unregister_factory(ptr noundef %6) #18
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv
+  %5 = load ptr, ptr %4, align 16, !tbaa !4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
+  %8 = tail call i32 @php_stream_filter_unregister_factory(ptr noundef %7) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv.next
-  %9 = load ptr, ptr %8, align 16, !tbaa !4
-  %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %10, label %3
+  %.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %.not, label %9, label %3
 
-10:                                               ; preds = %3
+9:                                                ; preds = %3
   ret i32 0
 }
 

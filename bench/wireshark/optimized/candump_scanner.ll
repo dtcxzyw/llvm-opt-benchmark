@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [44 x i8] c"out of dynamic memory in yy_create_buffer()\00", align 1
 @.str.3 = private unnamed_addr constant [35 x i8] c"yyset_lineno called with no buffer\00", align 1
 @.str.4 = private unnamed_addr constant [35 x i8] c"yyset_column called with no buffer\00", align 1
-@yy_rule_can_match_eol = internal unnamed_addr constant <{ i32, i32, i32, [9 x i32] }> <{ i32 0, i32 0, i32 1, [9 x i32] zeroinitializer }>, align 16
 @.str.6 = private unnamed_addr constant [56 x i8] c"fatal flex scanner internal error--end of buffer missed\00", align 1
 @.str.7 = private unnamed_addr constant [44 x i8] c"fatal error - scanner input buffer overflow\00", align 1
 @.str.8 = private unnamed_addr constant [46 x i8] c"out of dynamic memory in yy_get_next_buffer()\00", align 1
@@ -251,11 +250,11 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   br i1 %.not186, label %.loopexit237.preheader, label %122
 
 122:                                              ; preds = %.backedge
-  %123 = sext i16 %115 to i64
-  %124 = getelementptr i32, ptr @yy_rule_can_match_eol, i64 %123
-  %125 = load i32, ptr %124, align 4
-  %.not187 = icmp eq i32 %125, 0
-  br i1 %.not187, label %.loopexit237.preheader, label %.preheader
+  %123 = and i64 %113, 9223372036854775807
+  %124 = shl nuw i64 1, %123
+  %125 = and i64 %124, 4288
+  %.not187.not.not = icmp eq i64 %125, 0
+  br i1 %.not187.not.not, label %.loopexit237.preheader, label %.preheader
 
 .preheader:                                       ; preds = %122
   %126 = load i32, ptr %60, align 8

@@ -1085,13 +1085,13 @@ thread-pre-split:                                 ; preds = %308, %.thread49
   br i1 %374, label %388, label %375
 
 375:                                              ; preds = %370
-  %376 = getelementptr %struct.engine_info, ptr @intel_engines, i64 %371
-  %377 = load i8, ptr %376, align 16
-  %378 = icmp eq i8 %377, 1
+  %376 = and i64 %371, 1152921504606846974
+  %377 = add nsw i64 %376, -10
+  %378 = icmp ult i64 %377, 8
   br i1 %378, label %379, label %388
 
 379:                                              ; preds = %375
-  %380 = getelementptr inbounds nuw i8, ptr %376, i64 1
+  %380 = getelementptr %struct.engine_info, ptr @intel_engines, i64 %371, i32 1
   %381 = load i8, ptr %380, align 1
   %382 = load i8, ptr %369, align 1
   %383 = icmp eq i8 %381, %382
@@ -3396,35 +3396,37 @@ define dso_local void @intel_engine_wait_for_pending_mi_fw(ptr noundef readonly 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr %struct.i915_reg_t, ptr @__cs_pending_mi_force_wakes._reg, i64 %4
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread, label %8
+  %5 = shl nuw i64 1, %4
+  %6 = and i64 %5, 67109884
+  %.not = icmp eq i64 %6, 0
+  br i1 %.not, label %7, label %.thread
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %10, i32 %6, i1 noundef zeroext true) #18
-  %14 = lshr i32 %13, 25
-  %15 = lshr i32 %13, 9
-  %16 = and i32 %15, 31
-  %17 = and i32 %16, %14
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.thread, label %19
+7:                                                ; preds = %1
+  %8 = getelementptr %struct.i915_reg_t, ptr @__cs_pending_mi_force_wakes._reg, i64 %4
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call i32 %13(ptr noundef %11, i32 %9, i1 noundef zeroext true) #18
+  %15 = lshr i32 %14, 25
+  %16 = lshr i32 %14, 9
+  %17 = and i32 %16, 31
+  %18 = and i32 %17, %15
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %.thread, label %20
 
-19:                                               ; preds = %8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
+20:                                               ; preds = %7
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
   tail call void @__const_udelay(i64 noundef 4295) #18
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @__intel_wait_for_register_fw(ptr noundef %23, i32 41632, i32 noundef %17, i32 noundef %17, i32 noundef 5000, i32 noundef 0, ptr noundef null) #18
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call i32 @__intel_wait_for_register_fw(ptr noundef %24, i32 41632, i32 noundef %18, i32 noundef %18, i32 noundef 5000, i32 noundef 0, ptr noundef null) #18
   tail call void @__const_udelay(i64 noundef 4295) #18
   br label %.thread
 
-.thread:                                          ; preds = %1, %19, %8
+.thread:                                          ; preds = %1, %20, %7
   ret void
 }
 

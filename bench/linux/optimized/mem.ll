@@ -62,33 +62,35 @@ define internal i32 @chr_dev_init() #1 section ".init.text" align 16 {
 5:                                                ; preds = %3, %0
   %6 = tail call i32 @class_register(ptr noundef nonnull @mem_class) #12
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader, label %21
+  br i1 %7, label %.preheader, label %22
 
-.preheader:                                       ; preds = %5, %16
-  %8 = phi i64 [ %17, %16 ], [ 1, %5 ]
-  %9 = getelementptr %struct.memdev, ptr @devlist, i64 %8
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %16, label %12
+.preheader:                                       ; preds = %5, %17
+  %8 = phi i64 [ %18, %17 ], [ 1, %5 ]
+  %9 = shl nuw i64 1, %8
+  %10 = and i64 %9, 1093
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %11, label %17
 
-12:                                               ; preds = %.preheader
-  %13 = trunc i64 %8 to i32
-  %14 = or i32 %13, 1048576
-  %15 = tail call ptr (ptr, ptr, i32, ptr, ptr, ...) @device_create(ptr noundef nonnull @mem_class, ptr noundef null, i32 noundef %14, ptr noundef null, ptr noundef nonnull %10) #12
-  br label %16
+11:                                               ; preds = %.preheader
+  %12 = getelementptr %struct.memdev, ptr @devlist, i64 %8
+  %13 = load ptr, ptr %12, align 8
+  %14 = trunc i64 %8 to i32
+  %15 = or i32 %14, 1048576
+  %16 = tail call ptr (ptr, ptr, i32, ptr, ptr, ...) @device_create(ptr noundef nonnull @mem_class, ptr noundef null, i32 noundef %15, ptr noundef null, ptr noundef nonnull %13) #12
+  br label %17
 
-16:                                               ; preds = %12, %.preheader
-  %17 = add nuw nsw i64 %8, 1
-  %18 = icmp eq i64 %17, 12
-  br i1 %18, label %19, label %.preheader, !llvm.loop !6
+17:                                               ; preds = %11, %.preheader
+  %18 = add nuw nsw i64 %8, 1
+  %19 = icmp eq i64 %18, 12
+  br i1 %19, label %20, label %.preheader, !llvm.loop !6
 
-19:                                               ; preds = %16
-  %20 = tail call i32 @tty_init() #13
-  br label %21
+20:                                               ; preds = %17
+  %21 = tail call i32 @tty_init() #13
+  br label %22
 
-21:                                               ; preds = %19, %5
-  %22 = phi i32 [ %20, %19 ], [ %6, %5 ]
-  ret i32 %22
+22:                                               ; preds = %20, %5
+  %23 = phi i32 [ %21, %20 ], [ %6, %5 ]
+  ret i32 %23
 }
 
 ; Function Attrs: cold null_pointer_is_valid

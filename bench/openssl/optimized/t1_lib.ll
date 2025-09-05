@@ -1507,7 +1507,7 @@ define range(i32 0, 2) i32 @tls1_set_groups(ptr noundef captures(none) %0, ptr n
   tail call void @ERR_new() #14
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1137, ptr noundef nonnull @__func__.tls1_set_groups) #14
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 271, ptr noundef null) #14
-  br label %47
+  br label %44
 
 11:                                               ; preds = %8
   %12 = shl i64 %7, 1
@@ -1526,7 +1526,7 @@ define range(i32 0, 2) i32 @tls1_set_groups(ptr noundef captures(none) %0, ptr n
   br i1 %20, label %.thread60, label %.preheader
 
 .preheader:                                       ; preds = %18, %.else
-  %.04070 = phi i64 [ %41, %.else ], [ 0, %18 ]
+  %.04070 = phi i64 [ %38, %.else ], [ 0, %18 ]
   %.05269 = phi i64 [ %spec.select65, %.else ], [ 0, %18 ]
   %.05368 = phi i64 [ %spec.select, %.else ], [ 0, %18 ]
   %21 = getelementptr inbounds nuw i32, ptr %6, i64 %.04070
@@ -1549,60 +1549,52 @@ tls1_nid2group_id.exit:                           ; preds = %23
   %29 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.07.i, i32 1
   %30 = load i16, ptr %29, align 4, !tbaa !122
   %31 = and i16 %30, 255
-  %32 = icmp samesign ugt i16 %31, 63
-  br i1 %32, label %.thread60, label %33
-
-33:                                               ; preds = %tls1_nid2group_id.exit
-  %34 = zext nneg i16 %31 to i64
-  %35 = shl nuw i64 1, %34
-  %36 = icmp ult i16 %30, 256
-  %.not = icmp eq i16 %30, 0
-  br i1 %.not, label %.thread60, label %37
-
-37:                                               ; preds = %33
-  %.sroa.speculated = select i1 %36, i64 %.05368, i64 %.05269
-  %38 = and i64 %35, %.sroa.speculated
-  %.not49 = icmp eq i64 %38, 0
+  %32 = zext nneg i16 %31 to i64
+  %33 = shl nuw i64 1, %32
+  %34 = icmp samesign ult i64 %.07.i, 40
+  %.sroa.speculated = select i1 %34, i64 %.05368, i64 %.05269
+  %35 = and i64 %33, %.sroa.speculated
+  %.not49 = icmp eq i64 %35, 0
   br i1 %.not49, label %.else, label %.thread60
 
-.else:                                            ; preds = %37
-  %39 = or i64 %35, %.sroa.speculated
-  %spec.select = select i1 %36, i64 %39, i64 %.05368
-  %spec.select65 = select i1 %36, i64 %.05269, i64 %39
-  %40 = getelementptr inbounds nuw i16, ptr %13, i64 %.04070
-  store i16 %30, ptr %40, align 2, !tbaa !93
-  %41 = add nuw i64 %.04070, 1
-  %exitcond.not = icmp eq i64 %41, %7
-  br i1 %exitcond.not, label %42, label %.preheader, !llvm.loop !160
+.else:                                            ; preds = %tls1_nid2group_id.exit
+  %36 = or i64 %33, %.sroa.speculated
+  %spec.select = select i1 %34, i64 %36, i64 %.05368
+  %spec.select65 = select i1 %34, i64 %.05269, i64 %36
+  %37 = getelementptr inbounds nuw i16, ptr %13, i64 %.04070
+  store i16 %30, ptr %37, align 2, !tbaa !93
+  %38 = add nuw i64 %.04070, 1
+  %exitcond.not = icmp eq i64 %38, %7
+  br i1 %exitcond.not, label %39, label %.preheader, !llvm.loop !160
 
-42:                                               ; preds = %.else
-  %43 = load ptr, ptr %0, align 8, !tbaa !131
-  tail call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str.2, i32 noundef 1159) #14
-  %44 = load ptr, ptr %2, align 8, !tbaa !131
-  tail call void @CRYPTO_free(ptr noundef %44, ptr noundef nonnull @.str.2, i32 noundef 1160) #14
-  %45 = load ptr, ptr %4, align 8, !tbaa !134
-  tail call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str.2, i32 noundef 1161) #14
+39:                                               ; preds = %.else
+  %40 = load ptr, ptr %0, align 8, !tbaa !131
+  tail call void @CRYPTO_free(ptr noundef %40, ptr noundef nonnull @.str.2, i32 noundef 1159) #14
+  %41 = load ptr, ptr %2, align 8, !tbaa !131
+  tail call void @CRYPTO_free(ptr noundef %41, ptr noundef nonnull @.str.2, i32 noundef 1160) #14
+  %42 = load ptr, ptr %4, align 8, !tbaa !134
+  tail call void @CRYPTO_free(ptr noundef %42, ptr noundef nonnull @.str.2, i32 noundef 1161) #14
   store ptr %13, ptr %0, align 8, !tbaa !131
   store i64 %7, ptr %1, align 8, !tbaa !105
-  %46 = load i16, ptr %13, align 2, !tbaa !93
-  store i16 %46, ptr %16, align 2, !tbaa !93
+  %43 = load i16, ptr %13, align 2, !tbaa !93
+  store i16 %43, ptr %16, align 2, !tbaa !93
   store ptr %16, ptr %2, align 8, !tbaa !131
   store i64 1, ptr %3, align 8, !tbaa !105
   store i64 %7, ptr %19, align 8, !tbaa !105
   store ptr %19, ptr %4, align 8, !tbaa !134
   store i64 1, ptr %5, align 8, !tbaa !105
-  br label %47
+  br label %44
 
-.thread60:                                        ; preds = %33, %37, %tls1_nid2group_id.exit, %27, %18, %15, %11
-  %.042 = phi ptr [ null, %11 ], [ null, %15 ], [ %16, %18 ], [ %16, %27 ], [ %16, %tls1_nid2group_id.exit ], [ %16, %37 ], [ %16, %33 ]
-  %.041 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %18 ], [ %19, %27 ], [ %19, %tls1_nid2group_id.exit ], [ %19, %37 ], [ %19, %33 ]
+.thread60:                                        ; preds = %tls1_nid2group_id.exit, %27, %18, %15, %11
+  %.042 = phi ptr [ null, %11 ], [ null, %15 ], [ %16, %18 ], [ %16, %27 ], [ %16, %tls1_nid2group_id.exit ]
+  %.041 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %18 ], [ %19, %27 ], [ %19, %tls1_nid2group_id.exit ]
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 1172) #14
   tail call void @CRYPTO_free(ptr noundef %.042, ptr noundef nonnull @.str.2, i32 noundef 1173) #14
   tail call void @CRYPTO_free(ptr noundef %.041, ptr noundef nonnull @.str.2, i32 noundef 1174) #14
-  br label %47
+  br label %44
 
-47:                                               ; preds = %.thread60, %42, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %.thread60 ], [ 1, %42 ]
+44:                                               ; preds = %.thread60, %39, %10
+  %.0 = phi i32 [ 0, %10 ], [ 0, %.thread60 ], [ 1, %39 ]
   ret i32 %.0
 }
 

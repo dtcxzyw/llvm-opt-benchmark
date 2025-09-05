@@ -19,33 +19,32 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_write_set_format(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  br label %6
+  br label %4
 
-3:                                                ; preds = %6
+3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @codes, i64 %indvars.iv.next
-  %5 = load i32, ptr %4, align 16, !tbaa !4
-  %exitcond = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond, label %13, label %6, !llvm.loop !10
+  %.not = icmp eq i64 %indvars.iv.next, 20
+  br i1 %.not, label %12, label %4, !llvm.loop !4
 
-6:                                                ; preds = %2, %3
+4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %7 = phi i32 [ 917504, %2 ], [ %5, %3 ]
-  %8 = icmp eq i32 %1, %7
-  br i1 %8, label %9, label %3
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @codes, i64 %indvars.iv
+  %6 = load i32, ptr %5, align 16, !tbaa !6
+  %7 = icmp eq i32 %1, %6
+  br i1 %7, label %8, label %3
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw %struct.anon, ptr @codes, i64 %indvars.iv, i32 1
-  %11 = load ptr, ptr %10, align 8, !tbaa !12
-  %12 = tail call i32 %11(ptr noundef %0) #3
-  br label %14
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !12
+  %11 = tail call i32 %10(ptr noundef %0) #3
+  br label %13
 
-13:                                               ; preds = %3
+12:                                               ; preds = %3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str) #3
-  br label %14
+  br label %13
 
-14:                                               ; preds = %13, %9
-  %.07 = phi i32 [ %12, %9 ], [ -30, %13 ]
+13:                                               ; preds = %12, %8
+  %.07 = phi i32 [ %11, %8 ], [ -30, %12 ]
   ret i32 %.07
 }
 
@@ -138,12 +137,12 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!5, !6, i64 0}
-!5 = !{!"", !6, i64 0, !9, i64 8}
-!6 = !{!"int", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!"any pointer", !7, i64 0}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!5, !9, i64 8}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"", !8, i64 0, !11, i64 8}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"any pointer", !9, i64 0}
+!12 = !{!7, !11, i64 8}

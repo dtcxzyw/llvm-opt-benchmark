@@ -119,17 +119,16 @@ define range(i32 0, 2) i32 @ossl_ec_set_check_group_type_from_name(ptr noundef %
 
 ec_check_group_type_name2id.exit:                 ; preds = %.preheader.i
   %11 = load i32, ptr %6, align 16, !tbaa !11
-  %12 = icmp eq i32 %11, -1
-  br i1 %12, label %ec_check_group_type_name2id.exit.thread, label %ec_check_group_type_name2id.exit.thread7
+  br label %ec_check_group_type_name2id.exit.thread7
 
-ec_check_group_type_name2id.exit.thread7:         ; preds = %2, %ec_check_group_type_name2id.exit
+ec_check_group_type_name2id.exit.thread7:         ; preds = %ec_check_group_type_name2id.exit, %2
   %.0.i9 = phi i32 [ %11, %ec_check_group_type_name2id.exit ], [ 0, %2 ]
   tail call void @EC_KEY_clear_flags(ptr noundef %0, i32 noundef 24576) #4
   tail call void @EC_KEY_set_flags(ptr noundef %0, i32 noundef %.0.i9) #4
   br label %ec_check_group_type_name2id.exit.thread
 
-ec_check_group_type_name2id.exit.thread:          ; preds = %4, %ec_check_group_type_name2id.exit, %ec_check_group_type_name2id.exit.thread7
-  %.0 = phi i32 [ 1, %ec_check_group_type_name2id.exit.thread7 ], [ 0, %ec_check_group_type_name2id.exit ], [ 0, %4 ]
+ec_check_group_type_name2id.exit.thread:          ; preds = %4, %ec_check_group_type_name2id.exit.thread7
+  %.0 = phi i32 [ 1, %ec_check_group_type_name2id.exit.thread7 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -809,7 +808,7 @@ ossl_ec_set_ecdh_cofactor_mode.exit:              ; preds = %15, %12, %10
 43:                                               ; preds = %40
   %.pr.i.i = load ptr, ptr %4, align 8, !tbaa !26
   %44 = icmp eq ptr %.pr.i.i, null
-  br i1 %44, label %ossl_ec_pt_format_name2id.exit.thread14.i.i, label %.preheader.i.preheader.i.i
+  br i1 %44, label %54, label %.preheader.i.preheader.i.i
 
 .preheader.i.preheader.i.i:                       ; preds = %43, %37
   %45 = phi ptr [ %.pr.i.i, %43 ], [ %39, %37 ]
@@ -831,23 +830,22 @@ ossl_ec_set_ecdh_cofactor_mode.exit:              ; preds = %15, %12, %10
 
 ossl_ec_pt_format_name2id.exit.i.i:               ; preds = %.preheader.i.i.i
   %53 = load i32, ptr %48, align 16, !tbaa !11
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %ec_key_point_format_fromdata.exit, label %ossl_ec_pt_format_name2id.exit.thread14.i.i
+  br label %54
 
-ossl_ec_pt_format_name2id.exit.thread14.i.i:      ; preds = %ossl_ec_pt_format_name2id.exit.i.i, %43
-  %.06.i = phi i32 [ 4, %43 ], [ %53, %ossl_ec_pt_format_name2id.exit.i.i ]
+54:                                               ; preds = %ossl_ec_pt_format_name2id.exit.i.i, %43
+  %.06.i = phi i32 [ %53, %ossl_ec_pt_format_name2id.exit.i.i ], [ 4, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @EC_KEY_set_conv_form(ptr noundef nonnull %0, i32 noundef %.06.i) #4
   br label %55
 
-ec_key_point_format_fromdata.exit:                ; preds = %46, %34, %37, %40, %ossl_ec_pt_format_name2id.exit.i.i
+ec_key_point_format_fromdata.exit:                ; preds = %46, %34, %37, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 526, ptr noundef nonnull @__func__.ec_key_point_format_fromdata) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 104, ptr noundef null) #4
   br label %ec_key_group_check_fromdata.exit.thread
 
-55:                                               ; preds = %ossl_ec_pt_format_name2id.exit.thread14.i.i, %32
+55:                                               ; preds = %54, %32
   %56 = call ptr @OSSL_PARAM_locate_const(ptr noundef %1, ptr noundef nonnull @.str.30) #4
   %.not.i33 = icmp eq ptr %56, null
   br i1 %.not.i33, label %ec_key_group_check_fromdata.exit.thread, label %57
@@ -899,8 +897,7 @@ ec_key_point_format_fromdata.exit:                ; preds = %46, %34, %37, %40, 
 
 ec_check_group_type_name2id.exit.i.i.i:           ; preds = %.preheader.i.i.i.i
   %76 = load i32, ptr %71, align 16, !tbaa !11
-  %77 = icmp eq i32 %76, -1
-  br i1 %77, label %.loopexit, label %ec_key_group_check_fromdata.exit
+  br label %ec_key_group_check_fromdata.exit
 
 ec_key_group_check_fromdata.exit:                 ; preds = %66, %ec_check_group_type_name2id.exit.i.i.i
   %.0.i9.i.i.i = phi i32 [ %76, %ec_check_group_type_name2id.exit.i.i.i ], [ 0, %66 ]
@@ -909,7 +906,7 @@ ec_key_group_check_fromdata.exit:                 ; preds = %66, %ec_check_group
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ec_key_group_check_fromdata.exit.thread
 
-.loopexit:                                        ; preds = %69, %57, %63, %60, %ec_check_group_type_name2id.exit.i.i.i
+.loopexit:                                        ; preds = %69, %57, %63, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ec_key_group_check_fromdata.exit.thread
 
@@ -1197,16 +1194,15 @@ define range(i32 0, 2) i32 @ossl_ec_encoding_param2id(ptr noundef %0, ptr nounde
 
 ossl_ec_encoding_name2id.exit:                    ; preds = %.preheader.i
   %22 = load i32, ptr %17, align 16, !tbaa !11
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %.critedge, label %ossl_ec_encoding_name2id.exit.thread14
+  br label %ossl_ec_encoding_name2id.exit.thread14
 
-ossl_ec_encoding_name2id.exit.thread14:           ; preds = %12, %ossl_ec_encoding_name2id.exit
+ossl_ec_encoding_name2id.exit.thread14:           ; preds = %ossl_ec_encoding_name2id.exit, %12
   %.0.i16 = phi i32 [ %22, %ossl_ec_encoding_name2id.exit ], [ 1, %12 ]
   store i32 %.0.i16, ptr %1, align 4, !tbaa !29
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %6, %9, %2, %ossl_ec_encoding_name2id.exit, %ossl_ec_encoding_name2id.exit.thread14
-  %.1 = phi i32 [ 1, %ossl_ec_encoding_name2id.exit.thread14 ], [ 0, %ossl_ec_encoding_name2id.exit ], [ 0, %2 ], [ 0, %9 ], [ 0, %6 ], [ 0, %15 ]
+.critedge:                                        ; preds = %15, %6, %9, %2, %ossl_ec_encoding_name2id.exit.thread14
+  %.1 = phi i32 [ 1, %ossl_ec_encoding_name2id.exit.thread14 ], [ 0, %2 ], [ 0, %9 ], [ 0, %6 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -1262,16 +1258,15 @@ define range(i32 0, 2) i32 @ossl_ec_pt_format_param2id(ptr noundef %0, ptr nound
 
 ossl_ec_pt_format_name2id.exit:                   ; preds = %.preheader.i
   %22 = load i32, ptr %17, align 16, !tbaa !11
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %.critedge, label %ossl_ec_pt_format_name2id.exit.thread14
+  br label %ossl_ec_pt_format_name2id.exit.thread14
 
-ossl_ec_pt_format_name2id.exit.thread14:          ; preds = %12, %ossl_ec_pt_format_name2id.exit
+ossl_ec_pt_format_name2id.exit.thread14:          ; preds = %ossl_ec_pt_format_name2id.exit, %12
   %.0.i16 = phi i32 [ %22, %ossl_ec_pt_format_name2id.exit ], [ 4, %12 ]
   store i32 %.0.i16, ptr %1, align 4, !tbaa !29
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %6, %9, %2, %ossl_ec_pt_format_name2id.exit, %ossl_ec_pt_format_name2id.exit.thread14
-  %.1 = phi i32 [ 1, %ossl_ec_pt_format_name2id.exit.thread14 ], [ 0, %ossl_ec_pt_format_name2id.exit ], [ 0, %2 ], [ 0, %9 ], [ 0, %6 ], [ 0, %15 ]
+.critedge:                                        ; preds = %15, %6, %9, %2, %ossl_ec_pt_format_name2id.exit.thread14
+  %.1 = phi i32 [ 1, %ossl_ec_pt_format_name2id.exit.thread14 ], [ 0, %2 ], [ 0, %9 ], [ 0, %6 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
